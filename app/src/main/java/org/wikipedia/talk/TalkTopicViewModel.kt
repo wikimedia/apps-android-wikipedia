@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
@@ -25,7 +26,7 @@ import org.wikipedia.util.UriUtil
 class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     private val topicName = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_NAME)!!
     private val topicId = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_ID)!!
-    val pageTitle = bundle.parcelable<PageTitle>(TalkTopicActivity.EXTRA_PAGE_TITLE)!!
+    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     var currentSearchQuery = bundle.getString(TalkTopicActivity.EXTRA_SEARCH_QUERY)
     var scrollTargetId = bundle.getString(TalkTopicActivity.EXTRA_REPLY_ID)
 

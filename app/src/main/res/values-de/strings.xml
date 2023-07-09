@@ -1044,6 +1044,8 @@
     <item quantity="one">Du hast %d Zeichen hinzugefügt</item>
     <item quantity="other">Du hast %d Zeichen hinzugefügt</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Bildalgorithmus trainieren</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Entscheide, ob ein vorgeschlagenes Bild einen Artikel verbessern wird.</string>
   <string name="file_page_activity_title">Dateiseite</string>
   <string name="file_page_add_image_caption_button">Bildunterschrift hinzufügen</string>
   <string name="file_page_add_image_tags_button">Bilder-Tags hinzufügen</string>
@@ -1142,12 +1144,12 @@
   <string name="insert_media_title">Medien einfügen</string>
   <string name="insert_media_search_description">Wähle eine Datei aus Wikimedia Commons</string>
   <string name="insert_media_search_hint">Medien suchen</string>
-  <string name="insert_media_settings">Medieneinstellungen</string>
+  <string name="insert_media_settings" fuzzy="true">Medieneinstellungen</string>
   <string name="insert_media_settings_uploaded_image">Hochgeladenes Bild</string>
-  <string name="insert_media_settings_caption">Beschriftung</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Beschriftung</string>
   <string name="insert_media_settings_caption_description">Label, das für alle Leser neben dem Element angezeigt wird</string>
   <string name="insert_media_settings_alternative_text">Alternativer Text</string>
-  <string name="insert_media_settings_alternative_text_description">Textbeschreibung für Leser, die das Bild nicht sehen können</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Textbeschreibung für Leser, die das Bild nicht sehen können</string>
   <string name="insert_media_advanced_settings">Erweiterte Einstellungen</string>
   <string name="insert_media_advanced_settings_wrap_image">Text um das Bild fließen lassen</string>
   <string name="insert_media_advanced_settings_image_position">Bildposition</string>

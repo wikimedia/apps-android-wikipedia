@@ -5,18 +5,25 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 
 class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
+    val wikiSite = bundle.getParcelable<WikiSite>(Constants.ARG_WIKISITE)!!
     var searchQuery = StringUtil.removeHTMLTags(StringUtil.removeUnderscores(bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!))
     val originalSearchQuery = searchQuery
     var selectedImage: PageTitle? = null
+    val magicWords = mutableMapOf<String, String>()
+
     var imagePosition = IMAGE_POSITION_RIGHT
     var imageType = IMAGE_TYPE_THUMBNAIL
     var imageSize = IMAGE_SIZE_DEFAULT
@@ -24,6 +31,10 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
     val insertMediaFlow = Pager(PagingConfig(pageSize = 10)) {
         InsertMediaPagingSource(searchQuery)
     }.flow.cachedIn(viewModelScope)
+
+    init {
+        loadMagicWords()
+    }
 
     class InsertMediaPagingSource(
         val searchQuery: String,
@@ -54,6 +65,34 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
+    private fun loadMagicWords() {
+        magicWords[IMAGE_POSITION_NONE] = "none"
+        magicWords[IMAGE_POSITION_CENTER] = "center"
+        magicWords[IMAGE_POSITION_LEFT] = "left"
+        magicWords[IMAGE_POSITION_RIGHT] = "right"
+        magicWords[IMAGE_TYPE_THUMBNAIL] = "thumb"
+        magicWords[IMAGE_TYPE_FRAMELESS] = "frameless"
+        magicWords[IMAGE_TYPE_FRAME] = "frame"
+        magicWords[IMAGE_ALT_TEXT] = "alt=$1"
+
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            ServiceFactory.get(wikiSite).getSiteInfoWithMagicWords()
+                .query?.magicwords?.let { it ->
+                    it.find { it.name == IMAGE_POSITION_NONE }?.aliases?.first()?.let { magicWords[IMAGE_POSITION_NONE] = it }
+                    it.find { it.name == IMAGE_POSITION_CENTER }?.aliases?.first()?.let { magicWords[IMAGE_POSITION_CENTER] = it }
+                    it.find { it.name == IMAGE_POSITION_LEFT }?.aliases?.first()?.let { magicWords[IMAGE_POSITION_LEFT] = it }
+                    it.find { it.name == IMAGE_POSITION_RIGHT }?.aliases?.first()?.let { magicWords[IMAGE_POSITION_RIGHT] = it }
+                    it.find { it.name == IMAGE_TYPE_THUMBNAIL }?.aliases?.first()?.let { magicWords[IMAGE_TYPE_THUMBNAIL] = it }
+                    it.find { it.name == IMAGE_TYPE_FRAMELESS }?.aliases?.first()?.let { magicWords[IMAGE_TYPE_FRAMELESS] = it }
+                    it.find { it.name == IMAGE_TYPE_FRAME }?.aliases?.first()?.let { magicWords[IMAGE_TYPE_FRAME] = it }
+                    it.find { it.name == IMAGE_ALT_TEXT }?.aliases?.first()?.let { magicWords[IMAGE_ALT_TEXT] = it }
+                    it.find { it.name == IMAGE_POSITION_NONE }?.aliases?.first()?.let { magicWords[IMAGE_POSITION_NONE] = it }
+                }
+        }
+    }
+
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -62,14 +101,15 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
     }
 
     companion object {
-        const val IMAGE_POSITION_NONE = "none"
-        const val IMAGE_POSITION_CENTER = "center"
-        const val IMAGE_POSITION_LEFT = "left"
-        const val IMAGE_POSITION_RIGHT = "right"
-        const val IMAGE_TYPE_THUMBNAIL = "thumb"
-        const val IMAGE_TYPE_FRAMELESS = "frameless"
-        const val IMAGE_TYPE_FRAME = "frame"
+        const val IMAGE_POSITION_NONE = "img_none"
+        const val IMAGE_POSITION_CENTER = "img_center"
+        const val IMAGE_POSITION_LEFT = "img_left"
+        const val IMAGE_POSITION_RIGHT = "img_right"
+        const val IMAGE_TYPE_THUMBNAIL = "img_thumbnail"
+        const val IMAGE_TYPE_FRAMELESS = "img_frameless"
+        const val IMAGE_TYPE_FRAME = "img_framed"
         const val IMAGE_TYPE_BASIC = "basic"
+        const val IMAGE_ALT_TEXT = "img_alt"
         const val IMAGE_SIZE_DEFAULT = "220x124"
     }
 }

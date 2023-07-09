@@ -951,6 +951,7 @@
   <string name="suggested_edits_image_tags_select_title">Siz ushbu rasm uchun biron bir teg tanlamagansiz</string>
   <string name="suggested_edits_image_tags_select_text">Rasmlarga faqat siz tanlagan teglar qoʻshiladi. Tanlanmagan teglar rad etilgan deb belgilanadi. Barcha teglarni rad etilgan deb belgilashni xohlaysizmi?</string>
   <string name="suggested_edits_image_tags_add_tag">Teg qoʻshmoq</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Nashr etilmagan teglar saqlanmaydi</string>
   <string name="suggested_edits_image_zoom_tooltip">Ushbu rasmni kattalashtirish uchun teging.</string>
   <string name="suggested_edits_encouragement_message">%s, tahrir qilganingiz uchun tashakkur. Quyida Siz Vikipediyaga hissa qoʻshishning koʻproq usullarini topishingiz mumkin.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Salom %s&lt;/b&gt;, quyida Siz Vikipediyani yaxshilashga yordam beradigan tez va oson usullarni topishingiz mumkin. Oʻzingiz amalga oshirayotgan farqni boshlashingiz bilanoq koʻrasiz. Omad!</string>
@@ -1047,6 +1048,8 @@
     <item quantity="one">%d ta belgi qoʻshdingiz</item>
     <item quantity="other">%d ta belgi qoʻshdingiz</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Oʻrganish surati algoritmi</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Tavsiya etilgan rasm maqolani yaxshilashi toʻgʻrisida qaror qabul qiling.</string>
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
@@ -1145,12 +1148,12 @@
   <string name="insert_media_title">Mediani qoʻymoq</string>
   <string name="insert_media_search_description">Wikimedia Commonsʼdan fayl tanlamoq</string>
   <string name="insert_media_search_hint">Media qidiruvi</string>
-  <string name="insert_media_settings">Media tanlovlari</string>
+  <string name="insert_media_settings" fuzzy="true">Media tanlovlari</string>
   <string name="insert_media_settings_uploaded_image">Yuklangan rasm</string>
-  <string name="insert_media_settings_caption">Izoh</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Izoh</string>
   <string name="insert_media_settings_caption_description">Barcha oʻquvchilar uchun element yonida koʻrsatiladigan yozuv</string>
   <string name="insert_media_settings_alternative_text">Muqobil matn</string>
-  <string name="insert_media_settings_alternative_text_description">Rasmni koʻra olmaydigan oʻquvchilar uchun izohli matn</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Rasmni koʻra olmaydigan oʻquvchilar uchun izohli matn</string>
   <string name="insert_media_advanced_settings">Kengaytirilgan tanlovlar</string>
   <string name="insert_media_advanced_settings_wrap_image">Rasm atrofiga matnni joylashtirmoq</string>
   <string name="insert_media_advanced_settings_image_position">Tasvir oʻrni</string>
@@ -1390,4 +1393,5 @@
   <string name="reading_list_share_survey_body">“Oʻqish roʻyxatlarini ulashish” sinov koʻrinishida boʻlib, uni yaxshilash yoki olib tashlash uchun fikr-mulohazalaringiz kerak.</string>
   <string name="data_opt_in_accept">Qabul qilish</string>
   <string name="data_opt_in_reject">Rad etish</string>
+  <string name="generic_release_notes">Asosiy kamchiliklar tuzatildi hamda takomillashtirildi</string>
 </resources>

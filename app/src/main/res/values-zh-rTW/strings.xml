@@ -85,19 +85,19 @@
   <string name="page_edit_history_filter_by_user">使用者編輯 (%s 筆)</string>
   <string name="page_edit_history_filter_by_anon">匿名編輯 (%s 筆)</string>
   <string name="page_edit_history_filter_by_bot">機器人編輯 (%s 筆)</string>
-  <string name="page_edit_history_metrics_content_description">自 %1$s 到 %2$s 期間的計量</string>
+  <string name="page_edit_history_metrics_content_description">%1$s 到 %2$s 之間的計量</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="one">自 %2$s 共 %1$d 次編輯</item>
-    <item quantity="other">自 %2$s 共 %1$d 次編輯</item>
+    <item quantity="one">自 %2$s 年共 %1$d 筆編輯</item>
+    <item quantity="other">自 %2$s 年共 %1$d 筆編輯</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
-    <item quantity="one">自 %2$s 共 %1$d 次編輯（%3$s）</item>
-    <item quantity="other">自 %2$s 共 %1$d 次編輯（%3$s）</item>
+    <item quantity="one">自 %2$s 年共 %1$d 筆編輯（%3$s）</item>
+    <item quantity="other">自 %2$s 年共 %1$d 筆編輯（%3$s）</item>
   </plurals>
-  <string name="page_edit_history_empty_search_message">嘗試更改&lt;a href=\"#\"&gt;篩選&lt;/a&gt;來查看更多編輯</string>
-  <string name="menu_page_show_tabs">顯示分頁</string>
-  <string name="menu_page_other_languages">替換其它語言版本</string>
-  <string name="menu_page_find_in_page">於條目尋找</string>
+  <string name="page_edit_history_empty_search_message">請嘗試變更&lt;a href=\"#\"&gt;篩選條件&lt;/a&gt;以查看更多編輯</string>
+  <string name="menu_page_show_tabs">顯示索引標籤</string>
+  <string name="menu_page_other_languages">變更語言</string>
+  <string name="menu_page_find_in_page">在條目中尋找</string>
   <string name="menu_page_add_to_watchlist">新增至監視清單</string>
   <string name="menu_page_watch">監視</string>
   <string name="menu_page_unwatch">取消監視</string>
@@ -106,8 +106,8 @@
   <string name="menu_page_view_edit_history">檢視編輯歷史</string>
   <string name="menu_page_edit_history">編輯歷史</string>
   <string name="menu_page_remove_from_watchlist">從監視清單中移除</string>
-  <string name="menu_page_watched">監視者頁面</string>
-  <string name="edit_section_find_in_page">於頁面中尋找</string>
+  <string name="menu_page_watched">已監視</string>
+  <string name="edit_section_find_in_page">在頁面中尋找</string>
   <string name="menu_page_font_and_theme">字型與佈景主題</string>
   <string name="menu_page_add_to_list">新增至閱讀清單</string>
   <string name="menu_page_add_to_default_list">儲存</string>
@@ -122,22 +122,22 @@
   <string name="menu_page_recently_viewed">近期檢視</string>
   <string name="menu_page_archive">存檔</string>
   <string name="menu_long_press_open_page">開啟</string>
-  <string name="menu_long_press_open_in_new_tab">在新分頁開啟</string>
-  <string name="menu_long_press_copy_page">複製連結網址</string>
+  <string name="menu_long_press_open_in_new_tab">在新分頁中開啟</string>
+  <string name="menu_long_press_copy_page">複製連結位址</string>
   <string name="menu_text_select_define">定義</string>
   <string name="on_this_day_page_share">分享</string>
   <string name="reading_list_page_share">分享</string>
-  <string name="menu_text_select_edit_here">在此編輯</string>
+  <string name="menu_text_select_edit_here">編輯此處</string>
   <string name="menu_edit_article">編輯條目</string>
   <string name="last_updated_text">最後更新時間：%s</string>
   <string name="talk_page_link_text">檢視討論頁</string>
   <string name="edit_history_link_text">檢視編輯歷史</string>
   <string name="map_view_link_text">在地圖上檢視</string>
   <string name="other_languages_indication_text">以其它語言閱讀</string>
-  <string name="language_count_link_text">共 %d 個其它可用語言版本</string>
+  <string name="language_count_link_text">尚有 %d 個可用語言版本</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">發布後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;。同時您同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權，且不撤回您所釋出的貢獻。</string>
-  <string name="edit_save_action_license_anon">發佈後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，同時您同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
+  <string name="edit_save_action_license_logged_in">發布即表示您同意我們的&lt;a href=\"%1$s\"&gt;《使用條款》&lt;/a&gt;，同時同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權，且不撤回您所釋出的貢獻。</string>
+  <string name="edit_save_action_license_anon">發佈即表示您同意我們的&lt;a href=\"%1$s\"&gt;《使用條款》&lt;/a&gt;，同時同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
   <string name="edit_anon_warning">編輯將以您的裝置的 IP 位址發布。如果您有&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;，您可以擁有更多隱私。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="langlinks_filter_hint">搜尋</string>
@@ -1072,6 +1072,35 @@
     <item quantity="one">您已添加 %d 個字元</item>
     <item quantity="other">您已添加 %d 個字元</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">條目圖片</string>
+  <string name="suggested_edits_image_recommendations_task_detail">將建議的圖片加到維基百科條目來加強理解。</string>
+  <string name="image_recommendation_task_instruction">您要將此圖片加到條目裡嗎？</string>
+  <string name="image_recommendation_tutorial">教程</string>
+  <string name="image_recommendation_accept">是</string>
+  <string name="image_recommendation_reject">否</string>
+  <string name="image_recommendation_notsure">不確定</string>
+  <string name="image_recommendation_reject_title">為何不呢？</string>
+  <string name="image_recommendation_reject_subtitle">您的回答可以改善往後建議。</string>
+  <string name="image_recommendation_reject_not_relevant">圖片不相關</string>
+  <string name="image_recommendation_reject_no_info">沒有足夠資訊來決定</string>
+  <string name="image_recommendation_reject_offensive">圖片令人感到不快</string>
+  <string name="image_recommendation_reject_low_quality">圖片為低品質</string>
+  <string name="image_recommendation_reject_dont_know">我不了解這個主題</string>
+  <string name="image_recommendation_reject_other">其他</string>
+  <string name="image_recommendation_reject_submit">提交</string>
+  <string name="image_recommendation_tooltip_main">將缺少的圖片加到建議編輯裡的條目</string>
+  <string name="image_recommendation_onboarding_1">圖片可以幫助人們理解，但很多條目沒有圖片。</string>
+  <string name="image_recommendation_onboarding_2">您將決定是否應讓建議的圖片放入維基百科條目裡。</string>
+  <string name="image_recommendation_onboarding_3">圖片是由機器建議，而您將使用您的判斷來決定採用或拒絕。</string>
+  <string name="image_recommendation_onboarding_4">圖片來自於維基共享資源，是由維基百科使用的自由版權圖片資料庫。</string>
+  <string name="image_recommendation_tooltip_1">檢閱條目來了解該主題</string>
+  <string name="image_recommendation_tooltip_2">檢查圖片及其相關資訊</string>
+  <string name="image_recommendation_tooltip_3">決定圖片是否可以幫助讀者更好理解這個主題</string>
+  <string name="image_recommendation_tooltip_next">下一個</string>
+  <string name="image_recommendation_tooltip_warning">請檢閱條目來了解該主題並檢查圖片</string>
+  <string name="edit_summary_added_image">已新增圖片</string>
+  <string name="edit_summary_added_caption">已新增說明</string>
+  <string name="edit_published_view">檢視</string>
   <string name="file_page_activity_title">檔案頁面</string>
   <string name="file_page_add_image_caption_button">新增圖片說明</string>
   <string name="file_page_add_image_tags_button">新增圖片標籤</string>
@@ -1170,12 +1199,12 @@
   <string name="insert_media_title">插入媒體</string>
   <string name="insert_media_search_description">選擇來自維基共享資源的檔案</string>
   <string name="insert_media_search_hint">搜尋媒體</string>
-  <string name="insert_media_settings">媒體設定</string>
+  <string name="insert_media_settings">新增媒體詳細資訊</string>
   <string name="insert_media_settings_uploaded_image">已上傳圖片</string>
-  <string name="insert_media_settings_caption">說明</string>
+  <string name="insert_media_settings_caption">圖片說明</string>
   <string name="insert_media_settings_caption_description">為所有讀者顯示在項目旁的標籤</string>
   <string name="insert_media_settings_alternative_text">替代文字</string>
-  <string name="insert_media_settings_alternative_text_description">給沒辦法看到圖片的讀者所用的文字描述</string>
+  <string name="insert_media_settings_alternative_text_description">視力障礙讀者用的描述</string>
   <string name="insert_media_advanced_settings">進階設定</string>
   <string name="insert_media_advanced_settings_wrap_image">在圖片周圍環繞文字</string>
   <string name="insert_media_advanced_settings_image_position">圖片位置</string>
@@ -1415,5 +1444,6 @@
   <string name="reading_list_share_survey_body">「分享閱讀清單」是一項測試功能，我們需要您的意見回饋來改善、或是移除這項功能。</string>
   <string name="data_opt_in_accept">接受</string>
   <string name="data_opt_in_reject">拒絕</string>
+  <string name="page_issues_title">頁面問題</string>
   <string name="generic_release_notes">小錯誤修正和改善</string>
 </resources>

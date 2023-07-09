@@ -11,11 +11,9 @@ import org.wikipedia.dataclient.WikiSite
 class RandomActivity : SingleFragmentActivity<RandomFragment>() {
 
     companion object {
-        const val INTENT_EXTRA_WIKISITE = "wikiSite"
-
         fun newIntent(context: Context, wikiSite: WikiSite, invokeSource: InvokeSource?): Intent {
             return Intent(context, RandomActivity::class.java).apply {
-                putExtra(INTENT_EXTRA_WIKISITE, wikiSite)
+                putExtra(Constants.ARG_WIKISITE, wikiSite)
                 putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
             }
         }
@@ -28,7 +26,7 @@ class RandomActivity : SingleFragmentActivity<RandomFragment>() {
     }
 
     public override fun createFragment(): RandomFragment {
-        return RandomFragment.newInstance(intent.getParcelableExtra(INTENT_EXTRA_WIKISITE)!!,
+        return RandomFragment.newInstance(intent.getParcelableExtra(Constants.ARG_WIKISITE)!!,
                 intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
     }
 }

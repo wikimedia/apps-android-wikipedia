@@ -51,7 +51,7 @@ class RandomFragment : Fragment() {
 
         fun newInstance(wikiSite: WikiSite, invokeSource: InvokeSource) = RandomFragment().apply {
             arguments = bundleOf(
-                RandomActivity.INTENT_EXTRA_WIKISITE to wikiSite,
+                Constants.ARG_WIKISITE to wikiSite,
                 Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource
             )
         }
@@ -78,7 +78,7 @@ class RandomFragment : Fragment() {
 
         FeedbackUtil.setButtonLongPressToast(binding.randomNextButton, binding.randomSaveButton)
 
-        wikiSite = requireArguments().parcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
+        wikiSite = requireArguments().parcelable(Constants.ARG_WIKISITE)!!
 
         binding.randomItemPager.offscreenPageLimit = 2
         binding.randomItemPager.adapter = RandomItemAdapter(this)

@@ -125,6 +125,9 @@ interface Service {
     @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteInfo: Observable<MwQueryResponse>
 
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|magicwords")
+    suspend fun getSiteInfoWithMagicWords(): MwQueryResponse
+
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
     fun parsePage(@Query("page") pageTitle: String): Observable<MwParseResponse>
 
@@ -295,7 +298,7 @@ interface Service {
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
     fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
@@ -435,9 +438,6 @@ interface Service {
         @Field("summary") summary: String?,
         @Field("tags") tags: String?
     ): Observable<EntityPostResponse>
-
-    @GET(MW_API_PREFIX + "action=visualeditor&paction=metadata")
-    fun getVisualEditorMetadata(@Query("page") page: String): Observable<MwVisualEditorResponse>
 
     // ------- Watchlist -------
 

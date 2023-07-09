@@ -27,7 +27,7 @@ class RandomItemFragment : Fragment() {
         private const val EXTRACT_MAX_LINES = 4
 
         fun newInstance(wikiSite: WikiSite) = RandomItemFragment().apply {
-            arguments = bundleOf(RandomActivity.INTENT_EXTRA_WIKISITE to wikiSite)
+            arguments = bundleOf(Constants.ARG_WIKISITE to wikiSite)
         }
     }
 
@@ -45,7 +45,7 @@ class RandomItemFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        wikiSite = requireArguments().parcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
+        wikiSite = requireArguments().parcelable(Constants.ARG_WIKISITE)!!
 
         retainInstance = true
     }

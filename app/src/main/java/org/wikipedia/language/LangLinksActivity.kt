@@ -273,7 +273,6 @@ class LangLinksActivity : BaseActivity() {
     companion object {
         const val ACTIVITY_RESULT_LANGLINK_SELECT = 1
         const val ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title"
-        const val EXTRA_PAGETITLE = "org.wikipedia.pagetitle"
 
         private const val VIEW_TYPE_HEADER = 0
         private const val VIEW_TYPE_ITEM = 1

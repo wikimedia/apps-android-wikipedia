@@ -26,6 +26,8 @@ import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_3
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.captcha.CaptchaHandler
+import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.databinding.FragmentDescriptionEditBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -65,6 +67,7 @@ class DescriptionEditFragment : Fragment() {
     private var targetSummary: PageSummaryForEdit? = null
     private var highlightText: String? = null
     private var editingAllowed = true
+    private lateinit var captchaHandler: CaptchaHandler
 
     private val analyticsHelper = MachineGeneratedArticleDescriptionsAnalyticsHelper()
 
@@ -118,7 +121,7 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageTitle = requireArguments().parcelable(ARG_TITLE)!!
+        pageTitle = requireArguments().parcelable(Constants.ARG_TITLE)!!
         highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT)
         action = requireArguments().getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
@@ -136,6 +139,8 @@ class DescriptionEditFragment : Fragment() {
             val loginIntent = LoginActivity.newIntent(requireActivity(), LoginActivity.SOURCE_EDIT)
             loginLauncher.launch(loginIntent)
         }
+        captchaHandler = CaptchaHandler(requireActivity(), pageTitle.wikiSite, binding.fragmentDescriptionEditView.getCaptchaContainer().root,
+            binding.fragmentDescriptionEditView.getDescriptionEditTextView(), "", null)
         return binding.root
     }
 
@@ -150,6 +155,7 @@ class DescriptionEditFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        captchaHandler.dispose()
         binding.fragmentDescriptionEditView.callback = null
         _binding = null
         super.onDestroyView()
@@ -293,6 +299,9 @@ class DescriptionEditFragment : Fragment() {
         }
 
         private fun getEditTokenThenSave() {
+            if (captchaHandler.isActive) {
+                captchaHandler.hideCaptcha()
+            }
             val csrfSite = if (action == DescriptionEditActivity.Action.ADD_CAPTION ||
                     action == DescriptionEditActivity.Action.TRANSLATE_CAPTION) {
                 Constants.commonsWikiSite
@@ -327,10 +336,13 @@ class DescriptionEditFragment : Fragment() {
                         text = updateDescriptionInArticle(text, binding.fragmentDescriptionEditView.description.orEmpty())
 
                         ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.prefixedText, "0", null,
-                                getEditComment().orEmpty(),
-                                if (AccountUtil.isLoggedIn) "user"
-                                else null, text, null, baseRevId, editToken, null, null)
-                                .subscribeOn(Schedulers.io())
+                            getEditComment().orEmpty(),
+                            if (AccountUtil.isLoggedIn) "user"
+                            else null, text, null, baseRevId, editToken,
+                            if (captchaHandler.isActive) captchaHandler.captchaId() else null,
+                            if (captchaHandler.isActive) captchaHandler.captchaWord() else null
+                        )
+                            .subscribeOn(Schedulers.io())
                     }
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ result ->
@@ -351,8 +363,9 @@ class DescriptionEditFragment : Fragment() {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
                                 }
                                 hasCaptchaResponse -> {
-                                    // TODO: handle captcha
-                                    // new CaptchaResult(result.edit().captchaId());
+                                    binding.fragmentDescriptionEditView.showProgressBar(false)
+                                    binding.fragmentDescriptionEditView.setSaveState(false)
+                                    captchaHandler.handleCaptcha(null, CaptchaResult(result.edit.captchaId))
                                 }
                                 hasSpamBlacklistResponse -> {
                                     editFailed(MwException(MwServiceError(code, info)), false)
@@ -472,7 +485,9 @@ class DescriptionEditFragment : Fragment() {
         }
 
         override fun onCancelClick() {
-            if (binding.fragmentDescriptionEditView.showingReviewContent()) {
+            if (captchaHandler.isActive) {
+                captchaHandler.cancelCaptcha()
+            } else if (binding.fragmentDescriptionEditView.showingReviewContent()) {
                 binding.fragmentDescriptionEditView.loadReviewContent(false)
                 analyticsHelper.timer.resume()
             } else {
@@ -510,7 +525,6 @@ class DescriptionEditFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_TITLE = "title"
         private const val ARG_REVIEWING = "inReviewing"
         private const val ARG_DESCRIPTION = "description"
         private const val ARG_HIGHLIGHT_TEXT = "highlightText"
@@ -536,7 +550,7 @@ class DescriptionEditFragment : Fragment() {
                         action: DescriptionEditActivity.Action,
                         source: InvokeSource): DescriptionEditFragment {
             return DescriptionEditFragment().apply {
-                arguments = bundleOf(ARG_TITLE to title,
+                arguments = bundleOf(Constants.ARG_TITLE to title,
                         ARG_HIGHLIGHT_TEXT to highlightText,
                         ARG_SOURCE_SUMMARY to sourceSummary,
                         ARG_TARGET_SUMMARY to targetSummary,

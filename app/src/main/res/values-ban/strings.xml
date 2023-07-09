@@ -768,9 +768,9 @@
   <string name="insert_media_title">Sisipang média</string>
   <string name="insert_media_search_description">Pilih berkas saking Wikimédia Commons</string>
   <string name="insert_media_search_hint">Rereh média</string>
-  <string name="insert_media_settings">Setélan média</string>
+  <string name="insert_media_settings" fuzzy="true">Setélan média</string>
   <string name="insert_media_settings_uploaded_image">Gambar kaunggah</string>
-  <string name="insert_media_settings_caption">Sesirah</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Sesirah</string>
   <string name="insert_media_advanced_settings">Setélan lantur</string>
   <string name="insert_media_advanced_settings_image_position">Genah gambar</string>
   <string name="insert_media_advanced_settings_image_position_right">Tengen</string>

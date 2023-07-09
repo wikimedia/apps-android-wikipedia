@@ -546,11 +546,10 @@ class EditHistoryListActivity : BaseActivity() {
 
         private const val VIEW_TYPE_SEPARATOR = 0
         private const val VIEW_TYPE_ITEM = 1
-        const val INTENT_EXTRA_PAGE_TITLE = "pageTitle"
 
         fun newIntent(context: Context, pageTitle: PageTitle): Intent {
             return Intent(context, EditHistoryListActivity::class.java)
-                .putExtra(INTENT_EXTRA_PAGE_TITLE, pageTitle)
+                .putExtra(Constants.ARG_TITLE, pageTitle)
         }
     }
 }
