@@ -995,6 +995,7 @@
   <string name="suggested_edits_image_tags_select_title">Vous n’avez sélectionné aucune balise pour cette image</string>
   <string name="suggested_edits_image_tags_select_text">Seules les balises que vous choisissez seront ajoutées aux images. Les balises qui ne sont pas sélectionnées seront marquées comme rejetées. Êtes-vous sûr de vouloir marquer toutes les balises comme rejetées ?</string>
   <string name="suggested_edits_image_tags_add_tag">Ajouter une balise</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Les balises non publiées ne seront pas enregistrées</string>
   <string name="suggested_edits_image_zoom_tooltip">Pincer pour zoomer sur cette image.</string>
   <string name="suggested_edits_encouragement_message">%s, merci pour vos modifications. Ci-dessous, vous pourrez trouver d’autres moyens de contribuer à Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, ci-dessous, vous trouverez des manières rapides et faciles pour aider à améliorer Wikipédia. Vous verrez la différence aussitôt que vous commencerez. Bonnes mises à jour !</string>
@@ -1091,6 +1092,35 @@
     <item quantity="one">Vous avez ajouté %d caractère</item>
     <item quantity="other">Vous avez ajouté %d caractères</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Images de l’article</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Ajouter les images suggérées aux articles de Wikipédia pour améliorer leur compréhension.</string>
+  <string name="image_recommendation_task_instruction">Voulez-vous ajouter cette image à l’article ?</string>
+  <string name="image_recommendation_tutorial">Tutoriel</string>
+  <string name="image_recommendation_accept">Oui</string>
+  <string name="image_recommendation_reject">Non</string>
+  <string name="image_recommendation_notsure">Pas sûr</string>
+  <string name="image_recommendation_reject_title">Pourquoi pas ?</string>
+  <string name="image_recommendation_reject_subtitle">Vos réponses améliorent les prochaines suggestions.</string>
+  <string name="image_recommendation_reject_not_relevant">L’image n’est pas pertinente</string>
+  <string name="image_recommendation_reject_no_info">Pas assez d’informations pour décider</string>
+  <string name="image_recommendation_reject_offensive">L’image est offensante</string>
+  <string name="image_recommendation_reject_low_quality">L’image est de mauvaise qualité</string>
+  <string name="image_recommendation_reject_dont_know">Je ne connais pas ce sujet</string>
+  <string name="image_recommendation_reject_other">Autre</string>
+  <string name="image_recommendation_reject_submit">Soumettre</string>
+  <string name="image_recommendation_tooltip_main">Ajouter les images manquantes aux articles dans les Modifications suggérées</string>
+  <string name="image_recommendation_onboarding_1">Les images aident les gens à comprendre, mais beaucoup d’articles n’en ont pas.</string>
+  <string name="image_recommendation_onboarding_2">Vous déciderez si une image suggérée doit être mise dans un article de Wikipédia.</string>
+  <string name="image_recommendation_onboarding_3">Les suggestions sont générées par une machine et vous utiliserez votre jugement pour décider s’il faut les accepter ou les rejeter.</string>
+  <string name="image_recommendation_onboarding_4">Les images viennent de Wikimédia Communs, une collection d’images libres de droit utilisée par Wikipédia.</string>
+  <string name="image_recommendation_tooltip_1">Relire cet article pour comprendre son sujet</string>
+  <string name="image_recommendation_tooltip_2">Inspecter l’image et ses informations associées</string>
+  <string name="image_recommendation_tooltip_3">Décider si l’image aide les lecteurs à comprendre mieux ce sujet</string>
+  <string name="image_recommendation_tooltip_next">Suivant</string>
+  <string name="image_recommendation_tooltip_warning">Veuillez relire l’article pour comprendre son sujet et inspecter l’image</string>
+  <string name="edit_summary_added_image">Image ajoutée</string>
+  <string name="edit_summary_added_caption">Légende ajoutée</string>
+  <string name="edit_published_view">Afficher</string>
   <string name="file_page_activity_title">Page du fichier</string>
   <string name="file_page_add_image_caption_button">Ajouter une légende d’image</string>
   <string name="file_page_add_image_tags_button">Ajouter des balises d’image</string>
@@ -1189,12 +1219,12 @@
   <string name="insert_media_title">Insérer un média</string>
   <string name="insert_media_search_description">Sélectionner un fichier de Wikimedia Commons</string>
   <string name="insert_media_search_hint">Rechercher un média</string>
-  <string name="insert_media_settings">Paramètres du média</string>
+  <string name="insert_media_settings">Ajouter les détails de l’image</string>
   <string name="insert_media_settings_uploaded_image">Image téléversée</string>
-  <string name="insert_media_settings_caption">Légende</string>
+  <string name="insert_media_settings_caption">Légende de l’image</string>
   <string name="insert_media_settings_caption_description">Libellé qui s’affiche à côté de l’élément pour tous les lecteurs</string>
   <string name="insert_media_settings_alternative_text">Texte alternatif</string>
-  <string name="insert_media_settings_alternative_text_description">Description textuelle pour les lecteurs qui ne peuvent pas voir l’image</string>
+  <string name="insert_media_settings_alternative_text_description">Description pour les lecteurs malvoyants</string>
   <string name="insert_media_advanced_settings">Paramètres avancés</string>
   <string name="insert_media_advanced_settings_wrap_image">Disposer le texte autour d’une image</string>
   <string name="insert_media_advanced_settings_image_position">Position de l’image</string>
@@ -1434,4 +1464,6 @@
   <string name="reading_list_share_survey_body">Le « Partage de listes de lecture » est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Rejeter</string>
+  <string name="page_issues_title">Problèmes de la page</string>
+  <string name="generic_release_notes">Corrections de bogues mineurs et améliorations</string>
 </resources>

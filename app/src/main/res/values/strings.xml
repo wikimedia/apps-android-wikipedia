@@ -114,9 +114,9 @@
     <string name="map_view_link_text">View on a map</string>
     <string name="other_languages_indication_text">Read in another language</string>
     <string name="language_count_link_text">Available in %d other languages</string>
-    <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-    <string name="edit_save_action_license_logged_in"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s">CC BY-SA 3.0</a> license.]]></string>
-    <string name="edit_save_action_license_anon"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s/">CC BY-SA 3.0</a> license. Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
+    <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+    <string name="edit_save_action_license_logged_in"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s">CC BY-SA 4.0</a> license.]]></string>
+    <string name="edit_save_action_license_anon"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s/">CC BY-SA 4.0</a> license. Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
     <string name="edit_anon_warning"><![CDATA[Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
     <string name="preference_title_language">Wikipedia languages</string>
     <string name="langlinks_filter_hint">Search</string>
@@ -242,7 +242,7 @@
     <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
     <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
     <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-    <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+    <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
     <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
     <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
     <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -252,7 +252,7 @@
     <string name="about_translators_heading">Translators</string>
     <string name="about_translators_translatewiki"><![CDATA[This app was translated by the volunteer translators at <a href="https://translatewiki.net">translatewiki.net</a>.]]></string>
     <string name="about_app_license_heading">License</string>
-    <string name="about_app_license"><![CDATA[Source code available on <a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\">Gerrit</a> and <a href=\"https://github.com/wikimedia/apps-android-wikipedia\">GitHub</a> under the <a href=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. Unless otherwise specified, content is available under a <a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\">Creative Commons Attribution-ShareAlike License</a>.]]></string>
+    <string name="about_app_license"><![CDATA[Source code available on <a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\">Gerrit</a> and <a href=\"https://github.com/wikimedia/apps-android-wikipedia\">GitHub</a> under the <a href=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. Unless otherwise specified, content is available under a <a href=\"https://creativecommons.org/licenses/by-sa/4.0\">Creative Commons Attribution-ShareAlike License</a>.]]></string>
     <string name="about_wmf"><![CDATA[A product of the <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>]]></string>
     <string name="about_activity_title">About</string>
     <string name="edit_abandon_confirm">The page has been modified. Are you sure you want to exit without saving your changes?</string>
@@ -1093,6 +1093,35 @@
         <item quantity="one">You added %d character</item>
         <item quantity="other">You added %d characters</item>
     </plurals>
+    <string name="suggested_edits_image_recommendations_task_title">Article images</string>
+    <string name="suggested_edits_image_recommendations_task_detail">Add suggested images to Wikipedia articles to enhance understanding.</string>
+    <string name="image_recommendation_task_instruction">Would you add this image to the article?</string>
+    <string name="image_recommendation_tutorial">Tutorial</string>
+    <string name="image_recommendation_accept">Yes</string>
+    <string name="image_recommendation_reject">No</string>
+    <string name="image_recommendation_notsure">Not sure</string>
+    <string name="image_recommendation_reject_title">Why not?</string>
+    <string name="image_recommendation_reject_subtitle">Your answers improve future suggestions.</string>
+    <string name="image_recommendation_reject_not_relevant">Image is not relevant</string>
+    <string name="image_recommendation_reject_no_info">Not enough information to decide</string>
+    <string name="image_recommendation_reject_offensive">Image is offensive</string>
+    <string name="image_recommendation_reject_low_quality">Image is low quality</string>
+    <string name="image_recommendation_reject_dont_know">I don\'t know this subject</string>
+    <string name="image_recommendation_reject_other">Other</string>
+    <string name="image_recommendation_reject_submit">Submit</string>
+    <string name="image_recommendation_tooltip_main">Add missing images to articles in Suggested Edits</string>
+    <string name="image_recommendation_onboarding_1">Pictures help people understand, but many articles don\'t have them.</string>
+    <string name="image_recommendation_onboarding_2">You will decide if a suggested image should be placed in a Wikipedia article.</string>
+    <string name="image_recommendation_onboarding_3">Suggestions are machine generated and you will use your judgment to decide whether to accept or reject them.</string>
+    <string name="image_recommendation_onboarding_4">Images are from Wikimedia Commons, a collection of freely licensed images used by Wikipedia.</string>
+    <string name="image_recommendation_tooltip_1">Review this article to understand its topic</string>
+    <string name="image_recommendation_tooltip_2">Inspect the image and its associated information</string>
+    <string name="image_recommendation_tooltip_3">Decide if the image helps readers understand this topic better</string>
+    <string name="image_recommendation_tooltip_next">Next</string>
+    <string name="image_recommendation_tooltip_warning">Please review the article to understand its topic and inspect the image</string>
+    <string name="edit_summary_added_image">Added image</string>
+    <string name="edit_summary_added_caption">Added caption</string>
+    <string name="edit_published_view">View</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
@@ -1222,12 +1251,12 @@
     <string name="insert_media_title">Insert media</string>
     <string name="insert_media_search_description">Select a file from Wikimedia Commons</string>
     <string name="insert_media_search_hint">Search media</string>
-    <string name="insert_media_settings">Media settings</string>
+    <string name="insert_media_settings">Add image details</string>
     <string name="insert_media_settings_uploaded_image">Uploaded image</string>
-    <string name="insert_media_settings_caption">Caption</string>
+    <string name="insert_media_settings_caption">Image caption</string>
     <string name="insert_media_settings_caption_description">Label that shows next to the item for all readers</string>
     <string name="insert_media_settings_alternative_text">Alternative text</string>
-    <string name="insert_media_settings_alternative_text_description">Text description for readers who cannot see the image</string>
+    <string name="insert_media_settings_alternative_text_description">Description for visually impaired readers</string>
     <string name="insert_media_advanced_settings">Advanced settings</string>
     <string name="insert_media_advanced_settings_wrap_image">Wrap text around image</string>
     <string name="insert_media_advanced_settings_image_position">Image position</string>
@@ -1481,6 +1510,7 @@
 
     <string name="data_opt_in_accept">Accept</string>
     <string name="data_opt_in_reject">Reject</string>
+    <string name="page_issues_title">Page issues</string>
     <string name="generic_release_notes">Minor bug fixes and enhancements</string>
 
 </resources>

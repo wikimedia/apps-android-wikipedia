@@ -144,7 +144,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
 
         override fun onRequestInsertMedia() {
-            requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.displayText))
+            requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.wikiSite, pageTitle.displayText))
         }
 
         override fun onRequestInsertLink() {
@@ -182,7 +182,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         setContentView(binding.root)
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
 
-        pageTitle = intent.parcelableExtra(EXTRA_TITLE)!!
+        pageTitle = intent.parcelableExtra(Constants.ARG_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, -1)
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
@@ -281,7 +281,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.licenseText)
         editLicenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
-                getString(R.string.cc_by_sa_3_url)))
+                getString(R.string.cc_by_sa_4_url)))
         editLicenseText.movementMethod = LinkMovementMethodExt { url: String ->
             if (url == "https://#login") {
                 val loginIntent = LoginActivity.newIntent(this@EditSectionActivity, LoginActivity.SOURCE_EDIT)
@@ -612,27 +612,23 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                         }
                         displaySectionText()
                         maybeShowEditSourceDialog()
-                    }) {
-                        showError(it)
-                        L.e(it)
-                    })
-            disposables.add(ServiceFactory.get(pageTitle.wikiSite).getVisualEditorMetadata(pageTitle.prefixedText)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({
+
                         editNotices.clear()
                         // Populate edit notices, but filter out anonymous edit warnings, since
                         // we show that type of warning ourselves when previewing.
-                        editNotices.addAll(it.visualeditor?.getEditNotices().orEmpty()
-                                .filterKeys { key -> key.startsWith("editnotice") }
-                                .values.filter { str -> StringUtil.fromHtml(str).trim().isNotEmpty() })
+                        editNotices.addAll(firstPage.getEditNotices()
+                            .filterKeys { key -> (key.startsWith("editnotice") && !key.endsWith("-notext")) }
+                            .values.filter { str -> StringUtil.fromHtml(str).trim().isNotEmpty() })
                         invalidateOptionsMenu()
                         if (Prefs.autoShowEditNotices) {
                             showEditNotices()
                         } else {
                             maybeShowEditNoticesTooltip()
                         }
-                    }, { L.e(it) }))
+                    }) {
+                        showError(it)
+                        L.e(it)
+                    })
         } else {
             displaySectionText()
         }
@@ -741,7 +737,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         private const val EXTRA_KEY_SECTION_TEXT_MODIFIED = "sectionTextModified"
         private const val EXTRA_KEY_TEMPORARY_WIKITEXT_STORED = "hasTemporaryWikitextStored"
         private const val EXTRA_KEY_EDITING_ALLOWED = "editingAllowed"
-        const val EXTRA_TITLE = "org.wikipedia.edit_section.title"
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
@@ -750,7 +745,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             return Intent(context, EditSectionActivity::class.java)
                 .putExtra(EXTRA_SECTION_ID, sectionId)
                 .putExtra(EXTRA_SECTION_ANCHOR, sectionAnchor)
-                .putExtra(EXTRA_TITLE, title)
+                .putExtra(Constants.ARG_TITLE, title)
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
         }
     }

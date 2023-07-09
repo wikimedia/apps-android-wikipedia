@@ -4,6 +4,7 @@
 * Bluetpp
 * Dinhxuanduyet
 * DreamSeeeeker
+* Flyplanevn27
 * Harriettruong3
 * JohnsonLee01
 * Leducthn
@@ -961,6 +962,7 @@
     <item quantity="one">Bạn đã thêm %d ký tự</item>
     <item quantity="other">Bạn đã thêm %d ký tự</item>
   </plurals>
+  <string name="image_recommendation_reject">Không</string>
   <string name="file_page_activity_title">Trang tập tin</string>
   <string name="file_page_add_image_caption_button">Thêm chú thích hình ảnh</string>
   <string name="file_page_add_image_tags_button">Thêm thẻ cho hình ảnh</string>

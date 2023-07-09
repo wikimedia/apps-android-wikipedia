@@ -1055,6 +1055,8 @@
     <item quantity="one">您添加了%d个字符</item>
     <item quantity="other">您添加了%d个字符</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">训练图像算法</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">决定建议的图像能否改善条目。</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="file_page_add_image_caption_button">添加图像说明</string>
   <string name="file_page_add_image_tags_button">添加图像标签</string>
@@ -1153,12 +1155,12 @@
   <string name="insert_media_title">插入媒体</string>
   <string name="insert_media_search_description">从维基共享资源中选择一个文件</string>
   <string name="insert_media_search_hint">搜索媒体</string>
-  <string name="insert_media_settings">媒体设置</string>
+  <string name="insert_media_settings" fuzzy="true">媒体设置</string>
   <string name="insert_media_settings_uploaded_image">已上传的图像</string>
-  <string name="insert_media_settings_caption">说明</string>
+  <string name="insert_media_settings_caption" fuzzy="true">说明</string>
   <string name="insert_media_settings_caption_description">为所有读者显示在项目旁边的标签</string>
   <string name="insert_media_settings_alternative_text">替代文本</string>
-  <string name="insert_media_settings_alternative_text_description">为无法看到图像的读者提供文本描述</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">为无法看到图像的读者提供文本描述</string>
   <string name="insert_media_advanced_settings">高级设置</string>
   <string name="insert_media_advanced_settings_wrap_image">在图像周围环绕文本</string>
   <string name="insert_media_advanced_settings_image_position">图像位置</string>

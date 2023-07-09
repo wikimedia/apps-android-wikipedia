@@ -12,7 +12,7 @@ class OnThisDayActivity : SingleFragmentActivity<OnThisDayFragment>() {
 
     override fun createFragment(): OnThisDayFragment {
         return OnThisDayFragment.newInstance(intent.getIntExtra(EXTRA_AGE, 0),
-            intent.parcelableExtra(EXTRA_WIKISITE)!!,
+            intent.parcelableExtra(Constants.ARG_WIKISITE)!!,
             intent.getIntExtra(EXTRA_YEAR, -1),
             intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
     }
@@ -20,13 +20,12 @@ class OnThisDayActivity : SingleFragmentActivity<OnThisDayFragment>() {
     companion object {
         const val EXTRA_AGE = "age"
         const val EXTRA_YEAR = "year"
-        const val EXTRA_WIKISITE = "wikiSite"
 
         fun newIntent(context: Context, age: Int, year: Int,
                       wikiSite: WikiSite, invokeSource: InvokeSource): Intent {
             return Intent(context, OnThisDayActivity::class.java)
                 .putExtra(EXTRA_AGE, age)
-                .putExtra(EXTRA_WIKISITE, wikiSite)
+                .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(EXTRA_YEAR, year)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }

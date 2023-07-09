@@ -1080,6 +1080,8 @@
     <item quantity="one">Você adicionou %d caractere</item>
     <item quantity="other">Você adicionou %d caracteres</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Algoritmo de treinamento de imagem</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Decida se uma imagem sugerida irá melhorar um artigo.</string>
   <string name="file_page_activity_title">Página do arquivo</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar marcações de imagem</string>
@@ -1178,12 +1180,12 @@
   <string name="insert_media_title">Inserir mídia</string>
   <string name="insert_media_search_description">Selecionar um arquivo do Wikimedia Commons</string>
   <string name="insert_media_search_hint">Pesquisar mídia</string>
-  <string name="insert_media_settings">Configurações de mídia</string>
+  <string name="insert_media_settings" fuzzy="true">Configurações de mídia</string>
   <string name="insert_media_settings_uploaded_image">Imagem carregada</string>
-  <string name="insert_media_settings_caption">Legenda</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Legenda</string>
   <string name="insert_media_settings_caption_description">Rótulo exibido ao lado do item para todos os leitores</string>
   <string name="insert_media_settings_alternative_text">Texto alternativo</string>
-  <string name="insert_media_settings_alternative_text_description">Descrição em texto para leitores que não podem ver a imagem</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Descrição em texto para leitores que não podem ver a imagem</string>
   <string name="insert_media_advanced_settings">Configurações avançadas</string>
   <string name="insert_media_advanced_settings_wrap_image">Dispor o texto em torno da imagem</string>
   <string name="insert_media_advanced_settings_image_position">Posição da imagem</string>

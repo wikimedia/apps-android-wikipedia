@@ -141,6 +141,7 @@ object JavaScriptActionHandler {
                                 "pcs.c1.Footer.MenuItemType.lastEdited, " +
                                 (if (showTalkLink) "pcs.c1.Footer.MenuItemType.talkPage, " else "") +
                                 (if (showMapLink) "pcs.c1.Footer.MenuItemType.coordinate, " else "") +
+                                "pcs.c1.Footer.MenuItemType.pageIssues, " +
                 "               pcs.c1.Footer.MenuItemType.referenceList " +
                 "              ]," +
                 "       fragment: \"pcs-menu\"," +

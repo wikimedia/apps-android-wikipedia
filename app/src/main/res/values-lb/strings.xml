@@ -846,6 +846,15 @@
     <item quantity="one">Dir hutt %d Zeechen dobäigesat</item>
     <item quantity="other">Dir hutt %d Zeechen dobäigesat</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Artikelbiller</string>
+  <string name="image_recommendation_accept">Jo</string>
+  <string name="image_recommendation_reject">Neen</string>
+  <string name="image_recommendation_notsure">Net sécher</string>
+  <string name="image_recommendation_reject_title">Firwat net?</string>
+  <string name="image_recommendation_reject_subtitle">Är Äntwerte wäerten zukünfteg Virschléi besser maachen.</string>
+  <string name="image_recommendation_reject_not_relevant">D\'Bild ass net relevant</string>
+  <string name="image_recommendation_reject_no_info">Net genuch Informatioune fir ze decidéieren</string>
+  <string name="image_recommendation_onboarding_1">Biller hëllefen de Leit beim Verstoen, mee vill Artikelen hunn der keng.</string>
   <string name="file_page_edit_button_content_description">%s änneren</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
@@ -926,10 +935,10 @@
   <string name="wikitext_template">Schabloun</string>
   <string name="wikitext_reference">Referenz</string>
   <string name="insert_media_search_description">Wielt e Fichier vu Wikimedia Commons</string>
-  <string name="insert_media_settings">Medienastellungen</string>
+  <string name="insert_media_settings">Bilddetailer derbäisetzen</string>
   <string name="insert_media_settings_uploaded_image">Eropgeluedent Bild</string>
   <string name="insert_media_settings_alternative_text">Alternativen Text</string>
-  <string name="insert_media_settings_alternative_text_description">Textbeschreiwung fir Lieser, déi d\'Bild net gesi kënnen</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Textbeschreiwung fir Lieser, déi d\'Bild net gesi kënnen</string>
   <string name="insert_media_advanced_settings">Erweidert Astellungen</string>
   <string name="insert_media_advanced_settings_wrap_image">Text ronderëm d\'Bild fléisse loossen</string>
   <string name="insert_media_advanced_settings_image_position">Bildpositioun</string>

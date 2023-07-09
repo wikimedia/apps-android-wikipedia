@@ -262,7 +262,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private fun updateEditLicenseText() {
         binding.licenseText.text = StringUtil.fromHtml(getString(if (AccountUtil.isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
-                getString(R.string.cc_by_sa_3_url)))
+                getString(R.string.cc_by_sa_4_url)))
         binding.licenseText.movementMethod = LinkMovementMethodExt { url: String ->
             if (url == "https://#login") {
                 val loginIntent = LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT)
@@ -324,7 +324,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     companion object {
-        const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_PARENT_SUBJECT = "parentSubject"
         const val EXTRA_TOPIC = "topic"
         const val EXTRA_TOPIC_ID = "topicId"
@@ -345,7 +344,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                       undoSubject: CharSequence? = null,
                       undoBody: CharSequence? = null): Intent {
             return Intent(context, TalkReplyActivity::class.java)
-                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                    .putExtra(Constants.ARG_TITLE, pageTitle)
                     .putExtra(EXTRA_PARENT_SUBJECT, parentSubject)
                     .putExtra(EXTRA_TOPIC, topic)
                     .putExtra(EXTRA_SUBJECT, undoSubject)

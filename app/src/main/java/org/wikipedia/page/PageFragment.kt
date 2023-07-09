@@ -74,6 +74,7 @@ import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.page.PageCacher.loadIntoCache
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.edithistory.EditHistoryListActivity
+import org.wikipedia.page.issues.PageIssuesDialog
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
@@ -820,6 +821,20 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             }
                         }
                     }
+                    "pageIssues" -> {
+                        val array = payload["payload"]
+                        if (array != null && array.jsonArray.isNotEmpty() && model.title != null) {
+                            val issues = array.jsonArray.mapNotNull {
+                                it.jsonObject["html"]?.jsonPrimitive?.content
+                            }
+                            PageIssuesDialog(requireActivity(), model.title!!.wikiSite, issues) { url, title, linkText ->
+                                linkHandler.onUrlClick(url, title, linkText)
+                            }
+                                .setTitle(R.string.page_issues_title)
+                                .setPositiveButton(android.R.string.ok, null)
+                                .show()
+                        }
+                    }
                     "disambiguation" -> {
                         // TODO
                         // messagePayload contains an array of URLs called "payload".
@@ -829,7 +844,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         bridge.addListener("read_more_titles_retrieved") { _, _ -> }
         bridge.addListener("view_license") { _, _ ->
-            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.cc_by_sa_3_url)))
+            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.cc_by_sa_4_url)))
         }
         bridge.addListener("view_in_browser") { _, _ ->
             model.title?.let {

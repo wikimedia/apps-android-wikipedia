@@ -698,6 +698,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Batal</string>
   <string name="feed_accessibility_card_load_more_button">Muatkan lagi</string>
+  <string name="top_read_activity_title">Bacaan tersohor pada %s</string>
   <string name="description_edit_text_hint">Huraian rencana</string>
   <string name="description_edit_article_description_label">Rencana</string>
   <string name="description_edit_translate_article_description_label_per_language">Penerangan rencana (%s)</string>
@@ -911,8 +912,8 @@
   <string name="wikitext_template">Templat</string>
   <string name="wikitext_reference">Rujukan</string>
   <string name="wikitext_preview_link">Pralihat pautan</string>
-  <string name="insert_media_settings">Tetapan media</string>
-  <string name="insert_media_settings_caption">Kapsyen</string>
+  <string name="insert_media_settings" fuzzy="true">Tetapan media</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Kapsyen</string>
   <string name="insert_media_settings_alternative_text">Teks alternatif</string>
   <string name="insert_media_advanced_settings_image_position_right">Kanan</string>
   <string name="insert_media_advanced_settings_image_position_left">Kiri</string>

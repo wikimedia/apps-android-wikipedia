@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.dataclient.WikiSite
@@ -19,7 +20,8 @@ class NewsActivity : SingleFragmentActivity<NewsFragment>() {
     }
 
     public override fun createFragment(): NewsFragment {
-        return newInstance(intent.parcelableExtra(EXTRA_NEWS_ITEM)!!, intent.parcelableExtra(EXTRA_WIKI)!!)
+        return newInstance(intent.parcelableExtra(EXTRA_NEWS_ITEM)!!,
+            intent.parcelableExtra(Constants.ARG_WIKISITE)!!)
     }
 
     fun updateNavigationBarColor() {
@@ -28,11 +30,11 @@ class NewsActivity : SingleFragmentActivity<NewsFragment>() {
 
     companion object {
         const val EXTRA_NEWS_ITEM = "item"
-        const val EXTRA_WIKI = "wiki"
+
         fun newIntent(context: Context, item: NewsItem, wiki: WikiSite): Intent {
             return Intent(context, NewsActivity::class.java)
                 .putExtra(EXTRA_NEWS_ITEM, item)
-                .putExtra(EXTRA_WIKI, wiki)
+                .putExtra(Constants.ARG_WIKISITE, wiki)
         }
     }
 }

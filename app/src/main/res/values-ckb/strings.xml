@@ -1047,11 +1047,11 @@
   <string name="insert_media_title">تێخستنی میدیا</string>
   <string name="insert_media_search_description">پەڕگەیەک ھەڵبژێرە لە ویکیمیدیا کۆمنز</string>
   <string name="insert_media_search_hint">گەڕان بۆ میدیا</string>
-  <string name="insert_media_settings">ڕێکخستنەکانی میدیا</string>
+  <string name="insert_media_settings" fuzzy="true">ڕێکخستنەکانی میدیا</string>
   <string name="insert_media_settings_uploaded_image">وێنەی بارکراو</string>
-  <string name="insert_media_settings_caption">لێدوان</string>
+  <string name="insert_media_settings_caption" fuzzy="true">لێدوان</string>
   <string name="insert_media_settings_alternative_text">دەقی جێگرەوە</string>
-  <string name="insert_media_settings_alternative_text_description">وەسفی دەقی بۆ ئەو خوێنەرانەی ناتوانن وێنەکە ببینن</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">وەسفی دەقی بۆ ئەو خوێنەرانەی ناتوانن وێنەکە ببینن</string>
   <string name="insert_media_advanced_settings">ڕێکخستنە پێشکەوتووەکان</string>
   <string name="insert_media_advanced_settings_wrap_image">دەق لە وێنە بپێچە</string>
   <string name="insert_media_advanced_settings_image_position">شوێنی وێنە</string>

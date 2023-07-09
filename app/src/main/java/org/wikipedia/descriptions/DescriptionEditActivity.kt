@@ -36,7 +36,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
-        val pageTitle = intent.parcelableExtra<PageTitle>(EXTRA_TITLE)!!
+        val pageTitle = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
 
         MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment = (ReleaseUtil.isPreBetaRelease && AccountUtil.isLoggedIn &&
                 action == Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
@@ -54,7 +54,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     public override fun createFragment(): DescriptionEditFragment {
         val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
-        val title = intent.parcelableExtra<PageTitle>(EXTRA_TITLE)!!
+        val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
         return DescriptionEditFragment.newInstance(title,
                 intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
                 intent.parcelableExtra(EXTRA_SOURCE_SUMMARY),
@@ -119,7 +119,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     companion object {
-        private const val EXTRA_TITLE = "title"
         private const val EXTRA_HIGHLIGHT_TEXT = "highlightText"
         private const val EXTRA_SOURCE_SUMMARY = "sourceSummary"
         private const val EXTRA_TARGET_SUMMARY = "targetSummary"
@@ -132,7 +131,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
                       action: Action,
                       invokeSource: InvokeSource): Intent {
             return Intent(context, DescriptionEditActivity::class.java)
-                    .putExtra(EXTRA_TITLE, title)
+                    .putExtra(Constants.ARG_TITLE, title)
                     .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
                     .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary)
                     .putExtra(EXTRA_TARGET_SUMMARY, targetSummary)

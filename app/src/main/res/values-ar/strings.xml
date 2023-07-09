@@ -41,6 +41,7 @@
 * Tala Ali
 * Ulhvulgv
 * Youssef
+* أيوب
 * أَحمد
 * بدارين
 * ديفيد
@@ -60,7 +61,7 @@
   <string name="search_hint_voice_search">البحث الصوتي</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="filter_hint_filter_my_lists_and_articles">تصفية قوائمي</string>
-  <string name="nav_item_suggested_edits">التعديلات</string>
+  <string name="nav_item_suggested_edits">تعديلات</string>
   <string name="nav_item_more">المزيد</string>
   <string name="nav_item_search">بحث</string>
   <string name="error_network_error">لا يُمكن الاتصال بالإنترنت.</string>
@@ -74,7 +75,7 @@
   <string name="error_next">التالي</string>
   <string name="menu_clear_all_history">امسح التاريخ</string>
   <string name="history_item_deleted">أزيلت %s من التاريخ</string>
-  <string name="history_items_deleted">أُزيلت %d مقالة من التاريخ</string>
+  <string name="history_items_deleted">أُزيلت مقالات %d من السجل</string>
   <string name="history_item_delete_undo">تراجع</string>
   <string name="notification_archive_undo">تراجع</string>
   <string name="app_settings">إعدادات التطبيق</string>
@@ -99,7 +100,7 @@
   <string name="page_edit_history_filter_by_all">جميع التعديلات (%s)</string>
   <string name="page_edit_history_filter_by_user">تعديلات المستخدمين (%s)</string>
   <string name="page_edit_history_filter_by_anon">تعديلات المجهولين (%s)</string>
-  <string name="page_edit_history_filter_by_bot">تعديلات البوتات (%s)</string>
+  <string name="page_edit_history_filter_by_bot">تعديلات البوت (%s)</string>
   <string name="page_edit_history_metrics_content_description">المصفوفات من %1$s إلى %2$s</string>
   <string name="page_edit_history_empty_search_message">حاول تغيير &lt;a href=\"#\"&gt;عوامل التصفية&lt;/a&gt; لرؤية المزيد من التعديلات</string>
   <string name="menu_page_show_tabs">أظهر التبويبات</string>
@@ -428,7 +429,7 @@
   <string name="error_message_generic">حدث خطأ</string>
   <string name="view_link_preview_error_button_dismiss">أغلق</string>
   <string name="error_page_does_not_exist">هذه الصفحة غير موجودة</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">لا تحتوي Wikipedia على &lt;a href=\"%1$s\"&gt;user page&lt;/a&gt; بهذا الاسم بالضبط. بشكل عام ، يجب إنشاء هذه الصفحة وتحريرها بواسطة &lt;b&gt;%2$s&lt;/b&gt; . إذا كنت في شك ، يرجى التحقق من وجود\" %3$s \".</string>
+  <string name="error_user_page_does_not_exist">لا تحتوي ويكيبيديا على &lt;a href=\"%1$s\"&gt;صفحة مستخدم&lt;/a&gt; بهذا الاسم بالضبط. بشكل عام، يجب إنشاء هذه الصفحة وتحريرها بواسطة &lt;b&gt;%2$s&lt;/b&gt;. إذا كان لديك شك، يرجى التحقق من أن \"%3$s\" وجود.</string>
   <string name="view_wiki_error_message_offline">تعذر الاتصال بالإنترنت</string>
   <string name="view_wiki_error_message_timeout">لا يمكن الاتصال بويكيبيديا؛ تحقق من اتصال الشبكة، أو أعد المحاولة لاحقا</string>
   <string name="reference_title">مراجع %s</string>
@@ -441,6 +442,7 @@
   <string name="empty_tab_title">تبويب جديد</string>
   <string name="menu_save_all_tabs">حفظ كل الألسنة</string>
   <string name="error_blocked_title">عنوان الآي بي أو اسم المستخدم الخاص بك تم منعه.</string>
+  <string name="error_blocked_by">جرى الحظر بواسطة &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">السبب المُعطى هو: %s</string>
   <string name="error_blocked_start">بداية المنع: %s</string>
   <string name="error_blocked_expiry">انتهاء صلاحية المنع: %s</string>
@@ -985,6 +987,7 @@
   <string name="suggested_edits_image_tags_select_title">لم تقم بتحديد أي علامات لهذه الصورة</string>
   <string name="suggested_edits_image_tags_select_text">ستتم إضافة الأوسمة التي تختارها فقط إلى الصور. سيتم تمييز الأوسمة التي لم يتم تحديدها على أنها مرفوضة. هل أنت متأكد أنك تريد وضع علامة على جميع الأوسمة على أنها مرفوضة؟</string>
   <string name="suggested_edits_image_tags_add_tag">إضافة وسم</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">لن يتم حفظ العلامات غير المنشورة</string>
   <string name="suggested_edits_image_zoom_tooltip">ضم الاصبعين لتكبير هذه الصورة.</string>
   <string name="suggested_edits_encouragement_message">%s، شكرا على تعديلاتك، يمكنك العثور أدناه على المزيد من الطرق للمساهمة في ويكيبيديا.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;مرحبا %s&lt;/b&gt;، يمكنك العثور أدناه على بعض الطرق السريعة والسهلة للمساعدة في تحسين ويكيبيديا. ستلاحظ الفرق الذي تحدثه بمجرد أن تبدأ. نتمنى لك تحرير سعيد!</string>
@@ -1065,6 +1068,8 @@
   <string name="suggested_edits_do_not_understand_suggestion">لا أفهم المُهمة</string>
   <string name="suggested_edits_report_suggestion">الإبلاغ عن</string>
   <string name="suggested_edits_suggestion_report_submitted">تم إرسال التقرير</string>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">درّب خوارزمية الصور</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">قرّر ما إذا كانت الصور ستُحسن المقالة.</string>
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
@@ -1171,12 +1176,12 @@
   <string name="insert_media_title">إدراج وسائط</string>
   <string name="insert_media_search_description">حدد ملفا من ويكيميديا ​​كومنز</string>
   <string name="insert_media_search_hint">البحث عن وسائط</string>
-  <string name="insert_media_settings">إعدادات الوسائط</string>
+  <string name="insert_media_settings" fuzzy="true">إعدادات الوسائط</string>
   <string name="insert_media_settings_uploaded_image">الصورة التي تم تحميلها</string>
-  <string name="insert_media_settings_caption">تعليق</string>
+  <string name="insert_media_settings_caption" fuzzy="true">تعليق</string>
   <string name="insert_media_settings_caption_description">التسمية التي تظهر بجوار العنصر لجميع القراء</string>
   <string name="insert_media_settings_alternative_text">نص بديل</string>
-  <string name="insert_media_settings_alternative_text_description">وصف نصي للقراء الذين لا يستطيعون رؤية الصورة</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">وصف نصي للقراء الذين لا يستطيعون رؤية الصورة</string>
   <string name="insert_media_advanced_settings">إعدادات متقدمة</string>
   <string name="insert_media_advanced_settings_wrap_image">التفاف النص حول الصورة</string>
   <string name="insert_media_advanced_settings_image_position">موضع الصورة</string>
@@ -1194,6 +1199,7 @@
   <string name="insert_media_advanced_settings_image_size_custom">مخصص</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">عرض</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">طول</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">بك</string>
   <string name="insert_media_insert_button">إدراج</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">سجل الدخول / انضم لويكيبيديا</string>
@@ -1392,6 +1398,7 @@
   <string name="shareable_reading_lists_new_indicator">*جديد*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">تمت مشاركة قائمة القراءة معك</string>
   <string name="shareable_reading_lists_new_install_dialog_content">لاحظنا أنه تمت مشاركة قائمة القراءة معك.  لعرض هذه القائمة في التطبيق ، ارجع إلى الرسالة الأصلية واضغط على الرابط مرة أخرى.</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">عُلِم</string>
   <string name="shareable_reading_lists_new_imported_snackbar">تم استيراد قائمة القراءة</string>
   <string name="reading_list_share_menu_label">المشاركة…</string>
   <string name="reading_list_share_menu_tooltip">شارك قائمة القراءة هذه مع الآخرين</string>
@@ -1400,4 +1407,5 @@
   <string name="reading_list_share_survey_body">\"مشاركة قوائم القراءة\" هي ميزة اختبار ونحن بحاجة إلى ملاحظاتك لتحسينها أو إزالتها.</string>
   <string name="data_opt_in_accept">قبول</string>
   <string name="data_opt_in_reject">رفض</string>
+  <string name="generic_release_notes">إصلاحات الشوائب الطفيفة والتحسينات</string>
 </resources>

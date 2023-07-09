@@ -1037,9 +1037,9 @@
   <string name="insert_media_title">ميڊيا وجهو</string>
   <string name="insert_media_search_description">وڪيميڊيا ڪامنز مان ڪو فائيل چونڊيو</string>
   <string name="insert_media_search_hint">ميڊيا ڳوليو</string>
-  <string name="insert_media_settings">ميڊيا ترتيبون</string>
+  <string name="insert_media_settings" fuzzy="true">ميڊيا ترتيبون</string>
   <string name="insert_media_settings_uploaded_image">چڙھيل عڪس</string>
-  <string name="insert_media_settings_caption">عنوان</string>
+  <string name="insert_media_settings_caption" fuzzy="true">عنوان</string>
   <string name="insert_media_settings_alternative_text">متبادل متن</string>
   <string name="insert_media_advanced_settings">اعليٰ ترتيبون</string>
   <string name="insert_media_advanced_settings_wrap_image">متن کي عڪس جي چوڌاري ويڙھيو</string>

@@ -991,6 +991,7 @@
   <string name="suggested_edits_image_tags_select_title">Bu resim için herhangi bir etiket seçmediniz</string>
   <string name="suggested_edits_image_tags_select_text">Yalnızca seçtiğiniz etiketler görüntülere eklenir. Seçilmeyen etiketler reddedildi olarak işaretlenir. Tüm etiketleri reddedildi olarak işaretlemek istediğinizden emin misiniz?</string>
   <string name="suggested_edits_image_tags_add_tag">Etiket ekle</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Yayımlanmamış etiketler kaydedilmeyecek</string>
   <string name="suggested_edits_image_zoom_tooltip">Bu resmi yakınlaştırmak için sıkıştırın.</string>
   <string name="suggested_edits_encouragement_message">%s, düzenlemeleriniz için teşekkürler. Aşağıda Vikipedi\'ye katkıda bulunmak için daha fazla yol bulabilirsiniz.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Merhaba %s&lt;/b&gt;, Aşağıda Vikipedi\'yi geliştirmeye yardımcı olacak bazı hızlı ve kolay yollar bulabilirsiniz. Başladığınız anda yaptığınız farkı göreceksiniz. Mutlu düzenlemeler!</string>
@@ -1084,6 +1085,35 @@
     <item quantity="one">%d karakter eklediniz</item>
     <item quantity="other">%d karakter eklediniz</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Madde görselleri</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Anlaşılabilirliği artırmak için Vikipedi maddelerine önerilen görüntüler ekleyin.</string>
+  <string name="image_recommendation_task_instruction">Bu görseli maddeye ekler misiniz?</string>
+  <string name="image_recommendation_tutorial">Öğretici</string>
+  <string name="image_recommendation_accept">Evet</string>
+  <string name="image_recommendation_reject">Hayır</string>
+  <string name="image_recommendation_notsure">Emin değilim</string>
+  <string name="image_recommendation_reject_title">Neden?</string>
+  <string name="image_recommendation_reject_subtitle">Yanıtlarınız gelecek önerileri iyileştirir.</string>
+  <string name="image_recommendation_reject_not_relevant">Görsel ilgili değil</string>
+  <string name="image_recommendation_reject_no_info">Karar vermek için yeterli bilgi yok</string>
+  <string name="image_recommendation_reject_offensive">Görsel rahatsız edici</string>
+  <string name="image_recommendation_reject_low_quality">Düşük nitelikte görsel</string>
+  <string name="image_recommendation_reject_dont_know">Bu konuyu bilmiyorum</string>
+  <string name="image_recommendation_reject_other">Diğer</string>
+  <string name="image_recommendation_reject_submit">Gönder</string>
+  <string name="image_recommendation_tooltip_main">Önerilen Düzenlemelerde, maddelere eksik görseller ekleyin</string>
+  <string name="image_recommendation_onboarding_1">Görseller insanların anlamalarına yardımcı olur, ancak birçok maddede yoktur.</string>
+  <string name="image_recommendation_onboarding_2">Önerilen bir görselin bir Vikipedi maddesine yerleştirilip yerleştirilmeyeceğine siz karar vereceksiniz.</string>
+  <string name="image_recommendation_onboarding_3">Önerileri makine oluşturulmuştur ve bunları kabul edip etmemeye karar vermek için sağduyunuzu kullanırsınız.</string>
+  <string name="image_recommendation_onboarding_4">Görseller, Vikipedi tarafından kullanılan özgür lisanslı görsel koleksiyonu Wikimedia Commons\'tan gelir.</string>
+  <string name="image_recommendation_tooltip_1">Konusunu anlamak için bu maddeyi inceleyin</string>
+  <string name="image_recommendation_tooltip_2">Görseli ve ilişkili bilgileri inceleyin</string>
+  <string name="image_recommendation_tooltip_3">Görselin, okuyucuların bu konuyu daha iyi anlamasına yardımcı olup olmadığına karar verin</string>
+  <string name="image_recommendation_tooltip_next">Sonraki</string>
+  <string name="image_recommendation_tooltip_warning">Konusunu anlamak için lütfen maddeyi gözden geçirin ve görseli inceleyin</string>
+  <string name="edit_summary_added_image">Görsel eklendi</string>
+  <string name="edit_summary_added_caption">Alt yazı eklendi</string>
+  <string name="edit_published_view">Görüntüle</string>
   <string name="file_page_activity_title">Dosya sayfası</string>
   <string name="file_page_add_image_caption_button">Resim yazısı ekle</string>
   <string name="file_page_add_image_tags_button">Resim etiketlerini ekle</string>
@@ -1182,12 +1212,12 @@
   <string name="insert_media_title">Medyayı ekle</string>
   <string name="insert_media_search_description">Wikimedia Commons\'tan bir dosya seç</string>
   <string name="insert_media_search_hint">Medya ara</string>
-  <string name="insert_media_settings">Medya ayarları</string>
+  <string name="insert_media_settings">Görsel ayrıntıları ekle</string>
   <string name="insert_media_settings_uploaded_image">Yüklenen resim</string>
-  <string name="insert_media_settings_caption">Altyazı</string>
+  <string name="insert_media_settings_caption">Görsel alt yazısı</string>
   <string name="insert_media_settings_caption_description">Tüm okuyucular için ögenin yanında gösterilen etiket</string>
   <string name="insert_media_settings_alternative_text">Alternatif metin</string>
-  <string name="insert_media_settings_alternative_text_description">Resmi göremeyen okuyucular için metin açıklaması</string>
+  <string name="insert_media_settings_alternative_text_description">Görme engelli okuyucular için açıklama</string>
   <string name="insert_media_advanced_settings">Gelişmiş ayarlar</string>
   <string name="insert_media_advanced_settings_wrap_image">Metni resmin etrafına sarın</string>
   <string name="insert_media_advanced_settings_image_position">Görüntü konumu</string>
@@ -1427,4 +1457,6 @@
   <string name="reading_list_share_survey_body">\"Okuma listelerini paylaş\" bir deneme özelliğidir ve iyileştirmek ya da kaldırmak için geri bildiriminize ihtiyacımız var.</string>
   <string name="data_opt_in_accept">Kabul et</string>
   <string name="data_opt_in_reject">Reddet</string>
+  <string name="page_issues_title">Sayfa sorunları</string>
+  <string name="generic_release_notes">Küçük hata düzeltmeleri ve iyileştirmeler</string>
 </resources>

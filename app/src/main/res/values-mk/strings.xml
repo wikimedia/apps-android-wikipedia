@@ -950,6 +950,7 @@
   <string name="suggested_edits_image_tags_select_title">Немате избрано ниедна ознака за сликава</string>
   <string name="suggested_edits_image_tags_select_text">Во сликите ќе се додаваат само ознаки кои сте ги избрале вие. Неизбраните ознаки ќе се сметаат за одбиени. Дали сигурно сакате да ги означите сите како одбиени?</string>
   <string name="suggested_edits_image_tags_add_tag">Додај ознака</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Необјавените ознаки нема да се зачуваат</string>
   <string name="suggested_edits_image_zoom_tooltip">Штипнете за да ја приближите сликата.</string>
   <string name="suggested_edits_encouragement_message">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво, %s&lt;/b&gt;. Подолу погледајте како брзо и лесно начини да помогнете на Википедија. Штом започнете, ќе забележите каква разлика правите. Среќно уредување!</string>
@@ -1046,6 +1047,35 @@
     <item quantity="one">Додадовте %d знак</item>
     <item quantity="other">Додадовте %d знаци</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Слики за статии</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Додавајте предложени слики во википедиски статии за да ја подобрите претставата за содржината.</string>
+  <string name="image_recommendation_task_instruction">Дали би ја додале оваа слика во статијата?</string>
+  <string name="image_recommendation_tutorial">Упатства</string>
+  <string name="image_recommendation_accept">Да</string>
+  <string name="image_recommendation_reject">Не</string>
+  <string name="image_recommendation_notsure">Не знам</string>
+  <string name="image_recommendation_reject_title">Зошто не?</string>
+  <string name="image_recommendation_reject_subtitle">Вашите одговори ги подобруваат идните предлози.</string>
+  <string name="image_recommendation_reject_not_relevant">Сликата е нерелевантна</string>
+  <string name="image_recommendation_reject_no_info">Немам доволно сознанија за да одлучам</string>
+  <string name="image_recommendation_reject_offensive">Сликата е неумесна</string>
+  <string name="image_recommendation_reject_low_quality">Сликата е неквалитетна</string>
+  <string name="image_recommendation_reject_dont_know">Не се разбирам од темава</string>
+  <string name="image_recommendation_reject_other">Друго</string>
+  <string name="image_recommendation_reject_submit">Поднеси</string>
+  <string name="image_recommendation_tooltip_main">Додајте потребни слики во статии во „Предложени уредувања“</string>
+  <string name="image_recommendation_onboarding_1">Сликите им помагаат на читателите да ја разберат содржината, но многу статии немаат слики.</string>
+  <string name="image_recommendation_onboarding_2">Вие ќе одлучите дали предложената слика треба да се стави во википедиска статија.</string>
+  <string name="image_recommendation_onboarding_3">Предлозите се машински направени и на вас е да просудите дали да ги прифатите или одбиете.</string>
+  <string name="image_recommendation_onboarding_4">Сликите се од Ризницата, збирка на слободно лиценцирани слики што се користат на Википедија.</string>
+  <string name="image_recommendation_tooltip_1">Прочитајте ја статијава за да ја разберете темата.</string>
+  <string name="image_recommendation_tooltip_2">Разгледајте ја сликата и нејзините информации</string>
+  <string name="image_recommendation_tooltip_3">Решете дали сликата им помага на читателите подобро да ја разберат оваа тема</string>
+  <string name="image_recommendation_tooltip_next">Следно</string>
+  <string name="image_recommendation_tooltip_warning">Прочитајте ја статијата за да ја разберете темата и разгледајте ја сликата</string>
+  <string name="edit_summary_added_image">Додадена слика</string>
+  <string name="edit_summary_added_caption">Додаден опис</string>
+  <string name="edit_published_view">Погледај</string>
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>
@@ -1144,12 +1174,12 @@
   <string name="insert_media_title">Вметнување на слика или снимка</string>
   <string name="insert_media_search_description">Изберете податотека од Ризницата</string>
   <string name="insert_media_search_hint">Пребарување на слики и снимки</string>
-  <string name="insert_media_settings">Поставки за слики и снимки</string>
+  <string name="insert_media_settings">Додајте поединости за сликата</string>
   <string name="insert_media_settings_uploaded_image">Подигната слика</string>
-  <string name="insert_media_settings_caption">Опис</string>
+  <string name="insert_media_settings_caption">Опис на сликата</string>
   <string name="insert_media_settings_caption_description">Натпис кој се прикажува до ставката на сите читатели</string>
   <string name="insert_media_settings_alternative_text">Алтернативен текст</string>
-  <string name="insert_media_settings_alternative_text_description">Писмен опис за читателите кои не можат да ја видат сликата</string>
+  <string name="insert_media_settings_alternative_text_description">Оопис за читателите со попречен вид</string>
   <string name="insert_media_advanced_settings">Напредни нагодувања</string>
   <string name="insert_media_advanced_settings_wrap_image">Сложи го текстот околу сликата</string>
   <string name="insert_media_advanced_settings_image_position">Положба на сликата</string>
@@ -1389,4 +1419,6 @@
   <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
   <string name="data_opt_in_accept">Прифати</string>
   <string name="data_opt_in_reject">Одбиј</string>
+  <string name="page_issues_title">Проблеми со страницата</string>
+  <string name="generic_release_notes">Ситни поправки на грешки и подобрувања</string>
 </resources>

@@ -1024,6 +1024,7 @@
   <string name="suggested_edits_image_tags_select_title">לא בחרת שום תגים לתמונה הזאת</string>
   <string name="suggested_edits_image_tags_select_text">רק תגים שתבחרו יוספו לתמונות. תגים שלא בחרת יסומנו בתור תגים שנדחו. האם ברצונך באמת לסמן את כל התגים האלה בתור תגים שנדחו?</string>
   <string name="suggested_edits_image_tags_add_tag">להוסיף תג</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">התגים שלו פורסמו לא יישמרו</string>
   <string name="suggested_edits_image_zoom_tooltip">אפשר לקרב את התמונה הזאת בשתי אצבעות.</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;שלום %s&lt;/b&gt;, להלן אפשר למצוא כמה דרכים מהירות ופשוטות לעזור לשפר את ויקיפדיה. יהיה אפשר לראות את השינוי שאתה עושה מייד אחרי שתעשה אותו. עריכה מהנה!</string>
@@ -1136,6 +1137,35 @@
     <item quantity="many">הוספת %d תווים</item>
     <item quantity="other">הוספת %d תווים</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">תמונות בערכים</string>
+  <string name="suggested_edits_image_recommendations_task_detail">הוספת תמונות מוצעות לערכי ויקיפדיה כדי לשפר את ההבנה.</string>
+  <string name="image_recommendation_task_instruction">האם נראה לך מתאים להוסיף את התמונה הזאת לערך?</string>
+  <string name="image_recommendation_tutorial">מדריך</string>
+  <string name="image_recommendation_accept">כן</string>
+  <string name="image_recommendation_reject">לא</string>
+  <string name="image_recommendation_notsure">אין לי תשובה</string>
+  <string name="image_recommendation_reject_title">למה לא?</string>
+  <string name="image_recommendation_reject_subtitle">התשובות שלך משפרות הצעות עתידיות.</string>
+  <string name="image_recommendation_reject_not_relevant">התמונה אינה רלוונטית</string>
+  <string name="image_recommendation_reject_no_info">אין מספיק מידע בשביל להחליט</string>
+  <string name="image_recommendation_reject_offensive">התמונה פוגענית</string>
+  <string name="image_recommendation_reject_low_quality">התמונה באיכות נמוכה</string>
+  <string name="image_recommendation_reject_dont_know">הנושא לא מוכר לי</string>
+  <string name="image_recommendation_reject_other">אחר</string>
+  <string name="image_recommendation_reject_submit">שליחה</string>
+  <string name="image_recommendation_tooltip_main">הוספת תמונות חסרות לערכים בעריכות מוצעות</string>
+  <string name="image_recommendation_onboarding_1">תמונות עוזרות לאנשים להבין, אבל הן חסרות בהרבה ערכים.</string>
+  <string name="image_recommendation_onboarding_2">בידך ההחלטה האם לשים תמונה מוצעת בערך בוויקיפדיה.</string>
+  <string name="image_recommendation_onboarding_3">הצעות נוצרות על־ידי מכונה ויש להשתמש בשיקול דעתך כדי להחליט אם לקבל או לדחות אותן.</string>
+  <string name="image_recommendation_onboarding_4">התמונות מגיעות מוויקישיתוף, אוסף תמונות ברישיון חופשי, שמשמשות בוויקיפדיה.</string>
+  <string name="image_recommendation_tooltip_1">יש לעיין בערך הזה כדי להבין את הנושא שלו</string>
+  <string name="image_recommendation_tooltip_2">יש לבדוק את התמונה והמידע המשויך לה</string>
+  <string name="image_recommendation_tooltip_3">יש להחליט האם התמונה עוזרת לקוראים להבין טוב יותר את הנושא הזה</string>
+  <string name="image_recommendation_tooltip_next">הבא</string>
+  <string name="image_recommendation_tooltip_warning">נא לעיין בערך כדי להבין את הנושא שלו ולבדוק את התמונה</string>
+  <string name="edit_summary_added_image">נוספה תמונה</string>
+  <string name="edit_summary_added_caption">נוסף כיתוב</string>
+  <string name="edit_published_view">הצגה</string>
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
@@ -1238,12 +1268,12 @@
   <string name="insert_media_title">הוספת מדיה</string>
   <string name="insert_media_search_description">נא לבחור קובץ מוויקישיתוף</string>
   <string name="insert_media_search_hint">חיפוש מדיה</string>
-  <string name="insert_media_settings">הגדרות מדיה</string>
+  <string name="insert_media_settings">הוספת פרטי תמונה</string>
   <string name="insert_media_settings_uploaded_image">תמונה שהועלתה</string>
-  <string name="insert_media_settings_caption">כיתוב</string>
+  <string name="insert_media_settings_caption">כיתוב תמונה</string>
   <string name="insert_media_settings_caption_description">תווית שמוצגת ליד הפריט לכל הקוראים</string>
   <string name="insert_media_settings_alternative_text">טקסט חלופי</string>
-  <string name="insert_media_settings_alternative_text_description">תיאור טקסט בשביל קוראים שלא יכולים לראות את התמונה</string>
+  <string name="insert_media_settings_alternative_text_description">תיאור לקוראים לקויי ראייה</string>
   <string name="insert_media_advanced_settings">הגדרות מתקדמות</string>
   <string name="insert_media_advanced_settings_wrap_image">גלישת טקסט סביב תמונה</string>
   <string name="insert_media_advanced_settings_image_position">מיקום תמונה</string>
@@ -1489,4 +1519,6 @@
   <string name="reading_list_share_survey_body">\"שיתוף רשימות קריאה\" היא תכונת הבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
   <string name="data_opt_in_accept">לקבל</string>
   <string name="data_opt_in_reject">לדחות</string>
+  <string name="page_issues_title">בעיות בדף</string>
+  <string name="generic_release_notes">תיקוני באגים קלים ושיפורים</string>
 </resources>

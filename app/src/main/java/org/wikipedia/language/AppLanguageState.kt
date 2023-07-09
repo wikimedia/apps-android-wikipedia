@@ -136,6 +136,10 @@ class AppLanguageState(context: Context) {
         }
     }
 
+    fun getBcp47LanguageCode(langCode: String): String {
+        return appLanguageLookUpTable.getBcp47Code(langCode)
+    }
+
     private fun initAppLanguageCodes() {
         if (_appLanguageCodes.isEmpty()) {
             if (Prefs.isInitialOnboardingEnabled) {
@@ -144,6 +148,12 @@ class AppLanguageState(context: Context) {
                 // If user has never changed app language before
                 addAppLanguageCode(systemLanguageCode)
             }
+        }
+        if (_appLanguageCodes.isEmpty()) {
+            // If the language list is still empty, add the fallback language.
+            // This is for devices that have very nonstandard language configurations, or
+            // variants of languages that we don't support yet.
+            addAppLanguageCode(systemLanguageCode)
         }
     }
 }

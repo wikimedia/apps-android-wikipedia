@@ -238,10 +238,10 @@
   <string name="privacy_policy_description">Pravilnik o zasebnosti</string>
   <string name="terms_of_use_description">Pogoji uporabe</string>
   <string name="about_wikipedia_url">https://sl.wikipedia.org/wiki/Wikipedija:O_Wikipediji</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/sl</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/sl</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.sl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sl</string>
@@ -1010,6 +1010,7 @@
   <string name="suggested_edits_image_tags_select_title">Za to sliko niste izbrali nobene oznake</string>
   <string name="suggested_edits_image_tags_select_text">K slikam bodo dodane samo oznake, ki jih boste izbrali. Oznake, ki jih ne boste izbrali, bodo označene kot zavrnjene. Ali resnično želite vse oznake označiti kot zavrnjene?</string>
   <string name="suggested_edits_image_tags_add_tag">Dodaj oznako</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Neobjavljene oznake ne bodo shranjene</string>
   <string name="suggested_edits_image_zoom_tooltip">Za povečanje sliko razprite s prsti.</string>
   <string name="suggested_edits_encouragement_message">%s, hvala za vaša urejanja. Tu boste našli več načinov za prispevanje k Wikipediji.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Pozdravljeni, %s&lt;/b&gt;, tu lahko najdete nekaj hitrih in preprostih načinov za izboljšanje Wikipedije. Svoj prispevek boste opazili takoj, ko boste začeli. Uspešno urejanje!</string>
@@ -1122,6 +1123,35 @@
     <item quantity="few">Dodali ste %d znake</item>
     <item quantity="other">Dodali ste %d znakov</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Slike v člankih</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Dodajte predlagane slike v članke Wikipedije, da izboljšate njihovo razumljivost.</string>
+  <string name="image_recommendation_task_instruction">Ali želite dodati to sliko v članek?</string>
+  <string name="image_recommendation_tutorial">Vadnica</string>
+  <string name="image_recommendation_accept">Da</string>
+  <string name="image_recommendation_reject">Ne</string>
+  <string name="image_recommendation_notsure">Nisem prepričan_a</string>
+  <string name="image_recommendation_reject_title">Zakaj ne?</string>
+  <string name="image_recommendation_reject_subtitle">Vaši odgovori izboljšujej prihodnje predloge.</string>
+  <string name="image_recommendation_reject_not_relevant">Slika ni relevantna</string>
+  <string name="image_recommendation_reject_no_info">Ni dovolj informacij za odločitev</string>
+  <string name="image_recommendation_reject_offensive">Slika je žaljiva</string>
+  <string name="image_recommendation_reject_low_quality">Slika je slabe kakovosti</string>
+  <string name="image_recommendation_reject_dont_know">Ne poznam te teme</string>
+  <string name="image_recommendation_reject_other">Dugo</string>
+  <string name="image_recommendation_reject_submit">Pošlji</string>
+  <string name="image_recommendation_tooltip_main">Dodajte manjkajoče slike člankom v Predlaganih popravkih</string>
+  <string name="image_recommendation_onboarding_1">Slike pomagajo ljudem vsebino bolje razumeti, vendar jih veliko člankov nima.</string>
+  <string name="image_recommendation_onboarding_2">Vi se boste odločili, ali naj bo predlagana slika umeščena v članek v Wikipediji.</string>
+  <string name="image_recommendation_onboarding_3">Predlogi so strojno ustvarjeni in po svoji presoji se boste odločili, ali jih boste sprejeli ali zavrnili.</string>
+  <string name="image_recommendation_onboarding_4">Slike izvirajo iz Wikimedijine zbirke (Wikimedia Commons), zbirke prosto licenciranih slik, ki jih uporablja Wikipedija.</string>
+  <string name="image_recommendation_tooltip_1">Preglejte ta članek, da boste razumeli njegovo temo</string>
+  <string name="image_recommendation_tooltip_2">Preglejte sliko in z njo povezane informacije</string>
+  <string name="image_recommendation_tooltip_3">Odločite se, ali slika bralcem pomaga bolje razumeti to temo</string>
+  <string name="image_recommendation_tooltip_next">Naprej</string>
+  <string name="image_recommendation_tooltip_warning">Preglejte članek, da boste razumeli njegovo temo, in preglejte sliko.</string>
+  <string name="edit_summary_added_image">dodana slika</string>
+  <string name="edit_summary_added_caption">dodan napis k sliki</string>
+  <string name="edit_published_view">Ogled</string>
   <string name="file_page_activity_title">Stran datoteke</string>
   <string name="file_page_add_image_caption_button">Dodaj sliki napis</string>
   <string name="file_page_add_image_tags_button">Dodaj sliki oznake</string>
@@ -1224,12 +1254,12 @@
   <string name="insert_media_title">Vstavi predstavnost</string>
   <string name="insert_media_search_description">Izberite datoteko iz Wikimedijine zbirke</string>
   <string name="insert_media_search_hint">Poišči predstavnost</string>
-  <string name="insert_media_settings">Nastavitve predstavnosti</string>
+  <string name="insert_media_settings">Dodajte podrobnosti slike</string>
   <string name="insert_media_settings_uploaded_image">Naložena slika</string>
-  <string name="insert_media_settings_caption">Napis</string>
+  <string name="insert_media_settings_caption">Napis k sliki</string>
   <string name="insert_media_settings_caption_description">Oznaka, ki je prikazana poleg predmeta za vse bralce</string>
   <string name="insert_media_settings_alternative_text">Alternativno besedilo</string>
-  <string name="insert_media_settings_alternative_text_description">Besedilni opis za bralce, ki ne morejo videti slike</string>
+  <string name="insert_media_settings_alternative_text_description">Opis za bralce s prizadetim vidom</string>
   <string name="insert_media_advanced_settings">Napredne nastavitve</string>
   <string name="insert_media_advanced_settings_wrap_image">Ovij besedilo okoli slike</string>
   <string name="insert_media_advanced_settings_image_position">Položaj slike</string>
@@ -1282,7 +1312,7 @@
   <string name="talk_snackbar_survey_action_text">Začnimo</string>
   <string name="talk_share_discussion_subject">Wikipedija – razprava o temi pogovorne strani »%s«</string>
   <string name="talk_share_talk_page">Wikipedija – pogovori na pogovorni strani</string>
-  <string name="talk_edit_disclaimer">To je pogovorna stran. Prosimo, upoštevajte smernice za pogovorne strani in komentarje pri urejanju vikibesedila podpišite s štirimi tildami: ~~~~.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Smernice za pogovorne strani\"&gt;Wikipedija:Smernice za pogovorne strani&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">To je pogovorna stran. Prosimo, upoštevajte smernice za pogovorne strani in komentarje pri urejanju vikibesedila podpišite s štirimi tildami: ~~~~.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Smernice_za_pogovorne_strani\"&gt;Wikipedija:Smernice za pogovorne strani&lt;/a&gt;</string>
   <string name="talk_search_hint">Preišči obvestila</string>
   <string name="talk_search_topics_hint">Preiščite teme</string>
   <string name="talk_search_find_in_talk_topics_hint">Poišči v temi pogovorne strani</string>
@@ -1475,4 +1505,6 @@
   <string name="reading_list_share_survey_body">»Deli bralne sezname« je preizkusna možnost in potrebujemo vaše povratne informacije, da jo izboljšamo ali odstranimo.</string>
   <string name="data_opt_in_accept">Sprejmem</string>
   <string name="data_opt_in_reject">Zavrnem</string>
+  <string name="page_issues_title">Težaev strani</string>
+  <string name="generic_release_notes">Manjši popravki napak in izboljšave</string>
 </resources>

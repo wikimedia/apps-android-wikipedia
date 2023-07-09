@@ -69,6 +69,7 @@
 * Александр Сигачёв
 * Евгения
 * ЛингвоЧел
+* Умар
 -->
 <resources>
   <string name="app_name_prod">Википедия</string>
@@ -327,7 +328,7 @@
   <string name="edit_next">Далее</string>
   <string name="edit_done">Сохранить</string>
   <string name="edit_preview">Предпросмотр</string>
-  <string name="edit_undo">Да, отменить</string>
+  <string name="edit_undo">Отменить</string>
   <string name="edit_redo">Повтор действия</string>
   <string name="edit_rollback">Откатить</string>
   <plurals name="edit_diff_bytes">
@@ -921,7 +922,7 @@
   <string name="description_starts_with_uppercase">Начинайте с маленькой буквы, если только первое слово не является собственным названием.</string>
   <string name="description_starts_with_lowercase">Избегайте начинать с маленькой буквы.</string>
   <string name="description_is_in_different_language">Текст на неожиданном языке. Язык должен быть %s.</string>
-  <string name="description_verification_notice" fuzzy="true">Убедитесь, что язык вашего описания — %1$s. Вы можете отклонить это уведомление, если язык вашего описания — %2$s.</string>
+  <string name="description_verification_notice">Убедитесь, что язык вашего описания — %1$s. Вы можете игнорировать это предупреждение, если язык вашего описания — %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Показать предлагаемые описания</string>
   <string name="description_edit_suggested_description_button_tooltip">Попробуйте описания статей, предложенные компьютером</string>
   <string name="description_edit_success_saved">Описание статьи сохранено!</string>
@@ -1143,6 +1144,22 @@
     <item quantity="many">Вы добавили символов: %d</item>
     <item quantity="other">Вы добавили символов: %d</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Обучение алгоритма изображений</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Решите, улучшит ли предлагаемое изображение статью.</string>
+  <string name="image_recommendation_tutorial">Руководство</string>
+  <string name="image_recommendation_accept">Да</string>
+  <string name="image_recommendation_reject">Нет</string>
+  <string name="image_recommendation_notsure">Затрудняюсь ответить</string>
+  <string name="image_recommendation_reject_title">Почему нет?</string>
+  <string name="image_recommendation_reject_subtitle">Ваши ответы улучшают качество будущих подсказок.</string>
+  <string name="image_recommendation_reject_not_relevant">Изображение не релевантно</string>
+  <string name="image_recommendation_reject_no_info">Мало информации, чтобы решить</string>
+  <string name="image_recommendation_reject_offensive">Изображение оскорбительно</string>
+  <string name="image_recommendation_reject_low_quality">Изображение низкого качества</string>
+  <string name="image_recommendation_reject_dont_know">Не знаю этой темы</string>
+  <string name="image_recommendation_reject_other">Другое</string>
+  <string name="image_recommendation_reject_submit">Отправить</string>
+  <string name="image_recommendation_tooltip_next">Далее</string>
   <string name="file_page_activity_title">Страница файла</string>
   <string name="file_page_add_image_caption_button">Добавить описание изображения</string>
   <string name="file_page_add_image_tags_button">Добавить теги изображения</string>
@@ -1245,12 +1262,12 @@
   <string name="insert_media_title">Вставить медиа-файл</string>
   <string name="insert_media_search_description">Выберите файл на Викискладе</string>
   <string name="insert_media_search_hint">Поиск медиафайлов</string>
-  <string name="insert_media_settings">Параметры медиафайла</string>
+  <string name="insert_media_settings" fuzzy="true">Параметры медиафайла</string>
   <string name="insert_media_settings_uploaded_image">Загруженное изображение</string>
-  <string name="insert_media_settings_caption">Подпись</string>
+  <string name="insert_media_settings_caption">Описание изображения</string>
   <string name="insert_media_settings_caption_description">Текст, который показывается всем читателям возле файла</string>
   <string name="insert_media_settings_alternative_text">Альтернативный текст</string>
-  <string name="insert_media_settings_alternative_text_description">Текстовое описание для читателей, которые не могут увидеть изображение.</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Текстовое описание для читателей, которые не могут увидеть изображение.</string>
   <string name="insert_media_advanced_settings">Расширенные настройки</string>
   <string name="insert_media_advanced_settings_wrap_image">Расположить текст вокруг изображения</string>
   <string name="insert_media_advanced_settings_image_position">Расположение изображения</string>

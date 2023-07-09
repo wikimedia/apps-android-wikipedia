@@ -58,6 +58,7 @@
 * Mnivar
 * Mouse21
 * Mynor Archila
+* No se
 * Pantareje
 * Papouten
 * Pedro Zimmer
@@ -949,6 +950,7 @@
   <string name="suggested_edits_image_tags_select_title">No has seleccionado ninguna etiqueta para esta imagen.</string>
   <string name="suggested_edits_image_tags_select_text">Solo las etiquetas que elijas se añadirán a las imágenes. Las etiquetas no seleccionadas se marcarán como rechazadas. ¿Estás seguro de que quieres marcar todas las etiquetas como rechazadas?</string>
   <string name="suggested_edits_image_tags_add_tag">Añadir etiqueta</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Las etiquetas no publicadas no se guardarán</string>
   <string name="suggested_edits_image_zoom_tooltip">Para ampliar esta imagen, utiliza dos dedos.</string>
   <string name="suggested_edits_encouragement_message">%s, gracias por tus ediciones. Más abajo puedes encontrar otras formas de contribuir con la Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola, %s&lt;/b&gt;, abajo puedes encontrar algunas formas rápidas y fáciles para ayuda a mejorar Wikipedia. Verás la diferencia que estás haciendo tan pronto como empieces. ¡Feliz edición!</string>
@@ -1130,12 +1132,12 @@
   <string name="insert_media_title">Insertar multimedia</string>
   <string name="insert_media_search_description">Seleccionar un archivo de Wikimedia Commons</string>
   <string name="insert_media_search_hint">Busce media</string>
-  <string name="insert_media_settings">Configuración multimedia</string>
+  <string name="insert_media_settings" fuzzy="true">Configuración multimedia</string>
   <string name="insert_media_settings_uploaded_image">Imagen cargada</string>
-  <string name="insert_media_settings_caption">Leyenda</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Leyenda</string>
   <string name="insert_media_settings_caption_description">Etiqueta que se muestra junto al elemento para todos los lectores</string>
   <string name="insert_media_settings_alternative_text">Texto alternativo</string>
-  <string name="insert_media_settings_alternative_text_description">Descripción de texto para lectores quiénes no pueden ver la imagen</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Descripción de texto para lectores quiénes no pueden ver la imagen</string>
   <string name="insert_media_advanced_settings">Configuraciones avanzadas</string>
   <string name="insert_media_advanced_settings_wrap_image">Envolver el texto alrededor de la imagen</string>
   <string name="insert_media_advanced_settings_image_position">Posición de imagen</string>

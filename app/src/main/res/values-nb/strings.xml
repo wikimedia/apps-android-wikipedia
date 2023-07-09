@@ -965,6 +965,7 @@
   <string name="suggested_edits_image_tags_select_title">Du har ikke valgt noen tagger for dette bildet</string>
   <string name="suggested_edits_image_tags_select_text">Bare tagger du velger blir lagt til blidet. Tagger som ikke velges blir markert som avviste. Er du sikkert på at du vil merke alle taggene som avviste?</string>
   <string name="suggested_edits_image_tags_add_tag">Legg til tagg</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">De upubliserte taggene blir ikke lagret</string>
   <string name="suggested_edits_image_zoom_tooltip">Dra to fingre fra hverandre for å zoome i bildet.</string>
   <string name="suggested_edits_encouragement_message">Takk for redigeringene dine, %s. Under finner du flere måter du kan bidra med på Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hei %s&lt;/b&gt;, under finner du noen raske og enkle måter du kan forbedre Wikipedia på. Prøv dem gjerne ut!</string>
@@ -1159,12 +1160,12 @@
   <string name="insert_media_title">Sett inn media</string>
   <string name="insert_media_search_description">Velg en fil fra Wikimedia Commons</string>
   <string name="insert_media_search_hint">Mediesøk</string>
-  <string name="insert_media_settings">Mediainnstillinger</string>
+  <string name="insert_media_settings" fuzzy="true">Mediainnstillinger</string>
   <string name="insert_media_settings_uploaded_image">Last opp bilde</string>
-  <string name="insert_media_settings_caption">Beskrivelse</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Beskrivelse</string>
   <string name="insert_media_settings_caption_description">Etikett som vises ved siden av elementet for alle lesere</string>
   <string name="insert_media_settings_alternative_text">Alternativ tekst</string>
-  <string name="insert_media_settings_alternative_text_description">Tekstbeskrivelse for lesere som ikke kan se bildet</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Tekstbeskrivelse for lesere som ikke kan se bildet</string>
   <string name="insert_media_advanced_settings">Avanserte innstillinger</string>
   <string name="insert_media_advanced_settings_wrap_image">Bryt teksten omkring et bilde</string>
   <string name="insert_media_advanced_settings_image_position">Bildeposisjon</string>
@@ -1404,4 +1405,5 @@
   <string name="reading_list_share_survey_body">«Del leselister» er en testfunksjon, og vi trenger tilbakemelding fra brukerne for å forbedre eller fjerne den.</string>
   <string name="data_opt_in_accept">Godta</string>
   <string name="data_opt_in_reject">Avvis</string>
+  <string name="generic_release_notes">Mindre feilrettinger og forbedringer</string>
 </resources>

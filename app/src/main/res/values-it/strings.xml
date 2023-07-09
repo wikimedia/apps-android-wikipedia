@@ -28,6 +28,7 @@
 * Mannivu
 * Maracajá Teremembé
 * Marty5550
+* McDutchie
 * Nastoshka
 * Nemo bis
 * Nivit
@@ -235,7 +236,7 @@
   <string name="create_account_button">Registrati</string>
   <string name="create_account_name_unavailable">Il nome utente \"%s\" non è disponibile. Per favore, scegli un nome differente.</string>
   <string name="create_account_ip_block_message">Siamo spiacenti, il tuo indirizzo IP è al momento bloccato e non puoi creare nuove utenze.</string>
-  <string name="create_account_ip_block_help_url">https://it.m.wikipedia.org/wiki/Wikipedia:Politiche_di_blocco_degli_utenti</string>
+  <string name="create_account_ip_block_help_url">https://it.wikipedia.org/wiki/Wikipedia:Politiche_di_blocco_degli_utenti</string>
   <string name="create_account_ip_block_details">Dettagli</string>
   <string name="preferences_general_heading">Generale</string>
   <string name="preferences_account_heading">Utenza</string>
@@ -1075,6 +1076,11 @@
     <item quantity="one">Hai aggiunto %d carattere</item>
     <item quantity="other">Hai aggiunto %d caratteri</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Immagini della voce</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Aggiungi immagini suggerite alle voci di Wikipedia per migliorarne la comprensione.</string>
+  <string name="image_recommendation_accept">Sì</string>
+  <string name="image_recommendation_reject_title">Perché no?</string>
+  <string name="image_recommendation_reject_dont_know">Non conosco questo argomento</string>
   <string name="file_page_activity_title">Pagina del file</string>
   <string name="file_page_add_image_caption_button">Aggiungi didascalia immagine</string>
   <string name="file_page_add_image_tags_button">Aggiungi etichette all\'immagine</string>
@@ -1173,12 +1179,12 @@
   <string name="insert_media_title">Inserisci un file multimediale</string>
   <string name="insert_media_search_description">Seleziona un file da Wikimedia Commons</string>
   <string name="insert_media_search_hint">Ricerca file multimediali</string>
-  <string name="insert_media_settings">Impostazioni file multimediali</string>
+  <string name="insert_media_settings">Aggiungi dettagli dell\'immagine</string>
   <string name="insert_media_settings_uploaded_image">Immagine caricata</string>
-  <string name="insert_media_settings_caption">Didascalia</string>
+  <string name="insert_media_settings_caption">Didascalia dell\'immagine</string>
   <string name="insert_media_settings_caption_description">Etichetta che appare vicino all\'elemento per tutti i lettori</string>
   <string name="insert_media_settings_alternative_text">Testo alternativo</string>
-  <string name="insert_media_settings_alternative_text_description">Descrizione testuale per i lettori che non possono vedere l\'immagine</string>
+  <string name="insert_media_settings_alternative_text_description">Descrizione per lettori non vedenti</string>
   <string name="insert_media_advanced_settings">Impostazioni avanzate</string>
   <string name="insert_media_advanced_settings_wrap_image">Avvolgi il testo attorno all\'immagine</string>
   <string name="insert_media_advanced_settings_image_position">Posizione immagine</string>

@@ -37,6 +37,7 @@ import org.wikipedia.databinding.ItemInsertMediaBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.FileAliasData
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
@@ -171,13 +172,21 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     private fun combineMediaWikitext(): String {
-        viewModel.selectedImage?.prefixedText?.let {
-            var wikiText = "[[$it|${viewModel.imageSize}px|${viewModel.imageType}|${viewModel.imagePosition}"
+        viewModel.selectedImage?.let {
+            var wikiText = "[[" + FileAliasData.valueFor(viewModel.wikiSite.languageCode) + ":" + it.text
 
-            if (insertMediaSettingsFragment.alternativeText.isNotEmpty()) {
-                wikiText += "|alt=${insertMediaSettingsFragment.alternativeText}"
+            if (viewModel.imageSize != InsertMediaViewModel.IMAGE_SIZE_DEFAULT) {
+                wikiText += "|${viewModel.imageSize}px"
             }
-
+            viewModel.magicWords[viewModel.imageType]?.let { type ->
+                wikiText += "|$type"
+            }
+            viewModel.magicWords[viewModel.imagePosition]?.let { pos ->
+                wikiText += "|$pos"
+            }
+            if (insertMediaSettingsFragment.alternativeText.isNotEmpty()) {
+                wikiText += "|" + viewModel.magicWords[InsertMediaViewModel.IMAGE_ALT_TEXT].orEmpty().replace("$1", insertMediaSettingsFragment.alternativeText)
+            }
             if (insertMediaSettingsFragment.captionText.isNotEmpty()) {
                 wikiText += "|${insertMediaSettingsFragment.captionText}"
             }
@@ -347,9 +356,10 @@ class InsertMediaActivity : BaseActivity() {
         const val RESULT_WIKITEXT = "insertMediaWikitext"
         const val RESULT_INSERT_MEDIA_SUCCESS = 100
 
-        fun newIntent(context: Context, searchQuery: String): Intent {
+        fun newIntent(context: Context, wikiSite: WikiSite, searchQuery: String): Intent {
             return Intent(context, InsertMediaActivity::class.java)
-                    .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
+                .putExtra(Constants.ARG_WIKISITE, wikiSite)
+                .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
         }
     }
 }
