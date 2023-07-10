@@ -47,7 +47,7 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             languageEntries.postValue(Resource.Error(throwable))
         }) {
-            val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getInfoByPageTitles(title)
+            val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getInfoByPageIdsOrTitles(null, title)
             response.query?.firstPage()?.varianttitles?.let { variantMap ->
                 titles.forEach {
                     variantMap[it.wikiSite.languageCode]?.let { text ->

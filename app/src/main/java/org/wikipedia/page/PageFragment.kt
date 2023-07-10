@@ -71,7 +71,6 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.media.AvPlayer
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.PollNotificationWorker
-import org.wikipedia.page.PageCacher.loadIntoCache
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.issues.PageIssuesDialog
@@ -511,7 +510,15 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             // add the requested page to its backstack
             tab.backStack.add(PageBackStackItem(title, entry))
             if (!isForeground) {
-                loadIntoCache(title)
+                lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+                    ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
+                        .query?.firstPage()?.let { page ->
+                            WikipediaApp.instance.tabList.find { it.backStackPositionTitle == title }?.backStackPositionTitle?.apply {
+                                thumbUrl = page.thumbUrl()
+                                description = page.description
+                            }
+                        }
+                }
             }
             requireActivity().invalidateOptionsMenu()
         } else {
