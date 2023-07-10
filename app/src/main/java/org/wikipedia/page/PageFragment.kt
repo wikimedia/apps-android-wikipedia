@@ -1193,20 +1193,19 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun addToReadingList(title: PageTitle, source: InvokeSource, addToDefault: Boolean) {
         if (addToDefault) {
-            var finalPageTitle = title
-            // Make sure handle redirected title before saving into database
-            disposables.add(ServiceFactory.getRest(title.wikiSite).getSummary(null, title.prefixedText)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate {
+            // If the title is a redirect, resolve it before saving to the reading list.
+            lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+                var finalPageTitle = title
+                try {
+                    ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
+                        .query?.firstPage()?.let {
+                            finalPageTitle = PageTitle(it.title, title.wikiSite, it.thumbUrl(), it.description, it.displayTitle(title.wikiSite.languageCode), null)
+                        }
+                } finally {
                     ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), finalPageTitle, source) { readingListId ->
                         moveToReadingList(readingListId, finalPageTitle, source, false) }
                 }
-                .subscribe({
-                    finalPageTitle = it.getPageTitle(title.wikiSite)
-                }, {
-                    L.e(it)
-                }))
+            }
         } else {
             callback()?.onPageAddToReadingList(title, source)
         }
