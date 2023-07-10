@@ -110,9 +110,9 @@
   <string name="map_view_link_text">Vidar an mapo</string>
   <string name="other_languages_indication_text">Lektar en altra linguo.</string>
   <string name="language_count_link_text">Disponebla per %d altra lingui</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri Uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la legala permiso &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Nur la IP-adreso de vua komputero aparos, ne vua nomo. Se vu facos &lt;a href=\"https://#login\"&gt;\'log in\'&lt;/a&gt;, vu havos plusa privateso.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri Uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la legala permiso &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Nur la IP-adreso de vua komputero aparos, ne vua nomo. Se vu facos &lt;a href=\"https://#login\"&gt;\'log in\'&lt;/a&gt;, vu havos plusa privateso.</string>
   <string name="edit_anon_warning">Vua IP-adreso mencionesos en vua redakturi. Se vu &lt;a href=\"https://#login\"&gt;facos \'\'log in\'\'&lt;/a&gt; vu havos plusa privateso.</string>
   <string name="preference_title_language">Lingui de la Wikipedio</string>
   <string name="langlinks_filter_hint">Serchar</string>
@@ -236,7 +236,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -246,7 +245,7 @@
   <string name="about_translators_heading">Tradukeri</string>
   <string name="about_translators_translatewiki">Ica \'app\' tradukesis da voluntara tradukeri en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenco</string>
-  <string name="about_app_license">Fonto-kodexo disponebla che &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub la Licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ecepte kande kontree mencionata, la kontenajo esas disponebla sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Fonto-kodexo disponebla che &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub la Licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ecepte kande kontree mencionata, la kontenajo esas disponebla sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Produkturo del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ca pagino modifikesis. Ka tu fakte deziras ekirar sen salvar tua modifikuri?</string>

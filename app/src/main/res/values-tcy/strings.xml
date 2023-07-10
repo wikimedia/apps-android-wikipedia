@@ -101,8 +101,8 @@
   <string name="map_view_link_text">ಭೂಪಟೋಡು ಉಂಡ ತೂಲೆ</string>
   <string name="other_languages_indication_text">ನನೊಂಜಿ ಬಾಸೆಡ್ ಓದ್‌ಲೆ</string>
   <string name="language_count_link_text">ಬೇತೆ %d ಬಾಸೆಲೆಡ್ ಉಂಡು</string>
-  <string name="edit_save_action_license_logged_in">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್.</string>
-  <string name="edit_save_action_license_anon">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್. ಬದಲಾವಣೆದ ಶ್ರೇಯೊ (ಕ್ರೆಡಿಟ್ಸ್), ಇರೆನ ಸಾಧನೊದ ಐ.ಪಿ. ವಿಲಾಸೊಗು ತಿಕ್ಕುಂಡು. ಈರ್ &lt;a href=\"https://#login\"&gt;ಲಾಗ್ ಇನ್&lt;/a&gt; ಆಂಡ, ಇರೆಗ್ ದಿಂಜ ಗೌಪ್ಯತೆ ಉಪ್ಪುಂಡು.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್. ಬದಲಾವಣೆದ ಶ್ರೇಯೊ (ಕ್ರೆಡಿಟ್ಸ್), ಇರೆನ ಸಾಧನೊದ ಐ.ಪಿ. ವಿಲಾಸೊಗು ತಿಕ್ಕುಂಡು. ಈರ್ &lt;a href=\"https://#login\"&gt;ಲಾಗ್ ಇನ್&lt;/a&gt; ಆಂಡ, ಇರೆಗ್ ದಿಂಜ ಗೌಪ್ಯತೆ ಉಪ್ಪುಂಡು.</string>
   <string name="edit_anon_warning">ಇರೆನ ತಿದ್ದಿಪಾಟೊಲು ಇರ್ ಗಲಸಿನ ಡಿವೈಸ್‌ದ ಐಪಿ ವಿಳಾಸೊದ ಪುದರ್‌ಡ್ ಒರಿಪುಂಡು. ಈರ್&lt;a href=\"https://#login\"&gt; ಲಾಗಿನ್ &lt;/a&gt; ಮಲ್ತರ್ಂಡ ಐಪಿ ವಿಳಾಸ ಏರೆಗ್ಲಾ ತೋಜುಜಿ.</string>
   <string name="preference_title_language">ವಿಕಿಪೀಡಿಯಾ ಬಾಸೆ</string>
   <string name="langlinks_filter_hint">ನಾಡ್‍ಲೆ</string>
@@ -215,7 +215,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">ಗ್ರಂಥಾಲಯಟ್ ಬಲಕೆ ಅಪುಂಡು</string>
   <string name="about_contributors_heading">ಕಾನಿಕೆ ಕೊರ್ನಾರ್</string>
