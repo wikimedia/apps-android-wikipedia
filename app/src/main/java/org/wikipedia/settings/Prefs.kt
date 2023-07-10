@@ -682,8 +682,4 @@ object Prefs {
     var analyticsQueueSize
         get() = PrefsIoUtil.getInt(R.string.preference_key_event_platform_queue_size, 128)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_event_platform_queue_size, value)
-
-    var showImageRecsOnboarding
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_se_image_recs_fullscreen_onboarding_show, true)
-        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_se_image_recs_fullscreen_onboarding_show, value)
 }

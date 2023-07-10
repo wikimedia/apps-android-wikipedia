@@ -81,7 +81,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         }
     }
 
-    fun setSecondaryText(text: String) {
+    fun setSecondaryText(text: CharSequence?) {
         binding.secondaryTextView.text = text
     }
 

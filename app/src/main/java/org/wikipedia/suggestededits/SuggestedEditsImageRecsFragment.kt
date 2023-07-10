@@ -130,14 +130,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 }
             }
         }
-       maybeShowOnboarding()
-    }
-
-    private fun maybeShowOnboarding() {
-        if (Prefs.showImageRecsOnboarding) {
-            Prefs.showImageRecsOnboarding = false
-            startActivity(SuggestedEditsImageRecsOnboardingActivity.newIntent(requireActivity()))
-        }
     }
 
     override fun onStart() {
