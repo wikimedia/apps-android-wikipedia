@@ -83,9 +83,9 @@
   <string name="map_view_link_text">Pogledaj na karti</string>
   <string name="other_languages_indication_text">Čitaj na drugom jeziku</string>
   <string name="language_count_link_text">Dostupan na drugim jezicima (%d)</string>
-  <string name="content_license_cc_by_sa">Imenovanje-Dijeli pod istim uvjetima 3.0</string>
-  <string name="edit_save_action_license_logged_in">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete svoje doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Uređivanja će biti pripisana IP adresi Vašeg uređaja. &lt;a href=\"https://#login\"&gt;Prijavite&lt;/a&gt; li se, imat ćete veću privatnost.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">Imenovanje-Dijeli pod istim uvjetima 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete svoje doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Uređivanja će biti pripisana IP adresi Vašeg uređaja. &lt;a href=\"https://#login\"&gt;Prijavite&lt;/a&gt; li se, imat ćete veću privatnost.</string>
   <string name="preference_title_language">Jezici Wikipedije</string>
   <string name="langlinks_filter_hint">Pretraži</string>
   <string name="langlinks_empty">Ova stranica nije dostupna na drugim jezicima.</string>
@@ -206,7 +206,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.hr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Korištene biblioteke</string>
@@ -215,7 +214,7 @@
   <string name="about_translators_heading">Prevoditelji</string>
   <string name="about_translators_translatewiki">Ovu aplikaciju preveli su su prevoditelji volonteri na projektu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencija</string>
-  <string name="about_app_license">Izvorni kod dostupan na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licencijom &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Ako nije drugačije navedeno, sadržaj je dostupan pod licencijom &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Izvorni kod dostupan na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licencijom &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Ako nije drugačije navedeno, sadržaj je dostupan pod licencijom &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Proizvod &lt;a href=\"https://wikimediafoundation.org/\"&gt;Zaklade Wikimedija&lt;/a&gt;</string>
   <string name="about_activity_title">O</string>
   <string name="edit_abandon_confirm">Stranica je promijenjena. Jeste li sigurni da želite izaći bez spremanja promjena?</string>

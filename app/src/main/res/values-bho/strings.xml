@@ -62,8 +62,8 @@
   <string name="map_view_link_text">नक्सा पर देखीं</string>
   <string name="other_languages_indication_text">दुसरी भाषा में पढ़ीं</string>
   <string name="language_count_link_text">अउरी %d भाषा में मौजूद</string>
-  <string name="edit_save_action_license_logged_in">प्रकाशित करे के मतलब बा की आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी, &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत आपन योगदान रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सके ला।</string>
-  <string name="edit_save_action_license_anon">प्रकाशित करे के मतलब बा, आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी, आ आपन योगदान &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सकत बा। संपादन के श्रेय आपके डिवाइस के आइपी के दिहल जाई। अगर आप &lt;a href=\"https://#login\"&gt;खाता में प्रवेश&lt;/a&gt; करत बानी तब ढेर प्राइवेसी रही।</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">प्रकाशित करे के मतलब बा की आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी, &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत आपन योगदान रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सके ला।</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">प्रकाशित करे के मतलब बा, आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी, आ आपन योगदान &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सकत बा। संपादन के श्रेय आपके डिवाइस के आइपी के दिहल जाई। अगर आप &lt;a href=\"https://#login\"&gt;खाता में प्रवेश&lt;/a&gt; करत बानी तब ढेर प्राइवेसी रही।</string>
   <string name="preference_title_language">विकिपीडिया भाषासभ</string>
   <string name="langlinks_filter_hint">खोजीं</string>
   <string name="langlinks_empty">इ पन्ना अन्य भाषा में मौजूद नइखे</string>
@@ -181,7 +181,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://bh.wikipedia.org/wiki/विकिपीडिया:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">इस्तेमाल कइल गइल लाइब्रेरी</string>

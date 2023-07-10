@@ -33,6 +33,7 @@
 * Sebastian Wallroth
 * Symposiarch
 * TMg
+* Tacsipacsi
 * ThisCarthing
 * Tobi 406
 * Umherirrender
@@ -145,9 +146,9 @@
   <string name="map_view_link_text">Auf einer Karte ansehen</string>
   <string name="other_languages_indication_text">In einer anderen Sprache lesen</string>
   <string name="language_count_link_text">In %d weiteren Sprachen verfügbar</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Mit dem Veröffentlichen stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Lizenz zu.</string>
-  <string name="edit_save_action_license_anon">Mit dem Veröffentlichen stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0-Lizenz&lt;/a&gt; zu. Bearbeitungen werden der IP-Adresse deines Gerätes zugeordnet. Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt;, verfügst du über mehr Datenschutz.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Mit dem Veröffentlichen stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; Lizenz zu.</string>
+  <string name="edit_save_action_license_anon">Mit dem Veröffentlichen stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0-Lizenz&lt;/a&gt; zu. Bearbeitungen werden der IP-Adresse deines Gerätes zugeordnet. Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt;, verfügst du über mehr Datenschutz.</string>
   <string name="edit_anon_warning">Bearbeitungen werden der IP-Adresse deines Gerätes zugeordnet. Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt;, wirst du über mehr Datenschutz verfügen.</string>
   <string name="preference_title_language">Wikipedia-Sprachen</string>
   <string name="langlinks_filter_hint">Suche</string>
@@ -273,7 +274,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/de</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.de</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.de</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.de</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/de</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/de#Bild-Schlagworte</string>
@@ -283,7 +284,7 @@
   <string name="about_translators_heading">Übersetzer</string>
   <string name="about_translators_translatewiki">Diese App wurde von freiwilligen Übersetzern auf &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; übersetzt.</string>
   <string name="about_app_license_heading">Lizenz</string>
-  <string name="about_app_license">Der Quellcode ist bei &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; und &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; unter der &lt;a href=\"href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache-2.0-Lizenz&lt;/a&gt; abrufbar. Sofern nicht anders angegeben, ist der Inhalt unter einer &lt;a href=\"https://de.wikipedia.org/wiki/Wikipedia:Lizenzbestimmungen_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt; verfügbar.</string>
+  <string name="about_app_license">Der Quellcode ist bei &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; und &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; unter der &lt;a href=\"href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache-2.0-Lizenz&lt;/a&gt; abrufbar. Sofern nicht anders angegeben, ist der Inhalt unter einer &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.de\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt; verfügbar.</string>
   <string name="about_wmf">Ein Produkt der &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Über</string>
   <string name="edit_abandon_confirm">Die Seite wurde verändert. Bist du sicher, dass du sie ohne Speichern deiner Änderungen verlassen möchtest?</string>
@@ -521,6 +522,7 @@
   <string name="reading_list_menu_export">Liste exportieren</string>
   <string name="reading_list_menu_select">Auswählen</string>
   <string name="reading_list_menu_unselect">Auswahl aufheben</string>
+  <string name="reading_list_export_write_permission_rationale">Zum Exportieren  der Leseliste ist eine Berechtigung zum Schreiben auf den Speicher deines Gerätes erforderlich.</string>
   <string name="reading_list_menu_rename">Namen/Beschreibung bearbeiten</string>
   <string name="reading_list_action_menu_remove_from_offline">Von offline entfernen</string>
   <string name="reading_list_action_menu_save_for_offline">Für offline speichern</string>
@@ -541,6 +543,15 @@
     <item quantity="one">%d Artikel entfernt von %s</item>
     <item quantity="other">%d Artikel entfernt von %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d Liste gelöscht</item>
+    <item quantity="other">%d Listen gelöscht</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Die Standardliste (%s) kann nicht gelöscht werden.</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s gelöscht. Die Standardliste (%2$s) kann nicht gelöscht werden.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Listen gelöscht. Die Standardliste (%s) kann nicht gelöscht werden.</string>
+  <string name="single_list_json_file_name">%s (Wikipedia-Leseliste).json</string>
+  <string name="multiple_lists_json_file_name">Wikipedia-Leselisten (%s und mehr).json</string>
   <string name="reading_list_items_deleted">%d Artikel aus der Liste entfernt</string>
   <string name="reading_lists_item_deleted">%s von den Listen entfernt</string>
   <string name="reading_list_item_delete_undo">Rückgängig</string>
@@ -573,6 +584,11 @@
   <string name="reading_list_articles_added_to_named">%1$d Artikel zu %2$s hinzugefügt</string>
   <string name="reading_list_articles_moved_to_named">%1$d Artikel nach %2$s verschoben</string>
   <string name="reading_list_delete_confirm">Bist du sicher, dass du %s löschen möchtest?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Ausgewählte Liste(n) löschen?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Bist du sicher, dass du %d Liste löschen möchtest?</item>
+    <item quantity="other">Bist du sicher, dass du %d Listen löschen möchtest?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Melde dich an, um die Synchronisierung zu aktivieren.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Melde dich an, um die Speicherung deiner Leselisten in deinem Benutzerkonto zu erlauben.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Abbrechen</string>
@@ -596,6 +612,7 @@
   <string name="reading_list_article_limit_message">Der Artikel konnte nicht zu dieser Liste hinzugefügt werden. Du hast für „%1$s“ die maximale Anzahl von %2$d Artikeln pro Liste erreicht.</string>
   <string name="reading_lists_limit_message">Es können keine weiteren Listen erstellt werden. Du hast die maximale Anzahl von 100 Leselisten pro Benutzerkonto erreicht.</string>
   <string name="reading_lists_menu_create_list">Neue Liste erstellen</string>
+  <string name="reading_lists_menu_import_list">Liste importieren</string>
   <string name="reading_lists_menu_sort_by">Sortieren nach</string>
   <string name="reading_lists_refresh_sync_option">Erneut synchronisieren</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Anmelden / Benutzerkonto erstellen</string>
@@ -616,11 +633,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Abbrechen</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Abbrechen</string>
   <string name="reading_list_split_dialog_ok_button_text">Okay</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Löschen</string>
   <string name="reading_list_activity_title">Leseliste: %s</string>
+  <string name="reading_list_notification_title">Leseliste(n) exportiert</string>
+  <string name="reading_list_notification_text">%d Leseliste(n) wurden als „reading_lists export.json“ in deinen Download-Ordner exportiert</string>
+  <string name="reading_list_notification_detailed_text">Leselisten als „reading_lists export.json“ in deinen Download-Ordner exportiert</string>
+  <string name="reading_lists_action_menu_export_lists">Exportieren</string>
+  <string name="reading_lists_import_file_picker_title">Datei zum Importieren wählen</string>
+  <string name="reading_lists_import_failure_message">Der Import der Leselisten ist fehlgeschlagen</string>
+  <string name="reading_lists_export_select_lists_message">Liste(n) zum Exportieren wählen</string>
+  <string name="reading_lists_export_completed_message">Leseliste(n) exportiert</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Exportieren der Leseliste fehlgeschlagen</item>
+    <item quantity="other">Exportieren der Leselisten fehlgeschlagen</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Leseliste importiert</item>
+    <item quantity="other">Leselisten importiert</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Geteilte Liste</string>
+  <string name="reading_lists_preview_save_button">Speichern</string>
   <string name="reading_lists_preview_save_dialog_title">Liste speichern</string>
   <string name="reading_lists_preview_save_dialog_text">Liste benennen und Artikel zum Speichern auswählen</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Titel</string>
   <string name="reading_lists_preview_save_dialog_cancel">Abbrechen</string>
   <string name="reading_lists_preview_save_dialog_save">Speichern</string>
+  <string name="reading_lists_preview_saved_snackbar">Leseliste gespeichert</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Ansehen</string>
   <string name="user_option_sync_label">Einstellungen</string>
   <string name="notification_reverted_title">Zurückgesetzte Bearbeitung</string>
   <string name="notification_channel_title">Artikel herunterladen</string>
@@ -1046,6 +1085,23 @@
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Bildalgorithmus trainieren</string>
   <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Entscheide, ob ein vorgeschlagenes Bild einen Artikel verbessern wird.</string>
+  <string name="image_recommendation_task_instruction">Würdest du dieses Bild dem Artikel hinzufügen?</string>
+  <string name="image_recommendation_tutorial">Anleitung</string>
+  <string name="image_recommendation_accept">Ja</string>
+  <string name="image_recommendation_reject">Nein</string>
+  <string name="image_recommendation_notsure">Nicht sicher</string>
+  <string name="image_recommendation_reject_title">Warum nicht?</string>
+  <string name="image_recommendation_reject_subtitle">Deine Antworten können zukünftige Vorschläge verbessern.</string>
+  <string name="image_recommendation_reject_not_relevant">Bild ist nicht zutreffend</string>
+  <string name="image_recommendation_reject_no_info">Nicht genügend Informationen für eine Entscheidung</string>
+  <string name="image_recommendation_reject_offensive">Bild ist anstößig</string>
+  <string name="image_recommendation_reject_low_quality">Bild ist von schlechter Qualität</string>
+  <string name="image_recommendation_reject_dont_know">Ich kenne mich mit diesem Thema nicht aus</string>
+  <string name="image_recommendation_reject_other">Andere</string>
+  <string name="image_recommendation_tooltip_main">Füge fehlende Bilder zu Artikeln in „Vorgeschlagene Bearbeitungen“ hinzu</string>
+  <string name="edit_summary_added_image">Bild hinzugefügt</string>
+  <string name="edit_summary_added_caption">Bildunterschrift hinzugefügt</string>
+  <string name="edit_published_view">Ansehen</string>
   <string name="file_page_activity_title">Dateiseite</string>
   <string name="file_page_add_image_caption_button">Bildunterschrift hinzufügen</string>
   <string name="file_page_add_image_tags_button">Bilder-Tags hinzufügen</string>
@@ -1144,12 +1200,12 @@
   <string name="insert_media_title">Medien einfügen</string>
   <string name="insert_media_search_description">Wähle eine Datei aus Wikimedia Commons</string>
   <string name="insert_media_search_hint">Medien suchen</string>
-  <string name="insert_media_settings" fuzzy="true">Medieneinstellungen</string>
+  <string name="insert_media_settings">Bilddetails hinzufügen</string>
   <string name="insert_media_settings_uploaded_image">Hochgeladenes Bild</string>
-  <string name="insert_media_settings_caption" fuzzy="true">Beschriftung</string>
+  <string name="insert_media_settings_caption">Bildunterschrift</string>
   <string name="insert_media_settings_caption_description">Label, das für alle Leser neben dem Element angezeigt wird</string>
   <string name="insert_media_settings_alternative_text">Alternativer Text</string>
-  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Textbeschreibung für Leser, die das Bild nicht sehen können</string>
+  <string name="insert_media_settings_alternative_text_description">Beschreibung für sehbehinderte Leser</string>
   <string name="insert_media_advanced_settings">Erweiterte Einstellungen</string>
   <string name="insert_media_advanced_settings_wrap_image">Text um das Bild fließen lassen</string>
   <string name="insert_media_advanced_settings_image_position">Bildposition</string>
@@ -1294,6 +1350,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 Monate</string>
   <string name="watchlist_expiry_dialog_six_months">6 Monate</string>
   <string name="watchlist_empty">Du hast keine Artikel auf deiner Beobachtungsliste.</string>
+  <string name="watchlist_search">Beobachtungsliste durchsuchen</string>
   <string name="watchlist_filter_all">Alle</string>
   <string name="watchlist_filter_talk">Diskussion</string>
   <string name="watchlist_filter_pages">Seiten</string>
@@ -1301,6 +1358,53 @@
   <string name="watchlist_page_moved">Verschoben</string>
   <string name="watchlist_page_protected">Geschützt</string>
   <string name="watchlist_page_deleted">Gelöscht</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Alle</string>
+  <string name="watchlist_filter_watchlist_activity_header">Beobachtungslistenaktivität</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Ungesehene Änderungen</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Gesehene Änderungen</string>
+  <string name="watchlist_filter_contribution_quality_header">Beitragqualitätsprognosen</string>
+  <string name="watchlist_filter_contribution_quality_good">Sehr wahrscheinlich gut</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Könnte Probleme haben</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Hat wahrscheinlich Probleme</string>
+  <string name="watchlist_filter_contribution_quality_bad">Hat sehr wahrscheinlich Probleme</string>
+  <string name="watchlist_filter_user_intent_header">Benutzerabsichtsprognosen</string>
+  <string name="watchlist_filter_user_intent_good">Sehr wahrscheinlich gute Absicht</string>
+  <string name="watchlist_filter_user_intent_may_problems">Könnte schlechte Absicht sein</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Wahrscheinlich schlechte Absicht</string>
+  <string name="watchlist_filter_user_intent_bad">Sehr wahrscheinlich schlechte Absicht</string>
+  <string name="watchlist_filter_user_status_header">Benutzeranmeldung und -erfahrung</string>
+  <string name="watchlist_filter_user_status_unregistered">Unangemeldet</string>
+  <string name="watchlist_filter_user_status_registered">Angemeldet</string>
+  <string name="watchlist_filter_user_status_newcomers">Neulinge</string>
+  <string name="watchlist_filter_user_status_learners">Anfänger</string>
+  <string name="watchlist_filter_user_status_experienced">Erfahrene Benutzer</string>
+  <string name="watchlist_filter_contribution_authorship_header">Beitrags-Autorenschaft</string>
+  <string name="watchlist_filter_contribution_authorship_own">Änderungen von dir</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Änderungen von anderen</string>
+  <string name="watchlist_filter_automated_contributions_header">Automatisierte Beiträge</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Mensch (kein Bot)</string>
+  <string name="watchlist_filter_significance_header">Bedeutung</string>
+  <string name="watchlist_filter_significance_minor">Kleine Änderungen</string>
+  <string name="watchlist_filter_significance_edits">Nicht-kleine Änderungen</string>
+  <string name="watchlist_filter_latest_revisions_header">Aktuellste Versionen</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Aktuellste Version</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Nicht die aktuellste Version</string>
+  <string name="watchlist_filter_type_of_change_header">Typ der Änderung</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Seitenbearbeitungen</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Seitenerstellungen</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Kategorieänderungen</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-Bearbeitungen</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Logbucheinträge</string>
+  <string name="watchlist_filter_type_of_change_new_users">Neue Benutzer</string>
+  <string name="watchlist_filter_reset_button">Zurücksetzen</string>
+  <string name="watchlist_search_bar_hint">Beobachtungsliste durchsuchen oder filtern</string>
+  <string name="watchlist_empty_search_message">Keine Ergebnisse. Versuche, %s zu entfernen, um mehr zu sehen.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d Filter</item>
+    <item quantity="other">%d Filter</item>
+  </plurals>
   <string name="preview_edit_title">Vorherige Bearbeitung</string>
   <string name="preview_edit_summarize_edit_title">Bearbeitung zusammenfassen</string>
   <string name="preview_edit_summarize_edit_hint">Wie hast du die Seite verbessert?</string>
@@ -1337,4 +1441,8 @@
   <string name="reading_list_share_message_v2">Hallo! Ich möchte meine Wikipedia-Leseliste mit Ihnen teilen:</string>
   <string name="reading_list_share_survey_title">Kannst du uns helfen, \"Leselisten teilen\" zu verbessern?</string>
   <string name="reading_list_share_survey_body">\"Leselisten teilen\" ist eine Testfunktion und wir brauchen dein Feedback, um sie zu verbessern oder zu entfernen.</string>
+  <string name="data_opt_in_accept">Zulassen</string>
+  <string name="data_opt_in_reject">Ablehnen</string>
+  <string name="page_issues_title">Seitenprobleme</string>
+  <string name="generic_release_notes">Kleinere Fehlerbehebungen und Verbesserungen</string>
 </resources>

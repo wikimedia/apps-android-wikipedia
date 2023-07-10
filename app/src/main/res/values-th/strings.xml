@@ -110,9 +110,9 @@
   <string name="map_view_link_text">ดูบนแผนที่</string>
   <string name="other_languages_indication_text">อ่านในภาษาอื่น</string>
   <string name="language_count_link_text">มีให้อ่านในอีก %d ภาษา</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้</string>
-  <string name="edit_save_action_license_anon">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้ การแก้ไขจะถูกถือว่าเป็นของเลขที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ&lt;a href=\"https://#login\"&gt;เข้าสู่ระบบ&lt;/a&gt;</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้ การแก้ไขจะถูกถือว่าเป็นของเลขที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ&lt;a href=\"https://#login\"&gt;เข้าสู่ระบบ&lt;/a&gt;</string>
   <string name="preference_title_language">ภาษาของวิกิพีเดีย</string>
   <string name="langlinks_filter_hint">ค้นหา</string>
   <string name="langlinks_empty">หน้านี้ไม่มีในภาษาอื่น</string>
@@ -234,7 +234,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.th</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.th</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/th</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -244,7 +243,7 @@
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_translators_translatewiki">แอปนี้แปลโดยผู้แปลอาสาสมัครจาก &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
-  <string name="about_app_license">ซอร์สโค้ดอยู่ที่ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; และ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ภายใต้ &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; เนื้อหาถูกเผยแพร่ภายใต้ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; เว้นแต่จะระบุเป็นอย่างอื่น</string>
+  <string name="about_app_license" fuzzy="true">ซอร์สโค้ดอยู่ที่ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; และ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ภายใต้ &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; เนื้อหาถูกเผยแพร่ภายใต้ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; เว้นแต่จะระบุเป็นอย่างอื่น</string>
   <string name="about_wmf">ผลิตภัณฑ์ของ&lt;a href=\"https://wikimediafoundation.org/\"&gt;มูลนิธิวิกิมีเดีย&lt;/a&gt;</string>
   <string name="about_activity_title">เกี่ยวกับ</string>
   <string name="edit_abandon_confirm">หน้านี้ถูกแก้ไขแล้ว คุณแน่ใจหรือไม่ว่าต้องการออกโดยไม่บันทึกการเปลี่ยนแปลง?</string>
