@@ -290,6 +290,10 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         startActivity(EditSectionActivity.newIntent(requireContext(), 0, null,
             viewModel.pageTitle, Constants.InvokeSource.EDIT_ADD_IMAGE, null, viewModel.recommendedImageTitle))
 
+
+        viewModel.insertImageIntoArticle(viewModel.recommendation.images.first().image, "Caption!", "Alt text!")
+
+
         // TODO: when returning from editing successfully, go to the next image.
         // callback().nextPage(this)
     }
