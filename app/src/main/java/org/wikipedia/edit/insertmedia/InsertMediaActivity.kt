@@ -266,13 +266,6 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
-    private fun beginShowSelectedImage() {
-        actionMode?.finish()
-        showSelectedImage()
-        invalidateOptionsMenu()
-        insertMediaAdapter?.notifyDataSetChanged()
-    }
-
     private inner class InsertMediaDiffCallback : DiffUtil.ItemCallback<PageTitle>() {
         override fun areItemsTheSame(oldItem: PageTitle, newItem: PageTitle): Boolean {
             return oldItem == newItem
@@ -304,7 +297,10 @@ class InsertMediaActivity : BaseActivity() {
 
             binding.root.setOnClickListener {
                 viewModel.selectedImage = if (pageTitle == viewModel.selectedImage) null else pageTitle
-                beginShowSelectedImage()
+                actionMode?.finish()
+                showSelectedImage()
+                invalidateOptionsMenu()
+                insertMediaAdapter?.notifyDataSetChanged()
             }
         }
     }
