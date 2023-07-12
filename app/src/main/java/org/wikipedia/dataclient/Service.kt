@@ -330,6 +330,24 @@ interface Service {
         @Field("watchlist") watchlist: String? = null,
     ): Observable<Edit>
 
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=visualeditoredit")
+    suspend fun postVisualEditorEdit(
+        @Field("paction") action: String,
+        @Field("page") title: String,
+        @Field("token") token: String,
+        @Field("section") section: Int,
+        @Field("sectiontitle") newSectionTitle: String?,
+        @Field("summary") summary: String,
+        @Field("assert") user: String?,
+        @Field("captchaid") captchaId: String?,
+        @Field("captchaword") captchaWord: String?,
+        @Field("minor") minor: Boolean? = null,
+        @Field("watchlist") watchlist: String? = null,
+        @Field("plugins") plugins: String? = null,
+        @Field("data-ge-task-image-recommendation") imageRecommendationJson: String? = null,
+    ): Edit
+
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     suspend fun getUserContributions(
         @Query("ucuser") username: String,
@@ -585,6 +603,14 @@ interface Service {
         @Query("titles") titles: String?,
         @Query("pageids") pageIds: String? = null
     ): MwQueryResponse
+
+    @POST(MW_API_PREFIX + "action=growthinvalidateimagerecommendation&tasktype=image-recommendation")
+    @FormUrlEncoded
+    suspend fun invalidateImageRecommendation(
+        @Query("title") title: String,
+        @Query("filename") fileName: String,
+        @Query("token") token: String
+    ): MwPostResponse
 
     @GET(MW_API_PREFIX + "action=paraminfo")
     suspend fun getParamInfo(
