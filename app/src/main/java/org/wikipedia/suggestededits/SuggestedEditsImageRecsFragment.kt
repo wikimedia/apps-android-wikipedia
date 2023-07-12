@@ -14,6 +14,7 @@ import android.view.View.*
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
@@ -35,6 +36,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecsItemBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
@@ -58,6 +60,18 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     private var resumedMillis = 0L
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>
+
+    private val requestEdit = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
+            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.edit_saved_successfully))
+                .setAction(R.string.edit_published_view) {
+                    val revId = result.data?.getLongExtra(EditSectionActivity.EXTRA_REV_ID, 0)
+                    // TODO: show diff of edit.
+                }
+
+            callback().nextPage(this)
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -286,12 +300,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             return
         }
 
-        // TODO: enter the editing workflow!
-        startActivity(EditSectionActivity.newIntent(requireContext(), 0, null,
+        requestEdit.launch(EditSectionActivity.newIntent(requireContext(), 0, null,
             viewModel.pageTitle, Constants.InvokeSource.EDIT_ADD_IMAGE, null, viewModel.recommendedImageTitle))
-
-        // TODO: when returning from editing successfully, go to the next image.
-        // callback().nextPage(this)
     }
 
     override fun publishEnabled(): Boolean {

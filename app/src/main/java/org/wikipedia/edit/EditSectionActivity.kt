@@ -403,6 +403,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 // Build intent that includes the section we were editing, so we can scroll to it later
                 val data = Intent()
                 data.putExtra(EXTRA_SECTION_ID, sectionID)
+                data.putExtra(EXTRA_REV_ID, result.revID)
                 setResult(EditHandler.RESULT_REFRESH_PAGE, data)
                 DeviceUtil.hideSoftKeyboard(this@EditSectionActivity)
                 finish()
@@ -774,6 +775,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
+        const val EXTRA_REV_ID = "revId"
 
         fun newIntent(context: Context, sectionId: Int, sectionAnchor: String?, title: PageTitle,
                       invokeSource: Constants.InvokeSource, highlightText: String? = null,
