@@ -44,12 +44,17 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             return try {
                 val wikiSite = WikiSite(Service.COMMONS_URL)
                 val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL))
-                    .fullTextSearch("File: $searchQuery", params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
+                    .fullTextSearchCommons(searchQuery, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
 
                 return response.query?.pages?.let { list ->
                     val results = list.sortedBy { it.index }.map {
                         val pageTitle = PageTitle(it.title, wikiSite, it.thumbUrl())
-                        pageTitle.description = it.description
+                        // since this is an imageinfo query, the thumb URL and description will
+                        // come from image metadata.
+                        it.imageInfo()?.let { imageInfo ->
+                            pageTitle.thumbUrl = imageInfo.thumbUrl
+                            pageTitle.description = imageInfo.metadata?.imageDescription()
+                        }
                         pageTitle
                     }
                     LoadResult.Page(results, null, response.continuation)

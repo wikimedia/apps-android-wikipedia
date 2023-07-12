@@ -45,6 +45,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/mediaTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"

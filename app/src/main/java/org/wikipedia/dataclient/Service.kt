@@ -60,6 +60,17 @@ interface Service {
             @Query("aulimit") maxResults: Int
     ): Observable<MwQueryResponse>
 
+    @GET(
+        MW_API_PREFIX + "action=query&generator=search&prop=imageinfo&iiprop=extmetadata|url" +
+                "&gsrnamespace=6&iiurlwidth=" + PREFERRED_THUMB_SIZE
+    )
+    suspend fun fullTextSearchCommons(
+        @Query("gsrsearch") searchTerm: String?,
+        @Query("gsroffset") gsrOffset: String?,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("continue") cont: String?
+    ): MwQueryResponse
+
     // ------- Miscellaneous -------
 
     @get:GET(MW_API_PREFIX + "action=fancycaptchareload")

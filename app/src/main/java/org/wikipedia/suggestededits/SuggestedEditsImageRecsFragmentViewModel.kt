@@ -58,6 +58,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
             }
             recommendedImageTitle = PageTitle(FileAliasData.valueFor(langCode), recommendation.images[0].displayFilename,
                 null, thumbUrl, Constants.commonsWikiSite)
+            recommendedImageTitle.description = recommendation.images[0].metadata!!.description
 
             _uiState.value = UiState.Success()
         }
