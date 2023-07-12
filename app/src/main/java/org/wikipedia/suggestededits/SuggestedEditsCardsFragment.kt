@@ -158,7 +158,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
             Prefs.showImageTagsOnboarding = false
             startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
         } else if (action == IMAGE_RECOMMENDATIONS && !Prefs.suggestedEditsImageRecsOnboardingShown) {
-            // TODO: start onboarding activity for image recommendations
+            startActivity(SuggestedEditsImageRecsOnboardingActivity.newIntent(requireActivity()))
         }
     }
 

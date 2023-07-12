@@ -60,7 +60,7 @@
   <string name="edit_history_link_text">Čuäʹjet muʹttemhistoria.</string>
   <string name="map_view_link_text">Čuäʹjet kaartâst</string>
   <string name="other_languages_indication_text">Looǥǥ jeeʹres ǩiõʹlle</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="preference_title_language">Wikipedia ǩiõl</string>
   <string name="langlinks_filter_hint">Ooccmõš</string>
   <string name="langlinks_activity_title">Jeeʹres ǩiõl</string>

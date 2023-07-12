@@ -108,9 +108,9 @@
   <string name="map_view_link_text">Žiūrėti žemėlapyje</string>
   <string name="other_languages_indication_text">Skaityti kita kalba</string>
   <string name="language_count_link_text">Prieinama %d kitų kalbų</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Paskelbdami jūs sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir neatšaukiamu savo indėlio paskelbimu pagal&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją.</string>
-  <string name="edit_save_action_license_anon">Skelbdami sutinkate su &lt;a href=\"%1$s\"&gt;Naudojimo sąlygomis&lt;/a&gt; ir negrįžtamai paskelbiate savo indelį pagal &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją. Keitimai bus priskirti jūsų įrenginio IP adresui. Jeigu &lt;a href=\"https://#login\"&gt;prisijungsite&lt;/a&gt;, turėsite daugiau privatumo.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Paskelbdami jūs sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir neatšaukiamu savo indėlio paskelbimu pagal&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Skelbdami sutinkate su &lt;a href=\"%1$s\"&gt;Naudojimo sąlygomis&lt;/a&gt; ir negrįžtamai paskelbiate savo indelį pagal &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; licenciją. Keitimai bus priskirti jūsų įrenginio IP adresui. Jeigu &lt;a href=\"https://#login\"&gt;prisijungsite&lt;/a&gt;, turėsite daugiau privatumo.</string>
   <string name="edit_anon_warning">Keitimai bus priskirti jūsų įrenginio IP adresui. Jeigu &lt;a href=\"https://#login\"&gt;prisijungsite&lt;/a&gt;, turėsite daugiau privatumo.</string>
   <string name="preference_title_language">Vikipedijos kalbos</string>
   <string name="langlinks_filter_hint">Ieškoti</string>
@@ -232,14 +232,13 @@
   <string name="terms_of_use_description">Naudojimosi sąlygos</string>
   <string name="about_wikipedia_url">https://lt.wikipedia.org/wiki/Vikipedija:Projekto_aprašymas</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.lt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.lt</string>
   <string name="about_libraries_heading">Panaudotos bibliotekos</string>
   <string name="about_contributors_heading">Autoriai</string>
   <string name="about_translators_heading">Vertėjai</string>
   <string name="about_translators_translatewiki">Ši programėlė buvo išversta savanorių vertėjų &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencija</string>
-  <string name="about_app_license">Šaltinio kodas prieinamas &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ir &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pagal &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 licenciją&lt;/a&gt;. Jeigu nenurodyta kitaip, turinys pateikiamas pagal &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike licenciją&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Šaltinio kodas prieinamas &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ir &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pagal &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 licenciją&lt;/a&gt;. Jeigu nenurodyta kitaip, turinys pateikiamas pagal &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike licenciją&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimedijos fondo&lt;/a&gt; produktas</string>
   <string name="about_activity_title">Apie</string>
   <string name="edit_abandon_confirm">Puslapis buvo pakeistas. Ar tikrai norite išeiti neįrašydami pakeitimų?</string>

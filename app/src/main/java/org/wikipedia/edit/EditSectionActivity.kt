@@ -7,6 +7,8 @@ import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.text.Spanned
+import android.text.SpannedString
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.*
@@ -70,6 +72,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private lateinit var editPreviewFragment: EditPreviewFragment
     private lateinit var editSummaryFragment: EditSummaryFragment
     private lateinit var syntaxHighlighter: SyntaxHighlighter
+    private lateinit var invokeSource: Constants.InvokeSource
     lateinit var pageTitle: PageTitle
         private set
 
@@ -106,8 +109,23 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == InsertMediaActivity.RESULT_INSERT_MEDIA_SUCCESS) {
             it.data?.let { intent ->
-                binding.editSectionText.inputConnection?.commitText("${intent.getStringExtra(InsertMediaActivity.RESULT_WIKITEXT)}", 1)
+                val newText = intent.getStringExtra(InsertMediaActivity.RESULT_WIKITEXT).orEmpty()
+
+
+                val cursorPos = binding.editSectionText.selectionStart.coerceIn(0, sectionWikitext.orEmpty().length)
+                val newWikitext = sectionWikitext?.substring(0, cursorPos) + newText + sectionWikitext?.substring(cursorPos)
+
+                binding.editSectionText.setText(newWikitext)
+                binding.editSectionText.setSelection(cursorPos, cursorPos + newText.length)
+
+                if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+                    // If we came from the Image Recommendation workflow, go directly to Preview.
+                    clickNextButton()
+                }
             }
+        } else if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            // If the user cancels image insertion, back out immediately.
+            finish()
         }
     }
 
@@ -143,7 +161,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
 
         override fun onRequestInsertMedia() {
-            requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.displayText))
+            requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.wikiSite,
+                pageTitle.displayText, Constants.InvokeSource.EDIT_ACTIVITY))
         }
 
         override fun onRequestInsertLink() {
@@ -181,10 +200,11 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         setContentView(binding.root)
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
 
-        pageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
+        pageTitle = intent.getParcelableExtra(Constants.ARG_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, -1)
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
+        invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
         supportActionBar?.title = ""
         syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText, binding.editSectionScroll)
         binding.editSectionScroll.isSmoothScrollingEnabled = false
@@ -249,6 +269,14 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                     }
                 }
             }
+        }
+
+        if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            // If the intent is to add an image to the article, go directly to the image insertion flow.
+            val addImageTitle = intent.getParcelableExtra<PageTitle>(EXTRA_KEY_ADD_IMAGE_TITLE)!!
+
+            requestInsertMedia.launch(InsertMediaActivity.newIntent(this, pageTitle.wikiSite,
+                pageTitle.displayText, invokeSource, addImageTitle))
         }
 
         // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:
@@ -736,17 +764,21 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         private const val EXTRA_KEY_SECTION_TEXT_MODIFIED = "sectionTextModified"
         private const val EXTRA_KEY_TEMPORARY_WIKITEXT_STORED = "hasTemporaryWikitextStored"
         private const val EXTRA_KEY_EDITING_ALLOWED = "editingAllowed"
-        const val EXTRA_TITLE = "org.wikipedia.edit_section.title"
+        private const val EXTRA_KEY_ADD_IMAGE_TITLE = "addImageTitle"
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
 
-        fun newIntent(context: Context, sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String? = null): Intent {
+        fun newIntent(context: Context, sectionId: Int, sectionAnchor: String?, title: PageTitle,
+                      invokeSource: Constants.InvokeSource, highlightText: String? = null,
+                      addImageTitle: PageTitle? = null): Intent {
             return Intent(context, EditSectionActivity::class.java)
                 .putExtra(EXTRA_SECTION_ID, sectionId)
                 .putExtra(EXTRA_SECTION_ANCHOR, sectionAnchor)
-                .putExtra(EXTRA_TITLE, title)
+                .putExtra(Constants.ARG_TITLE, title)
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtra(EXTRA_KEY_ADD_IMAGE_TITLE, addImageTitle)
         }
     }
 

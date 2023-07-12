@@ -82,9 +82,9 @@
   <string name="map_view_link_text">რუკაზე ნახვა</string>
   <string name="other_languages_indication_text">სხვა ენაზე წაკითხვა</string>
   <string name="language_count_link_text">ხელმისაწვდომია %d სხვა ენაზე</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">გამოქვეყნებით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას.</string>
-  <string name="edit_save_action_license_anon">გამოქვეყნებით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას. რედაქტირების ავტორად დაფიქსირდება თქვენი მოწყობილობის IP-მისამართი. რეკომენდებულია &lt;a href=\"https://#login\"&gt;ავტორიზაციის&lt;/a&gt; გავლა მეტი დაცულობისათვის.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">გამოქვეყნებით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">გამოქვეყნებით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას. რედაქტირების ავტორად დაფიქსირდება თქვენი მოწყობილობის IP-მისამართი. რეკომენდებულია &lt;a href=\"https://#login\"&gt;ავტორიზაციის&lt;/a&gt; გავლა მეტი დაცულობისათვის.</string>
   <string name="preference_title_language">ვიკიპედიის ენები</string>
   <string name="langlinks_filter_hint">ძიება</string>
   <string name="langlinks_empty">ეს გვერდი მიუწვდომელია სხვა ენებზე</string>
@@ -194,7 +194,6 @@
   <string name="privacy_policy_description">კონფიდენციალურობის პოლიტიკა</string>
   <string name="terms_of_use_description">გამოყენების პირობები</string>
   <string name="android_app_request_an_account_url">https://kk.wikipedia.org/wiki/Уикипедия:Тіркелгі_сұрау</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ka</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ka</string>
   <string name="about_libraries_heading">გამოყენებული ბიბლიოთეკები</string>
   <string name="about_contributors_heading">ავტორები</string>

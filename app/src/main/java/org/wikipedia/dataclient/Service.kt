@@ -71,11 +71,8 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=description&redirects=1")
     fun getDescription(@Query("titles") titles: String): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=info|description&inprop=varianttitles|displaytitle&redirects=1")
-    fun getInfoByPageId(@Query("pageids") pageIds: String): Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&inprop=varianttitles|displaytitle&redirects=1")
-    suspend fun getPageTitlesByPageIdsOrTitles(@Query("pageids") pageIds: String? = null, @Query("titles") titles: String? = null): MwQueryResponse
+    @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
+    suspend fun getInfoByPageIdsOrTitles(@Query("pageids") pageIds: String? = null, @Query("titles") titles: String? = null): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query")
     suspend fun getPageIds(@Query("titles") titles: String): MwQueryResponse
@@ -339,6 +336,24 @@ interface Service {
         @Field("watchlist") watchlist: String? = null,
     ): Observable<Edit>
 
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=visualeditoredit")
+    suspend fun postVisualEditorEdit(
+        @Field("paction") action: String,
+        @Field("page") title: String,
+        @Field("token") token: String,
+        @Field("section") section: Int,
+        @Field("sectiontitle") newSectionTitle: String?,
+        @Field("summary") summary: String,
+        @Field("assert") user: String?,
+        @Field("captchaid") captchaId: String?,
+        @Field("captchaword") captchaWord: String?,
+        @Field("minor") minor: Boolean? = null,
+        @Field("watchlist") watchlist: String? = null,
+        @Field("plugins") plugins: String? = null,
+        @Field("data-ge-task-image-recommendation") imageRecommendationJson: String? = null,
+    ): Edit
+
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     suspend fun getUserContributions(
         @Query("ucuser") username: String,
@@ -593,6 +608,14 @@ interface Service {
     suspend fun getPagesWithImageRecommendations(
         @Query("gsrlimit") count: Int
     ): MwQueryResponse
+
+    @POST(MW_API_PREFIX + "action=growthinvalidateimagerecommendation&tasktype=image-recommendation")
+    @FormUrlEncoded
+    suspend fun invalidateImageRecommendation(
+        @Query("title") title: String,
+        @Query("filename") fileName: String,
+        @Query("token") token: String
+    ): MwPostResponse
 
     @GET(MW_API_PREFIX + "action=paraminfo")
     suspend fun getParamInfo(

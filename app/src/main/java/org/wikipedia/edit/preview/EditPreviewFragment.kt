@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
@@ -74,8 +75,9 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                 RestService.PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(title.prefixedText)
         val postData = "wikitext=" + UriUtil.encodeURL(wikiText)
         binding.editPreviewWebview.postUrl(url, postData.toByteArray())
-        ViewAnimations.fadeIn(binding.editPreviewContainer) { requireActivity().invalidateOptionsMenu() }
-        ViewAnimations.fadeOut(ActivityCompat.requireViewById(requireActivity(), R.id.edit_section_container))
+        ActivityCompat.requireViewById<View>(requireActivity(), R.id.edit_section_container).isVisible = false
+        binding.editPreviewContainer.isVisible = true
+        requireActivity().invalidateOptionsMenu()
     }
 
     private fun initWebView() {

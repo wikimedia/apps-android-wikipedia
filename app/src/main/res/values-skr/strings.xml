@@ -84,7 +84,7 @@
   <string name="edit_history_link_text"> تبدیلی دا تاریخچہ ݙیکھو</string>
   <string name="map_view_link_text">نقشے تے ݙیکھو</string>
   <string name="other_languages_indication_text">ٻئی زبان وچ پڑھو</string>
-  <string name="content_license_cc_by_sa"> کریئیٹیو کامنز انتساب / یکساں-شراکت اجازت نامہ 3.0</string>
+  <string name="content_license_cc_by_sa">سی سی بی وائی۔ایس اے ٤.٠</string>
   <string name="preference_title_language">وکی پیڈیا دی زباناں</string>
   <string name="langlinks_filter_hint">ڳولو</string>
   <string name="langlinks_empty">ایہ ورقہ ٻیاں زباناں وچ کائنی</string>
@@ -472,6 +472,7 @@
   <string name="image_recommendation_notsure">پک کائنی</string>
   <string name="image_recommendation_reject_title">کیوں نہ؟</string>
   <string name="image_recommendation_reject_not_relevant">تصویر غیرمتعلقہ ہے</string>
+  <string name="image_recommendation_reject_no_info">فیصلہ کرݨ کیتے کافی معلومات کائنی</string>
   <string name="image_recommendation_reject_other">ٻیا</string>
   <string name="image_recommendation_reject_submit">جمع کرواؤ</string>
   <string name="image_recommendation_tooltip_next">اڳلا</string>

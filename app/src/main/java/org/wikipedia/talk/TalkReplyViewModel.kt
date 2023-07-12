@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
+import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.page.PageTitle
@@ -13,7 +14,7 @@ import org.wikipedia.util.SingleLiveData
 
 class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
 
-    val pageTitle = bundle.getParcelable<PageTitle>(TalkReplyActivity.EXTRA_PAGE_TITLE)!!
+    val pageTitle = bundle.getParcelable<PageTitle>(Constants.ARG_TITLE)!!
     val topic = bundle.getParcelable<ThreadItem>(TalkReplyActivity.EXTRA_TOPIC)
     val isNewTopic = topic == null
     val postReplyData = SingleLiveData<Resource<Long>>()

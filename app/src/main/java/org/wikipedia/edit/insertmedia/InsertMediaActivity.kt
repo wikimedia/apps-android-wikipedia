@@ -37,6 +37,7 @@ import org.wikipedia.databinding.ItemInsertMediaBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.FileAliasData
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
@@ -51,7 +52,7 @@ class InsertMediaActivity : BaseActivity() {
     private lateinit var insertMediaSettingsFragment: InsertMediaSettingsFragment
     private lateinit var insertMediaAdvancedSettingsFragment: InsertMediaAdvancedSettingsFragment
 
-    private val insertMediaAdapter = InsertMediaAdapter()
+    private var insertMediaAdapter: InsertMediaAdapter? = null
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
 
@@ -67,24 +68,28 @@ class InsertMediaActivity : BaseActivity() {
 
         binding.refreshView.setOnRefreshListener {
             binding.refreshView.isRefreshing = false
-            insertMediaAdapter.refresh()
+            insertMediaAdapter?.refresh()
         }
 
         binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@InsertMediaActivity, R.attr.background_color))
         binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
-        binding.recyclerView.adapter = insertMediaAdapter
+
+        if (viewModel.invokeSource != Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            insertMediaAdapter = InsertMediaAdapter()
+            binding.recyclerView.adapter = insertMediaAdapter
+        }
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
                     viewModel.insertMediaFlow.collectLatest {
-                        insertMediaAdapter.submitData(it)
+                        insertMediaAdapter?.submitData(it)
                     }
                 }
                 launch {
-                    insertMediaAdapter.loadStateFlow.collectLatest {
+                    insertMediaAdapter?.loadStateFlow?.collectLatest {
                         binding.progressBar.isVisible = it.append is LoadState.Loading || it.refresh is LoadState.Loading
-                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && insertMediaAdapter.itemCount == 0)
+                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && insertMediaAdapter?.itemCount == 0)
                         binding.emptyMessage.isVisible = showEmpty
                     }
                 }
@@ -101,6 +106,18 @@ class InsertMediaActivity : BaseActivity() {
             }
         }
         adjustRefreshViewLayoutParams(false)
+
+        if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE &&
+                viewModel.selectedImage != null && savedInstanceState == null) {
+            binding.imageInfoContainer.isVisible = false
+
+            binding.root.post {
+                if (!isDestroyed) {
+                    showMediaSettingsFragment()
+                    adjustRefreshViewLayoutParams(true)
+                }
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -135,9 +152,17 @@ class InsertMediaActivity : BaseActivity() {
                 true
             }
             R.id.menu_insert -> {
-                Intent().let {
-                    it.putExtra(RESULT_WIKITEXT, combineMediaWikitext())
-                    setResult(RESULT_INSERT_MEDIA_SUCCESS, it)
+                viewModel.selectedImage?.let {
+                    val intent = Intent()
+                        .putExtra(RESULT_IMAGE_TITLE, viewModel.selectedImage)
+                        .putExtra(RESULT_IMAGE_CAPTION, insertMediaSettingsFragment.captionText)
+                        .putExtra(RESULT_IMAGE_ALT, insertMediaSettingsFragment.alternativeText)
+                        .putExtra(RESULT_IMAGE_TYPE, viewModel.imageType)
+                        .putExtra(RESULT_IMAGE_POS, viewModel.imagePosition)
+                    if (viewModel.imageSize != InsertMediaViewModel.IMAGE_SIZE_DEFAULT) {
+                        intent.putExtra(RESULT_IMAGE_SIZE, viewModel.imageSize)
+                    }
+                    setResult(RESULT_INSERT_MEDIA_SUCCESS, intent)
                     finish()
                 }
                 true
@@ -148,10 +173,14 @@ class InsertMediaActivity : BaseActivity() {
 
     override fun onBackPressed() {
         if (insertMediaSettingsFragment.handleBackPressed()) {
-            binding.imageInfoContainer.isVisible = true
-            binding.searchContainer.isVisible = true
-            supportActionBar?.title = getString(R.string.insert_media_title)
-            adjustRefreshViewLayoutParams(false)
+            if (insertMediaAdapter != null) {
+                binding.imageInfoContainer.isVisible = true
+                binding.searchContainer.isVisible = true
+                supportActionBar?.title = getString(R.string.insert_media_title)
+                adjustRefreshViewLayoutParams(false)
+            } else {
+                finish()
+            }
             return
         }
         if (insertMediaAdvancedSettingsFragment.handleBackPressed()) {
@@ -171,13 +200,21 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     private fun combineMediaWikitext(): String {
-        viewModel.selectedImage?.prefixedText?.let {
-            var wikiText = "[[$it|${viewModel.imageSize}px|${viewModel.imageType}|${viewModel.imagePosition}"
+        viewModel.selectedImage?.let {
+            var wikiText = "[[" + FileAliasData.valueFor(viewModel.wikiSite.languageCode) + ":" + it.text
 
-            if (insertMediaSettingsFragment.alternativeText.isNotEmpty()) {
-                wikiText += "|alt=${insertMediaSettingsFragment.alternativeText}"
+            if (viewModel.imageSize != InsertMediaViewModel.IMAGE_SIZE_DEFAULT) {
+                wikiText += "|${viewModel.imageSize}px"
             }
-
+            viewModel.magicWords[viewModel.imageType]?.let { type ->
+                wikiText += "|$type"
+            }
+            viewModel.magicWords[viewModel.imagePosition]?.let { pos ->
+                wikiText += "|$pos"
+            }
+            if (insertMediaSettingsFragment.alternativeText.isNotEmpty()) {
+                wikiText += "|" + viewModel.magicWords[InsertMediaViewModel.IMAGE_ALT_TEXT].orEmpty().replace("$1", insertMediaSettingsFragment.alternativeText)
+            }
             if (insertMediaSettingsFragment.captionText.isNotEmpty()) {
                 wikiText += "|${insertMediaSettingsFragment.captionText}"
             }
@@ -205,6 +242,7 @@ class InsertMediaActivity : BaseActivity() {
     private fun showMediaSettingsFragment() {
         binding.imageInfoContainer.isVisible = false
         binding.searchContainer.isVisible = false
+        binding.progressBar.isVisible = false
         insertMediaSettingsFragment.show()
     }
 
@@ -259,6 +297,13 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
+    private fun beginShowSelectedImage() {
+        actionMode?.finish()
+        showSelectedImage()
+        invalidateOptionsMenu()
+        insertMediaAdapter?.notifyDataSetChanged()
+    }
+
     private inner class InsertMediaDiffCallback : DiffUtil.ItemCallback<PageTitle>() {
         override fun areItemsTheSame(oldItem: PageTitle, newItem: PageTitle): Boolean {
             return oldItem == newItem
@@ -290,10 +335,7 @@ class InsertMediaActivity : BaseActivity() {
 
             binding.root.setOnClickListener {
                 viewModel.selectedImage = if (pageTitle == viewModel.selectedImage) null else pageTitle
-                actionMode?.finish()
-                showSelectedImage()
-                invalidateOptionsMenu()
-                insertMediaAdapter.notifyDataSetChanged()
+                beginShowSelectedImage()
             }
         }
     }
@@ -322,7 +364,7 @@ class InsertMediaActivity : BaseActivity() {
 
         override fun onQueryChange(s: String) {
             viewModel.searchQuery = s.ifEmpty { viewModel.originalSearchQuery }
-            insertMediaAdapter.refresh()
+            insertMediaAdapter?.refresh()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {
@@ -344,12 +386,22 @@ class InsertMediaActivity : BaseActivity() {
 
     companion object {
         const val EXTRA_SEARCH_QUERY = "searchQuery"
-        const val RESULT_WIKITEXT = "insertMediaWikitext"
+        const val EXTRA_IMAGE_TITLE = "imageTitle"
+        const val RESULT_IMAGE_TITLE = "resultImageTitle"
+        const val RESULT_IMAGE_CAPTION= "resultImageCaption"
+        const val RESULT_IMAGE_ALT = "resultImageAlt"
+        const val RESULT_IMAGE_SIZE = "resultImageSize"
+        const val RESULT_IMAGE_TYPE = "resultImageType"
+        const val RESULT_IMAGE_POS = "resultImagePos"
         const val RESULT_INSERT_MEDIA_SUCCESS = 100
 
-        fun newIntent(context: Context, searchQuery: String): Intent {
+        fun newIntent(context: Context, wikiSite: WikiSite, searchQuery: String,
+                      invokeSource: Constants.InvokeSource, imageTitle: PageTitle? = null): Intent {
             return Intent(context, InsertMediaActivity::class.java)
-                    .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
+                .putExtra(Constants.ARG_WIKISITE, wikiSite)
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtra(EXTRA_IMAGE_TITLE, imageTitle)
+                .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
         }
     }
 }

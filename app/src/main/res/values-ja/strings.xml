@@ -17,6 +17,7 @@
 * Kokoko-H
 * LaMagiaaa
 * Los688
+* MagicAho
 * Makoto Asai
 * Marine-Blue
 * MathXplore
@@ -283,7 +284,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ja</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -1080,7 +1081,12 @@
     <item quantity="other">%d文字追加しました</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">画像処理アルゴリズムの学習</string>
-  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">提案された画像が記事の改善につながるかどうかを判断します。</string>
+  <string name="suggested_edits_image_recommendations_task_detail">理解を深めるために、Wikipedia の記事に推奨画像を追加します。</string>
+  <string name="image_recommendation_reject_title">なぜだめですか？</string>
+  <string name="image_recommendation_reject_dont_know">この主題について知りません</string>
+  <string name="image_recommendation_onboarding_2">提案された画像を Wikipedia の記事に掲載するかどうかを決定します。</string>
+  <string name="image_recommendation_onboarding_3">提案は機械によって生成され、それを受け入れるか拒否するかを判断するのはユーザー自身です。</string>
+  <string name="image_recommendation_tooltip_1">この記事を読んでトピックを理解してください</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>

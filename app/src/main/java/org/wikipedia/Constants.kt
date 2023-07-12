@@ -21,6 +21,8 @@ object Constants {
     const val ACTIVITY_REQUEST_VOICE_SEARCH = 45
     const val ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION = 44
 
+    const val ARG_TITLE = "title"
+    const val ARG_WIKISITE = "wikiSite"
     const val INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading"
     const val INTENT_APP_SHORTCUT_RANDOMIZER = "appShortcutRandomizer"
     const val INTENT_APP_SHORTCUT_SEARCH = "appShortcutSearch"
@@ -107,6 +109,7 @@ object Constants {
         WATCHLIST_FILTER_ACTIVITY("watchlistFilter"),
         WIDGET("widget"),
         USER_CONTRIB_ACTIVITY("userContribActivity"),
+        EDIT_ADD_IMAGE("editAddImage"),
     }
 
     enum class ImageEditType(name: String) {

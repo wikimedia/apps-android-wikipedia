@@ -35,6 +35,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecsItemBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -286,13 +287,15 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         }
 
         // TODO: enter the editing workflow!
+        startActivity(EditSectionActivity.newIntent(requireContext(), 0, null,
+            viewModel.pageTitle, Constants.InvokeSource.EDIT_ADD_IMAGE, null, viewModel.recommendedImageTitle))
 
 
         viewModel.insertImageIntoArticle(viewModel.recommendation.images.first().image, "Caption!", "Alt text!")
 
 
         // TODO: when returning from editing successfully, go to the next image.
-        callback().nextPage(this)
+        // callback().nextPage(this)
     }
 
     override fun publishEnabled(): Boolean {

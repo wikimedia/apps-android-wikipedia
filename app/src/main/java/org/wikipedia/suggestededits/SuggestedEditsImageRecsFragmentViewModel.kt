@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
@@ -16,6 +17,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.FileAliasData
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.log.L
+import org.wikipedia.util.ImageUrlUtil
 import java.util.*
 
 class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
@@ -25,7 +27,9 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     lateinit var recommendation: GrowthImageSuggestion
+    lateinit var pageTitle: PageTitle
     lateinit var summary: PageSummary
+    lateinit var recommendedImageTitle: PageTitle
 
     val langCode = bundle.getString(SuggestedEditsImageRecsFragment.ARG_LANG)!!
     private val _uiState = MutableStateFlow(UiState())
@@ -45,7 +49,16 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
             } while (tries++ < 10 && page?.growthimagesuggestiondata.isNullOrEmpty())
 
             recommendation = page?.growthimagesuggestiondata?.first()!!
-            summary = ServiceFactory.getRest(WikiSite.forLanguageCode(langCode)).getPageSummary(null, page.title)
+            val wikiSite = WikiSite.forLanguageCode(langCode)
+            summary = ServiceFactory.getRest(wikiSite).getPageSummary(null, page.title)
+            pageTitle = summary.getPageTitle(wikiSite)
+
+            var thumbUrl = ImageUrlUtil.getUrlForPreferredSize(recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
+            if (thumbUrl.startsWith("//")) {
+                thumbUrl = "https:$thumbUrl"
+            }
+            recommendedImageTitle = PageTitle(FileAliasData.valueFor(langCode), recommendation.images[0].displayFilename,
+                null, thumbUrl, Constants.commonsWikiSite)
 
             _uiState.value = UiState.Success()
         }

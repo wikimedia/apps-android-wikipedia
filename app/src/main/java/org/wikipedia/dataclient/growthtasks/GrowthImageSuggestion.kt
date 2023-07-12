@@ -36,4 +36,15 @@ class GrowthImageSuggestion(
         val reason: String = "",
         val contentLanguageName: String = "",
     )
+
+    @Serializable
+    class PluginResponse(
+        val taskType: String = "",
+        val filename: String = "",
+        val accepted: Boolean = false,
+        val reasons: List<String> = emptyList(),
+        val caption: String = "",
+        val sectionNumber: Int? = null,
+        val sectionTitle: String? = null
+    )
 }

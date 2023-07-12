@@ -44,7 +44,7 @@
   <string name="edit_history_link_text">Talìa la crunuluggìa dî canciamenti</string>
   <string name="other_languages_indication_text">Leggi n n\'àutra lingua</string>
   <string name="language_count_link_text">Dispunìbbili n àutri %d lingui</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="preference_title_language">Lingui di Wikipedia</string>
   <string name="langlinks_filter_hint">Risciduta</string>
   <string name="langlinks_activity_title">Àutri lingui</string>
