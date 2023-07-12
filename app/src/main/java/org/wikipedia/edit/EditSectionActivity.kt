@@ -7,8 +7,6 @@ import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.text.Spanned
-import android.text.SpannedString
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.*
@@ -43,6 +41,7 @@ import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
+import org.wikipedia.edit.insertmedia.InsertMediaViewModel
 import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
@@ -109,14 +108,21 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == InsertMediaActivity.RESULT_INSERT_MEDIA_SUCCESS) {
             it.data?.let { intent ->
-                val newText = intent.getStringExtra(InsertMediaActivity.RESULT_WIKITEXT).orEmpty()
+                val newWikiText = InsertMediaViewModel.insertImageIntoWikiText(pageTitle.wikiSite.languageCode,
+                    sectionWikitext.orEmpty(),
+                    intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_TITLE).orEmpty(),
+                    intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).orEmpty(),
+                    intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).orEmpty(),
+                    intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_SIZE).orEmpty(),
+                    intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_TYPE).orEmpty(),
+                    intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_POS).orEmpty(),
+                    if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) 0 else binding.editSectionText.selectionStart,
+                    invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE)
 
+                binding.editSectionText.setText(newWikiText)
 
-                val cursorPos = binding.editSectionText.selectionStart.coerceIn(0, sectionWikitext.orEmpty().length)
-                val newWikitext = sectionWikitext?.substring(0, cursorPos) + newText + sectionWikitext?.substring(cursorPos)
-
-                binding.editSectionText.setText(newWikitext)
-                binding.editSectionText.setSelection(cursorPos, cursorPos + newText.length)
+                // TODO: automatically highlight what was added.
+                // binding.editSectionText.setSelection(cursorPos, cursorPos + newText.length)
 
                 if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
                     // If we came from the Image Recommendation workflow, go directly to Preview.

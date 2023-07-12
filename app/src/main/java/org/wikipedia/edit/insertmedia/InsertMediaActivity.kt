@@ -37,7 +37,6 @@ import org.wikipedia.databinding.ItemInsertMediaBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.PageTitle
-import org.wikipedia.staticdata.FileAliasData
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
@@ -154,7 +153,7 @@ class InsertMediaActivity : BaseActivity() {
             R.id.menu_insert -> {
                 viewModel.selectedImage?.let {
                     val intent = Intent()
-                        .putExtra(RESULT_IMAGE_TITLE, viewModel.selectedImage)
+                        .putExtra(RESULT_IMAGE_TITLE, it.text)
                         .putExtra(RESULT_IMAGE_CAPTION, insertMediaSettingsFragment.captionText)
                         .putExtra(RESULT_IMAGE_ALT, insertMediaSettingsFragment.alternativeText)
                         .putExtra(RESULT_IMAGE_TYPE, viewModel.imageType)
@@ -197,34 +196,6 @@ class InsertMediaActivity : BaseActivity() {
         }
         (binding.toolbar.layoutParams as AppBarLayout.LayoutParams).scrollFlags = if (removeLayoutBehavior) AppBarLayout.LayoutParams.SCROLL_FLAG_NO_SCROLL else
             AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS or AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL
-    }
-
-    private fun combineMediaWikitext(): String {
-        viewModel.selectedImage?.let {
-            var wikiText = "[[" + FileAliasData.valueFor(viewModel.wikiSite.languageCode) + ":" + it.text
-
-            if (viewModel.imageSize != InsertMediaViewModel.IMAGE_SIZE_DEFAULT) {
-                wikiText += "|${viewModel.imageSize}px"
-            }
-            viewModel.magicWords[viewModel.imageType]?.let { type ->
-                wikiText += "|$type"
-            }
-            viewModel.magicWords[viewModel.imagePosition]?.let { pos ->
-                wikiText += "|$pos"
-            }
-            if (insertMediaSettingsFragment.alternativeText.isNotEmpty()) {
-                wikiText += "|" + viewModel.magicWords[InsertMediaViewModel.IMAGE_ALT_TEXT].orEmpty().replace("$1", insertMediaSettingsFragment.alternativeText)
-            }
-            if (insertMediaSettingsFragment.captionText.isNotEmpty()) {
-                wikiText += "|${insertMediaSettingsFragment.captionText}"
-            }
-
-            wikiText += "]]"
-
-            return wikiText
-        } ?: run {
-            return ""
-        }
     }
 
     private fun applyActionBarButtonStyle(menuItem: MenuItem, emphasize: Boolean) {
@@ -388,7 +359,7 @@ class InsertMediaActivity : BaseActivity() {
         const val EXTRA_SEARCH_QUERY = "searchQuery"
         const val EXTRA_IMAGE_TITLE = "imageTitle"
         const val RESULT_IMAGE_TITLE = "resultImageTitle"
-        const val RESULT_IMAGE_CAPTION= "resultImageCaption"
+        const val RESULT_IMAGE_CAPTION = "resultImageCaption"
         const val RESULT_IMAGE_ALT = "resultImageAlt"
         const val RESULT_IMAGE_SIZE = "resultImageSize"
         const val RESULT_IMAGE_TYPE = "resultImageType"

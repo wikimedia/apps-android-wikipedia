@@ -13,6 +13,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.FileAliasData
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
@@ -23,7 +24,6 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
     var searchQuery = StringUtil.removeHTMLTags(StringUtil.removeUnderscores(bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!))
     val originalSearchQuery = searchQuery
     var selectedImage = bundle.getParcelable<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
-    val magicWords = mutableMapOf<String, String>()
 
     var imagePosition = IMAGE_POSITION_RIGHT
     var imageType = IMAGE_TYPE_THUMBNAIL
@@ -67,6 +67,10 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun loadMagicWords() {
+        if (magicWordsLang == wikiSite.languageCode) {
+            return
+        }
+
         magicWords[IMAGE_POSITION_NONE] = "none"
         magicWords[IMAGE_POSITION_CENTER] = "center"
         magicWords[IMAGE_POSITION_LEFT] = "left"
@@ -91,6 +95,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                     it.find { it.name == IMAGE_ALT_TEXT }?.aliases?.first()?.let { magicWords[IMAGE_ALT_TEXT] = it }
                     it.find { it.name == IMAGE_POSITION_NONE }?.aliases?.first()?.let { magicWords[IMAGE_POSITION_NONE] = it }
                 }
+            magicWordsLang = wikiSite.languageCode
         }
     }
 
@@ -112,5 +117,106 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
         const val IMAGE_TYPE_BASIC = "basic"
         const val IMAGE_ALT_TEXT = "img_alt"
         const val IMAGE_SIZE_DEFAULT = "220x124"
+
+        private var magicWordsLang = ""
+        private val magicWords = mutableMapOf<String, String>()
+
+        fun insertImageIntoWikiText(langCode: String, oldWikiText: String, imageTitle: String, imageCaption: String,
+                                    imageAltText: String, imageSize: String, imageType: String, imagePos: String,
+                                    cursorPos: Int = 0, attemptInfobox: Boolean = false): String {
+            var wikiText = oldWikiText
+            val namespaceName = FileAliasData.valueFor(langCode)
+
+            var template = "[[" + FileAliasData.valueFor(langCode) + ":" + imageTitle
+            if (imageSize != IMAGE_SIZE_DEFAULT) {
+                template += "|${imageSize}px"
+            }
+            magicWords[imageType]?.let { type ->
+                template += "|$type"
+            }
+            magicWords[imagePos]?.let { pos ->
+                template += "|$pos"
+            }
+            if (imageAltText.isNotEmpty()) {
+                template += "|" + magicWords[IMAGE_ALT_TEXT].orEmpty().replace("$1", imageAltText)
+            }
+            if (imageCaption.isNotEmpty()) {
+                template += "|$imageCaption"
+            }
+            template += "]]"
+
+            // But before we resort to inserting the image at the top of the wikitext, let's see if
+            // the article has an infobox, and if so, see if we can inject the image right in there.
+
+            var insertAtTop = true
+
+            var infoboxStartIndex = -1
+            var infoboxEndIndex = -1
+            var i = 0
+            while (true) {
+                i = wikiText.indexOf("{{", i)
+                if (i == -1) {
+                    break
+                }
+                i += 2
+                val pipePos = wikiText.indexOf("|", i)
+                if (pipePos > i) {
+                    val templateName = wikiText.substring(i, pipePos).trim()
+                    if (templateName.contains("{{") || templateName.contains("}}")) {
+                        // template doesn't contain pipe symbol, not what we're looking for.
+                        continue
+                    }
+
+                    if (templateName.endsWith("box") || templateName.contains("box ")) {
+                        infoboxStartIndex = i
+                        infoboxEndIndex = wikiText.indexOf("}}", infoboxStartIndex)
+                    }
+                }
+            }
+
+            if (attemptInfobox && (infoboxStartIndex in 0 until infoboxEndIndex)) {
+                val regexImage = """\|\s*image(\d+)?\s*(=)\s*(\|)""".toRegex()
+                var match = regexImage.find(wikiText, infoboxStartIndex)
+
+                if (match != null && match.groups[3] != null &&
+                    match.groups[3]!!.range.first < infoboxEndIndex) {
+                    insertAtTop = false
+
+                    var insertPos = match.groups[3]!!.range.first
+                    val curImageStr = wikiText.substring(match.groups[2]!!.range.first + 1, match.groups[3]!!.range.first)
+                    if (curImageStr.contains("\n")) {
+                        insertPos = wikiText.indexOf("\n", match.groups[2]!!.range.first)
+                    }
+
+                    wikiText = wikiText.substring(0, insertPos) + namespaceName + ":" + imageTitle + wikiText.substring(insertPos)
+                }
+
+                val regexCaption = """\|\s*caption(\d+)?\s*(=)\s*(\|)""".toRegex()
+                match = regexCaption.find(wikiText, infoboxStartIndex)
+                if (match != null && match.groups[3] != null &&
+                    match.groups[3]!!.range.first < infoboxEndIndex) {
+
+                    var insertPos = match.groups[3]!!.range.first
+                    val curImageStr = wikiText.substring(match.groups[2]!!.range.first + 1, match.groups[3]!!.range.first)
+                    if (curImageStr.contains("\n")) {
+                        insertPos = wikiText.indexOf("\n", match.groups[2]!!.range.first)
+                    }
+
+                    wikiText = wikiText.substring(0, insertPos) + imageCaption + wikiText.substring(insertPos)
+                }
+
+                // TODO: insert image alt text.
+            }
+
+            if (insertAtTop) {
+                val pos = cursorPos.coerceIn(0, wikiText.length)
+                wikiText = wikiText.substring(0, pos) + template + "\n" + wikiText.substring(pos)
+            }
+
+            // Save the new wikitext to the article.
+
+            L.d(">>> $wikiText")
+            return wikiText
+        }
     }
 }
