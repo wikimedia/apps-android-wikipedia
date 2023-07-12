@@ -18,10 +18,11 @@ import org.wikipedia.util.log.L
 
 class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
+    val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
     val wikiSite = bundle.getParcelable<WikiSite>(Constants.ARG_WIKISITE)!!
     var searchQuery = StringUtil.removeHTMLTags(StringUtil.removeUnderscores(bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!))
     val originalSearchQuery = searchQuery
-    var selectedImage: PageTitle? = null
+    var selectedImage = bundle.getParcelable<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
     val magicWords = mutableMapOf<String, String>()
 
     var imagePosition = IMAGE_POSITION_RIGHT
