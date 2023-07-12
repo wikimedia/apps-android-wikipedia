@@ -178,14 +178,14 @@ class InsertMediaActivity : BaseActivity() {
             if (viewModel.imageSize != InsertMediaViewModel.IMAGE_SIZE_DEFAULT) {
                 wikiText += "|${viewModel.imageSize}px"
             }
-            viewModel.magicWords[viewModel.imageType]?.let { type ->
+            InsertMediaViewModel.magicWords[viewModel.imageType]?.let { type ->
                 wikiText += "|$type"
             }
-            viewModel.magicWords[viewModel.imagePosition]?.let { pos ->
+            InsertMediaViewModel.magicWords[viewModel.imagePosition]?.let { pos ->
                 wikiText += "|$pos"
             }
             if (insertMediaSettingsFragment.alternativeText.isNotEmpty()) {
-                wikiText += "|" + viewModel.magicWords[InsertMediaViewModel.IMAGE_ALT_TEXT].orEmpty().replace("$1", insertMediaSettingsFragment.alternativeText)
+                wikiText += "|" + InsertMediaViewModel.magicWords[InsertMediaViewModel.IMAGE_ALT_TEXT].orEmpty().replace("$1", insertMediaSettingsFragment.alternativeText)
             }
             if (insertMediaSettingsFragment.captionText.isNotEmpty()) {
                 wikiText += "|${insertMediaSettingsFragment.captionText}"
