@@ -73,7 +73,10 @@ class InsertMediaActivity : BaseActivity() {
 
         binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@InsertMediaActivity, R.attr.background_color))
         binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
-        binding.recyclerView.adapter = insertMediaAdapter
+
+        if (viewModel.invokeSource != Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            binding.recyclerView.adapter = insertMediaAdapter
+        }
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -102,6 +105,11 @@ class InsertMediaActivity : BaseActivity() {
             }
         }
         adjustRefreshViewLayoutParams(false)
+
+        if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE &&
+                viewModel.selectedImage != null) {
+            beginShowSelectedImage()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -268,6 +276,13 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
+    private fun beginShowSelectedImage() {
+        actionMode?.finish()
+        showSelectedImage()
+        invalidateOptionsMenu()
+        insertMediaAdapter.notifyDataSetChanged()
+    }
+
     private inner class InsertMediaDiffCallback : DiffUtil.ItemCallback<PageTitle>() {
         override fun areItemsTheSame(oldItem: PageTitle, newItem: PageTitle): Boolean {
             return oldItem == newItem
@@ -299,10 +314,7 @@ class InsertMediaActivity : BaseActivity() {
 
             binding.root.setOnClickListener {
                 viewModel.selectedImage = if (pageTitle == viewModel.selectedImage) null else pageTitle
-                actionMode?.finish()
-                showSelectedImage()
-                invalidateOptionsMenu()
-                insertMediaAdapter.notifyDataSetChanged()
+                beginShowSelectedImage()
             }
         }
     }
@@ -353,12 +365,16 @@ class InsertMediaActivity : BaseActivity() {
 
     companion object {
         const val EXTRA_SEARCH_QUERY = "searchQuery"
+        const val EXTRA_IMAGE_TITLE = "imageTitle"
         const val RESULT_WIKITEXT = "insertMediaWikitext"
         const val RESULT_INSERT_MEDIA_SUCCESS = 100
 
-        fun newIntent(context: Context, wikiSite: WikiSite, searchQuery: String): Intent {
+        fun newIntent(context: Context, wikiSite: WikiSite, searchQuery: String,
+                      invokeSource: Constants.InvokeSource, imageTitle: PageTitle? = null): Intent {
             return Intent(context, InsertMediaActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
+                .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
+                .putExtra(EXTRA_IMAGE_TITLE, imageTitle)
                 .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
         }
     }
