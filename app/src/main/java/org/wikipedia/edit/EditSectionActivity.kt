@@ -7,6 +7,8 @@ import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.text.Spanned
+import android.text.SpannedString
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.*
@@ -107,8 +109,23 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == InsertMediaActivity.RESULT_INSERT_MEDIA_SUCCESS) {
             it.data?.let { intent ->
-                binding.editSectionText.inputConnection?.commitText("${intent.getStringExtra(InsertMediaActivity.RESULT_WIKITEXT)}", 1)
+                val newText = intent.getStringExtra(InsertMediaActivity.RESULT_WIKITEXT).orEmpty()
+
+
+                val cursorPos = binding.editSectionText.selectionStart.coerceIn(0, sectionWikitext.orEmpty().length)
+                val newWikitext = sectionWikitext?.substring(0, cursorPos) + newText + sectionWikitext?.substring(cursorPos)
+
+                binding.editSectionText.setText(newWikitext)
+                binding.editSectionText.setSelection(cursorPos, cursorPos + newText.length)
+
+                if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+                    // If we came from the Image Recommendation workflow, go directly to Preview.
+                    clickNextButton()
+                }
             }
+        } else if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            // If the user cancels image insertion, back out immediately.
+            finish()
         }
     }
 

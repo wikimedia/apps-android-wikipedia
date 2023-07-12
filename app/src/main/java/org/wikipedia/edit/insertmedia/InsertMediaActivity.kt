@@ -109,7 +109,7 @@ class InsertMediaActivity : BaseActivity() {
 
         if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE &&
                 viewModel.selectedImage != null && savedInstanceState == null) {
-            // beginShowSelectedImage()
+            binding.imageInfoContainer.isVisible = false
 
             binding.root.post {
                 if (!isDestroyed) {
@@ -152,9 +152,17 @@ class InsertMediaActivity : BaseActivity() {
                 true
             }
             R.id.menu_insert -> {
-                Intent().let {
-                    it.putExtra(RESULT_WIKITEXT, combineMediaWikitext())
-                    setResult(RESULT_INSERT_MEDIA_SUCCESS, it)
+                viewModel.selectedImage?.let {
+                    val intent = Intent()
+                        .putExtra(RESULT_IMAGE_TITLE, viewModel.selectedImage)
+                        .putExtra(RESULT_IMAGE_CAPTION, insertMediaSettingsFragment.captionText)
+                        .putExtra(RESULT_IMAGE_ALT, insertMediaSettingsFragment.alternativeText)
+                        .putExtra(RESULT_IMAGE_TYPE, viewModel.imageType)
+                        .putExtra(RESULT_IMAGE_POS, viewModel.imagePosition)
+                    if (viewModel.imageSize != InsertMediaViewModel.IMAGE_SIZE_DEFAULT) {
+                        intent.putExtra(RESULT_IMAGE_SIZE, viewModel.imageSize)
+                    }
+                    setResult(RESULT_INSERT_MEDIA_SUCCESS, intent)
                     finish()
                 }
                 true
@@ -379,7 +387,12 @@ class InsertMediaActivity : BaseActivity() {
     companion object {
         const val EXTRA_SEARCH_QUERY = "searchQuery"
         const val EXTRA_IMAGE_TITLE = "imageTitle"
-        const val RESULT_WIKITEXT = "insertMediaWikitext"
+        const val RESULT_IMAGE_TITLE = "resultImageTitle"
+        const val RESULT_IMAGE_CAPTION= "resultImageCaption"
+        const val RESULT_IMAGE_ALT = "resultImageAlt"
+        const val RESULT_IMAGE_SIZE = "resultImageSize"
+        const val RESULT_IMAGE_TYPE = "resultImageType"
+        const val RESULT_IMAGE_POS = "resultImagePos"
         const val RESULT_INSERT_MEDIA_SUCCESS = 100
 
         fun newIntent(context: Context, wikiSite: WikiSite, searchQuery: String,
