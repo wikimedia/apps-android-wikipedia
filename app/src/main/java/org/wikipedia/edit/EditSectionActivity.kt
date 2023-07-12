@@ -367,7 +367,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         BreadCrumbLogEvent.logInputField(this, editSummaryFragment.summaryText)
     }
 
-    @Suppress("SameParameterValue")
     private fun waitForUpdatedRevision(newRevision: Long) {
         AnonymousNotificationHelper.onEditSubmitted()
         disposables.add(ServiceFactory.getRest(pageTitle.wikiSite)

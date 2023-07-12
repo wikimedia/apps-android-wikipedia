@@ -110,7 +110,7 @@ object JavaScriptActionHandler {
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.dimDarkModeImages)}," +
                 "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
                 "   \"leadImageHeight\": \"%dpx\"," +
-                "   \"areTablesInitiallyExpanded\": ${!Prefs.isCollapseTablesEnabled}," +
+                "   \"areTablesInitiallyExpanded\": ${isPreview || !Prefs.isCollapseTablesEnabled}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled}," +
                 "   \"userGroups\": \"${AccountUtil.groups}\"," +

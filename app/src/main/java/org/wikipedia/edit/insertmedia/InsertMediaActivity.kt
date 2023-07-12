@@ -158,9 +158,7 @@ class InsertMediaActivity : BaseActivity() {
                         .putExtra(RESULT_IMAGE_ALT, insertMediaSettingsFragment.alternativeText)
                         .putExtra(RESULT_IMAGE_TYPE, viewModel.imageType)
                         .putExtra(RESULT_IMAGE_POS, viewModel.imagePosition)
-                    if (viewModel.imageSize != InsertMediaViewModel.IMAGE_SIZE_DEFAULT) {
-                        intent.putExtra(RESULT_IMAGE_SIZE, viewModel.imageSize)
-                    }
+                        .putExtra(RESULT_IMAGE_SIZE, viewModel.imageSize)
                     setResult(RESULT_INSERT_MEDIA_SUCCESS, intent)
                     finish()
                 }
