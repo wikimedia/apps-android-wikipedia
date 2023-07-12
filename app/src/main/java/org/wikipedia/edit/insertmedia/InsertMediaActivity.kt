@@ -52,7 +52,7 @@ class InsertMediaActivity : BaseActivity() {
     private lateinit var insertMediaSettingsFragment: InsertMediaSettingsFragment
     private lateinit var insertMediaAdvancedSettingsFragment: InsertMediaAdvancedSettingsFragment
 
-    private val insertMediaAdapter = InsertMediaAdapter()
+    private var insertMediaAdapter: InsertMediaAdapter? = null
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
 
@@ -68,13 +68,14 @@ class InsertMediaActivity : BaseActivity() {
 
         binding.refreshView.setOnRefreshListener {
             binding.refreshView.isRefreshing = false
-            insertMediaAdapter.refresh()
+            insertMediaAdapter?.refresh()
         }
 
         binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@InsertMediaActivity, R.attr.background_color))
         binding.recyclerView.layoutManager = GridLayoutManager(this, 3)
 
         if (viewModel.invokeSource != Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            insertMediaAdapter = InsertMediaAdapter()
             binding.recyclerView.adapter = insertMediaAdapter
         }
 
@@ -82,13 +83,13 @@ class InsertMediaActivity : BaseActivity() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
                     viewModel.insertMediaFlow.collectLatest {
-                        insertMediaAdapter.submitData(it)
+                        insertMediaAdapter?.submitData(it)
                     }
                 }
                 launch {
-                    insertMediaAdapter.loadStateFlow.collectLatest {
+                    insertMediaAdapter?.loadStateFlow?.collectLatest {
                         binding.progressBar.isVisible = it.append is LoadState.Loading || it.refresh is LoadState.Loading
-                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && insertMediaAdapter.itemCount == 0)
+                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && insertMediaAdapter?.itemCount == 0)
                         binding.emptyMessage.isVisible = showEmpty
                     }
                 }
@@ -107,8 +108,15 @@ class InsertMediaActivity : BaseActivity() {
         adjustRefreshViewLayoutParams(false)
 
         if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE &&
-                viewModel.selectedImage != null) {
-            beginShowSelectedImage()
+                viewModel.selectedImage != null && savedInstanceState == null) {
+            // beginShowSelectedImage()
+
+            binding.root.post {
+                if (!isDestroyed) {
+                    showMediaSettingsFragment()
+                    adjustRefreshViewLayoutParams(true)
+                }
+            }
         }
     }
 
@@ -157,10 +165,14 @@ class InsertMediaActivity : BaseActivity() {
 
     override fun onBackPressed() {
         if (insertMediaSettingsFragment.handleBackPressed()) {
-            binding.imageInfoContainer.isVisible = true
-            binding.searchContainer.isVisible = true
-            supportActionBar?.title = getString(R.string.insert_media_title)
-            adjustRefreshViewLayoutParams(false)
+            if (insertMediaAdapter != null) {
+                binding.imageInfoContainer.isVisible = true
+                binding.searchContainer.isVisible = true
+                supportActionBar?.title = getString(R.string.insert_media_title)
+                adjustRefreshViewLayoutParams(false)
+            } else {
+                finish()
+            }
             return
         }
         if (insertMediaAdvancedSettingsFragment.handleBackPressed()) {
@@ -222,6 +234,7 @@ class InsertMediaActivity : BaseActivity() {
     private fun showMediaSettingsFragment() {
         binding.imageInfoContainer.isVisible = false
         binding.searchContainer.isVisible = false
+        binding.progressBar.isVisible = false
         insertMediaSettingsFragment.show()
     }
 
@@ -280,7 +293,7 @@ class InsertMediaActivity : BaseActivity() {
         actionMode?.finish()
         showSelectedImage()
         invalidateOptionsMenu()
-        insertMediaAdapter.notifyDataSetChanged()
+        insertMediaAdapter?.notifyDataSetChanged()
     }
 
     private inner class InsertMediaDiffCallback : DiffUtil.ItemCallback<PageTitle>() {
@@ -343,7 +356,7 @@ class InsertMediaActivity : BaseActivity() {
 
         override fun onQueryChange(s: String) {
             viewModel.searchQuery = s.ifEmpty { viewModel.originalSearchQuery }
-            insertMediaAdapter.refresh()
+            insertMediaAdapter?.refresh()
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {

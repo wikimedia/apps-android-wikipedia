@@ -256,10 +256,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
         if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
             // If the intent is to add an image to the article, go directly to the image insertion flow.
-            val addImageTitle = intent.getParcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
+            val addImageTitle = intent.getParcelableExtra<PageTitle>(EXTRA_KEY_ADD_IMAGE_TITLE)!!
 
             requestInsertMedia.launch(InsertMediaActivity.newIntent(this, pageTitle.wikiSite,
-                pageTitle.displayText, Constants.InvokeSource.EDIT_ACTIVITY, addImageTitle))
+                pageTitle.displayText, invokeSource, addImageTitle))
         }
 
         // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:
