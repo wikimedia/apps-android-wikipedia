@@ -55,6 +55,13 @@ interface RestService {
         @Path("title") title: String
     ): Observable<PageSummary>
 
+    @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
+    @GET("page/summary/{title}")
+    suspend fun getPageSummary(
+        @Header("Referer") referrerUrl: String?,
+        @Path("title") title: String
+    ): PageSummary
+
     // todo: this Content Service-only endpoint is under page/ but that implementation detail should
     //       probably not be reflected here. Move to WordDefinitionClient
     /**

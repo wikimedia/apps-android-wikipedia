@@ -60,6 +60,17 @@ interface Service {
             @Query("aulimit") maxResults: Int
     ): Observable<MwQueryResponse>
 
+    @GET(
+        MW_API_PREFIX + "action=query&generator=search&prop=imageinfo&iiprop=extmetadata|url" +
+                "&gsrnamespace=6&iiurlwidth=" + PREFERRED_THUMB_SIZE
+    )
+    suspend fun fullTextSearchCommons(
+        @Query("gsrsearch") searchTerm: String?,
+        @Query("gsroffset") gsrOffset: String?,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("continue") cont: String?
+    ): MwQueryResponse
+
     // ------- Miscellaneous -------
 
     @get:GET(MW_API_PREFIX + "action=fancycaptchareload")
@@ -598,10 +609,9 @@ interface Service {
         @Query("ggtlimit") count: Int
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=growthimagesuggestiondata")
-    suspend fun getImageRecommendationForPage(
-        @Query("titles") titles: String?,
-        @Query("pageids") pageIds: String? = null
+    @GET(MW_API_PREFIX + "action=query&prop=growthimagesuggestiondata&generator=search&gsrsearch=hasrecommendation%3Aimage&gsrnamespace=0&gsrsort=random")
+    suspend fun getPagesWithImageRecommendations(
+        @Query("gsrlimit") count: Int
     ): MwQueryResponse
 
     @POST(MW_API_PREFIX + "action=growthinvalidateimagerecommendation&tasktype=image-recommendation")
