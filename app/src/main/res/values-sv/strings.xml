@@ -1189,7 +1189,7 @@
   <string name="insert_media_settings">Lägg till mediadetaljer</string>
   <string name="insert_media_settings_uploaded_image">Uppladdad bild</string>
   <string name="insert_media_settings_caption">Bildtext</string>
-  <string name="insert_media_settings_caption_description">Etikett som visas intill objektet för alla läsare</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Etikett som visas intill objektet för alla läsare</string>
   <string name="insert_media_settings_alternative_text">Alternativ text</string>
   <string name="insert_media_settings_alternative_text_description">Beskrivning för synskadade läsare</string>
   <string name="insert_media_advanced_settings">Avancerade inställningar</string>

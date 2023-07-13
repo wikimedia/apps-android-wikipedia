@@ -259,6 +259,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/he</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.he</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.he</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he#Image_tags</string>
@@ -268,7 +269,7 @@
   <string name="about_translators_heading">מתרגמים</string>
   <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
-  <string name="about_app_license" fuzzy="true">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
+  <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
   <string name="edit_abandon_confirm">הדף שונה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
@@ -1271,7 +1272,7 @@
   <string name="insert_media_settings">הוספת פרטי תמונה</string>
   <string name="insert_media_settings_uploaded_image">תמונה שהועלתה</string>
   <string name="insert_media_settings_caption">כיתוב תמונה</string>
-  <string name="insert_media_settings_caption_description">תווית שמוצגת ליד הפריט לכל הקוראים</string>
+  <string name="insert_media_settings_caption_description">תווית תמונה גלויה בערך</string>
   <string name="insert_media_settings_alternative_text">טקסט חלופי</string>
   <string name="insert_media_settings_alternative_text_description">תיאור לקוראים לקויי ראייה</string>
   <string name="insert_media_advanced_settings">הגדרות מתקדמות</string>

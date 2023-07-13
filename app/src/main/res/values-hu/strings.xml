@@ -1187,7 +1187,7 @@
   <string name="insert_media_settings">Részletek hozzáadása a képhez</string>
   <string name="insert_media_settings_uploaded_image">Feltöltött kép</string>
   <string name="insert_media_settings_caption">Képaláírás</string>
-  <string name="insert_media_settings_caption_description">Minden olvasó számára megjelenő szöveg a média mellett</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Minden olvasó számára megjelenő szöveg a média mellett</string>
   <string name="insert_media_settings_alternative_text">Alternatív szöveg</string>
   <string name="insert_media_settings_alternative_text_description">Leírás látássérült olvasók számára</string>
   <string name="insert_media_advanced_settings">Speciális beállítások</string>

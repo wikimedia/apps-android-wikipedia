@@ -1177,7 +1177,7 @@
   <string name="insert_media_settings">Додајте поединости за сликата</string>
   <string name="insert_media_settings_uploaded_image">Подигната слика</string>
   <string name="insert_media_settings_caption">Опис на сликата</string>
-  <string name="insert_media_settings_caption_description">Натпис кој се прикажува до ставката на сите читатели</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Натпис кој се прикажува до ставката на сите читатели</string>
   <string name="insert_media_settings_alternative_text">Алтернативен текст</string>
   <string name="insert_media_settings_alternative_text_description">Оопис за читателите со попречен вид</string>
   <string name="insert_media_advanced_settings">Напредни нагодувања</string>

@@ -1168,7 +1168,7 @@
   <string name="insert_media_settings">Tambahin tètèk bengèk gambar</string>
   <string name="insert_media_settings_uploaded_image">Gambar nyang diangkat</string>
   <string name="insert_media_settings_caption">Keterangan gambar</string>
-  <string name="insert_media_settings_caption_description">Lèbel nyang dikasi unjuk di sebelahnya butir bakal semua pembaca</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Lèbel nyang dikasi unjuk di sebelahnya butir bakal semua pembaca</string>
   <string name="insert_media_settings_alternative_text">Tèks alternatip</string>
   <string name="insert_media_settings_alternative_text_description">Jabaran bakal pembaca nyang kaga\' bisa ngiat</string>
   <string name="insert_media_advanced_settings">Penyetèlan lanjutan</string>
@@ -1265,8 +1265,8 @@
   <string name="menu_option_find_in_talk_page_topic">Cari di topik halaman pemaké</string>
   <string name="menu_option_copy_link_to_clipboard">Jiplak sènggètan ke papan klip</string>
   <string name="talk_menu_copy_text">Jiplak tèks</string>
-  <string name="talk_menu_expand_threads">Bèntangin kuwelan</string>
-  <string name="talk_menu_collapse_threads">Ciutin kuwelan</string>
+  <string name="talk_menu_expand_threads">Bèntangin untelan</string>
+  <string name="talk_menu_collapse_threads">Ciutin untelan</string>
   <string name="watchlist_details_watching_label">Mantengin</string>
   <string name="watchlist_details_watch_label">Pantengin</string>
   <string name="watchlist_details_next_edit">Permakan selanjutnya</string>

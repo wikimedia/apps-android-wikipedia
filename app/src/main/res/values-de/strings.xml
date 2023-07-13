@@ -522,7 +522,7 @@
   <string name="reading_list_menu_export">Liste exportieren</string>
   <string name="reading_list_menu_select">Auswählen</string>
   <string name="reading_list_menu_unselect">Auswahl aufheben</string>
-  <string name="reading_list_export_write_permission_rationale">Zum Exportieren  der Leseliste ist eine Berechtigung zum Schreiben auf den Speicher deines Gerätes erforderlich.</string>
+  <string name="reading_list_export_write_permission_rationale">Zum Exportieren der Leseliste ist eine Berechtigung zum Schreiben auf den Speicher deines Gerätes erforderlich.</string>
   <string name="reading_list_menu_rename">Namen/Beschreibung bearbeiten</string>
   <string name="reading_list_action_menu_remove_from_offline">Von offline entfernen</string>
   <string name="reading_list_action_menu_save_for_offline">Für offline speichern</string>
@@ -1203,7 +1203,7 @@
   <string name="insert_media_settings">Bilddetails hinzufügen</string>
   <string name="insert_media_settings_uploaded_image">Hochgeladenes Bild</string>
   <string name="insert_media_settings_caption">Bildunterschrift</string>
-  <string name="insert_media_settings_caption_description">Label, das für alle Leser neben dem Element angezeigt wird</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Label, das für alle Leser neben dem Element angezeigt wird</string>
   <string name="insert_media_settings_alternative_text">Alternativer Text</string>
   <string name="insert_media_settings_alternative_text_description">Beschreibung für sehbehinderte Leser</string>
   <string name="insert_media_advanced_settings">Erweiterte Einstellungen</string>
@@ -1363,7 +1363,7 @@
   <string name="watchlist_filter_watchlist_activity_header">Beobachtungslistenaktivität</string>
   <string name="watchlist_filter_watchlist_activity_unseen">Ungesehene Änderungen</string>
   <string name="watchlist_filter_watchlist_activity_seen">Gesehene Änderungen</string>
-  <string name="watchlist_filter_contribution_quality_header">Beitragqualitätsprognosen</string>
+  <string name="watchlist_filter_contribution_quality_header">Beitragsqualitätsprognosen</string>
   <string name="watchlist_filter_contribution_quality_good">Sehr wahrscheinlich gut</string>
   <string name="watchlist_filter_contribution_quality_may_problems">Könnte Probleme haben</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">Hat wahrscheinlich Probleme</string>

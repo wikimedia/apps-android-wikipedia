@@ -1178,7 +1178,7 @@
   <string name="insert_media_settings" fuzzy="true">إعدادات الوسائط</string>
   <string name="insert_media_settings_uploaded_image">الصورة التي تم تحميلها</string>
   <string name="insert_media_settings_caption" fuzzy="true">تعليق</string>
-  <string name="insert_media_settings_caption_description">التسمية التي تظهر بجوار العنصر لجميع القراء</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">التسمية التي تظهر بجوار العنصر لجميع القراء</string>
   <string name="insert_media_settings_alternative_text">نص بديل</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">وصف نصي للقراء الذين لا يستطيعون رؤية الصورة</string>
   <string name="insert_media_advanced_settings">إعدادات متقدمة</string>

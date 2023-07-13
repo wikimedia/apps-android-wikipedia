@@ -1188,7 +1188,7 @@
   <string name="insert_media_settings" fuzzy="true">メディア設定</string>
   <string name="insert_media_settings_uploaded_image">アップロード済み画像</string>
   <string name="insert_media_settings_caption" fuzzy="true">キャプション</string>
-  <string name="insert_media_settings_caption_description">すべての読者のためにアイテムのそばに表示されるラベル</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">すべての読者のためにアイテムのそばに表示されるラベル</string>
   <string name="insert_media_settings_alternative_text">代替テキスト</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">画像が見えない人のための説明テキスト</string>
   <string name="insert_media_advanced_settings">高度な設定</string>

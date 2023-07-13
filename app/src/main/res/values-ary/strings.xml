@@ -197,6 +197,7 @@
   <string name="edit_done">تنشر</string>
   <string name="edit_undo">ماتليتش</string>
   <string name="edit_redo">عاود</string>
+  <string name="edit_rollback">ترجاع</string>
   <string name="edit_zoom_in">زومي</string>
   <string name="edit_zoom_out">صغّر</string>
   <string name="edit_summary_tag_links">روابط تزادت</string>
