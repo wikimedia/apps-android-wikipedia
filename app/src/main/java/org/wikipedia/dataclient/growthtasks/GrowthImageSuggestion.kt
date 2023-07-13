@@ -38,13 +38,13 @@ class GrowthImageSuggestion(
     )
 
     @Serializable
-    class PluginResponse(
-        val taskType: String = "",
+    class AddImageFeedbackBody(
+        val token: String = "",
+        val editRevId: Long = 0,
         val filename: String = "",
-        val accepted: Boolean = false,
+        // Boolean fields must be nullable for androidx.serialization to serialize properly.
+        val accepted: Boolean? = null,
         val reasons: List<String> = emptyList(),
         val caption: String = "",
-        val sectionNumber: Int? = null,
-        val sectionTitle: String? = null
     )
 }
