@@ -1178,7 +1178,7 @@
   <string name="insert_media_settings" fuzzy="true">Media-asetukset</string>
   <string name="insert_media_settings_uploaded_image">Tallennettu kuva</string>
   <string name="insert_media_settings_caption">Kuvateksti</string>
-  <string name="insert_media_settings_caption_description">Tunniste, joka näkyy kohteen vieressä kaikille lukijoille</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Tunniste, joka näkyy kohteen vieressä kaikille lukijoille</string>
   <string name="insert_media_settings_alternative_text">Vaihtoehtoinen teksti</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">Tekstimuotoinen kuvaus lukijoille, jotka eivät voi nähdä kuvaa</string>
   <string name="insert_media_advanced_settings">Lisäasetukset</string>

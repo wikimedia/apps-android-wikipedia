@@ -1215,7 +1215,7 @@
   <string name="insert_media_settings">Görsel ayrıntıları ekle</string>
   <string name="insert_media_settings_uploaded_image">Yüklenen resim</string>
   <string name="insert_media_settings_caption">Görsel alt yazısı</string>
-  <string name="insert_media_settings_caption_description">Tüm okuyucular için ögenin yanında gösterilen etiket</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Tüm okuyucular için ögenin yanında gösterilen etiket</string>
   <string name="insert_media_settings_alternative_text">Alternatif metin</string>
   <string name="insert_media_settings_alternative_text_description">Görme engelli okuyucular için açıklama</string>
   <string name="insert_media_advanced_settings">Gelişmiş ayarlar</string>
