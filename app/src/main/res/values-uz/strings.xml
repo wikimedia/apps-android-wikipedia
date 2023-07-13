@@ -1150,7 +1150,7 @@
   <string name="insert_media_settings" fuzzy="true">Media tanlovlari</string>
   <string name="insert_media_settings_uploaded_image">Yuklangan rasm</string>
   <string name="insert_media_settings_caption" fuzzy="true">Izoh</string>
-  <string name="insert_media_settings_caption_description">Barcha oʻquvchilar uchun element yonida koʻrsatiladigan yozuv</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Barcha oʻquvchilar uchun element yonida koʻrsatiladigan yozuv</string>
   <string name="insert_media_settings_alternative_text">Muqobil matn</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">Rasmni koʻra olmaydigan oʻquvchilar uchun izohli matn</string>
   <string name="insert_media_advanced_settings">Kengaytirilgan tanlovlar</string>

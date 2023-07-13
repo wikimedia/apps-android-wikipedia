@@ -1178,7 +1178,7 @@
   <string name="insert_media_settings" fuzzy="true">मीडिया सेटिंग्स</string>
   <string name="insert_media_settings_uploaded_image">चित्र अपलोड किया गया</string>
   <string name="insert_media_settings_caption" fuzzy="true">कैप्शन</string>
-  <string name="insert_media_settings_caption_description">लेबल जो सभी सदस्य को आयटम के पास दिखता है</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">लेबल जो सभी सदस्य को आयटम के पास दिखता है</string>
   <string name="insert_media_settings_alternative_text">वैकल्पिक टेक्स्ट</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">उन पाठकों के लिए टेक्स्ट विवरण जो चित्र नहीं देख सकते</string>
   <string name="insert_media_advanced_settings">उन्नत विकल्प</string>

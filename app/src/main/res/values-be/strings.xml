@@ -1221,7 +1221,7 @@
   <string name="insert_media_settings" fuzzy="true">Налады медыя</string>
   <string name="insert_media_settings_uploaded_image">Загружаная выява</string>
   <string name="insert_media_settings_caption" fuzzy="true">Подпіс</string>
-  <string name="insert_media_settings_caption_description">Цэтлік, які адлюстроўваецца побач з элементам для ўсіх чытачоў</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Цэтлік, які адлюстроўваецца побач з элементам для ўсіх чытачоў</string>
   <string name="insert_media_settings_alternative_text">Альтэрнатыўны тэкст</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">Тэкставае апісанне для чытачоў, якія не бачаць выяву</string>
   <string name="insert_media_advanced_settings">Дадатковыя параметры</string>

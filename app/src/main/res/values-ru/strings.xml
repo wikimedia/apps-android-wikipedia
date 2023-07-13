@@ -1264,7 +1264,7 @@
   <string name="insert_media_settings" fuzzy="true">Параметры медиафайла</string>
   <string name="insert_media_settings_uploaded_image">Загруженное изображение</string>
   <string name="insert_media_settings_caption">Описание изображения</string>
-  <string name="insert_media_settings_caption_description">Текст, который показывается всем читателям возле файла</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Текст, который показывается всем читателям возле файла</string>
   <string name="insert_media_settings_alternative_text">Альтернативный текст</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">Текстовое описание для читателей, которые не могут увидеть изображение.</string>
   <string name="insert_media_advanced_settings">Расширенные настройки</string>

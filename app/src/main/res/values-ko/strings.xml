@@ -1121,7 +1121,7 @@
   <string name="insert_media_settings" fuzzy="true">미디어 설정</string>
   <string name="insert_media_settings_uploaded_image">업로드한 이미지</string>
   <string name="insert_media_settings_caption" fuzzy="true">캡션</string>
-  <string name="insert_media_settings_caption_description">항목 옆에 표시되는, 모든 독자에게 보이는 레이블</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">항목 옆에 표시되는, 모든 독자에게 보이는 레이블</string>
   <string name="insert_media_settings_alternative_text">대체 텍스트</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">이미지를 볼 수 없는 독자를 위한 텍스트 설명</string>
   <string name="insert_media_advanced_settings">고급 설정</string>

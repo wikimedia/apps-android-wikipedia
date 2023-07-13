@@ -119,7 +119,7 @@
   <string name="map_view_link_text">Картала ҡарау</string>
   <string name="other_languages_indication_text">Башҡа телдә уҡыу</string>
   <string name="language_count_link_text">Башҡа %d телдәрҙә бар</string>
-  <string name="content_license_cc_by_sa">CC-BY-SA 3.0</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Яҙҙырып ҡуйып, &lt;a href=\"%1$s\"&gt;ҡулланыу шарттары&lt;/a&gt; һәм мәҡәләләрегеҙҙе &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензияһына ярашлы, ирекле ҡулланыу менән ризалашаһығыҙ.</string>
   <string name="edit_save_action_license_anon">Үҙгәрештәрҙе яҙҙырып ҡуйып, &lt;a href=\"%1$s\"&gt;ҡулланыу шарттары&lt;/a&gt; менән килешәһегеҙ һәм мәҡәләләрегеҙҙе &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензияһына ярашлы баҫтыраһығыҙ. Төҙәтеүҙәр ҡоролмағыҙҙың IP-адресына бәйләнәсәк. Әгәр ҙә &lt;a href=\"https://#login\"&gt;танылһағыҙ&lt;/a&gt;, сер һаҡлауҙың юғары кимәле менән ҡуллана алаһығыҙ.</string>
   <string name="edit_anon_warning">Төҙәтеү имзаһына һеҙҙең ҡоролманың IP-адресы яҙыла. Әгәр системаға инһәгеҙ &lt;a href=\"https://#login\"&gt;шәхси эшләргә мөмкинлектәр күберәк буласаҡ&lt;/a&gt;.</string>
@@ -605,6 +605,8 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">Юйырға</string>
   <string name="reading_list_activity_title">Уҡыу исемлеге:%s</string>
   <string name="reading_list_notification_title">Уҡыу исемлеген/исемлектәрҙе экспортлау</string>
+  <string name="reading_list_notification_text">%d Уҡыу исемлеге/исемлектәре, \'reading_lists export.json\' файлы булараҡ, һеҙҙең папкаға күсерелгән</string>
+  <string name="reading_list_notification_detailed_text">Уҡыу исемлектәре \'reading_lists_export.json\' файлына экспортланған</string>
   <string name="reading_lists_action_menu_export_lists">Экспортларға</string>
   <string name="reading_lists_import_file_picker_title">Импортлау өсөн файл һайлағыҙ</string>
   <string name="reading_lists_import_failure_message">Уҡыу исемлектәрен импортлап булманы</string>
@@ -621,7 +623,19 @@
   <string name="reading_lists_preview_header_title">Дөйөм исемлек</string>
   <string name="reading_lists_preview_save_button">Яҙҙырып ҡуйырға</string>
   <string name="reading_lists_preview_save_dialog_title">Исемлекте һаҡларға</string>
+  <string name="reading_lists_preview_save_dialog_text">Исемдәрҙе һанағыҙ һәм һаҡлау өсөн мәҡәләләр һайлағыҙ</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Исем</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Кире алырға</string>
+  <string name="reading_lists_preview_save_dialog_save">Һаҡларға</string>
+  <string name="reading_lists_preview_saved_snackbar">Һаҡланған уҡыу исемлеге</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Ҡарарға</string>
   <string name="user_option_sync_label">Көйләүҙәр</string>
+  <string name="notification_reverted_title">Төҙәтеү кире алынған</string>
+  <string name="notification_channel_title">Мәҡәләләрҙе йөкләү</string>
+  <string name="notification_channel_description">Йөкләү үҫеше</string>
+  <string name="notification_syncing_pause_button">Пауза</string>
+  <string name="notification_syncing_cancel_button">Кире алырға</string>
+  <string name="notification_syncing_reading_list_channel_description">Уҡыу исемлектәрен синхронлаштырыу үҫеше</string>
   <string name="suggested_edits_task_action_text_add">Өҫтәргә</string>
   <string name="suggested_edits_image_captions">Рәсем тасуирламаһы</string>
 </resources>

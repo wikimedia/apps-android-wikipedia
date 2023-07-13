@@ -1159,7 +1159,7 @@
   <string name="insert_media_settings" fuzzy="true">Медиафайла параметраш</string>
   <string name="insert_media_settings_uploaded_image">Чудаьккха дола сурт</string>
   <string name="insert_media_settings_caption" fuzzy="true">Суртах лаьцар</string>
-  <string name="insert_media_settings_caption_description">Массанена гуш а дола, файла юхе латта йоазув</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Массанена гуш а дола, файла юхе латта йоазув</string>
   <string name="insert_media_settings_alternative_text">Кхыдола йоазув</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">Сурт бӀаргаго ца могача дешачарна хетадаь дола суртах лаьцар</string>
   <string name="insert_media_advanced_settings">Шердаь оттамаш</string>
