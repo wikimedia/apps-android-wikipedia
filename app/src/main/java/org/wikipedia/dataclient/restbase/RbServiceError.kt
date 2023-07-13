@@ -18,10 +18,10 @@ class RbServiceError : ServiceError {
     override val title: String = ""
 
     override val details: String get() {
-        if (messageTranslations != null) {
-            return messageTranslations.values.firstOrNull() ?: ""
+        return if (messageTranslations != null) {
+            messageTranslations.values.firstOrNull() ?: ""
         } else {
-            return detail.orEmpty()
+            detail.orEmpty()
         }
     }
 
