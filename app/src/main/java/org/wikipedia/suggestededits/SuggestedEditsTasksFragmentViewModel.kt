@@ -36,11 +36,11 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
     var latestEditStreak = 0
     var revertSeverity = 0
 
-    var imageRecommendationsEnabled = false
+    var wikiSupportsImageRecommendations = false
 
     fun fetchData() {
         _uiState.value = UiState.Loading()
-        imageRecommendationsEnabled = false
+        wikiSupportsImageRecommendations = false
 
         if (!AccountUtil.isLoggedIn) {
             _uiState.value = UiState.RequireLogin()
@@ -74,7 +74,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
                 }
             }
             */
-            imageRecommendationsEnabled = true
+            wikiSupportsImageRecommendations = true
 
             homeSiteResponse.query?.userInfo?.let {
                 if (it.isBlocked) {

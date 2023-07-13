@@ -327,7 +327,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             displayedTasks.add(addDescriptionsTask)
         }
 
-        if (SuggestedEditsImageRecsFragment.isFeatureEnabled() && viewModel.imageRecommendationsEnabled && viewModel.blockMessageWikipedia.isNullOrEmpty()) {
+        if (ReleaseUtil.isPreBetaRelease &&
+            viewModel.totalContributions > 50 &&
+            viewModel.wikiSupportsImageRecommendations &&
+            viewModel.blockMessageWikipedia.isNullOrEmpty()) {
             displayedTasks.add(imageRecommendationsTask)
         }
 

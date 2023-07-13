@@ -32,7 +32,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecsItemBinding
 import org.wikipedia.dataclient.WikiSite
@@ -328,11 +327,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     companion object {
         const val ARG_LANG = "lang"
         const val MIN_TIME_WARNING_MILLIS = 5000
-
-        fun isFeatureEnabled(): Boolean {
-            return AccountUtil.isLoggedIn &&
-                    ReleaseUtil.isPreBetaRelease
-        }
 
         fun newInstance(): SuggestedEditsItemFragment {
             return SuggestedEditsImageRecsFragment()
