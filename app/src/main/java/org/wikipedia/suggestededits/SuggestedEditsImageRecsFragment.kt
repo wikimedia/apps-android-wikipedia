@@ -63,12 +63,13 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     private val requestEdit = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
+            val revId = result.data?.getLongExtra(EditSectionActivity.EXTRA_REV_ID, 0) ?: 0
             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.edit_saved_successfully))
                 .setAction(R.string.edit_published_view) {
-                    val revId = result.data?.getLongExtra(EditSectionActivity.EXTRA_REV_ID, 0) ?: 0
                     startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), viewModel.pageTitle, revId))
                 }
 
+            viewModel.acceptRecommendation(null, revId)
             callback().nextPage(this)
         }
     }

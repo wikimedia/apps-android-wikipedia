@@ -66,30 +66,40 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
+    fun acceptRecommendation(token: String?, revId: Long) {
+        viewModelScope.launch(handler) {
+            invalidateRecommendation(token, true, revId, null)
+        }
+    }
+
     fun rejectRecommendation(token: String?, reasonCodes: List<Int>) {
         viewModelScope.launch(handler) {
-            val reasons = listOf("notrelevant", "noinfo", "offensive", "lowquality", "unfamiliar", "other")
+            invalidateRecommendation(token, false, 0, reasonCodes)
+        }
+    }
 
-            withContext(Dispatchers.IO) {
-                val csrfToken = token ?: CsrfTokenClient.getToken(pageTitle.wikiSite).blockingSingle()
+    private suspend fun invalidateRecommendation(token: String?, accepted: Boolean, revId: Long, reasonCodes: List<Int>?) {
+        val reasons = listOf("notrelevant", "noinfo", "offensive", "lowquality", "unfamiliar", "other")
 
-                // Attempt to call the AddImageFeedback API first, and if it fails, try the
-                // growthinvalidateimagerecommendation API instead.
-                try {
-                    val body = GrowthImageSuggestion.AddImageFeedbackBody(
-                        csrfToken,
-                        0,
-                        recommendation.images[0].displayFilename,
-                        false,
-                        reasonCodes.mapNotNull { reasons.getOrNull(it) },
-                        null,
-                    )
-                    ServiceFactory.getCoreRest(pageTitle.wikiSite).addImageFeedback(pageTitle.prefixedText, body)
-                } catch (e: Exception) {
-                    L.e(e)
-                    ServiceFactory.get(pageTitle.wikiSite).invalidateImageRecommendation("image-recommendation",
-                        pageTitle.prefixedText, recommendation.images[0].displayFilename, csrfToken)
-                }
+        withContext(Dispatchers.IO) {
+            val csrfToken = token ?: CsrfTokenClient.getToken(pageTitle.wikiSite).blockingSingle()
+
+            // Attempt to call the AddImageFeedback API first, and if it fails, try the
+            // growthinvalidateimagerecommendation API instead.
+            try {
+                val body = GrowthImageSuggestion.AddImageFeedbackBody(
+                    csrfToken,
+                    revId,
+                    recommendation.images[0].displayFilename,
+                    accepted,
+                    reasonCodes?.mapNotNull { reasons.getOrNull(it) }.orEmpty(),
+                    null,
+                )
+                ServiceFactory.getCoreRest(pageTitle.wikiSite).addImageFeedback(pageTitle.prefixedText, body)
+            } catch (e: Exception) {
+                L.e(e)
+                ServiceFactory.get(pageTitle.wikiSite).invalidateImageRecommendation("image-recommendation",
+                    pageTitle.prefixedText, recommendation.images[0].displayFilename, csrfToken)
             }
         }
     }
