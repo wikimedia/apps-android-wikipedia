@@ -1202,7 +1202,7 @@
   <string name="insert_media_settings">新增媒體詳細資訊</string>
   <string name="insert_media_settings_uploaded_image">已上傳圖片</string>
   <string name="insert_media_settings_caption">圖片說明</string>
-  <string name="insert_media_settings_caption_description">為所有讀者顯示在項目旁的標籤</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">為所有讀者顯示在項目旁的標籤</string>
   <string name="insert_media_settings_alternative_text">替代文字</string>
   <string name="insert_media_settings_alternative_text_description">視力障礙讀者用的描述</string>
   <string name="insert_media_advanced_settings">進階設定</string>

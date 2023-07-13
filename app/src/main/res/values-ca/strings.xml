@@ -1168,7 +1168,7 @@
   <string name="insert_media_settings" fuzzy="true">Paràmetres multimèdia</string>
   <string name="insert_media_settings_uploaded_image">Imatge carregada</string>
   <string name="insert_media_settings_caption" fuzzy="true">Llegenda</string>
-  <string name="insert_media_settings_caption_description">L\'etiqueta que es mostra al costat de l\'element per a tots els lectors</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">L\'etiqueta que es mostra al costat de l\'element per a tots els lectors</string>
   <string name="insert_media_settings_alternative_text">Text alternatiu</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">Descripció textual per als lectors que no poden veure la imatge</string>
   <string name="insert_media_advanced_settings">Paràmetres avançats</string>

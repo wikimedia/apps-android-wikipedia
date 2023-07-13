@@ -1203,7 +1203,7 @@
   <string name="insert_media_settings">Afbeeldingsdetails toevoegen</string>
   <string name="insert_media_settings_uploaded_image">Geüploade afbeelding</string>
   <string name="insert_media_settings_caption">Bijschrift afbeelding</string>
-  <string name="insert_media_settings_caption_description">Beschrijving naast het item die voor alle lezers zichtbaar is</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Beschrijving naast het item die voor alle lezers zichtbaar is</string>
   <string name="insert_media_settings_alternative_text">Alternatieve tekst</string>
   <string name="insert_media_settings_alternative_text_description">Beschrijving voor slechtziende lezers</string>
   <string name="insert_media_advanced_settings">Geavanceerde instellingen</string>

@@ -1242,7 +1242,7 @@
   <string name="insert_media_settings" fuzzy="true">Параметри медіафайлу</string>
   <string name="insert_media_settings_uploaded_image">Завантажене зображення</string>
   <string name="insert_media_settings_caption" fuzzy="true">Підпис</string>
-  <string name="insert_media_settings_caption_description">Напис, який усі читачі бачитимуть поруч із файлом</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Напис, який усі читачі бачитимуть поруч із файлом</string>
   <string name="insert_media_settings_alternative_text">Альтернативний текст</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">Текстовий опис для читачів, які не можуть побачити зображення</string>
   <string name="insert_media_advanced_settings">Розширені налаштування</string>

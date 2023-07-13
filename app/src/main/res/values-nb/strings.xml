@@ -1185,7 +1185,7 @@
   <string name="insert_media_settings">Legg til bildedetaljer</string>
   <string name="insert_media_settings_uploaded_image">Last opp bilde</string>
   <string name="insert_media_settings_caption">Bildetekst</string>
-  <string name="insert_media_settings_caption_description">Etikett som vises ved siden av elementet for alle lesere</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Etikett som vises ved siden av elementet for alle lesere</string>
   <string name="insert_media_settings_alternative_text">Alternativ tekst</string>
   <string name="insert_media_settings_alternative_text_description">Beskrivelse for lesere med nedsatt syn</string>
   <string name="insert_media_advanced_settings">Avanserte innstillinger</string>

@@ -1042,6 +1042,8 @@
     <item quantity="one">Añadiste %d carácter</item>
     <item quantity="other">Añadiste %d caracteres</item>
   </plurals>
+  <string name="image_recommendation_reject_title">¿Por qué no?</string>
+  <string name="image_recommendation_reject_not_relevant">La imagen no es relevante</string>
   <string name="file_page_activity_title">Página de archivo</string>
   <string name="file_page_add_image_caption_button">Añadir leyenda de imagen</string>
   <string name="file_page_add_image_tags_button">Añadir etiquetas de imagen</string>
@@ -1131,10 +1133,10 @@
   <string name="insert_media_title">Insertar multimedia</string>
   <string name="insert_media_search_description">Seleccionar un archivo de Wikimedia Commons</string>
   <string name="insert_media_search_hint">Busce media</string>
-  <string name="insert_media_settings" fuzzy="true">Configuración multimedia</string>
+  <string name="insert_media_settings">Agregar detalles de la imagen</string>
   <string name="insert_media_settings_uploaded_image">Imagen cargada</string>
   <string name="insert_media_settings_caption" fuzzy="true">Leyenda</string>
-  <string name="insert_media_settings_caption_description">Etiqueta que se muestra junto al elemento para todos los lectores</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Etiqueta que se muestra junto al elemento para todos los lectores</string>
   <string name="insert_media_settings_alternative_text">Texto alternativo</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">Descripción de texto para lectores quiénes no pueden ver la imagen</string>
   <string name="insert_media_advanced_settings">Configuraciones avanzadas</string>

@@ -1164,7 +1164,7 @@
   <string name="insert_media_settings">Tambahkan rincian gambar</string>
   <string name="insert_media_settings_uploaded_image">Gambar yang diunggah</string>
   <string name="insert_media_settings_caption">Takarir gambar</string>
-  <string name="insert_media_settings_caption_description">Label yang ditampilkan di sebelah butir untuk semua pembaca</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Label yang ditampilkan di sebelah butir untuk semua pembaca</string>
   <string name="insert_media_settings_alternative_text">Teks alternatif</string>
   <string name="insert_media_settings_alternative_text_description">Deskripsi teks untuk pembaca tunanetra</string>
   <string name="insert_media_advanced_settings">Pengaturan lanjutan</string>

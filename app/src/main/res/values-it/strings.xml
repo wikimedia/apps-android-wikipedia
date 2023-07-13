@@ -1182,7 +1182,7 @@
   <string name="insert_media_settings">Aggiungi dettagli dell\'immagine</string>
   <string name="insert_media_settings_uploaded_image">Immagine caricata</string>
   <string name="insert_media_settings_caption">Didascalia dell\'immagine</string>
-  <string name="insert_media_settings_caption_description">Etichetta che appare vicino all\'elemento per tutti i lettori</string>
+  <string name="insert_media_settings_caption_description">Etichetta immagine visibile nella voce</string>
   <string name="insert_media_settings_alternative_text">Testo alternativo</string>
   <string name="insert_media_settings_alternative_text_description">Descrizione per lettori non vedenti</string>
   <string name="insert_media_advanced_settings">Impostazioni avanzate</string>
