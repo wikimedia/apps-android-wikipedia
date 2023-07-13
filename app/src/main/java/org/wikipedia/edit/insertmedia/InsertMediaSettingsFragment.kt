@@ -81,6 +81,10 @@ class InsertMediaSettingsFragment : Fragment() {
                 activity.invalidateOptionsMenu()
             }
         }
+
+        binding.mediaCaptionText.setText(activity.intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION))
+        binding.mediaAlternativeText.setText(activity.intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT))
+
         return binding.root
     }
 

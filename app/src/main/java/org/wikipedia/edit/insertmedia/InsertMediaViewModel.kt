@@ -25,9 +25,9 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
     val originalSearchQuery = searchQuery
     var selectedImage = bundle.getParcelable<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
 
-    var imagePosition = IMAGE_POSITION_RIGHT
-    var imageType = IMAGE_TYPE_THUMBNAIL
-    var imageSize = IMAGE_SIZE_DEFAULT
+    var imagePosition: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_POS, IMAGE_POSITION_RIGHT)
+    var imageType: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_TYPE, IMAGE_TYPE_THUMBNAIL)
+    var imageSize: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_SIZE, IMAGE_SIZE_DEFAULT)
 
     val insertMediaFlow = Pager(PagingConfig(pageSize = 10)) {
         InsertMediaPagingSource(searchQuery)

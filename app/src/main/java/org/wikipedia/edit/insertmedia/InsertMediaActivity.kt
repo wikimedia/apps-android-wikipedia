@@ -153,7 +153,7 @@ class InsertMediaActivity : BaseActivity() {
             R.id.menu_insert -> {
                 viewModel.selectedImage?.let {
                     val intent = Intent()
-                        .putExtra(RESULT_IMAGE_TITLE, it.text)
+                        .putExtra(EXTRA_IMAGE_TITLE, it)
                         .putExtra(RESULT_IMAGE_CAPTION, insertMediaSettingsFragment.captionText)
                         .putExtra(RESULT_IMAGE_ALT, insertMediaSettingsFragment.alternativeText)
                         .putExtra(RESULT_IMAGE_TYPE, viewModel.imageType)
@@ -352,7 +352,6 @@ class InsertMediaActivity : BaseActivity() {
     companion object {
         const val EXTRA_SEARCH_QUERY = "searchQuery"
         const val EXTRA_IMAGE_TITLE = "imageTitle"
-        const val RESULT_IMAGE_TITLE = "resultImageTitle"
         const val RESULT_IMAGE_CAPTION = "resultImageCaption"
         const val RESULT_IMAGE_ALT = "resultImageAlt"
         const val RESULT_IMAGE_SIZE = "resultImageSize"

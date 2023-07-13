@@ -61,7 +61,6 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.EditNoticesDialog
 import org.wikipedia.views.ViewUtil
 import java.io.IOException
-import java.util.*
 import java.util.concurrent.TimeUnit
 
 class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
@@ -79,6 +78,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private var sectionAnchor: String? = null
     private var textToHighlight: String? = null
     private var sectionWikitext: String? = null
+    private var sectionWikitextOriginal: String? = null
     private val editNotices = mutableListOf<String>()
 
     private var sectionTextModified = false
@@ -107,15 +107,27 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == InsertMediaActivity.RESULT_INSERT_MEDIA_SUCCESS) {
-            it.data?.let { intent ->
+            it.data?.let { data ->
+
+                // pass the resulting data into our own current intent, so that we can pass it back
+                // to the InsertImage workflow if the user navigates back to it.
+                val imageTitle = data.getParcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+                val imageCaption = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION)
+                val imageAlt = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT)
+                val imageSize = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_SIZE)
+                val imageType = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_TYPE)
+                val imagePos = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_POS)
+
+                intent.putExtra(InsertMediaActivity.EXTRA_IMAGE_TITLE, imageTitle)
+                intent.putExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION, imageCaption)
+                intent.putExtra(InsertMediaActivity.RESULT_IMAGE_ALT, imageAlt)
+                intent.putExtra(InsertMediaActivity.RESULT_IMAGE_SIZE, imageSize)
+                intent.putExtra(InsertMediaActivity.RESULT_IMAGE_TYPE, imageType)
+                intent.putExtra(InsertMediaActivity.RESULT_IMAGE_POS, imagePos)
+
                 val newWikiText = InsertMediaViewModel.insertImageIntoWikiText(pageTitle.wikiSite.languageCode,
-                    sectionWikitext.orEmpty(),
-                    intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_TITLE).orEmpty(),
-                    intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).orEmpty(),
-                    intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).orEmpty(),
-                    intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_SIZE).orEmpty(),
-                    intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_TYPE).orEmpty(),
-                    intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_POS).orEmpty(),
+                    sectionWikitext.orEmpty(), imageTitle?.text.orEmpty(), imageCaption.orEmpty(),
+                    imageAlt.orEmpty(), imageSize.orEmpty(), imageType.orEmpty(), imagePos.orEmpty(),
                     if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) 0 else binding.editSectionText.selectionStart,
                     invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE)
 
@@ -279,10 +291,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
         if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
             // If the intent is to add an image to the article, go directly to the image insertion flow.
-            val addImageTitle = intent.getParcelableExtra<PageTitle>(EXTRA_KEY_ADD_IMAGE_TITLE)!!
-
-            requestInsertMedia.launch(InsertMediaActivity.newIntent(this, pageTitle.wikiSite,
-                pageTitle.displayText, invokeSource, addImageTitle))
+            startInsertImageFlow()
         }
 
         // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:
@@ -634,6 +643,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                             this.displayText = pageTitle.displayText
                         }
                         sectionWikitext = rev.contentMain
+                        sectionWikitextOriginal = sectionWikitext
                         currentRevision = rev.revId
 
                         val editError = response.query?.firstPage()!!.getErrorForAction("edit")
@@ -748,6 +758,16 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         if (editPreviewFragment.isActive) {
             editPreviewFragment.hide(binding.editSectionContainer)
             supportActionBar?.title = null
+
+            // If we came from the Image Recommendations workflow, bring back the Add Image activity.
+            if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+                // ...and reset the wikitext to the original, since the Add Image flow will re-
+                // modify it when the user returns to it.
+                sectionWikitext = sectionWikitextOriginal
+                binding.editSectionText.setText(sectionWikitext)
+
+                startInsertImageFlow()
+            }
             return
         }
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
@@ -766,11 +786,26 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
     }
 
+    private fun startInsertImageFlow() {
+        val addImageTitle = intent.getParcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)!!
+        val addImageIntent = InsertMediaActivity.newIntent(this, pageTitle.wikiSite,
+            pageTitle.displayText, invokeSource, addImageTitle)
+
+        // implicitly add any saved parameters from the previous insertion.
+        addImageIntent.putExtra(InsertMediaActivity.EXTRA_IMAGE_TITLE, intent.getParcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE))
+        addImageIntent.putExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION, intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION))
+        addImageIntent.putExtra(InsertMediaActivity.RESULT_IMAGE_ALT, intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT))
+        addImageIntent.putExtra(InsertMediaActivity.RESULT_IMAGE_SIZE, intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_SIZE))
+        addImageIntent.putExtra(InsertMediaActivity.RESULT_IMAGE_TYPE, intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_TYPE))
+        addImageIntent.putExtra(InsertMediaActivity.RESULT_IMAGE_POS, intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_POS))
+
+        requestInsertMedia.launch(addImageIntent)
+    }
+
     companion object {
         private const val EXTRA_KEY_SECTION_TEXT_MODIFIED = "sectionTextModified"
         private const val EXTRA_KEY_TEMPORARY_WIKITEXT_STORED = "hasTemporaryWikitextStored"
         private const val EXTRA_KEY_EDITING_ALLOWED = "editingAllowed"
-        private const val EXTRA_KEY_ADD_IMAGE_TITLE = "addImageTitle"
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
@@ -785,7 +820,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 .putExtra(Constants.ARG_TITLE, title)
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
-                .putExtra(EXTRA_KEY_ADD_IMAGE_TITLE, addImageTitle)
+                .putExtra(InsertMediaActivity.EXTRA_IMAGE_TITLE, addImageTitle)
         }
     }
 
