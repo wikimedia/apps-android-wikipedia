@@ -69,7 +69,7 @@
   <string name="error_next">Dalej</string>
   <string name="menu_clear_all_history">Wyczyść historię</string>
   <string name="history_item_deleted">Usunięto %s z historii</string>
-  <string name="history_items_deleted">{{PLURAL:|one=%d artykuł|few=%d artykuły|many=%d artykułów|%d artykułów}} usunięto z historii</string>
+  <string name="history_items_deleted">%d artykułów usunięto z historii</string>
   <string name="history_item_delete_undo">Cofnij</string>
   <string name="notification_archive_undo">Cofnij</string>
   <string name="app_settings">Ustawienia aplikacji</string>
@@ -136,7 +136,7 @@
   <string name="edit_history_link_text">Zobacz historię edycji</string>
   <string name="map_view_link_text">Zobacz na mapie</string>
   <string name="other_languages_indication_text">Przeczytaj w innym języku</string>
-  <string name="language_count_link_text">Dostępne w {{PLURAL:|one=%d innym języku|few=%d innych językach|many=%d innych językach|%d innych językach}}</string>
+  <string name="language_count_link_text">Dostępne w %d innych językach</string>
   <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Publikując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencji &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Publikując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencji &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;. Zmiany zostaną przypisane do adresu IP Twojego urządzenia. Dzięki &lt;a href=\"https://#login\"&gt;zalogowaniu się&lt;/a&gt; uzyskasz większą prywatność.</string>
@@ -185,14 +185,14 @@
   <string name="reset_password_button">Zapisz i zaloguj się</string>
   <string name="preference_title_logout">Wyloguj</string>
   <string name="toast_logout_complete">Wylogowano</string>
-  <string name="logout_prompt">Zostaniesz {{GENDER:|wylogowany|wylogowana|wylogowany}} na wszystkich urządzeniach, na których jesteś aktualnie {{GENDER:|zalogowany|zalogowana|zalogowany}}. Czy kontynuować?</string>
+  <string name="logout_prompt">Zostaniesz wylogowany na wszystkich urządzeniach, na których jesteś aktualnie wylogowany. Chcesz kontynuować?</string>
   <string name="logout_dialog_cancel_button_text">Anuluj</string>
   <string name="logged_out_in_background_title">Wylogowano</string>
-  <string name="logged_out_in_background_dialog">Zostałeś {{GENDER:|wylogowany|wylogowana|wylogowany}} z Wikipedii. Czy chcesz zalogować się ponownie?</string>
+  <string name="logged_out_in_background_dialog">Zostałeś wylogowany z Wikipedii. Chcesz się zalogować ponownie?</string>
   <string name="logged_out_in_background_login">Zaloguj się</string>
   <string name="logged_out_in_background_cancel">Anuluj</string>
   <string name="history_empty_title">Brak ostatnio oglądanych artykułów</string>
-  <string name="history_empty_message">Tutaj zobaczysz, co wcześniej {{GENDER:|czytałeś|czytałaś|czytałeś}}.</string>
+  <string name="history_empty_message">Śledź tutaj, co było czytane.</string>
   <string name="history_offline_articles_toast">W trybie offline (bez dostępu do sieci) niektóre artykuły w historii mogą być niewidoczne.</string>
   <string name="search_empty_message">Przeszukuj i czytaj darmową encyklopedię w swoim języku</string>
   <string name="search_empty_message_multilingual_upgrade">Przeszukuj Wikipedię w większej ilości języków</string>
@@ -284,7 +284,7 @@
   <string name="user_blocked_from_editing_title">Zablokowany/-a</string>
   <string name="user_logged_in_blocked_from_editing">Edytowanie wiki z tego konta użytkownika zostało zablokowane.</string>
   <string name="user_anon_blocked_from_editing">Edycja z tego adresu IP została zablokowana.</string>
-  <string name="edit_how_page_improved">Jak {{GENDER:|poprawiłeś|poprawiłaś}} stronę?</string>
+  <string name="edit_how_page_improved">Jak poprawiłeś/aś stronę?</string>
   <string name="edit_next">Następne</string>
   <string name="edit_done">Opublikuj</string>
   <string name="edit_preview">Podgląd</string>
@@ -297,7 +297,7 @@
   <string name="edit_summary_tag_grammar">Poprawiono gramatykę</string>
   <string name="edit_summary_tag_links">Dodano linki</string>
   <string name="edit_summary_tag_other">Inne</string>
-  <string name="edit_summary_tag_other_hint">Co {{GENDER:|poprawiłeś|poprawiłaś}} na tej stronie</string>
+  <string name="edit_summary_tag_other_hint">Co poprawiłaś/eś na tej stronie</string>
   <string name="edit_conflict_title">Konflikt edycji</string>
   <string name="edit_conflict_message">Strona została już zmodyfikowana przez innego użytkownika i koliduje to z twoją edycją. Skopiuj swoje edycje, wróć i odśwież stronę, następnie spróbuj przeedytować ją ponownie.</string>
   <string name="edit_notices">Powiadomienia o edycji</string>
@@ -403,7 +403,7 @@
   <string name="location_permissions_enable_prompt">Włącz uprawnienia do lokalizacji, aby zobaczyć miejsca w pobliżu.</string>
   <string name="location_permissions_enable_action">Włącz</string>
   <string name="error_webview_updating">Usługa Android System WebView jest obecnie aktualizowana. Spróbuj ponownie za chwilę.</string>
-  <string name="multi_select_items_selected">{{Plural|one=%d wybrany|few=%d wybrane|many=%d wybranych|wybranych}}</string>
+  <string name="multi_select_items_selected">Wybrano %d</string>
   <string name="error_message_generic">Wystąpił błąd</string>
   <string name="view_link_preview_error_button_dismiss">Zamknij</string>
   <string name="error_page_does_not_exist">Ta strona nie istnieje</string>
@@ -972,10 +972,10 @@
   <string name="suggested_card_more_edits">Więcej sugerowanych zmian</string>
   <string name="suggested_edits_report_suggestion">Raport</string>
   <plurals name="suggested_edits_added_contribution_label">
-    <item quantity="one">{{GENDER:|Dodałeś|Dodałaś|Dodano}} %d znak</item>
-    <item quantity="few">{{GENDER:|Dodałeś|Dodałaś|Dodano}} %d znaki</item>
-    <item quantity="many">{{GENDER:|Dodałeś|Dodałaś|Dodano}} %d znaków</item>
-    <item quantity="other">{{GENDER:|Dodałeś|Dodałaś|Dodano}} %d znaków</item>
+    <item quantity="one">Dodałeś/aś %d znak</item>
+    <item quantity="few">Dodałeś/aś %d znaki</item>
+    <item quantity="many">Dodałeś/aś %d znaków</item>
+    <item quantity="other">Dodałeś/aś %d znaków</item>
   </plurals>
   <string name="file_page_activity_title">Strona pliku</string>
   <string name="file_page_add_image_caption_button">Dodaj podpis obrazu</string>

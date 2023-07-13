@@ -293,7 +293,8 @@
   <string name="search_recent_header">Күптән түгел булган эзләүләр:</string>
   <string name="search_results_count_zero">Нәтиҗәсез</string>
   <plurals name="search_results_count">
-    <item quantity="other">бер=1 нәтиҗә</item>
+    <item quantity="one">1 нәтиҗә</item>
+    <item quantity="other">%d нәтиҗәләр</item>
   </plurals>
   <string name="button_clear_all_recent_searches">Күптән түгел булган эзләүләрне бетерергә</string>
   <string name="clear_recent_searches_confirm">Сез эзләү тарихын чистартырга телисезме?</string>
