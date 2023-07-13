@@ -19,6 +19,7 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.chip.Chip
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentPreviewSummaryBinding
@@ -41,8 +42,6 @@ class EditSummaryFragment : Fragment() {
     val isMinorEdit get() = binding.minorEditCheckBox.isChecked
     val watchThisPage get() = binding.watchPageCheckBox.isChecked
     val isActive get() = binding.root.visibility == View.VISIBLE
-
-    private val summaryTagStrings = intArrayOf(R.string.edit_summary_tag_typo, R.string.edit_summary_tag_grammar, R.string.edit_summary_tag_links)
 
     private val voiceSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val voiceSearchResult = it.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
@@ -133,6 +132,11 @@ class EditSummaryFragment : Fragment() {
     }
 
     private fun addEditSummaries() {
+        val summaryTagStrings = if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE)
+            intArrayOf(R.string.edit_summary_added_image, R.string.edit_summary_added_caption)
+        else
+            intArrayOf(R.string.edit_summary_tag_typo, R.string.edit_summary_tag_grammar, R.string.edit_summary_tag_links)
+
         val localizedSummaries = L10nUtil.getStringsForArticleLanguage(title, summaryTagStrings)
         summaryTagStrings.forEach {
             addChip(localizedSummaries[it])

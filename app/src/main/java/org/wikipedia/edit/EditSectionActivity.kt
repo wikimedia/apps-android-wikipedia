@@ -70,7 +70,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private lateinit var editPreviewFragment: EditPreviewFragment
     private lateinit var editSummaryFragment: EditSummaryFragment
     private lateinit var syntaxHighlighter: SyntaxHighlighter
-    private lateinit var invokeSource: Constants.InvokeSource
+    lateinit var invokeSource: Constants.InvokeSource
+        private set
     lateinit var pageTitle: PageTitle
         private set
 
