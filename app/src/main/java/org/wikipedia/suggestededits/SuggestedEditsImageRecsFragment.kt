@@ -321,7 +321,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     }
 
     override fun onDialogSubmit(response: Int, selectedItems: List<Int>) {
-        // TODO: send the feedback to the server
+        viewModel.rejectRecommendation(null, selectedItems)
         publish()
     }
 

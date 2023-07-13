@@ -614,12 +614,13 @@ interface Service {
         @Query("gsrlimit") count: Int
     ): MwQueryResponse
 
-    @POST(MW_API_PREFIX + "action=growthinvalidateimagerecommendation&tasktype=image-recommendation")
+    @POST(MW_API_PREFIX + "action=growthinvalidateimagerecommendation")
     @FormUrlEncoded
     suspend fun invalidateImageRecommendation(
-        @Query("title") title: String,
-        @Query("filename") fileName: String,
-        @Query("token") token: String
+        @Field("tasktype") taskType: String,
+        @Field("title") title: String,
+        @Field("filename") fileName: String,
+        @Field("token") token: String
     ): MwPostResponse
 
     @GET(MW_API_PREFIX + "action=paraminfo")

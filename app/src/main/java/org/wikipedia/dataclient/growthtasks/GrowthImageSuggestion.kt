@@ -45,6 +45,6 @@ class GrowthImageSuggestion(
         // Boolean fields must be nullable for androidx.serialization to serialize properly.
         val accepted: Boolean? = null,
         val reasons: List<String> = emptyList(),
-        val caption: String = "",
+        val caption: String? = null,
     )
 }

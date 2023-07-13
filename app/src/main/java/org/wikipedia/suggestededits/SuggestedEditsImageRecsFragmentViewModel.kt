@@ -8,6 +8,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import org.wikipedia.Constants
+import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
@@ -17,6 +18,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.FileAliasData
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.log.L
 import java.util.*
 
 class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
@@ -61,6 +63,34 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
             recommendedImageTitle.description = recommendation.images[0].metadata!!.description
 
             _uiState.value = UiState.Success()
+        }
+    }
+
+    fun rejectRecommendation(token: String?, reasonCodes: List<Int>) {
+        viewModelScope.launch(handler) {
+            val reasons = listOf("notrelevant", "noinfo", "offensive", "lowquality", "unfamiliar", "other")
+
+            withContext(Dispatchers.IO) {
+                val csrfToken = token ?: CsrfTokenClient.getToken(pageTitle.wikiSite).blockingSingle()
+
+                // Attempt to call the AddImageFeedback API first, and if it fails, try the
+                // growthinvalidateimagerecommendation API instead.
+                try {
+                    val body = GrowthImageSuggestion.AddImageFeedbackBody(
+                        csrfToken,
+                        0,
+                        recommendation.images[0].displayFilename,
+                        false,
+                        reasonCodes.mapNotNull { reasons.getOrNull(it) },
+                        null,
+                    )
+                    ServiceFactory.getCoreRest(pageTitle.wikiSite).addImageFeedback(pageTitle.prefixedText, body)
+                } catch (e: Exception) {
+                    L.e(e)
+                    ServiceFactory.get(pageTitle.wikiSite).invalidateImageRecommendation("image-recommendation",
+                        pageTitle.prefixedText, recommendation.images[0].displayFilename, csrfToken)
+                }
+            }
         }
     }
 
