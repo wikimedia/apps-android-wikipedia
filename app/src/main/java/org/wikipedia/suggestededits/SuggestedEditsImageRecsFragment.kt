@@ -35,6 +35,7 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecsItemBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
@@ -64,8 +65,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         if (result.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.edit_saved_successfully))
                 .setAction(R.string.edit_published_view) {
-                    val revId = result.data?.getLongExtra(EditSectionActivity.EXTRA_REV_ID, 0)
-                    // TODO: show diff of edit.
+                    val revId = result.data?.getLongExtra(EditSectionActivity.EXTRA_REV_ID, 0) ?: 0
+                    startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), viewModel.pageTitle, revId))
                 }
 
             callback().nextPage(this)
