@@ -38,6 +38,36 @@ class InsertMediaTest {
     }
 
     @Test
+    fun testInsertImageIntoArticleWithInfoboxWithName() {
+        val wikitext = "{{short description|Species of beetle}}\n" +
+                "{{Speciesbox\n" +
+                "| genus = Carabus\n" +
+                "| species = goryi\n" +
+                "| authority = Dejean, 1831\n" +
+                "}}\n\n" +
+                "'''''Carabus goryi''''' is a species of [[ground beetle]] in the family [[Carabidae]]." +
+                "It is found in North America.<ref name=itis/><ref name=gbif/><ref name=buglink/><ref" +
+                "name=Bousquet2012/>\n"
+
+        val expected = "{{short description|Species of beetle}}\n" +
+                "{{Speciesbox\n" +
+                "| genus = Carabus\n" +
+                "| species = goryi\n" +
+                "| image = Test_image.jpg\n" +
+                "| image_caption = Foo\n" +
+                "| image_alt = Bar\n" +
+                "| authority = Dejean, 1831\n" +
+                "}}\n\n" +
+                "'''''Carabus goryi''''' is a species of [[ground beetle]] in the family [[Carabidae]]." +
+                "It is found in North America.<ref name=itis/><ref name=gbif/><ref name=buglink/><ref" +
+                "name=Bousquet2012/>\n"
+
+        MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
+            "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
+            0, true), Matchers.`is`(expected))
+    }
+
+    @Test
     fun testInsertImageIntoArticleWithInfoboxEmptyImageParam() {
         val wikitext = "{{Short description|Genus of plants}}\n" +
                 "{{Italic title}}\n" +
@@ -69,7 +99,7 @@ class InsertMediaTest {
                 "{{taxobox\n" +
                 "|name = \n" +
                 "|image_alt = Bar\n" +
-                "|image = File:Test_image.jpg\n" +
+                "|image = Test_image.jpg\n" +
                 "|image_caption = Foo\n" +
                 "|regnum = [[Plantae]]\n" +
                 "|unranked_divisio = [[Angiosperms]]\n" +

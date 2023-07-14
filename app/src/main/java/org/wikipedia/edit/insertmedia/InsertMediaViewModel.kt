@@ -164,49 +164,30 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             var imageCaptionParamName = "caption"
             var imageAltParamName = "alt"
 
-            var infoboxStartIndex = -1
-            var infoboxEndIndex = -1
-            var i = 0
-            while (true) {
-                i = wikiText.indexOf("{{", i)
-                if (i == -1) {
-                    break
+            val infoboxNames = listOf("infobox", "taxobox", "chembox", "drugbox", "speciesbox").joinToString("|")
+            val infoboxMatch = """\{\{\s*($infoboxNames).*\}\}""".toRegex(setOf(RegexOption.DOT_MATCHES_ALL, RegexOption.IGNORE_CASE)).find(wikiText)
+            val infoboxName = infoboxMatch?.groupValues?.get(1).orEmpty().lowercase()
+
+            when (infoboxName) {
+                "taxobox" -> {
+                    imageCaptionParamName = "image_caption"
+                    imageAltParamName = "image_alt"
                 }
-                i += 2
-                val pipePos = wikiText.indexOf("|", i)
-                if (pipePos > i) {
-                    val templateName = wikiText.substring(i, pipePos).trim()
-                    if (templateName.contains("{{") || templateName.contains("}}")) {
-                        // template doesn't contain pipe symbol, not what we're looking for.
-                        continue
-                    }
-
-                    val firstWord = templateName.split(" ").first().lowercase()
-                    if (firstWord == "infobox" || firstWord == "taxobox" || firstWord == "chembox" ||
-                        firstWord == "drugbox" || firstWord == "speciesbox") {
-                        infoboxStartIndex = i
-                        infoboxEndIndex = wikiText.indexOf("}}", infoboxStartIndex)
-
-                        when (firstWord) {
-                            "taxobox" -> {
-                                imageCaptionParamName = "image_caption"
-                                imageAltParamName = "image_alt"
-                            }
-                            "speciesbox" -> {
-                                imageCaptionParamName = "image_caption"
-                                imageAltParamName = "image_alt"
-                            }
-                            "chembox" -> {
-                                imageParamName = "ImageFile"
-                                imageCaptionParamName = "ImageCaption"
-                                imageAltParamName = "ImageAlt"
-                            }
-                        }
-                    }
+                "speciesbox" -> {
+                    imageCaptionParamName = "image_caption"
+                    imageAltParamName = "image_alt"
+                }
+                "chembox" -> {
+                    imageParamName = "ImageFile"
+                    imageCaptionParamName = "ImageCaption"
+                    imageAltParamName = "ImageAlt"
                 }
             }
 
-            if (attemptInfobox && (infoboxStartIndex in 0 until infoboxEndIndex)) {
+            if (attemptInfobox && infoboxMatch != null) {
+                val infoboxStartIndex = infoboxMatch.range.first
+                val infoboxEndIndex = infoboxMatch.range.last
+
                 var haveNameParam = false
                 var paramInsertPos = -1
                 var paramNameSpaceConvention = ""
@@ -215,54 +196,54 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                     if (haveNameParam) {
                         return@forEach
                     }
-                    val regexName = """\|(\s*)$nameParam(\d+)?\s*(=)\s*(\|)""".toRegex()
+                    val regexName = """\|(\s*)$nameParam\s*=([^|]*)(\|)""".toRegex()
                     val nameMatch = regexName.find(wikiText, infoboxStartIndex)
-                    if (nameMatch != null && nameMatch.groups[4] != null && nameMatch.groups[4]!!.range.first < infoboxEndIndex) {
+                    if (nameMatch != null && nameMatch.groups[3] != null && nameMatch.groups[3]!!.range.first < infoboxEndIndex) {
                         haveNameParam = true
-                        paramInsertPos = nameMatch.groups[4]!!.range.first
+                        paramInsertPos = nameMatch.groups[3]!!.range.first
                         paramNameSpaceConvention = nameMatch.groups[1]!!.value
                     }
                 }
 
                 if (haveNameParam) {
-                    val regexImage = """\|\s*$imageParamName(\d+)?\s*(=)\s*(\|)""".toRegex()
-                    var match = regexImage.find(wikiText, infoboxStartIndex)
+                    var match = """\|\s*$imageParamName\s*=([^|]*)(\|)""".toRegex()
+                        .find(wikiText, infoboxStartIndex)
 
-                    if (match != null && match.groups[3] != null && match.groups[3]!!.range.first < infoboxEndIndex) {
+                    if (match != null && match.groups[2] != null && match.groups[2]!!.range.first < infoboxEndIndex) {
                         // an 'image' parameter already exists, so try to insert the image into it,
                         // provided that it's empty.
 
-                        var insertPos = match.groups[3]!!.range.first
-                        val curImageStr = wikiText.substring(match.groups[2]!!.range.first + 1, match.groups[3]!!.range.first)
+                        var insertPos = match.groups[2]!!.range.first
+                        val valueStr = match.groups[1]!!.value
 
-                        if (curImageStr.trim().isEmpty()) {
-                            if (curImageStr.contains("\n")) {
-                                insertPos = wikiText.indexOf("\n", match.groups[2]!!.range.first)
+                        if (valueStr.trim().isEmpty()) {
+                            if (valueStr.contains("\n")) {
+                                insertPos = match.groups[1]!!.range.first + valueStr.indexOf("\n")
                             }
                             insertedIntoInfobox = true
-                            wikiText = wikiText.substring(0, insertPos) + namespaceName + ":" + imageTitle + wikiText.substring(insertPos)
+                            wikiText = wikiText.substring(0, insertPos) + imageTitle + wikiText.substring(insertPos)
                         } else {
                             // image parameter already has a value, so do nothing.
                         }
                     } else {
                         // no 'image' parameter exists, so insert one at the end of the 'name' parameter.
                         insertedIntoInfobox = true
-                        val insertText = "|$paramNameSpaceConvention$imageParamName = $namespaceName:$imageTitle\n"
+                        val insertText = "|$paramNameSpaceConvention$imageParamName = $imageTitle\n"
                         wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
                         paramInsertPos += insertText.length
                     }
 
                     if (insertedIntoInfobox && imageCaption.isNotEmpty()) {
                         // now try to insert the caption
-                        val regexCaption = """\|\s*$imageCaptionParamName(\d+)?\s*(=)\s*(\|)""".toRegex()
-                        match = regexCaption.find(wikiText, infoboxStartIndex)
-                        if (match != null && match.groups[3] != null && match.groups[3]!!.range.first < infoboxEndIndex) {
+                        match = """\|\s*$imageCaptionParamName\s*=([^|]*)(\|)""".toRegex()
+                            .find(wikiText, infoboxStartIndex)
+                        if (match != null && match.groups[2] != null && match.groups[2]!!.range.first < infoboxEndIndex) {
                             // Caption field already exists, so insert into it.
-                            var insertPos = match.groups[3]!!.range.first
-                            val curStr = wikiText.substring(match.groups[2]!!.range.first + 1, match.groups[3]!!.range.first)
-                            if (curStr.trim().isEmpty()) {
-                                if (curStr.contains("\n")) {
-                                    insertPos = wikiText.indexOf("\n", match.groups[2]!!.range.first)
+                            var insertPos = match.groups[2]!!.range.first
+                            val valueStr = match.groups[1]!!.value
+                            if (valueStr.trim().isEmpty()) {
+                                if (valueStr.contains("\n")) {
+                                    insertPos = match.groups[1]!!.range.first + valueStr.indexOf("\n")
                                 }
                                 wikiText = wikiText.substring(0, insertPos) + imageCaption + wikiText.substring(insertPos)
                             }
@@ -276,15 +257,15 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
                     if (insertedIntoInfobox && imageAltText.isNotEmpty() && imageAltParamName.isNotEmpty()) {
                         // now try to insert the caption
-                        val regexCaption = """\|\s*$imageAltParamName(\d+)?\s*(=)\s*(\|)""".toRegex()
-                        match = regexCaption.find(wikiText, infoboxStartIndex)
-                        if (match != null && match.groups[3] != null && match.groups[3]!!.range.first < infoboxEndIndex) {
+                        match = """\|\s*$imageAltParamName\s*=([^|]*)(\|)""".toRegex()
+                            .find(wikiText, infoboxStartIndex)
+                        if (match != null && match.groups[2] != null && match.groups[2]!!.range.first < infoboxEndIndex) {
                             // Caption field already exists, so insert into it.
-                            var insertPos = match.groups[3]!!.range.first
-                            val curStr = wikiText.substring(match.groups[2]!!.range.first + 1, match.groups[3]!!.range.first)
-                            if (curStr.trim().isEmpty()) {
-                                if (curStr.contains("\n")) {
-                                    insertPos = wikiText.indexOf("\n", match.groups[2]!!.range.first)
+                            var insertPos = match.groups[2]!!.range.first
+                            val valueStr = match.groups[1]!!.value
+                            if (valueStr.trim().isEmpty()) {
+                                if (valueStr.contains("\n")) {
+                                    insertPos = match.groups[1]!!.range.first + valueStr.indexOf("\n")
                                 }
                                 wikiText = wikiText.substring(0, insertPos) + imageCaption + wikiText.substring(insertPos)
                             }
