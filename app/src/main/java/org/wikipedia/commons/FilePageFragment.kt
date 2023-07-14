@@ -51,7 +51,7 @@ class FilePageFragment : Fragment(), FilePageView.Callback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageTitle = requireArguments().getParcelable(FilePageActivity.INTENT_EXTRA_PAGE_TITLE)!!
+        pageTitle = requireArguments().getParcelable(Constants.ARG_TITLE)!!
         allowEdit = requireArguments().getBoolean(FilePageActivity.INTENT_EXTRA_ALLOW_EDIT)
         retainInstance = true
     }
@@ -180,7 +180,7 @@ class FilePageFragment : Fragment(), FilePageView.Callback {
     companion object {
         fun newInstance(pageTitle: PageTitle, allowEdit: Boolean): FilePageFragment {
             return FilePageFragment().apply {
-                arguments = bundleOf(FilePageActivity.INTENT_EXTRA_PAGE_TITLE to pageTitle,
+                arguments = bundleOf(Constants.ARG_TITLE to pageTitle,
                         FilePageActivity.INTENT_EXTRA_ALLOW_EDIT to allowEdit)
             }
         }

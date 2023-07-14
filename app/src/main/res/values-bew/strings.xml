@@ -105,9 +105,9 @@
   <string name="map_view_link_text">Deleng di peta</string>
   <string name="other_languages_indication_text">Baca dalem basa laèn</string>
   <string name="language_count_link_text">Kesedia di %d basa laèn</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah lisènsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah lisènsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Permakan bakal dinisbatin ke aderès IP lu punya alat. Kalo lu &lt;a href=\"https://#login\"&gt;masup&lt;/a&gt;, lu bakal ada punya keresiaan dèwèk nyang lebi.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah lisènsi &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah lisènsi &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Permakan bakal dinisbatin ke aderès IP lu punya alat. Kalo lu &lt;a href=\"https://#login\"&gt;masup&lt;/a&gt;, lu bakal ada punya keresiaan dèwèk nyang lebi.</string>
   <string name="edit_anon_warning">Permakan bakal dinisbatin ke aderès IP lu punya alat. Kalo lu &lt;a href=\"https://#login\"&gt;masup&lt;/a&gt;, lu bakal ada punya keresiaan lebi.</string>
   <string name="preference_title_language">Basa Wikipédi</string>
   <string name="langlinks_filter_hint">Cari</string>
@@ -231,7 +231,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Baca_luar_jala_èn_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Pertanyaan_Sering_Android</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipédi:Bikinin_rèkening</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Tenger_gambar</string>
@@ -241,7 +241,7 @@
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Ni aplikasi udah diterjemahin ama penerjemah sukarèla di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisènsi</string>
-  <string name="about_app_license">Kode sumber kesedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; èn &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lisènsi Apache 2.0&lt;/a&gt;. Kecuali ada ketentuan tambahan nyang belakon, isi kesedia di bawahnya &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisènsi Nisbat-DumanSetumbras Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license">Kode sumber kesedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; èn &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lisènsi Apache 2.0&lt;/a&gt;. Kecuali ada ketentuan tambahan nyang belakon, isi kesedia di bawahnya &lt;a href=\"\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Lisènsi Nisbat-DumanSetumbras Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Produk deri &lt;a href=\"https://wikimediafoundation.org/\"&gt;Yayasan Wikimédia&lt;/a&gt;</string>
   <string name="about_activity_title">Pasal</string>
   <string name="edit_abandon_confirm">Ni halaman udah didandanin. Apa lu yakin pèngèn kuar sonder nyimpen lu punya perobahan?</string>
@@ -1038,6 +1038,35 @@
     <item quantity="one">Lu udah nambahin %d lèter</item>
     <item quantity="other">Lu udah nambahin %d lèter</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Gambar makalah</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Tambah gambar makalah nyang disaranin ke makalah Wikipédi bakal ningkatin pemahaman.</string>
+  <string name="image_recommendation_task_instruction">Apa lu pèngèn nambahin ni gambar ke makalah?</string>
+  <string name="image_recommendation_tutorial">Pedoman cara-cara</string>
+  <string name="image_recommendation_accept">Ya</string>
+  <string name="image_recommendation_reject">Kaga\'</string>
+  <string name="image_recommendation_notsure">Kaga\' yakin</string>
+  <string name="image_recommendation_reject_title">Ngapa kaga\'?</string>
+  <string name="image_recommendation_reject_subtitle">Lu punya jawaban bakalan ningkatin saran entarannya.</string>
+  <string name="image_recommendation_reject_not_relevant">Kaga\' kaga\' nyambung</string>
+  <string name="image_recommendation_reject_no_info">Kaga\' cukup inpormasi bakal nentuin</string>
+  <string name="image_recommendation_reject_offensive">Gambarnya nyinggung</string>
+  <string name="image_recommendation_reject_low_quality">Gambarnya kualitèt rendahan</string>
+  <string name="image_recommendation_reject_dont_know">Gua kaga\' nyaho ni perihal</string>
+  <string name="image_recommendation_reject_other">Laènnya</string>
+  <string name="image_recommendation_reject_submit">Serahin</string>
+  <string name="image_recommendation_tooltip_main">Tambahin gambar nyang ilang ke makalah di Saran Pemermakan</string>
+  <string name="image_recommendation_onboarding_1">Gambar bakal ngebantu orang mahamin, cuman kebanyakan makalah kaga\' ada gambarnya.</string>
+  <string name="image_recommendation_onboarding_2">Lu bakal nentuin apa gambar nyang disaranin kudu ditaroh di makalah Wikipédi, apa kaga\'.</string>
+  <string name="image_recommendation_onboarding_3">Saran dibuat ama mesin èn lu bakal maké lu punya peniléan sendèwèk bakal nentuin diterima apa ngga\'nya.</string>
+  <string name="image_recommendation_onboarding_4">Gambar – pada deri Wikimedia Commons, bunga rampé deri gambar lisènsi perdèo nyang dipaké ama Wikipédi.</string>
+  <string name="image_recommendation_tooltip_1">Perèksa ulang ni makalah bakal mahamin topiknya</string>
+  <string name="image_recommendation_tooltip_2">Perdatain gambar èn inpormasi nyang bekaètan</string>
+  <string name="image_recommendation_tooltip_3">Tentuin apa ni gambar ngebantu pembaca mahamin ni topik lebi baè\' apa kaga\'</string>
+  <string name="image_recommendation_tooltip_next">Terus</string>
+  <string name="image_recommendation_tooltip_warning">Dimohon perèksa ulang makalah bakal mahamin ni topik èn perdatain gambarnya</string>
+  <string name="edit_summary_added_image">Gambar nyang ditambahin</string>
+  <string name="edit_summary_added_caption">Keterangan nyang ditambahin</string>
+  <string name="edit_published_view">Deleng</string>
   <string name="file_page_activity_title">Halaman berekas</string>
   <string name="file_page_add_image_caption_button">Tambahin keterangan gambar</string>
   <string name="file_page_add_image_tags_button">Tambahin tenger gambar</string>
@@ -1136,12 +1165,12 @@
   <string name="insert_media_title">Selesepin média</string>
   <string name="insert_media_search_description">Pilih berekas deri Wikimedia Commons</string>
   <string name="insert_media_search_hint">Cari média</string>
-  <string name="insert_media_settings" fuzzy="true">Penyetèlan média</string>
+  <string name="insert_media_settings">Tambahin tètèk bengèk gambar</string>
   <string name="insert_media_settings_uploaded_image">Gambar nyang diangkat</string>
-  <string name="insert_media_settings_caption" fuzzy="true">Keterangan</string>
-  <string name="insert_media_settings_caption_description">Lèbel nyang dikasi unjuk di sebelahnya butir bakal semua pembaca</string>
+  <string name="insert_media_settings_caption">Keterangan gambar</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Lèbel nyang dikasi unjuk di sebelahnya butir bakal semua pembaca</string>
   <string name="insert_media_settings_alternative_text">Tèks alternatip</string>
-  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Jabaran tèks bakal pembaca nyang kaga\' bisa ngiat gambarnya</string>
+  <string name="insert_media_settings_alternative_text_description">Jabaran bakal pembaca nyang kaga\' bisa ngiat</string>
   <string name="insert_media_advanced_settings">Penyetèlan lanjutan</string>
   <string name="insert_media_advanced_settings_wrap_image">Bungkus tèks di sekuliling gambar</string>
   <string name="insert_media_advanced_settings_image_position">Penempatan gambar</string>
@@ -1236,8 +1265,8 @@
   <string name="menu_option_find_in_talk_page_topic">Cari di topik halaman pemaké</string>
   <string name="menu_option_copy_link_to_clipboard">Jiplak sènggètan ke papan klip</string>
   <string name="talk_menu_copy_text">Jiplak tèks</string>
-  <string name="talk_menu_expand_threads">Bèntangin benangan</string>
-  <string name="talk_menu_collapse_threads">Ciutin benangan</string>
+  <string name="talk_menu_expand_threads">Bèntangin untelan</string>
+  <string name="talk_menu_collapse_threads">Ciutin untelan</string>
   <string name="watchlist_details_watching_label">Mantengin</string>
   <string name="watchlist_details_watch_label">Pantengin</string>
   <string name="watchlist_details_next_edit">Permakan selanjutnya</string>
@@ -1381,5 +1410,6 @@
   <string name="reading_list_share_survey_body">\"Dumanin daptar bacaan\" ièlah atu keboléan uji coba èn kita butuh lu punya empan balik bakal nyempurnain atawa ngebuang tu keboléan.</string>
   <string name="data_opt_in_accept">Terima</string>
   <string name="data_opt_in_reject">Tolak</string>
+  <string name="page_issues_title">Masalah halaman</string>
   <string name="generic_release_notes">Perbaèkan bangsat èn peningkatan kecit</string>
 </resources>

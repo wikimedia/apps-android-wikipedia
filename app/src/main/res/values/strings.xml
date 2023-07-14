@@ -1254,7 +1254,7 @@
     <string name="insert_media_settings">Add image details</string>
     <string name="insert_media_settings_uploaded_image">Uploaded image</string>
     <string name="insert_media_settings_caption">Image caption</string>
-    <string name="insert_media_settings_caption_description">Label that shows next to the item for all readers</string>
+    <string name="insert_media_settings_caption_description">Visible image label in the article</string>
     <string name="insert_media_settings_alternative_text">Alternative text</string>
     <string name="insert_media_settings_alternative_text_description">Description for visually impaired readers</string>
     <string name="insert_media_advanced_settings">Advanced settings</string>

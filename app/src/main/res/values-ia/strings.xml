@@ -108,9 +108,9 @@
   <string name="map_view_link_text">Vider sur un carta</string>
   <string name="other_languages_indication_text">Leger in un altere lingua</string>
   <string name="language_count_link_text">Disponibile in %d altere linguas</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Si tu publica, tu accepta le &lt;a href=\"%1$s\"&gt;conditiones de uso&lt;/a&gt; e le liberation irrevocabile de tu contributiones sub le licentia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Si tu publica, tu accepta le &lt;a href=\"%1$s\"&gt;conditiones de uso&lt;/a&gt; e le liberation irrevocabile de tu contributiones sub le licentia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Le modificationes essera attribuite al adresse IP de tu apparato. Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt;, tu habera plus confidentialitate.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Si tu publica, tu accepta le &lt;a href=\"%1$s\"&gt;conditiones de uso&lt;/a&gt; e le liberation irrevocabile de tu contributiones sub le licentia &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Si tu publica, tu accepta le &lt;a href=\"%1$s\"&gt;conditiones de uso&lt;/a&gt; e le liberation irrevocabile de tu contributiones sub le licentia &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Le modificationes essera attribuite al adresse IP de tu apparato. Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt;, tu habera plus confidentialitate.</string>
   <string name="edit_anon_warning">Le modificationes essera attribuite al adresse IP de tu apparato. Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt;, tu habera plus de confidentialitate.</string>
   <string name="preference_title_language">Linguas de Wikipedia</string>
   <string name="langlinks_filter_hint">Cercar</string>
@@ -230,7 +230,6 @@
   <string name="privacy_policy_description">Politica de confidentialitate</string>
   <string name="terms_of_use_description">Conditiones de uso</string>
   <string name="about_wikipedia_url">https://ia.wikipedia.org/wiki/Wikipedia:A_proposito</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ia</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ia</string>
   <string name="about_libraries_heading">Bibliothecas usate</string>
   <string name="about_contributors_heading">Contributores</string>
@@ -238,7 +237,7 @@
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Iste app ha essite traducite per le traductores voluntari de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentia</string>
-  <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.ia\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
+  <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.ia\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">A proposito</string>
   <string name="edit_abandon_confirm">Le pagina ha essite modificate. Es tu secur de voler exir sin salveguardar tu cambiamentos?</string>
@@ -343,6 +342,58 @@
   <string name="tool_tip_bookmark_icon_title">Adder al lista de lectura</string>
   <string name="tool_tip_bookmark_icon_text">Tocca le icone de marcapaginas pro salveguardar le articulo in un lista de lectura.</string>
   <string name="page_view_in_browser">Visitar iste pagina in le navigator</string>
+  <string name="tool_tip_toc_title">Accesso rapide al tabula de contento</string>
+  <string name="tool_tip_toc_text">Ora es possibile glissar al sinistra pro aperir le tabula de contento, e traher iste button de rolamento pro saltar rapidemente al varie sectiones de un articulo.</string>
+  <string name="tool_tip_lang_button">Ora es possibile cercar e leger in plure linguas de Wikipedia in le application.\n\n\nTocca le icone pro adder plus linguas.</string>
+  <string name="error_response_malformed">Le responsa del servitor non ha essite formatate correctemente.</string>
+  <string name="error_unknown">Un error incognite ha occurrite.</string>
+  <string name="format_error_server_message">Message: \"%s\"</string>
+  <string name="address_copied">Adresse copiate al area de transferentia.</string>
+  <string name="text_copied">Texto copiate al area de transferentia.</string>
+  <string name="button_continue_to_article">Leger articulo</string>
+  <string name="button_continue_to_talk_page">Aperir pagina de discussion</string>
+  <string name="button_continue_to_disambiguation">Vider paginas similar</string>
+  <string name="link_preview_disambiguation_description">Iste titulo face referentia a plus de un pagina:</string>
+  <string name="button_add_to_reading_list">Adder al lista de lectura</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Le articulo non pote esser cargate sin connexion.</string>
+  <string name="page_offline_notice_add_to_reading_list">Consilio: Adde le articulo a un lista de lectura e illo essera discargate quando tu habera de novo un connexion a internet.</string>
+  <string name="page_offline_notice_last_date">Tu lege ora un version foras de linea de iste articulo, salveguardate le %s.</string>
+  <string name="button_get_directions">Obtener itinerario</string>
+  <string name="error_no_maps_app">Non poteva trovar alcun application que forni itinerarios.</string>
+  <string name="preference_title_customize_explore_feed">Explorar fluxo</string>
+  <string name="preference_title_show_link_previews">Monstrar previsualisationes de ligamines</string>
+  <string name="preference_summary_customize_explore_feed">Personalisar le fluxo Explorar</string>
+  <string name="preference_summary_show_link_previews">Monstrar un previsualisation rapide de articulo quando se tocca sur ligamines.</string>
+  <string name="preference_title_collapse_tables">Contraher tabellas</string>
+  <string name="preference_summary_collapse_tables">Contraher automaticamente le tabellas in articulos, como quadros de information, referentias e notas.</string>
+  <string name="nav_item_donate">Donar</string>
+  <string name="error_voice_search_not_available">Le recognition vocal non es disponibile.</string>
+  <string name="location_service_disabled">Le servicios de localisation es disactivate.</string>
+  <string name="enable_location_service">Activar</string>
+  <string name="location_permissions_enable_prompt">Activar le permissiones de localisation pro vider locos in tu vicinitate.</string>
+  <string name="location_permissions_enable_action">Activar</string>
+  <string name="error_webview_updating">Le Systema WebView Android es actualmente in curso de actualisation. Per favor tenta lo de novo in un momento.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d seligite</item>
+    <item quantity="other">%d seligite</item>
+  </plurals>
+  <string name="multi_select_items_selected">%d seligite</string>
+  <string name="error_message_generic">Un error ha occurrite</string>
+  <string name="view_link_preview_error_button_dismiss">Clauder</string>
+  <string name="error_page_does_not_exist">Iste pagina non existe</string>
+  <string name="error_user_page_does_not_exist">Wikipedia non ha un &lt;a href=\"%1$s\"&gt;pagina de usator&lt;/a&gt; con iste nomine exacte. In general, iste pagina debe esser create e modificate per &lt;b&gt;%2$s&lt;/b&gt;. In caso de dubita, per favor verifica que \"%3$s\" existe.</string>
+  <string name="view_wiki_error_message_offline">Non pote connecter a Internet</string>
+  <string name="view_wiki_error_message_timeout">Non pote connecter a Wikipedia. Verifica tu connexion al rete o tenta lo de novo plus tarde</string>
+  <string name="reference_title">Referentia %s</string>
+  <string name="reference_list_title">Referentias</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Attenuation de imagines (in thema Obscur)</string>
+  <string name="preference_title_prefer_offline_content">Preferer contento foras de linea</string>
+  <string name="preference_summary_prefer_offline_content">Economisar le utilisation de datos cargante articulos disponibile foras de linea in loco de sempre cargar le ultime version de un articulo</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Adaptar al thema del systema</string>
+  <string name="page_footer_license_text">Le contento es disponibile sub $1 salvo indication contrari</string>
+  <string name="empty_tab_title">Nove scheda</string>
+  <string name="menu_save_all_tabs">Salveguardar tote le schedas</string>
+  <string name="error_blocked_title">Tu nomine de usator o adresse IP ha essite blocate.</string>
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Clar</string>
   <string name="color_theme_dark">Obscur</string>

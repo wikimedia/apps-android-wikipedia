@@ -264,13 +264,14 @@
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
   <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for Czech (lang code \"cs\"): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
   <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
-  <string name="offline_reading_and_data_url">URL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
-  <string name="android_app_faq_url">URL leading to the page of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
+  <string name="offline_reading_and_data_url">{{optional}}\nURL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
+  <string name="android_app_faq_url">{{optional}}\nURL leading to the page of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site, please do so.</string>
   <string name="terms_of_use_url">URL leading to the Wikimedia Foundation terms of use. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://foundation.m.wikimedia.org/wiki/Terms_of_Use/de\nPlease test the URL to make sure it works</string>
-  <string name="android_app_request_an_account_url">URL leading to the page of Wikimedia account request. If you can find the appropriate language specific URL of the mobile site please do so</string>
-  <string name="cc_0_url">URL for details about the Creative Commons CC0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
-  <string name="android_app_edit_help_url">URL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site please do so.\n\n{{optional}}</string>
-  <string name="suggested_edits_image_tags_help_url">URL for more information about contributing image tags from the app.</string>
+  <string name="android_app_request_an_account_url">{{optional}}\nURL leading to the page of Wikimedia account request. If you can find the appropriate language specific URL of the mobile site, please do so.</string>
+  <string name="cc_by_sa_4_url">{{optional}}\n\nURL for details about the Creative Commons CC BY-SA 4.0 license. When possible, please use the appropriate language-specific URL.</string>
+  <string name="cc_0_url">{{optional}}\n\nURL for details about the Creative Commons CC0 license. When possible, please use the appropriate language-specific URL.</string>
+  <string name="android_app_edit_help_url">{{optional}}\nURL leading to the help page for article editing from within the app. If you can find the appropriate language specific URL of the mobile site, please do so.</string>
+  <string name="suggested_edits_image_tags_help_url">{{optional}}\n\nURL for more information about contributing image tags from the app.</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app.</string>
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.\n{{Identical|Contributor}}</string>
   <string name="about_contributors">URL leading to the page of the Wikimedia Android app team. {{doc-important|Please don\'t translate links and link titles.}}</string>
@@ -864,8 +865,8 @@
   <string name="description_edit_voice_input_description">Content description for the voice input icon in the input field</string>
   <string name="description_edit_learn_more">Label text for information about article descriptions.</string>
   <string name="description_edit_image_caption_learn_more">Label text for information about Image Captions.</string>
-  <string name="description_edit_description_learn_more_url">URL that points to a page on mediawiki that contains guidelines for writing article descriptions.</string>
-  <string name="description_edit_image_caption_learn_more_url">URL that points to a page on mediawiki that contains guidelines for writing Image captions.</string>
+  <string name="description_edit_description_learn_more_url">{{optional}}\nURL that points to a page on mediawiki.org that contains guidelines for writing article descriptions.</string>
+  <string name="description_edit_image_caption_learn_more_url">{{optional}}\nURL that points to a page on mediawiki.org that contains guidelines for writing Image captions.</string>
   <string name="description_too_short">Error text shown when a description is too short.</string>
   <string name="description_ends_with_punctuation">Error text shown when a description ends with punctuation.</string>
   <string name="description_starts_with_article">{{Optional}}\n\nWarning text shown when a description starts with a definite or indefinite article. Currently implemented in English, German, Spanish, and French. Doesn\'t need translation to other languages. When translating, use the articles in the language and don\'t copy the English ones.</string>
@@ -1445,5 +1446,4 @@
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
   <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
   <string name="generic_release_notes">Release notes message that will be used on app stores for minor releases and maintenance updates.</string>
-  <string name="cc_by_sa_4_url">URL for details about the Creative Commons CC BY-SA 4.0 license. When possible, please use the appropriate language-specific URL, and the mobile version of the site.</string>
 </resources>
