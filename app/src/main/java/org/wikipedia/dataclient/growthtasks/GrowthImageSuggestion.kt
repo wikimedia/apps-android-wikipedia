@@ -8,7 +8,7 @@ class GrowthImageSuggestion(
     val titleNamespace: Int = 0,
     val titleText: String = "",
     val datasetId: String = "",
-    val images: List<ImageItem> = emptyList(),
+    val images: List<ImageItem> = emptyList()
 ) {
     @Serializable
     class ImageItem(
@@ -16,7 +16,7 @@ class GrowthImageSuggestion(
         val displayFilename: String = "",
         val source: String = "",
         val projects: List<String> = emptyList(),
-        val metadata: ImageMetadata? = null,
+        val metadata: ImageMetadata? = null
     )
 
     @Serializable
@@ -34,7 +34,7 @@ class GrowthImageSuggestion(
         val caption: String = "",
         val categories: List<String> = emptyList(),
         val reason: String = "",
-        val contentLanguageName: String = "",
+        val contentLanguageName: String = ""
     )
 
     @Serializable
@@ -45,6 +45,6 @@ class GrowthImageSuggestion(
         // Boolean fields must be nullable for androidx.serialization to serialize properly.
         val accepted: Boolean? = null,
         val reasons: List<String> = emptyList(),
-        val caption: String = "",
+        val caption: String? = null
     )
 }
