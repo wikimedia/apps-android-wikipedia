@@ -26,6 +26,7 @@ import org.wikipedia.page.*
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.ViewAnimations
@@ -91,9 +92,10 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                 if (!isAdded) {
                     return
                 }
+                bridge.onMetadataReady()
+                bridge.execute(JavaScriptActionHandler.setMargins(16, 0, 16, 16 + DimenUtil.roundedPxToDp(binding.licenseText.height.toFloat())))
                 (requireActivity() as EditSectionActivity).showProgressBar(false)
                 requireActivity().invalidateOptionsMenu()
-                bridge.execute(JavaScriptActionHandler.setTopMargin(0))
             }
         }
 
