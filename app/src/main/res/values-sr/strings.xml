@@ -2,6 +2,7 @@
 <!-- Authors:
 * Acamicamacaraca
 * Aktron
+* Amire80
 * BadDog
 * Bjankuloski06
 * Dbrant
@@ -235,6 +236,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr#Ознаке_слика</string>
@@ -855,6 +857,7 @@
   <string name="image_recommendation_reject_no_info">Недовољно информација за одлуку</string>
   <string name="image_recommendation_reject_offensive">Слика је увредљива</string>
   <string name="image_recommendation_reject_low_quality">Слика је слабог квалитета</string>
+  <string name="image_recommendation_reject_dont_know">Није ми позната ова тема</string>
   <string name="image_recommendation_reject_other">Друго</string>
   <string name="image_recommendation_reject_submit">Пошаљи</string>
   <string name="image_recommendation_tooltip_next">Следеће</string>
