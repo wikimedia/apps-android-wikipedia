@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Agne1992
+* Amire80
 * Eitvys200
 * Gediminas
 * Mantak111
@@ -232,6 +233,7 @@
   <string name="terms_of_use_description">Naudojimosi sąlygos</string>
   <string name="about_wikipedia_url">https://lt.wikipedia.org/wiki/Vikipedija:Projekto_aprašymas</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.lt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.lt</string>
   <string name="about_libraries_heading">Panaudotos bibliotekos</string>
   <string name="about_contributors_heading">Autoriai</string>

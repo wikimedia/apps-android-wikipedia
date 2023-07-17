@@ -3,6 +3,7 @@
 * !Silent
 * AVrana
 * Alvarenga
+* Amire80
 * Anaclaudiaml
 * BarbaraAckles
 * Cainamarques
@@ -35,6 +36,7 @@
 * Ppena
 * Re demz
 * Rodrigo codignoli
+* Saturnow
 * Teles
 * TheEduGobi
 * Trooper57
@@ -145,8 +147,8 @@
   <string name="map_view_link_text">Ver no mapa</string>
   <string name="other_languages_indication_text">Ler em outro idioma</string>
   <string name="language_count_link_text">Disponível em %d outros idiomas</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço de IP do seu dispositivo. Para ter mais privacidade, &lt;a href=\"https://#login\"&gt;autentique-se&lt;/a&gt;.</string>
   <string name="edit_anon_warning">As edições serão atribuídas ao endereço IP do seu dispositivo. Se você &lt;a href=\"https://#login\"&gt;se conectar&lt;/a&gt;, terá mais privacidade.</string>
   <string name="preference_title_language">Idiomas da Wikipédia</string>
@@ -273,6 +275,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt-br</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/pt-br</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
@@ -983,6 +986,7 @@
   <string name="suggested_edits_image_tags_select_title">Você não selecionou nenhuma marcação para esta imagem</string>
   <string name="suggested_edits_image_tags_select_text">Somente as marcações que você escolher serão adicionadas às imagens. Tags que não estão selecionadas serão marcadas como rejeitadas. Tem certeza de que deseja marcar todas as tags como rejeitadas?</string>
   <string name="suggested_edits_image_tags_add_tag">Adicionar marcação</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">\nAs tags não publicadas não serão salvas</string>
   <string name="suggested_edits_image_zoom_tooltip">Aperte para ampliar esta imagem.</string>
   <string name="suggested_edits_encouragement_message">%s, obrigado por suas edições. Abaixo, você encontra mais maneiras de contribuir com a Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, abaixo, você pode encontrar maneiras rápidas e fáceis de ajudar a melhorar a Wikipédia. Você verá a diferença que está fazendo assim que começa. Edição feliz!</string>
@@ -1079,8 +1083,21 @@
     <item quantity="one">Você adicionou %d caractere</item>
     <item quantity="other">Você adicionou %d caracteres</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Algoritmo de treinamento de imagem</string>
+  <string name="suggested_edits_image_recommendations_task_title">Imagem do artigo:</string>
   <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Decida se uma imagem sugerida irá melhorar um artigo.</string>
+  <string name="image_recommendation_tutorial">Tutorial</string>
+  <string name="image_recommendation_accept">Sim</string>
+  <string name="image_recommendation_reject">Não</string>
+  <string name="image_recommendation_notsure">Não tenho certeza</string>
+  <string name="image_recommendation_reject_title">Por que não?</string>
+  <string name="image_recommendation_reject_not_relevant">A imagem não é relevante</string>
+  <string name="image_recommendation_reject_no_info">Não há informações suficientes para decidir</string>
+  <string name="image_recommendation_reject_offensive">A imagem é ofensiva</string>
+  <string name="image_recommendation_reject_low_quality">A imagem é de baixa qualidade</string>
+  <string name="image_recommendation_reject_dont_know">Eu não sei esse assunto</string>
+  <string name="image_recommendation_reject_other">Outro</string>
+  <string name="image_recommendation_reject_submit">Enviar</string>
+  <string name="image_recommendation_onboarding_4">As imagens vêm do Wikimedia Commons, uma coleção de imagens licenciadas livremente usadas pela Wikiédia.</string>
   <string name="file_page_activity_title">Página do arquivo</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar marcações de imagem</string>

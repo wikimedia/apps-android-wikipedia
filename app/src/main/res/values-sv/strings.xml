@@ -3,6 +3,7 @@
 * Aaoo
 * Abbedabb
 * Ainali
+* Amire80
 * Bengtsson96
 * Dbrant
 * Haxpett
@@ -251,6 +252,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/w/index.php?title=Wikipedia:Request_an_account</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sv</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sv</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sv</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>

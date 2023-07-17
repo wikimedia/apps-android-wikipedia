@@ -3,6 +3,7 @@
 * AOla333
 * Alan ffm
 * Alchemik
+* Amire80
 * Chrumps
 * CiaPan
 * Czupirek
@@ -32,6 +33,7 @@
 * Stojex
 * Strebski
 * Szymonel
+* Tacsipacsi
 * Tar Lócesilion
 * The Polish
 * Thoji
@@ -265,7 +267,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/pl</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pl</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pl</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -800,7 +802,7 @@
   <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">zwykle zaczynają się od małej litery</string>
   <string name="description_edit_voice_input_description">Wprowadzanie głosowe</string>
-  <string name="description_edit_description_learn_more_url">https\n://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pl#Article_descriptions</string>
   <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Tekst jest zbyt krótki.</string>
   <string name="description_ends_with_punctuation">Tekst nie może kończyć się znakiem interpunkcyjnym.</string>
