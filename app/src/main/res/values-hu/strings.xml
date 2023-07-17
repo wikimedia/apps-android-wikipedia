@@ -965,6 +965,7 @@
   <string name="suggested_edits_image_tags_select_title">Még egyetlen címkét sem választottál ehhez a képhez</string>
   <string name="suggested_edits_image_tags_select_text">Csak a kiválasztott címkék lesznek hozzáadva a képekhez. A nem kiválasztott címkék elutasítottként lesznek megjelölve. Valóban elutasítottnak akarod jelölni az összes címkét?</string>
   <string name="suggested_edits_image_tags_add_tag">Címke hozzáadása</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">A közzé nem tett címkék nem lesznek elmentve</string>
   <string name="suggested_edits_image_zoom_tooltip">Csípj a kép nagyításához.</string>
   <string name="suggested_edits_encouragement_message">%s, köszönet a szerkesztéseidért! Lentebb további lehetőségeket találsz, amelyekkel hozzájárulhatsz a Wikipédiához.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Szia %s!&lt;/b&gt; Tudtad, hogy bárki szerkesztheti a Wikipédiát? Lentebb gyors és egyszerű módokat találsz, amivel közreműködhetsz a Wikipédia javításában. Jó szerkesztést!</string>
@@ -1401,4 +1402,5 @@
   <string name="reading_list_share_survey_body">Az olvasólisták megosztása egy tesztelés alatt álló funkció, és szükségünk van a visszajelzésedre a fejlesztéséhez vagy eltávolításához.</string>
   <string name="data_opt_in_accept">Elfogad</string>
   <string name="data_opt_in_reject">Elutasít</string>
+  <string name="generic_release_notes">Kisebb hibajavítások és fejlesztések</string>
 </resources>

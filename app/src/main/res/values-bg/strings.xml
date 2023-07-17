@@ -1120,7 +1120,9 @@
   <string name="menu_option_find_in_talk_page_topic">Намиране в тема на беседа</string>
   <string name="menu_option_copy_link_to_clipboard">Копиране на връзката в системния буфер</string>
   <string name="talk_menu_copy_text">Копиране на текста</string>
+  <string name="watchlist_details_watching_label">Наблюдавана</string>
   <string name="watchlist_details_watch_label">Наблюдение</string>
+  <string name="watchlist_details_next_edit">Следваща редакция</string>
   <string name="watchlist_details_prev_edit">Предишна редакция</string>
   <string name="thank_label">Благодарност</string>
   <string name="view_user_page">Преглед на потребителската страница</string>

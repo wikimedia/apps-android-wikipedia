@@ -24,12 +24,12 @@ class MwQueryResult {
     @SerialName("allusers") val allUsers: List<UserInfo>? = null
     @SerialName("globaluserinfo") val globalUserInfo: UserInfo? = null
 
-    private val redirects: MutableList<Redirect>? = null
-    private val converted: MutableList<ConvertedTitle>? = null
+    private val redirects: List<Redirect>? = null
+    private val converted: List<ConvertedTitle>? = null
     private val tokens: Tokens? = null
     private val echomarkread: MarkReadResponse? = null
     val users: List<UserInfo>? = null
-    val pages: MutableList<MwQueryPage>? = null
+    val pages: List<MwQueryPage>? = null
     val echomarkseen: MarkReadResponse? = null
     val notifications: NotificationList? = null
     val watchlist: List<WatchlistItem> = emptyList()
@@ -75,7 +75,7 @@ class MwQueryResult {
         return users?.find { StringUtil.capitalize(userName) == it.name }
     }
 
-    fun langLinks(): MutableList<PageTitle> {
+    fun langLinks(): List<PageTitle> {
         val result = mutableListOf<PageTitle>()
         if (pages.isNullOrEmpty()) {
             return result

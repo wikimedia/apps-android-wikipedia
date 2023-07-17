@@ -166,6 +166,7 @@
   <string name="article_menu_bar_contents_button">Siskáldâs</string>
   <string name="article_header_edit_hint">Mute...</string>
   <string name="article_header_edit_description">Mute artikkâl kuvvim</string>
+  <string name="article_header_edit_lead_section">Mute laiđiittâs</string>
   <string name="color_theme_select">Teema</string>
   <string name="color_theme_light">Kuovgâd</string>
   <string name="color_theme_dark">Tevkkâd</string>
@@ -213,6 +214,7 @@
   <string name="notification_echo_channel_description">Wikipedia almottâsah</string>
   <string name="notifications_activity_title">Almottâsah</string>
   <string name="watchlist_title">Tarkkumlisto</string>
+  <string name="preference_title_notification_login_fail">Čáládât siisâ</string>
   <string name="preference_title_notification_user_talk">Savâstâllâmsijđo</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_tab_filter_all">Puoh</string>
