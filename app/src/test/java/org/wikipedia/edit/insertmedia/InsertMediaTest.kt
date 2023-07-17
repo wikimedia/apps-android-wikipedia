@@ -40,7 +40,7 @@ class InsertMediaTest {
     @Test
     fun testInsertImageIntoArticleWithInfoboxWithName() {
         val wikitext = "{{short description|Species of beetle}}\n" +
-                "{{Speciesbox\n" +
+                "{{Automatic taxobox\n" +
                 "| genus = Carabus\n" +
                 "| species = goryi\n" +
                 "| authority = Dejean, 1831\n" +
@@ -50,7 +50,7 @@ class InsertMediaTest {
                 "name=Bousquet2012/>\n"
 
         val expected = "{{short description|Species of beetle}}\n" +
-                "{{Speciesbox\n" +
+                "{{Automatic taxobox\n" +
                 "| genus = Carabus\n" +
                 "| species = goryi\n" +
                 "| image = Test_image.jpg\n" +

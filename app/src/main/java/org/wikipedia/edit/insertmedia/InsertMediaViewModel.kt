@@ -164,19 +164,20 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             var imageCaptionParamName = "caption"
             var imageAltParamName = "alt"
 
-            val infoboxNames = listOf("infobox", "taxobox", "chembox", "drugbox", "speciesbox").joinToString("|")
+            val infoboxNames = listOf("infobox", "(?:(?:automatic[ |_])?taxobox)", "chembox", "drugbox", "speciesbox").joinToString("|")
             val infoboxMatch = """\{\{\s*($infoboxNames).*\}\}""".toRegex(setOf(RegexOption.DOT_MATCHES_ALL, RegexOption.IGNORE_CASE)).find(wikiText)
+            val infoBoxName = infoboxMatch?.groupValues?.get(1).orEmpty().lowercase()
 
-            when (infoboxMatch?.groupValues?.get(1).orEmpty().lowercase()) {
-                "taxobox" -> {
+            when  {
+                infoBoxName.contains("taxobox") -> {
                     imageCaptionParamName = "image_caption"
                     imageAltParamName = "image_alt"
                 }
-                "speciesbox" -> {
+                infoBoxName.contains("speciesbox") -> {
                     imageCaptionParamName = "image_caption"
                     imageAltParamName = "image_alt"
                 }
-                "chembox" -> {
+                infoBoxName.contains("chembox") -> {
                     imageParamName = "ImageFile"
                     imageCaptionParamName = "ImageCaption"
                     imageAltParamName = "ImageAlt"
