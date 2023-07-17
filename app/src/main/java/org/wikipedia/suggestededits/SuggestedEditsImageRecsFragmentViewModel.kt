@@ -58,7 +58,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
             if (thumbUrl.startsWith("//")) {
                 thumbUrl = "https:$thumbUrl"
             }
-            recommendedImageTitle = PageTitle(FileAliasData.valueFor(langCode), recommendation.images[0].displayFilename,
+            recommendedImageTitle = PageTitle(FileAliasData.valueFor(langCode), recommendation.images[0].image,
                 null, thumbUrl, Constants.commonsWikiSite)
             recommendedImageTitle.description = recommendation.images[0].metadata!!.description
 
@@ -90,7 +90,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
                 val body = GrowthImageSuggestion.AddImageFeedbackBody(
                     csrfToken,
                     revId,
-                    recommendation.images[0].displayFilename,
+                    recommendation.images[0].image,
                     accepted,
                     reasonCodes?.mapNotNull { reasons.getOrNull(it) }.orEmpty(),
                     null,
@@ -99,7 +99,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
             } catch (e: Exception) {
                 L.e(e)
                 ServiceFactory.get(pageTitle.wikiSite).invalidateImageRecommendation("image-recommendation",
-                    pageTitle.prefixedText, recommendation.images[0].displayFilename, csrfToken)
+                    pageTitle.prefixedText, recommendation.images[0].image, csrfToken)
             }
         }
     }

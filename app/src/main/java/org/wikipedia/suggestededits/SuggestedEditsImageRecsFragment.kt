@@ -110,7 +110,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         }
 
         binding.imageCard.setOnClickListener {
-            startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + viewModel.recommendation.images[0].displayFilename, WikiSite.forLanguageCode(viewModel.langCode)), false))
+            startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + viewModel.recommendation.images[0].image, WikiSite.forLanguageCode(viewModel.langCode)), false))
         }
 
         binding.imageCard.setOnLongClickListener {
