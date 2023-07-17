@@ -1257,7 +1257,7 @@
   <string name="insert_media_settings">Dodajte podrobnosti slike</string>
   <string name="insert_media_settings_uploaded_image">Naložena slika</string>
   <string name="insert_media_settings_caption">Napis k sliki</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Oznaka, ki je prikazana poleg predmeta za vse bralce</string>
+  <string name="insert_media_settings_caption_description">Vidna oznaka v članku</string>
   <string name="insert_media_settings_alternative_text">Alternativno besedilo</string>
   <string name="insert_media_settings_alternative_text_description">Opis za bralce s prizadetim vidom</string>
   <string name="insert_media_advanced_settings">Napredne nastavitve</string>

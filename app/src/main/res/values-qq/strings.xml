@@ -140,7 +140,7 @@
   <string name="map_view_link_text">Link text for viewing the current article on a map (assuming the article has geo coordinates).</string>
   <string name="other_languages_indication_text">Text indicating that the article is available for the user to read in an another language as well.</string>
   <string name="language_count_link_text">Link text that says how many languages the current article is available in.  The %d symbol is replaced with the number of languages.</string>
-  <string name="content_license_cc_by_sa">Text of the license CC BY-SA 4.0</string>
+  <string name="content_license_cc_by_sa">{{optional}}\n\nText of the license CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">HTML specifying Terms of Use and CC BY-SA 4.0 license before saving edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs.</string>
   <string name="edit_save_action_license_anon">HTML specifying Terms of Use and CC BY-SA 4.0 license and a login link before saving edits, only when the user has not logged in. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual URLs. Also please do not change the href=\'https://#login\' part of the message.</string>
   <string name="edit_anon_warning">Warning shown when an edit will be made anonymously. Please preserve the the href=\'https://#login\' link in the message.</string>

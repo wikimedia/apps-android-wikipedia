@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Aranka
 * Ciell
 * Danieldegroot2
@@ -273,7 +274,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.nl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.nl</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -445,11 +446,11 @@
   <string name="error_blocked_start">Begindatum van blokkering: %s</string>
   <string name="error_blocked_expiry">Vervaldatum van blokkering: %s</string>
   <string name="error_blocked_id">Blokkering ID: %s</string>
-  <string name="error_blocked_footer">U kunt contact opnemen met &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; of met een andere &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; voor meer informatie over de blokkering.</string>
+  <string name="error_blocked_footer">U kunt contact opnemen met &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; of met een andere &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkering.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Werkbalk aanpassen</string>
-  <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; voor meer informatie over de blokkering.</string>
+  <string name="error_blocked_footer_no_blocker">U kunt contact opnemen met een &lt;a href=\"https://nl.wikipedia.org/wiki/Wikipedia:Moderator\"&gt;moderator&lt;/a&gt; voor meer informatie over de blokkering.</string>
   <string name="crash_report_activity_title">Programmafout</string>
-  <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.\n\nWilt u overnieuw beginnen of sluiten?</string>
+  <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.\n\nWilt u opnieuw beginnen of stoppen?</string>
   <string name="crash_report_relaunch">Opnieuw beginnen</string>
   <string name="crash_report_quit">Afsluiten</string>
   <string name="article_menu_bar_save_button">Opslaan</string>
@@ -469,8 +470,8 @@
   <string name="color_theme_test_text">Versleep de schuifregelaar om de tekstgrootte te wijzigen die wordt gebruikt bij het lezen van artikelen. Als u de tekstgrootte in de rest van de app wilt instellen, moet u de systeemgrootte van het systeem wijzigen.</string>
   <string name="preference_title_app_theme">Appthema</string>
   <string name="preference_summary_color_theme">Naar het donkere thema van de app schakelen</string>
-  <string name="text_size_increase">Tekstgrootte vergroten</string>
-  <string name="text_size_decrease">Tekstgrootte verkleinen</string>
+  <string name="text_size_increase">Tekst vergroten</string>
+  <string name="text_size_decrease">Tekst verkleinen</string>
   <string name="text_size_percent_default">%s (standaard)</string>
   <string name="text_style_title">Lettertype</string>
   <string name="theme_category_reading">Lezen</string>
@@ -486,7 +487,7 @@
   <string name="reading_list_move_to">Naar leeslijst verplaatsen</string>
   <string name="reading_list_create_new">Nieuwe aanmaken</string>
   <string name="reading_list_title_exists">Leeslijst “%s” bestaan reeds.</string>
-  <string name="reading_list_article_added_to_named">Toegevoegd %1$s tot %2$s.</string>
+  <string name="reading_list_article_added_to_named">%1$s toegevoegd aan %2$s.</string>
   <string name="reading_list_article_added_to_default_list">%s opgeslagen. Wilt u het toevoegen aan een lijst?</string>
   <string name="reading_list_article_moved_to_named">%1$s naar %2$s verplaatst.</string>
   <string name="reading_list_article_already_exists_message">Perfect! %1$s bevat al %2$s.</string>
