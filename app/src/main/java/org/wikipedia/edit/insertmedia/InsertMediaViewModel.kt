@@ -136,7 +136,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             var wikiText = oldWikiText
             val namespaceName = FileAliasData.valueFor(langCode)
 
-            var template = "[[" + FileAliasData.valueFor(langCode) + ":" + imageTitle
+            var template = "[[$namespaceName:$imageTitle"
             if (imageSize != IMAGE_SIZE_DEFAULT) {
                 template += "|${imageSize}px"
             }
@@ -166,9 +166,8 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
             val infoboxNames = listOf("infobox", "taxobox", "chembox", "drugbox", "speciesbox").joinToString("|")
             val infoboxMatch = """\{\{\s*($infoboxNames).*\}\}""".toRegex(setOf(RegexOption.DOT_MATCHES_ALL, RegexOption.IGNORE_CASE)).find(wikiText)
-            val infoboxName = infoboxMatch?.groupValues?.get(1).orEmpty().lowercase()
 
-            when (infoboxName) {
+            when (infoboxMatch?.groupValues?.get(1).orEmpty().lowercase()) {
                 "taxobox" -> {
                     imageCaptionParamName = "image_caption"
                     imageAltParamName = "image_alt"

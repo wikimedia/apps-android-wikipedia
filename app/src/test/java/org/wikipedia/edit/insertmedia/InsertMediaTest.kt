@@ -68,6 +68,36 @@ class InsertMediaTest {
     }
 
     @Test
+    fun testInsertImageIntoArticleWithInfoboxWithExistingImage() {
+        val wikitext = "{{short description|Species of beetle}}\n" +
+                "{{Speciesbox\n" +
+                "| genus = Carabus\n" +
+                "| species = goryi\n" +
+                "| image = Test_image.jpg\n" +
+                "| authority = Dejean, 1831\n" +
+                "}}\n\n" +
+                "'''''Carabus goryi''''' is a species of [[ground beetle]] in the family [[Carabidae]]." +
+                "It is found in North America.<ref name=itis/><ref name=gbif/><ref name=buglink/><ref" +
+                "name=Bousquet2012/>\n"
+
+        val expected = "[[File:Test_image.jpg|thumb|right|alt=Bar|Foo]]\n" +
+                "{{short description|Species of beetle}}\n" +
+                "{{Speciesbox\n" +
+                "| genus = Carabus\n" +
+                "| species = goryi\n" +
+                "| image = Test_image.jpg\n" +
+                "| authority = Dejean, 1831\n" +
+                "}}\n\n" +
+                "'''''Carabus goryi''''' is a species of [[ground beetle]] in the family [[Carabidae]]." +
+                "It is found in North America.<ref name=itis/><ref name=gbif/><ref name=buglink/><ref" +
+                "name=Bousquet2012/>\n"
+
+        MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
+            "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
+            0, true), Matchers.`is`(expected))
+    }
+
+    @Test
     fun testInsertImageIntoArticleWithInfoboxEmptyImageParam() {
         val wikitext = "{{Short description|Genus of plants}}\n" +
                 "{{Italic title}}\n" +
