@@ -68,6 +68,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 .setAction(R.string.edit_published_view) {
                     startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), viewModel.pageTitle, revId))
                 }
+                .show()
 
             viewModel.acceptRecommendation(null, revId)
             callback().nextPage(this)
