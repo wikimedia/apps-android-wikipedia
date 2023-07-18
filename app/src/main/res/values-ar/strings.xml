@@ -143,9 +143,9 @@
   <string name="map_view_link_text">اعرض على خريطة</string>
   <string name="other_languages_indication_text">اقرأ بلغة أخرى</string>
   <string name="language_count_link_text">متاحة في %d لغة أخرى</string>
-  <string name="content_license_cc_by_sa">المشاع الإبداعي النسبة-الترخيص بالمثل 3.0</string>
-  <string name="edit_save_action_license_logged_in">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مسجلا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">المشاع الإبداعي النسبة-الترخيص بالمثل 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مسجلا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
   <string name="edit_anon_warning">ستُنسب التعديلات إلى عنوان IP الخاص بجهازك. إذا قمت &lt;a href=\"https://#login\"&gt;بتسجيل الدخول&lt;/a&gt; ، سيكون لديك المزيد من الخصوصية.</string>
   <string name="preference_title_language">لغات ويكيبيديا</string>
   <string name="langlinks_filter_hint">بحث</string>
@@ -271,7 +271,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ar</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/ar</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ar</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
@@ -281,7 +281,7 @@
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
-  <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_المشاع_الإبداعي:_النسبة-الترخيص_بالمثل_3.0\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_المشاع_الإبداعي:_النسبة-الترخيص_بالمثل_3.0\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من &lt;a href=\"https://wikimediafoundation.org/\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">حول</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
@@ -1068,6 +1068,8 @@
   <string name="suggested_edits_do_not_understand_suggestion">لا أفهم المُهمة</string>
   <string name="suggested_edits_report_suggestion">الإبلاغ عن</string>
   <string name="suggested_edits_suggestion_report_submitted">تم إرسال التقرير</string>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">درّب خوارزمية الصور</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">قرّر ما إذا كانت الصور ستُحسن المقالة.</string>
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
@@ -1174,12 +1176,12 @@
   <string name="insert_media_title">إدراج وسائط</string>
   <string name="insert_media_search_description">حدد ملفا من ويكيميديا ​​كومنز</string>
   <string name="insert_media_search_hint">البحث عن وسائط</string>
-  <string name="insert_media_settings">إعدادات الوسائط</string>
+  <string name="insert_media_settings" fuzzy="true">إعدادات الوسائط</string>
   <string name="insert_media_settings_uploaded_image">الصورة التي تم تحميلها</string>
-  <string name="insert_media_settings_caption">تعليق</string>
-  <string name="insert_media_settings_caption_description">التسمية التي تظهر بجوار العنصر لجميع القراء</string>
+  <string name="insert_media_settings_caption" fuzzy="true">تعليق</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">التسمية التي تظهر بجوار العنصر لجميع القراء</string>
   <string name="insert_media_settings_alternative_text">نص بديل</string>
-  <string name="insert_media_settings_alternative_text_description">وصف نصي للقراء الذين لا يستطيعون رؤية الصورة</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">وصف نصي للقراء الذين لا يستطيعون رؤية الصورة</string>
   <string name="insert_media_advanced_settings">إعدادات متقدمة</string>
   <string name="insert_media_advanced_settings_wrap_image">التفاف النص حول الصورة</string>
   <string name="insert_media_advanced_settings_image_position">موضع الصورة</string>

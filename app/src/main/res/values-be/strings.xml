@@ -127,9 +127,9 @@
   <string name="map_view_link_text">Гл. на карце</string>
   <string name="other_languages_indication_text">Чытаць на іншай мове</string>
   <string name="language_count_link_text">Даступна на %d іншых мовах</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Публікуючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Публікуючы ўнёскі, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Праўкі будуць прывязаны да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;аўтарызуецеся&lt;/a&gt;, то атрымаеце вышэйшы ўзровень прыватнасці.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Публікуючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Публікуючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Праўкі будуць прывязаны да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;аўтарызуецеся&lt;/a&gt;, то атрымаеце вышэйшы ўзровень прыватнасці.</string>
   <string name="edit_anon_warning">Праўкі будуць звязаны з IP-адрасам вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце&lt;/a&gt;, у вас будзе больш прыватнасці.</string>
   <string name="preference_title_language">Мовы Вікіпедыі</string>
   <string name="langlinks_filter_hint">Пошук</string>
@@ -223,7 +223,7 @@
   <string name="preferences_heading_data_usage">Выкарыстанне даных</string>
   <string name="preferences_heading_experimental">Эксперыментальныя</string>
   <string name="preference_title_sync_reading_lists_from_account">Сінхранізацыя спісу для чытання</string>
-  <string name="preference_title_download_reading_list_articles">Загрузіць спіс артыкулаў для чытання</string>
+  <string name="preference_title_download_reading_list_articles">Спампаваць спіс артыкулаў для чытання</string>
   <string name="preference_summary_sync_reading_lists">Сінхранізуйце спісы для чытання на розных прыладах, захаваннем іх у сваім уліковым запісе Вікіпедыі</string>
   <string name="preference_summary_sync_reading_lists_from_account">Сінхранізуйце спісы для чытання на розных прыладах, захаваўшы іх у сваім уліковым запісе Вікіпедыі «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Выдаліць сінхранізаваныя спісы чытання з \"%s\"?</string>
@@ -253,7 +253,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.be</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.be</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.be</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -263,7 +263,7 @@
   <string name="about_translators_heading">Перакладчыкі</string>
   <string name="about_translators_translatewiki">Гэты дадатак быў перакладзены валанцёрамі &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцэнзія</string>
-  <string name="about_app_license">Зыходны код даступны на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; і &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; паводле ліцэнзіі &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Калі не пазначана іншае, змесціва даступна паводле ліцэнзіі &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Зыходны код даступны на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; і &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; паводле ліцэнзіі &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Калі не пазначана іншае, змесціва даступна паводле ліцэнзіі &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Прадукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедыа&lt;/a&gt;</string>
   <string name="about_activity_title">Пра дадатак</string>
   <string name="edit_abandon_confirm">Старонка была зменена. Вы ўпэўненыя, што жадаеце выйсці без захавання зменаў?</string>
@@ -305,7 +305,7 @@
   <string name="article_opened_in_background_tab">Артыкул быў адкрыты ў фонавай укладцы.</string>
   <string name="abusefilter_title_warn">Магчыма, гэта праўка неканструктыўная. Вы ўпэўнены, што хочаце апублікаваць яе?</string>
   <string name="abusefilter_title_disallow">Вы не можаце захаваць гэтую праўку. Калі ласка, вярніцеся назад і змяніце яе.</string>
-  <string name="abusefilter_text_warn">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную. Яна можа змяшчаць адно або некалькі з наступных дзеянняў:&lt;br /&gt;&lt;br /&gt;· Набор тэксту вялікімі літарамі&lt;br /&gt;· Сціранне зместу артыкулаў або спам&lt;br /&gt;· Недарэчныя вонкавыя спасылкі або відарысы&lt;br /&gt;· Паўтаральныя сімвалы</string>
+  <string name="abusefilter_text_warn">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную. Яна можа змяшчаць адно або некалькі з наступных дзеянняў:&lt;br /&gt;&lt;br /&gt;· Набор тэксту вялікімі літарамі&lt;br /&gt;· Сціранне зместу артыкулаў або спам&lt;br /&gt;· Недарэчныя вонкавыя спасылкі або выявы&lt;br /&gt;· Паўтаральныя сімвалы</string>
   <string name="abusefilter_text_disallow">Аўтаматызаваны фільтр вызначыў гэтую праўку як патэнцыйна неканструктыўную ці як патэнцыйны вандалізм.&lt;br /&gt;&lt;br /&gt;Вікіпедыя — энцыклапедыя і тут могуць існаваць толькі нейтральныя і змястоўныя артыкулы.</string>
   <string name="page_similar_titles">Падобныя старонкі</string>
   <string name="search_did_you_mean">Магчыма, вы мелі на ўвазе \"%s\"?</string>
@@ -390,7 +390,7 @@
   <string name="page_offline_notice_last_date">Вы чытаеце афлайн-версію артыкула, захаванага %s</string>
   <string name="button_get_directions">Пракласці маршрут</string>
   <string name="error_no_maps_app">Не атрымалася знайсці ні аднаго дадатка, якое б пракладвала маршрут.</string>
-  <string name="preference_title_customize_explore_feed">Налады агляду</string>
+  <string name="preference_title_customize_explore_feed">Праглядзець стужку</string>
   <string name="preference_title_show_link_previews">Паказваць прадпрагляд спасылак</string>
   <string name="preference_summary_customize_explore_feed">Наладзьце стужку агляду</string>
   <string name="preference_summary_show_link_previews">Паказваць хуткі прадпрагляд артыкулаў пры націску на спасылкі.</string>
@@ -818,8 +818,8 @@
   <string name="view_random_card_title">Выпадковы артыкул</string>
   <string name="view_random_article_card_title">Выпадковы артыкул</string>
   <string name="view_random_article_card_action">Больш выпадковых артыкулаў</string>
-  <string name="view_top_read_card_title">Найчытнае</string>
-  <string name="view_top_read_card_action">Больш найчытнага</string>
+  <string name="view_top_read_card_title">Найбольш чытанае</string>
+  <string name="view_top_read_card_action">Больш папулярных артыкулаў</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d тыс</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d млн</string>
   <string name="view_next_random_article">Загрузіць іншы выпадковы артыкул</string>
@@ -831,7 +831,7 @@
   <string name="menu_feed_card_dismiss">Схаваць гэту картку</string>
   <string name="menu_feed_card_dismissed">Картка схавана.</string>
   <string name="menu_feed_card_edit_card_languages">Змяніць мовы картак</string>
-  <string name="menu_feed_overflow_label">Больш наладак</string>
+  <string name="menu_feed_overflow_label">Больш наладаў</string>
   <string name="feed_featured_image_share_subject">Выбраная выява з Вікісховішча</string>
   <string name="feed">Агляд</string>
   <string name="home">Галоўная</string>
@@ -853,12 +853,12 @@
   <string name="feed_configure_menu_reset">Аднавіць прадвызначаны выгляд</string>
   <string name="feed_configure_menu_select_all">Паказаць усё</string>
   <string name="feed_configure_menu_deselect_all">Схаваць усё</string>
-  <string name="feed_configure_language_warning">Не ўсе тыпы картак Агляду даступны на ўсіх мовах Вікіпедыі. Змяняйце свае выбраныя мовы ў Наладах.</string>
+  <string name="feed_configure_language_warning">Не ўсе тыпы картак Агляду даступны на ўсіх мовах Вікіпедыі. Вы можаце змяніць свае выбраныя мовы ў Наладах.</string>
   <string name="feed_item_type_news">Артыкулы пра апошнія падзеі</string>
   <string name="feed_item_type_on_this_day">Гістарычныя падзеі ў гэты дзень</string>
   <string name="feed_item_type_because_you_read">Прапанаваны артыкул з гісторыі прачытанага</string>
-  <string name="feed_item_type_featured_article">Штодзённы рэкамендаваны артыкул на Вікіпедыі</string>
-  <string name="feed_item_type_trending">Штодзённыя найбольш чытныя артыкулы</string>
+  <string name="feed_item_type_featured_article">Абраны артыкул дня ў Вікіпедыі</string>
+  <string name="feed_item_type_trending">Найбольш чытаныя артыкулы за дзень</string>
   <string name="feed_item_type_featured_image">Выбраная выява дня з Вікісховішча</string>
   <string name="feed_item_type_main_page">Галоўная старонка Вікіпедыі з штодзённа рэкамендаваным кантэнтам</string>
   <string name="feed_item_type_randomizer">Стварыць спіс выпадковых артыкулаў для чытання</string>
@@ -872,7 +872,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Скасаваць</string>
   <string name="feed_accessibility_card_text">Вы дасягнулі канца стужкі</string>
   <string name="feed_accessibility_card_load_more_button">Загрузіць больш</string>
-  <string name="top_read_activity_title">Найчытнае з %s</string>
+  <string name="top_read_activity_title">Найбольш чытанае з %s</string>
   <string name="tabs_activity_title">Укладкі</string>
   <string name="description_edit_text_hint">Апісанне артыкула</string>
   <string name="description_edit_article_description_label">Артыкул</string>
@@ -950,7 +950,7 @@
   <string name="suggested_edits_image_caption_license_notice">Дадаючы апісанне выявы, я згаджаюся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаюся на неадклікальную публікацыю майго ўнёска па ліцэнзіі &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Інфармацыя</string>
   <string name="suggested_edits_task_add_description_title">Даданне апісанняў артыкулаў</string>
-  <string name="suggested_edits_task_add_description_description">Рабіце ўклад у артыкулы без апісання</string>
+  <string name="suggested_edits_task_add_description_description">Дадаць інфармацыю ў артыкулы без апісання</string>
   <string name="suggested_edits_task_image_caption_title">Дадаць подпіс выявы</string>
   <string name="suggested_edits_task_image_caption_description">Дадаць адсутны кароткі подпіс выявы</string>
   <string name="suggested_edits_task_translate_caption_title">Перакласці подпіс выявы</string>
@@ -995,7 +995,7 @@
   <string name="suggested_edits_feed_card_add_image_caption">Дадаць подпіс выяве</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Дадаць подпіс выявы (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Дадаць тэгі выявам</string>
-  <string name="suggested_edits_snackbar_survey_text">Якім быў ваш досвед рэдагавання? Калі ласка, знайдзіце час, каб запоўніць апытанне пра рэдагаванне ў праграме.</string>
+  <string name="suggested_edits_snackbar_survey_text">Якім быў ваш досвед рэдагавання? Калі ласка, знайдзіце час, каб запоўніць апытанне пра рэдагаванне ў дадатку.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Прайсці апытанне</string>
   <string name="suggested_edits_task_action_text_add">Дадаць</string>
   <string name="suggested_edits_task_action_text_translate">Перакласці</string>
@@ -1136,7 +1136,7 @@
   <string name="onboarding_get_started">Пачаць</string>
   <string name="onboarding_maybe_later">Можа, пазней</string>
   <string name="onboarding_explore_title">Новыя спосабы даследаванняў</string>
-  <string name="onboarding_explore_text">Вандруйце ў прасторах Вікіпедыі з шторазова абнаўляльнай стужкай Агляду. &lt;br/&gt; &lt;b&gt;Наладзьце&lt;/b&gt; стужку адпаведна вашым зацікаўленасцям - няхай гэта будзе вывучэнне гістарычных падзей &lt;b&gt;У гэты дзень&lt;/b&gt;, або шукайце нешта новае з &lt;b&gt;Выпадковым артыкулам&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Вандруйце ў прасторах Вікіпедыі з шторазова абнаўляльнай стужкай Агляду. &lt;br/&gt; &lt;b&gt;Наладзьце&lt;/b&gt; стужку адпаведна вашым зацікаўленасцям — няхай гэта будзе вывучэнне гістарычных падзей &lt;b&gt;У гэты дзень&lt;/b&gt;, або шукайце нешта новае з &lt;b&gt;Выпадковым артыкулам&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Спісы для чытання з сінхранізацыяй</string>
   <string name="onboarding_reading_list_sync_text_v2">Вы можаце складаць спісы для чытання з артыкулаў, якія вы хочаце прачытаць пазней, нават калі вы знаходзіцеся ў пазасеткавым рэжыме. &lt;br/&gt;Увайдзіце ў свой уліковы запіс Вікіпедыі, каб сінхранізаваць свае спісы для чытання. &lt;a href=\"#login\"&gt;Далучайцеся да Вікіпедыі&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Адпраўляць ананімныя даныя</string>
@@ -1219,12 +1219,12 @@
   <string name="insert_media_title">Уставіць медыя</string>
   <string name="insert_media_search_description">Выберыце файл з Вікісховішча</string>
   <string name="insert_media_search_hint">Пошук медыя</string>
-  <string name="insert_media_settings">Налады медыя</string>
+  <string name="insert_media_settings" fuzzy="true">Налады медыя</string>
   <string name="insert_media_settings_uploaded_image">Загружаная выява</string>
-  <string name="insert_media_settings_caption">Подпіс</string>
-  <string name="insert_media_settings_caption_description">Цэтлік, які адлюстроўваецца побач з элементам для ўсіх чытачоў</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Подпіс</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Цэтлік, які адлюстроўваецца побач з элементам для ўсіх чытачоў</string>
   <string name="insert_media_settings_alternative_text">Альтэрнатыўны тэкст</string>
-  <string name="insert_media_settings_alternative_text_description">Тэкставае апісанне для чытачоў, якія не бачаць выяву</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Тэкставае апісанне для чытачоў, якія не бачаць выяву</string>
   <string name="insert_media_advanced_settings">Дадатковыя параметры</string>
   <string name="insert_media_advanced_settings_wrap_image">Абцяканне тэкстам вакол выявы</string>
   <string name="insert_media_advanced_settings_image_position">Размяшчэнне выявы</string>
@@ -1332,7 +1332,7 @@
   <string name="thank_label">Дзякуй</string>
   <string name="view_user_page">Праглядзець старонку ўдзельніка</string>
   <string name="thank_dialog_title_text">Публічна адправіць \"Дзякуй\"</string>
-  <string name="thank_dialog_text">\"Дзякуй\" - просты спосаб падзякаваць за працу удзельніка ў Вікіпедыі. \"Дзякуй\" нельга скасаваць, і яны даступныя для агульнага прагляду</string>
+  <string name="thank_dialog_text">\"Дзякуй\" — просты спосаб падзякаваць за працу ўдзельніка ў Вікіпедыі. \"Дзякуй\" нельга скасаваць, і яны даступныя для агульнага прагляду</string>
   <string name="thank_dialog_positive_button_text">Даслаць падзяку</string>
   <string name="thank_dialog_negative_button_text">Скасаваць</string>
   <string name="thank_success_message">Ваш \"Дзякуй\" адпраўлены %s 👍</string>
@@ -1405,7 +1405,7 @@
   <string name="user_contrib_current">бягучая</string>
   <string name="media_playback_error">Памылка прайгравання мультымедыя.</string>
   <string name="user_contrib_menu_label">Уклад</string>
-  <string name="user_contrib_filter_activity_title">Фільтр унёскаў</string>
+  <string name="user_contrib_filter_activity_title">Фільтр укладу</string>
   <string name="shareable_reading_lists_import_dialog_title">Імпартаваць спіс для чытання</string>
   <string name="shareable_reading_lists_import_dialog_content">Як бы вы хацелі назваць спіс, якім з вамі падзяліліся?</string>
   <string name="shareable_reading_lists_new_indicator">*новы*</string>

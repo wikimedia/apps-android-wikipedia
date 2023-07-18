@@ -4,6 +4,7 @@
 * Agam Riyandana
 * Ahdan
 * Akmaie Ajam
+* Amire80
 * Andikbuyung
 * Arifin.wijaya
 * ArlandGa
@@ -140,9 +141,9 @@
   <string name="map_view_link_text">Lihat di peta</string>
   <string name="other_languages_indication_text">Baca dalam bahasa lain</string>
   <string name="language_count_link_text">Tersedia dalam %d bahasa lain</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Dengan menerbitkan ini, Anda menyetujui &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda dengan lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Dengan menerbitkan ini, Anda menyetujui &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda dengan lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntingan akan dihubungkan ke alamat IP perangkat. Jika Anda &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt;, Anda akan memiliki privasi lebih.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Dengan menerbitkan ini, Anda menyetujui &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda dengan lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Dengan menerbitkan ini, Anda menyetujui &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda dengan lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntingan akan dihubungkan ke alamat IP perangkat. Jika Anda &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt;, Anda akan memiliki privasi lebih.</string>
   <string name="edit_anon_warning">Suntingan akan dikaitkan dengan alamat IP perangkat Anda. Jika Anda &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt;, Anda akan memiliki lebih banyak privasi.</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="langlinks_filter_hint">Cari</string>
@@ -268,7 +269,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/id</string>
   <string name="android_app_request_an_account_url">https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.id</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.id</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/id</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -278,7 +279,7 @@
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini telah diterjemahkan oleh penerjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
-  <string name="about_app_license">Kode sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
+  <string name="about_app_license" fuzzy="true">Kode sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
   <string name="about_wmf">Sebuah produk dari &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Tentang</string>
   <string name="edit_abandon_confirm">Halaman ini telah diubah. Apakah Anda yakin ingin keluar tanpa menyimpan perubahan?</string>
@@ -1035,6 +1036,35 @@
   <string name="suggested_edits_contribution_diff_count_text">%1$s karakter</string>
   <string name="suggested_edits_removed_contribution_label">Anda telah menghapus %d karakter</string>
   <string name="suggested_edits_added_contribution_label">Anda telah menambah %d karakter</string>
+  <string name="suggested_edits_image_recommendations_task_title">Gambar artikel</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Tambahkan gambar yang disarankan ke artikel Wikipedia untuk meningkatkan pemahaman pembaca.</string>
+  <string name="image_recommendation_task_instruction">Apakah Anda ingin menambahkan gambar ini ke artikel?</string>
+  <string name="image_recommendation_tutorial">Tutorial</string>
+  <string name="image_recommendation_accept">Ya</string>
+  <string name="image_recommendation_reject">Tidak</string>
+  <string name="image_recommendation_notsure">Tidak yakin</string>
+  <string name="image_recommendation_reject_title">Kenapa tidak?</string>
+  <string name="image_recommendation_reject_subtitle">Jawaban Anda akan meningkatkan saran di masa mendatang.</string>
+  <string name="image_recommendation_reject_not_relevant">Gambar tidak relevan</string>
+  <string name="image_recommendation_reject_no_info">Tidak cukup informasi untuk memutuskan</string>
+  <string name="image_recommendation_reject_offensive">Gambarnya menyinggung</string>
+  <string name="image_recommendation_reject_low_quality">Gambar berkualitas rendah</string>
+  <string name="image_recommendation_reject_dont_know">Saya tidak tahu subjek ini</string>
+  <string name="image_recommendation_reject_other">Lainnya</string>
+  <string name="image_recommendation_reject_submit">Kirim</string>
+  <string name="image_recommendation_tooltip_main">Tambahkan gambar yang hilang ke artikel di Saranan Penyuntingan</string>
+  <string name="image_recommendation_onboarding_1">Gambar akan membantu orang memahami, tetapi sayang banyak artikel yang tidak memilikinya.</string>
+  <string name="image_recommendation_onboarding_2">Anda akan memutuskan apakah gambar yang disarankan harus ditempatkan pada suatu artikel Wikipedia.</string>
+  <string name="image_recommendation_onboarding_3">Saran alan dihasilkan oleh mesin dan Anda harus menggunakan penilaian Anda sendiri untuk memutuskan apakah akan menerima atau menolaknya.</string>
+  <string name="image_recommendation_onboarding_4">Gambar berasal dari Wikimedia Commons, kumpulan gambar berlisensi bebas yang dapat digunakan oleh Wikipedia.</string>
+  <string name="image_recommendation_tooltip_1">Tinjau artikel ini untuk memahami topiknya</string>
+  <string name="image_recommendation_tooltip_2">Periksa gambar dan informasi terkaitnya</string>
+  <string name="image_recommendation_tooltip_3">Putuskan apakah gambar dapat membantu pembaca memahami topik ini dengan lebih baik</string>
+  <string name="image_recommendation_tooltip_next">Berikutnya</string>
+  <string name="image_recommendation_tooltip_warning">Harap tinjau artikel untuk memahami topiknya dan memeriksa gambarnya</string>
+  <string name="edit_summary_added_image">Gambar yang ditambahkan</string>
+  <string name="edit_summary_added_caption">Takarir yang ditambahkan</string>
+  <string name="edit_published_view">Lihat</string>
   <string name="file_page_activity_title">Halaman berkas</string>
   <string name="file_page_add_image_caption_button">Tambahkan takarir gambar</string>
   <string name="file_page_add_image_tags_button">Tambahkan tanda gambar</string>
@@ -1133,12 +1163,12 @@
   <string name="insert_media_title">Sisipkan media</string>
   <string name="insert_media_search_description">Pilih berkas dari Wikimedia Commons</string>
   <string name="insert_media_search_hint">Cari media</string>
-  <string name="insert_media_settings">Pengaturan media</string>
+  <string name="insert_media_settings">Tambahkan rincian gambar</string>
   <string name="insert_media_settings_uploaded_image">Gambar yang diunggah</string>
-  <string name="insert_media_settings_caption">Takarir</string>
-  <string name="insert_media_settings_caption_description">Label yang ditampilkan di sebelah butir untuk semua pembaca</string>
+  <string name="insert_media_settings_caption">Takarir gambar</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Label yang ditampilkan di sebelah butir untuk semua pembaca</string>
   <string name="insert_media_settings_alternative_text">Teks alternatif</string>
-  <string name="insert_media_settings_alternative_text_description">Deskripsi teks untuk pembaca yang tak dapat melihat gambar</string>
+  <string name="insert_media_settings_alternative_text_description">Deskripsi teks untuk pembaca tunanetra</string>
   <string name="insert_media_advanced_settings">Pengaturan lanjutan</string>
   <string name="insert_media_advanced_settings_wrap_image">Bungkus teks di sekitar gambar</string>
   <string name="insert_media_advanced_settings_image_position">Posisi gambar</string>
@@ -1375,5 +1405,6 @@
   <string name="reading_list_share_survey_body">\"Bagikan daftar bacaan\" adalah fitur pengujian dan kami membutuhkan umpan balik Anda untuk meningkatkan atau menghapusnya.</string>
   <string name="data_opt_in_accept">Terima</string>
   <string name="data_opt_in_reject">Tolak</string>
+  <string name="page_issues_title">Masalah halaman</string>
   <string name="generic_release_notes">Perbaikan kekutu dan peningkatan kecil</string>
 </resources>

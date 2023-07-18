@@ -27,7 +27,7 @@ class MwQueryPage {
     private val ns = 0
     val coordinates: List<Coordinates>? = null
     private val thumbnail: Thumbnail? = null
-    private val varianttitles: Map<String, String>? = null
+    val varianttitles: Map<String, String>? = null
     private val actions: Map<String, List<MwServiceError>>? = null
     private val editintro: JsonElement? = null
 

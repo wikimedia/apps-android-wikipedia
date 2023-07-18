@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Alesaru
+* Amire80
 * Andreyyshore
 * Carcassonne93
 * Danutz
@@ -245,7 +247,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ro</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -1023,6 +1025,8 @@
     <item quantity="few">Aţi adăugat %d caractere</item>
     <item quantity="other">Aţi adăugat %d caractere</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Antrenați algoritmul pentru imagini</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Decideți dacă o imagine sugerată va îmbunătăți un articol.</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
   <string name="file_page_add_image_tags_button">Adaugă etichete pentru imagine</string>
@@ -1123,9 +1127,9 @@
   <string name="insert_media_title">Inserare media</string>
   <string name="insert_media_search_description">Selectați un fișier din Wikimedia Commons</string>
   <string name="insert_media_search_hint">Căutare media</string>
-  <string name="insert_media_settings">Setări media</string>
+  <string name="insert_media_settings" fuzzy="true">Setări media</string>
   <string name="insert_media_settings_uploaded_image">Imagine încărcată</string>
-  <string name="insert_media_settings_caption">Descriere</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Descriere</string>
   <string name="insert_media_settings_alternative_text">Text alternativ</string>
   <string name="insert_media_advanced_settings">Setări avansate</string>
   <string name="insert_media_advanced_settings_wrap_image">Înfășoară textul în jurul imaginii</string>

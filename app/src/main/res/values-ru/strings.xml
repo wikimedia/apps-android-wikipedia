@@ -177,9 +177,9 @@
   <string name="map_view_link_text">Посмотреть на карте</string>
   <string name="other_languages_indication_text">Читать на другом языке</string>
   <string name="language_count_link_text">Доступно на %d других языках</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Отправляя свои изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Публикуя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Правки будут привязаны к IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Отправляя свои изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Публикуя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Правки будут привязаны к IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
   <string name="edit_anon_warning">Правки будут подписаны IP-адресом вашего устройства. У вас будет больше приватности, если вы &lt;a href=\"https://#login\"&gt;войдёте в систему&lt;/a&gt;.</string>
   <string name="preference_title_language">Языки Википедии</string>
   <string name="langlinks_filter_hint">Поиск</string>
@@ -305,7 +305,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="terms_of_use_url">https://meta.m.wikimedia.org/wiki/Terms_of_Use/ru</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ru</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -315,7 +315,7 @@
   <string name="about_translators_heading">Переводчики</string>
   <string name="about_translators_translatewiki">Это приложение было переведено добровольцами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лицензия</string>
-  <string name="about_app_license">Исходный код доступен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; под лицензией &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Если не указано иное, содержимое доступно в соответствии с лицензией &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Исходный код доступен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; под лицензией &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Если не указано иное, содержимое доступно в соответствии с лицензией &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонда Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">О приложении</string>
   <string name="edit_abandon_confirm">Страница была изменена. Вы уверены, что хотите выйти без сохранения изменений?</string>
@@ -1144,6 +1144,22 @@
     <item quantity="many">Вы добавили символов: %d</item>
     <item quantity="other">Вы добавили символов: %d</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Обучение алгоритма изображений</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Решите, улучшит ли предлагаемое изображение статью.</string>
+  <string name="image_recommendation_tutorial">Руководство</string>
+  <string name="image_recommendation_accept">Да</string>
+  <string name="image_recommendation_reject">Нет</string>
+  <string name="image_recommendation_notsure">Затрудняюсь ответить</string>
+  <string name="image_recommendation_reject_title">Почему нет?</string>
+  <string name="image_recommendation_reject_subtitle">Ваши ответы улучшают качество будущих подсказок.</string>
+  <string name="image_recommendation_reject_not_relevant">Изображение не релевантно</string>
+  <string name="image_recommendation_reject_no_info">Мало информации, чтобы решить</string>
+  <string name="image_recommendation_reject_offensive">Изображение оскорбительно</string>
+  <string name="image_recommendation_reject_low_quality">Изображение низкого качества</string>
+  <string name="image_recommendation_reject_dont_know">Не знаю этой темы</string>
+  <string name="image_recommendation_reject_other">Другое</string>
+  <string name="image_recommendation_reject_submit">Отправить</string>
+  <string name="image_recommendation_tooltip_next">Далее</string>
   <string name="file_page_activity_title">Страница файла</string>
   <string name="file_page_add_image_caption_button">Добавить описание изображения</string>
   <string name="file_page_add_image_tags_button">Добавить теги изображения</string>
@@ -1246,12 +1262,12 @@
   <string name="insert_media_title">Вставить медиа-файл</string>
   <string name="insert_media_search_description">Выберите файл на Викискладе</string>
   <string name="insert_media_search_hint">Поиск медиафайлов</string>
-  <string name="insert_media_settings">Параметры медиафайла</string>
+  <string name="insert_media_settings" fuzzy="true">Параметры медиафайла</string>
   <string name="insert_media_settings_uploaded_image">Загруженное изображение</string>
-  <string name="insert_media_settings_caption">Подпись</string>
-  <string name="insert_media_settings_caption_description">Текст, который показывается всем читателям возле файла</string>
+  <string name="insert_media_settings_caption">Описание изображения</string>
+  <string name="insert_media_settings_caption_description">Видимая метка изображения в статье</string>
   <string name="insert_media_settings_alternative_text">Альтернативный текст</string>
-  <string name="insert_media_settings_alternative_text_description">Текстовое описание для читателей, которые не могут увидеть изображение.</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Текстовое описание для читателей, которые не могут увидеть изображение.</string>
   <string name="insert_media_advanced_settings">Расширенные настройки</string>
   <string name="insert_media_advanced_settings_wrap_image">Расположить текст вокруг изображения</string>
   <string name="insert_media_advanced_settings_image_position">Расположение изображения</string>

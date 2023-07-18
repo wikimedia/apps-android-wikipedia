@@ -3,6 +3,7 @@
 * Aaoo
 * Abbedabb
 * Ainali
+* Amire80
 * Bengtsson96
 * Dbrant
 * Haxpett
@@ -123,9 +124,9 @@
   <string name="map_view_link_text">Visa på en karta</string>
   <string name="other_languages_indication_text">Läs på ett annat språk</string>
   <string name="language_count_link_text">Tillgänglig på %d andra språk</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Genom att publicera godkänner du &lt;a href=\"%1$s\"&gt;Användarvillkoren&lt;/a&gt;, och att oåterkalleligen släppa ditt bidrag med licensen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Genom att publicera samtycker till &lt;a href=\"%1$s\"&gt;Användarvillkoren&lt;/a&gt; och att oåterkalleligt släppa dina bidrag under licensen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redigeringar kommer att tillskrivas till din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; kommer du få mer integritet.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Genom att publicera godkänner du &lt;a href=\"%1$s\"&gt;Användarvillkoren&lt;/a&gt;, och att oåterkalleligen släppa ditt bidrag med licensen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Genom att publicera samtycker till &lt;a href=\"%1$s\"&gt;Användarvillkoren&lt;/a&gt; och att oåterkalleligt släppa dina bidrag under licensen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redigeringar kommer att tillskrivas till din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt; kommer du få mer integritet.</string>
   <string name="edit_anon_warning">Redigeringen kommer tillskrivas din enhets IP-adress. Om du &lt;a href=\"https://#login\"&gt;loggar in&lt;/a&gt;, kommer du ha mer integritet.</string>
   <string name="preference_title_language">Wikipediaspråk</string>
   <string name="langlinks_filter_hint">Sök</string>
@@ -251,7 +252,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/w/index.php?title=Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.sv</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sv</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sv</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sv</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -261,7 +262,7 @@
   <string name="about_translators_heading">Översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
-  <string name="about_app_license">Källkoden finns tillgänglig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; och &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Källkoden finns tillgänglig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; och &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
   <string name="about_wmf">En app utvecklad av &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Ändringar har gjorts i sidan. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
@@ -963,6 +964,7 @@
   <string name="suggested_edits_image_tags_select_title">Du har inte valt några taggar för denna bild</string>
   <string name="suggested_edits_image_tags_select_text">Endast taggar som du väljer kommer att läggas till i bilderna. Taggar som inte väljs kommer att markeras som avvisade. Är du säker på att du vill markera alla taggar som avvisade?</string>
   <string name="suggested_edits_image_tags_add_tag">Lägg till tagg</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">De opublicerade taggarna kommer inte att sparas</string>
   <string name="suggested_edits_image_zoom_tooltip">Nyp för att zooma denna bild.</string>
   <string name="suggested_edits_encouragement_message">Tack för dina redigeringar, %s. Nedan kan du hitta fler sätt att bidra på Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hej, %s.&lt;/b&gt; Nedan kan du hitta några snabba och enkla sätt att förbättra Wikipedia. Du kommer se skillnaden du gör så fort du kommer igång. Lycka till med redigeringen!</string>
@@ -989,7 +991,7 @@
   <string name="suggested_edits_quality_sufficient_text">Acceptabel</string>
   <string name="suggested_edits_quality_poor_text">Usel</string>
   <string name="suggested_edits_quality_bad_text">Dålig</string>
-  <string name="suggested_edits_label">Förslag på redigeringar</string>
+  <string name="suggested_edits_label">Redigeringsförslag</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Bidrag</item>
     <item quantity="other">Bidrag</item>
@@ -1034,7 +1036,7 @@
   <string name="suggested_edits_encourage_account_creation_login_button">Logga in / skapa konto på Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Bildtagg</string>
   <string name="suggested_edits_contribution_current_revision_text">Din redigering finns nu på Wikipedia</string>
-  <string name="suggested_card_more_edits">Fler förslag på redigeringar</string>
+  <string name="suggested_card_more_edits">Fler redigeringsförslag</string>
   <string name="suggested_edits_article_descriptions_dialog_title">Föreslagna beskrivningar</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Vad vill du rapportera?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Inte tillräckligt med information</string>
@@ -1059,6 +1061,35 @@
     <item quantity="one">Du lade till %d tecken</item>
     <item quantity="other">Du lade till %d tecken</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Artikelbilder</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Lägg till föreslagna bilder till Wikipediaartiklar för att öka förståelsen.</string>
+  <string name="image_recommendation_task_instruction">Vill du lägga till denna bild i artikeln?</string>
+  <string name="image_recommendation_tutorial">Guide</string>
+  <string name="image_recommendation_accept">Ja</string>
+  <string name="image_recommendation_reject">Nej</string>
+  <string name="image_recommendation_notsure">Inte säker</string>
+  <string name="image_recommendation_reject_title">Varför inte?</string>
+  <string name="image_recommendation_reject_subtitle">Dina svar förbättrar kvaliteten på framtida förslag.</string>
+  <string name="image_recommendation_reject_not_relevant">Bilden är inte relevant</string>
+  <string name="image_recommendation_reject_no_info">Inte tillräckligt med information för att avgöra</string>
+  <string name="image_recommendation_reject_offensive">Bilden är kränkande</string>
+  <string name="image_recommendation_reject_low_quality">Bilden har låg kvalitet</string>
+  <string name="image_recommendation_reject_dont_know">Jag kan inte detta ämne</string>
+  <string name="image_recommendation_reject_other">Övrigt</string>
+  <string name="image_recommendation_reject_submit">Skicka</string>
+  <string name="image_recommendation_tooltip_main">Lägg till saknade bilder i artiklar i Redigeringsförslag</string>
+  <string name="image_recommendation_onboarding_1">Bilder hjälper människor att förstå, men många artiklar har inte dem.</string>
+  <string name="image_recommendation_onboarding_2">Du bestämmer om en föreslagen bild ska placeras i en Wikipedia-artikel.</string>
+  <string name="image_recommendation_onboarding_3">Förslagen är maskingenererade och du avgör själv om du ska acceptera eller neka dem.</string>
+  <string name="image_recommendation_onboarding_4">Bilder kommer från Wikimedia Commons, en samling fritt licensierade bilder som används av Wikipedia.</string>
+  <string name="image_recommendation_tooltip_1">Granska denna artikel för att förstå ämnet</string>
+  <string name="image_recommendation_tooltip_2">Inspektera bilden och dess tillhörande information</string>
+  <string name="image_recommendation_tooltip_3">Bestäm om bilden hjälper läsarna att förstå detta ämne bättre</string>
+  <string name="image_recommendation_tooltip_next">Nästa</string>
+  <string name="image_recommendation_tooltip_warning">Granska artikeln för att förstå ämnet och inspektera bilden</string>
+  <string name="edit_summary_added_image">Lade till ny bild</string>
+  <string name="edit_summary_added_caption">Lade till bildtext</string>
+  <string name="edit_published_view">Visa</string>
   <string name="file_page_activity_title">Filsida</string>
   <string name="file_page_add_image_caption_button">Lägg till bildtext</string>
   <string name="file_page_add_image_tags_button">Lägg till bildtaggar</string>
@@ -1157,12 +1188,12 @@
   <string name="insert_media_title">Infoga media</string>
   <string name="insert_media_search_description">Välj en fil från Wikimedia Commons</string>
   <string name="insert_media_search_hint">Sök efter media</string>
-  <string name="insert_media_settings">Mediainställningar</string>
+  <string name="insert_media_settings">Lägg till mediadetaljer</string>
   <string name="insert_media_settings_uploaded_image">Uppladdad bild</string>
   <string name="insert_media_settings_caption">Bildtext</string>
-  <string name="insert_media_settings_caption_description">Etikett som visas intill objektet för alla läsare</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Etikett som visas intill objektet för alla läsare</string>
   <string name="insert_media_settings_alternative_text">Alternativ text</string>
-  <string name="insert_media_settings_alternative_text_description">Textbeskrivning för läsare som inte kan se bilden</string>
+  <string name="insert_media_settings_alternative_text_description">Beskrivning för synskadade läsare</string>
   <string name="insert_media_advanced_settings">Avancerade inställningar</string>
   <string name="insert_media_advanced_settings_wrap_image">Bryt texten omkring bilden</string>
   <string name="insert_media_advanced_settings_image_position">Bildposition</string>
@@ -1402,4 +1433,6 @@
   <string name="reading_list_share_survey_body">\"Dela läslistor\" är en testfunktion och vi behöver din återkoppling för att förbättra eller ta bort den.</string>
   <string name="data_opt_in_accept">Acceptera</string>
   <string name="data_opt_in_reject">Avvisa</string>
+  <string name="page_issues_title">Sidproblem</string>
+  <string name="generic_release_notes">Smärre buggfixar och förbättringar</string>
 </resources>

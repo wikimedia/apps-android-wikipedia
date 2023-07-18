@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="?attr/actionBarSize" />
+            android:layout_marginBottom="@dimen/nav_bar_height" />
 
         <FrameLayout
             android:id="@+id/page_actions_tab_container"

@@ -140,7 +140,6 @@
   <string name="about_wikipedia_url" fuzzy="true">https://id.m.wikipedia.org/wiki/Wikipedia:Parihal</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/btm#Baca_sacara_luring_dot_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/btm</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.btm</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Pustaha na ipake</string>
   <string name="about_contributors_heading">Kontributor</string>

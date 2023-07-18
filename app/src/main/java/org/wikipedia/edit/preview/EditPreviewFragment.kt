@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
@@ -26,9 +27,9 @@ import org.wikipedia.page.*
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.views.ViewAnimations
 
 class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDialog.Callback {
 
@@ -74,8 +75,9 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                 RestService.PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(title.prefixedText)
         val postData = "wikitext=" + UriUtil.encodeURL(wikiText)
         binding.editPreviewWebview.postUrl(url, postData.toByteArray())
-        ViewAnimations.fadeIn(binding.editPreviewContainer) { requireActivity().invalidateOptionsMenu() }
-        ViewAnimations.fadeOut(ActivityCompat.requireViewById(requireActivity(), R.id.edit_section_container))
+        ActivityCompat.requireViewById<View>(requireActivity(), R.id.edit_section_container).isVisible = false
+        binding.editPreviewContainer.isVisible = true
+        requireActivity().invalidateOptionsMenu()
     }
 
     private fun initWebView() {
@@ -91,9 +93,10 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                 if (!isAdded) {
                     return
                 }
+                bridge.onMetadataReady()
+                bridge.execute(JavaScriptActionHandler.setMargins(16, 0, 16, 16 + DimenUtil.roundedPxToDp(binding.licenseText.height.toFloat())))
                 (requireActivity() as EditSectionActivity).showProgressBar(false)
                 requireActivity().invalidateOptionsMenu()
-                bridge.execute(JavaScriptActionHandler.setTopMargin(0))
             }
         }
 
@@ -130,7 +133,9 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
      * When fade-out completes, the state of the actionbar button(s) is updated.
      */
     fun hide(toView: View) {
-        ViewAnimations.crossFade(binding.editPreviewContainer, toView) { requireActivity().invalidateOptionsMenu() }
+        binding.editPreviewContainer.isVisible = false
+        toView.isVisible = true
+        requireActivity().invalidateOptionsMenu()
     }
 
     inner class EditLinkHandler constructor(context: Context) : LinkHandler(context) {

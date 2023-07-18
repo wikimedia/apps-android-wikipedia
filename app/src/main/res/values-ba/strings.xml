@@ -119,9 +119,9 @@
   <string name="map_view_link_text">Картала ҡарау</string>
   <string name="other_languages_indication_text">Башҡа телдә уҡыу</string>
   <string name="language_count_link_text">Башҡа %d телдәрҙә бар</string>
-  <string name="content_license_cc_by_sa">CC-BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Үҙгәртеүҙәрҙе ебәреп, һеҙ &lt;a href=\"%1$s\"&gt;Ҡулланыу шарттарына&lt;/a&gt; ризалашаһығыҙ, шулай уҡ ошо лицензия буйынса, кире алынмай торған баҫтырыуға ризалыҡ бирәһегеҙ&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Үҙгәрештәрҙе һаҡлап, һеҙ &lt;a href=\"%1$s\"&gt; &lt;/a&gt; менән килешәһегеҙ, шулай уҡ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензияһы буйынса баҫманы кире таптырып алмаҫҡа ризалашаһығыҙ. Төҙәтмәләр һеҙҙең ҡоролманың IP-адресына бәйләнәсәк. Әгәр ҙә &lt;a href=\"https://#login\"&gt;танылһағыҙ&lt;/a&gt;, сер һаҡлауҙың юғары кимәле менән ҡуллана алаһығыҙ.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Яҙҙырып ҡуйып, &lt;a href=\"%1$s\"&gt;ҡулланыу шарттары&lt;/a&gt; һәм мәҡәләләрегеҙҙе &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензияһына ярашлы, ирекле ҡулланыу менән ризалашаһығыҙ.</string>
+  <string name="edit_save_action_license_anon">Үҙгәрештәрҙе яҙҙырып ҡуйып, &lt;a href=\"%1$s\"&gt;ҡулланыу шарттары&lt;/a&gt; менән килешәһегеҙ һәм мәҡәләләрегеҙҙе &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензияһына ярашлы баҫтыраһығыҙ. Төҙәтеүҙәр ҡоролмағыҙҙың IP-адресына бәйләнәсәк. Әгәр ҙә &lt;a href=\"https://#login\"&gt;танылһағыҙ&lt;/a&gt;, сер һаҡлауҙың юғары кимәле менән ҡуллана алаһығыҙ.</string>
   <string name="edit_anon_warning">Төҙәтеү имзаһына һеҙҙең ҡоролманың IP-адресы яҙыла. Әгәр системаға инһәгеҙ &lt;a href=\"https://#login\"&gt;шәхси эшләргә мөмкинлектәр күберәк буласаҡ&lt;/a&gt;.</string>
   <string name="preference_title_language">Википедия телдәре</string>
   <string name="langlinks_filter_hint">Эҙләү</string>
@@ -245,7 +245,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ba#Офлайнда_уҡыу_һәм_мәғлүмәттәр</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ba</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_by_sa_4_url">https\n://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -255,7 +255,7 @@
   <string name="about_translators_heading">Тәржемәселәр</string>
   <string name="about_translators_translatewiki">Был ҡушымта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; төркөмө ирекмәндәре тарафынан тәржемә ителгән.</string>
   <string name="about_app_license_heading">Лицензия</string>
-  <string name="about_app_license">Башланғыс код &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; һәм &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisansı&lt;/a&gt; урынлашҡан. Башҡа шарт күрһәтелмәһә &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Creative_Commons_Atıf-AynıLisanslaPaylaş_3.0_Yerelleştirilmemiş_lisans_metni\"&gt;Creative Commons Atıf-лицензияһы&lt;/a&gt; .</string>
+  <string name="about_app_license">Башланғыс код &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; һәм &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisansı&lt;/a&gt; урынлашҡан. Башҡа шарт күрһәтелмәһә, эстәлекте &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; һылтанмаһы буйынса ҡарап була.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt; Викимедиа фонды &lt;/a&gt;-ның продукты</string>
   <string name="about_activity_title">Ҡушымта тураһында</string>
   <string name="edit_abandon_confirm">\nБит үҙгәртелде. Үҙгәртеүҙәрҙе һаҡламайынса сығырға уйлайһығыҙмы?</string>
@@ -473,31 +473,35 @@
     <item quantity="one">1 мәҡәлә</item>
     <item quantity="other">%d мәҡәәләләр</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary">{{PLURAL\n|one=1 мәҡәлә, %2$.2f MB|%1$d мҡәлә, %2$.2f MB}}</string>
+  <string name="format_reading_list_statistical_summary">{{PLURAL\n|one=1 мәҡәлә, %2$.2f MB|%1$d мәҡәлә, %2$.2f MB}}</string>
   <plurals name="format_reading_list_statistical_detail_without_size">
     <item quantity="one">%1$d исемлегенән 1 мәҡәлә офлайн-режимында асыла</item>
     <item quantity="other">%1$d исемлегенән %2$d мәҡәлә офлайн-режимында асыла</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d - 1 мәҡәлә офлайн режимда бар, %3$.2f MB</item>
+    <item quantity="other">%1$d - %2$d мәҡәлә офлайн режимда бар, %3$.2f MB</item>
   </plurals>
   <string name="reading_list_sort">Сортҡа айырыу</string>
   <string name="reading_list_sort_ellipsis">Айырыу:</string>
   <string name="reading_list_sort_by_name">Исем буйынса айырыу</string>
   <string name="reading_list_sort_by_name_desc">Атама буйынса айырыу (киреһенсә)</string>
-  <string name="reading_list_sort_by_recent">Дата буйынса айырыу (яңылары өҫтә)</string>
-  <string name="reading_list_sort_by_recent_desc">Дата буйынса айырыу (тәүгеләре өҫтә)</string>
+  <string name="reading_list_sort_by_recent">Өҫтәү датаһы буйынса айырыу (яңылары өҫтә)</string>
+  <string name="reading_list_sort_by_recent_desc">Өҫтәү датаһы буйынса айырыу (тәүгеләре өҫтә)</string>
   <string name="reading_list_sort_by_created">Яҙылыу датаһы буйынса айырыу (яңылары өҫтә)</string>
   <string name="reading_list_sort_by_created_desc">Яҙылыу датаһы буйынса айырыу (алда яҙылғандары өҫтә)</string>
   <string name="reading_list_menu_delete">Исемлекте юйырға</string>
   <string name="reading_list_menu_export">Исемлекте экспортлау</string>
   <string name="reading_list_menu_select">Һайларға</string>
   <string name="reading_list_menu_unselect">Һайлауҙы кире ҡағырға</string>
-  <string name="reading_list_export_write_permission_rationale">Һүрәтте һаҡлау өсөн һеҙҙең ҡорамалдың һаҡлағысына яҙҙырырға рөхсәт талап ителә.</string>
+  <string name="reading_list_export_write_permission_rationale">Уҡыу исемлеген экспортлау өсөн һеҙҙең ҡорамалдың һаҡлағысына яҙҙырырға рөхсәт кәрәк.</string>
   <string name="reading_list_menu_rename">Исемде/тасуирламаны үҙгәртергә</string>
   <string name="reading_list_action_menu_remove_from_offline">Офлайн-режимдан юйырға</string>
   <string name="reading_list_action_menu_save_for_offline">Офлайн-режимда һаҡларға</string>
-  <string name="reading_list_action_menu_remove_all_from_offline">Офлайн-режимдан барыһын да юйырға</string>
-  <string name="reading_list_action_menu_save_all_for_offline">Офлайн-режимда барыһын да һаҡларға</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Барыһын да офлайн-режимдан юйырға</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Барыһын да офлайн-режим өсөн һаҡларға</string>
   <string name="reading_list_action_menu_add_to_another_list">Башҡа исемлеккә өҫтәргә</string>
-  <string name="reading_list_action_menu_move_to_another_list">Икенсе исемлеккә ташырға</string>
+  <string name="reading_list_action_menu_move_to_another_list">Икенсе исемлеккә күсерергә</string>
   <string name="reading_list_name_sample">Уҡыу исемлегем</string>
   <string name="reading_list_name_hint">Был исемлек атамаһы</string>
   <string name="reading_list_description_hint">Тасуирлама (мотлаҡ түгел)</string>
@@ -505,7 +509,7 @@
   <string name="reading_list_item_deleted_from_list">%1$s мәҡәләһе %2$s исемлегенән юйылған</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d мәҡәлә исемлектән юйылған</item>
-    <item quantity="other">%d мәҡәлә исемлектән юйылған</item>
+    <item quantity="other">%d мәҡәләләр исемлектән юйылған</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%d мәҡәлә %s исемлектән юйылған</item>
@@ -515,15 +519,17 @@
     <item quantity="one">%d исемлек юйылған</item>
     <item quantity="other">%d исемлек юйылған</item>
   </plurals>
-  <string name="reading_lists_default_list_delete_message">Алдан көйләнгән исемлек (%s) юйылмай</string>
-  <string name="reading_lists_default_plus_many_lists_delete_message">Исемлектәр юйылған. Алдан көйләнгән исемлектәр (%s) юйыла алмай.</string>
+  <string name="reading_lists_default_list_delete_message">Программа көйләгән исемлек (%s) юйыла алмай</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s исемлеге юйылған. Программа көйләгән исемлек (%2$s) юйыла алмай.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Исемлектәр юйылған. Программа көйләгән исемлек (%s) юйыла алмай.</string>
   <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
+  <string name="multiple_lists_json_file_name">Википедия уҡыу исемлеге (%s һәм күберәк).json</string>
   <string name="reading_list_items_deleted">%d мәҡәлә исемлектән юйылған</string>
   <string name="reading_lists_item_deleted">%s исемлектәрҙән юйылған</string>
   <string name="reading_list_item_delete_undo">Кире алырға</string>
   <string name="reading_list_deleted">%s юйылды</string>
   <string name="saved_list_empty_title">Әлегә һаҡланған биттәр юҡ</string>
-  <string name="reading_lists_empty_message">Офлайн-режимда булһағаҙ ҙа, мәҡәләләрҙе аҙаҡ уҡыу өсөн исемлеккә өҫтәгеҙ.</string>
+  <string name="reading_lists_empty_message">Офлайн-режимда булһағыҙ ҙа, мәҡәләләрҙе аҙаҡ уҡыу өсөн исемлеккә өҫтәгеҙ.</string>
   <string name="reading_list_empty">Был исемлеккә индерелгән мәҡәләләрегеҙ юҡ.</string>
   <string name="reading_list_article_offline">Офлайн-режимда ла ҡулланырға була</string>
   <string name="reading_list_article_make_offline">Мәҡәләне офлайн-режимда уҡырлыҡ итергә</string>
@@ -536,8 +542,9 @@
   <string name="reading_list_confirm_remove_article_from_offline">Офлайн-режимдан юйырға</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Мәҡәлә бер-нисә исемлеккә индерелгән</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">барлыҡ уҡыу исемлектәрендә  %s бите башҡаса офлайн-режимда  булмаясаҡ</string>
-  <string name="reading_lists_sync_reminder_title">Уҡыу исемлеген синхронлаштырыуҙы индерергәме?</string>
+  <string name="reading_lists_sync_reminder_title">Уҡыу исемлеген синхронлаштырыуҙы ҡабыҙырғамы?</string>
   <string name="reading_lists_sync_reminder_text">Уҡыу исемлегендә һаҡланған мәҡәләләрҙе хәҙер Википедиялағы иҫәп яҙмаһы менән синхронлаштырырға мөмкин. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Synced_reading_lists\"&gt;Күберәк белергә&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Уҡыу өсөн исемлектәрҙе хәҙер ҡулайламалар араһында синхронлаштырырға мөмкин. Википедияның иҫәп яҙмаһына инегеҙ һәм исемлектәрҙе һаҡларға рөхсәт итегеҙ. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Күберәк белергә&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Синхронлаштырыуҙы ҡабыҙырға</string>
   <string name="reading_list_login_reminder_title">Уҡыу исемлектәрен синхронлаштырырға</string>
   <string name="reading_lists_login_reminder_text">Уҡыу исемлеге хәҙер ҡоролмалар араһында синхронлаштырыла. Үҙегеҙҙең иҫәп яҙмаһына инегеҙ һәм исемлектәрҙе һаҡларға рөхсәт итегеҙ.</string>
@@ -545,7 +552,90 @@
   <string name="reading_lists_ignore_button">Хәҙер түгел</string>
   <string name="reading_lists_confirm_remote_delete_yes">Эйе</string>
   <string name="reading_lists_confirm_remote_delete_no">Юҡ</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Был уҡыу теҙмәһен ысынлап юйырға теләйһегеҙме %s?</string>
+  <string name="reading_list_article_save_in_progress">Бит тейәлә. Тамаланғандан һуң уны офлайн-режимда уҡып буласаҡ.</string>
+  <string name="reading_list_articles_added_to_named">%2$s  исемлегенә %1$d мәҡәлә өҫтәлде</string>
+  <string name="reading_list_articles_moved_to_named">%2$s исемлегенә %1$d мәҡәлә күсереп ҡуйылды</string>
+  <string name="reading_list_delete_confirm">Ысынлап %s юйырға теләйһегеҙме?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Һайланған исемлекте (исемлектәрҙе) юйырғамы?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">%d Исемлекте юйырға теләйһегеҙме?</item>
+    <item quantity="other">%d Исемлектәрҙе юйырға теләйһегеҙме?</item>
+  </plurals>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Синхронлаштырыуҙы ҡабыҙыу өсөн инегеҙ</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Уҡыу исемлектәре иҫәп яҙмаһында һаҡланһын өсөн иҫәп яҙмаһына инегеҙ.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Кире алырға</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Инергә</string>
+  <string name="reading_list_turned_sync_off_dialog_title">Уҡыу исемлеген синхронлаштырыу һүндерелгән</string>
+  <string name="reading_list_turned_sync_off_dialog_text">Уҡыу исемлеген синхронлаштырыу һеҙҙең иҫәп яҙмаһы өсөн һүндерелгән, һәм системаға ингән ҡоролмаларығыҙҙағы һаҡланған мәҡәләләрҙең күсермәләре башҡаса төҙөлмәй. Уҡыу исемлеген көйләүҙәрҙә синхронлаштырыуҙы ҡабыҙығыҙ.</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Яҡшы</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Көйләүҙәр</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_title">Уҡыу исемлеген синхронлаштырыуҙы ҡабыҙырғамы?</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">Уҡыу өсөн исемлектәрҙә һаҡланған мәҡәләләрҙе хәҙер Википедиялағы иҫәп яҙмаһы менән синхронлаштырырға мөмкин.&lt;a href=\"#faq\"&gt;Күберәк белергә&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ҡабат күрһәтмәҫкә</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Синхронлаштырыуҙы ҡабыҙырға</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Юҡ, рәхмәт</string>
+  <string name="default_reading_list_name">Һаҡланған</string>
+  <string name="default_reading_list_description">Һайлаған мәҡәләләрегеҙ өсөн программа көйләгән исемлек</string>
+  <string name="no_user_lists_title">Мәҡәләләр шәлкемен һаҡлағыҙ</string>
+  <string name="no_user_lists_msg">Сәйәхәт итеү урындары, яратҡан темалар һәм башҡа күп нәмәләр буйынса исемлектәр төҙөгөҙ</string>
+  <string name="reading_list_saved_list_rename">%1$s (ҡатнашыусы булдырған)</string>
+  <string name="split_reading_list_message">Уҡыу исемлегендә максималь мәҡәләләр һаны: %d. Был лимиттан артығыраҡ булған мәҡәләләр бер нисә исемлеккә бүленде.</string>
+  <string name="reading_list_move_article_limit_message">Был исемлеккә күсереү мөмкин түгел. \"%1$s\" өсөн һеҙ  %2$d сигенә еттегеҙ.</string>
+  <string name="reading_list_article_limit_message">Был исемлеккә өҫтәп булмай. \"%1$s\" исемлеге өсөн   %2$d сигенә еттегеҙ.</string>
+  <string name="reading_lists_limit_message">Башҡа исемлек төҙөп булмай. Бер иҫәп яҙмаһы өсөн 100 уҡыу исемлеге сигенә еттегеҙ.</string>
+  <string name="reading_lists_menu_create_list">Яңы исемлек булдырырға</string>
+  <string name="reading_lists_menu_import_list">Исемлекте импортлау</string>
+  <string name="reading_lists_menu_sort_by">Айырыу</string>
+  <string name="reading_lists_refresh_sync_option">Синхронлаштырыуҙы яңыртырға</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Инергә / теркәлергә</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">Был мәҡәлә офлайн режимда асыласаҡ.</item>
+    <item quantity="other">Был мәҡәләләр офлайн режимда асыласаҡ.</item>
+  </plurals>
+  <string name="reading_list_article_not_offline_message">{{PLURAL\n|one=Был мәҡәлә офлайн режимда асылмаясаҡ.|Был мәҡәләләр офлайн режимда асылмаясаҡ.}}</string>
+  <string name="reading_list_toast_last_sync">Уҡыу исемлектәре синхронлаштырылған</string>
+  <string name="reading_list_menu_last_sync">Һуңғы синхронлаштырыу ваҡыты:%s</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">Яҡшы</string>
+  <string name="reading_list_delete_dialog_ok_button_text">Яҡшы</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Кире алырға</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Кире алырға</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Кире алырға</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Кире алырға</string>
+  <string name="reading_list_split_dialog_ok_button_text">Яҡшы</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Юйырға</string>
+  <string name="reading_list_activity_title">Уҡыу исемлеге:%s</string>
+  <string name="reading_list_notification_title">Уҡыу исемлеген/исемлектәрҙе экспортлау</string>
+  <string name="reading_list_notification_text">%d Уҡыу исемлеге/исемлектәре, \'reading_lists export.json\' файлы булараҡ, һеҙҙең папкаға күсерелгән</string>
+  <string name="reading_list_notification_detailed_text">Уҡыу исемлектәре \'reading_lists_export.json\' файлына экспортланған</string>
+  <string name="reading_lists_action_menu_export_lists">Экспортларға</string>
+  <string name="reading_lists_import_file_picker_title">Импортлау өсөн файл һайлағыҙ</string>
+  <string name="reading_lists_import_failure_message">Уҡыу исемлектәрен импортлап булманы</string>
+  <string name="reading_lists_export_select_lists_message">Экспорт өсөн исемлек/исемлектәр һайлағыҙ</string>
+  <string name="reading_lists_export_completed_message">Уҡыу исемлеге/исемлектәре экспортланды</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Уҡыу исемлеген экспортҡа сығарыу мөмкин түгел</item>
+    <item quantity="other">Уҡыу исемлектәрен экспортҡа сығарыу мөмкин түгел</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Уҡыу исемлеге импортланды</item>
+    <item quantity="other">Уҡыу исемлектәре импортланды</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Дөйөм исемлек</string>
+  <string name="reading_lists_preview_save_button">Яҙҙырып ҡуйырға</string>
+  <string name="reading_lists_preview_save_dialog_title">Исемлекте һаҡларға</string>
+  <string name="reading_lists_preview_save_dialog_text">Исемдәрҙе һанағыҙ һәм һаҡлау өсөн мәҡәләләр һайлағыҙ</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Исем</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Кире алырға</string>
+  <string name="reading_lists_preview_save_dialog_save">Һаҡларға</string>
+  <string name="reading_lists_preview_saved_snackbar">Һаҡланған уҡыу исемлеге</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Ҡарарға</string>
   <string name="user_option_sync_label">Көйләүҙәр</string>
+  <string name="notification_reverted_title">Төҙәтеү кире алынған</string>
+  <string name="notification_channel_title">Мәҡәләләрҙе йөкләү</string>
+  <string name="notification_channel_description">Йөкләү үҫеше</string>
+  <string name="notification_syncing_pause_button">Пауза</string>
+  <string name="notification_syncing_cancel_button">Кире алырға</string>
+  <string name="notification_syncing_reading_list_channel_description">Уҡыу исемлектәрен синхронлаштырыу үҫеше</string>
   <string name="suggested_edits_task_action_text_add">Өҫтәргә</string>
+  <string name="suggested_edits_image_captions">Рәсем тасуирламаһы</string>
 </resources>

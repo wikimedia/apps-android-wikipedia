@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Cooltey
 * Malikxan
 * Ochilov
@@ -112,9 +113,9 @@
   <string name="map_view_link_text">Xaritada ko‘rmoq</string>
   <string name="other_languages_indication_text">Boshqa tilda oʻqish</string>
   <string name="language_count_link_text">Maqola %d ta tilda mavjud</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt; Foydalanish shartlari &lt;/a&gt;ga va o‘zingizning hissangizni &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 ostida qaytarib berilmaslikka rozilik bildirasiz. &lt;/a&gt; litsenziyasi.</string>
-  <string name="edit_save_action_license_anon">Nashr qilish bilan siz &lt;a href=\"%1$s\"&gt;Foydalanish shartlari&lt;/a&gt;ga va oʻz hissangizni &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; litsenziyasi ostida qaytarib berilmaslikka rozilik bildirasiz. Oʻzgarishlar sizning qurilmangiz IP-manziliga tegishli boʻladi. Agar &lt;a href=\"https://#login\"&gt;tizimga kirsangiz&lt;/a&gt;, koʻproq shaxsiylikka ega boʻlasiz.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt; Foydalanish shartlari&lt;/a&gt; hamda o‘z hissangizni &lt;a href=\"%2$s\"&gt; CC BY-SA 4.0&lt;/a&gt; litsenziyasi ostida qaytarib berilmaslikka rozilik bildirasiz.</string>
+  <string name="edit_save_action_license_anon">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt;Foydalanish shartlari&lt;/a&gt;ga va oʻz hissangizni &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; litsenziyasi ostida qaytarib berilmaslikka rozilik bildirasiz. Oʻzgarishlar sizning qurilmangiz IP-manziliga tegishli boʻladi. Agar &lt;a href=\"https://#login\"&gt;tizimga kirsangiz&lt;/a&gt;, koʻproq shaxsiylikka ega boʻlasiz.</string>
   <string name="edit_anon_warning">Tahrirlar qurilmangiz IP manziliga tegishli boʻladi. Agar Siz tizimga &lt;a href=\"https://#login\"&gt;kirsangiz&lt;/a&gt;, maxfiylikka ega boʻlasiz.</string>
   <string name="preference_title_language">Vikipediya tillari</string>
   <string name="langlinks_filter_hint">Izlash</string>
@@ -240,7 +241,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uz</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -250,7 +251,7 @@
   <string name="about_translators_heading">Tarjimonlar</string>
   <string name="about_translators_translatewiki">Ilovaning oʻzbekchasi &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; saytida koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
   <string name="about_app_license_heading">Litsenziya</string>
-  <string name="about_app_license">Ilovaning ochiq manba kodi &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; va &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarida &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 litsenziyasi&lt;/a&gt; asosida mavjud. Qolgan barcha zaruriy tarkiblar &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; sahifasiga joylangan.</string>
+  <string name="about_app_license">Ilovaning ochiq manba kodi &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; va &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarida &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 litsenziyasi&lt;/a&gt; asosida mavjud. Qolgan barcha zaruriy tarkiblar &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; sahifasiga joylangan.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya Fondi&lt;/a&gt;  mahsuloti</string>
   <string name="about_activity_title">Ilova haqida</string>
   <string name="edit_abandon_confirm">Sahifa oʻzgartirildi. Oʻzgartirishlaringizni saqlamasdan chiqmoqchimisiz?</string>
@@ -951,6 +952,7 @@
   <string name="suggested_edits_image_tags_select_title">Siz ushbu rasm uchun biron bir teg tanlamagansiz</string>
   <string name="suggested_edits_image_tags_select_text">Rasmlarga faqat siz tanlagan teglar qoʻshiladi. Tanlanmagan teglar rad etilgan deb belgilanadi. Barcha teglarni rad etilgan deb belgilashni xohlaysizmi?</string>
   <string name="suggested_edits_image_tags_add_tag">Teg qoʻshmoq</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Nashr etilmagan teglar saqlanmaydi</string>
   <string name="suggested_edits_image_zoom_tooltip">Ushbu rasmni kattalashtirish uchun teging.</string>
   <string name="suggested_edits_encouragement_message">%s, tahrir qilganingiz uchun tashakkur. Quyida Siz Vikipediyaga hissa qoʻshishning koʻproq usullarini topishingiz mumkin.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Salom %s&lt;/b&gt;, quyida Siz Vikipediyani yaxshilashga yordam beradigan tez va oson usullarni topishingiz mumkin. Oʻzingiz amalga oshirayotgan farqni boshlashingiz bilanoq koʻrasiz. Omad!</string>
@@ -1047,6 +1049,35 @@
     <item quantity="one">%d ta belgi qoʻshdingiz</item>
     <item quantity="other">%d ta belgi qoʻshdingiz</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Maqola rasmlari</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Tushunishni yaxshilash uchun Vikipediya maqolalariga tavsiya etilgan rasmlarni qoʻshing.</string>
+  <string name="image_recommendation_task_instruction">Ushbu rasmni maqolaga qoʻsha olasizmi?</string>
+  <string name="image_recommendation_tutorial">Qoʻllanma</string>
+  <string name="image_recommendation_accept">Ha</string>
+  <string name="image_recommendation_reject">Yoʻq</string>
+  <string name="image_recommendation_notsure">Balki yoʻq</string>
+  <string name="image_recommendation_reject_title">Nega yoʻq?</string>
+  <string name="image_recommendation_reject_subtitle">Javoblaringiz kelajakdagi takliflarni yaxshilaydi.</string>
+  <string name="image_recommendation_reject_not_relevant">Rasm tegishli emas</string>
+  <string name="image_recommendation_reject_no_info">Qaror qabul qilish uchun yetarli maʼlumot yoʻq</string>
+  <string name="image_recommendation_reject_offensive">Rasm haqoratli</string>
+  <string name="image_recommendation_reject_low_quality">Rasm sifati past</string>
+  <string name="image_recommendation_reject_dont_know">Men bu mavzuni bilmayman</string>
+  <string name="image_recommendation_reject_other">Boshqa</string>
+  <string name="image_recommendation_reject_submit">Yuborish</string>
+  <string name="image_recommendation_tooltip_main">Taklif etilgan tahrirlardagi maqolalarga yetishmayotgan rasmlarni qoʻshing</string>
+  <string name="image_recommendation_onboarding_1">Rasmlar odamlarga mavzuni tushunishga yordam beradi, biroq koʻp maqolalarda ular yoʻq.</string>
+  <string name="image_recommendation_onboarding_2">Tavsiya etilgan rasmni Vikipediya maqolasiga joylashtirish kerakmi yoki yoʻqligini oʻzingiz hal qilasiz.</string>
+  <string name="image_recommendation_onboarding_3">Takliflar mashina tomonidan ishlab chiqiladi va Siz ularni qabul qilish yoki rad etish haqida qaror qabul qilish oʻzingizga bogʻliq.</string>
+  <string name="image_recommendation_onboarding_4">Tasvirlar Vikipediya tomonidan qoʻllaniladigan erkin litsenziyalangan rasmlar toʻplami boʻlmish Wikimedia Commonsʼdan olingan.</string>
+  <string name="image_recommendation_tooltip_1">Mavzuni tushunish uchun ushbu maqolani koʻrib chiqing</string>
+  <string name="image_recommendation_tooltip_2">Rasmni va unga tegishli maʼlumotlarni tekshiring</string>
+  <string name="image_recommendation_tooltip_3">Rasm oʻquvchilarga ushbu mavzuni yaxshiroq tushunishga yordam beradimi yoki yoʻqligini aniqlang</string>
+  <string name="image_recommendation_tooltip_next">Keyingisi</string>
+  <string name="image_recommendation_tooltip_warning">Mavzuni tushunish uchun maqolani koʻrib chiqing va rasmni tekshiring</string>
+  <string name="edit_summary_added_image">Qoʻshilgan rasm</string>
+  <string name="edit_summary_added_caption">Izoh qoʻshish</string>
+  <string name="edit_published_view">Koʻrish</string>
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
@@ -1145,10 +1176,10 @@
   <string name="insert_media_title">Mediani qoʻymoq</string>
   <string name="insert_media_search_description">Wikimedia Commonsʼdan fayl tanlamoq</string>
   <string name="insert_media_search_hint">Media qidiruvi</string>
-  <string name="insert_media_settings">Media tanlovlari</string>
+  <string name="insert_media_settings">Rasmga izoh qoʻshish</string>
   <string name="insert_media_settings_uploaded_image">Yuklangan rasm</string>
-  <string name="insert_media_settings_caption">Izoh</string>
-  <string name="insert_media_settings_caption_description">Barcha oʻquvchilar uchun element yonida koʻrsatiladigan yozuv</string>
+  <string name="insert_media_settings_caption">Rasm izohi</string>
+  <string name="insert_media_settings_caption_description">Maqolada koʻrinadigan rasm sarlavhasi</string>
   <string name="insert_media_settings_alternative_text">Muqobil matn</string>
   <string name="insert_media_settings_alternative_text_description">Rasmni koʻra olmaydigan oʻquvchilar uchun izohli matn</string>
   <string name="insert_media_advanced_settings">Kengaytirilgan tanlovlar</string>
@@ -1390,4 +1421,6 @@
   <string name="reading_list_share_survey_body">“Oʻqish roʻyxatlarini ulashish” sinov koʻrinishida boʻlib, uni yaxshilash yoki olib tashlash uchun fikr-mulohazalaringiz kerak.</string>
   <string name="data_opt_in_accept">Qabul qilish</string>
   <string name="data_opt_in_reject">Rad etish</string>
+  <string name="page_issues_title">Sahifa muammolari</string>
+  <string name="generic_release_notes">Asosiy kamchiliklar tuzatildi hamda takomillashtirildi</string>
 </resources>

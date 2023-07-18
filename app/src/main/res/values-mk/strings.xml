@@ -109,9 +109,9 @@
   <string name="map_view_link_text">Погл. на карта</string>
   <string name="other_languages_indication_text">Прочитај на друг јазик</string>
   <string name="language_count_link_text">Достапно на %d други јазици</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="edit_save_action_license_anon">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;</string>
+  <string name="edit_save_action_license_anon">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
   <string name="edit_anon_warning">Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt;, тогаш ќе имате повеќе приватност.</string>
   <string name="preference_title_language">Јазици на Википедија</string>
   <string name="langlinks_filter_hint">Пребарај</string>
@@ -237,7 +237,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/mk?uselang=mk</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.mk</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -247,7 +247,7 @@
   <string name="about_translators_heading">Преведувачи</string>
   <string name="about_translators_translatewiki">Прилогов го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Текст_на_лиценцата_Криејтив_комонс_Наведи извор-Сподели_под_исти_услови_3.0_Нелокализирана\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови Нелокализирана&lt;/a&gt;.</string>
+  <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.mk\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
@@ -1047,6 +1047,35 @@
     <item quantity="one">Додадовте %d знак</item>
     <item quantity="other">Додадовте %d знаци</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Слики за статии</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Додавајте предложени слики во википедиски статии за да ја подобрите претставата за содржината.</string>
+  <string name="image_recommendation_task_instruction">Дали би ја додале оваа слика во статијата?</string>
+  <string name="image_recommendation_tutorial">Упатства</string>
+  <string name="image_recommendation_accept">Да</string>
+  <string name="image_recommendation_reject">Не</string>
+  <string name="image_recommendation_notsure">Не знам</string>
+  <string name="image_recommendation_reject_title">Зошто не?</string>
+  <string name="image_recommendation_reject_subtitle">Вашите одговори ги подобруваат идните предлози.</string>
+  <string name="image_recommendation_reject_not_relevant">Сликата е нерелевантна</string>
+  <string name="image_recommendation_reject_no_info">Немам доволно сознанија за да одлучам</string>
+  <string name="image_recommendation_reject_offensive">Сликата е неумесна</string>
+  <string name="image_recommendation_reject_low_quality">Сликата е неквалитетна</string>
+  <string name="image_recommendation_reject_dont_know">Не се разбирам од темава</string>
+  <string name="image_recommendation_reject_other">Друго</string>
+  <string name="image_recommendation_reject_submit">Поднеси</string>
+  <string name="image_recommendation_tooltip_main">Додајте потребни слики во статии во „Предложени уредувања“</string>
+  <string name="image_recommendation_onboarding_1">Сликите им помагаат на читателите да ја разберат содржината, но многу статии немаат слики.</string>
+  <string name="image_recommendation_onboarding_2">Вие ќе одлучите дали предложената слика треба да се стави во википедиска статија.</string>
+  <string name="image_recommendation_onboarding_3">Предлозите се машински направени и на вас е да просудите дали да ги прифатите или одбиете.</string>
+  <string name="image_recommendation_onboarding_4">Сликите се од Ризницата, збирка на слободно лиценцирани слики што се користат на Википедија.</string>
+  <string name="image_recommendation_tooltip_1">Прочитајте ја статијава за да ја разберете темата.</string>
+  <string name="image_recommendation_tooltip_2">Разгледајте ја сликата и нејзините информации</string>
+  <string name="image_recommendation_tooltip_3">Решете дали сликата им помага на читателите подобро да ја разберат оваа тема</string>
+  <string name="image_recommendation_tooltip_next">Следно</string>
+  <string name="image_recommendation_tooltip_warning">Прочитајте ја статијата за да ја разберете темата и разгледајте ја сликата</string>
+  <string name="edit_summary_added_image">Додадена слика</string>
+  <string name="edit_summary_added_caption">Додаден опис</string>
+  <string name="edit_published_view">Погледај</string>
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>
@@ -1145,12 +1174,12 @@
   <string name="insert_media_title">Вметнување на слика или снимка</string>
   <string name="insert_media_search_description">Изберете податотека од Ризницата</string>
   <string name="insert_media_search_hint">Пребарување на слики и снимки</string>
-  <string name="insert_media_settings">Поставки за слики и снимки</string>
+  <string name="insert_media_settings">Додајте поединости за сликата</string>
   <string name="insert_media_settings_uploaded_image">Подигната слика</string>
-  <string name="insert_media_settings_caption">Опис</string>
-  <string name="insert_media_settings_caption_description">Натпис кој се прикажува до ставката на сите читатели</string>
+  <string name="insert_media_settings_caption">Опис на сликата</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Натпис кој се прикажува до ставката на сите читатели</string>
   <string name="insert_media_settings_alternative_text">Алтернативен текст</string>
-  <string name="insert_media_settings_alternative_text_description">Писмен опис за читателите кои не можат да ја видат сликата</string>
+  <string name="insert_media_settings_alternative_text_description">Оопис за читателите со попречен вид</string>
   <string name="insert_media_advanced_settings">Напредни нагодувања</string>
   <string name="insert_media_advanced_settings_wrap_image">Сложи го текстот околу сликата</string>
   <string name="insert_media_advanced_settings_image_position">Положба на сликата</string>
@@ -1390,5 +1419,6 @@
   <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
   <string name="data_opt_in_accept">Прифати</string>
   <string name="data_opt_in_reject">Одбиј</string>
+  <string name="page_issues_title">Проблеми со страницата</string>
   <string name="generic_release_notes">Ситни поправки на грешки и подобрувања</string>
 </resources>
