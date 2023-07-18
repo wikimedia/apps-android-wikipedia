@@ -106,7 +106,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         }
 
         binding.notSureButton.setOnClickListener {
-            SuggestedEditsImageRecsDialog.newInstance(1).show(childFragmentManager, null)
+            publish()
         }
 
         binding.imageCard.setOnClickListener {
