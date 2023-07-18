@@ -168,7 +168,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             val infoboxMatch = """\{\{\s*($infoboxNames).*\}\}""".toRegex(setOf(RegexOption.DOT_MATCHES_ALL, RegexOption.IGNORE_CASE)).find(wikiText)
             val infoBoxName = infoboxMatch?.groupValues?.get(1).orEmpty().lowercase()
 
-            when  {
+            when {
                 infoBoxName.contains("taxobox") -> {
                     imageCaptionParamName = "image_caption"
                     imageAltParamName = "image_alt"
