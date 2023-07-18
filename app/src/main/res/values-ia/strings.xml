@@ -230,6 +230,7 @@
   <string name="privacy_policy_description">Politica de confidentialitate</string>
   <string name="terms_of_use_description">Conditiones de uso</string>
   <string name="about_wikipedia_url">https://ia.wikipedia.org/wiki/Wikipedia:A_proposito</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ia</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ia</string>
   <string name="about_libraries_heading">Bibliothecas usate</string>
   <string name="about_contributors_heading">Contributores</string>
@@ -394,21 +395,108 @@
   <string name="empty_tab_title">Nove scheda</string>
   <string name="menu_save_all_tabs">Salveguardar tote le schedas</string>
   <string name="error_blocked_title">Tu nomine de usator o adresse IP ha essite blocate.</string>
+  <string name="error_blocked_by">Le blocada ha essite facite per &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_reason">Le motivo date es: %s</string>
+  <string name="error_blocked_start">Initio del blocada: %s</string>
+  <string name="error_blocked_expiry">Expiration del blocada: %s</string>
+  <string name="error_blocked_id">ID del blocada: %s</string>
+  <string name="error_blocked_footer">Tu pote contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altere &lt;a href=\"https://ia.wikipedia.org/wiki/Wikipedia:Administratores\"&gt;administrator&lt;/a&gt; pro discuter le blocada.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Personalisar tu barra de utensiles</string>
+  <string name="error_blocked_footer_no_blocker">Tu pote contactar un &lt;a href=\"https://ia.wikipedia.org/wiki/Wikipedia:Administratores\"&gt;administrator&lt;/a&gt; pro discuter le blocada.</string>
+  <string name="crash_report_activity_title">Error del application</string>
+  <string name="crash_report_relaunch_or_quit">Regrettabilemente, le application Wikipedia ha incontrate un error e se ha terminate.\n\nVole tu reinitiar o quitar?</string>
+  <string name="crash_report_relaunch">Reinitiar</string>
+  <string name="crash_report_quit">Quitar</string>
+  <string name="article_menu_bar_save_button">Salveguardar</string>
+  <string name="article_menu_bar_language_button">Lingua</string>
+  <string name="article_menu_bar_search_button">Cercar</string>
+  <string name="article_menu_bar_theme_button">Thema</string>
+  <string name="article_menu_bar_contents_button">Contento</string>
+  <string name="article_header_edit_hint">Modificar…</string>
+  <string name="article_header_edit_description">Modificar description del articulo</string>
+  <string name="article_header_edit_lead_section">Modificar introduction</string>
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Clar</string>
   <string name="color_theme_dark">Obscur</string>
+  <string name="color_theme_black">Nigre</string>
+  <string name="color_theme_sepia">Sepia</string>
+  <string name="color_theme_test_title">Texto de exemplo</string>
+  <string name="color_theme_test_text">Trahe le glissator pro cambiar le dimension del texto que es usate durante le lection de articulos. Pro establir le dimension del texto in tote le application, modifica le dimension del texto de tu systema.</string>
+  <string name="preference_title_app_theme">Thema del application</string>
+  <string name="preference_summary_color_theme">Cambiar al uso del thema de color obscur del application</string>
+  <string name="text_size_increase">Aggrandir texto</string>
+  <string name="text_size_decrease">Diminuer texto</string>
+  <string name="text_size_percent_default">%s (predefinite)</string>
+  <string name="text_style_title">Typo de litteras</string>
+  <string name="theme_category_reading">Lectura</string>
+  <string name="theme_category_editing">Modification</string>
+  <string name="reading_focus_mode">Modo de focalisation sur lectura</string>
+  <string name="reading_focus_mode_detail">Cela le functionalitate de modification e le barra de utensiles in basso durante le rolamento</string>
+  <string name="editing_syntax_highlight_label">Coloration syntactic</string>
+  <string name="editing_line_numbers_label">Monstrar numeros de linea</string>
+  <string name="editing_monospace_font_label">Usar typo de litteras monospatial</string>
+  <string name="editing_typing_suggestions">Monstrar suggestiones de scriptura a machina</string>
+  <string name="nav_item_saved">Salveguardate</string>
+  <string name="reading_list_save_to">Salveguardar in lista de lectura</string>
+  <string name="reading_list_move_to">Displaciar al lista de lectura</string>
+  <string name="reading_list_create_new">Crear nove</string>
+  <string name="reading_list_title_exists">Le lista de lectura \"%s\" ja existe.</string>
+  <string name="reading_list_article_added_to_named">%1$s addite a %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">%s salveguardate. Vole tu adder lo a un lista?</string>
+  <string name="reading_list_article_moved_to_named">%1$s displaciate a %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Toto ben! %1$s ja contine %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Toto ben! %s ja contine tote le articulos.</string>
+  <string name="reading_list_added_view_button">Vider lista</string>
+  <string name="reading_list_add_to_list_button">Adder al lista</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">1 articulo</item>
     <item quantity="other">%d articulos</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 articulo, %2$.2f MB</item>
+    <item quantity="other">%1$d articulos, %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail_without_size">
     <item quantity="one">%1$d de 1 articulo disponibile foras de linea</item>
     <item quantity="other">%1$d de %2$d articulos disponibile foras de linea</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d de 1 articulo disponibile foras de linea, %3$.2f MB</item>
+    <item quantity="other">%1$d de %2$d articulos disponibile foras de linea, %3$.2f MB</item>
+  </plurals>
+  <string name="reading_list_sort">Ordinar</string>
+  <string name="reading_list_sort_ellipsis">Ordinar per…</string>
+  <string name="reading_list_sort_by_name">Ordinar per nomine</string>
+  <string name="reading_list_sort_by_name_desc">Ordinar per nomine (inverso)</string>
+  <string name="reading_list_sort_by_recent">Ordinar per data de addition (le plus recente)</string>
+  <string name="reading_list_sort_by_recent_desc">Ordinar per data de addition (le plus ancian)</string>
+  <string name="reading_list_sort_by_created">Ordinar per data de creation (le plus recente)</string>
+  <string name="reading_list_sort_by_created_desc">Ordinar per data de creation (le plus ancian)</string>
+  <string name="reading_list_menu_delete">Deler lista</string>
   <string name="reading_list_menu_export">Exportar lista</string>
   <string name="reading_list_menu_select">Seliger</string>
   <string name="reading_list_menu_unselect">Deseliger</string>
   <string name="reading_list_export_write_permission_rationale">Le permission de scriber sur le immagazinage de tu apparato es necessari pro exportar tu lista de lectura.</string>
+  <string name="reading_list_menu_rename">Modificar nomine/description</string>
+  <string name="reading_list_action_menu_remove_from_offline">Remover de foras de linea</string>
+  <string name="reading_list_action_menu_save_for_offline">Salveguardar pro foras de linea</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Remover toto de foras de linea</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Salveguardar toto pro foras de linea</string>
+  <string name="reading_list_action_menu_add_to_another_list">Adder a un altere lista</string>
+  <string name="reading_list_action_menu_move_to_another_list">Displaciar a un altere lista</string>
+  <string name="reading_list_name_sample">Mi lista de lectura</string>
+  <string name="reading_list_name_hint">Nomine de iste lista</string>
+  <string name="reading_list_description_hint">Description (optional)</string>
+  <string name="reading_list_item_deleted">%s removite del lista</string>
+  <string name="reading_list_item_deleted_from_list">%1$s removite de %2$s</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d articulo removite del lista</item>
+    <item quantity="other">%d articulos removite del lista</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d articulo removite de %s</item>
+    <item quantity="other">%d articulos removite de %s</item>
+  </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lista delite</item>
     <item quantity="other">%d listas delite</item>
@@ -418,7 +506,30 @@
   <string name="reading_lists_default_plus_many_lists_delete_message">Listas delite. Le lista predefinite (%s) non pote esser delite.</string>
   <string name="single_list_json_file_name">%s (lista de lectura de Wikipedia).json</string>
   <string name="multiple_lists_json_file_name">Listas de lectura de Wikipedia (%s e plus).json</string>
+  <string name="reading_list_items_deleted">%d articulos removite del lista</string>
+  <string name="reading_lists_item_deleted">%s removite del listas</string>
+  <string name="reading_list_item_delete_undo">Disfacer</string>
+  <string name="reading_list_deleted">%s delite</string>
   <string name="saved_list_empty_title">Nulle pagina salveguardate ancora</string>
+  <string name="reading_lists_empty_message">Adder articulos a un lista pro leger plus plus tarde, mesmo sin connexion a internet.</string>
+  <string name="reading_list_empty">Tu non ha articulos addite a iste lista.</string>
+  <string name="reading_list_article_offline">Disponibile foras de linea</string>
+  <string name="reading_list_article_make_offline">Render iste articulo disponibile foras de linea</string>
+  <string name="reading_list_add_to_other_list">Adder a un altere lista de lectura</string>
+  <string name="reading_list_move_to_other_list">Displaciar a un altere lista de lectura</string>
+  <string name="reading_list_move_from_to_other_list">Displaciar de %s a un altere lista de lectura</string>
+  <string name="reading_list_remove_from_list">Remover de %s</string>
+  <string name="reading_list_remove_from_lists">Remover de listas de lectura</string>
+  <string name="reading_list_select_item">Seliger</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Remover de foras de linea</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Articulo appare in plure listas</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s non essera plus disponibile foras de linea pro tote le listas de lectura:</string>
+  <string name="reading_lists_sync_reminder_title">Activar le synchronisation de listas de lectura?</string>
+  <string name="reading_lists_sync_reminder_text">Articulos salveguardate in listas de lectura pote ora esser synchronisate a tu conto de Wikipedia. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Leger plus&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Lege plus&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_action">Activar synchronisation</string>
+  <string name="reading_list_login_reminder_title">Synchronisar listas de lectura</string>
+  <string name="reading_lists_login_reminder_text">Listas de lectura pote ora esser synchronisate inter apparatos. Aperi session in tu conto Wikipedia e permitte que tu listas es salveguardate.</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Deler le lista(s) seligite?</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
     <item quantity="one">Es tu secur de voler deler iste lista?</item>

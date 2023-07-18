@@ -1157,7 +1157,7 @@
   <string name="insert_media_settings">添加图像详细信息</string>
   <string name="insert_media_settings_uploaded_image">已上传的图像</string>
   <string name="insert_media_settings_caption">图像说明</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">为所有读者显示在项目旁边的标签</string>
+  <string name="insert_media_settings_caption_description">条目中的可见图像标签</string>
   <string name="insert_media_settings_alternative_text">替代文本</string>
   <string name="insert_media_settings_alternative_text_description">为视力障碍读者提供的描述</string>
   <string name="insert_media_advanced_settings">高级设置</string>

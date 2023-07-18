@@ -27,7 +27,7 @@
   <string name="dialog_message_clear_history_yes">Ооба</string>
   <string name="dialog_message_clear_history_no">Жок</string>
   <string name="share_via">аркылуу бөлүшүү</string>
-  <string name="menu_page_other_languages" fuzzy="true">Башка тилдерде окуу</string>
+  <string name="menu_page_other_languages">Тилди өзгөртүү</string>
   <string name="menu_page_find_in_page" fuzzy="true">Бул барактан табуу</string>
   <string name="menu_page_font_and_theme">Жазуу түрүн жана жасалганы өзгөртүү</string>
   <string name="menu_page_add_to_default_list">Сактоо</string>
@@ -70,11 +70,16 @@
   <string name="preference_title_logout">Чыгуу</string>
   <string name="toast_logout_complete">Сиз системден чыктыңыз</string>
   <string name="logout_dialog_cancel_button_text">Жокко чыгаруу</string>
+  <string name="logged_out_in_background_title">Чыктыңыз</string>
+  <string name="logged_out_in_background_login">Кирүү</string>
   <string name="logged_out_in_background_cancel">Жокко чыгаруу</string>
   <string name="history_empty_title" fuzzy="true">Жакында каралган барактар жок!</string>
   <string name="history_empty_message" fuzzy="true">Кыязы, сиз алардын баарын өчүргөн окшойсуз. Кийинки жолу баракка киргенде, бул жактан кайрылсаңыз болот</string>
   <string name="wp_stylized">&lt;big&gt;У&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Колдонуучу аты</string>
+  <string name="login_dont_have_account">Катталган жоксузбу ?</string>
+  <string name="login_join_wikipedia">Википедияга кошулуу</string>
+  <string name="login_forgot_password">Сыр сөзүңүздү унуттуңузбу ?</string>
   <string name="create_account_activity_title">Катталуу</string>
   <string name="dialog_create_account_checking_progress">Текшерүү</string>
   <string name="create_account_email_hint">Электрондук почтаңыздын дареги (милдеттүү эмес)</string>
@@ -161,6 +166,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="description_edit_cancel_hint">Жокко чыгаруу</string>
+  <string name="suggested_edits_task_action_text_add">Кошуу</string>
   <string name="suggested_edits_task_action_text_translate">Которуу</string>
   <string name="description_edit_login_cancel_button_text">Жокко чыгаруу</string>
   <string name="app_shortcuts_search">Издөө</string>

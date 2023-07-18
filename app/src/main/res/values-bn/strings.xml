@@ -879,6 +879,11 @@
     <item quantity="other">%1$sটি অক্ষর</item>
   </plurals>
   <string name="image_recommendation_accept">হ্যাঁ</string>
+  <string name="image_recommendation_reject">না</string>
+  <string name="image_recommendation_reject_low_quality">ছবিটি নিম্নমানের</string>
+  <string name="image_recommendation_reject_submit">জমা দিন</string>
+  <string name="image_recommendation_tooltip_next">পরবর্তী</string>
+  <string name="edit_published_view">দেখুন</string>
   <string name="file_page_activity_title">ফাইলের পাতা</string>
   <string name="file_page_add_image_caption_button">ছবির ক্যাপশন যোগ করুন</string>
   <string name="file_page_add_image_tags_button">ছবিতে ট্যাগ যোগ করুন</string>
@@ -1118,4 +1123,5 @@
   <string name="reading_list_share_survey_body">\"পড়ার তালিকা শেয়ার\" একটি পরীক্ষামূলক ফিচার এবং এটি উন্নত বা অপসারণ করতে আমাদের আপনার প্রতিক্রিয়া প্রয়োজন।</string>
   <string name="data_opt_in_accept">গ্রহণ করুন</string>
   <string name="data_opt_in_reject">প্রত্যাখ্যান করুন</string>
+  <string name="page_issues_title">পাতার সমস্যা</string>
 </resources>
