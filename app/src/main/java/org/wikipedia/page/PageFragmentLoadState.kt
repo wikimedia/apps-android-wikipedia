@@ -146,31 +146,24 @@ class PageFragmentLoadState(private var model: PageViewModel,
             fragment.requireActivity().invalidateOptionsMenu()
             fragment.callback()?.onPageUpdateProgressBar(true)
             model.page = null
-            val delayLoadHtml = title.prefixedText.contains(":")
-            if (!delayLoadHtml) {
-                bridge.resetHtml(title)
-            }
+
+            // kick off loading mobile-html contents into the WebView.
+            bridge.resetHtml(title)
+
             if (title.namespace() === Namespace.SPECIAL) {
                 // Short-circuit the entire process of fetching the Summary, since Special: pages
                 // are not supported in RestBase.
-                bridge.resetHtml(title)
                 leadImagesHandler.loadLeadImage()
                 fragment.requireActivity().invalidateOptionsMenu()
                 fragment.onPageMetadataLoaded()
                 return
             }
-            disposables.add(Observable.zip(ServiceFactory.getRest(title.wikiSite)
-                    .getSummaryResponse(title.prefixedText, null, model.cacheControl.toString(),
-                            if (model.isInReadingList) OfflineCacheInterceptor.SAVE_HEADER_SAVE else null,
-                            title.wikiSite.languageCode, UriUtil.encodeURL(title.prefixedText)),
-                    if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText)
+            disposables.add((if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText)
                     else if (app.isOnline && !AccountUtil.isLoggedIn) AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
-                    else Observable.just(MwQueryResponse())) { first, second -> Pair(first, second) }
+                    else Observable.just(MwQueryResponse()))
                 .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ pair ->
-                        val pageSummaryResponse = pair.first
-                        val watchedResponse = pair.second
+                    .subscribe({ watchedResponse ->
                         val isWatched = watchedResponse.query?.firstPage()?.watched ?: false
                         val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
                         if (pageSummaryResponse.body() == null) {
@@ -179,9 +172,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
                         if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
                             showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
-                        }
-                        if (delayLoadHtml) {
-                            bridge.resetHtml(title)
                         }
                         fragment.onPageMetadataLoaded()
 
