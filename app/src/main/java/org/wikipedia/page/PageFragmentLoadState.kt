@@ -9,6 +9,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -19,6 +20,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.dataclient.page.Protection
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.leadimages.LeadImagesHandler
@@ -158,6 +160,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 fragment.onPageMetadataLoaded()
                 return
             }
+
             disposables.add((if (app.isOnline && AccountUtil.isLoggedIn) ServiceFactory.get(title.wikiSite).getWatchedInfo(title.prefixedText)
                     else if (app.isOnline && !AccountUtil.isLoggedIn) AnonymousNotificationHelper.observableForAnonUserInfo(title.wikiSite)
                     else Observable.just(MwQueryResponse()))
@@ -166,13 +169,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
                     .subscribe({ watchedResponse ->
                         val isWatched = watchedResponse.query?.firstPage()?.watched ?: false
                         val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
-                        if (pageSummaryResponse.body() == null) {
-                            throw RuntimeException("Summary response was invalid.")
-                        }
-                        createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
-                        if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
-                            showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
-                        }
+
+                        //createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
+                        //if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
+                        //    showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
+                        //}
                         fragment.onPageMetadataLoaded()
 
                         if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
@@ -207,45 +208,23 @@ class PageFragmentLoadState(private var model: PageViewModel,
             Toast.LENGTH_LONG).show()
     }
 
-    private fun createPageModel(response: Response<PageSummary>,
-                                isWatched: Boolean,
-                                hasWatchlistExpiry: Boolean) {
-        if (!fragment.isAdded || response.body() == null) {
-            return
-        }
-        val pageSummary = response.body()
-        val page = pageSummary?.toPage(model.title!!)
-        model.page = page
-        model.isWatched = isWatched
-        model.hasWatchlistExpiry = hasWatchlistExpiry
-        model.title = page?.title
-        model.title?.let { title ->
-            if (!response.raw().request.url.fragment.isNullOrEmpty()) {
-                title.fragment = response.raw().request.url.fragment
-            }
-            if (title.description.isNullOrEmpty()) {
-                app.appSessionEvent.noDescription()
-            }
-            if (!title.isMainPage) {
-                title.displayText = page?.displayTitle.orEmpty()
-            }
-            leadImagesHandler.loadLeadImage()
-            fragment.requireActivity().invalidateOptionsMenu()
+    @Serializable
+    class JsPageMetadata {
+        val pageId: Long = 0
+        val ns: Int = 0
+        val revision: Long = 0
+        val title: String = ""
+        val description: String = ""
+        val descriptionSource: String = ""
+        val wikibaseItem = ""
+        val protection: Protection? = null
+        val leadImage: JsLeadImage? = null
+    }
 
-            // Update our history entry, in case the Title was changed (i.e. normalized)
-            val curEntry = model.curEntry
-            curEntry?.let {
-                model.curEntry = HistoryEntry(title, it.source, timestamp = it.timestamp)
-                model.curEntry!!.referrer = it.referrer
-            }
-
-            // Update our tab list to prevent ZH variants issue.
-            app.tabList.getOrNull(app.tabCount - 1)?.setBackStackPositionTitle(title)
-
-            // Save the thumbnail URL to the DB
-            val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
-            Completable.fromAction { AppDatabase.instance.pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
-            title.thumbUrl = pageImage.imageName
-        }
+    @Serializable
+    class JsLeadImage {
+        val source: String = ""
+        val width: Int = 0
+        val height: Int = 0
     }
 }

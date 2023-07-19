@@ -57,6 +57,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
@@ -79,6 +80,7 @@ import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -94,6 +96,7 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
+import retrofit2.Response
 import java.util.*
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
@@ -406,6 +409,16 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         updateProgressBar(false)
         webView.visibility = View.VISIBLE
+
+        bridge.evaluateImmediate(JavaScriptActionHandler.requestMetadata()) {
+            if (!isAdded) {
+                return@evaluateImmediate
+            }
+            val metadata = JsonUtil.decodeFromString<PageFragmentLoadState.JsPageMetadata>(it)
+            L.d(">>>> " + metadata)
+        }
+
+
         bridge.evaluate(JavaScriptActionHandler.getRevision()) { value ->
             if (!isAdded || value == null || value == "null") {
                 return@evaluate
@@ -440,6 +453,55 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             }
         }
     }
+
+    private fun createPageModel(response: Response<PageSummary>) {
+
+        val pageSummary = response.body()
+        val page = pageSummary?.toPage(model.title!!)
+        model.page = page
+        model.title = page?.title
+        model.title?.let { title ->
+            if (!response.raw().request.url.fragment.isNullOrEmpty()) {
+                title.fragment = response.raw().request.url.fragment
+            }
+            if (title.description.isNullOrEmpty()) {
+                app.appSessionEvent.noDescription()
+            }
+            if (!title.isMainPage) {
+                title.displayText = page?.displayTitle.orEmpty()
+            }
+            leadImagesHandler.loadLeadImage()
+
+            //fragment.requireActivity().invalidateOptionsMenu()
+
+            // Update our history entry, in case the Title was changed (i.e. normalized)
+            val curEntry = model.curEntry
+            curEntry?.let {
+                model.curEntry = HistoryEntry(title, it.source, timestamp = it.timestamp)
+                model.curEntry!!.referrer = it.referrer
+            }
+
+            // Update our tab list to prevent ZH variants issue.
+            app.tabList.getOrNull(app.tabCount - 1)?.setBackStackPositionTitle(title)
+
+            // Save the thumbnail URL to the DB
+            val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
+            Completable.fromAction { AppDatabase.instance.pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
+            title.thumbUrl = pageImage.imageName
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     private fun handleInternalLink(title: PageTitle) {
         if (!isResumed) {
@@ -722,7 +784,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 }
         }
         bridge.addListener("link", linkHandler)
-        bridge.addListener("setup") { _, _ -> onPageSetupEvent() }
+        bridge.addListener("setup") { _, _ ->
+            onPageSetupEvent()
+        }
         bridge.addListener("final_setup") { _, _ ->
             if (!isAdded) {
                 return@addListener
