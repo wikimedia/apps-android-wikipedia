@@ -424,7 +424,7 @@
   <string name="color_theme_black">Item</string>
   <string name="color_theme_sepia">Coklat tua</string>
   <string name="color_theme_test_title">Tulad tèks</string>
-  <string name="color_theme_test_text">Tarik penyelèrèk bakal ngrobah ukuran tèks nyang dipaké pas ngebaca makalah. Bakal nyetèl ukuran tèks di antèro aplikasi laènnya, robah lu punya ukuran tèks sistimnya.</string>
+  <string name="color_theme_test_text">Tarik penyelèrèk bakal ngrobah ukuran tèks nyang dipaké pas ngebaca makalah. Bakal nyetèl ukuran tèks di antéro aplikasi laènnya, robah lu punya ukuran tèks sistimnya.</string>
   <string name="preference_title_app_theme">Tèma aplikasi</string>
   <string name="preference_summary_color_theme">Ganti ke aplikasi punya tèma kereng</string>
   <string name="text_size_increase">Gedéin ukuran tèks</string>
@@ -1344,7 +1344,7 @@
   <string name="watchlist_filter_user_status_registered">Kedaptar</string>
   <string name="watchlist_filter_user_status_newcomers">Pendateng</string>
   <string name="watchlist_filter_user_status_learners">Orang belajar</string>
-  <string name="watchlist_filter_user_status_experienced">Pemaké bepengalaman</string>
+  <string name="watchlist_filter_user_status_experienced">Pemaké kawakan</string>
   <string name="watchlist_filter_contribution_authorship_header">Kemualipan sumbangsih</string>
   <string name="watchlist_filter_contribution_authorship_own">Lu punya perobahan</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Orang laèn punya perobahan</string>
