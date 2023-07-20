@@ -74,7 +74,7 @@
   <string name="menu_page_find_in_page">Најди во статијата</string>
   <string name="menu_page_add_to_watchlist">Додај во набљудувани</string>
   <string name="menu_page_watch">Набљудувај</string>
-  <string name="menu_page_unwatch">Престани со набљудување</string>
+  <string name="menu_page_unwatch">Прекини набљудување</string>
   <string name="menu_page_view_talk">Разговорна страница</string>
   <string name="menu_page_talk_page">Разговорна страница</string>
   <string name="menu_page_view_edit_history">Историја на уредувања</string>
@@ -1177,7 +1177,7 @@
   <string name="insert_media_settings">Додајте поединости за сликата</string>
   <string name="insert_media_settings_uploaded_image">Подигната слика</string>
   <string name="insert_media_settings_caption">Опис на сликата</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Натпис кој се прикажува до ставката на сите читатели</string>
+  <string name="insert_media_settings_caption_description">Видлив натпис на сликата во статијата</string>
   <string name="insert_media_settings_alternative_text">Алтернативен текст</string>
   <string name="insert_media_settings_alternative_text_description">Оопис за читателите со попречен вид</string>
   <string name="insert_media_advanced_settings">Напредни нагодувања</string>

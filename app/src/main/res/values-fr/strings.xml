@@ -1222,7 +1222,7 @@
   <string name="insert_media_settings">Ajouter les détails de l’image</string>
   <string name="insert_media_settings_uploaded_image">Image téléversée</string>
   <string name="insert_media_settings_caption">Légende de l’image</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Libellé qui s’affiche à côté de l’élément pour tous les lecteurs</string>
+  <string name="insert_media_settings_caption_description">Libellé de l’image visible dans l’article</string>
   <string name="insert_media_settings_alternative_text">Texte alternatif</string>
   <string name="insert_media_settings_alternative_text_description">Description pour les lecteurs malvoyants</string>
   <string name="insert_media_advanced_settings">Paramètres avancés</string>
