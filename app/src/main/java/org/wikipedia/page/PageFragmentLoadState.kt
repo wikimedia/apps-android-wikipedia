@@ -210,10 +210,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
     @Serializable
     class JsPageMetadata {
-        val pageId: Long = 0
+        val pageId: Int = 0
         val ns: Int = 0
         val revision: Long = 0
         val title: String = ""
+        val timeStamp: String = ""
         val description: String = ""
         val descriptionSource: String = ""
         val wikibaseItem = ""

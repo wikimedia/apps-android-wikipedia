@@ -52,6 +52,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentPageBinding
 import org.wikipedia.databinding.GroupFindReferencesInPageBinding
 import org.wikipedia.dataclient.RestService
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -163,7 +164,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     lateinit var sidePanelHandler: SidePanelHandler
     lateinit var shareHandler: ShareHandler
     lateinit var editHandler: EditHandler
-    var revision = 0L
 
     private val shouldCreateNewTab get() = currentTab.backStack.isNotEmpty()
     private val backgroundTabPosition get() = 0.coerceAtLeast(foregroundTabPosition - 1)
@@ -414,21 +414,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (!isAdded) {
                 return@evaluateImmediate
             }
-            val metadata = JsonUtil.decodeFromString<PageFragmentLoadState.JsPageMetadata>(it)
-            L.d(">>>> " + metadata)
-        }
-
-
-        bridge.evaluate(JavaScriptActionHandler.getRevision()) { value ->
-            if (!isAdded || value == null || value == "null") {
-                return@evaluate
-            }
-            try {
-                revision = value.replace("\"", "").toLong()
-            } catch (e: Exception) {
-                L.e(e)
+            JsonUtil.decodeFromString<PageFragmentLoadState.JsPageMetadata>(it)?.let { metadata ->
+                // compose a Page object from the metadata that was received.
+                L.d(">>>> " + metadata)
+                createPageModel(metadata)
             }
         }
+
         bridge.evaluate(JavaScriptActionHandler.getSections()) { value ->
             if (!isAdded) {
                 return@evaluate
@@ -444,58 +436,77 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 sidePanelHandler.setEnabled(true)
             }
         }
-        bridge.evaluate(JavaScriptActionHandler.getProtection()) { value ->
-            if (!isAdded) {
-                return@evaluate
-            }
-            model.page?.let { page ->
-                page.pageProperties.protection = JsonUtil.decodeFromString(value)
-            }
-        }
     }
 
-    private fun createPageModel(response: Response<PageSummary>) {
+    private fun createPageModel(metadata: PageFragmentLoadState.JsPageMetadata) {
+        if (model.title == null) {
+            return
+        }
+        var newTitle = model.title!!
+        if (metadata.title.isNotEmpty()) {
+            // TODO: handle redirected title?
+            newTitle = PageTitle(model.title!!.prefixedText, model.title!!.wikiSite, model.title!!.thumbUrl)
+            newTitle.displayText = metadata.title
+            newTitle.fragment = title!!.fragment
+        }
+        if (metadata.description.isNotEmpty()) {
+            newTitle.description = metadata.description
+        }
 
-        val pageSummary = response.body()
-        val page = pageSummary?.toPage(model.title!!)
-        model.page = page
-        model.title = page?.title
-        model.title?.let { title ->
-            if (!response.raw().request.url.fragment.isNullOrEmpty()) {
-                title.fragment = response.raw().request.url.fragment
+        model.title = newTitle
+        model.page = Page(newTitle, pageProperties = PageProperties(newTitle, newTitle.isMainPage))
+        model.page?.pageProperties?.let {
+            it.pageId = metadata.pageId
+            it.namespace = Namespace.of(metadata.ns)
+            it.revisionId = metadata.revision
+            it.protection = metadata.protection
+            it.descriptionSource = metadata.descriptionSource
+            if (metadata.timeStamp.isNotEmpty()) {
+                it.lastModified = DateUtil.iso8601DateParse(metadata.timeStamp)
             }
-            if (title.description.isNullOrEmpty()) {
+            it.displayTitle = metadata.title
+            it.isMainPage = model.title!!.isMainPage
+            it.wikiBaseItem = metadata.wikibaseItem
+            it.leadImageUrl = metadata.leadImage?.source
+            it.leadImageWidth = metadata.leadImage?.width ?: 0
+            it.leadImageHeight = metadata.leadImage?.height ?: 0
+
+            //leadImageName = UriUtil.decodeURL(pageSummary.leadImageName.orEmpty()),
+            //geo = pageSummary.geo,
+        }
+
+
+
+        model.title?.let {
+            //if (!response.raw().request.url.fragment.isNullOrEmpty()) {
+            //    it.fragment = response.raw().request.url.fragment
+            //}
+            if (it.description.isNullOrEmpty()) {
                 app.appSessionEvent.noDescription()
             }
-            if (!title.isMainPage) {
-                title.displayText = page?.displayTitle.orEmpty()
-            }
-            leadImagesHandler.loadLeadImage()
-
-            //fragment.requireActivity().invalidateOptionsMenu()
+            //if (!it.isMainPage) {
+            //    it.displayText = page?.displayTitle.orEmpty()
+            //}
 
             // Update our history entry, in case the Title was changed (i.e. normalized)
             val curEntry = model.curEntry
             curEntry?.let {
-                model.curEntry = HistoryEntry(title, it.source, timestamp = it.timestamp)
+                model.curEntry = HistoryEntry(model.title!!, it.source, timestamp = it.timestamp)
                 model.curEntry!!.referrer = it.referrer
             }
 
             // Update our tab list to prevent ZH variants issue.
-            app.tabList.getOrNull(app.tabCount - 1)?.setBackStackPositionTitle(title)
+            app.tabList.getOrNull(app.tabCount - 1)?.setBackStackPositionTitle(it)
 
             // Save the thumbnail URL to the DB
-            val pageImage = PageImage(title, pageSummary?.thumbnailUrl)
+            val pageImage = PageImage(it, ImageUrlUtil.getUrlForPreferredSize(page?.pageProperties?.leadImageUrl.orEmpty(), Service.PREFERRED_THUMB_SIZE))
             Completable.fromAction { AppDatabase.instance.pageImagesDao().insertPageImage(pageImage) }.subscribeOn(Schedulers.io()).subscribe()
-            title.thumbUrl = pageImage.imageName
+            it.thumbUrl = pageImage.imageName
         }
+
+        leadImagesHandler.loadLeadImage()
+        requireActivity().invalidateOptionsMenu()
     }
-
-
-
-
-
-
 
 
 
@@ -668,7 +679,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         return@post
                     }
                     model.title?.let {
-                        callback()?.onPageRequestGallery(it, fileName, it.wikiSite, revision, GalleryActivity.SOURCE_NON_LEAD_IMAGE, options)
+                        callback()?.onPageRequestGallery(it, fileName, it.wikiSite, model.page?.pageProperties?.revisionId ?: 0, GalleryActivity.SOURCE_NON_LEAD_IMAGE, options)
                     }
                 }
             }
@@ -1050,7 +1061,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         updateProgressBar(true)
         pageRefreshed = isRefresh
         references = null
-        revision = 0
         pageFragmentLoadState.load(pushBackStack)
         scrollTriggerListener.stagedScrollY = stagedScrollY
     }
