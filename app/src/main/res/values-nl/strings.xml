@@ -755,7 +755,7 @@
   <string name="preference_category_push_notifications">Pushmeldingen</string>
   <string name="preference_title_customize_push_notifications">Pushmeldingen aanpassen</string>
   <string name="preference_category_display_settings">Weergave-instellingen</string>
-  <string name="preference_title_hide_read_notifications">Meldingen \"gelezen\" verbergen</string>
+  <string name="preference_title_hide_read_notifications">Gelezen meldingen verbergen</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Meldingen van Wikipedia</string>
   <string name="notifications_channel_group_other_title">Overige</string>
@@ -786,7 +786,7 @@
   <string name="notifications_menu_user_talk_page">%s\'s overlegpagina</string>
   <string name="notifications_offline_disable_message">Deze functie is offline niet beschikbaar</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
-  <string name="view_random_card_title">Randomizer</string>
+  <string name="view_random_card_title">Willekeurig artikel</string>
   <string name="view_random_article_card_title">Willekeurig artikel</string>
   <string name="view_random_article_card_action">Meer willekeurige artikelen</string>
   <string name="view_top_read_card_title">Meest gelezen</string>

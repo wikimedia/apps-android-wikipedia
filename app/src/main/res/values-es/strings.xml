@@ -56,6 +56,7 @@
 * Madamebiblio
 * MarcoAurelio
 * MarleneR329
+* McDutchie
 * Mnivar
 * Mouse21
 * Mynor Archila
@@ -734,7 +735,7 @@
   <string name="preference_summary_notification_article_linked">Recibido cuando se crea un nuevo link hacia una página que usted creó</string>
   <string name="preference_category_push_notifications">Notificaciones emergentes</string>
   <string name="preference_title_customize_push_notifications">Personalizar notificaciones emergentes</string>
-  <string name="preference_category_display_settings">Mostrar configuraciones</string>
+  <string name="preference_category_display_settings">Configuración de presentación</string>
   <string name="preference_title_hide_read_notifications">Ocultar notificaciones leídas</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notificaciones de Wikipedia</string>

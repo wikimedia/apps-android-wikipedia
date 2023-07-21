@@ -19,6 +19,8 @@
   <string name="error_network_error" fuzzy="true">Тармакка туташуу туруктуу эмес.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="menu_clear_all_history">Тарыхты тазалоо</string>
+  <string name="history_item_delete_undo">Жокко чыгаруу</string>
+  <string name="notification_archive_undo">Жокко чыгаруу</string>
   <string name="history_list_title">Тарых</string>
   <string name="page_content_description">Барак: %s</string>
   <string name="wikimedia_commons">Викиказына</string>
