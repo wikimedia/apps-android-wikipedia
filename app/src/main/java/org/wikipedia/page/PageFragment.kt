@@ -12,6 +12,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
@@ -57,6 +58,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.descriptions.DescriptionEditActivity
@@ -96,6 +98,9 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.*
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
@@ -134,6 +139,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private val scrollTriggerListener = WebViewScrollTriggerListener()
     private val pageRefreshListener = OnRefreshListener { refreshPage() }
     private val pageActionItemCallback = PageActionItemCallback()
+    private val pageWebViewClient = PageWebViewClient()
 
     private lateinit var bridge: CommunicationBridge
     private lateinit var leadImagesHandler: LeadImagesHandler
@@ -177,8 +183,16 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPageBinding.inflate(inflater, container, false)
+
         webView = binding.pageWebView
-        initWebViewListeners()
+        webView.addOnUpOrCancelMotionEventListener {
+            // update our session, since it's possible for the user to remain on the page for
+            // a long time, and we wouldn't want the session to time out.
+            app.appSessionEvent.touchSession()
+        }
+        webView.addOnContentHeightChangedListener(scrollTriggerListener)
+        webView.webViewClient = pageWebViewClient
+
         binding.pageRefreshContainer.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.pageRefreshContainer.scrollableChild = webView
         binding.pageRefreshContainer.setOnRefreshListener(pageRefreshListener)
@@ -353,55 +367,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private fun shouldLoadFromBackstack(activity: Activity): Boolean {
         return (activity.intent != null && (PageActivity.ACTION_RESUME_READING == activity.intent.action ||
                 activity.intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)))
-    }
-
-    private fun initWebViewListeners() {
-        webView.addOnUpOrCancelMotionEventListener {
-            // update our session, since it's possible for the user to remain on the page for
-            // a long time, and we wouldn't want the session to time out.
-            app.appSessionEvent.touchSession()
-        }
-        webView.addOnContentHeightChangedListener(scrollTriggerListener)
-        webView.webViewClient = object : OkHttpWebViewClient() {
-
-            override val model get() = this@PageFragment.model
-
-            override val linkHandler get() = this@PageFragment.linkHandler
-
-            override fun onPageFinished(view: WebView, url: String) {
-                bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();") { pcsExists ->
-                    if (!isAdded) {
-                        return@evaluateImmediate
-                    }
-                    // TODO: This is a bit of a hack: If PCS does not exist in the current page, then
-                    // it's implied that this page was loaded via Mobile Web (e.g. the Main Page) and
-                    // doesn't support PCS, meaning that we will never receive the `setup` event that
-                    // tells us the page is finished loading. In such a case, we must infer that the
-                    // page has now loaded and trigger the remaining logic ourselves.
-                    if ("true" != pcsExists) {
-                        onPageSetupEvent()
-                        bridge.onMetadataReady()
-                        bridge.onPcsReady()
-                        bridge.execute(JavaScriptActionHandler.mobileWebChromeShim())
-                    }
-
-                    onPageMetadataLoaded()
-                }
-            }
-
-            override fun onReceivedError(view: WebView, errorCode: Int, description: String, failingUrl: String) {
-                onPageLoadError(RuntimeException(description))
-            }
-
-            override fun onReceivedHttpError(view: WebView, request: WebResourceRequest, errorResponse: WebResourceResponse) {
-                if (!request.url.toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
-                    // If the request is anything except the main mobile-html content request, then
-                    // don't worry about any errors and let the WebView deal with it.
-                    return
-                }
-                onPageLoadError(HttpStatusException(errorResponse.statusCode, request.url.toString(), UriUtil.decodeURL(errorResponse.reasonPhrase)))
-            }
-        }
     }
 
     private fun onPageSetupEvent() {
@@ -962,6 +927,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             editHandler.setPage(model.page)
             webView.visibility = View.VISIBLE
         }
+
+        if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageWebViewClient.lastPageHtmlResponseHeaders?.get(OfflineCacheInterceptor.SAVE_HEADER)) {
+            showPageOfflineMessage(pageWebViewClient.lastPageHtmlResponseHeaders?.getInstant("date"))
+        }
+
         maybeShowAnnouncement()
         bridge.onMetadataReady()
         // Explicitly set the top margin (even though it might have already been set in the setup
@@ -1326,6 +1296,16 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         requireActivity().finish()
     }
 
+    private fun showPageOfflineMessage(dateHeader: Instant?) {
+        if (!isAdded || dateHeader == null) {
+            return
+        }
+        val localDate = LocalDateTime.ofInstant(dateHeader, ZoneId.systemDefault()).toLocalDate()
+        val dateStr = DateUtil.getShortDateString(localDate)
+        Toast.makeText(requireContext().applicationContext,
+            getString(R.string.page_offline_notice_last_date, dateStr), Toast.LENGTH_LONG).show()
+    }
+
     private inner class AvCallback : AvPlayer.Callback {
         override fun onSuccess() {
             avPlayer?.stop()
@@ -1539,6 +1519,45 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             goForward()
             articleInteractionEvent?.logForwardClick()
             metricsPlatformArticleEventToolbarInteraction.logForwardClick()
+        }
+    }
+
+    inner class PageWebViewClient : OkHttpWebViewClient() {
+        override val model get() = this@PageFragment.model
+        override val linkHandler get() = this@PageFragment.linkHandler
+
+        override fun onPageFinished(view: WebView, url: String) {
+            bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();") { pcsExists ->
+                if (!isAdded) {
+                    return@evaluateImmediate
+                }
+                // TODO: This is a bit of a hack: If PCS does not exist in the current page, then
+                // it's implied that this page was loaded via Mobile Web (e.g. the Main Page) and
+                // doesn't support PCS, meaning that we will never receive the `setup` event that
+                // tells us the page is finished loading. In such a case, we must infer that the
+                // page has now loaded and trigger the remaining logic ourselves.
+                if ("true" != pcsExists) {
+                    onPageSetupEvent()
+                    bridge.onMetadataReady()
+                    bridge.onPcsReady()
+                    bridge.execute(JavaScriptActionHandler.mobileWebChromeShim())
+                }
+
+                onPageMetadataLoaded()
+            }
+        }
+
+        override fun onReceivedError(view: WebView, errorCode: Int, description: String, failingUrl: String) {
+            onPageLoadError(RuntimeException(description))
+        }
+
+        override fun onReceivedHttpError(view: WebView, request: WebResourceRequest, errorResponse: WebResourceResponse) {
+            if (!request.url.toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
+                // If the request is anything except the main mobile-html content request, then
+                // don't worry about any errors and let the WebView deal with it.
+                return
+            }
+            onPageLoadError(HttpStatusException(errorResponse.statusCode, request.url.toString(), UriUtil.decodeURL(errorResponse.reasonPhrase)))
         }
     }
 

@@ -27,6 +27,8 @@ abstract class OkHttpWebViewClient : WebViewClient() {
     abstract val model: PageViewModel
     abstract val linkHandler: LinkHandler
 
+    var lastPageHtmlResponseHeaders: Headers? = null
+
     override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
         if (model.shouldLoadAsMobileWeb) {
             // If the page was loaded as Mobile Web, then pass all link clicks through
@@ -46,12 +48,12 @@ abstract class OkHttpWebViewClient : WebViewClient() {
         }
         var response: WebResourceResponse
         try {
-            val shouldLogLatency = request.url.encodedPath?.contains(RestService.PAGE_HTML_ENDPOINT) == true
-            if (shouldLogLatency) {
+            val isPageHtmlCall = request.url.encodedPath?.contains(RestService.PAGE_HTML_ENDPOINT) == true
+            if (isPageHtmlCall) {
                 WikipediaApp.instance.appSessionEvent.pageFetchStart()
             }
             val rsp = request(request)
-            if (rsp.networkResponse != null && shouldLogLatency) {
+            if (rsp.networkResponse != null && isPageHtmlCall) {
                 WikipediaApp.instance.appSessionEvent.pageFetchEnd()
             }
             response = if (CONTENT_TYPE_OGG == rsp.header(HEADER_CONTENT_TYPE) ||
@@ -59,6 +61,9 @@ abstract class OkHttpWebViewClient : WebViewClient() {
                 rsp.close()
                 return super.shouldInterceptRequest(view, request)
             } else {
+                if (isPageHtmlCall) {
+                    lastPageHtmlResponseHeaders = rsp.headers
+                }
                 // noinspection ConstantConditions
                 WebResourceResponse(rsp.body!!.contentType()!!.type + "/" + rsp.body!!.contentType()!!.subtype,
                     rsp.body!!.contentType()!!.charset(Charset.defaultCharset())!!.name(),

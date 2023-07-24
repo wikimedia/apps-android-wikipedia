@@ -1,6 +1,5 @@
 package org.wikipedia.page
 
-import android.widget.Toast
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -9,7 +8,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
-import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
@@ -22,12 +20,8 @@ import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.ZoneId
 
 class PageFragmentLoadState(private var model: PageViewModel,
                             private var fragment: PageFragment,
@@ -140,17 +134,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         fragment.updateQuickActionsAndMenuOptions()
                         fragment.requireActivity().invalidateOptionsMenu()
 
-                        //if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
-                        //    showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
-                        //}
-
                         if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                             checkAnonNotifications(title)
                         }
                     }) {
                         L.e(it)
-                        fragment.requireActivity().invalidateOptionsMenu()
-                        fragment.onPageLoadError(it)
                     }
             )
         }
@@ -163,18 +151,6 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 fragment.showAnonNotification()
             }
         }
-    }
-
-    private fun showPageOfflineMessage(dateHeader: Instant?) {
-        if (!fragment.isAdded || dateHeader == null) {
-            return
-        }
-        // TODO: Use LocalDate.ofInstant() instead once it is available in SDK 34.
-        val localDate = LocalDateTime.ofInstant(dateHeader, ZoneId.systemDefault()).toLocalDate()
-        val dateStr = DateUtil.getShortDateString(localDate)
-        Toast.makeText(fragment.requireContext().applicationContext,
-            fragment.getString(R.string.page_offline_notice_last_date, dateStr),
-            Toast.LENGTH_LONG).show()
     }
 
     @Serializable
