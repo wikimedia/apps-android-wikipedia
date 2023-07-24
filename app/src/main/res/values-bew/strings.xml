@@ -210,7 +210,7 @@
   <string name="preference_title_eventlogging_opt_in">Kirim laporan pemakéan</string>
   <string name="preference_summary_eventlogging_opt_in">Ijinin Wikimédia ngumpulin inpormasi pasal cara lu maké ni aplikasi biar mangkin bagus dah ni aplikasi</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
-  <string name="preference_summary_auto_upload_crash_reports">Ijinin aplikasi otomatis ngirim laporan kerusakan ke penyedia layanan pihak ketiga biar kita bisa merèksa dah lu punya kerusakan èn ngebetulin tu bangsat lebi lekas èn gampil.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Ijinin aplikasi otomatis ngirim laporan kerusakan ke penyedia ladènan pihak ketiga biar kita bisa merèksa dah lu punya kerusakan èn ngebetulin tu bangsat lebi lekas èn gampil.</string>
   <string name="editing_error_spamblacklist">Sènggètan ke domén nyang diblokir (%s) keendus. Dimohon buang tu èn jal lagi.</string>
   <string name="history_filter_list_hint">Saring riwayat</string>
   <string name="error_can_not_process_link">Kaga\' bisa mampangin ni sènggètan</string>
@@ -225,7 +225,7 @@
   <string name="settings_item_preferences">Penyetèlan</string>
   <string name="settings_activity_title">Penyetèlan</string>
   <string name="about_description">Pasal aplikasi Wikipédi</string>
-  <string name="privacy_policy_description">Kebijakan keresiaan</string>
+  <string name="privacy_policy_description">Belèd keresiaan</string>
   <string name="terms_of_use_description">Ketentuan pemakéan</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipédi:Pasal</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Baca_luar_jala_èn_data</string>
@@ -372,7 +372,7 @@
   <string name="preference_summary_collapse_tables">Otomatis ciutin jadwal di makalah, kaya\' kotak inpo, ruju\'an, èn catetan.</string>
   <string name="nav_item_donate">Nyumbang</string>
   <string name="error_voice_search_not_available">Maap, pengenalan suara kaga\' kesedia.</string>
-  <string name="location_service_disabled">Layanan lokasi dimatiin.</string>
+  <string name="location_service_disabled">Ladènan lokasi dimatiin.</string>
   <string name="enable_location_service">Nyalain</string>
   <string name="location_permissions_enable_prompt">Nyalain ijin lokasi bakal ngiat tempat di sekuliling lu.</string>
   <string name="location_permissions_enable_action">Nyalain</string>
