@@ -38,6 +38,7 @@ class NotificationViewModel : ViewModel() {
         viewModelScope.launch(handler) {
             dbNameMap = notificationRepository.fetchUnreadWikiDbNames()
         }
+        fetchAndSave()
     }
 
     private fun filterAndPostNotifications() {
@@ -46,12 +47,11 @@ class NotificationViewModel : ViewModel() {
     }
 
     private fun processList(list: List<Notification>): List<NotificationListItemContainer> {
-        // Reduce duplicate notifications
         if (currentContinueStr.isNullOrEmpty()) {
             notificationList.clear()
         }
         for (n in list) {
-            if (notificationList.none { it.id == n.id }) {
+            if (notificationList.none { it.id == n.id && it.wiki == n.wiki }) {
                 notificationList.add(n)
             }
         }
@@ -124,7 +124,12 @@ class NotificationViewModel : ViewModel() {
                 NotificationFilterActivity.allTypesIdList().count { excludedTypeCodes.contains(it) }
     }
 
-    fun fetchAndSave() {
+    fun fetchAndSave(refresh: Boolean = false) {
+        if (refresh) {
+            currentContinueStr = null
+            notificationList.clear()
+        }
+
         viewModelScope.launch(handler) {
             if (WikipediaApp.instance.isOnline) {
                 currentContinueStr = notificationRepository.fetchAndSave(delimitedWikiList(), "read|!read", currentContinueStr)
@@ -188,8 +193,8 @@ class NotificationViewModel : ViewModel() {
     }
 
     open class UiState {
-        data class Success(val notifications: List<NotificationListItemContainer>,
-                           val fromContinuation: Boolean) : UiState()
-        data class Error(val throwable: Throwable) : UiState()
+        class Success(val notifications: List<NotificationListItemContainer>,
+                      val fromContinuation: Boolean) : UiState()
+        class Error(val throwable: Throwable) : UiState()
     }
 }
