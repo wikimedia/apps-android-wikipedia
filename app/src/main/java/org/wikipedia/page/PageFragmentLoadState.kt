@@ -2,7 +2,6 @@ package org.wikipedia.page
 
 import android.widget.Toast
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -15,24 +14,17 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.JavaScriptActionHandler
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.Protection
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.leadimages.LeadImagesHandler
 import org.wikipedia.page.tabs.Tab
-import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
-import retrofit2.Response
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -44,13 +36,8 @@ class PageFragmentLoadState(private var model: PageViewModel,
                             private var leadImagesHandler: LeadImagesHandler,
                             private var currentTab: Tab) {
 
-    private fun interface ErrorCallback {
-        fun call(error: Throwable)
-    }
-
-    private var networkErrorCallback: ErrorCallback? = null
     private val app = WikipediaApp.instance
-    private val disposables = CompositeDisposable()
+    val disposables = CompositeDisposable()
 
     fun load(pushBackStack: Boolean) {
         if (pushBackStack && model.title != null && model.curEntry != null) {
@@ -58,7 +45,13 @@ class PageFragmentLoadState(private var model: PageViewModel,
             updateCurrentBackStackItem()
             currentTab.pushBackStackItem(PageBackStackItem(model.title!!, model.curEntry!!))
         }
-        pageLoadCheckReadingLists()
+        // clear any remaining disposables from the previous page load.
+        disposables.clear()
+
+        // point of no return: null out the current page object.
+        model.page = null
+        model.readingListPage = null
+        pageLoadFromNetwork()
     }
 
     fun loadFromBackStack(isRefresh: Boolean = false) {
@@ -117,37 +110,11 @@ class PageFragmentLoadState(private var model: PageViewModel,
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.topMargin))
     }
 
-    private fun commonSectionFetchOnCatch(caught: Throwable) {
-        if (!fragment.isAdded) {
-            return
-        }
-        val callback = networkErrorCallback
-        networkErrorCallback = null
-        fragment.requireActivity().invalidateOptionsMenu()
-        callback?.call(caught)
-    }
-
-    private fun pageLoadCheckReadingLists() {
-        model.title?.let {
-            disposables.clear()
-            disposables.add(Completable.fromAction { model.readingListPage = AppDatabase.instance.readingListPageDao().findPageInAnyList(it) }
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate { pageLoadFromNetwork { fragment.onPageLoadError(it) } }
-                    .subscribe())
-        }
-    }
-
-    private fun pageLoadFromNetwork(errorCallback: ErrorCallback) {
+    private fun pageLoadFromNetwork() {
         model.title?.let { title ->
             fragment.updateQuickActionsAndMenuOptions()
-            networkErrorCallback = errorCallback
-            if (!fragment.isAdded) {
-                return
-            }
             fragment.requireActivity().invalidateOptionsMenu()
             fragment.callback()?.onPageUpdateProgressBar(true)
-            model.page = null
 
             // kick off loading mobile-html contents into the WebView.
             bridge.resetHtml(title)
@@ -167,21 +134,23 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ watchedResponse ->
-                        val isWatched = watchedResponse.query?.firstPage()?.watched ?: false
-                        val hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
+                        model.isWatched = watchedResponse.query?.firstPage()?.watched ?: false
+                        model.hasWatchlistExpiry = watchedResponse.query?.firstPage()?.hasWatchlistExpiry() ?: false
 
-                        //createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
+                        fragment.updateQuickActionsAndMenuOptions()
+                        fragment.requireActivity().invalidateOptionsMenu()
+
                         //if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
                         //    showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
                         //}
-                        // fragment.onPageMetadataLoaded()
 
                         if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                             checkAnonNotifications(title)
                         }
                     }) {
-                        L.e("Page details network response error: ", it)
-                        commonSectionFetchOnCatch(it)
+                        L.e(it)
+                        fragment.requireActivity().invalidateOptionsMenu()
+                        fragment.onPageLoadError(it)
                     }
             )
         }

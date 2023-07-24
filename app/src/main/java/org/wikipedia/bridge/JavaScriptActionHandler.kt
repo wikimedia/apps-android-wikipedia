@@ -153,7 +153,7 @@ object JavaScriptActionHandler {
             return ""
         }
         val showTalkLink = !(model.page!!.title.namespace() === Namespace.TALK)
-        val showMapLink = model.page!!.pageProperties.geo != null
+        val showMapLink = true //model.page!!.pageProperties.geo != null
         val editedDaysAgo = TimeUnit.MILLISECONDS.toDays(Date().time - model.page!!.pageProperties.lastModified.time)
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and

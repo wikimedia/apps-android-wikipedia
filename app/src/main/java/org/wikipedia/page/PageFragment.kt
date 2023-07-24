@@ -58,7 +58,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
@@ -97,7 +96,6 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
-import retrofit2.Response
 import java.util.*
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
@@ -247,6 +245,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         sidePanelHandler.log()
         leadImagesHandler.dispose()
         disposables.clear()
+        pageFragmentLoadState.disposables.clear()
         webView.clearAllListeners()
         (webView.parent as ViewGroup).removeView(webView)
         Prefs.isSuggestedEditsHighestPriorityEnabled = false
@@ -385,6 +384,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         bridge.onPcsReady()
                         bridge.execute(JavaScriptActionHandler.mobileWebChromeShim())
                     }
+
+                    onPageMetadataLoaded()
                 }
             }
 
@@ -418,7 +419,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 // compose a Page object from the metadata that was received.
                 L.d(">>>> " + metadata)
                 createPageModel(metadata)
-                onPageMetadataLoaded()
             }
         }
 
@@ -468,7 +468,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             it.displayTitle = metadata.title
             it.isMainPage = model.title!!.isMainPage
             it.wikiBaseItem = metadata.wikibaseItem
-            it.leadImageUrl = metadata.leadImage?.source
+            it.leadImageUrl = ImageUrlUtil.getThumbUrlFromCommonsUrl(metadata.leadImage?.source.orEmpty(), DimenUtil.calculateLeadImageWidth())
             it.leadImageName = UriUtil.getFilenameFromUploadUrl(it.leadImageUrl.orEmpty())
             it.leadImageWidth = metadata.leadImage?.width ?: 0
             it.leadImageHeight = metadata.leadImage?.height ?: 0
@@ -501,12 +501,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         leadImagesHandler.loadLeadImage()
         requireActivity().invalidateOptionsMenu()
     }
-
-
-
-
-
-
 
     private fun handleInternalLink(title: PageTitle) {
         if (!isResumed) {
@@ -944,7 +938,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     fun onPageMetadataLoaded() {
-        updateQuickActionsAndMenuOptions()
+        updateBookmarkAndMenuOptionsFromDao()
         if (model.page == null) {
             return
         }
@@ -957,12 +951,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         requireActivity().invalidateOptionsMenu()
         model.readingListPage?.let { page ->
             model.title?.let { title ->
-                disposables.add(Completable.fromAction {
-                    page.thumbUrl.equals(title.thumbUrl, true)
-                    if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
+                if (!page.thumbUrl.equals(title.thumbUrl, true) || !page.description.equals(title.description, true)) {
+                    disposables.add(Completable.fromAction {
                         AppDatabase.instance.readingListPageDao().updateMetadataByTitle(page, title.description, title.thumbUrl)
-                    }
-                }.subscribeOn(Schedulers.io()).subscribe())
+                    }.subscribeOn(Schedulers.io()).subscribe())
+                }
             }
         }
         if (!errorState) {
