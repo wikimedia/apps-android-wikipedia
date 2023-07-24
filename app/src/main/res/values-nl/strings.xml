@@ -976,9 +976,9 @@
   <string name="suggested_edits_image_tags_publishing">Publiceren</string>
   <string name="suggested_edits_image_tags_published">Gepubliceerd</string>
   <string name="suggested_edits_image_tags_onboarding_title">Voeg aan afbeeldingen tags toe om ze gemakkelijker vindbaar te maken.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Door labels toe te voegen aan afbeeldingen, kunt u helpen om deze makkelijker te vinden op Commons, de vrije licentie opslagplek die Wikipedia gebruikt voor afbeeldingen in zijn artikelen.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Door afbeeldingslabels toe te voegen maakt u het makkelijker om afbeeldingen te zoeken op Commons, de opslagplaats voor afbeeldingen met een vrije licentie die Wikipedia gebruikt voor afbeeldingen in artikelen.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Alleen labels die u kiest worden toegevoegd aan afbeeldingen.</string>
-  <string name="suggested_edits_image_tags_task_detail">Voeg een aangepast label toe aan een afbeelding om deze makkelijker vindbaar te maken.</string>
+  <string name="suggested_edits_image_tags_task_detail">Voeg aangepaste labels toe aan een afbeelding om deze makkelijker vindbaar te maken.</string>
   <string name="suggested_edits_image_tags_choose">Voeg bijpassende labels toe</string>
   <string name="suggested_edits_image_tags_published_list">Gepubliceerde labels</string>
   <string name="suggested_edits_image_tags_search">Labels zoeken</string>
@@ -986,7 +986,7 @@
   <string name="suggested_edits_image_tags_select_text">Alleen labels die u kiest, worden aan afbeeldingen toegevoegd. Labels die niet zijn geselecteerd, worden gemarkeerd als geweigerd. Weet u zeker dat u alle labels als geweigerd wilt markeren?</string>
   <string name="suggested_edits_image_tags_add_tag">Label toevoegen</string>
   <string name="suggested_edits_image_tags_exit_dialog_message">De ongepubliceerde tags worden niet opgeslagen</string>
-  <string name="suggested_edits_image_zoom_tooltip">Knijp om deze afbeelding in te zoemen.</string>
+  <string name="suggested_edits_image_zoom_tooltip">Knijp om deze afbeelding in te zoomen.</string>
   <string name="suggested_edits_encouragement_message">%s, bedankt voor uw bewerkingen. Onderaan vindt u meer manieren om aan Wikipedia bij te dragen.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hallo %s&lt;/b&gt;, onderaan kunt u manieren vinden om bij te dragen aan het verbeteren van Wikipedia. U ziet het verschil dat u maakt vanaf het moment dat u begint. Veel plezier met bewerken!</string>
   <string name="suggested_edits_image_captions_task_detail">Beschrijf een afbeelding om lezers te helpen de betekenis en context beter te kunnen begrijpen.</string>
@@ -999,9 +999,9 @@
   <string name="suggested_edits_disabled_message">Voorgestelde bewerkingen is uitgeschakeld. Sorry %s, maar te veel van uw recente bijdragen zijn teruggedraaid.</string>
   <string name="suggested_edits_ip_blocked_message">Het lijkt erop dat uw IP-adres (of assortiment van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia.</string>
   <string name="suggested_edits_gate_message">Sorry, %s, u moet ten minste drie bewerkingen rechtstreeks in een artikel maken om deze functie te gebruiken.</string>
-  <string name="suggested_edits_editing_tips_link_text">Tips en tricks voor bewerken</string>
+  <string name="suggested_edits_editing_tips_link_text">Tips en trucs voor het bewerken</string>
   <string name="suggested_edits_help_page_link_text">Hulppagina voorgestelde bewerkingen</string>
-  <string name="suggested_edits_edit_streak_label_text">Bewerkingen reeks</string>
+  <string name="suggested_edits_edit_streak_label_text">Reeks bewerkingen</string>
   <string name="suggested_edits_views_label_text">Weergaven</string>
   <string name="suggested_edits_quality_label_text">Bewerkingskwaliteit</string>
   <string name="suggested_edits_quality_perfect_text">Perfect</string>
@@ -1042,7 +1042,7 @@
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <string name="suggested_edits_contribution_views">%s weergaven</string>
   <plurals name="suggested_edits_contribution_seen_times">
-    <item quantity="one">Één keer bekeken in de afgelopen 30 dagen.</item>
+    <item quantity="one">Eén keer bekeken in de afgelopen 30 dagen.</item>
     <item quantity="other">%s keer bekeken in de afgelopen 30 dagen</item>
   </plurals>
   <string name="suggested_edits_contribution_seen_text">%s keer bekeken in de laatste 30 dagen.</string>
@@ -1056,7 +1056,7 @@
   <string name="suggested_edits_encourage_account_creation_message">\"Voorgestelde bewerkingen\" is een nieuwe manier om Wikipedia vanuit Android te bewerken. Hiermee kunt u kleine maar belangrijke bijdragen leveren aan Wikipedia. Ons doel is het bewerken voor iedereen makkelijker en toegankelijker te maken! Log in of sluit je aan bij Wikipedia om te beginnen.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Log in / aanmelden bij Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Afbeeldingslabel</string>
-  <string name="suggested_edits_contribution_current_revision_text">Uw bewerking is momenteel live op Wikpedia</string>
+  <string name="suggested_edits_contribution_current_revision_text">Uw bewerking staat nu op Wikipedia</string>
   <string name="suggested_card_more_edits">Meer voorgestelde bewerkingen</string>
   <string name="suggested_edits_article_descriptions_dialog_title">Gesuggereerde beschrijvingen</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Wat wilt u melden?</string>
@@ -1082,7 +1082,7 @@
     <item quantity="one">U heeft %d karakter toegevoegd</item>
     <item quantity="other">U heeft %d karakters toegevoegd</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title">Artikel afbeeldingen</string>
+  <string name="suggested_edits_image_recommendations_task_title">Artikelafbeeldingen</string>
   <string name="suggested_edits_image_recommendations_task_detail">Voeg voorgestelde afbeeldingen toe aan Wikipedia-artikelen om het begrip te vergroten.</string>
   <string name="image_recommendation_task_instruction">Zou u deze afbeelding aan het artikel willen toevoegen?</string>
   <string name="image_recommendation_accept">Ja</string>
@@ -1098,7 +1098,7 @@
   <string name="image_recommendation_reject_other">Overige</string>
   <string name="image_recommendation_reject_submit">Verzenden</string>
   <string name="image_recommendation_tooltip_main">Voeg ontbrekende afbeeldingen in artikelen toe aan Voorgestelde bewerkingen</string>
-  <string name="image_recommendation_onboarding_1">Afbeeldingen helpen mensen iets te begrijpen, maar veel artikelen hebben geen afbeeldingen.</string>
+  <string name="image_recommendation_onboarding_1">Afbeeldingen maken artikelen begrijpelijk, maar veel artikelen hebben er geen.</string>
   <string name="image_recommendation_tooltip_next">Volgende</string>
   <string name="edit_summary_added_image">Toegevoegde afbeelding</string>
   <string name="edit_summary_added_caption">Toegevoegd bijschrift</string>
@@ -1111,9 +1111,9 @@
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">uw bijdrage leek op een experiment of vandalisme.</string>
-  <string name="description_edit_revert_history">Indien uw interesse is gewekt, bekijk dan de &lt;a href=\"%1$s\"&gt;bewerkingsgeschiedenis&lt;/a&gt;.</string>
+  <string name="description_edit_revert_history">Als u het wilt weten, bekijk dan de &lt;a href=\"%1$s\"&gt;bewerkingsgeschiedenis&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Annuleren</string>
-  <string name="offline_read_permission_rationale">Er is toestemming vereist om naar de opslagmedia op uw apparaat te mogen schrijven.</string>
+  <string name="offline_read_permission_rationale">Toestemming voor toegang tot opslag op uw apparaat is vereist voor offline browsen.</string>
   <string name="offline_read_final_rationale">Toestemming voor toegang tot opslag op uw apparaat is vereist om de offline-bibliotheek te gebruiken.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
@@ -1204,7 +1204,7 @@
   <string name="insert_media_settings">Afbeeldingsdetails toevoegen</string>
   <string name="insert_media_settings_uploaded_image">Geüploade afbeelding</string>
   <string name="insert_media_settings_caption">Bijschrift afbeelding</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Beschrijving naast het item die voor alle lezers zichtbaar is</string>
+  <string name="insert_media_settings_caption_description">Zichtbaar afbeeldingslabel in het artikel</string>
   <string name="insert_media_settings_alternative_text">Alternatieve tekst</string>
   <string name="insert_media_settings_alternative_text_description">Beschrijving voor slechtziende lezers</string>
   <string name="insert_media_advanced_settings">Geavanceerde instellingen</string>

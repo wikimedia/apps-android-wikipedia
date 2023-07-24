@@ -997,7 +997,7 @@
   <string name="suggested_edits_gate_message">Text explaining that usage of Suggested Edits requires a minimum number of existing edits. %s represents the user\'s name.</string>
   <string name="suggested_edits_editing_tips_link_text">Label text for editing tips and tricks</string>
   <string name="suggested_edits_help_page_link_text">Label text for suggested edits help page</string>
-  <string name="suggested_edits_edit_streak_label_text">Suggested edits label text for edit streak</string>
+  <string name="suggested_edits_edit_streak_label_text">Suggested edits label text for edit streak\n\n\'\'\'An \"edit streak\" is a series of consecutive edits. So \'\'edit\'\' is not a verb here!\'\'\'</string>
   <string name="suggested_edits_views_label_text">Suggested edits label text for pageviews</string>
   <string name="suggested_edits_quality_label_text">Suggested edits label text for edit quality</string>
   <string name="suggested_edits_quality_perfect_text">Suggested edits label text indicating that the edit quality of the user is perfect</string>

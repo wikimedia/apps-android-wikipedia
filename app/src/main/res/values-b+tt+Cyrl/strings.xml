@@ -955,10 +955,106 @@
   <string name="suggested_edits_add_descriptions_task_detail">Укучыларга бер күрүдә предметны ачыкларга ярдәм итү өчен мәкаләне кыскача бәян итегез.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Хәзерге вакытка сезнең керемнәрнең гомуми саны.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Ничә көн рәттән керемнәр керттегез?\nӘгәр дә сез берникадәр вакыт керемнәр кертмәгәнсез икән, монда сезнең соңгы кертемегезнең датасы күрсәтелә.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Сез соңгы 30 көн эчендә үз өлешегезне керткән материалларның битләрен карауның гомуми саны</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Сез соңгы 30 көн эчендә өлеш керткән материалларның битләрен карауның гомуми саны</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Сезнең кертемнәрнең берсе ничә тапкыр кире кайтарылуы(башка мөхәррир тарафыннан гамәлдән чыгарылган) нигезендә. Кире кайтарылган төзәтмәләр: %d.</string>
+  <string name="suggested_edits_paused_message">Тәкъдим ителгән үзгәрешләр түбәндәге вакытка кадәр туктатыла: %1$s. Гафу итегез, %2$s, сезнең күптән түгел булган кертемнәрегезнең кайберләре кире кайтарылды.</string>
+  <string name="suggested_edits_disabled_message">Тәкъдим ителгән үзгәрешләр өзеп куелган. Гафу итегез, %s, сезнең күптән түгел булган кертемнәрнең күбесе кире кайтарылган.</string>
+  <string name="suggested_edits_ip_blocked_message">Сезнең IP-адресыгыз (яисә IP-адреслар диапазоны) хәзерге вакытта Википедияне мөхәррирләү өчен блокланган.</string>
+  <string name="suggested_edits_gate_message">Гафу итегез, %s, сез бу функцияне куллану өчен мәкаләгә кимендә өч төзәтмә кертергә тиеш.</string>
+  <string name="suggested_edits_editing_tips_link_text">Мөхәррирләү буенча киңәшләр һәм тәкъдимнәр</string>
+  <string name="suggested_edits_help_page_link_text">Тәкъдим ителгән төзәтмәләр буенча белешмә бите</string>
+  <string name="suggested_edits_edit_streak_label_text">Төзәтүләр сериясе</string>
+  <string name="suggested_edits_views_label_text">Караулар</string>
+  <string name="suggested_edits_quality_label_text">Мөхәррирләү сыйфаты</string>
+  <string name="suggested_edits_quality_perfect_text">Искиткеч</string>
+  <string name="suggested_edits_quality_excellent_text">Искиткеч яхшы</string>
+  <string name="suggested_edits_quality_very_good_text">Бик яхшы</string>
+  <string name="suggested_edits_quality_good_text">Яхшы</string>
+  <string name="suggested_edits_quality_okay_text">Яхшы</string>
+  <string name="suggested_edits_quality_sufficient_text">Җитәрлек</string>
+  <string name="suggested_edits_quality_poor_text">Сыйфатсыз</string>
+  <string name="suggested_edits_quality_bad_text">Начар</string>
   <string name="suggested_edits_label">Тәкъдим ителгән үзгәртүләр</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Кертем</item>
+    <item quantity="other">Кертемнәр</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d көн</item>
+    <item quantity="other">%d көн</item>
+  </plurals>
+  <string name="suggested_edits_what_is_title">Нәрсә ул Тәкъдим ителә торган үзгәрешләр?</string>
+  <string name="suggested_edits_what_is_text">Тәкъдим ителә торган төзәтмәләр Википедиягә зур булмаган, әмма мөһим өлеш кертү өчен мөмкинлекләр ача.</string>
+  <string name="suggested_edits_learn_more">Күбрәк белергә</string>
+  <string name="suggested_edits_paused_title">Туктатылган</string>
+  <string name="suggested_edits_disabled_title">Сүндерелгән</string>
+  <string name="suggested_edits_ip_blocked_title">IP блокланган</string>
+  <string name="suggested_edits_last_edited">Соңгы мөхәррирләү</string>
   <string name="suggested_edits_last_edited_never">Һичкайчан</string>
+  <string name="suggested_edits_task_new">яңа</string>
+  <string name="suggested_edits_cc0_notice" fuzzy="true">Бастырып чыгарганда, Сез &lt;a href=\"%1$s\"&gt;куллану шартлары&lt;/a&gt; белән килешәсез һәм бу керемне &lt;a href=\"%2.s\"&gt;CC0&lt;/a&gt;лицензиясе нигезендә кире кайтара алмаслык рәвештә бастырасыз.</string>
   <string name="suggested_edits_reactivation_notification_title">Тәкъдим ителгән үзгәртүләр</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Википедияне мөхәррирләгән өчен рәхмәт! Нигә сез тукталган урыннан дәвам итмәскә?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Википедияне яхшырту өчен бер минут вакытыгыз бармы? Мөхәррирләү буенча әлеге тәкъдимнәр белән танышыгыз.</string>
+  <string name="suggested_edits_contributions_screen_title">%s кертемнәре</string>
+  <string name="suggested_edits_contribution_language_label">Тел</string>
+  <string name="suggested_edits_contribution_date_time_label">Дата / вакыт</string>
+  <string name="suggested_edits_contribution_type_label">Кертемнең төре</string>
+  <string name="suggested_edits_contribution_image_label">Сурәт</string>
+  <string name="suggested_edits_contribution_article_label">Мәкалә</string>
+  <string name="suggested_edits_contribution_views">%s карау</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Соңгы 30 көн эчендә бер тапкыр каралган.</item>
+    <item quantity="other">Соңгы 30 көн эчендә %s тапкыр каралган.</item>
+  </plurals>
+  <string name="suggested_edits_contribution_seen_text">Соңгы 30 көн эчендә %s тапкыр каралган.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Сез %d тег өстәдегез</item>
+    <item quantity="other">Сез %d тег өстәдегез</item>
+  </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Кичә</string>
+  <string name="suggested_edits_encourage_account_creation_title">Ә сез Википедияне һәркем мөхәррирли алуын беләсезме?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Тәкъдим ителә торган төзәтмәләр - Android та Википедияне мөхәррирләүнең яңа ысулы. Бу сезгә Википедиягә зур булмаган, әмма мөһим өлеш кертергә ярдәм итәчәк. Безнең максат - мөхәррирләүне гадиләштерү һәм һәркемгә куллану өчен уңайлы итү! Башлар өчен системага керегез яисә Википедиягә кушылыгыз.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Системага керегез / Википедиягә кушылыгыз</string>
+  <string name="suggested_edits_contribution_type_image_tag">Сурәт тегы</string>
+  <string name="suggested_edits_contribution_current_revision_text">Сезнең төзәтмәгез хәзерге вакытта Википедиядә басылган.</string>
+  <string name="suggested_card_more_edits">Өстәмә тәкъдим ителә торган төзәтмәләр</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Тәкъдим ителгән тасвирламалар</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Нәрсә турында хәбәр итәргә телисез?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Мәгълүмат аз</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Тәкъдим ителгән тасвирламаларны күрү мөмкин түгел</string>
+  <string name="suggested_edits_inappropriate_suggestion">Урынсыз тәкъдим</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Бурычны аңламыйм</string>
+  <string name="suggested_edits_report_suggestion">Хәбәр итәргә</string>
+  <string name="suggested_edits_suggestion_report_submitted">Тапшырылган хәбәр</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s тег</item>
+    <item quantity="other">%1$s тег</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s символ</item>
+    <item quantity="other">%1$s символ</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Сез %d символны алып ташладыгыз</item>
+    <item quantity="other">Сез %d символны алып ташладыгыз</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Сез %d символны өстәдегез</item>
+    <item quantity="other">Сез %d символны өстәдегез</item>
+  </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Мәкалә сурәтләре</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Википедия мәкаләләренә, аңлауны яхшырту өчен, тәкъдим ителгән сурәтләрне өстәгез.</string>
+  <string name="image_recommendation_task_instruction">Сез бу сурәтне мәкаләгә өсти алмассызмы?</string>
+  <string name="image_recommendation_tutorial">Җитәкчелек</string>
+  <string name="image_recommendation_accept">Әйе</string>
+  <string name="image_recommendation_reject">Юк</string>
+  <string name="image_recommendation_notsure">Җавап бирергә кыенсынам</string>
+  <string name="image_recommendation_reject_title">Ник булмасын?</string>
+  <string name="image_recommendation_reject_subtitle">Сезнең җавапларыгыз булачак киңәшләрне яхшырта.</string>
+  <string name="image_recommendation_reject_not_relevant">Сурәтнең катнашы юк</string>
+  <string name="image_recommendation_reject_no_info">Карар кабул итү өчен җитәрлек мәгълүмат юк</string>
   <string name="app_shortcuts_search">Эзләү</string>
   <string name="wikipedia_languages_your_languages_text">Телләрегез</string>
   <string name="wikipedia_languages_add_language_text">Тел өстәү</string>
