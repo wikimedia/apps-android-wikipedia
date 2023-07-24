@@ -29,6 +29,7 @@
 * Lowvy
 * Luk3
 * Macofe
+* McDutchie
 * Mello25
 * Mordecool
 * MuratTheTurkish
@@ -1002,7 +1003,7 @@
   <string name="suggested_edits_gate_message">Desculpe, %s, você deve fazer pelo menos três edições diretamente em um artigo para usar este recurso.</string>
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda das edições sugeridas</string>
-  <string name="suggested_edits_edit_streak_label_text">Editar sequência</string>
+  <string name="suggested_edits_edit_streak_label_text">Edições consecutivas</string>
   <string name="suggested_edits_views_label_text">Visualizações</string>
   <string name="suggested_edits_quality_label_text">Qualidade das edições</string>
   <string name="suggested_edits_quality_perfect_text">Perfeito</string>

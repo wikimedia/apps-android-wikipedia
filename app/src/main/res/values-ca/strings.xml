@@ -16,6 +16,7 @@
 * Kippelboy
 * Lluis tgn
 * Macofe
+* McDutchie
 * Mguix
 * Paucabot
 * SMP
@@ -985,7 +986,7 @@
   <string name="suggested_edits_gate_message">%s, cal que feu com a mínim tres edicions en un article directament per a utilitzar aquesta funcionalitat.</string>
   <string name="suggested_edits_editing_tips_link_text">Consells i trucs d\'edició</string>
   <string name="suggested_edits_help_page_link_text">Pàgina d\'ajuda de les edicions suggerides</string>
-  <string name="suggested_edits_edit_streak_label_text">Modifica la marca</string>
+  <string name="suggested_edits_edit_streak_label_text">Ratxa d\'edicions</string>
   <string name="suggested_edits_views_label_text">Visualitzacions</string>
   <string name="suggested_edits_quality_label_text">Qualitat d\'edició</string>
   <string name="suggested_edits_quality_perfect_text">Perfecte</string>
