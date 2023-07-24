@@ -174,7 +174,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         //if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
                         //    showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
                         //}
-                        fragment.onPageMetadataLoaded()
+                        // fragment.onPageMetadataLoaded()
 
                         if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                             checkAnonNotifications(title)

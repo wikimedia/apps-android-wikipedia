@@ -67,7 +67,7 @@ object JavaScriptActionHandler {
                 "m = document.head.querySelector('meta[property=\"mw:pageNamespace\"]');" +
                 "if (m) metadata.pageNamespace = parseInt(m.getAttribute('content'));" +
                 "m = document.head.querySelector('meta[property=\"dc:modified\"]');" +
-                "if (m) metadata.timeStamp = parseInt(m.getAttribute('content'));" +
+                "if (m) metadata.timeStamp = m.getAttribute('content');" +
                 "m = document.head.querySelector('title');" +
                 "if (m) metadata.title = m.innerHTML;" +
                 "m = document.body.querySelector('#pcs-edit-section-title-description');" +

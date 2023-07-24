@@ -27,7 +27,7 @@ data class PageProperties constructor(
     var isMainPage: Boolean = false,
     /** Nullable URL with no scheme. For example, foo.bar.com/ instead of http://foo.bar.com/.  */
     var leadImageUrl: String? = null,
-    val leadImageName: String? = null,
+    var leadImageName: String? = null,
     var leadImageWidth: Int = 0,
     var leadImageHeight: Int = 0,
     val geo: Location? = null,

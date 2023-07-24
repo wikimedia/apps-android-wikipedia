@@ -418,6 +418,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 // compose a Page object from the metadata that was received.
                 L.d(">>>> " + metadata)
                 createPageModel(metadata)
+                onPageMetadataLoaded()
             }
         }
 
@@ -468,31 +469,24 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             it.isMainPage = model.title!!.isMainPage
             it.wikiBaseItem = metadata.wikibaseItem
             it.leadImageUrl = metadata.leadImage?.source
+            it.leadImageName = UriUtil.getFilenameFromUploadUrl(it.leadImageUrl.orEmpty())
             it.leadImageWidth = metadata.leadImage?.width ?: 0
             it.leadImageHeight = metadata.leadImage?.height ?: 0
 
-            //leadImageName = UriUtil.decodeURL(pageSummary.leadImageName.orEmpty()),
+            // TODO:
             //geo = pageSummary.geo,
         }
 
-
-
         model.title?.let {
-            //if (!response.raw().request.url.fragment.isNullOrEmpty()) {
-            //    it.fragment = response.raw().request.url.fragment
-            //}
             if (it.description.isNullOrEmpty()) {
                 app.appSessionEvent.noDescription()
             }
-            //if (!it.isMainPage) {
-            //    it.displayText = page?.displayTitle.orEmpty()
-            //}
 
             // Update our history entry, in case the Title was changed (i.e. normalized)
             val curEntry = model.curEntry
-            curEntry?.let {
-                model.curEntry = HistoryEntry(model.title!!, it.source, timestamp = it.timestamp)
-                model.curEntry!!.referrer = it.referrer
+            curEntry?.let { entry ->
+                model.curEntry = HistoryEntry(model.title!!, entry.source, timestamp = entry.timestamp)
+                model.curEntry!!.referrer = entry.referrer
             }
 
             // Update our tab list to prevent ZH variants issue.
