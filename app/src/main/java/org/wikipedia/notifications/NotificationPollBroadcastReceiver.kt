@@ -5,15 +5,11 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.SystemClock
 import androidx.annotation.StringRes
 import androidx.core.app.PendingIntentCompat
 import androidx.core.app.RemoteInput
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -144,7 +140,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 WikipediaApp.instance.bus.post(UnreadNotificationsEvent())
             }
 
-            if (notificationsToDisplay.size > 3) {
+            if (notificationsToDisplay.size > 2) {
                 // Record that there is an incoming notification to track/compare further actions on it.
                 NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)

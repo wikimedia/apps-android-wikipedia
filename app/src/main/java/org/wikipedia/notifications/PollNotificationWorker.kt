@@ -5,7 +5,6 @@ import androidx.work.*
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
 import org.wikipedia.csrf.CsrfTokenClient
-import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwException
