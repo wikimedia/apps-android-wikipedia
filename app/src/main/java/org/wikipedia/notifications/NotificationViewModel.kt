@@ -40,13 +40,12 @@ class NotificationViewModel : ViewModel() {
         }
     }
 
-    private suspend fun collectionNotifications() = notificationRepository.getAllNotifications()
-        .collect { list ->
-            _uiState.value = UiState.Success(processList(list), !currentContinueStr.isNullOrEmpty())
-        }
+    private fun filterAndPostNotifications() {
+        _uiState.value = UiState.Success(processList(notificationRepository.getAllNotifications()),
+            !currentContinueStr.isNullOrEmpty())
+    }
 
     private fun processList(list: List<Notification>): List<NotificationListItemContainer> {
-
         // Reduce duplicate notifications
         if (currentContinueStr.isNullOrEmpty()) {
             notificationList.clear()
@@ -130,21 +129,21 @@ class NotificationViewModel : ViewModel() {
             if (WikipediaApp.instance.isOnline) {
                 currentContinueStr = notificationRepository.fetchAndSave(delimitedWikiList(), "read|!read", currentContinueStr)
             }
-            collectionNotifications()
+            filterAndPostNotifications()
         }
     }
 
     fun updateSearchQuery(query: String?) {
         currentSearchQuery = query
         viewModelScope.launch(handler) {
-            collectionNotifications()
+            filterAndPostNotifications()
         }
     }
 
     fun updateTabSelection(position: Int) {
         selectedFilterTab = position
         viewModelScope.launch(handler) {
-            collectionNotifications()
+            filterAndPostNotifications()
         }
     }
 
@@ -163,27 +162,29 @@ class NotificationViewModel : ViewModel() {
                     }
                 }
             }
-            notificationsPerWiki.getOrPut(wiki) { ArrayList() }.add(notification)
+            notificationsPerWiki.getOrPut(wiki) { mutableListOf() }.add(notification)
             if (!markUnread) {
                 NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
         }
 
-        for ((wiki, notifications) in notificationsPerWiki) {
-            NotificationPollBroadcastReceiver.markRead(wiki, notifications, markUnread)
+        viewModelScope.launch(handler) {
+            for ((wiki, notifications) in notificationsPerWiki) {
+                NotificationPollBroadcastReceiver.markRead(wiki, notifications, markUnread)
+            }
         }
 
         // Mark items in read state and save into database
-        notificationList
-            .filter { n -> items.map { container -> container.notification?.id }
-            .firstOrNull { it == n.id } != null }
-            .map {
-                it.read = if (markUnread) null else Date().toString()
-                viewModelScope.launch(handler) {
+        viewModelScope.launch(handler) {
+            notificationList
+                .filter { n -> items.map { container -> container.notification?.id }
+                .firstOrNull { it == n.id } != null }
+                .map {
+                    it.read = if (markUnread) null else Date().toString()
                     notificationRepository.updateNotification(it)
-                    collectionNotifications()
                 }
-            }
+            filterAndPostNotifications()
+        }
     }
 
     open class UiState {

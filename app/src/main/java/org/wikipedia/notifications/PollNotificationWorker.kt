@@ -47,11 +47,9 @@ class PollNotificationWorker(
             }
         }
 
-        val notificationRepository = NotificationRepository(AppDatabase.instance.notificationDao())
         ServiceFactory.get(WikipediaApp.instance.wikiSite)
             .getAllNotifications(if (foreignWikis.isEmpty()) "*" else foreignWikis.joinToString("|"), "!read", null)
             .query?.notifications?.list?.let {
-                notificationRepository.insertNotifications(it)
                 NotificationPollBroadcastReceiver.onNotificationsComplete(appContext, it, dbWikiSiteMap, dbWikiNameMap)
             }
     }

@@ -86,7 +86,6 @@
     <string name="preference_key_show_remove_chinese_variant_prompt">showRemoveChineseVariantPrompt</string>
     <string name="preference_key_download_only_over_wifi">downloadOnlyOverWiFi</string>
     <string name="preference_key_download_reading_list_articles">downloadReadingListArticles</string>
-    <string name="preference_key_locally_known_notifications">locallyKnownNotifications</string>
     <string name="preference_key_remote_notifications_seen_time">remoteNotificationsSeenTime</string>
     <string name="preference_key_save_count_reading_lists">saveCountReadingLists</string>
     <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
