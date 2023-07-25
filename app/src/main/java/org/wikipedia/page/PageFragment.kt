@@ -23,6 +23,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
@@ -874,7 +875,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageRefreshContainer.setProgressViewOffset(false, -swipeOffset, swipeOffset)
     }
 
-    fun onPageMetadataLoaded() {
+    fun onPageMetadataLoaded(redirectedFrom: String? = null) {
         updateQuickActionsAndMenuOptions()
         if (model.page == null) {
             return
@@ -886,6 +887,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageRefreshContainer.isEnabled = true
         binding.pageRefreshContainer.isRefreshing = false
         requireActivity().invalidateOptionsMenu()
+        redirectedFrom?.let {
+            FeedbackUtil.showMessage(requireActivity(), getString(R.string.redirected_from_snackbar, it), Snackbar.LENGTH_SHORT)
+        }
         model.readingListPage?.let { page ->
             model.title?.let { title ->
                 disposables.add(Completable.fromAction {
