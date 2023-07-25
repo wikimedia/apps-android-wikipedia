@@ -408,6 +408,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (model.title == null) {
             return
         }
+
+        if (pageWebViewClient.lastPageHtmlWasRedirect) {
+            L.d(">>>>>>>> Redirected from " + model.title?.displayText)
+        }
+
         var newTitle = model.title!!
         if (metadata.title.isNotEmpty()) {
             // TODO: handle redirected title?

@@ -28,6 +28,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
     abstract val linkHandler: LinkHandler
 
     var lastPageHtmlResponseHeaders: Headers? = null
+    var lastPageHtmlWasRedirect = false
 
     override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
         if (model.shouldLoadAsMobileWeb) {
@@ -63,6 +64,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
             } else {
                 if (isPageHtmlCall) {
                     lastPageHtmlResponseHeaders = rsp.headers
+                    lastPageHtmlWasRedirect = rsp.priorResponse?.isRedirect == true
                 }
                 // noinspection ConstantConditions
                 WebResourceResponse(rsp.body!!.contentType()!!.type + "/" + rsp.body!!.contentType()!!.subtype,
