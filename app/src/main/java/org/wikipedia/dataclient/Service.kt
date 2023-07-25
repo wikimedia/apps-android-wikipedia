@@ -271,11 +271,11 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echomarkread")
-    fun markRead(
+    suspend fun markRead(
         @Field("token") token: String,
         @Field("list") readList: String?,
         @Field("unreadlist") unreadList: String?
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=notifications&notwikis=*&notprop=list&notfilter=!read&notlimit=1")
