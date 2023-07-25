@@ -12,7 +12,6 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
@@ -24,6 +23,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
@@ -58,7 +58,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
-import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.descriptions.DescriptionEditActivity
@@ -410,7 +409,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         if (pageWebViewClient.lastPageHtmlWasRedirect) {
-            L.d(">>>>>>>> Redirected from " + model.title?.displayText)
+            FeedbackUtil.showMessage(requireActivity(), getString(R.string.redirected_from_snackbar,
+                model.title?.displayText), Snackbar.LENGTH_SHORT)
         }
 
         var newTitle = model.title!!
@@ -933,8 +933,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             webView.visibility = View.VISIBLE
         }
 
-        if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageWebViewClient.lastPageHtmlResponseHeaders?.get(OfflineCacheInterceptor.SAVE_HEADER)) {
-            showPageOfflineMessage(pageWebViewClient.lastPageHtmlResponseHeaders?.getInstant("date"))
+        if (pageWebViewClient.lastPageHtmlOfflineDate != null) {
+            showPageOfflineMessage(pageWebViewClient.lastPageHtmlOfflineDate)
         }
 
         maybeShowAnnouncement()
@@ -1307,8 +1307,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
         val localDate = LocalDateTime.ofInstant(dateHeader, ZoneId.systemDefault()).toLocalDate()
         val dateStr = DateUtil.getShortDateString(localDate)
-        Toast.makeText(requireContext().applicationContext,
-            getString(R.string.page_offline_notice_last_date, dateStr), Toast.LENGTH_LONG).show()
+        FeedbackUtil.showMessage(requireActivity(), getString(R.string.page_offline_notice_last_date, dateStr), Snackbar.LENGTH_SHORT)
     }
 
     private inner class AvCallback : AvPlayer.Callback {
