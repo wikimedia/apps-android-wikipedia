@@ -438,13 +438,20 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             it.displayTitle = metadata.title
             it.isMainPage = model.title!!.isMainPage
             it.wikiBaseItem = metadata.wikibaseItem
-            it.leadImageUrl = ImageUrlUtil.getThumbUrlFromCommonsUrl(metadata.leadImage?.source.orEmpty(), DimenUtil.calculateLeadImageWidth())
-            it.leadImageName = UriUtil.getFilenameFromUploadUrl(it.leadImageUrl.orEmpty())
-            it.leadImageWidth = metadata.leadImage?.width ?: 0
-            it.leadImageHeight = metadata.leadImage?.height ?: 0
+            if (metadata.leadImage?.source.isNullOrEmpty()) {
+                it.leadImageUrl = null
+                it.leadImageName = null
+                it.leadImageWidth = 0
+                it.leadImageHeight = 0
+            } else {
+                it.leadImageUrl = ImageUrlUtil.getThumbUrlFromCommonsUrl(metadata.leadImage?.source.orEmpty(), DimenUtil.calculateLeadImageWidth())
+                it.leadImageName = UriUtil.getFilenameFromUploadUrl(it.leadImageUrl.orEmpty())
+                it.leadImageWidth = metadata.leadImage?.width ?: 0
+                it.leadImageHeight = metadata.leadImage?.height ?: 0
+            }
 
-            // TODO:
-            //geo = pageSummary.geo,
+            // TODO: get geo location from metadata
+            // it.geo = ...
         }
 
         model.title?.let {
