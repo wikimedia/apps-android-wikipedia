@@ -176,16 +176,13 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         if (pageSummaryResponse.body() == null) {
                             throw RuntimeException("Summary response was invalid.")
                         }
-                        var redirectedFrom: String? = model.title!!.text
+                        val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
                         createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
                         if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
                             showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
                         }
                         if (delayLoadHtml) {
                             bridge.resetHtml(title)
-                        }
-                        if (pageSummaryResponse.raw().priorResponse == null || !pageSummaryResponse.raw().priorResponse!!.isRedirect) {
-                            redirectedFrom = null
                         }
                         fragment.onPageMetadataLoaded(redirectedFrom)
 

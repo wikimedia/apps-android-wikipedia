@@ -888,7 +888,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageRefreshContainer.isRefreshing = false
         requireActivity().invalidateOptionsMenu()
         redirectedFrom?.let {
-            FeedbackUtil.makeSnackbar(this.requireActivity(), getString(R.string.redirected_from_snackbar, it), Snackbar.LENGTH_SHORT).show()
+            FeedbackUtil.showMessage(requireActivity(), getString(R.string.redirected_from_snackbar, it), Snackbar.LENGTH_SHORT)
         }
         model.readingListPage?.let { page ->
             model.title?.let { title ->
