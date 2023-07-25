@@ -7,7 +7,6 @@ import android.os.Message
 import android.webkit.*
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonObject
-import org.wikipedia.bridge.JavaScriptActionHandler.setUp
 import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.json.JsonUtil
@@ -173,7 +172,7 @@ class CommunicationBridge constructor(private val communicationBridgeListener: C
         @get:Synchronized
         @get:JavascriptInterface
         val setupSettings: String
-            get() = setUp(communicationBridgeListener.webView.context,
+            get() = JavaScriptActionHandler.setUp(communicationBridgeListener.webView.context,
                     communicationBridgeListener.model.title!!, communicationBridgeListener.isPreview,
                     communicationBridgeListener.toolbarMargin)
     }

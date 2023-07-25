@@ -113,12 +113,9 @@ class PageFragmentLoadState(private var model: PageViewModel,
             // kick off loading mobile-html contents into the WebView.
             bridge.resetHtml(title)
 
+            // The final step is to fetch the watched status of the page (in the background),
+            // but not if it's a Special page, which can't be watched.
             if (title.namespace() === Namespace.SPECIAL) {
-                // Short-circuit the entire process of fetching the Summary, since Special: pages
-                // are not supported in RestBase.
-                leadImagesHandler.loadLeadImage()
-                fragment.requireActivity().invalidateOptionsMenu()
-                fragment.onPageMetadataLoaded()
                 return
             }
 

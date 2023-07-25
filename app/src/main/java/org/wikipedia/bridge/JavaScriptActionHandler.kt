@@ -49,14 +49,6 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.getTableOfContents()"
     }
 
-    fun getProtection(): String {
-        return "pcs.c1.Page.getProtection()"
-    }
-
-    fun getRevision(): String {
-        return "pcs.c1.Page.getRevision();"
-    }
-
     fun requestMetadata(): String {
         return "var metadata = {};" +
                 "metadata.revision = parseInt(pcs.c1.Page.getRevision());" +
@@ -181,10 +173,11 @@ object JavaScriptActionHandler {
                 "})"
     }
 
-    fun mobileWebChromeShim(): String {
+    fun mobileWebChromeShim(toolbarMargin: Int): String {
+        val topMargin = DimenUtil.roundedPxToDp(toolbarMargin.toFloat())
         return "(function() {" +
                 "let style = document.createElement('style');" +
-                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: 48px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { padding-bottom: 72px; } .page-actions-menu { display: none; } .minerva__tab-container { display: none; }';" +
+                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: ${topMargin}px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { padding-bottom: 72px; } .page-actions-menu { display: none; } .minerva__tab-container { display: none; }';" +
                 "document.head.appendChild(style);" +
                 "})();"
     }

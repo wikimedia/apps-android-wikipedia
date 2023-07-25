@@ -368,40 +368,44 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 activity.intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)))
     }
 
-    private fun onPageSetupEvent() {
+    private fun onPageSetupEvent(havePcs: Boolean = true) {
         if (!isAdded) {
             return
         }
         updateProgressBar(false)
         webView.visibility = View.VISIBLE
 
-        bridge.evaluateImmediate(JavaScriptActionHandler.requestMetadata()) {
-            if (!isAdded) {
-                return@evaluateImmediate
-            }
-            JsonUtil.decodeFromString<PageFragmentLoadState.JsPageMetadata>(it)?.let { metadata ->
-                createPageModel(metadata)
-            }
-        }
-
-        bridge.evaluate(JavaScriptActionHandler.getSections()) { value ->
-            if (!isAdded) {
-                return@evaluate
-            }
-            model.page?.let { page ->
-                sections = JsonUtil.decodeFromString(value)
-                sections?.let { sections ->
-                    sections.add(0, Section(0, 0, model.title?.displayText.orEmpty(), model.title?.displayText.orEmpty(), ""))
-                    page.sections = sections
+        if (havePcs) {
+            bridge.evaluateImmediate(JavaScriptActionHandler.requestMetadata()) {
+                if (!isAdded) {
+                    return@evaluateImmediate
                 }
-
-                sidePanelHandler.setupForNewPage(page)
-                sidePanelHandler.setEnabled(true)
+                JsonUtil.decodeFromString<PageFragmentLoadState.JsPageMetadata>(it)?.let { metadata ->
+                    createPageModel(metadata)
+                }
             }
+
+            bridge.evaluate(JavaScriptActionHandler.getSections()) { value ->
+                if (!isAdded) {
+                    return@evaluate
+                }
+                model.page?.let { page ->
+                    sections = JsonUtil.decodeFromString(value)
+                    sections?.let { sections ->
+                        sections.add(0, Section(0, 0, model.title?.displayText.orEmpty(), model.title?.displayText.orEmpty(), ""))
+                        page.sections = sections
+                    }
+
+                    sidePanelHandler.setupForNewPage(page)
+                    sidePanelHandler.setEnabled(true)
+                }
+            }
+        } else {
+            createPageModel(null)
         }
     }
 
-    private fun createPageModel(metadata: PageFragmentLoadState.JsPageMetadata) {
+    private fun createPageModel(metadata: PageFragmentLoadState.JsPageMetadata?) {
         if (model.title == null) {
             return
         }
@@ -412,44 +416,47 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
 
         var newTitle = model.title!!
-        if (metadata.title.isNotEmpty()) {
-            // TODO: handle redirected title?
-            newTitle = PageTitle(model.title!!.prefixedText, model.title!!.wikiSite, model.title!!.thumbUrl)
-            newTitle.displayText = metadata.title
-            newTitle.fragment = title!!.fragment
-        }
-        if (metadata.description.isNotEmpty()) {
-            newTitle.description = metadata.description
+
+        if (metadata != null) {
+            if (metadata.title.isNotEmpty()) {
+                newTitle = PageTitle(model.title!!.prefixedText, model.title!!.wikiSite, model.title!!.thumbUrl)
+                newTitle.displayText = metadata.title
+                newTitle.fragment = title!!.fragment
+            }
+            if (metadata.description.isNotEmpty()) {
+                newTitle.description = metadata.description
+            }
         }
 
         model.title = newTitle
         model.page = Page(newTitle, pageProperties = PageProperties(newTitle, newTitle.isMainPage))
         model.page?.pageProperties?.let {
-            it.pageId = metadata.pageId
-            it.namespace = Namespace.of(metadata.ns)
-            it.revisionId = metadata.revision
-            it.protection = metadata.protection
-            it.descriptionSource = metadata.descriptionSource
-            if (metadata.timeStamp.isNotEmpty()) {
-                it.lastModified = DateUtil.iso8601DateParse(metadata.timeStamp)
-            }
-            it.displayTitle = metadata.title
             it.isMainPage = model.title!!.isMainPage
-            it.wikiBaseItem = metadata.wikibaseItem
-            if (metadata.leadImage?.source.isNullOrEmpty()) {
-                it.leadImageUrl = null
-                it.leadImageName = null
-                it.leadImageWidth = 0
-                it.leadImageHeight = 0
-            } else {
-                it.leadImageUrl = ImageUrlUtil.getThumbUrlFromCommonsUrl(UriUtil.decodeURL(metadata.leadImage?.source.orEmpty()), DimenUtil.calculateLeadImageWidth())
-                it.leadImageName = UriUtil.getFilenameFromUploadUrl(it.leadImageUrl.orEmpty())
-                it.leadImageWidth = metadata.leadImage?.width ?: 0
-                it.leadImageHeight = metadata.leadImage?.height ?: 0
+            if (metadata != null) {
+                it.pageId = metadata.pageId
+                it.namespace = Namespace.of(metadata.ns)
+                it.revisionId = metadata.revision
+                it.protection = metadata.protection
+                it.descriptionSource = metadata.descriptionSource
+                if (metadata.timeStamp.isNotEmpty()) {
+                    it.lastModified = DateUtil.iso8601DateParse(metadata.timeStamp)
+                }
+                it.displayTitle = metadata.title
+                it.wikiBaseItem = metadata.wikibaseItem
+                if (metadata.leadImage?.source.isNullOrEmpty()) {
+                    it.leadImageUrl = null
+                    it.leadImageName = null
+                    it.leadImageWidth = 0
+                    it.leadImageHeight = 0
+                } else {
+                    it.leadImageUrl = ImageUrlUtil.getThumbUrlFromCommonsUrl(UriUtil.decodeURL(metadata.leadImage?.source.orEmpty()), DimenUtil.calculateLeadImageWidth())
+                    it.leadImageName = UriUtil.getFilenameFromUploadUrl(it.leadImageUrl.orEmpty())
+                    it.leadImageWidth = metadata.leadImage?.width ?: 0
+                    it.leadImageHeight = metadata.leadImage?.height ?: 0
+                }
+                // TODO: get geo location from metadata
+                // it.geo = ...
             }
-
-            // TODO: get geo location from metadata
-            // it.geo = ...
         }
 
         model.title?.let {
@@ -1546,11 +1553,10 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 // tells us the page is finished loading. In such a case, we must infer that the
                 // page has now loaded and trigger the remaining logic ourselves.
                 if ("true" != pcsExists) {
-                    onPageSetupEvent()
-                    leadImagesHandler.loadLeadImage()
+                    onPageSetupEvent(false)
                     bridge.onMetadataReady()
                     bridge.onPcsReady()
-                    bridge.execute(JavaScriptActionHandler.mobileWebChromeShim())
+                    bridge.execute(JavaScriptActionHandler.mobileWebChromeShim(toolbarMargin))
                 }
 
                 onPageMetadataLoaded()
