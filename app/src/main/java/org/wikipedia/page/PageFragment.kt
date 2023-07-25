@@ -444,7 +444,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 it.leadImageWidth = 0
                 it.leadImageHeight = 0
             } else {
-                it.leadImageUrl = ImageUrlUtil.getThumbUrlFromCommonsUrl(metadata.leadImage?.source.orEmpty(), DimenUtil.calculateLeadImageWidth())
+                it.leadImageUrl = ImageUrlUtil.getThumbUrlFromCommonsUrl(UriUtil.decodeURL(metadata.leadImage?.source.orEmpty()), DimenUtil.calculateLeadImageWidth())
                 it.leadImageName = UriUtil.getFilenameFromUploadUrl(it.leadImageUrl.orEmpty())
                 it.leadImageWidth = metadata.leadImage?.width ?: 0
                 it.leadImageHeight = metadata.leadImage?.height ?: 0
