@@ -21,12 +21,12 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <androidx.appcompat.widget.AppCompatSpinner
+            <Spinner
                 android:id="@+id/wikiFromLanguageSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:backgroundTint="?attr/colorAccent" />
+                android:backgroundTint="?attr/progressive_color" />
         </LinearLayout>
 
 
@@ -43,7 +43,7 @@
             android:paddingBottom="8dp"
             android:scaleType="center"
             app:srcCompat="@drawable/ic_baseline_arrow_right_alt_24px"
-            app:tint="?attr/material_theme_secondary_color" />
+            app:tint="?attr/secondary_color" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -51,12 +51,12 @@
             android:layout_weight="1"
             android:gravity="end">
 
-            <androidx.appcompat.widget.AppCompatSpinner
+            <Spinner
                 android:id="@+id/wikiToLanguageSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:backgroundTint="?attr/colorAccent" />
+                android:backgroundTint="?attr/progressive_color" />
 
         </LinearLayout>
 
@@ -84,7 +84,7 @@
         android:paddingBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/backButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -98,36 +98,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addContributionButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:backgroundTint="?attr/colorAccent"
+            android:layout_height="wrap_content"
             android:text="@string/suggested_edits_add_description_button"
-            android:textColor="@color/base100"
-            android:textSize="14sp"
-            android:fontFamily="sans-serif-medium"
-            android:textAllCaps="true"
-            android:letterSpacing="0.04"
-            android:insetTop="2dp"
-            android:insetBottom="2dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
             android:tag="portrait"
-            android:minWidth="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:rippleColor="?attr/color_group_56"
-            app:cornerRadius="2dp"
-            app:iconTint="@color/base100"
-            app:iconPadding="8dp"
             app:icon="@drawable/ic_add_gray_white_24dp"/>
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/nextButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -140,7 +125,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

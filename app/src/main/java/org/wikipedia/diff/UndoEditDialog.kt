@@ -1,48 +1,53 @@
 package org.wikipedia.diff
 
 import android.content.Context
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doOnTextChanged
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.databinding.DialogUndoEditBinding
 
-class UndoEditDialog constructor(private val editHistoryInteractionEvent: EditHistoryInteractionEvent?, context: Context, callback: Callback) : AlertDialog(context) {
+class UndoEditDialog constructor(
+    private val editHistoryInteractionEvent: EditHistoryInteractionEvent?,
+    context: Context,
+    callback: Callback
+) : MaterialAlertDialogBuilder(context) {
+
     fun interface Callback {
         fun onSuccess(text: CharSequence)
     }
 
     private var binding = DialogUndoEditBinding.inflate(LayoutInflater.from(context))
-    private lateinit var watcher: TextWatcher
+    private var dialog: AlertDialog? = null
 
     init {
         setView(binding.root)
         binding.textInputContainer.isErrorEnabled = true
-        setButton(BUTTON_POSITIVE, context.getString(R.string.edit_undo)) { _, _ ->
+
+        setPositiveButton(R.string.edit_undo) { _, _ ->
             callback.onSuccess(binding.textInput.text.toString())
         }
-        setButton(BUTTON_NEGATIVE, context.getString(R.string.text_input_dialog_cancel_button_text)) { _, _ ->
+
+        setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _, _ ->
             editHistoryInteractionEvent?.logUndoCancel()
         }
-        create()
+
+        binding.textInput.doOnTextChanged { text, _, _, _ ->
+            setPositiveButtonEnabled(!text.isNullOrBlank())
+        }
+
         setPositiveButtonEnabled(false)
     }
 
+    override fun show(): AlertDialog {
+        dialog = super.show()
+        setPositiveButtonEnabled(false)
+        return dialog!!
+    }
+
     private fun setPositiveButtonEnabled(enabled: Boolean) {
-        getButton(BUTTON_POSITIVE).isEnabled = enabled
-    }
-
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
-        watcher = binding.textInput.doOnTextChanged { text, _, _, _ ->
-            setPositiveButtonEnabled(!text.isNullOrBlank())
-        }
-    }
-
-    override fun onDetachedFromWindow() {
-        super.onDetachedFromWindow()
-        binding.textInput.removeTextChangedListener(watcher)
+        dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = enabled
     }
 }

@@ -55,7 +55,7 @@ object ShareUtil {
 
     fun shareImage(context: Context, bmp: Bitmap,
                    imageFileName: String, subject: String, text: String) {
-        CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, msg ->
+        CoroutineScope(Dispatchers.Main).launch(CoroutineExceptionHandler { _, msg ->
             run {
                 displayOnCatchMessage(msg, context)
             }

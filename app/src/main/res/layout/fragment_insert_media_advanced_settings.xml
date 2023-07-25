@@ -17,19 +17,19 @@
         android:orientation="vertical"
         android:layout_marginHorizontal="16dp">
 
-        <androidx.appcompat.widget.SwitchCompat
+        <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/wrapImageSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:text="@string/insert_media_advanced_settings_wrap_image"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:layout_marginBottom="8dp"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="?attr/list_separator_drawable"/>
+            android:background="?attr/list_divider"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:text="@string/insert_media_advanced_settings_image_position" />
 
             <TextView
@@ -51,7 +51,7 @@
                 android:layout_weight="0.3"
                 android:paddingVertical="16dp"
                 android:textAlignment="textEnd"
-                android:textColor="?attr/colorAccent"
+                android:textColor="?attr/progressive_color"
                 android:fontFamily="sans-serif-medium"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:text="@string/insert_media_advanced_settings_image_position_right" />
@@ -61,7 +61,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="?attr/list_separator_drawable"/>
+            android:background="?attr/list_divider"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -73,7 +73,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:text="@string/insert_media_advanced_settings_image_type" />
 
             <TextView
@@ -84,7 +84,7 @@
                 android:paddingVertical="16dp"
                 android:textAlignment="textEnd"
                 android:fontFamily="sans-serif-medium"
-                android:textColor="?attr/colorAccent"
+                android:textColor="?attr/progressive_color"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:text="@string/insert_media_advanced_settings_image_type_thumbnail" />
 
@@ -93,7 +93,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="?attr/list_separator_drawable"/>
+            android:background="?attr/list_divider"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -105,7 +105,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:text="@string/insert_media_advanced_settings_image_size" />
 
             <TextView
@@ -116,7 +116,7 @@
                 android:paddingVertical="16dp"
                 android:textAlignment="textEnd"
                 android:fontFamily="sans-serif-medium"
-                android:textColor="?attr/colorAccent"
+                android:textColor="?attr/progressive_color"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:text="@string/insert_media_advanced_settings_image_size_custom" />
 

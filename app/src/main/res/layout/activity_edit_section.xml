@@ -29,7 +29,7 @@
                 android:imeOptions="actionNone|flagNoExtractUi"
                 android:inputType="textMultiLine"
                 android:lineSpacingExtra="6dp"
-                style="@style/EditSectionTextInputLayoutStyle" />
+                style="@style/TextInputLayoutStyle.EditSection" />
 
         </androidx.core.widget.NestedScrollView>
 
@@ -123,15 +123,11 @@
         android:orientation="vertical"
         android:visibility="gone" />
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/view_progress_bar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminate="true"
-        android:indeterminateTint="?attr/colorAccent"
-        android:progressBackgroundTint="@color/accent30"
         android:visibility="gone"
-        android:layout_marginTop="-6dp"
         tools:visibility="visible" />
 </FrameLayout>

@@ -95,19 +95,15 @@ class SearchResultsViewModel : ViewModel() {
                         if (langCode == languageCode) {
                             resultsCount?.add(0)
                         } else {
-                            val prefixSearchResponse = withContext(Dispatchers.IO) {
-                                ServiceFactory.get(WikiSite.forLanguageCode(langCode))
+                            val prefixSearchResponse = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
                                     .prefixSearch(searchTerm, params.loadSize, 0)
-                            }
                             var countResultSize = 0
                             prefixSearchResponse.query?.pages?.let {
                                 countResultSize = it.size
                             }
                             if (countResultSize == 0) {
-                                val fullTextSearchResponse = withContext(Dispatchers.IO) {
-                                    ServiceFactory.get(WikiSite.forLanguageCode(langCode))
+                                val fullTextSearchResponse = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
                                         .fullTextSearch(searchTerm, null, params.loadSize, null)
-                                }
                                 countResultSize = fullTextSearchResponse.query?.pages?.size ?: 0
                             }
                             resultsCount?.add(countResultSize)

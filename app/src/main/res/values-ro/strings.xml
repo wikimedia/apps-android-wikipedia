@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Alesaru
+* Amire80
 * Andreyyshore
 * Carcassonne93
 * Danutz
@@ -245,7 +247,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ro</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -810,7 +812,9 @@
   <string name="description_starts_with_uppercase">Începeți cu o literă mică exceptând cazul în care primul cuvânt este un substantiv propriu.</string>
   <string name="description_starts_with_lowercase">Evitați începerea cu o literă mică.</string>
   <string name="description_is_in_different_language">Textul pare a fi într-o limbă neașteptată. Limba ar trebui să fie %s.</string>
-  <string name="description_verification_notice">Verificați că descrierea dvs. este în %1$s. Simțiți-vă liber să respingeți această notificare dacă descrierea pe care ați scris-o este în %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Verificați că descrierea dvs. este în %1$s. Simțiți-vă liber să respingeți această notificare dacă descrierea pe care ați scris-o este în %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Arată descrieri sugerate</string>
+  <string name="description_edit_suggested_description_button_tooltip">Încercați descrieri de articole sugerate automat</string>
   <string name="description_edit_success_saved">Descrierea articolului publicată!</string>
   <string name="description_edit_success_saved_snackbar">Descrierea articolului publicată!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrierea articolului publicată! (%s)</string>
@@ -828,6 +832,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">În mod ideal, o linie, între două până la douăsprezece cuvinte</string>
   <string name="description_edit_tutorial_button_label_start_editing">Începeți modificarea</string>
   <string name="description_edit_tutorial_promise">Începând, promit să nu folosesc greșit această caracteristică.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Sugestii automate</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Sugestiile sunt generate de o mașină, nu de voluntari sau de Fundația Wikimedia</string>
   <string name="customize_toolbar_title">Personalizați-vă bara de instrumente</string>
   <string name="customize_toolbar_shortcut_description_text">\nPersonalizați bara de instrumente de jos cu 5 comenzi rapide pe care le considerați cele mai utile.</string>
   <string name="customize_toolbar_category_toolbar">Bara de instrumente</string>
@@ -991,6 +997,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Etichetă imagine</string>
   <string name="suggested_edits_contribution_current_revision_text">Editarea dvs. este în prezent activă pe Wikipedia</string>
   <string name="suggested_card_more_edits">Mai multe editări sugerate</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Descrieri sugerate</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Ce doriți să raportați?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Informații insuficiente</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Nu văd descrierile sugerate</string>
+  <string name="suggested_edits_inappropriate_suggestion">Sugestie neadecvată</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Nu înțeleg sarcina</string>
+  <string name="suggested_edits_report_suggestion">Raportare</string>
+  <string name="suggested_edits_suggestion_report_submitted">Raportare trimisă</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etichetă</item>
     <item quantity="few">%1$s etichete</item>
@@ -1011,6 +1025,8 @@
     <item quantity="few">Aţi adăugat %d caractere</item>
     <item quantity="other">Aţi adăugat %d caractere</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Antrenați algoritmul pentru imagini</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Decideți dacă o imagine sugerată va îmbunătăți un articol.</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
   <string name="file_page_add_image_tags_button">Adaugă etichete pentru imagine</string>
@@ -1111,9 +1127,9 @@
   <string name="insert_media_title">Inserare media</string>
   <string name="insert_media_search_description">Selectați un fișier din Wikimedia Commons</string>
   <string name="insert_media_search_hint">Căutare media</string>
-  <string name="insert_media_settings">Setări media</string>
+  <string name="insert_media_settings" fuzzy="true">Setări media</string>
   <string name="insert_media_settings_uploaded_image">Imagine încărcată</string>
-  <string name="insert_media_settings_caption">Descriere</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Descriere</string>
   <string name="insert_media_settings_alternative_text">Text alternativ</string>
   <string name="insert_media_advanced_settings">Setări avansate</string>
   <string name="insert_media_advanced_settings_wrap_image">Înfășoară textul în jurul imaginii</string>

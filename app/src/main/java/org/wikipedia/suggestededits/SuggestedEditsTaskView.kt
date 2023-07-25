@@ -26,7 +26,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
 
     private fun updateTranslateActionUI() {
         val color = ResourceUtil.getThemedColor(context, if (WikipediaApp.instance.languageState.appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
-            R.attr.colorAccent else R.attr.material_theme_de_emphasised_color)
+            R.attr.progressive_color else R.attr.placeholder_color)
         binding.secondaryButton.iconTint = ColorStateList.valueOf(color)
         binding.secondaryButton.setTextColor(color)
     }
@@ -38,8 +38,6 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         binding.primaryButton.text = task.primaryAction
         if (task.primaryActionIcon != 0) {
             binding.primaryButton.setIconResource(task.primaryActionIcon)
-            binding.primaryButton.iconSize = DimenUtil.roundedDpToPx(16f)
-            binding.primaryButton.iconPadding = DimenUtil.roundedDpToPx(8f)
         }
         binding.primaryButton.contentDescription = task.primaryAction + " " + task.title
         binding.taskIcon.setImageResource(task.imageDrawable)

@@ -14,11 +14,11 @@ import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -115,23 +115,23 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = ""
         setNavigationBarColor(Color.BLACK)
-        binding.toolbarGradient.background = GradientUtil.getPowerGradient(R.color.black26, Gravity.TOP)
-        binding.infoGradient.background = GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM)
+        binding.toolbarGradient.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(this, R.attr.overlay_color), Gravity.TOP)
+        binding.infoGradient.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(this, R.attr.overlay_color), Gravity.BOTTOM)
         binding.descriptionText.movementMethod = linkMovementMethod
         binding.creditText.movementMethod = linkMovementMethod
-        binding.errorView.setIconColorFilter(ContextCompat.getColor(this, R.color.base70))
-        binding.errorView.setErrorTextColor(ContextCompat.getColor(this, R.color.base70))
+        binding.errorView.setIconColorFilter(ContextCompat.getColor(this, R.color.gray300))
+        binding.errorView.setErrorTextColor(ContextCompat.getColor(this, R.color.gray300))
         binding.errorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.errorView.retryClickListener = View.OnClickListener {
             binding.errorView.visibility = View.GONE
             loadGalleryContent()
         }
-        if (intent.hasExtra(EXTRA_PAGETITLE)) {
-            pageTitle = intent.getParcelableExtra(EXTRA_PAGETITLE)
+        if (intent.hasExtra(Constants.ARG_TITLE)) {
+            pageTitle = intent.getParcelableExtra(Constants.ARG_TITLE)
         }
         initialFilename = intent.getStringExtra(EXTRA_FILENAME)
         revision = intent.getLongExtra(EXTRA_REVISION, 0)
-        sourceWiki = intent.getParcelableExtra(EXTRA_WIKI)!!
+        sourceWiki = intent.getParcelableExtra(Constants.ARG_WIKISITE)!!
         galleryAdapter = GalleryItemAdapter(this@GalleryActivity)
         binding.pager.adapter = galleryAdapter
         binding.pager.registerOnPageChangeCallback(pageChangeListener)
@@ -237,7 +237,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         }
         val isProtected = v.tag != null && v.tag as Boolean
         if (isProtected) {
-            AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.page_protected_can_not_edit_title)
                 .setMessage(R.string.page_protected_can_not_edit)
@@ -669,9 +669,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         const val ACTIVITY_RESULT_PAGE_SELECTED = 1
         const val ACTIVITY_RESULT_IMAGE_CAPTION_ADDED = 2
         const val ACTIVITY_RESULT_IMAGE_TAGS_ADDED = 3
-        const val EXTRA_PAGETITLE = "pageTitle"
         const val EXTRA_FILENAME = "filename"
-        const val EXTRA_WIKI = "wiki"
         const val EXTRA_REVISION = "revision"
         const val EXTRA_SOURCE = "source"
         const val SOURCE_LEAD_IMAGE = 0
@@ -683,11 +681,11 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             val intent = Intent()
                 .setClass(context, GalleryActivity::class.java)
                 .putExtra(EXTRA_FILENAME, filename)
-                .putExtra(EXTRA_WIKI, wiki)
+                .putExtra(Constants.ARG_WIKISITE, wiki)
                 .putExtra(EXTRA_REVISION, revision)
                 .putExtra(EXTRA_SOURCE, source)
             if (pageTitle != null) {
-                intent.putExtra(EXTRA_PAGETITLE, pageTitle)
+                intent.putExtra(Constants.ARG_TITLE, pageTitle)
             }
             return intent
         }

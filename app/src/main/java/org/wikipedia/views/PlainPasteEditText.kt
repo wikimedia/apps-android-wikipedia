@@ -2,13 +2,16 @@ package org.wikipedia.views
 
 import android.content.ClipData
 import android.content.Context
+import android.os.Build
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.ContentInfoCompat
 import androidx.core.view.ViewCompat
 import com.google.android.material.textfield.TextInputEditText
+import org.wikipedia.R
 
 open class PlainPasteEditText : TextInputEditText {
     constructor(context: Context) : super(context)
@@ -17,7 +20,8 @@ open class PlainPasteEditText : TextInputEditText {
 
     init {
         // The MIME type(s) need to be set for onReceiveContent() to be called.
-        ViewCompat.setOnReceiveContentListener(this, arrayOf("text/*"), null)
+        ViewCompat.setOnReceiveContentListener(rootView, arrayOf("text/*"), null)
+        // applyCustomCursorDrawable()
     }
 
     override fun onReceiveContent(payload: ContentInfoCompat): ContentInfoCompat? {
@@ -40,5 +44,11 @@ open class PlainPasteEditText : TextInputEditText {
             outAttrs.imeOptions = outAttrs.imeOptions and EditorInfo.IME_FLAG_NO_ENTER_ACTION.inv()
         }
         return super.onCreateInputConnection(outAttrs)
+    }
+
+    private fun applyCustomCursorDrawable() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            textCursorDrawable = AppCompatResources.getDrawable(context, R.drawable.custom_cursor)
+        }
     }
 }

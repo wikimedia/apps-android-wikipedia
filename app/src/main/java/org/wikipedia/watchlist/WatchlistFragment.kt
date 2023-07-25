@@ -15,11 +15,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentWatchlistBinding
 import org.wikipedia.databinding.ViewWatchlistSearchBarBinding
@@ -30,7 +33,6 @@ import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.UserTalkPopupHelper
@@ -57,7 +59,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentWatchlistBinding.inflate(inflater, container, false)
 
-        (requireActivity() as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.watchlist_title)
 
         return binding.root
@@ -67,7 +68,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        binding.watchlistRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        binding.watchlistRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.watchlistRefreshView.setOnRefreshListener { viewModel.fetchWatchlist(actionMode == null) }
         binding.watchlistErrorView.retryClickListener = View.OnClickListener { viewModel.fetchWatchlist(actionMode == null) }
 
@@ -76,12 +77,14 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         notificationButtonView = NotificationButtonView(requireActivity())
         updateDisplayLanguages()
 
-        lifecycleScope.launchWhenStarted {
-            viewModel.uiState.collect {
-                when (it) {
-                    is WatchlistViewModel.UiState.Loading -> onLoading()
-                    is WatchlistViewModel.UiState.Success -> onSuccess()
-                    is WatchlistViewModel.UiState.Error -> onError(it.throwable)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.uiState.collect {
+                    when (it) {
+                        is WatchlistViewModel.UiState.Loading -> onLoading()
+                        is WatchlistViewModel.UiState.Success -> onSuccess()
+                        is WatchlistViewModel.UiState.Error -> onError(it.throwable)
+                    }
                 }
             }
         }
@@ -157,6 +160,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         binding.watchlistRefreshView.isRefreshing = false
         binding.watchlistProgressBar.visibility = View.GONE
         binding.watchlistRecyclerView.adapter = RecyclerAdapter(viewModel.finalList)
+        WatchlistAnalyticsHelper.logWatchlistItemCountOnLoad(requireContext(), viewModel.finalList.size)
         binding.watchlistRecyclerView.visibility = View.VISIBLE
 
         if (viewModel.finalList.filterNot { it == "" }.isEmpty()) {
@@ -181,7 +185,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     private fun setUpEmptySearchMessage() {
         val filtersStr = resources.getQuantityString(R.plurals.watchlist_number_of_filters, viewModel.filtersCount(), viewModel.filtersCount())
         binding.watchlistEmptySearchMessage.text = StringUtil.fromHtml(getString(R.string.watchlist_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
-        RichTextUtil.removeUnderlinesFromLinks(binding.watchlistEmptySearchMessage)
         binding.watchlistEmptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
             resultLauncher.launch(WatchlistFilterActivity.newIntent(requireContext()))
         }
@@ -204,7 +207,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
 
     inner class WatchlistSearchBarHolder constructor(private val itemBinding: ViewWatchlistSearchBarBinding) : RecyclerView.ViewHolder(itemBinding.root) {
         init {
-            itemBinding.root.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
+            itemBinding.root.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.background_color))
 
             itemBinding.root.setOnClickListener {
                 if (actionMode == null) {
@@ -224,11 +227,11 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             val filterCount = viewModel.filtersCount()
             if (filterCount == 0) {
                 itemBinding.filterCount.visibility = View.GONE
-                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.color_group_9))
+                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.primary_color))
             } else {
                 itemBinding.filterCount.visibility = View.VISIBLE
                 itemBinding.filterCount.text = filterCount.toString()
-                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.colorAccent))
+                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.progressive_color))
             }
         }
     }
@@ -343,7 +346,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             return
         }
         startActivity(ArticleEditDetailsActivity.newIntent(requireContext(),
-                PageTitle(item.title, item.wiki!!), item.revid))
+                PageTitle(item.title, item.wiki!!), item.pageId, item.revid))
     }
 
     override fun onUserClick(item: MwQueryResult.WatchlistItem, view: View) {

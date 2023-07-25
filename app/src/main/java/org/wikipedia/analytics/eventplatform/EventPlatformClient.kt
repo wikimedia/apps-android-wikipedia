@@ -111,7 +111,7 @@ object EventPlatformClient {
          */
         private const val WAIT_MS = 30000L
         private const val TOKEN = "sendScheduled"
-        private val MAX_QUEUE_SIZE = if (ReleaseUtil.isDevRelease) 4 else 128
+        private val MAX_QUEUE_SIZE get() = Prefs.analyticsQueueSize
 
         @Synchronized
         fun sendAllScheduled() {

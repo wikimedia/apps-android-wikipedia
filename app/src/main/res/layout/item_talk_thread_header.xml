@@ -14,8 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:textColor="?attr/material_theme_primary_color"
-        android:textColorLink="?attr/colorAccent"
+        android:textColor="?attr/primary_color"
+        android:textColorLink="?attr/progressive_color"
         android:textStyle="bold"
         android:textSize="20sp"
         android:lineSpacingExtra="8sp"
@@ -31,7 +31,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
-        android:textColor="?attr/material_theme_primary_color"
+        android:textColor="?attr/primary_color"
         android:textSize="20sp"
         android:lineSpacingExtra="8sp"
         tools:text="Lorem ipsum" />
@@ -39,7 +39,8 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/subscribeButton"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
+        style="@style/App.Button.Secondary"
         app:layout_constraintTop_toBottomOf="@id/threadTitleText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/otherContentText"
@@ -47,14 +48,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginStart="14dp"
         android:text="@string/talk_list_item_overflow_subscribe"
-        android:textColor="@android:color/white"
-        android:paddingHorizontal="12dp"
-        android:letterSpacing="0.05"
-        app:icon="@drawable/ic_notifications_black_24dp"
-        app:iconTint="?attr/colorAccent"
-        app:backgroundTint="?attr/color_group_22"
-        app:rippleColor="?attr/color_group_56"
-        app:cornerRadius="8dp" />
+        app:icon="@drawable/ic_notifications_black_24dp" />
 
     <TextView
         android:id="@+id/otherContentText"
@@ -68,8 +62,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:textColor="?attr/material_theme_primary_color"
-        android:textColorLink="?attr/colorAccent"
+        android:textColor="?attr/primary_color"
+        android:textColorLink="?attr/progressive_color"
         android:lineSpacingExtra="6sp"
         android:textIsSelectable="true"
         tools:text="Lorem ipsum" />

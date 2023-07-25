@@ -17,23 +17,24 @@
             android:id="@+id/reading_list_toolbar_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:contentScrim="?attr/paper_color"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:collapsedTitleTextAppearance="@style/H1.AppBar"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:contentScrim="?attr/paper_color">
 
             <org.wikipedia.readinglist.ReadingListHeaderView
                 android:id="@+id/reading_list_header"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/base50"
+                android:layout_height="@dimen/readingListLeadHeight"
+                android:background="@color/gray400"
                 android:fitsSystemWindows="true"
-                app:layout_collapseMode="parallax" />
+                app:layout_collapseMode="parallax"/>
 
-            <androidx.appcompat.widget.Toolbar
+            <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/reading_list_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin" />
+                android:background="@android:color/transparent"
+                app:layout_collapseMode="pin"/>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -57,12 +58,13 @@
 
             <TextView
                 android:id="@+id/reading_list_empty_text"
-                style="@style/MaterialMediumSecondaryCaption"
+                style="@style/P"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="16dp"
                 android:text="@string/reading_list_empty"
+                android:textAlignment="center"
                 android:visibility="gone"
                 tools:visibility="visible" />
 

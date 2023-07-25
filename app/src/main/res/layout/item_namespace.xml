@@ -6,7 +6,7 @@
     android:layout_height="48dp"
     android:paddingHorizontal="8dp"
     android:gravity="center_vertical"
-    android:textColor="?attr/material_theme_primary_color"
+    android:textColor="?attr/primary_color"
     android:textStyle="bold"
     android:background="?attr/selectableItemBackgroundBorderless"
     tools:text="Namespace:"/>

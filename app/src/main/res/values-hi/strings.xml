@@ -17,6 +17,7 @@
 * Pulkitsingh01
 * Rajatkatiyar10
 * Rishi.Singh
+* SHaran (WMF)
 * Sachinkatiyar
 * Sagsag
 * Sahilrathod
@@ -31,6 +32,7 @@
 * आलोक
 * गोपाल
 * चक्रपाणी
+* मुरही
 * संजीव कुमार
 -->
 <resources>
@@ -90,6 +92,10 @@
     <item quantity="one">%2$s से अब तक %1$d संपादन</item>
     <item quantity="other">%2$s से अब तक %1$d संपादन</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d संपादन %2$s से ( %3$s)</item>
+    <item quantity="other">%1$d संपादन %2$s से ( %3$s )</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">अधिक संपादन देखने के लिए &lt;a href=\"#\"&gt;फ़िल्टर&lt;/a&gt; बदलने की कोशिश करें</string>
   <string name="menu_page_show_tabs">टैब दिखाएँ</string>
   <string name="menu_page_other_languages">भाषा बदलें</string>
@@ -131,9 +137,9 @@
   <string name="map_view_link_text">नक्शे पर देखें</string>
   <string name="other_languages_indication_text">किसी दूसरी भाषा में पढ़ें</string>
   <string name="language_count_link_text">दूसरी %d भाषाओं में उपलब्ध</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">इसे सहेजते हुए आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत होंगे और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अंतर्गत अपरिवर्तनीय रूप से प्रकाशित करने को तैयार होंगे।</string>
-  <string name="edit_save_action_license_anon">इसे सहेजते हुए आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत होंगे और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अंतर्गत अपरिवर्तनीय रूप से प्रकाशित करने को तैयार होंगे। संपादनों का श्रेय आपके डिवाइस के IP पते को दिया जाएगा। अगर आप &lt;a href=\"https://#login\"&gt;लॉग-इन करते&lt;/a&gt; हैं, आपके पास अधिक निजता होगी।</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">इसे सहेजते हुए आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत होंगे और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अंतर्गत अपरिवर्तनीय रूप से प्रकाशित करने को तैयार होंगे।</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">इसे सहेजते हुए आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत होंगे और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अंतर्गत अपरिवर्तनीय रूप से प्रकाशित करने को तैयार होंगे। संपादनों का श्रेय आपके डिवाइस के IP पते को दिया जाएगा। अगर आप &lt;a href=\"https://#login\"&gt;लॉग-इन करते&lt;/a&gt; हैं, आपके पास अधिक निजता होगी।</string>
   <string name="edit_anon_warning">संपादनों का श्रेय आपके डिवाइस के IP पते को दिया जाएगा। अगर आप &lt;a href=\"https://#login\"&gt;लॉग-इन करते&lt;/a&gt; हैं, आपके पास अधिक निजता होगी।</string>
   <string name="preference_title_language">विकिपीडिया की भाषाएँ</string>
   <string name="langlinks_filter_hint">खोजें</string>
@@ -256,15 +262,17 @@
   <string name="about_wikipedia_url">https://hi.wikipedia.org/wiki/विकिपीडिया:विकिपीडिया_के_बारे में</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ का प्रयोग किया गया</string>
   <string name="about_contributors_heading">योगदानकर्ता</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;टीम पेज&lt;/a&gt;</string>
   <string name="about_translators_heading">अनुवादक</string>
   <string name="about_translators_translatewiki">इस एप को स्वयंसेवक अनुवादकों के द्वारा &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; पर अनुवादित किया गया है।</string>
   <string name="about_app_license_heading">लाइसेंस</string>
-  <string name="about_app_license">सोर्स कोड उपलब्ध है &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; और &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;अपाचे 2.0 लाइसेंस के अंतर्गत &lt;/a&gt;। अन्यथा जबतक दर्शाया न गया हो सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;क्रिएटिव्स कॉमन्स अट्ट्रिब्यूशन-शेयरअलाइक लाइसेंस के तहत है&lt;/a&gt;।</string>
+  <string name="about_app_license" fuzzy="true">सोर्स कोड उपलब्ध है &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; और &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; पर  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia/blob/master/COPYING\"&gt;अपाचे 2.0 लाइसेंस के अंतर्गत &lt;/a&gt;। अन्यथा जबतक दर्शाया न गया हो सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;क्रिएटिव्स कॉमन्स अट्ट्रिब्यूशन-शेयरअलाइक लाइसेंस के तहत है&lt;/a&gt;।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमीडिया संस्थान&lt;/a&gt; का एक उत्पाद</string>
   <string name="about_activity_title">बारे में</string>
   <string name="edit_abandon_confirm">पृष्ठ को संशोधित किया गया है। क्या आप अपने परिवर्तन को सहेजने के बिना निकास करना चाहते है?</string>
@@ -408,7 +416,7 @@
   <string name="error_message_generic">एक त्रुटि हुई है</string>
   <string name="view_link_preview_error_button_dismiss">रद्द करें</string>
   <string name="error_page_does_not_exist">यह पेज अस्तिव में नहीं है</string>
-  <string name="error_user_page_does_not_exist">विकिपीडिया में इस सटीक नाम वाला &lt;a href=\"%1$s \"&gt;सदस्य पृष्ठ&lt;/a&gt; नहीं है। सामान्य तौर पर, यह पृष्ठ &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; द्वारा बनाया और संपादित किया जाना चाहिए। यदि संदेह है, तो कृपया सत्यापित करें कि \" %3$s \" मौजूद है।</string>
+  <string name="error_user_page_does_not_exist">विकिपीडिया में इस सटीक नाम वाला &lt;a href=\"%1$s\"&gt;सदस्य पृष्ठ&lt;/a&gt; नहीं है। सामान्य तौर पर, यह पृष्ठ &lt;b&gt;%2$s&lt;/b&gt; द्वारा बनाया और संपादित किया जाना चाहिए। यदि संदेह है, तो कृपया सत्यापित करें कि \" %3$s \" मौजूद है।</string>
   <string name="view_wiki_error_message_offline">इंटरनेट से जोड़ा नहीं जा सका</string>
   <string name="view_wiki_error_message_timeout">विकिपीडिया से कनेक्ट नहीं हो सकता। अपना नेटवर्क कनेक्शन जांचें, या बाद में पुन: प्रयास करें</string>
   <string name="reference_title">सन्दर्भ %s</string>
@@ -458,6 +466,10 @@
   <string name="theme_category_editing">संपादन</string>
   <string name="reading_focus_mode">पढ़ने हेतु फोकस मोड</string>
   <string name="reading_focus_mode_detail">स्क्रॉल पर संपादन सुविधाएँ और निचला टूलबार छुपाता है</string>
+  <string name="editing_syntax_highlight_label">सिन्टैक्स हाइलाइट</string>
+  <string name="editing_line_numbers_label">लाइन नंबर दिखाएं</string>
+  <string name="editing_monospace_font_label">मोनोस्पेस फ़ॉन्ट का प्रयोग करें</string>
+  <string name="editing_typing_suggestions">टाइपिंग सुझाव दिखाएँ</string>
   <string name="nav_item_saved">सहेजा गया</string>
   <string name="reading_list_save_to">पढ़ने वाली सूची में जोड़ें</string>
   <string name="reading_list_move_to">पठन सूची में जोड़ें</string>
@@ -470,9 +482,17 @@
   <string name="reading_list_articles_already_exist_message">सब बाढ़िया! %s में पहले से ही सभी लेख हैं।</string>
   <string name="reading_list_added_view_button">सूची देखें</string>
   <string name="reading_list_add_to_list_button">सूची में जोड़ें</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 लेख</item>
+    <item quantity="other"> %d लेख</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 लेख, %2$.2f एमबी</item>
     <item quantity="other"> %1$d लेख, %2$.2f एमबी</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d में से 1 लेख ऑफ़लाइन उपलब्ध है</item>
+    <item quantity="other"> %1$d में से %2$d लेख ऑफ़लाइन उपलब्ध हैं</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d में से 1 लेख ऑफ़लाइन उपलब्ध, %3$.2f एमबी</item>
@@ -487,6 +507,10 @@
   <string name="reading_list_sort_by_created">निर्माण तिथि के अनुसार क्रमित करें (नवीनतम)</string>
   <string name="reading_list_sort_by_created_desc">निर्माण तिथि के अनुसार क्रमित करें (सबसे पुराना)</string>
   <string name="reading_list_menu_delete">सूची को मिटायें</string>
+  <string name="reading_list_menu_export">निर्यात लिस्ट</string>
+  <string name="reading_list_menu_select">चुनें</string>
+  <string name="reading_list_menu_unselect">चुनें से हटाएं</string>
+  <string name="reading_list_export_write_permission_rationale">आपकी पठन सूची को निर्यात करने के लिए आपके डिवाइस पर स्टोरेज में लिखने की अनुमति आवश्यक है।</string>
   <string name="reading_list_menu_rename">नाम या विवरण बदलें</string>
   <string name="reading_list_action_menu_remove_from_offline">ऑफलाइन से हटाएं</string>
   <string name="reading_list_action_menu_save_for_offline">ऑफलाइन के लिए सुरक्षित करें</string>
@@ -507,6 +531,15 @@
     <item quantity="one">%d लेख को %s से हटाया गया</item>
     <item quantity="other">%d लेखों को %s से हटाया गया</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d सूची हटाई गई</item>
+    <item quantity="other"> %d सूचियाँ हटाई गईं</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">डिफ़ॉल्ट सूची ( %s ) को हटाया नहीं जा सकता</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s हटा दिया गया। डिफ़ॉल्ट सूची ( %2$s ) को हटाया नहीं जा सकता।</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">सूचियाँ हटा दी गईं। डिफ़ॉल्ट सूची ( %s ) को हटाया नहीं जा सकता।</string>
+  <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
+  <string name="multiple_lists_json_file_name">विकिपीडिया पठन सूचियाँ ( %s और अधिक).json</string>
   <string name="reading_list_items_deleted">%d लेख सूची से हटाये गए</string>
   <string name="reading_lists_item_deleted">%s को सूचियों से हटाया गया</string>
   <string name="reading_list_item_delete_undo">पूर्ववत करें</string>
@@ -539,6 +572,11 @@
   <string name="reading_list_articles_added_to_named">%2$s में %1$d आलेख जोड़े गए</string>
   <string name="reading_list_articles_moved_to_named">%1$d लेखों को %2$s पर ले जाया गया</string>
   <string name="reading_list_delete_confirm">क्या आप  \"%s\" को हटाने हेतु निश्चित हैं?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">चयनित सूची/सूचियां हटाएं?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">क्या आप वाकई %d सूची हटाना चाहते हैं?</item>
+    <item quantity="other">क्या आप वाकई %d सूचियाँ हटाना चाहते हैं?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">सिंक चालू करने के लिए लॉग इन करें</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">अपनी पठन सूचियों को अपने खाते में सहेजने की अनुमति देने के लिए लॉग इन करें।</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">रद्द करें</string>
@@ -562,6 +600,7 @@
   <string name="reading_list_article_limit_message">इस सूची में नहीं जोड़ा जा सकता। आप \" %1$s \" के लिए प्रति सूची %2$d लेखों की सीमा तक पहुंच गए हैं।</string>
   <string name="reading_lists_limit_message">दूसरी सूची नहीं बनाई जा सकती। आप प्रति खाता 100 पठन सूचियों की सीमा तक पहुँच चुके हैं।</string>
   <string name="reading_lists_menu_create_list">नई सूची बनाएँ</string>
+  <string name="reading_lists_menu_import_list">आयात सूची</string>
   <string name="reading_lists_menu_sort_by">इसके अनुसार क्रमबद्ध करें</string>
   <string name="reading_lists_refresh_sync_option">सिंक को ताज़ा करें</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">लॉग-इन / साइन-अप करें</string>
@@ -582,11 +621,32 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">रद्द करें</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">रद्द करें</string>
   <string name="reading_list_split_dialog_ok_button_text">ठीक है</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">मिटाएं</string>
   <string name="reading_list_activity_title">पठन सूची: %s</string>
+  <string name="reading_list_notification_title">पठन सूची/सूचियाँ निर्यात की गईं</string>
+  <string name="reading_list_notification_text">%d पठन सूची(सूचियों) को आपके डाउनलोड फ़ोल्डर में \'reading_lists export.json\' के रूप में निर्यात किया गया है</string>
+  <string name="reading_list_notification_detailed_text">पठन सूचियाँ \'reading_lists_export.json\' पर निर्यात कर दी गई हैं</string>
+  <string name="reading_lists_action_menu_export_lists">निर्यात</string>
+  <string name="reading_lists_import_file_picker_title">आयात करने के लिए फ़ाइल चुनें</string>
+  <string name="reading_lists_import_failure_message">पठन सूचियाँ आयात असफल</string>
+  <string name="reading_lists_export_select_lists_message">निर्यात करने के लिए सूची(सूचियों) का चयन करें</string>
+  <string name="reading_lists_export_completed_message">पठन सूचियाँ निर्यात की गईं</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">पठन सूची निर्यात विफल</item>
+    <item quantity="other">पठन सूचियां निर्यात विफल</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">पठन सूची आयातित</item>
+    <item quantity="other">पठन सूचियां आयातित</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">साझा सूची</string>
   <string name="reading_lists_preview_save_button">सहेजें</string>
+  <string name="reading_lists_preview_save_dialog_title">लिस्ट सेव करें</string>
+  <string name="reading_lists_preview_save_dialog_text">सेव करने के लिए नाम की लिस्ट और आर्टिकल्स चुनें</string>
   <string name="reading_lists_preview_save_dialog_title_hint">शीर्षक</string>
   <string name="reading_lists_preview_save_dialog_cancel">रद्द करें</string>
   <string name="reading_lists_preview_save_dialog_save">सहेजें</string>
+  <string name="reading_lists_preview_saved_snackbar">पठन सूची सहेजी गई</string>
   <string name="reading_lists_preview_saved_snackbar_action">देखें</string>
   <string name="user_option_sync_label">वरीयता</string>
   <string name="notification_reverted_title">संपादन वापस लिया गया</string>
@@ -793,17 +853,21 @@
   <string name="description_edit_help_wikidata_guide">वर्णन लिखने के लिए विकिडेटा गाइड</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/सहायता:वर्णन#हिंदी_में_वर्णन हेतु_मार्गदर्शन</string>
   <string name="description_edit_anon_limit">लेख विवरण संपादित करने में आपकी निरंतर रुचि के लिए धन्यवाद! अतिरिक्त संपादन करने के लिए, कृपया अपने विकिपीडिया खाते में लॉग इन करें।</string>
-  <string name="description_edit_license_notice">लेख विवरण को बदलकर, मैं &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;उपयोग शर्तों&lt;/a&gt;से सहमत हूँ और &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;क्रिएटिव काॅमन्स&lt;/a&gt; लाइसेंस के तहत अपने योगदान को अपरिवर्तनीय रूप से जारी करता हूँ।</string>
+  <string name="description_edit_license_notice">लेख विवरण को बदलकर, मैं &lt;a href=\"%1$s\"&gt;उपयोग शर्तों&lt;/a&gt;से सहमत हूँ और &lt;a href=\"%2$s\"&gt;क्रिएटिव काॅमन्स CC0&lt;/a&gt; लाइसेंस के अंतर्गत अपने योगदान को अपरिवर्तनीय रूप से जारी करता/करती हूँ।</string>
   <string name="description_edit_helper_text_lowercase_warning">आमतौर पर लोअरकेस अक्षर से शुरू होता है</string>
   <string name="description_edit_voice_input_description">ध्वनि द्वारा लिखें</string>
   <string name="description_edit_learn_more">लेख विवरण के बारे में और जानें</string>
   <string name="description_edit_image_caption_learn_more">चित्र कैप्शन के बारे में और जानें</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">पाठ बहुत छोटा है।</string>
   <string name="description_ends_with_punctuation">पाठ विराम चिह्न के साथ समाप्त नहीं होना चाहिए।</string>
   <string name="description_starts_with_uppercase">लोअरकेस से शुरू करें जब तक कि पहला शब्द एक प्रॉपर नाउन न हो।</string>
   <string name="description_starts_with_lowercase">लोअरकेस अक्षर से शुरू करने से बचें।</string>
   <string name="description_is_in_different_language">पाठ किसी अनपेक्षित भाषा में प्रतीत होता है। भाषा %s होनी चाहिए।</string>
-  <string name="description_verification_notice">कृपया सत्यापित करें कि आपका विवरण %1$s में है। यदि आपके द्वारा लिखा गया विवरण %2$s में है, तो बेझिझक इस अधिसूचना को खारिज कर दें।</string>
+  <string name="description_verification_notice">कृपया सत्यापित करें कि आपका विवरण %1$s में है। यदि आपके द्वारा लिखा गया विवरण %2$s में है तो बेझिझक इस चेतावनी को अनदेखा करें।</string>
+  <string name="description_edit_suggested_description_button_text">सुझाए गए लेख विवरण दिखाएं</string>
+  <string name="description_edit_suggested_description_button_tooltip">मशीन द्वारा सुझाए गए लेख विवरण आज़माएं</string>
   <string name="description_edit_success_saved">लेख विवरण प्रकाशित किया!</string>
   <string name="description_edit_success_saved_snackbar">लेख विवरण प्रकाशित!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">लेख विवरण प्रकाशित! ( %s )</string>
@@ -821,6 +885,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">एक लाइन, दो से बारह शब्दों की उपयुक्त है</string>
   <string name="description_edit_tutorial_button_label_start_editing">संपादन शुरू करें</string>
   <string name="description_edit_tutorial_promise">शुरू करने से, मैं यह वादा करता हूँ कि इस सुविधा का दुरुपयोग नहीं करूँगा(गी)।</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">मशीन जनित सुझाव</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">सुझाव एक मशीन द्वारा उत्पन्न किए गए हैं न कि स्वयंसेवकों या विकिमीडिया फाउंडेशन द्वारा</string>
   <string name="customize_toolbar_title">टूलबार अनुकूलित करें</string>
   <string name="customize_toolbar_shortcut_description_text">नीचे के टूलबार को 5 शॉर्टकट्स के साथ अनुकूलित करें जो आपको सबसे अधिक उपयोगी लगते हैं।</string>
   <string name="customize_toolbar_category_toolbar">टूलबार</string>
@@ -842,6 +908,8 @@
   <string name="suggested_edits_review_image_caption">चित्र कैप्शन की समीक्षा करें</string>
   <string name="suggested_edits_my_contributions">मेरे योगदान</string>
   <string name="suggested_edits_no_description">इस फ़ाइल में विवरण नहीं है</string>
+  <string name="suggested_edits_license_notice">विवरण जोड़कर, मैं &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हूं और &lt;a href=\"%2$s\"&gt;क्रिएटिव काॅमन्स CC0&lt;/a&gt; लाइसेंस के तहत अपने योगदान को अपरिवर्तनीय रूप से जारी करता/करती हूं।</string>
+  <string name="suggested_edits_image_caption_license_notice">चित्र कैप्शन जोड़कर, मैं &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हूं और &lt;a href=\"%2$s\"&gt;क्रिएटिव काॅमन्स CC0&lt;/a&gt; लाइसेंस के तहत अपने योगदान को अपरिवर्तनीय रूप से जारी करता/करती हूं।</string>
   <string name="suggested_edits_menu_info">जानकारी</string>
   <string name="suggested_edits_task_add_description_title">लेख विवरण जोड़ें</string>
   <string name="suggested_edits_task_add_description_description">विवरण के बिना लेखों में योगदान करें</string>
@@ -896,20 +964,29 @@
   <string name="suggested_edits_image_tags_publishing">प्रकाशित हो रहा है</string>
   <string name="suggested_edits_image_tags_published">प्रकाशित</string>
   <string name="suggested_edits_image_tags_onboarding_title">चित्रों को टैग करना उन्हें ढूंढना आसान बनाता है।</string>
+  <string name="suggested_edits_image_tags_onboarding_text">चित्र टैग जोड़कर, आप कॉमन्स, जो एक लाइसेंस मुक्त चित्र भंडार है पर चित्रों को खोजना आसान बनाने में मदद करेंगे, जिसका उपयोग विकिपीडिया अपने लेखों में चित्रों के लिए करता है।</string>
   <string name="suggested_edits_image_tags_onboarding_note">केवल आपके द्वारा चुने गए टैग चित्रों में जोड़े जाएंगे।</string>
   <string name="suggested_edits_image_tags_task_detail">चित्र को ढूंढना आसान बनाने के लिए उसमें कस्टम टैग जोड़ें।</string>
   <string name="suggested_edits_image_tags_choose">मेल खाने वाले टैग जोड़ें या चुनें</string>
   <string name="suggested_edits_image_tags_published_list">प्रकाशित टैग</string>
   <string name="suggested_edits_image_tags_search">टैग खोजें</string>
   <string name="suggested_edits_image_tags_select_title">आपने इस चित्र के लिए कोई टैग नहीं चुना है</string>
+  <string name="suggested_edits_image_tags_select_text">केवल आपके द्वारा चुने गए टैग ही छवियों में जोड़े जाएंगे। जो टैग चयनित नहीं हैं उन्हें अस्वीकृत के रूप में चिह्नित किया जाएगा। क्या आप वाकई सभी टैग को अस्वीकृत के रूप में चिह्नित करना चाहते हैं?</string>
   <string name="suggested_edits_image_tags_add_tag">टैग जोड़ें</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">अप्रकाशित टैग सहेजे नहीं जाएंगे</string>
   <string name="suggested_edits_image_zoom_tooltip">इस चित्र को ज़ूम करने के लिए पिंच करें।</string>
   <string name="suggested_edits_encouragement_message">%s , आपके संपादनों के लिए धन्यवाद। नीचे आप विकिपीडिया में योगदान करने के और तरीके पा सकते हैं।</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;नमस्ते %s&lt;/b&gt; , नीचे आप विकिपीडिया को बेहतर बनाने में मदद के लिए कुछ त्वरित और आसान तरीके पा सकते हैं। जैसे ही आप शुरुआत करेंगे आप देखेंगे कि आप क्या अंतर ला रहे हैं। संपादन हेतु शुभकामनाएं!</string>
   <string name="suggested_edits_image_captions_task_detail">पाठकों को इसका अर्थ और संदर्भ समझने में मदद करने के लिए एक चित्र का वर्णन करें।</string>
   <string name="suggested_edits_add_descriptions_task_detail">एक नज़र में विषय को समझने में पाठकों की मदद करने के लिए एक लेख को सारांशित करें।</string>
   <string name="suggested_edits_contributions_stat_tooltip">अब तक आपके योगदान की कुल संख्या।</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">आपने लगातार कितने दिनों तक योगदान दिया है। यदि आपने कुछ समय से योगदान नहीं किया है, तो यह आपकी अंतिम योगदान तिथि दिखाता है।</string>
   <string name="suggested_edits_page_views_stat_tooltip">उन आइटम्स के कुल पृष्ठदृश्य जिनमें आपने पिछले 30 दिनों में योगदान दिया है।</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">इस आधार पर कि आपका एक योगदान कितनी बार वापस किया गया (दूसरे संपादक द्वारा पूर्ववत)। पूर्ववत संपादन: %d।</string>
+  <string name="suggested_edits_paused_message">सुझाए गए संपादन %1$s तक रोक दिए गए हैं। क्षमा करें %2$s, आपके कुछ हालिया योगदान वापस कर दिए गए हैं।</string>
+  <string name="suggested_edits_disabled_message">सुझाए गए संपादन अक्षम हैं. क्षमा करें %s, आपके हाल के कई योगदान वापस कर दिए गए हैं।</string>
+  <string name="suggested_edits_ip_blocked_message">ऐसा लगता है कि आपका आईपी पता (या आईपी पते की श्रेणी) वर्तमान में विकिपीडिया को संपादित करने से अवरुद्ध है।</string>
+  <string name="suggested_edits_gate_message">क्षमा करें, %s, इस सुविधा का उपयोग करने के लिए आपको किसी लेख में  सीधे कम से कम तीन संपादन करने होंगे।</string>
   <string name="suggested_edits_editing_tips_link_text">संपादन युक्तियाँ और तरकीबें</string>
   <string name="suggested_edits_help_page_link_text">सुझाए गए संपादन सहायता पृष्ठ</string>
   <string name="suggested_edits_edit_streak_label_text">संपादन रेखा</string>
@@ -933,6 +1010,7 @@
     <item quantity="other">%d दिन</item>
   </plurals>
   <string name="suggested_edits_what_is_title">सुझाए गए संपादन क्या हैं?</string>
+  <string name="suggested_edits_what_is_text">सुझाए गए संपादन विकिपीडिया में छोटे लेकिन महत्वपूर्ण योगदान के अवसर प्रस्तुत करते हैं।</string>
   <string name="suggested_edits_learn_more">अधिक जानें</string>
   <string name="suggested_edits_paused_title">रोके गए</string>
   <string name="suggested_edits_disabled_title">अक्षम किया गया</string>
@@ -940,6 +1018,7 @@
   <string name="suggested_edits_last_edited">अंतिम संपादन</string>
   <string name="suggested_edits_last_edited_never">कभी नहीं</string>
   <string name="suggested_edits_task_new">नया</string>
+  <string name="suggested_edits_cc0_notice">प्रकाशित करके, आप &lt;a href=\"&gt;%1$s \"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और &lt;a href=\"%2$s\"&gt;CC0 लाइसेन्स&lt;/a&gt; के तहत इस योगदान को अपरिवर्तनीय रूप से जारी करते/करती हैं।</string>
   <string name="suggested_edits_reactivation_notification_title">सुझाए गए संपादन</string>
   <string name="suggested_edits_reactivation_notification_stage_one">विकिपीडिया के संपादन के लिए धन्यवाद!  जहाँ आपने छोड़ा था, उसी स्थान से फिर शुरू करें?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">क्या विकिपीडिया में सुधार जारी रखने के लिए आपके पास एक मिनट है?  इन संपादन सुझावों को देखें।</string>
@@ -950,18 +1029,54 @@
   <string name="suggested_edits_contribution_image_label">चित्र</string>
   <string name="suggested_edits_contribution_article_label">लेख</string>
   <string name="suggested_edits_contribution_views">%s दृश्य</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">पिछले 30 दिनों में एक बार देखा गया।</item>
+    <item quantity="other">पिछले 30 दिनों में %s बार देखा गया।</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">पिछले 30 दिनों में %s बार देखा गया।</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">आपने %d टैग जोड़ा</item>
+    <item quantity="other">आपने %d टैग जोड़े</item>
+  </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">कल</string>
   <string name="suggested_edits_encourage_account_creation_title">क्या आप जानते हैं कि हर कोई विकिपीडिया संपादित कर सकता है?</string>
+  <string name="suggested_edits_encourage_account_creation_message">सुझाए गए संपादन एंड्रॉइड पर विकिपीडिया को संपादित करने का एक नया तरीका है। यह आपको विकिपीडिया में छोटे लेकिन महत्वपूर्ण योगदान देने में मदद करता है। हमारा लक्ष्य संपादन को सभी के लिए आसान और अधिक सुलभ बनाना है! आरंभ करने के लिए लॉग इन करें या विकिपीडिया से जुड़ें।</string>
   <string name="suggested_edits_encourage_account_creation_login_button">लॉग इन करें / विकिपीडिया से जुड़ें</string>
   <string name="suggested_edits_contribution_type_image_tag">चित्र टैग</string>
   <string name="suggested_edits_contribution_current_revision_text">आपका संपादन वर्तमान में विकिपीडिया पर लाइव है</string>
   <string name="suggested_card_more_edits">अधिक सुझाए गए संपादन</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">सुझाए गए विवरण</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">आप क्या रिपोर्ट करना चाहेंगे?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">ज्यादा जानकारी नहीं है</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">सुझाए गए विवरण देख नहीं सकते</string>
+  <string name="suggested_edits_inappropriate_suggestion">अनुचित सुझाव</string>
+  <string name="suggested_edits_do_not_understand_suggestion">काम समझ में नहीं आया</string>
+  <string name="suggested_edits_report_suggestion">रिपोर्ट</string>
+  <string name="suggested_edits_suggestion_report_submitted">प्रतिवेदन प्रस्तुत किया</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s टैग</item>
     <item quantity="other"> %1$s टैग्स</item>
   </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s अक्षर</item>
+    <item quantity="other"> %1$s अक्षर</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">आपने %d वर्ण हटा दिया</item>
+    <item quantity="other">आपने %d वर्ण हटा दिए</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">आपने %d वर्ण जोड़ा</item>
+    <item quantity="other">आपने %d वर्ण जोड़े</item>
+  </plurals>
+  <string name="image_recommendation_tutorial">अनुशिक्षण</string>
+  <string name="image_recommendation_accept">हाँ</string>
+  <string name="image_recommendation_reject">नहीं</string>
+  <string name="image_recommendation_reject_other">अन्य</string>
+  <string name="image_recommendation_reject_submit">जमा करें</string>
+  <string name="image_recommendation_tooltip_next">अगला</string>
+  <string name="edit_published_view">देखें</string>
   <string name="file_page_activity_title">फ़ाइल पृष्ठ</string>
   <string name="file_page_add_image_caption_button">चित्र कैप्शन जोड़ें</string>
   <string name="file_page_add_image_tags_button">चित्र टैग जोड़ें</string>
@@ -983,7 +1098,9 @@
   <string name="onboarding_explore_title">अन्वेषण के नए तरीके</string>
   <string name="onboarding_explore_text">लगातार अपडेट हो रहे एक्सप्लोर फ़ीड के साथ विकिपीडिया के अंतहीन रास्तों पर जायें।&lt;br/&gt; फ़ीड को अपनी रुचियों के अनुसार &lt;b&gt;अनुकूलित करें&lt;/b&gt; - चाहे वह &lt;b&gt;इस दिन&lt;/b&gt; की ऐतिहासिक घटनाओं के बारे में सीखना हो, या &lt;b&gt;बेतरतीब&lt;/b&gt; पासा घुमाना हो।</string>
   <string name="onboarding_reading_list_sync_title">सिंक के साथ पठन सूचियां</string>
+  <string name="onboarding_reading_list_sync_text_v2">आप उन लेखों की पठन सूची बना सकते हैं जिन्हें आप बाद में पढ़ना चाहते हैं, तब भी जब आप ऑफ़लाइन हों।&lt;br/&gt; अपनी पठन सूचियों को सिंक करने के लिए अपने विकिपीडिया खाते में लॉगिन करें। &lt;a href=\"#login\"&gt;विकिपीडिया से जुड़ें&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">अनाम डेटा भेजें</string>
+  <string name="onboarding_analytics_offline_text">हमें यह बताकर ऐप को बेहतर बनाने में सहायता करें कि आप इसका उपयोग कैसे करते हैं। एकत्र किया गया डेटा गुमनाम है। &lt;a href=\"#privacy\"&gt;और अधिक जानें&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">उपयोग किया गया डेटा भेजें</string>
   <string name="onboarding_got_it">समझ गया</string>
   <string name="onboarding_multilingual_secondary_text">हमने आपके डिवाइस पर निम्नलिखित पाया है:</string>
@@ -1013,6 +1130,11 @@
   <string name="wikipedia_languages_add_language_text">भाषा जोड़ें</string>
   <string name="wikipedia_languages_remove_text">भाषा हटाएँ</string>
   <string name="wikipedia_languages_remove_action_mode_title">भाषा हटाएँ</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">चयनित भाषा हटाएं?</item>
+    <item quantity="other">चयनित भाषाएं हटाएं?</item>
+  </plurals>
+  <string name="wikipedia_languages_remove_dialog_content">आप शेष विकिपीडिया भाषाओं के लिए केवल एक्सप्लोर फ़ीड और त्वरित खोज फ़िल्टर पर सामग्री देखेंगे।</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">सभी भाषाओं को नहीं हटा सकते</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">कम से कम एक विकिपीडिया भाषा रखें जिससे सामग्री को खोजा और पढ़ा जा सके।</string>
   <string name="more_language_options">अधिक</string>
@@ -1034,8 +1156,15 @@
   <string name="wikitext_bold">बोल्ड</string>
   <string name="wikitext_italic">इटैलिक</string>
   <string name="wikitext_underline">रेखांकन</string>
+  <string name="wikitext_strikethrough">काटें</string>
+  <string name="wikitext_sup">सुपरस्क्रिप्ट</string>
+  <string name="wikitext_sub">सबस्क्रिप्ट</string>
+  <string name="wikitext_large">बड़ा टेक्स्ट</string>
+  <string name="wikitext_small">छोटा टेक्स्ट</string>
   <string name="wikitext_code">कोड</string>
   <string name="wikitext_link">कड़ी</string>
+  <string name="wikitext_heading_n">उपशीर्षक %d</string>
+  <string name="wikitext_formatting">फॉर्मैटिंग</string>
   <string name="wikitext_headings">शीर्षक</string>
   <string name="wikitext_insert_media">मीडिया जोड़ें</string>
   <string name="wikitext_bulleted_list">बिंदु सूची</string>
@@ -1046,12 +1175,12 @@
   <string name="insert_media_title">मीडिया जोड़ें</string>
   <string name="insert_media_search_description">विकिमीडिया कॉमन्स से एक चित्र चुनें</string>
   <string name="insert_media_search_hint">मीडिया खोजें</string>
-  <string name="insert_media_settings">मीडिया सेटिंग्स</string>
+  <string name="insert_media_settings" fuzzy="true">मीडिया सेटिंग्स</string>
   <string name="insert_media_settings_uploaded_image">चित्र अपलोड किया गया</string>
-  <string name="insert_media_settings_caption">कैप्शन</string>
-  <string name="insert_media_settings_caption_description">लेबल जो सभी सदस्य को आयटम के पास दिखता है</string>
+  <string name="insert_media_settings_caption" fuzzy="true">कैप्शन</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">लेबल जो सभी सदस्य को आयटम के पास दिखता है</string>
   <string name="insert_media_settings_alternative_text">वैकल्पिक टेक्स्ट</string>
-  <string name="insert_media_settings_alternative_text_description">उन पाठकों के लिए टेक्स्ट विवरण जो चित्र नहीं देख सकते</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">उन पाठकों के लिए टेक्स्ट विवरण जो चित्र नहीं देख सकते</string>
   <string name="insert_media_advanced_settings">उन्नत विकल्प</string>
   <string name="insert_media_advanced_settings_wrap_image">चित्र के आस-पास टेक्स्ट को रैप करें</string>
   <string name="insert_media_advanced_settings_image_position">चित्र का स्थान</string>
@@ -1064,6 +1193,7 @@
   <string name="insert_media_advanced_settings_image_type_frameless">फ़्रेमहीन</string>
   <string name="insert_media_advanced_settings_image_type_frame">फ़्रेम</string>
   <string name="insert_media_advanced_settings_image_type_basic">बुनियादी</string>
+  <string name="insert_media_advanced_settings_image_type_tip">आप यह सेट कर सकते हैं कि मीडिया आइटम पृष्ठ पर कैसे दिखाई दे। लगभग सभी मामलों में अन्य पृष्ठों के अनुरूप होने के लिए यह थंबनेल प्रारूप होना चाहिए।</string>
   <string name="insert_media_advanced_settings_image_size">चित्र का आकार</string>
   <string name="insert_media_advanced_settings_image_size_default">डिफ़ॉल्ट</string>
   <string name="insert_media_advanced_settings_image_size_custom">अनुकूलित</string>
@@ -1087,6 +1217,8 @@
   <string name="talk_new_topic">नया विषय</string>
   <string name="talk_new_topic_submitted">विषय पोस्ट किया गया।</string>
   <string name="talk_page_empty">यह वार्ता पृष्ठ खाली है।</string>
+  <string name="talk_page_empty_title">बातचीत यहीं से शुरू होती है</string>
+  <string name="talk_page_empty_content">वार्ता पृष्ठ वे होते हैं जहां लोग चर्चा करते हैं कि विकिपीडिया सामग्री को सर्वोत्तम कैसे बनाया जाए। विकिपीडिया के समुदाय से जुड़ने और सहयोग करने के लिए एक नया चर्चा विषय जोड़कर शुरुआत करें।</string>
   <string name="talk_add_reply">जवाब दें</string>
   <string name="talk_no_subject">(कोई विषय नहीं)</string>
   <string name="talk_reply_subject">विषय</string>
@@ -1101,6 +1233,7 @@
   <string name="talk_snackbar_survey_action_text">शुरूआत करें</string>
   <string name="talk_share_discussion_subject">विकिपीडिया - वार्ता पृष्ठ विषय \"%s\" पर चर्चा</string>
   <string name="talk_share_talk_page">विकिपीडिया - वार्ता पृष्ठ पर चर्चा</string>
+  <string name="talk_edit_disclaimer">यह एक वार्ता पृष्ठ है। कृपया वार्ता पृष्ठ दिशानिर्देशों का सम्मान करें, और विकीटेक्स्ट का उपयोग करके पोस्ट करते समय चार टिल्ड टाइप करके अपनी पोस्ट पर हस्ताक्षर करना याद रखें: ~~~~।&lt;br&gt;&lt;br&gt; &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;विकिपीडिया: वार्ता पृष्ठ दिशानिर्देश&lt;/a&gt;</string>
   <string name="talk_search_hint">संदेश खोजें</string>
   <string name="talk_search_topics_hint">विषय खोजें</string>
   <string name="talk_search_find_in_talk_topics_hint">वार्ता पृष्ठ विषय में खोजें</string>
@@ -1108,6 +1241,16 @@
   <string name="talk_overflow_sort_date_published">प्रकाशित होने की तिथि</string>
   <string name="talk_overflow_sort_date_updated">अद्यतन दिनांक</string>
   <string name="talk_overflow_sort_topic_name">विषय का नाम</string>
+  <string name="talk_new_topic_exit_dialog_title">क्या आप निश्चित हैं कि आप बाहर निकलने की इच्छा है?</string>
+  <string name="talk_new_topic_exit_dialog_message">विषय और सामग्री पाठ सहेजा नहीं जाएगा।</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">उत्तर दिखाएँ</item>
+    <item quantity="other">उत्तर दिखाएँ ( %d )</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">उत्तर छिपाएं</item>
+    <item quantity="other">उत्तर छिपाएं ( %d )</item>
+  </plurals>
   <string name="talk_thread_subscribed_to">\" %s \" की सदस्यता ली</string>
   <string name="talk_thread_unsubscribed_from">\" %s \" से सदस्यता समाप्त</string>
   <string name="talk_list_item_overflow_subscribe">सदस्यता लें</string>
@@ -1120,6 +1263,8 @@
   <string name="talk_list_item_user_icon_content_description">उपयोगकर्ता आइकन</string>
   <string name="talk_list_item_swipe_mark_as_read">पठित</string>
   <string name="talk_list_item_swipe_mark_as_unread">अपठित</string>
+  <string name="talk_login_to_subscribe_dialog_title">विषयों की सदस्यता लेने के लिए लॉग इन करें</string>
+  <string name="talk_login_to_subscribe_dialog_content">विषय सदस्यता आपको इस विषय में नई टिप्पणियों के बारे में सूचनाएं प्राप्त करने की अनुमति देगी। किसी विषय की सदस्यता लेने के लिए कृपया एक खाता बनाएं या अपने विकिपीडिया खाते में लॉग इन करें।</string>
   <string name="talk_archived_title">वार्ता पुरालेख: %s</string>
   <string name="menu_option_share_talk_discussion">चर्चा साझा करें</string>
   <string name="menu_option_share_talk_page">वार्ता पृष्ठ साझा करें</string>
@@ -1128,6 +1273,7 @@
   <string name="menu_option_edit_source">स्रोत सम्पादित करें</string>
   <string name="menu_option_user_page">%s उपयोक्ता पृष्ठ</string>
   <string name="menu_option_find_in_talk_page_topic">वार्ता पृष्ठ विषय में खोजें</string>
+  <string name="menu_option_copy_link_to_clipboard">लिंक को क्लिपबोर्ड पर कॉपी करें</string>
   <string name="talk_menu_copy_text">पाठ कॉपी करें</string>
   <string name="talk_menu_expand_threads">धागे का विस्तार करें</string>
   <string name="talk_menu_collapse_threads">धागे को संक्षिप्त करें</string>
@@ -1151,6 +1297,7 @@
   <string name="revision_diff_to">प्राप्तकर्ता:</string>
   <string name="revision_diff_line_num">लाइन %d</string>
   <string name="revision_diff_line_nums">लाइन्स %d–%d</string>
+  <string name="revision_diff_lines_from_to">पंक्तियाँ %1$d–%2$d</string>
   <string name="revision_diff_line_added">लाइन जोड़ी गई</string>
   <string name="revision_diff_line_removed">लाइन हटाई गई</string>
   <string name="revision_diff_paragraph_added">अनुच्छेद जोड़ा गया</string>
@@ -1163,12 +1310,14 @@
   <string name="revision_rollback_success">संपादन पूर्ववत किए गए।</string>
   <string name="revision_compare_button">तुलना करें</string>
   <string name="revision_compare_two_only">केवल दो संशोधनों का चयन किया जा सकता है।</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar">%1$s और इसका वार्ता पृष्ठ आपकी ध्यानसूची %2$s में जोड़ दिया गया है।</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">बदलें</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">स्थायी रूप से</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">एक सप्ताह के लिए</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 माह हेतु</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 माह हेतु</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 माह हेतु</string>
+  <string name="watchlist_page_removed_from_watchlist_snackbar">%s और उसका वार्ता पृष्ठ आपकी ध्यानसूचीसे हटा दिया गया है।</string>
   <string name="watchlist_expiry_dialog_title">ध्यानसूची समयावधि चुनें</string>
   <string name="watchlist_expiry_dialog_permanent">स्थाई</string>
   <string name="watchlist_expiry_dialog_one_week">1 सप्ताह</string>
@@ -1176,6 +1325,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 महीने</string>
   <string name="watchlist_expiry_dialog_six_months">6 महीने</string>
   <string name="watchlist_empty">आपकी ध्यानसूची में कोई लेख नहीं हैं।</string>
+  <string name="watchlist_search">ध्यानसूची खोजें</string>
   <string name="watchlist_filter_all">सभी</string>
   <string name="watchlist_filter_talk">वार्ता</string>
   <string name="watchlist_filter_pages">पृष्ठ</string>
@@ -1183,6 +1333,55 @@
   <string name="watchlist_page_moved">स्थानांतरित किया गया</string>
   <string name="watchlist_page_protected">सुरक्षित किया गया</string>
   <string name="watchlist_page_deleted">हटाया</string>
+  <string name="watchlist_filter_title">ध्यानसूची फ़िल्टर</string>
+  <string name="watchlist_filter_wiki_filter_header">विकि</string>
+  <string name="watchlist_filter_all_text">सभी</string>
+  <string name="watchlist_filter_watchlist_activity_header">ध्यानसूची गतिविधि</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">अनदेखे परिवर्तन</string>
+  <string name="watchlist_filter_watchlist_activity_seen">देखे गए परिवर्तन</string>
+  <string name="watchlist_filter_contribution_quality_header">योगदान गुणवत्ता पूर्वानुमान</string>
+  <string name="watchlist_filter_contribution_quality_good">बहुत संभव है कि अच्छा हो</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">परेशानी हो सकती है</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">समस्याएँ होने की संभावना है</string>
+  <string name="watchlist_filter_contribution_quality_bad">बहुत संभव है कि समस्याएँ हों</string>
+  <string name="watchlist_filter_user_intent_header">उपयोगकर्ता के इरादे की भविष्यवाणी</string>
+  <string name="watchlist_filter_user_intent_good">बहुत संभव है कि अच्छी नियत हो</string>
+  <string name="watchlist_filter_user_intent_may_problems">शायद बुरी नियत हो</string>
+  <string name="watchlist_filter_user_intent_likely_problems">संभवतः बुरी नियत</string>
+  <string name="watchlist_filter_user_intent_bad">बहुत संभव है कि बुरी नियत हो</string>
+  <string name="watchlist_filter_user_status_header">उपयोगकर्ता पंजीकरण और अनुभव</string>
+  <string name="watchlist_filter_user_status_unregistered">अपंजीकृत</string>
+  <string name="watchlist_filter_user_status_registered">पंजीकृत</string>
+  <string name="watchlist_filter_user_status_newcomers">नवागंतुक</string>
+  <string name="watchlist_filter_user_status_learners">शिक्षार्थी</string>
+  <string name="watchlist_filter_user_status_experienced">अनुभवी सदस्य</string>
+  <string name="watchlist_filter_contribution_authorship_header">योगदान लेखकत्व</string>
+  <string name="watchlist_filter_contribution_authorship_own">आपके द्वारा परिवर्तन</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">दूसरों के द्वारा परिवर्तन</string>
+  <string name="watchlist_filter_automated_contributions_header">स्वचालित योगदान</string>
+  <string name="watchlist_filter_automated_contributions_bot">बॉट</string>
+  <string name="watchlist_filter_automated_contributions_human">मानव (बॉट नहीं)</string>
+  <string name="watchlist_filter_significance_header">महत्व</string>
+  <string name="watchlist_filter_significance_minor">छोटे संपादन</string>
+  <string name="watchlist_filter_significance_edits">गैर-छोटे संपादन</string>
+  <string name="watchlist_filter_latest_revisions_header">नवीनतम अवतरण</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">नवीनतम अवतरण</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">नवीनतम अवतरण नहीं</string>
+  <string name="watchlist_filter_type_of_change_header">परिवर्तन का प्रकार</string>
+  <string name="watchlist_filter_type_of_change_page_edits">पृष्ठ संपादन</string>
+  <string name="watchlist_filter_type_of_change_page_creations">पृष्ठ निर्माण</string>
+  <string name="watchlist_filter_type_of_change_category_changes">श्रेणी परिवर्तन</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">विकिडेटा संपादन</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">लॉग की गई क्रियाएं</string>
+  <string name="watchlist_filter_type_of_change_new_users">नए सदस्य</string>
+  <string name="watchlist_filter_reset_button">रीसेट करें</string>
+  <string name="watchlist_search_bar_hint">ध्यानसूची खोजें या फ़िल्टर करें</string>
+  <string name="watchlist_search_bar_filter_hint">ध्यानसूची फ़िल्टर</string>
+  <string name="watchlist_empty_search_message">कोई परिणाम नहीं, अधिक देखने के लिए %s हटाने का प्रयास करें।</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d फ़िल्टर</item>
+    <item quantity="other"> %d फ़िल्टर्स</item>
+  </plurals>
   <string name="preview_edit_title">संपादन पूर्वावलोकन</string>
   <string name="preview_edit_summarize_edit_title">संपादन सारांश</string>
   <string name="preview_edit_summarize_edit_hint">आपने .इस पृष्ठ में सुधार कैसे किया?</string>
@@ -1201,14 +1400,25 @@
   <string name="archive_empty">कोई पुरालेखित पृष्ठ नहीं मिला।</string>
   <string name="user_contrib_filter_ns">नामस्थान के अनुसार छानें</string>
   <string name="user_contrib_filter_all">सभी नामस्थान</string>
+  <string name="user_contrib_filter_ns_header">नेमस्पेस फ़िल्टर</string>
   <string name="namespace_article">लेख</string>
   <string name="user_contrib_current">वर्तमान</string>
   <string name="media_playback_error">मीडिया चलाने में त्रुटि।</string>
   <string name="user_contrib_menu_label">योगदान</string>
+  <string name="user_contrib_filter_activity_title">योगदान फ़िल्टर करें</string>
+  <string name="shareable_reading_lists_import_dialog_title">साझा पठन सूची आयात करें</string>
+  <string name="shareable_reading_lists_import_dialog_content">आपके साथ साझा की गई सूची को आप क्या नाम देना चाहेंगे?</string>
+  <string name="shareable_reading_lists_new_indicator">*नया*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">आपके साथ एक पठन सूची साझा की गई है</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">हमने देखा कि आपके साथ एक पठन सूची साझा की गई है। ऐप में इस सूची को देखने के लिए, मूल संदेश पर वापस जाएं और लिंक पर दोबारा टैप करें।</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">समझ गया</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">पठन सूची आयात की गई</string>
   <string name="reading_list_share_menu_label">साझा करें…</string>
   <string name="reading_list_share_menu_tooltip">यह रीडिंग लिस्ट अन्य लोगों के साथ साझा करें</string>
-  <string name="reading_list_share_title_tooltip">आप इस लिस्ट में जो भी बदलाव करते हैं, उन्हें दूसरे लोग नहीं देख सकते हैं।</string>
   <string name="reading_list_share_message_v2">हैलो! मैं अपना Wikipedia रीडिंग लिस्ट आपके साथ साझा करना चाहता/चाहती हूं :</string>
   <string name="reading_list_share_survey_title">क्या आप \"रीडिंग लिस्ट साझा करें\" में सुधार लाने में हमारी सहायता करेंगे?</string>
   <string name="reading_list_share_survey_body">\"रीडिंग लिस्ट साझा करें\" इस टेस्ट फीचर है और उसे सुधरने या हटाने में आपकी फीडबैक की जरूरत है।</string>
+  <string name="data_opt_in_accept">स्वीकार करें</string>
+  <string name="data_opt_in_reject">अस्वीकार करें</string>
+  <string name="generic_release_notes">मामूली बग फिक्स और सुधार</string>
 </resources>

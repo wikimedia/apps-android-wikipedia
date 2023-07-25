@@ -11,9 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@drawable/tab_layout_background_bottom_line"
-        app:tabTextAppearance="@style/NotificationTabTextAppearance"
-        app:tabTextColor="?attr/chart_shade4"
-        app:tabSelectedTextColor="?attr/colorAccent">
+        app:tabTextAppearance="@style/H3.Button"
+        app:tabTextColor="?attr/placeholder_color"
+        app:tabIndicatorFullWidth="true"
+        app:tabSelectedTextColor="?attr/progressive_color"
+        app:tabIndicatorColor="?attr/progressive_color"
+        app:tabRippleColor="?attr/progressive_color">
+
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

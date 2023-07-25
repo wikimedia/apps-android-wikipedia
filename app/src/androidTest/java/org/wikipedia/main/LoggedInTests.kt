@@ -12,6 +12,7 @@ import org.hamcrest.Matchers.allOf
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 
@@ -52,10 +53,10 @@ class LoggedInTests {
 
         // Type in an incorrect username and password
         onView(allOf(TestUtil.withGrandparent(withId(R.id.login_username_text)), withClassName(`is`("org.wikipedia.views.PlainPasteEditText"))))
-                .perform(replaceText("Foo"), closeSoftKeyboard())
+                .perform(replaceText(BuildConfig.TEST_LOGIN_USERNAME), closeSoftKeyboard())
 
         onView(allOf(TestUtil.withGrandparent(withId(R.id.login_password_input)), withClassName(`is`("org.wikipedia.views.PlainPasteEditText"))))
-                .perform(replaceText("Bar"), closeSoftKeyboard())
+                .perform(replaceText(BuildConfig.TEST_LOGIN_PASSWORD), closeSoftKeyboard())
 
         // Click the login button
         onView(withId(R.id.login_button))
@@ -64,7 +65,7 @@ class LoggedInTests {
         TestUtil.delay(5)
 
         // Verify that a snackbar appears (because the login failed.)
-        onView(withId(R.id.snackbar_text))
+        onView(withId(com.google.android.material.R.id.snackbar_text))
                 .check(matches(isDisplayed()))
     }
 }

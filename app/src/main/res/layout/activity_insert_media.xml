@@ -13,9 +13,9 @@
         android:background="?attr/paper_color"
         app:elevation="0dp">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
-            style="@style/ToolbarStyleSmall"
+            style="@style/ToolbarStyle.Small"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways" />
@@ -24,7 +24,7 @@
             android:id="@+id/imageInfoContainer"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:background="?attr/color_group_22"
+            android:background="?attr/background_color"
             app:layout_scrollFlags="scroll|enterAlways">
 
             <LinearLayout
@@ -38,7 +38,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="80dp"
-                    android:src="?attr/image_tags_onboarding_image"
+                    android:src="?attr/image_tags_onboarding_drawables"
                     android:layout_marginTop="16dp"
                     android:contentDescription="@string/insert_media_search_description" />
 
@@ -107,7 +107,7 @@
                 android:contentDescription="@string/insert_media_search_hint"
                 android:scaleType="center"
                 app:srcCompat="@drawable/ic_search_white_24dp"
-                app:tint="?attr/material_theme_de_emphasised_color" />
+                app:tint="?attr/placeholder_color" />
 
             <TextView
                 android:id="@+id/searchInputField"
@@ -117,19 +117,17 @@
                 android:layout_marginStart="48dp"
                 android:layout_marginEnd="48dp"
                 android:text="@string/insert_media_search_hint"
-                android:textColor="?attr/material_theme_secondary_color"/>
+                android:textColor="?attr/secondary_color"/>
 
         </org.wikipedia.views.WikiCardView>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_marginTop="-7dp"
         android:indeterminate="true" />
 
     <FrameLayout

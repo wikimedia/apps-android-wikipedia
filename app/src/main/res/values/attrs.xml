@@ -1,64 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="toolbar_icon_color" format="reference"/>
-    <attr name="themed_icon_color" format="reference"/>
-    <attr name="list_separator_drawable" format="reference"/>
-    <attr name="list_separator_drawable_bottom_content" format="reference"/>
-    <attr name="list_separator_drawable_light" format="reference"/>
-    <attr name="nav_tab_background_color" format="reference" />
-    <attr name="nav_tab_item_color_state" format="reference" />
-    <attr name="button_highlight_border_shape" format="reference" />
-    <attr name="randomizer_dice_icon_color" format="reference" />
-    <attr name="image_tags_onboarding_image" format="reference"/>
+
+    <attr name="paper_color" format="color" />
+    <attr name="background_color" format="color" />
+    <attr name="border_color" format="color" />
+    <attr name="inactive_color" format="color" />
+    <attr name="placeholder_color" format="color" />
+    <attr name="secondary_color" format="color" />
+    <attr name="primary_color" format="color" />
+    <attr name="progressive_color" format="color" />
+    <attr name="success_color" format="color" />
+    <attr name="destructive_color" format="color" />
+    <attr name="warning_color" format="color" />
+    <attr name="highlight_color" format="color" />
+    <attr name="focus_color" format="color" />
+    <attr name="addition_color" format="color" />
+    <attr name="overlay_color" format="color" />
+    <attr name="list_divider" format="reference"/>
+    <attr name="shadow_border" format="reference"/>
+
+    <!-- Color states -->
+    <attr name="input_stroke_color_state" format="reference" />
+
+    <!-- Drawables -->
+    <attr name="image_tags_onboarding_drawables" format="reference"/>
     <attr name="sync_reading_list_prompt_drawable" format="reference"/>
     <attr name="talk_page_empty_state_drawable" format="reference" />
-
-    <attr name="multi_select_background_color" format="reference" />
-    <attr name="searchItemBackground" format="reference" />
-
-    <attr name="material_theme_primary_color" format="color" />
-    <attr name="material_theme_secondary_color" format="color" />
-    <attr name="material_theme_de_emphasised_color" format="color" />
-    <attr name="material_theme_border_color" format="color" />
-    <attr name="primary_text_color" format="color" />
-    <attr name="secondary_text_color" format="color" />
-    <attr name="section_title_color" format="color" />
-    <attr name="paper_color" format="color" />
-    <attr name="chart_shade1" format="color" />
-    <attr name="chart_shade4" format="color" />
-    <attr name="chart_shade5" format="color" />
-    <attr name="chart_shade7" format="color" />
-    <attr name="green_highlight_color" format="color" />
-    <attr name="thumb_off_color" format="color" />
-    <attr name="track_off_color" format="color" />
-    <attr name="toc_h1_h2_color" format="color" />
-    <attr name="toc_scroller_button_color" format="color" />
-    <attr name="button_background_color" format="color" />
-    <attr name="tab_placeholder_text_color" format="color" />
-    <attr name="chip_background_color" format="color"/>
-    <attr name="color_group_9" format="color"/>
-    <attr name="color_group_22" format="reference"/>
-    <attr name="color_group_43" format="color"/>
-    <attr name="color_group_44" format="color"/>
-    <attr name="color_group_52" format="color"/>
-    <attr name="color_group_53" format="color"/>
-    <attr name="color_group_54" format="color"/>
-    <attr name="color_group_55" format="color"/>
-    <attr name="color_group_56" format="color"/>
-    <attr name="color_group_57" format="color"/>
-    <attr name="color_group_58" format="color"/>
-    <attr name="color_group_59" format="color"/>
-    <attr name="color_group_60" format="color"/>
-    <attr name="color_group_61" format="color"/>
-    <attr name="color_group_63" format="color"/>
-    <attr name="color_group_64" format="color"/>
-    <attr name="color_group_65" format="color"/>
-    <attr name="color_group_66" format="color"/>
-    <attr name="color_group_67" format="color"/>
-    <attr name="color_group_68" format="color"/>
-    <attr name="color_group_69" format="color"/>
-    <attr name="color_group_70" format="color" />
-    <attr name="action_mode_green_background" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />

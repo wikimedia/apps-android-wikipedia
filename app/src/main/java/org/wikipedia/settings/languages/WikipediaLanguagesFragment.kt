@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.core.os.bundleOf
@@ -15,6 +14,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -322,7 +322,7 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
 
     fun showRemoveLanguagesDialog() {
         if (selectedCodes.size > 0) {
-            AlertDialog.Builder(requireActivity()).let {
+            MaterialAlertDialogBuilder(requireActivity()).let {
                 if (selectedCodes.size < wikipediaLanguages.size) {
                     it
                     .setTitle(resources.getQuantityString(R.plurals.wikipedia_languages_remove_dialog_title, selectedCodes.size))

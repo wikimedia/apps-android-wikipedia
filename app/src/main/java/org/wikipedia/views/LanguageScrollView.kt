@@ -16,6 +16,7 @@ import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewLanguageScrollBinding
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.ResourceUtil
 
@@ -55,7 +56,7 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
         val view = tab.customView
         if (selected) {
             view?.let {
-                @ColorInt val color = ResourceUtil.getThemedColor(context, R.attr.colorAccent)
+                @ColorInt val color = ResourceUtil.getThemedColor(context, R.attr.progressive_color)
                 @ColorInt val paperColor = ResourceUtil.getThemedColor(context, R.attr.paper_color)
                 val drawable = AppCompatResources.getDrawable(context, R.drawable.lang_button_shape)
                 updateTabLanguageCode(it, null, paperColor, drawable, color)
@@ -64,7 +65,7 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
             callback?.onLanguageTabSelected(languageCodes[tab.position])
         } else {
             view?.let {
-                @ColorInt val color = ResourceUtil.getThemedColor(context, R.attr.color_group_63)
+                @ColorInt val color = ResourceUtil.getThemedColor(context, R.attr.secondary_color)
                 updateTabLanguageLabel(it, null, color)
                 updateTabLanguageCode(it, null, color, AppCompatResources.getDrawable(context, R.drawable.lang_button_shape_border), color)
             }
@@ -113,7 +114,7 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
     private fun updateTabLanguageCode(customView: View, languageCode: String?, @ColorInt textColor: Int?, background: Drawable?, @ColorInt backgroundColorTint: Int?) {
         val languageCodeTextView = customView.findViewById<TextView>(R.id.language_code)
         if (languageCode != null) {
-            languageCodeTextView.text = languageCode
+            languageCodeTextView.text = LanguageUtil.formatLangCodeForButton(languageCode)
             ViewUtil.formatLangButton(languageCodeTextView, languageCode, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         }
         textColor?.let { languageCodeTextView.setTextColor(it) }

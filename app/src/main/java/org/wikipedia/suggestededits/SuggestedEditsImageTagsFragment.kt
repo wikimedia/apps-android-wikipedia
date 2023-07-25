@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.core.view.children
 import androidx.core.widget.ImageViewCompat
 import com.google.android.material.chip.Chip
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -38,7 +39,7 @@ import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
-import java.util.*
+import java.util.UUID
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
 
@@ -77,7 +78,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         binding.publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
         binding.publishOverlayContainer.visibility = GONE
 
-        val colorStateList = ColorStateList.valueOf(if (WikipediaApp.instance.currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+        val colorStateList = ColorStateList.valueOf(if (WikipediaApp.instance.currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color))
         binding.publishProgressBar.progressTintList = colorStateList
         binding.publishProgressBarComplete.progressTintList = colorStateList
         ImageViewCompat.setImageTintList(binding.publishProgressCheck, colorStateList)
@@ -197,11 +198,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             if (publishSuccess) {
                 chip.isEnabled = false
                 if (chip.isChecked) {
-                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57))
-                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_58))
+                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.addition_color))
+                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.success_color))
                 } else {
-                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
+                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
                 }
             }
         }
@@ -214,17 +215,17 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         val chip = Chip(requireContext())
         chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
         chip.textAlignment = TEXT_ALIGNMENT_CENTER
-        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
         chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
-        chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-        chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
+        chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
+        chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color))
         chip.typeface = typeface
         chip.isCheckable = true
         chip.setChipIconResource(R.drawable.ic_chip_add_24px)
         chip.iconEndPadding = 0f
         chip.textStartPadding = DimenUtil.dpToPx(2f)
         chip.chipIconSize = DimenUtil.dpToPx(24f)
-        chip.chipIconTint = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.material_theme_de_emphasised_color)
+        chip.chipIconTint = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.placeholder_color)
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnCheckedChangeListener(this)
         chip.setOnClickListener(this)
@@ -245,10 +246,18 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         return chip
     }
 
-    companion object {
-        fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsImageTagsFragment()
+    override fun onBackPressed(): Boolean {
+        if (!atLeastOneTagChecked()) {
+            return true
         }
+        MaterialAlertDialogBuilder(requireActivity())
+            .setCancelable(false)
+            .setTitle(R.string.talk_new_topic_exit_dialog_title)
+            .setMessage(R.string.suggested_edits_image_tags_exit_dialog_message)
+            .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ -> requireActivity().finish() }
+            .setNegativeButton(R.string.edit_abandon_confirm_no, null)
+            .show()
+        return false
     }
 
     override fun onClick(v: View?) {
@@ -264,12 +273,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     override fun onCheckedChanged(button: CompoundButton?, isChecked: Boolean) {
         val chip = button as Chip
         if (chip.isChecked) {
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_55))
-            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_56))
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.background_color))
+            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
             chip.isChipIconVisible = false
         } else {
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
+            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
             chip.isChipIconVisible = true
         }
         if (chip.tag != null) {
@@ -462,5 +471,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun callback(): Callback {
         return FragmentUtil.getCallback(this, Callback::class.java)!!
+    }
+
+    companion object {
+        fun newInstance(): SuggestedEditsItemFragment {
+            return SuggestedEditsImageTagsFragment()
+        }
     }
 }

@@ -37,32 +37,26 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <ImageView
         android:id="@+id/find_in_page_prev"
-        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:padding="12dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_previous"
-        app:srcCompat="@drawable/ic_expand_less_themed_24dp" />
+        app:srcCompat="@drawable/ic_expand_less_white_24dp"
+        app:tint="?attr/placeholder_color"/>
 
     <ImageView
         android:id="@+id/find_in_page_next"
-        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:padding="12dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_next"
-        app:srcCompat="@drawable/ic_expand_more_themed_24dp" />
+        app:srcCompat="@drawable/ic_expand_more_white_24dp"
+        app:tint="?attr/placeholder_color" />
 
-    <ImageView
-        android:id="@+id/close_button"
-        style="@style/Widget.AppCompat.ImageButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/dialog_close_description"
-        app:srcCompat="@drawable/ic_close_themed_24dp" />
 </LinearLayout>

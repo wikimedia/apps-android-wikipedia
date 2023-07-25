@@ -15,9 +15,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -26,6 +24,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -267,7 +266,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
                 return@postDelayed
             }
             searchResultsFragment.startSearch(term, force)
-        }, if (invokeSource == InvokeSource.VOICE) VOICE_SEARCH_DELAY_MILLIS else 0)
+        }, if (invokeSource == InvokeSource.VOICE || invokeSource == InvokeSource.INTENT_SHARE || invokeSource == InvokeSource.INTENT_PROCESS_TEXT) INTENT_DELAY_MILLIS else 0)
     }
 
     private fun openSearch() {
@@ -313,7 +312,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setOnQueryTextListener(searchQueryListener)
         binding.searchCabView.setOnCloseListener(searchCloseListener)
         binding.searchCabView.setSearchHintTextColor(ResourceUtil.getThemedColor(requireContext(),
-                R.attr.color_group_63))
+                R.attr.secondary_color))
 
         // remove focus line from search plate
         val searchEditPlate = binding.searchCabView
@@ -322,7 +321,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun initLangButton() {
-        binding.searchLangButton.text = app.languageState.appLanguageCode.uppercase(Locale.ENGLISH)
+        binding.searchLangButton.text = LanguageUtil.formatLangCodeForButton(app.languageState.appLanguageCode.uppercase(Locale.ENGLISH))
         ViewUtil.formatLangButton(binding.searchLangButton, app.languageState.appLanguageCode.uppercase(Locale.ENGLISH),
                 LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
         FeedbackUtil.setButtonLongPressToast(binding.searchLangButtonContainer)
@@ -331,9 +330,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     private fun addRecentSearch(title: String?) {
         if (!title.isNullOrBlank()) {
             lifecycleScope.launch(CoroutineExceptionHandler { _, throwable -> throwable.printStackTrace() }) {
-                withContext(Dispatchers.IO) {
-                    AppDatabase.instance.recentSearchDao().insertRecentSearch(RecentSearch(text = title))
-                }
+                AppDatabase.instance.recentSearchDao().insertRecentSearch(RecentSearch(text = title))
                 recentSearchesFragment.updateList()
             }
         }
@@ -363,7 +360,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         private const val ARG_QUERY = "lastQuery"
         private const val PANEL_RECENT_SEARCHES = 0
         private const val PANEL_SEARCH_RESULTS = 1
-        private const val VOICE_SEARCH_DELAY_MILLIS = 500L
+        private const val INTENT_DELAY_MILLIS = 500L
         const val RESULT_LANG_CHANGED = 1
         const val LANG_BUTTON_TEXT_SIZE_LARGER = 12
         const val LANG_BUTTON_TEXT_SIZE_MEDIUM = 10

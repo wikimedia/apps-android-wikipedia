@@ -20,10 +20,8 @@ import org.wikipedia.readinglist.sync.SyncedReadingLists.RemoteReadingListEntry
 import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import java.text.ParseException
 
 class ReadingListSyncAdapter : JobIntentService() {
 
@@ -45,7 +43,7 @@ class ReadingListSyncAdapter : JobIntentService() {
         val wiki = WikipediaApp.instance.wikiSite
         val client = ReadingListClient(wiki)
         val readingListSyncNotification = ReadingListSyncNotification.instance
-        var lastSyncTime = Prefs.readingListsLastSyncTime.orEmpty()
+        val lastSyncTime = Prefs.readingListsLastSyncTime.orEmpty()
         var shouldSendSyncEvent = extras.containsKey(SYNC_EXTRAS_REFRESHING)
         var shouldRetry = false
         var shouldRetryWithForce = false
@@ -391,8 +389,7 @@ class ReadingListSyncAdapter : JobIntentService() {
             }
             L.w(errorMsg)
         } finally {
-            lastSyncTime = getLastDateFromHeader(lastSyncTime, client)
-            Prefs.readingListsLastSyncTime = lastSyncTime
+            Prefs.readingListsLastSyncTime = client.lastDateHeader?.toString() ?: lastSyncTime
             Prefs.readingListsDeletedIds = listIdsDeleted
             Prefs.readingListPagesDeletedIds = pageIdsDeleted
             readingListSyncNotification.cancelNotification(applicationContext)
@@ -420,17 +417,6 @@ class ReadingListSyncAdapter : JobIntentService() {
             tokenList.add(CsrfTokenClient.getToken(wiki).blockingSingle())
         }
         return tokenList[0]
-    }
-
-    private fun getLastDateFromHeader(lastSyncTime: String, client: ReadingListClient): String {
-        val lastDateHeader = client.lastDateHeader
-        return if (lastDateHeader.isNullOrEmpty()) {
-            lastSyncTime
-        } else try {
-            DateUtil.getHttpLastModifiedDate(lastDateHeader).toInstant().toString()
-        } catch (e: ParseException) {
-            lastSyncTime
-        }
     }
 
     private fun createOrUpdatePage(listForPage: ReadingList,

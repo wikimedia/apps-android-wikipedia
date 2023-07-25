@@ -115,9 +115,9 @@
   <string name="map_view_link_text">Prikaži na karti</string>
   <string name="other_languages_indication_text">Preberite v drugem jeziku</string>
   <string name="language_count_link_text">Na voljo v %d drugih jezikih</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Z objavo izražate strinjanje s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljate pod licenco &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Z objavo se strinjate s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljate pod licenco &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Urejanja bodo pripisana IP-naslovu vaše naprave. Če se boste &lt;a href=\"https://#login\"&gt;prijavili&lt;/a&gt;, boste imeli več zasebnosti.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Z objavo izražate strinjanje s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljate pod licenco &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Z objavo se strinjate s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljate pod licenco &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;. Urejanja bodo pripisana IP-naslovu vaše naprave. Če se boste &lt;a href=\"https://#login\"&gt;prijavili&lt;/a&gt;, boste imeli več zasebnosti.</string>
   <string name="edit_anon_warning">Urejanja bodo pripisana IP-naslovu vaše naprave. Če se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, boste imeli več zasebnosti.</string>
   <string name="preference_title_language">Jeziki Wikipedije</string>
   <string name="langlinks_filter_hint">Iskanje</string>
@@ -225,7 +225,7 @@
   <string name="history_filter_list_hint">Filtriraj zgodovino</string>
   <string name="error_can_not_process_link">Te povezave ni mogoče prikazati</string>
   <string name="page_protected_autoconfirmed">Ta stran je delno zaščitena.</string>
-  <string name="page_protected_sysop">Ta stran je zaščitena v celoti.</string>
+  <string name="page_protected_sysop">Ta stran je popolnoma zaščitena.</string>
   <string name="page_protected_other">Ta stran je zaščitena na naslednjih ravneh: %s</string>
   <string name="page_protected_can_not_edit">Vaš račun trenutno žal nima zadostnih pravic za urejanje te strani.</string>
   <string name="page_protected_can_not_edit_anon">Žal te strani trenutno ni mogoče urejati anonimno.</string>
@@ -238,12 +238,12 @@
   <string name="privacy_policy_description">Pravilnik o zasebnosti</string>
   <string name="terms_of_use_description">Pogoji uporabe</string>
   <string name="about_wikipedia_url">https://sl.wikipedia.org/wiki/Wikipedija:O_Wikipediji</string>
-  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/sl</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/sl</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.sl</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sl</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -253,7 +253,7 @@
   <string name="about_translators_heading">Prevajalci</string>
   <string name="about_translators_translatewiki">Aplikacijo so prevedli prostovoljci projekta &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
-  <string name="about_app_license">Izvorna koda je na voljo v shrambah &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; in &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Če ni navedeno drugače, je vsebina na razpolago pod licenco &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Pripis avtorja-Deljenje pod enakimi pogoji&lt;/a&gt;.</string>
+  <string name="about_app_license">Izvorna koda je na voljo v shrambah &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; in &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Če ni navedeno drugače, je vsebina na razpolago pod licenco &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.sl\"&gt;Creative Commons Pripis avtorja-Deljenje pod enakimi pogoji&lt;/a&gt;.</string>
   <string name="about_wmf">Izdelek &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundacije Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O projektu</string>
   <string name="edit_abandon_confirm">Stran je bila spremenjena. Ali jo res želite zapustiti, ne da bi shranili svoje spremembe?</string>
@@ -900,7 +900,9 @@
   <string name="description_starts_with_uppercase">Začnite z malo črko, razen če je prva beseda lastno ime.</string>
   <string name="description_starts_with_lowercase">Izogibajte se začetku z malo začetnico.</string>
   <string name="description_is_in_different_language">Besedilo je v nepričakovanem jeziku. Jezik mora biti %s.</string>
-  <string name="description_verification_notice">Preverite, ali je vaš opis v %1$s. Če je opis, ki ste ga napisali, v %2$s, lahko to obvestilo opustite.</string>
+  <string name="description_verification_notice">Preverite, ali je vaš opis v %1$s. Če je opis, ki ste ga napisali, v %2$s, lahko to opozorilo prezrete.</string>
+  <string name="description_edit_suggested_description_button_text">Pokaži predlagane opise</string>
+  <string name="description_edit_suggested_description_button_tooltip">Preizkusite strojno predlagane opise člankov</string>
   <string name="description_edit_success_saved">Opis članka objavljen!</string>
   <string name="description_edit_success_saved_snackbar">Opis članka objavljen!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Opis članka objavljen (%s)</string>
@@ -918,6 +920,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Najboljše ena vrstica z dvema do dvanajstimi besedami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začetek urejanja</string>
   <string name="description_edit_tutorial_promise">Ob začetku obljubljam, da te možnosti ne bom zlorabil_a</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Strojni predlogi</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Predloge ustvarja program, ne prostovoljci ali Fundacija Wikimedia</string>
   <string name="customize_toolbar_title">Prilagodi orodno vrstico</string>
   <string name="customize_toolbar_shortcut_description_text">Prilagodite si orodno vrstico na dnu s 5 bližnjicami, ki so za vas najuporabnejše.</string>
   <string name="customize_toolbar_category_toolbar">Orodna vrstica</string>
@@ -1006,6 +1010,7 @@
   <string name="suggested_edits_image_tags_select_title">Za to sliko niste izbrali nobene oznake</string>
   <string name="suggested_edits_image_tags_select_text">K slikam bodo dodane samo oznake, ki jih boste izbrali. Oznake, ki jih ne boste izbrali, bodo označene kot zavrnjene. Ali resnično želite vse oznake označiti kot zavrnjene?</string>
   <string name="suggested_edits_image_tags_add_tag">Dodaj oznako</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Neobjavljene oznake ne bodo shranjene</string>
   <string name="suggested_edits_image_zoom_tooltip">Za povečanje sliko razprite s prsti.</string>
   <string name="suggested_edits_encouragement_message">%s, hvala za vaša urejanja. Tu boste našli več načinov za prispevanje k Wikipediji.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Pozdravljeni, %s&lt;/b&gt;, tu lahko najdete nekaj hitrih in preprostih načinov za izboljšanje Wikipedije. Svoj prispevek boste opazili takoj, ko boste začeli. Uspešno urejanje!</string>
@@ -1086,6 +1091,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Oznaka slike</string>
   <string name="suggested_edits_contribution_current_revision_text">Vaše urejanje je trenutno prikazano v Wikipediji</string>
   <string name="suggested_card_more_edits">Več predlaganih urejanj</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Predlagani opisi</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Kaj želite sporočiti?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Ni dovolj informacij</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Ne morem videti predlaganih opisov</string>
+  <string name="suggested_edits_inappropriate_suggestion">Neprimeren predlog</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Ne razumem naloge</string>
+  <string name="suggested_edits_report_suggestion">Sporoči</string>
+  <string name="suggested_edits_suggestion_report_submitted">Poročilo poslano</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s oznaka</item>
     <item quantity="two">%1$s oznaki</item>
@@ -1110,6 +1123,35 @@
     <item quantity="few">Dodali ste %d znake</item>
     <item quantity="other">Dodali ste %d znakov</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Slike v člankih</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Dodajte predlagane slike v članke Wikipedije, da izboljšate njihovo razumljivost.</string>
+  <string name="image_recommendation_task_instruction">Ali želite dodati to sliko v članek?</string>
+  <string name="image_recommendation_tutorial">Vadnica</string>
+  <string name="image_recommendation_accept">Da</string>
+  <string name="image_recommendation_reject">Ne</string>
+  <string name="image_recommendation_notsure">Nisem prepričan_a</string>
+  <string name="image_recommendation_reject_title">Zakaj ne?</string>
+  <string name="image_recommendation_reject_subtitle">Vaši odgovori izboljšujej prihodnje predloge.</string>
+  <string name="image_recommendation_reject_not_relevant">Slika ni relevantna</string>
+  <string name="image_recommendation_reject_no_info">Ni dovolj informacij za odločitev</string>
+  <string name="image_recommendation_reject_offensive">Slika je žaljiva</string>
+  <string name="image_recommendation_reject_low_quality">Slika je slabe kakovosti</string>
+  <string name="image_recommendation_reject_dont_know">Ne poznam te teme</string>
+  <string name="image_recommendation_reject_other">Dugo</string>
+  <string name="image_recommendation_reject_submit">Pošlji</string>
+  <string name="image_recommendation_tooltip_main">Dodajte manjkajoče slike člankom v Predlaganih popravkih</string>
+  <string name="image_recommendation_onboarding_1">Slike pomagajo ljudem vsebino bolje razumeti, vendar jih veliko člankov nima.</string>
+  <string name="image_recommendation_onboarding_2">Vi se boste odločili, ali naj bo predlagana slika umeščena v članek v Wikipediji.</string>
+  <string name="image_recommendation_onboarding_3">Predlogi so strojno ustvarjeni in po svoji presoji se boste odločili, ali jih boste sprejeli ali zavrnili.</string>
+  <string name="image_recommendation_onboarding_4">Slike izvirajo iz Wikimedijine zbirke (Wikimedia Commons), zbirke prosto licenciranih slik, ki jih uporablja Wikipedija.</string>
+  <string name="image_recommendation_tooltip_1">Preglejte ta članek, da boste razumeli njegovo temo</string>
+  <string name="image_recommendation_tooltip_2">Preglejte sliko in z njo povezane informacije</string>
+  <string name="image_recommendation_tooltip_3">Odločite se, ali slika bralcem pomaga bolje razumeti to temo</string>
+  <string name="image_recommendation_tooltip_next">Naprej</string>
+  <string name="image_recommendation_tooltip_warning">Preglejte članek, da boste razumeli njegovo temo, in preglejte sliko.</string>
+  <string name="edit_summary_added_image">dodana slika</string>
+  <string name="edit_summary_added_caption">dodan napis k sliki</string>
+  <string name="edit_published_view">Ogled</string>
   <string name="file_page_activity_title">Stran datoteke</string>
   <string name="file_page_add_image_caption_button">Dodaj sliki napis</string>
   <string name="file_page_add_image_tags_button">Dodaj sliki oznake</string>
@@ -1148,7 +1190,7 @@
   <string name="this_year">To leto</string>
   <string name="on_this_day_dialog_next_month">Naslednji mesec</string>
   <string name="on_this_day_dialog_previous_month">Prejšnji mesec</string>
-  <string name="on_this_day_open_date_picker">Odpri izbiralnik datumov</string>
+  <string name="on_this_day_open_date_picker">Odpri izbirnik datumov</string>
   <plurals name="diff_years">
     <item quantity="one">Prejšnje leto</item>
     <item quantity="two">Pred dvema letoma</item>
@@ -1212,12 +1254,12 @@
   <string name="insert_media_title">Vstavi predstavnost</string>
   <string name="insert_media_search_description">Izberite datoteko iz Wikimedijine zbirke</string>
   <string name="insert_media_search_hint">Poišči predstavnost</string>
-  <string name="insert_media_settings">Nastavitve predstavnosti</string>
+  <string name="insert_media_settings">Dodajte podrobnosti slike</string>
   <string name="insert_media_settings_uploaded_image">Naložena slika</string>
-  <string name="insert_media_settings_caption">Napis</string>
-  <string name="insert_media_settings_caption_description">Oznaka, ki je prikazana poleg predmeta za vse bralce</string>
+  <string name="insert_media_settings_caption">Napis k sliki</string>
+  <string name="insert_media_settings_caption_description">Vidna oznaka v članku</string>
   <string name="insert_media_settings_alternative_text">Alternativno besedilo</string>
-  <string name="insert_media_settings_alternative_text_description">Besedilni opis za bralce, ki ne morejo videti slike</string>
+  <string name="insert_media_settings_alternative_text_description">Opis za bralce s prizadetim vidom</string>
   <string name="insert_media_advanced_settings">Napredne nastavitve</string>
   <string name="insert_media_advanced_settings_wrap_image">Ovij besedilo okoli slike</string>
   <string name="insert_media_advanced_settings_image_position">Položaj slike</string>
@@ -1270,7 +1312,7 @@
   <string name="talk_snackbar_survey_action_text">Začnimo</string>
   <string name="talk_share_discussion_subject">Wikipedija – razprava o temi pogovorne strani »%s«</string>
   <string name="talk_share_talk_page">Wikipedija – pogovori na pogovorni strani</string>
-  <string name="talk_edit_disclaimer">To je pogovorna stran. Prosimo, upoštevajte smernice za pogovorne strani in komentarje pri urejanju vikibesedila podpišite s štirimi tildami: ~~~~.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Smernice za pogovorne strani\"&gt;Wikipedija:Smernice za pogovorne strani&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">To je pogovorna stran. Prosimo, upoštevajte smernice za pogovorne strani in komentarje pri urejanju vikibesedila podpišite s štirimi tildami: ~~~~.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://sl.wikipedia.org/wiki/Wikipedija:Smernice_za_pogovorne_strani\"&gt;Wikipedija:Smernice za pogovorne strani&lt;/a&gt;</string>
   <string name="talk_search_hint">Preišči obvestila</string>
   <string name="talk_search_topics_hint">Preiščite teme</string>
   <string name="talk_search_find_in_talk_topics_hint">Poišči v temi pogovorne strani</string>
@@ -1366,6 +1408,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 mesece</string>
   <string name="watchlist_expiry_dialog_six_months">6 mesecev</string>
   <string name="watchlist_empty">Na spisku nadzorov nimate nobenega članka.</string>
+  <string name="watchlist_search">Preišči spisek nadzorov</string>
   <string name="watchlist_filter_all">Vse</string>
   <string name="watchlist_filter_talk">Pogovor</string>
   <string name="watchlist_filter_pages">Strani</string>
@@ -1373,6 +1416,57 @@
   <string name="watchlist_page_moved">Prestavljeno</string>
   <string name="watchlist_page_protected">Zaščiteno</string>
   <string name="watchlist_page_deleted">Izbrisano</string>
+  <string name="watchlist_filter_title">Filter spiska nadzorov</string>
+  <string name="watchlist_filter_wiki_filter_header">Viki</string>
+  <string name="watchlist_filter_all_text">Vse</string>
+  <string name="watchlist_filter_watchlist_activity_header">Dejavnost spiska nadzorov</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Nevidene spremembe</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Videne spremembe</string>
+  <string name="watchlist_filter_contribution_quality_header">Napovedi kakovosti prispevkov</string>
+  <string name="watchlist_filter_contribution_quality_good">Zelo verjetno dobro</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Mogoče problematično</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Verjetno problematično</string>
+  <string name="watchlist_filter_contribution_quality_bad">Zelo verjetno problematično</string>
+  <string name="watchlist_filter_user_intent_header">Napovedi namere uporabnikov</string>
+  <string name="watchlist_filter_user_intent_good">Zelo verjetno dobronamerno</string>
+  <string name="watchlist_filter_user_intent_may_problems">Morda slabonamerno</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Verjetno slabonamerno</string>
+  <string name="watchlist_filter_user_intent_bad">Zelo verjetno slabonamerno</string>
+  <string name="watchlist_filter_user_status_header">Prijavljenost in izkušnje uporabnikov</string>
+  <string name="watchlist_filter_user_status_unregistered">Neregistrirano</string>
+  <string name="watchlist_filter_user_status_registered">Registriran</string>
+  <string name="watchlist_filter_user_status_newcomers">Novinci</string>
+  <string name="watchlist_filter_user_status_learners">Učenci</string>
+  <string name="watchlist_filter_user_status_experienced">Izkušeni uporabniki</string>
+  <string name="watchlist_filter_contribution_authorship_header">Avtorstvo prispevkov</string>
+  <string name="watchlist_filter_contribution_authorship_own">Vaše spremembe</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Spremembe drugih</string>
+  <string name="watchlist_filter_automated_contributions_header">Samodejni prispevki</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Človek (ne bot)</string>
+  <string name="watchlist_filter_significance_header">Pomen</string>
+  <string name="watchlist_filter_significance_minor">Manjša urejanja</string>
+  <string name="watchlist_filter_significance_edits">Nemanjša urejanja</string>
+  <string name="watchlist_filter_latest_revisions_header">Zadnje redakcije</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Zadnja redakcija</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Nenajnovejša redakcija</string>
+  <string name="watchlist_filter_type_of_change_header">Vrsta spremembe</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Urejanja strani</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Ustvaritve strani</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Spremembe kategorij</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Urejanja Wikipodatkov</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Dnevniška dejanja</string>
+  <string name="watchlist_filter_type_of_change_new_users">Novi uporabniki</string>
+  <string name="watchlist_filter_reset_button">Ponastavi</string>
+  <string name="watchlist_search_bar_hint">Poiščite ali filtrirajte spisek nadzorov</string>
+  <string name="watchlist_search_bar_filter_hint">Filter spiska nadzorov</string>
+  <string name="watchlist_empty_search_message">Ni zadetkov, poskusite odstraniti %s, da vidite več.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d filter</item>
+    <item quantity="two">%d filtra</item>
+    <item quantity="few">%d filtri</item>
+    <item quantity="other">%d filtrov</item>
+  </plurals>
   <string name="preview_edit_title">Predogled urejanja</string>
   <string name="preview_edit_summarize_edit_title">Povzetek urejanja</string>
   <string name="preview_edit_summarize_edit_hint">Kako ste izboljšali to stran?</string>
@@ -1406,10 +1500,11 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Bralni seznam je uspešno uvožen</string>
   <string name="reading_list_share_menu_label">Deli ...</string>
   <string name="reading_list_share_menu_tooltip">Delite ta bralni seznam z drugimi</string>
-  <string name="reading_list_share_title_tooltip">Spremembe, ki jih naredite v tem seznamu, niso vidne drugim.</string>
   <string name="reading_list_share_message_v2">Zdravo! S tabo želim deliti svoj bralni seznam Wikipedije:</string>
   <string name="reading_list_share_survey_title">Nam lahko pomagate izboljšati možnost »Deli bralne sezname«?</string>
   <string name="reading_list_share_survey_body">»Deli bralne sezname« je preizkusna možnost in potrebujemo vaše povratne informacije, da jo izboljšamo ali odstranimo.</string>
   <string name="data_opt_in_accept">Sprejmem</string>
   <string name="data_opt_in_reject">Zavrnem</string>
+  <string name="page_issues_title">Težaev strani</string>
+  <string name="generic_release_notes">Manjši popravki napak in izboljšave</string>
 </resources>

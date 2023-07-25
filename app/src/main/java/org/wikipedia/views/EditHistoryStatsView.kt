@@ -12,7 +12,6 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.edithistory.EditHistoryListViewModel
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -32,7 +31,6 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
     fun setup(pageTitle: PageTitle, editHistoryStats: EditHistoryListViewModel.EditHistoryStats?) {
         binding.articleTitleView.text = StringUtil.fromHtml(context.getString(R.string.page_edit_history_activity_title,
                 "<a href=\"#\">${pageTitle.displayText}</a>"))
-        RichTextUtil.removeUnderlinesFromLinks(binding.articleTitleView)
         editHistoryStats?.let { stats ->
             val timestamp = stats.revision.timeStamp
             if (timestamp.isNotBlank()) {

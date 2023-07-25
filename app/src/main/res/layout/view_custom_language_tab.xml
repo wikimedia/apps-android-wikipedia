@@ -9,12 +9,14 @@
     <TextView
         android:id="@+id/language_code"
         style="@style/TextViewCentered"
-        android:layout_width="24dp"
+        android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
+        android:minWidth="24dp"
+        android:paddingHorizontal="2dp"
         android:textAllCaps="true"
-        android:textColor="?attr/color_group_63"
+        android:textColor="?attr/secondary_color"
         android:textSize="12sp" />
 
     <TextView
@@ -24,7 +26,7 @@
         android:layout_marginStart="@dimen/view_list_card_margin_vertical"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
-        android:textColor="?attr/color_group_63"
+        android:textColor="?attr/secondary_color"
         android:textSize="12sp"
         tools:text="English" />
 </LinearLayout>

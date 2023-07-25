@@ -96,7 +96,7 @@
             android:name=".page.PageActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.Page"
+            android:theme="@style/AppTheme"
             android:launchMode="singleTask"
             android:parentActivityName=".main.MainActivity"
             android:exported="true">
@@ -234,7 +234,8 @@
             android:name=".onboarding.InitialOnboardingActivity"/>
 
         <activity
-            android:name=".feed.topread.TopReadArticlesActivity"/>
+            android:name=".feed.topread.TopReadArticlesActivity"
+            android:theme="@style/AppTheme.ActionBar"/>
 
         <activity android:name=".feed.onthisday.OnThisDayActivity"
             android:configChanges="orientation|screenSize"/>
@@ -255,7 +256,7 @@
             android:name=".notifications.NotificationActivity"
             android:label="@string/notifications_activity_title"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            android:theme="@style/AppTheme.Notification" />
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name=".page.tabs.TabActivity"
@@ -276,7 +277,7 @@
         <activity
             android:name=".watchlist.WatchlistFilterActivity"
             android:label="@string/watchlist_filter_title"
-            android:theme="@style/AppTheme.ActionBar.Watchlist"/>
+            android:theme="@style/AppTheme.ActionBar"/>
 
         <activity
             android:name=".suggestededits.SuggestedEditsImageTagEditActivity"
@@ -303,6 +304,10 @@
 
         <activity
             android:name=".diff.ArticleEditDetailsActivity" />
+
+        <activity
+            android:name=".activity.SingleWebViewActivity"
+            android:theme="@style/AppTheme.ActionBar" />
 
         <activity
             android:name=".page.customize.CustomizeToolbarActivity"

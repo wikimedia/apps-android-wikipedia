@@ -66,7 +66,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mediaListItem = requireArguments().getParcelable(ARG_GALLERY_ITEM)!!
-        pageTitle = requireArguments().getParcelable(ARG_PAGETITLE)
+        pageTitle = requireArguments().getParcelable(Constants.ARG_TITLE)
         if (pageTitle == null) {
             pageTitle = PageTitle(mediaListItem.title, Constants.commonsWikiSite)
         }
@@ -289,7 +289,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         }
     }
 
-    private val shareSubject get() = pageTitle?.displayText
+    private val shareSubject get() = StringUtil.removeHTMLTags(pageTitle?.displayText)
 
     private fun saveImage() {
         mediaInfo?.let { callback()?.onDownload(this) }
@@ -300,12 +300,11 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     }
 
     companion object {
-        private const val ARG_PAGETITLE = "pageTitle"
         private const val ARG_GALLERY_ITEM = "galleryItem"
 
         fun newInstance(pageTitle: PageTitle?, item: MediaListItem): GalleryItemFragment {
             return GalleryItemFragment().apply {
-                arguments = bundleOf(ARG_PAGETITLE to pageTitle, ARG_GALLERY_ITEM to item)
+                arguments = bundleOf(Constants.ARG_TITLE to pageTitle, ARG_GALLERY_ITEM to item)
             }
         }
     }

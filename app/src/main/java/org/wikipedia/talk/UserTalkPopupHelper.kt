@@ -2,7 +2,6 @@ package org.wikipedia.talk
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.AlertDialog
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +9,7 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuPopupHelper
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -28,7 +28,6 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 
 @SuppressLint("RestrictedApi")
@@ -69,7 +68,7 @@ object UserTalkPopupHelper {
         val parent = FrameLayout(activity)
         val editHistoryInteractionEvent = EditHistoryInteractionEvent(title.wikiSite.dbName(), pageId)
         val dialog =
-            AlertDialog.Builder(activity)
+            MaterialAlertDialogBuilder(activity)
                 .setView(parent)
                 .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
                     sendThanks(activity, title.wikiSite, revisionId, title, editHistoryInteractionEvent)
@@ -79,9 +78,6 @@ object UserTalkPopupHelper {
                 }
                 .create()
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
-        dialog.setOnShowListener {
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(ResourceUtil.getThemedColor(activity, R.attr.secondary_text_color))
-        }
         dialog.show()
     }
 

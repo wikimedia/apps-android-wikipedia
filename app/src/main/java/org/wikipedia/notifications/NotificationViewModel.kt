@@ -3,11 +3,9 @@ package org.wikipedia.notifications
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
@@ -38,9 +36,7 @@ class NotificationViewModel : ViewModel() {
 
     init {
         viewModelScope.launch(handler) {
-            withContext(Dispatchers.IO) {
-                dbNameMap = notificationRepository.fetchUnreadWikiDbNames()
-            }
+            dbNameMap = notificationRepository.fetchUnreadWikiDbNames()
         }
     }
 
@@ -132,9 +128,7 @@ class NotificationViewModel : ViewModel() {
     fun fetchAndSave() {
         viewModelScope.launch(handler) {
             if (WikipediaApp.instance.isOnline) {
-                withContext(Dispatchers.IO) {
-                    currentContinueStr = notificationRepository.fetchAndSave(delimitedWikiList(), "read|!read", currentContinueStr)
-                }
+                currentContinueStr = notificationRepository.fetchAndSave(delimitedWikiList(), "read|!read", currentContinueStr)
             }
             collectionNotifications()
         }
@@ -186,9 +180,7 @@ class NotificationViewModel : ViewModel() {
             .map {
                 it.read = if (markUnread) null else Date().toString()
                 viewModelScope.launch(handler) {
-                    withContext(Dispatchers.IO) {
-                        notificationRepository.updateNotification(it)
-                    }
+                    notificationRepository.updateNotification(it)
                     collectionNotifications()
                 }
             }

@@ -37,27 +37,28 @@
                 android:layout_height="120dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_oojs_watchlist"
-                app:tint="?attr/material_theme_de_emphasised_color"/>
+                app:tint="?attr/placeholder_color"/>
 
             <TextView
-                style="@style/MaterialMediumSecondaryCaption"
+                style="@style/P"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="@string/watchlist_empty" />
+                android:text="@string/watchlist_empty"
+                android:textAlignment="center" />
 
         </LinearLayout>
 
         <TextView
             android:id="@+id/watchlistSearchEmptyText"
-            style="@style/MaterialMediumSecondaryCaption"
+            style="@style/H3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginStart="24dp"
-            android:fontFamily="sans-serif-medium"
             android:text="@string/search_results_count_zero"
+            android:textAlignment="center"
             android:visibility="gone" />
 
         <LinearLayout
@@ -74,14 +75,15 @@
                 android:layout_height="120dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_oojs_watchlist"
-                app:tint="?attr/material_theme_de_emphasised_color"/>
+                app:tint="?attr/placeholder_color"/>
 
             <TextView
                 android:id="@+id/watchlistEmptySearchMessage"
-                style="@style/MaterialMediumSecondaryCaption"
+                style="@style/P"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp" />
+                android:layout_marginTop="24dp"
+                android:textAlignment="center" />
 
         </LinearLayout>
 

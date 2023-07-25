@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:layout_width="180dp"
         android:layout_height="100dp"
         app:srcCompat="@drawable/ic_thank_illustration" />
@@ -19,7 +19,7 @@
         android:letterSpacing="0.01"
         android:lineSpacingExtra="8sp"
         android:text="@string/thank_dialog_title_text"
-        android:textColor="?attr/material_theme_primary_color"
+        android:textColor="?attr/primary_color"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -30,7 +30,7 @@
         android:letterSpacing="0.01"
         android:lineSpacingExtra="8sp"
         android:text="@string/thank_dialog_text"
-        android:textColor="?attr/material_theme_secondary_color"
+        android:textColor="?attr/secondary_color"
         android:textSize="16sp" />
 
 </LinearLayout>

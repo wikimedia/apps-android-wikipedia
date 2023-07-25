@@ -14,7 +14,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginEnd="12dp"
         android:contentDescription="@null"
-        app:tint="?colorPrimary"
+        app:tint="?attr/progressive_color"
         app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
     <TextView
@@ -29,8 +29,7 @@
         android:paddingEnd="16dp"
         android:paddingBottom="16dp"
         android:text="@string/wikipedia_languages_add_language_text"
-        android:textAllCaps="true"
-        android:textColor="?colorAccent"
+        android:textColor="?attr/progressive_color"
         android:textSize="14sp"
         tools:text="Lorem ipsum" />
 

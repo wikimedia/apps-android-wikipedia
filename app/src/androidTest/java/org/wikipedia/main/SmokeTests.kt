@@ -9,6 +9,7 @@ import androidx.test.espresso.IdlingPolicies
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
+import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.espresso.web.assertion.WebViewAssertions
 import androidx.test.espresso.web.sugar.Web.onWebView
@@ -23,6 +24,8 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
 import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.not
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -39,6 +42,14 @@ class SmokeTests {
     @Rule
     @JvmField
     var mActivityTestRule = ActivityScenarioRule(MainActivity::class.java)
+    private lateinit var activity: MainActivity
+
+    @Before
+    fun setActivity() {
+        mActivityTestRule.scenario.onActivity {
+            activity = it
+        }
+    }
 
     @Test
     fun mainActivityTest() {
@@ -54,24 +65,14 @@ class SmokeTests {
         onView(allOf(withId(R.id.fragment_onboarding_forward_button), isDisplayed()))
                 .perform(click())
 
-        TestUtil.delay(1)
+        onView(allOf(withId(R.id.fragment_onboarding_forward_button), isDisplayed()))
+                .perform(click())
 
         onView(allOf(withId(R.id.fragment_onboarding_forward_button), isDisplayed()))
                 .perform(click())
 
-        TestUtil.delay(1)
-
-        onView(allOf(withId(R.id.fragment_onboarding_forward_button), isDisplayed()))
-                .perform(click())
-
-        TestUtil.delay(1)
-
-        // Make sure the user sees the usage data opt-in switch
-        onView(allOf(withId(R.id.switchView), withText("Send usage data"), isDisplayed()))
-                .check(matches(isDisplayed()))
-
-        // Dismiss initial onboarding
-        onView(allOf(withId(R.id.fragment_onboarding_done_button), withText("Get started"), isDisplayed()))
+        // Dismiss initial onboarding by accepting analytics collection
+        onView(allOf(withId(R.id.acceptButton), withText("Accept"), isDisplayed()))
                 .perform(click())
 
         TestUtil.delay(2)
@@ -89,7 +90,7 @@ class SmokeTests {
         TestUtil.delay(1)
 
         // Type in our search term
-        onView(allOf(withId(R.id.search_src_text), isDisplayed()))
+        onView(allOf(withId(androidx.appcompat.R.id.search_src_text), isDisplayed()))
                 .perform(replaceText(SEARCH_TERM), closeSoftKeyboard())
 
         // Give the API plenty of time to return results
@@ -113,8 +114,9 @@ class SmokeTests {
 
         // Rotate the device back to the original orientation
         device.setOrientationNatural()
-        device.unfreezeRotation()
+        TestUtil.delay(2)
 
+        device.unfreezeRotation()
         TestUtil.delay(2)
 
         // Click on the first search result
@@ -123,6 +125,13 @@ class SmokeTests {
 
         // Give the page plenty of time to load fully
         TestUtil.delay(5)
+
+        // Dismiss tooltip, if any
+        onView(allOf(withId(R.id.buttonView)))
+            .inRoot(withDecorView(not(`is`(activity.window.decorView))))
+                .perform(click())
+
+        TestUtil.delay(2)
 
         // Click on a link to load a Link Preview dialog
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[title='3-sphere']"))
@@ -154,6 +163,7 @@ class SmokeTests {
 
         // Go back to the original article
         pressBack()
+        TestUtil.delay(2)
 
         // Ensure the header view (with lead image) is displayed
         onView(allOf(withId(R.id.page_header_view)))
@@ -164,12 +174,6 @@ class SmokeTests {
             .perform(click())
 
         TestUtil.delay(3)
-
-        // Flip through the gallery a couple of times
-        onView(allOf(withId(R.id.pager)))
-            .perform(swipeLeft())
-
-        TestUtil.delay(2)
 
         onView(allOf(withId(R.id.pager)))
             .perform(swipeLeft())
@@ -187,7 +191,6 @@ class SmokeTests {
 
         // Rotate the display to landscape
         device.setOrientationRight()
-
         TestUtil.delay(2)
 
         // Make sure the header view (with lead image) is not shown in landscape mode
@@ -200,9 +203,9 @@ class SmokeTests {
 
         // Rotate the device back to the original orientation
         device.setOrientationNatural()
-        device.unfreezeRotation()
-
         TestUtil.delay(2)
+
+        device.unfreezeRotation()
 
         // Bring up the theme chooser dialog
         onView(withId(R.id.page_theme))
@@ -431,7 +434,7 @@ class SmokeTests {
 
         if (AccountUtil.isLoggedIn) {
             // Click on the 5th topic
-            onView(withId(R.id.menu_notifications)).perform(click())
+            onView(withId(R.id.page_toolbar_button_notifications)).perform(click())
 
             // Give the page plenty of time to load fully
             TestUtil.delay(5)
@@ -474,7 +477,7 @@ class SmokeTests {
         TestUtil.delay(1)
 
         // Go to Saved tab
-        onView(withId(NavTab.READING_LISTS.id())).perform(click())
+        onView(withId(NavTab.READING_LISTS.id)).perform(click())
 
         TestUtil.delay(1)
 
@@ -485,11 +488,17 @@ class SmokeTests {
         // Waiting for the article to be saved to the database
         TestUtil.delay(5)
 
+        // Dismiss tooltip, if any
+        onView(allOf(withId(R.id.buttonView)))
+            .inRoot(withDecorView(not(`is`(activity.window.decorView))))
+            .perform(click())
+
+        TestUtil.delay(1)
+
         // Make sure one of the list item matches the title that we expect
         onView(allOf(withId(R.id.page_list_item_title), withText(ARTICLE_TITLE), isDisplayed()))
             .check(matches(withText(ARTICLE_TITLE)))
 
-        // Turn device to offline
         TestUtil.setAirplaneMode(true)
 
         TestUtil.delay(2)
@@ -509,7 +518,6 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        // Turn device to offline
         TestUtil.setAirplaneMode(false)
 
         TestUtil.delay(2)

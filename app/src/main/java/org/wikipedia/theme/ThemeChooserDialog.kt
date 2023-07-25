@@ -1,6 +1,7 @@
 package org.wikipedia.theme
 
 import android.content.DialogInterface
+import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
@@ -9,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
-import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -26,7 +26,6 @@ import org.wikipedia.databinding.DialogThemeChooserBinding
 import org.wikipedia.events.WebViewInvalidateEvent
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -114,11 +113,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         binding.typingSuggestionsSwitch.setOnCheckedChangeListener { _, isChecked ->
             Prefs.editTypingSuggestionsEnabled = isChecked
             callback()?.onEditingPrefsChanged()
-        }
-
-        disableBackgroundDim()
-        requireDialog().window?.let {
-            DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
 
         disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
@@ -253,8 +247,8 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateFontFamily() {
-        binding.buttonFontFamilySansSerif.strokeWidth = if (Prefs.fontFamily == binding.buttonFontFamilySansSerif.tag) BUTTON_STROKE_WIDTH else 0
-        binding.buttonFontFamilySerif.strokeWidth = if (Prefs.fontFamily == binding.buttonFontFamilySerif.tag) BUTTON_STROKE_WIDTH else 0
+        binding.buttonFontFamilySansSerif.strokeColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), if (Prefs.fontFamily == binding.buttonFontFamilySansSerif.tag) R.attr.progressive_color else R.attr.border_color))
+        binding.buttonFontFamilySerif.strokeColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), if (Prefs.fontFamily == binding.buttonFontFamilySerif.tag) R.attr.progressive_color else R.attr.border_color))
     }
 
     private fun updateThemeButtons() {
@@ -270,10 +264,10 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateDimImagesSwitch() {
+        val attrColor = if (binding.themeChooserDarkModeDimImagesSwitch.isEnabled) R.attr.secondary_color else R.attr.overlay_color
         binding.themeChooserDarkModeDimImagesSwitch.isChecked = Prefs.dimDarkModeImages
         binding.themeChooserDarkModeDimImagesSwitch.isEnabled = app.currentTheme.isDark
-        binding.themeChooserDarkModeDimImagesSwitch.setTextColor(if (binding.themeChooserDarkModeDimImagesSwitch.isEnabled)
-            ResourceUtil.getThemedColor(requireContext(), R.attr.section_title_color) else ContextCompat.getColor(requireContext(), R.color.black26))
+        binding.themeChooserDarkModeDimImagesSwitch.setTextColor(ResourceUtil.getThemedColor(requireContext(), attrColor))
     }
 
     private inner class ThemeButtonListener(private val theme: Theme) : View.OnClickListener {

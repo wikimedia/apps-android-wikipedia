@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Cooltey
 * Malikxan
 * Ochilov
@@ -91,30 +92,30 @@
   <string name="feed_card_add_to_list">O‘qilganlar ro‘yxatiga qo‘shmoq</string>
   <string name="feed_card_add_to_default_list">Saqlamoq</string>
   <string name="menu_page_share">Havolani ulashmoq</string>
-  <string name="menu_article_share">Maqolani ulashmoq</string>
+  <string name="menu_article_share">Maqolani ulashish</string>
   <string name="menu_page_article_share">Ulashmoq</string>
-  <string name="menu_page_open_a_new_tab">Yangi xatcho‘p ochmoq</string>
+  <string name="menu_page_open_a_new_tab">Yangi varaq ochish</string>
   <string name="menu_page_new_tab">Yangi varaqa</string>
   <string name="menu_page_reading_lists">O‘qilganlar ro‘yxati</string>
   <string name="menu_page_recently_viewed">So‘nggi ko‘rilgan</string>
   <string name="menu_page_archive">Arxiv</string>
-  <string name="menu_long_press_open_page">Ochmoq</string>
-  <string name="menu_long_press_open_in_new_tab">Yangi xatcho‘pda ochmoq</string>
+  <string name="menu_long_press_open_page">Ochish</string>
+  <string name="menu_long_press_open_in_new_tab">Yangi varaqda ochish</string>
   <string name="menu_long_press_copy_page">Havolani nusxalamoq</string>
   <string name="menu_text_select_define">Aniqlamoq</string>
   <string name="on_this_day_page_share">Ulashmoq</string>
   <string name="reading_list_page_share">Ulashmoq</string>
   <string name="menu_text_select_edit_here">Bu yerni tahrirlamoq</string>
-  <string name="menu_edit_article">Maqolani tahrirlamoq</string>
+  <string name="menu_edit_article">Maqolani tahrirlash</string>
   <string name="last_updated_text">%sda oxirgi bor yangilangan</string>
   <string name="talk_page_link_text">Muhokama sahifasini ko‘rmoq</string>
   <string name="edit_history_link_text">Tahrirlar tarixini koʻrish</string>
   <string name="map_view_link_text">Xaritada ko‘rmoq</string>
-  <string name="other_languages_indication_text">Boshqa tilda o‘qimoq</string>
+  <string name="other_languages_indication_text">Boshqa tilda oʻqish</string>
   <string name="language_count_link_text">Maqola %d ta tilda mavjud</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt; Foydalanish shartlari &lt;/a&gt;ga va o‘zingizning hissangizni &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 ostida qaytarib berilmaslikka rozilik bildirasiz. &lt;/a&gt; litsenziyasi.</string>
-  <string name="edit_save_action_license_anon">Nashr qilish bilan siz &lt;a href=\"%1$s\"&gt;Foydalanish shartlari&lt;/a&gt;ga va oʻz hissangizni &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; litsenziyasi ostida qaytarib berilmaslikka rozilik bildirasiz. Oʻzgarishlar sizning qurilmangiz IP-manziliga tegishli boʻladi. Agar &lt;a href=\"https://#login\"&gt;tizimga kirsangiz&lt;/a&gt;, koʻproq shaxsiylikka ega boʻlasiz.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt; Foydalanish shartlari&lt;/a&gt; hamda o‘z hissangizni &lt;a href=\"%2$s\"&gt; CC BY-SA 4.0&lt;/a&gt; litsenziyasi ostida qaytarib berilmaslikka rozilik bildirasiz.</string>
+  <string name="edit_save_action_license_anon">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt;Foydalanish shartlari&lt;/a&gt;ga va oʻz hissangizni &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; litsenziyasi ostida qaytarib berilmaslikka rozilik bildirasiz. Oʻzgarishlar sizning qurilmangiz IP-manziliga tegishli boʻladi. Agar &lt;a href=\"https://#login\"&gt;tizimga kirsangiz&lt;/a&gt;, koʻproq shaxsiylikka ega boʻlasiz.</string>
   <string name="edit_anon_warning">Tahrirlar qurilmangiz IP manziliga tegishli boʻladi. Agar Siz tizimga &lt;a href=\"https://#login\"&gt;kirsangiz&lt;/a&gt;, maxfiylikka ega boʻlasiz.</string>
   <string name="preference_title_language">Vikipediya tillari</string>
   <string name="langlinks_filter_hint">Izlash</string>
@@ -240,7 +241,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uz</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -250,7 +251,7 @@
   <string name="about_translators_heading">Tarjimonlar</string>
   <string name="about_translators_translatewiki">Ilovaning oʻzbekchasi &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; saytida koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
   <string name="about_app_license_heading">Litsenziya</string>
-  <string name="about_app_license">Ilovaning ochiq manba kodi &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; va &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarida &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 litsenziyasi&lt;/a&gt; asosida mavjud. Qolgan barcha zaruriy tarkiblar &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; sahifasiga joylangan.</string>
+  <string name="about_app_license">Ilovaning ochiq manba kodi &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; va &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarida &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 litsenziyasi&lt;/a&gt; asosida mavjud. Qolgan barcha zaruriy tarkiblar &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; sahifasiga joylangan.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya Fondi&lt;/a&gt;  mahsuloti</string>
   <string name="about_activity_title">Ilova haqida</string>
   <string name="edit_abandon_confirm">Sahifa oʻzgartirildi. Oʻzgartirishlaringizni saqlamasdan chiqmoqchimisiz?</string>
@@ -295,7 +296,7 @@
   <string name="page_similar_titles">O‘xshash sahifalar</string>
   <string name="search_did_you_mean">%s deb o‘ylayapsizmi?</string>
   <string name="search_recent_header">Oxirgi qidirishlar:</string>
-  <string name="search_results_count_zero">Natijalar yo‘q</string>
+  <string name="search_results_count_zero">Natijalar topilmadi</string>
   <plurals name="search_results_count">
     <item quantity="one">1 ta natija</item>
     <item quantity="other">%d ta natija</item>
@@ -363,7 +364,7 @@
   <string name="format_error_server_message">Xabar: \"%s\"</string>
   <string name="address_copied">Manzildan nusxa olindi.</string>
   <string name="text_copied">Matndan nusxa olindi.</string>
-  <string name="button_continue_to_article">Maqolani o‘qimoq</string>
+  <string name="button_continue_to_article">Maqolani oʻqish</string>
   <string name="button_continue_to_talk_page">Muhokama sahifasini ko‘rmoq</string>
   <string name="button_continue_to_disambiguation">O‘xshash sahifalarni ko‘rmoq</string>
   <string name="link_preview_disambiguation_description">Ushbu sarlavha bir nechta sahifalarga tegishli:</string>
@@ -704,7 +705,7 @@
   <string name="preference_summary_notification_milestone">Muayyan tahrirlarni hisoblashga erishildi</string>
   <string name="preference_title_notification_thanks">Tashakkur</string>
   <string name="preference_summary_notification_thanks">Kimdir tahriringiz uchun Sizga tashakkur izhor etdi</string>
-  <string name="preference_title_notification_revert">Bekor qilmoq</string>
+  <string name="preference_title_notification_revert">Qaytarish</string>
   <string name="preference_summary_notification_revert">Sizning hissangizdan biri bekor qilindi</string>
   <string name="preference_title_notification_login_fail">Kirmoq</string>
   <string name="preference_summary_notification_login_fail">Sizning faoliyatingiz</string>
@@ -755,7 +756,7 @@
   <string name="view_random_card_title">Tasodifiy tartibda</string>
   <string name="view_random_article_card_title">Tasodifiy maqola</string>
   <string name="view_random_article_card_action">Boshqa tasodifiy maqolalar</string>
-  <string name="view_top_read_card_title">Koʻp oʻqilgan</string>
+  <string name="view_top_read_card_title">Koʻp oʻqilayotgan</string>
   <string name="view_top_read_card_action">Eng koʻp oʻqilgan</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d ming marta</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d mln marta</string>
@@ -801,7 +802,7 @@
   <string name="feed_empty_message">Kezish tasmangizda hech narsa yoʻq</string>
   <string name="feed_configure_onboarding_action">Moslash</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
-  <string name="customize_lang_selection_dialog_cancel_button_text">Bekor qilmoq</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Bekor qilish</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Kezish tasmangizni moslashtiring&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt; Endi tasmangizda nimani namoyish qilishni tanlashingiz, shuningdek, oʻzingiz yoqtirgan tarkib turlariga ustuvor ahamiyat berishingiz mumkin boʻladi.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Bekor qilish</string>
@@ -820,11 +821,11 @@
   <string name="description_edit_save">Saqlamoq</string>
   <string name="description_edit_read">Oʻqimoq</string>
   <string name="description_edit_add_description">Maqolaga tavsif qoʻshmoq</string>
-  <string name="description_edit_translate_description">Maqola tavsifini tarjima qilmoq</string>
+  <string name="description_edit_translate_description">Maqola tavsifini tarjima qilish</string>
   <string name="description_edit_edit_description">Maqola tavsifini oʻzgartirmoq</string>
   <string name="description_edit_add_image_caption">Rasmga sarlavha qo‘ymoq</string>
   <string name="description_edit_edit_image_caption">Rasm sarlavhasini oʻzgartirmoq</string>
-  <string name="description_edit_translate_image_caption">Rasm sarlavhasini tarjima qilmoq</string>
+  <string name="description_edit_translate_image_caption">Tasvir izohini tarjima qilish</string>
   <string name="description_edit_cancel_hint">Bekor qilish</string>
   <string name="description_edit_help_title">Maʼlumot: Maqola tavsiflari</string>
   <string name="description_edit_help_about_wikidata">Vikidata haqida</string>
@@ -843,7 +844,9 @@
   <string name="description_starts_with_uppercase">Birinchi soʻz atoqli ot boʻlmasa, kichik harf bilan boshlang.</string>
   <string name="description_starts_with_lowercase">Kichik harflarda yozishni taqiqlash.</string>
   <string name="description_is_in_different_language">Matn kutilmagan tilda koʻrinadi. %s tilda boʻlishi kerak.</string>
-  <string name="description_verification_notice">Tavsifingiz %1$s ichida ekanligini tekshiring. Agar Siz yozgan tavsif %2$s tilida boʻlsa, bu bildirishnomani oʻchirib qoʻyishingiz mumkin.</string>
+  <string name="description_verification_notice">Tavsifingiz %1$sʼni ichida ekanligini tekshiring. Agar Siz yozgan tavsif %2$sʼda boʻlsa, bunga eʼtibor bermang.</string>
+  <string name="description_edit_suggested_description_button_text">Tavsiya etilgan tavsiflarni koʻrsatish</string>
+  <string name="description_edit_suggested_description_button_tooltip">Mashina tomonidan tavsiya etilgan maqola tavsiflarini sinab koʻring</string>
   <string name="description_edit_success_saved">Maqola tavsifi saqlandi!</string>
   <string name="description_edit_success_saved_snackbar">Maqola tavsifi saqlandi!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Maqola tavsifi saqlandi! (%s)</string>
@@ -861,6 +864,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Bir satrda, ikkidan oʻn ikkitagacha soʻz boʻlishi tavsiya etiladi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Tahrirlash</string>
   <string name="description_edit_tutorial_promise">Boshlash bilan men ushbu funktsiyani notoʻgʻri ishlatmaslikka harakat qilaman.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Avtomatik takliflar</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Takliflar koʻngillilar yoki Wikimedia fondi tomonidan emas, balki avtomatik ishlab chiqiladi</string>
   <string name="customize_toolbar_title">Panelni moslash</string>
   <string name="customize_toolbar_shortcut_description_text">Quyi panelda Sizga kerakli boʻlgan 5 ta yorliqni joylashtiring.</string>
   <string name="customize_toolbar_category_toolbar">Panel</string>
@@ -889,8 +894,8 @@
   <string name="suggested_edits_task_add_description_description">Maqolaga tavsifsiz hissa qoʻshmoq</string>
   <string name="suggested_edits_task_image_caption_title">Rasmga sarlavha qo‘ymoq</string>
   <string name="suggested_edits_task_image_caption_description">Qisqacha sarlavha qoʻshmoq</string>
-  <string name="suggested_edits_task_translate_caption_title">Rasm sarlavhasini tarjima qilmoq</string>
-  <string name="suggested_edits_task_translate_caption_description">Taglavhalarni boshqa tillarga tarjima qilmoq</string>
+  <string name="suggested_edits_task_translate_caption_title">Tasvir izohlarini tarjima qilish</string>
+  <string name="suggested_edits_task_translate_caption_description">Izohlarni boshqa tillarga tarjima qilish</string>
   <string name="suggested_edits_task_multilingual_title">Koʻp tilli tahrirchilar uchun boshqa imkoniyatlar</string>
   <string name="suggested_edits_task_multilingual_description">Agar Siz bir nechta Vikipediya tilida oʻqigan va yozgan boʻlsangiz, tarjima xizmati mavjud.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">%d ta rasm sarlavhasini tahrir qilmaguningizcha qulflangan turadi</string>
@@ -947,6 +952,7 @@
   <string name="suggested_edits_image_tags_select_title">Siz ushbu rasm uchun biron bir teg tanlamagansiz</string>
   <string name="suggested_edits_image_tags_select_text">Rasmlarga faqat siz tanlagan teglar qoʻshiladi. Tanlanmagan teglar rad etilgan deb belgilanadi. Barcha teglarni rad etilgan deb belgilashni xohlaysizmi?</string>
   <string name="suggested_edits_image_tags_add_tag">Teg qoʻshmoq</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Nashr etilmagan teglar saqlanmaydi</string>
   <string name="suggested_edits_image_zoom_tooltip">Ushbu rasmni kattalashtirish uchun teging.</string>
   <string name="suggested_edits_encouragement_message">%s, tahrir qilganingiz uchun tashakkur. Quyida Siz Vikipediyaga hissa qoʻshishning koʻproq usullarini topishingiz mumkin.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Salom %s&lt;/b&gt;, quyida Siz Vikipediyani yaxshilashga yordam beradigan tez va oson usullarni topishingiz mumkin. Oʻzingiz amalga oshirayotgan farqni boshlashingiz bilanoq koʻrasiz. Omad!</string>
@@ -1019,6 +1025,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Rasm tegi</string>
   <string name="suggested_edits_contribution_current_revision_text">Hozirda tahriringiz Vikipediyada mavjud</string>
   <string name="suggested_card_more_edits">Ko\'proq taklif qilingan tahrirlar</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Tavsiya etilgan tavsiflar</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Nima haqida xabar bermoqchisiz?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Maʼlumot yetarli emas</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Tavsiya etilgan tavsiflarni ko‘rib bo‘lmaydi</string>
+  <string name="suggested_edits_inappropriate_suggestion">Nomaqbul taklif</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Vazifa tushunarsiz</string>
+  <string name="suggested_edits_report_suggestion">Hisobot</string>
+  <string name="suggested_edits_suggestion_report_submitted">Hisobot topshirildi</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s ta teg</item>
     <item quantity="other">%1$s ta teg</item>
@@ -1035,6 +1049,35 @@
     <item quantity="one">%d ta belgi qoʻshdingiz</item>
     <item quantity="other">%d ta belgi qoʻshdingiz</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Maqola rasmlari</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Tushunishni yaxshilash uchun Vikipediya maqolalariga tavsiya etilgan rasmlarni qoʻshing.</string>
+  <string name="image_recommendation_task_instruction">Ushbu rasmni maqolaga qoʻsha olasizmi?</string>
+  <string name="image_recommendation_tutorial">Qoʻllanma</string>
+  <string name="image_recommendation_accept">Ha</string>
+  <string name="image_recommendation_reject">Yoʻq</string>
+  <string name="image_recommendation_notsure">Balki yoʻq</string>
+  <string name="image_recommendation_reject_title">Nega yoʻq?</string>
+  <string name="image_recommendation_reject_subtitle">Javoblaringiz kelajakdagi takliflarni yaxshilaydi.</string>
+  <string name="image_recommendation_reject_not_relevant">Rasm tegishli emas</string>
+  <string name="image_recommendation_reject_no_info">Qaror qabul qilish uchun yetarli maʼlumot yoʻq</string>
+  <string name="image_recommendation_reject_offensive">Rasm haqoratli</string>
+  <string name="image_recommendation_reject_low_quality">Rasm sifati past</string>
+  <string name="image_recommendation_reject_dont_know">Men bu mavzuni bilmayman</string>
+  <string name="image_recommendation_reject_other">Boshqa</string>
+  <string name="image_recommendation_reject_submit">Yuborish</string>
+  <string name="image_recommendation_tooltip_main">Taklif etilgan tahrirlardagi maqolalarga yetishmayotgan rasmlarni qoʻshing</string>
+  <string name="image_recommendation_onboarding_1">Rasmlar odamlarga mavzuni tushunishga yordam beradi, biroq koʻp maqolalarda ular yoʻq.</string>
+  <string name="image_recommendation_onboarding_2">Tavsiya etilgan rasmni Vikipediya maqolasiga joylashtirish kerakmi yoki yoʻqligini oʻzingiz hal qilasiz.</string>
+  <string name="image_recommendation_onboarding_3">Takliflar mashina tomonidan ishlab chiqiladi va Siz ularni qabul qilish yoki rad etish haqida qaror qabul qilish oʻzingizga bogʻliq.</string>
+  <string name="image_recommendation_onboarding_4">Tasvirlar Vikipediya tomonidan qoʻllaniladigan erkin litsenziyalangan rasmlar toʻplami boʻlmish Wikimedia Commonsʼdan olingan.</string>
+  <string name="image_recommendation_tooltip_1">Mavzuni tushunish uchun ushbu maqolani koʻrib chiqing</string>
+  <string name="image_recommendation_tooltip_2">Rasmni va unga tegishli maʼlumotlarni tekshiring</string>
+  <string name="image_recommendation_tooltip_3">Rasm oʻquvchilarga ushbu mavzuni yaxshiroq tushunishga yordam beradimi yoki yoʻqligini aniqlang</string>
+  <string name="image_recommendation_tooltip_next">Keyingisi</string>
+  <string name="image_recommendation_tooltip_warning">Mavzuni tushunish uchun maqolani koʻrib chiqing va rasmni tekshiring</string>
+  <string name="edit_summary_added_image">Qoʻshilgan rasm</string>
+  <string name="edit_summary_added_caption">Izoh qoʻshish</string>
+  <string name="edit_published_view">Koʻrish</string>
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
   <string name="file_page_add_image_tags_button">Rasmga teg qoʻshmoq</string>
@@ -1044,7 +1087,7 @@
   <string name="description_edit_revert_reason1">sizning hissangiz quyidagi &lt;a href=\"%1$s\"&gt;yoʻriqnoma&lt;/a&gt;ga mos emas</string>
   <string name="description_edit_revert_reason2">sizning hissangiz tajriba yoki buzgʻunchilikka oʻxshayapti.</string>
   <string name="description_edit_revert_history">Agar qiziqsangiz, &lt;a href=\"%1$s\"&gt;tarixni tahrirlamoq&lt;/a&gt;</string>
-  <string name="description_edit_login_cancel_button_text">Bekor qilmoq</string>
+  <string name="description_edit_login_cancel_button_text">Bekor qilish</string>
   <string name="offline_read_permission_rationale">Oflayn oʻqish uchun qurilmangizdagi xotiradan foydalanish uchun ruxsat talab qilinadi.</string>
   <string name="offline_read_final_rationale">Oflayn kutubxonadan foydalanish uchun qurilmangizdagi xotiradan foydalanish uchun ruxsat talab qilinadi.</string>
   <string name="size_gb">%.2f GB</string>
@@ -1133,10 +1176,10 @@
   <string name="insert_media_title">Mediani qoʻymoq</string>
   <string name="insert_media_search_description">Wikimedia Commonsʼdan fayl tanlamoq</string>
   <string name="insert_media_search_hint">Media qidiruvi</string>
-  <string name="insert_media_settings">Media tanlovlari</string>
+  <string name="insert_media_settings">Rasmga izoh qoʻshish</string>
   <string name="insert_media_settings_uploaded_image">Yuklangan rasm</string>
-  <string name="insert_media_settings_caption">Izoh</string>
-  <string name="insert_media_settings_caption_description">Barcha oʻquvchilar uchun element yonida koʻrsatiladigan yozuv</string>
+  <string name="insert_media_settings_caption">Rasm izohi</string>
+  <string name="insert_media_settings_caption_description">Maqolada koʻrinadigan rasm sarlavhasi</string>
   <string name="insert_media_settings_alternative_text">Muqobil matn</string>
   <string name="insert_media_settings_alternative_text_description">Rasmni koʻra olmaydigan oʻquvchilar uchun izohli matn</string>
   <string name="insert_media_advanced_settings">Kengaytirilgan tanlovlar</string>
@@ -1210,7 +1253,7 @@
     <item quantity="other">(%d) ta javobni yashirish</item>
   </plurals>
   <string name="talk_thread_subscribed_to">\"%s\"ga obuna boʻlingan</string>
-  <string name="talk_thread_unsubscribed_from">\"%s\"dan obunani bekor qilmoq</string>
+  <string name="talk_thread_unsubscribed_from">„%s“dan obunani bekor qilish</string>
   <string name="talk_list_item_overflow_subscribe">Obuna boʻlmoq</string>
   <string name="talk_list_item_overflow_subscribed">Obuna boʻlingan</string>
   <string name="talk_list_item_overflow_mark_as_read">Oʻqilgan deb belgilash</string>
@@ -1244,7 +1287,7 @@
   <string name="thank_dialog_title_text">«Tashakkur» bildirmoq</string>
   <string name="thank_dialog_text">«Tashakkur» - Vikipediyada muharrirning ishiga minnatdorchilik bildirishning oson usuli. «Tashakkur» bekor qilinmaydi va hammaga koʻra oladi</string>
   <string name="thank_dialog_positive_button_text">Tashakkur bildirmoq</string>
-  <string name="thank_dialog_negative_button_text">Bekor qilmoq</string>
+  <string name="thank_dialog_negative_button_text">Bekor qilish</string>
   <string name="thank_success_message">Sizning «Tashakkur»ingiz %sga bildirildi 👍</string>
   <string name="menu_option_view_user_profile">Foydalanuvchi profili sahifasini koʻrish</string>
   <string name="menu_option_view_user_talk">Munozara sahifasini koʻrish</string>
@@ -1260,7 +1303,7 @@
   <string name="revision_diff_line_removed">Qator oʻchirildi</string>
   <string name="revision_diff_paragraph_added">Paragraf qoʻshildi</string>
   <string name="revision_diff_paragraph_removed">Paragraf oʻchirildi</string>
-  <string name="revision_undo_title">Tahrirni bekor qilmoq</string>
+  <string name="revision_undo_title">Tahrirni bekor qilish</string>
   <string name="revision_undo_message">Bu yerda koʻrsatilgan maqolaning tahrir(lar)i tomonidan kiritilgan oʻzgarishlar bekor qilinadi.</string>
   <string name="revision_undo_reason">Davom etish uchun ushbu tahrirni bekor qilish sababini keltiring:</string>
   <string name="revision_undo_success">Qayta koʻrib chiqish bekor qilindi.</string>
@@ -1283,6 +1326,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 oy</string>
   <string name="watchlist_expiry_dialog_six_months">6 oy</string>
   <string name="watchlist_empty">Kuzatuvlar roʻyxatida hali hech qanaqa maqola yoʻq.</string>
+  <string name="watchlist_search">Kuzatuv roʻyxatini qidirish</string>
   <string name="watchlist_filter_all">Barchasi</string>
   <string name="watchlist_filter_talk">Munozara</string>
   <string name="watchlist_filter_pages">Sahifalar</string>
@@ -1290,6 +1334,55 @@
   <string name="watchlist_page_moved">Koʻchirilgan</string>
   <string name="watchlist_page_protected">Himoyalangan</string>
   <string name="watchlist_page_deleted">O‘chirilgan</string>
+  <string name="watchlist_filter_title">Kuzatuv roʻyxati filtri</string>
+  <string name="watchlist_filter_wiki_filter_header">Viki</string>
+  <string name="watchlist_filter_all_text">Barchasi</string>
+  <string name="watchlist_filter_watchlist_activity_header">Kuzatuv roʻyxati faoliyati</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Koʻrib chiqilmagan oʻzgarishlar</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Koʻrib chiqilgan oʻzgarishlar</string>
+  <string name="watchlist_filter_contribution_quality_header">Hissa sifatini tahlil qilish</string>
+  <string name="watchlist_filter_contribution_quality_good">Katta ehtimol bilan yaxshi</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Muammolar boʻlishi mumkin</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Ehtimol, muammolar bordir</string>
+  <string name="watchlist_filter_contribution_quality_bad">Katta ehtimol bilan muammolar bor</string>
+  <string name="watchlist_filter_user_intent_header">Foydalanuvchi niyatlarini tahlil qilish</string>
+  <string name="watchlist_filter_user_intent_good">Ehtimol, yaxshi niyat</string>
+  <string name="watchlist_filter_user_intent_may_problems">Yomon niyat bo\'lishi mumkin</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Ehtimol, yomon niyatdrir</string>
+  <string name="watchlist_filter_user_intent_bad">Katta ehtimol bilan yomon</string>
+  <string name="watchlist_filter_user_status_header">Foydalanuvchini ro\'yxatdan o\'tkazish va tajriba</string>
+  <string name="watchlist_filter_user_status_unregistered">Roʻyxatdan oʻtmagan</string>
+  <string name="watchlist_filter_user_status_registered">Roʻyxatdan oʻtgan</string>
+  <string name="watchlist_filter_user_status_newcomers">Yangi kelganlar</string>
+  <string name="watchlist_filter_user_status_learners">Oʻrganuvchilar</string>
+  <string name="watchlist_filter_user_status_experienced">Tajribali foydalanuvchilar</string>
+  <string name="watchlist_filter_contribution_authorship_header">Hissa muallifligi</string>
+  <string name="watchlist_filter_contribution_authorship_own">Siz amalga oshirgan oʻzgarishlar</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Boshqalar tomonidan oʻzgarishlar</string>
+  <string name="watchlist_filter_automated_contributions_header">Avtomatik hissalar</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Inson (bot emas)</string>
+  <string name="watchlist_filter_significance_header">Ahamiyati</string>
+  <string name="watchlist_filter_significance_minor">Kichik tahrirlar</string>
+  <string name="watchlist_filter_significance_edits">Kichik boʻlmagan tahrirlar</string>
+  <string name="watchlist_filter_latest_revisions_header">Eng so\'nggi tahrirlar</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Eng soʻnggi tahrir</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Oxirgi tahrir emas</string>
+  <string name="watchlist_filter_type_of_change_header">Oʻzgartirish turi</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Sahifa tahrirlari</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Yaratilgan sahifalar</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Turkumlardagi oʻzgarishlar</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Vikimaʼlumotlarni tahrirlar</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Kirish amaliyoti</string>
+  <string name="watchlist_filter_type_of_change_new_users">Yangi foydalanuvchilar</string>
+  <string name="watchlist_filter_reset_button">Asliga</string>
+  <string name="watchlist_search_bar_hint">Kuzatuv roʻyxatini izlash yoki filtrlash</string>
+  <string name="watchlist_search_bar_filter_hint">Kuzatuv roʻyxati filtri</string>
+  <string name="watchlist_empty_search_message">Natija yoʻq, koʻproq koʻrish uchun %sʼni oʻchirib koʻring.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d ta filtr</item>
+    <item quantity="other">%d ta filtr</item>
+  </plurals>
   <string name="preview_edit_title">Tahrirni oldindan koʻrish</string>
   <string name="preview_edit_summarize_edit_title">Tahrirni umumiylashtirmoq</string>
   <string name="preview_edit_summarize_edit_hint">Sahifani yaxshilashga qanday yordam koʻrsatdingiz?</string>
@@ -1323,10 +1416,11 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Oʻqish roʻyxati import qilindi</string>
   <string name="reading_list_share_menu_label">Ulashish…</string>
   <string name="reading_list_share_menu_tooltip">Ushbu oʻqish roʻyxatini boshqalar bilan baham koʻring</string>
-  <string name="reading_list_share_title_tooltip">Bu roʻyxatga kiritilgan oʻzgarishlar boshqalarga koʻrinmaydi.</string>
   <string name="reading_list_share_message_v2">Salom! Men Siz bilan Vikipediya oʻqish roʻyxatini baham koʻrmoqchiman:</string>
   <string name="reading_list_share_survey_title">“Oʻqish roʻyxatini baham koʻrish”ni yaxshilashga yordam bera olasizmi?</string>
   <string name="reading_list_share_survey_body">“Oʻqish roʻyxatlarini ulashish” sinov koʻrinishida boʻlib, uni yaxshilash yoki olib tashlash uchun fikr-mulohazalaringiz kerak.</string>
   <string name="data_opt_in_accept">Qabul qilish</string>
   <string name="data_opt_in_reject">Rad etish</string>
+  <string name="page_issues_title">Sahifa muammolari</string>
+  <string name="generic_release_notes">Asosiy kamchiliklar tuzatildi hamda takomillashtirildi</string>
 </resources>

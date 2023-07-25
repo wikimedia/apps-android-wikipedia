@@ -5,8 +5,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemFeedContentTypeBinding
@@ -60,7 +60,7 @@ class ConfigureItemView(context: Context) : FrameLayout(context) {
         val view = ConfigureItemLanguageDialogView(context)
         val tempDisabledList = contentType.langCodesDisabled.toMutableList()
         view.setContentType(adapter.langList, tempDisabledList)
-        AlertDialog.Builder(context)
+        MaterialAlertDialogBuilder(context)
             .setView(view)
             .setTitle(contentType.titleId)
             .setPositiveButton(R.string.customize_lang_selection_dialog_ok_button_text) { _, _ ->
@@ -72,7 +72,6 @@ class ConfigureItemView(context: Context) : FrameLayout(context) {
                 binding.feedContentTypeCheckbox.isChecked = atLeastOneEnabled
             }
             .setNegativeButton(R.string.customize_lang_selection_dialog_cancel_button_text, null)
-            .create()
             .show()
     }
 

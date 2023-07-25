@@ -92,8 +92,8 @@
   <string name="map_view_link_text">شوف ف خريطة</string>
   <string name="other_languages_indication_text">قرا بلغة خرى</string>
   <string name="language_count_link_text">موجود ف %d لغة خرى</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">بالنشير، راك قابل على &lt;a href=\"%1$s\"&gt;شروط لإستخدام&lt;/a&gt;، وباللي مغاديش يتنادم معاك لحال الى تنشرات لمساهمة ديالك تحت ليصونص &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">بالنشير، راك قابل على &lt;a href=\"%1$s\"&gt;شروط لإستخدام&lt;/a&gt;، وباللي مغاديش يتنادم معاك لحال الى تنشرات لمساهمة ديالك تحت ليصونص &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="preference_title_language">لوغات د ويكيپيديا</string>
   <string name="langlinks_filter_hint">قلّب</string>
   <string name="langlinks_empty">هاد الصفحة ماكايناش ف لوغات خرين</string>
@@ -197,6 +197,7 @@
   <string name="edit_done">تنشر</string>
   <string name="edit_undo">ماتليتش</string>
   <string name="edit_redo">عاود</string>
+  <string name="edit_rollback">ترجاع</string>
   <string name="edit_zoom_in">زومي</string>
   <string name="edit_zoom_out">صغّر</string>
   <string name="edit_summary_tag_links">روابط تزادت</string>
@@ -346,6 +347,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">معلومات كتر</string>
   <string name="suggested_edits_task_action_text_add">زيد</string>
   <string name="suggested_edits_contributions_stat_tooltip">لمجموع د تبديلات ديالك حتال دابا.</string>
+  <string name="suggested_edits_disabled_message">التبديلات لمقتارحة مامفعلاش. سمح لينا %s، راه ترجّعو بزاف د لمساهمات اللخرة ديالك.</string>
   <string name="suggested_edits_quality_okay_text">واخا</string>
   <string name="suggested_edits_task_new">جديد</string>
   <string name="suggested_edits_contribution_language_label">لوغة</string>

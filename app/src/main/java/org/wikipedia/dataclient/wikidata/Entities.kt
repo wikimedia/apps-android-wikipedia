@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient.wikidata
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
@@ -27,7 +28,7 @@ class Entities : MwResponse() {
         val sitelinks: Map<String, SiteLink> = emptyMap()
         val statements: JsonElement? = null
         val missing: JsonElement? = null
-        val lastRevId: Long = 0
+        @SerialName("lastrevid") val lastRevId: Long = 0
 
         fun getStatements(): Map<String, List<Claims.Claim>> {
             return if (statements != null && statements !is JsonArray) {

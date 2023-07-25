@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textColor="?attr/material_theme_secondary_color"
+        android:textColor="?attr/secondary_color"
         android:textSize="16sp"
         android:visibility="gone" />
 

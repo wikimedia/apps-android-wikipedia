@@ -34,7 +34,7 @@
             android:fontFamily="sans-serif"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="16sp"
             tools:text="Lorem ipsum" />
 
@@ -52,14 +52,17 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/view_announcement_action_positive"
-                style="@style/FlatButton.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/App.Button.Secondary"
                 android:layout_marginEnd="8dp"
-                app:iconSize="20dp"
-                app:iconTint="?attr/colorAccent"/>
+                tools:text="Lorem ipsum"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/view_announcement_action_negative"
-                style="@style/FlatButton.Small.Transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/App.Button.Text.Secondary"
                 android:text="@string/view_announcement_card_negative_action"/>
 
         </com.google.android.flexbox.FlexboxLayout>
@@ -73,21 +76,22 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:clipToPadding="false"
-            android:visibility="gone">
+            android:visibility="gone"
+            tools:visibility="visible">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/view_announcement_dialog_action_negative"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TransparentButton"
-                android:layout_margin="4dp"
-                android:text="@string/view_announcement_card_negative_action"
-                android:textColor="?attr/secondary_text_color"/>
+                style="@style/App.Button.Text.Secondary"
+                android:text="@string/view_announcement_card_negative_action"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/view_announcement_dialog_action_positive"
-                style="@style/App.Button.Blue"
-                android:textColor="@android:color/white"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                tools:text="Lorem ipsum"/>
 
         </LinearLayout>
 
@@ -95,7 +99,7 @@
             android:id="@+id/view_announcement_footer_border"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="?attr/chip_background_color"
+            android:background="?attr/border_color"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp" />
 
@@ -104,7 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:textColor="?attr/secondary_text_color"
+            android:textColor="?attr/placeholder_color"
             android:textSize="12sp"
             tools:text="Lorem ipsum" />
 

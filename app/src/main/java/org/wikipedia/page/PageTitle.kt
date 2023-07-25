@@ -34,7 +34,7 @@ data class PageTitle(
     var description: String? = null,
     // TODO: remove after the restbase endpoint supports ZH variants.
     @SerialName("displayText") private var _displayText: String? = null,
-    var extract: String? = null,
+    var extract: String? = null
 ) : Parcelable {
 
     var text: String

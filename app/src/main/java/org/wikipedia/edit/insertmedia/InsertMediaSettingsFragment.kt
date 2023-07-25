@@ -99,7 +99,8 @@ class InsertMediaSettingsFragment : Fragment() {
         activity.supportActionBar?.title = getString(R.string.insert_media_settings)
         viewModel.selectedImage?.let {
             ViewUtil.loadImageWithRoundedCorners(binding.imageView, it.thumbUrl, true)
-            binding.mediaDescription.text = StringUtil.removeHTMLTags(it.description.orEmpty().ifEmpty { it.displayText })
+            binding.mediaTitle.text = it.text
+            binding.mediaDescription.text = StringUtil.removeHTMLTags(it.description.orEmpty().ifEmpty { it.displayText }).trim()
         }
         binding.mediaCaptionLayout.requestFocus()
         DeviceUtil.showSoftKeyboard(binding.mediaCaptionText)

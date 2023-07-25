@@ -10,11 +10,13 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import androidx.core.app.PendingIntentCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.getSystemService
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
@@ -23,7 +25,6 @@ import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.FileUtil
 
@@ -56,6 +57,7 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             activity.getSystemService<NotificationManager>()?.notify(0, getNotificationBuilder(activity, intent, exportLists.size).build())
             FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_lists_export_completed_message))
                 .setAction(R.string.suggested_edits_article_cta_snackbar_action) { activity.startActivity(intent) }.show()
+            ReadingListsAnalyticsHelper.logExportLists(activity, exportLists.size)
         } catch (e: Exception) {
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_export_failed_message, exportLists.size))
         }
@@ -68,14 +70,15 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
             .setAutoCancel(true)
             .setContentTitle(context.getString(R.string.reading_list_notification_title))
             .setContentText(context.getString(R.string.reading_list_notification_detailed_text))
-            .setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags))
-            .setLargeIcon(NotificationPresenter.drawNotificationBitmap(context, R.color.accent50, R.drawable.ic_download_in_progress, ""))
+            .setContentIntent(PendingIntentCompat.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT, false))
+            .setLargeIcon(NotificationPresenter.drawNotificationBitmap(context, R.color.blue600, R.drawable.ic_download_in_progress, ""))
             .setSmallIcon(R.drawable.ic_wikipedia_w)
-            .setColor(ContextCompat.getColor(context, R.color.accent50))
+            .setColor(ContextCompat.getColor(context, R.color.blue600))
             .setStyle(NotificationCompat.BigTextStyle().bigText(context.getString(R.string.reading_list_notification_text, numOfLists)))
     }
 
     fun importLists(activity: BaseActivity, jsonString: String) {
+        ReadingListsAnalyticsHelper.logImportStart(activity)
         try {
             val contents: ExportableContents = JsonUtil.decodeFromString(jsonString)!!
             val readingLists = contents.readingListsV1
@@ -88,10 +91,12 @@ object ReadingListsExportImportHelper : BaseActivity.Callback {
                 }
                 val readingList = AppDatabase.instance.readingListDao().createList(list.name!!, list.description)
                 addTitlesToList(list, readingList)
+                ReadingListsAnalyticsHelper.logImportFinished(activity, list.pages.size)
             }
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.reading_list_import_success_message, readingLists.size))
         } catch (e: Exception) {
             FeedbackUtil.showMessage(activity, R.string.reading_lists_import_failure_message)
+            ReadingListsAnalyticsHelper.logImportCancelled(activity)
         }
     }
 

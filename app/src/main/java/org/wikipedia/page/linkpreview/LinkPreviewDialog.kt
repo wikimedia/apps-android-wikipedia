@@ -12,10 +12,14 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
+import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.DialogLinkPreviewBinding
 import org.wikipedia.dataclient.page.PageSummary
@@ -44,6 +48,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private val binding get() = _binding!!
 
     private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
+    private var linkPreviewInteraction: ArticleLinkPreviewInteraction? = null
     private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
     private var revision: Long = 0
@@ -97,32 +102,31 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             }
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
-        renderViewStates()
-        return binding.root
-    }
 
-    private fun renderViewStates() {
-        lifecycleScope.launchWhenCreated {
-            viewModel.uiState.collect {
-                when (it) {
-                    is LinkPreviewViewState.Loading -> {
-                        binding.linkPreviewProgress.visibility = View.VISIBLE
-                    }
-                    is LinkPreviewViewState.Error -> {
-                        renderErrorState(it.throwable)
-                    }
-                    is LinkPreviewViewState.Content -> {
-                        renderContentState(it.data)
-                    }
-                    is LinkPreviewViewState.Gallery -> {
-                        renderGalleryState(it)
-                    }
-                    is LinkPreviewViewState.Completed -> {
-                        binding.linkPreviewProgress.visibility = View.GONE
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.uiState.collect {
+                    when (it) {
+                        is LinkPreviewViewState.Loading -> {
+                            binding.linkPreviewProgress.visibility = View.VISIBLE
+                        }
+                        is LinkPreviewViewState.Error -> {
+                            renderErrorState(it.throwable)
+                        }
+                        is LinkPreviewViewState.Content -> {
+                            renderContentState(it.data)
+                        }
+                        is LinkPreviewViewState.Gallery -> {
+                            renderGalleryState(it)
+                        }
+                        is LinkPreviewViewState.Completed -> {
+                            binding.linkPreviewProgress.visibility = View.GONE
+                        }
                     }
                 }
             }
         }
+        return binding.root
     }
 
     private fun renderGalleryState(it: LinkPreviewViewState.Gallery) {
@@ -138,6 +142,14 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 viewModel.historyEntry.source
         )
         articleLinkPreviewInteractionEvent?.logLinkClick()
+
+        linkPreviewInteraction = ArticleLinkPreviewInteraction(
+            viewModel.pageTitle,
+            summary.pageId,
+            viewModel.historyEntry.source
+        )
+        linkPreviewInteraction?.logLinkClick()
+
         revision = summary.revision
 
         binding.linkPreviewTitle.text = StringUtil.fromHtml(summary.displayTitle)
@@ -191,6 +203,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         super.onDismiss(dialogInterface)
         if (!navigateSuccess) {
             articleLinkPreviewInteractionEvent?.logCancel()
+            linkPreviewInteraction?.logCancel()
         }
     }
 
@@ -272,6 +285,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private fun goToLinkedPage(inNewTab: Boolean) {
         navigateSuccess = true
         articleLinkPreviewInteractionEvent?.logNavigate()
+        linkPreviewInteraction?.logNavigate()
         dialog?.dismiss()
         loadPage(viewModel.pageTitle, viewModel.historyEntry, inNewTab)
     }

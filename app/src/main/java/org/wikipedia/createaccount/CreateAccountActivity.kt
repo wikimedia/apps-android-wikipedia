@@ -9,8 +9,8 @@ import android.text.TextWatcher
 import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doOnTextChanged
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -230,7 +230,7 @@ class CreateAccountActivity : BaseActivity() {
                 binding.createAccountEmail.error = getString(R.string.create_account_email_error)
                 return
             }
-            ValidateResult.NO_EMAIL -> AlertDialog.Builder(this)
+            ValidateResult.NO_EMAIL -> MaterialAlertDialogBuilder(this)
                     .setCancelable(false)
                     .setTitle(R.string.email_recommendation_dialog_title)
                     .setMessage(StringUtil.fromHtml(resources.getString(R.string.email_recommendation_dialog_message)))

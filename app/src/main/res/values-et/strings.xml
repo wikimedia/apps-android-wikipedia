@@ -7,20 +7,29 @@
 * Patrik L.
 * Pikne
 * Postituvi
+* Pyscowicz
 -->
 <resources>
   <string name="app_name_prod">Vikipeedia</string>
   <string name="app_name_beta">Vikipeedia Beeta</string>
+  <string name="nav_item_back">Tagasi</string>
+  <string name="page_tabs_back">Tagasi</string>
+  <string name="nav_item_forward">Edasi</string>
   <string name="search_hint">Otsi Vikipeediast</string>
   <string name="error_network_error">Internetti ühendamine ei õnnestu.</string>
   <string name="page_error_retry">Proovi uuesti</string>
   <string name="menu_clear_all_history">Tühjenda ajalugu</string>
+  <string name="history_list_title">Ajalugu</string>
   <string name="dialog_title_clear_history">Sirvimisajaloo kustutamine</string>
   <string name="dialog_message_clear_history_yes">Jah</string>
+  <string name="dialog_message_clear_history_no">Ei</string>
   <string name="share_via">Vali jagamisviis:</string>
   <string name="menu_page_other_languages">Vaheta keelt</string>
   <string name="menu_page_find_in_page" fuzzy="true">Otsi lehelt</string>
+  <string name="menu_page_add_to_default_list">Salvesta</string>
+  <string name="feed_card_add_to_default_list">Salvesta</string>
   <string name="menu_page_share">Jaga linki</string>
+  <string name="menu_long_press_open_page">Ava</string>
   <string name="last_updated_text">Viimati uuendatud %s</string>
   <string name="preference_title_language" fuzzy="true">Vikipeedia keel</string>
   <string name="langlinks_filter_hint">Otsi</string>
@@ -41,12 +50,19 @@
   <string name="nav_item_login">Logi Vikipeediasse sisse</string>
   <string name="login_username_hint">Kasutajanimi</string>
   <string name="login_password_hint">Parool</string>
+  <string name="onboarding_card_login">Logi sisse</string>
+  <string name="page_editing_login">Logi sisse</string>
+  <string name="reading_lists_sync_login">Logi sisse</string>
+  <string name="create_account_login">Logi sisse</string>
   <string name="menu_login">Logi sisse</string>
-  <string name="login_activity_title" fuzzy="true">Logi Vikipeediasse sisse</string>
+  <string name="login_activity_title">Logi sisse</string>
   <string name="login_in_progress_dialog_message">Sisselogimine…</string>
   <string name="login_success_toast" fuzzy="true">Sisselogimine õnnestus</string>
   <string name="preference_title_logout">Logi välja</string>
   <string name="toast_logout_complete">Välja logitud</string>
+  <string name="logout_dialog_cancel_button_text">Loobu</string>
+  <string name="logged_out_in_background_login">Logi sisse</string>
+  <string name="logged_out_in_background_cancel">Loobu</string>
   <string name="history_empty_message">Ülevaade sellest, mida oled siin lugenud.</string>
   <string name="create_account_username_hint">Kasutajanimi</string>
   <string name="create_account_activity_title">Loo konto</string>
@@ -78,13 +94,16 @@
   <string name="about_activity_title">Teave</string>
   <string name="edit_abandon_confirm">Lehekülg on muudetud. Kas oled kindel, et soovid väljuda muudatusi salvestamata?</string>
   <string name="edit_abandon_confirm_yes">Jah</string>
+  <string name="edit_abandon_confirm_no">Ei</string>
   <string name="user_blocked_from_editing_title">Tõkestatud</string>
   <string name="user_logged_in_blocked_from_editing">Sinu kasutajakontolt on selles vikis muudatuste tegemine tõkestatud.</string>
   <string name="user_anon_blocked_from_editing">Sinu IP-aadressilt on muudatuste tegemine tõkestatud.</string>
   <string name="edit_how_page_improved">Mida leheküljel muutsid?</string>
   <string name="edit_next">Edasi</string>
-  <string name="edit_done" fuzzy="true">Salvesta</string>
+  <string name="edit_done">Avalda</string>
   <string name="edit_preview">Eelvaade</string>
+  <string name="edit_undo">Võta tagasi</string>
+  <string name="edit_redo">Tee uuesti</string>
   <string name="edit_summary_tag_typo">Parandatud kirjaviga</string>
   <string name="edit_summary_tag_grammar">Parandatud grammatika</string>
   <string name="edit_summary_tag_links">Lisatud lingid</string>
@@ -93,9 +112,20 @@
   <string name="find_next">Otsi järgmine</string>
   <string name="find_previous">Otsi eelmine</string>
   <string name="clear_recent_searches_confirm_yes">Jah</string>
+  <string name="clear_recent_searches_confirm_no">Ei</string>
   <string name="table_close">Sulge</string>
   <string name="close_all_tabs_confirm_yes">Jah</string>
+  <string name="close_all_tabs_confirm_no">Ei</string>
+  <string name="article_menu_bar_save_button">Salvesta</string>
+  <string name="article_menu_bar_language_button">Keel</string>
   <string name="saved_list_empty_title" fuzzy="true">Lugemisnimekirjad puuduvad</string>
   <string name="reading_lists_empty_message" fuzzy="true">Salvesta artiklid lugemisnimekirja, et vaadata neid hiljem, ka internetiühenduseta.</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jah</string>
+  <string name="reading_lists_confirm_remote_delete_no">Ei</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Loobu</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Logi sisse</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Loobu</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Loobu</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Loobu</string>
+  <string name="notification_syncing_cancel_button">Loobu</string>
 </resources>

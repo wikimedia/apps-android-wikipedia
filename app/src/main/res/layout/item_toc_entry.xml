@@ -20,12 +20,12 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         tools:text="Sample Table of Contents entry" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/page_toc_item_bullet"
         android:layout_width="8dp"
         android:layout_height="8dp"
         android:contentDescription="@null"
         app:srcCompat="@drawable/shape_circle"
-        app:tint="@color/base50" />
+        app:tint="@color/gray400" />
 
 </LinearLayout>

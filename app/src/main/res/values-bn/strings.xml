@@ -8,6 +8,7 @@
 * Cooltey
 * Dbrant
 * Elias Ahmmad
+* FARMER
 * Greatder
 * Masumrezarock100
 * Md. Golam Mukit Khan
@@ -134,9 +135,9 @@
   <string name="map_view_link_text">একটি মানচিত্রে দেখুন</string>
   <string name="other_languages_indication_text">আরেকটি ভাষায় পড়ুন</string>
   <string name="language_count_link_text">অন্য %dটি ভাষায় উপলব্ধ</string>
-  <string name="content_license_cc_by_sa">সিসি বাই-এসএ ৩.০</string>
-  <string name="edit_save_action_license_logged_in">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন।</string>
-  <string name="edit_save_action_license_anon">প্রকাশ ক্রার দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৩.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন। সম্পাদনাগুলি আপনার ডিভাইসের আইপি ঠিকানায় আরোপিত হবে। আপনি যদি &lt;a href=\"https://#login\"&gt;প্রবেশ&lt;/a&gt; করেন, আপনি আরো গোপনীয়তা পাবেন।</string>
+  <string name="content_license_cc_by_sa">সিসি বাই-এসএ ৪.০</string>
+  <string name="edit_save_action_license_logged_in">সংরক্ষণের দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৪.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন।</string>
+  <string name="edit_save_action_license_anon">প্রকাশ ক্রার দ্বারা, আপনি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত, এবং আপনার অবদান &lt;a href=\"%2$s\"&gt;সিসি বাই-এসএ ৪.০&lt;/a&gt; লাইসেন্সের অধীনে অপরিবর্তনীয় প্রকাশে সম্মত হচ্ছেন। সম্পাদনাগুলি আপনার ডিভাইসের আইপি ঠিকানায় আরোপিত হবে। আপনি যদি &lt;a href=\"https://#login\"&gt;প্রবেশ&lt;/a&gt; করেন, আপনি আরো গোপনীয়তা পাবেন।</string>
   <string name="preference_title_language">উইকিপিডিয়ার ভাষা</string>
   <string name="langlinks_filter_hint">অনুসন্ধান</string>
   <string name="langlinks_empty">এই পাতাটি অন্য কোনো ভাষায় উপলব্ধ নয়।</string>
@@ -260,7 +261,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bn</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/bn</string>
   <string name="android_app_request_an_account_url">https://bn.wikipedia.org/wiki/উইকিপিডিয়া:অ্যাকাউন্টের_জন্য_অনুরোধ</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.bn</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.bn</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.bn</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -270,7 +271,7 @@
   <string name="about_translators_heading">অনুবাদকগণ</string>
   <string name="about_translators_translatewiki">এই অ্যাপ্লিকেশন স্বেচ্ছাসেবী অনুবাদকদের দ্বারা &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-এ অনূদিত হয়েছে।</string>
   <string name="about_app_license_heading">লাইসেন্স</string>
-  <string name="about_app_license">উৎস কোড &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;অ্যাপাচি ২.০ লাইসেন্সের&lt;/a&gt; অধীনে &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;জেরিট&lt;/a&gt; ও &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;গিটহাবে&lt;/a&gt; উপলব্ধ। অন্যথায় নির্দিষ্ট করা না থাকলে, বিষয়বস্তু &lt;a href=\"https://bn.wikipedia.org/wiki/উইকিপিডিয়া:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন-শেয়ারঅ্যালাইক লাইসেন্সের&lt;/a&gt; অধীনে উপলব্ধ।</string>
+  <string name="about_app_license">উৎস কোড &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;অ্যাপাচি ২.০ লাইসেন্সের&lt;/a&gt; অধীনে &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;গেরিট&lt;/a&gt; ও &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;গিটহাবে&lt;/a&gt; উপলব্ধ। অন্যথায় নির্দিষ্ট করা না থাকলে, বিষয়বস্তু &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.bn\"&gt;ক্রিয়েটিভ কমন্স অ্যাট্রিবিউশন-শেয়ারঅ্যালাইক লাইসেন্সের&lt;/a&gt; অধীনে উপলব্ধ।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;উইকিমিডিয়া ফাউন্ডেশনের&lt;/a&gt; একটি পণ্য</string>
   <string name="about_activity_title">পরিচিতি</string>
   <string name="edit_abandon_confirm">এই পাতাটি পরিবর্তিত হয়েছে। আপনি কী নিশ্চিত যে আপনার পরিবর্তন সংরক্ষণ না করেই প্রস্থান করবেন?</string>
@@ -548,7 +549,10 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">বাতিল</string>
   <string name="reading_list_split_dialog_ok_button_text">ঠিক আছে</string>
   <string name="reading_lists_preview_save_button">সংরক্ষণ</string>
+  <string name="reading_lists_preview_save_dialog_title">তালিকা সংরক্ষণ করুন</string>
+  <string name="reading_lists_preview_save_dialog_text">তালিকার নাম দিন ও সংরক্ষণ করতে নিবন্ধ নির্বাচন করুন।</string>
   <string name="reading_lists_preview_save_dialog_cancel">বাতিল</string>
+  <string name="reading_lists_preview_save_dialog_save">সংরক্ষণ</string>
   <string name="reading_lists_preview_saved_snackbar_action">দেখুন</string>
   <string name="user_option_sync_label">পছন্দসমূহ</string>
   <string name="notification_reverted_title">সম্পাদনা বাতিল হয়েছে</string>
@@ -745,6 +749,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">এক লাইনে, দুই থেকে বারো পর্যন্ত শব্দ রাখা যাবে</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">যন্ত্র-প্রদত্ত পরামর্শ</string>
   <string name="customize_toolbar_category_toolbar">সরঞ্জামদণ্ড</string>
   <string name="customize_toolbar_category_menu">মেনু</string>
   <string name="customize_toolbar_reset_to_default_button">পূর্বনির্ধারিত অবস্থায় ফেরত যান</string>
@@ -873,6 +878,12 @@
     <item quantity="one">%1$sটি অক্ষর</item>
     <item quantity="other">%1$sটি অক্ষর</item>
   </plurals>
+  <string name="image_recommendation_accept">হ্যাঁ</string>
+  <string name="image_recommendation_reject">না</string>
+  <string name="image_recommendation_reject_low_quality">ছবিটি নিম্নমানের</string>
+  <string name="image_recommendation_reject_submit">জমা দিন</string>
+  <string name="image_recommendation_tooltip_next">পরবর্তী</string>
+  <string name="edit_published_view">দেখুন</string>
   <string name="file_page_activity_title">ফাইলের পাতা</string>
   <string name="file_page_add_image_caption_button">ছবির ক্যাপশন যোগ করুন</string>
   <string name="file_page_add_image_tags_button">ছবিতে ট্যাগ যোগ করুন</string>
@@ -956,9 +967,9 @@
   <string name="wikitext_reference">তথ্যসূত্র</string>
   <string name="insert_media_search_description">উইকিমিডিয়া কমন্স থেকে একটি ফাইল নির্বাচন করুন</string>
   <string name="insert_media_search_hint">মিডিয়া অনুসন্ধান</string>
-  <string name="insert_media_settings">মিডিয়া সেটিং</string>
+  <string name="insert_media_settings" fuzzy="true">মিডিয়া সেটিং</string>
   <string name="insert_media_settings_uploaded_image">আপলোডকৃত ছবি</string>
-  <string name="insert_media_settings_caption">ক্যাপশন</string>
+  <string name="insert_media_settings_caption" fuzzy="true">ক্যাপশন</string>
   <string name="insert_media_advanced_settings">উচ্চতর সেটিং</string>
   <string name="insert_media_advanced_settings_image_position">চিত্রের অবস্থান</string>
   <string name="insert_media_advanced_settings_image_position_right">ডানে</string>
@@ -1107,10 +1118,10 @@
   <string name="shareable_reading_lists_new_imported_snackbar">পড়ার তালিকা আমদানি করা হয়েছে</string>
   <string name="reading_list_share_menu_label">শেয়ার করুন…</string>
   <string name="reading_list_share_menu_tooltip">এই পঠন তালিকাটি অন্যদের সাথে শেয়ার করুন</string>
-  <string name="reading_list_share_title_tooltip">এই তালিকায় আপনার করা পরিবর্তনগুলি অন্যদের কাছে দৃশ্যমান নয়।</string>
   <string name="reading_list_share_message_v2">শুভেচ্ছা নিন! আমি আপনার সাথে আমার উইকিপিডিয়া পঠন তালিকা শেয়ার করতে চাই:</string>
   <string name="reading_list_share_survey_title">আপনি কি আমাদের \"পড়ার তালিকা শেয়ার\" উন্নত করতে সহায়তা করতে পারবেন?</string>
   <string name="reading_list_share_survey_body">\"পড়ার তালিকা শেয়ার\" একটি পরীক্ষামূলক ফিচার এবং এটি উন্নত বা অপসারণ করতে আমাদের আপনার প্রতিক্রিয়া প্রয়োজন।</string>
   <string name="data_opt_in_accept">গ্রহণ করুন</string>
   <string name="data_opt_in_reject">প্রত্যাখ্যান করুন</string>
+  <string name="page_issues_title">পাতার সমস্যা</string>
 </resources>

@@ -12,7 +12,7 @@
         android:layout_height="20dp"
         android:layout_gravity="center"
         app:srcCompat="@drawable/shape_circle"
-        app:tint="?attr/color_group_44"
+        app:tint="?attr/destructive_color"
         tools:tint="@android:color/black"
         android:contentDescription="@null"/>
 

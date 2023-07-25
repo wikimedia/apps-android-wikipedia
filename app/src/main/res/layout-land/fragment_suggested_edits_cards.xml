@@ -26,12 +26,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <androidx.appcompat.widget.AppCompatSpinner
+                <Spinner
                     android:id="@+id/wikiFromLanguageSpinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:backgroundTint="?attr/colorAccent"/>
+                    android:backgroundTint="?attr/progressive_color"/>
             </LinearLayout>
 
 
@@ -48,7 +48,7 @@
                 android:paddingBottom="8dp"
                 android:scaleType="center"
                 app:srcCompat="@drawable/ic_baseline_arrow_right_alt_24px"
-                app:tint="?attr/material_theme_secondary_color" />
+                app:tint="?attr/secondary_color" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -56,12 +56,12 @@
                 android:layout_weight="1"
                 android:gravity="end">
 
-                <androidx.appcompat.widget.AppCompatSpinner
+                <Spinner
                     android:id="@+id/wikiToLanguageSpinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:backgroundTint="?attr/colorAccent"/>
+                    android:backgroundTint="?attr/progressive_color"/>
 
             </LinearLayout>
 
@@ -96,7 +96,7 @@
             app:layout_constraintTop_toBottomOf="@id/wikiLanguageDropdownContainer"
             app:layout_constraintBottom_toBottomOf="parent">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/backButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -107,7 +107,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@null"
                 android:scaleX="-1"
-                app:tint="?attr/colorAccent"
+                app:tint="?attr/progressive_color"
                 app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                 app:layout_constraintBottom_toTopOf="@+id/addContributionButton"
                 app:layout_constraintStart_toStartOf="parent"
@@ -119,23 +119,19 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:backgroundTint="?attr/colorAccent"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@null"
                 android:tag="landscape"
-                app:cornerRadius="2dp"
-                app:rippleColor="?attr/color_group_56"
                 app:iconPadding="0dp"
                 app:iconGravity="textStart"
-                app:iconTint="@color/base100"
                 app:icon="@drawable/ic_add_gray_white_24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/nextButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -145,7 +141,7 @@
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@null"
-                app:tint="?attr/colorAccent"
+                app:tint="?attr/progressive_color"
                 app:srcCompat="@drawable/ic_chevron_forward_white_24dp"
                 app:layout_constraintTop_toBottomOf="@id/addContributionButton"
                 app:layout_constraintStart_toStartOf="parent"

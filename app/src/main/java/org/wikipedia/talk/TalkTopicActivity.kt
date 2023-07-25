@@ -1,6 +1,5 @@
 package org.wikipedia.talk
 
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -16,10 +15,12 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
@@ -31,7 +32,6 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.*
@@ -84,7 +84,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkTopicBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.replyToolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
         linkHandler = TalkLinkHandler(this)
@@ -92,8 +92,11 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         L10nUtil.setConditionalLayoutDirection(binding.talkRecyclerView, viewModel.pageTitle.wikiSite.languageCode)
         L10nUtil.setConditionalLayoutDirection(binding.talkErrorView, viewModel.pageTitle.wikiSite.languageCode)
-        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
-        binding.talkToolbarSubjectView.movementMethod = linkMovementMethod
+        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color))
+
+        ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
+            it.movementMethod = linkMovementMethod
+        }
 
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -111,7 +114,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         binding.talkRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                binding.talkToolbarSubjectView.isVisible = binding.talkRecyclerView.computeVerticalScrollOffset() > (recyclerView.getChildAt(0).height / 2)
+                supportActionBar?.setDisplayShowTitleEnabled(binding.talkRecyclerView.computeVerticalScrollOffset() > (recyclerView.getChildAt(0).height / 2))
             }
         })
 
@@ -288,8 +291,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 }
             }
         }
-        binding.talkToolbarSubjectView.text = StringUtil.fromHtml(viewModel.topic?.html)
-        RichTextUtil.removeUnderlinesFromLinks(binding.talkToolbarSubjectView)
+        supportActionBar?.title = StringUtil.fromHtml(viewModel.topic?.html)
         invalidateOptionsMenu()
     }
 
@@ -322,7 +324,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             if (AccountUtil.isLoggedIn) {
                 viewModel.toggleSubscription()
             } else {
-                AlertDialog.Builder(this@TalkTopicActivity)
+                MaterialAlertDialogBuilder(this@TalkTopicActivity)
                     .setTitle(R.string.talk_login_to_subscribe_dialog_title)
                     .setMessage(R.string.talk_login_to_subscribe_dialog_content)
                     .setPositiveButton(R.string.login_join_wikipedia) { _, _ ->
@@ -393,7 +395,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         }
 
         override fun onMediaLinkClicked(title: PageTitle) {
-            // TODO
+            startActivity(FilePageActivity.newIntent(this@TalkTopicActivity, title))
         }
 
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
@@ -446,7 +448,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     companion object {
-        const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_TOPIC_NAME = "topicName"
         const val EXTRA_TOPIC_ID = "topicId"
         const val EXTRA_REPLY_ID = "replyId"
@@ -460,7 +461,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                       searchQuery: String?,
                       invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)
-                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                    .putExtra(Constants.ARG_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC_NAME, topicName)
                     .putExtra(EXTRA_TOPIC_ID, topicId)
                     .putExtra(EXTRA_REPLY_ID, replyId)

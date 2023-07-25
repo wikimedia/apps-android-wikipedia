@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="12dp"
-            android:background="?attr/chip_background_color"
+            android:background="?attr/border_color"
             android:clipChildren="false"
             android:clipToPadding="false"
             app:layout_constraintStart_toStartOf="parent"

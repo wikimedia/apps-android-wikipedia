@@ -84,6 +84,12 @@ class UriUtilTest {
         MatcherAssert.assertThat(UriUtil.isAppSupportedLink(Uri.parse("https://mediawiki.org/wiki/Special:MyLanguage/Help:Login_notifications?markasread=135571654&markasreadwiki=enwiki")), Matchers.`is`(false))
     }
 
+    @Test
+    fun testDiffUrl() {
+        MatcherAssert.assertThat(UriUtil.isDiffUrl("https://en.wikipedia.org/w/index.php?title=User_talk:Android-Test17-WMF&oldid=prev&diff=1147068001"), Matchers.`is`(true))
+        MatcherAssert.assertThat(UriUtil.isDiffUrl("https://en.wikipedia.org/wiki/Cat"), Matchers.`is`(false))
+    }
+
     companion object {
         /**
          * Inspired by

@@ -9,11 +9,11 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.*
 import androidx.preference.PreferenceManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
 import org.wikipedia.Constants
@@ -23,6 +23,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityPageBinding
@@ -31,7 +32,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView
 import org.wikipedia.descriptions.DescriptionEditSuccessActivity
-import org.wikipedia.descriptions.DescriptionEditTutorialActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
@@ -120,16 +120,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         }
     }
 
-    private val requestDescriptionEditTutorialLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
-            Prefs.isDescriptionEditTutorialEnabled = false
-            it.data?.let { intent ->
-                pageFragment.startDescriptionEditActivity(intent.getStringExtra(DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT),
-                    intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
-            }
-        }
-    }
-
     private val requestSuggestedEditsLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK || it.resultCode == DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS) {
             pageFragment.refreshPage()
@@ -188,12 +178,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.pageToolbarButtonSearch.setOnClickListener {
             pageFragment.articleInteractionEvent?.logSearchWikipediaClick()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logSearchWikipediaClick()
             startActivity(SearchActivity.newIntent(this@PageActivity, InvokeSource.TOOLBAR, null))
         }
-        binding.pageToolbarButtonTabs.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonTabs.updateTabCount(false)
         binding.pageToolbarButtonTabs.setOnClickListener {
             pageFragment.articleInteractionEvent?.logTabsClick()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logTabsClick()
             TabActivity.captureFirstTabBitmap(pageFragment.containerView, pageFragment.title?.prefixedText.orEmpty())
             requestBrowseTabLauncher.launch(TabActivity.newIntentFromPageActivity(this))
         }
@@ -202,13 +193,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
             pageFragment.showOverflowMenu(it)
             pageFragment.articleInteractionEvent?.logMoreClick()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logMoreClick()
             Prefs.showOneTimeCustomizeToolbarTooltip = false
         }
 
-        binding.pageToolbarButtonNotifications.setColor(ResourceUtil.getThemedColor(this, R.attr.toolbar_icon_color))
         binding.pageToolbarButtonNotifications.isVisible = AccountUtil.isLoggedIn
         binding.pageToolbarButtonNotifications.setOnClickListener {
             pageFragment.articleInteractionEvent?.logNotificationClick()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logNotificationClick()
             if (AccountUtil.isLoggedIn) {
                 startActivity(NotificationActivity.newIntent(this@PageActivity))
             } else if (AnonymousNotificationHelper.isWithinAnonNotificationTime() && !Prefs.lastAnonNotificationLang.isNullOrEmpty()) {
@@ -350,6 +342,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     override fun onNavMenuSwipeRequest(gravity: Int) {
         if (!isCabOpen && gravity == Gravity.END) {
             pageFragment.articleInteractionEvent?.logTocSwipe()
+            pageFragment.metricsPlatformArticleEventToolbarInteraction?.logTocSwipe()
             pageFragment.sidePanelHandler.showToC()
         }
     }
@@ -433,7 +426,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         val langIntent = Intent()
         langIntent.setClass(this, LangLinksActivity::class.java)
         langIntent.action = LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE
-        langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, title)
+        langIntent.putExtra(Constants.ARG_TITLE, title)
         requestHandleIntentLauncher.launch(langIntent)
     }
 
@@ -443,10 +436,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         } else {
             requestHandleIntentLauncher.launch(GalleryActivity.newIntent(this, title, fileName, title.wikiSite, revision, source), options)
         }
-    }
-
-    override fun onPageRequestEditDescriptionTutorial(text: String?, invokeSource: InvokeSource) {
-        requestDescriptionEditTutorialLauncher.launch(DescriptionEditTutorialActivity.newIntent(this, text, invokeSource))
     }
 
     override fun onPageRequestEditDescription(text: String?, title: PageTitle, sourceSummary: PageSummaryForEdit?,
@@ -515,7 +504,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             }
         } else if ((ACTION_LOAD_IN_NEW_TAB == intent.action || ACTION_LOAD_IN_CURRENT_TAB == intent.action ||
                     ACTION_LOAD_IN_CURRENT_TAB_SQUASH == intent.action) && intent.hasExtra(EXTRA_HISTORYENTRY)) {
-            val title = intent.getParcelableExtra<PageTitle>(EXTRA_PAGETITLE)
+            val title = intent.getParcelableExtra<PageTitle>(Constants.ARG_TITLE)
             val historyEntry = intent.getParcelableExtra<HistoryEntry>(EXTRA_HISTORYENTRY)
             when (intent.action) {
                 ACTION_LOAD_IN_NEW_TAB -> loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND)
@@ -526,7 +515,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 showDescriptionEditRevertDialog(intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)!!)
             }
         } else if (ACTION_LOAD_FROM_EXISTING_TAB == intent.action && intent.hasExtra(EXTRA_HISTORYENTRY)) {
-            val title = intent.getParcelableExtra<PageTitle>(EXTRA_PAGETITLE)
+            val title = intent.getParcelableExtra<PageTitle>(Constants.ARG_TITLE)
             val historyEntry = intent.getParcelableExtra<HistoryEntry>(EXTRA_HISTORYENTRY)
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB)
         } else if (ACTION_RESUME_READING == intent.action || intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
@@ -537,7 +526,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_SEARCH)
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB)
         } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
-            val title = intent.getParcelableExtra<PageTitle>(EXTRA_PAGETITLE)
+            val title = intent.getParcelableExtra<PageTitle>(Constants.ARG_TITLE)
             title?.let {
                 val historyEntry = HistoryEntry(it, HistoryEntry.SOURCE_WIDGET)
                 loadPage(it, historyEntry, TabPosition.EXISTING_TAB)
@@ -570,6 +559,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             val articleLinkPreviewInteractionEvent = ArticleLinkPreviewInteractionEvent(pageTitle.wikiSite.dbName(),
                 pageFragment.page?.pageProperties?.pageId ?: 0, entry.source)
             articleLinkPreviewInteractionEvent.logNavigate()
+
+            ArticleLinkPreviewInteraction(pageFragment, entry.source).logNavigate()
         }
         app.putCrashReportProperty("api", pageTitle.wikiSite.authority())
         app.putCrashReportProperty("title", pageTitle.toString())
@@ -683,11 +674,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     private fun showDescriptionEditRevertDialog(qNumber: String) {
-        AlertDialog.Builder(this)
+        MaterialAlertDialogBuilder(this)
             .setTitle(R.string.notification_reverted_title)
             .setView(DescriptionEditRevertHelpView(this, qNumber))
             .setPositiveButton(R.string.reverted_edit_dialog_ok_button_text, null)
-            .create()
             .show()
     }
 
@@ -827,7 +817,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         const val ACTION_LOAD_FROM_EXISTING_TAB = "org.wikipedia.load_from_existing_tab"
         const val ACTION_CREATE_NEW_TAB = "org.wikipedia.create_new_tab"
         const val ACTION_RESUME_READING = "org.wikipedia.resume_reading"
-        const val EXTRA_PAGETITLE = "org.wikipedia.pagetitle"
         const val EXTRA_HISTORYENTRY = "org.wikipedia.history.historyentry"
 
         fun newIntent(context: Context): Intent {
@@ -842,21 +831,21 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             return Intent(ACTION_LOAD_IN_NEW_TAB)
                 .setClass(context, PageActivity::class.java)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, title)
+                .putExtra(Constants.ARG_TITLE, title)
         }
 
         fun newIntentForCurrentTab(context: Context, entry: HistoryEntry, title: PageTitle, squashBackstack: Boolean = true): Intent {
             return Intent(if (squashBackstack) ACTION_LOAD_IN_CURRENT_TAB_SQUASH else ACTION_LOAD_IN_CURRENT_TAB)
                 .setClass(context, PageActivity::class.java)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, title)
+                .putExtra(Constants.ARG_TITLE, title)
         }
 
         fun newIntentForExistingTab(context: Context, entry: HistoryEntry, title: PageTitle): Intent {
             return Intent(ACTION_LOAD_FROM_EXISTING_TAB)
                 .setClass(context, PageActivity::class.java)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, title)
+                .putExtra(Constants.ARG_TITLE, title)
         }
     }
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* AProdromou
+* Amire80
 * Auslaender
 * Dbrant
 * Evropi
@@ -16,6 +18,7 @@
 * Norhorn
 * Panos78
 * Protnet
+* Sofia Chiali
 * Tgkarounos
 -->
 <resources>
@@ -62,7 +65,12 @@
   <string name="image_share_via">Κοινοποίηση μέσω</string>
   <string name="search_redirect_from">Ανακατεύθυνση από %s</string>
   <string name="page_edit_history_activity_title">Ιστορικό αναθεωρήσεων: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Κενό σύνολο επεξεργασίας</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Αναζήτηση ή φιλτράρισμα αλλαγών</string>
+  <string name="page_edit_history_filter_by">Φιλτράρισμα κατά</string>
+  <string name="page_edit_history_filter_by_all">Όλες οι τροποποιήσεις (%s)</string>
+  <string name="page_edit_history_filter_by_user">Τροποποιήσεις χρηστών (%s)</string>
   <string name="menu_page_show_tabs">Εμφάνιση καρτελών</string>
   <string name="menu_page_other_languages">Αλλαγή γλώσσας</string>
   <string name="menu_page_find_in_page">Βρείτε στο λήμμα</string>
@@ -100,9 +108,9 @@
   <string name="map_view_link_text">Εμφάνιση σε χάρτη</string>
   <string name="other_languages_indication_text">Διαβάστε σε άλλη γλώσσα</string>
   <string name="language_count_link_text">Διαθέσιμο σε %d άλλες γλώσσες</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Με την δημοσίευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt; και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Με την δημοσίευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt; και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Οι επεξεργασίες σας θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε περισσότερη ιδιωτικότητα.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Με την δημοσίευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt; και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Με την δημοσίευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt; και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Οι επεξεργασίες σας θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε περισσότερη ιδιωτικότητα.</string>
   <string name="preference_title_language">Γλώσσες Βικιπαίδειας</string>
   <string name="langlinks_filter_hint">Αναζήτηση</string>
   <string name="langlinks_empty">Αυτή η σελίδα δεν είναι διαθέσιμη σε άλλες γλώσσες.</string>
@@ -226,7 +234,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.el</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.el</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/3.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/el</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -236,7 +244,7 @@
   <string name="about_translators_heading">Μεταφραστές</string>
   <string name="about_translators_translatewiki">Η εφαρμογή αυτή έχει μεταφραστεί από τους εθελοντές μεταφραστές στο &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Άδεια</string>
-  <string name="about_app_license">Ο πηγαίος κώδικας είναι διαθέσιμος στα &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; και &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; υπό την &lt;a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;άδεια Apache 2.0&lt;/a&gt;. Εκτός αν ορίζεται διαφορετικά, το περιεχόμενο είναι διαθέσιμο στο &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Ο πηγαίος κώδικας είναι διαθέσιμος στα &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; και &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; υπό την &lt;a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;άδεια Apache 2.0&lt;/a&gt;. Εκτός αν ορίζεται διαφορετικά, το περιεχόμενο είναι διαθέσιμο στο &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Ένα προϊόν του &lt;a href=\"https://wikimediafoundation.org/\"&gt;Ιδρύματος Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Σχετικά</string>
   <string name="edit_abandon_confirm">Η σελίδα έχει τροποποιηθεί. Είστε βέβαιοι ότι θέλετε να πραγματοποιήσετε έξοδο χωρίς να αποθηκεύσετε τις αλλαγές σας;</string>
@@ -809,6 +817,7 @@
   <string name="suggested_edits_image_tags_select_title">Δεν έχετε επιλέξει ετικέτες για την εικόνα</string>
   <string name="suggested_edits_image_tags_select_text">Μόνο ετικέτες που επιλέγετε θα προστεθούν στις εικόνες. Αυτές που δεν έχουν επιλεγεί θα επισημανθούν ως απορριφθείσες. Είστε βέβαιοι ότι θέλετε να επισημάνετε όλες τις ετικέτες ως απορριφθείσες;</string>
   <string name="suggested_edits_image_tags_add_tag">Προσθήκη ετικέτας</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Οι μη δημοσιευμένες ετικέτες δε θα αποθηκευτούν</string>
   <string name="suggested_edits_encouragement_message">%s, σας ευχαριστούμε για τις τροποποιήσεις σας. Παρακάτω μπορείτε να βρείτε περισσότερους τρόπους για να συνεισφέρετε στη Βικιπαίδεια.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Γειά σας %s&lt;/b&gt;, παρακάτω μπορείτε να βρείτε μερικούς γρήγορους και εύκολους τρόπους για να βοηθήσετε στην βελτίωση της Βικιπαίδεια. Θα δείτε τη διαφορά που κάνετε αμέσως μόλις ξεκινήσετε. Καλή επεξεργασία!</string>
   <string name="suggested_edits_image_captions_task_detail">Περιγράψτε μια εικόνα για να βοηθήσετε τους αναγνώστες να κατανοήσουν τη σημασία και το περιεχόμενό της.</string>
@@ -997,4 +1006,5 @@
   <string name="subcategory_empty">Δε βρέθηκαν υποκατηγορίες σε αυτή την κατηγορία.</string>
   <string name="data_opt_in_accept">Αποδοχή</string>
   <string name="data_opt_in_reject">Απόρριψη</string>
+  <string name="generic_release_notes">Μικρές διορθώσεις σφαλμάτων και βελτιώσεις</string>
 </resources>

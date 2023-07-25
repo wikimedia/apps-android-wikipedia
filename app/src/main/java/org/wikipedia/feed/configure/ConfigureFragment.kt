@@ -144,7 +144,7 @@ class ConfigureFragment : Fragment(), MenuProvider, ConfigureItemView.Callback {
         val adapter = ConfigureItemAdapter()
         binding.contentTypesRecycler.adapter = adapter
         binding.contentTypesRecycler.layoutManager = LinearLayoutManager(activity)
-        binding.contentTypesRecycler.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable))
+        binding.contentTypesRecycler.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider))
         itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(adapter))
         itemTouchHelper.attachToRecyclerView(binding.contentTypesRecycler)
     }

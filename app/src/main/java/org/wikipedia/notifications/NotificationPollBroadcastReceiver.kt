@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.SystemClock
 import androidx.annotation.StringRes
+import androidx.core.app.PendingIntentCompat
 import androidx.core.app.RemoteInput
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -24,7 +25,6 @@ import org.wikipedia.notifications.db.Notification
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
-import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
 import java.util.concurrent.TimeUnit
@@ -60,10 +60,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 val remoteInput = RemoteInput.getResultsFromIntent(intent)
                 val text = remoteInput?.getCharSequence(RESULT_KEY_DIRECT_REPLY)
 
-                if (intent.hasExtra(RESULT_EXTRA_WIKI) && intent.hasExtra(RESULT_EXTRA_TITLE) && !text.isNullOrEmpty()) {
+                if (intent.hasExtra(Constants.ARG_WIKISITE) && intent.hasExtra(Constants.ARG_TITLE) && !text.isNullOrEmpty()) {
                     NotificationDirectReplyHelper.handleReply(context,
-                        intent.getParcelableExtra(RESULT_EXTRA_WIKI)!!,
-                        intent.getParcelableExtra(RESULT_EXTRA_TITLE)!!,
+                        intent.getParcelableExtra(Constants.ARG_WIKISITE)!!,
+                        intent.getParcelableExtra(Constants.ARG_TITLE)!!,
                         text.toString(),
                         intent.getStringExtra(RESULT_EXTRA_REPLY_TO).orEmpty(),
                         intent.getIntExtra(RESULT_EXTRA_ID, 0))
@@ -77,8 +77,6 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         const val ACTION_CANCEL = "action_notification_cancel"
         const val ACTION_DIRECT_REPLY = "action_direct_reply"
         const val RESULT_KEY_DIRECT_REPLY = "key_direct_reply"
-        const val RESULT_EXTRA_WIKI = "extra_wiki"
-        const val RESULT_EXTRA_TITLE = "extra_title"
         const val RESULT_EXTRA_REPLY_TO = "extra_reply_to"
         const val RESULT_EXTRA_ID = "extra_id"
         const val TYPE_MULTIPLE = "multiple"
@@ -112,7 +110,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun getAlarmPendingIntent(context: Context): PendingIntent {
             val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             intent.action = ACTION_POLL
-            return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or DeviceUtil.pendingIntentFlags)
+            return PendingIntentCompat.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT, false)
         }
 
         fun getCancelNotificationPendingIntent(context: Context, id: Long, type: String?): PendingIntent {
@@ -120,7 +118,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                     .setAction(ACTION_CANCEL)
                     .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)
                     .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_TYPE, type)
-            return PendingIntent.getBroadcast(context, id.toInt(), intent, DeviceUtil.pendingIntentFlags)
+            return PendingIntentCompat.getBroadcast(context, id.toInt(), intent, 0, false)
         }
 
          fun onNotificationsComplete(context: Context,
@@ -215,7 +213,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0, TYPE_LOCAL), 0,
                     context.getString(R.string.suggested_edits_reactivation_notification_title),
                     context.getString(description), context.getString(description), null,
-                    R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent)
+                    R.drawable.ic_mode_edit_white_24dp, R.color.blue600, intent)
         }
     }
 }

@@ -1,11 +1,14 @@
+
 package org.wikipedia.readinglist
 
 import android.content.Context
 import android.util.Base64
+import kotlinx.serialization.json.int
 import org.wikipedia.R
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -23,18 +26,29 @@ object ReadingListsReceiveHelper {
         val listPages = mutableListOf<ReadingListPage>()
 
         // Request API by languages
-        readingListData?.list?.forEach {
-            val wikiSite = WikiSite.forLanguageCode(it.key)
-            it.value.chunked(ReadingListsShareHelper.API_MAX_SIZE).forEach { list ->
-                val response = ServiceFactory.get(wikiSite).getPageTitlesByPageId(list.joinToString(separator = "|"))
-                response.query?.pages?.forEach { page ->
+        readingListData?.list?.forEach { map ->
+            val wikiSite = WikiSite.forLanguageCode(map.key)
+            map.value.chunked(ReadingListsShareHelper.API_MAX_SIZE).forEach { list ->
+                val listOfTitles = list.filter { it.isString }.map { it.content }
+                val listOfIds = list.filter { !it.isString }.map { it.int }
+
+                val pages = mutableListOf<MwQueryPage>()
+                if (listOfIds.isNotEmpty()) {
+                    pages.addAll(ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(pageIds = listOfIds.joinToString(separator = "|"))
+                        .query?.pages.orEmpty())
+                }
+                if (listOfTitles.isNotEmpty()) {
+                    pages.addAll(ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(titles = listOfTitles.joinToString(separator = "|"))
+                        .query?.pages.orEmpty())
+                }
+                pages.forEach {
                     val readingListPage = ReadingListPage(
                         wikiSite,
-                        page.namespace(),
-                        page.displayTitle(wikiSite.languageCode),
-                        StringUtil.addUnderscores(page.title),
-                        page.description,
-                        ImageUrlUtil.getUrlForPreferredSize(page.thumbUrl().orEmpty(), Service.PREFERRED_THUMB_SIZE),
+                        it.namespace(),
+                        it.displayTitle(wikiSite.languageCode),
+                        StringUtil.addUnderscores(it.title),
+                        it.description,
+                        ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl().orEmpty(), Service.PREFERRED_THUMB_SIZE),
                         lang = wikiSite.languageCode
                     )
                     listPages.add(readingListPage)

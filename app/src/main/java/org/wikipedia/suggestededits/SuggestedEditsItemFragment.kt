@@ -39,4 +39,8 @@ abstract class SuggestedEditsItemFragment : Fragment() {
     }
 
     open fun publish() {}
+
+    open fun onBackPressed(): Boolean {
+        return true
+    }
 }

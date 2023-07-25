@@ -6,27 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="@style/ToolbarTheme"
-        android:background="?paper_color"
-        app:layout_scrollFlags="scroll|enterAlways" >
-
-        <TextView
-            android:id="@+id/toolbarTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lineSpacingExtra="8sp"
-            android:textColor="?android:attr/textColorPrimary"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:singleLine="true"
-            android:ellipsize="end"/>
-
-    </androidx.appcompat.widget.Toolbar>
+        app:layout_scrollFlags="scroll|enterAlways" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

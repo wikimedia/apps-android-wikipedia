@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:lineSpacingExtra="8sp"
             android:text="@string/revision_undo_title"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -28,7 +28,7 @@
             android:layout_marginTop="8dp"
             android:lineSpacingExtra="6sp"
             android:text="@string/revision_undo_message"
-            android:textColor="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
             android:textSize="16sp" />
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_marginTop="8dp"
             android:lineSpacingExtra="6sp"
             android:text="@string/revision_undo_reason"
-            android:textColor="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
             android:textSize="16sp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -51,8 +51,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapSentences"
-                android:textColor="?attr/material_theme_primary_color"
-                android:textColorHint="?attr/color_group_63"
                 android:textSize="16sp" />
 
         </com.google.android.material.textfield.TextInputLayout>

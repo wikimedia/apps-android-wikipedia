@@ -3,7 +3,9 @@
     android:id="@+id/search_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
     android:clickable="true"
     android:focusable="true"
     android:transitionName="@string/transition_search_bar"
@@ -16,7 +18,7 @@
         android:contentDescription="@string/watchlist_search_bar_hint"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_search_white_24dp"
-        app:tint="?attr/material_theme_de_emphasised_color" />
+        app:tint="?attr/placeholder_color" />
 
     <TextView
         android:layout_width="match_parent"
@@ -25,7 +27,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
         android:text="@string/watchlist_search_bar_hint"
-        android:textColor="?attr/material_theme_secondary_color"/>
+        android:textColor="?attr/secondary_color"/>
 
     <TextView
         android:id="@+id/filter_count"
@@ -49,6 +51,6 @@
         android:focusable="true"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_baseline_tune_24"
-        app:tint="?attr/color_group_9" />
+        app:tint="?attr/primary_color" />
 
 </org.wikipedia.views.WikiCardView>

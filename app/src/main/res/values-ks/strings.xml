@@ -107,9 +107,9 @@
   <string name="map_view_link_text">نَقشَس پؠٹھ وُچھِو</string>
   <string name="other_languages_indication_text">بییٚیِس زبٲنی منٛز پٕریٚو</string>
   <string name="language_count_link_text">موٗجوٗد چھُ %d باقین زبانن منٛز تہِ</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">شایعہ کرنس پؠٹھ، چھوٗ تۄٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمالس&lt;/a&gt;سٕتی مُتفِق تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s\"&gt;یتھ تحت اقرار کران&lt;/a&gt;</string>
-  <string name="edit_save_action_license_anon">شایعہ کرنس پؠٹھ، چھو توٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمال اقرار کرٕنی&lt;/a&gt;، تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s/\"&gt;یتھ اِجازت نامس تاحت مانٕنی&lt;/a&gt;. ایڑِٹٕز یِن تُہنٛدس ڈِوایسٕکس IP پتاہ ہَس کُن مَنسوٗب کرنہٕ. اگر تۄٚہہِ &lt;a href=\"https://#login\"&gt;دٲخل گژھیوٚ&lt;/a&gt;، توٚہہِ مِلیو زیادٕ رازدأری.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">شایعہ کرنس پؠٹھ، چھوٗ تۄٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمالس&lt;/a&gt;سٕتی مُتفِق تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s\"&gt;یتھ تحت اقرار کران&lt;/a&gt;</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">شایعہ کرنس پؠٹھ، چھو توٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمال اقرار کرٕنی&lt;/a&gt;، تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s/\"&gt;یتھ اِجازت نامس تاحت مانٕنی&lt;/a&gt;. ایڑِٹٕز یِن تُہنٛدس ڈِوایسٕکس IP پتاہ ہَس کُن مَنسوٗب کرنہٕ. اگر تۄٚہہِ &lt;a href=\"https://#login\"&gt;دٲخل گژھیوٚ&lt;/a&gt;، توٚہہِ مِلیو زیادٕ رازدأری.</string>
   <string name="edit_anon_warning">ایڑِٹ یِنی تُہنٛدِ ڈِوایسٕکی IP پتاہ ہَس کُن مَنسوٗب کرنہٕ. اگر تُہہ &lt;a href=\"https://#login\"&gt;توٚہہِ گژھیو زیادٕ حفاظت فراہم.&lt;/a&gt;</string>
   <string name="preference_title_language">وِکیٖپیٖڈیا زَبانٕ</string>
   <string name="langlinks_filter_hint">ژھانٛڈُن</string>
@@ -219,7 +219,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/استعمالٕکی شرٲئطہٕ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia: کھاتہٕ کھٲترٕ درخواست</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -384,6 +383,7 @@
   <string name="reading_list_sort_by_name">ناوٕ مُطٲبق چھانٛٹ دِنی</string>
   <string name="reading_list_sort_by_name_desc">ناوٕ مُطٲبق چھانٛٹ دِنی (اُلٹہٕ)</string>
   <string name="reading_list_menu_delete">فہرست کٕریٚو ڈِلیٖٹ</string>
+  <string name="reading_list_menu_select">مُنتَخٕب کٔرِو</string>
   <string name="reading_list_menu_rename">ناو/وضاحت کٕریٚو ایڑِٹ</string>
   <string name="reading_list_action_menu_remove_from_offline">آفلاین پؠٹھہٕ ہَٹٲوِو</string>
   <string name="reading_list_action_menu_save_for_offline">آفلاینَس کھٲترٕ تھٲوِو مَحفوٗظ</string>
@@ -402,6 +402,7 @@
   <string name="reading_list_deleted">%s آو ہَٹاونہٕ</string>
   <string name="saved_list_empty_title">وۄنی روٗد نہٕ کانٛہہ تہِ مَحفوٗظ صَفہٕ</string>
   <string name="reading_list_article_offline">آفلاین چُھ مَیَسر</string>
+  <string name="reading_list_select_item">مُنتَخٕب کٔرِو</string>
   <string name="reading_lists_login_button">وِکیٖپیٖڈیاہَس منٛز دٲخل گژھُن / شٲمل گژھُن</string>
   <string name="reading_lists_ignore_button">وُنہِ نہٕ</string>
   <string name="reading_lists_confirm_remote_delete_yes">آ</string>
@@ -420,6 +421,10 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">مَنسوٗخ</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">مَنسوٗخ</string>
   <string name="reading_list_split_dialog_ok_button_text">ٹھیٖک چھُ</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">مِٹٲیو</string>
+  <string name="reading_lists_preview_save_button">مَحفوٗظ</string>
+  <string name="reading_lists_preview_save_dialog_cancel">مَنسوٗخ</string>
+  <string name="reading_lists_preview_save_dialog_save">مَحفوٗظ</string>
   <string name="notification_syncing_pause_button">رُکٲوِو</string>
   <string name="notification_syncing_resume_button">بییہٚ ترٲوِو یَلہٕ</string>
   <string name="notification_syncing_cancel_button">مَنسوٗخ</string>
@@ -429,11 +434,15 @@
   <string name="notifications_search">اطلاع کٔرِو تلاش</string>
   <string name="notifications_direct_reply_action">جَوآب</string>
   <string name="watchlist_title">نَظَرِ تَل فِہرِست</string>
+  <string name="preference_title_notification_system">سِسٹَم</string>
+  <string name="preference_summary_notification_system">سِسٹَم پؠٹھ پٲغام</string>
+  <string name="preference_title_notification_milestone">سَنگِ میٖل</string>
   <string name="preference_title_notification_thanks">شُکرِیا</string>
   <string name="preference_title_notification_revert">نامَنظور</string>
   <string name="preference_title_notification_login_fail">دٲخل گژھِو</string>
   <string name="preference_title_notification_mention">ذِکر/یاد کۄٚرمُت</string>
   <string name="preference_title_notification_user_talk">کَتھ صَفہٕ</string>
+  <string name="preference_title_notification_email_user">ای میل آو رَٹنہِ</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">وِکیٖپیٖڈیا</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">وِکیٖپیٖڈیا طرفہٕ اطلاعات</string>
   <string name="notifications_channel_group_other_title">باقٕے</string>
@@ -478,6 +487,7 @@
   <string name="home">اَہَم صَفہٕ</string>
   <string name="view_card_news_title">خَبَرَن مَنٛز</string>
   <string name="view_continue_reading_card_subtitle_today">اَز</string>
+  <string name="view_continue_reading_card_subtitle_read_date">پٔرِو %s</string>
   <string name="view_announcement_card_negative_action">نَہ، شُکریا</string>
   <string name="view_featured_article_card_title">مُنتَخٕب مَضموٗن</string>
   <string name="view_static_card_save_button_label">مَحفوٗظ</string>
@@ -489,9 +499,13 @@
   <string name="tabs_activity_title">ٹیب</string>
   <string name="description_edit_text_hint">مَضموٗنٕچ وَضاحَتھ</string>
   <string name="description_edit_article_description_label">مَضموٗن</string>
+  <string name="description_edit_add_caption_hint">تَصویٖر تَفصیٖل</string>
+  <string name="description_edit_translate_caption_label_per_language">تَصویٖر تَفصیٖل (%s)</string>
   <string name="description_edit_save">شایع</string>
   <string name="description_edit_read">پَرُن</string>
   <string name="description_edit_cancel_hint">مَنسوٗخ</string>
+  <string name="description_edit_success_done">دَرٕج</string>
+  <string name="description_edit_success_did_you_know">تۄہہِ چھا پَتا؟</string>
   <string name="suggested_edits_describe_articles">مَضموٗنَن کٕریٚو وؠژھٕنٲی</string>
   <string name="suggested_edits_caption_images">تصویٖرَن کھٲترٕ مُکالمہٕ</string>
   <string name="suggested_edits_tag_images">تصویٖرٕ ٹیگ</string>
@@ -610,12 +624,12 @@
   <string name="insert_media_title">میڈِیا کٕریٚو درٕج</string>
   <string name="insert_media_search_description">وِکیٖمیڈِیا کامنٕز منٛز چُنِیوٚ اکھ فیل</string>
   <string name="insert_media_search_hint">موادس منز ژھٲریوٚ</string>
-  <string name="insert_media_settings">میٖڈیا سؠٹِنگ</string>
+  <string name="insert_media_settings" fuzzy="true">میٖڈیا سؠٹِنگ</string>
   <string name="insert_media_settings_uploaded_image">کھالنہٕ آمٕژ تصویٖر</string>
-  <string name="insert_media_settings_caption">پختِیار</string>
-  <string name="insert_media_settings_caption_description">پرچہِ یُس ہاوان چھُ زِ سارنٕی پَرَن والؠن کھٲترٕ اَمہِ پتہٕ یِنہٕ وول چیٖز</string>
+  <string name="insert_media_settings_caption" fuzzy="true">پختِیار</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">پرچہِ یُس ہاوان چھُ زِ سارنٕی پَرَن والؠن کھٲترٕ اَمہِ پتہٕ یِنہٕ وول چیٖز</string>
   <string name="insert_media_settings_alternative_text">اَمہِ علاوٕ کینٛہہ مَتَن</string>
-  <string name="insert_media_settings_alternative_text_description">تفصیٖلی مَتَن پرَن والؠن کھٲترٕ یِمہٕ نہٕ تصویٖر ہؠکَن وُچِھت کینٛہہ</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">تفصیٖلی مَتَن پرَن والؠن کھٲترٕ یِمہٕ نہٕ تصویٖر ہؠکَن وُچِھت کینٛہہ</string>
   <string name="insert_media_advanced_settings">اِضٲفی سؠٹِنگ</string>
   <string name="insert_media_advanced_settings_wrap_image">تصویٖر أنٛدی أنٛدی مَتَن لةکھُن</string>
   <string name="insert_media_advanced_settings_image_position">تصویٖر ہِنٛز حرکَتھ</string>
@@ -760,4 +774,6 @@
   <string name="user_contrib_menu_label">شَرکٔژ</string>
   <string name="user_contrib_filter_activity_title" fuzzy="true">کُن شَرکٲژٕ:</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">آو سمٕج!</string>
+  <string name="data_opt_in_accept">تسلیٖم کرُن</string>
+  <string name="data_opt_in_reject">رد کرن</string>
 </resources>

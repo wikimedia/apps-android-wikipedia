@@ -6,10 +6,10 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
+import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.PopupMenu
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -17,7 +17,7 @@ import org.wikipedia.databinding.ViewCardHeaderBinding
 import org.wikipedia.feed.model.Card
 import org.wikipedia.util.L10nUtil
 
-class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
     interface Callback {
         fun onRequestDismissCard(card: Card): Boolean
@@ -25,7 +25,7 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
         fun onRequestCustomize(card: Card)
     }
 
-    private val binding = ViewCardHeaderBinding.inflate(LayoutInflater.from(context), this)
+    private val binding = ViewCardHeaderBinding.inflate(LayoutInflater.from(context), this, true)
 
     private var card: Card? = null
     private var callback: Callback? = null

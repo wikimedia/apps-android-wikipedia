@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -93,7 +93,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
         feedAdapter = FeedAdapter(coordinator, feedCallback)
         binding.feedView.adapter = feedAdapter
         binding.feedView.addOnScrollListener(feedScrollListener)
-        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        binding.swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
         binding.swipeRefreshLayout.setOnRefreshListener { refresh() }
         binding.customizeButton.setOnClickListener { showConfigureActivity(-1) }
         coordinator.setFeedUpdateListener(object : FeedUpdateListener {
@@ -134,7 +134,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
         if (app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE) &&
             app.languageState.appLanguageCodes.contains(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE) &&
             Prefs.shouldShowRemoveChineseVariantPrompt) {
-            AlertDialog.Builder(requireActivity())
+            MaterialAlertDialogBuilder(requireActivity())
                 .setTitle(R.string.dialog_of_remove_chinese_variants_from_app_lang_title)
                 .setMessage(R.string.dialog_of_remove_chinese_variants_from_app_lang_text)
                 .setPositiveButton(R.string.dialog_of_remove_chinese_variants_from_app_lang_edit) { _, _ -> showLanguagesActivity(InvokeSource.LANG_VARIANT_DIALOG) }
@@ -336,7 +336,7 @@ class FeedFragment : Fragment(), BackPressedHandler {
             val view = ConfigureItemLanguageDialogView(requireContext())
             val tempDisabledList = ArrayList(contentType.langCodesDisabled)
             view.setContentType(adapter.langList, tempDisabledList)
-            AlertDialog.Builder(requireContext())
+            MaterialAlertDialogBuilder(requireContext())
                 .setView(view)
                 .setTitle(contentType.titleId)
                 .setPositiveButton(R.string.feed_lang_selection_dialog_ok_button_text) { _, _ ->
@@ -345,7 +345,6 @@ class FeedFragment : Fragment(), BackPressedHandler {
                     refresh()
                 }
                 .setNegativeButton(R.string.feed_lang_selection_dialog_cancel_button_text, null)
-                .create()
                 .show()
         }
     }

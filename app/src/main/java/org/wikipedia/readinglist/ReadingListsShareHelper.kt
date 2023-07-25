@@ -7,8 +7,10 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonPrimitive
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
@@ -23,6 +25,7 @@ import org.wikipedia.util.log.L
 object ReadingListsShareHelper {
 
     const val API_MAX_SIZE = 50
+    const val PROVENANCE_PARAM = "rlsa1"
 
     fun shareEnabled(): Boolean {
         return ReleaseUtil.isPreBetaRelease ||
@@ -55,9 +58,11 @@ object ReadingListsShareHelper {
             }
 
             val param = readingListToUrlParam(readingList, wikiPageIdsMap)
-            val url = WikipediaApp.instance.wikiSite.url() + "/wiki/Special:ReadingLists?limport=$param"
+            val url = WikipediaApp.instance.wikiSite.url() + "/wiki/Special:ReadingLists?limport=$param&wprov=$PROVENANCE_PARAM"
 
             val finalUrl = if (Prefs.useUrlShortenerForSharing) ServiceFactory.get(WikipediaApp.instance.wikiSite).shortenUrl(url).shortenUrl?.shortUrl.orEmpty() else url
+
+            ReadingListsAnalyticsHelper.logShareList(activity, readingList)
 
             val intent = Intent(Intent.ACTION_SEND)
                     .putExtra(Intent.EXTRA_SUBJECT, readingList.title)
@@ -70,8 +75,8 @@ object ReadingListsShareHelper {
     }
 
     private fun readingListToUrlParam(readingList: ReadingList, pageIdMap: Map<String, Map<String, Int>>): String {
-        val projectUrlMap = mutableMapOf<String, Collection<Int>>()
-        pageIdMap.keys.forEach { projectUrlMap[it] = pageIdMap[it]!!.values }
+        val projectUrlMap = mutableMapOf<String, Collection<JsonPrimitive>>()
+        pageIdMap.keys.forEach { key -> projectUrlMap[key] = pageIdMap[key]!!.values.map { JsonPrimitive(it) } }
 
         // TODO: for now we're not transmitting the free-form Name and Description of a reading list.
         val exportedReadingLists = ExportedReadingLists(projectUrlMap /*, readingList.title, readingList.description */)
@@ -80,10 +85,9 @@ object ReadingListsShareHelper {
 
     @Suppress("unused")
     @Serializable
-    class ExportedReadingLists
-    (
-            val list: Map<String, Collection<Int>>,
-            val name: String? = null,
-            val description: String? = null
+    class ExportedReadingLists(
+        val list: Map<String, Collection<JsonPrimitive>>,
+        val name: String? = null,
+        val description: String? = null
     )
 }

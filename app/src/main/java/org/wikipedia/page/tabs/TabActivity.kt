@@ -7,10 +7,10 @@ import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.mrapp.android.tabswitcher.Animation
 import de.mrapp.android.tabswitcher.TabSwitcher
 import de.mrapp.android.tabswitcher.TabSwitcherDecorator
@@ -100,10 +100,10 @@ class TabActivity : BaseActivity() {
             }
             val tab = de.mrapp.android.tabswitcher.Tab(StringUtil.fromHtml(app.tabList[tabIndex].backStackPositionTitle?.displayText))
             tab.setIcon(R.drawable.ic_image_black_24dp)
-            tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
-            tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
-            tab.setCloseButtonIcon(R.drawable.ic_close_white_24dp)
-            tab.setCloseButtonIconTint(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color))
+            tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
+            tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
+            tab.setCloseButtonIcon(R.drawable.ic_close_black_24dp)
+            tab.setCloseButtonIconTint(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
             tab.isCloseable = true
             tab.parameters = Bundle()
             binding.tabSwitcher.addTab(tab)
@@ -156,14 +156,14 @@ class TabActivity : BaseActivity() {
             }
             R.id.menu_close_all_tabs -> {
                 if (app.tabList.isNotEmpty()) {
-                    AlertDialog.Builder(this).run {
+                    MaterialAlertDialogBuilder(this).run {
                         setMessage(R.string.close_all_tabs_confirm)
                         setPositiveButton(R.string.close_all_tabs_confirm_yes) { _, _ ->
                             binding.tabSwitcher.clear()
                             cancelled = false
                         }
                         setNegativeButton(R.string.close_all_tabs_confirm_no, null)
-                        create().show()
+                        .show()
                     }
                 }
                 true
@@ -319,8 +319,10 @@ class TabActivity : BaseActivity() {
         fun captureFirstTabBitmap(view: View, title: String) {
             clearFirstTabBitmap()
             try {
-                FIRST_TAB_BITMAP = view.drawToBitmap(Bitmap.Config.RGB_565)
-                FIRST_TAB_BITMAP_TITLE = title
+                if (view.isLaidOut) {
+                    FIRST_TAB_BITMAP = view.drawToBitmap(Bitmap.Config.RGB_565)
+                    FIRST_TAB_BITMAP_TITLE = title
+                }
             } catch (e: OutOfMemoryError) {
                 // don't worry about it
             }

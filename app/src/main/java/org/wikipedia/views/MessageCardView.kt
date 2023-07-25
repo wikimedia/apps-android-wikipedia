@@ -13,7 +13,6 @@ import org.wikipedia.R
 import org.wikipedia.databinding.ViewMessageCardBinding
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
@@ -80,7 +79,6 @@ class MessageCardView constructor(context: Context, attrs: AttributeSet? = null)
             binding.messageTitleView.visibility = GONE
             binding.messageTextView.text = StringUtil.fromHtml(message)
             binding.messageTextView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
-            RichTextUtil.removeUnderlinesFromLinks(binding.messageTextView)
         }
         binding.positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
         setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }

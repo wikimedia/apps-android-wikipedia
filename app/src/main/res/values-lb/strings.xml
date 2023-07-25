@@ -107,8 +107,8 @@
   <string name="map_view_link_text">Op enger Kaart weisen</string>
   <string name="other_languages_indication_text">An enger anerer Sprooch liesen</string>
   <string name="language_count_link_text">Disponibel an %d anere Sproochen</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Mam Verëffentleche sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-Lizenz.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Mam Verëffentleche sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-Lizenz.</string>
   <string name="preference_title_language">Wikipedia-Sproochen</string>
   <string name="langlinks_filter_hint">Sichen</string>
   <string name="langlinks_empty">Dës Säit ass net an anere Sproochen disponibel</string>
@@ -220,7 +220,6 @@
   <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
@@ -228,7 +227,7 @@
   <string name="about_translators_heading">Iwwersetzer</string>
   <string name="about_translators_translatewiki">Dës App gouf vun de fräiwëllegen Iwwersetzer op &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; iwwersat.</string>
   <string name="about_app_license_heading">Lizenz</string>
-  <string name="about_app_license">Quellcode disponibel op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ënner der &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache-2.0-Lizenz&lt;/a&gt;. Wann et net anescht uginn ass, ass den Inhalt disponibel ënner enger &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Quellcode disponibel op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ënner der &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache-2.0-Lizenz&lt;/a&gt;. Wann et net anescht uginn ass, ass den Inhalt disponibel ënner enger &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative-Commons-Attribution-ShareAlike-Lizenz&lt;/a&gt;.</string>
   <string name="about_wmf">E Produkt vun der &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Iwwer</string>
   <string name="edit_abandon_confirm">D\'Säit gouf geännert. Sidd dir sécher datt Dir erausgoe wëllt ouni Är Ännerungen ze späicheren?</string>
@@ -701,6 +700,7 @@
   <string name="feed_configure_menu_deselect_all">All verstoppen</string>
   <string name="feed_item_type_news">Artikelen iwwer aktuell Evenementer</string>
   <string name="feed_item_type_on_this_day">Evenementer an der Vergaangenheet op dësem Dag</string>
+  <string name="feed_item_type_suggested_edits">Virschléi fir Inhalter op Wikipedia derbäizesetzen</string>
   <string name="feed_configure_onboarding_action">Upassen</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Ofbriechen</string>
@@ -766,6 +766,8 @@
     <item quantity="other">%d Kontributiounen</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Proposéiert Ännerungen</string>
+  <string name="suggested_edits_feed_card_add_description_button">Artikelbeschreiwungen derbäisetzen</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Artikelbeschreiwungen derbäisetzen (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
   <string name="suggested_edits_image_preview_dialog_image">Fichier</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Fichier vu Wikimedia Commons</string>
@@ -786,6 +788,7 @@
   <string name="suggested_edits_image_tags_add_tag">Markéierung derbäisetzen</string>
   <string name="suggested_edits_contributions_stat_tooltip">Den Total vun Äre Kontributioune bis elo.</string>
   <string name="suggested_edits_gate_message">Et deet ons Leed, %s, mee Dir musst op d\'mannst dräi Ännerungen direkt an engem Artikel maache fir dës Funktioun benotzen ze kënnen.</string>
+  <string name="suggested_edits_quality_label_text">Ännerungsqualitéit</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
   <string name="suggested_edits_quality_excellent_text">Exzellent</string>
   <string name="suggested_edits_quality_very_good_text">Ganz gutt</string>
@@ -812,8 +815,13 @@
   <string name="suggested_edits_last_edited">Lescht Ännerung</string>
   <string name="suggested_edits_last_edited_never">Ni</string>
   <string name="suggested_edits_task_new">nei</string>
+  <string name="suggested_edits_reactivation_notification_title">Proposéiert Ännerungen</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Merci fir Är Ännerungen op Wikipedia! Firwat net einfach do weidermaachen, wou Dir opgehalen hutt?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Hutt Dir eng Minutt Zäit fir d\'Wikipedia weider ze verbesseren? Kuckt Iech dës Virschléi, fir Ännerungen ze maachen, un.</string>
+  <string name="suggested_edits_contributions_screen_title">Kontributioune vum %s</string>
   <string name="suggested_edits_contribution_language_label">Sprooch</string>
   <string name="suggested_edits_contribution_date_time_label">Datum / Auerzäit</string>
+  <string name="suggested_edits_contribution_type_label">Kontributiounstyp</string>
   <string name="suggested_edits_contribution_image_label">Bild</string>
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <plurals name="suggested_edits_contribution_seen_times">
@@ -825,6 +833,27 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Gëschter</string>
   <string name="suggested_edits_encourage_account_creation_title">Wousst Dir, datt jidderee Wikipedia ännere kann?</string>
   <string name="suggested_edits_contribution_current_revision_text">Är Ännerung ass elo live op Wikipedia</string>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s Zeechen</item>
+    <item quantity="other">%1$s Zeechen</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Dir hutt %d Zeechen ewechgeholl</item>
+    <item quantity="other">Dir hutt %d Zeechen ewechgeholl</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Dir hutt %d Zeechen dobäigesat</item>
+    <item quantity="other">Dir hutt %d Zeechen dobäigesat</item>
+  </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Artikelbiller</string>
+  <string name="image_recommendation_accept">Jo</string>
+  <string name="image_recommendation_reject">Neen</string>
+  <string name="image_recommendation_notsure">Net sécher</string>
+  <string name="image_recommendation_reject_title">Firwat net?</string>
+  <string name="image_recommendation_reject_subtitle">Är Äntwerte wäerten zukünfteg Virschléi besser maachen.</string>
+  <string name="image_recommendation_reject_not_relevant">D\'Bild ass net relevant</string>
+  <string name="image_recommendation_reject_no_info">Net genuch Informatioune fir ze decidéieren</string>
+  <string name="image_recommendation_onboarding_1">Biller hëllefen de Leit beim Verstoen, mee vill Artikelen hunn der keng.</string>
   <string name="file_page_edit_button_content_description">%s änneren</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
@@ -838,8 +867,10 @@
   <string name="onboarding_maybe_later">Vläicht méi spéit</string>
   <string name="onboarding_reading_list_sync_title">Lieslëschte mat Synchronisatioun</string>
   <string name="onboarding_analytics_title">Anonymiséiert Donnéeë schécken</string>
-  <string name="onboarding_got_it">Verstan</string>
-  <string name="onboarding_multilingual_secondary_text">Mir hunn dëst op Ärem Apparat fonnt:</string>
+  <string name="onboarding_analytics_offline_text">Hëlleft eis d\'App besser ze maachen andeem Dir eis wësse loosst, wéi Dir se benotzt. D\'Donnéeën, déi gesammelt ginn, sinn anonymiséiert. &lt;a href=\"#privacy\"&gt;Méi gewuer ginn&lt;/a&gt;</string>
+  <string name="onboarding_analytics_switch_title">Donnéeën iwwer d\'Notzung schécken</string>
+  <string name="onboarding_got_it">Verstanen</string>
+  <string name="onboarding_multilingual_secondary_text">Mir hunn déi follgend op Ärem Apparat fonnt:</string>
   <string name="onboarding_multilingual_add_language_text">Sproochen änneren oder derbäisetzen</string>
   <string name="onboarding_welcome_title_v2">Déi Fräi Enzyklopedie\n... a méi wéi 300 Sproochen</string>
   <string name="app_shortcuts_random">Zoufall</string>
@@ -895,6 +926,7 @@
   <string name="wikitext_small">Klengen Text</string>
   <string name="wikitext_code">Code</string>
   <string name="wikitext_link">Link</string>
+  <string name="wikitext_heading_n">Ënneriwwerschrëft %d</string>
   <string name="wikitext_formatting">Formatéierung</string>
   <string name="wikitext_headings">Iwwerschrëften</string>
   <string name="wikitext_bulleted_list">Net-nummeréiert Lëscht</string>
@@ -902,12 +934,18 @@
   <string name="wikitext_template">Schabloun</string>
   <string name="wikitext_reference">Referenz</string>
   <string name="insert_media_search_description">Wielt e Fichier vu Wikimedia Commons</string>
+  <string name="insert_media_settings">Bilddetailer derbäisetzen</string>
+  <string name="insert_media_settings_uploaded_image">Eropgeluedent Bild</string>
   <string name="insert_media_settings_alternative_text">Alternativen Text</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Textbeschreiwung fir Lieser, déi d\'Bild net gesi kënnen</string>
   <string name="insert_media_advanced_settings">Erweidert Astellungen</string>
+  <string name="insert_media_advanced_settings_wrap_image">Text ronderëm d\'Bild fléisse loossen</string>
+  <string name="insert_media_advanced_settings_image_position">Bildpositioun</string>
   <string name="insert_media_advanced_settings_image_position_right">Riets</string>
   <string name="insert_media_advanced_settings_image_position_left">Lenks</string>
   <string name="insert_media_advanced_settings_image_position_center">Zentréiert</string>
   <string name="insert_media_advanced_settings_image_position_none">Keng</string>
+  <string name="insert_media_advanced_settings_image_type">Bildtyp</string>
   <string name="insert_media_advanced_settings_image_type_frameless">Ouni Rumm</string>
   <string name="insert_media_advanced_settings_image_type_frame">Rumm</string>
   <string name="insert_media_advanced_settings_image_size">Gréisst vum Bild</string>
@@ -930,6 +968,8 @@
   <string name="talk_add_reply">Äntweren</string>
   <string name="talk_no_subject">(Kee Sujet)</string>
   <string name="talk_reply_subject">Sujet</string>
+  <string name="talk_message_empty">De Message kann net eidel sinn.</string>
+  <string name="talk_last_modified">&lt;b&gt;Fir d\'lescht geännert %1$s&lt;/b&gt; vum %2$s</string>
   <string name="talk_snackbar_survey_action_text">Fir unzefänken</string>
   <string name="talk_search_hint">An de Message sichen</string>
   <string name="talk_overflow_sort_by">Zortéieren no</string>
@@ -957,6 +997,7 @@
   <string name="talk_list_item_swipe_mark_as_read">Gelies</string>
   <string name="talk_list_item_swipe_mark_as_unread">Net gelies</string>
   <string name="talk_login_to_subscribe_dialog_title">Mellt Iech u fir Theemen z\'abonéieren</string>
+  <string name="talk_archived_title">Diskussiounsarchiv: %s</string>
   <string name="menu_option_share_talk_discussion">Diskussioun deelen</string>
   <string name="menu_option_share_talk_page">Diskussiounssäit deelen</string>
   <string name="menu_option_share_edit">Ännerung deelen</string>
@@ -971,8 +1012,10 @@
   <string name="watchlist_details_prev_edit">Vireg Ännerung</string>
   <string name="thank_label">Merci soen</string>
   <string name="view_user_page">Benotzersäit weisen</string>
+  <string name="thank_dialog_title_text">\'Merci\' ëffentlech schécken</string>
   <string name="thank_dialog_positive_button_text">Merci soen</string>
   <string name="thank_dialog_negative_button_text">Ofbriechen</string>
+  <string name="thank_success_message">Äre \'Merci\' gouf dem %s geschéckt 👍</string>
   <string name="menu_option_view_user_profile">Benotzersäit weisen</string>
   <string name="menu_option_view_user_talk">Diskussiounssäit weisen</string>
   <string name="menu_option_view_user_contributions">Benotzerkontributioune weisen</string>
@@ -988,6 +1031,7 @@
   <string name="revision_diff_paragraph_added">Abschnitt derbäigesat</string>
   <string name="revision_diff_paragraph_removed">Abschnitt ewechgeholl</string>
   <string name="revision_undo_title">Ännerung zrécksetzen</string>
+  <string name="revision_undo_reason">Fir weiderzefueren, gitt wgl. e Grond u fir dës Ännerung réckgängeg ze maachen.</string>
   <string name="revision_undo_success">D\'Versioun gouf réckgängeg gemaach.</string>
   <string name="revision_rollback_dialog_title">Sidd Dir sécher datt Dir dës Ännerungen zrécksetze wëllt?</string>
   <string name="revision_rollback_success">Ännerung zréckgesat.</string>
@@ -1005,12 +1049,30 @@
   <string name="watchlist_expiry_dialog_three_months">3 Méint</string>
   <string name="watchlist_expiry_dialog_six_months">6 Méint</string>
   <string name="watchlist_empty">Dir hutt keng Artikelen op Ärer Iwwerwaachungslëscht.</string>
+  <string name="watchlist_search">Iwwerwaachungslëscht duerchsichen</string>
   <string name="watchlist_filter_all">All</string>
   <string name="watchlist_filter_talk">Diskussioun</string>
   <string name="watchlist_filter_pages">Säiten</string>
   <string name="watchlist_filter_other">Anerer</string>
   <string name="watchlist_page_moved">Geréckelt</string>
   <string name="watchlist_page_deleted">Geläscht</string>
+  <string name="watchlist_filter_title">Iwwerwaachungslëschtfilter</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">All</string>
+  <string name="watchlist_filter_watchlist_activity_header">Aktivitéit op der Iwwerwaachunglëscht</string>
+  <string name="watchlist_filter_contribution_quality_good">Héchstwarscheinlech gutt</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Mënsch (kee Bot)</string>
+  <string name="watchlist_filter_significance_minor">Kleng Ännerungen</string>
+  <string name="watchlist_filter_latest_revisions_header">Lescht Versiounen</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Säitenännerungen</string>
+  <string name="watchlist_filter_type_of_change_new_users">Nei Benotzer</string>
+  <string name="watchlist_search_bar_filter_hint">Iwwerwaachungslëschtfilter</string>
+  <string name="watchlist_empty_search_message">Keng Resultater, probéiert %s ewechzeloosse fir méi ze gesinn.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d Filter</item>
+    <item quantity="other">%d Filteren</item>
+  </plurals>
   <string name="preview_edit_summarize_edit_title">Resuméiert d\'Ännerung</string>
   <string name="preview_edit_summarize_edit_hint">Wéi hutt Dir dës Säit verbessert?</string>
   <string name="preview_edit_minor_edit">Dëst ass eng kleng Ännerung</string>
@@ -1026,16 +1088,26 @@
   <string name="revision_initial_none">Keng (dës ass déi éischt Versioun)</string>
   <string name="user_contrib_activity_title">Kontributioune vum %s</string>
   <string name="archive_empty">Keng archivéiert Säite fonnt.</string>
+  <string name="user_contrib_filter_ns">No Nummraum filteren</string>
   <string name="user_contrib_filter_all">All Nummraim</string>
+  <string name="user_contrib_filter_ns_header">Nummraumfilter</string>
   <string name="namespace_article">Artikel</string>
   <string name="user_contrib_current">aktuell</string>
+  <string name="media_playback_error">Feeler beim Ofspille vun de Medien.</string>
   <string name="user_contrib_menu_label">Kontributiounen</string>
+  <string name="user_contrib_filter_activity_title">Kontributioune filteren</string>
   <string name="shareable_reading_lists_import_dialog_title">Gedeelte Lieslëscht importéieren</string>
+  <string name="shareable_reading_lists_import_dialog_content">Wéi soll d\'Lëscht heeschen, déi mat Iech gedeelt gouf?</string>
   <string name="shareable_reading_lists_new_indicator">*nei*</string>
+  <string name="shareable_reading_lists_new_install_dialog_title">Et gouf eng Lieslëscht mat Iech gedeelt</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">Mir hu gemierkt, datt eng Lieslëscht mat Iech gedeelt gouf. Fir d\'Lëscht an der App ze kucken, gitt zréck op den Originalmessage an dréckt nach eng Kéier op de Link.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Verstanen</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Lieslëscht importéiert</string>
   <string name="reading_list_share_menu_label">Deelen...</string>
   <string name="reading_list_share_menu_tooltip">Dës Lieslëscht mat aneren deelen</string>
+  <string name="reading_list_share_message_v2">Moien! Ech géif gäre meng Wikipedia-Lieslëscht mat Iech deelen:</string>
+  <string name="reading_list_share_survey_title">Kéint Dir eis hëllefe fir d\'Funktioun \"Lieslëscht deelen\" besser ze maachen?</string>
+  <string name="reading_list_share_survey_body">\"Lieslëscht deelen\" ass eng Testfunktioun a mir sinn op Äre Feedback ugewise fir se ze verbesseren oder eventuell ewechzehuelen.</string>
   <string name="data_opt_in_accept">Akzeptéieren</string>
   <string name="data_opt_in_reject">Refuséieren</string>
 </resources>

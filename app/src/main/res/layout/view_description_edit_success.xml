@@ -47,12 +47,13 @@
                 android:layout_marginBottom="36dp"
                 android:text="@string/description_edit_success_encouragement"
                 android:textAlignment="center"
-                android:textColor="@color/base70"
+                android:textColor="@color/gray300"
                 android:textSize="15sp" />
 
             <Button
                 android:id="@+id/view_description_edit_success_done_button"
-                style="@style/App.Button.Blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/description_edit_success_done" />
         </LinearLayout>
 
@@ -76,7 +77,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="8dp"
                 android:text="@string/description_edit_success_did_you_know"
-                android:textColor="@color/base70"
+                android:textColor="@color/gray300"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -90,7 +91,7 @@
                 android:lineSpacingMultiplier="1.21"
                 android:maxWidth="336dp"
                 android:textAlignment="center"
-                android:textColor="@color/base70"
+                android:textColor="@color/gray300"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>

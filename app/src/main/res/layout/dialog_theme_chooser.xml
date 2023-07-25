@@ -6,11 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="?attr/material_theme_border_color" />
-
     <ProgressBar
         android:id="@+id/font_change_progress_bar"
         android:layout_width="32dp"
@@ -45,7 +40,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_vertical"
                 android:text="@string/theme_category_reading"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:textStyle="bold"/>
 
             <TextView
@@ -53,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="?attr/secondary_text_color"
+                android:textColor="?attr/placeholder_color"
                 android:textSize="16sp"
                 tools:text="100% (Default)" />
 
@@ -74,7 +69,7 @@
                     android:gravity="center_horizontal|bottom"
                     android:paddingBottom="4dp"
                     android:text="T"
-                    android:textColor="?attr/color_group_9"
+                    android:textColor="?attr/primary_color"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
@@ -86,7 +81,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:max="@integer/maxTextSizeMultiplier"
-                    android:progressBackgroundTint="?attr/chart_shade5"
+                    android:progressBackgroundTint="?attr/border_color"
                     app:centerDrawable="@drawable/ic_seek_bar_center"
                     app:min="@integer/minTextSizeMultiplier"
                     app:tickDrawable="@drawable/ic_seek_bar_tick" />
@@ -103,45 +98,45 @@
                     android:gravity="center_horizontal|bottom"
                     android:paddingBottom="2dp"
                     android:text="T"
-                    android:textColor="?attr/color_group_9"
+                    android:textColor="?attr/primary_color"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
 
             </LinearLayout>
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/syntax_highlight_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:gravity="center_vertical"
                 android:text="@string/editing_syntax_highlight_label"
-                android:textColor="?attr/primary_text_color" />
+                android:textColor="?attr/primary_color" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/typing_suggestions_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@string/editing_typing_suggestions"
-                android:textColor="?attr/primary_text_color" />
+                android:textColor="?attr/primary_color" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/show_line_numbers_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@string/editing_line_numbers_label"
-                android:textColor="?attr/primary_text_color" />
+                android:textColor="?attr/primary_color" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/monospace_font_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@string/editing_monospace_font_label"
-                android:textColor="?attr/primary_text_color" />
+                android:textColor="?attr/primary_color" />
 
             <LinearLayout
                 android:id="@+id/fontFamilyContainer"
@@ -152,31 +147,36 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_font_family_sans_serif"
-                    style="@style/App.Button"
+                    style="@style/Widget.Material3.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="sans-serif"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textStyle="bold"
                     android:backgroundTint="?attr/paper_color"
                     android:text="@string/font_family_sans_serif"
                     android:tag="@string/font_family_sans_serif"
-                    app:strokeColor="?attr/colorAccent" />
+                    app:rippleColor="?attr/border_color"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="?attr/progressive_color" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_font_family_serif"
-                    style="@style/App.Button"
+                    style="@style/Widget.Material3.Button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="serif"
-                    android:textColor="?attr/primary_text_color"
+                    android:textColor="?attr/primary_color"
                     android:textStyle="bold"
                     android:backgroundTint="?attr/paper_color"
                     android:text="@string/font_family_serif"
                     android:tag="@string/font_family_serif"
-                    app:strokeColor="?attr/colorAccent" />
+                    app:rippleColor="?attr/border_color"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="?attr/progressive_color" />
 
             </LinearLayout>
 
@@ -192,13 +192,13 @@
                     android:contentDescription="@null"
                     app:srcCompat="@drawable/ic_icon_reading_focus_mode" />
 
-                <androidx.appcompat.widget.SwitchCompat
+                <com.google.android.material.materialswitch.MaterialSwitch
                     android:id="@+id/theme_chooser_reading_focus_mode_switch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:text="@string/reading_focus_mode"
-                    android:textColor="?attr/primary_text_color" />
+                    android:textColor="?attr/primary_color" />
             </LinearLayout>
 
             <TextView
@@ -209,7 +209,7 @@
                 android:layout_marginStart="36dp"
                 android:text="@string/reading_focus_mode_detail"
                 android:textSize="11sp"
-                android:textColor="?attr/primary_text_color"/>
+                android:textColor="?attr/primary_color"/>
 
             <View
                 android:layout_width="match_parent"
@@ -217,14 +217,14 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="?attr/material_theme_border_color" />
+                android:background="?attr/border_color" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/color_theme_select"
-                android:textColor="?attr/primary_text_color"
+                android:textColor="?attr/primary_color"
                 android:textStyle="bold"/>
 
             <LinearLayout
@@ -237,48 +237,48 @@
                     android:id="@+id/button_theme_light"
                     style="@style/ThemeColorCircularButton"
                     android:layout_margin="5dp"
-                    android:textColor="@color/base10"
+                    android:textColor="@color/gray700"
                     android:backgroundTint="@color/color_state_white"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_theme_sepia"
                     style="@style/ThemeColorCircularButton"
                     android:layout_margin="5dp"
-                    android:textColor="@color/base10"
-                    android:backgroundTint="@color/papyrus"/>
+                    android:textColor="@color/gray700"
+                    android:backgroundTint="@color/beige300"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_theme_dark"
                     style="@style/ThemeColorCircularButton"
                     android:layout_margin="5dp"
-                    android:textColor="@color/base90"
+                    android:textColor="@color/gray100"
                     android:backgroundTint="@color/color_state_gray" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_theme_black"
                     style="@style/ThemeColorCircularButton"
                     android:layout_margin="5dp"
-                    android:textColor="@color/base90"
+                    android:textColor="@color/gray100"
                     android:backgroundTint="@color/color_state_black" />
 
             </LinearLayout>
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/theme_chooser_match_system_theme_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="@string/theme_chooser_dialog_match_system_theme_switch_label"
-                android:textColor="?attr/primary_text_color" />
+                android:textColor="?attr/primary_color" />
 
-            <androidx.appcompat.widget.SwitchCompat
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/theme_chooser_dark_mode_dim_images_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:gravity="center_vertical"
                 android:text="@string/theme_chooser_dialog_image_dimming_switch_label"
-                android:textColor="?attr/section_title_color" />
+                android:textColor="?attr/secondary_color" />
 
         </LinearLayout>
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Athena in Wonderland
 * Banjo
 * Chairego apc
@@ -90,9 +91,9 @@
   <string name="map_view_link_text">ver nun mapa</string>
   <string name="other_languages_indication_text">Ler noutra lingua</string>
   <string name="language_count_link_text">Dispoñible en %d linguas máis</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Ao publicar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Ao publicar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edicións atribuiránselle ao enderezo IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;accede ao sistema&lt;/a&gt; terá un maior anonimato.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Ao publicar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Ao publicar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edicións atribuiránselle ao enderezo IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;accede ao sistema&lt;/a&gt; terá un maior anonimato.</string>
   <string name="preference_title_language">Linguas de Wikipedia</string>
   <string name="langlinks_filter_hint">Procurar</string>
   <string name="langlinks_empty">Esta páxina non está dispoñible noutras linguas</string>
@@ -213,7 +214,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/gl</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/gl</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.gl</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.gl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.gl</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Bibliotecas empregadas</string>

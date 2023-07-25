@@ -3,22 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/empty"
-        android:icon="@drawable/ic_more_vert_themed_24dp"
+        android:icon="@drawable/ic_more_vert_white_24dp"
         android:orderInCategory="101"
         android:title="@string/abc_action_menu_overflow_description"
+        app:iconTint="?attr/primary_color"
         app:showAsAction="always">
         <menu>
             <item
                 android:id="@+id/menu_share_edit"
                 android:icon="@drawable/ic_share"
+                app:iconTint="?attr/primary_color"
                 android:title="@string/menu_option_share_edit" />
             <item
                 android:id="@+id/menu_copy_link_to_clipboard"
                 android:icon="@drawable/ic_content_copy_24"
+                app:iconTint="?attr/primary_color"
                 android:title="@string/menu_option_copy_link_to_clipboard" />
             <item
                 android:id="@+id/menu_add_watchlist"
                 android:icon="@drawable/ic_star_24"
+                app:iconTint="?attr/primary_color"
                 android:title="@string/menu_page_watch" />
         </menu>
     </item>

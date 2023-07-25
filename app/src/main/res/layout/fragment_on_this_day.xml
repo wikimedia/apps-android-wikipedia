@@ -41,7 +41,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/on_this_day_card_title"
-                        android:textColor="?attr/primary_text_color"
+                        android:textColor="?attr/primary_color"
                         android:textSize="24sp"
                         android:textStyle="bold"
                         android:transitionName="@string/transition_on_this_day" />
@@ -59,7 +59,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
-                            android:textColor="?attr/colorAccent"
+                            android:textColor="?attr/progressive_color"
                             android:textSize="24sp"
                             android:textStyle="bold"
                             tools:text="January 1" />
@@ -71,14 +71,14 @@
                             android:layout_gravity="bottom"
                             android:contentDescription="@null"
                             app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp"
-                            app:tint="?attr/colorAccent" />
+                            app:tint="?attr/progressive_color" />
                     </LinearLayout>
 
                     <TextView
                         android:id="@+id/day_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="?attr/primary_text_color"
+                        android:textColor="?attr/primary_color"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -87,7 +87,7 @@
 
             </FrameLayout>
 
-            <androidx.appcompat.widget.Toolbar
+            <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -111,7 +111,7 @@
                         android:gravity="center_vertical"
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="8sp"
-                        android:textColor="?attr/colorAccent"
+                        android:textColor="?attr/progressive_color"
                         android:textSize="24sp"
                         android:textStyle="bold"
                         tools:text="January 1" />
@@ -120,7 +120,7 @@
                         android:id="@+id/drop_down_toolbar"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        app:tint="?attr/colorAccent"
+                        app:tint="?attr/progressive_color"
                         android:contentDescription="@null"
                         app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
                 </LinearLayout>
@@ -137,7 +137,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:contentDescription="@null"
-                        app:tint="?attr/colorAccent"
+                        app:tint="?attr/progressive_color"
                         app:srcCompat="@drawable/ic_empty_event" />
 
                     <TextView
@@ -147,11 +147,11 @@
                         android:layout_height="10dp"
                         android:layout_marginStart="6dp"
                         android:layout_marginTop="8dp"
-                        android:textColor="?attr/colorAccent"
+                        android:textColor="?attr/progressive_color"
                         android:textSize="8sp"
                         tools:text="12" />
                 </FrameLayout>
-            </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.MaterialToolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 

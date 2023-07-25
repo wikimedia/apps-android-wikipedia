@@ -3,10 +3,12 @@
 * Anakmalaysia
 * Arifin.wijaya
 * Aviator
+* Bebudak
 * Cooltey
 * CyberTroopers
 * Dbrant
 * Envlh
+* Hakimi97
 * Izing
 * Jeluang Terluang
 * Kurniasan
@@ -67,6 +69,14 @@
   <string name="page_edit_history_filter_by_user">Suntingan pengguna (%s)</string>
   <string name="page_edit_history_filter_by_anon">Suntingan awanama (%s)</string>
   <string name="page_edit_history_filter_by_bot">Suntingan bot (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Metrik daripada %1$s hingga %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="other">%1$d suntingan sejak %2$s </item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="other">%1$d suntingan sejak %2$s (%3$s)</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Cuba ubah &lt;a href=\"#\"&gt;penapis&lt;/a&gt; untuk melihat lebih banyak suntingan</string>
   <string name="menu_page_show_tabs">Paparkan tab</string>
   <string name="menu_page_other_languages">Tukar bahasa</string>
   <string name="menu_page_find_in_page">Cari dalam rencana</string>
@@ -92,6 +102,7 @@
   <string name="menu_page_new_tab">Tab baru</string>
   <string name="menu_page_reading_lists">Senarai bacaan</string>
   <string name="menu_page_recently_viewed">Baru dilihat</string>
+  <string name="menu_page_archive">Arkib</string>
   <string name="menu_long_press_open_page">Buka</string>
   <string name="menu_long_press_open_in_new_tab">Buka dalam tab baru</string>
   <string name="menu_long_press_copy_page">Salin alamat pautan</string>
@@ -106,9 +117,9 @@
   <string name="map_view_link_text">Paparkan di peta</string>
   <string name="other_languages_indication_text">Baca dalam bahasa lain</string>
   <string name="language_count_link_text">Tersedia dalam %d bahasa lain</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Dengan menerbitkan, anda menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Dengan menerbitkan, anda menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntingan akan diatribusikan kepada alamat IP peranti anda. Jika anda &lt;a href=\"https://#login\"&gt;log masuk&lt;/a&gt;, maka privasi anda bertambah baik.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Dengan menerbitkan, anda menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Dengan menerbitkan, anda menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Suntingan akan diatribusikan kepada alamat IP peranti anda. Jika anda &lt;a href=\"https://#login\"&gt;log masuk&lt;/a&gt;, maka privasi anda bertambah baik.</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
   <string name="langlinks_filter_hint">Cari</string>
   <string name="langlinks_empty">Laman ini tidak terdapat dalam bahasa lain</string>
@@ -232,14 +243,13 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ms.wikipedia.org/wiki/Wikipedia:Permohonan_akaun</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ms</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ms</string>
   <string name="about_libraries_heading">Perpustakaan yang digunakan</string>
   <string name="about_contributors_heading">Penyumbang</string>
   <string name="about_translators_heading">Penterjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini diterjemah oleh para penterjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lesen</string>
-  <string name="about_app_license">Kod sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lesen Apache 2.0&lt;/a&gt;. Kecuali dinyatakan lain, kandungan tersedia di bawah &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lesen Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kod sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lesen Apache 2.0&lt;/a&gt;. Kecuali dinyatakan lain, kandungan tersedia di bawah &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lesen Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Keluaran &lt;a href=\"https://wikimediafoundation.org/\"&gt;Yayasan Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Perihal</string>
   <string name="edit_abandon_confirm">Laman ini telah disunting. Adakah anda pasti ingin keluar tanpa menyimpan suntingan?</string>
@@ -393,6 +403,7 @@
   <string name="error_blocked_expiry">Sekatan tamat: %s</string>
   <string name="error_blocked_id">ID Sekat: %s</string>
   <string name="error_blocked_footer">Anda boleh menghubungi &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; atau mana-mana &lt;a href=\"https://ms.wikipedia.org/wiki/Wikipedia:Penyelia\n\"&gt;penyelia&lt;/a&gt; lain untuk membincangkan sekatan anda.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Sesuaikan bar alat anda</string>
   <string name="error_blocked_footer_no_blocker">Anda boleh menghubungi &lt;a href=\"https://ms.wikipedia.org/wiki/Wikipedia:Penyelia\"&gt;penyelia&lt;/a&gt; untuk membincangkan sekatan anda.</string>
   <string name="crash_report_activity_title">Ralat aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia telah mengalami ralat dan terpaksa ditutup</string>
@@ -420,7 +431,11 @@
   <string name="text_size_percent_default">%s (Asal)</string>
   <string name="text_style_title">Fon</string>
   <string name="theme_category_reading">Membaca</string>
+  <string name="theme_category_editing">Menyunting</string>
   <string name="reading_focus_mode">Mod tumpu membaca</string>
+  <string name="editing_line_numbers_label">Tunjukkan nombor baris</string>
+  <string name="editing_monospace_font_label">Gunakan fon monospace</string>
+  <string name="editing_typing_suggestions">Tunjukkan cadangan penaipan</string>
   <string name="nav_item_saved">Disimpan</string>
   <string name="reading_list_save_to">Simpan ke senarai bacaan</string>
   <string name="reading_list_move_to">Pindah ke senarai pembacaan</string>
@@ -445,6 +460,9 @@
   <string name="reading_list_sort_by_created">Isih mengikut tarikh diciptakan (terbaru)</string>
   <string name="reading_list_sort_by_created_desc">Isih mengikut tarikh diciptakan (terlama)</string>
   <string name="reading_list_menu_delete">Padam senarai</string>
+  <string name="reading_list_menu_export">Eksport senarai</string>
+  <string name="reading_list_menu_select">Pilih</string>
+  <string name="reading_list_menu_unselect">Nyahpilih</string>
   <string name="reading_list_menu_rename">Sunting nama/keterangan</string>
   <string name="reading_list_action_menu_remove_from_offline">Padam dari luar talian</string>
   <string name="reading_list_action_menu_save_for_offline">Simpan untuk luar talian</string>
@@ -511,6 +529,7 @@
   <string name="reading_list_article_limit_message">Tidak dapat menambah ke senarai ini. Anda telah mencapai had %2$d rencanabagi setiap senarai untuk senarai \"%1$s\".</string>
   <string name="reading_lists_limit_message">Tidak dapat membuat senarai lain. Anda telah mencapai had 100 senarai bacaan setiap akaun.</string>
   <string name="reading_lists_menu_create_list">Cipta senarai baru</string>
+  <string name="reading_lists_menu_import_list">Import senarai</string>
   <string name="reading_lists_menu_sort_by">Isih mengikut</string>
   <string name="reading_lists_refresh_sync_option">Segarkan semula penyegerakan</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log masuk / cipta akaun</string>
@@ -531,7 +550,16 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Batal</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Batal</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Hapuskan</string>
   <string name="reading_list_activity_title">Senarai baca: %s</string>
+  <string name="reading_lists_action_menu_export_lists">Eksport</string>
+  <string name="reading_lists_import_file_picker_title">Pilih fail untuk diimport</string>
+  <string name="reading_lists_import_failure_message">Gagal mengimport senarai bacaan</string>
+  <string name="reading_lists_export_select_lists_message">Pilih senarai untuk dieksport</string>
+  <string name="reading_lists_preview_save_button">Simpan</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Tajuk</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Batalkan</string>
+  <string name="reading_lists_preview_save_dialog_save">Simpan</string>
   <string name="user_option_sync_label">Keutamaan</string>
   <string name="notification_reverted_title">Suntingan yang dibatalkan</string>
   <string name="notification_channel_title">Memuat turun rencana</string>
@@ -615,6 +643,8 @@
   <string name="notifications_filter_update_app_languages">Kemas kini bahasa aplikasi</string>
   <string name="notifications_select_all_filters">Pilih semua penapis</string>
   <string name="notifications_tab_filter_all">Semua</string>
+  <string name="notifications_tab_filter_mentions">Sebutan</string>
+  <string name="notifications_search_bar_filter_hint">Penapis pemberitahuan</string>
   <string name="notifications_swipe_action_read">Baca</string>
   <string name="notifications_wiki_filter_header">Penapis Wiki</string>
   <string name="notifications_all_wikis_text">Semua \"wiki\"</string>
@@ -624,6 +654,8 @@
   <string name="view_random_card_title">Rencana sembarang</string>
   <string name="view_random_article_card_title">Rencana rawak</string>
   <string name="view_random_article_card_action">Lebih rencana rawak</string>
+  <string name="view_top_read_card_title">Bacaan Tersohor</string>
+  <string name="view_top_read_card_action">Lagi bacaan tersohor</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d rb</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d jt</string>
   <string name="view_next_random_article">Muatkan satu lagi artikel rawak</string>
@@ -654,8 +686,8 @@
   <string name="feed_configure_activity_title">Ubahsuai suapan</string>
   <string name="feed_configure_menu_reset">Pulihkan pandangan lalai</string>
   <string name="feed_configure_menu_select_all">Paparkan semua</string>
-  <string name="feed_configure_menu_deselect_all">Sembunyikan semua</string>
-  <string name="feed_configure_language_warning">Perhatikan bahawa tidak semua jenis kad tersedia dalam semua bahasa Wikipedia. Sunting bahasa anda yang dipilih dalam Tetapan.</string>
+  <string name="feed_configure_menu_deselect_all">Sorokkan semuanya</string>
+  <string name="feed_configure_language_warning">Perhatikan bahawa tidak semua jenis kad tersedia dalam semua bahasa Wikipedia. Sunting bahasa pilihan anda dalam Tetapan.</string>
   <string name="feed_item_type_news">Rencana mengenai peristiwa semasa</string>
   <string name="feed_item_type_on_this_day">Peristiwa dalam sejarah pada hari ini</string>
   <string name="feed_item_type_because_you_read">Cadangan berdasarkan rencana yang baru dibaca dari sejarah anda</string>
@@ -673,6 +705,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Batal</string>
   <string name="feed_accessibility_card_load_more_button">Muatkan lagi</string>
+  <string name="top_read_activity_title">Bacaan tersohor pada %s</string>
   <string name="description_edit_text_hint">Huraian rencana</string>
   <string name="description_edit_article_description_label">Rencana</string>
   <string name="description_edit_translate_article_description_label_per_language">Penerangan rencana (%s)</string>
@@ -691,15 +724,19 @@
   <string name="description_edit_translate_image_caption">Terjemah kapsyen imej</string>
   <string name="description_edit_cancel_hint">Batalkan</string>
   <string name="description_edit_help_title">Info: Penerangan rencana</string>
-  <string name="description_edit_help_about_wikidata">Mengenai Wikidata</string>
+  <string name="description_edit_help_about_wikidata">Perihal Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Bimbingan Wikidata untuk menulis penerangan</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Terima kasih kerana minat anda yang berterusan dalam menyunting huraian rencana! Untuk membuat suntingan tambahan, sila log masuk ke akaun Wikipedia anda.</string>
   <string name="description_edit_license_notice" fuzzy="true">Dengan menukar huraian tajuk, saya menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan saya tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_voice_input_description">Input suara</string>
+  <string name="description_edit_learn_more">Ketahui lebih lanjut tentang huraian artikel</string>
+  <string name="description_edit_image_caption_learn_more">Ketahui lebih lanjut tentang kapsyen imej</string>
   <string name="description_too_short">Teks terlalu pendek.</string>
   <string name="description_ends_with_punctuation">Teks mesti tidak diakhiri dengan tanda baca.</string>
   <string name="description_starts_with_lowercase">Elak mula dengan huruf kecil.</string>
+  <string name="description_edit_suggested_description_button_text">Tampilkan penerangan yang disarankan</string>
+  <string name="description_edit_suggested_description_button_tooltip">Cuba penerangan rencana yang disarankan mesin</string>
   <string name="description_edit_success_saved">Huraian rencana diterbitkan!</string>
   <string name="description_edit_success_saved_snackbar">Keterangan rencana diterbitkan!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Kapsyen imej diterbitkan!</string>
@@ -713,6 +750,10 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Sebaik-baiknya satu baris, antara dua hingga dua belas perkataan</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mula menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan bermula, saya berjanji tidak akan menyalahgunakan ciri ini.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Cadangan dari mesin</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Cadangan yang dihasilkan oleh mesin, bukan dari sukarelawan mahupun Yayasan Wikimedia</string>
+  <string name="customize_toolbar_title">Sesuaikan bar alat</string>
+  <string name="customize_toolbar_category_toolbar">Bar alat</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="suggested_edits_describe_articles">Huraikan rencana</string>
   <string name="suggested_edits_review_description" fuzzy="true">Kaji penerangan tajuk</string>
@@ -786,7 +827,16 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Kelmarin</string>
   <string name="suggested_edits_encourage_account_creation_title">Tahukah anda bahawa semua orang boleh menyunting Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Log masuk / sertai Wikipedia</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Saranan penerangan</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Apa yang ingin anda laporkan?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Tidak cukup maklumat</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion" fuzzy="true">Tidak dapat melihat cadangan penerangan</string>
+  <string name="suggested_edits_inappropriate_suggestion">Cadangan yang tidak tepat</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Tidak memahami tugasnya</string>
+  <string name="suggested_edits_report_suggestion">Laporkan</string>
+  <string name="suggested_edits_suggestion_report_submitted">Laporan dikirim</string>
   <string name="file_page_activity_title">Laman fail</string>
+  <string name="file_page_edit_button_content_description">Sunting %s</string>
   <string name="description_edit_revert_subtitle">Terima kasih kerana menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu anda mencuba yang terbaik, tetapi salah satu pengulas mempunyai kebimbangan. Sebab yang mungkin suntingan anda ditukar semula termasuk:</string>
   <string name="description_edit_revert_reason1">sumbangan anda tidak mengikuti salah satu daripada &lt;a href=\"%1$s\"&gt;garis panduan&lt;/a&gt;.</string>
@@ -860,12 +910,28 @@
   <string name="content_description_for_page_indicator">Muka surat %1$d/%2$d</string>
   <string name="wikitext_bold">Tebal</string>
   <string name="wikitext_italic">Condong</string>
+  <string name="wikitext_large">Teks besar</string>
+  <string name="wikitext_small">Teks kecil</string>
+  <string name="wikitext_code">Kod</string>
   <string name="wikitext_link">Pautan</string>
   <string name="wikitext_bulleted_list">Senarai berbutir</string>
   <string name="wikitext_numbered_list">Senarai bernombor</string>
   <string name="wikitext_template">Templat</string>
   <string name="wikitext_reference">Rujukan</string>
   <string name="wikitext_preview_link">Pralihat pautan</string>
+  <string name="insert_media_settings" fuzzy="true">Tetapan media</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Kapsyen</string>
+  <string name="insert_media_settings_alternative_text">Teks alternatif</string>
+  <string name="insert_media_advanced_settings_image_position_right">Kanan</string>
+  <string name="insert_media_advanced_settings_image_position_left">Kiri</string>
+  <string name="insert_media_advanced_settings_image_position_center">Tengah</string>
+  <string name="insert_media_advanced_settings_image_position_none">Tiada</string>
+  <string name="insert_media_advanced_settings_image_type">Jenis imej</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Bingkai</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Asas</string>
+  <string name="insert_media_advanced_settings_image_size">Saiz imej</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Lebar</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Tinggi</string>
   <string name="main_drawer_help">Bantuan</string>
   <string name="main_drawer_login">Log masuk / gabung Wikipedia</string>
   <string name="main_tooltip_text">%s, tahukah anda bahawa semua orang boleh menyunting Wikipedia?</string>
@@ -887,8 +953,18 @@
   <string name="talk_message_hint">Tulis pesanan</string>
   <string name="talk_message_empty">Pesanan jangan dibiarkan kosong.</string>
   <string name="talk_subject_empty">Subjek jangan dibiarkan kosong.</string>
+  <string name="talk_search_hint">Cari mesej</string>
+  <string name="talk_search_topics_hint">Cari topik</string>
+  <string name="talk_overflow_sort_topic_name">Nama topik</string>
+  <string name="talk_list_item_overflow_subscribe">Langgan</string>
+  <string name="talk_list_item_overflow_subscribed">Dilanggan</string>
+  <string name="talk_list_item_swipe_mark_as_read">Baca</string>
+  <string name="talk_login_to_subscribe_dialog_title">Log masuk untuk berlanggan ke topik</string>
   <string name="menu_option_share_edit">Kongsi suntingan</string>
   <string name="menu_option_user_contributions">Sumbangan %s</string>
+  <string name="menu_option_edit_source">Sunting sumber</string>
+  <string name="menu_option_user_page">Laman pengguna %s</string>
+  <string name="talk_menu_copy_text">Salin teks</string>
   <string name="watchlist_details_watch_label">Pantau</string>
   <string name="thank_label">Terima kasih</string>
   <string name="view_user_page">Lihat laman pengguna</string>
@@ -911,9 +987,30 @@
   <string name="watchlist_page_moved">Dipindahkan</string>
   <string name="watchlist_page_protected">Dilindungi</string>
   <string name="watchlist_page_deleted">Dihapuskan</string>
+  <string name="watchlist_filter_title">Penapis senarai pantau</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Semua</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Mungkin bermasalah</string>
+  <string name="watchlist_filter_user_status_registered">Berdaftar</string>
+  <string name="watchlist_filter_user_status_experienced">Pengguna berpengalaman</string>
+  <string name="watchlist_filter_contribution_authorship_own">Perubahan oleh anda</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Perubahan oleh orang lain</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Manusia (bukan bot)</string>
+  <string name="watchlist_filter_significance_minor">Suntingan kecil</string>
+  <string name="watchlist_filter_latest_revisions_header">Semakan terkini</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Bukan semakan terkini</string>
+  <string name="watchlist_filter_type_of_change_header">Jenis perubahan</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Suntingan laman</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Perubahan kategori</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Suntingan Wikidata</string>
+  <string name="watchlist_filter_type_of_change_new_users">Pengguna baru</string>
+  <string name="watchlist_search_bar_filter_hint">Penapis senarai pantau</string>
   <string name="action_item_categories">Kategori</string>
   <string name="category_tab_articles">Rencana</string>
   <string name="category_tab_subcategories">Subkategori</string>
   <string name="category_empty">Tiada rencana dijumpai dalam kategori ini.</string>
   <string name="subcategory_empty">Tiada subkategori dijumoai dalam kategori ini.</string>
+  <string name="data_opt_in_accept">Terima</string>
+  <string name="data_opt_in_reject">Tolak</string>
 </resources>

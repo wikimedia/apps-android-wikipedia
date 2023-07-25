@@ -90,7 +90,7 @@
   <string name="menu_page_new_tab">नयाँ ट्याब</string>
   <string name="menu_page_reading_lists">अध्ययन सूचीहरू</string>
   <string name="menu_page_recently_viewed">भर्खरै हेरिएको</string>
-  <string name="menu_page_archive">संग्रह</string>
+  <string name="menu_page_archive">अभिलेख</string>
   <string name="menu_long_press_open_page">खोल्नुहोस्</string>
   <string name="menu_long_press_open_in_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
   <string name="menu_long_press_copy_page">सूत्रकाे ठेगाना प्रतिलिपि गर्नुहोस्</string>
@@ -105,9 +105,9 @@
   <string name="map_view_link_text">कुनै नक्सामा हेर्नुहोस्</string>
   <string name="other_languages_indication_text">अर्को भाषामा पढ्नुहोस्</string>
   <string name="language_count_link_text">अरू %d ओटा भाषाहरूमा उपलब्ध</string>
-  <string name="content_license_cc_by_sa">CC BY-SA ३.०</string>
-  <string name="edit_save_action_license_logged_in">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ।</string>
-  <string name="edit_save_action_license_anon">प्रकाशन गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ। सम्पादनहरू तपाईँको उपकरणको आइपओ ठेगानामा एट्रिब्युट गरिनेछन् । यदि &lt;a href=\"https://#login\"&gt;लग इन&lt;/a&gt;,  गर्नु भयो भने राम्रो गोपनियता प्राप्त हुनसक्छ।</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA ३.०</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ।</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">प्रकाशन गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ। सम्पादनहरू तपाईँको उपकरणको आइपओ ठेगानामा एट्रिब्युट गरिनेछन् । यदि &lt;a href=\"https://#login\"&gt;लग इन&lt;/a&gt;,  गर्नु भयो भने राम्रो गोपनियता प्राप्त हुनसक्छ।</string>
   <string name="preference_title_language">विकिपिडिया भाषाहरू</string>
   <string name="langlinks_filter_hint">खोज्नुहोस्</string>
   <string name="langlinks_empty">यो पृष्ठ अन्य भाषाहरूमा उपलब्ध छैन।</string>
@@ -228,14 +228,13 @@
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ne.wikipedia.org/wiki/विकिपिडिया:खाता_बनाउनको_लागि_अनुरोध</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">प्रयोग भएका पुस्तकालयहरू</string>
   <string name="about_contributors_heading">योगदानकर्ताहरू</string>
   <string name="about_translators_heading">अनुवादकहरू</string>
   <string name="about_translators_translatewiki">यो अनुप्रयोग &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; का अनुवाद स्वयंसेवकहरूद्वारा अनुवाद गरिएको हो।</string>
   <string name="about_app_license_heading">इजाजतपत्र</string>
-  <string name="about_app_license">स्रोत कोड &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; तथा &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; मा &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; अन्तर्गत् उपलब्ध छ। अन्यथा निर्दिष्ट नभएसम्म, सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; अन्तर्गत् उपलब्ध छ।</string>
+  <string name="about_app_license" fuzzy="true">स्रोत कोड &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; तथा &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; मा &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; अन्तर्गत् उपलब्ध छ। अन्यथा निर्दिष्ट नभएसम्म, सामग्री &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; अन्तर्गत् उपलब्ध छ।</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमिडिया फाउन्डेसनको&lt;/a&gt;एक उत्पादन</string>
   <string name="about_activity_title">बारेमा</string>
   <string name="edit_abandon_confirm">यो पृष्ठ परिवर्तन भइसक्यो। आफ्ना परिवर्तनहरू सङ्ग्रह नगरी बाहिर निक्लन चाहनुहुन्छ?</string>

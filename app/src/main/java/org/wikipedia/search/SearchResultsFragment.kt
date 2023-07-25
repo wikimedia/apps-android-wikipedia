@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ConcatAdapter
@@ -24,6 +26,7 @@ import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.databinding.ItemSearchNoResultsBinding
 import org.wikipedia.databinding.ItemSearchResultBinding
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -60,21 +63,24 @@ class SearchResultsFragment : Fragment() {
             startSearch(viewModel.searchTerm, true)
         }
 
-        lifecycleScope.launch {
-            viewModel.searchResultsFlow.collectLatest {
-                binding.searchResultsList.visibility = View.VISIBLE
-                searchResultsAdapter.submitData(it)
-            }
-        }
-
-        lifecycleScope.launchWhenCreated {
-            searchResultsAdapter.loadStateFlow.collectLatest {
-                callback()?.onSearchProgressBar(it.append is LoadState.Loading || it.refresh is LoadState.Loading)
-                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && searchResultsAdapter.itemCount == 0)
-                if (showEmpty) {
-                    searchResultsConcatAdapter.addAdapter(noSearchResultAdapter)
-                } else {
-                    searchResultsConcatAdapter.removeAdapter(noSearchResultAdapter)
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.searchResultsFlow.collectLatest {
+                        binding.searchResultsList.visibility = View.VISIBLE
+                        searchResultsAdapter.submitData(it)
+                    }
+                }
+                launch {
+                    searchResultsAdapter.loadStateFlow.collectLatest {
+                        callback()?.onSearchProgressBar(it.append is LoadState.Loading || it.refresh is LoadState.Loading)
+                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && searchResultsAdapter.itemCount == 0)
+                        if (showEmpty) {
+                            searchResultsConcatAdapter.addAdapter(noSearchResultAdapter)
+                        } else {
+                            searchResultsConcatAdapter.removeAdapter(noSearchResultAdapter)
+                        }
+                    }
                 }
             }
         }
@@ -183,14 +189,14 @@ class SearchResultsFragment : Fragment() {
     }
 
     private inner class NoSearchResultItemViewHolder(val itemBinding: ItemSearchNoResultsBinding) : DefaultViewHolder<View>(itemBinding.root) {
-        private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.colorAccent)
-        private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.material_theme_secondary_color)
+        private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.progressive_color)
+        private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.secondary_color)
         fun bindItem(position: Int, resultsCount: Int) {
             val langCode = WikipediaApp.instance.languageState.appLanguageCodes[position]
             itemBinding.resultsText.text = if (resultsCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount)
             itemBinding.resultsText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
             itemBinding.languageCode.visibility = if (viewModel.resultsCount.size == 1) View.GONE else View.VISIBLE
-            itemBinding.languageCode.text = langCode
+            itemBinding.languageCode.text = LanguageUtil.formatLangCodeForButton(langCode)
             itemBinding.languageCode.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
             ViewCompat.setBackgroundTintList(itemBinding.languageCode, if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
             formatLangButton(itemBinding.languageCode, langCode,

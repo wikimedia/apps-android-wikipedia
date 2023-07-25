@@ -3,5 +3,5 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/OverflowMenuItem"
     android:drawablePadding="16dp"
-    android:textColor="?attr/chart_shade1"
-    app:drawableTint="?attr/color_group_9" />
+    android:textColor="?attr/primary_color"
+    app:drawableTint="?attr/primary_color" />

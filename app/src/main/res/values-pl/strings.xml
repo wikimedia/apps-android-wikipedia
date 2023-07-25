@@ -3,8 +3,10 @@
 * AOla333
 * Alan ffm
 * Alchemik
+* Amire80
 * Chrumps
 * CiaPan
+* Czupirek
 * Darellur
 * Dbrant
 * DeRudySoulStorm
@@ -16,6 +18,7 @@
 * Kareyac
 * Lantuszka
 * Luku123
+* MarMi wiki
 * Masti
 * Matik7
 * Matma Rex
@@ -30,6 +33,7 @@
 * Stojex
 * Strebski
 * Szymonel
+* Tacsipacsi
 * Tar Lócesilion
 * The Polish
 * Thoji
@@ -56,7 +60,7 @@
   <string name="nav_item_suggested_edits">Edycje</string>
   <string name="nav_item_more">Więcej</string>
   <string name="nav_item_search">Szukaj</string>
-  <string name="error_network_error">Nie można połączyć z internetem.</string>
+  <string name="error_network_error">Nie można połączyć z Internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
   <string name="card_offline_error_retry">Ponów próbę</string>
   <string name="storage_access_error_retry">Ponów próbę</string>
@@ -71,9 +75,9 @@
   <string name="history_item_delete_undo">Cofnij</string>
   <string name="notification_archive_undo">Cofnij</string>
   <string name="app_settings">Ustawienia aplikacji</string>
-  <string name="search_tab_tooltip">Stuknij ikonę ponownie, aby bezpośrednio rozpocząć wyszukiwanie frazy.</string>
+  <string name="search_tab_tooltip">Stuknij ikonę ponownie, aby bezpośrednio wpisać wyszukiwany tekst.</string>
   <string name="history_list_title">Historia</string>
-  <string name="image_content_description">Grafika %s</string>
+  <string name="image_content_description">Grafika: %s</string>
   <string name="page_content_description">Strona: %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidane</string>
@@ -88,7 +92,7 @@
   <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Puste podsumowanie edycji</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Wyszukaj lub filtruj zmiany</string>
-  <string name="page_edit_history_filter_by">Filtruj według</string>
+  <string name="page_edit_history_filter_by">Filtruj po</string>
   <string name="page_edit_history_filter_by_all">Wszystkie zmiany (%s)</string>
   <string name="page_edit_history_filter_by_user">Edycje użytkownika (%s)</string>
   <string name="page_edit_history_filter_by_anon">Edycje anonimowe (%s)</string>
@@ -96,7 +100,7 @@
   <string name="page_edit_history_metrics_content_description">Dane od %1$s do %2$s</string>
   <string name="page_edit_history_empty_search_message">Spróbuj zmienić &lt;a href=\"#\"&gt;filtry&lt;/a&gt;, aby zobaczyć więcej zmian</string>
   <string name="menu_page_show_tabs">Pokaż karty</string>
-  <string name="menu_page_other_languages">Czytaj w innych językach</string>
+  <string name="menu_page_other_languages">Zmień język</string>
   <string name="menu_page_find_in_page">Znajdź w artykule</string>
   <string name="menu_page_add_to_watchlist">Dodaj do listy obserwowanych</string>
   <string name="menu_page_watch">Obserwuj</string>
@@ -113,17 +117,17 @@
   <string name="menu_page_add_to_default_list">Zapisz</string>
   <string name="feed_card_add_to_list">Dodaj do listy czytanych</string>
   <string name="feed_card_add_to_default_list">Zapisz</string>
-  <string name="menu_page_share">Udostępnij łącze</string>
+  <string name="menu_page_share">Udostępnij link</string>
   <string name="menu_article_share">Udostępnij artykuł</string>
   <string name="menu_page_article_share">Udostępnij</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
   <string name="menu_page_new_tab">Nowa karta</string>
-  <string name="menu_page_reading_lists">Listy do przeczytania</string>
-  <string name="menu_page_recently_viewed">Niedawno odwiedzone</string>
+  <string name="menu_page_reading_lists">Listy czytelnicze</string>
+  <string name="menu_page_recently_viewed">Ostatnio oglądane</string>
   <string name="menu_page_archive">Archiwum</string>
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
-  <string name="menu_long_press_copy_page">Kopiuj adres łącza</string>
+  <string name="menu_long_press_copy_page">Kopiuj adres linka</string>
   <string name="menu_text_select_define">Definicja</string>
   <string name="on_this_day_page_share">Udostępnij</string>
   <string name="reading_list_page_share">Udostępnij</string>
@@ -135,13 +139,13 @@
   <string name="map_view_link_text">Zobacz na mapie</string>
   <string name="other_languages_indication_text">Przeczytaj w innym języku</string>
   <string name="language_count_link_text">Dostępne w %d innych językach</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Publikując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Publikując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencjach &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Zmiany zostaną przypisane do adresu IP Twojego urządzenia. Po &lt;a href=\"https://#login\"&gt;zalogowaniu&lt;/a&gt;, będziesz mógł skorzystać z wyższego poziomu prywatności.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Publikując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencji &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Publikując, akceptujesz &lt;a href=\"%1$s\"&gt;Warunki korzystania&lt;/a&gt; i wyrażasz nieodwołalną zgodę na udostępnianie Twojego wkładu na licencji &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;. Zmiany zostaną przypisane do adresu IP Twojego urządzenia. Dzięki &lt;a href=\"https://#login\"&gt;zalogowaniu się&lt;/a&gt; uzyskasz większą prywatność.</string>
   <string name="edit_anon_warning">Zmiany zostaną przypisane do adresu IP Twojego urządzenia. Jeśli &lt;a href=\"https://#login\"&gt;zalogujesz się&lt;/a&gt;, będziesz mieć większą prywatność.</string>
   <string name="preference_title_language">Języki Wikipedii</string>
   <string name="langlinks_filter_hint">Szukaj</string>
-  <string name="langlinks_empty">Ten artykuł nie jest dostępny w innych językach</string>
+  <string name="langlinks_empty">Ten artykuł nie jest dostępny w innych językach.</string>
   <string name="langlinks_no_match">Nie znaleziono języków</string>
   <string name="langlinks_activity_title">Inne języki</string>
   <string name="langlinks_your_wikipedia_languages">Twoje języki Wikipedii</string>
@@ -177,7 +181,7 @@
   <string name="login_activity_title">Zaloguj się</string>
   <string name="login_in_progress_dialog_message">Logowanie…</string>
   <string name="login_success_toast">Zalogowano!</string>
-  <string name="reset_password_title">Wpisz swoje hasło</string>
+  <string name="reset_password_title">Ustaw swoje hasło</string>
   <string name="reset_password_description">Zalogowano się z użyciem hasła tymczasowego. Aby dokończyć logowanie, ustaw nowe hasło.</string>
   <string name="reset_password_hint">Nowe hasło</string>
   <string name="reset_password_button">Zapisz i zaloguj się</string>
@@ -191,7 +195,7 @@
   <string name="logged_out_in_background_cancel">Anuluj</string>
   <string name="history_empty_title">Brak ostatnio oglądanych artykułów</string>
   <string name="history_empty_message">Śledź tutaj, co było czytane.</string>
-  <string name="history_offline_articles_toast">Bez dostępu do sieci (offline) niektóre artykuły w historii mogą być niewidoczne.</string>
+  <string name="history_offline_articles_toast">W trybie offline (bez dostępu do sieci) niektóre artykuły w historii mogą być niewidoczne.</string>
   <string name="search_empty_message">Przeszukuj i czytaj darmową encyklopedię w swoim języku</string>
   <string name="search_empty_message_multilingual_upgrade">Przeszukuj Wikipedię w większej ilości języków</string>
   <string name="delete_selected_items">Usuń wybrane elementy</string>
@@ -213,13 +217,13 @@
   <string name="create_account_generic_error">Nie można utworzyć konta</string>
   <string name="create_account_next">Dalej</string>
   <string name="email_recommendation_dialog_title">Założyć konto bez adresu e-mail?</string>
-  <string name="email_recommendation_dialog_message">Chociaż adres e-mail jest opcjonalny, jest &lt;b&gt;wysoce zalecany&lt;/b&gt;, ponieważ jest on niezbędny do odzyskania konta, w przypadku utraty hasła.</string>
+  <string name="email_recommendation_dialog_message">Chociaż adres e-mail jest opcjonalny, jest &lt;b&gt;wysoce zalecany&lt;/b&gt;, ponieważ jest on niezbędny do odzyskania konta w przypadku utraty hasła.</string>
   <string name="email_recommendation_message">Zalecane, ponieważ e-mail jest potrzebny do odzyskiwania konta.</string>
-  <string name="email_recommendation_dialog_create_without_email_action">Kontynuuj bez adresu email</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Kontynuuj bez adresu e-mail</string>
   <string name="email_recommendation_dialog_create_with_email_action">Dodaj adres e‐mail</string>
   <string name="create_account_button">Utwórz konto</string>
   <string name="create_account_name_unavailable">Nazwa użytkownika \"%s\" nie jest dostępna. Proszę wybrać inną nazwę.</string>
-  <string name="create_account_ip_block_message">Niestety, Twój adres IP jest obecnie zablokowany dla tworzenia nowych kont.</string>
+  <string name="create_account_ip_block_message">Niestety tworzenie kont z Twojego adresu IP jest w tej chwili zablokowane.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Szczegóły</string>
   <string name="preferences_general_heading">Ogólne</string>
@@ -231,7 +235,7 @@
   <string name="preferences_heading_data_usage">Użycie danych</string>
   <string name="preferences_heading_experimental">Eksperymentalne</string>
   <string name="preference_title_sync_reading_lists_from_account">Synchronizacja listy czytanych</string>
-  <string name="preference_title_download_reading_list_articles">Pobierz artykuły listy czytanych</string>
+  <string name="preference_title_download_reading_list_articles">Pobierz artykuły z listy czytanych</string>
   <string name="preference_summary_sync_reading_lists">Synchronizuj listy czytanych na różnych urządzeniach, zapisując je na swoim koncie w Wikipedii</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizuj listy czytanych na różnych urządzeniach, zapisując je na swoim koncie \"%s\" w Wikipedii</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Usunąć zsynchronizowane listy czytanych z \"%s\"?</string>
@@ -247,7 +251,7 @@
   <string name="page_protected_autoconfirmed">Ta strona jest częściowo zabezpieczona.</string>
   <string name="page_protected_sysop">Ta strona jest całkowicie zabezpieczona.</string>
   <string name="page_protected_other">Ta strona została zabezpieczona do następujących poziomów: %s</string>
-  <string name="page_protected_can_not_edit">Twoje konto nie ma w tej chwili wystarczających uprawnień do edycji tej strony.</string>
+  <string name="page_protected_can_not_edit">Przepraszamy, twoje konto nie ma w tej chwili wystarczających uprawnień do edycji tej strony.</string>
   <string name="page_protected_can_not_edit_anon">Niestety, tej strony nie można obecnie edytować anonimowo.</string>
   <string name="page_protected_can_not_edit_title">Ta strona jest zabezpieczona</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj do listy obserwowanych</string>
@@ -260,10 +264,10 @@
   <string name="about_wikipedia_url">https://pl.wikipedia.org/wiki/Wikipedia:O_Wikipedii</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pl</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pl</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/pl</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pl</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pl</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pl</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -273,7 +277,7 @@
   <string name="about_translators_heading">Tłumacze</string>
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencja</string>
-  <string name="about_app_license">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; na licencji &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Dopóki inaczej nie określono, zawartość jest dostępna na licencji &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubie&lt;/a&gt; na licencji &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. O ile nie określono inaczej, zawartość jest dostępna na licencji &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikacji</string>
   <string name="edit_abandon_confirm">Strona została zmodyfikowana. Czy na pewno chcesz zakończyć pracę bez zapisywania zmian?</string>
@@ -281,7 +285,7 @@
   <string name="edit_abandon_confirm_no">Nie</string>
   <string name="user_blocked_from_editing_title">Zablokowany/-a</string>
   <string name="user_logged_in_blocked_from_editing">Edytowanie wiki z tego konta użytkownika zostało zablokowane.</string>
-  <string name="user_anon_blocked_from_editing">Edycja z tego adresu IP została zablokowana</string>
+  <string name="user_anon_blocked_from_editing">Edycja z tego adresu IP została zablokowana.</string>
   <string name="edit_how_page_improved">Jak poprawiłeś/aś stronę?</string>
   <string name="edit_next">Następne</string>
   <string name="edit_done">Opublikuj</string>
@@ -297,9 +301,9 @@
   <string name="edit_summary_tag_other">Inne</string>
   <string name="edit_summary_tag_other_hint">Co poprawiłaś/eś na tej stronie</string>
   <string name="edit_conflict_title">Konflikt edycji</string>
-  <string name="edit_conflict_message">Strona już została zmodyfikowana przez innego użytkownika i koliduje to z twoją edycją. Skopiuj swoje edycje, wróć i odśwież stronę, następnie spróbuj zaedytować ją ponownie.</string>
+  <string name="edit_conflict_message">Strona została już zmodyfikowana przez innego użytkownika i koliduje to z twoją edycją. Skopiuj swoje edycje, wróć i odśwież stronę, następnie spróbuj przeedytować ją ponownie.</string>
   <string name="edit_notices">Powiadomienia o edycji</string>
-  <string name="edit_notices_please_read">Proszę przeczytać przed edycją</string>
+  <string name="edit_notices_please_read">Przeczytaj proszę przed edycją</string>
   <string name="edit_notices_show_auto">Automatycznie pokazuj powiadomienia o edycji</string>
   <string name="edit_notices_tooltip">Dotknij tego przycisku, aby wyświetlić powiadomienia o edycji tego artykułu.</string>
   <string name="find_next">Znajdź następny</string>
@@ -309,7 +313,7 @@
   <string name="article_opened_in_background_tab">Artykuł został otwarty w tle w karcie.</string>
   <string name="abusefilter_title_warn">To chyba nie jest konstruktywna edycja. Czy na pewno chcesz ją opublikować?</string>
   <string name="abusefilter_title_disallow">Nie możesz opublikować tej edycji. Wróć do niej i popraw ją.</string>
-  <string name="abusefilter_text_warn">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną. Może zawierać jeden lub więcej z następujących błedów:&lt;br /&gt;&lt;br /&gt;· Tekst wyłącznie dużymi literami&lt;br /&gt;· Kasowanie zawartości artykułu lub spam&lt;br /&gt;· Niezwiązane z artykułem linki zewnetrzne lub zdjęcia&lt;br /&gt;· Powtarzające się znaki</string>
+  <string name="abusefilter_text_warn">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną. Może ona zawierać jeden lub więcej z następujących błędów:&lt;br /&gt;&lt;br /&gt;· Tekst wyłącznie dużymi literami&lt;br /&gt;· Kasowanie zawartości artykułu lub spam&lt;br /&gt;· Niezwiązane z artykułem linki zewnętrzne lub zdjęcia&lt;br /&gt;· Powtarzające się znaki</string>
   <string name="abusefilter_text_disallow">Automatyczny filtr uważa tę edycję za potencjalnie niekonstruktywną lub wandalizm.&lt;br /&gt;&lt;br /&gt;Wikipedia to encyklopedia i mogą w niej się znaleźć wyłącznie neutralne encyklopedyczne treści.</string>
   <string name="page_similar_titles">Podobne strony</string>
   <string name="search_did_you_mean">Czy chodziło Ci o \"%s\"?</string>
@@ -328,28 +332,28 @@
   <string name="widget_name_search">Wyszukaj w Wikipedii</string>
   <string name="wiktionary_no_definitions_found">Nie znaleziono definicji.</string>
   <string name="alpha_update_notification_title">Dostępna jest nowa aktualizacja alfa</string>
-  <string name="alpha_update_notification_text">Kliknij, aby pobrać.</string>
+  <string name="alpha_update_notification_text">Kliknij, aby pobrać</string>
   <string name="dialog_close_description">Zamknij</string>
   <string name="preference_title_show_images">Pokaż obrazki</string>
-  <string name="preference_summary_show_images">Włącz lub wyłącz pobieranie obrazków na stronach. Odznacz to pole wyboru, jeśli masz wolne połączenie internetowe lub  ograniczony limit transferu danych.</string>
+  <string name="preference_summary_show_images">Włącz lub wyłącz pobieranie obrazków na stronach. Odznacz to pole wyboru, jeśli masz wolne połączenie internetowe lub ograniczony limit transferu danych.</string>
   <string name="preference_title_download_only_over_wifi">Pobieraj tylko przez Wi-Fi</string>
-  <string name="dialog_title_download_only_over_wifi">Potwierdź pobieranie za pomocą komórkowej transmisji danych?</string>
-  <string name="dialog_text_download_only_over_wifi">Masz włączoną opcję „Pobieraj tylko przez Wi-Fi” w Ustawieniach. Czy chcesz zezwolić na użycie komórkowej transmisji danych tylko do tego pobierania?</string>
+  <string name="dialog_title_download_only_over_wifi">Czy potwierdzasz pobieranie za pomocą komórkowej transmisji danych?</string>
+  <string name="dialog_text_download_only_over_wifi">W Ustawieniach masz włączoną opcję „Pobieraj tylko przez Wi-Fi”. Czy chcesz zezwolić na użycie komórkowej transmisji danych tylko do tego pobierania?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Zezwól</string>
   <string name="read_more_section">Czytaj więcej</string>
   <string name="about_article_section">O tym artykule</string>
-  <string name="menu_gallery_visit_image_page">Przejdź do strony pliku</string>
+  <string name="menu_gallery_visit_image_page">Przejdź do strony grafiki</string>
   <string name="gallery_error_draw_failed">Nie udało się wyświetlić obrazu.</string>
   <string name="license_title">Licencja dla %s</string>
   <string name="gallery_menu_share">Udostępnij</string>
   <string name="gallery_share_error">Nie można udostępnić obrazu: %s</string>
   <string name="gallery_save_progress">Pobieranie pliku…</string>
   <string name="gallery_save_success">Plik zapisany.</string>
-  <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
-  <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów.</string>
-  <string name="gallery_edit_button_content_description">Edytuj podpis obrazu</string>
-  <string name="gallery_add_image_caption_button">Dodaj podpis obrazu</string>
-  <string name="gallery_add_image_caption_in_language_button">Dodaj podpis obrazu (%s)</string>
+  <string name="gallery_error_video_failed">Nie można odtworzyć filmu.</string>
+  <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnienia do zapisu obrazów.</string>
+  <string name="gallery_edit_button_content_description">Edytuj podpis grafiki</string>
+  <string name="gallery_add_image_caption_button">Dodaj podpis grafiki</string>
+  <string name="gallery_add_image_caption_in_language_button">Dodaj podpis grafiki (%s)</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
   <string name="expand_refs">Kliknij, aby rozwinąć</string>
   <string name="cc_logo">Licencja Creative Commons</string>
@@ -400,14 +404,14 @@
   <string name="enable_location_service">Włącz</string>
   <string name="location_permissions_enable_prompt">Włącz uprawnienia do lokalizacji, aby zobaczyć miejsca w pobliżu.</string>
   <string name="location_permissions_enable_action">Włącz</string>
-  <string name="error_webview_updating">Usługa Android System WebView jest obecnie aktualizowana. Spórbuj ponownie za chwilę.</string>
+  <string name="error_webview_updating">Usługa Android System WebView jest obecnie aktualizowana. Spróbuj ponownie za chwilę.</string>
   <string name="multi_select_items_selected">Wybrano %d</string>
   <string name="error_message_generic">Wystąpił błąd</string>
-  <string name="view_link_preview_error_button_dismiss">Odrzuć</string>
+  <string name="view_link_preview_error_button_dismiss">Zamknij</string>
   <string name="error_page_does_not_exist">Ta strona nie istnieje</string>
   <string name="error_user_page_does_not_exist">Wikipedia nie ma &lt;a href=\"%1$s\"&gt;strony użytkownika&lt;/a&gt; o dokładnie takiej nazwie. Ogólnie rzecz biorąc, tę stronę powinien utworzyć i edytować &lt;b&gt;%2$s&lt;/b&gt;. W razie wątpliwości sprawdź, czy istnieje „%3$s”.</string>
-  <string name="view_wiki_error_message_offline">Nie można nawiązać połączenia z Internetem</string>
-  <string name="view_wiki_error_message_timeout">Nie można połączyć się z Wikipedią. Sprawdź swoje połączenie lub spróbuj ponownie później</string>
+  <string name="view_wiki_error_message_offline">Nie można nawiązać połączenia z internetem</string>
+  <string name="view_wiki_error_message_timeout">Nie można połączyć się z Wikipedią. Sprawdź swoje połączenie sieciowe lub spróbuj ponownie później</string>
   <string name="reference_title">Przypis %s</string>
   <string name="reference_list_title">Przypisy</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Przyciemnianie obrazu (w ciemnym motywie)</string>
@@ -421,7 +425,7 @@
   <string name="error_blocked_by">Blokada została dokonana przez &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Podany powód to: %s</string>
   <string name="error_blocked_start">Początek blokady: %s</string>
-  <string name="error_blocked_expiry">Wygasająca blokada: %s</string>
+  <string name="error_blocked_expiry">Wygaśnięcie blokady: %s</string>
   <string name="error_blocked_id">Identyfikator blokady: %s</string>
   <string name="error_blocked_footer">Możesz skontaktować się z &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; lub innym &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administratorem&lt;/a&gt;, aby omówić blokadę.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Dostosuj swój pasek narzędzi</string>
@@ -429,13 +433,13 @@
   <string name="crash_report_activity_title">Błąd aplikacji</string>
   <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
-  <string name="crash_report_quit">Wyjście</string>
+  <string name="crash_report_quit">Wyjdź</string>
   <string name="article_menu_bar_save_button">Zapisz</string>
   <string name="article_menu_bar_language_button">Język</string>
   <string name="article_menu_bar_search_button">Szukaj</string>
-  <string name="article_menu_bar_theme_button">Motyw</string>
+  <string name="article_menu_bar_theme_button">Skórka</string>
   <string name="article_menu_bar_contents_button">Spis treści</string>
-  <string name="article_header_edit_hint">Edytuj...</string>
+  <string name="article_header_edit_hint">Edytuj…</string>
   <string name="article_header_edit_description">Edytuj opis artykułu</string>
   <string name="article_header_edit_lead_section">Edytuj wprowadzenie</string>
   <string name="color_theme_select">Skórka</string>
@@ -445,7 +449,7 @@
   <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Przykładowy tekst</string>
   <string name="color_theme_test_text">Przeciągnij suwak, aby zmienić rozmiar tekstu używanego do czytania artykułów. Aby ustawić rozmiar tekstu w pozostałej części aplikacji, zmień rozmiar tekstu systemowego.</string>
-  <string name="preference_title_app_theme">Motyw aplikacji</string>
+  <string name="preference_title_app_theme">Skórka aplikacji</string>
   <string name="preference_summary_color_theme">Przejdź do korzystania z motywu ciemnego aplikacji</string>
   <string name="text_size_increase">Zwiększ rozmiar tekstu</string>
   <string name="text_size_decrease">Zmniejsz rozmiar tekstu</string>
@@ -555,12 +559,16 @@
   <string name="reading_lists_menu_sort_by">Sortuj według</string>
   <string name="reading_lists_refresh_sync_option">Odśwież synchronizację</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Zaloguj się / zarejestruj</string>
-  <plurals name="reading_list_article_offline_message" fuzzy="true">
+  <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ten artykuł będzie teraz dostępny w trybie offline.</item>
+    <item quantity="few">Te artykuły będą teraz dostępne w trybie offline.</item>
+    <item quantity="many">Te artykuły będą teraz dostępne w trybie offline.</item>
     <item quantity="other">Te artykuły będą teraz dostępne w trybie offline.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
+  <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Ten artykuł nie będzie już dostępny w trybie offline.</item>
+    <item quantity="few">Te artykuły nie będą już dostępne w trybie offline.</item>
+    <item quantity="many">Te artykuły nie będą już dostępne w trybie offline.</item>
     <item quantity="other">Te artykuły nie będą już dostępne w trybie offline.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Listy czytanych zsynchronizowane</string>
@@ -586,28 +594,40 @@
   <string name="notification_syncing_reading_list_channel_title">Synchronizacja list do przeczytania</string>
   <string name="notification_syncing_reading_list_channel_description">Synchronizowanie List</string>
   <string name="notification_many_unread">Masz %d nieprzeczytanych powiadomień</string>
-  <plurals name="notification_channel_name" fuzzy="true">
+  <plurals name="notification_channel_name">
     <item quantity="one">Pobieranie artykułu</item>
+    <item quantity="few">Pobieranie artykułów</item>
+    <item quantity="many">Pobieranie artykułów</item>
     <item quantity="other">Pobieranie artykułów</item>
   </plurals>
-  <plurals name="notification_syncing_title" fuzzy="true">
+  <plurals name="notification_syncing_title">
     <item quantity="one">Pobieranie %1$d artykułu...</item>
+    <item quantity="few">Pobieranie %1$d artykułów...</item>
+    <item quantity="many">Pobieranie %1$d artykułów...</item>
     <item quantity="other">Pobieranie %1$d artykułów...</item>
   </plurals>
-  <plurals name="notification_syncing_description" fuzzy="true">
+  <plurals name="notification_syncing_description">
     <item quantity="one">pozostał %1$d artykuł</item>
+    <item quantity="few">pozostały %1$d artykuły</item>
+    <item quantity="many">pozostało %1$d artykułów</item>
     <item quantity="other">pozostało %1$d artykułów</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">Synchronizowanie listy</item>
+    <item quantity="few">Synchronizowanie list</item>
+    <item quantity="many">Synchronizowanie list</item>
     <item quantity="other">Synchronizowanie list</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">Synchronizuję %1$d listę…</item>
-    <item quantity="other">Synchronizuję listy (%1$d)…</item>
+    <item quantity="few">Synchronizuję %1$d listy</item>
+    <item quantity="many">Synchronizuję %1$d list</item>
+    <item quantity="other">Synchronizuję %1$d list</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">pozostała %1$d lista</item>
+    <item quantity="few">pozostały %1$d listy</item>
+    <item quantity="many">pozostało %1$d list</item>
     <item quantity="other">pozostało %1$d list</item>
   </plurals>
   <string name="notification_echo_channel_description">Powiadomienia z Wikipedii</string>
@@ -618,9 +638,11 @@
   <string name="notifications_view_archived">Zobacz zarchiwizowane</string>
   <string name="notifications_prefs">Preferencje powiadomień</string>
   <string name="notifications_archive">Oznacz jako przeczytane i zarchiwizuj</string>
-  <plurals name="notification_archive_message" fuzzy="true">
+  <plurals name="notification_archive_message">
     <item quantity="one">Powiadomienie zarchiwizowane</item>
-    <item quantity="other">Powiadomienia zarchiwizowane (%d)</item>
+    <item quantity="few">%d powiadomienia zarchiwizowane</item>
+    <item quantity="many">%d powiadomień zarchiwizowanych</item>
+    <item quantity="other">%d powiadomień zarchiwizowanych</item>
   </plurals>
   <string name="notifications_poll_enable_title">Włącz powiadomienia</string>
   <string name="notifications_poll_enable_positive">Włącz</string>
@@ -718,8 +740,10 @@
   <string name="home">Strona główna</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">W aktualnościach</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">wczoraj</item>
+    <item quantity="few">%d dni temu</item>
+    <item quantity="many">%d dni temu</item>
     <item quantity="other">%d dni temu</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">dzisiaj</string>
@@ -778,7 +802,7 @@
   <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">zwykle zaczynają się od małej litery</string>
   <string name="description_edit_voice_input_description">Wprowadzanie głosowe</string>
-  <string name="description_edit_description_learn_more_url">https\n://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pl#Article_descriptions</string>
   <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Tekst jest zbyt krótki.</string>
   <string name="description_ends_with_punctuation">Tekst nie może kończyć się znakiem interpunkcyjnym.</string>
@@ -786,7 +810,7 @@
   <string name="description_starts_with_uppercase">Zaczynaj tekst używając małej litery, chyba że pierwszy wyraz to nazwa własna.</string>
   <string name="description_starts_with_lowercase">Unikaj zaczynania od małej litery.</string>
   <string name="description_is_in_different_language">Tekst wydaje się być w nieoczekiwanym języku. Językiem powinien być %s.</string>
-  <string name="description_verification_notice">Sprawdź, czy Twój opis jest w języku %1$s. Możesz odrzucić to powiadomienie, jeśli napisany przez Ciebie opis jest po %2$s.</string>
+  <string name="description_verification_notice">Sprawdź, czy Twój opis jest w języku %1$s. Możesz zignorować to ostrzeżenie, jeśli napisany przez Ciebie opis jest po %2$s.</string>
   <string name="description_edit_success_saved">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_saved_snackbar">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Opis artykułu opublikowany! (%s)</string>
@@ -948,7 +972,13 @@
   <string name="suggested_edits_contribution_type_image_tag">Znacznik obrazu</string>
   <string name="suggested_edits_contribution_current_revision_text">Twoja zmiana jest obecnie opublikowana w Wikipedii</string>
   <string name="suggested_card_more_edits">Więcej sugerowanych zmian</string>
-  <string name="suggested_edits_added_contribution_label" fuzzy="true">Dodałeś/aś %d znaków</string>
+  <string name="suggested_edits_report_suggestion">Raport</string>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Dodałeś/aś %d znak</item>
+    <item quantity="few">Dodałeś/aś %d znaki</item>
+    <item quantity="many">Dodałeś/aś %d znaków</item>
+    <item quantity="other">Dodałeś/aś %d znaków</item>
+  </plurals>
   <string name="file_page_activity_title">Strona pliku</string>
   <string name="file_page_add_image_caption_button">Dodaj podpis obrazu</string>
   <string name="file_page_add_image_tags_button">Dodaj tagi obrazu</string>
@@ -988,8 +1018,10 @@
   <string name="on_this_day_dialog_next_month">Następny miesiąc</string>
   <string name="on_this_day_dialog_previous_month">Poprzedni miesiąc</string>
   <string name="on_this_day_open_date_picker">Wybierz datę</string>
-  <plurals name="diff_years" fuzzy="true">
+  <plurals name="diff_years">
     <item quantity="one">w zeszłym roku</item>
+    <item quantity="few">%d lata temu</item>
+    <item quantity="many">%d lat temu</item>
     <item quantity="other">%d lat temu</item>
   </plurals>
   <string name="on_this_day_end_of_scroll_message">Udało ci się dostać do innej epoki 🚀</string>
@@ -1002,8 +1034,10 @@
   <string name="wikipedia_languages_add_language_text">Dodaj język</string>
   <string name="wikipedia_languages_remove_text">Usuń język</string>
   <string name="wikipedia_languages_remove_action_mode_title">Usuń język</string>
-  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
+  <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Usunąć wybrany język?</item>
+    <item quantity="few">Usunąć wybrane języki?</item>
+    <item quantity="many">Usunąć wybrane języki?</item>
     <item quantity="other">Usunąć wybrane języki?</item>
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Zobaczysz tylko zawartość w kanale Eksploruj i filtry szybkiego wyszukiwania dla pozostałych języków Wikipedii.</string>
@@ -1044,7 +1078,7 @@
   <string name="wikitext_reference">Przypis</string>
   <string name="wikitext_preview_link">Zobacz link</string>
   <string name="insert_media_title">Wstaw media</string>
-  <string name="insert_media_settings">Ustawienia multimediów</string>
+  <string name="insert_media_settings">Dodaj szczegóły obrazu</string>
   <string name="insert_media_settings_uploaded_image">Przesłany obraz</string>
   <string name="insert_media_settings_alternative_text">Tekst alternatywny</string>
   <string name="insert_media_advanced_settings">Ustawienia zaawansowane</string>
@@ -1195,4 +1229,6 @@
   <string name="archive_empty">Nie znaleziono zarchiwizowanych stron.</string>
   <string name="user_contrib_filter_all">Wszystkie przestrzenie nazw</string>
   <string name="namespace_article">Artykuł</string>
+  <string name="data_opt_in_accept">Akceptuj</string>
+  <string name="data_opt_in_reject">Odrzuć</string>
 </resources>

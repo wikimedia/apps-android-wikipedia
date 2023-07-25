@@ -1,6 +1,5 @@
 package org.wikipedia.diff
 
-import android.app.AlertDialog
 import android.content.res.ColorStateList
 import android.graphics.Rect
 import android.os.Bundle
@@ -10,7 +9,6 @@ import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
@@ -21,10 +19,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.watch.Watch
@@ -57,6 +57,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentArticleEditDetailsBinding.inflate(inflater, container, false)
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
 
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
@@ -120,7 +121,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 FeedbackUtil.showMessage(requireActivity(), getString(R.string.thank_success_message,
                         viewModel.revisionTo?.user))
                 setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(),
-                        R.attr.material_theme_de_emphasised_color))
+                        R.attr.placeholder_color))
                 binding.thankButton.isEnabled = false
                 editHistoryInteractionEvent?.logThankSuccess()
             } else if (it is Resource.Error) {
@@ -184,12 +185,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.contentContainer.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
             if (scrollY > bounds.top) {
                 binding.overlayRevisionDetailsView.visibility = View.VISIBLE
-                if (binding.toolbarTitleView.text.isNullOrEmpty()) {
-                    binding.toolbarTitleView.text = getString(R.string.revision_diff_compare_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
+                (requireActivity() as AppCompatActivity).supportActionBar?.let {
+                    if (it.title.isNullOrEmpty()) {
+                        it.title = getString(R.string.revision_diff_compare_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
+                    }
+                    it.setDisplayShowTitleEnabled(true)
                 }
             } else {
                 binding.overlayRevisionDetailsView.visibility = View.INVISIBLE
-                binding.toolbarTitleView.text = ""
+                (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
             }
         })
     }
@@ -203,6 +207,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.articleTitleView.setOnClickListener {
             if (viewModel.pageTitle.namespace() == Namespace.USER_TALK || viewModel.pageTitle.namespace() == Namespace.TALK) {
                 startActivity(TalkTopicsActivity.newIntent(requireContext(), viewModel.pageTitle, InvokeSource.DIFF_ACTIVITY))
+            } else if (viewModel.pageTitle.namespace() == Namespace.FILE) {
+                startActivity(FilePageActivity.newIntent(requireContext(), viewModel.pageTitle))
             } else {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
                         HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS), null))
@@ -250,6 +256,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onPrepareMenu(menu: Menu) {
         val watchlistItem = menu.findItem(R.id.menu_add_watchlist)
+        watchlistItem.isVisible = AccountUtil.isLoggedIn
         watchlistItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         watchlistItem.setIcon(getWatchlistIcon(isWatched, hasWatchlistExpiry))
     }
@@ -294,10 +301,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun updateDiffCharCountView(diffSize: Int) {
         binding.diffCharacterCountView.text = StringUtil.getDiffBytesText(requireContext(), diffSize)
         if (diffSize >= 0) {
-            binding.diffCharacterCountView.setTextColor(if (diffSize > 0) ContextCompat.getColor(requireContext(),
-                    R.color.green50) else ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
+            val diffColor = if (diffSize > 0) R.attr.success_color else R.attr.secondary_color
+            binding.diffCharacterCountView.setTextColor(ResourceUtil.getThemedColor(requireContext(), diffColor))
         } else {
-            binding.diffCharacterCountView.setTextColor(ContextCompat.getColor(requireContext(), R.color.red50))
+            binding.diffCharacterCountView.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.destructive_color))
         }
     }
 
@@ -312,16 +319,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.usernameFromButton.text = viewModel.revisionFrom!!.user
             binding.revisionFromTimestamp.text = DateUtil.getTimeAndDateString(requireContext(), viewModel.revisionFrom!!.timeStamp)
             binding.revisionFromEditComment.text = StringUtil.fromHtml(viewModel.revisionFrom!!.parsedcomment.trim())
-            binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
-            binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+            binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color))
+            binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color))
             binding.usernameFromButton.isVisible = true
             binding.revisionFromEditComment.isVisible = true
             binding.undoButton.isVisible = true
         } else {
             binding.usernameFromButton.isVisible = false
             binding.revisionFromEditComment.isVisible = false
-            binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
-            binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
+            binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
+            binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
             binding.revisionFromTimestamp.text = getString(R.string.revision_initial_none)
             binding.undoButton.isVisible = false
         }
@@ -339,7 +346,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.newerIdButton.isEnabled = viewModel.canGoForward
         binding.olderIdButton.isEnabled = viewModel.revisionFromId != 0L
 
-        setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
+        setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color))
 
         binding.thankButton.isEnabled = true
         binding.thankButton.isVisible = AccountUtil.isLoggedIn &&
@@ -356,7 +363,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun setEnableDisableTint(view: ImageView, isDisabled: Boolean) {
         ImageViewCompat.setImageTintList(view, AppCompatResources.getColorStateList(requireContext(),
             ResourceUtil.getThemedAttributeId(requireContext(), if (isDisabled)
-                R.attr.material_theme_de_emphasised_color else R.attr.material_theme_secondary_color)))
+                R.attr.inactive_color else R.attr.secondary_color)))
     }
 
     private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {
@@ -397,7 +404,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun showThankDialog() {
         val parent = FrameLayout(requireContext())
-        val dialog: AlertDialog = AlertDialog.Builder(activity)
+        val dialog = MaterialAlertDialogBuilder(requireActivity())
                 .setView(parent)
                 .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
                     viewModel.sendThanks(viewModel.pageTitle.wikiSite, viewModel.revisionToId)
@@ -407,10 +414,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 }
                 .create()
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
-        dialog.setOnShowListener {
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE)
-                    .setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.secondary_text_color))
-        }
         dialog.show()
     }
 
@@ -425,7 +428,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showRollbackDialog() {
-        AlertDialog.Builder(requireActivity())
+        MaterialAlertDialogBuilder(requireActivity())
             .setMessage(R.string.revision_rollback_dialog_title)
             .setPositiveButton(android.R.string.ok) { _, _ ->
                 binding.progressBar.isVisible = true
@@ -478,9 +481,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     companion object {
-        fun newInstance(title: PageTitle, revisionFrom: Long, revisionTo: Long): ArticleEditDetailsFragment {
+        fun newInstance(title: PageTitle, pageId: Int, revisionFrom: Long, revisionTo: Long): ArticleEditDetailsFragment {
             return ArticleEditDetailsFragment().apply {
                 arguments = bundleOf(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to title,
+                        ArticleEditDetailsActivity.EXTRA_PAGE_ID to pageId,
                         ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM to revisionFrom,
                         ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO to revisionTo)
             }

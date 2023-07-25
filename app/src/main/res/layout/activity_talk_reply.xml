@@ -28,8 +28,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:hint="@string/talk_reply_subject"
-                app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
+                android:hint="@string/talk_reply_subject">
 
                 <org.wikipedia.views.PlainPasteEditText
                     android:id="@+id/replySubjectText"
@@ -55,65 +54,39 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 app:drawableStartCompat="@drawable/ic_license_cc"
-                app:drawableTint="?attr/material_theme_de_emphasised_color"
+                app:drawableTint="?attr/placeholder_color"
                 android:drawablePadding="8dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?attr/color_group_63"
+                android:textColor="?attr/secondary_color"
                 tools:text="Sample license text" />
 
         </LinearLayout>
 
     </ScrollView>
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/replyToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        style="@style/ToolbarStyle.Small"
         app:contentInsetStart="0dp"
-        app:contentInsetEnd="0dp"
-        style="@style/ToolbarStyle">
+        app:contentInsetEnd="0dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <TextView
+            android:id="@+id/replySaveButton"
+            style="@style/App.Button.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:text="@string/description_edit_save"/>
 
-            <TextView
-                android:id="@+id/toolbarTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:lineSpacingExtra="8sp"
-                android:textColor="?android:attr/textColorPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:singleLine="true"
-                android:ellipsize="end"/>
+    </com.google.android.material.appbar.MaterialToolbar>
 
-            <TextView
-                android:id="@+id/replySaveButton"
-                style="@style/TransparentButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="4dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/description_edit_save"
-                android:textColor="?attr/colorAccent"/>
-
-        </LinearLayout>
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <ProgressBar
+    <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_marginTop="-7dp"
         android:indeterminate="true" />
 
 </FrameLayout>

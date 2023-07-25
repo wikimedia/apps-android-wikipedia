@@ -5,86 +5,52 @@
     tools:layout_width="match_parent"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <FrameLayout
-        android:id="@+id/view_card_header_large_border_container"
+    <TextView
+        android:id="@+id/view_card_header_large_title"
+        style="@style/H3.MaterialListTitle"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/view_card_header_large_border_base"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="1dp"
-            app:cardBackgroundColor="?paper_color"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="0dp"/>
-
-    </FrameLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/view_card_header_large_container"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="96dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:transitionName="@string/transition_article_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/view_card_header_large_image"
         app:layout_constraintStart_toStartOf="parent"
+        tools:text="Title" />
+
+    <TextView
+        android:id="@+id/view_card_header_large_subtitle"
+        style="@style/List.MaterialListSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="?attr/primary_color"
+        android:textSize="16sp"
+        android:transitionName="@string/transition_article_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_card_header_large_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_card_header_large_image"
+        tools:text="Lorem ipsum" />
+
+    <org.wikipedia.views.FaceAndColorDetectImageView
+        android:id="@+id/view_card_header_large_image"
+        style="@style/ImageViewDefault"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:transitionName="@string/transition_article_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <TextView
-            android:id="@+id/view_card_header_large_title"
-            style="@style/MaterialListTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:textColor="?attr/primary_text_color"
-            android:textStyle="bold"
-            android:transitionName="@string/transition_article_title"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/view_card_header_large_image"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Title" />
-
-        <TextView
-            android:id="@+id/view_card_header_large_subtitle"
-            style="@style/MaterialListSubtitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="16dp"
-            android:textColor="?attr/primary_text_color"
-            android:textSize="16sp"
-            android:transitionName="@string/transition_article_description"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_card_header_large_title"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/view_card_header_large_image"
-            tools:text="Lorem ipsum" />
-
-        <org.wikipedia.views.FaceAndColorDetectImageView
-            android:id="@+id/view_card_header_large_image"
-            style="@style/ImageViewDefault"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:scaleType="centerCrop"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:transitionName="@string/transition_article_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </merge>

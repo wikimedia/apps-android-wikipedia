@@ -6,10 +6,12 @@ import android.graphics.Color
 import android.os.Bundle
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.ResourceUtil.getThemedColor
 
 class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.statusBarColor = Color.TRANSPARENT
@@ -27,6 +29,13 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
 
     fun updateNavigationBarColor() {
         setNavigationBarColor(getThemedColor(this, R.attr.paper_color))
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (intent.getBooleanExtra(EXTRA_READING_LIST_PREVIEW, false)) {
+            ReadingListsAnalyticsHelper.logReceiveCancel(this, fragment.readingList)
+        }
     }
 
     companion object {

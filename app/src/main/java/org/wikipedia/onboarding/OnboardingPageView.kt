@@ -72,13 +72,17 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 binding.secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->
                     callback?.onLinkClick(this@OnboardingPageView, url)
                 }
-                binding.languageListContainer.addLangContainer.setOnClickListener {
+                binding.languageListContainer.addLanguageButton.setOnClickListener {
                     callback?.onListActionButtonClicked(this@OnboardingPageView)
                 }
                 binding.acceptButton.setOnClickListener { callback?.onAcceptOrReject(this@OnboardingPageView, true) }
                 binding.rejectButton.setOnClickListener { callback?.onAcceptOrReject(this@OnboardingPageView, false) }
             }
         }
+    }
+
+    fun setTertiaryTextViewVisible(isVisible: Boolean) {
+        binding.tertiaryTextView.isVisible = isVisible
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {

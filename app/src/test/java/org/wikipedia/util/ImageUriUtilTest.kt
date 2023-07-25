@@ -34,4 +34,10 @@ class ImageUriUtilTest {
         MatcherAssert.assertThat(ImageUrlUtil.getUrlForPreferredSize("https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Dehnungsmethoden_DrKlee.pdf/page1-320px-Dehnungsmethoden_DrKlee.pdf.jpg", 1280),
             Matchers.`is`("https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Dehnungsmethoden_DrKlee.pdf/page1-1280px-Dehnungsmethoden_DrKlee.pdf.jpg"))
     }
+
+    @Test
+    fun testUrlForPagedSizeStringWithPxInName() {
+        MatcherAssert.assertThat(ImageUrlUtil.getUrlForPreferredSize("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Lossy-page1-2658px-Nelson%27s_Pillar%2C_Sackville-Street%2C_Dublin_RMG_PU3914_%28cropped%29.jpg/492px-Lossy-page1-2658px-Nelson%27s_Pillar%2C_Sackville-Street%2C_Dublin_RMG_PU3914_%28cropped%29.jpg", 640),
+            Matchers.`is`("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Lossy-page1-2658px-Nelson%27s_Pillar%2C_Sackville-Street%2C_Dublin_RMG_PU3914_%28cropped%29.jpg/640px-Lossy-page1-2658px-Nelson%27s_Pillar%2C_Sackville-Street%2C_Dublin_RMG_PU3914_%28cropped%29.jpg"))
+    }
 }

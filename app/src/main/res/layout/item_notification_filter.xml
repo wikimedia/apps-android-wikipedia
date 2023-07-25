@@ -16,7 +16,7 @@
         android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
-        android:textColor="?attr/secondary_text_color" />
+        android:textColor="?attr/placeholder_color" />
 
     <ImageView
         android:id="@+id/notification_filter_wiki_logo"
@@ -26,17 +26,18 @@
         android:contentDescription="@null"
         android:scaleType="center"
         android:layout_gravity="center_vertical"
-        app:tint="?attr/material_theme_de_emphasised_color" />
+        app:tint="?attr/placeholder_color" />
 
     <TextView
         android:id="@+id/notification_filter_title"
-        style="@style/MaterialListTitle"
+        style="@style/P"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
         android:paddingStart="14dp"
         android:paddingEnd="8dp"
+        android:textColor="?attr/primary_color"
         tools:text="Lorem ipsum" />
 
     <ImageView
@@ -48,6 +49,6 @@
         android:contentDescription="@null"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_check_borderless"
-        app:tint="?attr/colorAccent" />
+        app:tint="?attr/progressive_color" />
 
 </merge>

@@ -5,6 +5,7 @@
 * A Retired User
 * AYZ04
 * Bo77le
+* Cookai1205
 * Cwek
 * Davidzdh
 * Dbrant
@@ -14,6 +15,7 @@
 * GoForceX
 * Grace03
 * GuoPC
+* Hehua
 * Huanqiu
 * Hudafu
 * Hydra
@@ -169,9 +171,9 @@
   <string name="map_view_link_text">在地图上查看</string>
   <string name="other_languages_indication_text">阅读其他语言</string>
   <string name="language_count_link_text">在%d种语言中可用</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
-  <string name="edit_save_action_license_anon">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
+  <string name="edit_save_action_license_anon">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
   <string name="edit_anon_warning">编辑将以您设备的 IP 地址发布。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;，您将拥有更多隐私。</string>
   <string name="preference_title_language">维基百科语言</string>
   <string name="langlinks_filter_hint">搜索</string>
@@ -297,7 +299,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url">https://meta.m.wikimedia.org/w/index.php?title=Terms_of_use/zh&amp;variant=zh-cn</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#图片标签</string>
@@ -307,7 +308,7 @@
   <string name="about_translators_heading">翻译者</string>
   <string name="about_translators_translatewiki">该应用由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的志愿译者翻译。</string>
   <string name="about_app_license_heading">许可协议</string>
-  <string name="about_app_license">源代码位于&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;和&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
+  <string name="about_app_license">源代码位于&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;和&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;维基媒体基金会&lt;/a&gt;出品</string>
   <string name="about_activity_title">关于</string>
   <string name="edit_abandon_confirm">该页面已修改。您确定要退出而不保存更改吗？</string>
@@ -851,7 +852,9 @@
   <string name="description_starts_with_uppercase">除非第一个单词是专有名词，否则请以小写字母开头。</string>
   <string name="description_starts_with_lowercase">避免以小写字母开头。</string>
   <string name="description_is_in_different_language">文本似乎不是用预期的语言写的，语言应该是%s。</string>
-  <string name="description_verification_notice">请确认您的描述在%1$s中。如果您编写的描述在%2$s中，请忽略此通知。</string>
+  <string name="description_verification_notice" fuzzy="true">请确认您的描述在%1$s中。如果您编写的描述在%2$s中，请忽略此通知。</string>
+  <string name="description_edit_suggested_description_button_text">显示建议的描述</string>
+  <string name="description_edit_suggested_description_button_tooltip">尝试机器建议的条目描述</string>
   <string name="description_edit_success_saved">条目描述已发布！</string>
   <string name="description_edit_success_saved_snackbar">条目描述已发布！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">条目描述已发布！（%s）</string>
@@ -869,6 +872,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">一般应为一行，2~12个字之间</string>
   <string name="description_edit_tutorial_button_label_start_editing">开始编辑</string>
   <string name="description_edit_tutorial_promise">我保证在编辑时不滥用此功能</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">机器建议</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">这些建议不是由志愿者或维基媒体基金会编写的，而是由机器生成的。</string>
   <string name="customize_toolbar_title">自定义工具栏</string>
   <string name="customize_toolbar_shortcut_description_text">选择您认为最有用的5个快捷方式来自定义底部工具栏。</string>
   <string name="customize_toolbar_category_toolbar">工具栏</string>
@@ -1025,6 +1030,14 @@
   <string name="suggested_edits_contribution_type_image_tag">图像标签</string>
   <string name="suggested_edits_contribution_current_revision_text">你的编辑现已在维基百科</string>
   <string name="suggested_card_more_edits">更多编辑建议</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">建议的描述</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">您想报告什么内容？</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">信息量不够</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">我看不到建议的描述</string>
+  <string name="suggested_edits_inappropriate_suggestion">不恰当的建议</string>
+  <string name="suggested_edits_do_not_understand_suggestion">我不明白该任务</string>
+  <string name="suggested_edits_report_suggestion">报告</string>
+  <string name="suggested_edits_suggestion_report_submitted">报告已提交</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s个标签</item>
     <item quantity="other">%1$s个标签</item>
@@ -1041,6 +1054,8 @@
     <item quantity="one">您添加了%d个字符</item>
     <item quantity="other">您添加了%d个字符</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">条目图像</string>
+  <string name="suggested_edits_image_recommendations_task_detail">将建议的图像添加到维基百科条目中来加强理解。</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="file_page_add_image_caption_button">添加图像说明</string>
   <string name="file_page_add_image_tags_button">添加图像标签</string>
@@ -1139,12 +1154,12 @@
   <string name="insert_media_title">插入媒体</string>
   <string name="insert_media_search_description">从维基共享资源中选择一个文件</string>
   <string name="insert_media_search_hint">搜索媒体</string>
-  <string name="insert_media_settings">媒体设置</string>
+  <string name="insert_media_settings">添加图像详细信息</string>
   <string name="insert_media_settings_uploaded_image">已上传的图像</string>
-  <string name="insert_media_settings_caption">说明</string>
-  <string name="insert_media_settings_caption_description">为所有读者显示在项目旁边的标签</string>
+  <string name="insert_media_settings_caption">图像说明</string>
+  <string name="insert_media_settings_caption_description">条目中的可见图像标签</string>
   <string name="insert_media_settings_alternative_text">替代文本</string>
-  <string name="insert_media_settings_alternative_text_description">为无法看到图像的读者提供文本描述</string>
+  <string name="insert_media_settings_alternative_text_description">为视力障碍读者提供的描述</string>
   <string name="insert_media_advanced_settings">高级设置</string>
   <string name="insert_media_advanced_settings_wrap_image">在图像周围环绕文本</string>
   <string name="insert_media_advanced_settings_image_position">图像位置</string>
@@ -1257,8 +1272,8 @@
   <string name="menu_option_view_user_contributions">查看用户贡献</string>
   <string name="revision_diff_compare">比较不同修订版本</string>
   <string name="revision_diff_compare_title">比较不同修订版本：%s</string>
-  <string name="revision_diff_from">发件人：</string>
-  <string name="revision_diff_to">收件人：</string>
+  <string name="revision_diff_from">从：</string>
+  <string name="revision_diff_to">至：</string>
   <string name="revision_diff_line_num">第%d行</string>
   <string name="revision_diff_line_nums">第%d到第%d行</string>
   <string name="revision_diff_lines_from_to">第%1$d–%2$d行</string>
@@ -1329,7 +1344,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">已导入阅读清单</string>
   <string name="reading_list_share_menu_label">分享…</string>
   <string name="reading_list_share_menu_tooltip">与他人分享这份阅读清单</string>
-  <string name="reading_list_share_title_tooltip">您对此清单所做的更改对其他人不可见。</string>
   <string name="reading_list_share_message_v2">你好！我想给你分享我的维基百科阅读清单：</string>
   <string name="reading_list_share_survey_title">您能帮助我们改进“分享阅读清单”吗？</string>
   <string name="reading_list_share_survey_body">“分享阅读清单”是一项测试功能，我们需要您的反馈来改进或删除它。</string>

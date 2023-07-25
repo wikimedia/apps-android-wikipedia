@@ -11,7 +11,9 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingDataAdapter
@@ -21,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -62,39 +65,40 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         supportActionBar?.title = viewModel.pageTitle.displayText
 
         binding.categoryRecycler.layoutManager = LinearLayoutManager(this)
-        binding.categoryRecycler.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        binding.categoryRecycler.addItemDecoration(DrawableItemDecoration(this, R.attr.list_divider, drawStart = false, drawEnd = false))
         binding.categoryRecycler.adapter = categoryMembersConcatAdapter
 
         lifecycleScope.launch {
-            viewModel.categoryMembersFlow.collectLatest {
-                categoryMembersAdapter.submitData(it)
-            }
-        }
-
-        lifecycleScope.launch {
-            viewModel.subcategoriesFlow.collectLatest {
-                subcategoriesAdapter.submitData(it)
-            }
-        }
-
-        lifecycleScope.launchWhenCreated {
-            categoryMembersAdapter.loadStateFlow.collectLatest {
-                categoryMembersLoadHeader.loadState = it.refresh
-                categoryMembersLoadFooter.loadState = it.append
-                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && categoryMembersAdapter.itemCount == 0)
-                if (showEmpty) {
-                    categoryMembersConcatAdapter.addAdapter(EmptyItemAdapter(R.string.category_empty))
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    viewModel.categoryMembersFlow.collectLatest {
+                        categoryMembersAdapter.submitData(it)
+                    }
                 }
-            }
-        }
-
-        lifecycleScope.launchWhenCreated {
-            subcategoriesAdapter.loadStateFlow.collectLatest {
-                subcategoriesLoadHeader.loadState = it.refresh
-                subcategoriesLoadFooter.loadState = it.append
-                val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && subcategoriesAdapter.itemCount == 0)
-                if (showEmpty) {
-                    subcategoriesConcatAdapter.addAdapter(EmptyItemAdapter(R.string.subcategory_empty))
+                launch {
+                    viewModel.subcategoriesFlow.collectLatest {
+                        subcategoriesAdapter.submitData(it)
+                    }
+                }
+                launch {
+                    categoryMembersAdapter.loadStateFlow.collectLatest {
+                        categoryMembersLoadHeader.loadState = it.refresh
+                        categoryMembersLoadFooter.loadState = it.append
+                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && categoryMembersAdapter.itemCount == 0)
+                        if (showEmpty) {
+                            categoryMembersConcatAdapter.addAdapter(EmptyItemAdapter(R.string.category_empty))
+                        }
+                    }
+                }
+                launch {
+                    subcategoriesAdapter.loadStateFlow.collectLatest {
+                        subcategoriesLoadHeader.loadState = it.refresh
+                        subcategoriesLoadFooter.loadState = it.append
+                        val showEmpty = (it.append is LoadState.NotLoading && it.append.endOfPaginationReached && subcategoriesAdapter.itemCount == 0)
+                        if (showEmpty) {
+                            subcategoriesConcatAdapter.addAdapter(EmptyItemAdapter(R.string.subcategory_empty))
+                        }
+                    }
                 }
             }
         }
@@ -252,11 +256,9 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     companion object {
-        const val EXTRA_TITLE = "categoryTitle"
-
         fun newIntent(context: Context, categoryTitle: PageTitle): Intent {
             return Intent(context, CategoryActivity::class.java)
-                    .putExtra(EXTRA_TITLE, categoryTitle)
+                    .putExtra(Constants.ARG_TITLE, categoryTitle)
         }
     }
 }

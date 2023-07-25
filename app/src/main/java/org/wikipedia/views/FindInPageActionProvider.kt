@@ -76,9 +76,6 @@ open class FindInPageActionProvider(private val context: Context) : ActionProvid
             DeviceUtil.hideSoftKeyboard(it)
             listener?.onFindNextClicked()
         }
-        binding.closeButton.setOnClickListener {
-            listener?.onCloseClicked()
-        }
     }
 
     private fun setButtonLongClickListeners() {
@@ -111,13 +108,13 @@ open class FindInPageActionProvider(private val context: Context) : ActionProvid
         if (numberOfMatches > 0) {
             binding.findInPageMatch.text = context.getString(R.string.find_in_page_result,
                     activeMatchOrdinal + 1, numberOfMatches)
-            binding.findInPageMatch.setTextColor(ResourceUtil.getThemedColor(context, R.attr.color_group_63))
+            binding.findInPageMatch.setTextColor(ResourceUtil.getThemedColor(context, R.attr.secondary_color))
             setFindInPageChevronsEnabled(true)
             isFirstOccurrence = activeMatchOrdinal == 0
             isLastOccurrence = activeMatchOrdinal + 1 == numberOfMatches
         } else {
             binding.findInPageMatch.text = "0/0"
-            binding.findInPageMatch.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorError))
+            binding.findInPageMatch.setTextColor(ResourceUtil.getThemedColor(context, androidx.appcompat.R.attr.colorError))
             setFindInPageChevronsEnabled(false)
             isFirstOccurrence = false
             isLastOccurrence = false

@@ -13,11 +13,14 @@ import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource.TALK_TOPICS_ACTIVITY
 import org.wikipedia.R
@@ -36,7 +39,6 @@ import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.*
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.edithistory.EditHistoryListActivity
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -52,7 +54,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     private lateinit var binding: ActivityTalkTopicsBinding
     private lateinit var invokeSource: Constants.InvokeSource
     private lateinit var notificationButtonView: NotificationButtonView
-    private val viewModel: TalkTopicsViewModel by viewModels { TalkTopicsViewModel.Factory(intent.getParcelableExtra(EXTRA_PAGE_TITLE)!!) }
+    private val viewModel: TalkTopicsViewModel by viewModels { TalkTopicsViewModel.Factory(intent.getParcelableExtra(Constants.ARG_TITLE)!!) }
     private val concatAdapter = ConcatAdapter()
     private val headerAdapter = HeaderItemAdapter()
     private val talkTopicItemAdapter = TalkTopicItemAdapter()
@@ -122,11 +124,11 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         goToTopic = intent.getBooleanExtra(EXTRA_GO_TO_TOPIC, false)
         binding.talkRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false, skipSearchBar = true))
+        binding.talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_divider, drawStart = false, drawEnd = false, skipSearchBar = true))
         binding.talkRecyclerView.itemAnimator = null
 
         val touchCallback = SwipeableItemTouchHelperCallback(this,
-            ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent),
+            ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color),
             R.drawable.ic_outline_drafts_24, android.R.color.white, true, binding.talkRefreshView)
 
         touchCallback.swipeableEnabled = true
@@ -150,7 +152,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             resetViews()
             viewModel.loadTopics()
         }
-        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.colorAccent))
+        binding.talkRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(this, R.attr.progressive_color))
 
         invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
 
@@ -159,15 +161,17 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         notificationButtonView = NotificationButtonView(this)
         Prefs.hasAnonymousNotification = false
 
-        lifecycleScope.launchWhenCreated {
-            viewModel.uiState.collect {
-                when (it) {
-                    is TalkTopicsViewModel.UiState.UpdateNamespace -> setToolbarTitle(it.pageTitle)
-                    is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems)
-                    is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
-                    is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch()
-                    is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
-                    is TalkTopicsViewModel.UiState.ActionError -> FeedbackUtil.showError(this@TalkTopicsActivity, it.throwable)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.uiState.collect {
+                    when (it) {
+                        is TalkTopicsViewModel.UiState.UpdateNamespace -> setToolbarTitle(it.pageTitle)
+                        is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems)
+                        is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
+                        is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch()
+                        is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
+                        is TalkTopicsViewModel.UiState.ActionError -> FeedbackUtil.showError(this@TalkTopicsActivity, it.throwable)
+                    }
                 }
             }
         }
@@ -360,16 +364,18 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
-        binding.toolbarTitle.text = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
-        binding.toolbarTitle.contentDescription = binding.toolbarTitle.text
-        binding.toolbarTitle.isVisible = !goToTopic
-        if (invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY) {
-            binding.toolbarTitle.movementMethod = LinkMovementMethodExt { _ ->
-                goToPage()
+        val title = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
+        ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
+            it.contentDescription = title
+            it.isVisible = !goToTopic
+            if (invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY) {
+                it.movementMethod = LinkMovementMethodExt { _ ->
+                    goToPage()
+                }
             }
+            FeedbackUtil.setButtonLongPressToast(it)
         }
-        RichTextUtil.removeUnderlinesFromLinks(binding.toolbarTitle)
-        FeedbackUtil.setButtonLongPressToast(binding.toolbarTitle)
+        supportActionBar?.title = title
     }
 
     private fun updateNotificationDot(animate: Boolean) {
@@ -432,7 +438,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
     private inner class HeaderViewHolder constructor(private val binding: ViewTalkTopicsHeaderBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
-            binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@TalkTopicsActivity, R.attr.color_group_22))
+            binding.searchContainer.setCardBackgroundColor(ResourceUtil.getThemedColor(this@TalkTopicsActivity, R.attr.background_color))
 
             binding.searchContainer.setOnClickListener {
                 if (actionMode == null) {
@@ -529,12 +535,11 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     companion object {
-        private const val EXTRA_PAGE_TITLE = "pageTitle"
         private const val EXTRA_GO_TO_TOPIC = "goToTopic"
 
         fun newIntent(context: Context, pageTitle: PageTitle, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
-                .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                .putExtra(Constants.ARG_TITLE, pageTitle)
                 .putExtra(EXTRA_GO_TO_TOPIC, !pageTitle.fragment.isNullOrEmpty())
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }

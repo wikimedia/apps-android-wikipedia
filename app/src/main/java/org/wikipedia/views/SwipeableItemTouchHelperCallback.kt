@@ -19,7 +19,7 @@ import org.wikipedia.util.ResourceUtil.getThemedColor
 
 class SwipeableItemTouchHelperCallback @JvmOverloads constructor(
         context: Context,
-        @ColorRes swipeColor: Int = R.color.red50,
+        @ColorRes swipeColor: Int = R.color.red700,
         @DrawableRes swipeIcon: Int = R.drawable.ic_delete_white_24dp,
         @ColorRes val swipeIconTint: Int? = null,
         private val swipeIconAndTextFromTag: Boolean = false,

@@ -6,7 +6,7 @@
             android:innerRadius="0dp"
             android:thickness="4dp"
             android:useLevel="false">
-            <solid android:color="?attr/colorAccent"/>
+            <solid android:color="?attr/progressive_color"/>
         </shape>
     </item>
     <item>
@@ -15,7 +15,7 @@
             android:innerRadius="0dp"
             android:thickness="4dp"
             android:useLevel="false">
-            <solid android:color="?attr/chart_shade5"/>
+            <solid android:color="?attr/border_color"/>
         </shape>
     </item>
 </selector>

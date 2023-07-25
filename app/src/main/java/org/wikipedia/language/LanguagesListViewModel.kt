@@ -5,9 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -36,11 +34,9 @@ class LanguagesListViewModel : ViewModel() {
 
     private fun fetchData() {
         viewModelScope.launch(handler) {
-            withContext(Dispatchers.IO) {
-                val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
-                val sites = SiteMatrix.getSites(siteMatrix)
-                siteListData.postValue(Resource.Success(sites))
-            }
+            val siteMatrix = ServiceFactory.get(WikipediaApp.instance.wikiSite).getSiteMatrix()
+            val sites = SiteMatrix.getSites(siteMatrix)
+            siteListData.postValue(Resource.Success(sites))
         }
     }
 

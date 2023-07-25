@@ -7,7 +7,7 @@
     android:layout_marginBottom="16dp">
 
     <TextView
-        style="@style/MaterialLargePrimaryTitle"
+        style="@style/H2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="16dp"
@@ -17,7 +17,7 @@
         android:text="@string/reading_lists_preview_save_dialog_title" />
 
     <TextView
-        style="@style/MaterialMediumSecondaryCaption"
+        style="@style/P"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="16dp"

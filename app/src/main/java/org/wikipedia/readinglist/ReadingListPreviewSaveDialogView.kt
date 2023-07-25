@@ -47,7 +47,7 @@ class ReadingListPreviewSaveDialogView : FrameLayout {
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
-        binding.recyclerView.addItemDecoration(DrawableItemDecoration(context, R.attr.list_separator_drawable, drawStart = true, drawEnd = true, skipSearchBar = true))
+        binding.recyclerView.addItemDecoration(DrawableItemDecoration(context, R.attr.list_divider, drawStart = true, drawEnd = true, skipSearchBar = true))
         currentReadingLists = AppDatabase.instance.readingListDao().getAllLists().toMutableList()
         binding.readingListTitle.doOnTextChanged { _, _, _, _ ->
             validateTitleAndList()

@@ -2,7 +2,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/view_link_preview_error_icon"
         android:layout_width="64dp"
         android:layout_height="64dp"
@@ -10,11 +10,11 @@
         android:layout_margin="16dp"
         android:contentDescription="@null"
         app:srcCompat="@drawable/ic_error_black_24dp"
-        app:tint="?attr/material_theme_secondary_color" />
+        app:tint="?attr/secondary_color" />
 
     <TextView
         android:id="@+id/view_link_preview_error_text"
-        style="@style/MaterialMediumSecondaryCaption"
+        style="@style/P"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

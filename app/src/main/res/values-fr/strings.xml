@@ -34,12 +34,15 @@
 * Léon973
 * MSClaudiu
 * Macofe
+* McDutchie
 * MuratTheTurkish
+* Naheulf
 * NemesisIII
 * Niridya
 * Noé
 * Oupsa
 * Seb35
+* SleaY
 * The RedBurn
 * Thibaut120094
 * Trial
@@ -153,8 +156,8 @@
   <string name="other_languages_indication_text">Lire dans une autre langue</string>
   <string name="language_count_link_text">Disponible dans %d autres langues</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et placez définitivement vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et placez définitivement vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
+  <string name="edit_save_action_license_logged_in">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et placez de manière irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et placez de manière irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Les modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
   <string name="edit_anon_warning">Les modifications seront attribuées à l’adresse IP de votre appareil. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
   <string name="preference_title_language">Langues de Wikipédia</string>
   <string name="langlinks_filter_hint">Rechercher</string>
@@ -280,7 +283,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/fr</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.fr</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr#Légendes_d\'images</string>
@@ -290,7 +293,7 @@
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licence Creative Commons Attribution – Partage à l\'identique&lt;/a&gt;.</string>
+  <string name="about_app_license">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licence Creative Commons Attribution – Partage à l\'identique&lt;/a&gt;.</string>
   <string name="about_wmf">Un produit de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">À propos</string>
   <string name="edit_abandon_confirm">La page a été modifiée. Êtes-vous sûr de vouloir la quitter sans enregistrer vos modifications ?</string>
@@ -723,7 +726,7 @@
   <string name="notifications_direct_reply_action">Répondre</string>
   <string name="notifications_direct_reply_progress">Validation de la réponse à %s...</string>
   <string name="notifications_direct_reply_success">Réponse postée.</string>
-  <string name="notifications_direct_reply_error">Impossible de poster automatiquement la réponse.</string>
+  <string name="notifications_direct_reply_error">Impossible de publier automatiquement la réponse.</string>
   <string name="notifications_mark_all_as_read_message">%d marqué(s) comme lu(s)</string>
   <string name="notifications_mark_all_as_unread_message">%d marqué(s) comme non lu(s)</string>
   <plurals name="notifications_mark_as_read_plural">
@@ -885,7 +888,9 @@
   <string name="description_starts_with_uppercase">Commencer avec une lettre minuscule, sauf si le premier mot est un nom propre.</string>
   <string name="description_starts_with_lowercase">Éviter de commencer par une lettre minuscule.</string>
   <string name="description_is_in_different_language">Le texte semble être dans une langue inattendue. La langue devrait être %s.</string>
-  <string name="description_verification_notice">Veuillez vérifier que votre description est en %1$s. Vous pouvez librement ignorer cette notification si votre description est écrite en %2$s.</string>
+  <string name="description_verification_notice">Veuillez vérifier que votre description est en %1$s. Vous pouvez librement ignorer cet avertissement si votre description est écrite en %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Afficher les descriptions suggérées</string>
+  <string name="description_edit_suggested_description_button_tooltip">Essayer les descriptions d’article suggérées par la machine</string>
   <string name="description_edit_success_saved">Description de l’article publiée !</string>
   <string name="description_edit_success_saved_snackbar">Description d’article publiée !</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Description de l’article publiée ! (%s)</string>
@@ -903,6 +908,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idéalement une ligne, entre deux et douze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Commencez à modifier</string>
   <string name="description_edit_tutorial_promise">En commençant, je promets de ne pas abuser de cette fonctionnalité.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Suggestions de la machine</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Les suggestions sont générées par une machine, non par des bénévoles ou la Fondation Wikimédia</string>
   <string name="customize_toolbar_title">Personnaliser la barre d’outils</string>
   <string name="customize_toolbar_shortcut_description_text">Personnalisez la barre d’outils avec 5 raccourcis que vous trouvez les plus utiles.</string>
   <string name="customize_toolbar_category_toolbar">Barre d’outils</string>
@@ -989,6 +996,7 @@
   <string name="suggested_edits_image_tags_select_title">Vous n’avez sélectionné aucune balise pour cette image</string>
   <string name="suggested_edits_image_tags_select_text">Seules les balises que vous choisissez seront ajoutées aux images. Les balises qui ne sont pas sélectionnées seront marquées comme rejetées. Êtes-vous sûr de vouloir marquer toutes les balises comme rejetées ?</string>
   <string name="suggested_edits_image_tags_add_tag">Ajouter une balise</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Les balises non publiées ne seront pas enregistrées</string>
   <string name="suggested_edits_image_zoom_tooltip">Pincer pour zoomer sur cette image.</string>
   <string name="suggested_edits_encouragement_message">%s, merci pour vos modifications. Ci-dessous, vous pourrez trouver d’autres moyens de contribuer à Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, ci-dessous, vous trouverez des manières rapides et faciles pour aider à améliorer Wikipédia. Vous verrez la différence aussitôt que vous commencerez. Bonnes mises à jour !</string>
@@ -1002,9 +1010,9 @@
   <string name="suggested_edits_disabled_message">Les modifications suggérées sont désactivées. Désolé %s, trop de vos contributions récentes ont été annulées.</string>
   <string name="suggested_edits_ip_blocked_message">Il semblerait que votre adresse IP (ou une plage d’adresses IP) soit actuellement bloquée pour modifier Wikipédia.</string>
   <string name="suggested_edits_gate_message">Désolé, %s, vous devez réaliser au moins trois modifications directement dans un article pour utiliser cette fonctionnalité.</string>
-  <string name="suggested_edits_editing_tips_link_text">Modifier les trucs et astuces</string>
+  <string name="suggested_edits_editing_tips_link_text">Trucs et astuces de modification</string>
   <string name="suggested_edits_help_page_link_text">Page d’aide des Modifications suggérées</string>
-  <string name="suggested_edits_edit_streak_label_text">Modifier la trace</string>
+  <string name="suggested_edits_edit_streak_label_text">Série de modifications</string>
   <string name="suggested_edits_views_label_text">Vues</string>
   <string name="suggested_edits_quality_label_text">Qualité d’édition</string>
   <string name="suggested_edits_quality_perfect_text">Parfait</string>
@@ -1037,7 +1045,7 @@
   <string name="suggested_edits_reactivation_notification_title">Modifications suggérées</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci d’avoir modifié Wikipédia ! Pourquoi ne pas reprendre là où vous en étiez ?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Vous avez une minute pour continuer à améliorer Wikipédia ? Consultez ces suggestions de modifications.</string>
-  <string name="suggested_edits_contributions_screen_title">contributions de %s</string>
+  <string name="suggested_edits_contributions_screen_title">Contributions de %s</string>
   <string name="suggested_edits_contribution_language_label">Langue</string>
   <string name="suggested_edits_contribution_date_time_label">Date / heure</string>
   <string name="suggested_edits_contribution_type_label">Type de contribution</string>
@@ -1061,6 +1069,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Balise d’image</string>
   <string name="suggested_edits_contribution_current_revision_text">Votre modification est maintenant visible sur Wikipédia</string>
   <string name="suggested_card_more_edits">Davantage de modifications suggérées</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Descriptions suggérées</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Qu’aimeriez-vous signaler ?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Pas assez d’informations</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Impossible de voir les descriptions suggérées</string>
+  <string name="suggested_edits_inappropriate_suggestion">Suggestion inappropriée</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Tâche incompréhensible</string>
+  <string name="suggested_edits_report_suggestion">Signalement</string>
+  <string name="suggested_edits_suggestion_report_submitted">Signalement transmis</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s balise</item>
     <item quantity="other">%1$s balises</item>
@@ -1077,6 +1093,35 @@
     <item quantity="one">Vous avez ajouté %d caractère</item>
     <item quantity="other">Vous avez ajouté %d caractères</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Images de l’article</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Ajouter les images suggérées aux articles de Wikipédia pour améliorer leur compréhension.</string>
+  <string name="image_recommendation_task_instruction">Voulez-vous ajouter cette image à l’article ?</string>
+  <string name="image_recommendation_tutorial">Tutoriel</string>
+  <string name="image_recommendation_accept">Oui</string>
+  <string name="image_recommendation_reject">Non</string>
+  <string name="image_recommendation_notsure">Pas sûr</string>
+  <string name="image_recommendation_reject_title">Pourquoi pas ?</string>
+  <string name="image_recommendation_reject_subtitle">Vos réponses améliorent les prochaines suggestions.</string>
+  <string name="image_recommendation_reject_not_relevant">L’image n’est pas pertinente</string>
+  <string name="image_recommendation_reject_no_info">Pas assez d’informations pour décider</string>
+  <string name="image_recommendation_reject_offensive">L’image est offensante</string>
+  <string name="image_recommendation_reject_low_quality">L’image est de mauvaise qualité</string>
+  <string name="image_recommendation_reject_dont_know">Je ne connais pas ce sujet</string>
+  <string name="image_recommendation_reject_other">Autre</string>
+  <string name="image_recommendation_reject_submit">Soumettre</string>
+  <string name="image_recommendation_tooltip_main">Ajouter les images manquantes aux articles dans les Modifications suggérées</string>
+  <string name="image_recommendation_onboarding_1">Les images aident les gens à comprendre, mais beaucoup d’articles n’en ont pas.</string>
+  <string name="image_recommendation_onboarding_2">Vous déciderez si une image suggérée doit être mise dans un article de Wikipédia.</string>
+  <string name="image_recommendation_onboarding_3">Les suggestions sont générées par une machine et vous utiliserez votre jugement pour décider s’il faut les accepter ou les rejeter.</string>
+  <string name="image_recommendation_onboarding_4">Les images viennent de Wikimedia Commons, une collection d’images libres utilisée par Wikipédia.</string>
+  <string name="image_recommendation_tooltip_1">Relire cet article pour comprendre son sujet</string>
+  <string name="image_recommendation_tooltip_2">Inspecter l’image et ses informations associées</string>
+  <string name="image_recommendation_tooltip_3">Décider si l’image aide les lecteurs à comprendre mieux ce sujet</string>
+  <string name="image_recommendation_tooltip_next">Suivant</string>
+  <string name="image_recommendation_tooltip_warning">Veuillez relire l’article pour comprendre son sujet et inspecter l’image</string>
+  <string name="edit_summary_added_image">Image ajoutée</string>
+  <string name="edit_summary_added_caption">Légende ajoutée</string>
+  <string name="edit_published_view">Afficher</string>
   <string name="file_page_activity_title">Page du fichier</string>
   <string name="file_page_add_image_caption_button">Ajouter une légende d’image</string>
   <string name="file_page_add_image_tags_button">Ajouter des balises d’image</string>
@@ -1102,7 +1147,7 @@
   <string name="onboarding_analytics_title">Envoyer les données de manière anonyme</string>
   <string name="onboarding_analytics_offline_text">Aide à améliorer l’application en nous faisant savoir comment vous l’utilisez. Les données collectées sont anonymes. &lt;a href=\"#privacy\"&gt;En savoir plus&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envoyer les données d’utilisation</string>
-  <string name="onboarding_got_it">C’est bon !</string>
+  <string name="onboarding_got_it">Compris !</string>
   <string name="onboarding_multilingual_secondary_text">Nous avons trouvé ceci sur votre appareil :</string>
   <string name="onboarding_multilingual_add_language_text">Ajouter ou modifier des langues</string>
   <string name="onboarding_welcome_title_v2">L’encyclopédie libre\n... dans plus de 300 langues</string>
@@ -1175,12 +1220,12 @@
   <string name="insert_media_title">Insérer un média</string>
   <string name="insert_media_search_description">Sélectionner un fichier de Wikimedia Commons</string>
   <string name="insert_media_search_hint">Rechercher un média</string>
-  <string name="insert_media_settings">Paramètres du média</string>
+  <string name="insert_media_settings">Ajouter les détails de l’image</string>
   <string name="insert_media_settings_uploaded_image">Image téléversée</string>
-  <string name="insert_media_settings_caption">Légende</string>
-  <string name="insert_media_settings_caption_description">Libellé qui s’affiche à côté de l’élément pour tous les lecteurs</string>
+  <string name="insert_media_settings_caption">Légende de l’image</string>
+  <string name="insert_media_settings_caption_description">Libellé de l’image visible dans l’article</string>
   <string name="insert_media_settings_alternative_text">Texte alternatif</string>
-  <string name="insert_media_settings_alternative_text_description">Description textuelle pour les lecteurs qui ne peuvent pas voir l’image</string>
+  <string name="insert_media_settings_alternative_text_description">Description pour les lecteurs malvoyants</string>
   <string name="insert_media_advanced_settings">Paramètres avancés</string>
   <string name="insert_media_advanced_settings_wrap_image">Disposer le texte autour d’une image</string>
   <string name="insert_media_advanced_settings_image_position">Position de l’image</string>
@@ -1325,6 +1370,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 mois</string>
   <string name="watchlist_expiry_dialog_six_months">6 mois</string>
   <string name="watchlist_empty">Vous n’avez aucun article dans votre liste de suivi.</string>
+  <string name="watchlist_search">Rechercher dans la liste de suivi</string>
   <string name="watchlist_filter_all">Tous</string>
   <string name="watchlist_filter_talk">Discussion</string>
   <string name="watchlist_filter_pages">Pages</string>
@@ -1332,6 +1378,55 @@
   <string name="watchlist_page_moved">Déplacé</string>
   <string name="watchlist_page_protected">Protégé</string>
   <string name="watchlist_page_deleted">Supprimé</string>
+  <string name="watchlist_filter_title">Filtre de la liste de suivi</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Tous</string>
+  <string name="watchlist_filter_watchlist_activity_header">Activité sur la liste de suivi</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Modifications non vues</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Modifications déjà vues</string>
+  <string name="watchlist_filter_contribution_quality_header">Prédictions de qualité de la contribution</string>
+  <string name="watchlist_filter_contribution_quality_good">Très vraisemblablement bonnes</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Peuvent avoir des problèmes</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Ont probablement des problèmes</string>
+  <string name="watchlist_filter_contribution_quality_bad">Fortement susceptibles d’avoir des problèmes</string>
+  <string name="watchlist_filter_user_intent_header">Prédictions des intentions de l’utilisateur</string>
+  <string name="watchlist_filter_user_intent_good">Très vraisemblablement de bonne foi</string>
+  <string name="watchlist_filter_user_intent_may_problems">Peut-être de mauvaise foi</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Probablement de mauvaise foi</string>
+  <string name="watchlist_filter_user_intent_bad">Très probablement de mauvaise foi</string>
+  <string name="watchlist_filter_user_status_header">Inscription et expérience des utilisateurs</string>
+  <string name="watchlist_filter_user_status_unregistered">Non inscrit</string>
+  <string name="watchlist_filter_user_status_registered">Inscrit</string>
+  <string name="watchlist_filter_user_status_newcomers">Nouveaux arrivants</string>
+  <string name="watchlist_filter_user_status_learners">Apprentis</string>
+  <string name="watchlist_filter_user_status_experienced">Utilisateurs expérimentés</string>
+  <string name="watchlist_filter_contribution_authorship_header">Paternité des contributions</string>
+  <string name="watchlist_filter_contribution_authorship_own">Modifications effectuées par vous</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Modifications effectuées par d’autres</string>
+  <string name="watchlist_filter_automated_contributions_header">Contributions automatisées</string>
+  <string name="watchlist_filter_automated_contributions_bot">Robot</string>
+  <string name="watchlist_filter_automated_contributions_human">Humain (non robot)</string>
+  <string name="watchlist_filter_significance_header">Importance</string>
+  <string name="watchlist_filter_significance_minor">Modifications mineures</string>
+  <string name="watchlist_filter_significance_edits">Modifications non mineures</string>
+  <string name="watchlist_filter_latest_revisions_header">Dernières versions</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Dernière version</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Pas la dernière version</string>
+  <string name="watchlist_filter_type_of_change_header">Type de modification</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Modifications de page</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Créations de page</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Modifications de catégorie</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Modifications dans Wikidata</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Actions journalisées</string>
+  <string name="watchlist_filter_type_of_change_new_users">Nouveaux utilisateurs</string>
+  <string name="watchlist_filter_reset_button">Réinitialiser</string>
+  <string name="watchlist_search_bar_hint">Rechercher ou filtrer la liste de suivi</string>
+  <string name="watchlist_search_bar_filter_hint">Filtre de la liste de suivi</string>
+  <string name="watchlist_empty_search_message">Aucun résultat, essayez de supprimer %s pour en voir plus.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d filtre</item>
+    <item quantity="other">%d filtres</item>
+  </plurals>
   <string name="preview_edit_title">Aperçu de la modification</string>
   <string name="preview_edit_summarize_edit_title">Résumer la modification</string>
   <string name="preview_edit_summarize_edit_hint">Comment avez-vous amélioré cette page ?</string>
@@ -1365,10 +1460,11 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Liste de lecture importée</string>
   <string name="reading_list_share_menu_label">Partager...</string>
   <string name="reading_list_share_menu_tooltip">Partager cette liste de lecture avec d’autres personnes</string>
-  <string name="reading_list_share_title_tooltip">Les modifications que vous apportez à cette liste ne sont pas visibles pour les autres.</string>
   <string name="reading_list_share_message_v2">Bonjour ! J’aimerais partager ma liste de lecture Wikipédia avec vous :</string>
   <string name="reading_list_share_survey_title">Pourriez-vous nous aider à améliorer la fonctionnalité « Partager des listes de lecture » ?</string>
   <string name="reading_list_share_survey_body">Le « Partage de listes de lecture » est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Rejeter</string>
+  <string name="page_issues_title">Problèmes de la page</string>
+  <string name="generic_release_notes">Corrections de bogues mineurs et améliorations</string>
 </resources>

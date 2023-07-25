@@ -7,10 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
@@ -82,13 +80,11 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            withContext(Dispatchers.IO) {
-                val messageName = "project-localized-name-${wikiSite.dbName()}"
-                val query = ServiceFactory.get(wikiSite).userInfoWithMessages(userName, messageName).query
+            val messageName = "project-localized-name-${wikiSite.dbName()}"
+            val query = ServiceFactory.get(wikiSite).userInfoWithMessages(userName, messageName).query
 
-                userContribStatsData.postValue(Resource.Success(UserContribStats(query?.users!![0].editCount,
-                        query.users[0].registrationDate, query.allmessages.orEmpty().getOrNull(0)?.content.orEmpty().ifEmpty { wikiSite.dbName() })))
-            }
+            userContribStatsData.postValue(Resource.Success(UserContribStats(query?.users!![0].editCount,
+                    query.users[0].registrationDate, query.allmessages.orEmpty().getOrNull(0)?.content.orEmpty().ifEmpty { wikiSite.dbName() })))
         }
     }
 

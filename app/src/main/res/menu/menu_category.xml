@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/empty"
-        android:icon="@drawable/ic_more_vert_themed_24dp"
+        android:icon="@drawable/ic_more_vert_white_24dp"
         android:orderInCategory="101"
         android:title="@string/abc_action_menu_overflow_description"
-        app:showAsAction="always">
+        app:showAsAction="always"
+        app:iconTint="?attr/primary_color">
         <menu>
             <item
                 android:id="@+id/menu_categories"

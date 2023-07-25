@@ -62,7 +62,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
             }
         }
 
-    private fun topBaseChild(): SuggestedEditsItemFragment? {
+    fun topBaseChild(): SuggestedEditsItemFragment? {
         return (binding.cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(binding.cardsViewPager.currentItem) as SuggestedEditsItemFragment?
     }
 
@@ -119,7 +119,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.menu_suggested_edits, menu)
-        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
+        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.progressive_color)
     }
 
     override fun onMenuItemSelected(item: MenuItem): Boolean {

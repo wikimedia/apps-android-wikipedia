@@ -3,41 +3,25 @@
 
     <style name="ThemeSepia">
 
-        <!-- Default background for all activities -->
-        <item name="android:windowBackground">@color/parchment</item>
-        <item name="android:colorBackground">@color/papyrus</item>
+        <item name="paper_color">@color/beige100</item>
+        <item name="background_color">@color/beige300</item>
+        <item name="border_color">@color/beige400</item>
+        <item name="inactive_color">@color/taupe200</item>
+        <item name="placeholder_color">@color/taupe600</item>
+        <item name="secondary_color">@color/gray600</item>
+        <item name="primary_color">@color/gray700</item>
+        <item name="progressive_color">@color/blue600</item>
+        <item name="success_color">@color/green700</item>
+        <item name="destructive_color">@color/red700</item>
+        <item name="warning_color">@color/yellow700</item>
+        <item name="highlight_color">@color/yellow500</item>
+        <item name="focus_color">@color/orange500</item>
+        <item name="addition_color">@color/blue300_15</item>
+        <item name="overlay_color">@color/black_30</item>
+        <item name="list_divider">@drawable/divider_sepia</item>
+        <item name="shadow_border">@drawable/shadow_sepia</item>
 
-        <item name="colorError">@color/red30</item>
-
-        <item name="android:textColorSecondary">@color/masi</item>
-        <item name="android:textColorTertiary">@color/base30</item>
-
-        <item name="section_title_color">@color/masi</item>
-        <item name="secondary_text_color">@color/masi</item>
-        <item name="searchItemBackground">@color/parchment</item>
-        <item name="nav_tab_background_color">@color/amate</item>
-        <item name="toc_scroller_button_color">@color/parchment</item>
-        <item name="button_background_color">@color/parchment</item>
-        <item name="tab_placeholder_text_color">@color/amate</item>
-        <item name="color_group_22">@color/papyrus</item>
-        <item name="color_group_44">@color/red30</item>
-        <item name="color_group_53">@color/amate</item>
-        <item name="color_group_54">@color/amate</item>
-        <item name="color_group_59">@color/masi</item>
-        <item name="color_group_60">@color/amate</item>
-        <item name="chart_shade5">@color/kraft</item>
-        <item name="green_highlight_color">@color/green50</item>
-        <item name="color_group_64">@color/green30</item>
-        <item name="color_group_65">@android:color/transparent</item>
-        <item name="color_group_66">@color/red30</item>
-        <item name="color_group_67">@android:color/transparent</item>
-        <item name="color_group_69">@color/green50_10s</item>
-
-        <!-- Background for cards, lists, and controls -->
-        <item name="paper_color">@color/parchment</item>
-        <item name="chip_background_color">@color/amate</item>
-        <item name="color_group_9">@color/masi</item>
-
+        <item name="input_stroke_color_state">@color/color_state_input_field_sepia</item>
     </style>
 
 </resources>

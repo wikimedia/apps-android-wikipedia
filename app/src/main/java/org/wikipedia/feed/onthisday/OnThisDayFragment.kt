@@ -53,7 +53,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
         val topDecorationDp = 24
         val age = requireArguments().getInt(OnThisDayActivity.EXTRA_AGE, 0)
-        wiki = requireArguments().getParcelable(OnThisDayActivity.EXTRA_WIKISITE)!!
+        wiki = requireArguments().getParcelable(Constants.ARG_WIKISITE)!!
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         date = DateUtil.getDefaultDateFor(age)
         yearOnCardView = requireArguments().getInt(OnThisDayActivity.EXTRA_YEAR, -1)
@@ -130,7 +130,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         appCompatActivity.supportActionBar?.title = ""
         binding.collapsingToolbarLayout.setCollapsedTitleTextColor(
-            ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color)
+            ResourceUtil.getThemedColor(requireContext(), R.attr.primary_color)
         )
         binding.day.text = DateUtil.getMonthOnlyDateString(date.time)
         maybeHideDateIndicator()
@@ -294,7 +294,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         fun newInstance(age: Int, wikiSite: WikiSite, year: Int, invokeSource: InvokeSource): OnThisDayFragment {
             return OnThisDayFragment().apply {
                 arguments = bundleOf(OnThisDayActivity.EXTRA_AGE to age,
-                    OnThisDayActivity.EXTRA_WIKISITE to wikiSite,
+                    Constants.ARG_WIKISITE to wikiSite,
                     OnThisDayActivity.EXTRA_YEAR to year,
                     Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
             }

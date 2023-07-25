@@ -28,6 +28,7 @@
 * Mannivu
 * Maracajá Teremembé
 * Marty5550
+* McDutchie
 * Nastoshka
 * Nemo bis
 * Nivit
@@ -150,9 +151,9 @@
   <string name="map_view_link_text">Visualizza sulla mappa</string>
   <string name="other_languages_indication_text">Leggi in un\'altra lingua</string>
   <string name="language_count_link_text">Disponibile in altre %d lingue</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt; avrai maggiore privacy.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt; avrai maggiore privacy.</string>
   <string name="edit_anon_warning">Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt;, avrai più privacy.</string>
   <string name="preference_title_language">Lingue di Wikipedia</string>
   <string name="langlinks_filter_hint">Cerca</string>
@@ -235,7 +236,7 @@
   <string name="create_account_button">Registrati</string>
   <string name="create_account_name_unavailable">Il nome utente \"%s\" non è disponibile. Per favore, scegli un nome differente.</string>
   <string name="create_account_ip_block_message">Siamo spiacenti, il tuo indirizzo IP è al momento bloccato e non puoi creare nuove utenze.</string>
-  <string name="create_account_ip_block_help_url">https://it.m.wikipedia.org/wiki/Wikipedia:Politiche_di_blocco_degli_utenti</string>
+  <string name="create_account_ip_block_help_url">https://it.wikipedia.org/wiki/Wikipedia:Politiche_di_blocco_degli_utenti</string>
   <string name="create_account_ip_block_details">Dettagli</string>
   <string name="preferences_general_heading">Generale</string>
   <string name="preferences_account_heading">Utenza</string>
@@ -278,7 +279,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/it</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.it</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.it</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -288,7 +289,7 @@
   <string name="about_translators_heading">Traduttori</string>
   <string name="about_translators_translatewiki">Questa applicazione è stata tradotta da traduttori volontari su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://it.wikipedia.org/wiki/Wikipedia:Testo_della_Creative_Commons_Attribuzione-Condividi_allo_stesso_modo_3.0_Unported\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
+  <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.it\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodotto della &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazioni</string>
   <string name="edit_abandon_confirm">La pagina è stata modificata. Sei sicuro di voler uscire senza salvare le modifiche?</string>
@@ -526,6 +527,7 @@
   <string name="reading_list_menu_export">Esporta elenco</string>
   <string name="reading_list_menu_select">Seleziona</string>
   <string name="reading_list_menu_unselect">Deseleziona</string>
+  <string name="reading_list_export_write_permission_rationale">Il permesso di scrittura sul dispositivo è necessario per il salvataggio dell\'elenco di lettura.</string>
   <string name="reading_list_menu_rename">Modifica nome/descrizione</string>
   <string name="reading_list_action_menu_remove_from_offline">Rimuovi da offline</string>
   <string name="reading_list_action_menu_save_for_offline">Salva per offline</string>
@@ -553,6 +555,8 @@
   <string name="reading_lists_default_list_delete_message">L\'elenco predefinito (%s) non può essere cancellato.</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s cancellato. L\'elenco predefinito (%2$s) non può essere cancellato.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Elenchi cancellati. L\'elenco predefinito (%s) non può essere cancellato.</string>
+  <string name="single_list_json_file_name">%s (Elenco di lettura Wikipedia).json</string>
+  <string name="multiple_lists_json_file_name">Elenchi di lettura Wikipedia (%s e più).json</string>
   <string name="reading_list_items_deleted">%d voci rimosse dagli elenchi</string>
   <string name="reading_lists_item_deleted">%s rimosso dagli elenchi</string>
   <string name="reading_list_item_delete_undo">Annulla</string>
@@ -586,6 +590,10 @@
   <string name="reading_list_articles_moved_to_named">Spostate %1$d voci in %2$s</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare %s?</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Cancellare gli elenchi selezionati?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Sei sicuro di voler eliminare l\'elenco di lettura %d?</item>
+    <item quantity="other">Sei sicuro di voler eliminare gli elenchi di lettura %d?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accedi per abilitare la sincronizzazione</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accedi per consentire il salvataggio degli elenchi di lettura sulla tua utenza.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annulla</string>
@@ -864,7 +872,9 @@
   <string name="description_starts_with_uppercase">Inizia con una lettera minuscola a meno che la prima parola non sia un sostantivo proprio.</string>
   <string name="description_starts_with_lowercase">Evita di iniziare con una lettera minuscola.</string>
   <string name="description_is_in_different_language">Il testo sembra appartenere a una lingua non accettata. La lingua dovrebbe essere %s.</string>
-  <string name="description_verification_notice">Verifica che la tua descrizione sia in %1$s. Non esitare a ignorare questa notifica se la descrizione che hai scritto è in %2$s.</string>
+  <string name="description_verification_notice">Verifica che la tua descrizione sia in %1$s. Non esitare a ignorare questo avviso se la descrizione che hai scritto è in %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Mostra le descrizioni suggerite</string>
+  <string name="description_edit_suggested_description_button_tooltip">Prova le descrizioni degli articoli suggerite dalla macchina</string>
   <string name="description_edit_success_saved">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_snackbar">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrizione della voce pubblicata! (%s)</string>
@@ -882,6 +892,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una riga, da due a dodici parole</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
   <string name="description_edit_tutorial_promise">Per iniziare, prometto di non abusare di questa funzione.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Suggerimenti automatici</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">I suggerimenti sono generati da una macchina, non da volontari o dalla Wikimedia Foundation</string>
   <string name="customize_toolbar_title">Personalizza barra degli strumenti</string>
   <string name="customize_toolbar_shortcut_description_text">Personalizza la barra degli strumenti in basso con 5 scorciatoie che ritieni più utili.</string>
   <string name="customize_toolbar_category_toolbar">Barra degli strumenti</string>
@@ -983,7 +995,7 @@
   <string name="suggested_edits_gate_message">Ci spiace, %s, devi apportare almeno tre modifiche direttamente ad una voce per utilizzare questa funzione.</string>
   <string name="suggested_edits_editing_tips_link_text">Suggerimenti e trucchi per la modifica</string>
   <string name="suggested_edits_help_page_link_text">Pagina di aiuto per le modifiche suggerite</string>
-  <string name="suggested_edits_edit_streak_label_text">Modifica sequenza</string>
+  <string name="suggested_edits_edit_streak_label_text">Serie di modifiche</string>
   <string name="suggested_edits_views_label_text">Visualizzazioni</string>
   <string name="suggested_edits_quality_label_text">Qualità di modifica</string>
   <string name="suggested_edits_quality_perfect_text">Perfetto</string>
@@ -1040,6 +1052,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Etichetta dell\'immagine</string>
   <string name="suggested_edits_contribution_current_revision_text">La tua modifica è attualmente online su Wikipedia</string>
   <string name="suggested_card_more_edits">Altre modifiche suggerite</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Descrizioni suggerite</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Cosa vorresti segnalare?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Informazioni insufficienti</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Non riesco a visualizzare le descrizioni suggerite</string>
+  <string name="suggested_edits_inappropriate_suggestion">Suggerimento inappropriato</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Non capisco questa attività</string>
+  <string name="suggested_edits_report_suggestion">Segnala</string>
+  <string name="suggested_edits_suggestion_report_submitted">Segnalazione inviata</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etichetta</item>
     <item quantity="other">%1$s etichette</item>
@@ -1056,6 +1076,11 @@
     <item quantity="one">Hai aggiunto %d carattere</item>
     <item quantity="other">Hai aggiunto %d caratteri</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Immagini della voce</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Aggiungi immagini suggerite alle voci di Wikipedia per migliorarne la comprensione.</string>
+  <string name="image_recommendation_accept">Sì</string>
+  <string name="image_recommendation_reject_title">Perché no?</string>
+  <string name="image_recommendation_reject_dont_know">Non conosco questo argomento</string>
   <string name="file_page_activity_title">Pagina del file</string>
   <string name="file_page_add_image_caption_button">Aggiungi didascalia immagine</string>
   <string name="file_page_add_image_tags_button">Aggiungi etichette all\'immagine</string>
@@ -1154,12 +1179,12 @@
   <string name="insert_media_title">Inserisci un file multimediale</string>
   <string name="insert_media_search_description">Seleziona un file da Wikimedia Commons</string>
   <string name="insert_media_search_hint">Ricerca file multimediali</string>
-  <string name="insert_media_settings">Impostazioni file multimediali</string>
+  <string name="insert_media_settings">Aggiungi dettagli dell\'immagine</string>
   <string name="insert_media_settings_uploaded_image">Immagine caricata</string>
-  <string name="insert_media_settings_caption">Didascalia</string>
-  <string name="insert_media_settings_caption_description">Etichetta che appare vicino all\'elemento per tutti i lettori</string>
+  <string name="insert_media_settings_caption">Didascalia dell\'immagine</string>
+  <string name="insert_media_settings_caption_description">Etichetta immagine visibile nella voce</string>
   <string name="insert_media_settings_alternative_text">Testo alternativo</string>
-  <string name="insert_media_settings_alternative_text_description">Descrizione testuale per i lettori che non possono vedere l\'immagine</string>
+  <string name="insert_media_settings_alternative_text_description">Descrizione per lettori non vedenti</string>
   <string name="insert_media_advanced_settings">Impostazioni avanzate</string>
   <string name="insert_media_advanced_settings_wrap_image">Avvolgi il testo attorno all\'immagine</string>
   <string name="insert_media_advanced_settings_image_position">Posizione immagine</string>
@@ -1311,6 +1336,50 @@
   <string name="watchlist_page_moved">Spostato</string>
   <string name="watchlist_page_protected">Protetto</string>
   <string name="watchlist_page_deleted">Cancellato</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Tutto</string>
+  <string name="watchlist_filter_watchlist_activity_header">Attività negli osservati speciali</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Modifiche non ancora viste</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Modifiche già viste</string>
+  <string name="watchlist_filter_contribution_quality_header">Previsioni sulla qualità del contributo</string>
+  <string name="watchlist_filter_contribution_quality_good">Molto probabilmente buona</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Potrebbe avere problemi</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Probabilmente ha problemi</string>
+  <string name="watchlist_filter_contribution_quality_bad">Molto probabilmente ha problemi</string>
+  <string name="watchlist_filter_user_intent_header">Previsioni delle intenzioni dell\'utente</string>
+  <string name="watchlist_filter_user_intent_good">Molto probabilmente in buona fede</string>
+  <string name="watchlist_filter_user_intent_may_problems">Potrebbe essere in malafede</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Probabile in malafede</string>
+  <string name="watchlist_filter_user_intent_bad">Molto probabilmente in mala fede</string>
+  <string name="watchlist_filter_user_status_header">Registrazione utente ed esperienza</string>
+  <string name="watchlist_filter_user_status_unregistered">Non registrato</string>
+  <string name="watchlist_filter_user_status_registered">Registrato</string>
+  <string name="watchlist_filter_user_status_newcomers">Nuovi utenti</string>
+  <string name="watchlist_filter_user_status_learners">Principianti</string>
+  <string name="watchlist_filter_user_status_experienced">Utenti con esperienza</string>
+  <string name="watchlist_filter_contribution_authorship_header">Autore del contributo</string>
+  <string name="watchlist_filter_contribution_authorship_own">Mie modifiche</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Modifiche di altri</string>
+  <string name="watchlist_filter_automated_contributions_header">Contributi automatici</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Umani (non bot)</string>
+  <string name="watchlist_filter_significance_header">Significato</string>
+  <string name="watchlist_filter_significance_minor">Modifiche minori</string>
+  <string name="watchlist_filter_significance_edits">Modifiche non minori</string>
+  <string name="watchlist_filter_latest_revisions_header">Ultime versioni</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Versione attuale</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Non l\'ultima versione</string>
+  <string name="watchlist_filter_type_of_change_header">Tipo di modifica</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Modifiche alle pagine</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Creazioni di pagine</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Modifiche alle categorie</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Modifiche di Wikidata</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Azioni di registro</string>
+  <string name="watchlist_filter_type_of_change_new_users">Nuovi utenti</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d filtro</item>
+    <item quantity="other">%d filtri</item>
+  </plurals>
   <string name="preview_edit_title">Anteprima modifica</string>
   <string name="preview_edit_summarize_edit_title">Riassumi modifica</string>
   <string name="preview_edit_summarize_edit_hint">Come hai migliorato questa pagina?</string>
@@ -1344,7 +1413,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Elenco di lettura importato</string>
   <string name="reading_list_share_menu_label">Condividi…</string>
   <string name="reading_list_share_menu_tooltip">Condividi questo elenco di lettura con altri</string>
-  <string name="reading_list_share_title_tooltip">Le modifiche apportate a questo elenco non sono visibili agli altri.</string>
   <string name="reading_list_share_message_v2">Ciao! Vorrei condividere il mio elenco di lettura di Wikipedia con te:</string>
   <string name="reading_list_share_survey_title">Puoi aiutarci a migliorare \"Condividi elenchi di lettura\"?</string>
   <string name="reading_list_share_survey_body">\"Condividi elenchi di lettura\" è una funzione di prova e abbiamo bisogno del tuo commento per migliorarla o rimuoverla.</string>

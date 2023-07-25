@@ -2,6 +2,7 @@
 <!-- Authors:
 * Adam N.
 * Aktron
+* Amire80
 * Bsitzmann
 * Clon
 * Cvanca
@@ -128,9 +129,9 @@
   <string name="map_view_link_text">Zobrazit na mapě</string>
   <string name="other_languages_indication_text">Přečíst v jiném jazyce</string>
   <string name="language_count_link_text">Dostupný v %d dalších jazycích</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. &lt;/br&gt;Editace bude přiřazena k IP adrese vašeho zařízení.&lt;br /&gt; Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. &lt;/br&gt;Editace bude přiřazena k IP adrese vašeho zařízení.&lt;br /&gt; Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
   <string name="edit_anon_warning">Editace budou přiřazeny IP adrese vašeho zařízení. Pokud se &lt;a href=\"https://#login\"&gt;přihlásíte&lt;/a&gt;, budete mít více soukromí.</string>
   <string name="preference_title_language">Jazyky Wikipedie</string>
   <string name="langlinks_filter_hint">Hledat</string>
@@ -256,7 +257,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/cs</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.cs</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.cs</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.cs</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs#Image_tags</string>
@@ -266,7 +267,7 @@
   <string name="about_translators_heading">Překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora – Zachovejte licenci&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora – Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;nadace Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci Wikipedie</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
@@ -776,6 +777,8 @@
   <string name="description_starts_with_uppercase">Začněte s malým písmem, jestliže první slovo není vlastní jméno.</string>
   <string name="description_starts_with_lowercase">Vyhněte se tomu začít malým písmenem.</string>
   <string name="description_is_in_different_language">Text se zdá být v neočekávaném jazyce. Jazyk by měl být %s.</string>
+  <string name="description_edit_suggested_description_button_text">Zobrazit navrhované popisy</string>
+  <string name="description_edit_suggested_description_button_tooltip">Vyzkoušejte strojově navrhované popisy článků</string>
   <string name="description_edit_success_saved">Popis článku byl zveřejněn!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku byl zveřejněn!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku (v jazyce %s) byl zveřejněn!</string>
@@ -793,6 +796,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálním případě jeden řádek o dvou až dvanácti slovech</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začít editovat</string>
   <string name="description_edit_tutorial_promise">Tímto slibuji, že této funkce nezneužiji.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Strojové návrhy</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Návrhy jsou generovány strojem, nikoliv dobrovolníky nebo nadací Wikimedia Foundation</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Přetáhněte své oblíbené položky sem 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Obnovit do základu</string>
@@ -942,6 +947,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Značka obrázku</string>
   <string name="suggested_edits_contribution_current_revision_text">Vaše úprava je aktuálně viditelná na Wikipedii</string>
   <string name="suggested_card_more_edits">Více navrhovaných editací</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Navrhované popisy</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Co byste chtěli nahlásit?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Nedostatek informací</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Nevidím doporučené popisy</string>
+  <string name="suggested_edits_inappropriate_suggestion">Nevhodný návrh</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Nerozumím úkolu</string>
+  <string name="suggested_edits_report_suggestion">Nahlásit</string>
+  <string name="suggested_edits_suggestion_report_submitted">Hlášení odesláno</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s znak</item>
     <item quantity="few">%1$s znaky</item>

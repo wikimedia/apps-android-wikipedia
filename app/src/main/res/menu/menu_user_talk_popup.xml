@@ -5,21 +5,21 @@
     <item
         android:id="@+id/menu_user_profile_page"
         android:icon="@drawable/ic_user_avatar"
-        app:iconTint="?attr/secondary_text_color"
+        app:iconTint="?attr/placeholder_color"
         android:title="@string/menu_option_view_user_profile" />
     <item
         android:id="@+id/menu_user_talk_page"
         android:icon="@drawable/ic_user_talk"
-        app:iconTint="?attr/secondary_text_color"
+        app:iconTint="?attr/placeholder_color"
         android:title="@string/menu_option_view_user_talk" />
     <item
         android:id="@+id/menu_user_contributions_page"
         android:icon="@drawable/ic_icon_user_contributions_ooui"
-        app:iconTint="?attr/secondary_text_color"
+        app:iconTint="?attr/placeholder_color"
         android:title="@string/menu_option_view_user_contributions" />
     <item
         android:id="@+id/menu_user_thank"
         android:icon="@drawable/ic_heart_24"
-        app:iconTint="?attr/secondary_text_color"
+        app:iconTint="?attr/placeholder_color"
         android:title="@string/thank_label" />
 </menu>

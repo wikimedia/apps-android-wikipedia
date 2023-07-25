@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/section_header_text"
-        style="@style/MaterialListSectionHeader"
+        style="@style/H4.MaterialListSectionHeader"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center_vertical"

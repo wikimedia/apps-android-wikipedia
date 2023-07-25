@@ -105,9 +105,9 @@
   <string name="map_view_link_text">Cingak ring peta</string>
   <string name="other_languages_indication_text">Wacen ring basa tiosan</string>
   <string name="language_count_link_text">Cumawis ring %d basa tiosan</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Antuk ngawedar, Ida ngidep majeng &lt;a href=\"%1$s\"&gt;Katentuan Sang Anganggé&lt;/a&gt;, miwah ngalepas pituut Ida ring metén lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Antuk ngawedar, Ida ngidep majeng &lt;a href=\"%1$s\"&gt;Katentuan Sang Angaggé&lt;/a&gt;, miwah ngalepas pituut Ida ring metén lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Uahan pacang katemonin nuju alamat IP piranti. Pinaka Ida &lt;a href=\"https://#login\"&gt;manjing log&lt;/a&gt;, Ida pacang medué privasi langkung.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Antuk ngawedar, Ida ngidep majeng &lt;a href=\"%1$s\"&gt;Katentuan Sang Anganggé&lt;/a&gt;, miwah ngalepas pituut Ida ring metén lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Antuk ngawedar, Ida ngidep majeng &lt;a href=\"%1$s\"&gt;Katentuan Sang Angaggé&lt;/a&gt;, miwah ngalepas pituut Ida ring metén lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Uahan pacang katemonin nuju alamat IP piranti. Pinaka Ida &lt;a href=\"https://#login\"&gt;manjing log&lt;/a&gt;, Ida pacang medué privasi langkung.</string>
   <string name="edit_anon_warning">Uahan pacang kasuwécayang nuju alamat IP piranti ragané. Pinaka ragané &lt;a href=\"https://#login\"&gt;manjing log&lt;/a&gt;, ragané pacang polih langkung paragaan.</string>
   <string name="preference_title_language">Basa Wikipédia</string>
   <string name="langlinks_filter_hint">Rereh</string>
@@ -232,7 +232,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ban.wikipedia.org/wiki/Wikipedia:Pinunas_satunggal_akun</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -242,7 +241,7 @@
   <string name="about_translators_heading">Pangalih basa</string>
   <string name="about_translators_translatewiki">Aplikasi puniki sampun kaalih basa olih rélawan pangalih basa ring &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisénsi</string>
-  <string name="about_app_license">Kode wit kasedia ring &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; miwah &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ring sor &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisénsi Apache 2.0&lt;/a&gt;. Kontén kasedia ring sor &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisénsi Atribusi-MawagiSarupa Creative Commons&lt;/a&gt; tiosan kanikayang liyanan.</string>
+  <string name="about_app_license" fuzzy="true">Kode wit kasedia ring &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; miwah &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ring sor &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisénsi Apache 2.0&lt;/a&gt;. Kontén kasedia ring sor &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lisénsi Atribusi-MawagiSarupa Creative Commons&lt;/a&gt; tiosan kanikayang liyanan.</string>
   <string name="about_wmf">Satunggil produk saking &lt;a href=\"https://wikimediafoundation.org/\"&gt;Yayasan Wikimédia&lt;/a&gt;</string>
   <string name="about_activity_title">Indik</string>
   <string name="edit_abandon_confirm">Kaca puniki sampun kauah. Napiké ragané yakti pacang medal tanpa nyimpen pagentosan?</string>
@@ -273,6 +272,8 @@
   <string name="edit_notices_please_read">Durus wacén sadurung nguahin</string>
   <string name="find_next">Rereh salanturnyané</string>
   <string name="find_previous">Rereh sadurungnyané</string>
+  <string name="find_first_occurence">Puniki dados asil kapertama</string>
+  <string name="find_last_occurence">Puniki dados asil ungkur</string>
   <string name="page_similar_titles">Kaca sarupa</string>
   <string name="search_did_you_mean">Napiké nikayang ragané \"%s\"?</string>
   <string name="search_recent_header">Rerehan sané mangkin:</string>
@@ -299,7 +300,7 @@
   <string name="preference_title_download_only_over_wifi">Unduh wantah saking Wi-Fi</string>
   <string name="dialog_title_download_only_over_wifi">Konfirmasi unduhan nganggén data sélulér?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Lugrayang</string>
-  <string name="read_more_section">Wacen malih</string>
+  <string name="read_more_section">Wacén malih</string>
   <string name="about_article_section">Indik suratan puniki</string>
   <string name="menu_gallery_visit_image_page">Nuju kaca gambar</string>
   <string name="gallery_error_draw_failed">Tan prasida ngambar gambar</string>
@@ -332,10 +333,18 @@
   <string name="all_tab_items_closed">Makejang tab katutup.</string>
   <string name="tool_tip_bookmark_icon_title">Nambahin ring lis wacaan</string>
   <string name="page_view_in_browser">Cingak kaca ring peramban</string>
+  <string name="error_unknown">Situnggil pikobet sané nénten kauningin</string>
   <string name="format_error_server_message">Séwala: \"%s\"</string>
+  <string name="address_copied">Alamat katedun nuju papan klip</string>
+  <string name="text_copied">URL katedun nuju papan klip</string>
   <string name="button_continue_to_article">Wacén suratan</string>
   <string name="button_continue_to_talk_page">Buka kaca pabligbagan</string>
   <string name="button_continue_to_disambiguation">Cingak kaca sarupa</string>
+  <string name="link_preview_disambiguation_description">Murda puniki kakait sareng langkung saking asiki kaca:</string>
+  <string name="button_add_to_reading_list">Weweh ring lis wacénan</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Suratan nénten prasida kamuat rikala luring.</string>
+  <string name="page_offline_notice_add_to_reading_list">Paarah: Wewehin suratan nuju lis wacénan miwah pacang kaunduh sesampun ragané malih daring.</string>
+  <string name="button_get_directions">Polihang paraharah</string>
   <string name="preference_title_customize_explore_feed">Jelajahin Umpan</string>
   <string name="preference_title_collapse_tables">Alitang tabel</string>
   <string name="nav_item_donate">Mapunia</string>
@@ -357,6 +366,8 @@
   <string name="empty_tab_title">Tab anyar</string>
   <string name="menu_save_all_tabs">Raksa samian tab</string>
   <string name="error_blocked_reason">Hawanan sané kaicain punika: %s</string>
+  <string name="error_blocked_start">Pacadelan kakawitin: %s</string>
+  <string name="error_blocked_expiry">Kadaluwarsa pacadelan: %s</string>
   <string name="error_blocked_id">ID Blokir: %s</string>
   <string name="crash_report_activity_title">Pikobet aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Iraga nunas ampura, aplikasi Wikipédia keni pikobet miwah karérénang.\n\nNapiké ragané jagi ngawitin malih utawi medal?</string>
@@ -385,6 +396,7 @@
   <string name="theme_category_reading">Wacén</string>
   <string name="theme_category_editing">Nguahin</string>
   <string name="reading_focus_mode">Mode fokus ngawacén</string>
+  <string name="editing_syntax_highlight_label">Panyorotan sintaks</string>
   <string name="nav_item_saved">Karaksa</string>
   <string name="reading_list_save_to">Raksa nuju lis wacénan</string>
   <string name="reading_list_move_to">Gingsirang nuju lis wacénan</string>
@@ -397,9 +409,17 @@
   <string name="reading_list_articles_already_exist_message">Maasil! %s sampun madaging samian suratan.</string>
   <string name="reading_list_added_view_button">Cingak lis</string>
   <string name="reading_list_add_to_list_button">Weweh nuju lis</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">asuratan</item>
+    <item quantity="other">%d suratan</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 suratan, %2$.2f MB</item>
     <item quantity="other">%1$d suratan, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d saking asuratan kasedia luring</item>
+    <item quantity="other">%1$d saking %2$d suratan kasedia luring</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d suratan kasedia luring, %3$.2f MB</item>
@@ -414,6 +434,7 @@
   <string name="reading_list_sort_by_created">Urut mawit tanggal kakardi (pinih anyar)</string>
   <string name="reading_list_sort_by_created_desc">Urut mawit tanggal kakardi (pinih kuna)</string>
   <string name="reading_list_menu_delete">Usap lis</string>
+  <string name="reading_list_menu_export">Ékspor lis</string>
   <string name="reading_list_menu_select">Pilih</string>
   <string name="reading_list_menu_unselect">Ten pilih</string>
   <string name="reading_list_menu_rename">Uah aran/déskripsi</string>
@@ -461,6 +482,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nénten, suksma</string>
   <string name="default_reading_list_name">Karaksa</string>
   <string name="reading_lists_menu_create_list">Kardi lis anyar</string>
+  <string name="reading_lists_menu_import_list">Impor lis</string>
   <string name="reading_lists_menu_sort_by">Bacak mawit</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Manjing log / kardi akun</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
@@ -470,9 +492,20 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Wangdé</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Wangdé</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Apus</string>
   <string name="reading_list_activity_title">Lis wacaan: %s</string>
+  <string name="reading_lists_action_menu_export_lists">Ékspor</string>
+  <string name="reading_lists_import_file_picker_title">Pilih berkas antuk kaimpor</string>
+  <string name="reading_lists_export_select_lists_message">Pilih lis antuk kaékspor</string>
+  <string name="reading_lists_preview_save_button">Raksa</string>
+  <string name="reading_lists_preview_save_dialog_title">Raksa lis</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Murda</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Wangdé</string>
+  <string name="reading_lists_preview_save_dialog_save">Raksa</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Cingak</string>
   <string name="user_option_sync_label">Pustaka</string>
   <string name="notification_channel_title">Ngunduh suratan</string>
+  <string name="notification_channel_description">Langkungan unduh</string>
   <string name="notification_syncing_pause_button">Rérénang</string>
   <string name="notification_syncing_resume_button">Lanjutang</string>
   <string name="notification_syncing_cancel_button">Wangdé</string>
@@ -497,6 +530,8 @@
   <string name="notifications_mark_unread">Cihna dados durung kawacén</string>
   <string name="notifications_mark_all_as_read">Cihna makasami dados kawacén</string>
   <string name="notifications_direct_reply_action">Ngwales</string>
+  <string name="notifications_mark_all_as_read_message">%d cihna sampun kawacén</string>
+  <string name="notifications_mark_all_as_unread_message">%d cihna durung kawacén</string>
   <string name="watchlist_title">Pangawasan</string>
   <string name="preference_title_notification_system">Sistem</string>
   <string name="preference_summary_notification_system">Séwala saking sistem</string>
@@ -504,8 +539,11 @@
   <string name="preference_title_notification_revert">Ulihang</string>
   <string name="preference_title_notification_login_fail">Manjing log</string>
   <string name="preference_title_notification_user_talk">Kaca pabligbagan</string>
+  <string name="preference_title_notification_email_user">Rerepél katampi</string>
+  <string name="preference_title_notification_user_rights">Pagentosan hak sang anganggé</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipédia</string>
   <string name="notifications_channel_group_other_title">Lianan</string>
+  <string name="notifications_filter_update_app_languages">Anyarin basa aplikasi</string>
   <string name="notifications_tab_filter_all">Sinamian</string>
   <string name="notifications_tab_filter_unread">(%s)</string>
   <string name="notifications_menu_mark_as_read">Cihna dados kawacén</string>
@@ -544,6 +582,7 @@
   <string name="view_continue_reading_card_subtitle_today">dina mangkin</string>
   <string name="view_continue_reading_card_subtitle_read_date">Kawacén %s</string>
   <string name="view_announcement_card_negative_action">Nénten, suksma</string>
+  <string name="view_featured_article_card_title">Suratan utama</string>
   <string name="view_static_card_save_button_label">Raksa</string>
   <string name="feed_configure_menu_select_all">Sinahang makasami</string>
   <string name="feed_configure_menu_deselect_all">Engkebang makasami</string>
@@ -572,8 +611,13 @@
   <string name="description_edit_translate_image_caption">Alih basa sesirah gambar</string>
   <string name="description_edit_cancel_hint">Wangdé</string>
   <string name="description_edit_help_about_wikidata">Indik Wikidata</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_edit_success_saved">Déskripsi suratan sampun kawedar!</string>
+  <string name="description_edit_success_saved_snackbar">Déskripsi suratan sampun kawedar!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Déskripsi suratan sampun kawedar! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Sesirah gambar kawedar!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Sesirah gambar kawedar! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Cihna gambar kawedar!</string>
   <string name="description_edit_success_done">Puput</string>
   <string name="description_edit_success_did_you_know">Uningké ragané?</string>
@@ -582,6 +626,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Becikné abaris, riantara 2-12 kruna</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ngawit nguahin</string>
   <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Sorog miwah genahang paindikan kasenengan ragané iriki 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Jumu nuju baku</string>
   <string name="suggested_edits_caption_images">Sesirah gambar</string>
   <string name="suggested_edits_review_image_caption">Turéksa sesirah gambar</string>
   <string name="suggested_edits_task_image_caption_title">Wewehin sesirah gambar</string>
@@ -721,9 +767,9 @@
   <string name="insert_media_title">Sisipang média</string>
   <string name="insert_media_search_description">Pilih berkas saking Wikimédia Commons</string>
   <string name="insert_media_search_hint">Rereh média</string>
-  <string name="insert_media_settings">Setélan média</string>
+  <string name="insert_media_settings" fuzzy="true">Setélan média</string>
   <string name="insert_media_settings_uploaded_image">Gambar kaunggah</string>
-  <string name="insert_media_settings_caption">Sesirah</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Sesirah</string>
   <string name="insert_media_advanced_settings">Setélan lantur</string>
   <string name="insert_media_advanced_settings_image_position">Genah gambar</string>
   <string name="insert_media_advanced_settings_image_position_right">Tengen</string>
@@ -770,6 +816,15 @@
   <string name="talk_overflow_sort_date_updated">Tanggal kaanyarin</string>
   <string name="talk_overflow_sort_topic_name">Adan topik</string>
   <string name="talk_new_topic_exit_dialog_title">Napiké ragané yakti pacang medal?</string>
+  <string name="talk_list_item_overflow_subscribe">Langganan</string>
+  <string name="talk_list_item_overflow_subscribed">Kalangganin</string>
+  <string name="talk_list_item_overflow_mark_as_read">Cihna dados kawacén</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Cihna dados durung kawacén</string>
+  <string name="talk_list_item_last_comment_date">Penampen ungkur: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Total walesan</string>
+  <string name="talk_list_item_user_icon_content_description">Ikon sang anganggé</string>
+  <string name="talk_list_item_swipe_mark_as_read">Wacén</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Durung kawacén</string>
   <string name="menu_option_user_contributions">%s\'s pituut</string>
   <string name="watchlist_details_watching_label">Ngawasin</string>
   <string name="watchlist_details_watch_label">Awasin</string>
@@ -800,10 +855,42 @@
   <string name="watchlist_page_moved">Kagingsirang</string>
   <string name="watchlist_page_protected">Kasaibin</string>
   <string name="watchlist_page_deleted">Kausap</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Sinamian</string>
+  <string name="watchlist_filter_watchlist_activity_header">Tetindakan lis pangawasan</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Pauahan sané nénten kacingak</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Uahan kacingak</string>
+  <string name="watchlist_filter_contribution_authorship_own">Uahan ragané</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Uahan olih tiosan</string>
+  <string name="watchlist_filter_automated_contributions_header">Pituut otomatis</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+  <string name="watchlist_filter_automated_contributions_human">Manusa (nénten bot)</string>
+  <string name="watchlist_filter_significance_header">Kapentingan</string>
+  <string name="watchlist_filter_significance_minor">Uahan alit</string>
+  <string name="watchlist_filter_significance_edits">Uahan tan alit</string>
+  <string name="watchlist_filter_latest_revisions_header">Uahan sané anyar</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Uahan sané mangkin</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Nénten révisi pinih anyar</string>
+  <string name="watchlist_filter_type_of_change_header">Soroh pauahan</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Uahan kaca</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Pangardian kaca</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Pauahan kategori</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Uahan Wikidata</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Parilaksana kacutet</string>
+  <string name="watchlist_filter_type_of_change_new_users">Sang anganggé anyar</string>
+  <string name="watchlist_filter_reset_button">Jumu</string>
+  <string name="preview_edit_title">Pracingak uahan</string>
+  <string name="preview_edit_summarize_edit_title">Ringkesan uahan</string>
+  <string name="action_item_categories">Kategori</string>
+  <string name="category_tab_articles">Suratan</string>
+  <string name="category_tab_subcategories">Subkategori</string>
+  <string name="search_namespaces">Genah aran</string>
   <string name="namespace_article">Suratan</string>
   <string name="user_contrib_current">mangkin</string>
   <string name="user_contrib_menu_label">Pituut</string>
   <string name="shareable_reading_lists_new_indicator">*anyar*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Ngerti</string>
   <string name="reading_list_share_menu_label">Sobyahang…</string>
+  <string name="data_opt_in_accept">Tampi</string>
+  <string name="data_opt_in_reject">Tolak</string>
 </resources>

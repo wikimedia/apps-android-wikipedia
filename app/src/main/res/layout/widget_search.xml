@@ -22,7 +22,7 @@
         android:ellipsize="end"
         android:gravity="center"
         android:text="@string/search_hint"
-        android:textColor="@color/base10"
+        android:textColor="@color/gray700"
         android:textSize="12sp" />
 
 </LinearLayout>
