@@ -380,8 +380,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 return@evaluateImmediate
             }
             JsonUtil.decodeFromString<PageFragmentLoadState.JsPageMetadata>(it)?.let { metadata ->
-                // compose a Page object from the metadata that was received.
-                L.d(">>>> " + metadata)
                 createPageModel(metadata)
             }
         }
@@ -916,6 +914,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     fun onPageMetadataLoaded() {
         updateBookmarkAndMenuOptionsFromDao()
+        binding.pageRefreshContainer.isEnabled = true
+        binding.pageRefreshContainer.isRefreshing = false
         if (model.page == null) {
             return
         }
@@ -923,8 +923,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             articleInteractionEvent = ArticleInteractionEvent(model.title?.wikiSite?.dbName()!!, pageProperties.pageId)
         }
         editHandler.setPage(model.page)
-        binding.pageRefreshContainer.isEnabled = true
-        binding.pageRefreshContainer.isRefreshing = false
         requireActivity().invalidateOptionsMenu()
         model.readingListPage?.let { page ->
             model.title?.let { title ->
@@ -1549,6 +1547,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 // page has now loaded and trigger the remaining logic ourselves.
                 if ("true" != pcsExists) {
                     onPageSetupEvent()
+                    leadImagesHandler.loadLeadImage()
                     bridge.onMetadataReady()
                     bridge.onPcsReady()
                     bridge.execute(JavaScriptActionHandler.mobileWebChromeShim())

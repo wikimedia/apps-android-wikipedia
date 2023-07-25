@@ -69,10 +69,10 @@ object JavaScriptActionHandler {
                 "m = document.head.querySelector('meta[property=\"dc:modified\"]');" +
                 "if (m) metadata.timeStamp = m.getAttribute('content');" +
                 "m = document.head.querySelector('title');" +
-                "if (m) metadata.title = m.innerHTML;" +
+                "if (m) metadata.title = m.textContent;" +
                 "m = document.body.querySelector('#pcs-edit-section-title-description');" +
                 "if (m) {" +
-                "  metadata.description = m.innerHTML;" +
+                "  metadata.description = m.textContent;" +
                 "  metadata.descriptionSource = m.getAttribute('data-description-source');" +
                 "  metadata.wikibaseItem = m.getAttribute('data-wikdata-entity-id');" +
                 "}" +
