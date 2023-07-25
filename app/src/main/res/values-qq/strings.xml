@@ -399,6 +399,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Message informing the user that an article cannot be loaded while the app is offline. This message is followed by page_offline_notice_add_to_reading_list.</string>
   <string name="page_offline_notice_add_to_reading_list">Message inviting the user to add the requested article to a reading list to be downloaded when the app is online. This message follows {{msg-wm|Wikipedia-android-strings-page_offline_notice_cannot_load_while_offline}}.</string>
   <string name="page_offline_notice_last_date">Message that tells the user that the current article is loaded from offline storage. The %s symbol is replaced with the date when the article was saved.</string>
+  <string name="redirected_from_snackbar">Short-lived snackbar message that informs the user they have redirected when opening the article. The %s symbol is replaced with the original article title.</string>
   <string name="button_get_directions">Button to obtain directions to the location specified in the link preview.</string>
   <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>
   <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>
