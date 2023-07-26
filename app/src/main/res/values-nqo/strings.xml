@@ -9,22 +9,22 @@
 * ߒߓߋ߫ ߝߏߝߣߊ߫
 -->
 <resources>
-  <string name="app_name_prod">ߥߞߌߔߘߋߞߎ</string>
-  <string name="app_name_beta">ߥߞߌ-ߔߘߋߞߎ ߓߋߕߊ߫</string>
-  <string name="app_name_alpha">ߥߞߌ-ߔߘߋߞߎ ߊߟߑߝߊ߫</string>
+  <string name="app_name_prod">ߥߞߌߔߔߋߘߌߦߊ</string>
+  <string name="app_name_beta">ߥߞߌߔߋߘߌߦߊ߫ ߓߋߕߊ߫</string>
+  <string name="app_name_alpha">ߧߞߌߔߋߘߌߦߊ߫ ߊߟߌߝߊ</string>
   <string name="wikimedia">ߥߞߌߡߋߘߌߦߊ߫</string>
   <string name="nav_item_back">ߟߊߞߐߛߊ߬ߦߌ</string>
   <string name="page_tabs_back">ߟߊߞߐߛߊ߬ߦߌ߬</string>
   <string name="nav_item_forward">ߟߊߕߊ߯ߢߍ߫</string>
-  <string name="search_hint">ߢߌߣߌ߲ߠߌ߲ ߞߍ߫ ߥߞߌߔߘߋߞߎ ߘߐ߫</string>
+  <string name="search_hint">ߢߌߣߌ߲ߠߌ߲ ߞߍ߫ ߥߞߌߔߋߘߌߦߊ ߞߣߐ߫</string>
   <string name="search_hint_voice_search">ߡߍ߲ߞߊ߲ߠߊ߫ ߢߌߣߌ߲ߠߌ߲</string>
   <string name="search_hint_search_languages">ߞߊ߲ ߘߏ߫ ߢߌߣߌ߲߫</string>
   <string name="filter_hint_filter_my_lists_and_articles">ߒ ߠߊ߫ ߛߙߍߘߍ ߟߎ߬ ߛߍ߲ߛߍ߲߫</string>
-  <string name="nav_item_suggested_edits">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲</string>
+  <string name="nav_item_suggested_edits">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬</string>
   <string name="nav_item_more">ߡߊߞߊ߬ߝߏ߬ ߜߘߍ ߟߎ߬</string>
   <string name="nav_item_search">ߢߌߣߌ߲ߣߌ߲</string>
   <string name="error_network_error">ߊ߬ ߕߴߛߋ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߓߟߐߟߐ ߟߊ߫</string>
-  <string name="page_error_retry">ߌ ߡߊߝߍߣߍ߲߫ ߞߎߘߊߞߍ߫</string>
+  <string name="page_error_retry">ߌ ߡߊߝߍߣߍ߲߫ ߞߎߘߊ߫ ߘߌ߫</string>
   <string name="card_offline_error_retry">ߊ߬ ߡߊߝߍߣߍ߲߫ ߕߎ߲߯</string>
   <string name="storage_access_error_retry">ߊ߬ ߡߊߝߍߣߍ߲߫ ߕߎ߲߯</string>
   <string name="article_load_error_retry">ߊ߬ ߡߊߝߍߣߍ߲߫ ߕߎ߲߯</string>
@@ -34,10 +34,10 @@
   <string name="error_next">ߢߍߕߊ</string>
   <string name="menu_clear_all_history">ߘߐ߬ߝߐ ߖߏ߬ߛߌ߬</string>
   <string name="history_item_deleted">%s ߛߋ߲߬ߓߐ߫ ߘߐ߬ߝߐ ߘߐ߫</string>
-  <string name="history_items_deleted">%d ߦߌߟߡߊ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߝߐ ߘߐ߫</string>
+  <string name="history_items_deleted">ߞߎߡߘߊ %d ߟߎ߬ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߝߐ</string>
   <string name="history_item_delete_undo">ߊ߬ ߘߐߛߊ߬</string>
   <string name="notification_archive_undo">ߊ߬ ߘߐߛߊ߬</string>
-  <string name="app_settings">ߛߎ߲ߝߘߍ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߊ</string>
+  <string name="app_settings">ߟߥߊ߬ߟߌ߬ߟߊ߲ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߊ</string>
   <string name="search_tab_tooltip">ߛߌ߲ߞߐ߲ ߛߐ߲߬ߞߌ߲߬ ߕߎ߲߯ ߞߵߌ ߟߊߞߎ߲߬ߛߌ߲߫ ߢߌߣߌ߲ߠߌ߲ ߘߊߡߌ߬ߣߊ ߛߙߊߕߌ ߡߊ߬</string>
   <string name="history_list_title">ߘߐ߬ߝߐ</string>
   <string name="image_content_description">ߖߌ߬ߦߊ߬ߓߍ: %s</string>
@@ -894,7 +894,30 @@
   <string name="suggested_edits_inappropriate_suggestion">ߘߐ߬ߘߎ߬ߟߌ߫ ߓߍ߲߬ߒ߬ߡߊ߬ߓߊߟߌ</string>
   <string name="suggested_edits_do_not_understand_suggestion">ߌ ߡߊ߫ ߘߊߞߎ߲ ߣߌ߲߬ ߢߊߦߋ߫؟</string>
   <string name="suggested_edits_report_suggestion">ߢߊߦߌߘߊߟߌ</string>
+  <string name="suggested_edits_image_recommendations_task_title">ߞߎߡߘߊ ߖߌ߬ߦߊ߬ߓߍ ߟߎ߬</string>
   <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">ߊ߬ ߘߐߞߕߌ߫ ߓߊ߫ ߣߌ߫ ߖߌ߬ߦߊ߬ߓߍ߫ ߢߊߦߌ߬ߘߊ߬ߣߍ߲ ߘߌ߫ ߞߎߡߘߊ ߟߊߢߊ߬.</string>
+  <string name="image_recommendation_tutorial">ߡߞߊ߬ߙߊ߲߬ߠߌ߲</string>
+  <string name="image_recommendation_accept">ߐ߲߬ߐ߲߬ߐ߲߫</string>
+  <string name="image_recommendation_reject">ߊ߬ߦߌ߫</string>
+  <string name="image_recommendation_notsure">ߒ ߡߊ߫ ߟߴߊ߬ ߟߊ߫</string>
+  <string name="image_recommendation_reject_title">ߡߎ߲߬ߠߊ߫ ߍ߲߬ߍ߲߫؟</string>
+  <string name="image_recommendation_reject_subtitle"> ߌ ߟߊ߫ ߖߋ߬ߓߌ߬ߟߌ ߦߋ߫ ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ ߣߊ߬ߕߐ ߟߊߢߊ߬ ߟߊ߫ ߟߋ߬.</string>
+  <string name="image_recommendation_reject_not_relevant">ߖߌ߬ߦߊ߬ߓߍ ߕߍ߫ ߢߊ߬ߕߣߐ߬ߡߊ߬ ߘߌ߫</string>
+  <string name="image_recommendation_reject_no_info">ߞߌ߬ߓߊ߬ߙߏ߬ߦߊ߫ ߞߟߊ߬ߟߊ߬ߡߊ߫ ߕߴߦߋ߲߬ ߡߍ߲ ߘߌ߫ ߡߐ߰ ߟߊߝߊ߲ߞߊ߲߫</string>
+  <string name="image_recommendation_reject_offensive">ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߡߛߊ߬ߡߊ߲߬ߠߌ߲ ߠߋ߬ ߘߌ߫</string>
+  <string name="image_recommendation_reject_low_quality">ߖߌ߬ߦߊ߬ߓߍ ߛߎ߯ߦߊ ߡߊߖߌ߰ߣߍ߲߫ ߠߋ߬</string>
+  <string name="image_recommendation_reject_dont_know">ߒߠߋ ߡߊ߫ ߢߌߣߌ߲ߝߋ߲ ߣߌ߲߬ ߟߐ߲߫</string>
+  <string name="image_recommendation_reject_other">ߘߏ߫ ߜߘߍ߫</string>
+  <string name="image_recommendation_reject_submit">ߊ߬ ߞߙߊߓߊ߫</string>
+  <string name="image_recommendation_tooltip_main">ߖߌ߬ߦߊ߬ߓߍ߬ ߞߐߢߌ߬ߣߊ߬ߣߍ߲ ߠߎ߬ ߝߙߊ߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߟߎ߬ ߟߊ߫.</string>
+  <string name="image_recommendation_onboarding_1">ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߡߐ߱ ߟߎ߬ ߘߍ߬ߡߍ߲߬ ߠߊ߫ ߘߐ߬ߞߣߍ߬ߟߌ ߟߋ߬ ߟߊ߫، ߞߏ߬ߣߌ߲߬ ߝߋ߲߫ ߕߍ߫ ߞߎߡߘߊ ߝߊ߲߬ߓߊ ߟߎ߬ ߟߊ߫.</string>
+  <string name="image_recommendation_onboarding_2">ߌ ߘߌ߫ ߛߴߊ߬ ߘߐߞߕߌ߫ ߟߊ߫ ߣߌ߫ ߖߌ߬ߦߊ߬ߓߍ߬ ߘߐߛߎߣߍ߲ ߘߌ߫ ߝߙߊ߬ ߥߞߌߔߋߘߌߦߊ߫ ߞߎߡߘߊ ߟߊ߫.</string>
+  <string name="image_recommendation_onboarding_4">ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߣߊ߬ ߟߊ߫ ߞߊ߬ ߝߘߊ߫ ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ߛ ߟߋ߬ ߟߊ߫، ߖߌ߬ߦߊ߬ߓߍ߫ ߛߙߊ߬ߓߊߟߌ ߘߌ߬ߢߍ߬ߒ߬ߡߊ߬ߟߌ ߟߎ߬ ߦߋ߫ ߡߊߕߐ߬ߡߐ߲߬ ߠߊ߫ ߞߵߊ߬ߟߎ߫ ߟߊߓߊ߯ߙߊ߫ ߥߞߌߔߋߘߌߦߊ ߓߟߏ߫.</string>
+  <string name="image_recommendation_tooltip_1">ߞߎߡߘߊ ߣߌ߲߬ ߡߊߛߊ߬ߦߌ߫ ߞߵߊ߬ ߞߣߐߘߐ ߢߌߣߌ߲ߞߏ ߟߎ߬ ߢߊߦߋ߫</string>
+  <string name="image_recommendation_tooltip_next">ߢߍߕߊ</string>
+  <string name="edit_summary_added_image">ߖߌ߬ߦߊ߬ߓߍ ߓߘߊ߫ ߝߊ߬ߙߊ߫</string>
+  <string name="edit_summary_added_caption">ߝߍ߬ߛߓߍߟߌ ߓߘߊ߫ ߝߊ߬ߙߊ߫</string>
+  <string name="edit_published_view">ߦߌ߬ߘߊ߬ߟߌ</string>
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="file_page_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߊ߬ߙߊ߫</string>
   <string name="file_page_add_image_tags_button">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߟߎ߬ ߝߙߊ߬</string>
@@ -984,9 +1007,9 @@
   <string name="insert_media_title">ߞߟߋߞߟߋ ߟߊߘߏ߲߬</string>
   <string name="insert_media_search_description">ߞߐߕߐ߮ ߘߏ߫ ߓߊߕߐ߬ߡߐ߲߬ ߞߊ߬ ߝߘߊ߫ ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ߛ ߟߊ߫</string>
   <string name="insert_media_search_hint">ߞߟߋߞߟߋ ߢߌߣߌ߲߫</string>
-  <string name="insert_media_settings" fuzzy="true">ߞߟߋߞߟߋ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߟߎ߬</string>
+  <string name="insert_media_settings">ߖߌ߬ߦߊ߬ߓߍ ߝߊߙߊ߲ߝߊ߯ߛߌ ߟߎ߬ ߝߊ߬ߙߊ߯</string>
   <string name="insert_media_settings_uploaded_image">ߖߌ߬ߦߊ߬ߓߍ߫ ߟߊߦߟߍ߬ߣߍ߲</string>
-  <string name="insert_media_settings_caption" fuzzy="true">ߝߍ߬ߛߓߍߟߌ</string>
+  <string name="insert_media_settings_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">ߛߓߍߘߋ߲߫ ߠߊ߫ ߞߊ߲߬ߛߓߍߟߌ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ߠߊ߫ ߟߎ߫ ߦߋ߫ ߡߍ߲ ߠߎ߬ ߕߍߣߊ߬ ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߟߊ߫</string>
   <string name="insert_media_advanced_settings">ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߖߊ߲߬ߝߊ߬ߣߍ߲ ߠߎ߬</string>
   <string name="insert_media_advanced_settings_wrap_image">ߛߓߍߟߌ ߟߎ߫ ߓߌ߬ߟߊ߬ ߖߌ߬ߦߊ߬ߓߍ ߟߊߡߌߣߌ߲ ߘߐ߫</string>
@@ -1211,4 +1234,6 @@
   <string name="reading_list_share_survey_body">\"ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ߫ ߟߊ߬ߖߍ߲ߛߍ߲\" ߦߋ߫ ߗߋߘߊ߫ ߡߊߝߍߣߍ߲ߕߊ ߟߋ߬ ߘߌ߫߸ ߊ߲ ߡߊߞߏ ߦߴߌ ߟߊ߫ ߞߊ߲߬ߞߎߡߊ ߟߴߏ߬ ߟߋ ߘߐ߫ ߜߘߋߜߘߋ߫߸ ߊ߬ ߟߊߢߊ߬ߟߌ ߘߐ߫ ߥߟߴߊ߬ ߘߐߛߊ߬ߟߌ ߘߐ߫.</string>
   <string name="data_opt_in_accept">ߊ߬ ߟߊߡߌ߬ߣߊ߫</string>
   <string name="data_opt_in_reject">ߊ߬ ߟߊߕߊ߲߬ߞߌ߫</string>
+  <string name="page_issues_title">ߞߐߜߍ ߝߙߋߞߋ ߟߎ߬</string>
+  <string name="generic_release_notes">ߝߎ߬ߕߎ߲߬ߕߌ߬ ߓߘߎߓߘߎ ߟߎ߬ ߘߐߓߍ߲߭ ߣߌ߫ ߡߞߊ߬ߝߏ߬ߟߌ ߟߎ߫</string>
 </resources>

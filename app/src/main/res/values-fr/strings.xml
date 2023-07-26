@@ -34,6 +34,7 @@
 * Léon973
 * MSClaudiu
 * Macofe
+* McDutchie
 * MuratTheTurkish
 * Naheulf
 * NemesisIII
@@ -1009,9 +1010,9 @@
   <string name="suggested_edits_disabled_message">Les modifications suggérées sont désactivées. Désolé %s, trop de vos contributions récentes ont été annulées.</string>
   <string name="suggested_edits_ip_blocked_message">Il semblerait que votre adresse IP (ou une plage d’adresses IP) soit actuellement bloquée pour modifier Wikipédia.</string>
   <string name="suggested_edits_gate_message">Désolé, %s, vous devez réaliser au moins trois modifications directement dans un article pour utiliser cette fonctionnalité.</string>
-  <string name="suggested_edits_editing_tips_link_text">Modifier les trucs et astuces</string>
+  <string name="suggested_edits_editing_tips_link_text">Trucs et astuces de modification</string>
   <string name="suggested_edits_help_page_link_text">Page d’aide des Modifications suggérées</string>
-  <string name="suggested_edits_edit_streak_label_text">Modifier la trace</string>
+  <string name="suggested_edits_edit_streak_label_text">Série de modifications</string>
   <string name="suggested_edits_views_label_text">Vues</string>
   <string name="suggested_edits_quality_label_text">Qualité d’édition</string>
   <string name="suggested_edits_quality_perfect_text">Parfait</string>
@@ -1044,7 +1045,7 @@
   <string name="suggested_edits_reactivation_notification_title">Modifications suggérées</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci d’avoir modifié Wikipédia ! Pourquoi ne pas reprendre là où vous en étiez ?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Vous avez une minute pour continuer à améliorer Wikipédia ? Consultez ces suggestions de modifications.</string>
-  <string name="suggested_edits_contributions_screen_title">contributions de %s</string>
+  <string name="suggested_edits_contributions_screen_title">Contributions de %s</string>
   <string name="suggested_edits_contribution_language_label">Langue</string>
   <string name="suggested_edits_contribution_date_time_label">Date / heure</string>
   <string name="suggested_edits_contribution_type_label">Type de contribution</string>
@@ -1222,7 +1223,7 @@
   <string name="insert_media_settings">Ajouter les détails de l’image</string>
   <string name="insert_media_settings_uploaded_image">Image téléversée</string>
   <string name="insert_media_settings_caption">Légende de l’image</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Libellé qui s’affiche à côté de l’élément pour tous les lecteurs</string>
+  <string name="insert_media_settings_caption_description">Libellé de l’image visible dans l’article</string>
   <string name="insert_media_settings_alternative_text">Texte alternatif</string>
   <string name="insert_media_settings_alternative_text_description">Description pour les lecteurs malvoyants</string>
   <string name="insert_media_advanced_settings">Paramètres avancés</string>

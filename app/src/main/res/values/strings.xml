@@ -374,6 +374,7 @@
     <string name="page_offline_notice_cannot_load_while_offline">Article cannot be loaded while offline.</string>
     <string name="page_offline_notice_add_to_reading_list">Hint: Add the article to a reading list and it will be downloaded once you\'re back online.</string>
     <string name="page_offline_notice_last_date">You are reading an offline version of this article saved on %s.</string>
+    <string name="redirected_from_snackbar">Redirected from \"%s\"</string>
     <string name="button_get_directions">Get directions</string>
     <string name="error_no_maps_app">Could not find any apps that provide directions.</string>
     <string name="preference_title_customize_explore_feed">Explore Feed</string>

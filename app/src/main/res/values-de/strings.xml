@@ -22,6 +22,7 @@
 * Killarnee
 * Lucas Werkmeister
 * ManuelFranz
+* McDutchie
 * Metalhead64
 * Mirzali
 * MuratTheTurkish
@@ -755,7 +756,7 @@
   <string name="preference_category_push_notifications">Push-Benachrichtigungen</string>
   <string name="preference_title_customize_push_notifications">Anpassen von Push-Benachrichtigungen</string>
   <string name="preference_category_display_settings">Anzeigeeinstellungen</string>
-  <string name="preference_title_hide_read_notifications">Lesebestätigungen ausblenden</string>
+  <string name="preference_title_hide_read_notifications">Gelesene Benachrichtigungen ausblenden</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Benachrichtigungen von Wikipedia</string>
   <string name="notifications_channel_group_other_title">Andere</string>
@@ -987,6 +988,7 @@
   <string name="suggested_edits_image_tags_select_title">Sie haben keine Tags für dieses Bild ausgewählt</string>
   <string name="suggested_edits_image_tags_select_text">Nur die von Ihnen ausgewählten Tags werden zu Bildern hinzugefügt. Nicht ausgewählte Tags werden als abgelehnt markiert. Möchten Sie wirklich alle Tags als abgelehnt markieren?</string>
   <string name="suggested_edits_image_tags_add_tag">Tag hinzufügen</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Die unveröffentlichten Tags werden nicht gespeichert</string>
   <string name="suggested_edits_image_zoom_tooltip">Vergrössere das Bild mit der Pinch-to-Zoom Geste.</string>
   <string name="suggested_edits_encouragement_message">%s, danke für deine Bearbeitungen. Unten findest du weitere Möglichkeiten, um zu Wikipedia beizutragen.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hallo %s&lt;/b&gt;, unten finden Sie einige schnelle und einfache Möglichkeiten, wie Sie zur Verbesserung von Wikipedia beitragen können. Sie werden den Unterschied sehen, den Sie machen, sobald Sie anfangen. Viel Spaß beim Editieren!</string>
@@ -1083,8 +1085,8 @@
     <item quantity="one">Du hast %d Zeichen hinzugefügt</item>
     <item quantity="other">Du hast %d Zeichen hinzugefügt</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Bildalgorithmus trainieren</string>
-  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Entscheide, ob ein vorgeschlagenes Bild einen Artikel verbessern wird.</string>
+  <string name="suggested_edits_image_recommendations_task_title">Artikelbilder</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Füge Wikipedia-Artikeln vorgeschlagene Bilder hinzu, um das Verständnis zu verbessern.</string>
   <string name="image_recommendation_task_instruction">Würdest du dieses Bild dem Artikel hinzufügen?</string>
   <string name="image_recommendation_tutorial">Anleitung</string>
   <string name="image_recommendation_accept">Ja</string>
@@ -1098,7 +1100,17 @@
   <string name="image_recommendation_reject_low_quality">Bild ist von schlechter Qualität</string>
   <string name="image_recommendation_reject_dont_know">Ich kenne mich mit diesem Thema nicht aus</string>
   <string name="image_recommendation_reject_other">Andere</string>
+  <string name="image_recommendation_reject_submit">Speichern</string>
   <string name="image_recommendation_tooltip_main">Füge fehlende Bilder zu Artikeln in „Vorgeschlagene Bearbeitungen“ hinzu</string>
+  <string name="image_recommendation_onboarding_1">Bilder helfen den Menschen zu verstehen, aber viele Artikel haben keine Bilder.</string>
+  <string name="image_recommendation_onboarding_2">Du entscheidest, ob ein vorgeschlagenes Bild in einem Wikipedia-Artikel platziert werden soll.</string>
+  <string name="image_recommendation_onboarding_3">Vorschläge werden maschinell generiert und du entscheidest anhand deines Urteilsvermögens, ob du sie annimmst oder ablehnst.</string>
+  <string name="image_recommendation_onboarding_4">Die Bilder stammen aus Wikimedia Commons, einer Sammlung frei lizenzierter Bilder, die von Wikipedia verwendet werden.</string>
+  <string name="image_recommendation_tooltip_1">Lies diesen Artikel, um sein Thema zu verstehen</string>
+  <string name="image_recommendation_tooltip_2">Überprüfe das Bild und die zugehörigen Informationen</string>
+  <string name="image_recommendation_tooltip_3">Entscheide, ob das Bild den Lesern hilft, dieses Thema besser zu verstehen</string>
+  <string name="image_recommendation_tooltip_next">Nächste</string>
+  <string name="image_recommendation_tooltip_warning">Bitte lies den Artikel, um sein Thema zu verstehen, und sieh dir das Bild an</string>
   <string name="edit_summary_added_image">Bild hinzugefügt</string>
   <string name="edit_summary_added_caption">Bildunterschrift hinzugefügt</string>
   <string name="edit_published_view">Ansehen</string>
@@ -1203,7 +1215,7 @@
   <string name="insert_media_settings">Bilddetails hinzufügen</string>
   <string name="insert_media_settings_uploaded_image">Hochgeladenes Bild</string>
   <string name="insert_media_settings_caption">Bildunterschrift</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Label, das für alle Leser neben dem Element angezeigt wird</string>
+  <string name="insert_media_settings_caption_description">Sichtbare Bildbeschriftung im Artikel</string>
   <string name="insert_media_settings_alternative_text">Alternativer Text</string>
   <string name="insert_media_settings_alternative_text_description">Beschreibung für sehbehinderte Leser</string>
   <string name="insert_media_advanced_settings">Erweiterte Einstellungen</string>
@@ -1358,6 +1370,7 @@
   <string name="watchlist_page_moved">Verschoben</string>
   <string name="watchlist_page_protected">Geschützt</string>
   <string name="watchlist_page_deleted">Gelöscht</string>
+  <string name="watchlist_filter_title">Beobachtungslistenfilter</string>
   <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">Alle</string>
   <string name="watchlist_filter_watchlist_activity_header">Beobachtungslistenaktivität</string>
@@ -1400,6 +1413,7 @@
   <string name="watchlist_filter_type_of_change_new_users">Neue Benutzer</string>
   <string name="watchlist_filter_reset_button">Zurücksetzen</string>
   <string name="watchlist_search_bar_hint">Beobachtungsliste durchsuchen oder filtern</string>
+  <string name="watchlist_search_bar_filter_hint">Beobachtungslistenfilter</string>
   <string name="watchlist_empty_search_message">Keine Ergebnisse. Versuche, %s zu entfernen, um mehr zu sehen.</string>
   <plurals name="watchlist_number_of_filters">
     <item quantity="one">%d Filter</item>
