@@ -123,9 +123,9 @@
   <string name="map_view_link_text">Vis på et kort</string>
   <string name="other_languages_indication_text">Læs på et andet sprog</string>
   <string name="language_count_link_text">Tilgængelig på %d andre sprog</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
-  <string name="edit_save_action_license_anon">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
   <string name="edit_anon_warning">Redigeringer vil blive tilskrevet din enheds IP-adresse. Hvis du &lt;a href=\"https://#login\"&gt;logger ind&lt;/a&gt;, får du mere privatliv.</string>
   <string name="preference_title_language">Wikipediasprog</string>
   <string name="langlinks_filter_hint">Søg</string>
@@ -251,7 +251,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/da</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.da</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>

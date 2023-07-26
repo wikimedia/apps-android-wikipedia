@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -190,11 +191,9 @@ class ArchivedTalkPagesActivity : BaseActivity() {
     }
 
     companion object {
-        const val EXTRA_TITLE = "talkTopicTitle"
-
         fun newIntent(context: Context, talkTopicTitle: PageTitle): Intent {
             return Intent(context, ArchivedTalkPagesActivity::class.java)
-                    .putExtra(EXTRA_TITLE, talkTopicTitle)
+                    .putExtra(Constants.ARG_TITLE, talkTopicTitle)
         }
     }
 }

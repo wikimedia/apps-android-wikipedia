@@ -19,15 +19,29 @@
   <string name="error_network_error" fuzzy="true">Тармакка туташуу туруктуу эмес.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="menu_clear_all_history">Тарыхты тазалоо</string>
+  <string name="history_item_delete_undo">Жокко чыгаруу</string>
+  <string name="notification_archive_undo">Жокко чыгаруу</string>
+  <string name="history_list_title">Тарых</string>
   <string name="page_content_description">Барак: %s</string>
+  <string name="wikimedia_commons">Викиказына</string>
+  <string name="wikidata">Викимаалымат</string>
   <string name="dialog_title_clear_history" fuzzy="true">Тарыхты өчүрүү керекпи?</string>
   <string name="dialog_message_clear_history_yes">Ооба</string>
   <string name="dialog_message_clear_history_no">Жок</string>
   <string name="share_via">аркылуу бөлүшүү</string>
-  <string name="menu_page_other_languages" fuzzy="true">Башка тилдерде окуу</string>
+  <string name="menu_page_other_languages">Тилди өзгөртүү</string>
   <string name="menu_page_find_in_page" fuzzy="true">Бул барактан табуу</string>
   <string name="menu_page_font_and_theme">Жазуу түрүн жана жасалганы өзгөртүү</string>
+  <string name="menu_page_add_to_default_list">Сактоо</string>
+  <string name="feed_card_add_to_default_list">Сактоо</string>
   <string name="menu_page_share" fuzzy="true">Бөлүшүү</string>
+  <string name="menu_page_article_share">Бөлүшүү</string>
+  <string name="menu_page_archive">Архив</string>
+  <string name="menu_text_select_define">Аныктама</string>
+  <string name="on_this_day_page_share">Бөлүшүү</string>
+  <string name="reading_list_page_share">Бөлүшүү</string>
+  <string name="menu_text_select_edit_here">Бул жерди түзөтүү</string>
+  <string name="menu_edit_article">Макаланы түзөтүү</string>
   <string name="last_updated_text">Акыркы жаңылоо: %s</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Өзгөртүүлөрдү сактоо менен бирге, сиз &lt;a href=\"%1$s\"&gt;колдонуу шарттары&lt;/a&gt; менен, ошондой эле &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы боюнча irrevocably release шарттарына макул экендигиңизди билдиресиз.</string>
   <string name="preference_title_language" fuzzy="true">Уикипедия тили</string>
@@ -46,21 +60,30 @@
   <string name="edit_section_captcha_hint">Жогоруда көрсөтүлгөн сөздөрдү кайталаңыз</string>
   <string name="title_captcha">CAPTCHA\'ны териңиз</string>
   <string name="edit_section_captcha_reload">CAPTCHA\'ны жаңылоо үчүн, аны басып коюңуз</string>
-  <string name="nav_item_login" fuzzy="true">Кирүү</string>
+  <string name="nav_item_login">Википедияга кирүү</string>
   <string name="login_username_hint">Колдонуучу аты</string>
   <string name="login_password_hint">Сырсөз</string>
+  <string name="onboarding_card_login">Кирүү</string>
+  <string name="page_editing_login">Кирүү</string>
+  <string name="reading_lists_sync_login">Кирүү</string>
+  <string name="create_account_login">Кирүү</string>
   <string name="menu_login">Кирүү</string>
-  <string name="login_activity_title" fuzzy="true">Уикипедияга кирүү</string>
+  <string name="login_activity_title">Кирүү</string>
   <string name="login_in_progress_dialog_message">Кирүүдө…</string>
-  <string name="login_success_toast" fuzzy="true">Сиз ийгиликтүү кирдиңиз!</string>
+  <string name="login_success_toast">Кирдиңиз !</string>
   <string name="preference_title_logout">Чыгуу</string>
   <string name="toast_logout_complete">Сиз системден чыктыңыз</string>
   <string name="logout_dialog_cancel_button_text">Жокко чыгаруу</string>
+  <string name="logged_out_in_background_title">Чыктыңыз</string>
+  <string name="logged_out_in_background_login">Кирүү</string>
   <string name="logged_out_in_background_cancel">Жокко чыгаруу</string>
   <string name="history_empty_title" fuzzy="true">Жакында каралган барактар жок!</string>
   <string name="history_empty_message" fuzzy="true">Кыязы, сиз алардын баарын өчүргөн окшойсуз. Кийинки жолу баракка киргенде, бул жактан кайрылсаңыз болот</string>
   <string name="wp_stylized">&lt;big&gt;У&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
   <string name="create_account_username_hint">Колдонуучу аты</string>
+  <string name="login_dont_have_account">Катталган жоксузбу ?</string>
+  <string name="login_join_wikipedia">Википедияга кошулуу</string>
+  <string name="login_forgot_password">Сыр сөзүңүздү унуттуңузбу ?</string>
   <string name="create_account_activity_title">Катталуу</string>
   <string name="dialog_create_account_checking_progress">Текшерүү</string>
   <string name="create_account_email_hint">Электрондук почтаңыздын дареги (милдеттүү эмес)</string>
@@ -70,7 +93,9 @@
   <string name="create_account_generic_error">Эсеп жазуусун түзүү мүмкүн эмес</string>
   <string name="create_account_next">Кийинки</string>
   <string name="create_account_button">Катталуу</string>
+  <string name="create_account_ip_block_details">Чоо-жайы</string>
   <string name="preferences_general_heading">Жалпы</string>
+  <string name="preferences_account_heading">Аккаунт</string>
   <string name="send_feedback">Тиркемеге өз бааңызды жөнөтүңүз</string>
   <string name="create_account_account_created_toast">Эсеп жазуусу түзүлдү!</string>
   <string name="preference_title_eventlogging_opt_in">Колдонуу тууралуу маалыматтарды жөнөтүү</string>
@@ -121,8 +146,10 @@
   <string name="clear_recent_searches_confirm_yes">Ооба</string>
   <string name="clear_recent_searches_confirm_no">Жок</string>
   <string name="error_browser_not_found">Веб-баракты ачууга мүмкүнчүлүк болбоду (браузер тиркемеси табылган жок).</string>
+  <string name="table_close">Жабуу</string>
   <string name="alpha_update_notification_title">Альфа-нусканын жаңы жаңылануусу жеткиликтүү</string>
   <string name="alpha_update_notification_text">Жүктөп алуу үчүн басыңыз</string>
+  <string name="dialog_close_description">Жабуу</string>
   <string name="close_all_tabs_confirm_yes">Ооба</string>
   <string name="close_all_tabs_confirm_no">Жок</string>
   <string name="view_link_preview_error_button_dismiss">Жабуу</string>
@@ -135,15 +162,18 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ооба</string>
   <string name="reading_lists_confirm_remote_delete_no">Жок</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Жокко чыгаруу</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Кирүү</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Жокко чыгаруу</string>
   <string name="notification_syncing_cancel_button">Жокко чыгаруу</string>
+  <string name="notifications_channel_group_other_title">Башка</string>
   <string name="view_featured_image_card_download">Жүктөп алуу</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="description_edit_cancel_hint">Жокко чыгаруу</string>
+  <string name="suggested_edits_task_action_text_add">Кошуу</string>
   <string name="suggested_edits_task_action_text_translate">Которуу</string>
   <string name="description_edit_login_cancel_button_text">Жокко чыгаруу</string>
   <string name="app_shortcuts_search">Издөө</string>
@@ -153,5 +183,8 @@
   <string name="wikitext_template">Калып</string>
   <string name="text_input_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Жокко чыгаруу</string>
+  <string name="talk_title">Талкуу</string>
+  <string name="talk_user_title">Талкуу: %s</string>
   <string name="thank_dialog_negative_button_text">Жокко чыгаруу</string>
+  <string name="watchlist_filter_talk">Талкуулар</string>
 </resources>

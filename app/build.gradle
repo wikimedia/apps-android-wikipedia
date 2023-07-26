@@ -37,7 +37,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 50447
+        versionCode 50448
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -180,7 +180,7 @@ dependencies {
     String roomVersion = "2.5.1"
     String espressoVersion = '3.5.1'
     String serialization_version = '1.5.1'
-    String metricsVersion = '1.9'
+    String metricsVersion = '1.12'
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
 

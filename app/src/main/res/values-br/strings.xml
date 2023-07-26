@@ -10,6 +10,7 @@
 * Gwenn-Ael
 * Huñvreüs
 * Kadwallan
+* Lompezh
 * Y-M D
 -->
 <resources>
@@ -102,9 +103,9 @@
   <string name="map_view_link_text">Diskwel war ur gartenn</string>
   <string name="other_languages_indication_text">Lenn en ur yezh all</string>
   <string name="language_count_link_text">A c\'haller kaout e %d yezh all</string>
-  <string name="content_license_cc_by_sa">CC-BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Pa\'z embannit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; en ur doare didorradus.</string>
-  <string name="edit_save_action_license_anon">Pa\'z embannit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Pa\'z embannit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;,ha lakaat a rit ho tegasadennoù dindan an aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; en ur doare didorradus.</string>
+  <string name="edit_save_action_license_anon">Pa\'z embannit e tegemerit an &lt;a href=\"%1$s\"&gt;Amplegadoù implijout&lt;/a&gt;, ha lakaat a rit ho tegasadennoù dindan aotre-implijout &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; en un doare didorradus. Ar c\'hemmoù a vo deroet da chomlec\'h IP hoc\'h ardivink. M\'ho peus &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt; ho po muioc\'h a zegasadennoù e kuzhut.</string>
   <string name="edit_anon_warning">Lakaet e vo ar c\'hemmoù war gont chomlec\'h IP ho penveg. Ma &lt;a href=\"https://#login\"&gt;kevreit&lt;/a&gt;, ho po muioc\'h a brevezded.</string>
   <string name="preference_title_language">Yezhoù Wikipedia</string>
   <string name="langlinks_filter_hint">Klask</string>
@@ -229,7 +230,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">http://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
   <string name="cc_0_url">http://creativecommons.org/publicdomain/mark/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -238,7 +239,7 @@
   <string name="about_translators_heading">Troerien</string>
   <string name="about_translators_translatewiki">Troet eo bet an arload-mañ gant troerien a-youl vat e &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Aotre-implijout</string>
-  <string name="about_app_license">Kod mammennoù a c\'haller kaout e &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ha &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;GitHub&lt;/a&gt; dindan &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Nemet kemennoù kontrol a vefe, e c\'haller kaout an endalc\'had &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licence Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Kod mammennoù a c\'haller kaout e &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ha &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;GitHub&lt;/a&gt; dindan &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Nemet kemennoù kontrol a vefe, e c\'haller kaout an endalc\'had &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;aotre-implijout Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Ur produ gant &lt;a href=\"https://wikimediafoundation.org/\"&gt;Diazezadur Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Diwar-benn</string>
   <string name="edit_abandon_confirm">Kemmet eo bet ar bajenn. Ha sur oc\'h e fell deoc\'h mont kuit anez enrollañ ho kemmoù ?</string>
@@ -877,6 +878,19 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Dec\'h</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kevreañ ouzh / mont gant Wikipedia</string>
   <string name="suggested_edits_report_suggestion">Danevelliñ</string>
+  <string name="suggested_edits_image_recommendations_task_title">Skeudennoù ar pennad</string>
+  <string name="image_recommendation_tutorial">Tuto</string>
+  <string name="image_recommendation_accept">Ya</string>
+  <string name="image_recommendation_reject">Ket</string>
+  <string name="image_recommendation_reject_title">Perak pas ?</string>
+  <string name="image_recommendation_reject_offensive">Tagus eo ar skeudenn</string>
+  <string name="image_recommendation_reject_low_quality">Skeudenn a galite izel</string>
+  <string name="image_recommendation_reject_other">All</string>
+  <string name="image_recommendation_reject_submit">Kas</string>
+  <string name="image_recommendation_tooltip_next">War-lerc\'h</string>
+  <string name="edit_summary_added_image">Skeudenn ouzhpennet</string>
+  <string name="edit_summary_added_caption">Ouzhpennañ un alc\'hwez</string>
+  <string name="edit_published_view">Gwelet</string>
   <string name="file_page_activity_title">Pajenn ar restr</string>
   <string name="file_page_add_image_caption_button">Ouzhpennañ alc\'hwez ar skeudenn</string>
   <string name="file_page_edit_button_content_description">Kemm %s</string>
@@ -964,9 +978,9 @@
   <string name="wikitext_template">Patrom</string>
   <string name="wikitext_reference">Dave</string>
   <string name="insert_media_search_hint">Klask ur media</string>
-  <string name="insert_media_settings" fuzzy="true">Arventennoù ar media</string>
+  <string name="insert_media_settings">Ouzhpennañ munudoù d\'ar skeudenn</string>
   <string name="insert_media_settings_uploaded_image">Skeudenn enporzhiet</string>
-  <string name="insert_media_settings_caption" fuzzy="true">Alc\'hwez</string>
+  <string name="insert_media_settings_caption">Alc\'hwez ar skeudenn</string>
   <string name="insert_media_settings_alternative_text">Testenn all</string>
   <string name="insert_media_advanced_settings">Arventennoù araokaet</string>
   <string name="insert_media_advanced_settings_image_position">Lec\'hiadur</string>
@@ -1057,4 +1071,5 @@
   <string name="reading_list_share_menu_label">Rannañ…</string>
   <string name="data_opt_in_accept">Asantiñ</string>
   <string name="data_opt_in_reject">Disteurel</string>
+  <string name="page_issues_title">Kudennoù war ar bajenn</string>
 </resources>

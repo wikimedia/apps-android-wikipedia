@@ -2,6 +2,7 @@
 <!-- Authors:
 * Acamicamacaraca
 * Aktron
+* Amire80
 * BadDog
 * Bjankuloski06
 * Dbrant
@@ -65,6 +66,7 @@
   <string name="page_edit_history_activity_title">Историја измена: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Без описа измене</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Претрага или филтрирање измена</string>
   <string name="page_edit_history_filter_by_all">Све измене (%s)</string>
   <string name="page_edit_history_filter_by_user">Корисничке измене (%s)</string>
   <string name="page_edit_history_filter_by_anon">Анонимне измене (%s)</string>
@@ -109,9 +111,9 @@
   <string name="map_view_link_text">Прикажи на мапи</string>
   <string name="other_languages_indication_text">Прочитај на другом језику</string>
   <string name="language_count_link_text">Доступан на другим језицима (%d)</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Објављивањем измена прихватате &lt;a href=\"%1$s\"&gt;услове употребе&lt;/a&gt; и неопозиво објављивање свог доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Објављивањем измена прихватате &lt;a href=\"%1$s\"&gt;услове употребе&lt;/a&gt; и неопозиво објављивање свог доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете већу приватност.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Објављивањем измена прихватате &lt;a href=\"%1$s\"&gt;услове коришћења&lt;/a&gt; и неопозиво објављивање свог доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Објављивањем измена прихватате &lt;a href=\"%1$s\"&gt;услове коришћења&lt;/a&gt; и неопозиво објављивање свог доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете већу приватност.</string>
   <string name="edit_anon_warning">Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете више приватности.</string>
   <string name="preference_title_language">Језици Википедије</string>
   <string name="langlinks_filter_hint">Претражи</string>
@@ -235,7 +237,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr#Ознаке_слика</string>
@@ -245,7 +247,7 @@
   <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Апликацију су превели добровољци на сајту &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-у&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;, осим ако није другачије наведено.</string>
+  <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-у&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Ауторство—Делити под истим условима&lt;/a&gt;, осим ако није другачије наведено.</string>
   <string name="about_wmf">Производ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Задужбине Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">О апликацији</string>
   <string name="edit_abandon_confirm">Страница је измењена. Желите ли заиста да изађете без чувања промене?</string>
@@ -273,6 +275,7 @@
   <string name="edit_notices">Обавештење о чланку</string>
   <string name="edit_notices_please_read">Прочитајте пре уређивања</string>
   <string name="edit_notices_show_auto">Аутоматски приказуј обавештења о чланцима</string>
+  <string name="edit_notices_tooltip">Тапните ово дугме да видите уређивачке напомене за овај чланак.</string>
   <string name="find_next">Пронађи следеће</string>
   <string name="find_previous">Пронађи претходно</string>
   <string name="find_first_occurence">Ово је прво појављивање</string>
@@ -387,6 +390,7 @@
   <string name="empty_tab_title">Нова картица</string>
   <string name="menu_save_all_tabs">Сачувај све картице</string>
   <string name="error_blocked_title">Блокирано је ваше корисничко име или IP адреса.</string>
+  <string name="error_blocked_by">Блокирао/ла вас је &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Разлог: %s</string>
   <string name="error_blocked_start">Почетак блокаде: %s</string>
   <string name="error_blocked_expiry">Истек блокаде: %s</string>
@@ -503,6 +507,7 @@
   <string name="reading_list_article_limit_message">Додавање на ову листу није могуће. Достигли сте ограничење од %2$d чланака по листи за „%1$s”.</string>
   <string name="reading_lists_limit_message">Није могуће направити другу листу. Достигли сте ограничење од 100 листе за читање по налогу.</string>
   <string name="reading_lists_menu_create_list">Направи нову листу</string>
+  <string name="reading_lists_menu_import_list">Увези списак</string>
   <string name="reading_lists_menu_sort_by">Сортирај по</string>
   <string name="reading_lists_refresh_sync_option">Освежи синхронизацију</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Пријава/регистрација</string>
@@ -796,6 +801,7 @@
   <string name="suggested_edits_image_tags_published_list">Објављене ознаке</string>
   <string name="suggested_edits_image_tags_add_tag">Додај ознаку</string>
   <string name="suggested_edits_contributions_stat_tooltip">Укупан број доприноса до сада.</string>
+  <string name="suggested_edits_ip_blocked_message">Изгледа да је Ваша IP адреса (или опсег адреса) тренутно блокиран на Википедији.</string>
   <string name="suggested_edits_editing_tips_link_text">Савети и трикови за уређивање</string>
   <string name="suggested_edits_help_page_link_text">Страница помоћи за предложене измене</string>
   <string name="suggested_edits_edit_streak_label_text">Измене у низу</string>
@@ -847,12 +853,16 @@
   <string name="suggested_edits_inappropriate_suggestion">Неприкладна сугестија</string>
   <string name="suggested_edits_do_not_understand_suggestion">Не разумем задатак</string>
   <string name="suggested_edits_report_suggestion">Пријави</string>
+  <string name="image_recommendation_tutorial">Упутство</string>
   <string name="image_recommendation_accept">Да</string>
   <string name="image_recommendation_reject">Не</string>
   <string name="image_recommendation_notsure">Нисам сигуран</string>
   <string name="image_recommendation_reject_title">Зашто не?</string>
+  <string name="image_recommendation_reject_not_relevant">Слика није релевантна</string>
+  <string name="image_recommendation_reject_no_info">Недовољно информација за одлуку</string>
   <string name="image_recommendation_reject_offensive">Слика је увредљива</string>
   <string name="image_recommendation_reject_low_quality">Слика је слабог квалитета</string>
+  <string name="image_recommendation_reject_dont_know">Није ми позната ова тема</string>
   <string name="image_recommendation_reject_other">Друго</string>
   <string name="image_recommendation_reject_submit">Пошаљи</string>
   <string name="image_recommendation_tooltip_next">Следеће</string>
@@ -947,7 +957,9 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Референца</string>
   <string name="wikitext_preview_link">Преглед везе</string>
+  <string name="insert_media_settings">Додај детаље о слици</string>
   <string name="insert_media_settings_caption">Натпис слике</string>
+  <string name="insert_media_settings_caption_description">Опис слике у чланку</string>
   <string name="insert_media_settings_alternative_text">Алтернативни текст</string>
   <string name="insert_media_settings_alternative_text_description">Опис за слабовиде (или слепе) читаоце</string>
   <string name="insert_media_advanced_settings">Напредна подешавања</string>
@@ -1006,6 +1018,8 @@
   <string name="menu_option_edit_source">Уреди извор</string>
   <string name="menu_option_user_page">Корисничка страница %s</string>
   <string name="talk_menu_copy_text">Копирај текст</string>
+  <string name="watchlist_details_watching_label">Надгледате</string>
+  <string name="watchlist_details_watch_label">Надгледај</string>
   <string name="watchlist_details_next_edit">Следећа измена</string>
   <string name="watchlist_details_prev_edit">Претходна измена</string>
   <string name="thank_label">Хвала</string>
@@ -1049,11 +1063,15 @@
   <string name="watchlist_page_deleted">Избрисано</string>
   <string name="watchlist_filter_wiki_filter_header">Вики</string>
   <string name="watchlist_filter_all_text">Све</string>
+  <string name="watchlist_filter_contribution_quality_good">Врло вероватно добро</string>
   <string name="watchlist_filter_contribution_quality_may_problems">Проблематично</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">Проблематично</string>
+  <string name="watchlist_filter_contribution_quality_bad">Врло вероватно има проблеме</string>
   <string name="watchlist_filter_user_intent_header">Предвиђање намера корисника</string>
   <string name="watchlist_filter_user_intent_good">Врло вероватно добронамерно</string>
+  <string name="watchlist_filter_user_intent_may_problems">Можда злонамерно</string>
   <string name="watchlist_filter_user_intent_likely_problems">Вероватно злонамерно</string>
+  <string name="watchlist_filter_user_intent_bad">Врло вероватно злонамерно</string>
   <string name="watchlist_filter_user_status_unregistered">Анонимни</string>
   <string name="watchlist_filter_user_status_registered">Регистровани</string>
   <string name="watchlist_filter_user_status_newcomers">Новајлије</string>
