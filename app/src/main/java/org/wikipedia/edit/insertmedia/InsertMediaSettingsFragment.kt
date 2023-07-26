@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -16,11 +17,13 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentInsertMediaSettingsBinding
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.AppTextViewWithImages
 import org.wikipedia.views.ImagePreviewDialog
 import org.wikipedia.views.ViewUtil
 
@@ -84,6 +87,21 @@ class InsertMediaSettingsFragment : Fragment() {
 
         binding.mediaCaptionText.setText(activity.intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION))
         binding.mediaAlternativeText.setText(activity.intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT))
+
+        val movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
+        var textView = binding.mediaCaptionLayout.findViewById<AppCompatTextView>(com.google.android.material.R.id.textinput_helper_text)
+        textView.setLinkTextColor(textView.currentTextColor)
+        var url = "" // TODO
+        var text = StringUtil.fromHtml("<a href=\"" + url + "\">" + getString(R.string.insert_media_settings_caption_description) + " ^1</a>")
+        AppTextViewWithImages.setTextWithDrawables(textView, text, R.drawable.ic_open_in_new_black_24px)
+        textView.movementMethod = movementMethod
+
+        textView = binding.mediaAlternativeTextLayout.findViewById(com.google.android.material.R.id.textinput_helper_text)
+        textView.setLinkTextColor(textView.currentTextColor)
+        url = "" // TODO
+        text = StringUtil.fromHtml("<a href=\"" + url + "\">" + getString(R.string.insert_media_settings_caption_description) + " ^1</a>")
+        AppTextViewWithImages.setTextWithDrawables(textView, text, R.drawable.ic_open_in_new_black_24px)
+        textView.movementMethod = movementMethod
 
         return binding.root
     }
