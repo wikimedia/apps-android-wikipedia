@@ -161,7 +161,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     override fun onResume() {
         super.onResume()
-        resumedMillis = System.currentTimeMillis()
+        if (resumedMillis == 0L) {
+            resumedMillis = System.currentTimeMillis()
+        }
     }
 
     private fun onLoading() {
