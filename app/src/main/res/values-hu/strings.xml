@@ -384,6 +384,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">A szócikk nem tölthető be kapcsolat nélkül.</string>
   <string name="page_offline_notice_add_to_reading_list">Tipp: Add hozzá a szócikket egy olvasólistához, hogy letöltődjön, amikor kapcsolódsz az internethez.</string>
   <string name="page_offline_notice_last_date">A szócikk offline verzióját olvasod, mentve: %s</string>
+  <string name="redirected_from_snackbar">„%s” szócikkből átirányítva</string>
   <string name="button_get_directions">Útvonalterv</string>
   <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
   <string name="preference_title_customize_explore_feed">Felfedezés hírcsatorna</string>

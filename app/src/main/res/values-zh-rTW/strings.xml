@@ -394,6 +394,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">條目不能在離線時載入。</string>
   <string name="page_offline_notice_add_to_reading_list">提示：將條目新增至閱讀清單，令您可在返回線上時下載。</string>
   <string name="page_offline_notice_last_date">您正閱讀此條目儲存於 %s 的離線版本。</string>
+  <string name="redirected_from_snackbar">已從「%s」重新導向</string>
   <string name="button_get_directions">取得路線</string>
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_customize_explore_feed">探索摘要</string>
