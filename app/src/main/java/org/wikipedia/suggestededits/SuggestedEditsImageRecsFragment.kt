@@ -279,17 +279,33 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             if (!isResumed || !isAdded) {
                 return@post
             }
-            val balloonLast = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_3), autoDismiss = true,
-                showDismissButton = true, countNum = 3, countTotal = 3)
-            balloonLast.setOnBalloonDismissListener {
-                Prefs.suggestedEditsImageRecsOnboardingShown = true
+
+            val balloon1 = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_1), autoDismiss = true,
+                showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 1, countTotal = 3).apply {
+                setOnBalloonInitializedListener {
+                    // TODO: send event
+                }
             }
-            val balloon = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_1), autoDismiss = true,
-                showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 1, countTotal = 3)
-            balloon.showAlignBottom(if (binding.articleDescription.isVisible) binding.articleDescription else binding.articleTitle)
-            balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_2), autoDismiss = true,
-                showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 2, countTotal = 3), binding.instructionText)
-                .relayShowAlignBottom(balloonLast, binding.acceptButton)
+
+            val balloon2 = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_2), autoDismiss = true,
+                showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 2, countTotal = 3).apply {
+                setOnBalloonInitializedListener {
+                    // TODO: send event
+                }
+            }
+
+            val balloon3 = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_3), autoDismiss = true,
+                showDismissButton = true, countNum = 3, countTotal = 3).apply {
+                setOnBalloonInitializedListener {
+                    // TODO: send event
+                }
+                setOnBalloonDismissListener {
+                    Prefs.suggestedEditsImageRecsOnboardingShown = true
+                }
+            }
+
+            balloon1.showAlignBottom(if (binding.articleDescription.isVisible) binding.articleDescription else binding.articleTitle)
+            balloon1.relayShowAlignBottom(balloon2, binding.instructionText).relayShowAlignBottom(balloon3, binding.acceptButton)
         }
     }
 
