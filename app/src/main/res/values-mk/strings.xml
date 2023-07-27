@@ -368,6 +368,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Статијата не може да се вчита додека не сте на линија.</string>
   <string name="page_offline_notice_add_to_reading_list">Совет: Додајте ја статијата во список за читање, па истата ќе биде преземена кога ќе добиете линија.</string>
   <string name="page_offline_notice_last_date">Читате вонмрежна верзија на статијава, зачувана на %s.</string>
+  <string name="redirected_from_snackbar">Пренасочено од „%s“</string>
   <string name="button_get_directions">Дај насоки</string>
   <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
   <string name="preference_title_customize_explore_feed">Тековник „Истражи“</string>
