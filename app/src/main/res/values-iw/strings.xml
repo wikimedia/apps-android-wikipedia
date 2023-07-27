@@ -394,6 +394,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">אי־אפשר לטעון ערך ללא חיבור לרשת.</string>
   <string name="page_offline_notice_add_to_reading_list">רמז: הוסף את הערך לרשימת הקריאה, והוא יוּרד כששוב יהיה חיבור לרשת.</string>
   <string name="page_offline_notice_last_date">זאת גרסה לקריאה ללא חיבור לרשת של הערך הזה, שנשמרה ב־%s.</string>
+  <string name="redirected_from_snackbar">הופנה מהדף \"%s\"</string>
   <string name="button_get_directions">לקבל כיוונים</string>
   <string name="error_no_maps_app">לא מצאתי אף יישום שנותן הכוונה.</string>
   <string name="preference_title_customize_explore_feed">הזנת \"לחקור\"</string>
@@ -484,7 +485,7 @@
   <string name="reading_list_article_already_exists_message">הכול טוב! הרשימה %1$s כבר מכילה את הערך %2$s.</string>
   <string name="reading_list_articles_already_exist_message">הכול טוב! הרשימה %s כבר מכילה את כל הערכים.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
-  <string name="reading_list_add_to_list_button">הוספת לרשימה</string>
+  <string name="reading_list_add_to_list_button">הוספה לרשימה</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">ערך אחד</item>
     <item quantity="two">%d ערכים</item>

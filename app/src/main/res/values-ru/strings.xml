@@ -440,6 +440,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Статья не может быть загружена без подключения к интернету.</string>
   <string name="page_offline_notice_add_to_reading_list">Подсказка: Добавьте эту статью в список к прочтению, и она будет загружена, как только появится подключение к сети.</string>
   <string name="page_offline_notice_last_date">Вы читаете офлайн-версию статьи, сохранённой %s</string>
+  <string name="redirected_from_snackbar">Перенаправлено с «%s»</string>
   <string name="button_get_directions">Проложить маршрут</string>
   <string name="error_no_maps_app">Не удалось найти ни одного приложения, которое бы прокладывало маршрут.</string>
   <string name="preference_title_customize_explore_feed">Исследователь ленту</string>
@@ -1145,7 +1146,7 @@
     <item quantity="other">Вы добавили символов: %d</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Изображения статьи</string>
-  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Решите, улучшит ли предлагаемое изображение статью.</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Добавляйте рекомендуемые изображения в статьи Википедии, чтобы улучшить их восприятие.</string>
   <string name="image_recommendation_task_instruction">Не могли бы вы добавить это изображение в статью?</string>
   <string name="image_recommendation_tutorial">Руководство</string>
   <string name="image_recommendation_accept">Да</string>
@@ -1161,6 +1162,10 @@
   <string name="image_recommendation_reject_other">Другое</string>
   <string name="image_recommendation_reject_submit">Отправить</string>
   <string name="image_recommendation_tooltip_main">Добавьте отсутствующие изображения в статьи в разделе «Предложенные правки».</string>
+  <string name="image_recommendation_onboarding_1">Изображения помогают людям в понимании, но во многих статьях их нет.</string>
+  <string name="image_recommendation_onboarding_2">Вы сами решаете, следует ли размещать предлагаемое изображение в статье Википедии.</string>
+  <string name="image_recommendation_onboarding_4">Изображения взяты из Викисклада, коллекции свободно лицензированных изображений, используемых Википедией.</string>
+  <string name="image_recommendation_tooltip_3">Решите, поможет ли изображение читателям лучше понять эту тему.</string>
   <string name="image_recommendation_tooltip_next">Далее</string>
   <string name="edit_summary_added_image">Добавлено изображение</string>
   <string name="edit_summary_added_caption">Добавлена подпись</string>
