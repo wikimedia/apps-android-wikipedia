@@ -633,12 +633,12 @@
     <item quantity="one">ပီႈၵၢႆ</item>
     <item quantity="other">ပူၼ်ႉမႃး %d ပီ</item>
   </plurals>
-  <string name="languages_list_activity_title">ထႅမ်သႂ်ႇ ၽႃႇသႃႇၵႂၢမ်း</string>
+  <string name="languages_list_activity_title">ထႅမ်သႂ်ႇ ၽႃႇသႃႇ</string>
   <string name="languages_list_suggested_text">ဢၼ်ၶႆႈၸႂ်ဝႆႉ</string>
   <string name="languages_list_all_text">ၽႃႇသႃႇၵႂၢမ်း တင်းသဵင်ႈ</string>
   <string name="wikipedia_languages_title">ၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="wikipedia_languages_your_languages_text">ၽႃႇသႃႇၵႂၢမ်းၸဝ်ႈၵဝ်ႇ</string>
-  <string name="wikipedia_languages_add_language_text">ထႅမ်သႂ်ႇ ၽႃႇသႃႇၵႂၢမ်း</string>
+  <string name="wikipedia_languages_add_language_text">ထႅမ်သႂ်ႇ ၽႃႇသႃႇ</string>
   <string name="wikipedia_languages_remove_text">ထွၼ်ပႅတ်ႈ ၽႃႇသႃႇၵႂၢမ်း</string>
   <string name="wikipedia_languages_remove_action_mode_title">ထွၼ်ပႅတ်ႈ ၽႃႇသႃႇၵႂၢမ်း</string>
   <plurals name="wikipedia_languages_remove_dialog_title">

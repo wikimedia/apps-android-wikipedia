@@ -410,6 +410,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Madde, çevrimdışı iken yüklenemez.</string>
   <string name="page_offline_notice_add_to_reading_list">İpucu: Maddeyi bir okuma listesine ekleyin, böylece yeniden çevrimiçi olduğunuzda indirilsin.</string>
   <string name="page_offline_notice_last_date">Bu sayfanın %s tarihinde kaydedilmiş bir çevrimdışı sürümünü okuyorsunuz.</string>
+  <string name="redirected_from_snackbar">\"%s\" sayfasından yönlendirildi</string>
   <string name="button_get_directions">Yol tarifi al</string>
   <string name="error_no_maps_app">Tarif verebilecek herhangi bir uygulama bulunamadı.</string>
   <string name="preference_title_customize_explore_feed">Yayın Akışını Keşfedin</string>
@@ -1215,7 +1216,7 @@
   <string name="insert_media_settings">Görsel ayrıntıları ekle</string>
   <string name="insert_media_settings_uploaded_image">Yüklenen resim</string>
   <string name="insert_media_settings_caption">Görsel alt yazısı</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Tüm okuyucular için ögenin yanında gösterilen etiket</string>
+  <string name="insert_media_settings_caption_description">Maddede görünür görsel etiketi</string>
   <string name="insert_media_settings_alternative_text">Alternatif metin</string>
   <string name="insert_media_settings_alternative_text_description">Görme engelli okuyucular için açıklama</string>
   <string name="insert_media_advanced_settings">Gelişmiş ayarlar</string>
