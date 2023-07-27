@@ -2780,7 +2780,7 @@
                 "text-size": 12,
                 "icon-image": "{maki}-18",
                 "text-font": [
-                    "Noto Sans Regular"
+                    "Open Sans Regular"
                 ],
                 "text-padding": 2,
                 "visibility": "visible",
@@ -2819,7 +2819,7 @@
             "layout": {
                 "symbol-placement": "line",
                 "text-font": [
-                    "Noto Sans Regular"
+                    "Open Sans Regular"
                 ],
                 "text-field": "{name}",
                 "text-rotation-alignment": "map",
@@ -2869,7 +2869,7 @@
                 "icon-rotation-alignment": "viewport",
                 "symbol-spacing": 600,
                 "text-font": [
-                    "Noto Sans Regular"
+                    "Open Sans Regular"
                 ],
                 "symbol-placement": {
                     "base": 1,
@@ -2921,7 +2921,7 @@
             "layout": {
                 "text-field": "{name}",
                 "text-font": [
-                    "Noto Sans Bold"
+                    "Open Sans Bold"
                 ],
                 "text-letter-spacing": 0.5,
                 "text-max-width": 9,
@@ -2972,7 +2972,7 @@
             "layout": {
                 "text-field": "{name}",
                 "text-font": [
-                    "Noto Sans Regular"
+                    "Open Sans Regular"
                 ],
                 "text-max-width": 8,
                 "text-size": {
@@ -3018,7 +3018,7 @@
             "layout": {
                 "text-field": "{name}",
                 "text-font": [
-                    "Noto Sans Regular"
+                    "Open Sans Regular"
                 ],
                 "text-max-width": 3,
                 "text-line-height": 1.3,
@@ -3077,7 +3077,7 @@
                 "icon-image": "dot",
                 "text-field": "{name}",
                 "text-font": [
-                    "Noto Sans Regular"
+                    "Open Sans Regular"
                 ],
                 "text-max-width": 8,
                 "text-size": {
@@ -3126,7 +3126,7 @@
             "layout": {
                 "text-field": "{name}",
                 "text-font": [
-                    "Noto Sans Regular"
+                    "Open Sans Regular"
                 ],
                 "text-max-width": 8,
                 "text-size": {
@@ -3193,7 +3193,7 @@
             "layout": {
                 "text-field": "{name}",
                 "text-font": [
-                    "Noto Sans Bold"
+                    "Open Sans Bold"
                 ],
                 "text-max-width": {
                     "stops": [
@@ -3269,7 +3269,7 @@
             "layout": {
                 "text-field": "{name}",
                 "text-font": [
-                    "Noto Sans Bold"
+                    "Open Sans Bold"
                 ],
                 "text-max-width": 6.25,
                 "text-size": {
@@ -3318,7 +3318,7 @@
             "layout": {
                 "text-field": "{name}",
                 "text-font": [
-                    "Noto Sans Bold"
+                    "Open Sans Bold"
                 ],
                 "text-max-width": 6.25,
                 "text-size": {
@@ -3371,7 +3371,7 @@
             "layout": {
                 "text-field": "{name}",
                 "text-font": [
-                    "Noto Sans Bold"
+                    "Open Sans Bold"
                 ],
                 "text-max-width": 6.25,
                 "text-size": {
@@ -3428,7 +3428,7 @@
             "layout": {
                 "text-field": "{name}",
                 "text-font": [
-                    "Noto Sans Bold"
+                    "Open Sans Bold"
                 ],
                 "text-max-width": 6.25,
                 "text-size": {
@@ -3496,7 +3496,7 @@
                     ]
                 },
                 "text-font": [
-                    "Noto Sans Bold"
+                    "Open Sans Bold"
                 ],
                 "text-max-width": 6.25,
                 "text-size": {
@@ -3533,8 +3533,8 @@
             }
         }
     ],
-    "sprite": "https://petersongis.github.io/Mobility/wikisprites",
-    "glyphs": "https://petersongis.github.io/Mobility/fonts/{fontstack}/{range}.pbf",
+    "sprite": "https://maps-beta.wmflabs.org/static/webgl/wikisprites",
+    "glyphs": "https://maps-beta.wmflabs.org/static/webgl/font/{fontstack}/{range}.pbf",
     "name": "mvt-style",
     "bearing": 0,
     "zoom": 1,
