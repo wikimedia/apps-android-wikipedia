@@ -385,6 +385,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikkelen kan ikke lastes uten nett</string>
   <string name="page_offline_notice_add_to_reading_list">Tips: Legger du til artikkelen i leselisten vil den bli lastet ned så fort du har nett igjen.</string>
   <string name="page_offline_notice_last_date">Du leser en offlineutgave av denne artikkelen som ble lagret %s.</string>
+  <string name="redirected_from_snackbar">Omdirigert fra «%s»</string>
   <string name="button_get_directions">Veibeskrivelse</string>
   <string name="error_no_maps_app">Fant ikke noen apper som kunne gi veibeskrivelse.</string>
   <string name="preference_title_customize_explore_feed">Utforskingsmating</string>

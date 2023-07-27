@@ -344,6 +344,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">ߦߌߟߡߊ ߕߴߛߋ߫ ߟߊߦߟߍ߬ ߟߊ߫ ߞߵߌ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌ ߕߏ߫.</string>
   <string name="page_offline_notice_add_to_reading_list">ߟߊ߬ߟߌ߬ߟߌ: ߦߌߟߡߊ ߟߊߘߏ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫߸ ߏ߬ ߓߊ߯ ߞߍ߫ ߌ ߓߴߌ ߜߊ߲߬ߞߎ߲߫ ߕߎ߬ߡߊ ߡߍ߲ ߊ߬ ߘߌ߫ ߥߎߟߊߟߊߖߛߐ߫.</string>
   <string name="page_offline_notice_last_date">ߌ ߦߋ߫ ߜߊ߲߬ߞߎ߲߬ ߓߊ߬ߟߌ߬ߦߊ߬ ߦߌߟߡߊ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲ ߠߋ߬ ߘߐߞߊ߬ߙߊ߲ ߞߊ߲߬ ߣߌ߲߬ %s</string>
+  <string name="redirected_from_snackbar">ߌ ߟߊߞߎ߲߬ߛߌ߲߬ߣߍ߲߬ ߦߋ߫ ߞߊ߬ ߝߘߊ߫ %s</string>
   <string name="button_get_directions">ߞߎ߲߬ߕߋߟߋ߲ ߡߊߛߐ߬ߘߐ߲߬</string>
   <string name="error_no_maps_app">ߊ߬ ߕߍ߫ ߣߊ߬ ߟߊ߬ߥߊ߬ߟߌ߬ߟߊ߲߬ ߛߌ߫ ߛߐ߬ߘߐ߲߬ ߠߊ߫ ߡߍ߲ ߦߋ߫ ߞߎ߲߬ߕߋߟߋ߲ ߡߊߛߐ߫ ߟߊ߫.</string>
   <string name="preference_title_customize_explore_feed">ߞߊߙߌ ߓߍ߬ߙߍ߲߬ߓߍߙߍ߲߫</string>
@@ -363,6 +364,7 @@
   <string name="error_message_generic">ߝߎ߬ߕߎ߲߬ߕߌ ߘߏ߫ ߓߘߊ߫ ߓߌ߬ߟߵߊ߬ ߘߐ߫</string>
   <string name="view_link_preview_error_button_dismiss">ߟߊ߬ߛߊ߬ߦߌ߬ߟߌ</string>
   <string name="error_page_does_not_exist">ߞߐߜߍ ߣߌ߲߬ ߕߴߦߋ߲߬</string>
+  <string name="error_user_page_does_not_exist">ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ߫ ߞߐߜߍ ߝߋ߫ ߕߍ߫ ߧߘߌߔߋߘߌߦߊ ߘߐ߫ &lt;a href=\"%1$s\"&gt;&lt;/a&gt; ߕߐ߮ ߣߌ߲߬ ߖߍ߬ߘߍ ߘߌ߫. ߊ߬ ߝߊ߲߬ߓߊ ߘߐ߫، ߞߐߜߍ ߣߌ߲߬ ߛߌ߲ߘߌߣߍ߲߫ ߦߋ߫ ߞߍ߫ ߟߊ߫ ߞߊ߬ ߓߊ߲߫ ߞߵߊ߬ ߡߊߦߟߍ߬ߡߊ߲߫ &lt;b&gt;%2$s&lt;/b&gt; ߟߋ߬ ߓߟߏ߫. ߣߴߌ ߛߌߞߊߣߍ߲߫ ߞߍ߫ ߘߊ߫، %3$s ߓߍߓߊ߮ ߝߛߍ߬ߝߛߍ߫ ߖߊ߰ߣߌ߲߫.</string>
   <string name="view_wiki_error_message_offline">ߊ߬ ߕߴߛߋ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߓߟߐߟߐ ߟߊ߫</string>
   <string name="view_wiki_error_message_timeout">ߊ߬ ߕߍߣߊ߬ ߛߐ߲߬ ߠߊ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߥߞߌߔߋߘߌߦߊ ߟߊ߫. ߌ ߟߊ߫ ߞߙߏ߬ߝߏ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߡߊߝߟߍ߫߸ ߥߟߊ߫ ߌ ߦߴߊ߬ ߡߊߝߍߣߍ߲߫ ߌߞߐߕߎ߲߯ ߞߐߟߊ߫</string>
   <string name="reference_title">ߦߟߌߡߊߛߙߋ %s</string>

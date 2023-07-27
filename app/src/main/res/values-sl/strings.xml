@@ -378,6 +378,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Članka brez povezave ni mogoče naložiti.</string>
   <string name="page_offline_notice_add_to_reading_list">Namig: Dodajte članek na bralni seznam in se bo prenesel, ko boste spet povezani.</string>
   <string name="page_offline_notice_last_date">Berete nepovezano različico tega članka; čas shranitve: %s.</string>
+  <string name="redirected_from_snackbar">Preusmerjeno z »%s«</string>
   <string name="button_get_directions">Pridobite navodila za pot</string>
   <string name="error_no_maps_app">Najti ni mogoče nobene navigacijske aplikacije.</string>
   <string name="preference_title_customize_explore_feed">Vir Raziskuj</string>
