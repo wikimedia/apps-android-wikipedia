@@ -40,30 +40,13 @@ jobs:
 
       run: ls -alR ./app/build/outputs/apk/
 
-    - uses: r0adkll/sign-android-release@v1
-
-      name: Sign APK
-
-      id: build_signed
-
-      with:
-
-        releaseDirectory: app/build/outputs/apk/alpha/release
-
-        signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-
-        alias: ${{ secrets.KEY_STORE_ALIAS }}
-
-        keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-
-        keyPassword: ${{ secrets.KEY_PASSWORD }}
-
+    
     - uses: actions/upload-artifact@v2
 
       name: Upload APK artifact
 
       with:
 
-        name: app_alpha_release
+        name: *
 
-        path: ${{steps.build_signed.outputs.signedReleaseFile}}
+        path: ./app/build/outputs/apk/
