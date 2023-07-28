@@ -9,7 +9,7 @@
     android:foreground="?android:attr/selectableItemBackground">
 
     <ImageView
-        android:layout_width="48dp"
+        android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="4dp"
