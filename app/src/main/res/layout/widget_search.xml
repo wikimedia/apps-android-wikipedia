@@ -13,7 +13,7 @@
         android:layout_height="32dp"
         android:layout_marginBottom="2dp"
         android:contentDescription="@null"
-        android:src="@mipmap/img_widget_search_preview" />
+        android:src="@mipmap/img_widget_small_preview" />
 
     <TextView
         android:id="@+id/widget_content_text"
