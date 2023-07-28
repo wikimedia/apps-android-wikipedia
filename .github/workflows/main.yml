@@ -47,6 +47,6 @@ jobs:
 
       with:
 
-        name: *
+        name: *.apk
 
         path: ./app/build/outputs/apk/
