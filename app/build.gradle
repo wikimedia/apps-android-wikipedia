@@ -105,7 +105,7 @@ android {
         }
     }
 
-    flavorDimensions 'default'
+    flavorDimensions = ['default']
 
     productFlavors {
         dev {
