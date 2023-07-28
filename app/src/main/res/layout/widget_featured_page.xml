@@ -31,7 +31,7 @@
             android:layout_marginBottom="2dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@string/widget_title_featured_page"
+            android:text="@string/img_widget_search_preview"
             android:textColor="@color/gray500" />
 
         <TextView
