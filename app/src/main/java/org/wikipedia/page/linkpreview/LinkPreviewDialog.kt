@@ -86,8 +86,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     private val requestGalleryLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
-            startActivity(it.data)
+        if (it.resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED && it.data != null) {
+            startActivity(it.data!!)
         }
     }
 
