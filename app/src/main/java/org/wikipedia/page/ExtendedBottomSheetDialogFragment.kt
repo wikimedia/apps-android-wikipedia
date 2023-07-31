@@ -10,6 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.wikipedia.R
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
 
@@ -21,6 +22,7 @@ open class ExtendedBottomSheetDialogFragment : BottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         BreadCrumbLogEvent.logScreenShown(requireContext(), this)
+        BreadcrumbLogEvent().logScreenShown(requireContext(), this)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

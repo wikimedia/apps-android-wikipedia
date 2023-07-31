@@ -8,6 +8,7 @@ import androidx.preference.PreferenceViewHolder
 import androidx.preference.SwitchPreferenceCompat
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.util.DimenUtil
 
 open class SwitchPreferenceMultiLine : SwitchPreferenceCompat {
@@ -31,6 +32,7 @@ open class SwitchPreferenceMultiLine : SwitchPreferenceCompat {
     override fun callChangeListener(newValue: Any?): Boolean {
         val ret = super.callChangeListener(newValue)
         BreadCrumbLogEvent.logSettingsSelection(context, key, newValue)
+        BreadcrumbLogEvent().logSettingsSelection(context, key, newValue)
         return ret
     }
 }

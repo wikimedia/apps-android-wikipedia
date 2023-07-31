@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.core.text.getSpans
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -63,6 +64,7 @@ class LinkMovementMethodExt : LinkMovementMethod {
                 val url = UriUtil.decodeURL(links[0].url)
 
                 BreadCrumbLogEvent.logClick(widget.context, widget)
+                BreadcrumbLogEvent().logClick(widget.context, widget)
 
                 handler?.run {
                     onUrlClick(url)

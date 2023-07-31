@@ -3,6 +3,7 @@ package org.wikipedia.analytics
 import android.view.*
 import android.widget.TextView
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
@@ -36,8 +37,10 @@ object BreadcrumbsContextHelper {
                         } else {
                             if (touchMillis > ViewConfiguration.getLongPressTimeout()) {
                                 BreadCrumbLogEvent.logLongClick(window.context, it)
+                                BreadcrumbLogEvent().logLongClick(window.context, it)
                             } else {
                                 BreadCrumbLogEvent.logClick(window.context, it)
+                                BreadcrumbLogEvent().logClick(window.context, it)
                             }
                         }
                     }

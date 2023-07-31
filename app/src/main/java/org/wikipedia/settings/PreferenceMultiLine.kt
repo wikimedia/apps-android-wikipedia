@@ -12,6 +12,7 @@ import androidx.preference.Preference.OnPreferenceClickListener
 import androidx.preference.PreferenceViewHolder
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.util.DimenUtil
 
 @Suppress("unused")
@@ -50,6 +51,7 @@ class PreferenceMultiLine : Preference {
     @SuppressLint("RestrictedApi")
     override fun performClick() {
         BreadCrumbLogEvent.logSettingsSelection(context, if (!key.isNullOrEmpty()) key else title.toString())
+        BreadcrumbLogEvent().logSettingsSelection(context, if (!key.isNullOrEmpty()) key else title.toString())
         super.performClick()
     }
 }

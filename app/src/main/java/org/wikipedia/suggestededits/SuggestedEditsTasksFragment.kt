@@ -24,6 +24,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
@@ -63,6 +64,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
         Prefs.showOneTimeSequentialUserStatsTooltip = false
         BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.contributionsStatsView)
+        BreadcrumbLogEvent().logTooltipShown(requireActivity(), binding.contributionsStatsView)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
