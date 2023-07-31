@@ -30,6 +30,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityInsertMediaBinding
 import org.wikipedia.databinding.ItemEditActionbarButtonBinding
@@ -147,6 +148,13 @@ class InsertMediaActivity : BaseActivity() {
                 true
             }
             R.id.menu_save -> {
+                if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && viewModel.selectedImage != null) {
+                    ImageRecommendationsEvent.logAction("advanced_setting_save", "caption_entry",
+                        ImageRecommendationsEvent.getActionDataString(
+                        filename = viewModel.selectedImage?.prefixedText!!, recommendationSource = viewModel.selectedImage?.wikiSite?.languageCode!!,
+                        recommendationSourceProject = viewModel.selectedImage?.wikiSite?.languageCode!!, acceptanceState = "accepted", seriesNumber = "", totalSuggestions = ""),
+                        viewModel.selectedImage?.wikiSite?.languageCode!!)
+                }
                 onBackPressed()
                 true
             }

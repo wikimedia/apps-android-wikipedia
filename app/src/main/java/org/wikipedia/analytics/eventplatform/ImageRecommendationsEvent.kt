@@ -14,8 +14,19 @@ class ImageRecommendationsEvent(private val event: ImageRecommendationsImplEvent
         private const val STREAM_NAME = "eventlogging_EditAttemptStep"
         private const val INTEGRATION_ID = "app-android"
 
-        fun logImpression(activeInterface: String, actionData: String, wikiId: String) {
-            submitImageRecommendationEvent(ACTION_IMPRESSION, activeInterface, actionData, wikiId)
+        fun logImpression(activeInterface: String) {
+            submitImageRecommendationEvent(ACTION_IMPRESSION, activeInterface, "", "")
+        }
+
+        fun logAction(action: String, activeInterface: String, actionData: String, wikiId: String) {
+            submitImageRecommendationEvent(action, activeInterface, actionData, wikiId)
+        }
+
+        fun getActionDataString(filename: String = "", recommendationSource: String = "", recommendationSourceProject: String = "", rejectionReasons: String = "",
+                                acceptanceState: String = "", seriesNumber: String = "", totalSuggestions: String = "", revisionId: String = ""): String {
+            return "filename:$filename, recommendation_source:$recommendationSource,recommendation_source_project:$recommendationSourceProject, " +
+                    "rejection_reasons:$rejectionReasons, acceptance_state:$acceptanceState, series_number: $seriesNumber," +
+                    "total_suggestions: $totalSuggestions, revision_id:$revisionId"
         }
 
         private fun submitImageRecommendationEvent(action: String, activeInterface: String, actionData: String, wikiId: String) {

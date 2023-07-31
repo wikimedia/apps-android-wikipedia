@@ -12,8 +12,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.databinding.FragmentInsertMediaSettingsBinding
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.richtext.RichTextUtil
@@ -54,16 +56,20 @@ class InsertMediaSettingsFragment : Fragment() {
 
         binding.mediaCaptionLayout.setEndIconOnClickListener {
             currentVoiceInputParentLayout = binding.mediaCaptionLayout
+            sendInsertMediaEvent("tts_open")
             launchVoiceInput()
         }
         binding.mediaAlternativeTextLayout.setEndIconOnClickListener {
             currentVoiceInputParentLayout = binding.mediaAlternativeTextLayout
+            sendInsertMediaEvent("tts_open")
             launchVoiceInput()
         }
         binding.advancedSettings.setOnClickListener {
+            sendInsertMediaEvent("advanced_setting_open")
             activity.showMediaAdvancedSettingsFragment()
         }
         binding.imageInfoContainer.setOnClickListener {
+            sendInsertMediaEvent("image_detail_view")
             viewModel.selectedImage?.let {
                 val summary = PageSummaryForEdit(it.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode, it,
                     it.displayText, RichTextUtil.stripHtml(it.description), it.thumbUrl)
@@ -88,6 +94,19 @@ class InsertMediaSettingsFragment : Fragment() {
         return binding.root
     }
 
+    fun sendInsertMediaEvent(action: String) {
+        if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && viewModel.selectedImage != null) {
+            ImageRecommendationsEvent.logAction(action, "caption_entry", ImageRecommendationsEvent.getActionDataString(
+                filename = viewModel.selectedImage?.prefixedText!!, recommendationSource = viewModel.selectedImage?.wikiSite?.languageCode!!,
+                recommendationSourceProject = viewModel.selectedImage?.wikiSite?.languageCode!!, acceptanceState = "accepted", seriesNumber = "", totalSuggestions = ""),
+                viewModel.selectedImage?.wikiSite?.languageCode!!)
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ImageRecommendationsEvent.logImpression("caption_entry")
+    }
     private fun launchVoiceInput() {
         try {
             voiceSearchLauncher.launch(Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
@@ -121,6 +140,7 @@ class InsertMediaSettingsFragment : Fragment() {
 
     fun handleBackPressed(): Boolean {
         if (isActive) {
+            sendInsertMediaEvent("caption_preview_back")
             hide()
             return true
         }

@@ -28,6 +28,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.auth.AccountUtil.isLoggedIn
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
@@ -292,6 +293,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
         if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
             // If the intent is to add an image to the article, go directly to the image insertion flow.
+            ImageRecommendationsEvent.logImpression("caption_entry")
             startInsertImageFlow()
         }
 

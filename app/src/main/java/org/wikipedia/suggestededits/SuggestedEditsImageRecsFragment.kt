@@ -10,7 +10,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
-import android.view.View.*
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
@@ -32,6 +32,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecsItemBinding
 import org.wikipedia.dataclient.WikiSite
@@ -42,7 +43,11 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.*
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.ImageZoomHelper
@@ -98,14 +103,23 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.imageCard.strokeWidth = DimenUtil.roundedDpToPx(0.5f)
 
         binding.acceptButton.setOnClickListener {
+            ImageRecommendationsEvent.logAction("suggestion_accept", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
+                filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
+                recommendationSourceProject = viewModel.langCode, acceptanceState = "accepted", seriesNumber = "", totalSuggestions = ""), viewModel.langCode)
             doPublish()
         }
 
         binding.rejectButton.setOnClickListener {
+            ImageRecommendationsEvent.logAction("suggestion_reject", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
+                filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
+                recommendationSourceProject = viewModel.langCode, acceptanceState = "rejected", seriesNumber = "", totalSuggestions = ""), viewModel.langCode)
             SuggestedEditsImageRecsDialog.newInstance(0).show(childFragmentManager, null)
         }
 
         binding.notSureButton.setOnClickListener {
+            ImageRecommendationsEvent.logAction("suggestion_skip", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
+                filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
+                recommendationSourceProject = viewModel.langCode, acceptanceState = "undecided", seriesNumber = "", totalSuggestions = ""), viewModel.langCode)
             publish()
         }
 
@@ -147,6 +161,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 }
             }
         }
+        ImageRecommendationsEvent.logImpression("recommendedimagetoolbar")
     }
 
     override fun onStart() {
@@ -280,6 +295,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             val balloonLast = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_3), autoDismiss = true,
                 showDismissButton = true, countNum = 3, countTotal = 3)
             balloonLast.setOnBalloonDismissListener {
+                ImageRecommendationsEvent.logAction("get_started", "onboarding_step_4_dialog", "", "")
                 Prefs.suggestedEditsImageRecsOnboardingShown = true
             }
             val balloon = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_1), autoDismiss = true,
@@ -324,6 +340,10 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     override fun onDialogSubmit(response: Int, selectedItems: List<Int>) {
         viewModel.rejectRecommendation(null, selectedItems)
+        ImageRecommendationsEvent.logAction("reject_submit", "rejection_dialog", ImageRecommendationsEvent.getActionDataString(
+            filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
+            recommendationSourceProject = viewModel.langCode, rejectionReasons = selectedItems.joinToString { "," }, acceptanceState = "rejected",
+            seriesNumber = "", totalSuggestions = ""), viewModel.langCode)
         publish()
     }
 
