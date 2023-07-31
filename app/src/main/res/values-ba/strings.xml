@@ -378,6 +378,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Мәҡәләне Интернетҡа тоташмайынса күсереп алып булмай.</string>
   <string name="page_offline_notice_add_to_reading_list">Кәңәш:Был мәҡәләне уҡыу исемлегенә өҫтәгеҙ, ул һеҙ онлайн булғас уҡ йөкләнәсәк.</string>
   <string name="page_offline_notice_last_date"> %s проценты һаҡланған офлайн-мәҡәләне уҡыйһығыҙ.</string>
+  <string name="redirected_from_snackbar">%s битенән йүнәлтелде</string>
   <string name="button_get_directions">Маршрут һалыу</string>
   <string name="error_no_maps_app">Маршрут һалырлыҡ бер ҡушымтаны ла табып булманы</string>
   <string name="preference_title_customize_explore_feed">Таҫманы тикшереүсе</string>
@@ -634,8 +635,49 @@
   <string name="notification_channel_title">Мәҡәләләрҙе йөкләү</string>
   <string name="notification_channel_description">Йөкләү үҫеше</string>
   <string name="notification_syncing_pause_button">Пауза</string>
+  <string name="notification_syncing_resume_button">Йомғаҡлау</string>
   <string name="notification_syncing_cancel_button">Кире алырға</string>
+  <string name="notification_syncing_reading_list_channel_title">Уҡыу исемлектәрен синхронлаштырырға</string>
   <string name="notification_syncing_reading_list_channel_description">Уҡыу исемлектәрен синхронлаштырыу үҫеше</string>
+  <string name="notification_many_unread">Һеҙҙең %d уҡылмаған белдереүегеҙ бар</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Мөҡәләне йөкләргә</item>
+    <item quantity="other">Мәҡәләләрҙе йөкләргә</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">%1$d мәҡәләне йөкләү…</item>
+    <item quantity="other">%1$d мәҡәләне йөкләү…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d мәҡәлә ҡалды</item>
+    <item quantity="other">%1$d мәҡәлә ҡалды</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Уҡыу исемлеген синхронлаштырыу</item>
+    <item quantity="other">Уҡыу исемлектәрен синхронлаштырыу</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">%1$d исемлеге синхронлаштырыла…</item>
+    <item quantity="other">%1$d исемлеге синхронлаштырыла…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d исемлек ҡалды</item>
+    <item quantity="other">%1$d исемлек ҡалды</item>
+  </plurals>
+  <string name="notification_echo_channel_description">Википедия белдереүҙәре</string>
+  <string name="notifications_activity_title">Белдереүҙәр</string>
+  <string name="notifications_activity_title_archived">Белдереүҙәр (архивланған)</string>
+  <string name="notifications_search">Белдереүҙәрҙе эҙләү</string>
+  <string name="notifications_view_unread">Уҡылмаған белдереүҙәрҙе ҡарау</string>
+  <string name="notifications_view_archived">Архивланған белдереүҙәрҙе ҡарау</string>
+  <string name="notifications_prefs">Белдереүҙәрҙе көйләү</string>
+  <string name="notifications_archive">Уҡылған тип белдерегеҙ һәм архивлағыҙ</string>
+  <plurals name="notification_archive_message">
+    <item quantity="other">%d белдереү архивланған</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">Белдереүҙәрҙе ҡабыҙырға</string>
+  <string name="notifications_poll_enable_positive">Ҡабыҙылды</string>
+  <string name="notifications_poll_enable_negative">Хәҙер түгел</string>
   <string name="suggested_edits_task_action_text_add">Өҫтәргә</string>
   <string name="suggested_edits_image_captions">Рәсем тасуирламаһы</string>
 </resources>

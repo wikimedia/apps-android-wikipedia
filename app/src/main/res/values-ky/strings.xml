@@ -18,6 +18,7 @@
   <string name="nav_item_search">Издөө</string>
   <string name="error_network_error" fuzzy="true">Тармакка туташуу туруктуу эмес.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
+  <string name="page_error_back_to_main">Артка кайтуу</string>
   <string name="menu_clear_all_history">Тарыхты тазалоо</string>
   <string name="history_item_delete_undo">Жокко чыгаруу</string>
   <string name="notification_archive_undo">Жокко чыгаруу</string>
@@ -98,6 +99,7 @@
   <string name="preferences_account_heading">Аккаунт</string>
   <string name="send_feedback">Тиркемеге өз бааңызды жөнөтүңүз</string>
   <string name="create_account_account_created_toast">Эсеп жазуусу түзүлдү!</string>
+  <string name="preferences_privacy_settings_heading">Купуялык</string>
   <string name="preference_title_eventlogging_opt_in">Колдонуу тууралуу маалыматтарды жөнөтүү</string>
   <string name="preference_summary_eventlogging_opt_in">Уикимедиага сиз бул тиркемени кантип колдонуп жаткандыгыңыз тууралуу маалыматтарды чогултууга уруксат бериңиз. Бул, аны жакшыртууга мүмкүндүк берет.</string>
   <string name="editing_error_spamblacklist">Бөгөттөлгөн домендерге (%s) шилтемелер табылды. Сураныч, аларды өчүрүп, кайра аракет кылып көрүңүз.</string>
@@ -109,7 +111,7 @@
   <string name="page_protected_can_not_edit_title">Бул барак корголгон</string>
   <string name="settings_activity_title" fuzzy="true">Ырастоолор</string>
   <string name="about_description">«Уикипедия» тиркемеси жөнүндө</string>
-  <string name="privacy_policy_description">Купуялуулук саясаты</string>
+  <string name="privacy_policy_description">Купуялык саясаты</string>
   <string name="terms_of_use_description">Колдонуу шарттары</string>
   <string name="about_wikipedia_url">https://ky.wikipedia.org/wiki/Уикипедия:тууралуу</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Купуялуулук_саясаты</string>
@@ -146,6 +148,7 @@
   <string name="clear_recent_searches_confirm_yes">Ооба</string>
   <string name="clear_recent_searches_confirm_no">Жок</string>
   <string name="error_browser_not_found">Веб-баракты ачууга мүмкүнчүлүк болбоду (браузер тиркемеси табылган жок).</string>
+  <string name="table_other">Толук маалымат</string>
   <string name="table_close">Жабуу</string>
   <string name="alpha_update_notification_title">Альфа-нусканын жаңы жаңылануусу жеткиликтүү</string>
   <string name="alpha_update_notification_text">Жүктөп алуу үчүн басыңыз</string>
@@ -159,10 +162,12 @@
   <string name="color_theme_select">Жасалга</string>
   <string name="color_theme_light">Ачык</string>
   <string name="color_theme_dark">Караңгы</string>
+  <string name="reading_list_item_delete_undo">Жокко чыгаруу</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ооба</string>
   <string name="reading_lists_confirm_remote_delete_no">Жок</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Жокко чыгаруу</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Кирүү</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Макул</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Жокко чыгаруу</string>
@@ -177,6 +182,7 @@
   <string name="suggested_edits_task_action_text_translate">Которуу</string>
   <string name="description_edit_login_cancel_button_text">Жокко чыгаруу</string>
   <string name="app_shortcuts_search">Издөө</string>
+  <string name="more_language_options">көбүрөөк</string>
   <string name="remove_language_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="wikitext_link">Шилтеме</string>
@@ -185,6 +191,7 @@
   <string name="custom_date_picker_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="talk_title">Талкуу</string>
   <string name="talk_user_title">Талкуу: %s</string>
+  <string name="talk_snackbar_undo">Жокко чыгаруу</string>
   <string name="thank_dialog_negative_button_text">Жокко чыгаруу</string>
   <string name="watchlist_filter_talk">Талкуулар</string>
 </resources>
