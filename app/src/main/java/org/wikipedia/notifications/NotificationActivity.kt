@@ -72,7 +72,7 @@ class NotificationActivity : BaseActivity() {
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
-            beginUpdateList()
+            viewModel.fetchAndSave(true)
         } else {
             viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
         }
@@ -85,7 +85,7 @@ class NotificationActivity : BaseActivity() {
         setSupportActionBar(binding.notificationsToolbar)
         supportActionBar?.title = getString(R.string.notifications_activity_title)
 
-        binding.notificationsErrorView.retryClickListener = View.OnClickListener { beginUpdateList() }
+        binding.notificationsErrorView.retryClickListener = View.OnClickListener { viewModel.fetchAndSave() }
         binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.notificationsRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
@@ -105,9 +105,8 @@ class NotificationActivity : BaseActivity() {
         itemTouchHelper.attachToRecyclerView(binding.notificationsRecyclerView)
 
         binding.notificationsRefreshView.setOnRefreshListener {
-            binding.notificationsRefreshView.isRefreshing = false
             finishActionMode()
-            beginUpdateList()
+            viewModel.fetchAndSave(true)
         }
 
         binding.notificationTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -124,8 +123,7 @@ class NotificationActivity : BaseActivity() {
         })
 
         Prefs.notificationUnreadCount = 0
-
-        beginUpdateList()
+        setLoadingState()
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -183,7 +181,7 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun beginUpdateList() {
+    private fun setLoadingState() {
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
@@ -191,10 +189,10 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsProgressBar.visibility = View.VISIBLE
         binding.notificationTabLayout.visibility = View.GONE
         supportActionBar?.setTitle(R.string.notifications_activity_title)
-        viewModel.fetchAndSave()
     }
 
     private fun setSuccessState() {
+        binding.notificationsRefreshView.isRefreshing = false
         binding.notificationsProgressBar.visibility = View.GONE
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.VISIBLE
@@ -203,6 +201,7 @@ class NotificationActivity : BaseActivity() {
 
     private fun setErrorState(throwable: Throwable) {
         L.e(throwable)
+        binding.notificationsRefreshView.isRefreshing = false
         binding.notificationsProgressBar.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE

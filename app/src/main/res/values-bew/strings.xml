@@ -106,8 +106,8 @@
   <string name="other_languages_indication_text">Baca dalem basa laèn</string>
   <string name="language_count_link_text">Kesedia di %d basa laèn</string>
   <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
-  <string name="edit_save_action_license_logged_in">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah lisènsi &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah lisènsi &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Permakan bakal dinisbatin ke aderès IP lu punya alat. Kalo lu &lt;a href=\"https://#login\"&gt;masup&lt;/a&gt;, lu bakal ada punya keresiaan dèwèk nyang lebi.</string>
+  <string name="edit_save_action_license_logged_in">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah ongji &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah ongji &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Permakan bakal dinisbatin ke aderès IP lu punya alat. Kalo lu &lt;a href=\"https://#login\"&gt;masup&lt;/a&gt;, lu bakal ada punya keresiaan dèwèk nyang lebi.</string>
   <string name="edit_anon_warning">Permakan bakal dinisbatin ke aderès IP lu punya alat. Kalo lu &lt;a href=\"https://#login\"&gt;masup&lt;/a&gt;, lu bakal ada punya keresiaan lebi.</string>
   <string name="preference_title_language">Basa Wikipédi</string>
   <string name="langlinks_filter_hint">Cari</string>
@@ -210,7 +210,7 @@
   <string name="preference_title_eventlogging_opt_in">Kirim laporan pemakéan</string>
   <string name="preference_summary_eventlogging_opt_in">Ijinin Wikimédia ngumpulin inpormasi pasal cara lu maké ni aplikasi biar mangkin bagus dah ni aplikasi</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
-  <string name="preference_summary_auto_upload_crash_reports">Ijinin aplikasi otomatis ngirim laporan kerusakan ke penyedia layanan pihak ketiga biar kita bisa merèksa dah lu punya kerusakan èn ngebetulin tu bangsat lebi lekas èn gampil.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Ijinin aplikasi otomatis ngirim laporan kerusakan ke penyedia ladènan pihak ketiga biar kita bisa merèksa dah lu punya kerusakan èn ngebetulin tu bangsat lebi lekas èn gampil.</string>
   <string name="editing_error_spamblacklist">Sènggètan ke domén nyang diblokir (%s) keendus. Dimohon buang tu èn jal lagi.</string>
   <string name="history_filter_list_hint">Saring riwayat</string>
   <string name="error_can_not_process_link">Kaga\' bisa mampangin ni sènggètan</string>
@@ -225,7 +225,7 @@
   <string name="settings_item_preferences">Penyetèlan</string>
   <string name="settings_activity_title">Penyetèlan</string>
   <string name="about_description">Pasal aplikasi Wikipédi</string>
-  <string name="privacy_policy_description">Kebijakan keresiaan</string>
+  <string name="privacy_policy_description">Belèd keresiaan</string>
   <string name="terms_of_use_description">Ketentuan pemakéan</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipédi:Pasal</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/id#Baca_luar_jala_èn_data</string>
@@ -240,8 +240,8 @@
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Halaman tim&lt;/a&gt;</string>
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Ni aplikasi udah diterjemahin ama penerjemah sukarèla di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_app_license_heading">Lisènsi</string>
-  <string name="about_app_license">Kode sumber kesedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; èn &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lisènsi Apache 2.0&lt;/a&gt;. Kecuali ada ketentuan tambahan nyang belakon, isi kesedia di bawahnya &lt;a href=\"\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Lisènsi Nisbat-DumanSetumbras Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license_heading">Ongji</string>
+  <string name="about_app_license">Kode sumber kesedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; èn &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Ongji Apache 2.0&lt;/a&gt;. Kecuali ada ketentuan tambahan nyang belakon, isi kesedia di bawahnya &lt;a href=\"\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Ongji Nisbat-DumanSetumbras Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Produk deri &lt;a href=\"https://wikimediafoundation.org/\"&gt;Yayasan Wikimédia&lt;/a&gt;</string>
   <string name="about_activity_title">Pasal</string>
   <string name="edit_abandon_confirm">Ni halaman udah didandanin. Apa lu yakin pèngèn kuar sonder nyimpen lu punya perobahan?</string>
@@ -316,7 +316,7 @@
   <string name="about_article_section">Pasal ni makalah</string>
   <string name="menu_gallery_visit_image_page">Ke halaman gambar</string>
   <string name="gallery_error_draw_failed">Kaga\' bisa narik gambar.</string>
-  <string name="license_title">Lisènsi bakal %s</string>
+  <string name="license_title">Ongji bakal %s</string>
   <string name="gallery_menu_share">Dumanin</string>
   <string name="gallery_share_error">Kaga\' bisa ngedumanin gambar: %s</string>
   <string name="gallery_save_progress">Nyomot berekas...</string>
@@ -328,7 +328,7 @@
   <string name="gallery_add_image_caption_in_language_button">Tambahin keterangan gambar (%s)</string>
   <string name="err_cannot_save_file">Kaga\' bisa nyimpen berekas</string>
   <string name="expand_refs">Teken bakal mbèntangin</string>
-  <string name="cc_logo">Lisènsi Creative Commons</string>
+  <string name="cc_logo">Ongji Creative Commons</string>
   <string name="captcha_image">Gambar Captcha</string>
   <string name="gallery_fair_use_license">Pemakéan wajar</string>
   <string name="gallery_uploader_unknown">Pengangkat kaga\' ditauin</string>
@@ -372,7 +372,7 @@
   <string name="preference_summary_collapse_tables">Otomatis ciutin jadwal di makalah, kaya\' kotak inpo, ruju\'an, èn catetan.</string>
   <string name="nav_item_donate">Nyumbang</string>
   <string name="error_voice_search_not_available">Maap, pengenalan suara kaga\' kesedia.</string>
-  <string name="location_service_disabled">Layanan lokasi dimatiin.</string>
+  <string name="location_service_disabled">Ladènan lokasi dimatiin.</string>
   <string name="enable_location_service">Nyalain</string>
   <string name="location_permissions_enable_prompt">Nyalain ijin lokasi bakal ngiat tempat di sekuliling lu.</string>
   <string name="location_permissions_enable_action">Nyalain</string>
@@ -821,7 +821,7 @@
   <string name="description_edit_help_about_wikidata">Pasal Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Pedoman Wikidata bakal nulis jabaran</string>
   <string name="description_edit_anon_limit">Makasi bakal lu punya minat dalem mermak jabaran makalah! Bakal ngeja permakan tambahan, padol dah, masup ke lu punya rèkening Wikipédi.</string>
-  <string name="description_edit_license_notice">Dengen ngrobah jabaran makalah, gua akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt; èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah lisènsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_edit_license_notice">Dengen ngrobah jabaran makalah, gua akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt; èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah ongji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">biasain mulain paké hurup kecil</string>
   <string name="description_edit_voice_input_description">Masupan suara</string>
   <string name="description_edit_learn_more">Belajarin lebi lanjut pasal jabaran makalah</string>
@@ -876,8 +876,8 @@
   <string name="suggested_edits_review_image_caption">Perèksa ulang keterangan gambar</string>
   <string name="suggested_edits_my_contributions">Gua punya sumbangsih</string>
   <string name="suggested_edits_no_description">Ni berekas kaga\' punya jabaran</string>
-  <string name="suggested_edits_license_notice">Dengen nambahin jabaran, gua akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt; èn gua tetep akur bakal ngelansir gua punya sumbangsih di bawah lisènsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_license_notice">Dengen nambahin keterangan gambar, gua akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt; èn gua tetep akur bakal ngelansir gua punya sumbangsih di bawah lisènsi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_license_notice">Dengen nambahin jabaran, gua akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt; èn gua tetep akur bakal ngelansir gua punya sumbangsih di bawah ongji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_image_caption_license_notice">Dengen nambahin keterangan gambar, gua akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt; èn gua tetep akur bakal ngelansir gua punya sumbangsih di bawah ongji &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Inpo</string>
   <string name="suggested_edits_task_add_description_title">Tambah jabaran makalah</string>
   <string name="suggested_edits_task_add_description_description">Sumbang ke makalah sonder jabaran</string>
@@ -895,7 +895,7 @@
   <string name="suggested_edits_image_caption_summary_title_artist">Pembikin</string>
   <string name="suggested_edits_image_caption_summary_title_author">Mualip</string>
   <string name="suggested_edits_image_caption_summary_title_source">Sumber</string>
-  <string name="suggested_edits_image_caption_summary_title_license">Lisènsi</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Ongji</string>
   <string name="suggested_edits_image_caption_summary_title_date">Tanggal</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 sumbangsih</item>
@@ -912,7 +912,7 @@
   <string name="suggested_edits_image_preview_dialog_tags">Tenger</string>
   <string name="suggested_edits_image_preview_dialog_date">Tanggal</string>
   <string name="suggested_edits_image_preview_dialog_source">Sumber/Tukang jeprèt</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">Lisènsi</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Ongji</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Inpo laènnya</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Halaman berekas di Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Halaman berekas di Wikipédi</string>
@@ -932,7 +932,7 @@
   <string name="suggested_edits_image_tags_publishing">Nerebitin</string>
   <string name="suggested_edits_image_tags_published">Diterebitin</string>
   <string name="suggested_edits_image_tags_onboarding_title">Nengerin gambar ngeja orang gampil nemuinnya.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Dengen nambahin tenger gambar, lu bakal ngeja gambar gampil dicari di Commons, gudang gambar lisènsi perdèo nyang Wikipédi paké bakal gambar di makalah-makalahnya.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Dengen nambahin tenger gambar, lu bakal ngeja gambar gampil dicari di Commons, gudang gambar ongji perdèo nyang Wikipédi paké bakal gambar di makalah-makalahnya.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Cuman tenger lu punya pilih nyang bakal ditambahin ke gambar.</string>
   <string name="suggested_edits_image_tags_task_detail">Tambahin tenger cènglian bakal gambar biar orang gampil nemuinnya.</string>
   <string name="suggested_edits_image_tags_choose">Tambah atawa pilih tenger nyang cocok</string>
@@ -953,7 +953,7 @@
   <string name="suggested_edits_edit_quality_stat_tooltip">Berales berapa kali atu deri lu punya sumbangsih dibalikin (dibalikin ama pemermak laèn). Permakan nyang dibalikin: %d.</string>
   <string name="suggested_edits_paused_message">Permakan nyang disaranin dirèhatin ampé %1$s. Maap ya, %2$s, beberapa deri lu punya sumbangsih nyang paling baru udah dibalikin.</string>
   <string name="suggested_edits_disabled_message">Permakan nyang disaranin dimatiin. Maap ya, %s, udah kebanyakan lu punya sumbangsih nyang paling baru dibalikin.</string>
-  <string name="suggested_edits_ip_blocked_message">Leliatanah, lu punya aderès IP (atawa jangkoan aderès IP) lagi diblokir deri mermak Wikipédi.</string>
+  <string name="suggested_edits_ip_blocked_message">Leliatanah, lu punya aderès IP (atawa ranggehan aderès IP) lagi diblokir deri mermak Wikipédi.</string>
   <string name="suggested_edits_gate_message">Maap ya, %s, lu misti ngeja paling kaga\' tiga permakan langsung di makalah bakal maké ni keboléan.</string>
   <string name="suggested_edits_editing_tips_link_text">Wejangan èn pengakalan mermak</string>
   <string name="suggested_edits_help_page_link_text">Halaman pertulungan permakan nyang disaranin</string>
@@ -986,7 +986,7 @@
   <string name="suggested_edits_last_edited">Paling akir dipermak</string>
   <string name="suggested_edits_last_edited_never">Kaga\' perna</string>
   <string name="suggested_edits_task_new">baru</string>
-  <string name="suggested_edits_cc0_notice">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;ketentuan pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah &lt;a href=\"%2$s\"&gt;lisènsi CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_cc0_notice">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;ketentuan pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah &lt;a href=\"%2$s\"&gt;ongji CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Permakan nyang disaranin</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Makasi ya udah mermak Wikipédi! Ngapa kaga\' lanjutin nyang belakangan?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Gableg waktu bakal nerusin nyempurnain Wikipédi? Liat ni saran pemermakan dah.</string>
@@ -1058,12 +1058,12 @@
   <string name="image_recommendation_onboarding_1">Gambar bakal ngebantu orang mahamin, cuman kebanyakan makalah kaga\' ada gambarnya.</string>
   <string name="image_recommendation_onboarding_2">Lu bakal nentuin apa gambar nyang disaranin kudu ditaroh di makalah Wikipédi, apa kaga\'.</string>
   <string name="image_recommendation_onboarding_3">Saran dibuat ama mesin èn lu bakal maké lu punya peniléan sendèwèk bakal nentuin diterima apa ngga\'nya.</string>
-  <string name="image_recommendation_onboarding_4">Gambar – pada deri Wikimedia Commons, bunga rampé deri gambar lisènsi perdèo nyang dipaké ama Wikipédi.</string>
+  <string name="image_recommendation_onboarding_4">Gambar – pada deri Wikimedia Commons, bunga rampé deri gambar ongji perdèo nyang dipaké ama Wikipédi.</string>
   <string name="image_recommendation_tooltip_1">Perèksa ulang ni makalah bakal mahamin topiknya</string>
-  <string name="image_recommendation_tooltip_2">Perdatain gambar èn inpormasi nyang bekaètan</string>
+  <string name="image_recommendation_tooltip_2">Delok gambar èn inpormasi nyang bekaètan</string>
   <string name="image_recommendation_tooltip_3">Tentuin apa ni gambar ngebantu pembaca mahamin ni topik lebi baè\' apa kaga\'</string>
   <string name="image_recommendation_tooltip_next">Terus</string>
-  <string name="image_recommendation_tooltip_warning">Dimohon perèksa ulang makalah bakal mahamin ni topik èn perdatain gambarnya</string>
+  <string name="image_recommendation_tooltip_warning">Dimohon perèksa ulang makalah bakal mahamin ni topik èn delok gambarnya</string>
   <string name="edit_summary_added_image">Gambar nyang ditambahin</string>
   <string name="edit_summary_added_caption">Keterangan nyang ditambahin</string>
   <string name="edit_published_view">Deleng</string>
@@ -1208,7 +1208,7 @@
   <string name="talk_new_topic_submitted">Topik dipublisir.</string>
   <string name="talk_page_empty">Ni halaman oborolan – kosong.</string>
   <string name="talk_page_empty_title">Obrolan mulain di mari</string>
-  <string name="talk_page_empty_content">Halaman obrolan ièlah tempat di mana orang pada perhadringan bakal ngeja isi Wikipédi sebagus-bagusnya. Mulain dengen nambahin topik perhadring baru bakal ubungan ama samenwèrkenan ama komunitèt tukang Wikipédi.</string>
+  <string name="talk_page_empty_content">Halaman obrolan ièlah tempat di mana orang pada perhadringan bakal ngeja isi Wikipédi sebagus-bagusnya. Mulain dengen nambahin topik perhadring baru bakal ubungan ama samenwèrekan ama komunitèt tukang Wikipédi.</string>
   <string name="talk_add_reply">Bales</string>
   <string name="talk_no_subject">(Kaga\' ada perihal)</string>
   <string name="talk_reply_subject">Perihal</string>

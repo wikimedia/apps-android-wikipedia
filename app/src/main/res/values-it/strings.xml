@@ -410,6 +410,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Non è possibile caricare la voce in assenza di connessione.</string>
   <string name="page_offline_notice_add_to_reading_list">Suggerimento: aggiungi la voce ad un elenco di lettura e verrà scaricata non appena sarai collegato a internet.</string>
   <string name="page_offline_notice_last_date">Stai leggendo una versione di questa voce in assenza di connessione salvata il %s</string>
+  <string name="redirected_from_snackbar">Reindirizzamento da \"%s\"</string>
   <string name="button_get_directions">Ottieni indicazioni</string>
   <string name="error_no_maps_app">Impossibile trovare delle applicazioni che forniscono indicazioni.</string>
   <string name="preference_title_customize_explore_feed">Esplora i feed</string>
@@ -995,7 +996,7 @@
   <string name="suggested_edits_gate_message">Ci spiace, %s, devi apportare almeno tre modifiche direttamente ad una voce per utilizzare questa funzione.</string>
   <string name="suggested_edits_editing_tips_link_text">Suggerimenti e trucchi per la modifica</string>
   <string name="suggested_edits_help_page_link_text">Pagina di aiuto per le modifiche suggerite</string>
-  <string name="suggested_edits_edit_streak_label_text">Modifica sequenza</string>
+  <string name="suggested_edits_edit_streak_label_text">Serie di modifiche</string>
   <string name="suggested_edits_views_label_text">Visualizzazioni</string>
   <string name="suggested_edits_quality_label_text">Qualità di modifica</string>
   <string name="suggested_edits_quality_perfect_text">Perfetto</string>
