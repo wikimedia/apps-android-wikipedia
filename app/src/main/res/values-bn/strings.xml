@@ -387,6 +387,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">নিবন্ধ অফলাইনে থাকাকালীন সময়ে লোড করা যাবে না।</string>
   <string name="page_offline_notice_add_to_reading_list">ইঙ্গিত: নিবন্ধটিকে পড়ার তালিকায় যোগ করে ও আপনি অনলাইনে আসলে এটি ডাউনলোড করা হবে।</string>
   <string name="page_offline_notice_last_date">আপনি %s-এ সংরক্ষিত নিবন্ধের একটি অফলাইন সংস্করণ দেখতে পাচ্ছেন।</string>
+  <string name="redirected_from_snackbar">\"%s\" থেকে পুনর্নির্দেশিত</string>
   <string name="button_get_directions">দিক নির্দেশনা পান</string>
   <string name="error_no_maps_app">দিক নির্দেশনা প্রদান করে এমন কোন অ্যাপ্লিকেশন খুঁজে পাওয়া যায়নি।</string>
   <string name="preference_title_customize_explore_feed">অন্বেষণ ফিড</string>
