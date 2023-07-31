@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Dbrant
 * MuratTheTurkish
 * Narazeni
@@ -193,7 +194,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/xmf#ოფლაინს_კითხირი_დო_მუნაჩემეფი</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/xmf</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.xmf</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">გჷმორინაფილი ბიბლიოთეკეფი</string>
   <string name="about_contributors_heading">ავტორეფი</string>
   <string name="about_translators_heading">მათანგალეფი</string>

@@ -135,6 +135,7 @@
   <string name="terms_of_use_description">Lietošanas noteikumi</string>
   <string name="about_wikipedia_url">https://lv.wikipedia.org/wiki/Vikipēdija:Par</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.lv</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.lv</string>
   <string name="about_libraries_heading">Izmantotās bibliotēkas</string>
   <string name="about_translators_heading">Tulkotāji</string>
   <string name="about_translators_translatewiki">Šo lietotni iztulkoja brīvprātīgie tulkotāji no &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>

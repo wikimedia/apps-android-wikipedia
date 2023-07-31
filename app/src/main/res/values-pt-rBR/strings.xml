@@ -29,6 +29,7 @@
 * Lowvy
 * Luk3
 * Macofe
+* McDutchie
 * Mello25
 * Mordecool
 * MuratTheTurkish
@@ -276,7 +277,7 @@
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/pt-br</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt_BR</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
@@ -1002,7 +1003,7 @@
   <string name="suggested_edits_gate_message">Desculpe, %s, você deve fazer pelo menos três edições diretamente em um artigo para usar este recurso.</string>
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda das edições sugeridas</string>
-  <string name="suggested_edits_edit_streak_label_text">Editar sequência</string>
+  <string name="suggested_edits_edit_streak_label_text">Edições consecutivas</string>
   <string name="suggested_edits_views_label_text">Visualizações</string>
   <string name="suggested_edits_quality_label_text">Qualidade das edições</string>
   <string name="suggested_edits_quality_perfect_text">Perfeito</string>

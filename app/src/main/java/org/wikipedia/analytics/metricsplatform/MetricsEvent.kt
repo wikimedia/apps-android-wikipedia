@@ -28,7 +28,7 @@ open class MetricsEvent {
     )
 
     protected fun submitEvent(eventName: String, customData: Map<String, Any>, pageData: PageData? = null) {
-        if (ReleaseUtil.isPreBetaRelease && Prefs.isEventLoggingEnabled) {
+        if (ReleaseUtil.isPreProdRelease && Prefs.isEventLoggingEnabled) {
             MetricsPlatform.client.submitMetricsEvent(
                 EVENT_NAME_BASE + eventName,
                 getClientData(pageData),
