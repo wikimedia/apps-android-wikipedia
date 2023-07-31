@@ -23,7 +23,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.Locale
 
 class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
@@ -94,7 +94,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun layOutDefinitionsByUsage() {
         currentDefinition?.usagesByLang?.get("en")?.let { usageList ->
-            if (usageList.isNullOrEmpty()) {
+            if (usageList.isEmpty()) {
                 displayNoDefinitionsFound()
                 return
             }
