@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Carlosedepaula
 * Julian Mendez
 * Karmwiki
@@ -231,7 +232,7 @@
   <string name="terms_of_use_description">Conditiones de uso</string>
   <string name="about_wikipedia_url">https://ia.wikipedia.org/wiki/Wikipedia:A_proposito</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ia</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ia</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Bibliothecas usate</string>
   <string name="about_contributors_heading">Contributores</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del equipa&lt;/a&gt;</string>
@@ -779,7 +780,7 @@
   <string name="feed_configure_menu_deselect_all">Celar toto</string>
   <string name="feed_configure_language_warning">Nota ben que non tote le typos de carta es disponibile in tote le linguas de Wikipedia. Modifica tu linguas seligite in Parametros.</string>
   <string name="feed_item_type_news">Articulos sur actualitates</string>
-  <string name="feed_item_type_on_this_day">Eventos in historia sur iste die</string>
+  <string name="feed_item_type_on_this_day">Eventos in le historia in iste die</string>
   <string name="feed_item_type_because_you_read">Suggestiones basate sur un articulo recentemente legite de tu historia</string>
   <string name="feed_item_type_featured_article">Articulo eminente del die sur Wikipedia</string>
   <string name="feed_item_type_trending">Articulos le plus visitate del die</string>

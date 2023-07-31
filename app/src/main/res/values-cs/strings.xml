@@ -28,6 +28,7 @@
 * MrJaroslavik
 * Patriccck
 * Patrik L.
+* Pavreh
 * Robins7
 * Spotter
 * Tereza
@@ -88,6 +89,18 @@
   <string name="page_edit_history_filter_by_anon">Anonymní úpravy ( %s )</string>
   <string name="page_edit_history_filter_by_bot">Úpravy robota (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metriky od %1$s do %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d editace od %2$s</item>
+    <item quantity="few">%1$d editace od %2$s</item>
+    <item quantity="many">%1$d editace od %2$s</item>
+    <item quantity="other">%1$d editací od %2$s</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d editace od %2$s (%3$s)</item>
+    <item quantity="few">%1$d editace od %2$s (%3$s)</item>
+    <item quantity="many">%1$d editace od %2$s (%3$s)</item>
+    <item quantity="other">%1$d editací od %2$s (%3$s)</item>
+  </plurals>
   <string name="page_edit_history_empty_search_message">Zkuste změnit &lt;a href=\"#\"&gt;filtry&lt;/a&gt;, abyste viděli více úprav</string>
   <string name="menu_page_show_tabs">Ukázat záložky</string>
   <string name="menu_page_other_languages">Změnit jazyk</string>
@@ -129,9 +142,9 @@
   <string name="map_view_link_text">Zobrazit na mapě</string>
   <string name="other_languages_indication_text">Přečíst v jiném jazyce</string>
   <string name="language_count_link_text">Dostupný v %d dalších jazycích</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. &lt;/br&gt;Editace bude přiřazena k IP adrese vašeho zařízení.&lt;br /&gt; Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. &lt;/br&gt;Editace bude přiřazena k IP adrese vašeho zařízení.&lt;br /&gt; Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
   <string name="edit_anon_warning">Editace budou přiřazeny IP adrese vašeho zařízení. Pokud se &lt;a href=\"https://#login\"&gt;přihlásíte&lt;/a&gt;, budete mít více soukromí.</string>
   <string name="preference_title_language">Jazyky Wikipedie</string>
   <string name="langlinks_filter_hint">Hledat</string>
@@ -267,7 +280,7 @@
   <string name="about_translators_heading">Překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license" fuzzy="true">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://cs.wikipedia.org/wiki/Wikipedie:Text_licence_Creative_Commons_Attribution-ShareAlike_3.0_Unported\"&gt;licence Creative Commons Uveďte autora – Zachovejte licenci&lt;/a&gt;.</string>
+  <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.cs\"&gt;licence Creative Commons Uveďte autora – Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;nadace Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci Wikipedie</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
@@ -283,6 +296,12 @@
   <string name="edit_undo">Vrátit</string>
   <string name="edit_redo">Znovu</string>
   <string name="edit_rollback">Vrátit zpět</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s byte.</item>
+    <item quantity="few">%s byty.</item>
+    <item quantity="many">%s bytu.</item>
+    <item quantity="other">%s bytů.</item>
+  </plurals>
   <string name="edit_zoom_in">Přiblížit</string>
   <string name="edit_zoom_out">Oddálit</string>
   <string name="edit_summary_tag_typo">Opraven překlep</string>
@@ -475,6 +494,7 @@
   <string name="reading_list_sort_by_created">Seřadit podle data vytvoření (od nejnovějších)</string>
   <string name="reading_list_sort_by_created_desc">Seřadit podle data vytvoření (od nejstarších)</string>
   <string name="reading_list_menu_delete">Odstranit seznam</string>
+  <string name="reading_list_menu_select">Vybrat</string>
   <string name="reading_list_menu_rename">Přejmenovat nebo změnit popis</string>
   <string name="reading_list_action_menu_remove_from_offline">Odstranit z offline úložiště</string>
   <string name="reading_list_action_menu_save_for_offline">Uložit článek do zařízení</string>
@@ -553,6 +573,7 @@
   <string name="reading_list_article_limit_message">Nebylo možno přidat do tohoto seznamu. Překročili jste limit %2$d článků do seznamu pro „%1$s“.</string>
   <string name="reading_lists_limit_message">Nelze vytvořit další seznam. Dosáhli jste limitu 100 seznamů k přečtení pro účet.</string>
   <string name="reading_lists_menu_create_list">Vytvořit nový seznam</string>
+  <string name="reading_lists_menu_import_list">Importovat seznam</string>
   <string name="reading_lists_menu_sort_by">Seřadit podle</string>
   <string name="reading_lists_refresh_sync_option">Synchronizovat</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Přihlášení/registrace</string>
@@ -562,8 +583,10 @@
     <item quantity="many">Tyto články budou dostupné bez připojení k internetu.</item>
     <item quantity="other">Tyto články budou dostupné bez připojení k internetu.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
+  <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Tento článek nebude nadále dostupný bez připojení k internetu.</item>
+    <item quantity="few">Tyto články nebudou nadále dostupné bez připojení k internetu.</item>
+    <item quantity="many">Tyto články nebudou nadále dostupné bez připojení k internetu.</item>
     <item quantity="other">Tyto články nebudou nadále dostupné bez připojení k internetu.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Seznamy k přečtení byly synchronizovány</string>
@@ -575,6 +598,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Zrušit</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Zrušit</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_lists_action_menu_export_lists">Exportovat</string>
   <string name="user_option_sync_label">Nastavení</string>
   <string name="notification_reverted_title">Zrušená úprava</string>
   <string name="notification_channel_title">Stahování článků</string>
@@ -1128,4 +1152,9 @@
   <string name="watchlist_page_moved">Přesunuto</string>
   <string name="watchlist_page_protected">Zamčeno</string>
   <string name="watchlist_page_deleted">Smazáno</string>
+  <string name="user_contrib_activity_title">Příspěvky od %s</string>
+  <string name="user_contrib_filter_all">Všechny jmenné prostory</string>
+  <string name="user_contrib_filter_ns_header">Filtr jmenného prostoru</string>
+  <string name="namespace_article">Článek</string>
+  <string name="user_contrib_filter_activity_title">Filtrovat příspěvky</string>
 </resources>
