@@ -1307,7 +1307,7 @@
   <string name="revision_rollback_success">Төзәтмәләр гамәлдән чыгарылды.</string>
   <string name="revision_compare_button">Чагыштырырга</string>
   <string name="revision_compare_two_only">Бары тик ике редакцияне генә сайларга мөмкин.</string>
-  <string name="watchlist_page_add_to_watchlist_snackbar" fuzzy="true">%1$$ исемле кулланучы  һәм уның фикер алышыу бите %2$$ көнендә сезнең күзәтү исемлегенә өстәлде.</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar" fuzzy="true">%1$s исемле кулланучы  һәм уның фикер алышыу бите %2$s көнендә сезнең күзәтү исемлегенә өстәлде.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Үзгәртергә</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">даими</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 атна дәвамында</string>
