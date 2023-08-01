@@ -252,6 +252,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
             }.forEach {
                 it.annotation = manager.create(SymbolOptions()
                     .withLatLng(LatLng(it.latitude, it.longitude))
+                    .withTextFont(MARKER_FONT_STACK)
                     .withTextField(it.pageTitle.displayText)
                     .withTextSize(10f)
                     .withTextOffset(arrayOf(0f, 1f))
@@ -384,6 +385,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
         const val MAX_ANNOTATIONS = 64
         const val THUMB_SIZE = 160
         const val ITEMS_PER_REQUEST = 50
+        val MARKER_FONT_STACK = arrayOf("Open Sans Regular")
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
 
