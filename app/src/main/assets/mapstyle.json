@@ -3533,8 +3533,8 @@
             }
         }
     ],
-    "sprite": "https://maps-beta.wmflabs.org/static/webgl/wikisprites",
-    "glyphs": "https://maps-beta.wmflabs.org/static/webgl/font/{fontstack}/{range}.pbf",
+    "sprite": "https://maps.wikimedia.org/static/webgl/wikisprites",
+    "glyphs": "https://maps.wikimedia.org/static/webgl/font/{fontstack}/{range}.pbf",
     "name": "mvt-style",
     "bearing": 0,
     "zoom": 1,
