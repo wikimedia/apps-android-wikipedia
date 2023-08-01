@@ -42,7 +42,8 @@
             app:labelVisibilityMode="labeled"
             app:tabGravity="fill"
             app:itemPaddingTop="8dp"
-            app:tabIndicatorColor="@android:color/transparent" />
+            app:tabIndicatorColor="@android:color/transparent"
+            app:elevation="0dp"/>
 
         <FrameLayout
             android:id="@+id/nav_more_container"
