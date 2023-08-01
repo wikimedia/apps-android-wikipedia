@@ -74,7 +74,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                     startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), viewModel.pageTitle, revId))
                 }
                 .show()
-
+            ImageRecommendationsEvent.logAction("editsummary_success_confirm", "editsummary_dialog", ImageRecommendationsEvent.getActionDataString(
+                filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
+                recommendationSourceProject = viewModel.langCode, acceptanceState = "accepted", seriesNumber = "", totalSuggestions = "", revisionId = revId.toString()), viewModel.langCode)
             viewModel.acceptRecommendation(null, revId)
             callback().nextPage(this)
         }
@@ -124,6 +126,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         }
 
         binding.imageCard.setOnClickListener {
+            ImageRecommendationsEvent.logAction("image_detail_view", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
+                filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
+                recommendationSourceProject = viewModel.langCode, acceptanceState = "", seriesNumber = "", totalSuggestions = ""), viewModel.langCode)
             startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + viewModel.recommendation.images[0].image, WikiSite.forLanguageCode(viewModel.langCode)), false))
         }
 
@@ -278,10 +283,16 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.menu_tutorial -> {
+                ImageRecommendationsEvent.logAction("more_view_tutorial", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
+                    filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
+                    recommendationSourceProject = viewModel.langCode, acceptanceState = "", seriesNumber = "", totalSuggestions = ""), viewModel.langCode)
                 showTooltipSequence()
                 true
             }
             R.id.menu_learn_more -> {
+                ImageRecommendationsEvent.logAction("more_view_help", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
+                    filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
+                    recommendationSourceProject = viewModel.langCode, acceptanceState = "", seriesNumber = "", totalSuggestions = ""), viewModel.langCode)
                 FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                 true
             }
@@ -298,23 +309,30 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             val balloon1 = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_1), autoDismiss = true,
                 showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 1, countTotal = 3).apply {
                 setOnBalloonInitializedListener {
-                    // TODO: send event
+                    ImageRecommendationsEvent.logImpression("onboarding_step_2_dialog")
+                }
+                setOnBalloonDismissListener {
+                    ImageRecommendationsEvent.logAction("next", "onboarding_step_2_dialog", "", "")
                 }
             }
 
             val balloon2 = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_2), autoDismiss = true,
                 showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 2, countTotal = 3).apply {
                 setOnBalloonInitializedListener {
-                    // TODO: send event
+                    ImageRecommendationsEvent.logImpression("onboarding_step_3_dialog")
+                }
+                setOnBalloonDismissListener {
+                    ImageRecommendationsEvent.logAction("next", "onboarding_step_3_dialog", "", "")
                 }
             }
 
             val balloon3 = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_3), autoDismiss = true,
                 showDismissButton = true, countNum = 3, countTotal = 3).apply {
                 setOnBalloonInitializedListener {
-                    // TODO: send event
+                    ImageRecommendationsEvent.logImpression("onboarding_step_4_dialog")
                 }
                 setOnBalloonDismissListener {
+                    ImageRecommendationsEvent.logAction("get_started", "onboarding_step_4_dialog", "", "")
                     Prefs.suggestedEditsImageRecsOnboardingShown = true
                 }
             }
@@ -331,6 +349,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     private fun doPublish() {
         if (System.currentTimeMillis() - resumedMillis < MIN_TIME_WARNING_MILLIS) {
+            ImageRecommendationsEvent.logAction("warning", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
+                filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
+                recommendationSourceProject = viewModel.langCode, acceptanceState = "", seriesNumber = "", totalSuggestions = ""), viewModel.langCode)
             FeedbackUtil.showMessage(this, R.string.image_recommendation_tooltip_warning)
             return
         }
