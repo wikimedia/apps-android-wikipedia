@@ -1225,7 +1225,7 @@
   <string name="revision_diff_paragraph_removed">Párrafo eliminado</string>
   <string name="revision_undo_title">Deshacer la edición</string>
   <string name="revision_undo_message">Esto deshará los cambios realizados por la(s) revisión(es) del artículo mostrado aquí.</string>
-  <string name="revision_undo_reason">To continue, please provide a reason for undoing this edit:</string>
+  <string name="revision_undo_reason">Para continuar, proporcione un motivo para deshacer esta edición:</string>
   <string name="revision_undo_success">La revisión se deshizo.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s y su página de discusión han sido añadidos a tu lista de seguimiento %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cambiar</string>

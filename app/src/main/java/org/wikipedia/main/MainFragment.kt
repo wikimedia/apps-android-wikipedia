@@ -182,7 +182,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             val searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)!![0]
             openSearchActivity(InvokeSource.VOICE, searchQuery, null)
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY &&
-                resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
+                resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED && data != null) {
             startActivity(data)
         } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN &&
                 resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {

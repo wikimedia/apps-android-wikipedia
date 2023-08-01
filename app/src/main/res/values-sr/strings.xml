@@ -359,6 +359,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Чланак не може да се учита офлајн.</string>
   <string name="page_offline_notice_add_to_reading_list">Савет: додајте чланак на листу за читање и он ће бити преузет чим будете онлајн.</string>
   <string name="page_offline_notice_last_date">Читате офлајн-верзију чланка, који је сачуван %s.</string>
+  <string name="redirected_from_snackbar">Преусмерено са „%s”</string>
   <string name="button_get_directions">Преузми путању</string>
   <string name="error_no_maps_app">Није могуће пронаћи ниједну апликацију која пружа путању.</string>
   <string name="preference_title_customize_explore_feed">Фид „Истражи”</string>
