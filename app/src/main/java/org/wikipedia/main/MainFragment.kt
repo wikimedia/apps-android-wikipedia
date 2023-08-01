@@ -440,7 +440,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun usernameClick() {
         val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode) + ":" + AccountUtil.userName, WikipediaApp.instance.wikiSite)
-        CustomTabsUtil.openInCustomTab(requireContext(), pageTitle.uri)
+        val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_MAIN_PAGE)
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, pageTitle))
     }
 
     override fun loginClick() {
