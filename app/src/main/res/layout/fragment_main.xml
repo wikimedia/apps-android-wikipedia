@@ -34,7 +34,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:layout_weight="0.8"
-            android:background="@android:color/transparent"
             app:itemIconTint="@color/color_state_nav_tab"
             app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance.Active"
             app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance"
@@ -42,7 +41,6 @@
             app:labelVisibilityMode="labeled"
             app:tabGravity="fill"
             app:itemPaddingTop="8dp"
-            app:tabIndicatorColor="@android:color/transparent"
             app:elevation="0dp"/>
 
         <FrameLayout
