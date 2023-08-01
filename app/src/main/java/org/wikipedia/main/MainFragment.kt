@@ -439,9 +439,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun usernameClick() {
-        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode) + ":" + AccountUtil.userName, WikipediaApp.instance.wikiSite)
-        val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_MAIN_PAGE)
-        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, pageTitle))
+        if (AccountUtil.isLoggedIn) {
+            AccountUtil.userName?.let {
+                val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), it, WikipediaApp.instance.wikiSite)
+                val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_MAIN_PAGE)
+                startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, pageTitle))
+            }
+        }
     }
 
     override fun loginClick() {
