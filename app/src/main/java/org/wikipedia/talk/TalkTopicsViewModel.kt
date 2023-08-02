@@ -21,6 +21,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.db.TalkPageSeen
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.TalkTopicsSortOverflowView
 import org.wikipedia.watchlist.WatchlistExpiry
@@ -66,6 +67,10 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
         if (pageTitle.namespace.isEmpty()) {
             pageTitle.namespace = TalkAliasData.valueFor(pageTitle.wikiSite.languageCode)
         } else if (pageTitle.isUserPage) {
+            // Make sure to remove all styles if it is a user page.
+            if (pageTitle.namespace() === Namespace.USER) {
+                pageTitle.displayText = StringUtil.removeNamespace(StringUtil.removeHTMLTags(pageTitle.displayText))
+            }
             pageTitle.namespace = UserTalkAliasData.valueFor(pageTitle.wikiSite.languageCode)
         } else if (pageTitle.namespace() != Namespace.TALK && pageTitle.namespace() != Namespace.USER_TALK) {
             // defer resolution of Talk page title for an API call.
