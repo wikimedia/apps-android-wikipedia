@@ -96,26 +96,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
 
-        viewModel.diffText.observe(viewLifecycleOwner) {
-            if (it is Resource.Success) {
-                binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data.diff))
-                updateAfterDiffFetchSuccess()
-                updateActionButtons()
-                binding.progressBar.isVisible = false
-            } else if (it is Resource.Error) {
-                if (it.throwable is HttpStatusException && it.throwable.code == 403) {
-                    binding.progressBar.isVisible = false
-                    binding.diffRecyclerView.isVisible = false
-                    binding.undoButton.isVisible = false
-                    binding.rollbackButton.isVisible = false
-                    binding.thankButton.isVisible = false
-                    binding.diffUnavailableContainer.isVisible = true
-                } else {
-                    setErrorState(it.throwable)
-                }
-            }
-        }
-
         viewModel.singleRevisionText.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data))
@@ -185,6 +165,26 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
+            }
+        }
+
+        viewModel.diffText.observe(viewLifecycleOwner) {
+            if (it is Resource.Success) {
+                binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data.diff))
+                updateAfterDiffFetchSuccess()
+                updateActionButtons()
+                binding.progressBar.isVisible = false
+            } else if (it is Resource.Error) {
+                if (it.throwable is HttpStatusException && it.throwable.code == 403) {
+                    binding.progressBar.isVisible = false
+                    binding.diffRecyclerView.isVisible = false
+                    binding.undoButton.isVisible = false
+                    binding.rollbackButton.isVisible = false
+                    binding.thankButton.isVisible = false
+                    binding.diffUnavailableContainer.isVisible = true
+                } else {
+                    setErrorState(it.throwable)
+                }
             }
         }
 
