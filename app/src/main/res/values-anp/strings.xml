@@ -96,8 +96,8 @@
   <string name="map_view_link_text">नक्शा प देखौ</string>
   <string name="other_languages_indication_text">दोसरौ भाषा मँ पढ़ौ</string>
   <string name="language_count_link_text">%d आरू भाषा सब मँ उपलब्ध</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_anon">प्रकाशित करी क, आपनै &lt;a href=\"%1$s\"&gt;उपयोग केरौ शर्त सिनी&lt;/a&gt; सँ सहमत होय छियै, आरू &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0 के तहत आपनौ योगदान क अपरिवर्तनीय रूप सँ जारी करै छियै &lt;/a&gt; लाइसेंस। संपादन सिनी क आपनै के डिवाइस केरौ आईपी पता लेली जिम्मेदार ठहरैलौ जैतै। जों आपनै &lt;a href=\"https://#login\"&gt;लॉग इन&lt;/a&gt; करै छियै, त आपनै जिमा अधिक गोपनीयता होतै।</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">प्रकाशित करी क, आपनै &lt;a href=\"%1$s\"&gt;उपयोग केरौ शर्त सिनी&lt;/a&gt; सँ सहमत होय छियै, आरू &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0 के तहत आपनौ योगदान क अपरिवर्तनीय रूप सँ जारी करै छियै &lt;/a&gt; लाइसेंस। संपादन सिनी क आपनै के डिवाइस केरौ आईपी पता लेली जिम्मेदार ठहरैलौ जैतै। जों आपनै &lt;a href=\"https://#login\"&gt;लॉग इन&lt;/a&gt; करै छियै, त आपनै जिमा अधिक गोपनीयता होतै।</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
   <string name="langlinks_filter_hint">खोजौ</string>
   <string name="langlinks_empty">है पन्ना दोसरौ भाषा मँ उपलब्ध नै छै।</string>
@@ -185,7 +185,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://anp.wikipedia.org/wiki/विकिपीडिया:एगो_खाता_केरौ_अनुरोध</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>

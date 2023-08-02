@@ -13,6 +13,7 @@
 * Inkbug
 * Matanya
 * MuratTheTurkish
+* Neriah
 * Or
 * Shoham
 * Steeve815
@@ -130,9 +131,9 @@
   <string name="map_view_link_text">הצגה על מפה</string>
   <string name="other_languages_indication_text">קריאה בשפה אחרת</string>
   <string name="language_count_link_text">זמין בעוד %d שפות</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
   <string name="edit_anon_warning">עריכות ייוחסו לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך פרטיות רבה יותר.</string>
   <string name="preference_title_language">שפות ויקיפדיה</string>
   <string name="langlinks_filter_hint">חיפוש</string>
@@ -258,7 +259,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/he</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.he</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.he</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.he</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he#Image_tags</string>
@@ -271,7 +272,7 @@
   <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
-  <string name="edit_abandon_confirm">הדף שוּנה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
+  <string name="edit_abandon_confirm">הדף שונה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
   <string name="edit_abandon_confirm_yes">כן</string>
   <string name="edit_abandon_confirm_no">לא</string>
   <string name="user_blocked_from_editing_title">חסוּם</string>
@@ -298,7 +299,7 @@
   <string name="edit_summary_tag_other">אחר</string>
   <string name="edit_summary_tag_other_hint">איך עוד שיפרת את הדף</string>
   <string name="edit_conflict_title">התנגשות עריכה</string>
-  <string name="edit_conflict_message">הדף כבר שוּנה על־ידי משתמש אחר, וזה מתנגש עם העריכה שלך. נא להעתיק את העריכות שלך, לחזור, לרענן את הדף, ולנסות לערוך שוב.</string>
+  <string name="edit_conflict_message">הדף כבר שונה על־ידי משתמש אחר, וזה מתנגש עם העריכה שלך. נא להעתיק את העריכות שלך, לחזור, לרענן את הדף, ולנסות לערוך שוב.</string>
   <string name="edit_notices">הודעות לעורכים</string>
   <string name="edit_notices_please_read">נא לקרוא לפני עריכה</string>
   <string name="edit_notices_show_auto">להציג אוטומטית את ההודעות לעורכים</string>
@@ -393,6 +394,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">אי־אפשר לטעון ערך ללא חיבור לרשת.</string>
   <string name="page_offline_notice_add_to_reading_list">רמז: הוסף את הערך לרשימת הקריאה, והוא יוּרד כששוב יהיה חיבור לרשת.</string>
   <string name="page_offline_notice_last_date">זאת גרסה לקריאה ללא חיבור לרשת של הערך הזה, שנשמרה ב־%s.</string>
+  <string name="redirected_from_snackbar">הופנה מהדף \"%s\"</string>
   <string name="button_get_directions">לקבל כיוונים</string>
   <string name="error_no_maps_app">לא מצאתי אף יישום שנותן הכוונה.</string>
   <string name="preference_title_customize_explore_feed">הזנת \"לחקור\"</string>
@@ -483,7 +485,7 @@
   <string name="reading_list_article_already_exists_message">הכול טוב! הרשימה %1$s כבר מכילה את הערך %2$s.</string>
   <string name="reading_list_articles_already_exist_message">הכול טוב! הרשימה %s כבר מכילה את כל הערכים.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
-  <string name="reading_list_add_to_list_button">הוספת לרשימה</string>
+  <string name="reading_list_add_to_list_button">הוספה לרשימה</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
     <item quantity="one">ערך אחד</item>
     <item quantity="two">%d ערכים</item>
@@ -546,7 +548,7 @@
     <item quantity="other">%d ערכים הוסרו מהרשימה %s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
-    <item quantity="one">נחמקה רשימה אחת</item>
+    <item quantity="one">נמחקה רשימה אחת</item>
     <item quantity="two">נמחקו %d רשימות</item>
     <item quantity="many">נמחקו %d רשימות</item>
     <item quantity="other">נמחקו %d רשימות</item>
@@ -1024,6 +1026,7 @@
   <string name="suggested_edits_image_tags_select_title">לא בחרת שום תגים לתמונה הזאת</string>
   <string name="suggested_edits_image_tags_select_text">רק תגים שתבחרו יוספו לתמונות. תגים שלא בחרת יסומנו בתור תגים שנדחו. האם ברצונך באמת לסמן את כל התגים האלה בתור תגים שנדחו?</string>
   <string name="suggested_edits_image_tags_add_tag">להוסיף תג</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">התגים שלו פורסמו לא יישמרו</string>
   <string name="suggested_edits_image_zoom_tooltip">אפשר לקרב את התמונה הזאת בשתי אצבעות.</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;שלום %s&lt;/b&gt;, להלן אפשר למצוא כמה דרכים מהירות ופשוטות לעזור לשפר את ויקיפדיה. יהיה אפשר לראות את השינוי שאתה עושה מייד אחרי שתעשה אותו. עריכה מהנה!</string>
@@ -1136,6 +1139,35 @@
     <item quantity="many">הוספת %d תווים</item>
     <item quantity="other">הוספת %d תווים</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">תמונות בערכים</string>
+  <string name="suggested_edits_image_recommendations_task_detail">הוספת תמונות מוצעות לערכי ויקיפדיה כדי לשפר את ההבנה.</string>
+  <string name="image_recommendation_task_instruction">האם נראה לך מתאים להוסיף את התמונה הזאת לערך?</string>
+  <string name="image_recommendation_tutorial">מדריך</string>
+  <string name="image_recommendation_accept">כן</string>
+  <string name="image_recommendation_reject">לא</string>
+  <string name="image_recommendation_notsure">אין לי תשובה</string>
+  <string name="image_recommendation_reject_title">למה לא?</string>
+  <string name="image_recommendation_reject_subtitle">התשובות שלך משפרות הצעות עתידיות.</string>
+  <string name="image_recommendation_reject_not_relevant">התמונה אינה רלוונטית</string>
+  <string name="image_recommendation_reject_no_info">אין מספיק מידע בשביל להחליט</string>
+  <string name="image_recommendation_reject_offensive">התמונה פוגענית</string>
+  <string name="image_recommendation_reject_low_quality">התמונה באיכות נמוכה</string>
+  <string name="image_recommendation_reject_dont_know">הנושא לא מוכר לי</string>
+  <string name="image_recommendation_reject_other">אחר</string>
+  <string name="image_recommendation_reject_submit">שליחה</string>
+  <string name="image_recommendation_tooltip_main">הוספת תמונות חסרות לערכים בעריכות מוצעות</string>
+  <string name="image_recommendation_onboarding_1">תמונות עוזרות לאנשים להבין, אבל הן חסרות בהרבה ערכים.</string>
+  <string name="image_recommendation_onboarding_2">בידך ההחלטה האם לשים תמונה מוצעת בערך בוויקיפדיה.</string>
+  <string name="image_recommendation_onboarding_3">הצעות נוצרות על־ידי מכונה ויש להשתמש בשיקול דעתך כדי להחליט אם לקבל או לדחות אותן.</string>
+  <string name="image_recommendation_onboarding_4">התמונות מגיעות מוויקישיתוף, אוסף תמונות ברישיון חופשי, שמשמשות בוויקיפדיה.</string>
+  <string name="image_recommendation_tooltip_1">יש לעיין בערך הזה כדי להבין את הנושא שלו</string>
+  <string name="image_recommendation_tooltip_2">יש לבדוק את התמונה והמידע המשויך לה</string>
+  <string name="image_recommendation_tooltip_3">יש להחליט האם התמונה עוזרת לקוראים להבין טוב יותר את הנושא הזה</string>
+  <string name="image_recommendation_tooltip_next">הבא</string>
+  <string name="image_recommendation_tooltip_warning">נא לעיין בערך כדי להבין את הנושא שלו ולבדוק את התמונה</string>
+  <string name="edit_summary_added_image">נוספה תמונה</string>
+  <string name="edit_summary_added_caption">נוסף כיתוב</string>
+  <string name="edit_published_view">הצגה</string>
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
@@ -1238,12 +1270,12 @@
   <string name="insert_media_title">הוספת מדיה</string>
   <string name="insert_media_search_description">נא לבחור קובץ מוויקישיתוף</string>
   <string name="insert_media_search_hint">חיפוש מדיה</string>
-  <string name="insert_media_settings">הגדרות מדיה</string>
+  <string name="insert_media_settings">הוספת פרטי תמונה</string>
   <string name="insert_media_settings_uploaded_image">תמונה שהועלתה</string>
-  <string name="insert_media_settings_caption">כיתוב</string>
-  <string name="insert_media_settings_caption_description">תווית שמוצגת ליד הפריט לכל הקוראים</string>
+  <string name="insert_media_settings_caption">כיתוב תמונה</string>
+  <string name="insert_media_settings_caption_description">תווית תמונה גלויה בערך</string>
   <string name="insert_media_settings_alternative_text">טקסט חלופי</string>
-  <string name="insert_media_settings_alternative_text_description">תיאור טקסט בשביל קוראים שלא יכולים לראות את התמונה</string>
+  <string name="insert_media_settings_alternative_text_description">תיאור לקוראים לקויי ראייה</string>
   <string name="insert_media_advanced_settings">הגדרות מתקדמות</string>
   <string name="insert_media_advanced_settings_wrap_image">גלישת טקסט סביב תמונה</string>
   <string name="insert_media_advanced_settings_image_position">מיקום תמונה</string>
@@ -1489,4 +1521,6 @@
   <string name="reading_list_share_survey_body">\"שיתוף רשימות קריאה\" היא תכונת הבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
   <string name="data_opt_in_accept">לקבל</string>
   <string name="data_opt_in_reject">לדחות</string>
+  <string name="page_issues_title">בעיות בדף</string>
+  <string name="generic_release_notes">תיקוני באגים קלים ושיפורים</string>
 </resources>

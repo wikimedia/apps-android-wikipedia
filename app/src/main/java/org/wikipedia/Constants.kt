@@ -8,19 +8,17 @@ object Constants {
     const val ACTIVITY_REQUEST_ADD_A_LANGUAGE = 59
     const val ACTIVITY_REQUEST_BROWSE_TABS = 61
     const val ACTIVITY_REQUEST_DESCRIPTION_EDIT = 55
-    const val ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL = 56
     const val ACTIVITY_REQUEST_FEED_CONFIGURE = 58
     const val ACTIVITY_REQUEST_GALLERY = 52
-    const val ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT = 64
-    const val ACTIVITY_REQUEST_IMAGE_TAGS_EDIT = 66
     const val ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING = 65
     const val ACTIVITY_REQUEST_LANGLINKS = 50
     const val ACTIVITY_REQUEST_LOGIN = 53
     const val ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY = 62
     const val ACTIVITY_REQUEST_SETTINGS = 41
     const val ACTIVITY_REQUEST_VOICE_SEARCH = 45
-    const val ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION = 44
 
+    const val ARG_TITLE = "title"
+    const val ARG_WIKISITE = "wikiSite"
     const val INTENT_APP_SHORTCUT_CONTINUE_READING = "appShortcutContinueReading"
     const val INTENT_APP_SHORTCUT_RANDOMIZER = "appShortcutRandomizer"
     const val INTENT_APP_SHORTCUT_SEARCH = "appShortcutSearch"
@@ -73,7 +71,6 @@ object Constants {
         LANG_VARIANT_DIALOG("lang_variant_dialog"),
         LEAD_IMAGE("leadImage"),
         LINK_PREVIEW_MENU("linkPreviewMenu"),
-        MAIN_ACTIVITY("main"),
         MOST_READ_ACTIVITY("mostRead"),
         NAV_MENU("navMenu"),
         NEWS_ACTIVITY("news"),
@@ -90,7 +87,6 @@ object Constants {
         PAGE_EDIT_HIGHLIGHT("pageEditHighlight"),
         PAGE_OVERFLOW_MENU("pageOverflowMenu"),
         RANDOM_ACTIVITY("random"),
-        READ_MORE_BOOKMARK_BUTTON("readMoreBookmark"),
         READING_LIST_ACTIVITY("readingList"),
         SEARCH("search"),
         SETTINGS("settings"),

@@ -22,18 +22,10 @@ class ConnectionStateMonitor : ConnectivityManager.NetworkCallback() {
     private var prevOnline = true
     private var lastCheckedMillis = 0L
     private val callbacks = mutableListOf<Callback>()
+    private var networkCallbackRegistered = false
 
-    fun enable(context: Context) {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            connectivityManager.registerDefaultNetworkCallback(this)
-        } else {
-            connectivityManager.registerNetworkCallback(NetworkRequest.Builder()
-                .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
-                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
-                .build(), this)
-        }
+    fun enable() {
+        ensureNetworkCallbackRegistered()
         updateOnlineState()
     }
 
@@ -46,6 +38,7 @@ class ConnectionStateMonitor : ConnectivityManager.NetworkCallback() {
     }
 
     fun registerCallback(callback: Callback) {
+        ensureNetworkCallbackRegistered()
         callbacks.add(callback)
     }
 
@@ -63,12 +56,42 @@ class ConnectionStateMonitor : ConnectivityManager.NetworkCallback() {
         updateOnlineState()
     }
 
+    private fun ensureNetworkCallbackRegistered() {
+        if (networkCallbackRegistered) {
+            return
+        }
+        try {
+            val connectivityManager = WikipediaApp.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                connectivityManager.registerDefaultNetworkCallback(this)
+            } else {
+                connectivityManager.registerNetworkCallback(
+                    NetworkRequest.Builder()
+                        .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
+                        .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+                        .build(), this
+                )
+            }
+            networkCallbackRegistered = true
+        } catch (e: Exception) {
+            // Framework bug, will only be fixed in Android S:
+            // https://issuetracker.google.com/issues/175055271
+        }
+    }
+
     private fun updateOnlineState() {
         val connectivityManager = WikipediaApp.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        online = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
-        } else {
-            connectivityManager.activeNetworkInfo?.isConnected == true
+        online = try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                connectivityManager.activeNetworkInfo?.isConnected == true
+            }
+        } catch (e: Exception) {
+            // Framework bug, will only be fixed in Android S:
+            // https://issuetracker.google.com/issues/175055271
+            // Assume we're online, until the next call to update the state, which will happen shortly.
+            true
         }
 
         EventPlatformClient.setEnabled(online)

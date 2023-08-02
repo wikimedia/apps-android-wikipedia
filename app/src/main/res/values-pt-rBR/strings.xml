@@ -3,6 +3,7 @@
 * !Silent
 * AVrana
 * Alvarenga
+* Amire80
 * Anaclaudiaml
 * BarbaraAckles
 * Cainamarques
@@ -28,6 +29,7 @@
 * Lowvy
 * Luk3
 * Macofe
+* McDutchie
 * Mello25
 * Mordecool
 * MuratTheTurkish
@@ -35,6 +37,7 @@
 * Ppena
 * Re demz
 * Rodrigo codignoli
+* Saturnow
 * Teles
 * TheEduGobi
 * Trooper57
@@ -147,7 +150,7 @@
   <string name="language_count_link_text">Disponível em %d outros idiomas</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço de IP do seu dispositivo. Para ter mais privacidade, &lt;a href=\"https://#login\"&gt;autentique-se&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço de IP do seu dispositivo. Para ter mais privacidade, &lt;a href=\"https://#login\"&gt;autentique-se&lt;/a&gt;.</string>
   <string name="edit_anon_warning">As edições serão atribuídas ao endereço IP do seu dispositivo. Se você &lt;a href=\"https://#login\"&gt;se conectar&lt;/a&gt;, terá mais privacidade.</string>
   <string name="preference_title_language">Idiomas da Wikipédia</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
@@ -273,8 +276,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt-br</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/pt-br</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt_BR</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
@@ -283,7 +286,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"ttps://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"ttps://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem salvar as suas alterações?</string>
@@ -984,6 +987,7 @@
   <string name="suggested_edits_image_tags_select_title">Você não selecionou nenhuma marcação para esta imagem</string>
   <string name="suggested_edits_image_tags_select_text">Somente as marcações que você escolher serão adicionadas às imagens. Tags que não estão selecionadas serão marcadas como rejeitadas. Tem certeza de que deseja marcar todas as tags como rejeitadas?</string>
   <string name="suggested_edits_image_tags_add_tag">Adicionar marcação</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">\nAs tags não publicadas não serão salvas</string>
   <string name="suggested_edits_image_zoom_tooltip">Aperte para ampliar esta imagem.</string>
   <string name="suggested_edits_encouragement_message">%s, obrigado por suas edições. Abaixo, você encontra mais maneiras de contribuir com a Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, abaixo, você pode encontrar maneiras rápidas e fáceis de ajudar a melhorar a Wikipédia. Você verá a diferença que está fazendo assim que começa. Edição feliz!</string>
@@ -999,7 +1003,7 @@
   <string name="suggested_edits_gate_message">Desculpe, %s, você deve fazer pelo menos três edições diretamente em um artigo para usar este recurso.</string>
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda das edições sugeridas</string>
-  <string name="suggested_edits_edit_streak_label_text">Editar sequência</string>
+  <string name="suggested_edits_edit_streak_label_text">Edições consecutivas</string>
   <string name="suggested_edits_views_label_text">Visualizações</string>
   <string name="suggested_edits_quality_label_text">Qualidade das edições</string>
   <string name="suggested_edits_quality_perfect_text">Perfeito</string>
@@ -1080,6 +1084,21 @@
     <item quantity="one">Você adicionou %d caractere</item>
     <item quantity="other">Você adicionou %d caracteres</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Imagem do artigo:</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Decida se uma imagem sugerida irá melhorar um artigo.</string>
+  <string name="image_recommendation_tutorial">Tutorial</string>
+  <string name="image_recommendation_accept">Sim</string>
+  <string name="image_recommendation_reject">Não</string>
+  <string name="image_recommendation_notsure">Não tenho certeza</string>
+  <string name="image_recommendation_reject_title">Por que não?</string>
+  <string name="image_recommendation_reject_not_relevant">A imagem não é relevante</string>
+  <string name="image_recommendation_reject_no_info">Não há informações suficientes para decidir</string>
+  <string name="image_recommendation_reject_offensive">A imagem é ofensiva</string>
+  <string name="image_recommendation_reject_low_quality">A imagem é de baixa qualidade</string>
+  <string name="image_recommendation_reject_dont_know">Eu não sei esse assunto</string>
+  <string name="image_recommendation_reject_other">Outro</string>
+  <string name="image_recommendation_reject_submit">Enviar</string>
+  <string name="image_recommendation_onboarding_4">As imagens vêm do Wikimedia Commons, uma coleção de imagens licenciadas livremente usadas pela Wikiédia.</string>
   <string name="file_page_activity_title">Página do arquivo</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar marcações de imagem</string>
@@ -1178,12 +1197,12 @@
   <string name="insert_media_title">Inserir mídia</string>
   <string name="insert_media_search_description">Selecionar um arquivo do Wikimedia Commons</string>
   <string name="insert_media_search_hint">Pesquisar mídia</string>
-  <string name="insert_media_settings">Configurações de mídia</string>
+  <string name="insert_media_settings" fuzzy="true">Configurações de mídia</string>
   <string name="insert_media_settings_uploaded_image">Imagem carregada</string>
-  <string name="insert_media_settings_caption">Legenda</string>
-  <string name="insert_media_settings_caption_description">Rótulo exibido ao lado do item para todos os leitores</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Legenda</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Rótulo exibido ao lado do item para todos os leitores</string>
   <string name="insert_media_settings_alternative_text">Texto alternativo</string>
-  <string name="insert_media_settings_alternative_text_description">Descrição em texto para leitores que não podem ver a imagem</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Descrição em texto para leitores que não podem ver a imagem</string>
   <string name="insert_media_advanced_settings">Configurações avançadas</string>
   <string name="insert_media_advanced_settings_wrap_image">Dispor o texto em torno da imagem</string>
   <string name="insert_media_advanced_settings_image_position">Posição da imagem</string>

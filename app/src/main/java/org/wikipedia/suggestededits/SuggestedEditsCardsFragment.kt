@@ -62,7 +62,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
             }
         }
 
-    private fun topBaseChild(): SuggestedEditsItemFragment? {
+    fun topBaseChild(): SuggestedEditsItemFragment? {
         return (binding.cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(binding.cardsViewPager.currentItem) as SuggestedEditsItemFragment?
     }
 

@@ -27,6 +27,7 @@ import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.descriptions.DescriptionEditUtil
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
@@ -181,11 +182,10 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         if (maybeSetPausedOrDisabled()) {
             return
-        } else if (!viewModel.blockMessage.isNullOrEmpty()) {
-            setIPBlockedStatus()
         }
 
         setUpTasks()
+
         binding.tasksRecyclerView.adapter!!.notifyDataSetChanged()
         setUserStatsViewsAndTooltips()
 
@@ -248,7 +248,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setIPBlockedStatus() {
         clearContents()
-        binding.disabledStatesView.setIPBlocked(viewModel.blockMessage)
+        binding.disabledStatesView.setIPBlocked(viewModel.blockMessageWikipedia)
         binding.disabledStatesView.visibility = VISIBLE
         UserContributionEvent.logIpBlock()
     }
@@ -324,9 +324,16 @@ class SuggestedEditsTasksFragment : Fragment() {
         vandalismPatrolTask.imageDrawable = R.drawable.ic_report_black_24dp
 
         displayedTasks.add(vandalismPatrolTask)
-        displayedTasks.add(addDescriptionsTask)
-        displayedTasks.add(addImageCaptionsTask)
-        displayedTasks.add(addImageTagsTask)
+
+        if (DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikipedia.isNullOrEmpty() ||
+            !DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikidata.isNullOrEmpty()) {
+            displayedTasks.add(addDescriptionsTask)
+        }
+
+        if (viewModel.blockMessageCommons.isNullOrEmpty()) {
+            displayedTasks.add(addImageCaptionsTask)
+            displayedTasks.add(addImageTagsTask)
+        }
     }
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {

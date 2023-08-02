@@ -60,6 +60,17 @@ interface Service {
             @Query("aulimit") maxResults: Int
     ): Observable<MwQueryResponse>
 
+    @GET(
+        MW_API_PREFIX + "action=query&generator=search&prop=imageinfo&iiprop=extmetadata|url" +
+                "&gsrnamespace=6&iiurlwidth=" + PREFERRED_THUMB_SIZE
+    )
+    suspend fun fullTextSearchCommons(
+        @Query("gsrsearch") searchTerm: String?,
+        @Query("gsroffset") gsrOffset: String?,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("continue") cont: String?
+    ): MwQueryResponse
+
     // ------- Miscellaneous -------
 
     @get:GET(MW_API_PREFIX + "action=fancycaptchareload")
@@ -71,11 +82,8 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=description&redirects=1")
     fun getDescription(@Query("titles") titles: String): Observable<MwQueryResponse>
 
-    @GET(MW_API_PREFIX + "action=query&prop=info|description&inprop=varianttitles|displaytitle&redirects=1")
-    fun getInfoByPageId(@Query("pageids") pageIds: String): Observable<MwQueryResponse>
-
-    @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&inprop=varianttitles|displaytitle&redirects=1")
-    suspend fun getPageTitlesByPageIdsOrTitles(@Query("pageids") pageIds: String? = null, @Query("titles") titles: String? = null): MwQueryResponse
+    @GET(MW_API_PREFIX + "action=query&prop=info|description|pageimages&inprop=varianttitles|displaytitle&redirects=1&pithumbsize=" + PREFERRED_THUMB_SIZE)
+    suspend fun getInfoByPageIdsOrTitles(@Query("pageids") pageIds: String? = null, @Query("titles") titles: String? = null): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query")
     suspend fun getPageIds(@Query("titles") titles: String): MwQueryResponse
@@ -124,6 +132,9 @@ interface Service {
 
     @get:GET(MW_API_PREFIX + "action=query&meta=siteinfo&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     val siteInfo: Observable<MwQueryResponse>
+
+    @GET(MW_API_PREFIX + "action=query&meta=siteinfo&siprop=general|magicwords")
+    suspend fun getSiteInfoWithMagicWords(): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1")
     fun parsePage(@Query("page") pageTitle: String): Observable<MwParseResponse>
@@ -264,11 +275,11 @@ interface Service {
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=echomarkread")
-    fun markRead(
+    suspend fun markRead(
         @Field("token") token: String,
         @Field("list") readList: String?,
         @Field("unreadlist") unreadList: String?
-    ): Observable<MwQueryResponse>
+    ): MwQueryResponse
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&meta=notifications&notwikis=*&notprop=list&notfilter=!read&notlimit=1")
@@ -299,7 +310,7 @@ interface Service {
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions|info&rvslots=main&rvprop=content|timestamp|ids&rvlimit=1&converttitles=&intestactions=edit&intestactionsdetail=full&inprop=editintro")
     fun getWikiTextForSectionWithInfo(
         @Query("titles") title: String,
         @Query("rvsection") section: Int?
@@ -334,6 +345,24 @@ interface Service {
         @Field("watchlist") watchlist: String? = null,
     ): Observable<Edit>
 
+    @FormUrlEncoded
+    @POST(MW_API_PREFIX + "action=visualeditoredit")
+    suspend fun postVisualEditorEdit(
+        @Field("paction") action: String,
+        @Field("page") title: String,
+        @Field("token") token: String,
+        @Field("section") section: Int,
+        @Field("sectiontitle") newSectionTitle: String?,
+        @Field("summary") summary: String,
+        @Field("assert") user: String?,
+        @Field("captchaid") captchaId: String?,
+        @Field("captchaword") captchaWord: String?,
+        @Field("minor") minor: Boolean? = null,
+        @Field("watchlist") watchlist: String? = null,
+        @Field("plugins") plugins: String? = null,
+        @Field("data-ge-task-image-recommendation") imageRecommendationJson: String? = null,
+    ): Edit
+
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     suspend fun getUserContributions(
         @Query("ucuser") username: String,
@@ -351,10 +380,10 @@ interface Service {
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
-    fun getPageViewsForTitles(@Query("titles") titles: String): Observable<MwQueryResponse>
+    suspend fun getPageViewsForTitles(@Query("titles") titles: String): MwQueryResponse
 
-    @get:GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
-    val editorTaskCounts: Observable<MwQueryResponse>
+    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
+    suspend fun getEditorTaskCounts(): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=rollback")
@@ -393,7 +422,7 @@ interface Service {
     ): Observable<Claims>
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
-    fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Observable<Entities>
+    suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
 
     @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
     @FormUrlEncoded
@@ -439,9 +468,6 @@ interface Service {
         @Field("summary") summary: String?,
         @Field("tags") tags: String?
     ): Observable<EntityPostResponse>
-
-    @GET(MW_API_PREFIX + "action=visualeditor&paction=metadata")
-    fun getVisualEditorMetadata(@Query("page") page: String): Observable<MwVisualEditorResponse>
 
     // ------- Watchlist -------
 
@@ -587,11 +613,19 @@ interface Service {
         @Query("ggtlimit") count: Int
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=growthimagesuggestiondata")
-    suspend fun getImageRecommendationForPage(
-        @Query("titles") titles: String?,
-        @Query("pageids") pageIds: String? = null
+    @GET(MW_API_PREFIX + "action=query&prop=growthimagesuggestiondata&generator=search&gsrsearch=hasrecommendation%3Aimage&gsrnamespace=0&gsrsort=random")
+    suspend fun getPagesWithImageRecommendations(
+        @Query("gsrlimit") count: Int
     ): MwQueryResponse
+
+    @POST(MW_API_PREFIX + "action=growthinvalidateimagerecommendation")
+    @FormUrlEncoded
+    suspend fun invalidateImageRecommendation(
+        @Field("tasktype") taskType: String,
+        @Field("title") title: String,
+        @Field("filename") fileName: String,
+        @Field("token") token: String
+    ): MwPostResponse
 
     @GET(MW_API_PREFIX + "action=paraminfo")
     suspend fun getParamInfo(

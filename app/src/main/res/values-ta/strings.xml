@@ -16,6 +16,7 @@
 * Rakshika
 * Sharanrajindia
 * Shriheeran
+* Sriveenkat
 * Timbaaa
 * தமிழ்த்தம்பி
 * மதனாஹரன்
@@ -32,6 +33,7 @@
   <string name="search_hint_search_languages">ஓர் மொழியை தேடுக</string>
   <string name="nav_item_suggested_edits">தொகுப்புகள்</string>
   <string name="nav_item_more">மேலும்</string>
+  <string name="nav_item_search">தேடல்</string>
   <string name="error_network_error">இணைய இணைப்பு இல்லை.</string>
   <string name="page_error_retry">மறு முயற்சி செய்</string>
   <string name="card_offline_error_retry">மறு முயற்சி செய்</string>
@@ -40,12 +42,18 @@
   <string name="offline_load_error_retry">மறு முயற்சி செய்</string>
   <string name="page_error_back_to_main">பின் செல்</string>
   <string name="error_back">பின் செல்லவும்</string>
+  <string name="error_next">அடுத்து</string>
   <string name="menu_clear_all_history">வரலாற்றை நீக்கவும்</string>
   <string name="history_item_deleted">%s வரலாற்றில் இருந்து நீக்கப்பட்டது</string>
   <string name="history_items_deleted">%d கட்டுரைகள் வரலாற்றில் இருந்து நீக்கப்பட்டது</string>
   <string name="history_item_delete_undo">மீளமை</string>
   <string name="notification_archive_undo">மீளமை</string>
   <string name="app_settings">இச்செயலியின் அமைப்புகள்</string>
+  <string name="history_list_title">வரலாறு</string>
+  <string name="image_content_description">படம்: %s</string>
+  <string name="page_content_description">பக்கம்: %s</string>
+  <string name="wikimedia_commons">விக்கிமீடியா பொதுவகம்</string>
+  <string name="wikidata">விக்கித்தரவு</string>
   <string name="dialog_title_clear_history">உலவல் வரலாற்றை நீக்கு</string>
   <string name="dialog_message_clear_history">இது உங்கள் உலவல் வரலாற்றை மொத்தமாக அழித்து விடும், மேலும் திரந்திருக்கும் எல்லா தத்தல்களையும் மூடிவிடும். நீங்கள் உறுதியாக இருக்கிறீர்க்ளா?</string>
   <string name="dialog_message_clear_history_yes">ஆம்</string>
@@ -53,15 +61,27 @@
   <string name="share_via">இதன் வழியாக பகிரவும்…</string>
   <string name="image_share_via">இதன் வழியாக பகிரவும்…</string>
   <string name="search_redirect_from">%s இலிருந்து வழிமாற்றப்பட்டது</string>
+  <string name="page_edit_history_activity_title">திருத்த வரலாறு: %s</string>
+  <string name="page_edit_history_filter_by_user">பயனர் தொகுப்புகள் (%s)</string>
+  <string name="page_edit_history_filter_by_bot">தானியங்கி தொகுப்புகள் (%s)</string>
   <string name="menu_page_show_tabs">தத்தல்களை காண்பி</string>
   <string name="menu_page_other_languages">மொழியை மாற்று</string>
   <string name="menu_page_find_in_page" fuzzy="true">பக்கத்திற்குள் கண்டுபிடி</string>
+  <string name="menu_page_add_to_watchlist">கவனிப்புப் பட்டியலில் சேர்க்கவும்</string>
+  <string name="menu_page_watch">கவனி</string>
+  <string name="menu_page_view_talk">பேச்சு பக்கத்தை காண்க</string>
+  <string name="menu_page_talk_page">பேச்சுப் பக்கம்</string>
   <string name="edit_section_find_in_page">பக்கத்திற்குள் கண்டுபிடி</string>
   <string name="menu_page_font_and_theme">எழுத்துரு மற்றும் பிற</string>
   <string name="menu_page_add_to_list">படிக்கும் பட்டியலில் சேர்க</string>
+  <string name="menu_page_add_to_default_list">சேமி</string>
   <string name="feed_card_add_to_list">படிக்கும் பட்டியலில் சேர்க</string>
+  <string name="feed_card_add_to_default_list">சேமி</string>
   <string name="menu_page_share">இணைப்பை பகிர்</string>
+  <string name="menu_article_share">கட்டுரையை பகிர்</string>
+  <string name="menu_page_article_share">பகிர்</string>
   <string name="menu_page_open_a_new_tab">புதிய தத்தலில் திற</string>
+  <string name="menu_page_new_tab">புதிய தத்தல்</string>
   <string name="menu_page_reading_lists">வாசிப்பு பட்டியல்கள்</string>
   <string name="menu_page_recently_viewed">அண்மையில் கண்டவை</string>
   <string name="menu_long_press_open_page">திற</string>
@@ -71,15 +91,16 @@
   <string name="on_this_day_page_share">பகிர்க</string>
   <string name="reading_list_page_share">பகிர்க</string>
   <string name="menu_text_select_edit_here">இங்கே தொகு</string>
+  <string name="menu_edit_article">கட்டுரையை தொகு</string>
   <string name="last_updated_text">இறுதியாக புதுப்பிக்கப்பட்டது %s</string>
   <string name="talk_page_link_text">பேச்சு பக்கத்தை காண்க</string>
   <string name="edit_history_link_text">தொகுப்பு வரலாற்றை காண்க</string>
   <string name="map_view_link_text">நிலப்படத்தில் காட்டுக</string>
   <string name="other_languages_indication_text">வேறொரு மொழியில் படிக்கவும்</string>
   <string name="language_count_link_text">%d மற்ற மொழிகளில் கிடைக்கத்தக்கது</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள்.</string>
-  <string name="edit_save_action_license_anon">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள். தொகுப்புகள் தங்களது கருவியின் IP முகவரிக்கு உடைமையாக்கபடும். நீங்கள் &lt;a href=\"https://#login\"&gt;புகுபதிகை செய்தால்&lt;/a&gt;, உங்களுக்கு மேலும் தனியுரிமை இருக்கும்.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள்.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள். தொகுப்புகள் தங்களது கருவியின் IP முகவரிக்கு உடைமையாக்கபடும். நீங்கள் &lt;a href=\"https://#login\"&gt;புகுபதிகை செய்தால்&lt;/a&gt;, உங்களுக்கு மேலும் தனியுரிமை இருக்கும்.</string>
   <string name="preference_title_language">விக்கிபீடியா மொழிகள்</string>
   <string name="langlinks_filter_hint">தேடுக</string>
   <string name="langlinks_empty">பிற மொழிகளில் இந்த கட்டுரை இல்லை.</string>
@@ -161,6 +182,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">விவரங்கள்</string>
   <string name="preferences_general_heading">பொதுவான</string>
+  <string name="preferences_account_heading">கணக்கு</string>
   <string name="wikipedia_app_faq">விக்கிப்பீடியா செயலி அடிக்கடிக் கேட்கப்படும் கேள்விகள்</string>
   <string name="send_feedback">நிரல் பின்னூட்டம் அனுப்பு</string>
   <string name="create_account_account_created_toast">கணக்கு உருவாக்கப்பட்டது.</string>
@@ -197,7 +219,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://meta.wikimedia.org/wiki/Terms_of_use/ta</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -288,6 +309,7 @@
   <string name="address_copied">முகவரி பிடிப்புப்பலகையில் நகலாகப்பட்டது</string>
   <string name="text_copied">உரை பிடிப்புப்பலகையில் நகலாகப்பட்டது.</string>
   <string name="button_continue_to_article">கட்டுரையை வாசி</string>
+  <string name="button_continue_to_talk_page">பேச்சுப் பக்கத்தை திற</string>
   <string name="button_continue_to_disambiguation">சம்மந்தப்பட்ட பக்கங்களை காட்டு</string>
   <string name="button_add_to_reading_list">படிக்கும் பட்டியலில் சேர்க</string>
   <string name="page_offline_notice_cannot_load_while_offline">அணை நிலையில் கட்டுரையை ஏற்றமுடியாது.</string>
@@ -313,6 +335,7 @@
   <string name="crash_report_activity_title">செயலி பிழை</string>
   <string name="crash_report_relaunch">மீண்டும் தொடங்கவும்</string>
   <string name="crash_report_quit">முடித்துக்கொள்</string>
+  <string name="article_menu_bar_language_button">மொழி</string>
   <string name="article_header_edit_hint">தொகுக்கவும்...</string>
   <string name="article_header_edit_description" fuzzy="true">தலைப்பு விவரத்தை தொகுக்கவும்</string>
   <string name="article_header_edit_lead_section">அறிமுகத்தைத் தொகுக்கவும்</string>
@@ -326,6 +349,7 @@
   <string name="text_size_increase">உரை அளவை அதிகப்படுத்தவும்</string>
   <string name="text_size_decrease">உரை அளவை குறைக்கவும்</string>
   <string name="text_size_percent_default">%s (இயல்பிருப்பு)</string>
+  <string name="nav_item_saved">சேமிக்கப்பட்டது</string>
   <string name="reading_list_save_to">படிக்கும் பட்டியலில் சேர்க</string>
   <string name="reading_list_create_new">புதிதாக உருவாக்கவும்</string>
   <string name="reading_list_title_exists">%s படிக்கும் பட்டியலில் ஏற்கனவே உள்ளது.</string>

@@ -110,9 +110,9 @@
   <string name="map_view_link_text">Tingnan sa mapa</string>
   <string name="other_languages_indication_text">Basahin sa ibang wika</string>
   <string name="language_count_link_text">Mababasa sa %d (na) wika</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Sa paglathala, sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Kasunduan sa Paggamit&lt;/a&gt;, pati na rin sa paglisensiya sa mga ambag mo sa ilalim ng lisensiyang &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Sa paglathala, sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Kasunduan sa Paggamit&lt;/a&gt;, pati na rin sa paglisensiya sa mga ambag mo sa ilalim ng lisensiyang &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Gagamitin ang IP address ng device mo bilang atribusyon sa mga edit. Magiging mas pribado ka kung &lt;a href=\"https://#login\"&gt;magla-login&lt;/a&gt; ka.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Sa paglathala, sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Kasunduan sa Paggamit&lt;/a&gt;, pati na rin sa paglisensiya sa mga ambag mo sa ilalim ng lisensiyang &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Sa paglathala, sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Kasunduan sa Paggamit&lt;/a&gt;, pati na rin sa paglisensiya sa mga ambag mo sa ilalim ng lisensiyang &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Gagamitin ang IP address ng device mo bilang atribusyon sa mga edit. Magiging mas pribado ka kung &lt;a href=\"https://#login\"&gt;magla-login&lt;/a&gt; ka.</string>
   <string name="edit_anon_warning">Gagamitin ang IP address ng device mo bilang attibusyon sa mga edit. Magiging mas pribado ka kung &lt;a href=\"https://#login\"&gt;magla-login&lt;/a&gt; ka.</string>
   <string name="preference_title_language">Mga wika sa Wikipedia</string>
   <string name="langlinks_filter_hint">Maghanap</string>
@@ -236,7 +236,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -246,7 +245,7 @@
   <string name="about_translators_heading">Mga nagsalin</string>
   <string name="about_translators_translatewiki">Boluntaryong isinalin ang app na ito sa &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensiya</string>
-  <string name="about_app_license">Magagamit ang source code sa &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; at &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sa ilalim ng &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;lisensiyang Apache 2.0&lt;/a&gt;.\nMaliban lang kung nakasaad, magagamit ang nilalaman sa ilalim ng &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;lisensiyang Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Magagamit ang source code sa &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; at &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sa ilalim ng &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;lisensiyang Apache 2.0&lt;/a&gt;.\nMaliban lang kung nakasaad, magagamit ang nilalaman sa ilalim ng &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;lisensiyang Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Produkto ng &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Patungkol</string>
   <string name="edit_abandon_confirm">Binago mo ang pahinang ito. Sigurado ka bang aalis ka nang hindi sine-save ang mga binago mo?</string>
@@ -968,6 +967,8 @@
     <item quantity="one">Nagdagdag ka ng %d karakter</item>
     <item quantity="other">Nagdagdag ka ng %d (na) karakter</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Sanayin ang algoritmo ng larawan</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Magdesisyon kung mapapahusay ng iminungkahing larawan ang artikulo.</string>
   <string name="file_page_activity_title">Pahina ng file</string>
   <string name="file_page_add_image_caption_button">Mag-caption</string>
   <string name="file_page_add_image_tags_button">Mag-tag ng larawan</string>

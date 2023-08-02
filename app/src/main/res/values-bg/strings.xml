@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Kareyac
 * ShockD
 * Spas.Z.Spasov
@@ -66,6 +67,11 @@
     <item quantity="one">%1$d редакция от %2$s до днес</item>
     <item quantity="other">%1$d редакции от %2$s до днес</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d редакция от %2$s (%3$s)</item>
+    <item quantity="other">%1$d редакции от %2$s (%3$s)</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Опитайте да промените &lt;a href=\"#\"&gt;филтрите&lt;/a&gt;, за да видите повече редакции</string>
   <string name="menu_page_show_tabs">Показване на раздели</string>
   <string name="menu_page_other_languages">Промяна на езика</string>
   <string name="menu_page_find_in_page">Търсене в статията</string>
@@ -106,9 +112,9 @@
   <string name="map_view_link_text">Преглед върху карта</string>
   <string name="other_languages_indication_text">Прочитане на друг език</string>
   <string name="language_count_link_text">Налична на %d други езика</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз.</string>
-  <string name="edit_save_action_license_anon">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лиценз. Редакциите ще бъдат приписани на IP адреса на вашето  устройство. Ако &lt;a href=\"https://#login\"&gt;влезете в системата&lt;/a&gt;, тази информация няма да бъде публична.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лиценз.</string>
+  <string name="edit_save_action_license_anon">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лиценз. Редакциите ще бъдат приписани на IP адреса на вашето  устройство. Ако &lt;a href=\"https://#login\"&gt;влезете в системата&lt;/a&gt;, тази информация няма да бъде публична.</string>
   <string name="preference_title_language">Езици на Уикипедия</string>
   <string name="langlinks_filter_hint">Търсене</string>
   <string name="langlinks_empty">Тази страница не е налична на други езици.</string>
@@ -175,6 +181,7 @@
   <string name="dialog_create_account_checking_progress">Проверка</string>
   <string name="create_account_email_hint">Имейл (незадължително)</string>
   <string name="create_account_password_repeat_hint">Повторете паролата</string>
+  <string name="create_account_password_is_username">Паролата не може да съвпада с потребителското име</string>
   <string name="create_account_passwords_mismatch_error">Паролите не съвпадат</string>
   <string name="create_account_email_error">Неправилен имейл адрес</string>
   <string name="create_account_username_error">Невалидни знаци в потребителското име</string>
@@ -229,7 +236,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.bg</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -239,7 +246,7 @@
   <string name="about_translators_heading">Преводачи</string>
   <string name="about_translators_translatewiki">Това приложение е преведено от доброволните преводачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценз</string>
-  <string name="about_app_license">Програмният код е достъпен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценз &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Освен ако друго не е упоменато, съдържанието е достъпно под лиценз &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Програмният код е достъпен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценз &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Освен ако друго не е упоменато, съдържанието е достъпно под лиценз &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.bg\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондация Уикимедия&lt;/a&gt;</string>
   <string name="about_activity_title">Относно</string>
   <string name="edit_abandon_confirm">Страницата е била променена. Сигурни ли сте, че искате да излезете, без да запазите промените си?</string>
@@ -269,10 +276,13 @@
   <string name="edit_conflict_title">Конфликт на редакции</string>
   <string name="edit_conflict_message">Страницата вече е била променена от друг потребител, което възпрепятства вашата редакция. Моля, копирайте редакции си, върнете се и обновете страницата, след което се опитайте да редактирате отново.</string>
   <string name="edit_notices">Известия за редактиране</string>
+  <string name="edit_notices_please_read">Моля, прочетете преди да редактирате</string>
+  <string name="edit_notices_show_auto">Автоматично показване на известията за редактиране</string>
   <string name="find_next">Намиране на следващото</string>
   <string name="find_previous">Намиране на предходното</string>
   <string name="find_first_occurence">Това е първото срещане</string>
   <string name="find_last_occurence">Това е последното срещане</string>
+  <string name="article_opened_in_background_tab">Статията е отворена във фонов раздел.</string>
   <string name="abusefilter_title_warn">Тази редакция може да не е конструктивна. Сигурни ли сте, че искате да я публикувате?</string>
   <string name="abusefilter_title_disallow">Не може да публикувате тази редакция. Моля, върнете се и я променете.</string>
   <string name="abusefilter_text_warn">Автоматичен филтър установи, че тази редакция потенциално не е конструктивна. Може да съдържа едно или повече от следните:&lt;br /&gt;&lt;br /&gt;· Писане само с главни букви&lt;br /&gt;· Изпразване на страница или спам&lt;br /&gt;· Неуместни външни препратки или изображения&lt;br /&gt;· Повтарящи се символи</string>
@@ -317,7 +327,7 @@
   <string name="gallery_save_success">Файлът е записан.</string>
   <string name="gallery_error_video_failed">Видеото не може да бъде възпроизведено.</string>
   <string name="gallery_save_image_write_permission_rationale">Нужно е разрешение за записване в паметта на устройството, за да се запази изображение.</string>
-  <string name="gallery_edit_button_content_description">Редактиране описание на изображение</string>
+  <string name="gallery_edit_button_content_description">Редактиране на описание за изображение</string>
   <string name="gallery_add_image_caption_button">Добавяне на надпис към изображението</string>
   <string name="gallery_add_image_caption_in_language_button">Добавяне на описание на изображението (%s)</string>
   <string name="err_cannot_save_file">Файлът не може да бъде запазен</string>
@@ -357,7 +367,9 @@
   <string name="page_offline_notice_last_date">Четете офлайн версия на тази статия, запазена на %s.</string>
   <string name="button_get_directions">Упътвания</string>
   <string name="error_no_maps_app">Не са намерени приложения, предоставящи навигация.</string>
+  <string name="preference_title_customize_explore_feed">Разгледайте емисията</string>
   <string name="preference_title_show_link_previews">Предварителен преглед на връзки</string>
+  <string name="preference_summary_customize_explore_feed">Персонализирайте емисията за изследване</string>
   <string name="preference_summary_show_link_previews">Показва бърз предварителен преглед на статии, когато се натисне връзка.</string>
   <string name="preference_title_collapse_tables">Свиване на таблици</string>
   <string name="preference_summary_collapse_tables">Автоматично свиване на таблиците в статиите, като например инфокутии, източници и бележки.</string>
@@ -387,10 +399,15 @@
   <string name="page_footer_license_text">Съдържанието е достъпно под $1, освен ако не е посочено друго</string>
   <string name="empty_tab_title">Нов раздел</string>
   <string name="menu_save_all_tabs">Запазване на всички раздели</string>
+  <string name="error_blocked_title">Вашето потребителско име или IP адрес са блокирани.</string>
+  <string name="error_blocked_by">Блокирането е извършено от &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Посочената причина е: %s</string>
   <string name="error_blocked_start">Начало на блокирането: %s</string>
   <string name="error_blocked_expiry">Изтичане на блокирането: %s</string>
-  <string name="error_blocked_id">ID на блокирането: %s</string>
+  <string name="error_blocked_id">Идентификационен номер на блокирането: %s</string>
+  <string name="error_blocked_footer">Можете да се свържете с &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или друг &lt;a href=\" href=\"https://bg.wikipedia.org/wiki/Уикипедия:Администратори\"&gt;администратор&lt;/a&gt;, за да обсъдите блокирането.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Персонализирайте лентата си с инструменти</string>
+  <string name="error_blocked_footer_no_blocker">Можете да се свържете с &lt;a href=\"https://https://bg.wikipedia.org/wiki/Уикипедия:Администратори\"&gt;администратор&lt;/a&gt;, за да обсъдите блокирането.</string>
   <string name="crash_report_activity_title">Грешка в приложението</string>
   <string name="crash_report_relaunch_or_quit">За съжаление, приложението на Уикипедия претърпя срив и бе спряно.\n\nБихте ли желали да започнете отначало или да излезете?</string>
   <string name="crash_report_relaunch">Започване отначало</string>
@@ -418,8 +435,12 @@
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Четене</string>
   <string name="theme_category_editing">Редактиране</string>
+  <string name="reading_focus_mode">Режим на фокусиране при четене</string>
+  <string name="reading_focus_mode_detail">Скрива функциите за редактиране и долната лента с инструменти при превъртане</string>
   <string name="editing_syntax_highlight_label">Оцветяване на синтаксиса</string>
   <string name="editing_line_numbers_label">Показване номерата на редовете</string>
+  <string name="editing_monospace_font_label">Използване на моноширинен шрифт</string>
+  <string name="editing_typing_suggestions">Показване на предложения за въвеждане</string>
   <string name="nav_item_saved">Съхранени</string>
   <string name="reading_list_save_to">Добавяне в списъка за четене</string>
   <string name="reading_list_move_to">Преместване в списък за четене</string>
@@ -537,13 +558,17 @@
   <string name="reading_list_activity_title">Списък за четене: %s</string>
   <string name="reading_list_notification_title">Списъците за четене са изнесени</string>
   <string name="reading_lists_action_menu_export_lists">Изнасяне</string>
+  <string name="reading_lists_import_file_picker_title">Изберете файла за внасяне</string>
+  <string name="reading_lists_import_failure_message">Неуспешно внасяне на списъци за четене</string>
+  <string name="reading_lists_export_select_lists_message">Изберете списъци за изнасяне</string>
   <string name="reading_lists_export_completed_message">Списъците за четене са изнесени</string>
+  <string name="reading_lists_preview_header_title">Споделен списък</string>
   <string name="reading_lists_preview_save_button">Съхраняване</string>
   <string name="reading_lists_preview_save_dialog_title">Запазване на списъка</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Заглавие</string>
   <string name="reading_lists_preview_save_dialog_cancel">Отказ</string>
   <string name="reading_lists_preview_save_dialog_save">Съхраняване</string>
-  <string name="reading_lists_preview_saved_snackbar">Списъка за четене е съхранен</string>
+  <string name="reading_lists_preview_saved_snackbar">Списъкът за четене е съхранен</string>
   <string name="reading_lists_preview_saved_snackbar_action">Преглед</string>
   <string name="user_option_sync_label">Предпочитания</string>
   <string name="notification_reverted_title">Отменена редакция</string>
@@ -601,6 +626,17 @@
   <string name="notifications_mark_all_as_read">Отбелязване на всички като прочетени</string>
   <string name="notifications_direct_reply_action">Отговор</string>
   <string name="notifications_direct_reply_success">Отговорът е публикуван.</string>
+  <string name="notifications_direct_reply_error">Отговорът не може да бъде публикуван автоматично.</string>
+  <string name="notifications_mark_all_as_read_message">%d означени като прочетени</string>
+  <string name="notifications_mark_all_as_unread_message">%d отбелязани  като непрочетени</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 отбелязано като прочетено</item>
+    <item quantity="other">%d отбелязани като прочетени</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 отбелязано като непрочетено</item>
+    <item quantity="other">%d отбелязани като непрочетени</item>
+  </plurals>
   <string name="watchlist_title">Списък за наблюдение</string>
   <string name="preference_title_notification_poll">Известия за анкети</string>
   <string name="preference_summary_notification_poll">Позволяване на приложението да използва данни за проверка на нови известия в заден план.</string>
@@ -620,9 +656,11 @@
   <string name="preference_title_notification_user_talk">Беседа</string>
   <string name="preference_summary_notification_user_talk">Съобщения и отговори от беседи на страници</string>
   <string name="preference_title_notification_email_user">Получен имейл</string>
+  <string name="preference_summary_notification_email_user">Някой Ви е изпратил имейл чрез уикито</string>
   <string name="preference_title_notification_user_rights">Промени на потребителските права</string>
-  <string name="preference_summary_notification_user_rights">Получава се при промяна на вашите потребителски права</string>
-  <string name="preference_title_notification_article_linked">Връзки до ваши статии</string>
+  <string name="preference_summary_notification_user_rights">Получава се при промяна на Вашите потребителски права</string>
+  <string name="preference_title_notification_article_linked">Връзки към Ваши статии</string>
+  <string name="preference_summary_notification_article_linked">Получава се, когато се направи нова връзка към страница, която Вие сте създали</string>
   <string name="preference_category_push_notifications">Насочени известия</string>
   <string name="preference_title_customize_push_notifications">Персонализиране на насочените известия</string>
   <string name="preference_category_display_settings">Настройки на изгледа</string>
@@ -811,11 +849,11 @@
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница на файла в Общомедия</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Страница на файла в Уикипедия</string>
   <string name="suggested_edits_article_cta_image_tags">Добавяне на етикети към изображения</string>
-  <string name="suggested_edits_article_cta_image_caption">Добавяне описание на изображение</string>
+  <string name="suggested_edits_article_cta_image_caption">Добавяне на описание за изображение</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Добавяне на надпис към изображението (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Преглед</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Добавяне описание на изображение</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Добавяне на описание на изображението (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Добавяне на описание за изображение</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Добавяне на описание за изображението (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Добавяне на етикети към изображения</string>
   <string name="suggested_edits_snackbar_survey_action_text">Попълнете анкета</string>
   <string name="suggested_edits_task_action_text_add">Добавяне</string>
@@ -866,7 +904,7 @@
     <item quantity="other">%d дни</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Какво представляват Предложените редакции?</string>
-  <string name="suggested_edits_what_is_text">Предложените редакции предоставят възможности за дребни, но жизненоважни приноси към Уикипедия.</string>
+  <string name="suggested_edits_what_is_text">Предложените редакции предоставят възможности за дребни, но полезни приноси към Уикипедия.</string>
   <string name="suggested_edits_learn_more">Научете повече</string>
   <string name="suggested_edits_paused_title">Паузирано</string>
   <string name="suggested_edits_disabled_title">Изключено</string>
@@ -891,7 +929,7 @@
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_encourage_account_creation_title">Знаете ли, че всеки може да редактира Уикипедия?</string>
-  <string name="suggested_edits_encourage_account_creation_message">Предложените редакции са нов начин за редактиране на Уикипедия на Андроид. Помагат Ви да направите дребни, но жизненоважни приноси към Уикипедия.\nНашата цел е да направим редактирането по-лесно и по-достъпно за всички! Влезте или се присъединете към Уикипедия, за да започнете.</string>
+  <string name="suggested_edits_encourage_account_creation_message">Предложените редакции са нов начин за редактиране на Уикипедия на Андроид. Помагат Ви да направите дребни, но полезни приноси към Уикипедия.\nНашата цел е да направим редактирането по-лесно и по-достъпно за всички! Влезте или се присъединете към Уикипедия, за да започнете.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Влизане в / присъединяване към Уикипедия</string>
   <string name="suggested_edits_contribution_type_image_tag">Етикети на изображение</string>
   <string name="suggested_card_more_edits">Още предложения за редактиране</string>
@@ -914,7 +952,7 @@
     <item quantity="other">Добавихте %d знака</item>
   </plurals>
   <string name="file_page_activity_title">Страница на файла</string>
-  <string name="file_page_add_image_caption_button">Добавяне описание на изображение</string>
+  <string name="file_page_add_image_caption_button">Добавяне на описание за изображение</string>
   <string name="file_page_add_image_tags_button">Добавяне на етикети към изображения</string>
   <string name="file_page_edit_button_content_description">Редактиране на %s</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
@@ -1009,9 +1047,9 @@
   <string name="insert_media_title">Вмъкване на медиен файл</string>
   <string name="insert_media_search_description">Изберете файл от Общомедия</string>
   <string name="insert_media_search_hint">Търсене на медиен файл</string>
-  <string name="insert_media_settings">Настройки за медийни файлове</string>
+  <string name="insert_media_settings">Добавяне на подробности за изображението</string>
   <string name="insert_media_settings_uploaded_image">Качено изображение</string>
-  <string name="insert_media_settings_caption">Описание</string>
+  <string name="insert_media_settings_caption">Описание на изображението</string>
   <string name="insert_media_settings_alternative_text">Алтернативен текст</string>
   <string name="insert_media_advanced_settings">Разширени настройки</string>
   <string name="insert_media_advanced_settings_image_position_right">Отдясно</string>
@@ -1083,7 +1121,9 @@
   <string name="menu_option_find_in_talk_page_topic">Намиране в тема на беседа</string>
   <string name="menu_option_copy_link_to_clipboard">Копиране на връзката в системния буфер</string>
   <string name="talk_menu_copy_text">Копиране на текста</string>
+  <string name="watchlist_details_watching_label">Наблюдавана</string>
   <string name="watchlist_details_watch_label">Наблюдение</string>
+  <string name="watchlist_details_next_edit">Следваща редакция</string>
   <string name="watchlist_details_prev_edit">Предишна редакция</string>
   <string name="thank_label">Благодарност</string>
   <string name="view_user_page">Преглед на потребителската страница</string>
@@ -1136,7 +1176,7 @@
   <string name="watchlist_filter_user_intent_good">Много вероятно добросъвестно</string>
   <string name="watchlist_filter_user_intent_may_problems">Може да е недобросъвестно</string>
   <string name="watchlist_filter_user_intent_likely_problems">Вероятно недобросъвестно</string>
-  <string name="watchlist_filter_user_intent_bad">Много вероятно добросъвестно</string>
+  <string name="watchlist_filter_user_intent_bad">Много вероятно недобросъвестно</string>
   <string name="watchlist_filter_user_status_header">Регистрация на потребителя и опит</string>
   <string name="watchlist_filter_user_status_unregistered">Нерегистрирани</string>
   <string name="watchlist_filter_user_status_registered">Регистрирани</string>
@@ -1154,12 +1194,12 @@
   <string name="watchlist_filter_significance_edits">Обикновени редакции</string>
   <string name="watchlist_filter_latest_revisions_header">Текущи версии</string>
   <string name="watchlist_filter_latest_revisions_latest_revision">Текуща версия</string>
-  <string name="watchlist_filter_latest_revisions_not_latest_revision">Не последната версия</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Не е последна версия</string>
   <string name="watchlist_filter_type_of_change_header">Вид на промяната</string>
   <string name="watchlist_filter_type_of_change_page_edits">Редакции на страници</string>
   <string name="watchlist_filter_type_of_change_page_creations">Създавания на страници</string>
   <string name="watchlist_filter_type_of_change_category_changes">Промяна на категории</string>
-  <string name="watchlist_filter_type_of_change_wikidata_edits">Редакции на Уикиданни</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Редакции в Уикиданни</string>
   <string name="watchlist_filter_type_of_change_logged_actions">Записани в дневника действия</string>
   <string name="watchlist_filter_type_of_change_new_users">Нови потребители</string>
   <string name="watchlist_filter_reset_button">Анулиране</string>

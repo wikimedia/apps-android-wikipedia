@@ -125,9 +125,9 @@
   <string name="map_view_link_text">Megtekintés térképen</string>
   <string name="other_languages_indication_text">Olvasás más nyelven</string>
   <string name="language_count_link_text">Elérhető %d másik nyelven</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">A közzététellel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
-  <string name="edit_save_action_license_anon">A közzététellel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és a közreműködéseidet visszavonhatatlanul közzéteszed a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt. A szerkesztések az eszközöd IP-címéhez lesznek rendelve. Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt;, nagyobb adatvédelmet szerzel.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">A közzététellel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; licenc alatt.</string>
+  <string name="edit_save_action_license_anon">A közzététellel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és a közreműködéseidet visszavonhatatlanul közzéteszed a &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; licenc alatt. A szerkesztések az eszközöd IP-címéhez lesznek rendelve. Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt;, nagyobb adatvédelmet szerzel.</string>
   <string name="edit_anon_warning">A szerkesztéseid az eszközöd IP-címéhez lesznek társítva. Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt;, nagyobb adatvédelmet élvezhetsz.</string>
   <string name="preference_title_language">Wikipédia-nyelvek</string>
   <string name="langlinks_filter_hint">Keresés</string>
@@ -253,7 +253,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu</string>
   <string name="terms_of_use_url">https://meta.wikimedia.org/wiki/Terms_of_use/hu</string>
   <string name="android_app_request_an_account_url">https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.hu</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.hu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hu</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu#K%C3%A9pc%C3%ADmk%C3%A9k</string>
@@ -263,7 +263,7 @@
   <string name="about_translators_heading">Fordítók</string>
   <string name="about_translators_translatewiki">Ezt az alkalmazást önkéntesek fordították a &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; segítségével.</string>
   <string name="about_app_license_heading">Licenc</string>
-  <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
+  <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.hu\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
   <string name="about_wmf">A &lt;a href=\"https://wikimediafoundation.org\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
   <string name="about_activity_title">Névjegy</string>
   <string name="edit_abandon_confirm">A lap megváltozott. A módosítások mentése nélkül akarsz kilépni?</string>
@@ -384,6 +384,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">A szócikk nem tölthető be kapcsolat nélkül.</string>
   <string name="page_offline_notice_add_to_reading_list">Tipp: Add hozzá a szócikket egy olvasólistához, hogy letöltődjön, amikor kapcsolódsz az internethez.</string>
   <string name="page_offline_notice_last_date">A szócikk offline verzióját olvasod, mentve: %s</string>
+  <string name="redirected_from_snackbar">„%s” szócikkből átirányítva</string>
   <string name="button_get_directions">Útvonalterv</string>
   <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
   <string name="preference_title_customize_explore_feed">Felfedezés hírcsatorna</string>
@@ -965,6 +966,7 @@
   <string name="suggested_edits_image_tags_select_title">Még egyetlen címkét sem választottál ehhez a képhez</string>
   <string name="suggested_edits_image_tags_select_text">Csak a kiválasztott címkék lesznek hozzáadva a képekhez. A nem kiválasztott címkék elutasítottként lesznek megjelölve. Valóban elutasítottnak akarod jelölni az összes címkét?</string>
   <string name="suggested_edits_image_tags_add_tag">Címke hozzáadása</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">A közzé nem tett címkék nem lesznek elmentve</string>
   <string name="suggested_edits_image_zoom_tooltip">Csípj a kép nagyításához.</string>
   <string name="suggested_edits_encouragement_message">%s, köszönet a szerkesztéseidért! Lentebb további lehetőségeket találsz, amelyekkel hozzájárulhatsz a Wikipédiához.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Szia %s!&lt;/b&gt; Tudtad, hogy bárki szerkesztheti a Wikipédiát? Lentebb gyors és egyszerű módokat találsz, amivel közreműködhetsz a Wikipédia javításában. Jó szerkesztést!</string>
@@ -1061,6 +1063,30 @@
     <item quantity="one">Hozzáadtál egy karaktert</item>
     <item quantity="other">Hozzáadtál %d karaktert</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Képjavasló algoritmus</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Tegyél könnyebben érthetővé Wikipédia-szócikkeket azzal, hogy ajánlott képeket helyezel el bennük.</string>
+  <string name="image_recommendation_task_instruction">Hozzáadnád ezt a képet a cikkhez?</string>
+  <string name="image_recommendation_accept">Igen</string>
+  <string name="image_recommendation_reject">Nem</string>
+  <string name="image_recommendation_notsure">Nem tudom</string>
+  <string name="image_recommendation_reject_title">Miért nem?</string>
+  <string name="image_recommendation_reject_subtitle">A válaszaid javítják a jövőbeli javaslatokat.</string>
+  <string name="image_recommendation_reject_not_relevant">A kép nem releváns</string>
+  <string name="image_recommendation_reject_no_info">Nincs elég információ a döntéshez</string>
+  <string name="image_recommendation_reject_offensive">A kép sértő</string>
+  <string name="image_recommendation_reject_low_quality">A kép rossz minőségű</string>
+  <string name="image_recommendation_reject_dont_know">Nem ismerem ezt a témát</string>
+  <string name="image_recommendation_reject_other">Egyéb</string>
+  <string name="image_recommendation_reject_submit">Elküldés</string>
+  <string name="image_recommendation_tooltip_main">Adj hiányzó képeket szócikkekhez a Javasolt szerkesztésekben</string>
+  <string name="image_recommendation_onboarding_1">A képek segítik a megértést, de sok szócikkből hiányoznak.</string>
+  <string name="image_recommendation_onboarding_2">Te fogod eldönteni, hogy egy javasolt kép bekerüljön-e egy Wikipédia-szócikkbe.</string>
+  <string name="image_recommendation_onboarding_3">A javaslatok gépi úton vannak generálva, és a te belátásodra van bízva, hogy elfogadod vagy elutasítod azokat.</string>
+  <string name="image_recommendation_onboarding_4">A képek a Wikimédia Commonsból származnak, a Wikipédia által használt, szabadon licencelt képek gyűjteményéből.</string>
+  <string name="image_recommendation_tooltip_next">Tovább</string>
+  <string name="edit_summary_added_image">Új kép hozzáadása</string>
+  <string name="edit_summary_added_caption">Képaláírás hozzáadása</string>
+  <string name="edit_published_view">Megtekintés</string>
   <string name="file_page_activity_title">Fájllap</string>
   <string name="file_page_add_image_caption_button">Képaláírás hozzáadása</string>
   <string name="file_page_add_image_tags_button">Képcímkék hozzáadása</string>
@@ -1159,12 +1185,12 @@
   <string name="insert_media_title">Média beszúrása</string>
   <string name="insert_media_search_description">Fájl kiválasztása a Wikimedia Commonsról</string>
   <string name="insert_media_search_hint">Média keresése</string>
-  <string name="insert_media_settings">Médiabeállítások</string>
+  <string name="insert_media_settings">Részletek hozzáadása a képhez</string>
   <string name="insert_media_settings_uploaded_image">Feltöltött kép</string>
   <string name="insert_media_settings_caption">Képaláírás</string>
-  <string name="insert_media_settings_caption_description">Minden olvasó számára megjelenő szöveg a média mellett</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Minden olvasó számára megjelenő szöveg a média mellett</string>
   <string name="insert_media_settings_alternative_text">Alternatív szöveg</string>
-  <string name="insert_media_settings_alternative_text_description">Leírás olyan olvasók számára, akik nem látják a képet</string>
+  <string name="insert_media_settings_alternative_text_description">Leírás látássérült olvasók számára</string>
   <string name="insert_media_advanced_settings">Speciális beállítások</string>
   <string name="insert_media_advanced_settings_wrap_image">Kép körbefuttatása szöveggel</string>
   <string name="insert_media_advanced_settings_image_position">A kép pozíciója</string>
@@ -1401,4 +1427,5 @@
   <string name="reading_list_share_survey_body">Az olvasólisták megosztása egy tesztelés alatt álló funkció, és szükségünk van a visszajelzésedre a fejlesztéséhez vagy eltávolításához.</string>
   <string name="data_opt_in_accept">Elfogad</string>
   <string name="data_opt_in_reject">Elutasít</string>
+  <string name="generic_release_notes">Kisebb hibajavítások és fejlesztések</string>
 </resources>

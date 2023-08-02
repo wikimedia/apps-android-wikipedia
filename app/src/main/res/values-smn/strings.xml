@@ -74,7 +74,7 @@
   <string name="edit_history_link_text">Čääiti hammimhistorjá</string>
   <string name="map_view_link_text">Čääiti káártást</string>
   <string name="other_languages_indication_text">Luuvâ eres kielân</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="preference_title_language">Wikipedia kielah</string>
   <string name="langlinks_filter_hint">Uuccâm</string>
   <string name="langlinks_activity_title">Eres kielah</string>
@@ -166,6 +166,7 @@
   <string name="article_menu_bar_contents_button">Siskáldâs</string>
   <string name="article_header_edit_hint">Mute...</string>
   <string name="article_header_edit_description">Mute artikkâl kuvvim</string>
+  <string name="article_header_edit_lead_section">Mute laiđiittâs</string>
   <string name="color_theme_select">Teema</string>
   <string name="color_theme_light">Kuovgâd</string>
   <string name="color_theme_dark">Tevkkâd</string>
@@ -213,6 +214,7 @@
   <string name="notification_echo_channel_description">Wikipedia almottâsah</string>
   <string name="notifications_activity_title">Almottâsah</string>
   <string name="watchlist_title">Tarkkumlisto</string>
+  <string name="preference_title_notification_login_fail">Čáládât siisâ</string>
   <string name="preference_title_notification_user_talk">Savâstâllâmsijđo</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_tab_filter_all">Puoh</string>
@@ -309,7 +311,7 @@
   <string name="wikitext_template">Myenster</string>
   <string name="wikitext_reference">Käldee</string>
   <string name="insert_media_search_description">Valjii tiätuvuárhá Wikimedia Commonsist</string>
-  <string name="insert_media_settings_caption">Kovetekstâ</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Kovetekstâ</string>
   <string name="insert_media_advanced_settings">Laseasâttâsah</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatyyrkove</string>
   <string name="main_drawer_help">Iše</string>

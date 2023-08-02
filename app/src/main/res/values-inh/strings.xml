@@ -109,9 +109,9 @@
   <string name="map_view_link_text">Карта тIа хьажа</string>
   <string name="other_languages_indication_text">Кхыча меттала деша</string>
   <string name="language_count_link_text">Таржам даь йолаш я %d меттала</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Iайха даь хувцамаш дIаяздарца хьо раьза хул &lt;a href=\"%1$s\" &gt;пайда эцара бехкамашта&lt;/a&gt;, цул совгIа раьза хул хьо &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; яхача лицензех а дола юхадаккха вIаштIехьа хургдоацача кепатохарá.</string>
-  <string name="edit_save_action_license_anon">Iайха даь хувцамаш дIаяздарца хьо раьза хул &lt;a href=\"%1$s\"&gt;пайда эцара бехкамашта&lt;/a&gt;, цул совгIа раьза хул хьо &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; яхача лицензех а дола юхадаккха вIаштIехьа хургдоацача кепатохарá. Хьа хувцамаш хьа устройства IP-цIайнах дIахьерча хургда. Нагахьа санна Iа &lt;a href=\"https://#login\"&gt;авторизаци йой&lt;/a&gt;, конфиденциальность лакхагIа хургья хьа.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Iайха даь хувцамаш дIаяздарца хьо раьза хул &lt;a href=\"%1$s\" &gt;пайда эцара бехкамашта&lt;/a&gt;, цул совгIа раьза хул хьо &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; яхача лицензех а дола юхадаккха вIаштIехьа хургдоацача кепатохарá.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Iайха даь хувцамаш дIаяздарца хьо раьза хул &lt;a href=\"%1$s\"&gt;пайда эцара бехкамашта&lt;/a&gt;, цул совгIа раьза хул хьо &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; яхача лицензех а дола юхадаккха вIаштIехьа хургдоацача кепатохарá. Хьа хувцамаш хьа устройства IP-цIайнах дIахьерча хургда. Нагахьа санна Iа &lt;a href=\"https://#login\"&gt;авторизаци йой&lt;/a&gt;, конфиденциальность лакхагIа хургья хьа.</string>
   <string name="edit_anon_warning">Ӏа даь хувцамаш хьа IP-цӀайца дувзаденна хургда (IP-цӀай гуш хургда). Нагахьа санна хьо &lt;a href=\"https://#login\"&gt;система чу чувоале&lt;/a&gt;, хье мала ва къайладахьар аттагӀа хургда.</string>
   <string name="preference_title_language">Википеде Метташ</string>
   <string name="langlinks_filter_hint">Лахар</string>
@@ -237,7 +237,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
   <string name="terms_of_use_url">https://meta.m.wikimedia.org/wiki/Terms_of_Use/inh</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ru</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -247,7 +246,7 @@
   <string name="about_translators_heading">Таржамхой</string>
   <string name="about_translators_translatewiki">Укх приложенена &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чу таржам даьр ГӀалгӀай Википеден админ ва (&lt;a href=\"https://instagram.com/ingush_wikipedia\"&gt;@Ingush_Wikipedia&lt;/a&gt;).</string>
   <string name="about_app_license_heading">Лицензи</string>
-  <string name="about_app_license">Юххьанцарча кóдá тӀакхача аьттув ба укхаза → &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;, укх лицензеца &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Нагахьа санна кхыдар белгалдаьдеце, чударá тӀакхача аьттув ба укх лицензе бокъонашца: &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Юххьанцарча кóдá тӀакхача аьттув ба укхаза → &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;, укх лицензеца &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Нагахьа санна кхыдар белгалдаьдеце, чударá тӀакхача аьттув ба укх лицензе бокъонашца: &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонд Викимедиан продукт&lt;/a&gt;</string>
   <string name="about_activity_title">Приложенех лаьца</string>
   <string name="edit_abandon_confirm">ОагӀона тӀа хувцам баьб. Боккъонца лой хьона хувцам дӀа ца язбеш аравала?</string>
@@ -1053,6 +1052,8 @@
     <item quantity="one">%d фискал тӀатехай Ӏа</item>
     <item quantity="other">%d фискал тӀатехай Ӏа</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Сурташ гойтара алгоритм</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Жоп ле хьайга, цу сурто дикагӀа хулийтаргья е яц статья.</string>
   <string name="file_page_activity_title">Файла оагӀув</string>
   <string name="file_page_add_image_caption_button">Суртах лаьцар тӀатоха</string>
   <string name="file_page_add_image_tags_button">Сурта фосташ тӀатоха</string>
@@ -1155,12 +1156,12 @@
   <string name="insert_media_title">Медиа-файл чуяккха</string>
   <string name="insert_media_search_description">Викиларам чура файл харжа</string>
   <string name="insert_media_search_hint">Медиафайлаш лахар</string>
-  <string name="insert_media_settings">Медиафайла параметраш</string>
+  <string name="insert_media_settings" fuzzy="true">Медиафайла параметраш</string>
   <string name="insert_media_settings_uploaded_image">Чудаьккха дола сурт</string>
-  <string name="insert_media_settings_caption">Суртах лаьцар</string>
-  <string name="insert_media_settings_caption_description">Массанена гуш а дола, файла юхе латта йоазув</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Суртах лаьцар</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Массанена гуш а дола, файла юхе латта йоазув</string>
   <string name="insert_media_settings_alternative_text">Кхыдола йоазув</string>
-  <string name="insert_media_settings_alternative_text_description">Сурт бӀаргаго ца могача дешачарна хетадаь дола суртах лаьцар</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Сурт бӀаргаго ца могача дешачарна хетадаь дола суртах лаьцар</string>
   <string name="insert_media_advanced_settings">Шердаь оттамаш</string>
   <string name="insert_media_advanced_settings_wrap_image">Сурта гонахьа оттаде йоазув</string>
   <string name="insert_media_advanced_settings_image_position">Сурта моттиг</string>

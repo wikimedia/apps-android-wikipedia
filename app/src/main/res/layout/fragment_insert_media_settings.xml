@@ -6,7 +6,7 @@
     android:id="@+id/insertMediaPreviewContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:windowBackground"
+    android:background="?attr/paper_color"
     android:orientation="vertical"
     android:visibility="gone"
     tools:visibility="visible">
@@ -38,6 +38,7 @@
                 tools:visibility="visible">
 
                 <TextView
+                    android:id="@+id/mediaTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
