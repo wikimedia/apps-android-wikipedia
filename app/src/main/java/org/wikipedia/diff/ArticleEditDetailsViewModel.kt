@@ -48,8 +48,6 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     var canGoForward = false
     var hasRollbackRights = false
 
-    private var diffRevisionId = 0L
-
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 
     init {
@@ -125,9 +123,6 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun getDiffText(oldRevisionId: Long, newRevisionId: Long) {
-        if (diffRevisionId == newRevisionId) {
-            return
-        }
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             diffText.postValue(Resource.Error(throwable))
         }) {
@@ -141,7 +136,6 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             } else {
                 singleRevisionText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getRevision(newRevisionId)))
             }
-            diffRevisionId = newRevisionId
         }
     }
 
