@@ -67,7 +67,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
         if (pageTitle.namespace.isEmpty()) {
             pageTitle.namespace = TalkAliasData.valueFor(pageTitle.wikiSite.languageCode)
         } else if (pageTitle.isUserPage) {
-            // Make sure to remove all styles if it is a user page.
+            // Make sure to remove HTML tags and duplicated namespace if it is a user page.
             if (pageTitle.namespace() === Namespace.USER) {
                 pageTitle.displayText = StringUtil.removeNamespace(StringUtil.removeHTMLTags(pageTitle.displayText))
             }
