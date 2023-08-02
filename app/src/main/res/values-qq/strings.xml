@@ -1075,6 +1075,10 @@
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Title for the Suggested Edits task of adding recommended images to articles.</string>
   <string name="suggested_edits_image_recommendations_task_detail">Description for the Suggested Edits task of adding recommended images to articles.</string>
+  <string name="suggested_edits_edit_patrol">Title for patrolling recent edits.</string>
+  <string name="suggested_edits_edit_patrol_hint">Description of the task of patrolling recent edits.</string>
+  <string name="suggested_edits_edit_patrol_review">Button to begin the task of patrolling recent edits.</string>
+  <string name="suggested_edits_edit_patrol_skip">Button for skipping to the next revision.</string>
   <string name="image_recommendation_task_instruction">Hint label when asking the user to add a proposed image to an article.</string>
   <string name="image_recommendation_tutorial">Menu label for navigating to a tutorial screen.</string>
   <string name="image_recommendation_accept">Button label for accepting a recommended image for an article.</string>

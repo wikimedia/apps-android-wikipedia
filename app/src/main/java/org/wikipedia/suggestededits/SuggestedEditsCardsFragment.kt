@@ -179,7 +179,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
                 binding.addContributionButton.text = null
                 binding.addContributionButton.setIconResource(R.drawable.ic_check_black_24dp)
             } else {
-                binding.addContributionButton.text = getString(R.string.suggested_edits_vandalism_patrol_skip)
+                binding.addContributionButton.text = getString(R.string.suggested_edits_edit_patrol_skip)
                 binding.addContributionButton.icon = null
             }
         } else if (action == ADD_IMAGE_TAGS) {

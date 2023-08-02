@@ -318,10 +318,11 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
 
         vandalismPatrolTask = SuggestedEditsTask()
-        vandalismPatrolTask.title = getString(R.string.suggested_edits_vandalism_patrol)
-        vandalismPatrolTask.description = "Review recent edits on Wikipedia and determine if they are helpful or unhelpful."
-        vandalismPatrolTask.primaryAction = "Review"
-        vandalismPatrolTask.imageDrawable = R.drawable.ic_report_black_24dp
+        vandalismPatrolTask.title = getString(R.string.suggested_edits_edit_patrol)
+        vandalismPatrolTask.description = getString(R.string.suggested_edits_edit_patrol_hint)
+        vandalismPatrolTask.primaryAction = getString(R.string.suggested_edits_edit_patrol_review)
+        vandalismPatrolTask.imageDrawable = R.drawable.ic_patrol_24
+        vandalismPatrolTask.primaryActionIcon = R.drawable.ic_check_black_24dp
 
         displayedTasks.add(vandalismPatrolTask)
 

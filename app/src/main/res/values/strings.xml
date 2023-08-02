@@ -922,8 +922,10 @@
     <string name="suggested_edits_describe_articles">Describe articles</string>
     <string name="suggested_edits_caption_images">Caption images</string>
     <string name="suggested_edits_tag_images">Tag images</string>
-    <string name="suggested_edits_vandalism_patrol">Vandalism patrol</string>
-    <string name="suggested_edits_vandalism_patrol_skip">Skip</string>
+    <string name="suggested_edits_edit_patrol">Edit patrol</string>
+    <string name="suggested_edits_edit_patrol_hint">Review recent edits and determine whether they are constructive or not.</string>
+    <string name="suggested_edits_edit_patrol_review">Review</string>
+    <string name="suggested_edits_edit_patrol_skip">Skip</string>
     <string name="suggested_edits_review_description">Review article description</string>
     <string name="suggested_edits_add_description_button">Add description</string>
     <string name="suggested_edits_edit_description_button">Edit description</string>
