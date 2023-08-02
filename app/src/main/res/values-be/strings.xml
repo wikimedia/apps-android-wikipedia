@@ -5,6 +5,7 @@
 * Chadyka
 * Da voli
 * Dbrant
+* Earnur97
 * Envlh
 * Gorgich
 * Kareyac
@@ -388,6 +389,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Артыкул не можа быць спампованы без падлучэння да Інтэрнэту.</string>
   <string name="page_offline_notice_add_to_reading_list">Падказка: Дадайце гэты артыкул у спіс да прачытання, і ён запампуецца, як толькі з\'явіцца падключэнне да сеткі.</string>
   <string name="page_offline_notice_last_date">Вы чытаеце афлайн-версію артыкула, захаванага %s</string>
+  <string name="redirected_from_snackbar">Перанакіравана з \"%s\"</string>
   <string name="button_get_directions">Пракласці маршрут</string>
   <string name="error_no_maps_app">Не атрымалася знайсці ні аднаго дадатка, якое б пракладвала маршрут.</string>
   <string name="preference_title_customize_explore_feed">Праглядзець стужку</string>

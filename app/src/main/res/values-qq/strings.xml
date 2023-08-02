@@ -1306,7 +1306,7 @@
   <string name="watchlist_details_watch_label">Label on the button suggesting the user to watch the title.\n\n{{Identical|Watch}}</string>
   <string name="watchlist_details_next_edit">Content description for the button that goes to the next edit history.</string>
   <string name="watchlist_details_prev_edit">Content description for the button that goes to the previous edit history.</string>
-  <string name="thank_label">Label on the button suggesting the user to thank the edit.</string>
+  <string name="thank_label">Label on the button that allows the user to thank the contributor for the edit.</string>
   <string name="view_user_page">Menu item label for going to the user page of the selected user.</string>
   <string name="thank_dialog_title_text">Title text on the thank dialog</string>
   <string name="thank_dialog_text">Dialog text for the thank dialog</string>
