@@ -27,6 +27,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
+import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -102,7 +103,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 updateAfterDiffFetchSuccess()
                 binding.progressBar.isVisible = false
             } else if (it is Resource.Error) {
-                setErrorState(it.throwable)
+                if (it.throwable is HttpStatusException && it.throwable.code == 403) {
+                    binding.progressBar.isVisible = false
+                    binding.diffRecyclerView.isVisible = false
+                    binding.undoButton.isVisible = false
+                    binding.rollbackButton.isVisible = false
+                    binding.thankButton.isVisible = false
+                    binding.diffUnavailableContainer.isVisible = true
+                } else {
+                    setErrorState(it.throwable)
+                }
             }
         }
 
@@ -312,6 +322,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.progressBar.isVisible = true
         binding.revisionDetailsView.isVisible = false
         binding.diffRecyclerView.isVisible = false
+        binding.diffUnavailableContainer.isVisible = false
     }
 
     private fun updateAfterRevisionFetchSuccess() {
