@@ -36,7 +36,11 @@ import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.page.*
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.Namespace
+import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.settings.Prefs
@@ -45,8 +49,18 @@ import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
-import org.wikipedia.util.*
-import org.wikipedia.views.*
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.NotificationButtonView
+import org.wikipedia.views.SearchActionProvider
+import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.views.TalkTopicsSortOverflowView
+import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 
