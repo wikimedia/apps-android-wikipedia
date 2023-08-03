@@ -1348,6 +1348,7 @@
   <string name="revision_diff_line_removed">Ligne supprimée</string>
   <string name="revision_diff_paragraph_added">Paragraphe ajouté</string>
   <string name="revision_diff_paragraph_removed">Paragraphe supprimé</string>
+  <string name="revision_diff_protected">Les modifications faites dans cette révision ne sont pas accessibles publiquement.</string>
   <string name="revision_undo_title">Annuler la modification</string>
   <string name="revision_undo_message">Cela annulera les modifications réalisées dans les révisions de l’article affichées ici.</string>
   <string name="revision_undo_reason">Pour poursuivre, veuillez fournir un motif pour annuler cette modification :</string>

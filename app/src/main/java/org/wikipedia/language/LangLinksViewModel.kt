@@ -11,6 +11,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.SiteMatrix
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.util.Resource
@@ -19,8 +20,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class LangLinksViewModel(bundle: Bundle) : ViewModel() {
-
-    var pageTitle: PageTitle = bundle.getParcelable(Constants.ARG_TITLE)!!
+    var pageTitle: PageTitle = bundle.parcelable(Constants.ARG_TITLE)!!
 
     val languageEntries = MutableLiveData<Resource<List<PageTitle>>>()
     val languageEntryVariantUpdate = SingleLiveData<Resource<Unit>>()
