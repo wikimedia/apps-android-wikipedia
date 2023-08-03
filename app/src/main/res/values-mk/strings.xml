@@ -1302,6 +1302,7 @@
   <string name="revision_diff_line_removed">Отстранет ред</string>
   <string name="revision_diff_paragraph_added">Додаден пасус</string>
   <string name="revision_diff_paragraph_removed">Отстранет пасус</string>
+  <string name="revision_diff_protected">Промените направени во оваа преработка не се јавно пристапни.</string>
   <string name="revision_undo_title">Врати уредување</string>
   <string name="revision_undo_message">Ова ќе ги врати промените направени со преработката/ките на тука прикажаната статија.</string>
   <string name="revision_undo_reason">За да продолжите, внесете причина за враќање на уредувањево:</string>
