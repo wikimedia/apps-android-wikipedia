@@ -847,7 +847,7 @@
   <string name="description_starts_with_uppercase">Беренсе һүҙ яңғыҙлыҡ исем булмаһа, юл хәрефенән башлағыҙ</string>
   <string name="description_starts_with_lowercase">Юл хәрефтән башлаға тырышмағыҙ.</string>
   <string name="description_is_in_different_language">Текст көтөлмәгән телдә килеп сыҡты. Текст %s булырға тейеш.</string>
-  <string name="description_verification_notice" fuzzy="true">Зинһар, һеҙҙең тасуирламағыҙ %1$s  икәненә инанығыҙ. әгәр һеҙ яҙған тасуирлама %2 булһа, был иҫкәртеүгә иғтибар итмәгеҙ.</string>
+  <string name="description_verification_notice">Зинһар, һеҙҙең тасуирламағыҙ %1$s икәненә инанығыҙ. әгәр һеҙ яҙған тасуирлама %2$s булһа, был иҫкәртеүгә иғтибар итмәгеҙ.</string>
   <string name="description_edit_suggested_description_button_text">Тәҡдим иткән тасуирламаны күрһәтергә</string>
   <string name="description_edit_suggested_description_button_tooltip">Машина яҙған мәҡәлә тасуирламаларын һынап ҡарағыҙ</string>
   <string name="description_edit_success_saved">Мәҡәлә тасуирламаһы баҫтырылды!</string>
