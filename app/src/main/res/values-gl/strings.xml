@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Athena in Wonderland
 * Banjo
 * Chairego apc
@@ -64,7 +65,7 @@
   <string name="page_edit_history_comment_placeholder">Resumo de edición baleiro</string>
   <string name="menu_page_show_tabs">Amosar as lapelas</string>
   <string name="menu_page_other_languages">Cambiar a lingua</string>
-  <string name="menu_page_find_in_page" fuzzy="true">Atopar na páxina</string>
+  <string name="menu_page_find_in_page">Atopar no artigo</string>
   <string name="menu_page_add_to_watchlist">Engadir á lista de vixilancia</string>
   <string name="menu_page_remove_from_watchlist">Eliminar da lista de vixilancia</string>
   <string name="edit_section_find_in_page">Atopar na páxina</string>
@@ -90,15 +91,15 @@
   <string name="map_view_link_text">ver nun mapa</string>
   <string name="other_languages_indication_text">Ler noutra lingua</string>
   <string name="language_count_link_text">Dispoñible en %d linguas máis</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Ao publicar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Ao publicar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edicións atribuiránselle ao enderezo IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;accede ao sistema&lt;/a&gt; terá un maior anonimato.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Ao publicar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Ao publicar, acepta os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e acepta liberar irrevogablemente as súas contribucións baixo a licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. As edicións atribuiránselle ao enderezo IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;accede ao sistema&lt;/a&gt; terá un maior anonimato.</string>
   <string name="preference_title_language">Linguas de Wikipedia</string>
   <string name="langlinks_filter_hint">Procurar</string>
   <string name="langlinks_empty">Esta páxina non está dispoñible noutras linguas</string>
   <string name="langlinks_no_match">Non se atopou ningunha lingua</string>
   <string name="langlinks_activity_title">Outras linguas</string>
-  <string name="langlinks_your_wikipedia_languages">As súas linguas de Wikipédia</string>
+  <string name="langlinks_your_wikipedia_languages">As súas linguas de Wikipedia</string>
   <string name="menu_save_changes">Publicar os cambios</string>
   <string name="edit_saved_successfully">Publicouse a edición!</string>
   <string name="dialog_message_edit_failed">Fallou a edición!</string>
@@ -162,7 +163,7 @@
   <string name="create_account_passwords_mismatch_error">Os contrasinais non coinciden</string>
   <string name="create_account_email_error">O enderezo de correo electrónico non é válido</string>
   <string name="create_account_username_error">Caracteres non válidos no nome de usuario</string>
-  <string name="create_account_password_error" fuzzy="true">O contrasinal non é válido</string>
+  <string name="create_account_password_error">O contrasinal debe ter polo menos 8 caracteres</string>
   <string name="create_account_generic_error">Non se puido crear a conta</string>
   <string name="create_account_next">Seguinte</string>
   <string name="email_recommendation_dialog_title">Crear unha conta sen enderezo de correo electrónico?</string>
@@ -208,12 +209,12 @@
   <string name="privacy_policy_description">Política de protección de datos</string>
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="about_wikipedia_url">https://gl.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
-  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/gl</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/gl</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/gl</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/gl</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/gl</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.gl</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.gl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.gl</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Bibliotecas empregadas</string>
@@ -221,7 +222,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicación foi traducida polos tradutores voluntarios de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license" fuzzy="true">Código fonte dispoñible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baixo a &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licenza Apache 2.0&lt;/a&gt;. Agás que se especifique o contrario, o contido está dispoñible baixo a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licenza Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">O código fonte está dispoñible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; baixo a &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licenza Apache 2.0&lt;/a&gt;. Agás que se especifique o contrario, o contido está dispoñible baixo a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.gl\"&gt;licenza Creative Commons recoñecemento compartir igual&lt;/a&gt;.</string>
   <string name="about_wmf">Un produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
   <string name="edit_abandon_confirm">A páxina foi modificada. Quere saír sen gardar os cambios?</string>
@@ -472,7 +473,7 @@
     <item quantity="one">Este artigo xa non estará dispoñible sen conexión.</item>
     <item quantity="other">Estes artigos xa non estarán dispoñibles sen conexión.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">As listas de lectura foron sincronizadas correctamente</string>
+  <string name="reading_list_toast_last_sync">Sincronizáronse as listas de lectura</string>
   <string name="reading_list_menu_last_sync">Última sincronización: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -549,7 +550,7 @@
   <string name="preference_title_notification_mention">Mención</string>
   <string name="preference_summary_notification_mention">Alguén menciónao nunha páxina</string>
   <string name="preference_title_notification_user_talk">Páxina de conversa</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">Mensaxes das páxinas de conversa</string>
+  <string name="preference_summary_notification_user_talk">Mensaxes e respostas das páxinas de conversa</string>
   <string name="view_because_you_read_card_title">Porque leu</string>
   <string name="view_random_card_title">Aleatorio</string>
   <string name="view_random_article_card_title">Artigo ao chou</string>
@@ -712,8 +713,8 @@
   <string name="suggested_edits_image_tags_publishing">Publicando</string>
   <string name="suggested_edits_image_tags_published">Publicado</string>
   <string name="suggested_edits_image_tags_onboarding_title">Etiquetar as imaxes facilita a súa procura.</string>
-  <string name="suggested_edits_encouragement_message" fuzzy="true">%s, grazas polas súas edicións, Abaixo pode atopar máis formas de contribuír á Wikipedia</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;/b&gt;Ola %s&lt;/b&gt;, sabe que calquera persoa pode editar a Wikipedia? Atope abaixo algunhas formas divertidas de axudar a mellorar a Wikipedia. Divírtase editandoǃ</string>
+  <string name="suggested_edits_encouragement_message">%s, grazas polas súas edicións. Abaixo pode atopar máis formas de contribuír na Wikipedia.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Ola %s&lt;/b&gt;, abaixo pode atopar algunhas formas rápidas e sinxelas de axudar a mellorar a Wikipedia. Axiña verá a diferenza que está marcando en canto empece. Divírtase editando!</string>
   <string name="suggested_edits_views_label_text">Visitas</string>
   <string name="suggested_edits_quality_good_text">Boa</string>
   <string name="suggested_edits_quality_okay_text">Aceptar</string>
@@ -722,10 +723,13 @@
   <string name="suggested_edits_contribution_language_label">Idioma</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Hora</string>
   <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
-  <string name="suggested_edits_contribution_image_label" fuzzy="true">Arquivo</string>
+  <string name="suggested_edits_contribution_image_label">Imaxe</string>
   <string name="suggested_edits_contribution_article_label">Artigo</string>
   <string name="suggested_edits_contribution_views">%s visitas</string>
-  <string name="suggested_edits_added_contribution_label" fuzzy="true">Engadiches %d caracteres</string>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Engadiches %d carácter</item>
+    <item quantity="other">Engadiches %d caracteres</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Grazas por editar a Wikipediaǃ</string>
   <string name="description_edit_revert_intro">Sabemos que intentou facelo o mellor posible, pero un dos nosos revisores atopou un problema. Posibles razóns polas que a súa edición foi revertida inclúenː</string>
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -804,7 +808,7 @@
   <string name="wikitext_preview_link">Vista previa de ligazón</string>
   <string name="main_drawer_help">Axuda</string>
   <string name="main_drawer_login">Acceder / unirse á Wikipedia</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, sabía que todo o mundo pode editar a Wikipedia?</string>
+  <string name="main_tooltip_text">Ola %s, sabía que todo o mundo pode editar a Wikipedia?</string>
   <string name="main_tooltip_action_button">Comezar</string>
   <string name="main_tooltip_watchlist_title">Lista de vixilancia</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

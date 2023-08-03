@@ -27,6 +27,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
+import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -90,17 +91,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it is Resource.Success) {
                 updateDiffCharCountView(viewModel.diffSize)
                 updateAfterRevisionFetchSuccess()
-                updateUndoAndRollbackButtons()
-            } else if (it is Resource.Error) {
-                setErrorState(it.throwable)
-            }
-        }
-
-        viewModel.diffText.observe(viewLifecycleOwner) {
-            if (it is Resource.Success) {
-                binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data.diff))
-                updateAfterDiffFetchSuccess()
-                binding.progressBar.isVisible = false
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
@@ -159,7 +149,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         viewModel.rollbackRights.observe(viewLifecycleOwner) {
             binding.progressBar.isVisible = false
             if (it is Resource.Success) {
-                updateUndoAndRollbackButtons()
+                updateActionButtons()
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
@@ -175,6 +165,26 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
+            }
+        }
+
+        viewModel.diffText.observe(viewLifecycleOwner) {
+            if (it is Resource.Success) {
+                binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data.diff))
+                updateAfterDiffFetchSuccess()
+                updateActionButtons()
+                binding.progressBar.isVisible = false
+            } else if (it is Resource.Error) {
+                if (it.throwable is HttpStatusException && it.throwable.code == 403) {
+                    binding.progressBar.isVisible = false
+                    binding.diffRecyclerView.isVisible = false
+                    binding.undoButton.isVisible = false
+                    binding.rollbackButton.isVisible = false
+                    binding.thankButton.isVisible = false
+                    binding.diffUnavailableContainer.isVisible = true
+                } else {
+                    setErrorState(it.throwable)
+                }
             }
         }
 
@@ -312,6 +322,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.progressBar.isVisible = true
         binding.revisionDetailsView.isVisible = false
         binding.diffRecyclerView.isVisible = false
+        binding.diffUnavailableContainer.isVisible = false
+        binding.thankButton.isVisible = false
+        binding.undoButton.isVisible = false
+        binding.rollbackButton.isVisible = false
     }
 
     private fun updateAfterRevisionFetchSuccess() {
@@ -323,14 +337,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color))
             binding.usernameFromButton.isVisible = true
             binding.revisionFromEditComment.isVisible = true
-            binding.undoButton.isVisible = true
         } else {
             binding.usernameFromButton.isVisible = false
             binding.revisionFromEditComment.isVisible = false
             binding.revisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
             binding.overlayRevisionFromTimestamp.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
             binding.revisionFromTimestamp.text = getString(R.string.revision_initial_none)
-            binding.undoButton.isVisible = false
         }
         binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
 
@@ -348,10 +360,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color))
 
-        binding.thankButton.isEnabled = true
-        binding.thankButton.isVisible = AccountUtil.isLoggedIn &&
-                !AccountUtil.userName.equals(viewModel.revisionTo?.user) &&
-                viewModel.revisionTo?.isAnon == false
         binding.revisionDetailsView.isVisible = true
         binding.errorView.isVisible = false
     }
@@ -440,9 +448,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             .show()
     }
 
-    private fun updateUndoAndRollbackButtons() {
+    private fun updateActionButtons() {
         binding.rollbackButton.isVisible = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
-        binding.undoButton.isVisible = AccountUtil.isLoggedIn
+        binding.undoButton.isVisible = viewModel.revisionFrom != null && AccountUtil.isLoggedIn
+
+        binding.thankButton.isEnabled = true
+        binding.thankButton.isVisible = AccountUtil.isLoggedIn &&
+                !AccountUtil.userName.equals(viewModel.revisionTo?.user) &&
+                viewModel.revisionTo?.isAnon == false
     }
 
     private fun getSharableDiffUrl(): String {

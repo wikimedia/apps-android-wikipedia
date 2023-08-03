@@ -34,11 +34,11 @@ object ReadingListsReceiveHelper {
 
                 val pages = mutableListOf<MwQueryPage>()
                 if (listOfIds.isNotEmpty()) {
-                    pages.addAll(ServiceFactory.get(wikiSite).getPageTitlesByPageIdsOrTitles(pageIds = listOfIds.joinToString(separator = "|"))
+                    pages.addAll(ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(pageIds = listOfIds.joinToString(separator = "|"))
                         .query?.pages.orEmpty())
                 }
                 if (listOfTitles.isNotEmpty()) {
-                    pages.addAll(ServiceFactory.get(wikiSite).getPageTitlesByPageIdsOrTitles(titles = listOfTitles.joinToString(separator = "|"))
+                    pages.addAll(ServiceFactory.get(wikiSite).getInfoByPageIdsOrTitles(titles = listOfTitles.joinToString(separator = "|"))
                         .query?.pages.orEmpty())
                 }
                 pages.forEach {

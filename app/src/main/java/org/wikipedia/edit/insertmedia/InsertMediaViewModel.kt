@@ -22,7 +22,6 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
     var searchQuery = StringUtil.removeHTMLTags(StringUtil.removeUnderscores(bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!))
     val originalSearchQuery = searchQuery
     var selectedImage: PageTitle? = null
-    val magicWords = mutableMapOf<String, String>()
 
     var imagePosition = IMAGE_POSITION_RIGHT
     var imageType = IMAGE_TYPE_THUMBNAIL
@@ -43,12 +42,17 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             return try {
                 val wikiSite = WikiSite(Service.COMMONS_URL)
                 val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL))
-                    .fullTextSearch("File: $searchQuery", params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
+                    .fullTextSearchCommons(searchQuery, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
 
                 return response.query?.pages?.let { list ->
                     val results = list.sortedBy { it.index }.map {
                         val pageTitle = PageTitle(it.title, wikiSite, it.thumbUrl())
-                        pageTitle.description = it.description
+                        // since this is an imageinfo query, the thumb URL and description will
+                        // come from image metadata.
+                        it.imageInfo()?.let { imageInfo ->
+                            pageTitle.thumbUrl = imageInfo.thumbUrl
+                            pageTitle.description = imageInfo.metadata?.imageDescription()
+                        }
                         pageTitle
                     }
                     LoadResult.Page(results, null, response.continuation)
@@ -66,6 +70,10 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun loadMagicWords() {
+        if (magicWordsLang == wikiSite.languageCode) {
+            return
+        }
+
         magicWords[IMAGE_POSITION_NONE] = "none"
         magicWords[IMAGE_POSITION_CENTER] = "center"
         magicWords[IMAGE_POSITION_LEFT] = "left"
@@ -90,6 +98,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                     it.find { it.name == IMAGE_ALT_TEXT }?.aliases?.first()?.let { magicWords[IMAGE_ALT_TEXT] = it }
                     it.find { it.name == IMAGE_POSITION_NONE }?.aliases?.first()?.let { magicWords[IMAGE_POSITION_NONE] = it }
                 }
+            magicWordsLang = wikiSite.languageCode
         }
     }
 
@@ -111,5 +120,8 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
         const val IMAGE_TYPE_BASIC = "basic"
         const val IMAGE_ALT_TEXT = "img_alt"
         const val IMAGE_SIZE_DEFAULT = "220x124"
+
+        private var magicWordsLang = ""
+        val magicWords = mutableMapOf<String, String>()
     }
 }

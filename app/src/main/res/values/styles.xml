@@ -11,7 +11,9 @@
 
         <item name="materialButtonStyle">@style/App.Button</item>
 
+        <item name="snackbarStyle">@style/App.Snackbar</item>
         <item name="snackbarTextViewStyle">@style/SnackbarTextView</item>
+        <item name="snackbarButtonStyle">@style/SnackbarButton</item>
 
         <item name="android:listViewStyle">@style/ListView</item>
         <item name="android:textViewStyle">@style/RtlAwareTextView</item>
@@ -209,13 +211,26 @@
         <item name="android:textColor">?attr/primary_color</item>
     </style>
 
-    <style name="SnackbarTextView">
-        <item name="android:textColor">@color/gray200</item>
+    <style name="App.Snackbar" parent="Widget.Material3.Snackbar">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Snackbar</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Snackbar" parent="ThemeOverlay.Material3.Snackbar">
+        <item name="colorSurfaceInverse">?attr/border_color</item>
+    </style>
+
+    <style name="SnackbarTextView" parent="Widget.Material3.Snackbar.TextView">
+        <item name="android:textColor">?attr/primary_color</item>
         <item name="android:maxLines">10</item>
         <item name="lineHeight">26sp</item>
         <item name="android:paddingTop">0dp</item>
         <item name="android:paddingBottom">0dp</item>
-        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
+
+    <style name="SnackbarButton" parent="Widget.Material3.Button.TextButton.Snackbar">
+        <item name="android:textColor">?attr/progressive_color</item>
         <item name="android:paddingEnd">8dp</item>
     </style>
 

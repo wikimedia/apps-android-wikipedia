@@ -44,6 +44,9 @@
   <string name="search_redirect_from">ካብ %s ዝተሓላለፈ</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;ንእ&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">ባዶ መጠቓለሊ ኣርትዖት</string>
+  <string name="page_edit_history_filter_by_all">ኩሎም ኣርትዖታት (%s)</string>
+  <string name="page_edit_history_filter_by_user">ኣርትዖታት ተጠቃሚ (%s)</string>
+  <string name="page_edit_history_filter_by_bot">ኣርትዖታት ቦት (%s)</string>
   <string name="menu_page_show_tabs">ጽላታት ኣርእይ</string>
   <string name="menu_page_other_languages">ቋንቋ ለውጥ</string>
   <string name="menu_page_find_in_page">ኣብ ጽሑፍ ርኸብ</string>
@@ -74,7 +77,7 @@
   <string name="map_view_link_text">ኣብ ካርታ ርኣይ</string>
   <string name="other_languages_indication_text">ብካልእ ቋንቋ ኣንብብ</string>
   <string name="language_count_link_text">ብ%d ካልኦት ቋንቋታት ዝርከብ</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="preference_title_language">ቋንቋታት ዊኪፐድያ</string>
   <string name="langlinks_filter_hint">ድለይ</string>
   <string name="langlinks_empty">እዚ ገጽ ብካልኦት ቋንቋታት ኣይርከብን እዩ።</string>
@@ -144,6 +147,7 @@
   <string name="about_translators_heading">ተርጎምቲ</string>
   <string name="about_app_license_heading">ፍቓድ</string>
   <string name="about_activity_title">ብዛዕባ</string>
+  <string name="edit_abandon_confirm">እቲ ገጽ ተቐይሩ ኣሎ። ለውጥታትካ ከይዓቀብካ ክትወጽእ ከም እትደሊ ርግጸኛ ዲኻ?</string>
   <string name="edit_abandon_confirm_yes">እወ</string>
   <string name="edit_abandon_confirm_no">ኣይፋል</string>
   <string name="edit_how_page_improved">ነቲ ገጽ ብኸመይ ኣመሓይሽካዮ?</string>
@@ -212,6 +216,7 @@
   <string name="multi_select_items_selected">%d ዝተመርጹ</string>
   <string name="error_message_generic">ጌጋ ኣጋጢሙ</string>
   <string name="view_link_preview_error_button_dismiss">ስጎግ</string>
+  <string name="error_page_does_not_exist">እዚ ገጽ እዚ የለን</string>
   <string name="view_wiki_error_message_offline">ምስ ኢንተርነት ክራኸብ ኣይክእልን እዩ</string>
   <string name="reference_title">መወከሲ %s</string>
   <string name="reference_list_title">መወከሲታት</string>
@@ -251,6 +256,7 @@
   <string name="reading_list_description_hint">መግለጺ (ኣማራጽያዊ)</string>
   <string name="reading_list_item_delete_undo">ምለስ</string>
   <string name="reading_list_deleted">%s ተሰሪዙ</string>
+  <string name="reading_list_article_offline">ካብ መስመር ወጻኢ ይርከብ</string>
   <string name="reading_list_remove_from_list">ካብ %s ኣልግስ</string>
   <string name="reading_list_select_item">ምረጽ</string>
   <string name="reading_lists_login_button">ብመንነት እተው / ናብ ዊኪፐድያ ተጸንበር</string>
