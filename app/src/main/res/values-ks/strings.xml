@@ -107,9 +107,9 @@
   <string name="map_view_link_text">نَقشَس پؠٹھ وُچھِو</string>
   <string name="other_languages_indication_text">بییٚیِس زبٲنی منٛز پٕریٚو</string>
   <string name="language_count_link_text">موٗجوٗد چھُ %d باقین زبانن منٛز تہِ</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">شایعہ کرنس پؠٹھ، چھوٗ تۄٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمالس&lt;/a&gt;سٕتی مُتفِق تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s\"&gt;یتھ تحت اقرار کران&lt;/a&gt;</string>
-  <string name="edit_save_action_license_anon">شایعہ کرنس پؠٹھ، چھو توٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمال اقرار کرٕنی&lt;/a&gt;، تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s/\"&gt;یتھ اِجازت نامس تاحت مانٕنی&lt;/a&gt;. ایڑِٹٕز یِن تُہنٛدس ڈِوایسٕکس IP پتاہ ہَس کُن مَنسوٗب کرنہٕ. اگر تۄٚہہِ &lt;a href=\"https://#login\"&gt;دٲخل گژھیوٚ&lt;/a&gt;، توٚہہِ مِلیو زیادٕ رازدأری.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">شایعہ کرنس پؠٹھ، چھوٗ تۄٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمالس&lt;/a&gt;سٕتی مُتفِق تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s\"&gt;یتھ تحت اقرار کران&lt;/a&gt;</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">شایعہ کرنس پؠٹھ، چھو توٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمال اقرار کرٕنی&lt;/a&gt;، تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s/\"&gt;یتھ اِجازت نامس تاحت مانٕنی&lt;/a&gt;. ایڑِٹٕز یِن تُہنٛدس ڈِوایسٕکس IP پتاہ ہَس کُن مَنسوٗب کرنہٕ. اگر تۄٚہہِ &lt;a href=\"https://#login\"&gt;دٲخل گژھیوٚ&lt;/a&gt;، توٚہہِ مِلیو زیادٕ رازدأری.</string>
   <string name="edit_anon_warning">ایڑِٹ یِنی تُہنٛدِ ڈِوایسٕکی IP پتاہ ہَس کُن مَنسوٗب کرنہٕ. اگر تُہہ &lt;a href=\"https://#login\"&gt;توٚہہِ گژھیو زیادٕ حفاظت فراہم.&lt;/a&gt;</string>
   <string name="preference_title_language">وِکیٖپیٖڈیا زَبانٕ</string>
   <string name="langlinks_filter_hint">ژھانٛڈُن</string>
@@ -219,7 +219,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/استعمالٕکی شرٲئطہٕ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia: کھاتہٕ کھٲترٕ درخواست</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -628,7 +627,7 @@
   <string name="insert_media_settings" fuzzy="true">میٖڈیا سؠٹِنگ</string>
   <string name="insert_media_settings_uploaded_image">کھالنہٕ آمٕژ تصویٖر</string>
   <string name="insert_media_settings_caption" fuzzy="true">پختِیار</string>
-  <string name="insert_media_settings_caption_description">پرچہِ یُس ہاوان چھُ زِ سارنٕی پَرَن والؠن کھٲترٕ اَمہِ پتہٕ یِنہٕ وول چیٖز</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">پرچہِ یُس ہاوان چھُ زِ سارنٕی پَرَن والؠن کھٲترٕ اَمہِ پتہٕ یِنہٕ وول چیٖز</string>
   <string name="insert_media_settings_alternative_text">اَمہِ علاوٕ کینٛہہ مَتَن</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">تفصیٖلی مَتَن پرَن والؠن کھٲترٕ یِمہٕ نہٕ تصویٖر ہؠکَن وُچِھت کینٛہہ</string>
   <string name="insert_media_advanced_settings">اِضٲفی سؠٹِنگ</string>

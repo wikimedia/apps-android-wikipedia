@@ -135,9 +135,9 @@
   <string name="map_view_link_text">在地圖上檢視</string>
   <string name="other_languages_indication_text">以其它語言閱讀</string>
   <string name="language_count_link_text">尚有 %d 個可用語言版本</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">發布即表示您同意我們的&lt;a href=\"%1$s\"&gt;《使用條款》&lt;/a&gt;，同時同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;授權，且不撤回您所釋出的貢獻。</string>
-  <string name="edit_save_action_license_anon">發佈即表示您同意我們的&lt;a href=\"%1$s\"&gt;《使用條款》&lt;/a&gt;，同時同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">發布即表示您同意我們的&lt;a href=\"%1$s\"&gt;《使用條款》&lt;/a&gt;，同時同意依據&lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;授權，且不撤回您所釋出的貢獻。</string>
+  <string name="edit_save_action_license_anon">發佈即表示您同意我們的&lt;a href=\"%1$s\"&gt;《使用條款》&lt;/a&gt;，同時同意依據&lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;授權您的貢獻。編輯行為將會計入裝置的 IP 位址。&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;後私密性將增強。</string>
   <string name="edit_anon_warning">編輯將以您的裝置的 IP 位址發布。如果您有&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;，您可以擁有更多隱私。</string>
   <string name="preference_title_language">維基百科語言</string>
   <string name="langlinks_filter_hint">搜尋</string>
@@ -263,7 +263,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh_TW</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#Image_tags</string>
@@ -273,7 +273,7 @@
   <string name="about_translators_heading">翻譯人員</string>
   <string name="about_translators_translatewiki">此應用程式是由 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; 的志工翻譯的。</string>
   <string name="about_app_license_heading">授權條款</string>
-  <string name="about_app_license">原始碼位於 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; 與 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;。</string>
+  <string name="about_app_license">原始碼位於 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; 與 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根據 &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 許可證明&lt;/a&gt;授權。除非另有聲明，内容採用&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW\"&gt;創用 CC 姓名標示 -相同方式分享授權條款&lt;/a&gt;。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;維基媒體基金會&lt;/a&gt;出品</string>
   <string name="about_activity_title">關於</string>
   <string name="edit_abandon_confirm">頁面已修改。確定要離開而不存儲您的更改嗎？</string>
@@ -394,6 +394,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">條目不能在離線時載入。</string>
   <string name="page_offline_notice_add_to_reading_list">提示：將條目新增至閱讀清單，令您可在返回線上時下載。</string>
   <string name="page_offline_notice_last_date">您正閱讀此條目儲存於 %s 的離線版本。</string>
+  <string name="redirected_from_snackbar">已從「%s」重新導向</string>
   <string name="button_get_directions">取得路線</string>
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
   <string name="preference_title_customize_explore_feed">探索摘要</string>
@@ -1202,7 +1203,7 @@
   <string name="insert_media_settings">新增媒體詳細資訊</string>
   <string name="insert_media_settings_uploaded_image">已上傳圖片</string>
   <string name="insert_media_settings_caption">圖片說明</string>
-  <string name="insert_media_settings_caption_description">為所有讀者顯示在項目旁的標籤</string>
+  <string name="insert_media_settings_caption_description">在條目的可見圖片標籤</string>
   <string name="insert_media_settings_alternative_text">替代文字</string>
   <string name="insert_media_settings_alternative_text_description">視力障礙讀者用的描述</string>
   <string name="insert_media_advanced_settings">進階設定</string>

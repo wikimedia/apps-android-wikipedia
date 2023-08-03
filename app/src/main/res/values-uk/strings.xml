@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Alex Khimich
+* Amire80
 * Andrew J.Kurbiko
 * Andriykopanytsia
+* Anntinomy
 * Avatar6
 * Base
 * DDPAT
@@ -25,9 +27,9 @@
 -->
 <resources>
   <string name="app_name_prod">Вікіпедія</string>
-  <string name="app_name_beta">Вікіпедія Бета</string>
-  <string name="app_name_alpha">Вікіпедія Альфа</string>
-  <string name="wikimedia">Вікімедіа</string>
+  <string name="app_name_beta">Wikipedia Beta</string>
+  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Назад</string>
   <string name="page_tabs_back">Назад</string>
   <string name="nav_item_forward">Уперед</string>
@@ -38,7 +40,7 @@
   <string name="nav_item_suggested_edits">Редагування</string>
   <string name="nav_item_more">Більше</string>
   <string name="nav_item_search">Пошук</string>
-  <string name="error_network_error">Не вдається підключитися до інтернету.</string>
+  <string name="error_network_error">Не вдається під\'єднатися до інтернету.</string>
   <string name="page_error_retry">Повторити</string>
   <string name="card_offline_error_retry">Повторити</string>
   <string name="storage_access_error_retry">Повторити</string>
@@ -129,9 +131,9 @@
   <string name="map_view_link_text">Переглянути на мапі</string>
   <string name="other_languages_indication_text">Читати іншою мовою</string>
   <string name="language_count_link_text">Доступно %d іншими мовами</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та остаточно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та невідклично публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете до системи&lt;/a&gt;, то матимете більше приватності.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та остаточно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та невідклично публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете до системи&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="edit_anon_warning">Редагування будуть приписані ІР-адресі вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, ваші дії будуть більш конфіденційними.</string>
   <string name="preference_title_language">Мови Вікіпедії</string>
   <string name="langlinks_filter_hint">Пошук</string>
@@ -257,7 +259,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/uk</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/uk</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.uk</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.uk</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/uk</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/uk#Теги_зображень</string>
@@ -267,7 +269,7 @@
   <string name="about_translators_heading">Перекладачі</string>
   <string name="about_translators_translatewiki">Цей додаток був перекладений перекладачами-волонтерами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцензія</string>
-  <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про програму</string>
   <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
@@ -1024,6 +1026,7 @@
   <string name="suggested_edits_image_tags_select_title">Ви не вибрали жодного тегу для цього зображення</string>
   <string name="suggested_edits_image_tags_select_text">До зображень буде додано лише ті теги, які ви виберете. Теги, які ви не виберете, буде позначено як відхилені. Ви впевнені, що хочете позначити всі теги як відхилені?</string>
   <string name="suggested_edits_image_tags_add_tag">Додати тег</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Неопубліковані теги не будуть збережені</string>
   <string name="suggested_edits_image_zoom_tooltip">Розтягніть, щоб збільшити зображення.</string>
   <string name="suggested_edits_encouragement_message">%s, дякуємо за ваші редагування! Нижче ви можете знайти більше шляхів зробити внесок на Вікіпедії.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Вітаємо, %s&lt;/b&gt;, нижче ви можете знайти деякі швидкі і прості способи покращити Вікіпедію. Ви одразу побачите свій вплив, щойно почнете. Приємного редагування!</string>
@@ -1136,8 +1139,35 @@
     <item quantity="many">Ви додали %d символів</item>
     <item quantity="other">Ви додали %d символів</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Тренування алгоритму зображень</string>
-  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Вирішуйте, чи пропоноване зображення покращить статтю.</string>
+  <string name="suggested_edits_image_recommendations_task_title">Зображення статті</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Додати пропоновані зображення до статей Вікіпедії, щоб покращити розуміння.</string>
+  <string name="image_recommendation_task_instruction">Ви б додали це зображення до статті?</string>
+  <string name="image_recommendation_tutorial">Керівництво</string>
+  <string name="image_recommendation_accept">Так</string>
+  <string name="image_recommendation_reject">Ні</string>
+  <string name="image_recommendation_notsure">Не впевнений</string>
+  <string name="image_recommendation_reject_title">Чому ні?</string>
+  <string name="image_recommendation_reject_subtitle">Ваші відповіді допоможуть покращити наступні пропозиції.</string>
+  <string name="image_recommendation_reject_not_relevant">Зображення не релевантне</string>
+  <string name="image_recommendation_reject_no_info">Недостатньо інформації, щоб прийняти рішення</string>
+  <string name="image_recommendation_reject_offensive">Зображення образливе</string>
+  <string name="image_recommendation_reject_low_quality">Зображення низької якості</string>
+  <string name="image_recommendation_reject_dont_know">Я не знаю цю тему</string>
+  <string name="image_recommendation_reject_other">Інше</string>
+  <string name="image_recommendation_reject_submit">Надіслати</string>
+  <string name="image_recommendation_tooltip_main">Додайте відсутні зображення до статей у запропонованих редагуваннях</string>
+  <string name="image_recommendation_onboarding_1">Зображення допомагають людям зрозуміти, але в багатьох статтях їх немає.</string>
+  <string name="image_recommendation_onboarding_2">Ви вирішуєте, чи слід розміщувати запропоноване зображення у статті Вікіпедії.</string>
+  <string name="image_recommendation_onboarding_3">Пропозиції генеруються машиною, і ви на свій розсуд вирішуєте, прийняти їх чи відхилити.</string>
+  <string name="image_recommendation_onboarding_4">Зображення взято з Wikimedia Commons, колекції вільно ліцензованих зображень, які використовуються Вікіпедією.</string>
+  <string name="image_recommendation_tooltip_1">Перегляньте цю статтю, щоб зрозуміти її тему</string>
+  <string name="image_recommendation_tooltip_2">Перегляньте зображення та пов’язану з ним інформацію</string>
+  <string name="image_recommendation_tooltip_3">Вирішіть, чи допоможе зображення краще зрозуміти читачам цю тему</string>
+  <string name="image_recommendation_tooltip_next">Далі</string>
+  <string name="image_recommendation_tooltip_warning">Перегляньте статтю, щоб зрозуміти її тему, і перегляньте зображення</string>
+  <string name="edit_summary_added_image">Додати зображення</string>
+  <string name="edit_summary_added_caption">Додати підпис</string>
+  <string name="edit_published_view">Переглянути</string>
   <string name="file_page_activity_title">Сторінка файлу</string>
   <string name="file_page_add_image_caption_button">Додати підпис зображення</string>
   <string name="file_page_add_image_tags_button">Додайте теги зображень</string>
@@ -1240,12 +1270,12 @@
   <string name="insert_media_title">Вставити медіа</string>
   <string name="insert_media_search_description">Обрати файл з Вікісховища</string>
   <string name="insert_media_search_hint">Пошук медіа</string>
-  <string name="insert_media_settings" fuzzy="true">Параметри медіафайлу</string>
+  <string name="insert_media_settings">Додати інформацію про зображення</string>
   <string name="insert_media_settings_uploaded_image">Завантажене зображення</string>
-  <string name="insert_media_settings_caption" fuzzy="true">Підпис</string>
-  <string name="insert_media_settings_caption_description">Напис, який усі читачі бачитимуть поруч із файлом</string>
+  <string name="insert_media_settings_caption">Підпис</string>
+  <string name="insert_media_settings_caption_description">Напис, який усі читачі бачитимуть поруч із зображенням</string>
   <string name="insert_media_settings_alternative_text">Альтернативний текст</string>
-  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Текстовий опис для читачів, які не можуть побачити зображення</string>
+  <string name="insert_media_settings_alternative_text_description">Опис для читачів, які не можуть побачити зображення</string>
   <string name="insert_media_advanced_settings">Розширені налаштування</string>
   <string name="insert_media_advanced_settings_wrap_image">Обтікання текстом зображення</string>
   <string name="insert_media_advanced_settings_image_position">Розташування зображення</string>
@@ -1275,7 +1305,7 @@
   <string name="main_tooltip_watchlist_text">Статті та сторінки, які ви раніше додали до свого списку спостереження, можна знайти в меню Більше, в пункті &lt;b&gt;Список спостереження&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Гаразд</string>
   <string name="text_input_dialog_ok_button_text">Гаразд</string>
-  <string name="text_input_dialog_cancel_button_text">Скасувати</string>
+  <string name="text_input_dialog_cancel_button_text">Назад</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Скасувати</string>
   <string name="talk_title">Обговорення</string>
   <string name="talk_user_title">Обговорення: %s</string>
@@ -1372,7 +1402,7 @@
   <string name="revision_diff_paragraph_added">Абзац додано</string>
   <string name="revision_diff_paragraph_removed">Абзац вилучено</string>
   <string name="revision_undo_title">Скасувати редагування</string>
-  <string name="revision_undo_message">Це скасує зміни, внесені версією(-ями) статті, показаної(-ими) тут.</string>
+  <string name="revision_undo_message">Це прибере зміни, внесені версією(-ями) статті, що показано тут.</string>
   <string name="revision_undo_reason">Щоб продовжити, вкажіть, будь ласка, причину скасування цього редагування:</string>
   <string name="revision_undo_success">Версію скасовано.</string>
   <string name="revision_rollback_dialog_title">Ви впевнені, що хочете відкотити редагування?</string>
@@ -1491,4 +1521,6 @@
   <string name="reading_list_share_survey_body">Спільні списки читання є тестовою функцією і нам потрібні ваші відгуки, щоб ми могли її покращити або прибрати.</string>
   <string name="data_opt_in_accept">Прийняти</string>
   <string name="data_opt_in_reject">Відхилити</string>
+  <string name="page_issues_title">Проблеми сторінки</string>
+  <string name="generic_release_notes">Незначні виправлення помилок і вдосконалення</string>
 </resources>

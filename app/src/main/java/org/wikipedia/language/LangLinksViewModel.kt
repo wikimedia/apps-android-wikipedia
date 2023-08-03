@@ -43,12 +43,18 @@ class LangLinksViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    fun fetchLangVariantLink(title: PageTitle) {
+    fun fetchLangVariantLinks(langCode: String, title: String, titles: List<PageTitle>) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             languageEntries.postValue(Resource.Error(throwable))
         }) {
-            val summary = ServiceFactory.getRest(title.wikiSite).getPageSummary(null, title.prefixedText)
-            title.displayText = summary.displayTitle
+            val response = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getInfoByPageIdsOrTitles(null, title)
+            response.query?.firstPage()?.varianttitles?.let { variantMap ->
+                titles.forEach {
+                    variantMap[it.wikiSite.languageCode]?.let { text ->
+                        it.displayText = text
+                    }
+                }
+            }
             languageEntryVariantUpdate.postValue(Resource.Success(Unit))
         }
     }

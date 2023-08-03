@@ -112,9 +112,9 @@
   <string name="map_view_link_text">Ser nexşeyek bibîne</string>
   <string name="other_languages_indication_text">Bi zimanekî din bixwîne</string>
   <string name="language_count_link_text">Bi %d zimanên din jî berdest e</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Bi weşandinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî.</string>
-  <string name="edit_save_action_license_anon">Bi weşandinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî. Sererastkirin wê bi adrêsa te ya IPyê ya cîhaza te re bêne girêdan. Eger &lt;a href=\"https://#login\"&gt;têkevî&lt;/a&gt;, wê veşaritîya te zêdetir bê muhafezekirin.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Bi weşandinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Bi weşandinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî. Sererastkirin wê bi adrêsa te ya IPyê ya cîhaza te re bêne girêdan. Eger &lt;a href=\"https://#login\"&gt;têkevî&lt;/a&gt;, wê veşaritîya te zêdetir bê muhafezekirin.</string>
   <string name="edit_anon_warning">Guhartin wê bi adresa IPyê ya cîhaza te ve were îsnadkirin. Ger tu &lt;a href=\"https://#login\"&gt;têkevî&lt;/a&gt;, tu yê karibî bigihî veşarîtiyeke zêdetir.</string>
   <string name="preference_title_language">Zimanên Wîkîpediyayê</string>
   <string name="langlinks_filter_hint">Lêgerîn</string>
@@ -238,7 +238,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -248,7 +247,7 @@
   <string name="about_translators_heading">Wergêr</string>
   <string name="about_translators_translatewiki">Ev sepan ji aliyê bikarhênerên xwebexş ve li ser &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.netê&lt;/a&gt; hatiye wergerandin.</string>
   <string name="about_app_license_heading">Destûr</string>
-  <string name="about_app_license">Koda çavkanî berdest e li ser &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; û &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;ê li bin &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lîsansa Apache 2.0&lt;/a&gt;. Ger bi awayekî din nehatibe diyarkirin, naverok li bin &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lîsansa Creatice Commons yê Atfkirin-ParvekirinaWekhevan&lt;/a&gt; berdest e.</string>
+  <string name="about_app_license" fuzzy="true">Koda çavkanî berdest e li ser &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; û &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;ê li bin &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lîsansa Apache 2.0&lt;/a&gt;. Ger bi awayekî din nehatibe diyarkirin, naverok li bin &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lîsansa Creatice Commons yê Atfkirin-ParvekirinaWekhevan&lt;/a&gt; berdest e.</string>
   <string name="about_wmf">Berhemeke &lt;a href=\"https://wikimediafoundation.org/\"&gt;Weqfa Wîkîmedyayê&lt;/a&gt;</string>
   <string name="about_activity_title">Derbarê</string>
   <string name="edit_abandon_confirm">Ev rûpel hat guhartin. Bi rastî dixwazî bêyî tomarkirina guhartinên xwe derkevî?</string>

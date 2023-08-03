@@ -374,6 +374,7 @@
     <string name="page_offline_notice_cannot_load_while_offline">Article cannot be loaded while offline.</string>
     <string name="page_offline_notice_add_to_reading_list">Hint: Add the article to a reading list and it will be downloaded once you\'re back online.</string>
     <string name="page_offline_notice_last_date">You are reading an offline version of this article saved on %s.</string>
+    <string name="redirected_from_snackbar">Redirected from \"%s\"</string>
     <string name="button_get_directions">Get directions</string>
     <string name="error_no_maps_app">Could not find any apps that provide directions.</string>
     <string name="preference_title_customize_explore_feed">Explore Feed</string>
@@ -1254,7 +1255,7 @@
     <string name="insert_media_settings">Add image details</string>
     <string name="insert_media_settings_uploaded_image">Uploaded image</string>
     <string name="insert_media_settings_caption">Image caption</string>
-    <string name="insert_media_settings_caption_description">Label that shows next to the item for all readers</string>
+    <string name="insert_media_settings_caption_description">Visible image label in the article</string>
     <string name="insert_media_settings_alternative_text">Alternative text</string>
     <string name="insert_media_settings_alternative_text_description">Description for visually impaired readers</string>
     <string name="insert_media_advanced_settings">Advanced settings</string>
@@ -1381,6 +1382,7 @@
     <string name="revision_diff_line_removed">Line removed</string>
     <string name="revision_diff_paragraph_added">Paragraph added</string>
     <string name="revision_diff_paragraph_removed">Paragraph removed</string>
+    <string name="revision_diff_protected">The changes made in this revision are not publicly accessible.</string>
     <string name="revision_undo_title">Undo edit</string>
     <string name="revision_undo_message">This will undo the changes made by the revision(s) of the article shown here.</string>
     <string name="revision_undo_reason">To continue, please provide a reason for undoing this edit:</string>

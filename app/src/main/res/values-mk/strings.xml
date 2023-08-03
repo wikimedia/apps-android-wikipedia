@@ -74,7 +74,7 @@
   <string name="menu_page_find_in_page">Најди во статијата</string>
   <string name="menu_page_add_to_watchlist">Додај во набљудувани</string>
   <string name="menu_page_watch">Набљудувај</string>
-  <string name="menu_page_unwatch">Престани со набљудување</string>
+  <string name="menu_page_unwatch">Прекини набљудување</string>
   <string name="menu_page_view_talk">Разговорна страница</string>
   <string name="menu_page_talk_page">Разговорна страница</string>
   <string name="menu_page_view_edit_history">Историја на уредувања</string>
@@ -109,9 +109,9 @@
   <string name="map_view_link_text">Погл. на карта</string>
   <string name="other_languages_indication_text">Прочитај на друг јазик</string>
   <string name="language_count_link_text">Достапно на %d други јазици</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="edit_save_action_license_anon">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;</string>
+  <string name="edit_save_action_license_anon">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
   <string name="edit_anon_warning">Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt;, тогаш ќе имате повеќе приватност.</string>
   <string name="preference_title_language">Јазици на Википедија</string>
   <string name="langlinks_filter_hint">Пребарај</string>
@@ -237,7 +237,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/mk?uselang=mk</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.mk</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -247,7 +247,7 @@
   <string name="about_translators_heading">Преведувачи</string>
   <string name="about_translators_translatewiki">Прилогов го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Текст_на_лиценцата_Криејтив_комонс_Наведи извор-Сподели_под_исти_услови_3.0_Нелокализирана\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови Нелокализирана&lt;/a&gt;.</string>
+  <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.mk\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
@@ -368,6 +368,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Статијата не може да се вчита додека не сте на линија.</string>
   <string name="page_offline_notice_add_to_reading_list">Совет: Додајте ја статијата во список за читање, па истата ќе биде преземена кога ќе добиете линија.</string>
   <string name="page_offline_notice_last_date">Читате вонмрежна верзија на статијава, зачувана на %s.</string>
+  <string name="redirected_from_snackbar">Пренасочено од „%s“</string>
   <string name="button_get_directions">Дај насоки</string>
   <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
   <string name="preference_title_customize_explore_feed">Тековник „Истражи“</string>
@@ -1177,7 +1178,7 @@
   <string name="insert_media_settings">Додајте поединости за сликата</string>
   <string name="insert_media_settings_uploaded_image">Подигната слика</string>
   <string name="insert_media_settings_caption">Опис на сликата</string>
-  <string name="insert_media_settings_caption_description">Натпис кој се прикажува до ставката на сите читатели</string>
+  <string name="insert_media_settings_caption_description">Видлив натпис на сликата во статијата</string>
   <string name="insert_media_settings_alternative_text">Алтернативен текст</string>
   <string name="insert_media_settings_alternative_text_description">Оопис за читателите со попречен вид</string>
   <string name="insert_media_advanced_settings">Напредни нагодувања</string>
@@ -1301,6 +1302,7 @@
   <string name="revision_diff_line_removed">Отстранет ред</string>
   <string name="revision_diff_paragraph_added">Додаден пасус</string>
   <string name="revision_diff_paragraph_removed">Отстранет пасус</string>
+  <string name="revision_diff_protected">Промените направени во оваа преработка не се јавно пристапни.</string>
   <string name="revision_undo_title">Врати уредување</string>
   <string name="revision_undo_message">Ова ќе ги врати промените направени со преработката/ките на тука прикажаната статија.</string>
   <string name="revision_undo_reason">За да продолжите, внесете причина за враќање на уредувањево:</string>

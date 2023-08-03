@@ -59,7 +59,7 @@
   <string name="feed_card_add_to_default_list">Saivva</string>
   <string name="last_updated_text">Attuarizaddu l\'ùlthima voltha %s</string>
   <string name="talk_page_link_text">Visuarizza la pàgina di cuntierra</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="preference_title_language">Li to\' linghi di Vichipedìa</string>
   <string name="langlinks_filter_hint">Zercha</string>
   <string name="langlinks_activity_title">Althri linghi</string>
@@ -109,7 +109,6 @@
   <string name="privacy_policy_description">Infuimmazioni i\' la riseivvaddèzia</string>
   <string name="terms_of_use_description">Cundiziòni d\'usu</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.it</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_contributors_heading">Autori</string>

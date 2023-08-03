@@ -9,7 +9,6 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -182,7 +181,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             val searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)!![0]
             openSearchActivity(InvokeSource.VOICE, searchQuery, null)
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY &&
-                resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
+                resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED && data != null) {
             startActivity(data)
         } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN &&
                 resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
@@ -440,8 +439,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun usernameClick() {
-        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode) + ":" + AccountUtil.userName, WikipediaApp.instance.wikiSite)
-        UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(pageTitle.uri))
+        val pageTitle = PageTitle(UserAliasData.valueFor(WikipediaApp.instance.languageState.appLanguageCode), AccountUtil.userName.orEmpty(), WikipediaApp.instance.wikiSite)
+        val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_MAIN_PAGE)
+        startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, pageTitle))
     }
 
     override fun loginClick() {

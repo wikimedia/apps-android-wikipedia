@@ -81,10 +81,17 @@ class ConnectionStateMonitor : ConnectivityManager.NetworkCallback() {
 
     private fun updateOnlineState() {
         val connectivityManager = WikipediaApp.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        online = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
-        } else {
-            connectivityManager.activeNetworkInfo?.isConnected == true
+        online = try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                connectivityManager.activeNetworkInfo?.isConnected == true
+            }
+        } catch (e: Exception) {
+            // Framework bug, will only be fixed in Android S:
+            // https://issuetracker.google.com/issues/175055271
+            // Assume we're online, until the next call to update the state, which will happen shortly.
+            true
         }
 
         EventPlatformClient.setEnabled(online)
