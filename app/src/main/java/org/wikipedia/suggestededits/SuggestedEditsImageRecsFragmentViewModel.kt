@@ -93,7 +93,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
                     recommendation.images[0].image,
                     accepted,
                     reasonCodes?.mapNotNull { reasons.getOrNull(it) }.orEmpty(),
-                    null,
+                    null, null, null
                 )
                 ServiceFactory.getCoreRest(pageTitle.wikiSite).addImageFeedback(pageTitle.prefixedText, body)
             } catch (e: Exception) {
