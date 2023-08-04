@@ -781,10 +781,20 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
         binding.viewEditSectionError.isVisible = false
         if (editSummaryFragment.handleBackPressed()) {
+            ImageRecommendationsEvent.logAction("Todo: // caption_preview_back", "editsummary_dialog", ImageRecommendationsEvent.getActionDataString(
+                filename = pageTitle?.prefixedText!!, recommendationSource = pageTitle.wikiSite.languageCode, recommendationSourceProject = pageTitle.wikiSite.languageCode,
+                acceptanceState = "accepted", seriesNumber = "", totalSuggestions = "",
+                captionAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty())"false" else "true",
+                altTextAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())"false" else "true"), pageTitle.wikiSite.languageCode)
             supportActionBar?.title = getString(R.string.preview_edit_title)
             return
         }
         if (editPreviewFragment.isActive) {
+            ImageRecommendationsEvent.logAction("caption_preview_back", "caption_entry", ImageRecommendationsEvent.getActionDataString(
+                filename = pageTitle?.prefixedText!!, recommendationSource = pageTitle.wikiSite.languageCode, recommendationSourceProject = pageTitle.wikiSite.languageCode,
+                acceptanceState = "accepted", seriesNumber = "", totalSuggestions = "",
+                captionAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty())"false" else "true",
+                altTextAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())"false" else "true"), pageTitle.wikiSite.languageCode)
             editPreviewFragment.hide(binding.editSectionContainer)
             supportActionBar?.title = null
 

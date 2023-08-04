@@ -385,6 +385,12 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         publish()
     }
 
+    override fun onBackPressed(): Boolean {
+        ImageRecommendationsEvent.logAction("back", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
+            filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
+            recommendationSourceProject = viewModel.langCode, seriesNumber = "", totalSuggestions = ""), viewModel.langCode)
+        return super.onBackPressed()
+    }
     companion object {
         const val ARG_LANG = "lang"
         const val MIN_TIME_WARNING_MILLIS = 5000
