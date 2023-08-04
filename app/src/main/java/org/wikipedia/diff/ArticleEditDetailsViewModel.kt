@@ -18,6 +18,7 @@ import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
@@ -38,7 +39,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     var watchlistExpiryChanged = false
     var lastWatchExpiry = WatchlistExpiry.NEVER
 
-    val pageTitle = bundle.getParcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
+    val pageTitle = bundle.parcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
     var pageId = bundle.getInt(ArticleEditDetailsActivity.EXTRA_PAGE_ID, -1)
         private set
     var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO, -1)

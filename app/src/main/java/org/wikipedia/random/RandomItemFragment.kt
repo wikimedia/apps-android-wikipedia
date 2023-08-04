@@ -15,6 +15,7 @@ import org.wikipedia.databinding.FragmentRandomItemBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil.getUrlForPreferredSize
 import org.wikipedia.util.L10nUtil
@@ -44,7 +45,7 @@ class RandomItemFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        wikiSite = requireArguments().getParcelable(Constants.ARG_WIKISITE)!!
+        wikiSite = requireArguments().parcelable(Constants.ARG_WIKISITE)!!
 
         retainInstance = true
     }
