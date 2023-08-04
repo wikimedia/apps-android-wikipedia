@@ -169,19 +169,10 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         }
     }
 
-    private fun setErrorState(t: Throwable) {
-        L.e(t)
-        binding.errorView.visibility = View.VISIBLE
-        binding.videoContainer.visibility = View.GONE
-        binding.imageView.visibility = View.GONE
-        updateProgressBar(false)
-    }
-
     private fun loadMedia() {
         if (pageTitle == null || imageTitle == null) {
             return
         }
-        binding.errorView.visibility = View.GONE
         updateProgressBar(true)
         disposables.add(getMediaInfoDisposable(imageTitle!!.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode)
             .subscribeOn(Schedulers.io())
