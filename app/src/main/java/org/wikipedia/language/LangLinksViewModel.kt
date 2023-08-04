@@ -20,7 +20,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class LangLinksViewModel(bundle: Bundle) : ViewModel() {
-    var pageTitle: PageTitle = bundle.parcelable(Constants.ARG_TITLE)!!
+    var pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
 
     val languageEntries = MutableLiveData<Resource<List<PageTitle>>>()
     val languageEntryVariantUpdate = SingleLiveData<Resource<Unit>>()
