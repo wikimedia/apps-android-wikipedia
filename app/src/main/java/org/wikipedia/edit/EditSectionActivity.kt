@@ -9,7 +9,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.TextUtils
 import android.text.TextWatcher
-import android.view.*
+import android.view.ActionMode
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.WindowManager
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -57,7 +61,13 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.theme.ThemeChooserDialog
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.EditNoticesDialog
 import org.wikipedia.views.ViewUtil
@@ -486,11 +496,27 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     fun clickNextButton() {
         when {
             editSummaryFragment.isActive -> {
+                if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+                    val pageTitle = intent.getParcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+                    ImageRecommendationsEvent.logAction("editsummary_save", "editsummary_dialog", ImageRecommendationsEvent.getActionDataString(
+                        filename = pageTitle?.prefixedText!!, recommendationSource = pageTitle.wikiSite.languageCode, recommendationSourceProject = pageTitle.wikiSite.languageCode,
+                        acceptanceState = "accepted", seriesNumber = "", totalSuggestions = "",
+                        captionAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty())"false" else "true",
+                        altTextAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())"false" else "true"), pageTitle.wikiSite.languageCode)
+                }
                 editTokenThenSave
                 EditAttemptStepEvent.logSaveAttempt(pageTitle)
                 supportActionBar?.title = getString(R.string.preview_edit_summarize_edit_title)
             }
             editPreviewFragment.isActive -> {
+                if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+                    val pageTitle = intent.getParcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+                    ImageRecommendationsEvent.logAction("caption_preview_accept", "caption_entry", ImageRecommendationsEvent.getActionDataString(
+                        filename = pageTitle?.prefixedText!!, recommendationSource = pageTitle.wikiSite.languageCode, recommendationSourceProject = pageTitle.wikiSite.languageCode,
+                        acceptanceState = "accepted", seriesNumber = "", totalSuggestions = "",
+                        captionAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty())"false" else "true",
+                        altTextAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())"false" else "true"), pageTitle.wikiSite.languageCode)
+                }
                 editSummaryFragment.show()
                 supportActionBar?.title = getString(R.string.preview_edit_summarize_edit_title)
             }
