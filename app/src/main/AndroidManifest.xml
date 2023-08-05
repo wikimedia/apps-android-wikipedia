@@ -306,6 +306,10 @@
             android:name=".diff.ArticleEditDetailsActivity" />
 
         <activity
+            android:name=".activity.SingleWebViewActivity"
+            android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
             android:name=".page.customize.CustomizeToolbarActivity"
             android:label="@string/customize_toolbar_title"
             android:theme="@style/AppTheme.ActionBar"/>

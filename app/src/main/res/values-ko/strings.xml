@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Alex00728
+* Amire80
 * Apzp79
 * Bluemersen
 * Codenstory
@@ -131,9 +132,9 @@
   <string name="map_view_link_text">지도에서 보기</string>
   <string name="other_languages_indication_text">다른 언어로 읽기</string>
   <string name="language_count_link_text">%d개의 다른 언어로 읽을 수 있음</string>
-  <string name="content_license_cc_by_sa">크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0</string>
-  <string name="edit_save_action_license_logged_in">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다.</string>
-  <string name="edit_save_action_license_anon">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다. 편집에 당신이 쓴 기기의 IP 주소가 남습니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인정보를 더 보호할 수 있습니다.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다. 편집에 당신이 쓴 기기의 IP 주소가 남습니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인정보를 더 보호할 수 있습니다.</string>
   <string name="edit_anon_warning">편집에 당신의 장치의 IP 주소가 들어갑니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면 개인정보를 더 보호할 수 있습니다.</string>
   <string name="preference_title_language">위키백과 언어</string>
   <string name="langlinks_filter_hint">검색</string>
@@ -257,7 +258,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko#오프라인 읽기 및 데이터</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ko</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ko</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ko</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -267,7 +268,7 @@
   <string name="about_translators_heading">번역자</string>
   <string name="about_translators_translatewiki">이 앱은 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;의 자원 번역자가 번역했습니다.</string>
   <string name="about_app_license_heading">라이선스</string>
-  <string name="about_app_license">소스 코드는 &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;아파치 2.0 라이선스&lt;/a&gt; 하에 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;게릿&lt;/a&gt;과 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;깃허브&lt;/a&gt;에서 확인할 수 있습니다. 별도로 명시하지 않은 내용은 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;크리에이티브 커먼즈 저작자표시-동일조건변경허락 라이선스&lt;/a&gt; 하에 이용할 수 있습니다.</string>
+  <string name="about_app_license" fuzzy="true">소스 코드는 &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;아파치 2.0 라이선스&lt;/a&gt; 하에 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;게릿&lt;/a&gt;과 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;깃허브&lt;/a&gt;에서 확인할 수 있습니다. 별도로 명시하지 않은 내용은 &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;크리에이티브 커먼즈 저작자표시-동일조건변경허락 라이선스&lt;/a&gt; 하에 이용할 수 있습니다.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;위키미디어 재단&lt;/a&gt;의 제품</string>
   <string name="about_activity_title">정보</string>
   <string name="edit_abandon_confirm">문서가 수정되어 있습니다. 바뀐 내용을 저장하지 않고 빠져나가겠습니까?</string>
@@ -1020,6 +1021,8 @@
     <item quantity="other">%d자를 제거했습니다</item>
   </plurals>
   <string name="suggested_edits_added_contribution_label">글자 %d자를 추가하셨습니다</string>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">이미지 알고리즘 트레이닝</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">제안된 이미지가 문서를 개선할지를 결정합니다.</string>
   <string name="file_page_activity_title">파일 문서</string>
   <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
   <string name="file_page_add_image_tags_button">이미지 태그 추가</string>
@@ -1117,12 +1120,12 @@
   <string name="insert_media_title">미디어 추가</string>
   <string name="insert_media_search_description">위키미디어 공용의 파일 선택</string>
   <string name="insert_media_search_hint">미디어 검색</string>
-  <string name="insert_media_settings">미디어 설정</string>
+  <string name="insert_media_settings" fuzzy="true">미디어 설정</string>
   <string name="insert_media_settings_uploaded_image">업로드한 이미지</string>
-  <string name="insert_media_settings_caption">캡션</string>
-  <string name="insert_media_settings_caption_description">항목 옆에 표시되는, 모든 독자에게 보이는 레이블</string>
+  <string name="insert_media_settings_caption" fuzzy="true">캡션</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">항목 옆에 표시되는, 모든 독자에게 보이는 레이블</string>
   <string name="insert_media_settings_alternative_text">대체 텍스트</string>
-  <string name="insert_media_settings_alternative_text_description">이미지를 볼 수 없는 독자를 위한 텍스트 설명</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">이미지를 볼 수 없는 독자를 위한 텍스트 설명</string>
   <string name="insert_media_advanced_settings">고급 설정</string>
   <string name="insert_media_advanced_settings_wrap_image">이미지 주위에 텍스트 줄 바꿈</string>
   <string name="insert_media_advanced_settings_image_position">이미지 위치</string>

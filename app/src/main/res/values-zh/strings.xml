@@ -171,9 +171,9 @@
   <string name="map_view_link_text">在地图上查看</string>
   <string name="other_languages_indication_text">阅读其他语言</string>
   <string name="language_count_link_text">在%d种语言中可用</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
-  <string name="edit_save_action_license_anon">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+  <string name="edit_save_action_license_logged_in">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
+  <string name="edit_save_action_license_anon">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
   <string name="edit_anon_warning">编辑将以您设备的 IP 地址发布。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;，您将拥有更多隐私。</string>
   <string name="preference_title_language">维基百科语言</string>
   <string name="langlinks_filter_hint">搜索</string>
@@ -236,8 +236,8 @@
   <string name="login_dont_have_account">还没有账号？</string>
   <string name="login_join_wikipedia">加入维基百科</string>
   <string name="login_forgot_password">忘记密码了？</string>
-  <string name="create_account_already_have">已经有账户了？</string>
-  <string name="create_account_activity_title">创建账户</string>
+  <string name="create_account_already_have">已经有账号了？</string>
+  <string name="create_account_activity_title">创建账号</string>
   <string name="dialog_create_account_checking_progress">正在验证</string>
   <string name="create_account_email_hint">电子邮件（可选）</string>
   <string name="create_account_password_repeat_hint">重输密码</string>
@@ -248,30 +248,30 @@
   <string name="create_account_password_error">密码长度必须至少为8个字符</string>
   <string name="create_account_generic_error">无法创建账号</string>
   <string name="create_account_next">下一步</string>
-  <string name="email_recommendation_dialog_title">创建没有电子邮件地址的账户？</string>
-  <string name="email_recommendation_dialog_message">虽然电子邮件地址是可选项，但&lt;b&gt;强烈建议&lt;/b&gt;您填写，因为如果您忘记了密码，则必须使用一封电子邮件来恢复帐户。</string>
-  <string name="email_recommendation_message">建议填写，因为需要电子邮件方能找回账户。</string>
+  <string name="email_recommendation_dialog_title">创建没有电子邮件地址的账号？</string>
+  <string name="email_recommendation_dialog_message">虽然电子邮件地址是可选项，但&lt;b&gt;强烈建议&lt;/b&gt;您填写，因为如果您忘记了密码，则必须使用电子邮件来恢复账号。</string>
+  <string name="email_recommendation_message">建议填写，因为需要电子邮件方能找回账号。</string>
   <string name="email_recommendation_dialog_create_without_email_action">不填写电子邮件继续</string>
   <string name="email_recommendation_dialog_create_with_email_action">添加电子邮件地址</string>
-  <string name="create_account_button">创建账户</string>
+  <string name="create_account_button">创建账号</string>
   <string name="create_account_name_unavailable">用户名“%s”不可用。请选择不同的用户名。</string>
-  <string name="create_account_ip_block_message">对不起，您的IP地址当前被封禁，不能创建新账户。</string>
+  <string name="create_account_ip_block_message">对不起，您的IP地址当前被封禁，不能创建新账号。</string>
   <string name="create_account_ip_block_help_url">https://zh.wikipedia.org/wiki/Help:我被封禁了</string>
   <string name="create_account_ip_block_details">详情</string>
   <string name="preferences_general_heading">通用</string>
   <string name="preferences_account_heading">账号</string>
   <string name="wikipedia_app_faq">维基百科应用FAQ</string>
   <string name="send_feedback">发送应用反馈</string>
-  <string name="create_account_account_created_toast">账户已创建！</string>
+  <string name="create_account_account_created_toast">账号已创建！</string>
   <string name="preferences_heading_syncing">同步</string>
   <string name="preferences_heading_data_usage">数据使用</string>
   <string name="preferences_heading_experimental">实验性</string>
   <string name="preference_title_sync_reading_lists_from_account">阅读列表同步</string>
   <string name="preference_title_download_reading_list_articles">下载阅读列表的条目</string>
-  <string name="preference_summary_sync_reading_lists">通过将阅读列表保存至您的维基百科账户，在不同设备上同步阅读列表</string>
+  <string name="preference_summary_sync_reading_lists">通过将阅读列表保存至您的维基百科账号，在不同设备上同步阅读列表</string>
   <string name="preference_summary_sync_reading_lists_from_account">通过将阅读列表保存到您的维基百科帐户“%s”，在不同设备上同步阅读列表</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">从“%s”移除同步的阅读列表？</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">这将从远程存储中完全删除所有此前同步的阅读列表。从您的账户“%s”移除所有已同步的列表么？</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">这将从远程存储中完全删除所有此前同步的阅读列表。从您的账号“%s”移除所有已同步的列表么？</string>
   <string name="preferences_privacy_settings_heading">隐私</string>
   <string name="preference_title_eventlogging_opt_in">发送使用情况报告</string>
   <string name="preference_summary_eventlogging_opt_in">允许维基媒体收集关于您使用该应用的信息，以改进该应用</string>
@@ -283,7 +283,7 @@
   <string name="page_protected_autoconfirmed">该页面受到半保护。</string>
   <string name="page_protected_sysop">该页面受到全保护。</string>
   <string name="page_protected_other">该页面的保护等级：%s</string>
-  <string name="page_protected_can_not_edit">对不起，您的账户目前没有足够的权限来编辑该页面。</string>
+  <string name="page_protected_can_not_edit">对不起，您的账号目前没有足够的权限来编辑该页面。</string>
   <string name="page_protected_can_not_edit_anon">对不起，该页面目前不能匿名编辑。</string>
   <string name="page_protected_can_not_edit_title">该页面受到保护</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">添加到监视列表</string>
@@ -299,7 +299,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url">https://meta.m.wikimedia.org/w/index.php?title=Terms_of_use/zh&amp;variant=zh-cn</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.zh</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh</string>
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/zh#图片标签</string>
@@ -309,7 +308,7 @@
   <string name="about_translators_heading">翻译者</string>
   <string name="about_translators_translatewiki">该应用由&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;的志愿译者翻译。</string>
   <string name="about_app_license_heading">许可协议</string>
-  <string name="about_app_license">源代码位于&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;和&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
+  <string name="about_app_license">源代码位于&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;和&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;，根据&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 许可证&lt;/a&gt;授权。除非另有声明，内容采用&lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;知识共享 署名-相同方式共享许可协议&lt;/a&gt;授权。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;维基媒体基金会&lt;/a&gt;出品</string>
   <string name="about_activity_title">关于</string>
   <string name="edit_abandon_confirm">该页面已修改。您确定要退出而不保存更改吗？</string>
@@ -574,11 +573,11 @@
   <string name="reading_list_confirm_remove_article_from_offline_title">出现在多个列表中的条目</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s将不再对所有阅读列表都可离线使用：</string>
   <string name="reading_lists_sync_reminder_title">开启阅读列表同步功能？</string>
-  <string name="reading_lists_sync_reminder_text">保存到阅读列表的条目现在可以同步到您的维基百科账户。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">阅读列表现在可以跨设备同步。登录您的维基百科账户并允许保存您的列表。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="reading_lists_sync_reminder_text">保存到阅读列表的条目现在可以同步到您的维基百科账号。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">阅读列表现在可以跨设备同步。登录您的维基百科账号并允许保存您的列表。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;了解更多&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">启用同步</string>
   <string name="reading_list_login_reminder_title">同步阅读列表</string>
-  <string name="reading_lists_login_reminder_text">阅读列表现在可以跨设备同步。登录您的维基百科账户并允许保存列表。</string>
+  <string name="reading_lists_login_reminder_text">阅读列表现在可以跨设备同步。登录您的维基百科账号并允许保存列表。</string>
   <string name="reading_lists_login_button">登录/加入维基百科</string>
   <string name="reading_lists_ignore_button">不是现在</string>
   <string name="reading_lists_confirm_remote_delete_yes">是</string>
@@ -588,15 +587,15 @@
   <string name="reading_list_articles_moved_to_named">已移动%1$d个条目至%2$s</string>
   <string name="reading_list_delete_confirm">您确定要删除%s么？</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">登录以启用同步</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">登录以将您的阅读列表保存到您的帐户中。</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">登录以将您的阅读列表保存到您的账号中。</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">取消</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">登录</string>
   <string name="reading_list_turned_sync_off_dialog_title">阅读列表同步已关闭</string>
-  <string name="reading_list_turned_sync_off_dialog_text">您帐户的阅读列表同步功能已关闭，并且不再备份已登录设备上保存的条目。在设置中打开阅读列表同步。</string>
+  <string name="reading_list_turned_sync_off_dialog_text">您账号的阅读列表同步功能已关闭，并且不再备份已登录设备上保存的条目。在设置中打开阅读列表同步。</string>
   <string name="reading_list_turned_sync_off_dialog_ok">确定</string>
   <string name="reading_list_turned_sync_off_dialog_settings">设置</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">开启阅读列表同步功能？</string>
-  <string name="reading_list_prompt_turned_sync_on_dialog_text">保存到阅读列表的条目现在可以同步到您的维基百科账户。&lt;a href=\"#faq\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_text">保存到阅读列表的条目现在可以同步到您的维基百科账号。&lt;a href=\"#faq\"&gt;了解更多&lt;/a&gt;</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">不要再显示给我</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">启用同步</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">不，谢谢</string>
@@ -608,7 +607,7 @@
   <string name="split_reading_list_message">每个阅读列表限制%d个条目。超过此限制的现有列表需要拆分为多个列表。</string>
   <string name="reading_list_move_article_limit_message">不能移动到此列表。“%1$s”已达到每个列表%2$d个条目的限制。</string>
   <string name="reading_list_article_limit_message">不能添加到此列表。“%1$s”已达到每个列表%2$d个条目的限制。</string>
-  <string name="reading_lists_limit_message">不能创建另一个列表。您已达到每个账户100个阅读列表的限制。</string>
+  <string name="reading_lists_limit_message">不能创建另一个列表。您已达到每个账号100个阅读列表的限制。</string>
   <string name="reading_lists_menu_create_list">新建列表</string>
   <string name="reading_lists_menu_sort_by">排序方式</string>
   <string name="reading_lists_refresh_sync_option">刷新同步</string>
@@ -840,7 +839,7 @@
   <string name="description_edit_help_about_wikidata">关于维基数据</string>
   <string name="description_edit_help_wikidata_guide">维基数据编写描述的指南</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/zh</string>
-  <string name="description_edit_anon_limit">感谢您一直以来对编辑条目描述的关注！要进行其他编辑，请登录您的维基百科账户。</string>
+  <string name="description_edit_anon_limit">感谢您一直以来对编辑条目描述的关注！要进行其他编辑，请登录您的维基百科账号。</string>
   <string name="description_edit_license_notice">一旦修改条目描述，即表示我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并按照&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议不可撤销地发表我的贡献。</string>
   <string name="description_edit_helper_text_lowercase_warning">通常以小写字母开头</string>
   <string name="description_edit_voice_input_description">语音输入</string>
@@ -1055,6 +1054,8 @@
     <item quantity="one">您添加了%d个字符</item>
     <item quantity="other">您添加了%d个字符</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">条目图像</string>
+  <string name="suggested_edits_image_recommendations_task_detail">将建议的图像添加到维基百科条目中来加强理解。</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="file_page_add_image_caption_button">添加图像说明</string>
   <string name="file_page_add_image_tags_button">添加图像标签</string>
@@ -1076,7 +1077,7 @@
   <string name="onboarding_explore_title">探索的新途径</string>
   <string name="onboarding_explore_text">通过不断更新的探索订阅源扑进维基百科的怀抱。&lt;br/&gt;&lt;b&gt;自定义&lt;/b&gt;您感兴趣内容的订阅源——无论是了解有关&lt;b&gt;历史上的今天&lt;/b&gt;，还是&lt;b&gt;随机&lt;/b&gt;掷骰子。</string>
   <string name="onboarding_reading_list_sync_title">同步阅读列表</string>
-  <string name="onboarding_reading_list_sync_text_v2">即使您处于离线状态，也可以把以后要阅读的条目做成阅读列表。&lt;br/&gt;登录至您的维基百科账户以同步您的阅读列表。&lt;a href=\"#login\"&gt;加入维基百科&lt;/a&gt;</string>
+  <string name="onboarding_reading_list_sync_text_v2">即使您处于离线状态，也可以把以后要阅读的条目做成阅读列表。&lt;br/&gt;登录至您的维基百科账号以同步您的阅读列表。&lt;a href=\"#login\"&gt;加入维基百科&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">发送匿名数据</string>
   <string name="onboarding_analytics_offline_text">让我们知道您如何使用它，从而使该应用变得更好。收集的数据是匿名的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">发送使用数据</string>
@@ -1153,12 +1154,12 @@
   <string name="insert_media_title">插入媒体</string>
   <string name="insert_media_search_description">从维基共享资源中选择一个文件</string>
   <string name="insert_media_search_hint">搜索媒体</string>
-  <string name="insert_media_settings">媒体设置</string>
+  <string name="insert_media_settings">添加图像详细信息</string>
   <string name="insert_media_settings_uploaded_image">已上传的图像</string>
-  <string name="insert_media_settings_caption">说明</string>
-  <string name="insert_media_settings_caption_description">为所有读者显示在项目旁边的标签</string>
+  <string name="insert_media_settings_caption">图像说明</string>
+  <string name="insert_media_settings_caption_description">条目中的可见图像标签</string>
   <string name="insert_media_settings_alternative_text">替代文本</string>
-  <string name="insert_media_settings_alternative_text_description">为无法看到图像的读者提供文本描述</string>
+  <string name="insert_media_settings_alternative_text_description">为视力障碍读者提供的描述</string>
   <string name="insert_media_advanced_settings">高级设置</string>
   <string name="insert_media_advanced_settings_wrap_image">在图像周围环绕文本</string>
   <string name="insert_media_advanced_settings_image_position">图像位置</string>

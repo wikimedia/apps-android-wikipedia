@@ -3,6 +3,7 @@
 * Babanwalia
 * Bgo eiu
 * Jimidar
+* Kuldeepburjbhalaike
 * MuratTheTurkish
 * Satdeep gill
 * Satnam S Virdi
@@ -68,7 +69,7 @@
   <string name="map_view_link_text">ਨਕਸ਼ੇ ਤੇ ਵੇਖੋ</string>
   <string name="other_languages_indication_text">ਹੋਰ ਭਾਸ਼ਾ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="language_count_link_text">%d ਹੋਰਾਂ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ ਉਪਲਬਧ ਹੈ</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ।</string>
   <string name="edit_save_action_license_anon" fuzzy="true">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
   <string name="preference_title_language" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਭਾਸ਼ਾ</string>
@@ -166,7 +167,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -318,6 +318,16 @@
   <string name="description_edit_help_about_wikidata">ਵਿਕੀਡਾਟਾ ਬਾਰੇ</string>
   <string name="description_edit_success_done">ਮੁਕੰਮਲ</string>
   <string name="description_edit_success_did_you_know">ਕੀ ਤੁਸੀੰ ਜਾਣਦੇ ਹੋ?</string>
+  <string name="suggested_edits_image_recommendations_task_title">ਲੇਖ ਚਿੱਤਰ</string>
+  <string name="suggested_edits_image_recommendations_task_detail">ਸਮਝ ਨੂੰ ਵਧਾਉਣ ਲਈ ਵਿਕੀਪੀਡੀਆ ਲੇਖਾਂ ਵਿੱਚ ਸੁਝਾਏ ਚਿੱਤਰ ਸ਼ਾਮਲ ਕਰੋ।</string>
+  <string name="image_recommendation_accept">ਹਾਂ</string>
+  <string name="image_recommendation_reject_title">ਕਿਉਂ ਨਹੀਂ?</string>
+  <string name="image_recommendation_reject_subtitle">ਤੁਹਾਡੇ ਜਵਾਬ ਭਵਿੱਖ ਦੇ ਸੁਝਾਵਾਂ ਵਿੱਚ ਸੁਧਾਰ ਕਰਦੇ ਹਨ।</string>
+  <string name="image_recommendation_reject_low_quality">ਚਿੱਤਰ ਘੱਟ ਗੁਣਵੱਤਾ ਵਾਲਾ ਹੈ</string>
+  <string name="image_recommendation_reject_dont_know">ਮੈ ਇਹ ਵਿਸ਼ਾ ਨਹੀਂ ਜਾਣਦਾ</string>
+  <string name="image_recommendation_onboarding_2">ਤੁਸੀਂ ਫੈਸਲਾ ਕਰੋਗੇ ਕਿ ਸੁਝਾਏ ਚਿੱਤਰ ਨੂੰ ਵਿਕੀਪੀਡੀਆ ਲੇਖ ਵਿੱਚ ਰੱਖਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।</string>
+  <string name="image_recommendation_onboarding_3">ਸੁਝਾਅ ਮਸ਼ੀਨ ਦੁਆਰਾ ਤਿਆਰ ਕੀਤੇ ਗਏ ਹਨ ਅਤੇ ਤੁਸੀਂ ਉਹਨਾਂ ਨੂੰ ਸਵੀਕਾਰ ਕਰਨ ਜਾਂ ਅਸਵੀਕਾਰ ਕਰਨ ਦਾ ਫੈਸਲਾ ਕਰਨ ਲਈ ਆਪਣੇ ਨਿਰਣੇ ਦੀ ਵਰਤੋਂ ਕਰੋਗੇ।</string>
+  <string name="image_recommendation_tooltip_1">ਇਸ ਦੇ ਵਿਸ਼ੇ ਨੂੰ ਸਮਝਣ ਲਈ ਇਸ ਲੇਖ ਦੀ ਸਮੀਖਿਆ ਕਰੋ</string>
   <string name="onboarding_skip">ਛੱਡੋ</string>
   <string name="onboarding_continue">ਜਾਰੀ ਰੱਖੋ</string>
   <string name="onboarding_get_started">ਸ਼ੁਰੂ ਕਰੋ</string>
@@ -326,5 +336,8 @@
   <string name="app_shortcuts_search">ਖੋਜ</string>
   <string name="on_this_day_card_title">ਅੱਜ ਦੇ ਦਿਨ</string>
   <string name="this_year">ਇਸ ਸਾਲ</string>
+  <string name="insert_media_settings">ਚਿੱਤਰ ਵੇਰਵੇ ਸ਼ਾਮਲ ਕਰੋ</string>
+  <string name="insert_media_settings_alternative_text_description">ਨੇਤਰਹੀਣ ਪਾਠਕਾਂ ਲਈ ਵਰਣਨ</string>
   <string name="action_item_categories">ਸ਼੍ਰੇਣੀਆਂ</string>
+  <string name="page_issues_title">ਸਫ਼ੇ ਸੰਬੰਧੀ ਮੁੱਦੇ</string>
 </resources>

@@ -15,6 +15,7 @@ import org.wikipedia.databinding.FragmentRandomItemBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil.getUrlForPreferredSize
 import org.wikipedia.util.L10nUtil
@@ -26,7 +27,7 @@ class RandomItemFragment : Fragment() {
         private const val EXTRACT_MAX_LINES = 4
 
         fun newInstance(wikiSite: WikiSite) = RandomItemFragment().apply {
-            arguments = bundleOf(RandomActivity.INTENT_EXTRA_WIKISITE to wikiSite)
+            arguments = bundleOf(Constants.ARG_WIKISITE to wikiSite)
         }
     }
 
@@ -44,7 +45,7 @@ class RandomItemFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        wikiSite = requireArguments().getParcelable(RandomActivity.INTENT_EXTRA_WIKISITE)!!
+        wikiSite = requireArguments().parcelable(Constants.ARG_WIKISITE)!!
 
         retainInstance = true
     }

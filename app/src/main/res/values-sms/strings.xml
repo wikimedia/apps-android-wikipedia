@@ -60,7 +60,7 @@
   <string name="edit_history_link_text">Čuäʹjet muʹttemhistoria.</string>
   <string name="map_view_link_text">Čuäʹjet kaartâst</string>
   <string name="other_languages_indication_text">Looǥǥ jeeʹres ǩiõʹlle</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="preference_title_language">Wikipedia ǩiõl</string>
   <string name="langlinks_filter_hint">Ooccmõš</string>
   <string name="langlinks_activity_title">Jeeʹres ǩiõl</string>
@@ -314,7 +314,7 @@
   <string name="wikitext_template">Mall</string>
   <string name="wikitext_reference">Teâttkäivv</string>
   <string name="insert_media_search_description">Vaʹlljed teâttõõzz Wikimedia Commonsist</string>
-  <string name="insert_media_settings_caption">Kartt- leʹbe snimldõkteʹkstt</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Kartt- leʹbe snimldõkteʹkstt</string>
   <string name="insert_media_advanced_settings">Lââʹssasetõõzz</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Snimldõõǥǥâž</string>
   <string name="main_tooltip_text">Tiõrv %s! Tiõʹđžiǩ-a ton, što puk vuäiʹtte Wikipedia muʹtted?</string>

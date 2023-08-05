@@ -50,7 +50,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
 
                     val intent = Intent(context, PageActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                    intent.putExtra(PageActivity.EXTRA_PAGETITLE, pageTitle)
+                    intent.putExtra(Constants.ARG_TITLE, pageTitle)
                     intent.putExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET, true)
                     val pendingIntent = PendingIntentCompat.getActivity(context, 1, intent,
                             PendingIntent.FLAG_UPDATE_CURRENT, false)

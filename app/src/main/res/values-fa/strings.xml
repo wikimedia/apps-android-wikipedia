@@ -7,6 +7,7 @@
 * Alifakoor
 * Alireza Ivaz
 * Alirezaaa
+* Amire80
 * Amirsara
 * Arash.pt
 * AzorAhai
@@ -148,9 +149,9 @@
   <string name="map_view_link_text">دیدن در نقشه</string>
   <string name="other_languages_indication_text">به زبان‌های دیگر مطالعه کنید</string>
   <string name="language_count_link_text">به %d زبان دیگر در دسترس است</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">با ذخیره کردن، شما &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید و به‌طور غیرقابل بازگشتی مشارکت‌هایتان را تحت پروانهٔ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر می‌کنید.</string>
-  <string name="edit_save_action_license_anon">با ذخیره کردن، &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور غیرقابل‌بازگشتی مشارکت‌هایتان را تحت پروانه &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر می‌کنید. ویرایش‌ها به نشانی آی‌پی دستگاه‌تان نسبت داده خواهد شد. اگر &lt;a href=\"https://#login\"&gt;وارد شوید&lt;/a&gt;، حریم خصوصی بیشتری دارید.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">با ذخیره کردن، شما &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید و به‌طور غیرقابل بازگشتی مشارکت‌هایتان را تحت پروانهٔ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر می‌کنید.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">با ذخیره کردن، &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید، و به طور غیرقابل‌بازگشتی مشارکت‌هایتان را تحت پروانه &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; منتشر می‌کنید. ویرایش‌ها به نشانی آی‌پی دستگاه‌تان نسبت داده خواهد شد. اگر &lt;a href=\"https://#login\"&gt;وارد شوید&lt;/a&gt;، حریم خصوصی بیشتری دارید.</string>
   <string name="edit_anon_warning">ویرایش‌ها به نشانی آی‌پی دستگاه شما منتسب خواهند شد. اگر &lt;a href=\"https://#login\"&gt;وارد سامانه شوید&lt;/a&gt;، اطلاعات حریم خصوصی شما بهتر حفظ خواهد شد.</string>
   <string name="preference_title_language">زبان‌های ویکی‌پدیا</string>
   <string name="langlinks_filter_hint">جستجو</string>
@@ -276,8 +277,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fa</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://fa.wikipedia.org/wiki/ویکی‌پدیا:درخواست_ایجاد_حساب_کاربری</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fa</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fa</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">کتابخانه‌های استفاده‌شده</string>
@@ -286,7 +287,7 @@
   <string name="about_translators_heading">مترجم‌ها</string>
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده‌است.</string>
   <string name="about_app_license_heading">مجوز</string>
-  <string name="about_app_license">کد اصلی در &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت مجوز &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. برای موارد خاص تحت مجوز &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; یافت می‌شود.</string>
+  <string name="about_app_license" fuzzy="true">کد اصلی در &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت مجوز &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. برای موارد خاص تحت مجوز &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; یافت می‌شود.</string>
   <string name="about_wmf">محصولی از &lt;a href=\"https://wikimediafoundation.org/\"&gt;بنیاد ویکی‌مدیا&lt;/a&gt;</string>
   <string name="about_activity_title">درباره</string>
   <string name="edit_abandon_confirm">صفحه ویرایش شده است. آیا مطمئنید که می‌خواهید بدون ذخیره تغییرات خارج شوید؟</string>
@@ -1120,12 +1121,12 @@
   <string name="insert_media_title">درج رسانه</string>
   <string name="insert_media_search_description">یک پرونده را از ویکی‌انبار انتخاب کنید</string>
   <string name="insert_media_search_hint">جستجوی رسانه‌ها</string>
-  <string name="insert_media_settings">تنظیمات رسانه</string>
+  <string name="insert_media_settings" fuzzy="true">تنظیمات رسانه</string>
   <string name="insert_media_settings_uploaded_image">تصویر بارگذاری‌شده</string>
-  <string name="insert_media_settings_caption">برنگاشت</string>
+  <string name="insert_media_settings_caption" fuzzy="true">برنگاشت</string>
   <string name="insert_media_settings_caption_description">برچسبی که برای تمامی خواننده‌ها در کنار آیتم نمایش می‌یابد</string>
   <string name="insert_media_settings_alternative_text">متن جایگزین</string>
-  <string name="insert_media_settings_alternative_text_description">توصیف متنی برای مخاطبانی که قادر به مشاهدهٔ تصویر نیستند</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">توصیف متنی برای مخاطبانی که قادر به مشاهدهٔ تصویر نیستند</string>
   <string name="insert_media_advanced_settings">تنظیمات پیشرفته</string>
   <string name="insert_media_advanced_settings_wrap_image">بسته‌بندی متن افراد تصویر</string>
   <string name="insert_media_advanced_settings_image_position">موقعیت تصویر</string>

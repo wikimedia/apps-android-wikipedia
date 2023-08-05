@@ -116,9 +116,9 @@
   <string name="map_view_link_text">بینین لەسەر نەخشە</string>
   <string name="other_languages_indication_text">خوێندنەوە بە زمانێکی تر</string>
   <string name="language_count_link_text">بە %d زمانی دیکە بەردەستە</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;بەندەکانی  بەکارھێنان&lt;/a&gt;، و بە بڵاوکردنەوەی بەشدارییەکانت لەژێر مۆڵەتی &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;مەرجەکانی بەکارھێنان&lt;/a&gt;، ، ھەروەھا پەسەندی دەکەیت کە دەستکارییەکان و بەشدارییەکانت بڵاوبکرێنەوە لەژێر بەڵگەنامەی &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. دەستکارییەکان دەدرێنە پاڵ ناونیشانی ئای-پی ئامێرەکەت. ئەگەر &lt;a href=\"https://#login\"&gt;بچیتە ژوورەوە&lt;/a&gt;، تایبەتێتی زیاترت دەبێت.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;بەندەکانی  بەکارھێنان&lt;/a&gt;، و بە بڵاوکردنەوەی بەشدارییەکانت لەژێر مۆڵەتی &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;مەرجەکانی بەکارھێنان&lt;/a&gt;، ، ھەروەھا پەسەندی دەکەیت کە دەستکارییەکان و بەشدارییەکانت بڵاوبکرێنەوە لەژێر بەڵگەنامەی &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. دەستکارییەکان دەدرێنە پاڵ ناونیشانی ئای-پی ئامێرەکەت. ئەگەر &lt;a href=\"https://#login\"&gt;بچیتە ژوورەوە&lt;/a&gt;، تایبەتێتی زیاترت دەبێت.</string>
   <string name="edit_anon_warning">دەستکارییەکانی ناونیشانی ئای پیی ئامێرەکەشتی لەگەڵدا دەبێت. ئەگەر &lt;a href=\"https://#login\"&gt;بچیتە ژوورەوە&lt;/a&gt;، تایبەتێتیی زیاترت دەبێت.</string>
   <string name="preference_title_language">زمانەکانی ویکیپیدیا</string>
   <string name="langlinks_filter_hint">بگەڕێ</string>
@@ -244,7 +244,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -254,7 +253,7 @@
   <string name="about_translators_heading">وەرگێڕەکان</string>
   <string name="about_translators_translatewiki">ئەم نەرمەواڵەیە وەرگێڕدراوە لەلایەن وەرگێڕە خۆبەخشەکان لە &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">مۆڵەت</string>
-  <string name="about_app_license">کۆدی سەرچاوە بەردەستە لە &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">کۆدی سەرچاوە بەردەستە لە &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">بەرھەمی &lt;a href=\"https://wikimediafoundation.org/\"&gt;دامەزراوەی ویکیمیدیا&lt;/a&gt;</string>
   <string name="about_activity_title">دەربارە</string>
   <string name="edit_abandon_confirm">پەڕەکە گۆڕدراوە. دڵنیای کە دەتەوێت بچیە دەرەوە بەبێ پاشەکەوتکردنی گۆڕانکارییەکان؟</string>
@@ -1047,11 +1046,11 @@
   <string name="insert_media_title">تێخستنی میدیا</string>
   <string name="insert_media_search_description">پەڕگەیەک ھەڵبژێرە لە ویکیمیدیا کۆمنز</string>
   <string name="insert_media_search_hint">گەڕان بۆ میدیا</string>
-  <string name="insert_media_settings">ڕێکخستنەکانی میدیا</string>
+  <string name="insert_media_settings" fuzzy="true">ڕێکخستنەکانی میدیا</string>
   <string name="insert_media_settings_uploaded_image">وێنەی بارکراو</string>
-  <string name="insert_media_settings_caption">لێدوان</string>
+  <string name="insert_media_settings_caption" fuzzy="true">لێدوان</string>
   <string name="insert_media_settings_alternative_text">دەقی جێگرەوە</string>
-  <string name="insert_media_settings_alternative_text_description">وەسفی دەقی بۆ ئەو خوێنەرانەی ناتوانن وێنەکە ببینن</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">وەسفی دەقی بۆ ئەو خوێنەرانەی ناتوانن وێنەکە ببینن</string>
   <string name="insert_media_advanced_settings">ڕێکخستنە پێشکەوتووەکان</string>
   <string name="insert_media_advanced_settings_wrap_image">دەق لە وێنە بپێچە</string>
   <string name="insert_media_advanced_settings_image_position">شوێنی وێنە</string>

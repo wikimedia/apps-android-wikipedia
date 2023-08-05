@@ -98,9 +98,9 @@
   <string name="map_view_link_text">Қартада көру</string>
   <string name="other_languages_indication_text">Басқа тілде оқу</string>
   <string name="language_count_link_text">Бұдан басқа %d тілде оқи аласыз</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Жарияласаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз.</string>
-  <string name="edit_save_action_license_anon">Жарияласаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз. Өңдемелеріңіз сіздің құрылғыңыздың IP мекенжайымен анықталады. Егер сіз&lt;a href=\"https://#login\"&gt;кірсеңіз&lt;/a&gt; сізде көбірек құпиялық   болады.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Жарияласаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Жарияласаңыз &lt;a href=\"%1$s\"&gt;Қолдану шарттарымен&lt;/a&gt; келсіскеніңіз болып табылады және &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензиясы аясында үлесіңізді қайтарымсыз жариялайсыз. Өңдемелеріңіз сіздің құрылғыңыздың IP мекенжайымен анықталады. Егер сіз&lt;a href=\"https://#login\"&gt;кірсеңіз&lt;/a&gt; сізде көбірек құпиялық   болады.</string>
   <string name="preference_title_language">Уикипедия тілдері</string>
   <string name="langlinks_filter_hint">Іздеу</string>
   <string name="langlinks_empty">Бұл бет басқа тілдерде қолжетімді емес.</string>

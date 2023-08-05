@@ -36,6 +36,7 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -120,16 +121,12 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageTitle = requireArguments().getParcelable(ARG_TITLE)!!
+        pageTitle = requireArguments().parcelable(Constants.ARG_TITLE)!!
         highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT)
         action = requireArguments().getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        requireArguments().getParcelable<PageSummaryForEdit>(ARG_SOURCE_SUMMARY)?.let {
-            sourceSummary = it
-        }
-        requireArguments().getParcelable<PageSummaryForEdit>(ARG_TARGET_SUMMARY)?.let {
-            targetSummary = it
-        }
+        sourceSummary = requireArguments().parcelable(ARG_SOURCE_SUMMARY)
+        targetSummary = requireArguments().parcelable(ARG_TARGET_SUMMARY)
         EditAttemptStepEvent.logInit(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
     }
 
@@ -528,7 +525,6 @@ class DescriptionEditFragment : Fragment() {
     }
 
     companion object {
-        private const val ARG_TITLE = "title"
         private const val ARG_REVIEWING = "inReviewing"
         private const val ARG_DESCRIPTION = "description"
         private const val ARG_HIGHLIGHT_TEXT = "highlightText"
@@ -554,7 +550,7 @@ class DescriptionEditFragment : Fragment() {
                         action: DescriptionEditActivity.Action,
                         source: InvokeSource): DescriptionEditFragment {
             return DescriptionEditFragment().apply {
-                arguments = bundleOf(ARG_TITLE to title,
+                arguments = bundleOf(Constants.ARG_TITLE to title,
                         ARG_HIGHLIGHT_TEXT to highlightText,
                         ARG_SOURCE_SUMMARY to sourceSummary,
                         ARG_TARGET_SUMMARY to targetSummary,

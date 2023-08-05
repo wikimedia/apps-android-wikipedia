@@ -18,6 +18,7 @@ import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
@@ -38,7 +39,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     var watchlistExpiryChanged = false
     var lastWatchExpiry = WatchlistExpiry.NEVER
 
-    val pageTitle = bundle.getParcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
+    val pageTitle = bundle.parcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
     var pageId = bundle.getInt(ArticleEditDetailsActivity.EXTRA_PAGE_ID, -1)
         private set
     var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO, -1)
@@ -47,8 +48,6 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     var revisionFrom: MwQueryPage.Revision? = null
     var canGoForward = false
     var hasRollbackRights = false
-
-    private var diffRevisionId = 0L
 
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 
@@ -125,9 +124,6 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private fun getDiffText(oldRevisionId: Long, newRevisionId: Long) {
-        if (diffRevisionId == newRevisionId) {
-            return
-        }
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             diffText.postValue(Resource.Error(throwable))
         }) {
@@ -141,7 +137,6 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             } else {
                 singleRevisionText.postValue(Resource.Success(ServiceFactory.getCoreRest(pageTitle.wikiSite).getRevision(newRevisionId)))
             }
-            diffRevisionId = newRevisionId
         }
     }
 

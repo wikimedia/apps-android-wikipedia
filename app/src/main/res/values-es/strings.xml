@@ -4,6 +4,7 @@
 * Agent
 * Agusbou2015
 * Amaia
+* Amire80
 * Anarhistička Maca
 * AnupamM
 * Asierog
@@ -55,6 +56,7 @@
 * Madamebiblio
 * MarcoAurelio
 * MarleneR329
+* McDutchie
 * Mnivar
 * Mouse21
 * Mynor Archila
@@ -180,9 +182,9 @@
   <string name="map_view_link_text">Ver en un mapa</string>
   <string name="other_languages_indication_text">Leer en otro idioma</string>
   <string name="language_count_link_text">Disponible en %d idiomas más</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Al publicar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Las ediciones se atribuirán a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt;, tendrás más privacidad.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Al guardar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Al publicar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Las ediciones se atribuirán a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt;, tendrás más privacidad.</string>
   <string name="preference_title_language">Idiomas de Wikipedia</string>
   <string name="langlinks_filter_hint">Buscar</string>
   <string name="langlinks_empty">Esta página no está disponible en otros idiomas.</string>
@@ -307,7 +309,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/es</string>
   <string name="android_app_request_an_account_url">https://es.wikipedia.org/wiki/Wikipedia:Crear_una_cuenta_de_usuario</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.es</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.es</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.es</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/es</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -317,7 +319,7 @@
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación fue traducida por traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
-  <string name="about_app_license">Código fuente disponible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; bajo la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licencia Apache 2.0&lt;/a&gt;. A menos que se especifique lo contrario, el contenido está disponible bajo la &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licencia Atribución-CompartirIgual de Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Código fuente disponible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; bajo la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licencia Apache 2.0&lt;/a&gt;. A menos que se especifique lo contrario, el contenido está disponible bajo la &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licencia Atribución-CompartirIgual de Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto de &lt;a href=\"https://wikimediafoundation.org/es/?noredirect=es_ES\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
   <string name="edit_abandon_confirm">Se ha modificado la página. ¿Quieres salir sin guardar los cambios?</string>
@@ -733,7 +735,7 @@
   <string name="preference_summary_notification_article_linked">Recibido cuando se crea un nuevo link hacia una página que usted creó</string>
   <string name="preference_category_push_notifications">Notificaciones emergentes</string>
   <string name="preference_title_customize_push_notifications">Personalizar notificaciones emergentes</string>
-  <string name="preference_category_display_settings">Mostrar configuraciones</string>
+  <string name="preference_category_display_settings">Configuración de presentación</string>
   <string name="preference_title_hide_read_notifications">Ocultar notificaciones leídas</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notificaciones de Wikipedia</string>
@@ -1043,6 +1045,8 @@
     <item quantity="one">Añadiste %d carácter</item>
     <item quantity="other">Añadiste %d caracteres</item>
   </plurals>
+  <string name="image_recommendation_reject_title">¿Por qué no?</string>
+  <string name="image_recommendation_reject_not_relevant">La imagen no es relevante</string>
   <string name="file_page_activity_title">Página de archivo</string>
   <string name="file_page_add_image_caption_button">Añadir leyenda de imagen</string>
   <string name="file_page_add_image_tags_button">Añadir etiquetas de imagen</string>
@@ -1132,12 +1136,12 @@
   <string name="insert_media_title">Insertar multimedia</string>
   <string name="insert_media_search_description">Seleccionar un archivo de Wikimedia Commons</string>
   <string name="insert_media_search_hint">Busce media</string>
-  <string name="insert_media_settings">Configuración multimedia</string>
+  <string name="insert_media_settings">Agregar detalles de la imagen</string>
   <string name="insert_media_settings_uploaded_image">Imagen cargada</string>
-  <string name="insert_media_settings_caption">Leyenda</string>
-  <string name="insert_media_settings_caption_description">Etiqueta que se muestra junto al elemento para todos los lectores</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Leyenda</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Etiqueta que se muestra junto al elemento para todos los lectores</string>
   <string name="insert_media_settings_alternative_text">Texto alternativo</string>
-  <string name="insert_media_settings_alternative_text_description">Descripción de texto para lectores quiénes no pueden ver la imagen</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Descripción de texto para lectores quiénes no pueden ver la imagen</string>
   <string name="insert_media_advanced_settings">Configuraciones avanzadas</string>
   <string name="insert_media_advanced_settings_wrap_image">Envolver el texto alrededor de la imagen</string>
   <string name="insert_media_advanced_settings_image_position">Posición de imagen</string>
@@ -1221,7 +1225,7 @@
   <string name="revision_diff_paragraph_removed">Párrafo eliminado</string>
   <string name="revision_undo_title">Deshacer la edición</string>
   <string name="revision_undo_message">Esto deshará los cambios realizados por la(s) revisión(es) del artículo mostrado aquí.</string>
-  <string name="revision_undo_reason">To continue, please provide a reason for undoing this edit:</string>
+  <string name="revision_undo_reason">Para continuar, proporcione un motivo para deshacer esta edición:</string>
   <string name="revision_undo_success">La revisión se deshizo.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s y su página de discusión han sido añadidos a tu lista de seguimiento %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cambiar</string>

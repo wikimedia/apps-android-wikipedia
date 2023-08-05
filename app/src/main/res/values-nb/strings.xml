@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * AnB
 * Chameleon222
 * Citadell
@@ -125,9 +126,9 @@
   <string name="map_view_link_text">Vis på kart</string>
   <string name="other_languages_indication_text">Les på et annet språk</string>
   <string name="language_count_link_text">Finnes på %d andre språk</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Ved å publisere samtykker du til &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen.</string>
-  <string name="edit_save_action_license_anon">Ved å publisere samtykker du til &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen. Redigeringer vil bli tilskrevet IP-adressen for enheten din. Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; vil du få bedre personvern.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Ved å publisere samtykker du til &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Ved å publisere samtykker du til &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt;, og til å ugjenkallelig slippe bidragene dine under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-lisensen. Redigeringer vil bli tilskrevet IP-adressen for enheten din. Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; vil du få bedre personvern.</string>
   <string name="edit_anon_warning">Redigeringer blir tilskrevet IP-adressen til enheten din. Hvis du &lt;a href=\"https://#login\"&gt;logger inn&lt;/a&gt; vil du få bedre personvern.</string>
   <string name="preference_title_language">Wikipedia-språk</string>
   <string name="langlinks_filter_hint">Søk</string>
@@ -253,7 +254,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.no</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.no</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.no</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -263,7 +264,7 @@
   <string name="about_translators_heading">Oversettere</string>
   <string name="about_translators_translatewiki">Appen ble oversatt av frivillige oversettere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisens</string>
-  <string name="about_app_license">Kildekode tilgjengelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0-lisensen&lt;/a&gt;. Om ikke annet er angitt, er innhold tilgjengelig under lisensen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Navngivelse-DelPåSammeVilkår&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kildekode tilgjengelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0-lisensen&lt;/a&gt;. Om ikke annet er angitt, er innhold tilgjengelig under lisensen &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Navngivelse-DelPåSammeVilkår&lt;/a&gt;.</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Denne siden har blitt endret. Er du sikker på at du ønsker å avslutte uten å lagre endringene dine?</string>
@@ -384,6 +385,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikkelen kan ikke lastes uten nett</string>
   <string name="page_offline_notice_add_to_reading_list">Tips: Legger du til artikkelen i leselisten vil den bli lastet ned så fort du har nett igjen.</string>
   <string name="page_offline_notice_last_date">Du leser en offlineutgave av denne artikkelen som ble lagret %s.</string>
+  <string name="redirected_from_snackbar">Omdirigert fra «%s»</string>
   <string name="button_get_directions">Veibeskrivelse</string>
   <string name="error_no_maps_app">Fant ikke noen apper som kunne gi veibeskrivelse.</string>
   <string name="preference_title_customize_explore_feed">Utforskingsmating</string>
@@ -392,7 +394,7 @@
   <string name="preference_summary_show_link_previews">Vis en kort forhåndsvisning av artikler når du trykker på lenker.</string>
   <string name="preference_title_collapse_tables">Fold sammen tabeller</string>
   <string name="preference_summary_collapse_tables">Fold automatisk sammen tabeller i artikler, for eksempel infobokser, referanser og noter.</string>
-  <string name="nav_item_donate">Donér</string>
+  <string name="nav_item_donate">Doner</string>
   <string name="error_voice_search_not_available">Beklager, stemmegjenkjenning er ikke tilgjengelig.</string>
   <string name="location_service_disabled">Stedstjenester er slått av.</string>
   <string name="enable_location_service">Slå på</string>
@@ -1062,6 +1064,29 @@
     <item quantity="one">Du la til %d tegn</item>
     <item quantity="other">Du la til %d tegn</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Artikkelbilder</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Legg foreslåtte bilder til Wikipedia-artikler for å forbedre forståelsen.</string>
+  <string name="image_recommendation_task_instruction">Ønsker du å legge til dette bildet i artikkelen?</string>
+  <string name="image_recommendation_tutorial">Veiviser</string>
+  <string name="image_recommendation_accept">Ja</string>
+  <string name="image_recommendation_reject">Nei</string>
+  <string name="image_recommendation_notsure">Usikker</string>
+  <string name="image_recommendation_reject_title">Hvorfor ikke?</string>
+  <string name="image_recommendation_reject_subtitle">Svarene dine hjelper til å forbedre framtidige forslag.</string>
+  <string name="image_recommendation_reject_not_relevant">Bildet er ikke relevant</string>
+  <string name="image_recommendation_reject_no_info">Ikke nok informasjon til å avgjøre</string>
+  <string name="image_recommendation_reject_offensive">Bildet er støtende</string>
+  <string name="image_recommendation_reject_low_quality">Bildet har lav kvalitet</string>
+  <string name="image_recommendation_reject_dont_know">Jeg kan ikke noe om dette emnet</string>
+  <string name="image_recommendation_reject_other">Annet</string>
+  <string name="image_recommendation_reject_submit">Send</string>
+  <string name="image_recommendation_onboarding_1">Bilder hjelper fgolk å forstå, men mange artikler mangler bilder.</string>
+  <string name="image_recommendation_onboarding_4">Bildene kommer fra Wikimedia Commons, en samling med fritt lisensierte bilder som brukes av Wikipedia.</string>
+  <string name="image_recommendation_tooltip_3">Avgjør om bildet hjelper leserne med å forstå dette emnet bedre</string>
+  <string name="image_recommendation_tooltip_next">Neste</string>
+  <string name="edit_summary_added_image">La til bilde</string>
+  <string name="edit_summary_added_caption">La til bildetekst</string>
+  <string name="edit_published_view">Vis</string>
   <string name="file_page_activity_title">Filside</string>
   <string name="file_page_add_image_caption_button">Legg til bildetekst</string>
   <string name="file_page_add_image_tags_button">Legg til bildeknagger</string>
@@ -1160,12 +1185,12 @@
   <string name="insert_media_title">Sett inn media</string>
   <string name="insert_media_search_description">Velg en fil fra Wikimedia Commons</string>
   <string name="insert_media_search_hint">Mediesøk</string>
-  <string name="insert_media_settings">Mediainnstillinger</string>
+  <string name="insert_media_settings">Legg til bildedetaljer</string>
   <string name="insert_media_settings_uploaded_image">Last opp bilde</string>
-  <string name="insert_media_settings_caption">Beskrivelse</string>
-  <string name="insert_media_settings_caption_description">Etikett som vises ved siden av elementet for alle lesere</string>
+  <string name="insert_media_settings_caption">Bildetekst</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Etikett som vises ved siden av elementet for alle lesere</string>
   <string name="insert_media_settings_alternative_text">Alternativ tekst</string>
-  <string name="insert_media_settings_alternative_text_description">Tekstbeskrivelse for lesere som ikke kan se bildet</string>
+  <string name="insert_media_settings_alternative_text_description">Beskrivelse for lesere med nedsatt syn</string>
   <string name="insert_media_advanced_settings">Avanserte innstillinger</string>
   <string name="insert_media_advanced_settings_wrap_image">Bryt teksten omkring et bilde</string>
   <string name="insert_media_advanced_settings_image_position">Bildeposisjon</string>
@@ -1405,5 +1430,6 @@
   <string name="reading_list_share_survey_body">«Del leselister» er en testfunksjon, og vi trenger tilbakemelding fra brukerne for å forbedre eller fjerne den.</string>
   <string name="data_opt_in_accept">Godta</string>
   <string name="data_opt_in_reject">Avvis</string>
+  <string name="page_issues_title">Sideproblemer</string>
   <string name="generic_release_notes">Mindre feilrettinger og forbedringer</string>
 </resources>

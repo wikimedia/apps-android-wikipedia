@@ -32,6 +32,7 @@ import org.wikipedia.databinding.FragmentGalleryItemBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
@@ -65,11 +66,9 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mediaListItem = requireArguments().getParcelable(ARG_GALLERY_ITEM)!!
-        pageTitle = requireArguments().getParcelable(ARG_PAGETITLE)
-        if (pageTitle == null) {
-            pageTitle = PageTitle(mediaListItem.title, Constants.commonsWikiSite)
-        }
+        mediaListItem = requireArguments().parcelable(ARG_GALLERY_ITEM)!!
+        pageTitle = requireArguments().parcelable(Constants.ARG_TITLE)
+            ?: PageTitle(mediaListItem.title, Constants.commonsWikiSite)
         imageTitle = PageTitle("File:${StringUtil.removeNamespace(mediaListItem.title)}", pageTitle!!.wikiSite)
     }
 
@@ -300,12 +299,11 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     }
 
     companion object {
-        private const val ARG_PAGETITLE = "pageTitle"
         private const val ARG_GALLERY_ITEM = "galleryItem"
 
         fun newInstance(pageTitle: PageTitle?, item: MediaListItem): GalleryItemFragment {
             return GalleryItemFragment().apply {
-                arguments = bundleOf(ARG_PAGETITLE to pageTitle, ARG_GALLERY_ITEM to item)
+                arguments = bundleOf(Constants.ARG_TITLE to pageTitle, ARG_GALLERY_ITEM to item)
             }
         }
     }
