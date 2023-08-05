@@ -24,6 +24,7 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.AppearanceSettingInteractionEvent
 import org.wikipedia.databinding.DialogThemeChooserBinding
 import org.wikipedia.events.WebViewInvalidateEvent
+import org.wikipedia.extensions.serializable
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -47,7 +48,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     private var app = WikipediaApp.instance
     private lateinit var appearanceSettingInteractionEvent: AppearanceSettingInteractionEvent
-    private lateinit var invokeSource: InvokeSource
     private val disposables = CompositeDisposable()
     private var updatingFont = false
     private var isEditing = false
@@ -127,7 +127,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+        val invokeSource = requireArguments().serializable<InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
         appearanceSettingInteractionEvent = AppearanceSettingInteractionEvent(invokeSource)
     }
 

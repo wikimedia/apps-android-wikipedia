@@ -21,6 +21,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.extensions.parcelable
+import org.wikipedia.extensions.serializable
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DimenUtil
@@ -39,8 +40,9 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogImagePreviewBinding.inflate(inflater, container, false)
-        pageSummaryForEdit = requireArguments().parcelable(ARG_SUMMARY)!!
-        action = requireArguments().getSerializable(ARG_ACTION) as Action?
+        val arguments = requireArguments()
+        pageSummaryForEdit = arguments.parcelable(ARG_SUMMARY)!!
+        action = arguments.serializable(ARG_ACTION)
         setConditionalLayoutDirection(binding.root, pageSummaryForEdit.lang)
         return binding.root
     }

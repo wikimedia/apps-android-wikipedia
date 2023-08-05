@@ -26,6 +26,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.extensions.parcelable
+import org.wikipedia.extensions.serializable
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -49,15 +50,15 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
     private var onThisDay: OnThisDay? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
         _binding = FragmentOnThisDayBinding.inflate(inflater, container, false)
 
         val topDecorationDp = 24
-        val age = requireArguments().getInt(OnThisDayActivity.EXTRA_AGE, 0)
-        wiki = requireArguments().parcelable(Constants.ARG_WIKISITE)!!
-        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+        val arguments = requireArguments()
+        val age = arguments.getInt(OnThisDayActivity.EXTRA_AGE, 0)
+        wiki = arguments.parcelable(Constants.ARG_WIKISITE)!!
+        invokeSource = arguments.serializable(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
         date = DateUtil.getDefaultDateFor(age)
-        yearOnCardView = requireArguments().getInt(OnThisDayActivity.EXTRA_YEAR, -1)
+        yearOnCardView = arguments.getInt(OnThisDayActivity.EXTRA_YEAR, -1)
         setUpToolbar()
         binding.eventsRecycler.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         binding.eventsRecycler.addItemDecoration(HeaderMarginItemDecoration(topDecorationDp, 0))

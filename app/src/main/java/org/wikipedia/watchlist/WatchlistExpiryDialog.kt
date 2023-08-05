@@ -11,6 +11,7 @@ import androidx.core.os.bundleOf
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.databinding.DialogWatchlistExpiryBinding
+import org.wikipedia.extensions.serializable
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.util.DimenUtil
 
@@ -29,7 +30,7 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogWatchlistExpiryBinding.inflate(inflater, container, false)
-        expiry = requireArguments().getSerializable(ARG_EXPIRY) as WatchlistExpiry
+        expiry = requireArguments().serializable(ARG_EXPIRY)!!
         return binding.root
     }
 
