@@ -1060,8 +1060,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     return@evaluate
                 }
                 val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(model.page?.pageProperties?.pageId ?: -1)
-                val metricsPlatformArticleEventFindInPageInteraction = ArticleFindInPageInteraction(this)
-                val findInPageActionProvider = FindInWebPageActionProvider(this, articleFindInPageInteractionEvent)
+                val articleFindInPageInteractionEventMetricsPlatform = ArticleFindInPageInteraction(this)
+                val findInPageActionProvider = FindInWebPageActionProvider(this, articleFindInPageInteractionEvent, articleFindInPageInteractionEventMetricsPlatform)
                 startSupportActionMode(object : ActionMode.Callback {
                     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
                         val menuItem = menu.add(R.string.menu_page_find_in_page)
@@ -1086,8 +1086,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         }
                         articleFindInPageInteractionEvent.pageHeight = webView.contentHeight
                         articleFindInPageInteractionEvent.logDone()
-                        metricsPlatformArticleEventFindInPageInteraction.pageHeight = webView.contentHeight
-                        metricsPlatformArticleEventFindInPageInteraction.logDone()
+                        articleFindInPageInteractionEventMetricsPlatform.pageHeight = webView.contentHeight
+                        articleFindInPageInteractionEventMetricsPlatform.logDone()
                         webView.clearMatches()
                         callback()?.onPageHideSoftKeyboard()
                         callback()?.onPageSetToolbarElevationEnabled(true)
