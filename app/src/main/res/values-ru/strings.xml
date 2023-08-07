@@ -1512,4 +1512,6 @@
   <string name="reading_list_share_survey_body">«Поделиться списком для чтения» — тестовый функционал, и нам была бы полезная ваша обратная связь, чтобы в дальнейшем улучшить или удалить этот функционал.</string>
   <string name="data_opt_in_accept">Принять</string>
   <string name="data_opt_in_reject">Отклонить</string>
+  <string name="page_issues_title">Проблемы страницы</string>
+  <string name="generic_release_notes">Незначительные исправления ошибок и улучшения</string>
 </resources>
