@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* -jem-
 * AVIADOR71
 * Agent
 * Agusbou2015
@@ -871,6 +872,9 @@
   <string name="description_edit_tutorial_promise">Al empezar, me comprometo a no hacer mal uso de esta funcionalidad.</string>
   <string name="description_edit_tutorial_machine_suggestions_title">Sugerencias automáticas</string>
   <string name="description_edit_tutorial_machine_suggestions_description">Las sugerencias son generadas automáticamente, no por voluntarios ni por la Fundación Wikimedia</string>
+  <string name="customize_toolbar_title">Personalizar barra</string>
+  <string name="customize_toolbar_shortcut_description_text">Personaliza la barra de herramientas inferior con las 5 funciones que te resulten más útiles.</string>
+  <string name="customize_toolbar_category_toolbar">Barra de herramientas</string>
   <string name="customize_toolbar_category_menu">Menú</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Pulse el icono de arrastre para mover el elemento</string>
   <string name="customize_toolbar_item_default_tooltip">Pulse y arrastre un elemento para reubicarlo</string>
