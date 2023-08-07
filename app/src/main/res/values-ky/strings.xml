@@ -19,6 +19,7 @@
   <string name="error_network_error" fuzzy="true">Тармакка туташуу туруктуу эмес.</string>
   <string name="page_error_retry">Кайра аракет кылуу</string>
   <string name="page_error_back_to_main">Артка кайтуу</string>
+  <string name="error_next">Кийинки</string>
   <string name="menu_clear_all_history">Тарыхты тазалоо</string>
   <string name="history_item_delete_undo">Жокко чыгаруу</string>
   <string name="notification_archive_undo">Жокко чыгаруу</string>
@@ -175,13 +176,17 @@
   <string name="notification_syncing_cancel_button">Жокко чыгаруу</string>
   <string name="notifications_channel_group_other_title">Башка</string>
   <string name="view_featured_image_card_download">Жүктөп алуу</string>
+  <string name="view_continue_reading_card_subtitle_today">бүгүнкү</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="description_edit_save">Жарыялоо</string>
   <string name="description_edit_cancel_hint">Жокко чыгаруу</string>
+  <string name="description_edit_success_done">Даяр</string>
   <string name="suggested_edits_task_action_text_add">Кошуу</string>
   <string name="suggested_edits_task_action_text_translate">Которуу</string>
+  <string name="suggested_edits_contribution_language_label">Тил</string>
   <string name="description_edit_login_cancel_button_text">Жокко чыгаруу</string>
+  <string name="onboarding_continue">Улантуу</string>
   <string name="app_shortcuts_search">Издөө</string>
   <string name="more_language_options">көбүрөөк</string>
   <string name="remove_language_dialog_cancel_button_text">Жокко чыгаруу</string>
