@@ -20,7 +20,39 @@
         android:layout_marginBottom="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:visibility="gone" />
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <LinearLayout
+        android:id="@+id/imageRecommendationsDepletedContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_hide_image_24"
+            app:tint="?attr/inactive_color"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/imageRecommendationsDepletedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/image_recommendation_depleted"
+            android:textSize="16sp"
+            android:textColor="?attr/secondary_color"
+            android:textColorLink="?attr/progressive_color"
+            android:lineSpacingExtra="6dp"/>
+
+    </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/articleContentContainer"

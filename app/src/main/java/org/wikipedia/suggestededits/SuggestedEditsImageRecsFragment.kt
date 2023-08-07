@@ -39,6 +39,7 @@ import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -97,6 +98,10 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.imageCard.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.border_color)
         binding.imageCard.strokeWidth = DimenUtil.roundedDpToPx(0.5f)
 
+        binding.imageRecommendationsDepletedText.text = StringUtil.fromHtml(getString(R.string.image_recommendation_depleted))
+        binding.imageRecommendationsDepletedText.movementMethod = LinkMovementMethodExt(
+            LinkMovementMethodExt.UrlHandler { requireActivity().finish() })
+
         binding.acceptButton.setOnClickListener {
             doPublish()
         }
@@ -142,6 +147,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                     when (it) {
                         is SuggestedEditsImageRecsFragmentViewModel.UiState.Loading -> onLoading()
                         is SuggestedEditsImageRecsFragmentViewModel.UiState.Success -> onLoadSuccess()
+                        is SuggestedEditsImageRecsFragmentViewModel.UiState.Depleted -> onDepletedState()
                         is SuggestedEditsImageRecsFragmentViewModel.UiState.Error -> onError(it.throwable)
                     }
                 }
@@ -171,6 +177,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.cardItemErrorView.isVisible = false
         binding.bottomSheetCoordinatorLayout.isVisible = false
         binding.articleContentContainer.isVisible = false
+        binding.imageRecommendationsDepletedContainer.isVisible = false
     }
 
     private fun onError(throwable: Throwable) {
@@ -178,6 +185,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.cardItemProgressBar.isVisible = false
         binding.bottomSheetCoordinatorLayout.isVisible = false
         binding.articleContentContainer.isVisible = false
+        binding.imageRecommendationsDepletedContainer.isVisible = false
         binding.cardItemErrorView.isVisible = true
         binding.cardItemErrorView.setError(throwable)
     }
@@ -254,6 +262,14 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         }
 
         callback().updateActionButton()
+    }
+
+    private fun onDepletedState() {
+        binding.bottomSheetCoordinatorLayout.isVisible = false
+        binding.articleContentContainer.isVisible = false
+        binding.cardItemProgressBar.isVisible = false
+        binding.cardItemErrorView.isVisible = false
+        binding.imageRecommendationsDepletedContainer.isVisible = true
     }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
