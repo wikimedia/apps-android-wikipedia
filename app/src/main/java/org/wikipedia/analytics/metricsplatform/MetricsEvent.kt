@@ -1,6 +1,5 @@
 package org.wikipedia.analytics.metricsplatform
 
-import androidx.lifecycle.ViewModel
 import org.wikimedia.metrics_platform.context.ClientData
 import org.wikimedia.metrics_platform.context.PageData
 import org.wikimedia.metrics_platform.context.PerformerData

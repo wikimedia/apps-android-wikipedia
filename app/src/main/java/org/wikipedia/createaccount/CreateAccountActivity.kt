@@ -42,7 +42,7 @@ class CreateAccountActivity : BaseActivity() {
     private lateinit var binding: ActivityCreateAccountBinding
     private lateinit var captchaHandler: CaptchaHandler
     private lateinit var createAccountEvent: CreateAccountEvent
-    private lateinit var createAccountEventMetricsPlatform : org.wikipedia.analytics.metricsplatform.CreateAccountEvent
+    private lateinit var createAccountEventMetricsPlatform: org.wikipedia.analytics.metricsplatform.CreateAccountEvent
     private val disposables = CompositeDisposable()
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null

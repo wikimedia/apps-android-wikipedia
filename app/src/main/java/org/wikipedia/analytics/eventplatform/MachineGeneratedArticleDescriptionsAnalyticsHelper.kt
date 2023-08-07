@@ -4,9 +4,9 @@ import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ActiveTimer

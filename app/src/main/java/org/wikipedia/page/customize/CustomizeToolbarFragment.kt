@@ -27,7 +27,7 @@ class CustomizeToolbarFragment : Fragment() {
     private lateinit var itemTouchHelper: ItemTouchHelper
     private lateinit var adapter: RecyclerItemAdapter
     private lateinit var customizeToolbarEvent: CustomizeToolbarEvent
-    private lateinit var customizeToolbarEventMetricsPlatform : org.wikipedia.analytics.metricsplatform.CustomizeToolbarEvent
+    private lateinit var customizeToolbarEventMetricsPlatform: org.wikipedia.analytics.metricsplatform.CustomizeToolbarEvent
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
