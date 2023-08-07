@@ -318,6 +318,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             return
         }
         app.appSessionEvent.backPressed()
+        app.sessionEvent.backPressed()
         if (pageFragment.onBackPressed()) {
             return
         }
@@ -588,6 +589,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 else -> pageFragment.openFromExistingTab(pageTitle, entry)
             }
             app.appSessionEvent.pageViewed(entry)
+            app.sessionEvent.pageViewed(entry)
         }
     }
 

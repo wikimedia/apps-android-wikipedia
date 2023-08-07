@@ -152,6 +152,7 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
         findPreference(R.string.preference_key_send_event_platform_test_event).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             UserContributionEvent.logOpen()
+            org.wikipedia.analytics.metricsplatform.UserContributionEvent.logOpen()
             true
         }
     }

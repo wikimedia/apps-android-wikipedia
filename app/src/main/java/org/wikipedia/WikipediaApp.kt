@@ -17,6 +17,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.analytics.InstallReferrerListener
 import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.analytics.metricsplatform.SessionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.concurrency.RxBus
@@ -48,6 +49,7 @@ class WikipediaApp : Application() {
     val mainThreadHandler by lazy { Handler(mainLooper) }
     val languageState by lazy { AppLanguageState(this) }
     val appSessionEvent by lazy { AppSessionEvent() }
+    val sessionEvent by lazy { SessionEvent() }
 
     val userAgent by lazy {
         var channel = ReleaseUtil.getChannel(this)

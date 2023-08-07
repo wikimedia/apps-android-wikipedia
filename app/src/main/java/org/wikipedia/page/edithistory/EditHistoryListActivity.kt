@@ -65,6 +65,7 @@ class EditHistoryListActivity : BaseActivity() {
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
+    private var editHistoryInteractionEventMetricsPlatform: org.wikipedia.analytics.metricsplatform.EditHistoryInteractionEvent? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,6 +87,7 @@ class EditHistoryListActivity : BaseActivity() {
             viewModel.toggleCompareState()
             updateCompareState()
             editHistoryInteractionEvent?.logCompare1()
+            editHistoryInteractionEventMetricsPlatform?.logCompare1()
         }
 
         binding.compareConfirmButton.setOnClickListener {
@@ -95,6 +97,7 @@ class EditHistoryListActivity : BaseActivity() {
                         viewModel.selectedRevisionTo!!.revId))
             }
             editHistoryInteractionEvent?.logCompare2()
+            editHistoryInteractionEventMetricsPlatform?.logCompare2()
         }
 
         binding.editHistoryRefreshContainer.setOnRefreshListener {
@@ -148,6 +151,8 @@ class EditHistoryListActivity : BaseActivity() {
                 if (editHistoryInteractionEvent == null) {
                     editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), viewModel.pageId)
                     editHistoryInteractionEvent?.logShowHistory()
+                    editHistoryInteractionEventMetricsPlatform = org.wikipedia.analytics.metricsplatform.EditHistoryInteractionEvent(viewModel)
+                    editHistoryInteractionEventMetricsPlatform?.logShowHistory()
                 }
             }
             editHistoryStatsAdapter.notifyItemChanged(0)
@@ -213,10 +218,12 @@ class EditHistoryListActivity : BaseActivity() {
     private fun startSearchActionMode() {
         actionMode = startSupportActionMode(searchActionModeCallback)
         editHistoryInteractionEvent?.logSearchClick()
+        editHistoryInteractionEventMetricsPlatform?.logSearchClick()
     }
 
     fun showFilterOverflowMenu() {
         editHistoryInteractionEvent?.logFilterClick()
+        editHistoryInteractionEventMetricsPlatform?.logFilterClick()
         val editCountsValue = viewModel.editHistoryStatsData.value
         if (editCountsValue is Resource.Success) {
             val anchorView = if (actionMode != null && searchActionModeCallback.searchAndFilterActionProvider != null)
@@ -224,6 +231,7 @@ class EditHistoryListActivity : BaseActivity() {
                     editHistorySearchBarAdapter.viewHolder!!.binding.filterByButton else binding.root
             EditHistoryFilterOverflowView(this@EditHistoryListActivity).show(anchorView, editCountsValue.data) {
                 editHistoryInteractionEvent?.logFilterSelection(Prefs.editHistoryFilterType.ifEmpty { EditCount.EDIT_TYPE_ALL })
+                editHistoryInteractionEventMetricsPlatform?.logFilterSelection(Prefs.editHistoryFilterType.ifEmpty { EditCount.EDIT_TYPE_ALL })
                 setupAdapters()
                 editHistoryListAdapter.reload()
                 editHistorySearchBarAdapter.notifyItemChanged(0)
@@ -441,6 +449,7 @@ class EditHistoryListActivity : BaseActivity() {
                 viewModel.toggleCompareState()
                 updateCompareState()
                 editHistoryInteractionEvent?.logCompare1()
+                editHistoryInteractionEventMetricsPlatform?.logCompare1()
             }
             toggleSelectState()
         }

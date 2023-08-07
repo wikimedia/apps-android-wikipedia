@@ -47,6 +47,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     private var app = WikipediaApp.instance
     private lateinit var appearanceSettingInteractionEvent: AppearanceSettingInteractionEvent
+    private lateinit var appearanceSettingInteractionEventMetricsPlatform: org.wikipedia.analytics.metricsplatform.AppearanceSettingInteractionEvent
     private lateinit var invokeSource: InvokeSource
     private val disposables = CompositeDisposable()
     private var updatingFont = false
@@ -92,6 +93,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                     }
                 }
                 appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
+                appearanceSettingInteractionEventMetricsPlatform.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
@@ -129,6 +131,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         super.onCreate(savedInstanceState)
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         appearanceSettingInteractionEvent = AppearanceSettingInteractionEvent(invokeSource)
+        appearanceSettingInteractionEventMetricsPlatform = org.wikipedia.analytics.metricsplatform.AppearanceSettingInteractionEvent(invokeSource)
     }
 
     override fun onDestroyView() {
@@ -186,6 +189,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     private fun onToggleReadingFocusMode(enabled: Boolean) {
         Prefs.readingFocusModeEnabled = enabled
         appearanceSettingInteractionEvent.logReadingFocusMode(enabled)
+        appearanceSettingInteractionEventMetricsPlatform.logReadingFocusMode(enabled)
         callback()?.onToggleReadingFocusMode()
     }
 
@@ -274,6 +278,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         override fun onClick(v: View) {
             if (app.currentTheme !== theme) {
                 appearanceSettingInteractionEvent.logThemeChange(app.currentTheme, theme)
+                appearanceSettingInteractionEventMetricsPlatform.logThemeChange(app.currentTheme, theme)
                 app.currentTheme = theme
             }
         }
@@ -284,6 +289,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             if (v.tag != null) {
                 val newFontFamily = v.tag as String
                 appearanceSettingInteractionEvent.logFontThemeChange(Prefs.fontFamily, newFontFamily)
+                appearanceSettingInteractionEventMetricsPlatform.logFontThemeChange(Prefs.fontFamily, newFontFamily)
                 app.setFontFamily(newFontFamily)
             }
         }
@@ -321,6 +327,7 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                 }
             }
             appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
+            appearanceSettingInteractionEventMetricsPlatform.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
         }
     }
 

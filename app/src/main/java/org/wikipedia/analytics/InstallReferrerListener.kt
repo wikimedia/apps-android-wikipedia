@@ -110,6 +110,11 @@ class InstallReferrerListener : InstallReferrerStateListener {
                     InstallReferrerEvent.PARAM_UTM_CAMPAIGN -> refUtmCampaign = item[1]
                     InstallReferrerEvent.PARAM_UTM_SOURCE -> refUtmSource = item[1]
                     InstallReferrerEvent.PARAM_CHANNEL -> refChannel = item[1]
+                    org.wikipedia.analytics.metricsplatform.InstallReferrerEvent.PARAM_REFERRER_URL -> refUrl = item[1]
+                    org.wikipedia.analytics.metricsplatform.InstallReferrerEvent.PARAM_UTM_MEDIUM -> refUtmMedium = item[1]
+                    org.wikipedia.analytics.metricsplatform.InstallReferrerEvent.PARAM_UTM_CAMPAIGN -> refUtmCampaign = item[1]
+                    org.wikipedia.analytics.metricsplatform.InstallReferrerEvent.PARAM_UTM_SOURCE -> refUtmSource = item[1]
+                    org.wikipedia.analytics.metricsplatform.InstallReferrerEvent.PARAM_CHANNEL -> refChannel = item[1]
                 }
             }
         } catch (e: Exception) {
@@ -120,6 +125,7 @@ class InstallReferrerListener : InstallReferrerStateListener {
         if (!refUrl.isNullOrEmpty() || !refUtmMedium.isNullOrEmpty() ||
                 !refUtmCampaign.isNullOrEmpty() || !refUtmSource.isNullOrEmpty()) {
             InstallReferrerEvent.logInstall(refUrl, refUtmMedium, refUtmCampaign, refUtmSource)
+            org.wikipedia.analytics.metricsplatform.InstallReferrerEvent.logInstall(refUrl, refUtmMedium, refUtmCampaign, refUtmSource)
         }
         if (!refUrl.isNullOrEmpty() && ShareUtil.canOpenUrlInApp(WikipediaApp.instance, refUrl)) {
             openPageFromUrl(WikipediaApp.instance, refUrl)

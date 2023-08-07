@@ -75,6 +75,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         if (savedInstanceState == null) {
             NotificationInteractionEvent.processIntent(intent)
+            org.wikipedia.analytics.metricsplatform.NotificationInteractionEvent.processIntent(intent)
         }
 
         // Conditionally execute all recurring tasks
@@ -113,12 +114,14 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     override fun onStop() {
         WikipediaApp.instance.appSessionEvent.persistSession()
+        WikipediaApp.instance.sessionEvent.persistSession()
         super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
         WikipediaApp.instance.appSessionEvent.touchSession()
+        WikipediaApp.instance.sessionEvent.touchSession()
         BreadCrumbLogEvent.logScreenShown(this)
         BreadcrumbLogEvent().logScreenShown(this)
 

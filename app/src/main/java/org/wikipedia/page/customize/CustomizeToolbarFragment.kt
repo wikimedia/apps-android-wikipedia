@@ -27,11 +27,13 @@ class CustomizeToolbarFragment : Fragment() {
     private lateinit var itemTouchHelper: ItemTouchHelper
     private lateinit var adapter: RecyclerItemAdapter
     private lateinit var customizeToolbarEvent: CustomizeToolbarEvent
+    private lateinit var customizeToolbarEventMetricsPlatform : org.wikipedia.analytics.metricsplatform.CustomizeToolbarEvent
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         customizeToolbarEvent = CustomizeToolbarEvent()
+        customizeToolbarEventMetricsPlatform = org.wikipedia.analytics.metricsplatform.CustomizeToolbarEvent()
         _binding = FragmentCustomizeToolbarBinding.inflate(LayoutInflater.from(context), container, false)
         return binding.root
     }
@@ -39,11 +41,13 @@ class CustomizeToolbarFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         customizeToolbarEvent.resume()
+        customizeToolbarEventMetricsPlatform.timer.resume()
     }
 
     override fun onPause() {
         super.onPause()
         customizeToolbarEvent.pause()
+        customizeToolbarEventMetricsPlatform.timer.pause()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,6 +57,7 @@ class CustomizeToolbarFragment : Fragment() {
 
     override fun onDestroyView() {
         customizeToolbarEvent.logCustomization(Prefs.customizeToolbarOrder.toMutableList(), Prefs.customizeToolbarMenuOrder.toMutableList())
+        customizeToolbarEventMetricsPlatform.logCustomization(Prefs.customizeToolbarOrder.toMutableList(), Prefs.customizeToolbarMenuOrder.toMutableList())
         _binding = null
         super.onDestroyView()
     }

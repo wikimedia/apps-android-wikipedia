@@ -359,6 +359,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             // update our session, since it's possible for the user to remain on the page for
             // a long time, and we wouldn't want the session to time out.
             app.appSessionEvent.touchSession()
+            app.sessionEvent.touchSession()
         }
         webView.addOnContentHeightChangedListener(scrollTriggerListener)
         webView.webViewClient = object : OkHttpWebViewClient() {
