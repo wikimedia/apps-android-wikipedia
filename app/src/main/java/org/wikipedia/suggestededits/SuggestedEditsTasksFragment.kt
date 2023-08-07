@@ -252,6 +252,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.disabledStatesView.setIPBlocked(viewModel.blockMessageWikipedia)
         binding.disabledStatesView.visibility = VISIBLE
         UserContributionEvent.logIpBlock()
+        org.wikipedia.analytics.metricsplatform.UserContributionEvent.logIpBlock()
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
@@ -271,12 +272,14 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
             UserContributionEvent.logDisabled()
+            org.wikipedia.analytics.metricsplatform.UserContributionEvent.logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
             UserContributionEvent.logPaused()
+            org.wikipedia.analytics.metricsplatform.UserContributionEvent.logPaused()
             return true
         }
 
