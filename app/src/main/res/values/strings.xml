@@ -1513,6 +1513,27 @@
     <string name="reading_list_share_survey_body">\"Share reading lists\" is a test feature and we need your feedback to improve or remove it.</string>
     <!-- /Shareable reading lists -->
 
+    <!-- Patroller task -->
+    <string name="patroller_warn_template_manage_title">Manage templates</string>
+    <string name="patroller_warn_template_empty_message">You do not have any warning messages saved.</string>
+    <string name="patroller_warn_template_new_message_title">New message</string>
+    <string name="patroller_warn_template_new_message_description">Compose warning message.</string>
+    <string name="patroller_warn_template_new_message_subject">Subject</string>
+    <string name="patroller_warn_template_new_message_compose">Compose message</string>
+    <string name="patroller_warn_template_new_message_save">Save</string>
+    <string name="patroller_warn_template_new_message_dialog_title">Save changes</string>
+    <string name="patroller_warn_template_new_message_dialog_description">Add title and save message.</string>
+    <string name="patroller_warn_template_new_message_dialog_input">Message title</string>
+    <string name="patroller_warn_template_new_message_dialog_save">Save</string>
+    <string name="patroller_warn_template_new_message_dialog_cancel">Cancel</string>
+    <string name="patroller_warn_template_new_message_saved">Message has been saved</string>
+    <string name="patroller_warn_template_edit_message_dialog_title">Edit message</string>
+    <string name="patroller_warn_template_edit_message_dialog_save">Save</string>
+    <string name="patroller_warn_template_edit_message_dialog_delete">Delete</string>
+    <string name="patroller_warn_template_edit_message_confirm_description">Are you sure you want to delete this %s message from the list?</string>
+    <string name="patroller_warn_template_message_deleted">Message has been deleted</string>
+    <!-- /Patroller task -->
+
     <string name="data_opt_in_accept">Accept</string>
     <string name="data_opt_in_reject">Reject</string>
     <string name="page_issues_title">Page issues</string>
