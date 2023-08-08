@@ -18,6 +18,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -51,7 +52,7 @@ class FilePageFragment : Fragment(), FilePageView.Callback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageTitle = requireArguments().getParcelable(Constants.ARG_TITLE)!!
+        pageTitle = requireArguments().parcelable(Constants.ARG_TITLE)!!
         allowEdit = requireArguments().getBoolean(FilePageActivity.INTENT_EXTRA_ALLOW_EDIT)
         retainInstance = true
     }

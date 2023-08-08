@@ -23,6 +23,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentRandomBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -77,7 +78,7 @@ class RandomFragment : Fragment() {
 
         FeedbackUtil.setButtonLongPressToast(binding.randomNextButton, binding.randomSaveButton)
 
-        wikiSite = requireArguments().getParcelable(Constants.ARG_WIKISITE)!!
+        wikiSite = requireArguments().parcelable(Constants.ARG_WIKISITE)!!
 
         binding.randomItemPager.offscreenPageLimit = 2
         binding.randomItemPager.adapter = RandomItemAdapter(this)

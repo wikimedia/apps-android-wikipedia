@@ -1331,6 +1331,7 @@
   <string name="revision_diff_line_removed">Label shown in a diff when a line was removed.</string>
   <string name="revision_diff_paragraph_added">Label shown in a diff when a paragraph was added.</string>
   <string name="revision_diff_paragraph_removed">Label shown in a diff when a paragraph was removed.</string>
+  <string name="revision_diff_protected">Error message explaining that the diff of this revision cannot be viewed publicly.</string>
   <string name="revision_undo_title">Dialog title for undoing an edit.</string>
   <string name="revision_undo_message">Dialog message explaining that the selected revision will be undone.</string>
   <string name="revision_undo_reason">Dialog message requesting a reason for undoing the selected revision.</string>

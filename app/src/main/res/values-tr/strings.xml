@@ -1340,6 +1340,7 @@
   <string name="revision_diff_line_removed">Satır kaldırıldı</string>
   <string name="revision_diff_paragraph_added">Paragraf eklendi</string>
   <string name="revision_diff_paragraph_removed">Paragraf kalırıldı</string>
+  <string name="revision_diff_protected">Bu sürümde yapılan değişiklikler herkesin erişimine açık değildir.</string>
   <string name="revision_undo_title">Değişikliği geri al</string>
   <string name="revision_undo_message">Bu eylem, burada gösterilen madde sürümlerinde yapılan değişiklikleri geri alacaktır.</string>
   <string name="revision_undo_reason">Devam etmek için lütfen bu değişikliği geri alma sebebinizi belirtin:</string>

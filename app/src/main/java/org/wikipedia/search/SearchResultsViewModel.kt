@@ -41,10 +41,10 @@ class SearchResultsViewModel : ViewModel() {
     }
 
     class SearchResultsPagingSource(
-            val searchTerm: String?,
-            val languageCode: String?,
-            var resultsCount: MutableList<Int>?,
-            var totalResults: MutableList<SearchResult>?
+        private val searchTerm: String?,
+        private val languageCode: String?,
+        private var resultsCount: MutableList<Int>?,
+        private var totalResults: MutableList<SearchResult>?
     ) : PagingSource<MwQueryResponse.Continuation, SearchResult>() {
 
         private var prefixSearch = true
