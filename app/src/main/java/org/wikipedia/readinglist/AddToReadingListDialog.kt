@@ -1,5 +1,6 @@
 package org.wikipedia.readinglist
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Parcelable
@@ -7,13 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -43,7 +45,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     private val listItemCallback = ReadingListItemCallback()
     lateinit var invokeSource: InvokeSource
     var readingLists = listOf<ReadingList>()
-    var disposables = CompositeDisposable()
     var dismissListener: DialogInterface.OnDismissListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,7 +71,6 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     override fun onDestroyView() {
-        disposables.clear()
         _binding = null
         super.onDestroyView()
     }
@@ -80,23 +80,25 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
         dismissListener?.onDismiss(null)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateLists() {
-        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListDao().getAllLists() }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ lists ->
-                    readingLists = lists
-                    displayedLists.clear()
-                    displayedLists.addAll(readingLists)
-                    if (!showDefaultList && displayedLists.isNotEmpty()) {
-                        displayedLists.removeAt(0)
-                    }
-                    ReadingList.sort(displayedLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
-                    adapter.notifyDataSetChanged()
-                    if (displayedLists.isEmpty()) {
-                        showCreateListDialog()
-                    }
-                }) { obj -> L.w(obj) })
+        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            readingLists = withContext(Dispatchers.IO) {
+                AppDatabase.instance.readingListDao().getAllLists()
+            }
+            displayedLists.clear()
+            displayedLists.addAll(readingLists)
+            if (!showDefaultList && displayedLists.isNotEmpty()) {
+                displayedLists.removeAt(0)
+            }
+            ReadingList.sort(displayedLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC))
+            adapter.notifyDataSetChanged()
+            if (displayedLists.isEmpty()) {
+                showCreateListDialog()
+            }
+        }
     }
 
     private inner class CreateButtonClickListener : View.OnClickListener {
@@ -131,19 +133,20 @@ open class AddToReadingListDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     open fun commitChanges(readingList: ReadingList, titles: List<PageTitle>) {
-        disposables.add(Observable.fromCallable { AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles) }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ addedTitlesList ->
-                    val message: String
-                    if (addedTitlesList.isEmpty()) {
-                        message = if (titles.size == 1) getString(R.string.reading_list_article_already_exists_message, readingList.title, titles[0].displayText) else getString(R.string.reading_list_articles_already_exist_message, readingList.title)
-                    } else {
-                        message = if (addedTitlesList.size == 1) getString(R.string.reading_list_article_added_to_named, addedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size, readingList.title)
-                    }
-                    showViewListSnackBar(readingList, message)
-                    dismiss()
-                }) { obj -> L.w(obj) })
+        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            val addedTitlesList = withContext(Dispatchers.IO) {
+                AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(readingList, titles)
+            }
+            val message = if (addedTitlesList.isEmpty()) {
+                if (titles.size == 1) getString(R.string.reading_list_article_already_exists_message, readingList.title, titles[0].displayText) else getString(R.string.reading_list_articles_already_exist_message, readingList.title)
+            } else {
+                if (addedTitlesList.size == 1) getString(R.string.reading_list_article_added_to_named, addedTitlesList[0], readingList.title) else getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size, readingList.title)
+            }
+            showViewListSnackBar(readingList, message)
+            dismiss()
+        }
     }
 
     fun showViewListSnackBar(list: ReadingList, message: String) {
