@@ -48,6 +48,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
     private lateinit var addImageCaptionsTask: SuggestedEditsTask
     private lateinit var addImageTagsTask: SuggestedEditsTask
+    private lateinit var vandalismPatrolTask: SuggestedEditsTask
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
@@ -297,12 +298,14 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageTagsTask = SuggestedEditsTask()
         addImageTagsTask.title = getString(R.string.suggested_edits_image_tags)
         addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
+        addImageTagsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
         addImageTagsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
 
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
+        addImageCaptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
         addImageCaptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageCaptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
@@ -313,6 +316,15 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_ltr_ooui
         addDescriptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
+
+        vandalismPatrolTask = SuggestedEditsTask()
+        vandalismPatrolTask.title = getString(R.string.suggested_edits_edit_patrol)
+        vandalismPatrolTask.description = getString(R.string.suggested_edits_edit_patrol_hint)
+        vandalismPatrolTask.primaryAction = getString(R.string.suggested_edits_edit_patrol_review)
+        vandalismPatrolTask.imageDrawable = R.drawable.ic_patrol_24
+        vandalismPatrolTask.primaryActionIcon = R.drawable.ic_check_black_24dp
+
+        displayedTasks.add(vandalismPatrolTask)
 
         if (DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikipedia.isNullOrEmpty() ||
             !DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikidata.isNullOrEmpty()) {
@@ -341,6 +353,8 @@ class SuggestedEditsTasksFragment : Fragment() {
                 } else {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
                 }
+            } else if (task == vandalismPatrolTask) {
+                // >>>>>>>> TODO <<<<<<<<
             }
         }
     }

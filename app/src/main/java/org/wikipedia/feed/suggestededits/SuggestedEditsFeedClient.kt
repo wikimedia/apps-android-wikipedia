@@ -109,6 +109,7 @@ class SuggestedEditsFeedClient : FeedClient {
             DescriptionEditActivity.Action.ADD_CAPTION -> addCaption(langFromCode, actionCallback(suggestedEditsCard, clientCallback))
             DescriptionEditActivity.Action.TRANSLATE_CAPTION -> translateCaption(langFromCode, targetLanguage, actionCallback(suggestedEditsCard, clientCallback))
             DescriptionEditActivity.Action.ADD_IMAGE_TAGS -> addImageTags(actionCallback(suggestedEditsCard, clientCallback))
+            else -> { clientCallback.onComplete(null, null) }
         }
     }
 
