@@ -2,7 +2,11 @@ package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.decodeFromJsonElement
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.JsonUtil
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.Notification.SeenTime
 import org.wikipedia.notifications.db.Notification.UnreadNotificationWikiItem
@@ -20,6 +24,7 @@ class MwQueryResult {
     @SerialName("authmanagerinfo") private val amInfo: MwAuthManagerInfo? = null
     @SerialName("general") val siteInfo: SiteInfo? = null
     @SerialName("wikimediaeditortaskscounts") val editorTaskCounts: EditorTaskCounts? = null
+    @SerialName("recentchanges") val recentChanges: List<RecentChange>? = null
     @SerialName("usercontribs") val userContributions: List<UserContribution> = emptyList()
     @SerialName("allusers") val allUsers: List<UserInfo>? = null
     @SerialName("globaluserinfo") val globalUserInfo: UserInfo? = null
@@ -182,6 +187,56 @@ class MwQueryResult {
         @SerialName("parsedcomment") val parsedComment: String = ""
         val date: Date
             get() = DateUtil.iso8601DateParse(timestamp.orEmpty())
+    }
+
+    @Serializable
+    class RecentChange {
+        private val type: String = ""
+        private val ns = 0
+        val title: String = ""
+        private val pageid: Long = 0
+        @SerialName("revid") val curRev: Long = 0
+        @SerialName("old_revid") val revFrom: Long = 0
+        private val rcid: Long = 0
+        val user: String = ""
+        val anon = false
+        val bot = false
+
+        @SerialName("new") private val isNew = false
+        private val minor = false
+        private val oldlen = 0
+        private val newlen = 0
+        private val timestamp: String = ""
+
+        val parsedcomment: String = ""
+        private val tags: List<String>? = null
+        private val oresscores: JsonElement? = null
+
+        override fun toString(): String {
+            return title
+        }
+
+        val ores: OresResult?
+            get() = if (oresscores != null && oresscores !is JsonArray) {
+                JsonUtil.json.decodeFromJsonElement<OresResult>(oresscores)
+            } else null
+    }
+
+    @Serializable
+    class OresResult {
+        private val damaging: OresItem? = null
+        private val goodfaith: OresItem? = null
+
+        // TODO: articlequality
+        // TODO: draftquality
+        val damagingProb: Float
+            get() = damaging?.trueProb ?: 0f
+    }
+
+    @Serializable
+    class OresItem {
+        @SerialName("true") val trueProb = 0f
+        @SerialName("false") val falseProb = 0f
     }
 
     @Serializable
