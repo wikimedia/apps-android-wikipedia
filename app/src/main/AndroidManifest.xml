@@ -157,7 +157,7 @@
             android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".edit.EditSectionActivity"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize|stateVisible"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
