@@ -56,6 +56,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.suggestededits.SuggestedEditsImageRecsFragment
 import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
@@ -351,6 +352,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             if (pageTitle.wikiSite.languageCode == "en") "/* top */" else ""
         } else "/* ${StringUtil.removeUnderscores(sectionAnchor)} */ "
          summaryText += editSummaryFragment.summary
+        if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            summaryText += " ${SuggestedEditsImageRecsFragment.IMAGE_REC_EDIT_COMMENT}"
+        }
+
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
         summaryText = StringUtil.removeHTMLTags(summaryText)
         if (!isFinishing) {
