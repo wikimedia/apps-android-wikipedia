@@ -21,7 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="8dp"
             android:gravity="start"
             android:textAlignment="viewStart"
             android:hint="@string/preview_edit_summarize_edit_hint"
@@ -46,6 +45,7 @@
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:layout_marginHorizontal="8dp"
             android:scrollbars="none">
 
