@@ -38,6 +38,47 @@ class InsertMediaTest {
     }
 
     @Test
+    fun testInsertImageIntoArticleWithImageButNotCaption() {
+        val wikitext = "{{short description|Greek actor}}\n" +
+                "{{Use dmy dates|date=March 2020}}\n" +
+                "{{more footnotes|date=January 2013}}\n" +
+                "{{Infobox person\n" +
+                "|image       = \n" +
+                "|name        = Giorgos Velentzas<br>''Γιώργος Βελέντζας''\n" +
+                "|birth_date  = {{birth date|1927|12|4|df=y}}\n" +
+                "|birth_place = [[Athens]], [[Greece]]\n" +
+                "|death_date  = {{death date and age|2015|7|20|1927|12|4|df=y}}\n" +
+                "|death_place = \n" +
+                "|occupation  = [[actor]]\n" +
+                "|awards      = [[Thessaloniki Film Festival|Thessaloniki Film Festival 1993]] for ''[[Zoi charissameni]]''\n" +
+                "}}\n\n" +
+                "'''Giorgos Velentzas''' ({{lang-el|Γιώργος Βελέντζας}}; 4 December 1927 – 20 July 2015)<ref>" +
+                "{{Cite web|url=https://www.imdb.com/name/nm0892437/bio?ref_=nm_ov_bio_sm|title=Giorgos Velentzas|website=[[IMDb]]}}</ref> was a [[Greece|Greek]] actor."
+
+        val expected = "{{short description|Greek actor}}\n" +
+                "{{Use dmy dates|date=March 2020}}\n" +
+                "{{more footnotes|date=January 2013}}\n" +
+                "{{Infobox person\n" +
+                "|image       = Test_image.jpg\n" +
+                "|name        = Giorgos Velentzas<br>''Γιώργος Βελέντζας''\n" +
+                "|alt = Bar\n" +
+                "|caption = Foo\n" +
+                "|birth_date  = {{birth date|1927|12|4|df=y}}\n" +
+                "|birth_place = [[Athens]], [[Greece]]\n" +
+                "|death_date  = {{death date and age|2015|7|20|1927|12|4|df=y}}\n" +
+                "|death_place = \n" +
+                "|occupation  = [[actor]]\n" +
+                "|awards      = [[Thessaloniki Film Festival|Thessaloniki Film Festival 1993]] for ''[[Zoi charissameni]]''\n" +
+                "}}\n\n" +
+                "'''Giorgos Velentzas''' ({{lang-el|Γιώργος Βελέντζας}}; 4 December 1927 – 20 July 2015)<ref>" +
+                "{{Cite web|url=https://www.imdb.com/name/nm0892437/bio?ref_=nm_ov_bio_sm|title=Giorgos Velentzas|website=[[IMDb]]}}</ref> was a [[Greece|Greek]] actor."
+
+        MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
+            "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
+            0, true), Matchers.`is`(expected))
+    }
+
+    @Test
     fun testInsertImageIntoArticleWithInfoboxWithName() {
         val wikitext = "{{short description|Species of beetle}}\n" +
                 "{{Automatic taxobox\n" +
@@ -53,9 +94,9 @@ class InsertMediaTest {
                 "{{Automatic taxobox\n" +
                 "| genus = Carabus\n" +
                 "| species = goryi\n" +
-                "| image = Test_image.jpg\n" +
-                "| image_caption = Foo\n" +
                 "| image_alt = Bar\n" +
+                "| image_caption = Foo\n" +
+                "| image = Test_image.jpg\n" +
                 "| authority = Dejean, 1831\n" +
                 "}}\n\n" +
                 "'''''Carabus goryi''''' is a species of [[ground beetle]] in the family [[Carabidae]]." +

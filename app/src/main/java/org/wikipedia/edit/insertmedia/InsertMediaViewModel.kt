@@ -169,6 +169,11 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             val infoBoxName = infoboxMatch?.groupValues?.get(1).orEmpty().lowercase()
 
             when {
+                infoBoxName.contains("settlement") -> {
+                    imageParamName = "image_skyline"
+                    imageCaptionParamName = "image_caption"
+                    imageAltParamName = "image_alt"
+                }
                 infoBoxName.contains("taxobox") -> {
                     imageCaptionParamName = "image_caption"
                     imageAltParamName = "image_alt"
@@ -188,22 +193,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                 val infoboxStartIndex = infoboxMatch.range.first
                 val infoboxEndIndex = infoboxMatch.range.last
 
-                var haveNameParam = false
-                var paramInsertPos = -1
-                var paramNameSpaceConvention = ""
-
-                listOf("name", "species", "taxon", "drug_name").forEach { nameParam ->
-                    if (haveNameParam) {
-                        return@forEach
-                    }
-                    val regexName = """\|(\s*)$nameParam\s*=([^|]*)(\|)""".toRegex()
-                    val nameMatch = regexName.find(wikiText, infoboxStartIndex)
-                    if (nameMatch != null && nameMatch.groups[3] != null && nameMatch.groups[3]!!.range.first < infoboxEndIndex) {
-                        haveNameParam = true
-                        paramInsertPos = nameMatch.groups[3]!!.range.first
-                        paramNameSpaceConvention = nameMatch.groups[1]!!.value
-                    }
-                }
+                val haveNameParam = findNameParamInTemplate(wikiText, infoboxStartIndex, infoboxEndIndex).first != -1
 
                 if (haveNameParam) {
                     var match = """\|\s*$imageParamName\s*=([^|]*)(\|)""".toRegex()
@@ -227,10 +217,10 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                         }
                     } else {
                         // no 'image' parameter exists, so insert one at the end of the 'name' parameter.
+                        val (paramInsertPos, paramNameSpaceConvention) = findNameParamInTemplate(wikiText, infoboxStartIndex, infoboxEndIndex)
                         insertedIntoInfobox = true
                         val insertText = "|$paramNameSpaceConvention$imageParamName = $imageTitle\n"
                         wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
-                        paramInsertPos += insertText.length
                     }
 
                     if (insertedIntoInfobox && imageCaption.isNotEmpty()) {
@@ -249,14 +239,14 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                             }
                         } else {
                             // insert a new caption field
+                            val (paramInsertPos, paramNameSpaceConvention) = findNameParamInTemplate(wikiText, infoboxStartIndex, infoboxEndIndex)
                             val insertText = "|$paramNameSpaceConvention$imageCaptionParamName = $imageCaption\n"
                             wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
-                            paramInsertPos += insertText.length
                         }
                     }
 
                     if (insertedIntoInfobox && imageAltText.isNotEmpty() && imageAltParamName.isNotEmpty()) {
-                        // now try to insert the caption
+                        // now try to insert alt text!
                         match = """\|\s*$imageAltParamName\s*=([^|]*)(\|)""".toRegex()
                             .find(wikiText, infoboxStartIndex)
                         if (match != null && match.groups[2] != null && match.groups[2]!!.range.first < infoboxEndIndex) {
@@ -267,13 +257,13 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                                 if (valueStr.contains("\n")) {
                                     insertPos = match.groups[1]!!.range.first + valueStr.indexOf("\n")
                                 }
-                                wikiText = wikiText.substring(0, insertPos) + imageCaption + wikiText.substring(insertPos)
+                                wikiText = wikiText.substring(0, insertPos) + imageAltText + wikiText.substring(insertPos)
                             }
                         } else {
                             // insert a new alt-text field
+                            val (paramInsertPos, paramNameSpaceConvention) = findNameParamInTemplate(wikiText, infoboxStartIndex, infoboxEndIndex)
                             val insertText = "|$paramNameSpaceConvention$imageAltParamName = $imageAltText\n"
                             wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
-                            paramInsertPos += insertText.length
                         }
                     }
                 }
@@ -285,6 +275,24 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             }
 
             return wikiText
+        }
+
+        private fun findNameParamInTemplate(wikiText: String, startIndex: Int, endIndex: Int): Pair<Int, String> {
+            var paramInsertPos = -1
+            var paramNameSpaceConvention = ""
+
+            listOf("name", "species", "taxon", "drug_name").forEach { nameParam ->
+                if (paramInsertPos != -1) {
+                    return@forEach
+                }
+                val regexName = """\|(\s*)$nameParam\s*=([^|]*)(\|)""".toRegex()
+                val nameMatch = regexName.find(wikiText, startIndex)
+                if (nameMatch != null && nameMatch.groups[3] != null && nameMatch.groups[3]!!.range.first < endIndex) {
+                    paramInsertPos = nameMatch.groups[3]!!.range.first
+                    paramNameSpaceConvention = nameMatch.groups[1]!!.value
+                }
+            }
+            return Pair(paramInsertPos, paramNameSpaceConvention)
         }
     }
 }
