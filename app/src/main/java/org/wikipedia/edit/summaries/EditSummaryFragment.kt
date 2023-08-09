@@ -134,7 +134,7 @@ class EditSummaryFragment : Fragment() {
 
     private fun addEditSummaries() {
         val summaryTagStrings = if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE)
-            intArrayOf(R.string.edit_summary_added_image, R.string.edit_summary_added_image_and_caption)
+            intArrayOf(R.string.edit_summary_added_image_and_caption, R.string.edit_summary_added_image)
         else
             intArrayOf(R.string.edit_summary_tag_typo, R.string.edit_summary_tag_grammar, R.string.edit_summary_tag_links)
 
