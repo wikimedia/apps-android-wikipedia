@@ -498,7 +498,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 DeviceUtil.hideSoftKeyboard(this)
                 editPreviewFragment.showPreview(pageTitle, binding.editSectionText.text.toString())
                 EditAttemptStepEvent.logSaveIntent(pageTitle)
-                supportActionBar?.title = getString(R.string.preview_edit_title)
+                supportActionBar?.title = getString(R.string.edit_preview)
                 setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
             }
         }
@@ -754,7 +754,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
         binding.viewEditSectionError.isVisible = false
         if (editSummaryFragment.handleBackPressed()) {
-            supportActionBar?.title = getString(R.string.preview_edit_title)
+            supportActionBar?.title = getString(R.string.edit_preview)
             return
         }
         if (editPreviewFragment.isActive) {

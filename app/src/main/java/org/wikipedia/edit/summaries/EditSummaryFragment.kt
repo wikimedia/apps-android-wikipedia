@@ -3,6 +3,7 @@ package org.wikipedia.edit.summaries
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -147,7 +148,10 @@ class EditSummaryFragment : Fragment() {
         val chip = Chip(requireContext())
         chip.text = editSummary
         TextViewCompat.setTextAppearance(chip, R.style.Chip_Accessible)
-        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
+        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.background_color))
+        chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
+        chip.chipStrokeColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.border_color))
+        chip.shapeAppearanceModel = chip.shapeAppearanceModel.withCornerSize(DimenUtil.dpToPx(8f))
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnClickListener {
             // Clear the text field and insert the text

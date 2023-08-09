@@ -67,6 +67,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                style="@style/P"
                 android:text="@string/preview_edit_minor_edit"
                 android:textColor="?attr/primary_color"/>
 
@@ -78,7 +79,7 @@
                 android:src="@drawable/ic_info_outline_black_24dp"
                 android:contentDescription="@string/preview_edit_minor_edit"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
-                app:tint="?attr/placeholder_color"/>
+                app:tint="?attr/secondary_color"/>
 
         </LinearLayout>
 
@@ -92,6 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                style="@style/P"
                 android:text="@string/preview_edit_watch_this_page"
                 android:textColor="?attr/primary_color"/>
 
@@ -103,7 +105,7 @@
                 android:src="@drawable/ic_info_outline_black_24dp"
                 android:contentDescription="@string/preview_edit_watch_this_page"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
-                app:tint="?attr/placeholder_color" />
+                app:tint="?attr/secondary_color" />
 
         </LinearLayout>
 
@@ -112,13 +114,14 @@
             style="@style/App.Button.Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
             android:fontFamily="sans-serif"
             android:text="@string/preview_edit_learn_more"
             android:textAlignment="viewStart"
-            app:icon="@drawable/ic_open_in_new_black_24px"
-            app:iconGravity="end"
-            app:iconPadding="12dp" />
+            android:textColor="?attr/primary_color"
+            android:paddingStart="12dp"
+            app:iconPadding="6dp"
+            app:iconTint="?attr/secondary_color"
+            app:icon="@drawable/ic_open_in_new_black_24px" />
 
     </LinearLayout>
 

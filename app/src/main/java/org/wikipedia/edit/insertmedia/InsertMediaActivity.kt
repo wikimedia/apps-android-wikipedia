@@ -131,6 +131,11 @@ class InsertMediaActivity : BaseActivity() {
         menuNextItem.isVisible = !insertMediaSettingsFragment.isActive && !insertMediaAdvancedSettingsFragment.isActive
         menuSaveItem.isVisible = insertMediaAdvancedSettingsFragment.isActive
         menuInsertItem.isVisible = insertMediaSettingsFragment.isActive
+        menuInsertItem.title = if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            getString(R.string.onboarding_continue)
+        } else {
+            getString(R.string.insert_media_insert_button)
+        }
         menuNextItem.isEnabled = viewModel.selectedImage != null
         applyActionBarButtonStyle(menuNextItem, menuNextItem.isEnabled)
         applyActionBarButtonStyle(menuInsertItem, insertMediaSettingsFragment.captionText.isNotEmpty() &&

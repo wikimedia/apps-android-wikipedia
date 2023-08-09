@@ -99,7 +99,7 @@ class InsertMediaSettingsFragment : Fragment() {
         textView = binding.mediaAlternativeTextLayout.findViewById(com.google.android.material.R.id.textinput_helper_text)
         textView.setLinkTextColor(textView.currentTextColor)
         url = "" // TODO
-        text = StringUtil.fromHtml("<a href=\"" + url + "\">" + getString(R.string.insert_media_settings_caption_description) + " ^1</a>")
+        text = StringUtil.fromHtml("<a href=\"" + url + "\">" + getString(R.string.insert_media_settings_alternative_text_description) + " ^1</a>")
         AppTextViewWithImages.setTextWithDrawables(textView, text, R.drawable.ic_open_in_new_black_24px)
         textView.movementMethod = movementMethod
 
