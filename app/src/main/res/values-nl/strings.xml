@@ -405,6 +405,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Het artikel kan niet worden geladen zolang u offline bent.</string>
   <string name="page_offline_notice_add_to_reading_list">Tip: voeg het artikel toe aan een leeslijst, dan wordt het binnengehaald wanneer u weer verbinding hebt.</string>
   <string name="page_offline_notice_last_date">U leest nu een offline versie van dit artikel, opgeslagen op %s.</string>
+  <string name="redirected_from_snackbar">Doorverwezen vanaf \"%s\"</string>
   <string name="button_get_directions">Routebeschrijving</string>
   <string name="error_no_maps_app">Er zijn geen apps gevonden die routebeschrijvingen bieden.</string>
   <string name="preference_title_customize_explore_feed">Hoofdpagina</string>
@@ -1085,6 +1086,7 @@
   <string name="suggested_edits_image_recommendations_task_title">Artikelafbeeldingen</string>
   <string name="suggested_edits_image_recommendations_task_detail">Voeg voorgestelde afbeeldingen toe aan Wikipedia-artikelen om het begrip te vergroten.</string>
   <string name="image_recommendation_task_instruction">Zou u deze afbeelding aan het artikel willen toevoegen?</string>
+  <string name="image_recommendation_tutorial">Zelfstudie</string>
   <string name="image_recommendation_accept">Ja</string>
   <string name="image_recommendation_reject">Nee</string>
   <string name="image_recommendation_notsure">Niet zeker</string>
