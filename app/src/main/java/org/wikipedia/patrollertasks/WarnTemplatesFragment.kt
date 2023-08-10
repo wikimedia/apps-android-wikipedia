@@ -50,7 +50,6 @@ class WarnTemplatesFragment : Fragment(), MenuProvider {
 
         binding.warnTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
@@ -104,7 +103,6 @@ class WarnTemplatesFragment : Fragment(), MenuProvider {
         binding.warnTemplatesErrorView.setError(t)
         binding.warnTemplatesErrorView.visibility = View.VISIBLE
     }
-
 
     internal inner class WarnTemplateItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(item: MwQueryResult.WatchlistItem) {
