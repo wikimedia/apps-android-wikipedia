@@ -205,7 +205,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
-        val body = binding.replyInputView.editText.getParsedText(viewModel.pageTitle.wikiSite).trim()
+        val body = binding.replyInputView.editText.text.toString().trim()
         Intent().let {
             it.putExtra(EXTRA_SUBJECT, subject)
             it.putExtra(EXTRA_BODY, body)
