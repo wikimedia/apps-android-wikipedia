@@ -337,6 +337,10 @@
             android:name=".edit.insertmedia.InsertMediaActivity"
             android:label="@string/insert_media_title"/>
 
+        <activity
+            android:name=".patrollertasks.WarnTemplatesActivity"
+            android:theme="@style/AppTheme" />
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"
