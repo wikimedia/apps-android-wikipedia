@@ -69,6 +69,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 .setAction(R.string.edit_published_view) {
                     startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), viewModel.pageTitle, revId))
                 }
+                .setAnchorView(binding.acceptButton)
                 .show()
 
             viewModel.acceptRecommendation(null, revId)
@@ -332,7 +333,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     private fun doPublish() {
         if (System.currentTimeMillis() - resumedMillis < MIN_TIME_WARNING_MILLIS) {
-            FeedbackUtil.showMessage(this, R.string.image_recommendation_tooltip_warning)
+            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.image_recommendation_tooltip_warning))
+                .setAnchorView(binding.acceptButton)
+                .show()
             return
         }
 
