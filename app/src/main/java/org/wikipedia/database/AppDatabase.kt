@@ -18,6 +18,8 @@ import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
 import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.pageimages.db.PageImageDao
+import org.wikipedia.patrollertasks.db.WarnTemplate
+import org.wikipedia.patrollertasks.db.WarnTemplateDao
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.db.ReadingListDao
@@ -29,7 +31,7 @@ import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 24
+const val DATABASE_VERSION = 25
 
 @Database(
     entities = [
@@ -41,7 +43,8 @@ const val DATABASE_VERSION = 24
         OfflineObject::class,
         ReadingList::class,
         ReadingListPage::class,
-        Notification::class
+        Notification::class,
+        WarnTemplate::class
     ],
     version = DATABASE_VERSION
 )
@@ -63,6 +66,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun readingListDao(): ReadingListDao
     abstract fun readingListPageDao(): ReadingListPageDao
     abstract fun notificationDao(): NotificationDao
+    abstract fun warnTemplateDao(): WarnTemplateDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
@@ -170,10 +174,15 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("CREATE TABLE IF NOT EXISTS `Notification` (`id` INTEGER NOT NULL, `wiki` TEXT NOT NULL, `read` TEXT, `category` TEXT NOT NULL, `type` TEXT NOT NULL, `revid` INTEGER NOT NULL, `title` TEXT, `agent` TEXT, `timestamp` TEXT, `contents` TEXT, PRIMARY KEY(`id`, `wiki`))")
             }
         }
+        private val MIGRATION_24_25 = object : Migration(24, 25) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("CREATE TABLE IF NOT EXISTS `WarnTemplate` (`id` INTEGER NOT NULL, `order` INTEGER NOT NULL, `title` TEXT NOT NULL, `subject` TEXT NOT NULL, `message` TEXT NOT NULL, PRIMARY KEY(`id`))")
+            }
+        }
 
         val instance: AppDatabase by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             Room.databaseBuilder(WikipediaApp.instance, AppDatabase::class.java, DATABASE_NAME)
-                .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23, MIGRATION_23_24)
+                .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23, MIGRATION_23_24, MIGRATION_24_25)
                 .allowMainThreadQueries() // TODO: remove after migration
                 .fallbackToDestructiveMigration()
                 .build()
