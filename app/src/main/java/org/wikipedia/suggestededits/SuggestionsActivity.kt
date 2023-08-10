@@ -6,21 +6,14 @@ import android.os.Bundle
 import org.wikipedia.Constants
 import org.wikipedia.Constants.INTENT_EXTRA_ACTION
 import org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE
-import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.IMAGE_RECOMMENDATIONS
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
 
 class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = getActionBarTitle(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action)
         setImageZoomHelper()
     }
 
@@ -34,15 +27,6 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
     override fun createFragment(): SuggestedEditsCardsFragment {
         return newInstance(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action,
                 intent.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
-    }
-
-    private fun getActionBarTitle(action: Action): String {
-        return when (action) {
-            ADD_IMAGE_TAGS -> getString(R.string.suggested_edits_tag_images)
-            ADD_CAPTION, TRANSLATE_CAPTION -> getString(R.string.suggested_edits_caption_images)
-            IMAGE_RECOMMENDATIONS -> ""
-            else -> getString(R.string.suggested_edits_describe_articles)
-        }
     }
 
     companion object {
