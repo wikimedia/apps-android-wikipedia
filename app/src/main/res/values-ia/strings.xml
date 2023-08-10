@@ -742,7 +742,7 @@
   <string name="notifications_menu_user_talk_page">Pagina de discussion de %s</string>
   <string name="notifications_offline_disable_message">Le function non es disponibile foras de linea.</string>
   <string name="view_because_you_read_card_title">Perque tu ha legite</string>
-  <string name="view_random_card_title">Articulo aleatori</string>
+  <string name="view_random_card_title">Aleatori</string>
   <string name="view_random_article_card_title">Articulo aleatori</string>
   <string name="view_random_article_card_action">Plus articulos aleatori</string>
   <string name="view_top_read_card_title">Le plus legite</string>
@@ -1289,6 +1289,7 @@
   <string name="revision_diff_line_removed">Linea removite</string>
   <string name="revision_diff_paragraph_added">Paragrapho addite</string>
   <string name="revision_diff_paragraph_removed">Paragrapho removite</string>
+  <string name="revision_diff_protected">Le cambiamentos facite in iste version non es publicamente accessibile.</string>
   <string name="revision_undo_title">Disfacer modification</string>
   <string name="revision_undo_message">Isto disfacera tote le cambiamentos facite in le version(es) del articulo monstrate hic.</string>
   <string name="revision_undo_reason">Pro continuar, per favor forni un motivo pro disfacer iste modification:</string>
