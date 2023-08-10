@@ -20,6 +20,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.suggestededits.PageSummaryForEdit
+import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
@@ -88,7 +89,9 @@ class InsertMediaSettingsFragment : Fragment() {
         binding.mediaCaptionText.setText(activity.intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION))
         binding.mediaAlternativeText.setText(activity.intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT))
 
-        val movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
+        val movementMethod = LinkMovementMethodExt { url ->
+            CustomTabsUtil.openInCustomTab(requireActivity(), url)
+        }
         var textView = binding.mediaCaptionLayout.findViewById<AppCompatTextView>(com.google.android.material.R.id.textinput_helper_text)
         textView.setLinkTextColor(textView.currentTextColor)
         var url = getString(R.string.image_captions_style_url)
