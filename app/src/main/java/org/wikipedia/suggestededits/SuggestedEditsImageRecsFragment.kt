@@ -321,7 +321,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             }
 
             balloon1.showAlignBottom(if (binding.articleDescription.isVisible) binding.articleDescription else binding.articleTitle)
-            balloon1.relayShowAlignBottom(balloon2, binding.instructionText).relayShowAlignBottom(balloon3, binding.acceptButton)
+            balloon1.relayShowAlignTop(balloon2, binding.instructionText, 0, DimenUtil.roundedDpToPx(12f)).relayShowAlignBottom(balloon3, binding.acceptButton)
         }
     }
 
