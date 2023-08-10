@@ -2,7 +2,6 @@ package org.wikipedia.edit
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
@@ -242,7 +241,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding.editSectionContainer.viewTreeObserver.addOnGlobalLayoutListener {
             binding.editSectionContainer.post {
                 if (!isDestroyed) {
-                    if (isHardKeyboardAttached() || window.decorView.height - binding.editSectionContainer.height > DimenUtil.roundedDpToPx(150f)) {
+                    if (DeviceUtil.isHardKeyboardAttached(resources) || window.decorView.height - binding.editSectionContainer.height > DimenUtil.roundedDpToPx(150f)) {
                         binding.editKeyboardOverlayContainer.isVisible = true
                     } else {
                         hideAllSyntaxModals()
@@ -269,12 +268,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding.editSectionText.removeTextChangedListener(textWatcher)
         syntaxHighlighter.cleanup()
         super.onDestroy()
-    }
-
-    private fun isHardKeyboardAttached(): Boolean {
-        return (resources.configuration.hardKeyboardHidden == Configuration.KEYBOARDHIDDEN_NO &&
-                resources.configuration.keyboard != Configuration.KEYBOARD_UNDEFINED &&
-                resources.configuration.keyboard != Configuration.KEYBOARD_NOKEYS)
     }
 
     private fun updateEditLicenseText() {
