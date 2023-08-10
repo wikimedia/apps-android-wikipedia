@@ -221,8 +221,10 @@
 
     <style name="SnackbarTextView" parent="Widget.Material3.Snackbar.TextView">
         <item name="android:textColor">?attr/primary_color</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:maxLines">10</item>
-        <item name="lineHeight">26sp</item>
+        <item name="lineHeight">24dp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:paddingTop">0dp</item>
         <item name="android:paddingBottom">0dp</item>
         <item name="android:paddingStart">0dp</item>
