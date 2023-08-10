@@ -91,14 +91,14 @@ class InsertMediaSettingsFragment : Fragment() {
         val movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
         var textView = binding.mediaCaptionLayout.findViewById<AppCompatTextView>(com.google.android.material.R.id.textinput_helper_text)
         textView.setLinkTextColor(textView.currentTextColor)
-        var url = "" // TODO
+        var url = getString(R.string.image_captions_style_url)
         var text = StringUtil.fromHtml("<a href=\"" + url + "\">" + getString(R.string.insert_media_settings_caption_description) + " ^1</a>")
         AppTextViewWithImages.setTextWithDrawables(textView, text, R.drawable.ic_open_in_new_black_24px)
         textView.movementMethod = movementMethod
 
         textView = binding.mediaAlternativeTextLayout.findViewById(com.google.android.material.R.id.textinput_helper_text)
         textView.setLinkTextColor(textView.currentTextColor)
-        url = "" // TODO
+        url = getString(R.string.image_alt_text_style_url)
         text = StringUtil.fromHtml("<a href=\"" + url + "\">" + getString(R.string.insert_media_settings_alternative_text_description) + " ^1</a>")
         AppTextViewWithImages.setTextWithDrawables(textView, text, R.drawable.ic_open_in_new_black_24px)
         textView.movementMethod = movementMethod
