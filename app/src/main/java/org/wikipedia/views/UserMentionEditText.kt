@@ -11,11 +11,12 @@ import androidx.core.text.getSpans
 import androidx.core.widget.doOnTextChanged
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.edit.SyntaxHighlightableEditText
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 
-class UserMentionEditText : PlainPasteEditText {
+class UserMentionEditText : SyntaxHighlightableEditText {
     interface Listener {
         fun onStartUserNameEntry()
         fun onCancelUserNameEntry()

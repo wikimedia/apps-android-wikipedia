@@ -18,6 +18,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewUserMentionInputBinding
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 import java.util.concurrent.TimeUnit
@@ -41,13 +42,18 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     private val binding = ViewUserMentionInputBinding.inflate(LayoutInflater.from(context), this)
     private val disposables = CompositeDisposable()
     private val userNameList = mutableListOf<String>()
+    private val syntaxHighlighter: SyntaxHighlighter
 
     init {
         orientation = VERTICAL
         binding.inputEditText.listener = this
         binding.userListRecycler.layoutManager = LinearLayoutManager(context)
         binding.userListRecycler.adapter = UserNameAdapter()
-        binding.inputEditText.isTextInputLayoutFocusedRectEnabled = false
+
+
+        //binding.inputEditText.isTextInputLayoutFocusedRectEnabled = false
+
+        syntaxHighlighter = SyntaxHighlighter(context, binding.inputEditText, null)
     }
 
     override fun onDetachedFromWindow() {
