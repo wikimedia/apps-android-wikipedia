@@ -38,6 +38,7 @@
 * Re demz
 * Rodrigo codignoli
 * Saturnow
+* Stephanyb76
 * Teles
 * TheEduGobi
 * Trooper57
@@ -1099,6 +1100,7 @@
   <string name="image_recommendation_reject_other">Outro</string>
   <string name="image_recommendation_reject_submit">Enviar</string>
   <string name="image_recommendation_onboarding_4">As imagens vêm do Wikimedia Commons, uma coleção de imagens licenciadas livremente usadas pela Wikiédia.</string>
+  <string name="image_recommendation_tooltip_next">Próximo</string>
   <string name="file_page_activity_title">Página do arquivo</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar marcações de imagem</string>
@@ -1199,7 +1201,7 @@
   <string name="insert_media_search_hint">Pesquisar mídia</string>
   <string name="insert_media_settings" fuzzy="true">Configurações de mídia</string>
   <string name="insert_media_settings_uploaded_image">Imagem carregada</string>
-  <string name="insert_media_settings_caption" fuzzy="true">Legenda</string>
+  <string name="insert_media_settings_caption">Legenda da imagem</string>
   <string name="insert_media_settings_caption_description" fuzzy="true">Rótulo exibido ao lado do item para todos os leitores</string>
   <string name="insert_media_settings_alternative_text">Texto alternativo</string>
   <string name="insert_media_settings_alternative_text_description" fuzzy="true">Descrição em texto para leitores que não podem ver a imagem</string>

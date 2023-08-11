@@ -265,7 +265,7 @@
 
         <activity
             android:name=".categories.CategoryActivity"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme" />
 
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 

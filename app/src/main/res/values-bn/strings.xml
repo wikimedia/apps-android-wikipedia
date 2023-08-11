@@ -908,9 +908,9 @@
   <string name="image_recommendation_reject_dont_know">আমি এই বিষয়টা জানি না</string>
   <string name="image_recommendation_reject_other">অন্যান্য</string>
   <string name="image_recommendation_reject_submit">জমা দিন</string>
-  <string name="image_recommendation_tooltip_main">প্রস্তাবিত সম্পাদনায় নিবন্ধে অনুপস্থিত চিত্রগুলো যোগ করুন</string>
+  <string name="image_recommendation_tooltip_main">প্রস্তাবিত সম্পাদনার মাধ্যমে নিবন্ধে অনুপস্থিত চিত্রগুলো যোগ করুন</string>
   <string name="image_recommendation_onboarding_1">চিত্র মানুষকে বুঝতে সাহায্য করে কিন্তু অনেক নিবন্ধে তা থাকে না।</string>
-  <string name="image_recommendation_onboarding_2">আপনি সিদ্ধান্ত নেবেন যে একটি প্রস্তাবিত চিত্র উইকিপিডিয়া নিবন্ধে যুক্ত করা উচিত কিনা।</string>
+  <string name="image_recommendation_onboarding_2">আপনি সিদ্ধান্ত নেবেন যে প্রস্তাবিত চিত্রটি উইকিপিডিয়া নিবন্ধে যুক্ত করা উচিত কিনা।</string>
   <string name="image_recommendation_tooltip_1">এই নিবন্ধটির বিষয়বস্তু বুঝতে পর্যালোচনা করুন</string>
   <string name="image_recommendation_tooltip_next">পরবর্তী</string>
   <string name="edit_summary_added_image">চিত্র যোগ করা হয়েছে</string>

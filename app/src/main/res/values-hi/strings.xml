@@ -13,6 +13,7 @@
 * NehalDaveND
 * Nilesh shukla
 * Nitin1485
+* Proabscorp!
 * Prong$31
 * Pulkitsingh01
 * Rajatkatiyar10
@@ -602,7 +603,7 @@
   <string name="reading_lists_menu_create_list">नई सूची बनाएँ</string>
   <string name="reading_lists_menu_import_list">आयात सूची</string>
   <string name="reading_lists_menu_sort_by">इसके अनुसार क्रमबद्ध करें</string>
-  <string name="reading_lists_refresh_sync_option">सिंक को ताज़ा करें</string>
+  <string name="reading_lists_refresh_sync_option">सिंक क टटका करौ</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">लॉग-इन / साइन-अप करें</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यह लेख अब ऑफलाइन उपलब्ध होगा।</item>
