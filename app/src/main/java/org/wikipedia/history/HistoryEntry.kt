@@ -19,8 +19,8 @@ import java.util.*
 @Parcelize
 @TypeParceler<Date, DateParceler>()
 @Entity
-// TODO: change these properties back to val when HistoryEntry is no longer serializable. (i.e. when we update Tabs to be in the database instead of Prefs)
 class HistoryEntry(
+    // TODO: change these properties back to val when HistoryEntry is no longer serializable. (i.e. when we update Tabs to be in the database instead of Prefs)
     var authority: String = "",
     var lang: String = "",
     var apiTitle: String = "",
