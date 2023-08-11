@@ -154,10 +154,10 @@
             android:name=".suggestededits.SuggestionsActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".edit.EditSectionActivity"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize|stateVisible"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
@@ -265,7 +265,7 @@
 
         <activity
             android:name=".categories.CategoryActivity"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme" />
 
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 

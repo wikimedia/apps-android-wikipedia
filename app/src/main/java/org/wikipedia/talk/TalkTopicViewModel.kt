@@ -15,6 +15,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.db.TalkPageSeen
@@ -23,10 +24,9 @@ import org.wikipedia.util.SingleLiveData
 import org.wikipedia.util.UriUtil
 
 class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
-
     private val topicName = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_NAME)!!
     private val topicId = bundle.getString(TalkTopicActivity.EXTRA_TOPIC_ID)!!
-    val pageTitle = bundle.getParcelable<PageTitle>(Constants.ARG_TITLE)!!
+    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     var currentSearchQuery = bundle.getString(TalkTopicActivity.EXTRA_SEARCH_QUERY)
     var scrollTargetId = bundle.getString(TalkTopicActivity.EXTRA_REPLY_ID)
 

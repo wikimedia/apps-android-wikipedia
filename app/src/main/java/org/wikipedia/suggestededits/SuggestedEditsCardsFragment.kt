@@ -9,6 +9,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
@@ -74,13 +75,19 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
-        action =
-            arguments?.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
+        action = arguments?.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsCardsBinding.inflate(layoutInflater, container, false)
+
+        (requireActivity() as AppCompatActivity).apply {
+            setSupportActionBar(binding.toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.title = getActionBarTitle(intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action)
+        }
+
         return binding.root
     }
 
@@ -150,6 +157,15 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
                 true
             }
             else -> false
+        }
+    }
+
+    private fun getActionBarTitle(action: DescriptionEditActivity.Action): String {
+        return when (action) {
+            ADD_IMAGE_TAGS -> getString(R.string.suggested_edits_tag_images)
+            ADD_CAPTION, TRANSLATE_CAPTION -> getString(R.string.suggested_edits_caption_images)
+            IMAGE_RECOMMENDATIONS -> ""
+            else -> getString(R.string.suggested_edits_describe_articles)
         }
     }
 

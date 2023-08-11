@@ -7,6 +7,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ResourceUtil
 
@@ -21,7 +22,7 @@ class FilePageActivity : SingleFragmentActivity<FilePageFragment>() {
     }
 
     override fun createFragment(): FilePageFragment {
-        return FilePageFragment.newInstance(intent.getParcelableExtra(Constants.ARG_TITLE)!!,
+        return FilePageFragment.newInstance(intent.parcelableExtra(Constants.ARG_TITLE)!!,
                 intent.getBooleanExtra(INTENT_EXTRA_ALLOW_EDIT, true))
     }
 

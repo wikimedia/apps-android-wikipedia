@@ -6,12 +6,13 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.parcelableExtra
 
 class OnThisDayActivity : SingleFragmentActivity<OnThisDayFragment>() {
 
     override fun createFragment(): OnThisDayFragment {
         return OnThisDayFragment.newInstance(intent.getIntExtra(EXTRA_AGE, 0),
-            intent.getParcelableExtra(Constants.ARG_WIKISITE)!!,
+            intent.parcelableExtra(Constants.ARG_WIKISITE)!!,
             intent.getIntExtra(EXTRA_YEAR, -1),
             intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
     }

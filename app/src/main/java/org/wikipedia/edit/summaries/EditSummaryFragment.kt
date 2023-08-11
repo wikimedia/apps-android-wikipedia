@@ -3,6 +3,7 @@ package org.wikipedia.edit.summaries
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -150,7 +151,7 @@ class EditSummaryFragment : Fragment() {
 
     private fun addEditSummaries() {
         val summaryTagStrings = if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE)
-            intArrayOf(R.string.edit_summary_added_image, R.string.edit_summary_added_caption)
+            intArrayOf(R.string.edit_summary_added_image_and_caption, R.string.edit_summary_added_image)
         else
             intArrayOf(R.string.edit_summary_tag_typo, R.string.edit_summary_tag_grammar, R.string.edit_summary_tag_links)
 
@@ -164,7 +165,10 @@ class EditSummaryFragment : Fragment() {
         val chip = Chip(requireContext())
         chip.text = editSummary
         TextViewCompat.setTextAppearance(chip, R.style.Chip_Accessible)
-        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.border_color))
+        chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.background_color))
+        chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
+        chip.chipStrokeColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.border_color))
+        chip.shapeAppearanceModel = chip.shapeAppearanceModel.withCornerSize(DimenUtil.dpToPx(8f))
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnClickListener {
             // Clear the text field and insert the text

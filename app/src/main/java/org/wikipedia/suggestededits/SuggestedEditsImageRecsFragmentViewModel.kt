@@ -49,6 +49,11 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
                 page = EditingSuggestionsProvider.getNextArticleWithImageRecommendation(langCode)
             } while (tries++ < 10 && page?.growthimagesuggestiondata.isNullOrEmpty())
 
+            if (page?.growthimagesuggestiondata.isNullOrEmpty()) {
+                _uiState.value = UiState.Depleted()
+                return@launch
+            }
+
             recommendation = page?.growthimagesuggestiondata?.first()!!
             val wikiSite = WikiSite.forLanguageCode(langCode)
             summary = ServiceFactory.getRest(wikiSite).getPageSummary(null, page.title)
@@ -93,7 +98,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
                     recommendation.images[0].image,
                     accepted,
                     reasonCodes?.mapNotNull { reasons.getOrNull(it) }.orEmpty(),
-                    null,
+                    recommendation.images[0].image, null, null
                 )
                 ServiceFactory.getCoreRest(pageTitle.wikiSite).addImageFeedback(pageTitle.prefixedText, body)
             } catch (e: Exception) {
@@ -114,6 +119,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     open class UiState {
         class Loading : UiState()
         class Success : UiState()
+        class Depleted : UiState()
         class Error(val throwable: Throwable) : UiState()
     }
 }

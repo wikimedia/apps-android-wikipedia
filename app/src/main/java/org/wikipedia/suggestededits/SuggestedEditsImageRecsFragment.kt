@@ -40,6 +40,7 @@ import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -73,6 +74,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 .setAction(R.string.edit_published_view) {
                     startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), viewModel.pageTitle, revId))
                 }
+                .setAnchorView(binding.acceptButton)
                 .show()
             ImageRecommendationsEvent.logAction("editsummary_success_confirm", "editsummary_dialog", ImageRecommendationsEvent.getActionDataString(
                 filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
@@ -103,6 +105,10 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.imageCard.elevation = 0f
         binding.imageCard.strokeColor = ResourceUtil.getThemedColor(requireContext(), R.attr.border_color)
         binding.imageCard.strokeWidth = DimenUtil.roundedDpToPx(0.5f)
+
+        binding.imageRecommendationsDepletedText.text = StringUtil.fromHtml(getString(R.string.image_recommendation_depleted))
+        binding.imageRecommendationsDepletedText.movementMethod = LinkMovementMethodExt(
+            LinkMovementMethodExt.UrlHandler { requireActivity().finish() })
 
         binding.acceptButton.setOnClickListener {
             ImageRecommendationsEvent.logAction("suggestion_accept", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
@@ -161,6 +167,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                     when (it) {
                         is SuggestedEditsImageRecsFragmentViewModel.UiState.Loading -> onLoading()
                         is SuggestedEditsImageRecsFragmentViewModel.UiState.Success -> onLoadSuccess()
+                        is SuggestedEditsImageRecsFragmentViewModel.UiState.Depleted -> onDepletedState()
                         is SuggestedEditsImageRecsFragmentViewModel.UiState.Error -> onError(it.throwable)
                     }
                 }
@@ -191,6 +198,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.cardItemErrorView.isVisible = false
         binding.bottomSheetCoordinatorLayout.isVisible = false
         binding.articleContentContainer.isVisible = false
+        binding.imageRecommendationsDepletedContainer.isVisible = false
     }
 
     private fun onError(throwable: Throwable) {
@@ -198,6 +206,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.cardItemProgressBar.isVisible = false
         binding.bottomSheetCoordinatorLayout.isVisible = false
         binding.articleContentContainer.isVisible = false
+        binding.imageRecommendationsDepletedContainer.isVisible = false
         binding.cardItemErrorView.isVisible = true
         binding.cardItemErrorView.setError(throwable)
     }
@@ -276,6 +285,14 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         callback().updateActionButton()
     }
 
+    private fun onDepletedState() {
+        binding.bottomSheetCoordinatorLayout.isVisible = false
+        binding.articleContentContainer.isVisible = false
+        binding.cardItemProgressBar.isVisible = false
+        binding.cardItemErrorView.isVisible = false
+        binding.imageRecommendationsDepletedContainer.isVisible = true
+    }
+
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.menu_image_recommendations, menu)
     }
@@ -338,7 +355,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             }
 
             balloon1.showAlignBottom(if (binding.articleDescription.isVisible) binding.articleDescription else binding.articleTitle)
-            balloon1.relayShowAlignBottom(balloon2, binding.instructionText).relayShowAlignBottom(balloon3, binding.acceptButton)
+            balloon1.relayShowAlignTop(balloon2, binding.instructionText, 0, DimenUtil.roundedDpToPx(12f)).relayShowAlignBottom(balloon3, binding.acceptButton)
         }
     }
 
@@ -352,7 +369,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             ImageRecommendationsEvent.logAction("warning", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
                 filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
                 recommendationSourceProject = viewModel.langCode, acceptanceState = "", seriesNumber = "", totalSuggestions = ""), viewModel.langCode)
-            FeedbackUtil.showMessage(this, R.string.image_recommendation_tooltip_warning)
+            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.image_recommendation_tooltip_warning))
+                .setAnchorView(binding.acceptButton)
+                .show()
             return
         }
 
@@ -394,6 +413,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     companion object {
         const val ARG_LANG = "lang"
         const val MIN_TIME_WARNING_MILLIS = 5000
+        const val IMAGE_REC_EDIT_COMMENT = "#image-recommendation"
 
         fun newInstance(): SuggestedEditsItemFragment {
             return SuggestedEditsImageRecsFragment()

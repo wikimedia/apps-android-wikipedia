@@ -1120,7 +1120,9 @@
     <string name="image_recommendation_tooltip_3">Decide if the image helps readers understand this topic better</string>
     <string name="image_recommendation_tooltip_next">Next</string>
     <string name="image_recommendation_tooltip_warning">Please review the article to understand its topic and inspect the image</string>
+    <string name="image_recommendation_depleted"><![CDATA[Sorry, there are no more suggested images available at this time. Please explore other <a href="#">suggested edits</a> or return later.]]></string>
     <string name="edit_summary_added_image">Added image</string>
+    <string name="edit_summary_added_image_and_caption">Added image and caption</string>
     <string name="edit_summary_added_caption">Added caption</string>
     <string name="edit_published_view">View</string>
     <!-- /Suggested edits -->
@@ -1382,6 +1384,7 @@
     <string name="revision_diff_line_removed">Line removed</string>
     <string name="revision_diff_paragraph_added">Paragraph added</string>
     <string name="revision_diff_paragraph_removed">Paragraph removed</string>
+    <string name="revision_diff_protected">The changes made in this revision are not publicly accessible.</string>
     <string name="revision_undo_title">Undo edit</string>
     <string name="revision_undo_message">This will undo the changes made by the revision(s) of the article shown here.</string>
     <string name="revision_undo_reason">To continue, please provide a reason for undoing this edit:</string>

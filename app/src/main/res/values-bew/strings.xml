@@ -278,7 +278,7 @@
   <string name="find_previous">Cari sebelonnya</string>
   <string name="find_first_occurence">Ni – hasil pertama</string>
   <string name="find_last_occurence">Ni – hasil paling akir</string>
-  <string name="article_opened_in_background_tab">Makalah udah dibuka di lembaran latar belakang.</string>
+  <string name="article_opened_in_background_tab">Makalah udah dibuka di lembaran natar belakang.</string>
   <string name="abusefilter_title_warn">Ni barangkali permakan nyang kaga\' ngebangun. Apa lu yakin pèngèn nerebitin?</string>
   <string name="abusefilter_title_disallow">Lu kaga\' bisa nerebitin ni permakan. Padol dah, balik èn robah lagi.</string>
   <string name="abusefilter_text_warn">Saringan otomatis ngendus ni permakan rasa-rasanya kaga\' ngebangun. Ni barangkali ada atu atawa lebi ni:&lt;br /&gt;&lt;br /&gt;· Ngetik paké hurup gedé semua&lt;br /&gt;· Ngosongin makalah atawa nyampah&lt;br /&gt;· Sènggètan luar atawa gambar nyang kaga\' nyambung&lt;br /&gt;· Lèter nyang ngulang-ngulang</string>
@@ -687,7 +687,7 @@
   </plurals>
   <string name="watchlist_title">Daptar pantengan</string>
   <string name="preference_title_notification_poll">Pilih ma\'lumat</string>
-  <string name="preference_summary_notification_poll">Ijinin aplikasi maké data bakal merèksa ma\'lumat baru di latar belakang.</string>
+  <string name="preference_summary_notification_poll">Ijinin aplikasi maké data bakal merèksa ma\'lumat baru di natar belakang.</string>
   <string name="preference_category_notification_types">Jenis ma\'lumat dalem-aplikasi</string>
   <string name="preference_title_notification_system">Sistim</string>
   <string name="preference_summary_notification_system">Pesen deri sistim</string>

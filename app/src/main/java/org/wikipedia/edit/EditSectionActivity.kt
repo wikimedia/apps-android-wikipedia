@@ -50,6 +50,7 @@ import org.wikipedia.edit.insertmedia.InsertMediaViewModel
 import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -60,6 +61,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.suggestededits.SuggestedEditsImageRecsFragment
 import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -104,7 +106,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     private val requestLinkFromSearch = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
-            it.data?.getParcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)?.let { title ->
+            it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)?.let { title ->
                 binding.editKeyboardOverlay.insertLink(title, pageTitle.wikiSite.languageCode)
             }
         }
@@ -230,12 +232,15 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         setContentView(binding.root)
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
 
-        pageTitle = intent.getParcelableExtra(Constants.ARG_TITLE)!!
+        pageTitle = intent.parcelableExtra(Constants.ARG_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, -1)
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
         invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
+
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""
+
         syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText, binding.editSectionScroll)
         binding.editSectionScroll.isSmoothScrollingEnabled = false
         captchaHandler = CaptchaHandler(this, pageTitle.wikiSite, binding.captchaContainer.root,
@@ -359,6 +364,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             if (pageTitle.wikiSite.languageCode == "en") "/* top */" else ""
         } else "/* ${StringUtil.removeUnderscores(sectionAnchor)} */ "
          summaryText += editSummaryFragment.summary
+        if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+            summaryText += " ${SuggestedEditsImageRecsFragment.IMAGE_REC_EDIT_COMMENT}"
+        }
+
         // Summaries are plaintext, so remove any HTML that's made its way into the summary
         summaryText = StringUtil.removeHTMLTags(summaryText)
         if (!isFinishing) {
@@ -525,7 +534,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 DeviceUtil.hideSoftKeyboard(this)
                 editPreviewFragment.showPreview(pageTitle, binding.editSectionText.text.toString())
                 EditAttemptStepEvent.logSaveIntent(pageTitle)
-                supportActionBar?.title = getString(R.string.preview_edit_title)
+                supportActionBar?.title = getString(R.string.edit_preview)
                 setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
             }
         }
@@ -562,7 +571,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         menu.findItem(R.id.menu_edit_notices).isVisible = editNotices.isNotEmpty() && !editPreviewFragment.isActive
         menu.findItem(R.id.menu_edit_theme).isVisible = !editPreviewFragment.isActive
         menu.findItem(R.id.menu_find_in_editor).isVisible = !editPreviewFragment.isActive
-        item.title = getString(if (editSummaryFragment.isActive) R.string.edit_done else R.string.edit_next)
+        item.title = getString(if (editSummaryFragment.isActive) R.string.edit_done else (if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) R.string.onboarding_continue else R.string.edit_next))
         if (editingAllowed && binding.viewProgressBar.isGone) {
             item.isEnabled = sectionTextModified
         } else {
@@ -786,7 +795,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 acceptanceState = "accepted", seriesNumber = "", totalSuggestions = "",
                 captionAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty())"false" else "true",
                 altTextAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())"false" else "true"), pageTitle.wikiSite.languageCode)
-            supportActionBar?.title = getString(R.string.preview_edit_title)
+            supportActionBar?.title = getString(R.string.edit_preview)
             return
         }
         if (editPreviewFragment.isActive) {

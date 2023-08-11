@@ -585,6 +585,7 @@
     <item quantity="many">Статей удалено из %s: %d</item>
     <item quantity="other">Статей удалено из %s: %d</item>
   </plurals>
+  <string name="reading_lists_default_list_delete_message">Список по умолчанию (%s) не может быть удалён</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Списки удалены. Список по умолчанию (%s) не может быть удалён.</string>
   <string name="reading_list_items_deleted">%d статей удалено из списка</string>
   <string name="reading_lists_item_deleted">%s удалено из списков</string>
@@ -1476,6 +1477,12 @@
   <string name="watchlist_filter_reset_button">Сбросить</string>
   <string name="watchlist_search_bar_hint">Поиск или фильтрация в списке наблюдения</string>
   <string name="watchlist_search_bar_filter_hint">Фильтр списка наблюдения</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d фильтр</item>
+    <item quantity="few">%d фильтра</item>
+    <item quantity="many">%d фильтров</item>
+    <item quantity="other">%d фильтров</item>
+  </plurals>
   <string name="preview_edit_title">Предпросмотр правки</string>
   <string name="preview_edit_summarize_edit_title">Резюмируйте изменение</string>
   <string name="preview_edit_summarize_edit_hint">Как вы улучшили эту страницу?</string>
@@ -1512,4 +1519,6 @@
   <string name="reading_list_share_survey_body">«Поделиться списком для чтения» — тестовый функционал, и нам была бы полезная ваша обратная связь, чтобы в дальнейшем улучшить или удалить этот функционал.</string>
   <string name="data_opt_in_accept">Принять</string>
   <string name="data_opt_in_reject">Отклонить</string>
+  <string name="page_issues_title">Проблемы страницы</string>
+  <string name="generic_release_notes">Незначительные исправления ошибок и улучшения</string>
 </resources>
