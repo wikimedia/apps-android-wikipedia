@@ -6,6 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/ToolbarStyle.Small" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
     <LinearLayout
         android:id="@+id/edit_section_container"
         android:layout_width="match_parent"
@@ -115,4 +126,6 @@
         android:indeterminate="true"
         android:visibility="gone"
         tools:visibility="visible" />
+
+    </FrameLayout>
 </FrameLayout>
