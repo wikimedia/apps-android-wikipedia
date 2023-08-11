@@ -80,7 +80,7 @@ object TestUtil {
 
         device.executeShellCommand("su 0 settings put global airplane_mode_on " + if (enabled) "1" else "0")
         device.executeShellCommand("su 0 am broadcast -a android.intent.action.AIRPLANE_MODE")
-        */
+         */
         /*
         Extremely hacky:
 
@@ -90,7 +90,7 @@ object TestUtil {
         Thread.sleep(2000)
         device.pressBack()
         Thread.sleep(delaySecAfter * 1000)
-        */
+         */
 
         // Slightly less hacky:
         device.executeShellCommand("am start -a android.settings.AIRPLANE_MODE_SETTINGS")
