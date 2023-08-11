@@ -5,6 +5,8 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/menu_new_message"
         android:title="@string/patroller_warn_templates_new_message_title"
+        android:icon="@drawable/ic_add_gray_white_24dp"
+        app:iconTint="?attr/progressive_color"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
 </menu>
