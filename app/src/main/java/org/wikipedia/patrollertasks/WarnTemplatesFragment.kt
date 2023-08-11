@@ -69,16 +69,17 @@ class WarnTemplatesFragment : Fragment(), MenuProvider {
     }
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
-        // TODO: add menu
-//        inflater.inflate(R.menu.menu_watchlist, menu)
+        inflater.inflate(R.menu.menu_warn_templates, menu)
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        return false
-    }
-
-    override fun onPrepareMenu(menu: Menu) {
-        // TODO: implement this
+        return when (menuItem.itemId) {
+            R.id.menu_new_message -> {
+                // TODO: open new template activity
+                true
+            }
+            else -> false
+        }
     }
 
     private fun onLoading() {
