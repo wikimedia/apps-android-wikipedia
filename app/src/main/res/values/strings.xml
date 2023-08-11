@@ -1518,8 +1518,8 @@
     <string name="patroller_warn_templates_empty_message">You do not have any warning messages saved.</string>
     <string name="patroller_warn_templates_new_message_title">New message</string>
     <string name="patroller_warn_templates_new_message_description">Compose warning message.</string>
-    <string name="patroller_warn_templates_new_message_subject">Subject</string>
-    <string name="patroller_warn_templates_new_message_compose">Compose message</string>
+    <string name="patroller_warn_templates_new_message_subject_hint">Subject</string>
+    <string name="patroller_warn_templates_new_message_compose_hint">Compose message</string>
     <string name="patroller_warn_templates_new_message_save">Save</string>
     <string name="patroller_warn_templates_new_message_dialog_title">Save changes</string>
     <string name="patroller_warn_templates_new_message_dialog_description">Add title and save message.</string>

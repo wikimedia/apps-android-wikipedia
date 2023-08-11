@@ -1455,8 +1455,8 @@
   <string name="patroller_warn_templates_empty_message">Empty message of the warn template.</string>
   <string name="patroller_warn_templates_new_message_title">Title of the add a new message screen.</string>
   <string name="patroller_warn_templates_new_message_description">Description of adding a warning message.</string>
-  <string name="patroller_warn_templates_new_message_subject">Label of the new message subject input field.</string>
-  <string name="patroller_warn_templates_new_message_compose">Label of the new message content input field.</string>
+  <string name="patroller_warn_templates_new_message_subject_hint">Label of the new message subject input field.</string>
+  <string name="patroller_warn_templates_new_message_compose_hint">Label of the new message content input field.</string>
   <string name="patroller_warn_templates_new_message_save">Button label for saving the new message.</string>
   <string name="patroller_warn_templates_new_message_dialog_title">Title of the dialog of saving changes.</string>
   <string name="patroller_warn_templates_new_message_dialog_description">Description of the dialog of saving changes.</string>

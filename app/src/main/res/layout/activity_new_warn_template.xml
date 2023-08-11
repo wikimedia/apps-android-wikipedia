@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/newWarnTemplateScrollContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/patroller_warn_templates_new_message_description"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/newWarnTemplateSubjectLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/patroller_warn_templates_new_message_subject_hint">
+
+                <org.wikipedia.views.PlainPasteEditText
+                    android:id="@+id/newWarnTemplateSubjectText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="flagNoExtractUi|actionNext"
+                    android:inputType="textEmailSubject"
+                    android:lineSpacingExtra="6sp"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <org.wikipedia.views.UserMentionInputView
+                android:id="@+id/newWarnTemplateInputView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/licenseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:drawableStartCompat="@drawable/ic_license_cc"
+                app:drawableTint="?attr/placeholder_color"
+                android:drawablePadding="8dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="?attr/secondary_color"
+                tools:text="Sample license text" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/newWarnTemplateToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        style="@style/ToolbarStyle.Small"
+        app:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp">
+
+        <TextView
+            android:id="@+id/newWarnTemplateSaveButton"
+            style="@style/App.Button.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:text="@string/patroller_warn_templates_new_message_save"/>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+</FrameLayout>
