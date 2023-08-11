@@ -25,6 +25,7 @@
             android:imeOptions="flagNoExtractUi|actionNone"
             android:inputType="textMultiLine"
             android:lineSpacingExtra="6sp"
+            android:textColorHighlight="?attr/addition_color"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 

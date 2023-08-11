@@ -49,7 +49,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
         binding.inputEditText.listener = this
         binding.userListRecycler.layoutManager = LinearLayoutManager(context)
         binding.userListRecycler.adapter = UserNameAdapter()
-        syntaxHighlighter = SyntaxHighlighter(context, binding.inputEditText, null)
+        syntaxHighlighter = SyntaxHighlighter(context, binding.inputEditText, null, 200)
     }
 
     override fun onDetachedFromWindow() {

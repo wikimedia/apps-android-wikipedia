@@ -21,16 +21,13 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkReplyBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.edit.WikiTextKeyboardView
-import org.wikipedia.edit.insertmedia.InsertMediaActivity
-import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.edit.SyntaxHighlightViewAdapter
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.search.SearchActivity
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.util.*
 import org.wikipedia.views.UserMentionInputView
@@ -56,70 +53,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
     }
 
-    private val requestLinkFromSearch = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
-            it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)?.let { title ->
-                binding.editKeyboardOverlay.insertLink(title, viewModel.pageTitle.wikiSite.languageCode)
-            }
-        }
-    }
-
-    private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == InsertMediaActivity.RESULT_INSERT_MEDIA_SUCCESS) {
-            it.data?.let { intent ->
-                binding.replyInputView.editText.inputConnection?.commitText("${intent.getStringExtra(InsertMediaActivity.RESULT_WIKITEXT)}", 1)
-            }
-        }
-    }
-
-    private val syntaxButtonCallback = object : WikiTextKeyboardView.Callback {
-        override fun onPreviewLink(title: String) {
-            val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, viewModel.pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null)
-            ExclusiveBottomSheetPresenter.show(supportFragmentManager, dialog)
-            binding.root.post {
-                dialog.dialog?.setOnDismissListener {
-                    if (!isDestroyed) {
-                        binding.root.postDelayed({
-                            DeviceUtil.showSoftKeyboard(binding.replyInputView.editText)
-                        }, 200)
-                    }
-                }
-            }
-        }
-
-        override fun onRequestInsertMedia() {
-            requestInsertMedia.launch(InsertMediaActivity.newIntent(this@TalkReplyActivity, viewModel.pageTitle.wikiSite, ""))
-        }
-
-        override fun onRequestInsertLink() {
-            requestLinkFromSearch.launch(SearchActivity.newIntent(this@TalkReplyActivity, Constants.InvokeSource.TALK_REPLY_ACTIVITY, null, true))
-        }
-
-        override fun onRequestHeading() {
-            if (binding.editKeyboardOverlayHeadings.isVisible) {
-                hideAllSyntaxModals()
-                return
-            }
-            hideAllSyntaxModals()
-            binding.editKeyboardOverlayHeadings.isVisible = true
-            binding.editKeyboardOverlay.onAfterHeadingsShown()
-        }
-
-        override fun onRequestFormatting() {
-            if (binding.editKeyboardOverlayFormattingContainer.isVisible) {
-                hideAllSyntaxModals()
-                return
-            }
-            hideAllSyntaxModals()
-            binding.editKeyboardOverlayFormattingContainer.isVisible = true
-            binding.editKeyboardOverlay.onAfterFormattingShown()
-        }
-
-        override fun onSyntaxOverlayCollapse() {
-            hideAllSyntaxModals()
-        }
-    }
-
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkReplyBinding.inflate(layoutInflater)
@@ -134,7 +67,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
             binding.replySubjectLayout.error = null
             binding.replyInputView.textInputLayout.error = null
-            setSaveButtonEnabled(!binding.replyInputView.editText.text.isNullOrBlank())
+            setSaveButtonEnabled(binding.replyInputView.editText.text.isNotBlank())
         }
         binding.replyInputView.editText.addTextChangedListener(textWatcher)
 
@@ -152,25 +85,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             binding.threadItemView.isVisible = false
         }
 
-        binding.editKeyboardOverlay.editText = binding.replyInputView.editText
-        binding.editKeyboardOverlay.callback = syntaxButtonCallback
-        binding.editKeyboardOverlayFormatting.editText = binding.replyInputView.editText
-        binding.editKeyboardOverlayFormatting.callback = syntaxButtonCallback
-        binding.editKeyboardOverlayHeadings.editText = binding.replyInputView.editText
-        binding.editKeyboardOverlayHeadings.callback = syntaxButtonCallback
-
-        binding.root.viewTreeObserver.addOnGlobalLayoutListener {
-            binding.root.post {
-                if (!isDestroyed) {
-                    showOrHideSyntax(binding.replyInputView.editText.hasFocus())
-                }
-            }
-        }
-
-        binding.replyInputView.editText.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-            showOrHideSyntax(hasFocus)
-        }
-
         viewModel.postReplyData.observe(this) {
             if (it is Resource.Success) {
                 savedSuccess = true
@@ -180,32 +94,19 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             }
         }
 
+        SyntaxHighlightViewAdapter(this, viewModel.pageTitle.wikiSite, binding.root, binding.replyInputView.editText,
+            binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings)
+
         onInitialLoad()
     }
 
     public override fun onDestroy() {
-        if (!savedSuccess && !binding.replyInputView.editText.text.isNullOrBlank() && viewModel.topic != null) {
-            draftReplies.put(viewModel.topic!!.id, binding.replyInputView.editText.text!!)
+        if (!savedSuccess && binding.replyInputView.editText.text.isNotBlank() && viewModel.topic != null) {
+            draftReplies.put(viewModel.topic!!.id, binding.replyInputView.editText.text)
         }
         binding.replySubjectText.removeTextChangedListener(textWatcher)
         binding.replyInputView.editText.removeTextChangedListener(textWatcher)
         super.onDestroy()
-    }
-
-    private fun hideAllSyntaxModals() {
-        binding.editKeyboardOverlayHeadings.isVisible = false
-        binding.editKeyboardOverlayFormattingContainer.isVisible = false
-        binding.editKeyboardOverlay.onAfterOverlaysHidden()
-    }
-
-    private fun showOrHideSyntax(hasFocus: Boolean) {
-        val hasMinHeight = DeviceUtil.isHardKeyboardAttached(resources) || window.decorView.height - binding.root.height > DimenUtil.roundedDpToPx(150f)
-        if (hasFocus && hasMinHeight) {
-            binding.editKeyboardOverlayContainer.isVisible = true
-        } else {
-            hideAllSyntaxModals()
-            binding.editKeyboardOverlayContainer.isVisible = false
-        }
     }
 
     private fun onInitialLoad() {
@@ -226,7 +127,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         binding.progressBar.isVisible = false
         binding.replySubjectText.setText(intent.getCharSequenceExtra(EXTRA_SUBJECT))
-        if (intent.hasExtra(EXTRA_BODY) && binding.replyInputView.editText.text.isNullOrEmpty()) {
+        if (intent.hasExtra(EXTRA_BODY) && binding.replyInputView.editText.text.isEmpty()) {
             binding.replyInputView.editText.setText(intent.getCharSequenceExtra(EXTRA_BODY))
             binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
         }
@@ -398,7 +299,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     override fun onBackPressed() {
         setResult(RESULT_BACK_FROM_TOPIC)
         if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
-                    !binding.replyInputView.editText.text.isNullOrEmpty())) {
+                    binding.replyInputView.editText.text.isNotEmpty())) {
             MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.talk_new_topic_exit_dialog_title)
