@@ -19,6 +19,9 @@ interface WarnTemplateDao {
     @Query("SELECT * FROM WarnTemplate WHERE `id` IN (:id)")
     suspend fun getWarnTemplateById(id: Int): WarnTemplate?
 
+    @Query("SELECT `order` FROM WarnTemplate WHERE `order` ORDER BY `order` DESC LIMIT 1")
+    suspend fun getLastOrderNumber(): Int?
+
     @Delete
     suspend fun deleteWarnTemplate(warnTemplate: WarnTemplate)
 }

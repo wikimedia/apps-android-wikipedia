@@ -11,6 +11,10 @@ class WarnTemplatesRepository constructor(private val warnTemplateDao: WarnTempl
         warnTemplateDao.insertWarnTemplate(warnTemplate)
     }
 
+    suspend fun getLastOrderNumber(): Int {
+        return warnTemplateDao.getLastOrderNumber() ?: 0
+    }
+
     suspend fun updateWarnTemplate(warnTemplate: WarnTemplate) {
         warnTemplateDao.updateWarnTemplate(warnTemplate)
     }
