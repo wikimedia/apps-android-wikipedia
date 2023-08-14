@@ -161,6 +161,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
 
     private fun onSaveSuccess() {
         setSaveButtonEnabled(true)
+        setResult(RESULT_OK)
         finish()
     }
 
