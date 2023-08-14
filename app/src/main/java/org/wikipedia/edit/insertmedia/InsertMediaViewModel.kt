@@ -132,7 +132,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
         fun insertImageIntoWikiText(langCode: String, oldWikiText: String, imageTitle: String, imageCaption: String,
                                     imageAltText: String, imageSize: String, imageType: String, imagePos: String,
-                                    cursorPos: Int = 0, attemptInfobox: Boolean = false): String {
+                                    cursorPos: Int = 0, autoInsert: Boolean = false): String {
             var wikiText = oldWikiText
             val namespaceName = FileAliasData.valueFor(langCode)
 
@@ -189,7 +189,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                 }
             }
 
-            if (attemptInfobox && infoboxMatch != null) {
+            if (autoInsert && infoboxMatch != null) {
                 val infoboxStartIndex = infoboxMatch.range.first
                 val infoboxEndIndex = infoboxMatch.range.last
 
@@ -270,8 +270,29 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             }
 
             if (!insertedIntoInfobox) {
-                val pos = cursorPos.coerceIn(0, wikiText.length)
-                wikiText = wikiText.substring(0, pos) + template + "\n" + wikiText.substring(pos)
+                // no infobox, so insert the image at the top of the page, but after any templates
+                // that might be hatnotes, etc.
+
+                var braceLevel = 0
+                var insertIndex = cursorPos
+
+                if (autoInsert) {
+                    for (i in wikiText.indices) {
+                        if (wikiText[i] == '{') {
+                            braceLevel++
+                        } else if (wikiText[i] == '}') {
+                            braceLevel--
+                        } else if (braceLevel == 0) {
+                            if (!wikiText[i].isWhitespace()) {
+                                insertIndex = i
+                                break
+                            }
+                        }
+                    }
+                }
+
+                insertIndex = insertIndex.coerceIn(0, wikiText.length)
+                wikiText = wikiText.substring(0, insertIndex) + template + "\n" + wikiText.substring(insertIndex)
             }
 
             return wikiText
