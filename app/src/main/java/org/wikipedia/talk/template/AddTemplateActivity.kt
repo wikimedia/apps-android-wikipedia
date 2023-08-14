@@ -38,7 +38,6 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
 
     private val viewModel: AddTemplateViewModel by viewModels()
     private var userMentionScrolled = false
-    private var savedSuccess = false
 
     private val wikiSite = WikiSite(WikipediaApp.instance.appOrSystemLanguageCode)
 
@@ -68,7 +67,9 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        // TODO: implement this
+                        is AddTemplateViewModel.UiState.Success -> onInitialLoad()
+                        is AddTemplateViewModel.UiState.Saved -> onSaveSuccess()
+                        is AddTemplateViewModel.UiState.Error -> onError(it.throwable)
                     }
                 }
             }
@@ -163,7 +164,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         finish()
     }
 
-    private fun onSaveError(t: Throwable) {
+    private fun onError(t: Throwable) {
         setSaveButtonEnabled(true)
         FeedbackUtil.showError(this, t)
     }
