@@ -20,7 +20,7 @@ import org.wikipedia.util.UriUtil
 class AnnouncementDialog internal constructor(
     context: Context,
     val announcement: Announcement
-) : MaterialAlertDialogBuilder(context), AnnouncementCardView.Callback {
+) : AlertDialog.Builder(context), AnnouncementCardView.Callback {
 
     private var dialog: AlertDialog? = null
 
