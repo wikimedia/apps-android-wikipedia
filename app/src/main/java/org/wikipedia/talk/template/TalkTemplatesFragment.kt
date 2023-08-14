@@ -19,12 +19,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import de.mrapp.android.util.view.ViewHolder
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
-import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.ResourceUtil
 
 class TalkTemplatesFragment : Fragment(), MenuProvider {
@@ -113,38 +112,29 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesErrorView.visibility = View.VISIBLE
     }
 
-    internal inner class WarnTemplateItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindItem(item: MwQueryResult.WatchlistItem) {
-            // TODO: implement this
-//            val view = itemView as WatchlistItemView
-//            view.setItem(item)
-//            view.callback = this@WarnTemplatesFragment
+    internal inner class TalkTemplatesItemViewHolder(private val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) {
+        fun bindItem(item: TalkTemplate, position: Int) {
+            templatesItemView.setContents(item, position)
         }
     }
 
     internal inner class RecyclerAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-        constructor(items: List<Any>) : this() {
+        constructor(items: List<TalkTemplate>) : this() {
             this.items = items
         }
 
-        private var items: List<Any> = ArrayList()
+        private var items: List<TalkTemplate> = ArrayList()
 
         override fun getItemCount(): Int {
             return items.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            return ViewHolder(view!!)
-            // TODO: implement this
-//            return when (viewType) {
-//                return WarnTemplateItemViewHolder(WatchlistItemView(requireContext()))
-//            }
+            return TalkTemplatesItemViewHolder(TalkTemplatesItemView(requireContext()))
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            when (holder) {
-               // TODO: implement this
-            }
+            (holder as TalkTemplatesItemViewHolder).bindItem(items[position], position)
         }
     }
 
