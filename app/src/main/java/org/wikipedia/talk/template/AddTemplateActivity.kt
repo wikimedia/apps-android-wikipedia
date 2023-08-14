@@ -16,17 +16,14 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityAddTemplateBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
@@ -89,36 +86,6 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         binding.addTemplateInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
         binding.addTemplateSubjectLayout.isVisible = true
         binding.addTemplateSubjectLayout.requestFocus()
-    }
-
-    internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
-        private var lastX: Int = 0
-        private var lastY: Int = 0
-
-        fun onUrlClick(url: String, title: String?, linkText: String, x: Int, y: Int) {
-            lastX = x
-            lastY = y
-            super.onUrlClick(url, title, linkText)
-        }
-
-        override fun onMediaLinkClicked(title: PageTitle) {
-            startActivity(FilePageActivity.newIntent(this@AddTemplateActivity, title))
-        }
-
-        override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
-            // TODO
-        }
-
-        override lateinit var wikiSite: WikiSite
-
-        override fun onPageLinkClicked(anchor: String, linkText: String) {
-            // TODO
-        }
-
-        override fun onInternalLinkClicked(title: PageTitle) {
-            UserTalkPopupHelper.show(this@AddTemplateActivity, title, false, lastX, lastY,
-                    Constants.InvokeSource.TALK_REPLY_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
-        }
     }
 
     private fun setSaveButtonEnabled(enabled: Boolean) {
