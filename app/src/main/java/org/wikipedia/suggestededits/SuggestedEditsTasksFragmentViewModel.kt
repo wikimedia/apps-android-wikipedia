@@ -13,6 +13,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.usercontrib.UserContribStats
+import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.ThrowableUtil
 import java.time.temporal.ChronoUnit
 import java.util.Date
@@ -73,8 +74,8 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
                     imageRecommendationsEnabled = it[0].parameters[0].typeAsEnum.contains("image-recommendation")
                 }
             }
-            */
-            wikiSupportsImageRecommendations = true
+             */
+            wikiSupportsImageRecommendations = ReleaseUtil.isPreBetaRelease || (WikipediaApp.instance.wikiSite.languageCode in listOf("es", "pt", "fa", "hi"))
 
             homeSiteResponse.query?.userInfo?.let {
                 if (it.isBlocked) {

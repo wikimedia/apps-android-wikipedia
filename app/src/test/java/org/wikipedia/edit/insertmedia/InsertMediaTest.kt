@@ -75,7 +75,7 @@ class InsertMediaTest {
                 "de Bourbon-Montpensier — SiefarWikiFr |url=http://siefar.org/dictionnaire/fr/Gabrielle_de_Bourbon-Montpensier" +
                 " |access-date=2021-07-21 |website=siefar.org}}</ref>\n"
 
-        val expected = "[[File:Test_image.jpg|thumb|right|alt=Bar|Foo]]\n"+
+        val expected = "[[File:Test_image.jpg|thumb|right|alt=Bar|Foo]]\n" +
                 "{{Invalid template}\n" +
                 "'''Gabrielle de Bourbon''' or '''Gabrielle de Bourbon-Montpensier''' " +
                 "(c.[[1447]]–30 November [[1516]]), princess of [[Talmont-Saint-Hilaire|Talmont]], " +
