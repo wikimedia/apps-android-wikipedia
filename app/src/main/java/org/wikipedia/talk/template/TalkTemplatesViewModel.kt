@@ -21,10 +21,10 @@ class TalkTemplatesViewModel : ViewModel() {
     val uiState = _uiState.asStateFlow()
 
     init {
-        loadWarnTemplates()
+        loadTalkTemplates()
     }
 
-    fun loadWarnTemplates() {
+    fun loadTalkTemplates() {
         viewModelScope.launch(handler) {
             talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
         }

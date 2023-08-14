@@ -29,6 +29,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.views.TextInputDialog
 import org.wikipedia.views.UserMentionInputView
 
 class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
@@ -94,9 +95,52 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
             .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.placeholder_color))
     }
 
-    private fun onSaveClicked() {
-        // TODO: show dialog of adding title
+    private fun showSaveDialog(subject: String, body: String) {
+        TextInputDialog(this, R.string.talk_templates_new_message_dialog_save,
+            R.string.talk_templates_new_message_dialog_cancel).let { textInputDialog ->
+            textInputDialog.callback = object : TextInputDialog.Callback {
+                override fun onShow(dialog: TextInputDialog) {
+                    dialog.setHint(R.string.talk_templates_new_message_dialog_hint)
+                }
 
+                override fun onTextChanged(text: CharSequence, dialog: TextInputDialog) {
+                    text.toString().trim().let {
+                        when {
+                            it.isEmpty() -> {
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(false)
+                            }
+
+                            viewModel.talkTemplatesList.any { item -> item.title == it } -> {
+                                dialog.setError(
+                                    dialog.context.getString(
+                                        R.string.talk_templates_new_message_dialog_exists,
+                                        it
+                                    )
+                                )
+                                dialog.setPositiveButtonEnabled(false)
+                            }
+
+                            else -> {
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(true)
+                            }
+                        }
+                    }
+                }
+
+                override fun onSuccess(text: CharSequence, secondaryText: CharSequence) {
+                    viewModel.saveTemplate(text.toString(), subject, body)
+                }
+
+                override fun onCancel() {}
+            }
+            textInputDialog.setTitle(R.string.talk_templates_new_message_dialog_title)
+            textInputDialog.setMessage(R.string.talk_templates_new_message_dialog_description)
+        }
+    }
+
+    private fun onSaveClicked() {
         val subject = binding.addTemplateSubjectText.text.toString().trim()
         val body = binding.addTemplateInputView.editText.getParsedText(wikiSite).trim()
 
@@ -111,9 +155,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         }
 
         setSaveButtonEnabled(false)
-
-        // TODO: implement this
-        // viewModel.saveTemplate(subject, body)
+        showSaveDialog(subject, body)
     }
 
     private fun onSaveSuccess() {

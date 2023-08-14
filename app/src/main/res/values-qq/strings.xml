@@ -1460,9 +1460,10 @@
   <string name="talk_templates_new_message_save">Button label for saving the new message.</string>
   <string name="talk_templates_new_message_dialog_title">Title of the dialog of saving changes.</string>
   <string name="talk_templates_new_message_dialog_description">Description of the dialog of saving changes.</string>
-  <string name="talk_templates_new_message_dialog_input">Message of the input field in the dialog of saving changes.</string>
+  <string name="talk_templates_new_message_dialog_hint">Message of the input field in the dialog of saving changes.</string>
   <string name="talk_templates_new_message_dialog_save">Button label of the dialog of saving changes that save the changes.</string>
   <string name="talk_templates_new_message_dialog_cancel">Button label of the dialog of saving changes that cancel the changes.</string>
+  <string name="talk_templates_new_message_dialog_exists">Message of the input field that indicates the name of the template exists in the database. %s will be replaced by the title of the saved message.</string>
   <string name="talk_templates_new_message_saved">Snackbar message that show the message has been saved.</string>
   <string name="talk_templates_edit_message_dialog_title">Title of the dialog of editing the selected message.</string>
   <string name="talk_templates_edit_message_dialog_save">Button label of the dialog of editing the selected message that save the changes.</string>

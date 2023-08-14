@@ -1523,9 +1523,10 @@
     <string name="talk_templates_new_message_save">Save</string>
     <string name="talk_templates_new_message_dialog_title">Save changes</string>
     <string name="talk_templates_new_message_dialog_description">Add title and save message.</string>
-    <string name="talk_templates_new_message_dialog_input">Message title</string>
+    <string name="talk_templates_new_message_dialog_hint">Message title</string>
     <string name="talk_templates_new_message_dialog_save">Save</string>
     <string name="talk_templates_new_message_dialog_cancel">Cancel</string>
+    <string name="talk_templates_new_message_dialog_exists">Template \"%s\" already exists.</string>
     <string name="talk_templates_new_message_saved">Message has been saved</string>
     <string name="talk_templates_edit_message_dialog_title">Edit message</string>
     <string name="talk_templates_edit_message_dialog_save">Save</string>

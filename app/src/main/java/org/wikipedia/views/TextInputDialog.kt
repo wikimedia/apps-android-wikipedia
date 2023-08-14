@@ -12,7 +12,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.databinding.DialogTextInputBinding
 
-class TextInputDialog constructor(context: Context) : MaterialAlertDialogBuilder(context) {
+class TextInputDialog constructor(context: Context,
+                                  positiveButtonText: Int = R.string.text_input_dialog_ok_button_text,
+                                  negativeButtonText: Int = R.string.text_input_dialog_cancel_button_text) : MaterialAlertDialogBuilder(context) {
     interface Callback {
         fun onShow(dialog: TextInputDialog)
         fun onTextChanged(text: CharSequence, dialog: TextInputDialog)
@@ -27,10 +29,10 @@ class TextInputDialog constructor(context: Context) : MaterialAlertDialogBuilder
     init {
         setView(binding.root)
         binding.textInputContainer.isErrorEnabled = true
-        setPositiveButton(R.string.text_input_dialog_ok_button_text) { _: DialogInterface, _: Int ->
+        setPositiveButton(positiveButtonText) { _: DialogInterface, _: Int ->
             callback?.onSuccess(binding.textInput.text.toString(), binding.secondaryTextInput.text.toString())
         }
-        setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _: DialogInterface, _: Int ->
+        setNegativeButton(negativeButtonText) { _: DialogInterface, _: Int ->
             callback?.onCancel()
         }
         binding.textInput.doOnTextChanged { text, _, _, _ ->

@@ -45,8 +45,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         binding.talkTemplatesRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
-        binding.talkTemplatesRefreshView.setOnRefreshListener { viewModel.loadWarnTemplates() }
-        binding.talkTemplatesErrorView.retryClickListener = View.OnClickListener { viewModel.loadWarnTemplates() }
+        binding.talkTemplatesRefreshView.setOnRefreshListener { viewModel.loadTalkTemplates() }
+        binding.talkTemplatesErrorView.retryClickListener = View.OnClickListener { viewModel.loadTalkTemplates() }
 
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 

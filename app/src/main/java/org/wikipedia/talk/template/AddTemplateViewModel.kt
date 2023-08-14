@@ -16,8 +16,14 @@ class AddTemplateViewModel(bundle: Bundle) : ViewModel() {
         _uiState.value = UiState.Error(throwable)
     }
 
+    val talkTemplatesList = mutableListOf<TalkTemplate>()
+
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
+
+    init {
+        loadTalkTemplates()
+    }
 
     fun saveTemplate(title: String, subject: String, body: String) {
         viewModelScope.launch(handler) {
@@ -25,6 +31,12 @@ class AddTemplateViewModel(bundle: Bundle) : ViewModel() {
             val talkTemplate = TalkTemplate(type = 0, order = orderNumber, title = title, subject = subject, message = body)
             talkTemplatesRepository.insertTemplate(talkTemplate)
             _uiState.value = UiState.Success()
+        }
+    }
+
+    private fun loadTalkTemplates() {
+        viewModelScope.launch(handler) {
+            talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
         }
     }
 
