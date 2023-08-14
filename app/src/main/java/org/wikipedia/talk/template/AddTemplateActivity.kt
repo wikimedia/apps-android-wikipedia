@@ -1,4 +1,4 @@
-package org.wikipedia.patrollertasks
+package org.wikipedia.talk.template
 
 import android.content.Context
 import android.content.Intent
@@ -20,7 +20,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
-import org.wikipedia.databinding.ActivityAddWarnTemplateBinding
+import org.wikipedia.databinding.ActivityAddTemplateBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
@@ -41,11 +41,11 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.UserMentionInputView
 
-class AddWarnTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
-    private lateinit var binding: ActivityAddWarnTemplateBinding
+class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
+    private lateinit var binding: ActivityAddTemplateBinding
     private lateinit var textWatcher: TextWatcher
 
-    private val viewModel: AddWarnTemplateViewModel by viewModels()
+    private val viewModel: AddTemplateViewModel by viewModels()
     private var userMentionScrolled = false
     private var savedSuccess = false
 
@@ -60,25 +60,25 @@ class AddWarnTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, User
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddWarnTemplateBinding.inflate(layoutInflater)
+        binding = ActivityAddTemplateBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.addWarnTemplateToolbar)
+        setSupportActionBar(binding.addTemplateToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        title = getString(R.string.patroller_warn_templates_new_message_title)
+        title = getString(R.string.talk_templates_new_message_title)
 
-        textWatcher = binding.addWarnTemplateSubjectText.doOnTextChanged { _, _, _, _ ->
-            binding.addWarnTemplateSubjectLayout.error = null
-            binding.addWarnTemplateInputView.textInputLayout.error = null
-            setSaveButtonEnabled(!binding.addWarnTemplateInputView.editText.text.isNullOrBlank())
+        textWatcher = binding.addTemplateSubjectText.doOnTextChanged { _, _, _, _ ->
+            binding.addTemplateSubjectLayout.error = null
+            binding.addTemplateInputView.textInputLayout.error = null
+            setSaveButtonEnabled(!binding.addTemplateInputView.editText.text.isNullOrBlank())
         }
-        binding.addWarnTemplateInputView.editText.addTextChangedListener(textWatcher)
+        binding.addTemplateInputView.editText.addTextChangedListener(textWatcher)
 
-        binding.addWarnTemplateSaveButton.setOnClickListener {
+        binding.addTemplateSaveButton.setOnClickListener {
             onSaveClicked()
         }
 
-        binding.addWarnTemplateInputView.wikiSite = wikiSite
-        binding.addWarnTemplateInputView.listener = this
+        binding.addTemplateInputView.wikiSite = wikiSite
+        binding.addTemplateInputView.listener = this
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -92,18 +92,18 @@ class AddWarnTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, User
     }
 
     public override fun onDestroy() {
-        binding.addWarnTemplateSubjectText.removeTextChangedListener(textWatcher)
-        binding.addWarnTemplateInputView.editText.removeTextChangedListener(textWatcher)
+        binding.addTemplateSubjectText.removeTextChangedListener(textWatcher)
+        binding.addTemplateInputView.editText.removeTextChangedListener(textWatcher)
         super.onDestroy()
     }
 
     private fun onInitialLoad() {
         updateEditLicenseText()
         setSaveButtonEnabled(false)
-        L10nUtil.setConditionalLayoutDirection(binding.addWarnTemplateScrollContainer, wikiSite.languageCode)
-        binding.addWarnTemplateInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
-        binding.addWarnTemplateSubjectLayout.isVisible = true
-        binding.addWarnTemplateSubjectLayout.requestFocus()
+        L10nUtil.setConditionalLayoutDirection(binding.addTemplateScrollContainer, wikiSite.languageCode)
+        binding.addTemplateInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
+        binding.addTemplateSubjectLayout.isVisible = true
+        binding.addTemplateSubjectLayout.requestFocus()
     }
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
@@ -117,7 +117,7 @@ class AddWarnTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, User
         }
 
         override fun onMediaLinkClicked(title: PageTitle) {
-            startActivity(FilePageActivity.newIntent(this@AddWarnTemplateActivity, title))
+            startActivity(FilePageActivity.newIntent(this@AddTemplateActivity, title))
         }
 
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
@@ -131,30 +131,30 @@ class AddWarnTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, User
         }
 
         override fun onInternalLinkClicked(title: PageTitle) {
-            UserTalkPopupHelper.show(this@AddWarnTemplateActivity, title, false, lastX, lastY,
+            UserTalkPopupHelper.show(this@AddTemplateActivity, title, false, lastX, lastY,
                     Constants.InvokeSource.TALK_REPLY_ACTIVITY, HistoryEntry.SOURCE_TALK_TOPIC)
         }
     }
 
     private fun setSaveButtonEnabled(enabled: Boolean) {
-        binding.addWarnTemplateSaveButton.isEnabled = enabled
-        binding.addWarnTemplateSaveButton.setTextColor(ResourceUtil
+        binding.addTemplateSaveButton.isEnabled = enabled
+        binding.addTemplateSaveButton.setTextColor(ResourceUtil
             .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.placeholder_color))
     }
 
     private fun onSaveClicked() {
         // TODO: show dialog of adding title
 
-        val subject = binding.addWarnTemplateSubjectText.text.toString().trim()
-        val body = binding.addWarnTemplateInputView.editText.getParsedText(wikiSite).trim()
+        val subject = binding.addTemplateSubjectText.text.toString().trim()
+        val body = binding.addTemplateInputView.editText.getParsedText(wikiSite).trim()
 
         if (subject.isEmpty()) {
-            binding.addWarnTemplateSubjectLayout.error = getString(R.string.talk_subject_empty)
-            binding.addWarnTemplateSubjectLayout.requestFocus()
+            binding.addTemplateSubjectLayout.error = getString(R.string.talk_subject_empty)
+            binding.addTemplateSubjectLayout.requestFocus()
             return
         } else if (body.isEmpty()) {
-            binding.addWarnTemplateInputView.textInputLayout.error = getString(R.string.talk_message_empty)
-            binding.addWarnTemplateInputView.textInputLayout.requestFocus()
+            binding.addTemplateInputView.textInputLayout.error = getString(R.string.talk_message_empty)
+            binding.addTemplateInputView.textInputLayout.requestFocus()
             return
         }
 
@@ -208,7 +208,7 @@ class AddWarnTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, User
     }
 
     override fun onBackPressed() {
-        if (!binding.addWarnTemplateSubjectText.text.isNullOrEmpty() || !binding.addWarnTemplateInputView.editText.text.isNullOrEmpty()) {
+        if (!binding.addTemplateSubjectText.text.isNullOrEmpty() || !binding.addTemplateInputView.editText.text.isNullOrEmpty()) {
             MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.talk_new_topic_exit_dialog_title)
@@ -223,9 +223,9 @@ class AddWarnTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, User
 
     override fun onUserMentionListUpdate() {
         binding.licenseText.isVisible = false
-        binding.addWarnTemplateScrollContainer.post {
+        binding.addTemplateScrollContainer.post {
             if (!isDestroyed && !userMentionScrolled) {
-                binding.addWarnTemplateScrollContainer.smoothScrollTo(0, binding.root.height * 4)
+                binding.addTemplateScrollContainer.smoothScrollTo(0, binding.root.height * 4)
                 userMentionScrolled = true
             }
         }
@@ -238,7 +238,7 @@ class AddWarnTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, User
 
     companion object {
         fun newIntent(context: Context): Intent {
-            return Intent(context, AddWarnTemplateActivity::class.java)
+            return Intent(context, AddTemplateActivity::class.java)
         }
     }
 }

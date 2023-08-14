@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/addWarnTemplateScrollContainer"
+        android:id="@+id/addTemplateScrollContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="?attr/actionBarSize">
@@ -19,19 +19,19 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/patroller_warn_templates_new_message_description"/>
+                android:text="@string/talk_templates_new_message_description"/>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/addWarnTemplateSubjectLayout"
+                android:id="@+id/addTemplateSubjectLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:hint="@string/patroller_warn_templates_new_message_subject_hint">
+                android:hint="@string/talk_templates_new_message_subject_hint">
 
                 <org.wikipedia.views.PlainPasteEditText
-                    android:id="@+id/addWarnTemplateSubjectText"
+                    android:id="@+id/addTemplateSubjectText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|actionNext"
@@ -41,7 +41,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <org.wikipedia.views.UserMentionInputView
-                android:id="@+id/addWarnTemplateInputView"
+                android:id="@+id/addTemplateInputView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -65,7 +65,7 @@
     </ScrollView>
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/addWarnTemplateToolbar"
+        android:id="@+id/addTemplateToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         style="@style/ToolbarStyle.Small"
@@ -73,12 +73,12 @@
         app:contentInsetEnd="0dp">
 
         <TextView
-            android:id="@+id/addWarnTemplateSaveButton"
+            android:id="@+id/addTemplateSaveButton"
             style="@style/App.Button.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"
-            android:text="@string/patroller_warn_templates_new_message_save"/>
+            android:text="@string/talk_templates_new_message_save"/>
 
     </com.google.android.material.appbar.MaterialToolbar>
 

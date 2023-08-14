@@ -1,4 +1,4 @@
-package org.wikipedia.patrollertasks
+package org.wikipedia.talk.template
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,21 +21,21 @@ import de.mrapp.android.util.view.ViewHolder
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
-import org.wikipedia.databinding.FragmentWarnTemplatesBinding
+import org.wikipedia.databinding.FragmentTalkTemplatesBinding
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.util.ResourceUtil
 
-class WarnTemplatesFragment : Fragment(), MenuProvider {
-    private var _binding: FragmentWarnTemplatesBinding? = null
+class TalkTemplatesFragment : Fragment(), MenuProvider {
+    private var _binding: FragmentTalkTemplatesBinding? = null
 
-    private val viewModel: WarnTemplatesViewModel by viewModels()
+    private val viewModel: TalkTemplatesViewModel by viewModels()
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentWarnTemplatesBinding.inflate(inflater, container, false)
+        _binding = FragmentTalkTemplatesBinding.inflate(inflater, container, false)
 
-        (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.patroller_warn_templates_manage_title)
+        (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.talk_templates_manage_title)
 
         return binding.root
     }
@@ -44,19 +44,19 @@ class WarnTemplatesFragment : Fragment(), MenuProvider {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        binding.warnTemplatesRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
-        binding.warnTemplatesRefreshView.setOnRefreshListener { viewModel.loadWarnTemplates() }
-        binding.warnTemplatesErrorView.retryClickListener = View.OnClickListener { viewModel.loadWarnTemplates() }
+        binding.talkTemplatesRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
+        binding.talkTemplatesRefreshView.setOnRefreshListener { viewModel.loadWarnTemplates() }
+        binding.talkTemplatesErrorView.retryClickListener = View.OnClickListener { viewModel.loadWarnTemplates() }
 
-        binding.warnTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is WarnTemplatesViewModel.UiState.Loading -> onLoading()
-                        is WarnTemplatesViewModel.UiState.Success -> onSuccess()
-                        is WarnTemplatesViewModel.UiState.Error -> onError(it.throwable)
+                        is TalkTemplatesViewModel.UiState.Loading -> onLoading()
+                        is TalkTemplatesViewModel.UiState.Success -> onSuccess()
+                        is TalkTemplatesViewModel.UiState.Error -> onError(it.throwable)
                     }
                 }
             }
@@ -69,7 +69,7 @@ class WarnTemplatesFragment : Fragment(), MenuProvider {
     }
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_warn_templates, menu)
+        inflater.inflate(R.menu.menu_talk_templates, menu)
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
@@ -83,26 +83,26 @@ class WarnTemplatesFragment : Fragment(), MenuProvider {
     }
 
     private fun onLoading() {
-        binding.warnTemplatesEmptyContainer.visibility = View.GONE
-        binding.warnTemplatesRecyclerView.visibility = View.GONE
-        binding.warnTemplatesErrorView.visibility = View.GONE
-        binding.warnTemplatesProgressBar.isVisible = !binding.warnTemplatesRefreshView.isRefreshing
+        binding.talkTemplatesEmptyContainer.visibility = View.GONE
+        binding.talkTemplatesRecyclerView.visibility = View.GONE
+        binding.talkTemplatesErrorView.visibility = View.GONE
+        binding.talkTemplatesProgressBar.isVisible = !binding.talkTemplatesRefreshView.isRefreshing
     }
 
     private fun onSuccess() {
-        binding.warnTemplatesErrorView.visibility = View.GONE
-        binding.warnTemplatesRefreshView.isRefreshing = false
-        binding.warnTemplatesProgressBar.visibility = View.GONE
-        binding.warnTemplatesRecyclerView.adapter = RecyclerAdapter(viewModel.warnTemplatesList)
-        WatchlistAnalyticsHelper.logWatchlistItemCountOnLoad(requireContext(), viewModel.warnTemplatesList.size)
-        binding.warnTemplatesRecyclerView.visibility = View.VISIBLE
+        binding.talkTemplatesErrorView.visibility = View.GONE
+        binding.talkTemplatesRefreshView.isRefreshing = false
+        binding.talkTemplatesProgressBar.visibility = View.GONE
+        binding.talkTemplatesRecyclerView.adapter = RecyclerAdapter(viewModel.talkTemplatesList)
+        WatchlistAnalyticsHelper.logWatchlistItemCountOnLoad(requireContext(), viewModel.talkTemplatesList.size)
+        binding.talkTemplatesRecyclerView.visibility = View.VISIBLE
     }
 
     private fun onError(t: Throwable) {
-        binding.warnTemplatesRefreshView.isRefreshing = false
-        binding.warnTemplatesProgressBar.visibility = View.GONE
-        binding.warnTemplatesErrorView.setError(t)
-        binding.warnTemplatesErrorView.visibility = View.VISIBLE
+        binding.talkTemplatesRefreshView.isRefreshing = false
+        binding.talkTemplatesProgressBar.visibility = View.GONE
+        binding.talkTemplatesErrorView.setError(t)
+        binding.talkTemplatesErrorView.visibility = View.VISIBLE
     }
 
     internal inner class WarnTemplateItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -141,8 +141,8 @@ class WarnTemplatesFragment : Fragment(), MenuProvider {
     }
 
     companion object {
-        fun newInstance(): WarnTemplatesFragment {
-            return WarnTemplatesFragment()
+        fun newInstance(): TalkTemplatesFragment {
+            return TalkTemplatesFragment()
         }
     }
 }

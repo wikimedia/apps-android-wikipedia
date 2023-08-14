@@ -338,7 +338,7 @@
             android:label="@string/insert_media_title"/>
 
         <activity
-            android:name=".patrollertasks.WarnTemplatesActivity"
+            android:name=".talk.template.TalkTemplatesActivity"
             android:theme="@style/AppTheme" />
 
         <provider

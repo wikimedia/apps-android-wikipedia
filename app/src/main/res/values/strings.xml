@@ -1514,24 +1514,24 @@
     <!-- /Shareable reading lists -->
 
     <!-- Patroller task -->
-    <string name="patroller_warn_templates_manage_title">Manage templates</string>
-    <string name="patroller_warn_templates_empty_message">You do not have any warning messages saved.</string>
-    <string name="patroller_warn_templates_new_message_title">New message</string>
-    <string name="patroller_warn_templates_new_message_description">Compose warning message.</string>
-    <string name="patroller_warn_templates_new_message_subject_hint">Subject</string>
-    <string name="patroller_warn_templates_new_message_compose_hint">Compose message</string>
-    <string name="patroller_warn_templates_new_message_save">Save</string>
-    <string name="patroller_warn_templates_new_message_dialog_title">Save changes</string>
-    <string name="patroller_warn_templates_new_message_dialog_description">Add title and save message.</string>
-    <string name="patroller_warn_templates_new_message_dialog_input">Message title</string>
-    <string name="patroller_warn_templates_new_message_dialog_save">Save</string>
-    <string name="patroller_warn_templates_new_message_dialog_cancel">Cancel</string>
-    <string name="patroller_warn_templates_new_message_saved">Message has been saved</string>
-    <string name="patroller_warn_templates_edit_message_dialog_title">Edit message</string>
-    <string name="patroller_warn_templates_edit_message_dialog_save">Save</string>
-    <string name="patroller_warn_templates_edit_message_dialog_delete">Delete</string>
-    <string name="patroller_warn_templates_edit_message_confirm_description">Are you sure you want to delete this %s message from the list?</string>
-    <string name="patroller_warn_templates_message_deleted">Message has been deleted</string>
+    <string name="talk_templates_manage_title">Manage templates</string>
+    <string name="talk_templates_empty_message">You do not have any warning messages saved.</string>
+    <string name="talk_templates_new_message_title">New message</string>
+    <string name="talk_templates_new_message_description">Compose warning message.</string>
+    <string name="talk_templates_new_message_subject_hint">Subject</string>
+    <string name="talk_templates_new_message_compose_hint">Compose message</string>
+    <string name="talk_templates_new_message_save">Save</string>
+    <string name="talk_templates_new_message_dialog_title">Save changes</string>
+    <string name="talk_templates_new_message_dialog_description">Add title and save message.</string>
+    <string name="talk_templates_new_message_dialog_input">Message title</string>
+    <string name="talk_templates_new_message_dialog_save">Save</string>
+    <string name="talk_templates_new_message_dialog_cancel">Cancel</string>
+    <string name="talk_templates_new_message_saved">Message has been saved</string>
+    <string name="talk_templates_edit_message_dialog_title">Edit message</string>
+    <string name="talk_templates_edit_message_dialog_save">Save</string>
+    <string name="talk_templates_edit_message_dialog_delete">Delete</string>
+    <string name="talk_templates_edit_message_confirm_description">Are you sure you want to delete this %s message from the list?</string>
+    <string name="talk_templates_message_deleted">Message has been deleted</string>
     <!-- /Patroller task -->
 
     <string name="data_opt_in_accept">Accept</string>

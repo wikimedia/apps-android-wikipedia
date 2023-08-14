@@ -18,8 +18,6 @@ import org.wikipedia.offline.db.OfflineObject
 import org.wikipedia.offline.db.OfflineObjectDao
 import org.wikipedia.pageimages.db.PageImage
 import org.wikipedia.pageimages.db.PageImageDao
-import org.wikipedia.patrollertasks.db.WarnTemplate
-import org.wikipedia.patrollertasks.db.WarnTemplateDao
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.db.ReadingListDao
@@ -29,6 +27,8 @@ import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
+import org.wikipedia.talk.db.TalkTemplate
+import org.wikipedia.talk.db.TalkTemplateDao
 
 const val DATABASE_NAME = "wikipedia.db"
 const val DATABASE_VERSION = 25
@@ -44,7 +44,7 @@ const val DATABASE_VERSION = 25
         ReadingList::class,
         ReadingListPage::class,
         Notification::class,
-        WarnTemplate::class
+        TalkTemplate::class
     ],
     version = DATABASE_VERSION
 )
@@ -66,7 +66,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun readingListDao(): ReadingListDao
     abstract fun readingListPageDao(): ReadingListPageDao
     abstract fun notificationDao(): NotificationDao
-    abstract fun warnTemplateDao(): WarnTemplateDao
+    abstract fun talkTemplateDao(): TalkTemplateDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
@@ -176,7 +176,7 @@ abstract class AppDatabase : RoomDatabase() {
         }
         private val MIGRATION_24_25 = object : Migration(24, 25) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("CREATE TABLE IF NOT EXISTS `WarnTemplate` (`id` INTEGER NOT NULL, `order` INTEGER NOT NULL, `title` TEXT NOT NULL, `subject` TEXT NOT NULL, `message` TEXT NOT NULL, PRIMARY KEY(`id`))")
+                database.execSQL("CREATE TABLE IF NOT EXISTS `TalkTemplate` (`id` INTEGER NOT NULL, `order` INTEGER NOT NULL, `title` TEXT NOT NULL, `subject` TEXT NOT NULL, `message` TEXT NOT NULL, PRIMARY KEY(`id`))")
             }
         }
 
