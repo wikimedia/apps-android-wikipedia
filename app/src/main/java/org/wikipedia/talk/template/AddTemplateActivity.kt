@@ -2,10 +2,8 @@ package org.wikipedia.talk.template
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
@@ -18,15 +16,12 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityAddTemplateBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkHandler
-import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
@@ -37,8 +32,6 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.StringUtil
-import org.wikipedia.util.UriUtil
 import org.wikipedia.views.UserMentionInputView
 
 class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
@@ -50,13 +43,6 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     private var savedSuccess = false
 
     private val wikiSite = WikiSite(WikipediaApp.instance.appOrSystemLanguageCode)
-
-    private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            updateEditLicenseText()
-            FeedbackUtil.showMessage(this, R.string.login_success_toast)
-        }
-    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,7 +84,6 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     }
 
     private fun onInitialLoad() {
-        updateEditLicenseText()
         setSaveButtonEnabled(false)
         L10nUtil.setConditionalLayoutDirection(binding.addTemplateScrollContainer, wikiSite.languageCode)
         binding.addTemplateInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
@@ -174,20 +159,6 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         FeedbackUtil.showError(this, t)
     }
 
-    private fun updateEditLicenseText() {
-        binding.licenseText.text = StringUtil.fromHtml(getString(if (AccountUtil.isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
-                getString(R.string.terms_of_use_url),
-                getString(R.string.cc_by_sa_4_url)))
-        binding.licenseText.movementMethod = LinkMovementMethodExt { url: String ->
-            if (url == "https://#login") {
-                val loginIntent = LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT)
-                requestLogin.launch(loginIntent)
-            } else {
-                UriUtil.handleExternalLink(this, Uri.parse(url))
-            }
-        }
-    }
-
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
             PageActivity.newIntentForCurrentTab(this, entry, title, false))
@@ -222,7 +193,6 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     }
 
     override fun onUserMentionListUpdate() {
-        binding.licenseText.isVisible = false
         binding.addTemplateScrollContainer.post {
             if (!isDestroyed && !userMentionScrolled) {
                 binding.addTemplateScrollContainer.smoothScrollTo(0, binding.root.height * 4)
@@ -233,7 +203,6 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
 
     override fun onUserMentionComplete() {
         userMentionScrolled = false
-        binding.licenseText.isVisible = true
     }
 
     companion object {
