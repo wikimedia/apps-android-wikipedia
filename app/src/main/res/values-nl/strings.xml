@@ -1101,7 +1101,14 @@
   <string name="image_recommendation_reject_submit">Verzenden</string>
   <string name="image_recommendation_tooltip_main">Voeg ontbrekende afbeeldingen in artikelen toe aan Voorgestelde bewerkingen</string>
   <string name="image_recommendation_onboarding_1">Afbeeldingen maken artikelen begrijpelijk, maar veel artikelen hebben er geen.</string>
+  <string name="image_recommendation_onboarding_2">U beslist of een voorgestelde afbeelding in een Wikipedia-artikel moet worden geplaatst.</string>
+  <string name="image_recommendation_onboarding_3">Suggesties worden automatisch gegenereerd en u beoordeelt of ze moeten worden geaccepteerd of afgewezen.</string>
+  <string name="image_recommendation_onboarding_4">De afbeeldingen zijn afkomstig van Wikimedia Commons, een collectie afbeeldingen met vrije licentie die door Wikipedia wordt gebruikt.</string>
+  <string name="image_recommendation_tooltip_1">Lees dit artikel om het onderwerp te begrijpen</string>
+  <string name="image_recommendation_tooltip_2">Inspecteer de afbeelding en de bijbehorende informatie</string>
+  <string name="image_recommendation_tooltip_3">Bepaal of de afbeelding lezers helpt dit onderwerp beter te begrijpen</string>
   <string name="image_recommendation_tooltip_next">Volgende</string>
+  <string name="image_recommendation_tooltip_warning">Lees het artikel om het onderwerp te begrijpen en inspecteer de afbeelding</string>
   <string name="edit_summary_added_image">Toegevoegde afbeelding</string>
   <string name="edit_summary_added_caption">Toegevoegd bijschrift</string>
   <string name="edit_published_view">Bekijken</string>
@@ -1330,6 +1337,7 @@
   <string name="revision_diff_line_removed">Regel verwijderd</string>
   <string name="revision_diff_paragraph_added">Alinea toegevoegd</string>
   <string name="revision_diff_paragraph_removed">Alinea verwijderd</string>
+  <string name="revision_diff_protected">De wijzigingen die in deze versie zijn aangebracht, zijn niet openbaar toegankelijk.</string>
   <string name="revision_undo_title">Bewerken ongedaan maken</string>
   <string name="revision_undo_message">Hiermee worden de wijzigingen ongedaan gemaakt door de revisie(s) van het hier getoonde artikel.</string>
   <string name="revision_undo_reason">Geef om door te gaan een reden op waarom u deze bewerking ongedaan wilt maken:</string>

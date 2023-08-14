@@ -138,7 +138,7 @@
   <string name="edit_summary_tag_links">Шилтемелер кошулду</string>
   <string name="edit_summary_tag_other">Башка</string>
   <string name="edit_summary_tag_other_hint">Бул баракты жакшыртууңуздун башка ыкмалары</string>
-  <string name="find_next">Ушуну табуу</string>
+  <string name="find_next">Кийинкисин табуу</string>
   <string name="find_previous">Мурункуну табуу</string>
   <string name="abusefilter_title_warn" fuzzy="true">Бул оңдоо бузуку болушу мүмкүн. Сиз аны сактооңузга ишенесизби?</string>
   <string name="abusefilter_title_disallow" fuzzy="true">Сиз бул оңдоону сактай албайсыз. Сураныч, артка кайтыңыз жана аны өзгөртүңүз.</string>

@@ -372,6 +372,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Maqolani oflayn rejimda yuklab bo‘lmaydi.</string>
   <string name="page_offline_notice_add_to_reading_list">Maslahat: Maqolani o‘qilganlar ro‘yxatiga qo‘shing va u onlayn bo‘lganingizdan so‘ng yuklab olinadi.</string>
   <string name="page_offline_notice_last_date">Siz ushbu maqolaning %s’da saqlangan oflayn versiyasini o‘qiyapsiz.</string>
+  <string name="redirected_from_snackbar">%sʼdan yo‘naltirildi</string>
   <string name="button_get_directions">Joylashuvni olmoq</string>
   <string name="error_no_maps_app">Tegishli joylashuvga oid hech qanday ilova topilmadi.</string>
   <string name="preference_title_customize_explore_feed">Tasmani ko‘rib chiqmoq</string>
@@ -1303,6 +1304,7 @@
   <string name="revision_diff_line_removed">Qator oʻchirildi</string>
   <string name="revision_diff_paragraph_added">Paragraf qoʻshildi</string>
   <string name="revision_diff_paragraph_removed">Paragraf oʻchirildi</string>
+  <string name="revision_diff_protected">Ushbu tahrirda kiritilgan oʻzgartirishlar hamma uchun ochiq emas.</string>
   <string name="revision_undo_title">Tahrirni bekor qilish</string>
   <string name="revision_undo_message">Bu yerda koʻrsatilgan maqolaning tahrir(lar)i tomonidan kiritilgan oʻzgarishlar bekor qilinadi.</string>
   <string name="revision_undo_reason">Davom etish uchun ushbu tahrirni bekor qilish sababini keltiring:</string>
