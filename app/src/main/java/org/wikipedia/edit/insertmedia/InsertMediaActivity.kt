@@ -357,6 +357,7 @@ class InsertMediaActivity : BaseActivity() {
     companion object {
         const val EXTRA_SEARCH_QUERY = "searchQuery"
         const val EXTRA_IMAGE_TITLE = "imageTitle"
+        const val EXTRA_INSERTED_INTO_INFOBOX = "insertedIntoInfobox"
         const val RESULT_IMAGE_CAPTION = "resultImageCaption"
         const val RESULT_IMAGE_ALT = "resultImageAlt"
         const val RESULT_IMAGE_SIZE = "resultImageSize"

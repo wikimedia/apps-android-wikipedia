@@ -134,7 +134,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                     if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) 0 else binding.editSectionText.selectionStart,
                     invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE)
 
-                binding.editSectionText.setText(newWikiText)
+                binding.editSectionText.setText(newWikiText.first)
+                intent.putExtra(InsertMediaActivity.EXTRA_INSERTED_INTO_INFOBOX, newWikiText.second)
 
                 // TODO: automatically highlight what was added.
                 // binding.editSectionText.setSelection(cursorPos, cursorPos + newText.length)
@@ -353,7 +354,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         } else "/* ${StringUtil.removeUnderscores(sectionAnchor)} */ "
          summaryText += editSummaryFragment.summary
         if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
-            summaryText += " ${SuggestedEditsImageRecsFragment.IMAGE_REC_EDIT_COMMENT}"
+            summaryText += " ${if (intent.getBooleanExtra(InsertMediaActivity.EXTRA_INSERTED_INTO_INFOBOX, false))
+                SuggestedEditsImageRecsFragment.IMAGE_REC_EDIT_COMMENT_INFOBOX else SuggestedEditsImageRecsFragment.IMAGE_REC_EDIT_COMMENT_TOP}"
         }
 
         // Summaries are plaintext, so remove any HTML that's made its way into the summary

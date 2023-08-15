@@ -132,7 +132,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
         fun insertImageIntoWikiText(langCode: String, oldWikiText: String, imageTitle: String, imageCaption: String,
                                     imageAltText: String, imageSize: String, imageType: String, imagePos: String,
-                                    cursorPos: Int = 0, autoInsert: Boolean = false): String {
+                                    cursorPos: Int = 0, autoInsert: Boolean = false): Pair<String, Boolean> {
             var wikiText = oldWikiText
             val namespaceName = FileAliasData.valueFor(langCode)
 
@@ -295,7 +295,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                 wikiText = wikiText.substring(0, insertIndex) + template + "\n" + wikiText.substring(insertIndex)
             }
 
-            return wikiText
+            return Pair(wikiText, insertedIntoInfobox)
         }
 
         private fun findNameParamInTemplate(wikiText: String, startIndex: Int, endIndex: Int): Pair<Int, String> {
