@@ -117,7 +117,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             loadMainPage(TabPosition.NEW_TAB_FOREGROUND)
             animateTabsButton()
         } else if (it.resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
-            pageFragment.reloadFromBackstack()
+            pageFragment.reloadFromBackstack(false)
         }
     }
 
