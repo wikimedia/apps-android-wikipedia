@@ -251,6 +251,7 @@
   <string name="user_option_sync_label">Ásahusat</string>
   <string name="notification_syncing_resume_button">Joatkke</string>
   <string name="notification_syncing_cancel_button">Gaskkalduhte</string>
+  <string name="notifications_activity_title">Almmuhusat</string>
   <string name="watchlist_title">Čuovvunlistu</string>
   <string name="preference_title_notification_thanks">Giitu</string>
   <string name="preference_title_notification_login_fail">Čálit sisa</string>
