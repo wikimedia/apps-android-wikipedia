@@ -61,6 +61,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesErrorView.retryClickListener = View.OnClickListener { viewModel.loadTalkTemplates() }
 
         binding.talkTemplatesRecyclerView.setHasFixedSize(true)
+        binding.talkTemplatesRecyclerView.adapter = RecyclerAdapter()
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(binding.talkTemplatesRecyclerView.adapter as RecyclerAdapter))
         itemTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)

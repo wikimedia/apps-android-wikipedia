@@ -339,6 +339,10 @@
 
         <activity
             android:name=".talk.template.TalkTemplatesActivity"
+            android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
+            android:name=".talk.template.AddTemplateActivity"
             android:theme="@style/AppTheme" />
 
         <provider

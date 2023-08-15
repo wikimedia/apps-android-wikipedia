@@ -138,7 +138,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
             }
             textInputDialog.setTitle(R.string.talk_templates_new_message_dialog_title)
             textInputDialog.setMessage(R.string.talk_templates_new_message_dialog_description)
-        }
+        }.show()
     }
 
     private fun onSaveClicked() {

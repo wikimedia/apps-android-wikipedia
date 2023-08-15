@@ -19,15 +19,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/talk_templates_new_message_description"/>
+                android:text="@string/talk_templates_new_message_description"
+                android:layout_marginHorizontal="16dp"
+                android:textColor="?attr/primary_color"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/addTemplateSubjectLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginHorizontal="16dp"
                 android:hint="@string/talk_templates_new_message_subject_hint">
 
                 <org.wikipedia.views.PlainPasteEditText
@@ -44,9 +45,8 @@
                 android:id="@+id/addTemplateInputView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp" />
+                android:layout_marginHorizontal="16dp" />
 
         </LinearLayout>
 
