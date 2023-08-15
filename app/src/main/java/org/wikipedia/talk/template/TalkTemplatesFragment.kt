@@ -105,12 +105,13 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     private fun onSuccess() {
+        binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesErrorView.visibility = View.GONE
         binding.talkTemplatesRefreshView.isRefreshing = false
         binding.talkTemplatesProgressBar.visibility = View.GONE
         binding.talkTemplatesRecyclerView.adapter = RecyclerAdapter(viewModel.talkTemplatesList)
         WatchlistAnalyticsHelper.logWatchlistItemCountOnLoad(requireContext(), viewModel.talkTemplatesList.size)
-        binding.talkTemplatesRecyclerView.visibility = View.VISIBLE
+        binding.talkTemplatesRecyclerView.isVisible = viewModel.talkTemplatesList.isNotEmpty()
     }
 
     private fun onError(t: Throwable) {
