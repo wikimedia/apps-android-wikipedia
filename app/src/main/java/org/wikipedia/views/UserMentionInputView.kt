@@ -83,7 +83,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
             val candidateName = userNameHints.first()
             if (candidateName != currentUserName &&
                     StringUtil.addUnderscores(candidateName.lowercase()) != StringUtil.addUnderscores(currentPageTitle.text.lowercase())) {
-                binding.inputEditText.prepopulateUserName(candidateName)
+                binding.inputEditText.prepopulateUserName(candidateName, wikiSite)
             }
         }
     }
@@ -131,7 +131,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
         }
 
         override fun onClick(v: View) {
-            binding.inputEditText.onCommitUserName(userName)
+            binding.inputEditText.onCommitUserName(userName, wikiSite)
             listener?.onUserMentionComplete()
         }
     }

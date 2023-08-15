@@ -112,9 +112,9 @@ class UserMentionEditText : SyntaxHighlightableEditText {
         listener?.onUserNameChanged(userName)
     }
 
-    fun prepopulateUserName(userName: String) {
+    fun prepopulateUserName(userName: String, wikiSite: WikiSite) {
         val sb = SpannableStringBuilder()
-        sb.append(composeUserNameLink(userName, /*TODO*/WikiSite.forLanguageCode("en")))
+        sb.append(composeUserNameLink(userName, wikiSite))
         sb.append(" ")
         isUserNameCommitting = true
         text = sb
@@ -122,7 +122,7 @@ class UserMentionEditText : SyntaxHighlightableEditText {
         setSelection(sb.length)
     }
 
-    fun onCommitUserName(userName: String) {
+    fun onCommitUserName(userName: String, wikiSite: WikiSite) {
         try {
             isUserNameCommitting = true
             if (userNameStartPos < 0 || userNameEndPos <= userNameStartPos) {
@@ -132,7 +132,7 @@ class UserMentionEditText : SyntaxHighlightableEditText {
 
             val sb = SpannableStringBuilder()
             sb.append(text.subSequence(0, userNameStartPos))
-            sb.append(composeUserNameLink(userName, /*TODO*/WikiSite.forLanguageCode("en")))
+            sb.append(composeUserNameLink(userName, wikiSite))
             val spanEnd = sb.length
             if (userNameEndPos < text.length) {
                 sb.append(text.subSequence(userNameEndPos, text.length - 1))
