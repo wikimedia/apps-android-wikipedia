@@ -119,8 +119,7 @@ class InsertMediaSettingsFragment : Fragment() {
         if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && viewModel.selectedImage != null) {
             ImageRecommendationsEvent.logAction(action, "caption_entry", ImageRecommendationsEvent.getActionDataString(
                 filename = viewModel.selectedImage?.prefixedText!!, recommendationSource = viewModel.selectedImage?.wikiSite?.languageCode!!,
-                recommendationSourceProject = viewModel.selectedImage?.wikiSite?.languageCode!!, acceptanceState = "accepted", seriesNumber = "", totalSuggestions = ""),
-                viewModel.selectedImage?.wikiSite?.languageCode!!)
+                acceptanceState = "accepted"), viewModel.selectedImage?.wikiSite?.languageCode!!)
         }
     }
 

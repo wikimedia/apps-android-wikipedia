@@ -8,6 +8,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import org.wikipedia.Constants
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -84,7 +85,6 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     private suspend fun invalidateRecommendation(token: String?, accepted: Boolean, revId: Long, reasonCodes: List<Int>?) {
-        val reasons = listOf("notrelevant", "noinfo", "offensive", "lowquality", "unfamiliar", "other")
 
         withContext(Dispatchers.IO) {
             val csrfToken = token ?: CsrfTokenClient.getToken(pageTitle.wikiSite).blockingSingle()
@@ -97,7 +97,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
                     revId,
                     recommendation.images[0].image,
                     accepted,
-                    reasonCodes?.mapNotNull { reasons.getOrNull(it) }.orEmpty(),
+                    reasonCodes?.mapNotNull { ImageRecommendationsEvent.reasons.getOrNull(it) }.orEmpty(),
                     recommendation.images[0].image, null, null
                 )
                 ServiceFactory.getCoreRest(pageTitle.wikiSite).addImageFeedback(pageTitle.prefixedText, body)

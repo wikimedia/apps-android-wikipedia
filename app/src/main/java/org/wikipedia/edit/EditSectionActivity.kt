@@ -308,7 +308,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
         if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
             // If the intent is to add an image to the article, go directly to the image insertion flow.
-            ImageRecommendationsEvent.logImpression("caption_entry")
+            ImageRecommendationsEvent.logImpression("caption_entry", ImageRecommendationsEvent.getActionDataString(
+                filename = pageTitle.prefixedText, recommendationSource = pageTitle.wikiSite.languageCode, acceptanceState = "accepted",
+                captionAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty())"false" else "true",
+                altTextAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())"false" else "true"), pageTitle.wikiSite.languageCode)
             startInsertImageFlow()
         }
 
@@ -508,8 +511,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
                     val pageTitle = intent.getParcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
                     ImageRecommendationsEvent.logAction("editsummary_save", "editsummary_dialog", ImageRecommendationsEvent.getActionDataString(
-                        filename = pageTitle?.prefixedText!!, recommendationSource = pageTitle.wikiSite.languageCode, recommendationSourceProject = pageTitle.wikiSite.languageCode,
-                        acceptanceState = "accepted", seriesNumber = "", totalSuggestions = "",
+                        filename = pageTitle?.prefixedText!!, recommendationSource = pageTitle.wikiSite.languageCode, acceptanceState = "accepted",
                         captionAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty())"false" else "true",
                         altTextAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())"false" else "true"), pageTitle.wikiSite.languageCode)
                 }
@@ -521,8 +523,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
                     val pageTitle = intent.getParcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
                     ImageRecommendationsEvent.logAction("caption_preview_accept", "caption_entry", ImageRecommendationsEvent.getActionDataString(
-                        filename = pageTitle?.prefixedText!!, recommendationSource = pageTitle.wikiSite.languageCode, recommendationSourceProject = pageTitle.wikiSite.languageCode,
-                        acceptanceState = "accepted", seriesNumber = "", totalSuggestions = "",
+                        filename = pageTitle?.prefixedText!!, recommendationSource = pageTitle.wikiSite.languageCode, acceptanceState = "accepted",
                         captionAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty())"false" else "true",
                         altTextAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())"false" else "true"), pageTitle.wikiSite.languageCode)
                 }
@@ -791,8 +792,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding.viewEditSectionError.isVisible = false
         if (editSummaryFragment.handleBackPressed()) {
             ImageRecommendationsEvent.logAction("Todo: // caption_preview_back", "editsummary_dialog", ImageRecommendationsEvent.getActionDataString(
-                filename = pageTitle?.prefixedText!!, recommendationSource = pageTitle.wikiSite.languageCode, recommendationSourceProject = pageTitle.wikiSite.languageCode,
-                acceptanceState = "accepted", seriesNumber = "", totalSuggestions = "",
+                filename = pageTitle.prefixedText, recommendationSource = pageTitle.wikiSite.languageCode, acceptanceState = "accepted",
                 captionAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty())"false" else "true",
                 altTextAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())"false" else "true"), pageTitle.wikiSite.languageCode)
             supportActionBar?.title = getString(R.string.edit_preview)
@@ -800,8 +800,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
         if (editPreviewFragment.isActive) {
             ImageRecommendationsEvent.logAction("caption_preview_back", "caption_entry", ImageRecommendationsEvent.getActionDataString(
-                filename = pageTitle?.prefixedText!!, recommendationSource = pageTitle.wikiSite.languageCode, recommendationSourceProject = pageTitle.wikiSite.languageCode,
-                acceptanceState = "accepted", seriesNumber = "", totalSuggestions = "",
+                filename = pageTitle?.prefixedText!!, recommendationSource = pageTitle.wikiSite.languageCode, acceptanceState = "accepted",
                 captionAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty())"false" else "true",
                 altTextAdd = if (intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())"false" else "true"), pageTitle.wikiSite.languageCode)
             editPreviewFragment.hide(binding.editSectionContainer)

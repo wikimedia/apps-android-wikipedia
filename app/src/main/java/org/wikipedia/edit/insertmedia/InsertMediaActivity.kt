@@ -155,9 +155,8 @@ class InsertMediaActivity : BaseActivity() {
             R.id.menu_save -> {
                 if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && viewModel.selectedImage != null) {
                     ImageRecommendationsEvent.logAction("advanced_setting_save", "caption_entry",
-                        ImageRecommendationsEvent.getActionDataString(
-                        filename = viewModel.selectedImage?.prefixedText!!, recommendationSource = viewModel.selectedImage?.wikiSite?.languageCode!!,
-                        recommendationSourceProject = viewModel.selectedImage?.wikiSite?.languageCode!!, acceptanceState = "accepted", seriesNumber = "", totalSuggestions = ""),
+                        ImageRecommendationsEvent.getActionDataString(filename = viewModel.selectedImage?.prefixedText!!,
+                            recommendationSource = viewModel.selectedImage?.wikiSite?.languageCode!!, acceptanceState = "accepted"),
                         viewModel.selectedImage?.wikiSite?.languageCode!!)
                 }
                 onBackPressed()
@@ -166,9 +165,8 @@ class InsertMediaActivity : BaseActivity() {
             R.id.menu_insert -> {
                 if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && viewModel.selectedImage != null) {
                     ImageRecommendationsEvent.logAction("caption_continue", "caption_entry",
-                        ImageRecommendationsEvent.getActionDataString(
-                            filename = viewModel.selectedImage?.prefixedText!!, recommendationSource = viewModel.selectedImage?.wikiSite?.languageCode!!,
-                            recommendationSourceProject = viewModel.selectedImage?.wikiSite?.languageCode!!, acceptanceState = "accepted", seriesNumber = "", totalSuggestions = ""),
+                        ImageRecommendationsEvent.getActionDataString(filename = viewModel.selectedImage?.prefixedText!!,
+                            recommendationSource = viewModel.selectedImage?.wikiSite?.languageCode!!, acceptanceState = "accepted"),
                         viewModel.selectedImage?.wikiSite?.languageCode!!)
                 }
                 viewModel.selectedImage?.let {

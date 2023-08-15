@@ -6,7 +6,6 @@ import android.os.Bundle
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ResourceUtil
@@ -18,7 +17,6 @@ class FilePageActivity : SingleFragmentActivity<FilePageFragment>() {
         setImageZoomHelper()
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
-        ImageRecommendationsEvent.logImpression("imagedetails_dialog")
     }
 
     override fun createFragment(): FilePageFragment {
