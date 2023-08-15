@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.talk.db.TalkTemplate
+import java.util.Collections
 
 class TalkTemplatesViewModel : ViewModel() {
 
@@ -26,7 +27,21 @@ class TalkTemplatesViewModel : ViewModel() {
 
     fun loadTalkTemplates() {
         viewModelScope.launch(handler) {
+            _uiState.value = UiState.Loading()
             talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
+            _uiState.value = UiState.Success()
+        }
+    }
+
+    fun swapList(oldPosition: Int, newPosition: Int) {
+        Collections.swap(talkTemplatesList, oldPosition, newPosition)
+    }
+
+    fun updateItemOrder() {
+        viewModelScope.launch(handler) {
+            _uiState.value = UiState.Loading()
+            talkTemplatesRepository.updateTemplates(talkTemplatesList)
+            _uiState.value = UiState.Success()
         }
     }
 

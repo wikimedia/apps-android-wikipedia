@@ -1,11 +1,13 @@
 package org.wikipedia.talk.template
 
+import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
@@ -17,6 +19,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
@@ -31,6 +34,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     private val viewModel: TalkTemplatesViewModel by viewModels()
     private val binding get() = _binding!!
+
+    private lateinit var itemTouchHelper: ItemTouchHelper
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -55,7 +60,10 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesRefreshView.setOnRefreshListener { viewModel.loadTalkTemplates() }
         binding.talkTemplatesErrorView.retryClickListener = View.OnClickListener { viewModel.loadTalkTemplates() }
 
+        binding.talkTemplatesRecyclerView.setHasFixedSize(true)
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(binding.talkTemplatesRecyclerView.adapter as RecyclerAdapter))
+        itemTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -112,7 +120,13 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesErrorView.visibility = View.VISIBLE
     }
 
-    internal inner class TalkTemplatesItemViewHolder(private val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) {
+    @SuppressLint("NotifyDataSetChanged")
+    private fun updateItemsOrder() {
+        updateItemsOrder()
+        binding.talkTemplatesRecyclerView.adapter?.notifyDataSetChanged()
+    }
+
+    internal inner class TalkTemplatesItemViewHolder(val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) {
         fun bindItem(item: TalkTemplate, position: Int) {
             templatesItemView.setContents(item, position)
         }
@@ -135,6 +149,65 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             (holder as TalkTemplatesItemViewHolder).bindItem(items[position], position)
+        }
+
+        override fun onViewAttachedToWindow(holder: RecyclerView.ViewHolder) {
+            super.onViewAttachedToWindow(holder)
+            if (holder is TalkTemplatesItemViewHolder) {
+                holder.templatesItemView.setDragHandleTouchListener { v, event ->
+                    when (event.actionMasked) {
+                        MotionEvent.ACTION_DOWN -> {
+                            itemTouchHelper.startDrag(holder)
+                        }
+                        MotionEvent.ACTION_UP -> v.performClick()
+                        else -> { }
+                    }
+                    false
+                }
+            }
+        }
+
+        override fun onViewDetachedFromWindow(holder: RecyclerView.ViewHolder) {
+            if (holder is TalkTemplatesItemViewHolder) {
+                holder.templatesItemView.setDragHandleTouchListener(null)
+            }
+            super.onViewDetachedFromWindow(holder)
+        }
+
+        fun onMoveItem(oldPosition: Int, newPosition: Int) {
+            viewModel.swapList(oldPosition, newPosition)
+            notifyItemMoved(oldPosition, newPosition)
+        }
+    }
+
+
+    private inner class RearrangeableItemTouchHelperCallback constructor(private val adapter: RecyclerAdapter) : ItemTouchHelper.Callback() {
+        override fun isLongPressDragEnabled(): Boolean {
+            return false
+        }
+
+        override fun isItemViewSwipeEnabled(): Boolean {
+            return false
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {}
+
+        override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
+            return makeMovementFlags(ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0)
+        }
+
+        override fun onMove(recyclerView: RecyclerView, source: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+            adapter.onMoveItem(source.absoluteAdapterPosition, target.absoluteAdapterPosition)
+            return true
+        }
+
+        override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
+            super.clearView(recyclerView, viewHolder)
+            recyclerView.post {
+                if (isAdded) {
+                    updateItemsOrder()
+                }
+            }
         }
     }
 
