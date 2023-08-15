@@ -4,7 +4,6 @@ import android.content.Context
 import android.net.Uri
 import android.widget.ScrollView
 import androidx.appcompat.app.AlertDialog
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementCard
@@ -20,7 +19,7 @@ import org.wikipedia.util.UriUtil
 class AnnouncementDialog internal constructor(
     context: Context,
     val announcement: Announcement
-) : MaterialAlertDialogBuilder(context), AnnouncementCardView.Callback {
+) : AlertDialog.Builder(context), AnnouncementCardView.Callback {
 
     private var dialog: AlertDialog? = null
 
