@@ -29,6 +29,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentMainBinding
@@ -553,6 +554,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     private fun maybeShowImportReadingListsNewInstallDialog() {
         if (!Prefs.importReadingListsNewInstallDialogShown) {
+            ReadingListsAnalyticsHelper.logReceiveStart(requireActivity())
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.shareable_reading_lists_new_install_dialog_title)
                 .setMessage(R.string.shareable_reading_lists_new_install_dialog_content)
