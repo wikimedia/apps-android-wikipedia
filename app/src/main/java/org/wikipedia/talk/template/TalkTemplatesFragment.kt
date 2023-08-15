@@ -181,7 +181,6 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
     }
 
-
     private inner class RearrangeableItemTouchHelperCallback constructor(private val adapter: RecyclerAdapter) : ItemTouchHelper.Callback() {
         override fun isLongPressDragEnabled(): Boolean {
             return false
