@@ -1104,7 +1104,7 @@
   <string name="suggested_edits_report_feature_subject">Subject heading for message when reporting a problem with the feature.</string>
   <string name="edit_summary_added_image">Edit summary when an image was added.</string>
   <string name="edit_summary_added_caption">Edit summary when an image caption was added.</string>
-  <string name="edit_summary_added_image_and_caption">Edit summary when an image with a caption was added.</string>
+  <string name="edit_summary_added_image_and_caption">Edit summary when an image and its caption were added.</string>
   <string name="edit_published_view">Button label for viewing an edit after it is published.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>

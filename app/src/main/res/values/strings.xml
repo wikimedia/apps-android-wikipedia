@@ -1124,8 +1124,8 @@
     <string name="suggested_edits_report_feature">Problem with feature</string>
     <string name="suggested_edits_report_feature_subject">Problem with Suggested Edits</string>
     <string name="edit_summary_added_image">Added image</string>
-    <string name="edit_summary_added_image_and_caption">Added image and caption</string>
     <string name="edit_summary_added_caption">Added caption</string>
+    <string name="edit_summary_added_image_and_caption">Added image and caption</string>
     <string name="edit_published_view">View</string>
     <!-- /Suggested edits -->
 

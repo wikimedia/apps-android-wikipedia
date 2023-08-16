@@ -111,7 +111,7 @@ object FeedbackUtil {
     fun composeFeedbackEmail(context: Context, subject: String, body: String = "") {
         val intent = Intent()
             .setAction(Intent.ACTION_SENDTO)
-            .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=${Uri.encode(subject)}&body=${Uri.encode(body)}"))
+            .setData(Uri.parse("mailto:${context.getString(R.string.support_email)}?subject=${Uri.encode(subject)}&body=${Uri.encode(body)}"))
         try {
             context.startActivity(intent)
         } catch (e: Exception) {
