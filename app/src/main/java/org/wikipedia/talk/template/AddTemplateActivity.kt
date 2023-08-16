@@ -130,7 +130,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
                     }
                 }
 
-                override fun onSuccess(text: CharSequence, secondaryText: CharSequence) {
+                override fun onSuccess(text: CharSequence, secondaryText: CharSequence, tertiaryText: CharSequence) {
                     viewModel.saveTemplate(text.toString(), subject, body)
                 }
 

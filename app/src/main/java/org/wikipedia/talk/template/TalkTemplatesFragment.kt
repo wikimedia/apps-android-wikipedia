@@ -25,6 +25,8 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
 import org.wikipedia.talk.db.TalkTemplate
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.views.TextInputDialog
 
 class TalkTemplatesFragment : Fragment(), MenuProvider {
     private var _binding: FragmentTalkTemplatesBinding? = null
@@ -46,6 +48,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     private val requestNewTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
             viewModel.loadTalkTemplates()
+            FeedbackUtil.showMessage(this, R.string.talk_templates_new_message_saved)
         }
     }
 
@@ -114,6 +117,51 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesProgressBar.visibility = View.GONE
         binding.talkTemplatesErrorView.setError(t)
         binding.talkTemplatesErrorView.visibility = View.VISIBLE
+    }
+
+    private fun showEditDialog(position: Int) {
+        TextInputDialog(requireContext(), R.string.talk_templates_new_message_dialog_save,
+            R.string.talk_templates_message_deleted).let { textInputDialog ->
+            textInputDialog.callback = object : TextInputDialog.Callback {
+                override fun onShow(dialog: TextInputDialog) {
+                    dialog.setHint(R.string.talk_templates_new_message_dialog_hint)
+                }
+
+                override fun onTextChanged(text: CharSequence, dialog: TextInputDialog) {
+                    text.toString().trim().let {
+                        when {
+                            it.isEmpty() -> {
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(false)
+                            }
+
+                            viewModel.talkTemplatesList.any { item -> item.title == it } -> {
+                                dialog.setError(
+                                    dialog.context.getString(
+                                        R.string.talk_templates_new_message_dialog_exists,
+                                        it
+                                    )
+                                )
+                                dialog.setPositiveButtonEnabled(false)
+                            }
+
+                            else -> {
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(true)
+                            }
+                        }
+                    }
+                }
+
+                override fun onSuccess(text: CharSequence, secondaryText: CharSequence, tertiaryText: CharSequence) {
+                    // TODO: implement this
+                }
+
+                override fun onCancel() {}
+            }
+            textInputDialog.showSecondaryText(true)
+            textInputDialog.setTitle(R.string.talk_templates_edit_message_dialog_title)
+        }.show()
     }
 
     internal inner class TalkTemplatesItemViewHolder(val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) {

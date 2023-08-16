@@ -7,12 +7,12 @@
     android:padding="16dp">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_container"
+        android:id="@+id/textInputContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <org.wikipedia.views.PlainPasteEditText
-            android:id="@+id/text_input"
+            android:id="@+id/textInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"
@@ -22,12 +22,25 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/secondary_text_input_container"
+        android:id="@+id/secondaryTextInputContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <org.wikipedia.views.PlainPasteEditText
-            android:id="@+id/secondary_text_input"
+            android:id="@+id/secondaryTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tertiaryTextInputContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <org.wikipedia.views.PlainPasteEditText
+            android:id="@+id/tertiaryTextInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"

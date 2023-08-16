@@ -18,7 +18,7 @@ class TextInputDialog constructor(context: Context,
     interface Callback {
         fun onShow(dialog: TextInputDialog)
         fun onTextChanged(text: CharSequence, dialog: TextInputDialog)
-        fun onSuccess(text: CharSequence, secondaryText: CharSequence)
+        fun onSuccess(text: CharSequence, secondaryText: CharSequence, tertiaryText: CharSequence)
         fun onCancel()
     }
 
@@ -29,10 +29,10 @@ class TextInputDialog constructor(context: Context,
     init {
         setView(binding.root)
         binding.textInputContainer.isErrorEnabled = true
-        setPositiveButton(positiveButtonText) { _: DialogInterface, _: Int ->
-            callback?.onSuccess(binding.textInput.text.toString(), binding.secondaryTextInput.text.toString())
+        setPositiveButton(positiveButtonText) { _, _ ->
+            callback?.onSuccess(binding.textInput.text.toString(), binding.secondaryTextInput.text.toString(), , binding.tertiaryTextInput.text.toString())
         }
-        setNegativeButton(negativeButtonText) { _: DialogInterface, _: Int ->
+        setNegativeButton(negativeButtonText) { _, _ ->
             callback?.onCancel()
         }
         binding.textInput.doOnTextChanged { text, _, _, _ ->
@@ -60,8 +60,17 @@ class TextInputDialog constructor(context: Context,
         binding.secondaryTextInput.setText(text)
     }
 
+    fun setTertiaryText(text: CharSequence?) {
+        binding.tertiaryTextInput.setText(text)
+    }
+
     fun showSecondaryText(show: Boolean): TextInputDialog {
         binding.secondaryTextInputContainer.visibility = if (show) View.VISIBLE else View.GONE
+        return this
+    }
+
+    fun showTertiaryText(show: Boolean): TextInputDialog {
+        binding.tertiaryTextInputContainer.visibility = if (show) View.VISIBLE else View.GONE
         return this
     }
 
@@ -71,6 +80,10 @@ class TextInputDialog constructor(context: Context,
 
     fun setSecondaryHint(@StringRes id: Int) {
         binding.secondaryTextInputContainer.hint = context.resources.getString(id)
+    }
+
+    fun setTertiaryHint(@StringRes id: Int) {
+        binding.tertiaryTextInputContainer.hint = context.resources.getString(id)
     }
 
     fun setError(text: CharSequence?) {
