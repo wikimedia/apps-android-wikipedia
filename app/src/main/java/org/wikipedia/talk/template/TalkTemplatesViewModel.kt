@@ -3,9 +3,11 @@ package org.wikipedia.talk.template
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.talk.db.TalkTemplate
 import java.util.Collections
@@ -27,22 +29,27 @@ class TalkTemplatesViewModel : ViewModel() {
 
     fun loadTalkTemplates() {
         viewModelScope.launch(handler) {
-            talkTemplatesList.clear()
-            _uiState.value = UiState.Loading()
-            talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
-            _uiState.value = UiState.Success()
+            withContext(Dispatchers.IO) {
+                talkTemplatesList.clear()
+                _uiState.value = UiState.Loading()
+                talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
+                _uiState.value = UiState.Success()
+            }
         }
     }
 
     fun swapList(oldPosition: Int, newPosition: Int) {
         Collections.swap(talkTemplatesList, oldPosition, newPosition)
+        for (i in talkTemplatesList.indices) {
+            talkTemplatesList[i].order = i
+        }
     }
 
     fun updateItemOrder() {
         viewModelScope.launch(handler) {
-            _uiState.value = UiState.Loading()
-            talkTemplatesRepository.updateTemplates(talkTemplatesList)
-            _uiState.value = UiState.Success()
+            withContext(Dispatchers.IO) {
+                talkTemplatesRepository.updateTemplates(talkTemplatesList)
+            }
         }
     }
 

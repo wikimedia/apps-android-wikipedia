@@ -14,7 +14,6 @@ import org.wikipedia.util.ResourceUtil
 
 class TalkTemplatesItemView : LinearLayout {
     private var binding = ItemTalkTemplatesBinding.inflate(LayoutInflater.from(context), this)
-    private var position = 0
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
@@ -24,16 +23,11 @@ class TalkTemplatesItemView : LinearLayout {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT)
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
-        FeedbackUtil.setButtonOnClickToast(binding.listItem, binding.dragHandle)
+        FeedbackUtil.setButtonLongPressToast(binding.listItem)
     }
 
-    fun setContents(talkTemplate: TalkTemplate, position: Int) {
-        this.position = position
+    fun setContents(talkTemplate: TalkTemplate) {
         binding.listItem.text = talkTemplate.title
-    }
-
-    fun setDragHandleEnabled(enabled: Boolean) {
-        binding.dragHandle.visibility = if (enabled) VISIBLE else GONE
     }
 
     @SuppressLint("ClickableViewAccessibility")

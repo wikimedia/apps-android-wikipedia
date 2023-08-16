@@ -1,6 +1,5 @@
 package org.wikipedia.talk.template
 
-import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,10 +23,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
 import org.wikipedia.talk.db.TalkTemplate
-import org.wikipedia.util.ResourceUtil
 
 class TalkTemplatesFragment : Fragment(), MenuProvider {
     private var _binding: FragmentTalkTemplatesBinding? = null
@@ -56,15 +53,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        binding.talkTemplatesRefreshView.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.progressive_color))
-        binding.talkTemplatesRefreshView.setOnRefreshListener { viewModel.loadTalkTemplates() }
         binding.talkTemplatesErrorView.retryClickListener = View.OnClickListener { viewModel.loadTalkTemplates() }
-
-        binding.talkTemplatesRecyclerView.setHasFixedSize(true)
-        binding.talkTemplatesRecyclerView.adapter = RecyclerAdapter()
-        binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(binding.talkTemplatesRecyclerView.adapter as RecyclerAdapter))
-        itemTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -98,51 +87,45 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
     }
 
+    private fun setRecyclerView() {
+        binding.talkTemplatesRecyclerView.setHasFixedSize(true)
+        val adapter = RecyclerAdapter()
+        binding.talkTemplatesRecyclerView.adapter = adapter
+        binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(adapter))
+        itemTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)
+    }
+
     private fun onLoading() {
         binding.talkTemplatesEmptyContainer.visibility = View.GONE
         binding.talkTemplatesRecyclerView.visibility = View.GONE
         binding.talkTemplatesErrorView.visibility = View.GONE
-        binding.talkTemplatesProgressBar.isVisible = !binding.talkTemplatesRefreshView.isRefreshing
     }
 
     private fun onSuccess() {
+        setRecyclerView()
         binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesErrorView.visibility = View.GONE
-        binding.talkTemplatesRefreshView.isRefreshing = false
         binding.talkTemplatesProgressBar.visibility = View.GONE
-        binding.talkTemplatesRecyclerView.adapter = RecyclerAdapter(viewModel.talkTemplatesList)
-        WatchlistAnalyticsHelper.logWatchlistItemCountOnLoad(requireContext(), viewModel.talkTemplatesList.size)
         binding.talkTemplatesRecyclerView.isVisible = viewModel.talkTemplatesList.isNotEmpty()
     }
 
     private fun onError(t: Throwable) {
-        binding.talkTemplatesRefreshView.isRefreshing = false
         binding.talkTemplatesProgressBar.visibility = View.GONE
         binding.talkTemplatesErrorView.setError(t)
         binding.talkTemplatesErrorView.visibility = View.VISIBLE
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    private fun updateItemsOrder() {
-        updateItemsOrder()
-        binding.talkTemplatesRecyclerView.adapter?.notifyDataSetChanged()
-    }
-
     internal inner class TalkTemplatesItemViewHolder(val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) {
-        fun bindItem(item: TalkTemplate, position: Int) {
-            templatesItemView.setContents(item, position)
+        fun bindItem(item: TalkTemplate) {
+            templatesItemView.setContents(item)
         }
     }
 
-    internal inner class RecyclerAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-        constructor(items: List<TalkTemplate>) : this() {
-            this.items = items
-        }
-
-        private var items: List<TalkTemplate> = ArrayList()
+    internal inner class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         override fun getItemCount(): Int {
-            return items.size
+            return viewModel.talkTemplatesList.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -150,7 +133,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            (holder as TalkTemplatesItemViewHolder).bindItem(items[position], position)
+            (holder as TalkTemplatesItemViewHolder).bindItem(viewModel.talkTemplatesList[position])
         }
 
         override fun onViewAttachedToWindow(holder: RecyclerView.ViewHolder) {
@@ -158,11 +141,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             if (holder is TalkTemplatesItemViewHolder) {
                 holder.templatesItemView.setDragHandleTouchListener { v, event ->
                     when (event.actionMasked) {
-                        MotionEvent.ACTION_DOWN -> {
-                            itemTouchHelper.startDrag(holder)
-                        }
+                        MotionEvent.ACTION_DOWN -> itemTouchHelper.startDrag(holder)
                         MotionEvent.ACTION_UP -> v.performClick()
-                        else -> { }
                     }
                     false
                 }
@@ -178,13 +158,14 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
         fun onMoveItem(oldPosition: Int, newPosition: Int) {
             viewModel.swapList(oldPosition, newPosition)
+            viewModel.updateItemOrder()
             notifyItemMoved(oldPosition, newPosition)
         }
     }
 
     private inner class RearrangeableItemTouchHelperCallback constructor(private val adapter: RecyclerAdapter) : ItemTouchHelper.Callback() {
         override fun isLongPressDragEnabled(): Boolean {
-            return false
+            return true
         }
 
         override fun isItemViewSwipeEnabled(): Boolean {
@@ -200,15 +181,6 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         override fun onMove(recyclerView: RecyclerView, source: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
             adapter.onMoveItem(source.absoluteAdapterPosition, target.absoluteAdapterPosition)
             return true
-        }
-
-        override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
-            super.clearView(recyclerView, viewHolder)
-            recyclerView.post {
-                if (isAdded) {
-                    updateItemsOrder()
-                }
-            }
         }
     }
 

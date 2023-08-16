@@ -13,7 +13,7 @@ interface TalkTemplateDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateTemplates(list: List<TalkTemplate>)
 
-    @Query("SELECT * FROM TalkTemplate")
+    @Query("SELECT * FROM TalkTemplate ORDER BY `order`")
     suspend fun getAllTemplates(): List<TalkTemplate>
 
     @Query("SELECT * FROM TalkTemplate WHERE `id` IN (:id)")
