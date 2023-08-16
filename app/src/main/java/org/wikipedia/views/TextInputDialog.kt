@@ -66,7 +66,7 @@ class TextInputDialog constructor(context: Context,
     }
 
     fun setHint(@StringRes id: Int) {
-        binding.textInput.hint = context.resources.getString(id)
+        binding.textInputContainer.hint = context.resources.getString(id)
     }
 
     fun setSecondaryHint(@StringRes id: Int) {
