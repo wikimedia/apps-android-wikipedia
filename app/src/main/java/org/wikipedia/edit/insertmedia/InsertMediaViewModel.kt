@@ -236,9 +236,11 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                     } else {
                         // no 'image' parameter exists, so insert one at the end of the 'name' parameter.
                         val (paramInsertPos, paramNameSpaceConvention) = findNameParamInTemplate(infoboxVars.possibleNameParamNames, wikiText, infoboxStartIndex, infoboxEndIndex)
-                        insertedIntoInfobox = true
-                        val insertText = "|$paramNameSpaceConvention$imageParamName = $imageTitle\n"
-                        wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
+                        if (paramInsertPos > 0) {
+                            insertedIntoInfobox = true
+                            val insertText = "|$paramNameSpaceConvention$imageParamName = $imageTitle\n"
+                            wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
+                        }
                     }
 
                     if (insertedIntoInfobox && imageCaption.isNotEmpty()) {
@@ -258,8 +260,10 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                         } else {
                             // insert a new caption field
                             val (paramInsertPos, paramNameSpaceConvention) = findNameParamInTemplate(infoboxVars.possibleNameParamNames, wikiText, infoboxStartIndex, infoboxEndIndex)
-                            val insertText = "|$paramNameSpaceConvention$imageCaptionParamName = $imageCaption\n"
-                            wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
+                            if (paramInsertPos > 0) {
+                                val insertText = "|$paramNameSpaceConvention$imageCaptionParamName = $imageCaption\n"
+                                wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
+                            }
                         }
                     }
 
@@ -280,8 +284,10 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                         } else {
                             // insert a new alt-text field
                             val (paramInsertPos, paramNameSpaceConvention) = findNameParamInTemplate(infoboxVars.possibleNameParamNames, wikiText, infoboxStartIndex, infoboxEndIndex)
-                            val insertText = "|$paramNameSpaceConvention$imageAltParamName = $imageAltText\n"
-                            wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
+                            if (paramInsertPos > 0) {
+                                val insertText = "|$paramNameSpaceConvention$imageAltParamName = $imageAltText\n"
+                                wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
+                            }
                         }
                     }
                 }
