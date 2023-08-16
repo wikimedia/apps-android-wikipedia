@@ -7,18 +7,26 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import okhttp3.FormBody
+import okhttp3.Request
+import okhttp3.Response
 import org.wikipedia.Constants
 import org.wikipedia.csrf.CsrfTokenClient
+import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.growthtasks.GrowthImageSuggestion
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.edit.insertmedia.InsertMediaViewModel
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.FileAliasData
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
+import java.io.IOException
 import java.util.*
 
 class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
@@ -31,6 +39,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     lateinit var pageTitle: PageTitle
     lateinit var summary: PageSummary
     lateinit var recommendedImageTitle: PageTitle
+    var attemptInsertInfobox = false
 
     val langCode = bundle.getString(SuggestedEditsImageRecsFragment.ARG_LANG)!!
     private val _uiState = MutableStateFlow(UiState())
@@ -66,6 +75,42 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
             recommendedImageTitle = PageTitle(FileAliasData.valueFor(langCode), recommendation.images[0].image,
                 null, thumbUrl, Constants.commonsWikiSite)
             recommendedImageTitle.description = recommendation.images[0].metadata!!.description
+
+            // In advance, attempt to insert the image into the wikitext with example parameters, then get a preview,
+            // and check whether the preview contains errors, in which case don't insert into the infobox.
+
+            val insertResult = InsertMediaViewModel.insertImageIntoWikiText(langCode, page.revisions.first().contentMain, recommendation.images[0].image,
+                "caption", "alt", "200px", "thumb", "right", 0, true, true)
+
+            if (insertResult.second) {
+                withContext(Dispatchers.IO) {
+                    var response: Response? = null
+                    try {
+                        val body = FormBody.Builder()
+                            .add("wikitext", insertResult.first)
+                            .build()
+
+                        L.d("Requesting preview with image inserted into infobox...")
+                        val request: Request = Request.Builder().url(ServiceFactory.getRestBasePath(wikiSite) +
+                                RestService.PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText))
+                            .post(body)
+                            .build()
+                        response = OkHttpConnectionFactory.client.newCall(request).execute()
+
+                        val previewHtml = response.body?.string().orEmpty()
+                        attemptInsertInfobox = true
+
+                        if (previewHtml.contains("with unknown parameter", true)) {
+                            L.d("Preview contains error, so no longer inserting into infobox.")
+                            attemptInsertInfobox = false
+                        }
+                    } catch (e: IOException) {
+                        L.e(e)
+                    } finally {
+                        response?.close()
+                    }
+                }
+            }
 
             _uiState.value = UiState.Success()
         }

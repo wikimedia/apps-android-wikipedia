@@ -34,7 +34,7 @@ class InsertMediaTest {
 
         MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true).first, Matchers.`is`(expected))
+            0, true, true).first, Matchers.`is`(expected))
     }
 
     @Test
@@ -61,7 +61,7 @@ class InsertMediaTest {
 
         MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true).first, Matchers.`is`(expected))
+            0, true, true).first, Matchers.`is`(expected))
     }
 
     @Test
@@ -87,7 +87,7 @@ class InsertMediaTest {
 
         MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true).first, Matchers.`is`(expected))
+            0, true, true).first, Matchers.`is`(expected))
     }
 
     @Test
@@ -128,7 +128,7 @@ class InsertMediaTest {
 
         MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true).first, Matchers.`is`(expected))
+            0, true, true).first, Matchers.`is`(expected))
     }
 
     @Test
@@ -158,7 +158,7 @@ class InsertMediaTest {
 
         MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true).first, Matchers.`is`(expected))
+            0, true, true).first, Matchers.`is`(expected))
     }
 
     @Test
@@ -212,7 +212,7 @@ class InsertMediaTest {
 
         MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true).first, Matchers.`is`(expected))
+            0, true, true).first, Matchers.`is`(expected))
     }
 
     @Test
@@ -242,7 +242,7 @@ class InsertMediaTest {
 
         MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true).first, Matchers.`is`(expected))
+            0, true, true).first, Matchers.`is`(expected))
     }
 
     @Test
@@ -300,6 +300,6 @@ class InsertMediaTest {
 
         MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
             "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
-            0, true).first, Matchers.`is`(expected))
+            0, true, true).first, Matchers.`is`(expected))
     }
 }

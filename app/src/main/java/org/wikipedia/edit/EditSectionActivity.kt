@@ -132,7 +132,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                     sectionWikitext.orEmpty(), imageTitle?.text.orEmpty(), imageCaption.orEmpty(),
                     imageAlt.orEmpty(), imageSize.orEmpty(), imageType.orEmpty(), imagePos.orEmpty(),
                     if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) 0 else binding.editSectionText.selectionStart,
-                    invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE)
+                    invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE,
+                    intent.getBooleanExtra(InsertMediaActivity.EXTRA_ATTEMPT_INSERT_INTO_INFOBOX, false))
 
                 binding.editSectionText.setText(newWikiText.first)
                 intent.putExtra(InsertMediaActivity.EXTRA_INSERTED_INTO_INFOBOX, newWikiText.second)

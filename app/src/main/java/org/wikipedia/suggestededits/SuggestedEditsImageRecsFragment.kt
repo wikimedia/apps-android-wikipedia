@@ -38,6 +38,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
@@ -344,7 +345,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         }
 
         requestEdit.launch(EditSectionActivity.newIntent(requireContext(), 0, null,
-            viewModel.pageTitle, Constants.InvokeSource.EDIT_ADD_IMAGE, null, viewModel.recommendedImageTitle))
+            viewModel.pageTitle, Constants.InvokeSource.EDIT_ADD_IMAGE, null, viewModel.recommendedImageTitle)
+            .putExtra(InsertMediaActivity.EXTRA_ATTEMPT_INSERT_INTO_INFOBOX, viewModel.attemptInsertInfobox))
     }
 
     override fun publishEnabled(): Boolean {

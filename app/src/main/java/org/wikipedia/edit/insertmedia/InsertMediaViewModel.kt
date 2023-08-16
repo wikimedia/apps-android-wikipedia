@@ -162,7 +162,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
         fun insertImageIntoWikiText(langCode: String, oldWikiText: String, imageTitle: String, imageCaption: String,
                                     imageAltText: String, imageSize: String, imageType: String, imagePos: String,
-                                    cursorPos: Int = 0, autoInsert: Boolean = false): Pair<String, Boolean> {
+                                    cursorPos: Int = 0, autoInsert: Boolean = false, attemptInfobox: Boolean = false): Pair<String, Boolean> {
             var wikiText = oldWikiText
             val namespaceName = FileAliasData.valueFor(langCode)
 
@@ -207,7 +207,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                 }
             }
 
-            if (autoInsert && infoboxMatch != null) {
+            if (autoInsert && attemptInfobox && infoboxMatch != null) {
                 val infoboxStartIndex = infoboxMatch.range.first
                 val infoboxEndIndex = infoboxMatch.range.last
 
