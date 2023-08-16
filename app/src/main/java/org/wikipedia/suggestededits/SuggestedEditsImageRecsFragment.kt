@@ -287,6 +287,10 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                 true
             }
+            R.id.menu_report_feature -> {
+                FeedbackUtil.composeFeedbackEmail(requireContext(), getString(R.string.suggested_edits_report_feature_subject))
+                true
+            }
             else -> false
         }
     }
