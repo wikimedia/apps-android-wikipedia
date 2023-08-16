@@ -36,8 +36,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:contentDescription="@null"
-                app:srcCompat="@drawable/illustration_talk_templates_empty_state"
-                app:tint="?attr/placeholder_color"/>
+                app:srcCompat="@drawable/illustration_talk_templates_empty_state"/>
 
             <TextView
                 style="@style/P"
