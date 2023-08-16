@@ -27,6 +27,7 @@ class TalkTemplatesViewModel : ViewModel() {
 
     fun loadTalkTemplates() {
         viewModelScope.launch(handler) {
+            talkTemplatesList.clear()
             _uiState.value = UiState.Loading()
             talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
             _uiState.value = UiState.Success()
