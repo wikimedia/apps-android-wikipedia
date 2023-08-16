@@ -162,6 +162,60 @@ class InsertMediaTest {
     }
 
     @Test
+    fun testInsertImageIntoArticleWithInfoboxSettlement() {
+        val wikitext = "{{Infobox Greek place\n" +
+                "  |name = Kato Pedina\n" +
+                "  |name_local = Κάτω Πεδινά\n" +
+                "  |periph = [[Epirus (region)|Epirus]]\n" +
+                "|periphunit         = [[Ioannina (regional unit)|Ioannina]]\n" +
+                "|municipality = [[Zagori]]\n" +
+                "|municunit = [[Central Zagori]]\n" +
+                "  |population_village = 41\n" +
+                "  |population_as_of = 2011\n" +
+                "  |area =  \n" +
+                "  |elevation = 940\n" +
+                "  |coordinates = {{coord|39|52.7|N|20|40.3|E|format=dms|display=inline,title}}\n" +
+                "  |postal_code = \n" +
+                "  |area_code = \n" +
+                "  |licence = ΙΝ\n" +
+                "  |mayor = \n" +
+                "  |website = \n" +
+                " |image_skyline      = \n" +
+                " |caption_skyline    = \n" +
+                " |party              = \n" +
+                " |since              = \n}}\n\n" +
+                "'''Kato Pedina''' ({{lang-el|Κάτω Πεδινά}} meaning \"lower fields\", before 1928: Κάτω Σουδενά"
+
+        val expected = "{{Infobox Greek place\n" +
+                "  |name = Kato Pedina\n" +
+                "  |image_alt = Bar\n|image_caption = Foo\n" +
+                "|name_local = Κάτω Πεδινά\n" +
+                "  |periph = [[Epirus (region)|Epirus]]\n" +
+                "|periphunit         = [[Ioannina (regional unit)|Ioannina]]\n" +
+                "|municipality = [[Zagori]]\n" +
+                "|municunit = [[Central Zagori]]\n" +
+                "  |population_village = 41\n" +
+                "  |population_as_of = 2011\n" +
+                "  |area =  \n" +
+                "  |elevation = 940\n" +
+                "  |coordinates = {{coord|39|52.7|N|20|40.3|E|format=dms|display=inline,title}}\n" +
+                "  |postal_code = \n" +
+                "  |area_code = \n" +
+                "  |licence = ΙΝ\n" +
+                "  |mayor = \n" +
+                "  |website = \n" +
+                " |image_skyline      = Test_image.jpg\n" +
+                " |caption_skyline    = \n" +
+                " |party              = \n" +
+                " |since              = \n}}\n\n" +
+                "'''Kato Pedina''' ({{lang-el|Κάτω Πεδινά}} meaning \"lower fields\", before 1928: Κάτω Σουδενά"
+
+        MatcherAssert.assertThat(InsertMediaViewModel.insertImageIntoWikiText("en", wikitext, "Test_image.jpg", "Foo",
+            "Bar", InsertMediaViewModel.IMAGE_SIZE_DEFAULT, InsertMediaViewModel.IMAGE_TYPE_THUMBNAIL, InsertMediaViewModel.IMAGE_POSITION_RIGHT,
+            0, true).first, Matchers.`is`(expected))
+    }
+
+    @Test
     fun testInsertImageIntoArticleWithInfoboxWithExistingImage() {
         val wikitext = "{{short description|Species of beetle}}\n" +
                 "{{Speciesbox\n" +
