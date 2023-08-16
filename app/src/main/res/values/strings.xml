@@ -1123,8 +1123,11 @@
     <string name="image_recommendation_tooltip_3">Decide if the image helps readers understand this topic better</string>
     <string name="image_recommendation_tooltip_next">Next</string>
     <string name="image_recommendation_tooltip_warning">Please review the article to understand its topic and inspect the image</string>
+    <string name="suggested_edits_report_feature">Problem with feature</string>
+    <string name="suggested_edits_report_feature_subject">Problem with Suggested Edits</string>
     <string name="edit_summary_added_image">Added image</string>
     <string name="edit_summary_added_caption">Added caption</string>
+    <string name="edit_summary_added_image_and_caption">Added image and caption</string>
     <string name="edit_published_view">View</string>
     <!-- /Suggested edits -->
 
