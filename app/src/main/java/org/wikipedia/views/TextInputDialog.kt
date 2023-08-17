@@ -1,7 +1,6 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -30,7 +29,7 @@ class TextInputDialog constructor(context: Context,
         setView(binding.root)
         binding.textInputContainer.isErrorEnabled = true
         setPositiveButton(positiveButtonText) { _, _ ->
-            callback?.onSuccess(binding.textInput.text.toString(), binding.secondaryTextInput.text.toString(), , binding.tertiaryTextInput.text.toString())
+            callback?.onSuccess(binding.textInput.text.toString(), binding.secondaryTextInput.text.toString(), binding.tertiaryTextInput.text.toString())
         }
         setNegativeButton(negativeButtonText) { _, _ ->
             callback?.onCancel()
