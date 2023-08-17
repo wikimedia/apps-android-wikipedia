@@ -64,6 +64,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                     when (it) {
                         is TalkTemplatesViewModel.UiState.Loading -> onLoading()
                         is TalkTemplatesViewModel.UiState.Success -> onSuccess()
+                        is TalkTemplatesViewModel.UiState.Saved -> onSaved(it.position)
                         is TalkTemplatesViewModel.UiState.Error -> onError(it.throwable)
                     }
                 }
@@ -113,13 +114,18 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesRecyclerView.isVisible = viewModel.talkTemplatesList.isNotEmpty()
     }
 
+    private fun onSaved(position: Int) {
+        FeedbackUtil.showMessage(this, R.string.talk_templates_edit_message_updated)
+        binding.talkTemplatesRecyclerView.adapter?.notifyItemChanged(position)
+    }
+
     private fun onError(t: Throwable) {
         binding.talkTemplatesProgressBar.visibility = View.GONE
         binding.talkTemplatesErrorView.setError(t)
         binding.talkTemplatesErrorView.visibility = View.VISIBLE
     }
 
-    private fun showEditDialog(talkTemplate: TalkTemplate) {
+    private fun showEditDialog(position: Int, talkTemplate: TalkTemplate) {
         TextInputDialog(requireContext(), R.string.talk_templates_new_message_dialog_save,
             R.string.talk_templates_edit_message_dialog_delete).let { textInputDialog ->
             textInputDialog.callback = object : TextInputDialog.Callback {
@@ -159,7 +165,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 }
 
                 override fun onSuccess(text: CharSequence, secondaryText: CharSequence, tertiaryText: CharSequence) {
-                    viewModel.updateTalkTemplate(text.toString(), secondaryText.toString(), tertiaryText.toString(), talkTemplate)
+                    viewModel.updateTalkTemplate(text.toString(), secondaryText.toString(), tertiaryText.toString(), talkTemplate, position)
                 }
 
                 override fun onCancel() {}
@@ -171,8 +177,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     internal inner class TalkTemplatesItemViewHolder(val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) {
-        fun bindItem(item: TalkTemplate) {
-            templatesItemView.setContents(item)
+        fun bindItem(position: Int, item: TalkTemplate) {
+            templatesItemView.setContents(position, item)
         }
     }
 
@@ -189,7 +195,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            (holder as TalkTemplatesItemViewHolder).bindItem(viewModel.talkTemplatesList[position])
+            (holder as TalkTemplatesItemViewHolder).bindItem(position, viewModel.talkTemplatesList[position])
         }
 
         override fun onViewAttachedToWindow(holder: RecyclerView.ViewHolder) {
@@ -218,8 +224,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             notifyItemMoved(oldPosition, newPosition)
         }
 
-        override fun onClick(talkTemplate: TalkTemplate) {
-            showEditDialog(talkTemplate)
+        override fun onClick(position: Int, talkTemplate: TalkTemplate) {
+            showEditDialog(position, talkTemplate)
         }
     }
 

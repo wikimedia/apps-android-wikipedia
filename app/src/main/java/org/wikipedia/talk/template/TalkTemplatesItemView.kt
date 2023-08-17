@@ -11,12 +11,11 @@ import org.wikipedia.databinding.ItemTalkTemplatesBinding
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.log.L
 
 class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     interface Callback {
-        fun onClick(talkTemplate: TalkTemplate)
+        fun onClick(position: Int, talkTemplate: TalkTemplate)
     }
 
     private var binding = ItemTalkTemplatesBinding.inflate(LayoutInflater.from(context), this)
@@ -30,12 +29,11 @@ class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? =
         FeedbackUtil.setButtonLongPressToast(binding.listItem)
     }
 
-    fun setContents(talkTemplate: TalkTemplate) {
+    fun setContents(position: Int, talkTemplate: TalkTemplate) {
         this.talkTemplate = talkTemplate
         binding.listItem.text = talkTemplate.title
         binding.listItem.setOnClickListener {
-            L.d("TalkTemplate onCLick ??")
-            callback?.onClick(talkTemplate)
+            callback?.onClick(position, talkTemplate)
         }
     }
 

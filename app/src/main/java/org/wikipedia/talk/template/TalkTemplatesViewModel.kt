@@ -53,14 +53,14 @@ class TalkTemplatesViewModel : ViewModel() {
         }
     }
 
-    fun updateTalkTemplate(title: String, subject: String, body: String, talkTemplate: TalkTemplate) {
+    fun updateTalkTemplate(title: String, subject: String, body: String, talkTemplate: TalkTemplate, position: Int) {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
                 talkTemplate.title = title
                 talkTemplate.subject = subject
                 talkTemplate.message = body
                 talkTemplatesRepository.updateTemplate(talkTemplate)
-                _uiState.value = UiState.Success()
+                _uiState.value = UiState.Saved(position)
             }
         }
     }
@@ -68,6 +68,7 @@ class TalkTemplatesViewModel : ViewModel() {
     open class UiState {
         class Loading : UiState()
         class Success : UiState()
+        class Saved(val position: Int) : UiState()
         class Error(val throwable: Throwable) : UiState()
     }
 }
