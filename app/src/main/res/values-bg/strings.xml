@@ -958,7 +958,7 @@
   <string name="image_recommendation_tutorial">Ръководство</string>
   <string name="image_recommendation_accept">Да</string>
   <string name="image_recommendation_reject">Не</string>
-  <string name="image_recommendation_notsure">Не съм {{GENDER:|сигурен|сигурна}}</string>
+  <string name="image_recommendation_notsure">Не съм сигурен/а</string>
   <string name="image_recommendation_reject_title">Защо не?</string>
   <string name="image_recommendation_reject_subtitle">Вашите отговори подобряват бъдещите предложения.</string>
   <string name="image_recommendation_reject_not_relevant">Изображението не е уместно</string>
