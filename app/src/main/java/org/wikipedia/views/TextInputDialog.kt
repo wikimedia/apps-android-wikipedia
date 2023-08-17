@@ -1,6 +1,7 @@
 package org.wikipedia.views
 
 import android.content.Context
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -11,13 +12,11 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.databinding.DialogTextInputBinding
 
-class TextInputDialog constructor(context: Context,
-                                  positiveButtonText: Int = R.string.text_input_dialog_ok_button_text,
-                                  negativeButtonText: Int = R.string.text_input_dialog_cancel_button_text) : MaterialAlertDialogBuilder(context) {
+class TextInputDialog constructor(context: Context) : MaterialAlertDialogBuilder(context) {
     interface Callback {
         fun onShow(dialog: TextInputDialog)
         fun onTextChanged(text: CharSequence, dialog: TextInputDialog)
-        fun onSuccess(text: CharSequence, secondaryText: CharSequence, tertiaryText: CharSequence)
+        fun onSuccess(text: CharSequence, secondaryText: CharSequence)
         fun onCancel()
     }
 
@@ -28,10 +27,10 @@ class TextInputDialog constructor(context: Context,
     init {
         setView(binding.root)
         binding.textInputContainer.isErrorEnabled = true
-        setPositiveButton(positiveButtonText) { _, _ ->
-            callback?.onSuccess(binding.textInput.text.toString(), binding.secondaryTextInput.text.toString(), binding.tertiaryTextInput.text.toString())
+        setPositiveButton(R.string.text_input_dialog_ok_button_text) { _: DialogInterface, _: Int ->
+            callback?.onSuccess(binding.textInput.text.toString(), binding.secondaryTextInput.text.toString())
         }
-        setNegativeButton(negativeButtonText) { _, _ ->
+        setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _: DialogInterface, _: Int ->
             callback?.onCancel()
         }
         binding.textInput.doOnTextChanged { text, _, _, _ ->
@@ -59,17 +58,8 @@ class TextInputDialog constructor(context: Context,
         binding.secondaryTextInput.setText(text)
     }
 
-    fun setTertiaryText(text: CharSequence?) {
-        binding.tertiaryTextInput.setText(text)
-    }
-
     fun showSecondaryText(show: Boolean): TextInputDialog {
         binding.secondaryTextInputContainer.visibility = if (show) View.VISIBLE else View.GONE
-        return this
-    }
-
-    fun showTertiaryText(show: Boolean): TextInputDialog {
-        binding.tertiaryTextInputContainer.visibility = if (show) View.VISIBLE else View.GONE
         return this
     }
 
@@ -79,10 +69,6 @@ class TextInputDialog constructor(context: Context,
 
     fun setSecondaryHint(@StringRes id: Int) {
         binding.secondaryTextInputContainer.hint = context.resources.getString(id)
-    }
-
-    fun setTertiaryHint(@StringRes id: Int) {
-        binding.tertiaryTextInputContainer.hint = context.resources.getString(id)
     }
 
     fun setError(text: CharSequence?) {
