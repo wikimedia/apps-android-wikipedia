@@ -29,7 +29,6 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
-import org.wikipedia.views.TextInputDialog
 import org.wikipedia.views.UserMentionInputView
 
 class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentionInputView.Listener {
@@ -97,14 +96,14 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     }
 
     private fun showSaveDialog(subject: String, body: String) {
-        TextInputDialog(this, R.string.talk_templates_new_message_dialog_save,
+        TalkTemplatesTextInputDialog(this, R.string.talk_templates_new_message_dialog_save,
             R.string.talk_templates_new_message_dialog_cancel).let { textInputDialog ->
-            textInputDialog.callback = object : TextInputDialog.Callback {
-                override fun onShow(dialog: TextInputDialog) {
+            textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
+                override fun onShow(dialog: TalkTemplatesTextInputDialog) {
                     dialog.setHint(R.string.talk_templates_new_message_dialog_hint)
                 }
 
-                override fun onTextChanged(text: CharSequence, dialog: TextInputDialog) {
+                override fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog) {
                     text.toString().trim().let {
                         when {
                             it.isEmpty() -> {

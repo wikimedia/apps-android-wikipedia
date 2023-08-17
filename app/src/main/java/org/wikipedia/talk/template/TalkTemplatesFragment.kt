@@ -26,7 +26,6 @@ import org.wikipedia.R
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.views.TextInputDialog
 
 class TalkTemplatesFragment : Fragment(), MenuProvider {
     private var _binding: FragmentTalkTemplatesBinding? = null
@@ -126,10 +125,10 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     private fun showEditDialog(position: Int, talkTemplate: TalkTemplate) {
-        TextInputDialog(requireContext(), R.string.talk_templates_new_message_dialog_save,
+        TalkTemplatesTextInputDialog(requireContext(), R.string.talk_templates_new_message_dialog_save,
             R.string.talk_templates_edit_message_dialog_delete).let { textInputDialog ->
-            textInputDialog.callback = object : TextInputDialog.Callback {
-                override fun onShow(dialog: TextInputDialog) {
+            textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
+                override fun onShow(dialog: TalkTemplatesTextInputDialog) {
                     dialog.setHint(R.string.talk_templates_new_message_dialog_hint)
                     dialog.setText(talkTemplate.title, false)
                     dialog.setSecondaryHint(R.string.talk_templates_new_message_subject_hint)
@@ -138,7 +137,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                     dialog.setTertiaryText(talkTemplate.message)
                 }
 
-                override fun onTextChanged(text: CharSequence, dialog: TextInputDialog) {
+                override fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog) {
                     text.toString().trim().let {
                         when {
                             it.isEmpty() -> {
