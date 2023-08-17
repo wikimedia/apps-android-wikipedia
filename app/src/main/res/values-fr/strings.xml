@@ -417,9 +417,9 @@
   <string name="redirected_from_snackbar">Redirigé de « %s »</string>
   <string name="button_get_directions">Obtenir les directions</string>
   <string name="error_no_maps_app">Impossible de trouver une application fournissant des itinéraires.</string>
-  <string name="preference_title_customize_explore_feed">Explorer le fil</string>
+  <string name="preference_title_customize_explore_feed">Flux d\'exploration</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de liens</string>
-  <string name="preference_summary_customize_explore_feed">Personnaliser le fil d’exploration</string>
+  <string name="preference_summary_customize_explore_feed">Personnaliser le flux d\'exploration</string>
   <string name="preference_summary_show_link_previews">Afficher un rapide aperçu des articles en tapant sur les liens.</string>
   <string name="preference_title_collapse_tables">Replier les tableaux</string>
   <string name="preference_summary_collapse_tables">Replier automatiquement les tableaux dans les articles, comme les boîtes d’information, les références et les notes.</string>
@@ -829,7 +829,7 @@
   <string name="view_offline_card_text">Le contenu ne peut être chargé hors connexion.</string>
   <string name="view_featured_article_card_title">Article vedette</string>
   <string name="view_static_card_save_button_label">Enregistrer</string>
-  <string name="feed_configure_activity_title">Configurer le fil</string>
+  <string name="feed_configure_activity_title">Configurer le flux</string>
   <string name="feed_configure_menu_reset">Rétablir la vue par défaut</string>
   <string name="feed_configure_menu_select_all">Afficher tout</string>
   <string name="feed_configure_menu_deselect_all">Cacher tout</string>
@@ -843,11 +843,11 @@
   <string name="feed_item_type_main_page">Page d’accueil de Wikipédia avec le contenu vedette du jour</string>
   <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
   <string name="feed_item_type_suggested_edits">Suggestions pour ajouter du contenu à Wikipédia</string>
-  <string name="feed_empty_message">Il n’y a rien dans votre flux à Explorer</string>
+  <string name="feed_empty_message">Il n’y a rien dans votre flux d\'exploration</string>
   <string name="feed_configure_onboarding_action">Personnaliser</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Annuler</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre flux à Explorer&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Vous pouvez maintenant choisir ce que vous voulez montrer sur votre fil et aussi prioriser vos types de contenu favoris.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre flux d\'exploration&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Vous pouvez maintenant choisir ce que vous voulez montrer sur votre flux et aussi prioriser vos types de contenu favoris.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
   <string name="feed_accessibility_card_text">Vous avez atteint la fin du flux.</string>
@@ -1120,8 +1120,11 @@
   <string name="image_recommendation_tooltip_3">Décider si l’image aide les lecteurs à comprendre mieux ce sujet</string>
   <string name="image_recommendation_tooltip_next">Suivant</string>
   <string name="image_recommendation_tooltip_warning">Veuillez relire l’article pour comprendre son sujet et inspecter l’image</string>
+  <string name="suggested_edits_report_feature">Problème avec la fonctionnalité</string>
+  <string name="suggested_edits_report_feature_subject">Problème avec les modifications suggérées</string>
   <string name="edit_summary_added_image">Image ajoutée</string>
   <string name="edit_summary_added_caption">Légende ajoutée</string>
+  <string name="edit_summary_added_image_and_caption">Image et légende ajoutées</string>
   <string name="edit_published_view">Afficher</string>
   <string name="file_page_activity_title">Page du fichier</string>
   <string name="file_page_add_image_caption_button">Ajouter une légende d’image</string>
@@ -1142,7 +1145,7 @@
   <string name="onboarding_get_started">C’est parti</string>
   <string name="onboarding_maybe_later">Peut-être plus tard</string>
   <string name="onboarding_explore_title">Nouvelles façons d’explorer</string>
-  <string name="onboarding_explore_text">Plongez dans le terrier de Wikipédia avec un flux Explorer continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos intérêts — si s’agit d’apprendre les événements historiques &lt;b&gt;Sur cette journée&lt;/b&gt; ou de choisir aléatoirement avec &lt;b&gt;Aléatoire&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Plongez dans le terrier de Wikipédia avec un flux d\'exploration continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos intérêts — si s’agit d’apprendre les événements historiques &lt;b&gt;Sur cette journée&lt;/b&gt; ou de choisir aléatoirement avec &lt;b&gt;Aléatoire&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listes de lecture avec synchronisation</string>
   <string name="onboarding_reading_list_sync_text_v2">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même lorsque vous êtes hors connexion.&lt;br /&gt;\nConnectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Envoyer les données de manière anonyme</string>

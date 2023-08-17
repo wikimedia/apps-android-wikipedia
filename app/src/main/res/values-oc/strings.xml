@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* BrennodAloisi
 * COMISSIONTOPOC
 * Cedric31
 * Envlh
@@ -314,4 +315,5 @@
   <string name="description_edit_tutorial_keep_it_short">Siatz brèu</string>
   <string name="description_edit_tutorial_button_label_start_editing">Començatz d\'editar</string>
   <string name="suggested_edits_article_cta_snackbar_action">Monstrar</string>
+  <string name="talk_list_item_last_comment_date">Darrièr comentari: %s</string>
 </resources>
