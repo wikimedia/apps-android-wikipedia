@@ -43,7 +43,7 @@ object ReadingListTitleDialog {
                     }
                 }
 
-                override fun onSuccess(text: CharSequence, secondaryText: CharSequence, tertiaryText: CharSequence) {
+                override fun onSuccess(text: CharSequence, secondaryText: CharSequence) {
                     callback?.onSuccess(text.toString().trim(), secondaryText.toString().trim())
                 }
 

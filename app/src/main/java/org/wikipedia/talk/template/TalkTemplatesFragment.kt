@@ -130,7 +130,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {
                     dialog.setTitleHint(R.string.talk_templates_new_message_dialog_hint)
-                    dialog.setTitleText(talkTemplate.title, false)
+                    dialog.setTitleText(talkTemplate.title)
                     dialog.setSubjectHint(R.string.talk_templates_new_message_subject_hint)
                     dialog.setSubjectText(talkTemplate.subject)
                     dialog.setBodyHint(R.string.talk_templates_new_message_compose_hint)

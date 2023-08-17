@@ -23,7 +23,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/subjectTextInputContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
 
         <org.wikipedia.views.PlainPasteEditText
             android:id="@+id/subjectTextInput"
@@ -38,6 +39,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp" />
+        android:visibility="gone" />
 
 </LinearLayout>
