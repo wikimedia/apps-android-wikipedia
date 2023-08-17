@@ -79,9 +79,12 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 }
                 .setAnchorView(binding.acceptButton)
                 .show()
+            ImageRecommendationsEvent.logAction("editsummary_success", "editsummary_dialog", ImageRecommendationsEvent.getActionDataString(
+                filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
+                acceptanceState = "accepted", revisionId = revId.toString(), addTimeSpent = true), viewModel.langCode)
             ImageRecommendationsEvent.logAction("editsummary_success_confirm", "editsummary_dialog", ImageRecommendationsEvent.getActionDataString(
                 filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
-                acceptanceState = "accepted", revisionId = revId.toString()), viewModel.langCode)
+                acceptanceState = "accepted", revisionId = revId.toString(), addTimeSpent = true), viewModel.langCode)
             viewModel.acceptRecommendation(null, revId)
             callback().nextPage(this)
         }
@@ -163,6 +166,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         })
 
         binding.readMoreButton.setOnClickListener {
+            ImageRecommendationsEvent.logAction("read_more", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
+                filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source), viewModel.langCode)
             val title = PageTitle(viewModel.recommendation.titleText, WikiSite.forLanguageCode(viewModel.langCode))
             startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_SUGGESTED_EDITS), title))
         }
@@ -393,7 +398,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         }
 
         requestEdit.launch(EditSectionActivity.newIntent(requireContext(), 0, null,
-            viewModel.pageTitle, Constants.InvokeSource.EDIT_ADD_IMAGE, null, viewModel.recommendedImageTitle))
+            viewModel.pageTitle, Constants.InvokeSource.EDIT_ADD_IMAGE, null, viewModel.recommendedImageTitle, viewModel.recommendation.images[0].source))
     }
 
     override fun publishEnabled(): Boolean {

@@ -114,9 +114,6 @@ class EditSummaryFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         editSummaryHandler = EditSummaryHandler(binding.root, binding.editSummaryText, title)
-        if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
-            ImageRecommendationsEvent.logImpression("editsummary_dialog")
-        }
     }
 
     override fun onDestroyView() {

@@ -364,10 +364,10 @@ class SuggestedEditsTasksFragment : Fragment() {
                 ImageRecommendationsEvent.logAction(if (secondary) "add_caption_translate_start" else "add_caption_start", "suggested_edits_dialog", "", "")
                 startActivity(SuggestionsActivity.newIntent(requireActivity(), if (secondary) TRANSLATE_CAPTION else ADD_CAPTION, Constants.InvokeSource.SUGGESTED_EDITS))
             } else if (task == addImageTagsTask) {
+                ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog", "", "")
                 if (Prefs.showImageTagsOnboarding) {
                     startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()), Constants.ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
                 } else {
-                    ImageRecommendationsEvent.logAction("add_tag_start", "suggested_edits_dialog", "", "")
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
                 }
             } else if (task == imageRecommendationsTask) {

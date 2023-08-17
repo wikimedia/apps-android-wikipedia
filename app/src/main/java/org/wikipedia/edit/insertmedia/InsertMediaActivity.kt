@@ -164,10 +164,11 @@ class InsertMediaActivity : BaseActivity() {
             }
             R.id.menu_insert -> {
                 if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && viewModel.selectedImage != null) {
-                    ImageRecommendationsEvent.logAction("caption_continue", "caption_entry",
+                    ImageRecommendationsEvent.logAction("caption_insert", "caption_entry",
                         ImageRecommendationsEvent.getActionDataString(filename = viewModel.selectedImage?.prefixedText!!,
-                            recommendationSource = viewModel.selectedImage?.wikiSite?.languageCode!!, acceptanceState = "accepted"),
-                        viewModel.selectedImage?.wikiSite?.languageCode!!)
+                            recommendationSource = viewModel.selectedImage?.wikiSite?.languageCode!!, acceptanceState = "accepted",
+                            captionAdd = insertMediaSettingsFragment.captionText.isNotEmpty(), altTextAdd = insertMediaSettingsFragment.alternativeText.isNotEmpty()
+                        ), viewModel.selectedImage?.wikiSite?.languageCode!!)
                 }
                 viewModel.selectedImage?.let {
                     val intent = Intent()
@@ -370,6 +371,7 @@ class InsertMediaActivity : BaseActivity() {
     companion object {
         const val EXTRA_SEARCH_QUERY = "searchQuery"
         const val EXTRA_IMAGE_TITLE = "imageTitle"
+        const val EXTRA_IMAGE_SOURCE = "imageSource"
         const val RESULT_IMAGE_CAPTION = "resultImageCaption"
         const val RESULT_IMAGE_ALT = "resultImageAlt"
         const val RESULT_IMAGE_SIZE = "resultImageSize"
@@ -378,11 +380,12 @@ class InsertMediaActivity : BaseActivity() {
         const val RESULT_INSERT_MEDIA_SUCCESS = 100
 
         fun newIntent(context: Context, wikiSite: WikiSite, searchQuery: String,
-                      invokeSource: Constants.InvokeSource, imageTitle: PageTitle? = null): Intent {
+                      invokeSource: Constants.InvokeSource, imageTitle: PageTitle? = null, imageSource: String = ""): Intent {
             return Intent(context, InsertMediaActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
                 .putExtra(EXTRA_IMAGE_TITLE, imageTitle)
+                .putExtra(EXTRA_IMAGE_SOURCE, imageSource)
                 .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
         }
     }
