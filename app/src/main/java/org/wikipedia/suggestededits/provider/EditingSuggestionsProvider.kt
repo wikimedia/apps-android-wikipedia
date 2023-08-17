@@ -12,6 +12,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import java.util.Stack
 import java.util.concurrent.Semaphore
+import kotlin.math.abs
 
 object EditingSuggestionsProvider {
     private val mutex: Semaphore = Semaphore(1)
@@ -32,6 +33,7 @@ object EditingSuggestionsProvider {
 
     private val articlesWithImageRecommendationsCache: Stack<MwQueryPage> = Stack()
     private var articlesWithImageRecommendationsCacheLang: String = ""
+    private var articlesWithImageRecommendationsLastMillis: Long = 0
 
     private const val MAX_RETRY_LIMIT: Long = 50
 
@@ -259,6 +261,12 @@ object EditingSuggestionsProvider {
                     articlesWithImageRecommendationsCache.clear()
                 }
                 articlesWithImageRecommendationsCacheLang = lang
+
+                // Wait at least 5 seconds before serving up the next recommendation.
+                while (abs(System.currentTimeMillis() - articlesWithImageRecommendationsLastMillis) < 5000) {
+                    Thread.sleep(1000)
+                }
+                articlesWithImageRecommendationsLastMillis = System.currentTimeMillis()
 
                 var tries = 0
                 do {
