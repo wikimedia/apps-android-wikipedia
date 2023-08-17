@@ -123,7 +123,11 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
         binding.imageRecommendationsDepletedText.text = StringUtil.fromHtml(getString(R.string.image_recommendation_depleted))
         binding.imageRecommendationsDepletedText.movementMethod = LinkMovementMethodExt(
-            LinkMovementMethodExt.UrlHandler { requireActivity().finish() })
+            LinkMovementMethodExt.UrlHandler {
+                ImageRecommendationsEvent.logAction("suggested_edit_return", "nosuggestions_dialog", ImageRecommendationsEvent.getActionDataString(
+                    filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
+                    acceptanceState = "accepted"), viewModel.langCode)
+                requireActivity().finish() })
 
         binding.acceptButton.setOnClickListener {
             ImageRecommendationsEvent.logAction("suggestion_accept", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
@@ -308,6 +312,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     }
 
     private fun onDepletedState() {
+        ImageRecommendationsEvent.logImpression("nosuggestions_dialog")
         binding.bottomSheetCoordinatorLayout.isVisible = false
         binding.articleContentContainer.isVisible = false
         binding.cardItemProgressBar.isVisible = false
@@ -427,10 +432,19 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     }
 
     override fun onBackPressed(): Boolean {
-        ImageRecommendationsEvent.logAction("back", "recommendedimagetoolbar", ImageRecommendationsEvent.getActionDataString(
-            filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source), viewModel.langCode)
+        if (binding.imageRecommendationsDepletedContainer.isVisible) {
+            ImageRecommendationsEvent.logAction(
+                "back", "nosuggestions_dialog", "", viewModel.langCode
+            )
+        } else {
+            ImageRecommendationsEvent.logAction("back", "recommendedimagetoolbar",
+                ImageRecommendationsEvent.getActionDataString(
+                    filename = viewModel.recommendation.images[0].image,
+                    recommendationSource = viewModel.recommendation.images[0].source), viewModel.langCode)
+        }
         return super.onBackPressed()
     }
+
     companion object {
         const val ARG_LANG = "lang"
         const val MIN_TIME_WARNING_MILLIS = 5000
