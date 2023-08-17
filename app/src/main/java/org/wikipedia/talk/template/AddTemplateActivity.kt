@@ -100,7 +100,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
             R.string.talk_templates_new_message_dialog_cancel).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {
-                    dialog.setHint(R.string.talk_templates_new_message_dialog_hint)
+                    dialog.setTitleHint(R.string.talk_templates_new_message_dialog_hint)
                 }
 
                 override fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog) {
@@ -129,8 +129,8 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
                     }
                 }
 
-                override fun onSuccess(text: CharSequence, secondaryText: CharSequence, tertiaryText: CharSequence) {
-                    viewModel.saveTemplate(text.toString(), subject, body)
+                override fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence) {
+                    viewModel.saveTemplate(titleText.toString(), subject, body)
                 }
 
                 override fun onCancel() {}

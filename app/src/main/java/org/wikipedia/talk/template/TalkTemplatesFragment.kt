@@ -129,12 +129,12 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             R.string.talk_templates_edit_message_dialog_delete).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {
-                    dialog.setHint(R.string.talk_templates_new_message_dialog_hint)
-                    dialog.setText(talkTemplate.title, false)
-                    dialog.setSecondaryHint(R.string.talk_templates_new_message_subject_hint)
-                    dialog.setSecondaryText(talkTemplate.subject)
-                    dialog.setTertiaryHint(R.string.talk_templates_new_message_compose_hint)
-                    dialog.setTertiaryText(talkTemplate.message)
+                    dialog.setTitleHint(R.string.talk_templates_new_message_dialog_hint)
+                    dialog.setTitleText(talkTemplate.title, false)
+                    dialog.setSubjectHint(R.string.talk_templates_new_message_subject_hint)
+                    dialog.setSubjectText(talkTemplate.subject)
+                    dialog.setBodyHint(R.string.talk_templates_new_message_compose_hint)
+                    dialog.setBodyText(talkTemplate.message)
                 }
 
                 override fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog) {
@@ -163,14 +163,14 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                     }
                 }
 
-                override fun onSuccess(text: CharSequence, secondaryText: CharSequence, tertiaryText: CharSequence) {
-                    viewModel.updateTalkTemplate(text.toString(), secondaryText.toString(), tertiaryText.toString(), talkTemplate, position)
+                override fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence) {
+                    viewModel.updateTalkTemplate(titleText.toString(), subjectText.toString(), bodyText.toString(), talkTemplate, position)
                 }
 
                 override fun onCancel() {}
             }
-            textInputDialog.showSecondaryText(true)
-            textInputDialog.showTertiaryText(true)
+            textInputDialog.showSubjectText(true)
+            textInputDialog.showBodyText(true)
             textInputDialog.setTitle(R.string.talk_templates_edit_message_dialog_title)
         }.show()
     }

@@ -17,7 +17,7 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
     interface Callback {
         fun onShow(dialog: TalkTemplatesTextInputDialog)
         fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog)
-        fun onSuccess(text: CharSequence, secondaryText: CharSequence, tertiaryText: CharSequence)
+        fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence)
         fun onCancel()
     }
 
@@ -48,40 +48,37 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         return dialog!!
     }
 
-    fun setText(text: CharSequence?, select: Boolean) {
+    fun setTitleText(text: CharSequence?) {
         binding.titleInput.setText(text)
-        if (select) {
-            binding.titleInput.selectAll()
-        }
     }
 
-    fun setSecondaryText(text: CharSequence?) {
+    fun setSubjectText(text: CharSequence?) {
         binding.subjectTextInput.setText(text)
     }
 
-    fun setTertiaryText(text: CharSequence?) {
+    fun setBodyText(text: CharSequence?) {
         binding.bodyTextInput.editText.setText(text)
     }
 
-    fun showSecondaryText(show: Boolean): TalkTemplatesTextInputDialog {
+    fun showSubjectText(show: Boolean): TalkTemplatesTextInputDialog {
         binding.subjectTextInputContainer.visibility = if (show) View.VISIBLE else View.GONE
         return this
     }
 
-    fun showTertiaryText(show: Boolean): TalkTemplatesTextInputDialog {
+    fun showBodyText(show: Boolean): TalkTemplatesTextInputDialog {
         binding.bodyTextInput.visibility = if (show) View.VISIBLE else View.GONE
         return this
     }
 
-    fun setHint(@StringRes id: Int) {
+    fun setTitleHint(@StringRes id: Int) {
         binding.titleInputContainer.hint = context.resources.getString(id)
     }
 
-    fun setSecondaryHint(@StringRes id: Int) {
+    fun setSubjectHint(@StringRes id: Int) {
         binding.subjectTextInputContainer.hint = context.resources.getString(id)
     }
 
-    fun setTertiaryHint(@StringRes id: Int) {
+    fun setBodyHint(@StringRes id: Int) {
         binding.bodyTextInput.textInputLayout.hint = context.resources.getString(id)
     }
 
