@@ -119,12 +119,17 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesErrorView.visibility = View.VISIBLE
     }
 
-    private fun showEditDialog(position: Int) {
+    private fun showEditDialog(talkTemplate: TalkTemplate) {
         TextInputDialog(requireContext(), R.string.talk_templates_new_message_dialog_save,
-            R.string.talk_templates_message_deleted).let { textInputDialog ->
+            R.string.talk_templates_edit_message_dialog_delete).let { textInputDialog ->
             textInputDialog.callback = object : TextInputDialog.Callback {
                 override fun onShow(dialog: TextInputDialog) {
                     dialog.setHint(R.string.talk_templates_new_message_dialog_hint)
+                    dialog.setText(talkTemplate.title, false)
+                    dialog.setSecondaryHint(R.string.talk_templates_new_message_subject_hint)
+                    dialog.setSecondaryText(talkTemplate.subject)
+                    dialog.setTertiaryHint(R.string.talk_templates_new_message_compose_hint)
+                    dialog.setTertiaryText(talkTemplate.message)
                 }
 
                 override fun onTextChanged(text: CharSequence, dialog: TextInputDialog) {
@@ -135,7 +140,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                                 dialog.setPositiveButtonEnabled(false)
                             }
 
-                            viewModel.talkTemplatesList.any { item -> item.title == it } -> {
+                            viewModel.talkTemplatesList.any { item -> item.title == it && item.id != talkTemplate.id } -> {
                                 dialog.setError(
                                     dialog.context.getString(
                                         R.string.talk_templates_new_message_dialog_exists,
@@ -154,12 +159,13 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 }
 
                 override fun onSuccess(text: CharSequence, secondaryText: CharSequence, tertiaryText: CharSequence) {
-                    // TODO: implement this
+                    viewModel.updateTalkTemplate(text.toString(), secondaryText.toString(), tertiaryText.toString(), talkTemplate)
                 }
 
                 override fun onCancel() {}
             }
             textInputDialog.showSecondaryText(true)
+            textInputDialog.showTertiaryText(true)
             textInputDialog.setTitle(R.string.talk_templates_edit_message_dialog_title)
         }.show()
     }
@@ -170,14 +176,16 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
     }
 
-    internal inner class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    internal inner class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), TalkTemplatesItemView.Callback {
 
         override fun getItemCount(): Int {
             return viewModel.talkTemplatesList.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            return TalkTemplatesItemViewHolder(TalkTemplatesItemView(requireContext()))
+            val view = TalkTemplatesItemView(requireContext())
+            view.callback = this
+            return TalkTemplatesItemViewHolder(view)
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -208,6 +216,10 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             viewModel.swapList(oldPosition, newPosition)
             viewModel.updateItemOrder()
             notifyItemMoved(oldPosition, newPosition)
+        }
+
+        override fun onClick(talkTemplate: TalkTemplate) {
+            showEditDialog(talkTemplate)
         }
     }
 

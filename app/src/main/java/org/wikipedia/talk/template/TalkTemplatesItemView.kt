@@ -11,13 +11,17 @@ import org.wikipedia.databinding.ItemTalkTemplatesBinding
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.log.L
 
-class TalkTemplatesItemView : LinearLayout {
+class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+
+    interface Callback {
+        fun onClick(talkTemplate: TalkTemplate)
+    }
+
     private var binding = ItemTalkTemplatesBinding.inflate(LayoutInflater.from(context), this)
-
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    private lateinit var talkTemplate: TalkTemplate
+    var callback: Callback? = null
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -27,7 +31,12 @@ class TalkTemplatesItemView : LinearLayout {
     }
 
     fun setContents(talkTemplate: TalkTemplate) {
+        this.talkTemplate = talkTemplate
         binding.listItem.text = talkTemplate.title
+        binding.listItem.setOnClickListener {
+            L.d("TalkTemplate onCLick ??")
+            callback?.onClick(talkTemplate)
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")

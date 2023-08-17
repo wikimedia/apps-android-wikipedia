@@ -53,6 +53,18 @@ class TalkTemplatesViewModel : ViewModel() {
         }
     }
 
+    fun updateTalkTemplate(title: String, subject: String, body: String, talkTemplate: TalkTemplate) {
+        viewModelScope.launch(handler) {
+            withContext(Dispatchers.IO) {
+                talkTemplate.title = title
+                talkTemplate.subject = subject
+                talkTemplate.message = body
+                talkTemplatesRepository.updateTemplate(talkTemplate)
+                _uiState.value = UiState.Success()
+            }
+        }
+    }
+
     open class UiState {
         class Loading : UiState()
         class Success : UiState()

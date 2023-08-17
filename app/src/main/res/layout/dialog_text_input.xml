@@ -24,7 +24,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/secondaryTextInputContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
 
         <org.wikipedia.views.PlainPasteEditText
             android:id="@+id/secondaryTextInput"
@@ -37,7 +38,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tertiaryTextInputContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
 
         <org.wikipedia.views.PlainPasteEditText
             android:id="@+id/tertiaryTextInput"
