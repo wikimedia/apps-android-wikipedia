@@ -65,10 +65,21 @@ class TalkTemplatesViewModel : ViewModel() {
         }
     }
 
+    fun deleteTemplate(talkTemplate: TalkTemplate, position: Int) {
+        viewModelScope.launch(handler) {
+            withContext(Dispatchers.IO) {
+                talkTemplatesRepository.deleteTemplate(talkTemplate)
+                talkTemplatesList.remove(talkTemplate)
+                _uiState.value = UiState.Deleted(position)
+            }
+        }
+    }
+
     open class UiState {
         class Loading : UiState()
         class Success : UiState()
         class Saved(val position: Int) : UiState()
+        class Deleted(val position: Int) : UiState()
         class Error(val throwable: Throwable) : UiState()
     }
 }

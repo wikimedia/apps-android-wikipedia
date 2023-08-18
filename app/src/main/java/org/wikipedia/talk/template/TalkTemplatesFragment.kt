@@ -21,6 +21,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
@@ -64,6 +65,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                         is TalkTemplatesViewModel.UiState.Loading -> onLoading()
                         is TalkTemplatesViewModel.UiState.Success -> onSuccess()
                         is TalkTemplatesViewModel.UiState.Saved -> onSaved(it.position)
+                        is TalkTemplatesViewModel.UiState.Deleted -> onDeleted(it.position)
                         is TalkTemplatesViewModel.UiState.Error -> onError(it.throwable)
                     }
                 }
@@ -118,6 +120,13 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesRecyclerView.adapter?.notifyItemChanged(position)
     }
 
+    private fun onDeleted(position: Int) {
+        FeedbackUtil.showMessage(this, R.string.talk_templates_message_deleted)
+        binding.talkTemplatesRecyclerView.adapter?.notifyItemRemoved(position)
+        binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
+        binding.talkTemplatesRecyclerView.isVisible = viewModel.talkTemplatesList.isNotEmpty()
+    }
+
     private fun onError(t: Throwable) {
         binding.talkTemplatesProgressBar.visibility = View.GONE
         binding.talkTemplatesErrorView.setError(t)
@@ -167,7 +176,13 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                     viewModel.updateTalkTemplate(titleText.toString(), subjectText.toString(), bodyText.toString(), talkTemplate, position)
                 }
 
-                override fun onCancel() {}
+                override fun onCancel() {
+                    MaterialAlertDialogBuilder(requireContext())
+                        .setMessage(getString(R.string.talk_templates_edit_message_confirm_description, talkTemplate.title))
+                        .setPositiveButton(R.string.talk_templates_edit_message_dialog_delete) { _, _ -> viewModel.deleteTemplate(talkTemplate, position) }
+                        .setNegativeButton(R.string.talk_templates_new_message_dialog_cancel, null)
+                        .show()
+                }
             }
             textInputDialog.showSubjectText(true)
             textInputDialog.showBodyText(true)
