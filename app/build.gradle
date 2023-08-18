@@ -39,7 +39,7 @@ def computeVersionName(label) {
 
 android {
     // Keep version in sync with /project.properties
-    compileSdkVersion 32
+    compileSdkVersion 33
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -49,7 +49,7 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdkVersion 19
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 50283
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
