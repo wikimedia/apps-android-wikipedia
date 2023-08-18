@@ -22,8 +22,14 @@ class TalkTemplatesViewModel : ViewModel() {
 
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
+    var resetState = false // TODO: verify this if this is really needed. It fixes view re-creation after screen rotation after saved/deleted item from the list/
+
+    init {
+        loadTalkTemplates()
+    }
 
     fun loadTalkTemplates() {
+        resetState = false
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
                 talkTemplatesList.clear()
@@ -61,6 +67,7 @@ class TalkTemplatesViewModel : ViewModel() {
                     this.subject = subject
                     this.message = body
                 }
+                resetState = true
                 _uiState.value = UiState.Saved(position)
             }
         }
@@ -71,6 +78,7 @@ class TalkTemplatesViewModel : ViewModel() {
             withContext(Dispatchers.IO) {
                 talkTemplatesRepository.deleteTemplate(talkTemplate)
                 talkTemplatesList.remove(talkTemplate)
+                resetState = true
                 _uiState.value = UiState.Deleted(position)
             }
         }

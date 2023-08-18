@@ -80,7 +80,9 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadTalkTemplates()
+        if (viewModel.resetState) {
+            viewModel.loadTalkTemplates()
+        }
     }
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
