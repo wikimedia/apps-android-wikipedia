@@ -52,10 +52,10 @@
   <string name="nav_item_back">Terug</string>
   <string name="page_tabs_back">Terug</string>
   <string name="nav_item_forward">Volgende</string>
-  <string name="search_hint">Doorzoek Wikipedia</string>
+  <string name="search_hint">Zoeken in Wikipedia</string>
   <string name="search_hint_voice_search">Zoeken met steminvoer</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filter mijn lijst</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Mijn lijst filteren</string>
   <string name="nav_item_suggested_edits">Bewerkingen</string>
   <string name="nav_item_more">Meer</string>
   <string name="nav_item_search">Zoeken</string>
@@ -73,8 +73,8 @@
   <string name="history_items_deleted">%d artikelen uit geschiedenis verwijderd</string>
   <string name="history_item_delete_undo">Ongedaan maken</string>
   <string name="notification_archive_undo">Ongedaan maken</string>
-  <string name="app_settings">Appinstellingen</string>
-  <string name="search_tab_tooltip">Klik nog een keer op het icoon om rechtstreeks te zoeken.</string>
+  <string name="app_settings">App-instellingen</string>
+  <string name="search_tab_tooltip">Tik nogmaals op het pictogram om direct een zoekterm te typen.</string>
   <string name="history_list_title">Geschiedenis</string>
   <string name="image_content_description">Afbeelding: %s</string>
   <string name="page_content_description">Pagina: %s</string>
@@ -90,7 +90,7 @@
   <string name="page_edit_history_activity_title">Versiegeschiedenis: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;k&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Lege bewerkingssamenvatting</string>
-  <string name="page_edit_history_search_or_filter_edits_hint">Zoek of filter bewerkingen</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">Bewerkingen zoeken of filteren</string>
   <string name="page_edit_history_filter_by">Filteren op</string>
   <string name="page_edit_history_filter_by_all">Alle bewerkingen (%s)</string>
   <string name="page_edit_history_filter_by_user">Gebruikersbewerkingen (%s)</string>
@@ -408,9 +408,9 @@
   <string name="redirected_from_snackbar">Doorverwezen vanaf \"%s\"</string>
   <string name="button_get_directions">Routebeschrijving</string>
   <string name="error_no_maps_app">Er zijn geen apps gevonden die routebeschrijvingen bieden.</string>
-  <string name="preference_title_customize_explore_feed">Hoofdpagina</string>
+  <string name="preference_title_customize_explore_feed">Verkennen</string>
   <string name="preference_title_show_link_previews">Voorvertoningen van koppelingen weergeven</string>
-  <string name="preference_summary_customize_explore_feed">Pas de rubrieken op de Hoofdpagina aan</string>
+  <string name="preference_summary_customize_explore_feed">De rubrieken op Verkennen aanpassen</string>
   <string name="preference_summary_show_link_previews">Korte voorvertoning weergeven van artikelen bij het aanraken van koppelingen.</string>
   <string name="preference_title_collapse_tables">Tabellen inklappen</string>
   <string name="preference_summary_collapse_tables">Klap automatisch tabellen in artikelen in, zoals infoboxen, referenties en noten.</string>
@@ -833,11 +833,11 @@
   <string name="feed_item_type_main_page">Hoofdpagina van Wikipedia met dagelijkse uitgelichte inhoud</string>
   <string name="feed_item_type_randomizer">Genereert willekeurige artikelen om te lezen</string>
   <string name="feed_item_type_suggested_edits">Voorstellen om content aan Wikipedia toe te voegen</string>
-  <string name="feed_empty_message">Er staat niets in uw Explore-feed</string>
+  <string name="feed_empty_message">Er staat niets in uw overzicht Verkennen</string>
   <string name="feed_configure_onboarding_action">Aanpassen</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Annuleren</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Pas uw Explore-feed aan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;U kunt nu kiezen wat u in uw feed wilt laten zien en ook prioriteit geven aan uw favoriete soorten inhoud.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Uw overzicht Verkennen aanpassen&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;U kunt nu kiezen wat u in uw overzicht wilt laten zien en ook prioriteit geven aan uw favoriete soorten inhoud.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuleren</string>
   <string name="feed_accessibility_card_text">U bent bij het einde aangekomen.</string>
@@ -1101,9 +1101,19 @@
   <string name="image_recommendation_reject_submit">Verzenden</string>
   <string name="image_recommendation_tooltip_main">Voeg ontbrekende afbeeldingen in artikelen toe aan Voorgestelde bewerkingen</string>
   <string name="image_recommendation_onboarding_1">Afbeeldingen maken artikelen begrijpelijk, maar veel artikelen hebben er geen.</string>
+  <string name="image_recommendation_onboarding_2">U beslist of een voorgestelde afbeelding in een Wikipedia-artikel moet worden geplaatst.</string>
+  <string name="image_recommendation_onboarding_3">Suggesties worden automatisch gegenereerd en u beoordeelt of ze moeten worden geaccepteerd of afgewezen.</string>
+  <string name="image_recommendation_onboarding_4">De afbeeldingen zijn afkomstig van Wikimedia Commons, een collectie afbeeldingen met vrije licentie die door Wikipedia wordt gebruikt.</string>
+  <string name="image_recommendation_tooltip_1">Lees dit artikel om het onderwerp te begrijpen</string>
+  <string name="image_recommendation_tooltip_2">Inspecteer de afbeelding en de bijbehorende informatie</string>
+  <string name="image_recommendation_tooltip_3">Bepaal of de afbeelding lezers helpt dit onderwerp beter te begrijpen</string>
   <string name="image_recommendation_tooltip_next">Volgende</string>
+  <string name="image_recommendation_tooltip_warning">Lees het artikel om het onderwerp te begrijpen en inspecteer de afbeelding</string>
+  <string name="suggested_edits_report_feature">Probleem met functie</string>
+  <string name="suggested_edits_report_feature_subject">Probleem met voorgestelde bewerkingen</string>
   <string name="edit_summary_added_image">Toegevoegde afbeelding</string>
   <string name="edit_summary_added_caption">Toegevoegd bijschrift</string>
+  <string name="edit_summary_added_image_and_caption">Afbeelding en bijschrift toegevoegd</string>
   <string name="edit_published_view">Bekijken</string>
   <string name="file_page_activity_title">Bestandspagina</string>
   <string name="file_page_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
@@ -1162,7 +1172,7 @@
     <item quantity="one">Geselecteerde taal verwijderen?</item>
     <item quantity="other">Geselecteerde talen verwijderen?</item>
   </plurals>
-  <string name="wikipedia_languages_remove_dialog_content">U ziet alleen inhoud op de Explore-feed en snelle zoekfilters voor de resterende Wikipedia-talen.</string>
+  <string name="wikipedia_languages_remove_dialog_content">U ziet alleen inhoud op het overzicht Verkennen en snelle zoekfilters voor de resterende Wikipedia-talen.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Kan niet alle talen verwijderen</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Houd ten minste één Wikipedia-taal waarin u inhoud kunt zoeken en lezen.</string>
   <string name="more_language_options">meer</string>
@@ -1330,6 +1340,7 @@
   <string name="revision_diff_line_removed">Regel verwijderd</string>
   <string name="revision_diff_paragraph_added">Alinea toegevoegd</string>
   <string name="revision_diff_paragraph_removed">Alinea verwijderd</string>
+  <string name="revision_diff_protected">De wijzigingen die in deze versie zijn aangebracht, zijn niet openbaar toegankelijk.</string>
   <string name="revision_undo_title">Bewerken ongedaan maken</string>
   <string name="revision_undo_message">Hiermee worden de wijzigingen ongedaan gemaakt door de revisie(s) van het hier getoonde artikel.</string>
   <string name="revision_undo_reason">Geef om door te gaan een reden op waarom u deze bewerking ongedaan wilt maken:</string>

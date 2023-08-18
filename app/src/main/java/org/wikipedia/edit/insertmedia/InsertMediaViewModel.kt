@@ -105,6 +105,22 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
+    class InfoboxVars(
+        val templateNameContains: String,
+        val imageParamName: String,
+        val imageCaptionParamName: String,
+        val imageAltParamName: String,
+    )
+
+    class InfoboxVarsCollection(
+        val templateNameRegex: String,
+        val defaultImageParamName: String,
+        val defaultImageCaptionParamName: String,
+        val defaultImageAltParamName: String,
+        val possibleNameParamNames: Array<String>,
+        val vars: List<InfoboxVars>
+    )
+
     companion object {
         const val IMAGE_POSITION_NONE = "img_none"
         const val IMAGE_POSITION_CENTER = "img_center"
@@ -116,6 +132,20 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
         const val IMAGE_TYPE_BASIC = "basic"
         const val IMAGE_ALT_TEXT = "img_alt"
         const val IMAGE_SIZE_DEFAULT = "220x124"
+
+        private val infoboxVarsByLang = mapOf(
+            "en" to InfoboxVarsCollection("infobox|(?:(?:automatic[ |_])?taxobox)|chembox|drugbox|speciesbox",
+                "image", "caption", "alt",
+                arrayOf("name", "official_name", "species", "taxon", "drug_name", "image"),
+                listOf(
+                    InfoboxVars("taxobox", "image", "image_caption", "image_alt"),
+                    InfoboxVars("chembox", "ImageFile", "ImageCaption", "ImageAlt"),
+                    InfoboxVars("speciesbox", "image", "image_caption", "image_alt"),
+                    InfoboxVars("infobox.*place", "image_skyline", "image_caption", "image_alt"),
+                    InfoboxVars("infobox.*settlement", "image_skyline", "image_caption", "image_alt")
+                )
+            ),
+        )
 
         private var magicWordsLang = ""
         private val magicWords = mutableMapOf<String, String>()
@@ -133,7 +163,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
         fun insertImageIntoWikiText(langCode: String, oldWikiText: String, imageTitle: String, imageCaption: String,
                                     imageAltText: String, imageSize: String, imageType: String, imagePos: String,
-                                    cursorPos: Int = 0, attemptInfobox: Boolean = false): String {
+                                    cursorPos: Int = 0, autoInsert: Boolean = false, attemptInfobox: Boolean = false): Pair<String, Boolean> {
             var wikiText = oldWikiText
             val namespaceName = FileAliasData.valueFor(langCode)
 
@@ -160,41 +190,29 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
             var insertedIntoInfobox = false
 
-            // initialize template parameters to the defaults for Infobox
-            var imageParamName = "image"
-            var imageCaptionParamName = "caption"
-            var imageAltParamName = "alt"
+            val infoboxVars = infoboxVarsByLang[langCode] ?: infoboxVarsByLang["en"]!!
 
-            val infoboxNames = listOf("infobox", "(?:(?:automatic[ |_])?taxobox)", "chembox", "drugbox", "speciesbox").joinToString("|")
-            val infoboxMatch = """\{\{\s*(($infoboxNames)[^|]*)\|.*\}\}""".toRegex(setOf(RegexOption.DOT_MATCHES_ALL, RegexOption.IGNORE_CASE)).find(wikiText)
+            // initialize template parameters to the defaults for Infobox
+            var imageParamName = infoboxVars.defaultImageParamName
+            var imageCaptionParamName = infoboxVars.defaultImageCaptionParamName
+            var imageAltParamName = infoboxVars.defaultImageAltParamName
+
+            val infoboxMatch = """\{\{\s*((${infoboxVars.templateNameRegex})[^|]*)\|.*\}\}""".toRegex(setOf(RegexOption.DOT_MATCHES_ALL, RegexOption.IGNORE_CASE)).find(wikiText)
             val infoBoxName = infoboxMatch?.groupValues?.get(1).orEmpty().lowercase().trim()
 
-            when {
-                infoBoxName.contains("settlement") -> {
-                    imageParamName = "image_skyline"
-                    imageCaptionParamName = "image_caption"
-                    imageAltParamName = "image_alt"
-                }
-                infoBoxName.contains("taxobox") -> {
-                    imageCaptionParamName = "image_caption"
-                    imageAltParamName = "image_alt"
-                }
-                infoBoxName.contains("speciesbox") -> {
-                    imageCaptionParamName = "image_caption"
-                    imageAltParamName = "image_alt"
-                }
-                infoBoxName.contains("chembox") -> {
-                    imageParamName = "ImageFile"
-                    imageCaptionParamName = "ImageCaption"
-                    imageAltParamName = "ImageAlt"
+            infoboxVars.vars.forEach {
+                if (infoBoxName.contains(it.templateNameContains.toRegex(RegexOption.IGNORE_CASE))) {
+                    imageParamName = it.imageParamName
+                    imageCaptionParamName = it.imageCaptionParamName
+                    imageAltParamName = it.imageAltParamName
                 }
             }
 
-            if (attemptInfobox && infoboxMatch != null) {
+            if (autoInsert && attemptInfobox && infoboxMatch != null) {
                 val infoboxStartIndex = infoboxMatch.range.first
                 val infoboxEndIndex = infoboxMatch.range.last
 
-                val haveNameParam = findNameParamInTemplate(wikiText, infoboxStartIndex, infoboxEndIndex).first != -1
+                val haveNameParam = findNameParamInTemplate(infoboxVars.possibleNameParamNames, wikiText, infoboxStartIndex, infoboxEndIndex).first != -1
 
                 if (haveNameParam) {
                     var match = """\|\s*$imageParamName\s*=([^|]*)(\|)""".toRegex()
@@ -218,10 +236,12 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                         }
                     } else {
                         // no 'image' parameter exists, so insert one at the end of the 'name' parameter.
-                        val (paramInsertPos, paramNameSpaceConvention) = findNameParamInTemplate(wikiText, infoboxStartIndex, infoboxEndIndex)
-                        insertedIntoInfobox = true
-                        val insertText = "|$paramNameSpaceConvention$imageParamName = $imageTitle\n"
-                        wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
+                        val (paramInsertPos, paramNameSpaceConvention) = findNameParamInTemplate(infoboxVars.possibleNameParamNames, wikiText, infoboxStartIndex, infoboxEndIndex)
+                        if (paramInsertPos > 0) {
+                            insertedIntoInfobox = true
+                            val insertText = "|$paramNameSpaceConvention$imageParamName = $imageTitle\n"
+                            wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
+                        }
                     }
 
                     if (insertedIntoInfobox && imageCaption.isNotEmpty()) {
@@ -240,9 +260,11 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                             }
                         } else {
                             // insert a new caption field
-                            val (paramInsertPos, paramNameSpaceConvention) = findNameParamInTemplate(wikiText, infoboxStartIndex, infoboxEndIndex)
-                            val insertText = "|$paramNameSpaceConvention$imageCaptionParamName = $imageCaption\n"
-                            wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
+                            val (paramInsertPos, paramNameSpaceConvention) = findNameParamInTemplate(infoboxVars.possibleNameParamNames, wikiText, infoboxStartIndex, infoboxEndIndex)
+                            if (paramInsertPos > 0) {
+                                val insertText = "|$paramNameSpaceConvention$imageCaptionParamName = $imageCaption\n"
+                                wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
+                            }
                         }
                     }
 
@@ -262,27 +284,50 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                             }
                         } else {
                             // insert a new alt-text field
-                            val (paramInsertPos, paramNameSpaceConvention) = findNameParamInTemplate(wikiText, infoboxStartIndex, infoboxEndIndex)
-                            val insertText = "|$paramNameSpaceConvention$imageAltParamName = $imageAltText\n"
-                            wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
+                            val (paramInsertPos, paramNameSpaceConvention) = findNameParamInTemplate(infoboxVars.possibleNameParamNames, wikiText, infoboxStartIndex, infoboxEndIndex)
+                            if (paramInsertPos > 0) {
+                                val insertText = "|$paramNameSpaceConvention$imageAltParamName = $imageAltText\n"
+                                wikiText = wikiText.substring(0, paramInsertPos) + insertText + wikiText.substring(paramInsertPos)
+                            }
                         }
                     }
                 }
             }
 
             if (!insertedIntoInfobox) {
-                val pos = cursorPos.coerceIn(0, wikiText.length)
-                wikiText = wikiText.substring(0, pos) + template + "\n" + wikiText.substring(pos)
+                // no infobox, so insert the image at the top of the page, but after any templates
+                // that might be hatnotes, etc.
+
+                var braceLevel = 0
+                var insertIndex = cursorPos
+
+                if (autoInsert) {
+                    for (i in wikiText.indices) {
+                        if (wikiText[i] == '{') {
+                            braceLevel++
+                        } else if (wikiText[i] == '}') {
+                            braceLevel--
+                        } else if (braceLevel == 0) {
+                            if (!wikiText[i].isWhitespace()) {
+                                insertIndex = i
+                                break
+                            }
+                        }
+                    }
+                }
+
+                insertIndex = insertIndex.coerceIn(0, wikiText.length)
+                wikiText = wikiText.substring(0, insertIndex) + template + "\n" + wikiText.substring(insertIndex)
             }
 
-            return wikiText
+            return Pair(wikiText, insertedIntoInfobox)
         }
 
-        private fun findNameParamInTemplate(wikiText: String, startIndex: Int, endIndex: Int): Pair<Int, String> {
+        private fun findNameParamInTemplate(possibleNameParamNames: Array<String>, wikiText: String, startIndex: Int, endIndex: Int): Pair<Int, String> {
             var paramInsertPos = -1
             var paramNameSpaceConvention = ""
 
-            listOf("name", "species", "taxon", "drug_name").forEach { nameParam ->
+            possibleNameParamNames.forEach { nameParam ->
                 if (paramInsertPos != -1) {
                     return@forEach
                 }

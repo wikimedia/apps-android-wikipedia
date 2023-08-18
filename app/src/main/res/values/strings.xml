@@ -1121,9 +1121,11 @@
     <string name="image_recommendation_tooltip_next">Next</string>
     <string name="image_recommendation_tooltip_warning">Please review the article to understand its topic and inspect the image</string>
     <string name="image_recommendation_depleted"><![CDATA[Sorry, there are no more suggested images available at this time. Please explore other <a href="#">suggested edits</a> or return later.]]></string>
+    <string name="suggested_edits_report_feature">Problem with feature</string>
+    <string name="suggested_edits_report_feature_subject">Problem with Suggested Edits</string>
     <string name="edit_summary_added_image">Added image</string>
-    <string name="edit_summary_added_image_and_caption">Added image and caption</string>
     <string name="edit_summary_added_caption">Added caption</string>
+    <string name="edit_summary_added_image_and_caption">Added image and caption</string>
     <string name="edit_published_view">View</string>
     <!-- /Suggested edits -->
 

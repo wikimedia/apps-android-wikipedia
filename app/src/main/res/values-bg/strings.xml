@@ -115,6 +115,7 @@
   <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лиценз.</string>
   <string name="edit_save_action_license_anon">Публикувайки промените, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;Условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лиценз. Редакциите ще бъдат приписани на IP адреса на вашето  устройство. Ако &lt;a href=\"https://#login\"&gt;влезете в системата&lt;/a&gt;, тази информация няма да бъде публична.</string>
+  <string name="edit_anon_warning">Редакциите ще бъдат приписани на IP адреса на вашето устройство. Ако &lt;a href=\"https://#login\"&gt;влезете&lt;/a&gt;, ще имате по-голяма поверителност.</string>
   <string name="preference_title_language">Езици на Уикипедия</string>
   <string name="langlinks_filter_hint">Търсене</string>
   <string name="langlinks_empty">Тази страница не е налична на други езици.</string>
@@ -278,6 +279,7 @@
   <string name="edit_notices">Известия за редактиране</string>
   <string name="edit_notices_please_read">Моля, прочетете преди да редактирате</string>
   <string name="edit_notices_show_auto">Автоматично показване на известията за редактиране</string>
+  <string name="edit_notices_tooltip">Докоснете този бутон, за да видите уведомленията за редактиране на тази статия.</string>
   <string name="find_next">Намиране на следващото</string>
   <string name="find_previous">Намиране на предходното</string>
   <string name="find_first_occurence">Това е първото срещане</string>
@@ -351,6 +353,7 @@
   <string name="tool_tip_bookmark_icon_text">Докоснете иконата за отметка, за да запазите статията в списъка за четене.</string>
   <string name="page_view_in_browser">Преглед на страницата в браузър</string>
   <string name="tool_tip_toc_title">Бърз достъп до съдържанието</string>
+  <string name="tool_tip_toc_text">Вече можете да плъзнете наляво, за да отворите съдържанието, а също така да докоснете и плъзнете този бутон за превъртане, за да преминете бързо към различни секции на статия.</string>
   <string name="tool_tip_lang_button">Сега можете да търсите и четете Уикипедия на различни езици в приложението.\n\n\nДокоснете иконката, за да добавите още езици.</string>
   <string name="error_response_malformed">Отговорът от сървъра не е правилно форматиран.</string>
   <string name="error_unknown">Възникна неизвестна грешка.</string>
@@ -365,6 +368,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Статията не може да бъде заредена в офлайн режим.</string>
   <string name="page_offline_notice_add_to_reading_list">Съвет: Добавете статията към списък за четене и тя ще бъде изтеглена щом се свържете към Интернет.</string>
   <string name="page_offline_notice_last_date">Четете офлайн версия на тази статия, запазена на %s.</string>
+  <string name="redirected_from_snackbar">Пренасочено от „%s“</string>
   <string name="button_get_directions">Упътвания</string>
   <string name="error_no_maps_app">Не са намерени приложения, предоставящи навигация.</string>
   <string name="preference_title_customize_explore_feed">Разгледайте емисията</string>
@@ -951,6 +955,32 @@
     <item quantity="one">Добавихте %d знак</item>
     <item quantity="other">Добавихте %d знака</item>
   </plurals>
+  <string name="image_recommendation_tutorial">Ръководство</string>
+  <string name="image_recommendation_accept">Да</string>
+  <string name="image_recommendation_reject">Не</string>
+  <string name="image_recommendation_notsure">Не съм сигурен/а</string>
+  <string name="image_recommendation_reject_title">Защо не?</string>
+  <string name="image_recommendation_reject_subtitle">Вашите отговори подобряват бъдещите предложения.</string>
+  <string name="image_recommendation_reject_not_relevant">Изображението не е уместно</string>
+  <string name="image_recommendation_reject_no_info">Няма достатъчно информация за вземане на решение</string>
+  <string name="image_recommendation_reject_offensive">Изображението е обидно</string>
+  <string name="image_recommendation_reject_low_quality">Изображението е с ниско качество</string>
+  <string name="image_recommendation_reject_dont_know">Не познавам тази тема</string>
+  <string name="image_recommendation_reject_other">Друго</string>
+  <string name="image_recommendation_reject_submit">Изпращане</string>
+  <string name="image_recommendation_tooltip_main">Добавете липсващи изображения към статии в Предложени редакции</string>
+  <string name="image_recommendation_onboarding_1">Снимките помагат на хората да разберат, но много статии нямат такива.</string>
+  <string name="image_recommendation_onboarding_2">Вие ще решите дали предложено изображение трябва да бъде поставено в статия в Уикипедия.</string>
+  <string name="image_recommendation_onboarding_3">Предложенията се генерират машинно, а Вие ще използвате Вашата преценка, за да решите дали да ги приемете или отхвърлите.</string>
+  <string name="image_recommendation_onboarding_4">Изображенията са от Общомедия, колекция от свободно лицензирани изображения, използвани от Уикипедия.</string>
+  <string name="image_recommendation_tooltip_1">Прегледайте тази статия, за да разберете нейната тема</string>
+  <string name="image_recommendation_tooltip_2">Проверете изображението и свързаната с него информация</string>
+  <string name="image_recommendation_tooltip_3">Решете дали изображението помага на читателите да разберат по-добре тази тема</string>
+  <string name="image_recommendation_tooltip_next">Напред</string>
+  <string name="image_recommendation_tooltip_warning">Моля, прегледайте статията, за да разберете нейната тема и да проверите изображението</string>
+  <string name="edit_summary_added_image">Добавено изображение</string>
+  <string name="edit_summary_added_caption">Добавено на описание</string>
+  <string name="edit_published_view">Преглед</string>
   <string name="file_page_activity_title">Страница на файла</string>
   <string name="file_page_add_image_caption_button">Добавяне на описание за изображение</string>
   <string name="file_page_add_image_tags_button">Добавяне на етикети към изображения</string>
@@ -1033,6 +1063,8 @@
   <string name="wikitext_strikethrough">Зачеркване</string>
   <string name="wikitext_sup">Горен индекс</string>
   <string name="wikitext_sub">Долен индекс</string>
+  <string name="wikitext_large">Голям текст</string>
+  <string name="wikitext_small">Малък текст</string>
   <string name="wikitext_code">Код</string>
   <string name="wikitext_link">Препратка</string>
   <string name="wikitext_heading_n">Подзаглавие %d</string>
@@ -1050,8 +1082,12 @@
   <string name="insert_media_settings">Добавяне на подробности за изображението</string>
   <string name="insert_media_settings_uploaded_image">Качено изображение</string>
   <string name="insert_media_settings_caption">Описание на изображението</string>
+  <string name="insert_media_settings_caption_description">Видим етикет на изображението в статията</string>
   <string name="insert_media_settings_alternative_text">Алтернативен текст</string>
+  <string name="insert_media_settings_alternative_text_description">Описание за читатели с увредено зрение</string>
   <string name="insert_media_advanced_settings">Разширени настройки</string>
+  <string name="insert_media_advanced_settings_wrap_image">Обвиване на текст около изображение</string>
+  <string name="insert_media_advanced_settings_image_position">Положение на картината</string>
   <string name="insert_media_advanced_settings_image_position_right">Отдясно</string>
   <string name="insert_media_advanced_settings_image_position_left">Отляво</string>
   <string name="insert_media_advanced_settings_image_position_center">По средата</string>
@@ -1061,6 +1097,7 @@
   <string name="insert_media_advanced_settings_image_type_frameless">Без рамка</string>
   <string name="insert_media_advanced_settings_image_type_frame">Рамка</string>
   <string name="insert_media_advanced_settings_image_type_basic">Основно</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Можете да зададете как медийният елемент да се показва на страницата. Това трябва да бъде форматът на миниатюрата, за да бъде съвместим с други страници в почти всички случаи.</string>
   <string name="insert_media_advanced_settings_image_size">Размер на изображението</string>
   <string name="insert_media_advanced_settings_image_size_default">По подразбиране</string>
   <string name="insert_media_advanced_settings_image_size_custom">Персонализиран</string>
@@ -1074,6 +1111,7 @@
   <string name="main_tooltip_text_v2">Знаете ли, че всеки може да редактира Уикипедия?</string>
   <string name="main_tooltip_action_button">Начало</string>
   <string name="main_tooltip_watchlist_title">Списък за наблюдение</string>
+  <string name="main_tooltip_watchlist_text">Намерете статии и страници, които преди сте добавили към вашия списък за наблюдение, в менюто Още под &lt;b&gt;Списък за наблюдение&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Добре</string>
   <string name="text_input_dialog_ok_button_text">Добре</string>
   <string name="text_input_dialog_cancel_button_text">Отказ</string>
@@ -1081,7 +1119,9 @@
   <string name="talk_title">Беседа</string>
   <string name="talk_user_title">Беседа: %s</string>
   <string name="talk_new_topic">Нова тема</string>
+  <string name="talk_new_topic_submitted">Темата е публикувана.</string>
   <string name="talk_page_empty">Беседата е празна.</string>
+  <string name="talk_page_empty_title">Разговорът започва тук</string>
   <string name="talk_add_reply">Отговор</string>
   <string name="talk_no_subject">(Няма тема)</string>
   <string name="talk_reply_subject">Тема</string>
@@ -1102,6 +1142,8 @@
   <string name="talk_overflow_sort_topic_name">Наименование на тема</string>
   <string name="talk_new_topic_exit_dialog_title">Сигурен ли сте, че искате да излезете?</string>
   <string name="talk_new_topic_exit_dialog_message">Темата и текстът на съдържанието няма да бъдат съхранени.</string>
+  <string name="talk_thread_subscribed_to">Абонирахте се за „%s“</string>
+  <string name="talk_thread_unsubscribed_from">Отписахте се от „%s“</string>
   <string name="talk_list_item_overflow_subscribe">Абониране</string>
   <string name="talk_list_item_overflow_subscribed">Абониран</string>
   <string name="talk_list_item_overflow_mark_as_read">Отбелязване като прочетено</string>
@@ -1109,8 +1151,11 @@
   <string name="talk_list_item_overflow_share">Споделяне</string>
   <string name="talk_list_item_last_comment_date">Последен коментар: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Общо отговори</string>
+  <string name="talk_list_item_user_icon_content_description">Потребителска иконка</string>
   <string name="talk_list_item_swipe_mark_as_read">Прочетено</string>
   <string name="talk_list_item_swipe_mark_as_unread">Непрочетено</string>
+  <string name="talk_login_to_subscribe_dialog_title">Влезте, за да се абонирате за теми</string>
+  <string name="talk_login_to_subscribe_dialog_content">Абонаментите за теми ще Ви позволят да получавате известия за нови коментари в тази тема. Моля, създайте сметка или влезте във Вашата сметка в Уикипедия, за да се абонирате за тема.</string>
   <string name="talk_archived_title">Архив на беседа: %s</string>
   <string name="menu_option_share_talk_discussion">Споделяне на дискусия</string>
   <string name="menu_option_share_talk_page">Споделяне на беседа</string>
@@ -1121,6 +1166,8 @@
   <string name="menu_option_find_in_talk_page_topic">Намиране в тема на беседа</string>
   <string name="menu_option_copy_link_to_clipboard">Копиране на връзката в системния буфер</string>
   <string name="talk_menu_copy_text">Копиране на текста</string>
+  <string name="talk_menu_expand_threads">Разгъване на нишките</string>
+  <string name="talk_menu_collapse_threads">Свиване на нишките</string>
   <string name="watchlist_details_watching_label">Наблюдавана</string>
   <string name="watchlist_details_watch_label">Наблюдение</string>
   <string name="watchlist_details_next_edit">Следваща редакция</string>
@@ -1128,8 +1175,10 @@
   <string name="thank_label">Благодарност</string>
   <string name="view_user_page">Преглед на потребителската страница</string>
   <string name="thank_dialog_title_text">Изпратете публично благодарност</string>
+  <string name="thank_dialog_text">„Благодарност“-та е лесен начин да покажете признателност за работата на редактора в Уикипедия. „Благодарност“-та не може да бъде отменена и е публично видима.</string>
   <string name="thank_dialog_positive_button_text">Изпращане на благодарност</string>
   <string name="thank_dialog_negative_button_text">Отказ</string>
+  <string name="thank_success_message">Вашата „Благодарност“ е изпратена до %s 👍</string>
   <string name="menu_option_view_user_profile">Преглед на потребителската страница</string>
   <string name="menu_option_view_user_talk">Преглед на беседата</string>
   <string name="menu_option_view_user_contributions">Преглед на приносите</string>
@@ -1144,8 +1193,15 @@
   <string name="revision_diff_line_removed">Премахнат е ред</string>
   <string name="revision_diff_paragraph_added">Добавен е абзац</string>
   <string name="revision_diff_paragraph_removed">Премахнат е абзац</string>
+  <string name="revision_diff_protected">Промените, направени в тази редакция, не са публично достъпни.</string>
   <string name="revision_undo_title">Отмяна на редакцията</string>
+  <string name="revision_undo_message">Това ще отмени промените, направени от редакциите на статията, показани тук.</string>
+  <string name="revision_undo_reason">За да продължите, моля, посочете причина за отмяна на тази редакция:</string>
+  <string name="revision_undo_success">Редакцията е върната.</string>
+  <string name="revision_rollback_dialog_title">Сигурни ли сте, че искате отмените редакциите?</string>
+  <string name="revision_rollback_success">Редакциите са отменени.</string>
   <string name="revision_compare_button">Сравняване</string>
+  <string name="revision_compare_two_only">Могат да бъдат избрани само две версии.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Промяна</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">за 1 седмица</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">за 1 месец</string>
@@ -1235,4 +1291,5 @@
   <string name="reading_list_share_menu_tooltip">Споделяне на списъка за четене с други</string>
   <string name="data_opt_in_accept">Приемане</string>
   <string name="data_opt_in_reject">Отхвърляне</string>
+  <string name="page_issues_title">Проблеми със страницата</string>
 </resources>

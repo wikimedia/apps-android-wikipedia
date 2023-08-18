@@ -2,6 +2,7 @@ package org.wikipedia.util
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -29,6 +30,7 @@ import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.util.log.L
 
 object FeedbackUtil {
     private const val LENGTH_SHORT = 3000
@@ -104,6 +106,17 @@ object FeedbackUtil {
     fun showAndroidAppEditingFAQ(context: Context,
                                  @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
+    }
+
+    fun composeFeedbackEmail(context: Context, subject: String, body: String = "") {
+        val intent = Intent()
+            .setAction(Intent.ACTION_SENDTO)
+            .setData(Uri.parse("mailto:${context.getString(R.string.support_email)}?subject=${Uri.encode(subject)}&body=${Uri.encode(body)}"))
+        try {
+            context.startActivity(intent)
+        } catch (e: Exception) {
+            L.e(e)
+        }
     }
 
     fun setButtonLongPressToast(vararg views: View) {

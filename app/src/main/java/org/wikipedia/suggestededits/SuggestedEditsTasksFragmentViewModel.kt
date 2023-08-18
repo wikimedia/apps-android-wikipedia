@@ -73,7 +73,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
                     imageRecommendationsEnabled = it[0].parameters[0].typeAsEnum.contains("image-recommendation")
                 }
             }
-            */
+             */
             wikiSupportsImageRecommendations = true
 
             homeSiteResponse.query?.userInfo?.let {
