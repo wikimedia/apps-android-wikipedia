@@ -1,5 +1,6 @@
 package org.wikipedia.talk.template
 
+import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -27,6 +28,7 @@ import org.wikipedia.R
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.views.DrawableItemDecoration
 
 class TalkTemplatesFragment : Fragment(), MenuProvider {
     private var _binding: FragmentTalkTemplatesBinding? = null
@@ -104,6 +106,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         val adapter = RecyclerAdapter()
         binding.talkTemplatesRecyclerView.adapter = adapter
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.talkTemplatesRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
         itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(adapter))
         itemTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)
     }
@@ -140,7 +143,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesErrorView.visibility = View.VISIBLE
     }
 
-    private fun showEditDialog(position: Int, talkTemplate: TalkTemplate) {
+    private fun showEditDialog(talkTemplate: TalkTemplate) {
         TalkTemplatesTextInputDialog(requireContext(), R.string.talk_templates_new_message_dialog_save,
             R.string.talk_templates_edit_message_dialog_delete).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
@@ -180,13 +183,13 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 }
 
                 override fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence) {
-                    viewModel.updateTalkTemplate(titleText.toString(), subjectText.toString(), bodyText.toString(), talkTemplate, position)
+                    viewModel.updateTalkTemplate(titleText.toString(), subjectText.toString(), bodyText.toString(), talkTemplate)
                 }
 
                 override fun onCancel() {
                     MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme_Delete)
                         .setMessage(getString(R.string.talk_templates_edit_message_confirm_description, talkTemplate.title))
-                        .setPositiveButton(R.string.talk_templates_edit_message_dialog_delete) { _, _ -> viewModel.deleteTemplate(talkTemplate, position) }
+                        .setPositiveButton(R.string.talk_templates_edit_message_dialog_delete) { _, _ -> viewModel.deleteTemplate(talkTemplate) }
                         .setNegativeButton(R.string.talk_templates_new_message_dialog_cancel, null)
                         .show()
                 }
@@ -199,8 +202,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     internal inner class TalkTemplatesItemViewHolder(val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) {
-        fun bindItem(position: Int, item: TalkTemplate) {
-            templatesItemView.setContents(position, item)
+        fun bindItem(item: TalkTemplate) {
+            templatesItemView.setContents(item)
         }
     }
 
@@ -217,7 +220,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            (holder as TalkTemplatesItemViewHolder).bindItem(position, viewModel.talkTemplatesList[position])
+            (holder as TalkTemplatesItemViewHolder).bindItem(viewModel.talkTemplatesList[position])
         }
 
         override fun onViewAttachedToWindow(holder: RecyclerView.ViewHolder) {
@@ -246,8 +249,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             notifyItemMoved(oldPosition, newPosition)
         }
 
-        override fun onClick(position: Int, talkTemplate: TalkTemplate) {
-            showEditDialog(position, talkTemplate)
+        override fun onClick(talkTemplate: TalkTemplate) {
+            showEditDialog(talkTemplate)
         }
     }
 
@@ -269,6 +272,16 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         override fun onMove(recyclerView: RecyclerView, source: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
             adapter.onMoveItem(source.absoluteAdapterPosition, target.absoluteAdapterPosition)
             return true
+        }
+
+        @SuppressLint("NotifyDataSetChanged")
+        override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
+            super.clearView(recyclerView, viewHolder)
+            recyclerView.post {
+                if (isAdded) {
+                    adapter.notifyDataSetChanged()
+                }
+            }
         }
     }
 

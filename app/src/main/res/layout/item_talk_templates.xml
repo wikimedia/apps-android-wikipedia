@@ -16,11 +16,16 @@
         app:tint="?android:attr/textColorTertiary" />
 
     <TextView
+        style="@style/P.MaterialListTitle"
         android:id="@+id/listItem"
-        style="@style/OverflowMenuItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="16dp"
         android:layout_weight="1"
         android:contentDescription="@string/customize_toolbar_item_default_tooltip"
-        android:drawablePadding="16dp"
-        android:text="@string/talk_templates_manage_title"/>
+        android:text="@string/talk_templates_manage_title"
+        android:background="?android:attr/selectableItemBackground"/>
 
 </merge>

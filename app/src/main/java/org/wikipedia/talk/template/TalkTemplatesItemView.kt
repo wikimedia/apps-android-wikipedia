@@ -14,11 +14,10 @@ import org.wikipedia.util.ResourceUtil
 class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     interface Callback {
-        fun onClick(position: Int, talkTemplate: TalkTemplate)
+        fun onClick(talkTemplate: TalkTemplate)
     }
 
     private var binding = ItemTalkTemplatesBinding.inflate(LayoutInflater.from(context), this)
-    private lateinit var talkTemplate: TalkTemplate
     var callback: Callback? = null
 
     init {
@@ -27,14 +26,13 @@ class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? =
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 
-    fun setContents(position: Int, talkTemplate: TalkTemplate) {
-        this.talkTemplate = talkTemplate
+    fun setContents(talkTemplate: TalkTemplate) {
         binding.listItem.text = talkTemplate.title
         binding.listItem.setOnClickListener {
-            callback?.onClick(position, talkTemplate)
+            callback?.onClick(talkTemplate)
         }
         binding.listItem.setOnLongClickListener {
-            callback?.onClick(position, talkTemplate)
+            callback?.onClick(talkTemplate)
             true
         }
     }

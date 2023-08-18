@@ -42,6 +42,10 @@ class TalkTemplatesViewModel : ViewModel() {
 
     fun swapList(oldPosition: Int, newPosition: Int) {
         Collections.swap(talkTemplatesList, oldPosition, newPosition)
+        resetOrder()
+    }
+
+    private fun resetOrder() {
         for (i in talkTemplatesList.indices) {
             talkTemplatesList[i].order = i
         }
@@ -55,7 +59,7 @@ class TalkTemplatesViewModel : ViewModel() {
         }
     }
 
-    fun updateTalkTemplate(title: String, subject: String, body: String, talkTemplate: TalkTemplate, position: Int) {
+    fun updateTalkTemplate(title: String, subject: String, body: String, talkTemplate: TalkTemplate) {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
                 talkTemplate.title = title
@@ -68,18 +72,20 @@ class TalkTemplatesViewModel : ViewModel() {
                     this.message = body
                 }
                 resetState = true
-                _uiState.value = UiState.Saved(position)
+                _uiState.value = UiState.Saved(talkTemplate.order)
             }
         }
     }
 
-    fun deleteTemplate(talkTemplate: TalkTemplate, position: Int) {
+    fun deleteTemplate(talkTemplate: TalkTemplate) {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
                 talkTemplatesRepository.deleteTemplate(talkTemplate)
                 talkTemplatesList.remove(talkTemplate)
+                resetOrder()
+                talkTemplatesRepository.updateTemplates(talkTemplatesList)
                 resetState = true
-                _uiState.value = UiState.Deleted(position)
+                _uiState.value = UiState.Deleted(talkTemplate.order)
             }
         }
     }
