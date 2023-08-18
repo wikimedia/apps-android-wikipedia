@@ -494,6 +494,19 @@
         <item name="elevationOverlayEnabled">false</item>
         <item name="materialAlertDialogTitleTextStyle">@style/H2.DialogTitle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
+        <item name="buttonBarNegativeButtonStyle">@style/InactiveDialogButton</item>
+    </style>
+
+    <style name="AlertDialogTheme.Delete">
+        <item name="buttonBarPositiveButtonStyle">@style/DestructiveDialogButton</item>
+    </style>
+
+    <style name="InactiveDialogButton" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/inactive_color</item>
+    </style>
+
+    <style name="DestructiveDialogButton" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/destructive_color</item>
     </style>
 
     <style name="PreferenceDialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog">
