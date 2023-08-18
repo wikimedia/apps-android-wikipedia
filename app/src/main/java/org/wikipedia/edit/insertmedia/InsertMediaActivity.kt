@@ -164,7 +164,7 @@ class InsertMediaActivity : BaseActivity() {
             }
             R.id.menu_insert -> {
                 if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && viewModel.selectedImage != null) {
-                    ImageRecommendationsEvent.logAction("caption_insert", "caption_entry",
+                    ImageRecommendationsEvent.logAction("caption_continue", "caption_entry",
                         ImageRecommendationsEvent.getActionDataString(filename = viewModel.selectedImage?.prefixedText!!,
                             recommendationSource = viewModel.selectedImage?.wikiSite?.languageCode!!, acceptanceState = "accepted",
                             captionAdd = insertMediaSettingsFragment.captionText.isNotEmpty(), altTextAdd = insertMediaSettingsFragment.alternativeText.isNotEmpty()

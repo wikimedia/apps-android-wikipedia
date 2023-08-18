@@ -518,7 +518,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             }
             editPreviewFragment.isActive -> {
                 if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
-                    ImageRecommendationsEvent.logAction("caption_preview_accept", "caption_entry", ImageRecommendationsEvent.getActionDataString(
+                    ImageRecommendationsEvent.logAction("caption_preview_accept", "caption_preview", ImageRecommendationsEvent.getActionDataString(
                         filename = addImageTitle?.prefixedText.orEmpty(), recommendationSource = addImageSource.orEmpty(), acceptanceState = "accepted",
                         captionAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
                         altTextAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty()), pageTitle.wikiSite.languageCode)

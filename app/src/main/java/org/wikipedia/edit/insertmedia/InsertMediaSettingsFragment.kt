@@ -161,7 +161,7 @@ class InsertMediaSettingsFragment : Fragment() {
 
     fun handleBackPressed(): Boolean {
         if (isActive) {
-            sendInsertMediaEvent("caption_back")
+            sendInsertMediaEvent("back")
             hide()
             return true
         }

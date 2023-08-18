@@ -79,9 +79,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 }
                 .setAnchorView(binding.acceptButton)
                 .show()
-            ImageRecommendationsEvent.logAction("editsummary_success", "editsummary_dialog", ImageRecommendationsEvent.getActionDataString(
-                filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
-                acceptanceState = "accepted", revisionId = revId.toString(), addTimeSpent = true), viewModel.langCode)
             ImageRecommendationsEvent.logAction("editsummary_success_confirm", "editsummary_dialog", ImageRecommendationsEvent.getActionDataString(
                 filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
                 acceptanceState = "accepted", revisionId = revId.toString(), addTimeSpent = true), viewModel.langCode)
@@ -426,7 +423,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         viewModel.rejectRecommendation(null, selectedItems)
         ImageRecommendationsEvent.logAction("reject_submit", "rejection_dialog", ImageRecommendationsEvent.getActionDataString(
             filename = viewModel.recommendation.images[0].image, recommendationSource = viewModel.recommendation.images[0].source,
-            rejectionReasons = "" + selectedItems.map { ImageRecommendationsEvent.reasons.getOrNull(it) },
+            rejectionReasons = selectedItems.map { ImageRecommendationsEvent.reasons.getOrNull(it) }.toString(),
             acceptanceState = "rejected"), viewModel.langCode)
         publish()
     }

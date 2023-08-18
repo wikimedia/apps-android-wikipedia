@@ -19,7 +19,7 @@ class ImageRecommendationsEvent(
 ) : MobileAppsEvent(STREAM_NAME) {
 
     companion object {
-        private const val STREAM_NAME = "eventlogging_EditAttemptStep"
+        private const val STREAM_NAME = "android.android_image_recommendation_event"
         val reasons = listOf("notrelevant", "noinfo", "offensive", "lowquality", "unfamiliar", "other")
         private val timer = ActiveTimer()
 
@@ -50,7 +50,7 @@ class ImageRecommendationsEvent(
         fun getActionDataString(filename: String = "", recommendationSource: String = "", rejectionReasons: String = "", acceptanceState: String = "",
                                 revisionId: String = "", captionAdd: Boolean? = null, altTextAdd: Boolean? = null, addTimeSpent: Boolean = false): String {
             return "filename:${URLEncoder.encode(filename, "UTF-8")}, recommendation_source:$recommendationSource, rejection_reasons:$rejectionReasons, " +
-                    "acceptance_state:$acceptanceState revision_id:$revisionId, caption_add: ${captionAdd ?: ""}, alt_text_add: ${altTextAdd ?: ""}, " +
+                    "acceptance_state:$acceptanceState, revision_id:$revisionId, caption_add: ${captionAdd ?: ""}, alt_text_add: ${altTextAdd ?: ""}, " +
                     "timeSpent:${if (addTimeSpent) timer.elapsedMillis.toString() else ""}"
         }
 
