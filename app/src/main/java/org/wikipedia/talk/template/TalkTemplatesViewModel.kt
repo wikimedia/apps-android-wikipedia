@@ -56,6 +56,11 @@ class TalkTemplatesViewModel : ViewModel() {
                 talkTemplate.subject = subject
                 talkTemplate.message = body
                 talkTemplatesRepository.updateTemplate(talkTemplate)
+                talkTemplatesList.find { it == talkTemplate }?.apply {
+                    this.title = title
+                    this.subject = subject
+                    this.message = body
+                }
                 _uiState.value = UiState.Saved(position)
             }
         }
