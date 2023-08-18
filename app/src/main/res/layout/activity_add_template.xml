@@ -17,11 +17,11 @@
             android:orientation="vertical">
 
             <TextView
+                style="@style/P.MaterialListTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/talk_templates_new_message_description"
-                android:layout_marginHorizontal="16dp"
-                android:textColor="?attr/primary_color"/>
+                android:layout_marginHorizontal="16dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/addTemplateSubjectLayout"

@@ -135,8 +135,9 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
 
                 override fun onCancel() {}
             }
+            textInputDialog.setDialogMessage(getString(R.string.talk_templates_new_message_dialog_description))
+            textInputDialog.showDialogMessage(true)
             textInputDialog.setTitle(R.string.talk_templates_new_message_dialog_title)
-            textInputDialog.setMessage(R.string.talk_templates_new_message_dialog_description)
         }.show()
     }
 

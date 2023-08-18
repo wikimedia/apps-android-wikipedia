@@ -184,6 +184,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                         .show()
                 }
             }
+            textInputDialog.showDialogMessage(false)
             textInputDialog.showSubjectText(true)
             textInputDialog.showBodyText(true)
             textInputDialog.setTitle(R.string.talk_templates_edit_message_dialog_title)

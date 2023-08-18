@@ -2,10 +2,10 @@ package org.wikipedia.talk.template
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.WindowManager
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
@@ -48,6 +48,10 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         return dialog!!
     }
 
+    fun setDialogMessage(text: String) {
+        binding.dialogMessage.text = text
+    }
+
     fun setTitleText(text: CharSequence?) {
         binding.titleInput.setText(text)
     }
@@ -60,14 +64,16 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         binding.bodyTextInput.editText.setText(text)
     }
 
-    fun showSubjectText(show: Boolean): TalkTemplatesTextInputDialog {
-        binding.subjectTextInputContainer.visibility = if (show) View.VISIBLE else View.GONE
-        return this
+    fun showDialogMessage(show: Boolean) {
+        binding.dialogMessage.isVisible = show
     }
 
-    fun showBodyText(show: Boolean): TalkTemplatesTextInputDialog {
-        binding.bodyTextInput.visibility = if (show) View.VISIBLE else View.GONE
-        return this
+    fun showSubjectText(show: Boolean) {
+        binding.subjectTextInputContainer.isVisible = show
+    }
+
+    fun showBodyText(show: Boolean) {
+        binding.bodyTextInput.isVisible = show
     }
 
     fun setTitleHint(@StringRes id: Int) {

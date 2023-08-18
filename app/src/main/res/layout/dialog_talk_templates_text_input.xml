@@ -4,7 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="24dp">
+
+    <TextView
+        style="@style/H3.MaterialListTitle"
+        android:id="@+id/dialogMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/titleInputContainer"
@@ -17,6 +25,7 @@
             android:layout_height="wrap_content"
             android:inputType="textCapSentences"
             android:textSize="16sp">
+            <requestFocus />
         </org.wikipedia.views.PlainPasteEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
