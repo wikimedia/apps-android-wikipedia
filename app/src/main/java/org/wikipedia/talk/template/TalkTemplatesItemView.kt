@@ -9,7 +9,6 @@ import android.widget.LinearLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkTemplatesBinding
 import org.wikipedia.talk.db.TalkTemplate
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 
 class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
@@ -26,7 +25,6 @@ class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? =
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT)
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
-        FeedbackUtil.setButtonLongPressToast(binding.listItem)
     }
 
     fun setContents(position: Int, talkTemplate: TalkTemplate) {
@@ -34,6 +32,10 @@ class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? =
         binding.listItem.text = talkTemplate.title
         binding.listItem.setOnClickListener {
             callback?.onClick(position, talkTemplate)
+        }
+        binding.listItem.setOnLongClickListener {
+            callback?.onClick(position, talkTemplate)
+            true
         }
     }
 

@@ -23,10 +23,6 @@ class TalkTemplatesViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
 
-    init {
-        loadTalkTemplates()
-    }
-
     fun loadTalkTemplates() {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {

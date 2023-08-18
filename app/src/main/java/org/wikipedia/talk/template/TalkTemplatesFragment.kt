@@ -78,6 +78,11 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         _binding = null
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadTalkTemplates()
+    }
+
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_talk_templates, menu)
     }
