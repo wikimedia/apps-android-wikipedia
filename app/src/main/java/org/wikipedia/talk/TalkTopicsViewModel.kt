@@ -55,12 +55,14 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
         }
 
     val uiState = MutableStateFlow(UiState())
+    var resetState = false
 
     init {
         loadTopics()
     }
 
     fun loadTopics() {
+        resetState = false
         // Determine whether we need to resolve the PageTitle, since the calling activity might
         // have given us a non-Talk page, and we need to prepend the correct namespace.
         var resolveTitleRequired = false
@@ -128,6 +130,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
                 CsrfTokenClient.getToken(pageTitle.wikiSite).blockingFirst()
             }
             val undoResponse = ServiceFactory.get(pageTitle.wikiSite).postUndoEdit(title = pageTitle.prefixedText, undoRevId = newRevisionId, token = token)
+            resetState = true
             uiState.value = UiState.UndoEdit(undoResponse, undoneSubject, undoneBody)
         }
     }
@@ -229,6 +232,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
             response.getFirst()?.let {
                 isWatched = it.watched
                 hasWatchlistExpiry = lastWatchExpiry != WatchlistExpiry.NEVER
+                resetState = true
                 // We have to send values to the object, even if we use the variables from ViewModel.
                 // Otherwise the status will not be updated in the activity since the values in the object remains the same.
                 uiState.value = UiState.DoWatch(isWatched, hasWatchlistExpiry)
