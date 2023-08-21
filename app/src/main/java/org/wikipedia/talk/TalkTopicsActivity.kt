@@ -178,14 +178,37 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.uiState.collect {
-                    when (it) {
-                        is TalkTopicsViewModel.UiState.UpdateNamespace -> setToolbarTitle(it.pageTitle)
-                        is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems)
-                        is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
-                        is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch()
-                        is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
-                        is TalkTopicsViewModel.UiState.ActionError -> FeedbackUtil.showError(this@TalkTopicsActivity, it.throwable)
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is TalkTopicsViewModel.UiState.UpdateNamespace -> setToolbarTitle(it.pageTitle)
+                            is TalkTopicsViewModel.UiState.LoadTopic -> updateOnSuccess(it.pageTitle, it.threadItems)
+                            is TalkTopicsViewModel.UiState.LoadError -> updateOnError(it.throwable)
+                        }
+                    }
+                }
+
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
+                        }
+                    }
+                }
+
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch()
+                        }
+                    }
+                }
+
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is TalkTopicsViewModel.UiState.ActionError -> FeedbackUtil.showError(this@TalkTopicsActivity, it.throwable)
+                        }
                     }
                 }
             }
