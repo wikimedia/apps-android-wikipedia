@@ -1112,8 +1112,11 @@
   <string name="image_recommendation_tooltip_3">Görselin, okuyucuların bu konuyu daha iyi anlamasına yardımcı olup olmadığına karar verin</string>
   <string name="image_recommendation_tooltip_next">Sonraki</string>
   <string name="image_recommendation_tooltip_warning">Konusunu anlamak için lütfen maddeyi gözden geçirin ve görseli inceleyin</string>
+  <string name="suggested_edits_report_feature">Özellikle ilgili sorun</string>
+  <string name="suggested_edits_report_feature_subject">Önerilen Düzenlemelerle ilgili sorun</string>
   <string name="edit_summary_added_image">Görsel eklendi</string>
   <string name="edit_summary_added_caption">Alt yazı eklendi</string>
+  <string name="edit_summary_added_image_and_caption">Görsel ve alt yazı eklendi</string>
   <string name="edit_published_view">Görüntüle</string>
   <string name="file_page_activity_title">Dosya sayfası</string>
   <string name="file_page_add_image_caption_button">Resim yazısı ekle</string>
