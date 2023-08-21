@@ -219,9 +219,6 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     public override fun onResume() {
         super.onResume()
         searchActionModeCallback.searchActionProvider?.selectAllQueryTexts()
-        if (viewModel.resetState) {
-            viewModel.loadTopics()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
