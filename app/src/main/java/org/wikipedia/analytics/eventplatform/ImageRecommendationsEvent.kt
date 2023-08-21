@@ -49,9 +49,9 @@ class ImageRecommendationsEvent(
 
         fun getActionDataString(filename: String = "", recommendationSource: String = "", recommendationSourceProjects: String = "", rejectionReasons: String = "", acceptanceState: String = "",
                                 revisionId: String = "", captionAdd: Boolean? = null, altTextAdd: Boolean? = null, addTimeSpent: Boolean = false): String {
-            return "filename:${URLEncoder.encode(filename, "UTF-8")}, recommendation_source:$recommendationSource, recommendation_source_project:$recommendationSourceProjects, rejection_reasons:$rejectionReasons, " +
-                    "acceptance_state:$acceptanceState, revision_id:$revisionId, caption_add: ${captionAdd ?: ""}, alt_text_add: ${altTextAdd ?: ""}, " +
-                    "timeSpent:${if (addTimeSpent) timer.elapsedMillis.toString() else ""}"
+            return "filename: ${URLEncoder.encode(filename, "UTF-8")}, recommendation_source: $recommendationSource, recommendation_source_project: $recommendationSourceProjects, rejection_reasons: $rejectionReasons, " +
+                    "acceptance_state: $acceptanceState, revision_id: $revisionId, caption_add: ${captionAdd ?: ""}, alt_text_add: ${altTextAdd ?: ""}, " +
+                    "timeSpent: ${if (addTimeSpent) timer.elapsedMillis.toString() else ""}"
         }
 
         private fun submitImageRecommendationEvent(action: String, activeInterface: String, actionData: String, wikiId: String) {

@@ -33,7 +33,9 @@ class ReadingListActivity : SingleFragmentActivity<ReadingListFragment>() {
 
     override fun onBackPressed() {
         super.onBackPressed()
+        if (intent.getBooleanExtra(EXTRA_READING_LIST_PREVIEW, false)) {
             ReadingListsAnalyticsHelper.logReceiveCancel(this, fragment.readingList)
+        }
     }
 
     companion object {
