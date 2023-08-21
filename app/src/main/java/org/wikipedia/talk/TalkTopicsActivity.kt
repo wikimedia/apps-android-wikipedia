@@ -123,6 +123,9 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                     .show()
                 viewModel.loadTopics()
             }
+        } else {
+            // Make sure to reload the list in the case of exiting from the undo process.
+            viewModel.loadTopics()
         }
     }
 
