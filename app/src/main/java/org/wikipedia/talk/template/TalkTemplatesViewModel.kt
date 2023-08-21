@@ -22,14 +22,15 @@ class TalkTemplatesViewModel : ViewModel() {
 
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
-    var resetState = false // TODO: verify this if this is really needed. It fixes view re-creation after screen rotation after saved/deleted item from the list/
+
+    private val _actionState = MutableStateFlow(ActionState())
+    val actionState = _actionState.asStateFlow()
 
     init {
         loadTalkTemplates()
     }
 
     fun loadTalkTemplates() {
-        resetState = false
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
                 talkTemplatesList.clear()
@@ -71,8 +72,7 @@ class TalkTemplatesViewModel : ViewModel() {
                     this.subject = subject
                     this.message = body
                 }
-                resetState = true
-                _uiState.value = UiState.Saved(talkTemplate.order)
+                _actionState.value = ActionState.Saved(talkTemplate.order)
             }
         }
     }
@@ -84,8 +84,7 @@ class TalkTemplatesViewModel : ViewModel() {
                 talkTemplatesList.remove(talkTemplate)
                 resetOrder()
                 talkTemplatesRepository.updateTemplates(talkTemplatesList)
-                resetState = true
-                _uiState.value = UiState.Deleted(talkTemplate.order)
+                _actionState.value = ActionState.Deleted(talkTemplate.order)
             }
         }
     }
@@ -93,8 +92,11 @@ class TalkTemplatesViewModel : ViewModel() {
     open class UiState {
         class Loading : UiState()
         class Success : UiState()
-        class Saved(val position: Int) : UiState()
-        class Deleted(val position: Int) : UiState()
         class Error(val throwable: Throwable) : UiState()
+    }
+
+    open class ActionState {
+        class Saved(val position: Int) : ActionState()
+        class Deleted(val position: Int) : ActionState()
     }
 }

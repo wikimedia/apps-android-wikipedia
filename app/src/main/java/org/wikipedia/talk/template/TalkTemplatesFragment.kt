@@ -62,13 +62,22 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.uiState.collect {
-                    when (it) {
-                        is TalkTemplatesViewModel.UiState.Loading -> onLoading()
-                        is TalkTemplatesViewModel.UiState.Success -> onSuccess()
-                        is TalkTemplatesViewModel.UiState.Saved -> onSaved(it.position)
-                        is TalkTemplatesViewModel.UiState.Deleted -> onDeleted(it.position)
-                        is TalkTemplatesViewModel.UiState.Error -> onError(it.throwable)
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is TalkTemplatesViewModel.UiState.Loading -> onLoading()
+                            is TalkTemplatesViewModel.UiState.Success -> onSuccess()
+                            is TalkTemplatesViewModel.UiState.Error -> onError(it.throwable)
+                        }
+                    }
+                }
+
+                launch {
+                    viewModel.actionState.collect {
+                        when (it) {
+                            is TalkTemplatesViewModel.ActionState.Saved -> onSaved(it.position)
+                            is TalkTemplatesViewModel.ActionState.Deleted -> onDeleted(it.position)
+                        }
                     }
                 }
             }
@@ -78,13 +87,6 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onResume() {
-        super.onResume()
-        if (viewModel.resetState) {
-            viewModel.loadTalkTemplates()
-        }
     }
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
