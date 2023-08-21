@@ -9,8 +9,8 @@
     <string name="suggested_edits_survey_url">@null</string>
     <string name="talk_pages_survey_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Communication/UsertestingOctober2021</string>
     <string name="survey_privacy_policy_url">https://foundation.wikimedia.org/wiki/Legal:Wikipedia_Android_App_Onboarding_Survey_Privacy_Statement</string>
-    <string name="image_captions_style_url">https://www.mediawiki.org/wiki/Help:Images</string>
-    <string name="image_alt_text_style_url">https://www.mediawiki.org/wiki/Help:Images</string>
+    <string name="image_captions_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
+    <string name="image_alt_text_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
