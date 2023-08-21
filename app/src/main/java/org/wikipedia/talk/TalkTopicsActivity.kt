@@ -189,25 +189,11 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
                 }
 
                 launch {
-                    viewModel.uiState.collect {
+                    viewModel.actionState.collect {
                         when (it) {
-                            is TalkTopicsViewModel.UiState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
-                        }
-                    }
-                }
-
-                launch {
-                    viewModel.uiState.collect {
-                        when (it) {
-                            is TalkTopicsViewModel.UiState.DoWatch -> updateOnWatch()
-                        }
-                    }
-                }
-
-                launch {
-                    viewModel.uiState.collect {
-                        when (it) {
-                            is TalkTopicsViewModel.UiState.ActionError -> FeedbackUtil.showError(this@TalkTopicsActivity, it.throwable)
+                            is TalkTopicsViewModel.ActionState.UndoEdit -> updateOnUndoSave(it.undoneSubject, it.undoneBody)
+                            is TalkTopicsViewModel.ActionState.DoWatch -> updateOnWatch()
+                            is TalkTopicsViewModel.ActionState.OnError -> FeedbackUtil.showError(this@TalkTopicsActivity, it.throwable)
                         }
                     }
                 }
