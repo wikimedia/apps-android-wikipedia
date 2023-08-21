@@ -1082,6 +1082,8 @@
   <string name="image_recommendation_accept">Sì</string>
   <string name="image_recommendation_reject_title">Perché no?</string>
   <string name="image_recommendation_reject_dont_know">Non conosco questo argomento</string>
+  <string name="suggested_edits_report_feature_subject">Problemi con le modifiche suggerite</string>
+  <string name="edit_summary_added_image_and_caption">Immagine e didascalia aggiunti</string>
   <string name="file_page_activity_title">Pagina del file</string>
   <string name="file_page_add_image_caption_button">Aggiungi didascalia immagine</string>
   <string name="file_page_add_image_tags_button">Aggiungi etichette all\'immagine</string>

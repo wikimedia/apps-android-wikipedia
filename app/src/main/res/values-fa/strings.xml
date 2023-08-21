@@ -21,6 +21,7 @@
 * Fitoschido
 * Freshman404
 * Hadi
+* Havadar-hvac
 * Jeeputer
 * Kourosh
 * Ladsgroup
@@ -1023,6 +1024,9 @@
     <item quantity="one">شما %d نویسه افزودید</item>
     <item quantity="other">شما %d نویسه افزودید</item>
   </plurals>
+  <string name="suggested_edits_report_feature">مشکل با ویژگی</string>
+  <string name="suggested_edits_report_feature_subject">مشکل با اصطلاحات در ویرایش پیشنهادی</string>
+  <string name="edit_summary_added_image_and_caption">تصویر و کپشن اضافه شد</string>
   <string name="file_page_activity_title">صفحه پرونده</string>
   <string name="file_page_add_image_caption_button">افزودن برنگاشت تصویر</string>
   <string name="file_page_add_image_tags_button">افزودن برچسب‌های تصویر</string>
