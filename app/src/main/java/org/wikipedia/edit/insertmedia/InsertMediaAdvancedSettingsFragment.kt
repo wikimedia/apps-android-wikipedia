@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.databinding.FragmentInsertMediaAdvancedSettingsBinding
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.util.ResourceUtil
@@ -68,6 +69,9 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
 
     fun handleBackPressed(): Boolean {
         if (isActive) {
+            ImageRecommendationsEvent.logAction("advanced_setting_back", "caption_entry",
+                ImageRecommendationsEvent.getActionDataString(filename = viewModel.selectedImage?.prefixedText.orEmpty(),
+                    recommendationSource = viewModel.selectedImageSource), viewModel.wikiSite.languageCode)
             hide()
             return true
         }
