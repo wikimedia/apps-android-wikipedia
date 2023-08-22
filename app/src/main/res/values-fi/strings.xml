@@ -187,7 +187,7 @@
   <string name="logout_prompt">Tämä kirjaa sinut ulos kaikista laitteista joihin olet tällä hetkellä kirjautunut. Haluatko jatkaa?</string>
   <string name="logout_dialog_cancel_button_text">Peruuta</string>
   <string name="logged_out_in_background_title">Kirjauduttu ulos</string>
-  <string name="logged_out_in_background_dialog">Sinut on kirjattu ulos Wikipediasta. Haluaisitko kirjautua takaisin sisään?</string>
+  <string name="logged_out_in_background_dialog">Olet kirjautunut ulos Wikipediasta. Haluaisitko kirjautua takaisin sisään?</string>
   <string name="logged_out_in_background_login">Kirjaudu sisään</string>
   <string name="logged_out_in_background_cancel">Peruuta</string>
   <string name="history_empty_title">Ei äskettäin tarkasteltuja artikkeleita</string>
@@ -274,7 +274,7 @@
   <string name="about_translators_heading">Kääntäjät</string>
   <string name="about_translators_translatewiki">Tämän sovelluksen ovat kääntäneet &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-sivuston vapaaehtoiset kääntäjät.</string>
   <string name="about_app_license_heading">Lisenssi</string>
-  <string name="about_app_license" fuzzy="true">Lähdekoodi löytyy &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritistä&lt;/a&gt; ja &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubista&lt;/a&gt;, ja se on julkaistu &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 -lisenssillä&lt;/a&gt;. Ellei toisin ole mainittu, sisältö on julkaistu &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Nimeä–JaaSamoin -lisenssillä&lt;/a&gt;.</string>
+  <string name="about_app_license">Lähdekoodi löytyy &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritistä&lt;/a&gt; ja &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubista&lt;/a&gt;, ja se on julkaistu &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 -lisenssillä&lt;/a&gt;. Ellei toisin ole mainittu, sisältö on julkaistu &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.fi\"&gt;Creative Commons Nimeä–JaaSamoin -lisenssillä&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia-säätiön&lt;/a&gt; tuote</string>
   <string name="about_activity_title">Tietoja</string>
   <string name="edit_abandon_confirm">Sivua on muokattu. Haluatko varmasti poistua tallentamatta muutoksiasi?</string>
@@ -440,7 +440,7 @@
   <string name="theme_chooser_menu_item_short_tooltip">Muokkaa työkalupalkkiasi</string>
   <string name="error_blocked_footer_no_blocker">Voit olla yhteydessä &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ylläpitäjään&lt;/a&gt; keskustellaksesi estosta.</string>
   <string name="crash_report_activity_title">Sovellusvirhe</string>
-  <string name="crash_report_relaunch_or_quit">Pahoittelumme. Wikipedia-sovellus kohtasi virheen ja kaatui.\n\nHaluaisitko käynnistää sovelluksen uudelleen vai poistua sovelluksesta?</string>
+  <string name="crash_report_relaunch_or_quit">Wikipedia-sovellus lopetti toimintansa teknisen vian takia.\n\nKäynnistetäänkö sovellus uudelleen vai poistutaanko?</string>
   <string name="crash_report_relaunch">Käynnistä uudelleen</string>
   <string name="crash_report_quit">Poistu</string>
   <string name="article_menu_bar_save_button">Tallenna</string>
@@ -1220,7 +1220,7 @@
   <string name="talk_new_topic_submitted">Aihe julkaistu.</string>
   <string name="talk_page_empty">Tämä keskustelusivu on tyhjä.</string>
   <string name="talk_page_empty_title">Keskustelu alkaa tästä</string>
-  <string name="talk_page_empty_content">Keskustelusivut ovat paikkoja, jossa ihmiset keskustelevat siitä, miten tehdä Wikipedian sisällöstä parhainta mahdollista. Aloita lisäämällä uusi keskusteluaihe saadaksesi yhteyden muihin Wikipedian käyttäjäyhteisön jäseniin ja tehdäksesi yhteistyötä heidän kanssaan.</string>
+  <string name="talk_page_empty_content">Parhaat Wikipedia-artikkelit syntyvät yhteistyöllä. Näillä sivuilla käyttäjät keskustella artikkelin sisällöstä ja kehittämisestä.</string>
   <string name="talk_add_reply">Vastaa</string>
   <string name="talk_no_subject">(Ei aihetta)</string>
   <string name="talk_reply_subject">Aihe</string>

@@ -359,6 +359,33 @@
                 android:layout_height="wrap_content"
                 android:scrollbars="vertical"/>
 
+            <LinearLayout
+                android:id="@+id/diffUnavailableContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_baseline_lock_24"
+                    app:tint="?attr/placeholder_color"
+                    android:contentDescription="@null"/>
+
+                <TextView
+                    android:id="@+id/diffUnavailableText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textAlignment="center"
+                    android:textColor="?attr/placeholder_color"
+                    android:text="@string/revision_diff_protected"
+                    tools:text="Lorem ipsum"/>
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

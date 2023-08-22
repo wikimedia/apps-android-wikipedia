@@ -1082,6 +1082,8 @@
   <string name="image_recommendation_accept">Sì</string>
   <string name="image_recommendation_reject_title">Perché no?</string>
   <string name="image_recommendation_reject_dont_know">Non conosco questo argomento</string>
+  <string name="suggested_edits_report_feature_subject">Problemi con le modifiche suggerite</string>
+  <string name="edit_summary_added_image_and_caption">Immagine e didascalia aggiunti</string>
   <string name="file_page_activity_title">Pagina del file</string>
   <string name="file_page_add_image_caption_button">Aggiungi didascalia immagine</string>
   <string name="file_page_add_image_tags_button">Aggiungi etichette all\'immagine</string>
@@ -1307,6 +1309,7 @@
   <string name="revision_diff_line_removed">Riga rimossa</string>
   <string name="revision_diff_paragraph_added">Paragrafo aggiunto</string>
   <string name="revision_diff_paragraph_removed">Paragrafo rimosso</string>
+  <string name="revision_diff_protected">Le modifiche apportate in questa versione non sono accessibili pubblicamente.</string>
   <string name="revision_undo_title">Annulla modifica</string>
   <string name="revision_undo_message">Ciò annullerà le modifiche apportate alla versione della voce mostrata qui.</string>
   <string name="revision_undo_reason">Per continuare, fornisci un motivo per annullare questa modifica:</string>

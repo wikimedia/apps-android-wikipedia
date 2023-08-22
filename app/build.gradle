@@ -37,7 +37,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk 21
         targetSdk 33
-        versionCode 50448
+        versionCode 50450
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -167,9 +167,9 @@ dependencies {
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.15.1'
     String mockitoVersion = '5.2.0'
-    String leakCanaryVersion = '2.11'
-    String kotlinCoroutinesVersion = '1.7.1'
-    String firebaseMessagingVersion = '23.2.0'
+    String leakCanaryVersion = '2.12'
+    String kotlinCoroutinesVersion = '1.7.3'
+    String firebaseMessagingVersion = '23.2.1'
     String mlKitVersion = '17.0.4'
     String roomVersion = "2.5.2"
     String espressoVersion = '3.5.1'
@@ -213,10 +213,10 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
     implementation "io.reactivex.rxjava3:rxjava:3.1.6"
     implementation "io.reactivex.rxjava3:rxandroid:3.0.2"
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'org.apache.commons:commons-lang3:3.13.0'
     implementation 'org.jsoup:jsoup:1.16.1'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
-    implementation "com.github.skydoves:balloon:1.5.3"
+    implementation 'com.github.skydoves:balloon:1.5.4'
     implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
 
     implementation("androidx.room:room-runtime:$roomVersion")

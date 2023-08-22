@@ -1074,8 +1074,11 @@
   <string name="image_recommendation_tooltip_3">Решете дали сликата им помага на читателите подобро да ја разберат оваа тема</string>
   <string name="image_recommendation_tooltip_next">Следно</string>
   <string name="image_recommendation_tooltip_warning">Прочитајте ја статијата за да ја разберете темата и разгледајте ја сликата</string>
+  <string name="suggested_edits_report_feature">Проблем со функцијата</string>
+  <string name="suggested_edits_report_feature_subject">Проблем со Предложени уредувања</string>
   <string name="edit_summary_added_image">Додадена слика</string>
   <string name="edit_summary_added_caption">Додаден опис</string>
+  <string name="edit_summary_added_image_and_caption">Додадени слика и опис</string>
   <string name="edit_published_view">Погледај</string>
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
@@ -1302,6 +1305,7 @@
   <string name="revision_diff_line_removed">Отстранет ред</string>
   <string name="revision_diff_paragraph_added">Додаден пасус</string>
   <string name="revision_diff_paragraph_removed">Отстранет пасус</string>
+  <string name="revision_diff_protected">Промените направени во оваа преработка не се јавно пристапни.</string>
   <string name="revision_undo_title">Врати уредување</string>
   <string name="revision_undo_message">Ова ќе ги врати промените направени со преработката/ките на тука прикажаната статија.</string>
   <string name="revision_undo_reason">За да продолжите, внесете причина за враќање на уредувањево:</string>

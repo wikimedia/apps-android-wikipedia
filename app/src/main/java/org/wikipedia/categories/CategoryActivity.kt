@@ -61,6 +61,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         setContentView(binding.root)
 
         setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = viewModel.pageTitle.displayText
 

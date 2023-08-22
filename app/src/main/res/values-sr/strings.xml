@@ -67,6 +67,7 @@
   <string name="page_edit_history_minor_edit">&lt;b&gt;м&lt;/b&gt; %s</string>
   <string name="page_edit_history_comment_placeholder">Без описа измене</string>
   <string name="page_edit_history_search_or_filter_edits_hint">Претрага или филтрирање измена</string>
+  <string name="page_edit_history_filter_by">Филтрирај по</string>
   <string name="page_edit_history_filter_by_all">Све измене (%s)</string>
   <string name="page_edit_history_filter_by_user">Корисничке измене (%s)</string>
   <string name="page_edit_history_filter_by_anon">Анонимне измене (%s)</string>
@@ -218,6 +219,7 @@
   <string name="preference_title_auto_upload_crash_reports">Шаљи извештаје о отказивањима</string>
   <string name="preference_summary_auto_upload_crash_reports">Дозволите апликацији да аутоматски шаље извештаје о отказивањима независној услузи како бисмо испитали ваш случај и исправили грешку брже и лакше.</string>
   <string name="editing_error_spamblacklist">Откривени су линкови до блокираних домена (%s). Уклоните их па покушајте поново.</string>
+  <string name="history_filter_list_hint">Филтрирање историје</string>
   <string name="error_can_not_process_link">Није могуће приказати овај линк</string>
   <string name="page_protected_autoconfirmed">Ова страница је полузаштићена.</string>
   <string name="page_protected_sysop">Ова страница је потпуно заштићена.</string>
@@ -280,6 +282,7 @@
   <string name="find_previous">Пронађи претходно</string>
   <string name="find_first_occurence">Ово је прво појављивање</string>
   <string name="find_last_occurence">Ово је последње појављивање</string>
+  <string name="article_opened_in_background_tab">Овај чланак је отворен у позадини.</string>
   <string name="abusefilter_title_warn">Ова измена је можда неконструктивна. Желите ли заиста да је објавите?</string>
   <string name="abusefilter_title_disallow">Не можете да објавите ову измену. Вратите се назад и промените је.</string>
   <string name="abusefilter_text_warn">Аутоматизовани филтер је препознао ову измену као потенцијално неконструктивну. Можда садржи нешто од следећег:&lt;br /&gt;&lt;br /&gt;· Писање великим словима&lt;br /&gt;· Пражњење чланка или спамовање&lt;br /&gt;· Ирелевантне спољашње линкове или слике&lt;br /&gt;· Понављање знакова</string>
@@ -288,6 +291,10 @@
   <string name="search_did_you_mean">Да ли сте мислили на „%s”?</string>
   <string name="search_recent_header">Недавне претраге:</string>
   <string name="search_results_count_zero">Нема резултата</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 резултат</item>
+    <item quantity="other">%d резултата</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Обриши недавне претраге</string>
   <string name="clear_recent_searches_confirm">Желите ли заиста да обришете историју претраге?</string>
   <string name="clear_recent_searches_confirm_yes">Да</string>
@@ -375,6 +382,10 @@
   <string name="location_permissions_enable_prompt">Омогућите услуге локације да бисте видели места недалеко од себе.</string>
   <string name="location_permissions_enable_action">Укључи</string>
   <string name="error_webview_updating">Android System WebView се тренутно ажурира. Покушајте поново за који тренутак.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d изабран</item>
+    <item quantity="other">%d изабрано</item>
+  </plurals>
   <string name="multi_select_items_selected">Изабрано: %d</string>
   <string name="error_message_generic">Дошло је до грешке</string>
   <string name="view_link_preview_error_button_dismiss">Одбаци</string>
@@ -533,6 +544,7 @@
   <string name="reading_lists_action_menu_export_lists">Извоз</string>
   <string name="reading_lists_preview_header_title">Дељењи списак</string>
   <string name="reading_lists_preview_save_button">Сачувај</string>
+  <string name="reading_lists_preview_save_dialog_title">Чување списка</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Наслов</string>
   <string name="reading_lists_preview_save_dialog_cancel">Откажи</string>
   <string name="reading_lists_preview_save_dialog_save">Сачувај</string>
@@ -591,9 +603,19 @@
   <string name="notifications_mark_unread">Означи као непрочитано</string>
   <string name="notifications_mark_all_as_read">Означи све као прочитано</string>
   <string name="notifications_direct_reply_action">Одговори</string>
+  <string name="notifications_direct_reply_progress">Постављам одговор %s…</string>
   <string name="notifications_direct_reply_success">Одговор објављен.</string>
+  <string name="notifications_direct_reply_error">Аутоматско постављање одговора није успело.</string>
   <string name="notifications_mark_all_as_read_message">Означено прочитаним: %d</string>
   <string name="notifications_mark_all_as_unread_message">Означено непрочитаним: %d</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 означен као прочитан</item>
+    <item quantity="other">%d означено као прочитано</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 означен као непрочитан</item>
+    <item quantity="other">%d означено као непрочитано</item>
+  </plurals>
   <string name="watchlist_title">Списак надгледања</string>
   <string name="preference_title_notification_poll">Примај обавештења</string>
   <string name="preference_summary_notification_poll">Дозволите апликацији да користи податке ради провере да ли су доступна нова обавештења.</string>
@@ -613,12 +635,19 @@
   <string name="preference_title_notification_user_talk">Страница за разговор</string>
   <string name="preference_summary_notification_user_talk">Поруке и одговори са странице за разговор</string>
   <string name="preference_title_notification_email_user">Пријем имејлова</string>
+  <string name="preference_summary_notification_email_user">Неко вам је послао имејл преко викија</string>
   <string name="preference_title_notification_user_rights">Промена корисничких права</string>
+  <string name="preference_summary_notification_user_rights">Промена корисничких права</string>
+  <string name="preference_title_notification_article_linked">Повезивање чланака које сте направили</string>
   <string name="preference_category_display_settings">Подешавања приказа</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Википедија</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">Обавештења са Википедије</string>
   <string name="notifications_channel_group_other_title">Друго</string>
+  <string name="notifications_channel_group_other_description">Друга обавештења од апликације</string>
+  <string name="notifications_select_all_filters">Изабери све филтере</string>
   <string name="notifications_tab_filter_all">Све</string>
   <string name="notifications_tab_filter_mentions">Помињања</string>
+  <string name="notifications_search_bar_hint">Претражи или филтрирај обавештења</string>
   <string name="notifications_menu_mark_as_read">Означи као прочитано</string>
   <string name="notifications_menu_mark_as_unread">Означи као непрочитано</string>
   <string name="notifications_swipe_action_read">Прочитано</string>
@@ -849,11 +878,15 @@
   <string name="suggested_edits_encourage_account_creation_login_button">Пријави ме / придружи ме Википедији</string>
   <string name="suggested_edits_contribution_type_image_tag">Ознака слике</string>
   <string name="suggested_edits_contribution_current_revision_text">Ваша измена је сада видљива на Википедији</string>
+  <string name="suggested_card_more_edits">Више предложених измена</string>
   <string name="suggested_edits_article_descriptions_dialog_title">Предложени описи</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Шта желите да пријавите?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Нема довољно информација</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Не видим предложен опис</string>
   <string name="suggested_edits_inappropriate_suggestion">Неприкладна сугестија</string>
   <string name="suggested_edits_do_not_understand_suggestion">Не разумем задатак</string>
   <string name="suggested_edits_report_suggestion">Пријави</string>
+  <string name="suggested_edits_suggestion_report_submitted">Извештај послат</string>
   <string name="image_recommendation_tutorial">Упутство</string>
   <string name="image_recommendation_accept">Да</string>
   <string name="image_recommendation_reject">Не</string>
@@ -958,6 +991,8 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Референца</string>
   <string name="wikitext_preview_link">Преглед везе</string>
+  <string name="insert_media_search_description">Изаберите датотеку са Викимедијине оставе</string>
+  <string name="insert_media_search_hint">Претрага медија</string>
   <string name="insert_media_settings">Додај детаље о слици</string>
   <string name="insert_media_settings_caption">Натпис слике</string>
   <string name="insert_media_settings_caption_description">Опис слике у чланку</string>
@@ -1006,6 +1041,10 @@
   <string name="talk_response_submitted">Одговор објављен.</string>
   <string name="talk_snackbar_undo">Опозови</string>
   <string name="talk_last_modified">&lt;b&gt;Последња измена: %2$s&lt;/b&gt;, %1$s</string>
+  <string name="talk_search_hint">Претрага порука</string>
+  <string name="talk_overflow_sort_by">Поређај по</string>
+  <string name="talk_overflow_sort_date_published">Датум објављивања</string>
+  <string name="talk_overflow_sort_date_updated">Датум ажурирања</string>
   <string name="talk_overflow_sort_topic_name">Име теме</string>
   <string name="talk_new_topic_exit_dialog_title">Желите ли да изађете?</string>
   <string name="talk_list_item_overflow_mark_as_read">Означи као прочитано</string>
@@ -1013,12 +1052,15 @@
   <string name="talk_list_item_overflow_share">Дели</string>
   <string name="talk_list_item_last_comment_date">Последњи коментар: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Укупно одговора</string>
+  <string name="talk_list_item_user_icon_content_description">Корисничка икона</string>
   <string name="talk_list_item_swipe_mark_as_read">Прочитано</string>
   <string name="talk_list_item_swipe_mark_as_unread">Непрочитано</string>
   <string name="menu_option_user_contributions">Доприноси %s</string>
   <string name="menu_option_edit_source">Уреди извор</string>
   <string name="menu_option_user_page">Корисничка страница %s</string>
   <string name="talk_menu_copy_text">Копирај текст</string>
+  <string name="talk_menu_expand_threads">Рашири теме</string>
+  <string name="talk_menu_collapse_threads">Скупи теме</string>
   <string name="watchlist_details_watching_label">Надгледате</string>
   <string name="watchlist_details_watch_label">Надгледај</string>
   <string name="watchlist_details_next_edit">Следећа измена</string>
@@ -1028,12 +1070,16 @@
   <string name="thank_dialog_title_text">Пошаљи јавно захвалницу</string>
   <string name="thank_dialog_positive_button_text">Захвали се</string>
   <string name="thank_dialog_negative_button_text">Откажи</string>
+  <string name="thank_success_message">Ваше хвала је послато %s 👍</string>
   <string name="menu_option_view_user_profile">Прикажи страницу уредника</string>
   <string name="menu_option_view_user_talk">Прикажи страницу за разговор</string>
   <string name="menu_option_view_user_contributions">Прикажи доприносе</string>
   <string name="revision_diff_compare">Упореди измене</string>
+  <string name="revision_diff_compare_title">Упоређивање измена: %s</string>
   <string name="revision_diff_from">Од:</string>
   <string name="revision_diff_to">До:</string>
+  <string name="revision_diff_line_added">Линија додата</string>
+  <string name="revision_diff_line_removed">Линија уклоњена</string>
   <string name="revision_diff_paragraph_added">Додат пасус</string>
   <string name="revision_diff_paragraph_removed">Пасус уклоњен</string>
   <string name="revision_undo_title">Поништавање измене</string>
@@ -1085,8 +1131,10 @@
   <string name="watchlist_filter_automated_contributions_human">Човек (не бот)</string>
   <string name="watchlist_filter_significance_header">Значај</string>
   <string name="watchlist_filter_significance_minor">Мање измене</string>
+  <string name="watchlist_filter_significance_edits">Нису мање измене</string>
   <string name="watchlist_filter_latest_revisions_header">Последње измене</string>
   <string name="watchlist_filter_latest_revisions_latest_revision">Последња измена</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Није последња измена</string>
   <string name="watchlist_filter_type_of_change_header">Врста измене</string>
   <string name="watchlist_filter_type_of_change_page_edits">Измене страница</string>
   <string name="watchlist_filter_type_of_change_page_creations">Нове странице</string>
@@ -1117,4 +1165,5 @@
   <string name="data_opt_in_accept">Прихватам</string>
   <string name="data_opt_in_reject">Одбаци</string>
   <string name="page_issues_title">Проблеми странице</string>
+  <string name="generic_release_notes">Ситне поправке и унапређења</string>
 </resources>

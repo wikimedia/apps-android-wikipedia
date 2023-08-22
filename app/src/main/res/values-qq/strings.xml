@@ -1099,8 +1099,11 @@
   <string name="image_recommendation_tooltip_3">Tooltip message during the onboarding sequence for the image recommendations feature.</string>
   <string name="image_recommendation_tooltip_next">Button label for going to the next tooltip in the onboarding sequence.</string>
   <string name="image_recommendation_tooltip_warning">Tooltip that warns the user to examine the article thoroughly before acting on the recommendation.</string>
+  <string name="suggested_edits_report_feature">Menu item for reporting a general issue with the feature.</string>
+  <string name="suggested_edits_report_feature_subject">Subject heading for message when reporting a problem with the feature.</string>
   <string name="edit_summary_added_image">Edit summary when an image was added.</string>
   <string name="edit_summary_added_caption">Edit summary when an image caption was added.</string>
+  <string name="edit_summary_added_image_and_caption">Edit summary when an image and its caption were added.</string>
   <string name="edit_published_view">Button label for viewing an edit after it is published.</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="file_page_add_image_caption_button">Button label to add image caption for the file.</string>
@@ -1327,6 +1330,7 @@
   <string name="revision_diff_line_removed">Label shown in a diff when a line was removed.</string>
   <string name="revision_diff_paragraph_added">Label shown in a diff when a paragraph was added.</string>
   <string name="revision_diff_paragraph_removed">Label shown in a diff when a paragraph was removed.</string>
+  <string name="revision_diff_protected">Error message explaining that the diff of this revision cannot be viewed publicly.</string>
   <string name="revision_undo_title">Dialog title for undoing an edit.</string>
   <string name="revision_undo_message">Dialog message explaining that the selected revision will be undone.</string>
   <string name="revision_undo_reason">Dialog message requesting a reason for undoing the selected revision.</string>

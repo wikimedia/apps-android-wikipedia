@@ -44,6 +44,7 @@ import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -90,7 +91,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     private val requestLinkFromSearch = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
-            it.data?.getParcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)?.let { title ->
+            it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)?.let { title ->
                 binding.editKeyboardOverlay.insertLink(title, pageTitle.wikiSite.languageCode)
             }
         }
@@ -181,11 +182,14 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         setContentView(binding.root)
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
 
-        pageTitle = intent.getParcelableExtra(Constants.ARG_TITLE)!!
+        pageTitle = intent.parcelableExtra(Constants.ARG_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, -1)
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
+
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""
+
         syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText, binding.editSectionScroll)
         binding.editSectionScroll.isSmoothScrollingEnabled = false
         captchaHandler = CaptchaHandler(this, pageTitle.wikiSite, binding.captchaContainer.root,

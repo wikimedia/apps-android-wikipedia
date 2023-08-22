@@ -1099,8 +1099,11 @@
   <string name="image_recommendation_tooltip_3">決定圖片是否可以幫助讀者更好理解這個主題</string>
   <string name="image_recommendation_tooltip_next">下一個</string>
   <string name="image_recommendation_tooltip_warning">請檢閱條目來了解該主題並檢查圖片</string>
+  <string name="suggested_edits_report_feature">功能出現問題</string>
+  <string name="suggested_edits_report_feature_subject">建議編輯出現問題</string>
   <string name="edit_summary_added_image">已新增圖片</string>
   <string name="edit_summary_added_caption">已新增說明</string>
+  <string name="edit_summary_added_image_and_caption">添加圖片與說明</string>
   <string name="edit_published_view">檢視</string>
   <string name="file_page_activity_title">檔案頁面</string>
   <string name="file_page_add_image_caption_button">新增圖片說明</string>
@@ -1327,6 +1330,7 @@
   <string name="revision_diff_line_removed">已移除行數</string>
   <string name="revision_diff_paragraph_added">已新增章節</string>
   <string name="revision_diff_paragraph_removed">章節已移除</string>
+  <string name="revision_diff_protected">此修訂所做出的更改不公開。</string>
   <string name="revision_undo_title">撤銷編輯</string>
   <string name="revision_undo_message">這將會撤銷掉在此顯示出的修訂在條目裡所做出的變更內容。</string>
   <string name="revision_undo_reason">若要繼續，請提供撤銷此編輯內容的原因：</string>

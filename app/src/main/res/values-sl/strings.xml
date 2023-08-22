@@ -1150,8 +1150,11 @@
   <string name="image_recommendation_tooltip_3">Odločite se, ali slika bralcem pomaga bolje razumeti to temo</string>
   <string name="image_recommendation_tooltip_next">Naprej</string>
   <string name="image_recommendation_tooltip_warning">Preglejte članek, da boste razumeli njegovo temo, in preglejte sliko.</string>
+  <string name="suggested_edits_report_feature">Težava z možnostjo</string>
+  <string name="suggested_edits_report_feature_subject">Težava s predlaganimi popravki</string>
   <string name="edit_summary_added_image">dodana slika</string>
   <string name="edit_summary_added_caption">dodan napis k sliki</string>
+  <string name="edit_summary_added_image_and_caption">Dodana slika in napis</string>
   <string name="edit_published_view">Ogled</string>
   <string name="file_page_activity_title">Stran datoteke</string>
   <string name="file_page_add_image_caption_button">Dodaj sliki napis</string>
@@ -1386,6 +1389,7 @@
   <string name="revision_diff_line_removed">Vrstica odstranjena</string>
   <string name="revision_diff_paragraph_added">Dodani odstavek</string>
   <string name="revision_diff_paragraph_removed">Odstavek odstranjen</string>
+  <string name="revision_diff_protected">Spremembe v tej redakciji niso javno dostopne.</string>
   <string name="revision_undo_title">Razveljavi urejanje</string>
   <string name="revision_undo_message">To bo razveljavilo spremembe v tukaj prikazani(h) redakciji(ah).</string>
   <string name="revision_undo_reason">Za nadaljevanje navedite razlog za razveljavitev tega urejanja:</string>

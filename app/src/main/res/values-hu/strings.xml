@@ -1311,6 +1311,7 @@
   <string name="revision_diff_line_removed">Sor eltávolítva</string>
   <string name="revision_diff_paragraph_added">Bekezdés hozzáadva</string>
   <string name="revision_diff_paragraph_removed">Bekezdés eltávolítva</string>
+  <string name="revision_diff_protected">Az ebben a változatban végrehajtott változtatások nem nyilvánosak.</string>
   <string name="revision_undo_title">Szerkesztés visszavonása</string>
   <string name="revision_undo_message">Ezzel visszavonod a szócikk itt látható lapváltozata(i) által végzett módosításokat.</string>
   <string name="revision_undo_reason">A folytatáshoz add meg a visszavonás okát:</string>
