@@ -5,7 +5,6 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.util.ActiveTimer
-import org.wikipedia.util.log.L
 import java.net.URLEncoder
 
 @Serializable
@@ -30,20 +29,17 @@ class ImageRecommendationsEvent(
             submitImageRecommendationEvent("impression", activeInterface, actionData, wikiId)
         }
 
-        fun logAction(action: String, activeInterface: String, actionData: String, wikiId: String) {
-            if (action == "back" && activeInterface == "recommendedimagetoolbar") {
-                //  Todo:  stop timer
-            }
+        fun logAction(action: String, activeInterface: String, actionData: String = "", wikiId: String = "") {
             submitImageRecommendationEvent(action, activeInterface, actionData, wikiId)
         }
 
-        fun logSeEditSuccess(action: DescriptionEditActivity.Action, wikiId: String, l: Long) {
+        fun logSeEditSuccess(action: DescriptionEditActivity.Action, wikiId: String, revisionId: Long) {
             when (action) {
-                DescriptionEditActivity.Action.ADD_DESCRIPTION -> logAction("edit_success", "se_add_description", "", wikiId)
-                DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> logAction("edit_success", "se_translate_description", "", wikiId)
-                DescriptionEditActivity.Action.ADD_CAPTION -> logAction("edit_success", "se_add_caption", "", wikiId)
-                DescriptionEditActivity.Action.TRANSLATE_CAPTION -> logAction("edit_success", "se_translate_caption", "", wikiId)
-                else -> logAction("edit_success", "se_add_image_tags", "", wikiId)
+                DescriptionEditActivity.Action.ADD_DESCRIPTION -> logAction("edit_success", "se_add_description", getActionDataString(revisionId = revisionId.toString()), wikiId)
+                DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> logAction("edit_success", "se_translate_description", getActionDataString(revisionId = revisionId.toString()), wikiId)
+                DescriptionEditActivity.Action.ADD_CAPTION -> logAction("edit_success", "se_add_caption", getActionDataString(revisionId = revisionId.toString()), wikiId)
+                DescriptionEditActivity.Action.TRANSLATE_CAPTION -> logAction("edit_success", "se_translate_caption", getActionDataString(revisionId = revisionId.toString()), wikiId)
+                else -> logAction("edit_success", "se_add_image_tags", getActionDataString(revisionId = revisionId.toString()), wikiId)
             }
         }
 
@@ -58,7 +54,6 @@ class ImageRecommendationsEvent(
         }
 
         private fun submitImageRecommendationEvent(action: String, activeInterface: String, actionData: String, wikiId: String) {
-            L.d("%%% action:$action, activeInterface:$activeInterface, actionData:$actionData,primary_language: ${WikipediaApp.instance.languageState.appLanguageCode}, wikiId: $wikiId")
             EventPlatformClient.submit(ImageRecommendationsEvent(action, activeInterface, actionData, WikipediaApp.instance.languageState.appLanguageCode, wikiId))
         }
     }

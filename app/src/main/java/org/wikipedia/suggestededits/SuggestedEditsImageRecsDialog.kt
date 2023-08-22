@@ -47,7 +47,7 @@ class SuggestedEditsImageRecsDialog : DialogFragment() {
             .setView(binding.root)
             .setNegativeButton(android.R.string.cancel) { _, _ ->
                 ImageRecommendationsEvent.logAction("reject_cancel", "rejection_dialog",
-                    ImageRecommendationsEvent.getActionDataString(acceptanceState = "rejected"), "")
+                    ImageRecommendationsEvent.getActionDataString(acceptanceState = "rejected"))
                 dismiss() }
             .setPositiveButton(R.string.image_recommendation_reject_submit) { _, _ ->
                 val itemList = mutableListOf<Int>()

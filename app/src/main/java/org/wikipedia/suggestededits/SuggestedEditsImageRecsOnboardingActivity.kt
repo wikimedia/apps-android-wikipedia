@@ -21,7 +21,7 @@ class SuggestedEditsImageRecsOnboardingActivity : BaseActivity() {
                 "\n\n" + getString(R.string.image_recommendation_onboarding_3))
 
         findViewById<View>(R.id.onboarding_done_button).setOnClickListener {
-            ImageRecommendationsEvent.logAction("next", "onboarding_step_1_dialog", "", "")
+            ImageRecommendationsEvent.logAction("next", "onboarding_step_1_dialog")
             setResult(Activity.RESULT_OK)
             finish()
         }
