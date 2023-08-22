@@ -47,11 +47,14 @@ class ImageRecommendationsEvent(
             }
         }
 
-        fun getActionDataString(filename: String = "", recommendationSource: String = "", recommendationSourceProjects: String = "", rejectionReasons: String = "", acceptanceState: String = "",
-                                revisionId: String = "", captionAdd: Boolean? = null, altTextAdd: Boolean? = null, addTimeSpent: Boolean = false): String {
-            return "filename: ${URLEncoder.encode(filename, "UTF-8")}, recommendation_source: $recommendationSource, recommendation_source_project: $recommendationSourceProjects, rejection_reasons: $rejectionReasons, " +
-                    "acceptance_state: $acceptanceState, revision_id: $revisionId, caption_add: ${captionAdd ?: ""}, alt_text_add: ${altTextAdd ?: ""}, " +
-                    "timeSpent: ${if (addTimeSpent) timer.elapsedMillis.toString() else ""}"
+        fun getActionDataString(filename: String? = null, recommendationSource: String? = null,
+                                recommendationSourceProjects: String? = null, rejectionReasons: String? = null,
+                                acceptanceState: String? = null, revisionId: String? = null, captionAdd: Boolean? = null,
+                                altTextAdd: Boolean? = null, addTimeSpent: Boolean = false): String {
+            return "${filename?.let { "filename: ${URLEncoder.encode(filename, "UTF-8")}, " }.orEmpty()}${recommendationSource?.let { "recommendation_source: $it, " }.orEmpty()}" +
+                    "${recommendationSourceProjects?.let { "recommendation_source_project: $it, " }.orEmpty()}${rejectionReasons?.let { "rejection_reasons: $it, " }.orEmpty()}" +
+                    "${acceptanceState?.let { "acceptance_state: $it, " }.orEmpty()}${revisionId?.let { "revision_id: $it, " }.orEmpty()}" +
+                    "${captionAdd?.let { "caption_add: $it, " }.orEmpty()}${altTextAdd?.let { "alt_text_add: $it, " }.orEmpty()}${if (addTimeSpent) "alt_text_add: " + timer.elapsedMillis.toString() else ""}"
         }
 
         private fun submitImageRecommendationEvent(action: String, activeInterface: String, actionData: String, wikiId: String) {
