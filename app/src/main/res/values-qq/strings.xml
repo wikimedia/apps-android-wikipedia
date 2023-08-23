@@ -1474,4 +1474,8 @@
   <string name="talk_templates_edit_message_updated">Snackbar message that show the message has been updated.</string>
   <string name="talk_templates_edit_message_confirm_description">Message of confirming the action of deleting the message. %s will be replaced by the title of the saved message.</string>
   <string name="talk_templates_message_deleted">Snackbar message that show the message has been deleted.</string>
+  <string name="email_report_image_recommendations_subject">Subject heading for sending a report about a problem with the Image Recommendations feature.</string>
+  <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
+  <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>
+  <string name="email_report_patroller_tasks_body">Body of email for sending a report about a problem with the Patroller Tasks feature.</string>
 </resources>

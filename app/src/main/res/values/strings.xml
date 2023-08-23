@@ -1543,5 +1543,9 @@
     <string name="data_opt_in_reject">Reject</string>
     <string name="page_issues_title">Page issues</string>
     <string name="generic_release_notes">Minor bug fixes and enhancements</string>
+    <string name="email_report_image_recommendations_subject">Issue report - Image Recommendations feature</string>
+    <string name="email_report_image_recommendations_body">I have encountered a problem with the Image Recommendations feature:\n- [Describe specific problem]\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+    <string name="email_report_patroller_tasks_subject">Issue report - Patroller Tasks feature</string>
+    <string name="email_report_patroller_tasks_body">I have encountered a problem with the Patroller Tasks Feature:\n- [Describe specific problem]\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
 
 </resources>
