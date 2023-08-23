@@ -1075,6 +1075,9 @@
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Title for the Suggested Edits task of adding recommended images to articles.</string>
   <string name="suggested_edits_image_recommendations_task_detail">Description for the Suggested Edits task of adding recommended images to articles.</string>
+  <string name="suggested_edits_edit_patrol">Title for patrolling recent edits.</string>
+  <string name="suggested_edits_edit_patrol_hint">Description of the task of patrolling recent edits.</string>
+  <string name="suggested_edits_edit_patrol_review">Button to begin the task of patrolling recent edits.</string>
   <string name="image_recommendation_task_instruction">Hint label when asking the user to add a proposed image to an article.</string>
   <string name="image_recommendation_tutorial">Menu label for navigating to a tutorial screen.</string>
   <string name="image_recommendation_accept">Button label for accepting a recommended image for an article.</string>
@@ -1451,6 +1454,26 @@
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
   <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
   <string name="generic_release_notes">Release notes message that will be used on app stores for minor releases and maintenance updates.</string>
+  <string name="talk_templates_manage_title">Title of the manage warn template screen.</string>
+  <string name="talk_templates_empty_message">Empty message of the warn template.</string>
+  <string name="talk_templates_new_message_title">Title of the add a new message screen.</string>
+  <string name="talk_templates_new_message_description">Description of adding a warning message.</string>
+  <string name="talk_templates_new_message_subject_hint">Label of the new message subject input field.</string>
+  <string name="talk_templates_new_message_compose_hint">Label of the new message content input field.</string>
+  <string name="talk_templates_new_message_save">Button label for saving the new message.</string>
+  <string name="talk_templates_new_message_dialog_title">Title of the dialog of saving changes.</string>
+  <string name="talk_templates_new_message_dialog_description">Description of the dialog of saving changes.</string>
+  <string name="talk_templates_new_message_dialog_hint">Message of the input field in the dialog of saving changes.</string>
+  <string name="talk_templates_new_message_dialog_save">Button label of the dialog of saving changes that save the changes.</string>
+  <string name="talk_templates_new_message_dialog_cancel">Button label of the dialog of saving changes that cancel the changes.</string>
+  <string name="talk_templates_new_message_dialog_exists">Message of the input field that indicates the name of the template exists in the database. %s will be replaced by the title of the saved message.</string>
+  <string name="talk_templates_new_message_saved">Snackbar message that show the message has been saved.</string>
+  <string name="talk_templates_edit_message_dialog_title">Title of the dialog of editing the selected message.</string>
+  <string name="talk_templates_edit_message_dialog_save">Button label of the dialog of editing the selected message that save the changes.</string>
+  <string name="talk_templates_edit_message_dialog_delete">Button label of the dialog of editing the selected message that delete the message.</string>
+  <string name="talk_templates_edit_message_updated">Snackbar message that show the message has been updated.</string>
+  <string name="talk_templates_edit_message_confirm_description">Message of confirming the action of deleting the message. %s will be replaced by the title of the saved message.</string>
+  <string name="talk_templates_message_deleted">Snackbar message that show the message has been deleted.</string>
   <string name="email_report_image_recommendations_subject">Subject heading for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>
