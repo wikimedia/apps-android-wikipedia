@@ -204,13 +204,16 @@ class MwQueryResult {
 
         @SerialName("new") private val isNew = false
         private val minor = false
-        private val oldlen = 0
-        private val newlen = 0
+        val oldlen = 0
+        val newlen = 0
         private val timestamp: String = ""
 
         val parsedcomment: String = ""
         private val tags: List<String>? = null
         private val oresscores: JsonElement? = null
+
+        val date: Date
+            get() = DateUtil.iso8601DateParse(timestamp.orEmpty())
 
         override fun toString(): String {
             return title
