@@ -505,7 +505,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
      * based on the current state of the button.
      */
     fun clickNextButton() {
-        val addImageTitle = intent.getParcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+        val addImageTitle = intent.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
         val addImageSource = intent.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE)
         when {
             editSummaryFragment.isActive -> {
@@ -789,7 +789,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     }
 
     override fun onBackPressed() {
-        val addImageTitle = intent.getParcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+        val addImageTitle = intent.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
         val addImageSource = intent.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE)
         if (binding.viewProgressBar.isVisible) {
             // If it is visible, it means we should wait until all the requests are done.

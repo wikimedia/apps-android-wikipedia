@@ -359,7 +359,7 @@ class DescriptionEditFragment : Fragment() {
                                         binding.fragmentDescriptionEditView.wasSuggestionModified,
                                         pageTitle, newRevId
                                     )
-                                    ImageRecommendationsEvent.logSeEditSuccess(action, pageTitle.wikiSite.languageCode, newRevId)
+                                    ImageRecommendationsEvent.logEditSuccess(action, pageTitle.wikiSite.languageCode, newRevId)
                                 }
                                 hasEditErrorCode -> {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
@@ -410,7 +410,7 @@ class DescriptionEditFragment : Fragment() {
                                 binding.fragmentDescriptionEditView.wasSuggestionModified,
                                 pageTitle, response.entity?.lastRevId ?: 0
                             )
-                            ImageRecommendationsEvent.logSeEditSuccess(action, pageTitle.wikiSite.languageCode, response.entity?.lastRevId ?: 0)
+                            ImageRecommendationsEvent.logEditSuccess(action, pageTitle.wikiSite.languageCode, response.entity?.lastRevId ?: 0)
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)

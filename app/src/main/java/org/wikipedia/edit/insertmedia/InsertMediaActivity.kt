@@ -146,6 +146,7 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val selectedImage = viewModel.selectedImage
         return when (item.itemId) {
             R.id.menu_next -> {
                 showMediaSettingsFragment()
@@ -153,24 +154,25 @@ class InsertMediaActivity : BaseActivity() {
                 true
             }
             R.id.menu_save -> {
-                if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && viewModel.selectedImage != null) {
+                if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && selectedImage != null) {
                     ImageRecommendationsEvent.logAction("advanced_setting_save", "caption_entry",
-                        ImageRecommendationsEvent.getActionDataString(filename = viewModel.selectedImage?.prefixedText!!,
-                            recommendationSource = viewModel.selectedImage?.wikiSite?.languageCode!!, acceptanceState = "accepted"),
-                        viewModel.selectedImage?.wikiSite?.languageCode!!)
+                        ImageRecommendationsEvent.getActionDataString(filename = selectedImage.prefixedText,
+                            recommendationSource = selectedImage.wikiSite.languageCode, acceptanceState = "accepted"),
+                        selectedImage.wikiSite.languageCode)
                 }
                 onBackPressed()
                 true
             }
             R.id.menu_insert -> {
-                if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && viewModel.selectedImage != null) {
+                if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && selectedImage != null) {
                     ImageRecommendationsEvent.logAction("caption_continue", "caption_entry",
-                        ImageRecommendationsEvent.getActionDataString(filename = viewModel.selectedImage?.prefixedText!!,
-                            recommendationSource = viewModel.selectedImage?.wikiSite?.languageCode!!, acceptanceState = "accepted",
+                        ImageRecommendationsEvent.getActionDataString(filename = selectedImage.prefixedText,
+                            recommendationSource = selectedImage.wikiSite.languageCode, acceptanceState = "accepted",
                             captionAdd = insertMediaSettingsFragment.captionText.isNotEmpty(), altTextAdd = insertMediaSettingsFragment.alternativeText.isNotEmpty()
-                        ), viewModel.selectedImage?.wikiSite?.languageCode!!)
+                        ), selectedImage.wikiSite.languageCode
+                    )
                 }
-                viewModel.selectedImage?.let {
+                selectedImage?.let {
                     val intent = Intent()
                         .putExtra(EXTRA_IMAGE_TITLE, it)
                         .putExtra(RESULT_IMAGE_CAPTION, insertMediaSettingsFragment.captionText)

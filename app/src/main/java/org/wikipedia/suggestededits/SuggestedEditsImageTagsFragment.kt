@@ -390,7 +390,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                                     EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                                 }
                                 publishSuccess = true
-                                ImageRecommendationsEvent.logSeEditSuccess(DescriptionEditActivity.Action.ADD_IMAGE_TAGS,
+                                ImageRecommendationsEvent.logEditSuccess(DescriptionEditActivity.Action.ADD_IMAGE_TAGS,
                                     "commons", it.entity?.lastRevId ?: 0)
                                 onSuccess()
                             }, {

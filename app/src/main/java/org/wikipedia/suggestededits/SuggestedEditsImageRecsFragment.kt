@@ -81,7 +81,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 .setAnchorView(binding.acceptButton)
                 .show()
             ImageRecommendationsEvent.logAction("editsummary_success_confirm", "editsummary_dialog",
-                getActionStringForAnalytics(acceptanceState = "accepted", revisionId = revId.toString(), addTimeSpent = true), viewModel.langCode)
+                getActionStringForAnalytics(acceptanceState = "accepted", revisionId = revId, addTimeSpent = true), viewModel.langCode)
             viewModel.acceptRecommendation(null, revId)
             callback().nextPage(this)
         }
@@ -432,10 +432,11 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     }
 
     private fun getActionStringForAnalytics(acceptanceState: String? = null, rejectionReasons: String? = null,
-                                            revisionId: String? = null, addTimeSpent: Boolean = false): String {
-        return ImageRecommendationsEvent.getActionDataString(filename = viewModel.recommendation.images[0].image,
-            recommendationSource = viewModel.recommendation.images[0].source,
-            recommendationSourceProjects = viewModel.recommendation.images[0].projects.toString(),
+                                            revisionId: Long? = null, addTimeSpent: Boolean = false): String {
+        val recommendedImage = viewModel.recommendation.images[0]
+        return ImageRecommendationsEvent.getActionDataString(filename = recommendedImage.image,
+            recommendationSource = recommendedImage.source,
+            recommendationSourceProjects = recommendedImage.projects.toString(),
             acceptanceState = acceptanceState, rejectionReasons = rejectionReasons,
             revisionId = revisionId, addTimeSpent = addTimeSpent)
     }

@@ -5,8 +5,9 @@ import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.util.ActiveTimer
-import java.net.URLEncoder
+import org.wikipedia.util.UriUtil
 
+@Suppress("unused")
 @Serializable
 @SerialName("/analytics/mobile_apps/android_image_recommendation_event/1.0.0")
 class ImageRecommendationsEvent(
@@ -33,24 +34,38 @@ class ImageRecommendationsEvent(
             submitImageRecommendationEvent(action, activeInterface, actionData, wikiId)
         }
 
-        fun logSeEditSuccess(action: DescriptionEditActivity.Action, wikiId: String, revisionId: Long) {
+        fun logEditSuccess(action: DescriptionEditActivity.Action, wikiId: String, revisionId: Long) {
             when (action) {
-                DescriptionEditActivity.Action.ADD_DESCRIPTION -> logAction("edit_success", "se_add_description", getActionDataString(revisionId = revisionId.toString()), wikiId)
-                DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> logAction("edit_success", "se_translate_description", getActionDataString(revisionId = revisionId.toString()), wikiId)
-                DescriptionEditActivity.Action.ADD_CAPTION -> logAction("edit_success", "se_add_caption", getActionDataString(revisionId = revisionId.toString()), wikiId)
-                DescriptionEditActivity.Action.TRANSLATE_CAPTION -> logAction("edit_success", "se_translate_caption", getActionDataString(revisionId = revisionId.toString()), wikiId)
-                else -> logAction("edit_success", "se_add_image_tags", getActionDataString(revisionId = revisionId.toString()), wikiId)
+                DescriptionEditActivity.Action.ADD_DESCRIPTION -> logAction("edit_success", "se_add_description", getActionDataString(revisionId = revisionId), wikiId)
+                DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION -> logAction("edit_success", "se_translate_description", getActionDataString(revisionId = revisionId), wikiId)
+                DescriptionEditActivity.Action.ADD_CAPTION -> logAction("edit_success", "se_add_caption", getActionDataString(revisionId = revisionId), wikiId)
+                DescriptionEditActivity.Action.TRANSLATE_CAPTION -> logAction("edit_success", "se_translate_caption", getActionDataString(revisionId = revisionId), wikiId)
+                else -> logAction("edit_success", "se_add_image_tags", getActionDataString(revisionId = revisionId), wikiId)
             }
         }
 
-        fun getActionDataString(filename: String? = null, recommendationSource: String? = null,
-                                recommendationSourceProjects: String? = null, rejectionReasons: String? = null,
-                                acceptanceState: String? = null, revisionId: String? = null, captionAdd: Boolean? = null,
-                                altTextAdd: Boolean? = null, addTimeSpent: Boolean = false): String {
-            return "${filename?.let { "filename: ${URLEncoder.encode(filename, "UTF-8")}, " }.orEmpty()}${recommendationSource?.let { "recommendation_source: $it, " }.orEmpty()}" +
-                    "${recommendationSourceProjects?.let { "recommendation_source_project: $it, " }.orEmpty()}${rejectionReasons?.let { "rejection_reasons: $it, " }.orEmpty()}" +
-                    "${acceptanceState?.let { "acceptance_state: $it, " }.orEmpty()}${revisionId?.let { "revision_id: $it, " }.orEmpty()}" +
-                    "${captionAdd?.let { "caption_add: $it, " }.orEmpty()}${altTextAdd?.let { "alt_text_add: $it, " }.orEmpty()}${if (addTimeSpent) "alt_text_add: " + timer.elapsedMillis.toString() else ""}"
+        fun getActionDataString(
+            filename: String? = null,
+            recommendationSource: String? = null,
+            recommendationSourceProjects: String? = null,
+            rejectionReasons: String? = null,
+            acceptanceState: String? = null,
+            revisionId: Long? = null,
+            captionAdd: Boolean? = null,
+            altTextAdd: Boolean? = null,
+            addTimeSpent: Boolean = false
+        ): String {
+            val filenameStr = filename?.let { "filename: ${UriUtil.encodeURL(filename)}, " }.orEmpty()
+            val recSourceStr = recommendationSource?.let { "recommendation_source: $it, " }.orEmpty()
+            val recSourceProjectsStr = recommendationSourceProjects?.let { "recommendation_source_project: $it, " }.orEmpty()
+            val rejectionReasonsStr = rejectionReasons?.let { "rejection_reasons: $it, " }.orEmpty()
+            val acceptanceStateStr = acceptanceState?.let { "acceptance_state: $it, " }.orEmpty()
+            val revisionIdStr = revisionId?.let { "revision_id: $it, " }.orEmpty()
+            val captionAddStr = captionAdd?.let { "caption_add: $it, " }.orEmpty()
+            val altTextAddStr = altTextAdd?.let { "alt_text_add: $it, " }.orEmpty()
+            val timeSpentStr = if (addTimeSpent) "time_spent: " + timer.elapsedMillis.toString() else ""
+            return filenameStr + recSourceStr + recSourceProjectsStr + rejectionReasonsStr + acceptanceStateStr +
+                    revisionIdStr + captionAddStr + altTextAddStr + timeSpentStr
         }
 
         private fun submitImageRecommendationEvent(action: String, activeInterface: String, actionData: String, wikiId: String) {
