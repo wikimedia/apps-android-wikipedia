@@ -151,7 +151,7 @@
   <string name="language_count_link_text">Disponível em %d outros idiomas</string>
   <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço de IP do seu dispositivo. Para ter mais privacidade, &lt;a href=\"https://#login\"&gt;autentique-se&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço de IP do seu dispositivo. Para ter mais privacidade, &lt;a href=\"https://#login\"&gt;autentique-se&lt;/a&gt;.</string>
   <string name="edit_anon_warning">As edições serão atribuídas ao endereço IP do seu dispositivo. Se você &lt;a href=\"https://#login\"&gt;se conectar&lt;/a&gt;, terá mais privacidade.</string>
   <string name="preference_title_language">Idiomas da Wikipédia</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
@@ -287,7 +287,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license" fuzzy="true">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"ttps://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"ttps://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem salvar as suas alterações?</string>
@@ -1199,7 +1199,7 @@
   <string name="insert_media_title">Inserir mídia</string>
   <string name="insert_media_search_description">Selecionar um arquivo do Wikimedia Commons</string>
   <string name="insert_media_search_hint">Pesquisar mídia</string>
-  <string name="insert_media_settings" fuzzy="true">Configurações de mídia</string>
+  <string name="insert_media_settings">Adicionar detalhes da imagem</string>
   <string name="insert_media_settings_uploaded_image">Imagem carregada</string>
   <string name="insert_media_settings_caption">Legenda da imagem</string>
   <string name="insert_media_settings_caption_description" fuzzy="true">Rótulo exibido ao lado do item para todos os leitores</string>

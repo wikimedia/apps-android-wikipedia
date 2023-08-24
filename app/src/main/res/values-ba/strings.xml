@@ -25,8 +25,8 @@
   <string name="app_name_beta">Википедия Бета</string>
   <string name="app_name_alpha">Википедия Альфа</string>
   <string name="wikimedia">Викимедиа</string>
-  <string name="nav_item_back">Артҡа</string>
-  <string name="page_tabs_back">Артҡа</string>
+  <string name="nav_item_back">Кирегә</string>
+  <string name="page_tabs_back">Кирегә</string>
   <string name="nav_item_forward">Алға</string>
   <string name="search_hint">Википедияла эҙләү</string>
   <string name="search_hint_voice_search">Телмәр ярҙамында эҙләү</string>
@@ -1360,7 +1360,7 @@
   <string name="watchlist_filter_user_status_newcomers">Яңы килгәндәр</string>
   <string name="watchlist_filter_user_status_learners">Өйрәнсектәр</string>
   <string name="watchlist_filter_user_status_experienced">Тәжрибәле ҡатнашыусылар</string>
-  <string name="watchlist_filter_contribution_authorship_header">Мөхәррирләү авторҙары</string>
+  <string name="watchlist_filter_contribution_authorship_header">Мөхәррирләү авторлығы</string>
   <string name="watchlist_filter_contribution_authorship_own">Һеҙҙең үҙгәртеүҙәр</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Башҡа ҡатнашыусылар үҙгәртеүҙәре</string>
   <string name="watchlist_filter_automated_contributions_header">Автоматлаштырылған өлөштәр</string>
