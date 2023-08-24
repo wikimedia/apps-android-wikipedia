@@ -63,7 +63,7 @@ class ImageRecommendationsEvent(
             val revisionIdStr = revisionId?.let { "revision_id: $it, " }.orEmpty()
             val captionAddStr = captionAdd?.let { "caption_add: $it, " }.orEmpty()
             val altTextAddStr = altTextAdd?.let { "alt_text_add: $it, " }.orEmpty()
-            val timeSpentStr = if (addTimeSpent) "time_spent: " + timer.elapsedMillis.toString() else ""
+            val timeSpentStr = if (addTimeSpent) "time_spent: ${timer.elapsedMillis}" else ""
             return filenameStr + recSourceStr + recSourceProjectsStr + rejectionReasonsStr + acceptanceStateStr +
                     revisionIdStr + captionAddStr + altTextAddStr + timeSpentStr
         }
