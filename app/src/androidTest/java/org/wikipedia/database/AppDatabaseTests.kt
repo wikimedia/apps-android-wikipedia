@@ -107,7 +107,7 @@ class AppDatabaseTests {
         assertThat(zhWikiList.first().id, equalTo(2470933))
         assertThat(enWikiList.first().isUnread, equalTo(false))
         assertThat(enWikiList.size, equalTo(2))
-        assertThat(notificationDao.getAllNotifications().first().size, equalTo(3))
+        assertThat(notificationDao.getAllNotifications().size, equalTo(3))
 
         val firstEnNotification = enWikiList.first()
         firstEnNotification.read = null
@@ -119,13 +119,13 @@ class AppDatabaseTests {
         assertThat(enWikiList.first().isUnread, equalTo(true))
 
         notificationDao.deleteNotification(firstEnNotification)
-        assertThat(notificationDao.getAllNotifications().first().size, equalTo(2))
+        assertThat(notificationDao.getAllNotifications().size, equalTo(2))
         assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().size, equalTo(1))
 
         notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().first())
         assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().isEmpty(), equalTo(true))
 
         notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("zhwiki")).first().first())
-        assertThat(notificationDao.getAllNotifications().first().isEmpty(), equalTo(true))
+        assertThat(notificationDao.getAllNotifications().isEmpty(), equalTo(true))
     }
 }
