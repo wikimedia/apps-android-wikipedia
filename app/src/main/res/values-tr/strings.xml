@@ -1464,4 +1464,8 @@
   <string name="data_opt_in_reject">Reddet</string>
   <string name="page_issues_title">Sayfa sorunları</string>
   <string name="generic_release_notes">Küçük hata düzeltmeleri ve iyileştirmeler</string>
+  <string name="email_report_image_recommendations_subject">Sorun bildirimi - Görsel Önerileri özelliği</string>
+  <string name="email_report_image_recommendations_body">Görsel Önerileri özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]</string>
+  <string name="email_report_patroller_tasks_subject">Sorun bildirimi - Devriye Görevleri özelliği</string>
+  <string name="email_report_patroller_tasks_body">Devriye Görevleri özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]</string>
 </resources>
