@@ -147,8 +147,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), SuggestedEditsRecentEditsI
     }
 
     private fun updateDisplayLanguage() {
-        // TODO: implement this
-        viewModel.displayLanguage = "en"
+        viewModel.displayLanguage = Prefs.recentEditsWikiCode
     }
 
     private fun onLoading() {

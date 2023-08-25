@@ -3,13 +3,17 @@ package org.wikipedia.suggestededits
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.wikipedia.WikipediaApp
+import kotlinx.coroutines.withContext
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.settings.Prefs
 import java.util.Calendar
+import java.util.Date
 
 class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
@@ -19,8 +23,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
     private var recentChangesItem = mutableListOf<MwQueryResult.RecentChange>()
 
-    // TODO: implement this
-    var displayLanguage = "en"
+    var displayLanguage = Prefs.recentEditsWikiCode
     var currentSearchQuery: String? = null
         private set
     var finalList = mutableListOf<Any>()
@@ -43,13 +46,8 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         val calendar = Calendar.getInstance()
         var curDay = -1
 
-        val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
 
         recentChangesItem.forEach { item ->
-
-//            if (excludedWikiCodes.contains(item.wiki?.languageCode)) {
-//                return@forEach
-//            }
 
             val searchQuery = currentSearchQuery
             if (!searchQuery.isNullOrEmpty() &&
@@ -74,17 +72,14 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         _uiState.value = UiState.Loading()
         viewModelScope.launch(handler) {
             recentChangesItem = mutableListOf()
-            // TODO: implement this
-//            displayLanguages.map { language ->
-//                async {
-//                    ServiceFactory.get(WikiSite.forLanguageCode(language))
-//                        .getWatchlist(latestRevisions(), showCriteriaString(), showTypesString())
-//                        .query?.watchlist?.map {
-//                            it.wiki = WikiSite.forLanguageCode(language)
-//                            recentChangesItem.add(it)
-//                        }
-//                }
-//            }.awaitAll()
+            // TODO: verify the timestamp format
+            withContext(Dispatchers.IO) {
+                ServiceFactory.get(WikiSite.forLanguageCode(displayLanguage))
+                    .getRecentEdits(500, Date().toInstant().toString(), latestRevisions(), showCriteriaString())
+                    .query?.recentChanges?.run {
+                        recentChangesItem.addAll(this)
+                    }
+            }
             recentChangesItem.sortByDescending { it.date }
             updateList(searchBarPlaceholder)
         }
@@ -95,15 +90,14 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     }
 
     fun filtersCount(): Int {
-        val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
         val defaultTypeSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }.toSet()
-        val nonDefaultChangeTypes = Prefs.watchlistIncludedTypeCodes.subtract(defaultTypeSet)
+        val nonDefaultChangeTypes = Prefs.recentEditsIncludedTypeCodes.subtract(defaultTypeSet)
             .union(defaultTypeSet.subtract(Prefs.watchlistIncludedTypeCodes.toSet()))
-        return WikipediaApp.instance.languageState.appLanguageCodes.count { excludedWikiCodes.contains(it) } + nonDefaultChangeTypes.size
+        return nonDefaultChangeTypes.size
     }
 
     private fun latestRevisions(): String? {
-        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
+        val includedTypesCodes = Prefs.recentEditsIncludedTypeCodes
         if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.LATEST_REVISIONS_GROUP.map { it.id }) &&
             !includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.LATEST_REVISION.id)) {
             return SuggestedEditsRecentEditsFilterTypes.NOT_LATEST_REVISION.value
@@ -112,7 +106,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     }
 
     private fun showCriteriaString(): String {
-        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
+        val includedTypesCodes = Prefs.recentEditsIncludedTypeCodes
         val list = mutableListOf<String>()
         if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.UNSEEN_CHANGES_GROUP.map { it.id })) {
             if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNSEEN_CHANGES.id)) {
@@ -150,12 +144,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             }
         }
         return list.joinToString(separator = "|")
-    }
-
-    private fun showTypesString(): String {
-        val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
-        val types = SuggestedEditsRecentEditsFilterTypes.TYPE_OF_CHANGES_GROUP.filter { includedTypesCodes.contains(it.id) }.map { it.value }
-        return types.joinToString(separator = "|")
     }
 
     open class UiState {
