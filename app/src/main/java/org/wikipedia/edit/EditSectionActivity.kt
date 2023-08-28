@@ -125,7 +125,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
                 // pass the resulting data into our own current intent, so that we can pass it back
                 // to the InsertImage workflow if the user navigates back to it.
-                val imageTitle = data.getParcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+                val imageTitle = data.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
                 val imageCaption = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION)
                 val imageAlt = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT)
                 val imageSize = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_SIZE)
@@ -845,7 +845,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     }
 
     private fun startInsertImageFlow() {
-        val addImageTitle = intent.getParcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)!!
+        val addImageTitle = intent.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)!!
         val addImageSource = intent.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE)!!
         val addImageIntent = InsertMediaActivity.newIntent(this, pageTitle.wikiSite,
             pageTitle.displayText, invokeSource, addImageTitle, addImageSource)

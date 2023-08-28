@@ -862,7 +862,7 @@
   <string name="feed_configure_menu_reset">שחזור התצוגה ההתחלתית</string>
   <string name="feed_configure_menu_select_all">להציג הכול</string>
   <string name="feed_configure_menu_deselect_all">להסתיר הכול</string>
-  <string name="feed_configure_language_warning">לתשומת לבך: לא כל סוגי הכרטיסים זמינים בכל השפות של ויקיפדיה. באפשרותך לערוך את השפות שבחרת בהגדרות.</string>
+  <string name="feed_configure_language_warning">לתשומת ליבך: לא כל סוגי הכרטיסים זמינים בכל השפות של ויקיפדיה. באפשרותך לערוך את השפות שבחרת בהגדרות.</string>
   <string name="feed_item_type_news">ערכים על אירועים אקטואליים</string>
   <string name="feed_item_type_on_this_day">אירועים בהיסטוריה ביום הזה</string>
   <string name="feed_item_type_because_you_read">הצעות על סמך ערכים שקראת לאחרונה מההיסטוריה שלך</string>
@@ -1040,7 +1040,7 @@
   <string name="suggested_edits_paused_message">עריכות מוצעות הופסקו עד %1$s. מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_disabled_message">עריכות מוצעות הופסקו. מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסומה כרגע מעריכת ויקיפדיה.</string>
-  <string name="suggested_edits_gate_message">סליחה\" %s, חובה לעשות לפחות שלוש עריכות ישירות בערך כדי להשתמש בתכונה הזאת.</string>
+  <string name="suggested_edits_gate_message">סליחה, %s, יש לעשות לפחות שלוש עריכות ישירות בערכים שבמיזם כדי להשתמש בתכונה הזאת.</string>
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
   <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
   <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
@@ -1166,8 +1166,11 @@
   <string name="image_recommendation_tooltip_3">יש להחליט האם התמונה עוזרת לקוראים להבין טוב יותר את הנושא הזה</string>
   <string name="image_recommendation_tooltip_next">הבא</string>
   <string name="image_recommendation_tooltip_warning">נא לעיין בערך כדי להבין את הנושא שלו ולבדוק את התמונה</string>
+  <string name="suggested_edits_report_feature">בעיה עם תכונה</string>
+  <string name="suggested_edits_report_feature_subject">בעיה עם עריכות מוצעות</string>
   <string name="edit_summary_added_image">נוספה תמונה</string>
   <string name="edit_summary_added_caption">נוסף כיתוב</string>
+  <string name="edit_summary_added_image_and_caption">נוספו תמונה וכיתוב</string>
   <string name="edit_published_view">הצגה</string>
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
@@ -1525,4 +1528,8 @@
   <string name="data_opt_in_reject">לדחות</string>
   <string name="page_issues_title">בעיות בדף</string>
   <string name="generic_release_notes">תיקוני באגים קלים ושיפורים</string>
+  <string name="email_report_image_recommendations_subject">דו\"ח בעיה – תכונת המלצות תמונה</string>
+  <string name="email_report_image_recommendations_body">נתקלתי בבעיה בתכונת המלצות תמונה:\n- [נא לתאר בעיה ספציפית]\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
+  <string name="email_report_patroller_tasks_subject">דו\"ח בעיה - תכונת משימות ניטור</string>
+  <string name="email_report_patroller_tasks_body">נתקלתי בבעיה בתכונת משימות ניטור:\n- [נא לתאר בעיה ספציפית]\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
 </resources>

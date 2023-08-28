@@ -12,6 +12,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.FileAliasData
 import org.wikipedia.util.StringUtil
@@ -20,12 +21,11 @@ import org.wikipedia.util.log.L
 class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
     val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
-    val wikiSite = bundle.getParcelable<WikiSite>(Constants.ARG_WIKISITE)!!
+    val wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
     var searchQuery = StringUtil.removeHTMLTags(StringUtil.removeUnderscores(bundle.getString(InsertMediaActivity.EXTRA_SEARCH_QUERY)!!))
     val originalSearchQuery = searchQuery
-    var selectedImage = bundle.getParcelable<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+    var selectedImage = bundle.parcelable<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
     var selectedImageSource = bundle.getString(InsertMediaActivity.EXTRA_IMAGE_SOURCE).orEmpty()
-
     var imagePosition: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_POS, IMAGE_POSITION_RIGHT)
     var imageType: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_TYPE, IMAGE_TYPE_THUMBNAIL)
     var imageSize: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_SIZE, IMAGE_SIZE_DEFAULT)
@@ -217,17 +217,19 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                 if (haveNameParam) {
                     var match = """\|\s*$imageParamName\s*=([^|]*)(\|)""".toRegex()
                         .find(wikiText, infoboxStartIndex)
+                    var group1 = match?.groups?.get(1)
+                    var group2 = match?.groups?.get(2)
 
-                    if (match != null && match.groups[2] != null && match.groups[2]!!.range.first < infoboxEndIndex) {
+                    if (group1 != null && group2 != null && group2.range.first < infoboxEndIndex) {
                         // an 'image' parameter already exists, so try to insert the image into it,
                         // provided that it's empty.
 
-                        var insertPos = match.groups[2]!!.range.first
-                        val valueStr = match.groups[1]!!.value
+                        var insertPos = group2.range.first
+                        val valueStr = group1.value
 
                         if (valueStr.trim().isEmpty()) {
                             if (valueStr.contains("\n")) {
-                                insertPos = match.groups[1]!!.range.first + valueStr.indexOf("\n")
+                                insertPos = group1.range.first + valueStr.indexOf("\n")
                             }
                             insertedIntoInfobox = true
                             wikiText = wikiText.substring(0, insertPos) + imageTitle + wikiText.substring(insertPos)
@@ -248,13 +250,15 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                         // now try to insert the caption
                         match = """\|\s*$imageCaptionParamName\s*=([^|]*)(\|)""".toRegex()
                             .find(wikiText, infoboxStartIndex)
-                        if (match != null && match.groups[2] != null && match.groups[2]!!.range.first < infoboxEndIndex) {
+                        group1 = match?.groups?.get(1)
+                        group2 = match?.groups?.get(2)
+                        if (group1 != null && group2 != null && group2.range.first < infoboxEndIndex) {
                             // Caption field already exists, so insert into it.
-                            var insertPos = match.groups[2]!!.range.first
-                            val valueStr = match.groups[1]!!.value
+                            var insertPos = group2.range.first
+                            val valueStr = group1.value
                             if (valueStr.trim().isEmpty()) {
                                 if (valueStr.contains("\n")) {
-                                    insertPos = match.groups[1]!!.range.first + valueStr.indexOf("\n")
+                                    insertPos = group1.range.first + valueStr.indexOf("\n")
                                 }
                                 wikiText = wikiText.substring(0, insertPos) + imageCaption + wikiText.substring(insertPos)
                             }
@@ -272,13 +276,15 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                         // now try to insert alt text!
                         match = """\|\s*$imageAltParamName\s*=([^|]*)(\|)""".toRegex()
                             .find(wikiText, infoboxStartIndex)
-                        if (match != null && match.groups[2] != null && match.groups[2]!!.range.first < infoboxEndIndex) {
+                        group1 = match?.groups?.get(1)
+                        group2 = match?.groups?.get(2)
+                        if (group1 != null && group2 != null && group2.range.first < infoboxEndIndex) {
                             // Caption field already exists, so insert into it.
-                            var insertPos = match.groups[2]!!.range.first
-                            val valueStr = match.groups[1]!!.value
+                            var insertPos = group2.range.first
+                            val valueStr = group1.value
                             if (valueStr.trim().isEmpty()) {
                                 if (valueStr.contains("\n")) {
-                                    insertPos = match.groups[1]!!.range.first + valueStr.indexOf("\n")
+                                    insertPos = group1.range.first + valueStr.indexOf("\n")
                                 }
                                 wikiText = wikiText.substring(0, insertPos) + imageAltText + wikiText.substring(insertPos)
                             }
@@ -333,9 +339,11 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                 }
                 val regexName = """\|(\s*)$nameParam\s*=([^|]*)(\|)""".toRegex()
                 val nameMatch = regexName.find(wikiText, startIndex)
-                if (nameMatch != null && nameMatch.groups[3] != null && nameMatch.groups[3]!!.range.first < endIndex) {
-                    paramInsertPos = nameMatch.groups[3]!!.range.first
-                    paramNameSpaceConvention = nameMatch.groups[1]!!.value
+                val group1 = nameMatch?.groups?.get(1)
+                val group3 = nameMatch?.groups?.get(3)
+                if (group1 != null && group3 != null && group3.range.first < endIndex) {
+                    paramInsertPos = group3.range.first
+                    paramNameSpaceConvention = group1.value
                 }
             }
             return Pair(paramInsertPos, paramNameSpaceConvention)

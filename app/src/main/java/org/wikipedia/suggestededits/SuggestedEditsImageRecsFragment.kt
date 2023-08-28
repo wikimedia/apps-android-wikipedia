@@ -239,10 +239,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.articleDescription.text = viewModel.summary.description
         binding.articleExtract.text = StringUtil.fromHtml(viewModel.summary.extractHtml).trim()
 
-        var thumbUrl = ImageUrlUtil.getUrlForPreferredSize(viewModel.recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
-        if (thumbUrl.startsWith("//")) {
-            thumbUrl = "https:$thumbUrl"
-        }
+        val thumbUrl = UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(viewModel.recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
         binding.imageView.loadImage(Uri.parse(thumbUrl),
             roundedCorners = false, cropped = false, listener = object : FaceAndColorDetectImageView.OnImageLoadListener {
@@ -281,12 +278,6 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.articleScrollSpacer.post {
             if (isAdded) {
                 binding.articleScrollSpacer.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, bottomSheetBehavior.peekHeight)
-                // Collapse bottom sheet if the article title is not visible when loaded
-                binding.suggestedEditsItemRootView.doViewsOverlap(binding.articleTitle, binding.bottomSheetCoordinatorLayout).run {
-                    if (this) {
-                        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-                    }
-                }
             }
         }
 
@@ -322,6 +313,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             R.id.menu_tutorial -> {
                 ImageRecommendationsEvent.logAction("more_view_tutorial", "recommendedimagetoolbar",
                     getActionStringForAnalytics(), viewModel.langCode)
+                bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
                 showTooltipSequence()
                 true
             }
@@ -332,7 +324,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 true
             }
             R.id.menu_report_feature -> {
-                FeedbackUtil.composeFeedbackEmail(requireContext(), getString(R.string.suggested_edits_report_feature_subject))
+                FeedbackUtil.composeFeedbackEmail(requireContext(),
+                    getString(R.string.email_report_image_recommendations_subject),
+                    getString(R.string.email_report_image_recommendations_body))
                 true
             }
             else -> false
@@ -456,8 +450,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     companion object {
         const val ARG_LANG = "lang"
         const val MIN_TIME_WARNING_MILLIS = 5000
-        const val IMAGE_REC_EDIT_COMMENT_TOP = "#suggestededit-image-add-top"
-        const val IMAGE_REC_EDIT_COMMENT_INFOBOX = "#suggestededit-image-add-infobox"
+        const val IMAGE_REC_EDIT_COMMENT_TOP = "#suggestededit-add-image-top"
+        const val IMAGE_REC_EDIT_COMMENT_INFOBOX = "#suggestededit-add-image-infobox"
 
         fun newInstance(): SuggestedEditsItemFragment {
             return SuggestedEditsImageRecsFragment()

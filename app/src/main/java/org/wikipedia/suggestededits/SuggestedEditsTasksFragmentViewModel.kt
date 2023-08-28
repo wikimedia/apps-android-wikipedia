@@ -66,7 +66,8 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             val wikidataResponse = wikidataCall.await()
             editCountsCall.await()
 
-            // TODO: solidify which wikis we want to show image recommendations for.
+            // Logic for checking whether the wiki has image recommendations enabled
+            // (in case we need to rely on it in the future)
             /*
             homeSiteParamCall.await().paraminfo?.modules?.let {
                 if (it.isNotEmpty() && it[0].parameters.isNotEmpty()) {

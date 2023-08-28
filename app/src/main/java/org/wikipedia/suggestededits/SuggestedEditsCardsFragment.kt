@@ -271,10 +271,10 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     fun onSelectPage() {
-        if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
-            topBaseChild()!!.publish()
-        } else if (action == IMAGE_RECOMMENDATIONS && topBaseChild() != null) {
-            topBaseChild()!!.publish()
+        if (action == ADD_IMAGE_TAGS) {
+            topBaseChild()?.publish()
+        } else if (action == IMAGE_RECOMMENDATIONS) {
+            topBaseChild()?.publish()
         } else if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummaryForEdit, topChild()!!.targetSummaryForEdit,
                 action, Constants.InvokeSource.SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
