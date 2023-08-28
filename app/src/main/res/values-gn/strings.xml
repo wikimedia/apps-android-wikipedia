@@ -61,7 +61,7 @@
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d oñemoambue %2$s guive (%3$s)</item>
-    <item quantity="other">% 1$d oñemoambue %2$s guive (%3$s)</item>
+    <item quantity="other">%1$d oñemoambue %2$s guive (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Eñeha\'ã emoambue umi &lt;a href=\"#\"&gt;mboguaha&lt;/a&gt; rehecha hag̃ua hetave ñemboheko</string>
   <string name="menu_page_show_tabs">Ehecha tendaykekuéra</string>
