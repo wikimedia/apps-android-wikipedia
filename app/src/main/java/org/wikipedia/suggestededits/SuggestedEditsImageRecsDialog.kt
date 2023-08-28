@@ -2,6 +2,7 @@ package org.wikipedia.suggestededits
 
 import android.app.Dialog
 import android.os.Bundle
+import android.widget.CheckBox
 import android.widget.CompoundButton
 import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
@@ -19,8 +20,9 @@ class SuggestedEditsImageRecsDialog : DialogFragment() {
     private var _binding: FragmentSuggestedEditsImageRecsDialogBinding? = null
     private val binding get() = _binding!!
     private var dialog: AlertDialog? = null
-
     private var responseCode = -1
+
+    private lateinit var checkboxes: Array<CheckBox>
 
     private val checkBoxChangedHandler = CompoundButton.OnCheckedChangeListener { _, _ ->
         updateSubmitState()
@@ -35,25 +37,14 @@ class SuggestedEditsImageRecsDialog : DialogFragment() {
         responseCode = requireArguments().getInt(ARG_RESPONSE)
         _binding = FragmentSuggestedEditsImageRecsDialogBinding.inflate(layoutInflater)
 
-        binding.checkBox1.setOnCheckedChangeListener(checkBoxChangedHandler)
-        binding.checkBox2.setOnCheckedChangeListener(checkBoxChangedHandler)
-        binding.checkBox3.setOnCheckedChangeListener(checkBoxChangedHandler)
-        binding.checkBox4.setOnCheckedChangeListener(checkBoxChangedHandler)
-        binding.checkBox5.setOnCheckedChangeListener(checkBoxChangedHandler)
-        binding.checkBox6.setOnCheckedChangeListener(checkBoxChangedHandler)
+        checkboxes = arrayOf(binding.checkBox1, binding.checkBox2, binding.checkBox3, binding.checkBox4, binding.checkBox5, binding.checkBox6)
+        checkboxes.forEach { it.setOnCheckedChangeListener(checkBoxChangedHandler) }
 
         dialog = MaterialAlertDialogBuilder(requireActivity())
             .setView(binding.root)
             .setNegativeButton(android.R.string.cancel) { _, _ -> dismiss() }
             .setPositiveButton(R.string.image_recommendation_reject_submit) { _, _ ->
-                val itemList = mutableListOf<Int>()
-                if (binding.checkBox1.isChecked) { itemList.add(0) }
-                if (binding.checkBox2.isChecked) { itemList.add(1) }
-                if (binding.checkBox3.isChecked) { itemList.add(2) }
-                if (binding.checkBox4.isChecked) { itemList.add(3) }
-                if (binding.checkBox5.isChecked) { itemList.add(4) }
-                if (binding.checkBox6.isChecked) { itemList.add(5) }
-
+                val itemList = checkboxes.mapIndexedNotNull { i, checkBox -> if (checkBox.isChecked) i else null }
                 callback()?.onDialogSubmit(responseCode, itemList)
                 dismiss()
             }
@@ -68,8 +59,7 @@ class SuggestedEditsImageRecsDialog : DialogFragment() {
     }
 
     private fun updateSubmitState() {
-        val enabled = (binding.checkBox1.isChecked || binding.checkBox2.isChecked || binding.checkBox3.isChecked ||
-                binding.checkBox4.isChecked || binding.checkBox5.isChecked || binding.checkBox6.isChecked)
+        val enabled = checkboxes.any { it.isChecked }
         dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = enabled
         dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.alpha = if (enabled) 1f else 0.5f
     }

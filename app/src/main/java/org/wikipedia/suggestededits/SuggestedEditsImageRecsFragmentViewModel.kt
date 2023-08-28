@@ -68,10 +68,8 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
             summary = ServiceFactory.getRest(wikiSite).getPageSummary(null, page.title)
             pageTitle = summary.getPageTitle(wikiSite)
 
-            var thumbUrl = ImageUrlUtil.getUrlForPreferredSize(recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
-            if (thumbUrl.startsWith("//")) {
-                thumbUrl = "https:$thumbUrl"
-            }
+            val thumbUrl = UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(recommendation.images[0].metadata!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
+
             recommendedImageTitle = PageTitle(FileAliasData.valueFor(langCode), recommendation.images[0].image,
                 null, thumbUrl, Constants.commonsWikiSite)
             recommendedImageTitle.description = recommendation.images[0].metadata!!.description
@@ -80,7 +78,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
             // and check whether the preview contains errors, in which case don't insert into the infobox.
 
             val insertResult = InsertMediaViewModel.insertImageIntoWikiText(langCode, page.revisions.first().contentMain, recommendation.images[0].image,
-                "caption", "alt", "200px", "thumb", "right", 0, true, true)
+                "caption", "alt", "200px", "thumb", "right", 0, autoInsert = true, attemptInfobox = true)
 
             if (insertResult.second) {
                 withContext(Dispatchers.IO) {
@@ -91,7 +89,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
                             .build()
 
                         L.d("Requesting preview with image inserted into infobox...")
-                        val request: Request = Request.Builder().url(ServiceFactory.getRestBasePath(wikiSite) +
+                        val request = Request.Builder().url(ServiceFactory.getRestBasePath(wikiSite) +
                                 RestService.PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(pageTitle.prefixedText))
                             .post(body)
                             .build()
