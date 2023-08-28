@@ -219,7 +219,7 @@
   <string name="preference_summary_sync_reading_lists">Уҡыу исемлектәрен, һеҙҙең Википедия аккаунтына һаҡлап, төрлө ҡулайламалар аша уҡыуҙы синхронлаштыра</string>
   <string name="preference_summary_sync_reading_lists_from_account">Уҡыу исемлектәрен, Википедиялағы «%s» аккаунтығыҙға һаҡлап, ҡулайламалар аша уҡыуҙы синхронлаштыра</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">«%s» синхрон уҡыу исемлектәрен юйырғамы?</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Был элек синхрон уҡыу исемлектәрен алыҫтағы һаҡлағыстан тулыһынса алып ташлай. Бөтә синхрон исемлектәрҙе үҙегеҙҙең \"%s\" аккаунтығыҙҙан юйырғамы?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">Был элек синхрон уҡыу исемлектәрен дистанцион һаҡлағыстан тулыһынса алып ташлай. Бөтә синхрон исемлектәрҙе үҙегеҙҙең \"%s\" аккаунтығыҙҙан юйырғамы?</string>
   <string name="preferences_privacy_settings_heading">Сер һаҡлау</string>
   <string name="preference_title_eventlogging_opt_in">Ҡулланыу тураһында отчет ебәрергә</string>
   <string name="preference_summary_eventlogging_opt_in">Викимедиаға ҡушымтаны нисек ҡулланыуығыҙ тураһында мәғлүмәт йыйырға рөхсәт итеү. Был уны тағы ла яҡшыраҡ итергә мөмкинлек бирәсәк</string>
@@ -324,7 +324,7 @@
   <string name="dialog_close_description">Ябырға</string>
   <string name="preference_title_show_images">Һүрәттәрҙе күрһәтергә</string>
   <string name="preference_summary_show_images">Биттәрҙәге һүрәттәрҙе күсереп алыуҙы ҡабыҙырға йәки һүндерергә. Әгәр Интернетҡа тоташыу яй барһа  йәки тариф планында трафик сикләнгән икән, был билдәне алығыҙ</string>
-  <string name="preference_title_download_only_over_wifi">Wi-Fi аша ғына күсереп алырға</string>
+  <string name="preference_title_download_only_over_wifi">Wi-Fi аша ғына йөкләргә</string>
   <string name="dialog_title_download_only_over_wifi">Мобиль селтәре аша күсереп алыуҙы раҫларғамы?</string>
   <string name="dialog_text_download_only_over_wifi">Көйләүҙәрҙә һеҙ \"Wi-Fi аша ғына күсереп алыу\" тигәнде күрһәттегеҙ. Һеҙ мобиль селтәрҙе хәҙерге күсереп алыу өсөн генә ҡулланырға теләйһегеҙме?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Рөхсәт итергә</string>
@@ -1382,7 +1382,7 @@
   <string name="watchlist_filter_reset_button">Алып ташларға</string>
   <string name="watchlist_search_bar_hint">Күҙәтеү исемлегендә эҙләү йәки фильтрлау</string>
   <string name="watchlist_search_bar_filter_hint">Күҙәтеү исемлеге фильтры</string>
-  <string name="watchlist_empty_search_message">Һөҙөмтәләр юҡ, күберәк табыу өсөн %s фильтрҙы кәметегеҙ.</string>
+  <string name="watchlist_empty_search_message">Һөҙөмтәләр юҡ, күберәк табыу өсөн %s  кәметегеҙ.</string>
   <plurals name="watchlist_number_of_filters">
     <item quantity="one">%d фильтр</item>
     <item quantity="other">%d фильтр</item>
@@ -1392,7 +1392,7 @@
   <string name="preview_edit_summarize_edit_hint">Был битте нисек яҡшырттығыҙ?</string>
   <string name="preview_edit_minor_edit">Әһәмиәте әҙ булған төҙәтеү</string>
   <string name="preview_edit_watch_this_page">Был битте күҙәтергә</string>
-  <string name="preview_edit_learn_more">Дөйөм үҙгәрештәр тураһында ентекләберәк</string>
+  <string name="preview_edit_learn_more">Үҙгәртеүҙәр тасуирламаһы тураһында ентекләберәк</string>
   <string name="action_item_categories">Категориялар</string>
   <string name="page_no_categories">Был бит бер ниндәй категорияға ла ҡарамай.</string>
   <string name="category_tab_articles">Мәҡәләләр</string>
@@ -1400,7 +1400,7 @@
   <string name="category_empty">Был категорияға ҡараған мәҡәләләр юҡ.</string>
   <string name="subcategory_empty">Был категорияла бер генә ярҙамсы категория ла табылманы.</string>
   <string name="search_namespaces">Исем арауыҡтары</string>
-  <string name="revision_initial_none">None (был беренсе өлгө)</string>
+  <string name="revision_initial_none">Берәү ҙә юҡ (был беренсе өлгө)</string>
   <string name="user_contrib_activity_title">%s өлөшө</string>
   <string name="archive_empty">Архивланған биттәр табылманы.</string>
   <string name="user_contrib_filter_ns">Исемдәр арауығы фильтры</string>
@@ -1410,7 +1410,7 @@
   <string name="user_contrib_current">хәҙерге</string>
   <string name="media_playback_error">Медиафайлды уйнатыу хатаһы</string>
   <string name="user_contrib_menu_label">Ҡатнашыусы өлөшө</string>
-  <string name="user_contrib_filter_activity_title">Өлөш фильтры</string>
+  <string name="user_contrib_filter_activity_title">Индергән өлөштө фильтрларға</string>
   <string name="shareable_reading_lists_import_dialog_title">Дөйөм уҡыу исемлеген импортлау</string>
   <string name="shareable_reading_lists_import_dialog_content">Һеҙҙең менән уртаҡлашҡан исемлекте нисек атарға теләр инегеҙ?</string>
   <string name="shareable_reading_lists_new_indicator">*яңы*</string>
@@ -1427,4 +1427,6 @@
   <string name="data_opt_in_reject">Кире ҡағырға</string>
   <string name="page_issues_title">Бит проблемалары</string>
   <string name="generic_release_notes">Әһәмиәте әҙ булған төҙәтеүҙәр һәм яҡшыртыуҙар</string>
+  <string name="email_report_patroller_tasks_subject">Проблема тураһында мәғлүмәт - Тикшереү функцияһы</string>
+  <string name="email_report_patroller_tasks_body">Тикшереү функцияһы проблемаһы менән осраштым:\n[Аныҡ проблеманы күрһәтегеҙ]\nМин күрергә теләгән ғәмәл:\n[Хәл итеү юлын тасуирлағыҙ]</string>
 </resources>
