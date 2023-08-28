@@ -282,6 +282,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">آف لائن کنوں سارے ہٹاؤ</string>
   <string name="reading_list_action_menu_save_all_for_offline">آف لائن کیتے سارے محفوظ کرو</string>
   <string name="reading_list_action_menu_add_to_another_list">ہک ٻئی تندیر شامل کرو</string>
+  <string name="reading_list_name_sample">میݙی پڑھݨ تندیر</string>
   <string name="reading_list_name_hint">ایں فہرست دا ناں</string>
   <string name="reading_list_description_hint">تفصیلاں(اختیاری)</string>
   <string name="reading_list_item_delete_undo">واپس</string>

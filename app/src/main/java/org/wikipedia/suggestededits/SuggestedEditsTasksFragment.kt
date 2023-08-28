@@ -354,6 +354,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS, Constants.InvokeSource.SUGGESTED_EDITS))
                 }
             } else if (task == vandalismPatrolTask) {
+                // >>>>>>>> TODO <<<<<<<<
                 startActivity(SuggestionsActivity.newIntent(requireActivity(), VANDALISM_PATROL, Constants.InvokeSource.SUGGESTED_EDITS))
             }
         }

@@ -162,7 +162,11 @@ interface Service {
 
     @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&list=recentchanges&rcprop=title|timestamp|ids|oresscores|sizes|tags|user|parsedcomment|comment|flags&rcnamespace=0&rctoponly=1&rctype=edit|new")
-    fun getRecentEdits(@Query("rclimit") count: Int, @Query("rcstart") startTimeStamp: String): Observable<MwQueryResponse>
+    suspend fun getRecentEdits(
+        @Query("rclimit") count: Int,
+        @Query("rcstart") startTimeStamp: String,
+        @Query("rcshow") filters: String?
+    ): MwQueryResponse
 
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=options")

@@ -1,3 +1,15 @@
 # Customizations for ktlint
 [*.{kt,kts}]
-disabled_rules=indent,parameter-list-wrapping,no-wildcard-imports
+ktlint_standard_indent = disabled
+ktlint_standard_argument-list-wrapping = disabled
+ktlint_standard_parameter-list-wrapping = disabled
+ktlint_standard_wrapping = disabled
+ktlint_standard_trailing-comma-on-call-site = disabled
+ktlint_standard_trailing-comma-on-declaration-site = disabled
+ktlint_standard_no-wildcard-imports = disabled
+ktlint_standard_multiline-if-else = disabled
+ktlint_standard_spacing-between-declarations-with-annotations = disabled
+ktlint_standard_annotation = disabled
+ktlint_standard_spacing-between-declarations-with-comments = disabled
+ktlint_standard_no-empty-first-line-in-method-block = disabled
+
