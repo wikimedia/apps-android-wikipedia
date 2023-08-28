@@ -17,7 +17,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.settings.Prefs
-import org.wikipedia.usercontrib.UserContribListViewModel
 import org.wikipedia.util.DateUtil
 import retrofit2.HttpException
 import java.io.IOException
@@ -56,7 +55,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             val dateBefore = before?.item?.parsedDateTime?.toLocalDate()
             val dateAfter = after?.item?.parsedDateTime?.toLocalDate()
             if (dateAfter != null && dateAfter != dateBefore) {
-                UserContribListViewModel.UserContribSeparator(DateUtil.getShortDateString(dateAfter))
+                RecentEditsSeparator(DateUtil.getShortDateString(dateAfter))
             } else {
                 null
             }

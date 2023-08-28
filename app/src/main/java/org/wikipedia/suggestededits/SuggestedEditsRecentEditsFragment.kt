@@ -19,12 +19,20 @@ import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingData
 import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsRecentEditsBinding
@@ -83,6 +91,49 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         binding.refreshContainer.setOnRefreshListener {
             viewModel.clearCache()
             recentEditsListAdapter.reload()
+        }
+
+        binding.refreshContainer.setOnRefreshListener {
+            viewModel.clearCache()
+            recentEditsListAdapter.reload()
+        }
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        setupAdapters()
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    recentEditsListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
+                        .filter { it.refresh is LoadState.NotLoading }
+                        .collectLatest {
+                            if (binding.refreshContainer.isRefreshing) {
+                                binding.refreshContainer.isRefreshing = false
+                            }
+                        }
+                }
+                launch {
+                    recentEditsListAdapter.loadStateFlow.collectLatest {
+                        loadHeader.loadState = it.refresh
+                        loadFooter.loadState = it.append
+                        val showEmpty = (it.append is LoadState.NotLoading && it.source.refresh is LoadState.NotLoading && recentEditsListAdapter.itemCount == 0)
+                        if (showEmpty) {
+                            (binding.recyclerView.adapter as ConcatAdapter).addAdapter(recentEditsEmptyMessagesAdapter)
+                        } else {
+                            (binding.recyclerView.adapter as ConcatAdapter).removeAdapter(recentEditsEmptyMessagesAdapter)
+                        }
+                    }
+                }
+                launch {
+                    viewModel.recentEditsFlow.collectLatest {
+                        recentEditsListAdapter.submitData(it)
+                    }
+                }
+            }
+        }
+
+        if (viewModel.actionModeActive) {
+            startSearchActionMode()
         }
     }
 
