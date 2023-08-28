@@ -137,8 +137,8 @@
   <string name="login_username_hint">Nama pemaké</string>
   <string name="login_password_hint">Kata sandi</string>
   <string name="account_creation_password_hint">Kata sandi</string>
-  <string name="login_2fa_hint">Kode Otèntipikasi Dua-Paktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Otèntipikasi dua-paktor dibutuhin! Padol dah, kombali ke aktipitèt utama èn masup paké lu punya token 2FA, terus jal lagi dah.</string>
+  <string name="login_2fa_hint">Kode Musadakah Dua-Paktor</string>
+  <string name="login_2fa_other_workflow_error_msg">Musadakah dua-paktor dibutuhin! Padol dah, kombali ke aktipitèt utama èn masup paké lu punya token 2FA, terus jal lagi dah.</string>
   <string name="onboarding_card_login">Masup</string>
   <string name="page_editing_login">Masup</string>
   <string name="reading_lists_sync_login">Masup</string>
@@ -211,7 +211,7 @@
   <string name="preference_summary_eventlogging_opt_in">Ijinin Wikimédia ngumpulin inpormasi pasal cara lu maké ni aplikasi biar mangkin bagus dah ni aplikasi</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
   <string name="preference_summary_auto_upload_crash_reports">Ijinin aplikasi otomatis ngirim laporan kerusakan ke penyedia ladènan pihak ketiga biar kita bisa merèksa dah lu punya kerusakan èn ngebetulin tu bangsat lebi lekas èn gampil.</string>
-  <string name="editing_error_spamblacklist">Sènggètan ke domén nyang diblokir (%s) keendus. Dimohon buang tu èn jal lagi.</string>
+  <string name="editing_error_spamblacklist">Sènggètan ke rungkun nyang diblokir (%s) keendus. Dimohon buang tu èn jal lagi.</string>
   <string name="history_filter_list_hint">Saring riwayat</string>
   <string name="error_can_not_process_link">Kaga\' bisa mampangin ni sènggètan</string>
   <string name="page_protected_autoconfirmed">Ni halaman udah separo-dilindungin.</string>
@@ -1281,7 +1281,7 @@
   <string name="menu_option_view_user_profile">Deleng halaman pemaké</string>
   <string name="menu_option_view_user_talk">Deleng halaman obrolan</string>
   <string name="menu_option_view_user_contributions">Deleng sumbangsih pemaké</string>
-  <string name="revision_diff_compare">Bandingin répisi</string>
+  <string name="revision_diff_compare">Bandingin perbaèkan</string>
   <string name="revision_diff_compare_title">Bandingin répisi: %s</string>
   <string name="revision_diff_from">Deri:</string>
   <string name="revision_diff_to">Ke:</string>
@@ -1299,7 +1299,7 @@
   <string name="revision_rollback_dialog_title">Apa lu yakin pèngèn ngaterèt ni permakan?</string>
   <string name="revision_rollback_success">Permakan udah dibalikin.</string>
   <string name="revision_compare_button">Bandingin</string>
-  <string name="revision_compare_two_only">Cuman dua répisi nyang bisa dipilih.</string>
+  <string name="revision_compare_two_only">Cuman dua perbaèkan nyang bisa dipilih.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s èn dia punya halaman obrolan udah ditambahin ke lu punya daptar pantengan %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Robah</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ajeg</string>
@@ -1356,7 +1356,7 @@
   <string name="watchlist_filter_significance_edits">Suntingan bukan-kecit</string>
   <string name="watchlist_filter_latest_revisions_header">Répisi paling baru</string>
   <string name="watchlist_filter_latest_revisions_latest_revision">Répisi paling baru</string>
-  <string name="watchlist_filter_latest_revisions_not_latest_revision">Bukan répisi nyang paling baru</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Bukan perbaèkan nyang paling baru</string>
   <string name="watchlist_filter_type_of_change_header">Jenis perobahan</string>
   <string name="watchlist_filter_type_of_change_page_edits">Permakan halaman</string>
   <string name="watchlist_filter_type_of_change_page_creations">Pengejaan halaman</string>
@@ -1385,7 +1385,7 @@
   <string name="category_empty">Kaga\' ketemu makalah di ni katègori.</string>
   <string name="subcategory_empty">Kaga\' ketemu anak-katègori di ni katègori.</string>
   <string name="search_namespaces">Ruang nama</string>
-  <string name="revision_initial_none">Kaga\' ada (ni – répisi pertama)</string>
+  <string name="revision_initial_none">Kaga\' ada (ni – perbaèkan pertama)</string>
   <string name="user_contrib_activity_title">Sumbangsihnya %s</string>
   <string name="archive_empty">Kaga\' ketemu halaman kearsip.</string>
   <string name="user_contrib_filter_ns">Saringan berales ruang nama</string>
