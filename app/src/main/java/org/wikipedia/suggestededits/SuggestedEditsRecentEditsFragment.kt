@@ -391,7 +391,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                     }
 
                     override fun getExcludedFilterCount(): Int {
-                        return Prefs.userContribFilterExcludedNs.size
+                        return viewModel.filtersCount()
                     }
 
                     override fun getFilterIconContentDescription(): Int {

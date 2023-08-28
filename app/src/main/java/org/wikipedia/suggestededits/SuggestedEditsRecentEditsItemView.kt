@@ -38,6 +38,7 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
         }
     }
 
+    @Suppress("KotlinConstantConditions")
     fun setItem(item: MwQueryResult.RecentChange) {
         this.item = item
         var isSummaryEmpty = false
