@@ -556,7 +556,7 @@ object Prefs {
 
     var customizeToolbarMenuOrder: List<Int>
         get() {
-            val notInToolbarList = PageActionItem.values().map { it.code() }.subtract(customizeToolbarOrder)
+            val notInToolbarList = PageActionItem.entries.map { it.code() }.subtract(customizeToolbarOrder)
             val currentList = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_menu_order, null))
                     ?: notInToolbarList
             return currentList.union(notInToolbarList).toList()

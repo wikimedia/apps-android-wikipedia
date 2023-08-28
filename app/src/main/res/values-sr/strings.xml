@@ -434,6 +434,7 @@
   <string name="text_style_title">Фонт</string>
   <string name="theme_category_reading">Читање</string>
   <string name="theme_category_editing">Уређивање</string>
+  <string name="editing_typing_suggestions">Приказуј сугестије током куцања</string>
   <string name="nav_item_saved">Сачувано</string>
   <string name="reading_list_save_to">Сачувај на листу за читање</string>
   <string name="reading_list_move_to">Премести на листу за читање</string>
@@ -466,6 +467,9 @@
   <string name="reading_list_description_hint">Опис (опционално)</string>
   <string name="reading_list_item_deleted">Чланак „%s” је уклоњен са листе</string>
   <string name="reading_list_item_deleted_from_list">%1$s је уклоњен са списка %2$s</string>
+  <string name="reading_lists_default_list_delete_message">Подразумеван списак (%s) не може бити обрисан</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s обрисан. Подразумеван списак (%2$s) не може бити обрисан.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Спискови обрисани. Подразумеван списак (%s) не може бити обрисан.</string>
   <string name="reading_list_items_deleted">Чланака уклоњено са листе: %d</string>
   <string name="reading_lists_item_deleted">%s уклоњено са спискова</string>
   <string name="reading_list_item_delete_undo">Опозови</string>
@@ -497,6 +501,7 @@
   <string name="reading_list_article_save_in_progress">Чланак се преузима. По завршетку преузимања ће бити доступан офлајн.</string>
   <string name="reading_list_articles_added_to_named">На листу „%2$s” су додати чланци (%1$d)</string>
   <string name="reading_list_delete_confirm">Желите ли заиста да избришете „%s”?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Избрисати изабране спискове?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Пријавите се да бисте омогућили синхронизацију</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Пријавите се да бисте сачували листе за читање на ваш налог.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Откажи</string>
@@ -603,6 +608,7 @@
   <string name="notifications_mark_unread">Означи као непрочитано</string>
   <string name="notifications_mark_all_as_read">Означи све као прочитано</string>
   <string name="notifications_direct_reply_action">Одговори</string>
+  <string name="notifications_direct_reply_progress">Постављам одговор %s…</string>
   <string name="notifications_direct_reply_success">Одговор објављен.</string>
   <string name="notifications_direct_reply_error">Аутоматско постављање одговора није успело.</string>
   <string name="notifications_mark_all_as_read_message">Означено прочитаним: %d</string>
@@ -990,6 +996,8 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Референца</string>
   <string name="wikitext_preview_link">Преглед везе</string>
+  <string name="insert_media_search_description">Изаберите датотеку са Викимедијине оставе</string>
+  <string name="insert_media_search_hint">Претрага медија</string>
   <string name="insert_media_settings">Додај детаље о слици</string>
   <string name="insert_media_settings_caption">Натпис слике</string>
   <string name="insert_media_settings_caption_description">Опис слике у чланку</string>
@@ -1038,6 +1046,8 @@
   <string name="talk_response_submitted">Одговор објављен.</string>
   <string name="talk_snackbar_undo">Опозови</string>
   <string name="talk_last_modified">&lt;b&gt;Последња измена: %2$s&lt;/b&gt;, %1$s</string>
+  <string name="talk_search_hint">Претрага порука</string>
+  <string name="talk_overflow_sort_by">Поређај по</string>
   <string name="talk_overflow_sort_date_published">Датум објављивања</string>
   <string name="talk_overflow_sort_date_updated">Датум ажурирања</string>
   <string name="talk_overflow_sort_topic_name">Име теме</string>
@@ -1047,12 +1057,15 @@
   <string name="talk_list_item_overflow_share">Дели</string>
   <string name="talk_list_item_last_comment_date">Последњи коментар: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Укупно одговора</string>
+  <string name="talk_list_item_user_icon_content_description">Корисничка икона</string>
   <string name="talk_list_item_swipe_mark_as_read">Прочитано</string>
   <string name="talk_list_item_swipe_mark_as_unread">Непрочитано</string>
   <string name="menu_option_user_contributions">Доприноси %s</string>
   <string name="menu_option_edit_source">Уреди извор</string>
   <string name="menu_option_user_page">Корисничка страница %s</string>
   <string name="talk_menu_copy_text">Копирај текст</string>
+  <string name="talk_menu_expand_threads">Рашири теме</string>
+  <string name="talk_menu_collapse_threads">Скупи теме</string>
   <string name="watchlist_details_watching_label">Надгледате</string>
   <string name="watchlist_details_watch_label">Надгледај</string>
   <string name="watchlist_details_next_edit">Следећа измена</string>
@@ -1123,8 +1136,10 @@
   <string name="watchlist_filter_automated_contributions_human">Човек (не бот)</string>
   <string name="watchlist_filter_significance_header">Значај</string>
   <string name="watchlist_filter_significance_minor">Мање измене</string>
+  <string name="watchlist_filter_significance_edits">Нису мање измене</string>
   <string name="watchlist_filter_latest_revisions_header">Последње измене</string>
   <string name="watchlist_filter_latest_revisions_latest_revision">Последња измена</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Није последња измена</string>
   <string name="watchlist_filter_type_of_change_header">Врста измене</string>
   <string name="watchlist_filter_type_of_change_page_edits">Измене страница</string>
   <string name="watchlist_filter_type_of_change_page_creations">Нове странице</string>

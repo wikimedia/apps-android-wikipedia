@@ -1099,8 +1099,11 @@
   <string name="image_recommendation_tooltip_3">決定圖片是否可以幫助讀者更好理解這個主題</string>
   <string name="image_recommendation_tooltip_next">下一個</string>
   <string name="image_recommendation_tooltip_warning">請檢閱條目來了解該主題並檢查圖片</string>
+  <string name="suggested_edits_report_feature">功能出現問題</string>
+  <string name="suggested_edits_report_feature_subject">建議編輯出現問題</string>
   <string name="edit_summary_added_image">已新增圖片</string>
   <string name="edit_summary_added_caption">已新增說明</string>
+  <string name="edit_summary_added_image_and_caption">添加圖片與說明</string>
   <string name="edit_published_view">檢視</string>
   <string name="file_page_activity_title">檔案頁面</string>
   <string name="file_page_add_image_caption_button">新增圖片說明</string>
@@ -1448,4 +1451,8 @@
   <string name="data_opt_in_reject">拒絕</string>
   <string name="page_issues_title">頁面問題</string>
   <string name="generic_release_notes">小錯誤修正和改善</string>
+  <string name="email_report_image_recommendations_subject">問題報告 - 圖片推薦功能</string>
+  <string name="email_report_image_recommendations_body">我遇到了圖片推薦功能的問題：\n- [描述具體問題]\n我希望看到的反應是：\n- [描述建議的解決方案]</string>
+  <string name="email_report_patroller_tasks_subject">問題報告 - 巡查任務功能</string>
+  <string name="email_report_patroller_tasks_body">我遇到了巡查任務功能的問題：\n- [描述具體問題]\n我希望看到的反應是：\n- [描述建議的解決方案]</string>
 </resources>

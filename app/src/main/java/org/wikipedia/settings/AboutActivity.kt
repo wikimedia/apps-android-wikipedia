@@ -1,8 +1,6 @@
 package org.wikipedia.settings
 
 import android.app.Activity
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.View
@@ -15,7 +13,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityAboutBinding
 import org.wikipedia.richtext.setHtml
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.log.L
 
 class AboutActivity : BaseActivity() {
 
@@ -35,14 +32,7 @@ class AboutActivity : BaseActivity() {
         makeEverythingClickable(binding.aboutContainer)
 
         binding.sendFeedbackText.setOnClickListener {
-            val intent = Intent()
-                    .setAction(Intent.ACTION_SENDTO)
-                    .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=Android App ${BuildConfig.VERSION_NAME} Feedback"))
-            try {
-                startActivity(intent)
-            } catch (e: Exception) {
-                L.e(e)
-            }
+            FeedbackUtil.composeFeedbackEmail(this, "Android App ${BuildConfig.VERSION_NAME} Feedback")
         }
     }
 

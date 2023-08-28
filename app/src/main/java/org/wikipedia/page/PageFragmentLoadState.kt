@@ -82,8 +82,10 @@ class PageFragmentLoadState(private var model: PageViewModel,
         }
     }
 
-    fun setTab(tab: Tab) {
+    fun setTab(tab: Tab): Boolean {
+        val isDifferent = tab != currentTab
         currentTab = tab
+        return isDifferent
     }
 
     fun goBack(): Boolean {

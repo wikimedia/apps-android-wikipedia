@@ -765,7 +765,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.addListener("back_link") { _, messagePayload ->
             messagePayload?.let { payload ->
                 val backLinks = payload["backLinks"]?.jsonArray
-                if (backLinks != null && !backLinks.isEmpty()) {
+                if (!backLinks.isNullOrEmpty()) {
                     val backLinksList = backLinks.map { it.jsonObject["id"]?.jsonPrimitive?.content }
                     showFindReferenceInPage(payload["referenceId"]?.jsonPrimitive?.content.orEmpty(), backLinksList, payload["referenceText"]?.jsonPrimitive?.content.orEmpty())
                 }
@@ -862,12 +862,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun reloadFromBackstack() {
-        pageFragmentLoadState.setTab(currentTab)
-        if (!pageFragmentLoadState.backStackEmpty()) {
-            pageFragmentLoadState.loadFromBackStack()
-        } else {
-            callback()?.onPageLoadMainPageInForegroundTab()
+    fun reloadFromBackstack(forceReload: Boolean = true) {
+        if (pageFragmentLoadState.setTab(currentTab) || forceReload) {
+            if (!pageFragmentLoadState.backStackEmpty()) {
+                pageFragmentLoadState.loadFromBackStack()
+            } else {
+                callback()?.onPageLoadMainPageInForegroundTab()
+            }
         }
     }
 
