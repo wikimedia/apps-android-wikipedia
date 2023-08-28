@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.dataclient.ServiceFactory
@@ -33,9 +34,18 @@ class SuggestedEditsVandalismPatrolViewModel(private val langCode: String) : Vie
             candidateLiveData.postValue(Resource.Error(throwable))
         }) {
             withContext(Dispatchers.IO) {
-                candidate = EditingSuggestionsProvider.getNextRevertCandidate(langCode)
-                val diff = ServiceFactory.getCoreRest(wikiSite).getDiff(candidate!!.revFrom, candidate!!.curRev)
-                candidateLiveData.postValue(Resource.Success(Pair(candidate!!, diff)))
+                while (this.coroutineContext.isActive) {
+                    try {
+                        candidate = EditingSuggestionsProvider.getNextRevertCandidate(langCode)
+                        val diff = ServiceFactory.getCoreRest(wikiSite)
+                            .getDiff(candidate!!.revFrom, candidate!!.curRev)
+                        candidateLiveData.postValue(Resource.Success(Pair(candidate!!, diff)))
+                        break
+                    } catch (e: EditingSuggestionsProvider.ListEmptyException) {
+                        // continue indefinitely until new data comes in.
+                        Thread.sleep(5000)
+                    }
+                }
             }
         }
     }

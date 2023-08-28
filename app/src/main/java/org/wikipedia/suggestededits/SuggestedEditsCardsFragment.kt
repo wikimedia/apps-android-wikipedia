@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2
@@ -152,6 +153,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         return when (action) {
             ADD_IMAGE_TAGS -> getString(R.string.suggested_edits_tag_images)
             ADD_CAPTION, TRANSLATE_CAPTION -> getString(R.string.suggested_edits_caption_images)
+            VANDALISM_PATROL -> getString(R.string.patroller_tasks_patrol_edit_title)
             else -> getString(R.string.suggested_edits_describe_articles)
         }
     }
@@ -190,14 +192,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         }
 
         if (action == VANDALISM_PATROL) {
-            if (binding.addContributionButton.tag == "landscape") {
-                // implying landscape mode, where addContributionText doesn't exist.
-                binding.addContributionButton.text = null
-                binding.addContributionButton.setIconResource(R.drawable.ic_check_black_24dp)
-            } else {
-                binding.addContributionButton.text = getString(R.string.suggested_edits_edit_patrol_skip)
-                binding.addContributionButton.icon = null
-            }
+            binding.bottomButtonContainer.isVisible = false
         } else if (action == ADD_IMAGE_TAGS) {
             if (binding.addContributionButton.tag == "landscape") {
                 // implying landscape mode, where addContributionText doesn't exist.
