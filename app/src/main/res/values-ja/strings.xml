@@ -1033,7 +1033,7 @@
   <string name="suggested_edits_cc0_notice">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0ライセンス&lt;/a&gt;の下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="suggested_edits_reactivation_notification_title">編集提案</string>
   <string name="suggested_edits_reactivation_notification_stage_one">ウィキペディアを編集していただきありがとうございます! このまま編集を続けてみてはどうでしょうか?</string>
-  <string name="suggested_edits_reactivation_notification_stage_two">ウィキペディアを編集する時間がありますか? 提案された編集を確認してください。</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">ウィキペディアを編集する時間はありませんか?　提案された編集を確認してください。</string>
   <string name="suggested_edits_contributions_screen_title">%sさんの投稿記録</string>
   <string name="suggested_edits_contribution_language_label">言語</string>
   <string name="suggested_edits_contribution_date_time_label">日付 / 時刻</string>
@@ -1098,9 +1098,14 @@
   <string name="image_recommendation_reject_dont_know">この主題について知りません</string>
   <string name="image_recommendation_reject_other">その他</string>
   <string name="image_recommendation_reject_submit">送信</string>
+  <string name="image_recommendation_tooltip_main">不足している画像を「編集案」の記事に追加する</string>
+  <string name="image_recommendation_onboarding_1">写真は人々の理解を助けますが、多くの記事には写真がありません。</string>
   <string name="image_recommendation_onboarding_2">提案された画像を Wikipedia の記事に掲載するかどうかを決定します。</string>
   <string name="image_recommendation_onboarding_3">提案は機械によって生成され、それを受け入れるか拒否するかを判断するのはユーザー自身です。</string>
+  <string name="image_recommendation_onboarding_4">画像の出どころはウィキメディア・コモンズといい、コモンズではウィキペディアで使用されるフリーなライセンスの画像を収集しています。</string>
   <string name="image_recommendation_tooltip_1">この記事を読んでトピックを理解してください</string>
+  <string name="image_recommendation_tooltip_3">この画像が、読者にとってこのトピックをよりよく理解するのに役立つかどうかを判断します</string>
+  <string name="image_recommendation_tooltip_next">次へ</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>
