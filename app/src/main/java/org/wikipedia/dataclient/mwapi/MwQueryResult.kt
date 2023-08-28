@@ -208,12 +208,11 @@ class MwQueryResult {
         val newlen = 0
         private val timestamp: String = ""
 
-        val parsedcomment: String = ""
+        @SerialName("parsedcomment") val parsedComment: String = ""
         private val tags: List<String>? = null
         private val oresscores: JsonElement? = null
 
-        val date: Date
-            get() = DateUtil.iso8601DateParse(timestamp.orEmpty())
+        val parsedDateTime by lazy { DateUtil.iso8601LocalDateTimeParse(timestamp) }
 
         override fun toString(): String {
             return title

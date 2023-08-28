@@ -166,7 +166,8 @@ interface Service {
         @Query("rclimit") count: Int,
         @Query("rcstart") startTimeStamp: String,
         @Query("rctoponly") latestRevisions: String?,
-        @Query("rcshow") filters: String?
+        @Query("rcshow") filters: String?,
+        @Query("rccontinue") continueStr: String?
     ): MwQueryResponse
 
     @FormUrlEncoded

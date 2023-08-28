@@ -2,90 +2,68 @@ package org.wikipedia.suggestededits
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
+import androidx.paging.filter
+import androidx.paging.insertSeparators
+import androidx.paging.map
+import kotlinx.coroutines.flow.map
+import org.wikipedia.Constants
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.settings.Prefs
-import java.util.Calendar
+import org.wikipedia.usercontrib.UserContribListViewModel
+import org.wikipedia.util.DateUtil
+import retrofit2.HttpException
+import java.io.IOException
 import java.util.Date
 
 class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
-    private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.Error(throwable)
-    }
-
-    private var recentChangesItem = mutableListOf<MwQueryResult.RecentChange>()
-
     var displayLanguage = Prefs.recentEditsWikiCode
-    var currentSearchQuery: String? = null
-        private set
-    var finalList = mutableListOf<Any>()
-
-    private val _uiState = MutableStateFlow(UiState())
-    val uiState = _uiState.asStateFlow()
-
-    init {
-        fetchRecentEdits()
-    }
-
-    fun updateList(searchBarPlaceholder: Boolean = true) {
-
-        finalList = mutableListOf()
-
-        if (searchBarPlaceholder) {
-            finalList.add("") // placeholder for search bar
-        }
-
-        val calendar = Calendar.getInstance()
-        var curDay = -1
-
-        recentChangesItem.forEach { item ->
-
-            val searchQuery = currentSearchQuery
-            if (!searchQuery.isNullOrEmpty() &&
-                !(item.title.contains(searchQuery, true) ||
-                        item.user.contains(searchQuery, true) ||
-                        item.parsedcomment.contains(searchQuery, true))) {
-                return@forEach
-            }
-
-            calendar.time = item.date
-            if (calendar.get(Calendar.DAY_OF_YEAR) != curDay) {
-                curDay = calendar.get(Calendar.DAY_OF_YEAR)
-                finalList.add(item.date)
-            }
-
-            finalList.add(item)
-        }
-        _uiState.value = UiState.Success()
-    }
-
-    fun fetchRecentEdits(searchBarPlaceholder: Boolean = true) {
-        _uiState.value = UiState.Loading()
-        viewModelScope.launch(handler) {
-            recentChangesItem = mutableListOf()
-            // TODO: verify the timestamp format
-            withContext(Dispatchers.IO) {
-                ServiceFactory.get(WikiSite.forLanguageCode(displayLanguage))
-                    .getRecentEdits(500, Date().toInstant().toString(), latestRevisions(), showCriteriaString())
-                    .query?.recentChanges?.run {
-                        recentChangesItem.addAll(this)
-                    }
-            }
-            recentChangesItem.sortByDescending { it.date }
-            updateList(searchBarPlaceholder)
+    val wikiSite get(): WikiSite {
+        return when (displayLanguage) {
+            Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
+            Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
+            else -> WikiSite.forLanguageCode(displayLanguage)
         }
     }
+    var currentQuery = ""
+    var actionModeActive = false
+    var recentEditsSource: RecentEditsPagingSource? = null
 
-    fun updateSearchQuery(query: String?) {
-        currentSearchQuery = query
+    private val cachedRecentEdits = mutableListOf<MwQueryResult.RecentChange>()
+    private var cachedContinueKey: String? = null
+
+    val recentEditsFlow = Pager(PagingConfig(pageSize = 50), pagingSourceFactory = {
+        recentEditsSource = RecentEditsPagingSource()
+        recentEditsSource!!
+    }).flow.map { pagingData ->
+        pagingData.filter {
+            if (currentQuery.isNotEmpty()) {
+                it.parsedComment.contains(currentQuery, true) ||
+                        it.title.contains(currentQuery, true)
+            } else true
+        }.map {
+            RecentEditsItem(it)
+        }.insertSeparators { before, after ->
+            val dateBefore = before?.item?.parsedDateTime?.toLocalDate()
+            val dateAfter = after?.item?.parsedDateTime?.toLocalDate()
+            if (dateAfter != null && dateAfter != dateBefore) {
+                UserContribListViewModel.UserContribSeparator(DateUtil.getShortDateString(dateAfter))
+            } else {
+                null
+            }
+        }
+    }.cachedIn(viewModelScope)
+
+    fun clearCache() {
+        cachedRecentEdits.clear()
     }
 
     fun filtersCount(): Int {
@@ -145,9 +123,35 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         return list.joinToString(separator = "|")
     }
 
-    open class UiState {
-        class Loading : UiState()
-        class Success : UiState()
-        class Error(val throwable: Throwable) : UiState()
+    inner class RecentEditsPagingSource : PagingSource<String, MwQueryResult.RecentChange>() {
+        override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryResult.RecentChange> {
+            return try {
+                if (params.key == null && cachedRecentEdits.isNotEmpty()) {
+                    return LoadResult.Page(cachedRecentEdits, null, cachedContinueKey)
+                }
+
+                val response = ServiceFactory.get(WikiSite.forLanguageCode(displayLanguage))
+                    .getRecentEdits(params.loadSize, Date().toInstant().toString(), latestRevisions(), showCriteriaString(), params.key)
+
+                val recentChanges = response.query?.recentChanges.orEmpty()
+
+                cachedContinueKey = response.continuation?.rcContinuation
+                cachedRecentEdits.addAll(recentChanges)
+
+                LoadResult.Page(recentChanges, null, cachedContinueKey)
+            } catch (e: IOException) {
+                LoadResult.Error(e)
+            } catch (e: HttpException) {
+                LoadResult.Error(e)
+            }
+        }
+
+        override fun getRefreshKey(state: PagingState<String, MwQueryResult.RecentChange>): String? {
+            return null
+        }
     }
+
+    open class RecentEditsModel
+    class RecentEditsItem(val item: MwQueryResult.RecentChange) : RecentEditsModel()
+    class RecentEditsSeparator(val date: String) : RecentEditsModel()
 }
