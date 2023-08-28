@@ -46,7 +46,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         val calendar = Calendar.getInstance()
         var curDay = -1
 
-
         recentChangesItem.forEach { item ->
 
             val searchQuery = currentSearchQuery
