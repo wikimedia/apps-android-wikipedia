@@ -25,12 +25,13 @@ import java.util.Date
 
 class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
-    var displayLanguage = Prefs.recentEditsWikiCode
+    var langCode = Prefs.recentEditsWikiCode
+
     val wikiSite get(): WikiSite {
-        return when (displayLanguage) {
+        return when (langCode) {
             Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
             Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
-            else -> WikiSite.forLanguageCode(displayLanguage)
+            else -> WikiSite.forLanguageCode(langCode)
         }
     }
     var currentQuery = ""
@@ -130,7 +131,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     return LoadResult.Page(cachedRecentEdits, null, cachedContinueKey)
                 }
 
-                val response = ServiceFactory.get(WikiSite.forLanguageCode(displayLanguage))
+                val response = ServiceFactory.get(wikiSite)
                     .getRecentEdits(params.loadSize, Date().toInstant().toString(), latestRevisions(), showCriteriaString(), params.key)
 
                 val recentChanges = response.query?.recentChanges.orEmpty()
@@ -151,7 +152,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         }
     }
 
-    open class RecentEditsModel
-    class RecentEditsItem(val item: MwQueryResult.RecentChange) : RecentEditsModel()
-    class RecentEditsSeparator(val date: String) : RecentEditsModel()
+    open class RecentEditsItemModel
+    class RecentEditsItem(val item: MwQueryResult.RecentChange) : RecentEditsItemModel()
+    class RecentEditsSeparator(val date: String) : RecentEditsItemModel()
 }

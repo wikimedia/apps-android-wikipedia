@@ -197,7 +197,7 @@ class MwQueryResult {
         private val pageid: Long = 0
         @SerialName("revid") val curRev: Long = 0
         @SerialName("old_revid") val revFrom: Long = 0
-        private val rcid: Long = 0
+        val rcid: Long = 0
         val user: String = ""
         val anon = false
         val bot = false

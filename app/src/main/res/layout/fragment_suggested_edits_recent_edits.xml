@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/recentEditsRefreshView"
+    android:id="@+id/refreshContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/paper_color">
@@ -12,86 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ProgressBar
-            android:id="@+id/recentEditsProgressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recentEditsRecyclerView"
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="vertical"/>
-
-        <LinearLayout
-            android:id="@+id/recentEditsEmptyContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_oojs_watchlist"
-                app:tint="?attr/placeholder_color"/>
-
-            <TextView
-                style="@style/P"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/watchlist_empty"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/recentEditsSearchEmptyText"
-            style="@style/H3.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginStart="24dp"
-            android:text="@string/search_results_count_zero"
-            android:textAlignment="center"
-            android:visibility="gone" />
-
-        <LinearLayout
-            android:id="@+id/recentEditsSearchEmptyContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <ImageView
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_empty_edits_message" />
-
-            <TextView
-                android:id="@+id/recentEditsEmptySearchMessage"
-                style="@style/P"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-        <org.wikipedia.views.WikiErrorView
-            android:id="@+id/recentEditsErrorView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical" />
 
     </FrameLayout>
 
