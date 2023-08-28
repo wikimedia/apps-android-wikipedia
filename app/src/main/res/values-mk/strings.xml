@@ -1426,4 +1426,8 @@
   <string name="data_opt_in_reject">Одбиј</string>
   <string name="page_issues_title">Проблеми со страницата</string>
   <string name="generic_release_notes">Ситни поправки на грешки и подобрувања</string>
+  <string name="email_report_image_recommendations_subject">Пријава на проблем — Функцијата Препорачување на слики</string>
+  <string name="email_report_image_recommendations_body">Наидов на проблем со функцијата Препорачување на слики:\n— [Опишете го конкретниот проблем]\nШто сакате да се поправи:\n— [Опишете го предложеното решение]</string>
+  <string name="email_report_patroller_tasks_subject">Пријава на проблем — Функција Патролерски задачи</string>
+  <string name="email_report_patroller_tasks_body">Наидов на проблем со функцијата Патролерски задачи:\n— [Опишете го конкретниот проблем]\nШто сакате да се поправи:\n— [Опишете го предложеното решение]</string>
 </resources>

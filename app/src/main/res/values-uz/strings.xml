@@ -1076,8 +1076,11 @@
   <string name="image_recommendation_tooltip_3">Rasm oʻquvchilarga ushbu mavzuni yaxshiroq tushunishga yordam beradimi yoki yoʻqligini aniqlang</string>
   <string name="image_recommendation_tooltip_next">Keyingisi</string>
   <string name="image_recommendation_tooltip_warning">Mavzuni tushunish uchun maqolani koʻrib chiqing va rasmni tekshiring</string>
+  <string name="suggested_edits_report_feature">Oʻziga xoslik bilan muammo</string>
+  <string name="suggested_edits_report_feature_subject">Tavsiya etilgan tahrirlar bilan muammo</string>
   <string name="edit_summary_added_image">Qoʻshilgan rasm</string>
   <string name="edit_summary_added_caption">Izoh qoʻshish</string>
+  <string name="edit_summary_added_image_and_caption">Rasm va sarlavha qoʻshildi</string>
   <string name="edit_published_view">Koʻrish</string>
   <string name="file_page_activity_title">Fayl sahifasi</string>
   <string name="file_page_add_image_caption_button">Rasmga sarlavha qo‘ymoq</string>
@@ -1425,4 +1428,8 @@
   <string name="data_opt_in_reject">Rad etish</string>
   <string name="page_issues_title">Sahifa muammolari</string>
   <string name="generic_release_notes">Asosiy kamchiliklar tuzatildi hamda takomillashtirildi</string>
+  <string name="email_report_image_recommendations_subject">Muammo hisoboti - Rasm tavsiyalari xususiyati</string>
+  <string name="email_report_image_recommendations_body">Tasvir tavsiyalari funksiyasi bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]</string>
+  <string name="email_report_patroller_tasks_subject">Muammo hisoboti - Kuzatuvchi vazifalari xususiyati</string>
+  <string name="email_report_patroller_tasks_body">Men Kuzatuvchi vazifalari xususiyati bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]</string>
 </resources>
