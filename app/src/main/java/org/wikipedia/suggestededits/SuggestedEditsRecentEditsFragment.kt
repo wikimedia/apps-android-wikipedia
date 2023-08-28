@@ -86,6 +86,9 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        notificationButtonView = NotificationButtonView(requireActivity())
+
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         binding.refreshContainer.setOnRefreshListener {
