@@ -272,6 +272,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.menu_tutorial -> {
+                bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
                 showTooltipSequence()
                 true
             }
