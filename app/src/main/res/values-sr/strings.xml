@@ -434,6 +434,7 @@
   <string name="text_style_title">Фонт</string>
   <string name="theme_category_reading">Читање</string>
   <string name="theme_category_editing">Уређивање</string>
+  <string name="editing_typing_suggestions">Приказуј сугестије током куцања</string>
   <string name="nav_item_saved">Сачувано</string>
   <string name="reading_list_save_to">Сачувај на листу за читање</string>
   <string name="reading_list_move_to">Премести на листу за читање</string>
@@ -466,6 +467,9 @@
   <string name="reading_list_description_hint">Опис (опционално)</string>
   <string name="reading_list_item_deleted">Чланак „%s” је уклоњен са листе</string>
   <string name="reading_list_item_deleted_from_list">%1$s је уклоњен са списка %2$s</string>
+  <string name="reading_lists_default_list_delete_message">Подразумеван списак (%s) не може бити обрисан</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s обрисан. Подразумеван списак (%2$s) не може бити обрисан.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Спискови обрисани. Подразумеван списак (%s) не може бити обрисан.</string>
   <string name="reading_list_items_deleted">Чланака уклоњено са листе: %d</string>
   <string name="reading_lists_item_deleted">%s уклоњено са спискова</string>
   <string name="reading_list_item_delete_undo">Опозови</string>
@@ -497,6 +501,7 @@
   <string name="reading_list_article_save_in_progress">Чланак се преузима. По завршетку преузимања ће бити доступан офлајн.</string>
   <string name="reading_list_articles_added_to_named">На листу „%2$s” су додати чланци (%1$d)</string>
   <string name="reading_list_delete_confirm">Желите ли заиста да избришете „%s”?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Избрисати изабране спискове?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Пријавите се да бисте омогућили синхронизацију</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Пријавите се да бисте сачували листе за читање на ваш налог.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Откажи</string>
