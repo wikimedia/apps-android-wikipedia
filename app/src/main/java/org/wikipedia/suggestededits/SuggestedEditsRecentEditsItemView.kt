@@ -54,9 +54,9 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
 
         val tagsString = item.tags?.joinToString(separator = ", ")?.ifEmpty {
             isTagsEmpty = true
-            context.getString(R.string.patroller_tasks_edits_list_card_tag_text_none)
+            context.getString(R.string.patroller_tasks_edits_list_card_tags_text_none)
         }
-        binding.tagsText.text = context.getString(R.string.patroller_tasks_edits_list_card_tag_text, tagsString)
+        binding.tagsText.text = context.getString(R.string.patroller_tasks_edits_list_card_tags_text, tagsString)
         binding.tagsText.setTypeface(Typeface.SANS_SERIF, if (isTagsEmpty) Typeface.ITALIC else Typeface.NORMAL)
         binding.tagsText.setTextColor(ResourceUtil.getThemedColor(context,
             if (isTagsEmpty) R.attr.secondary_color else R.attr.primary_color))
