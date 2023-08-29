@@ -209,7 +209,7 @@ class MwQueryResult {
         private val timestamp: String = ""
 
         @SerialName("parsedcomment") val parsedComment: String = ""
-        private val tags: List<String>? = null
+        val tags: List<String>? = null
         private val oresscores: JsonElement? = null
 
         val parsedDateTime by lazy { DateUtil.iso8601LocalDateTimeParse(timestamp) }

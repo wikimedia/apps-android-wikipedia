@@ -42,6 +42,7 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
     fun setItem(item: MwQueryResult.RecentChange) {
         this.item = item
         var isSummaryEmpty = false
+        var isTagsEmpty = false
         binding.titleText.text = item.title
         binding.summaryText.text = StringUtil.fromHtml(item.parsedComment).ifEmpty {
             isSummaryEmpty = true
@@ -50,6 +51,15 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
         binding.summaryText.setTypeface(Typeface.SANS_SERIF, if (isSummaryEmpty) Typeface.ITALIC else Typeface.NORMAL)
         binding.summaryText.setTextColor(ResourceUtil.getThemedColor(context,
             if (isSummaryEmpty) R.attr.secondary_color else R.attr.primary_color))
+
+        val tagsString = item.tags?.joinToString(separator = ", ")?.ifEmpty {
+            isTagsEmpty = true
+            context.getString(R.string.patroller_tasks_edits_list_card_tag_text_none)
+        }
+        binding.tagsText.text = context.getString(R.string.patroller_tasks_edits_list_card_tag_text, tagsString)
+        binding.tagsText.setTypeface(Typeface.SANS_SERIF, if (isTagsEmpty) Typeface.ITALIC else Typeface.NORMAL)
+        binding.tagsText.setTextColor(ResourceUtil.getThemedColor(context,
+            if (isTagsEmpty) R.attr.secondary_color else R.attr.primary_color))
         binding.timeText.text = DateUtil.getTimeString(context, item.parsedDateTime)
         binding.userNameText.text = item.user
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)

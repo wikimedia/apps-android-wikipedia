@@ -1554,6 +1554,8 @@
     <string name="talk_templates_message_deleted">Message has been deleted</string>
     <string name="patroller_tasks_edits_list_title">List of edits</string>
     <string name="patroller_tasks_edits_list_search_hint">Search or filter edits</string>
+    <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
+    <string name="patroller_tasks_edits_list_card_tags_text_none">None</string>
     <string name="patroller_tasks_edits_list_card_overflow_view_user_page">View user page</string>
     <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">View talk page</string>
     <string name="patroller_tasks_edits_list_card_overflow_user_information">User information</string>
