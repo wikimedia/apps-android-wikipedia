@@ -39,6 +39,7 @@
         <item name="android:textColorHint">?attr/placeholder_color</item>
 
         <item name="popupMenuStyle">@style/PopupMenuStyle</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
 
         <item name="collapsingToolbarLayoutStyle">@style/CollapsingToolbarStyle</item>
 
@@ -487,6 +488,10 @@
     <style name="PagePopupMenu" parent="@style/Widget.Material3.PopupMenu.Overflow">
         <item name="android:dropDownHorizontalOffset">@dimen/popup_menu_drop_down_horizontal_offset</item>
         <item name="android:dropDownVerticalOffset">@dimen/popup_menu_drop_down_vertical_offset</item>
+    </style>
+
+    <style name="OverflowMenuStyle" parent="Widget.Material3.PopupMenu.Overflow">
+        <item name="android:popupBackground">?attr/paper_color</item>
     </style>
 
     <style name="AlertDialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog">
