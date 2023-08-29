@@ -1555,6 +1555,7 @@
     <string name="patroller_tasks_edits_list_title">List of edits</string>
     <string name="patroller_tasks_edits_list_search_hint">Search or filter edits</string>
     <string name="patroller_tasks_edits_list_card_tag_text">Tag: %s</string>
+    <string name="patroller_tasks_edits_list_card_tag_text_none">None</string>
     <string name="patroller_tasks_edits_list_card_overflow_view_user_page">View user page</string>
     <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">View talk page</string>
     <string name="patroller_tasks_edits_list_card_overflow_user_information">User information</string>

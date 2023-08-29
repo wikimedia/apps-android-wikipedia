@@ -1496,6 +1496,7 @@
   <string name="patroller_tasks_edits_list_title">Title of the screen that shows a list of edits.</string>
   <string name="patroller_tasks_edits_list_search_hint">Hint text of in the search bar of searching or filtering edits.</string>
   <string name="patroller_tasks_edits_list_card_tag_text">Text of showing added tags in this edit. %s will be replaced by the added tags.</string>
+  <string name="patroller_tasks_edits_list_card_tag_text_none">Text that indicates no tag has been added in this edit.</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Menu item text for the item overflow menu to view the user page.</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Menu item text for the item overflow menu to view the talk page.</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Menu item text for the item overflow menu to view the user information.</string>
