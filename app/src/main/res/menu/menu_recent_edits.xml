@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_notifications"
+        android:title="@string/notifications_activity_title"
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction" />
+    <item
+        android:id="@+id/empty"
+        android:icon="@drawable/ic_more_vert_white_24dp"
+        android:title="@string/nav_item_more"
+        app:iconTint="?attr/primary_color"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menu_learn_more"
+                android:title="@string/patroller_tasks_overflow_learn"
+                android:icon="@drawable/ic_info_outline_black_24dp"
+                app:iconTint="?attr/secondary_color" />
+            <item
+                android:id="@+id/menu_report_feature"
+                android:title="@string/patroller_tasks_overflow_report"
+                android:icon="@drawable/ic_report_flag"
+                app:iconTint="?attr/secondary_color" />
+        </menu>
+    </item>
+</menu>

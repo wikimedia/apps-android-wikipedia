@@ -146,11 +146,23 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
     }
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_watchlist, menu)
+        inflater.inflate(R.menu.menu_recent_edits, menu)
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        return false
+        return when (menuItem.itemId) {
+            R.id.menu_learn_more -> {
+                FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+                true
+            }
+            R.id.menu_report_feature -> {
+                FeedbackUtil.composeFeedbackEmail(requireContext(),
+                    getString(R.string.email_report_patroller_tasks_subject),
+                    getString(R.string.email_report_patroller_tasks_body))
+                true
+            }
+            else -> false
+        }
     }
 
     override fun onPrepareMenu(menu: Menu) {
