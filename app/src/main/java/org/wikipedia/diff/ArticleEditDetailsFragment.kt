@@ -353,11 +353,18 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
         binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
 
+        binding.oresDamagingButton.isVisible = false
+
         viewModel.revisionTo?.let {
             binding.usernameToButton.text = it.user
             binding.revisionToTimestamp.text = DateUtil.getTimeAndDateString(requireContext(), it.timeStamp)
             binding.overlayRevisionToTimestamp.text = binding.revisionToTimestamp.text
             binding.revisionToEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
+
+            if (it.ores != null) {
+                binding.oresDamagingButton.isVisible = true
+                binding.oresDamagingButton.text = "Quality: " + (it.ores?.damagingProb ?: 0).toInt() + "%"
+            }
         }
 
         setEnableDisableTint(binding.newerIdButton, !viewModel.canGoForward)

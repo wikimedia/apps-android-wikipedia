@@ -293,8 +293,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="?attr/secondary_color"
-                    android:visibility="gone"
-                    tools:visibility="visible"
+                    android:enabled="false"
                     android:layout_marginStart="16dp"
                     tools:text="Damaging: 50%"/>
 

@@ -231,6 +231,9 @@ class MwQueryResult {
         // TODO: draftquality
         val damagingProb: Float
             get() = damaging?.trueProb ?: 0f
+
+        val goodFaithProb: Float
+            get() = goodfaith?.trueProb ?: 0f
     }
 
     @Serializable
