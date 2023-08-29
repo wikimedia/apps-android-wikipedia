@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.PopupMenu
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
@@ -69,12 +70,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         binding.articleTitleView.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
-
-        binding.watchButton.setOnClickListener {
-            viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
-            if (isWatched) editHistoryInteractionEvent?.logUnwatchClick() else editHistoryInteractionEvent?.logWatchClick()
-        }
-        updateWatchButton(isWatched, hasWatchlistExpiry)
 
         viewModel.watchedStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
@@ -182,7 +177,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     binding.progressBar.isVisible = false
                     binding.diffRecyclerView.isVisible = false
                     binding.undoButton.isVisible = false
-                    binding.rollbackButton.isVisible = false
                     binding.thankButton.isVisible = false
                     binding.diffUnavailableContainer.isVisible = true
                 } else {
@@ -252,13 +246,36 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
 
         binding.undoButton.setOnClickListener {
-            showUndoDialog()
-            editHistoryInteractionEvent?.logUndoTry()
+            PopupMenu(requireContext(), binding.undoLabel, Gravity.END).apply {
+                menuInflater.inflate(R.menu.menu_context_undo, menu)
+                setForceShowIcon(true)
+                val undoItem = menu.findItem(R.id.menu_undo)
+                val rollbackItem = menu.findItem(R.id.menu_undo)
+                rollbackItem.isVisible = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
+                undoItem.isVisible = viewModel.revisionFrom != null && AccountUtil.isLoggedIn
+                setOnMenuItemClickListener { menuItem ->
+                    when (menuItem.itemId) {
+                        R.id.menu_undo -> {
+                            showUndoDialog()
+                            editHistoryInteractionEvent?.logUndoTry()
+                            true
+                        }
+                        R.id.menu_rollback -> {
+                            showRollbackDialog()
+                            true
+                        }
+                        else -> false
+                    }
+                }
+                show()
+            }
         }
 
-        binding.rollbackButton.setOnClickListener {
-            showRollbackDialog()
+        binding.watchButton.setOnClickListener {
+            viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
+            if (isWatched) editHistoryInteractionEvent?.logUnwatchClick() else editHistoryInteractionEvent?.logWatchClick()
         }
+        updateWatchButton(isWatched, hasWatchlistExpiry)
 
         binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
     }
@@ -316,7 +333,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.diffUnavailableContainer.isVisible = false
         binding.thankButton.isVisible = false
         binding.undoButton.isVisible = false
-        binding.rollbackButton.isVisible = false
     }
 
     private fun updateAfterRevisionFetchSuccess() {
@@ -439,9 +455,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun updateActionButtons() {
-        binding.rollbackButton.isVisible = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
         binding.undoButton.isVisible = viewModel.revisionFrom != null && AccountUtil.isLoggedIn
-
         binding.thankButton.isEnabled = true
         binding.thankButton.isVisible = AccountUtil.isLoggedIn &&
                 !AccountUtil.userName.equals(viewModel.revisionTo?.user) &&
