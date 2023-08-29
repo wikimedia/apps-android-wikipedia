@@ -19,11 +19,6 @@
                 android:icon="@drawable/ic_content_copy_24"
                 app:iconTint="?attr/secondary_color"
                 android:title="@string/menu_option_copy_link_to_clipboard" />
-            <item
-                android:id="@+id/menu_add_watchlist"
-                android:icon="@drawable/ic_star_24"
-                app:iconTint="?attr/secondary_color"
-                android:title="@string/menu_page_watch" />
         </menu>
     </item>
 </menu>

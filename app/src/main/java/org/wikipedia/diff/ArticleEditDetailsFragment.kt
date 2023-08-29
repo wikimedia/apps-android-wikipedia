@@ -1,12 +1,10 @@
 package org.wikipedia.diff
 
-import android.content.res.ColorStateList
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.ImageView
-import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.os.bundleOf
@@ -18,7 +16,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -73,6 +70,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         binding.articleTitleView.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
 
+        binding.watchButton.setOnClickListener {
+            viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
+            if (isWatched) editHistoryInteractionEvent?.logUnwatchClick() else editHistoryInteractionEvent?.logWatchClick()
+        }
+        updateWatchButton(isWatched, hasWatchlistExpiry)
+
         viewModel.watchedStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 if (editHistoryInteractionEvent == null) {
@@ -81,6 +84,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 }
                 isWatched = it.data.watched
                 hasWatchlistExpiry = it.data.hasWatchlistExpiry()
+                updateWatchButton(isWatched, hasWatchlistExpiry)
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
@@ -110,8 +114,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it is Resource.Success) {
                 FeedbackUtil.showMessage(requireActivity(), getString(R.string.thank_success_message,
                         viewModel.revisionTo?.user))
-                setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(),
-                        R.attr.placeholder_color))
+                binding.thankIcon.setImageResource(R.drawable.ic_heart_24)
                 binding.thankButton.isEnabled = false
                 editHistoryInteractionEvent?.logThankSuccess()
             } else if (it is Resource.Error) {
@@ -264,23 +267,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         inflater.inflate(R.menu.menu_edit_details, menu)
     }
 
-    override fun onPrepareMenu(menu: Menu) {
-        val watchlistItem = menu.findItem(R.id.menu_add_watchlist)
-        watchlistItem.isVisible = AccountUtil.isLoggedIn
-        watchlistItem.title = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
-        watchlistItem.setIcon(getWatchlistIcon(isWatched, hasWatchlistExpiry))
-    }
-
     override fun onMenuItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_share_edit -> {
                 ShareUtil.shareText(requireContext(), StringUtil.fromHtml(viewModel.pageTitle.displayText).toString(), getSharableDiffUrl())
                 editHistoryInteractionEvent?.logShareClick()
-                true
-            }
-            R.id.menu_add_watchlist -> {
-                viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
-                if (isWatched) editHistoryInteractionEvent?.logUnwatchClick() else editHistoryInteractionEvent?.logWatchClick()
                 true
             }
             R.id.menu_copy_link_to_clipboard -> {
@@ -358,7 +349,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.newerIdButton.isEnabled = viewModel.canGoForward
         binding.olderIdButton.isEnabled = viewModel.revisionFromId != 0L
 
-        setButtonTextAndIconColor(binding.thankButton, ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color))
+        binding.thankIcon.setImageResource(R.drawable.ic_heart_outline_24)
 
         binding.revisionDetailsView.isVisible = true
         binding.errorView.isVisible = false
@@ -374,25 +365,24 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 R.attr.inactive_color else R.attr.secondary_color)))
     }
 
-    private fun setButtonTextAndIconColor(view: MaterialButton, themedColor: Int) {
-        view.setTextColor(themedColor)
-        view.iconTint = ColorStateList.valueOf(themedColor)
-    }
-
-    @DrawableRes
-    private fun getWatchlistIcon(isWatched: Boolean, hasWatchlistExpiry: Boolean): Int {
-        return if (isWatched && !hasWatchlistExpiry) {
-            R.drawable.ic_star_24
-        } else if (!isWatched) {
-            R.drawable.ic_baseline_star_outline_24
-        } else {
-            R.drawable.ic_baseline_star_half_24
-        }
+    private fun updateWatchButton(isWatched: Boolean, hasWatchlistExpiry: Boolean) {
+        binding.watchButton.isVisible = AccountUtil.isLoggedIn
+        binding.watchLabel.text = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
+        binding.watchIcon.setImageResource(
+            if (isWatched && !hasWatchlistExpiry) {
+                R.drawable.ic_star_24
+            } else if (!isWatched) {
+                R.drawable.ic_baseline_star_outline_24
+            } else {
+                R.drawable.ic_baseline_star_half_24
+            }
+        )
     }
 
     private fun showWatchlistSnackbar(expiry: WatchlistExpiry, watch: Watch) {
         isWatched = watch.watched
         hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
+        updateWatchButton(isWatched, hasWatchlistExpiry)
         if (watch.unwatched) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
         } else if (watch.watched) {
