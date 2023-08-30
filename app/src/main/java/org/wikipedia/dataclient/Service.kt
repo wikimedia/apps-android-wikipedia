@@ -529,6 +529,13 @@ interface Service {
             @Query("rvstartid") revisionStartId: Long
     ): MwQueryResponse
 
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user|oresscores&rvdir=older&inprop=watched&meta=userinfo&uiprop=rights")
+    suspend fun getRevisionDetailsWithUserInfo(
+        @Query("pageids") pageIds: String,
+        @Query("rvlimit") count: Int,
+        @Query("rvstartid") revisionStartId: Long
+    ): MwQueryResponse
+
     @POST(MW_API_PREFIX + "action=thank")
     @FormUrlEncoded
     suspend fun postThanksToRevision(

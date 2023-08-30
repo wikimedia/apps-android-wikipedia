@@ -194,7 +194,7 @@ class MwQueryResult {
         private val type: String = ""
         private val ns = 0
         val title: String = ""
-        private val pageid: Long = 0
+        val pageid: Int = 0
         @SerialName("revid") val curRev: Long = 0
         @SerialName("old_revid") val revFrom: Long = 0
         private val rcid: Long = 0

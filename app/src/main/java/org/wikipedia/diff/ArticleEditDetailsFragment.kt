@@ -69,7 +69,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         setLoadingState()
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        binding.articleTitleView.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
+        if (!viewModel.fromRecentEdits) {
+            binding.articleTitleView.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
+        }
 
         viewModel.watchedStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
@@ -246,28 +248,32 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
 
         binding.undoButton.setOnClickListener {
-            PopupMenu(requireContext(), binding.undoLabel, Gravity.END).apply {
-                menuInflater.inflate(R.menu.menu_context_undo, menu)
-                setForceShowIcon(true)
-                val undoItem = menu.findItem(R.id.menu_undo)
-                val rollbackItem = menu.findItem(R.id.menu_undo)
-                rollbackItem.isVisible = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
-                undoItem.isVisible = viewModel.revisionFrom != null && AccountUtil.isLoggedIn
-                setOnMenuItemClickListener { menuItem ->
-                    when (menuItem.itemId) {
-                        R.id.menu_undo -> {
-                            showUndoDialog()
-                            editHistoryInteractionEvent?.logUndoTry()
-                            true
+            val canUndo = viewModel.revisionFrom != null && AccountUtil.isLoggedIn
+            val canRollback = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
+
+            if (canUndo && canRollback) {
+                PopupMenu(requireContext(), binding.undoLabel, Gravity.END).apply {
+                    menuInflater.inflate(R.menu.menu_context_undo, menu)
+                    setForceShowIcon(true)
+                    setOnMenuItemClickListener { menuItem ->
+                        when (menuItem.itemId) {
+                            R.id.menu_undo -> {
+                                showUndoDialog()
+                                editHistoryInteractionEvent?.logUndoTry()
+                                true
+                            }
+                            R.id.menu_rollback -> {
+                                showRollbackDialog()
+                                true
+                            }
+                            else -> false
                         }
-                        R.id.menu_rollback -> {
-                            showRollbackDialog()
-                            true
-                        }
-                        else -> false
                     }
+                    show()
                 }
-                show()
+            } else if (canUndo) {
+                showUndoDialog()
+                editHistoryInteractionEvent?.logUndoTry()
             }
         }
 
@@ -336,6 +342,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun updateAfterRevisionFetchSuccess() {
+        binding.articleTitleView.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
+
         if (viewModel.revisionFrom != null) {
             binding.usernameFromButton.text = viewModel.revisionFrom!!.user
             binding.revisionFromTimestamp.text = DateUtil.getTimeAndDateString(requireContext(), viewModel.revisionFrom!!.timeStamp)
@@ -505,12 +513,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     companion object {
-        fun newInstance(title: PageTitle, pageId: Int, revisionFrom: Long, revisionTo: Long): ArticleEditDetailsFragment {
+        fun newInstance(title: PageTitle, pageId: Int, revisionFrom: Long, revisionTo: Long, fromRecentEdits: Boolean): ArticleEditDetailsFragment {
             return ArticleEditDetailsFragment().apply {
                 arguments = bundleOf(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to title,
-                        ArticleEditDetailsActivity.EXTRA_PAGE_ID to pageId,
-                        ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM to revisionFrom,
-                        ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO to revisionTo)
+                    ArticleEditDetailsActivity.EXTRA_PAGE_ID to pageId,
+                    ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM to revisionFrom,
+                    ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO to revisionTo,
+                    ArticleEditDetailsActivity.EXTRA_FROM_RECENT_EDITS to fromRecentEdits)
             }
         }
     }

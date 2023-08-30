@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
+import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -20,6 +21,7 @@ import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.edit.Edit
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.watchlist.WatchlistExpiry
@@ -39,7 +41,10 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     var watchlistExpiryChanged = false
     var lastWatchExpiry = WatchlistExpiry.NEVER
 
-    val pageTitle = bundle.parcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
+    val fromRecentEdits = bundle.getBoolean(ArticleEditDetailsActivity.EXTRA_FROM_RECENT_EDITS, false)
+
+    var pageTitle = bundle.parcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
+        private set
     var pageId = bundle.getInt(ArticleEditDetailsActivity.EXTRA_PAGE_ID, -1)
         private set
     var revisionToId = bundle.getLong(ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO, -1)
@@ -52,7 +57,11 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 
     init {
-        getRevisionDetails(revisionToId, revisionFromId)
+        if (fromRecentEdits) {
+            getNextRecentEdit()
+        } else {
+            getRevisionDetails(revisionToId, revisionFromId)
+        }
     }
 
     fun getRevisionDetails(revisionIdTo: Long, revisionIdFrom: Long = -1) {
@@ -94,6 +103,48 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
 
             revisionDetails.postValue(Resource.Success(Unit))
             getDiffText(revisionFromId, revisionToId)
+        }
+    }
+
+    fun getNextRecentEdit() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            revisionDetails.postValue(Resource.Error(throwable))
+        }) {
+            withContext(Dispatchers.IO) {
+                while (this.coroutineContext.isActive) {
+                    try {
+                        val candidate = EditingSuggestionsProvider.getNextRevertCandidate(pageTitle.wikiSite.languageCode)
+                        pageId = candidate.pageid
+                        revisionToId = candidate.curRev
+
+                        val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithUserInfo(pageId.toString(), 2, revisionToId)
+                        val page = response.query?.firstPage()!!
+                        val revisions = page.revisions
+
+                        pageTitle = PageTitle(page.title, pageTitle.wikiSite)
+                        pageTitle.displayText = page.displayTitle(pageTitle.wikiSite.languageCode)
+
+                        watchedStatus.postValue(Resource.Success(page))
+                        hasRollbackRights = response.query?.userInfo?.rights?.contains("rollback") == true
+                        rollbackRights.postValue(Resource.Success(hasRollbackRights))
+
+                        revisionTo = revisions[0]
+                        canGoForward = revisions[0].revId < page.lastrevid
+                        revisionFrom = revisions.getOrNull(1)
+
+                        break
+                    } catch (e: EditingSuggestionsProvider.ListEmptyException) {
+                        // continue indefinitely until new data comes in.
+                        Thread.sleep(5000)
+                    }
+                }
+
+                revisionToId = revisionTo!!.revId
+                revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
+
+                revisionDetails.postValue(Resource.Success(Unit))
+                getDiffText(revisionFromId, revisionToId)
+            }
         }
     }
 
