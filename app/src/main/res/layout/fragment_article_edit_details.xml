@@ -345,7 +345,6 @@
         android:id="@+id/overlayRevisionDetailsView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="?attr/actionBarSize"
         android:background="?attr/paper_color"
         android:visibility="invisible">
 
