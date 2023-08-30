@@ -92,7 +92,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     private fun setSaveButtonEnabled(enabled: Boolean) {
         binding.addTemplateSaveButton.isEnabled = enabled
         binding.addTemplateSaveButton.setTextColor(ResourceUtil
-            .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.placeholder_color))
+            .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.inactive_color))
     }
 
     private fun showSaveDialog(subject: String, body: String) {
