@@ -1309,6 +1309,31 @@
   <string name="shareable_reading_lists_new_install_dialog_content" fuzzy="true">متوجه شدیم که یک فهرست مطالعه با شما به اشتراک گذاشته شده‌است. برای مشاهدهٔ این فهرست در این نرم‌افزار، به پیام اولیه بازگردید و دوباره روی پیوندی که با شما به اشتراک گذاشته شده کلیک کنید.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">گرفتم</string>
   <string name="reading_list_share_menu_label">اشتراک‌گذاری...</string>
+  <string name="suggested_edits_image_recommendations_task_title">تصاویر مقاله</string>
+  <string name="suggested_edits_image_recommendations_task_detail">تصاویر پیشنهادی را به مقالات ویکی</string>
+  <string name="image_recommendation_onboarding_1">تصاویر به قدرت درک افراد کمک می</string>
+  <string name="image_recommendation_onboarding_2">شما تصمیم خواهید گرفت که آیا تصویر پیشنهادی باید در مقاله ویکی</string>
+  <string name="image_recommendation_onboarding_4">منبع تصاویر، ویکی</string>
+  <string name="image_recommendation_tooltip_1">برای درک بهتر موضوع، این مقاله را مطالعه نمایید.</string>
+  <string name="image_recommendation_tooltip_2">تصویر و اطلاعات مربوط به آن را بررسی کنید.</string>
+  <string name="image_recommendation_tooltip_3">تصمیم بگیرید که آیا تصویر در درک بهتر موضوع به افراد کمک خواهد کرد یا خیر.</string>
+  <string name="image_recommendation_tooltip_next">بعدی</string>
+  <string name="image_recommendation_task_instruction">آیا این تصویر را به مقاله اضافه می</string>
+  <string name="image_recommendation_accept">بله</string>
+  <string name="image_recommendation_reject_title">دلیل رد کردن آن چیست؟</string>
+  <string name="image_recommendation_reject_subtitle">پاسخ شما می</string>
+  <string name="image_recommendation_reject_not_relevant">تصویر مرتبط نیست.</string>
+  <string name="image_recommendation_reject_no_info">اطلاعات کافی برای تصمیم گیری وجود ندارد.</string>
+  <string name="image_recommendation_reject_offensive">تصویر توهین آمیز است.</string>
+  <string name="image_recommendation_reject_low_quality">کیفیت تصویر پایین است.</string>
+  <string name="image_recommendation_reject_dont_know">با این موضوع آشنایی ندارم.</string>
+  <string name="image_recommendation_reject_other">سایر</string>
+  <string name="image_recommendation_reject_submit">ارسال</string>
+  <string name="image_recommendation_tooltip_warning">لطفاً به منظور درک موضوع، مقاله را مرور کرده و تصویر را بررسی نمایید.</string>
+  <string name="image_recommendation_tutorial">آموزش</string>
+  <string name="edit_summary_added_image">تصویر اضافه شده</string>
+  <string name="edit_summary_added_caption">زیرنویس اضافه شده</string>
+  <string name="edit_published_view">مشاهده</string>
   <string name="reading_list_share_survey_title" fuzzy="true">می‌توانید در بهبود این ویژگی به ما کمک کنید؟</string>
   <string name="reading_list_share_survey_body" fuzzy="true">اشتراک‌گذاری و برون‌بری فهرست‌های مطالعه یک ویژگی آزمایشی است و ما برای بهبود یا حذف آن به بازخوردهای شما نیاز داریم.</string>
 </resources>
