@@ -33,17 +33,22 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsRecentEditsBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
 import org.wikipedia.databinding.ViewEditHistorySearchBarBinding
 import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.staticdata.UserAliasData
+import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -252,7 +257,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             if (oldItem is SuggestedEditsRecentEditsViewModel.RecentEditsSeparator && newItem is SuggestedEditsRecentEditsViewModel.RecentEditsSeparator) {
                 return oldItem.date == newItem.date
             } else if (oldItem is SuggestedEditsRecentEditsViewModel.RecentEditsItem && newItem is SuggestedEditsRecentEditsViewModel.RecentEditsItem) {
-                return oldItem.item.rcid == newItem.item.rcid
+                return oldItem.item.curRev == newItem.item.curRev
             }
             return false
         }
@@ -381,7 +386,11 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         override fun onUserClick(item: MwQueryResult.RecentChange, view: View) {
-            // TODO: implement this
+            // TODO: verify source name and value
+            UserTalkPopupHelper.show(requireActivity() as AppCompatActivity,
+                PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), item.user, viewModel.wikiSite),
+                item.anon, view, Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS, HistoryEntry.SOURCE_SUGGESTED_EDITS_RECENT_EDITS,
+                revisionId = item.curRev, pageId = item.pageid.toInt(), showUserInfo = true)
         }
     }
 

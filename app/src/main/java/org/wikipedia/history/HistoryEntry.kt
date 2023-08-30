@@ -13,7 +13,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.DateSerializer
 import org.wikipedia.page.PageTitle
 import org.wikipedia.parcel.DateParceler
-import java.util.*
+import java.util.Date
 
 @Serializable
 @Parcelize
@@ -94,5 +94,6 @@ class HistoryEntry(
         const val SOURCE_ARCHIVED_TALK = 37
         const val SOURCE_USER_CONTRIB = 38
         const val SOURCE_FILE_PAGE = 39
+        const val SOURCE_SUGGESTED_EDITS_RECENT_EDITS = 40
     }
 }
