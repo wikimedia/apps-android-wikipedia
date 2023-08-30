@@ -209,7 +209,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onResume() {
         super.onResume()
-        L.d(">>>>>>> resuming")
+        viewModel.initOnResume()
     }
 
     private fun setUpListeners() {

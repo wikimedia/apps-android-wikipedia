@@ -41,6 +41,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     var lastWatchExpiry = WatchlistExpiry.NEVER
 
     val fromRecentEdits = bundle.getBoolean(ArticleEditDetailsActivity.EXTRA_FROM_RECENT_EDITS, false)
+    private var fromRecentEditsResumed = false
 
     var pageTitle = bundle.parcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
         private set
@@ -56,10 +57,15 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size
 
     init {
-        if (fromRecentEdits) {
-            getNextRecentEdit()
-        } else {
+        if (!fromRecentEdits) {
             getRevisionDetails(revisionToId, revisionFromId)
+        }
+    }
+
+    fun initOnResume() {
+        if (fromRecentEdits && !fromRecentEditsResumed) {
+            fromRecentEditsResumed = true
+            getNextRecentEdit()
         }
     }
 
