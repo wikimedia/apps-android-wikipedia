@@ -109,41 +109,30 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             revisionDetails.postValue(Resource.Error(throwable))
         }) {
-            withContext(Dispatchers.IO) {
-                while (this.coroutineContext.isActive) {
-                    try {
-                        val candidate = EditingSuggestionsProvider.getNextRevertCandidate(pageTitle.wikiSite.languageCode)
-                        pageId = candidate.pageid
-                        revisionToId = candidate.curRev
+            val candidate = EditingSuggestionsProvider.getNextRevertCandidate(pageTitle.wikiSite.languageCode)
+            pageId = candidate.pageid
+            revisionToId = candidate.curRev
 
-                        val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithUserInfo(pageId.toString(), 2, revisionToId)
-                        val page = response.query?.firstPage()!!
-                        val revisions = page.revisions
+            val response = ServiceFactory.get(pageTitle.wikiSite).getRevisionDetailsWithUserInfo(pageId.toString(), 2, revisionToId)
+            val page = response.query?.firstPage()!!
+            val revisions = page.revisions
 
-                        pageTitle = PageTitle(page.title, pageTitle.wikiSite)
-                        pageTitle.displayText = page.displayTitle(pageTitle.wikiSite.languageCode)
+            pageTitle = PageTitle(page.title, pageTitle.wikiSite)
+            pageTitle.displayText = page.displayTitle(pageTitle.wikiSite.languageCode)
 
-                        watchedStatus.postValue(Resource.Success(page))
-                        hasRollbackRights = response.query?.userInfo?.rights?.contains("rollback") == true
-                        rollbackRights.postValue(Resource.Success(hasRollbackRights))
+            watchedStatus.postValue(Resource.Success(page))
+            hasRollbackRights = response.query?.userInfo?.rights?.contains("rollback") == true
+            rollbackRights.postValue(Resource.Success(hasRollbackRights))
 
-                        revisionTo = revisions[0]
-                        canGoForward = revisions[0].revId < page.lastrevid
-                        revisionFrom = revisions.getOrNull(1)
+            revisionTo = revisions[0]
+            canGoForward = revisions[0].revId < page.lastrevid
+            revisionFrom = revisions.getOrNull(1)
 
-                        break
-                    } catch (e: EditingSuggestionsProvider.ListEmptyException) {
-                        // continue indefinitely until new data comes in.
-                        Thread.sleep(5000)
-                    }
-                }
+            revisionToId = revisionTo!!.revId
+            revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
 
-                revisionToId = revisionTo!!.revId
-                revisionFromId = if (revisionFrom != null) revisionFrom!!.revId else revisionTo!!.parentRevId
-
-                revisionDetails.postValue(Resource.Success(Unit))
-                getDiffText(revisionFromId, revisionToId)
-            }
+            revisionDetails.postValue(Resource.Success(Unit))
+            getDiffText(revisionFromId, revisionToId)
         }
     }
 

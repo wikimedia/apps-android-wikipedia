@@ -3,6 +3,7 @@ package org.wikipedia.suggestededits.provider
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
@@ -317,46 +318,56 @@ object EditingSuggestionsProvider {
                     cachedItem = revertCandidateCache.pop()
                 }
 
-                if (cachedItem != null) {
-                    cachedItem
-                } else {
-                    val response = ServiceFactory.get(WikiSite.forLanguageCode(lang)).getRecentEdits(10, "now", null) // revertCandidateLastTimeStamp
-                    var maxRevId = 0L
-                    for (candidate in response.query?.recentChanges!!) {
-                        if (candidate.curRev > maxRevId) {
-                            maxRevId = candidate.curRev
-                        }
-                        if (candidate.curRev <= revertCandidateLastRevId) {
-                            continue
-                        }
-                        if (candidate.bot) {
-                            // Bot edits are not likely to be damaging.
-                            continue
-                        }
-                        if (candidate.revFrom == 0L) {
-                            // Can't deal with newly-created pages, for now.
-                            continue
-                        }
-                        if (candidate.ores != null) {
-                            if (!candidate.anon && candidate.ores!!.damagingProb < 0.5) {
-                                continue
+                if (cachedItem == null) {
+                    while (this.coroutineContext.isActive) {
+                        try {
+                            val response = ServiceFactory.get(WikiSite.forLanguageCode(lang))
+                                .getRecentEdits(10, "now", null) // revertCandidateLastTimeStamp
+                            var maxRevId = 0L
+                            for (candidate in response.query?.recentChanges!!) {
+                                if (candidate.curRev > maxRevId) {
+                                    maxRevId = candidate.curRev
+                                }
+                                if (candidate.curRev <= revertCandidateLastRevId) {
+                                    continue
+                                }
+
+                                // TODO: apply filtering roughly somewhere here:
+
+                                if (candidate.bot) {
+                                    // Bot edits are not likely to be damaging.
+                                    continue
+                                }
+                                if (candidate.revFrom == 0L) {
+                                    // Can't deal with newly-created pages, for now.
+                                    continue
+                                }
+                                if (candidate.ores != null) {
+                                    // if (!candidate.anon && candidate.ores!!.damagingProb < 0.5) {
+                                    //     continue
+                                    // }
+                                }
+
+                                revertCandidateCache.push(candidate)
                             }
+                            if (maxRevId > revertCandidateLastRevId) {
+                                revertCandidateLastRevId = maxRevId
+                            }
+                            if (!revertCandidateCache.empty()) {
+                                L.d(revertCandidateCache.toString())
+                                cachedItem = revertCandidateCache.pop()
+                            }
+                            if (cachedItem == null) {
+                                throw ListEmptyException()
+                            }
+                            break
+                        } catch (e: ListEmptyException) {
+                            // continue indefinitely until new data comes in.
+                            Thread.sleep(5000)
                         }
-                        revertCandidateCache.push(candidate)
                     }
-                    if (maxRevId > revertCandidateLastRevId) {
-                        revertCandidateLastRevId = maxRevId
-                    }
-                    var item: MwQueryResult.RecentChange? = null
-                    if (!revertCandidateCache.empty()) {
-                        L.d(revertCandidateCache.toString())
-                        item = revertCandidateCache.pop()
-                    }
-                    if (item == null) {
-                        throw ListEmptyException()
-                    }
-                    item
                 }
+                cachedItem!!
             } finally {
                 mutex.release()
             }
