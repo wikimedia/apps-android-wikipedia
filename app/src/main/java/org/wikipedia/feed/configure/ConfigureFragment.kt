@@ -2,6 +2,7 @@ package org.wikipedia.feed.configure
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -36,6 +37,7 @@ class ConfigureFragment : Fragment(), MenuProvider, ConfigureItemView.Callback {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentFeedConfigureBinding.inflate(inflater, container, false)
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         setupRecyclerView()
