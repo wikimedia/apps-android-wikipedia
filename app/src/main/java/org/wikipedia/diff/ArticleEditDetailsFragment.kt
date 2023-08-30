@@ -366,7 +366,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
             if (it.ores != null) {
                 binding.oresDamagingButton.isVisible = true
-                binding.oresDamagingButton.text = "Quality: " + (it.ores?.damagingProb ?: 0).toInt() + "%"
+                binding.oresDamagingButton.text = "Quality: " + (100f - ((it.ores?.damagingProb) ?: 0f) * 100f).toInt() + "%"
             }
         }
 

@@ -279,6 +279,7 @@
                     android:id="@+id/diffCharacterCountView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:minHeight="48dp"
                     android:layout_marginStart="16dp"
                     android:textColor="?attr/success_color"
                     android:textStyle="bold"
