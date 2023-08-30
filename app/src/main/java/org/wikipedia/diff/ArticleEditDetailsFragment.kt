@@ -45,8 +45,8 @@ import org.wikipedia.watchlist.WatchlistExpiryDialog
 
 class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, LinkPreviewDialog.Callback, MenuProvider {
     interface Callback {
-        fun onUndoSuccess();
-        fun onRollbackSuccess();
+        fun onUndoSuccess()
+        fun onRollbackSuccess()
     }
 
     private var _binding: FragmentArticleEditDetailsBinding? = null
