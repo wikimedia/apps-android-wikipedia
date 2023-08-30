@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -43,6 +44,11 @@ import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 
 class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, LinkPreviewDialog.Callback, MenuProvider {
+    interface Callback {
+        fun onUndoSuccess();
+        fun onRollbackSuccess();
+    }
+
     private var _binding: FragmentArticleEditDetailsBinding? = null
     private val binding get() = _binding!!
 
@@ -55,9 +61,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentArticleEditDetailsBinding.inflate(inflater, container, false)
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
-        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
-
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
         return binding.root
@@ -70,6 +73,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         if (!viewModel.fromRecentEdits) {
+            (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.revision_diff_compare)
             binding.articleTitleView.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
         }
 
@@ -139,6 +143,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 viewModel.getRevisionDetails(it.data.edit!!.newRevId)
                 FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success)).show()
                 editHistoryInteractionEvent?.logUndoSuccess()
+                callback()?.onUndoSuccess()
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
@@ -162,6 +167,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.rollback?.revision ?: 0)
                 FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_rollback_success), FeedbackUtil.LENGTH_DEFAULT).show()
+                callback()?.onRollbackSuccess()
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
                 FeedbackUtil.showError(requireActivity(), it.throwable)
@@ -192,18 +198,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.scrollContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             val bounds = Rect()
             binding.contentContainer.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
-            if (scrollY > bounds.top) {
-                binding.overlayRevisionDetailsView.visibility = View.VISIBLE
-                (requireActivity() as AppCompatActivity).supportActionBar?.let {
-                    if (it.title.isNullOrEmpty()) {
-                        it.title = getString(R.string.revision_diff_compare_title, StringUtil.fromHtml(viewModel.pageTitle.displayText))
-                    }
-                    it.setDisplayShowTitleEnabled(true)
-                }
-            } else {
-                binding.overlayRevisionDetailsView.visibility = View.INVISIBLE
-                (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
-            }
+            binding.overlayRevisionDetailsView.isVisible = scrollY > bounds.top
         })
     }
 
@@ -510,6 +505,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun copyLink(uri: String?) {
         ClipboardUtil.setPlainText(requireContext(), text = uri)
         FeedbackUtil.showMessage(this, R.string.address_copied)
+    }
+
+    private fun callback(): Callback? {
+        return FragmentUtil.getCallback(this, Callback::class.java)
     }
 
     companion object {

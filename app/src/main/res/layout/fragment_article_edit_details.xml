@@ -5,17 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        style="@style/ToolbarStyle.Small" />
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="@dimen/nav_bar_height"
         android:scrollbars="vertical">
 
         <LinearLayout
@@ -43,36 +37,20 @@
                     tools:visibility="visible" />
 
                 <TextView
-                    android:id="@+id/activityTitleView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:ellipsize="end"
-                    android:lineSpacingExtra="4sp"
-                    android:maxLines="1"
-                    android:textColor="?attr/primary_color"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:text="@string/revision_diff_compare"
-                    app:layout_constraintEnd_toStartOf="@id/olderIdButton"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
                     android:id="@+id/articleTitleView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp"
                     android:ellipsize="end"
                     android:lineSpacingExtra="4sp"
                     android:maxLines="3"
                     android:textColor="?attr/progressive_color"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/olderIdButton"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/activityTitleView" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Lorem ipsum" />
 
                 <ImageView
                     android:id="@+id/olderIdButton"
