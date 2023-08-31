@@ -20,7 +20,7 @@ static def computeVersionName(versionCode, label) {
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     compileOptions {
         coreLibraryDesugaringEnabled true
@@ -36,7 +36,7 @@ android {
     defaultConfig {
         applicationId 'org.wikipedia'
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 50450
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
