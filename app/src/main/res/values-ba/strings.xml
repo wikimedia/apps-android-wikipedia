@@ -611,7 +611,7 @@
   <string name="reading_lists_action_menu_export_lists">Экспортларға</string>
   <string name="reading_lists_import_file_picker_title">Импортлау өсөн файл һайлағыҙ</string>
   <string name="reading_lists_import_failure_message">Уҡыу исемлектәрен импортлап булманы</string>
-  <string name="reading_lists_export_select_lists_message">Экспорт өсөн исемлек/исемлектәр һайлағыҙ</string>
+  <string name="reading_lists_export_select_lists_message">Сығарыу өсөн исемлек/исемлектәр һайлағыҙ</string>
   <string name="reading_lists_export_completed_message">Уҡыу исемлеге/исемлектәре экспортланды</string>
   <plurals name="reading_list_export_failed_message">
     <item quantity="one">Уҡыу исемлеген экспортҡа сығарыу мөмкин түгел</item>
@@ -698,7 +698,7 @@
     <item quantity="other">%d уҡылмаған тип билдәләнгән</item>
   </plurals>
   <string name="watchlist_title">Күҙәтеү исемлеге</string>
-  <string name="preference_title_notification_poll">Һорау алыуҙар тураһында белдереүҙәр</string>
+  <string name="preference_title_notification_poll">Һорауламалар тураһында белдереүҙәр</string>
   <string name="preference_summary_notification_poll">Яңы белдереүҙәрҙе тикшереү өсөн ҡушымтаға мәғлүмәттәрҙе фон режимында ҡулланырға рөхсәт итегеҙ.</string>
   <string name="preference_category_notification_types">Ҡушымталағы белдереү төрҙәре</string>
   <string name="preference_title_notification_system">Система</string>
@@ -938,7 +938,7 @@
   <string name="suggested_edits_feed_card_translate_image_caption">Рәсемгә тасуирлама өҫтәгеҙ (%s)</string>
   <string name="suggested_edits_feed_card_add_image_tags">Рәсемгә тамғалар өҫтәгеҙ</string>
   <string name="suggested_edits_snackbar_survey_text">Мөхәррирләү тәжрибәгеҙ ниндәй ине? Зинһар, ҡушымтала мөхәррирләү анкетаһын тултырыу өсөн бер минут бүлегеҙ.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Һорау алыуҙа ҡатнашыу</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Һорауламала ҡатнашыу</string>
   <string name="suggested_edits_task_action_text_add">Өҫтәргә</string>
   <string name="suggested_edits_task_action_text_translate">Тәржемә итергә</string>
   <string name="suggested_edits_image_captions">Рәсем тасуирламаһы</string>
