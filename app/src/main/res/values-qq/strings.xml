@@ -910,6 +910,9 @@
   <string name="suggested_edits_describe_articles">Title of screen where the user chooses articles that are missing article descriptions to be described.</string>
   <string name="suggested_edits_caption_images">Title of screen where the user chooses images that are missing captions to be captioned.</string>
   <string name="suggested_edits_tag_images">Title of screen where the user chooses tags that represent an image.</string>
+  <string name="suggested_edits_edit_patrol">Title for patrolling recent edits.</string>
+  <string name="suggested_edits_edit_patrol_hint">Description of the task of patrolling recent edits.</string>
+  <string name="suggested_edits_edit_patrol_review">Button to begin the task of patrolling recent edits.</string>
   <string name="suggested_edits_review_description">Title of the review article description page.</string>
   <string name="suggested_edits_add_description_button">A button text for adding article description. Appears next to {{msg-wm|Wikipedia-android-strings-onboarding skip}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)</string>
   <string name="suggested_edits_edit_description_button">A button text for editing article description.</string>
@@ -1078,9 +1081,6 @@
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Title for the Suggested Edits task of adding recommended images to articles.</string>
   <string name="suggested_edits_image_recommendations_task_detail">Description for the Suggested Edits task of adding recommended images to articles.</string>
-  <string name="suggested_edits_edit_patrol">Title for patrolling recent edits.</string>
-  <string name="suggested_edits_edit_patrol_hint">Description of the task of patrolling recent edits.</string>
-  <string name="suggested_edits_edit_patrol_review">Button to begin the task of patrolling recent edits.</string>
   <string name="image_recommendation_task_instruction">Hint label when asking the user to add a proposed image to an article.</string>
   <string name="image_recommendation_tutorial">Menu label for navigating to a tutorial screen.</string>
   <string name="image_recommendation_accept">Button label for accepting a recommended image for an article.</string>
@@ -1465,10 +1465,6 @@
   <string name="reading_list_share_message_v2">Message that is sent to a recipient when sharing a reading list.</string>
   <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
-  <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
-  <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
-  <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
-  <string name="generic_release_notes">Release notes message that will be used on app stores for minor releases and maintenance updates.</string>
   <string name="talk_templates_manage_title">Title of the manage warn template screen.</string>
   <string name="talk_templates_empty_message">Empty message of the warn template.</string>
   <string name="talk_templates_new_message_title">Title of the add a new message screen.</string>
@@ -1489,10 +1485,6 @@
   <string name="talk_templates_edit_message_updated">Snackbar message that show the message has been updated.</string>
   <string name="talk_templates_edit_message_confirm_description">Message of confirming the action of deleting the message. %s will be replaced by the title of the saved message.</string>
   <string name="talk_templates_message_deleted">Snackbar message that show the message has been deleted.</string>
-  <string name="email_report_image_recommendations_subject">Subject heading for sending a report about a problem with the Image Recommendations feature.</string>
-  <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
-  <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>
-  <string name="email_report_patroller_tasks_body">Body of email for sending a report about a problem with the Patroller Tasks feature.</string>
   <string name="patroller_tasks_edits_list_title">Title of the screen that shows a list of edits.</string>
   <string name="patroller_tasks_edits_list_search_hint">Hint text of in the search bar of searching or filtering edits.</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Text of showing added tags in this edit. %s will be replaced by the added tags.</string>
@@ -1552,4 +1544,12 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Label text of the action in the snackbar to view the result of the action.</string>
   <string name="patroller_tasks_overflow_report">Menu text in the overflow menu to submit feedback for the feature.</string>
   <string name="patroller_tasks_overflow_learn">Menu text in the overflow menu to view the detail of the feature.</string>
+  <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
+  <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
+  <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
+  <string name="generic_release_notes">Release notes message that will be used on app stores for minor releases and maintenance updates.</string>
+  <string name="email_report_image_recommendations_subject">Subject heading for sending a report about a problem with the Image Recommendations feature.</string>
+  <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
+  <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>
+  <string name="email_report_patroller_tasks_body">Body of email for sending a report about a problem with the Patroller Tasks feature.</string>
 </resources>

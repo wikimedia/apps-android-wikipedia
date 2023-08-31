@@ -565,6 +565,7 @@
   <string name="talk_title">ڳالھ مہاڑ</string>
   <string name="talk_user_title">ڳالھ مہاڑ: %s</string>
   <string name="talk_new_topic">نواں عنوان</string>
+  <string name="talk_warn_save_dialog_cancel">منسوخ</string>
   <string name="talk_page_empty_content">ڳالھ مہاڑ ورقے تے تے بھُوم ڳوجھی تے مواد کوں ممکن حد تائیں بہتر بݨاوݨ کیتے لوک بحث کریندے ہن۔ وکی پیڈیا برادری نال رل تے کم کرݨ تے رابطے کیتے  نواں بحث دا موضوع شامل کرݨ نال شروع کرو۔</string>
   <string name="talk_add_reply">جواب</string>
   <string name="talk_no_subject">(عنوان کائنی)</string>
@@ -656,6 +657,14 @@
   <string name="shareable_reading_lists_new_indicator">*نواں*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">سمجھ آڳئی</string>
   <string name="reading_list_share_menu_label">شیئر۔۔۔</string>
+  <string name="talk_templates_new_message_dialog_save">بچاؤ</string>
+  <string name="talk_templates_new_message_dialog_cancel">منسوخ</string>
+  <string name="talk_templates_edit_message_dialog_delete">مٹاؤ</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">ورتݨ آلے دا ورقہ ݙیکھو</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">شکریہ</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">وکی</string>
+  <string name="patroller_tasks_filters_user_status_experienced">تجربہ کار ورتݨ آلے</string>
+  <string name="patroller_tasks_filters_significance_minor">معمولی تبدیلیاں</string>
   <string name="data_opt_in_accept">قبول کرو</string>
   <string name="data_opt_in_reject">مسترد کرو</string>
   <string name="page_issues_title">ورقہ معاملے</string>
