@@ -72,7 +72,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     fun filtersCount(): Int {
         val defaultTypeSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }.toSet()
         val nonDefaultChangeTypes = Prefs.recentEditsIncludedTypeCodes.subtract(defaultTypeSet)
-            .union(defaultTypeSet.subtract(Prefs.watchlistIncludedTypeCodes.toSet()))
+            .union(defaultTypeSet.subtract(Prefs.recentEditsIncludedTypeCodes.toSet()))
         return nonDefaultChangeTypes.size
     }
 
