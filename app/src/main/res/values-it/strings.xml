@@ -1223,6 +1223,7 @@
   <string name="talk_user_title">Discussione: %s</string>
   <string name="talk_new_topic">Nuovo argomento</string>
   <string name="talk_new_topic_submitted">Argomento pubblicato.</string>
+  <string name="talk_warn_save_dialog_message">Salva come nuovo messaggio</string>
   <string name="talk_page_empty">Questa pagina di discussione è vuota.</string>
   <string name="talk_page_empty_title">La conversazione inizia qui</string>
   <string name="talk_page_empty_content">Le pagine di discussione sono dove le persone discutono su come rendere il contenuto di Wikipedia il migliore possibile. Inizia aggiungendo un nuovo argomento di discussione per connetterti e collaborare con una comunità di wikipediani.</string>
@@ -1420,6 +1421,24 @@
   <string name="reading_list_share_message_v2">Ciao! Vorrei condividere il mio elenco di lettura di Wikipedia con te:</string>
   <string name="reading_list_share_survey_title">Puoi aiutarci a migliorare \"Condividi elenchi di lettura\"?</string>
   <string name="reading_list_share_survey_body">\"Condividi elenchi di lettura\" è una funzione di prova e abbiamo bisogno del tuo commento per migliorarla o rimuoverla.</string>
+  <string name="talk_templates_new_message_compose_hint">Scrivi un messaggio</string>
+  <string name="talk_templates_new_message_dialog_cancel">Annulla</string>
+  <string name="talk_templates_edit_message_dialog_title">Modifica messaggio</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Etichette: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Nessuno</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Informazioni utente</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Conteggio delle modifiche</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Contributi automatici</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Molto probabilmente buona</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Molto probabilmente ha problemi</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Probabile in malafede</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Molto probabilmente in mala fede</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d filtro</item>
+    <item quantity="other">%d filtri</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_title">Verifica modifica</string>
   <string name="data_opt_in_accept">Accetta</string>
   <string name="data_opt_in_reject">Rifiuta</string>
 </resources>
