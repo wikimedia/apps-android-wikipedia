@@ -115,6 +115,9 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 list.add(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.value)
             }
         }
+
+        // TODO: add damaging and goodfaith logic here
+        
         return list.joinToString(separator = "|")
     }
 
