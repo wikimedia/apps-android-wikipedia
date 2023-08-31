@@ -47,7 +47,10 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         pagingData.filter {
             if (currentQuery.isNotEmpty()) {
                 it.parsedComment.contains(currentQuery, true) ||
-                        it.title.contains(currentQuery, true)
+                        it.title.contains(currentQuery, true) ||
+                        it.user.contains(currentQuery, true) ||
+                        it.joinedTags.contains(currentQuery, true) ||
+                        it.parsedDateTime.toString().contains(currentQuery, true)
             } else true
         }.map {
             RecentEditsItem(it)

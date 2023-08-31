@@ -40,7 +40,6 @@ import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
 import org.wikipedia.databinding.ViewEditHistorySearchBarBinding
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.settings.Prefs
@@ -208,7 +207,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
     }
 
     private fun startSearchActionMode() {
-        actionMode = (requireActivity() as MainActivity).startSupportActionMode(searchActionModeCallback)
+        actionMode = (requireActivity() as AppCompatActivity).startSupportActionMode(searchActionModeCallback)
     }
 
     private inner class SearchBarAdapter : RecyclerView.Adapter<SearchBarViewHolder>() {
@@ -363,7 +362,8 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         fun bindItem() {
-            binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message))
+            val filtersStr = resources.getQuantityString(R.plurals.patroller_tasks_filters_number_of_filters, viewModel.filtersCount(), viewModel.filtersCount())
+            binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_filters_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
         }
     }
 
@@ -372,7 +372,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
 
         fun bindItem(recentChange: MwQueryResult.RecentChange) {
             this.recentChange = recentChange
-            view.setItem(recentChange)
+            view.setItem(recentChange, viewModel.currentQuery)
             view.callback = this
         }
 
