@@ -88,14 +88,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     private fun showCriteriaString(): String {
         val includedTypesCodes = Prefs.recentEditsIncludedTypeCodes
         val list = mutableListOf<String>()
-        if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.UNSEEN_CHANGES_GROUP.map { it.id })) {
-            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNSEEN_CHANGES.id)) {
-                list.add(SuggestedEditsRecentEditsFilterTypes.UNSEEN_CHANGES.value)
-            }
-            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.SEEN_CHANGES.id)) {
-                list.add(SuggestedEditsRecentEditsFilterTypes.SEEN_CHANGES.value)
-            }
-        }
 
         if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.BOT_EDITS_GROUP.map { it.id })) {
             if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.BOT.id)) {
