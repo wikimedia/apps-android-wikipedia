@@ -1165,6 +1165,7 @@
   <string name="talk_user_title">Discuție: %s</string>
   <string name="talk_new_topic">Subiect nou</string>
   <string name="talk_new_topic_submitted">Subiect postat.</string>
+  <string name="talk_warn_save_dialog_message">Salvați ca mesaj nou</string>
   <string name="talk_page_empty">Această pagină de discuție este goală.</string>
   <string name="talk_add_reply">Răspunde</string>
   <string name="talk_no_subject">(Niciun subiect)</string>
@@ -1289,6 +1290,17 @@
   <string name="user_contrib_menu_label">Contribuții</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Am înțeles</string>
   <string name="reading_list_share_menu_label">Distribuiți...</string>
+  <string name="talk_templates_new_message_compose_hint">Compune mesaj</string>
+  <string name="talk_templates_new_message_dialog_cancel">Anulare</string>
+  <string name="talk_templates_edit_message_dialog_title">Editați mesajul</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Editează numărul</string>
+  <string name="patroller_tasks_filters_reset">Resetați</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Contribuții automate</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Foarte probabil bine</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Foarte probabil rea-credință</string>
+  <string name="patroller_tasks_patrol_edit_title">Editare de patrulare</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Reveniți complet</string>
   <string name="data_opt_in_accept">Accept</string>
   <string name="data_opt_in_reject">Refuz</string>
 </resources>
