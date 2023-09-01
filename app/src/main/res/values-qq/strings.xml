@@ -1501,6 +1501,7 @@
   <string name="patroller_tasks_filters_title">Title of the list of edits filter screen.</string>
   <string name="patroller_tasks_filters_reset">Button label of resetting the filters.</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Header text for list of edits wikis filters</string>
+  <string name="patroller_tasks_filters_all_text">Label text for button to enable all items in a certain filter category for patroller tasks</string>
   <string name="patroller_tasks_filters_user_status_header">Header text for list of edits user registration and experience.</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Option text for the user registration and experience that indicates unregistered.</string>
   <string name="patroller_tasks_filters_user_status_registered">Option text for the user registration and experience that indicates registered.</string>
