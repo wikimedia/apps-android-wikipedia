@@ -1568,6 +1568,7 @@
     <string name="patroller_tasks_filters_title">Filters</string>
     <string name="patroller_tasks_filters_reset">Reset</string>
     <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+    <string name="patroller_tasks_filters_all_text">All</string>
     <string name="patroller_tasks_filters_user_status_header">User registration and experience</string>
     <string name="patroller_tasks_filters_user_status_unregistered">Unregistered</string>
     <string name="patroller_tasks_filters_user_status_registered">Registered</string>
