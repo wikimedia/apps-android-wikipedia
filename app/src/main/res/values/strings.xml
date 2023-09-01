@@ -1562,8 +1562,8 @@
     <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">View user contributions</string>
     <string name="patroller_tasks_edits_list_card_overflow_thank">Thank</string>
     <string name="patroller_tasks_edits_list_user_information_dialog_title">User information</string>
-    <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Tenure</string>
-    <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Edit count</string>
+    <string name="patroller_tasks_edits_list_user_information_dialog_tenure"><![CDATA[<b>Tenure: </b> %s]]></string>
+    <string name="patroller_tasks_edits_list_user_information_dialog_edit_count"><![CDATA[<b>Edit count: </b> %s]]></string>
     <string name="patroller_tasks_edits_list_user_information_dialog_close">Close</string>
     <string name="patroller_tasks_filters_title">Filters</string>
     <string name="patroller_tasks_filters_reset">Reset</string>
