@@ -276,8 +276,7 @@
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
-            android:name=".suggestededits.SuggestedEditsRecentEditsActivity"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:name=".suggestededits.SuggestedEditsRecentEditsActivity"/>
 
         <activity
             android:name=".commons.FilePageActivity"

@@ -78,6 +78,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsRecentEditsBinding.inflate(inflater, container, false)
 
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.patroller_tasks_edits_list_title)
 
         return binding.root
