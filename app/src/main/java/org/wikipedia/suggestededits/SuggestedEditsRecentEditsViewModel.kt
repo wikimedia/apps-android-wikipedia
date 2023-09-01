@@ -117,7 +117,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         }
 
         // TODO: add damaging and goodfaith logic here
-        
+
         return list.joinToString(separator = "|")
     }
 
