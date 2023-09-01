@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Dbrant
 * P. S. F. Freitas
 -->
 <resources>
@@ -211,6 +212,9 @@
   <string name="dialog_close_description">Emboty</string>
   <string name="preference_title_show_images">Ehecha ta\'angakuéra</string>
   <string name="gallery_menu_share">Eikuaauka</string>
+  <string name="menu_close_all_tabs">Embotypa tendaykekuéra</string>
+  <string name="close_all_tabs_confirm">Añetetépa rembotyseha tendaykekuéra?</string>
+  <string name="button_close_tab">Emboty tendayke</string>
   <string name="button_continue_to_talk_page">Eike ñemongeta kuatiápe</string>
   <string name="nav_item_donate">Viru me\'ẽ</string>
   <string name="error_message_generic">Oiko peteĩ jejavy</string>
@@ -382,6 +386,7 @@
   <string name="category_empty">Ndojejuhúi kuatia ko ñemohendápe.</string>
   <string name="user_contrib_filter_ns">Embogua téra renda rupive</string>
   <string name="reading_list_share_message_v2">Mba\'éichapa! Roikuaaukasemi che moñe\'ẽrã rysýi Vikipetãme:</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Emboty</string>
   <string name="data_opt_in_accept">Oĩma</string>
   <string name="data_opt_in_reject">Ndaipotái</string>
 </resources>

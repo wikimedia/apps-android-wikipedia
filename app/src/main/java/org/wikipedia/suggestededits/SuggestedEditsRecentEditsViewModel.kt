@@ -47,7 +47,10 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         pagingData.filter {
             if (currentQuery.isNotEmpty()) {
                 it.parsedComment.contains(currentQuery, true) ||
-                        it.title.contains(currentQuery, true)
+                        it.title.contains(currentQuery, true) ||
+                        it.user.contains(currentQuery, true) ||
+                        it.joinedTags.contains(currentQuery, true) ||
+                        it.parsedDateTime.toString().contains(currentQuery, true)
             } else true
         }.map {
             RecentEditsItem(it)
@@ -69,7 +72,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     fun filtersCount(): Int {
         val defaultTypeSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }.toSet()
         val nonDefaultChangeTypes = Prefs.recentEditsIncludedTypeCodes.subtract(defaultTypeSet)
-            .union(defaultTypeSet.subtract(Prefs.watchlistIncludedTypeCodes.toSet()))
+            .union(defaultTypeSet.subtract(Prefs.recentEditsIncludedTypeCodes.toSet()))
         return nonDefaultChangeTypes.size
     }
 
@@ -85,14 +88,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     private fun showCriteriaString(): String {
         val includedTypesCodes = Prefs.recentEditsIncludedTypeCodes
         val list = mutableListOf<String>()
-        if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.UNSEEN_CHANGES_GROUP.map { it.id })) {
-            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNSEEN_CHANGES.id)) {
-                list.add(SuggestedEditsRecentEditsFilterTypes.UNSEEN_CHANGES.value)
-            }
-            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.SEEN_CHANGES.id)) {
-                list.add(SuggestedEditsRecentEditsFilterTypes.SEEN_CHANGES.value)
-            }
-        }
 
         if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.BOT_EDITS_GROUP.map { it.id })) {
             if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.BOT.id)) {
@@ -120,6 +115,9 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 list.add(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.value)
             }
         }
+
+        // TODO: add damaging and goodfaith logic here
+        
         return list.joinToString(separator = "|")
     }
 

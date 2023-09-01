@@ -209,10 +209,11 @@ class MwQueryResult {
         private val timestamp: String = ""
 
         @SerialName("parsedcomment") val parsedComment: String = ""
-        val tags: List<String>? = null
+        private val tags: List<String>? = null
         private val oresscores: JsonElement? = null
 
         val parsedDateTime by lazy { DateUtil.iso8601LocalDateTimeParse(timestamp) }
+        val joinedTags by lazy { tags?.joinToString(separator = ", ").orEmpty() }
 
         override fun toString(): String {
             return title

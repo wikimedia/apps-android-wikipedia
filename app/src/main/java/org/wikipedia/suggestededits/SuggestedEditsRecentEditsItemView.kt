@@ -1,6 +1,7 @@
 package org.wikipedia.suggestededits
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -22,8 +23,8 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
     var callback: Callback? = null
     private var item: MwQueryResult.RecentChange? = null
     private var clickListener = OnClickListener {
-        if (item != null) {
-            callback?.onItemClick(item!!)
+        item?.let {
+            callback?.onItemClick(it)
         }
     }
 
@@ -31,15 +32,15 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         binding.containerView.setOnClickListener(clickListener)
         binding.diffText.setOnClickListener(clickListener)
-        binding.userNameText.setOnClickListener {
-            if (item != null) {
-                callback?.onUserClick(item!!, it)
+        binding.userNameText.setOnClickListener { view ->
+            item?.let {
+                callback?.onUserClick(it, view)
             }
         }
     }
 
     @Suppress("KotlinConstantConditions")
-    fun setItem(item: MwQueryResult.RecentChange) {
+    fun setItem(item: MwQueryResult.RecentChange, currentQuery: String?) {
         this.item = item
         var isSummaryEmpty = false
         var isTagsEmpty = false
@@ -52,7 +53,7 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
         binding.summaryText.setTextColor(ResourceUtil.getThemedColor(context,
             if (isSummaryEmpty) R.attr.secondary_color else R.attr.primary_color))
 
-        val tagsString = item.tags?.joinToString(separator = ", ")?.ifEmpty {
+        val tagsString = item.joinedTags.ifEmpty {
             isTagsEmpty = true
             context.getString(R.string.patroller_tasks_edits_list_card_tags_text_none)
         }
@@ -76,6 +77,11 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
         binding.diffText.isVisible = true
         binding.containerView.alpha = 1.0f
         binding.containerView.isClickable = true
+
+        StringUtil.highlightAndBoldenText(binding.titleText, currentQuery, true, Color.YELLOW)
+        StringUtil.highlightAndBoldenText(binding.timeText, currentQuery, true, Color.YELLOW)
+        StringUtil.highlightAndBoldenText(binding.userNameText, currentQuery, true, Color.YELLOW)
+        StringUtil.highlightAndBoldenText(binding.tagsText, currentQuery, true, Color.YELLOW)
     }
 
     private fun setButtonTextAndIconColor(text: String, @DrawableRes iconResourceDrawable: Int = 0) {

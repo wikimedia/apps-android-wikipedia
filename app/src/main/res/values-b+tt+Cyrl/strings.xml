@@ -263,6 +263,8 @@
   <string name="edit_undo">Кире кайтару</string>
   <string name="edit_redo">Кабатлау</string>
   <string name="edit_rollback">Кире кайтарырга</string>
+  <string name="edit_warn">Кисәтү</string>
+  <string name="edit_quality">Сыйфат %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
     <item quantity="other">%s байт</item>
