@@ -1495,8 +1495,10 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Menu item text for the item overflow menu to view the user contributions.</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Menu item text for the item overflow menu to thank the user.</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Title of the user information dialog.</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Text of the user information dialog that shows the user tenure. %s will be replaced by the tenure number.</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Text of the user information dialog that shows the user edit count. %s will be replaced by the edit count.</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Text of the user information dialog that shows the user tenure.</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_tenure_v2">Text of the user information dialog that shows the user tenure. %s will be replaced by the tenure number.</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Text of the user information dialog that shows the user edit count.</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_v2">Text of the user information dialog that shows the user edit count. %s will be replaced by the edit count.</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Button label of closing the user information dialog.</string>
   <string name="patroller_tasks_filters_title">Title of the list of edits filter screen.</string>
   <string name="patroller_tasks_filters_reset">Button label of resetting the filters.</string>

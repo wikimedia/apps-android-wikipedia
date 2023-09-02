@@ -27,6 +27,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.usercontrib.UserContribListActivity
+import org.wikipedia.usercontrib.UserInformationDialog
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.log.L
 
@@ -121,7 +122,7 @@ object UserTalkPopupHelper {
                         activity.startActivity(TalkTopicsActivity.newIntent(activity, newTitle, invokeSource))
                     }
                     R.id.menu_user_information -> {
-                        // TODO: implement this
+                        UserInformationDialog.newInstance(title.text).show((activity as AppCompatActivity).supportFragmentManager, null)
                     }
                     R.id.menu_user_contributions_page -> {
                         activity.startActivity(UserContribListActivity.newIntent(activity, title.text))
