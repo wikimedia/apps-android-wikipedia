@@ -1476,6 +1476,7 @@
   <string name="patroller_tasks_filters_title">Филтри</string>
   <string name="patroller_tasks_filters_reset">Одново</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Вики</string>
+  <string name="patroller_tasks_filters_all_text">Сите</string>
   <string name="patroller_tasks_filters_user_status_header">Корисничко зачленување и искусност</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Незачленети</string>
   <string name="patroller_tasks_filters_user_status_registered">Зачленети</string>
