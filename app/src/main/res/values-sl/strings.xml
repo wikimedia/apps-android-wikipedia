@@ -1548,6 +1548,8 @@
   <string name="talk_templates_message_deleted">Sporočilo je izbrisano</string>
   <string name="patroller_tasks_edits_list_title">Seznam urejanj</string>
   <string name="patroller_tasks_edits_list_search_hint">Iskanje ali filtriranje urejanj</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Oznake: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Brez</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Ogled uporabniške strani</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Ogled pogovorne strani</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Uporabniški podatki</string>
@@ -1560,6 +1562,7 @@
   <string name="patroller_tasks_filters_title">Filtri</string>
   <string name="patroller_tasks_filters_reset">Ponastavi</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Viki</string>
+  <string name="patroller_tasks_filters_all_text">Vse</string>
   <string name="patroller_tasks_filters_user_status_header">Registriranost in izkušnje uporabnika</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Neregistriran</string>
   <string name="patroller_tasks_filters_user_status_registered">Registriran</string>

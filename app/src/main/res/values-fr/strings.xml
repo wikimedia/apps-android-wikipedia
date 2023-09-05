@@ -1522,6 +1522,7 @@
   <string name="patroller_tasks_filters_title">Filtres</string>
   <string name="patroller_tasks_filters_reset">Réinitialiser</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_all_text">Tous</string>
   <string name="patroller_tasks_filters_user_status_header">Inscription et expérience de l’utilisateur</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Non inscrit</string>
   <string name="patroller_tasks_filters_user_status_registered">Inscrit</string>
@@ -1547,7 +1548,7 @@
   <string name="patroller_tasks_filters_user_intent_may_problems">Peut être de mauvaise foi</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Probablement de mauvaise foi</string>
   <string name="patroller_tasks_filters_user_intent_bad">Très probablement de mauvaise foi</string>
-  <string name="patroller_tasks_filters_empty_search_message">Essayez de supprimer %s pour voir plus de notifications</string>
+  <string name="patroller_tasks_filters_empty_search_message">Essayez de supprimer %s pour voir plus de modifications</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d filtre</item>
     <item quantity="other">%d filtres</item>

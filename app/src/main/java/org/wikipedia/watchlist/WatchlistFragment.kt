@@ -193,7 +193,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     internal inner class WatchlistItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(item: MwQueryResult.WatchlistItem) {
             val view = itemView as WatchlistItemView
-            view.setItem(item)
+            view.setItem(item, viewModel.currentSearchQuery)
             view.callback = this@WatchlistFragment
         }
     }
