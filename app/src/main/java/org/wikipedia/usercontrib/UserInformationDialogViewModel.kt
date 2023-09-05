@@ -34,7 +34,8 @@ class UserInformationDialogViewModel(bundle: Bundle) : ViewModel() {
                 ServiceFactory.get(WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)).globalUserInfo(userName)
             }
             userInfo.query?.globalUserInfo?.let {
-                _uiState.value = UiState.Success(it.editCount.toString(), it.registrationDate)
+                val editCount = String.format("%,d", it.editCount)
+                _uiState.value = UiState.Success(editCount, it.registrationDate)
             } ?: run {
                 _uiState.value = UiState.Error(Throwable("Cannot fetch user information."))
             }

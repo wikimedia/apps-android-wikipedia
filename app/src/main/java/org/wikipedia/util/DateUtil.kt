@@ -187,13 +187,16 @@ object DateUtil {
         val beginDate = date.toInstant()
         val diffDays = Duration.between(beginDate, nowDate).toDays().toInt()
         if (diffDays <= 31) {
-            return context.resources.getQuantityString(R.plurals.date_diff_days, diffDays, diffDays)
+            val diffString = String.format("%,d", diffDays)
+            return context.resources.getQuantityString(R.plurals.date_diff_days, diffDays, diffString)
         }
         val diffMonths = diffDays.floorDiv(31)
         if (diffMonths <= 12) {
-            return context.resources.getQuantityString(R.plurals.date_diff_months, diffMonths, diffMonths)
+            val diffString = String.format("%,d", diffMonths)
+            return context.resources.getQuantityString(R.plurals.date_diff_months, diffMonths, diffString)
         }
         val diffYear = diffMonths.floorDiv(12)
-        return context.resources.getQuantityString(R.plurals.date_diff_years, diffYear, diffYear)
+        val diffString = String.format("%,d", diffYear)
+        return context.resources.getQuantityString(R.plurals.date_diff_years, diffYear, diffString)
     }
 }
