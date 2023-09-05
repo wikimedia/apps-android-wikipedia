@@ -279,6 +279,8 @@
   <string name="edit_undo">Visszavonás</string>
   <string name="edit_redo">Újra</string>
   <string name="edit_rollback">Visszaállítás</string>
+  <string name="edit_quality" fuzzy="true">Minőség %s</string>
+  <string name="edit_intent" fuzzy="true">Szándék %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">egy bájt</item>
     <item quantity="other">%s bájt</item>
@@ -1466,17 +1468,38 @@
   <string name="talk_templates_message_deleted">Az üzenet törölve</string>
   <string name="patroller_tasks_edits_list_title">Szerkesztések listája</string>
   <string name="patroller_tasks_edits_list_search_hint">Szerkesztések keresése vagy szűrése</string>
+  <string name="patroller_tasks_edits_list_card_tags_text" fuzzy="true">Címkék: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Semmi</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Felhasználói adatok</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Köszönet</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Szerkesztésszám</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Bezárás</string>
   <string name="patroller_tasks_filters_title">Szűrők</string>
   <string name="patroller_tasks_filters_reset">Visszaállítás</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_all_text">Mind</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Újoncok</string>
+  <string name="patroller_tasks_filters_user_status_learners">Tanulók</string>
   <string name="patroller_tasks_filters_user_status_experienced">Tapasztalt szerkesztők</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Aktuális változat</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Automatikus szerkesztések</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Ember (nem bot)</string>
   <string name="patroller_tasks_filters_significance_header">Fontosság</string>
   <string name="patroller_tasks_filters_significance_minor">Apró szerkesztések</string>
   <string name="patroller_tasks_filters_significance_edits">Nem apró szerkesztések</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Nagy valószínűséggel helyes</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Valószínűleg hibás</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Több mint valószínű, hogy hibás</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Valószínűleg rosszhiszemű</string>
   <string name="patroller_tasks_filters_user_intent_bad">Szinte biztosan rosszhiszemű</string>
+  <string name="patroller_tasks_patrol_edit_title">Járőr szerkesztése</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Visszavonod ezt a szerkesztést?</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Összefoglaló (nem kötelező)</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Visszaállítás kész</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Megtekintés</string>
+  <string name="patroller_tasks_overflow_report">Probléma a funkcióval</string>
+  <string name="patroller_tasks_overflow_learn">Tudj meg többet!</string>
   <string name="data_opt_in_accept">Elfogad</string>
   <string name="data_opt_in_reject">Elutasít</string>
   <string name="generic_release_notes">Kisebb hibajavítások és fejlesztések</string>

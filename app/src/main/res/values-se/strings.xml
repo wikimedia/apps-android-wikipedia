@@ -413,8 +413,11 @@
   <string name="menu_option_view_user_profile">Čájet geavaheaddjisiiddu</string>
   <string name="menu_option_view_user_contributions">Čájet geavaheaddji rievdadusaid</string>
   <string name="watchlist_page_deleted">Sihkkojuvvon</string>
+  <string name="watchlist_filter_significance_minor">Unna rievdadusažat</string>
+  <string name="preview_edit_minor_edit">Dát lea unna rievdadusaš</string>
   <string name="category_tab_subcategories">Vuollekategoriijat</string>
   <string name="search_namespaces">Nammagomuvuođat</string>
   <string name="shareable_reading_lists_new_indicator">*ođđa*</string>
+  <string name="patroller_tasks_filters_significance_minor">Unna rievdadusažat</string>
   <string name="data_opt_in_accept">Dohkket</string>
 </resources>

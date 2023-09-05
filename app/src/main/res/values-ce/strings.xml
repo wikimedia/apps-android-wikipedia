@@ -2,6 +2,7 @@
 <!-- Authors:
 * MuratTheTurkish
 * Абдуллах Саад
+* Саид Мисарбиев
 * Умар
 -->
 <resources>
@@ -107,6 +108,7 @@
   <string name="preferences_general_heading">Йукъара</string>
   <string name="preferences_account_heading">Аккаунт</string>
   <string name="send_feedback">Йуханехьа зӀе</string>
+  <string name="create_account_account_created_toast">Аккаунт кхоьллина!</string>
   <string name="settings_activity_title" fuzzy="true">Параметраш</string>
   <string name="privacy_policy_description">Къайлаха политика</string>
   <string name="terms_of_use_description">Лелоран биллам</string>
