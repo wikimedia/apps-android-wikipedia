@@ -1508,8 +1508,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Kullanıcı katkılarını görüntüle</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Teşekkür et</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Kullanıcı bilgisi</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Görev süresi</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Değişiklik sayısı</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Kapat</string>
   <string name="patroller_tasks_filters_title">Süzgeçler</string>
   <string name="patroller_tasks_filters_reset">Sıfırla</string>

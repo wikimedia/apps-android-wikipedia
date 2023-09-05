@@ -1427,7 +1427,6 @@
   <string name="patroller_tasks_edits_list_card_tags_text">Etichette: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Nessuno</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Informazioni utente</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Conteggio delle modifiche</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Tutto</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Contributi automatici</string>

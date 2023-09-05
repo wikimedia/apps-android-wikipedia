@@ -1556,8 +1556,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Ogled uporabnikovih prispevkov</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Zahvali se</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Uporabniški podatki</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Staž</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Število urejanj</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Zapri</string>
   <string name="patroller_tasks_filters_title">Filtri</string>
   <string name="patroller_tasks_filters_reset">Ponastavi</string>

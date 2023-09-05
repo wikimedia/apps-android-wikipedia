@@ -1495,8 +1495,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">檢視使用者貢獻</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">感謝</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">使用者資訊</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">任期</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">編輯次數</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">關閉</string>
   <string name="patroller_tasks_filters_title">篩選</string>
   <string name="patroller_tasks_filters_reset">重新設定</string>

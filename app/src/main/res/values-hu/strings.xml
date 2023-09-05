@@ -1472,7 +1472,6 @@
   <string name="patroller_tasks_edits_list_card_tags_text_none">Semmi</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Felhasználói adatok</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Köszönet</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Szerkesztésszám</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Bezárás</string>
   <string name="patroller_tasks_filters_title">Szűrők</string>
   <string name="patroller_tasks_filters_reset">Visszaállítás</string>

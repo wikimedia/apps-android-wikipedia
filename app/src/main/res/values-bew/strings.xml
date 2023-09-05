@@ -1461,8 +1461,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Deleng sumbangsih pemaké</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Makasi</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Inpormasi pemaké</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Jabatan</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Jumblah permakan</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Tutup</string>
   <string name="patroller_tasks_filters_title">Saringan</string>
   <string name="patroller_tasks_filters_reset">Setèl ulang</string>

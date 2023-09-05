@@ -1572,8 +1572,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">הצגת תרומות משתמש</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">תודה</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">מידע על המשתמש</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">ותק</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">מספר העריכות</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">סגירה</string>
   <string name="patroller_tasks_filters_title">מסננים</string>
   <string name="patroller_tasks_filters_reset">איפוס</string>

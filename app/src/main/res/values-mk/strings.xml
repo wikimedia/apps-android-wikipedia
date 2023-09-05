@@ -1470,8 +1470,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Кориснички придонеси</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Заблагодари се</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Кориснички информации</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Старост на сметката</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Број на уредувања</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Затвори</string>
   <string name="patroller_tasks_filters_title">Филтри</string>
   <string name="patroller_tasks_filters_reset">Одново</string>

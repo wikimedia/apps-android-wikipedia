@@ -1572,8 +1572,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Переглянути внесок користувача</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Подякувати</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Інформація про користувача</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Термін</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Лічильник редагувань</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Закрити</string>
   <string name="patroller_tasks_filters_title">Фільтри</string>
   <string name="patroller_tasks_filters_reset">Скинути</string>

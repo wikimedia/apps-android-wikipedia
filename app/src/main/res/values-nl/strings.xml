@@ -1505,8 +1505,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Gebruikersbijdragen bekijken</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Bedanken</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Gebruikersgegevens</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Dienstverband</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Aantal bewerkingen</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Sluiten</string>
   <string name="patroller_tasks_filters_title">Filters</string>
   <string name="patroller_tasks_filters_reset">Opnieuw instellen</string>

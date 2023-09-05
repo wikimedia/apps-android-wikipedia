@@ -383,7 +383,6 @@
   <string name="talk_templates_edit_message_dialog_title">Golygu neges</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tagiau: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Dim</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Nifer y golygiadau</string>
   <string name="patroller_tasks_filters_reset">Ailosod</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wici</string>
   <string name="patroller_tasks_filters_all_text">Popeth</string>

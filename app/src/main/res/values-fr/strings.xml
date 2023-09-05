@@ -1516,8 +1516,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Afficher les contributions de l’utilisateur</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Remercier</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Informations sur l’utilisateur</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Mandat</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Nombre de modifications</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Fermer</string>
   <string name="patroller_tasks_filters_title">Filtres</string>
   <string name="patroller_tasks_filters_reset">Réinitialiser</string>

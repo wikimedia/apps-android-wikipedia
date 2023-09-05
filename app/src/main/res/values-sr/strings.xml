@@ -1202,7 +1202,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Прикажи доприносе</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Хвала</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Кориснички подаци</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Број измена</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Затвори</string>
   <string name="patroller_tasks_filters_title">Филтери</string>
   <string name="patroller_tasks_filters_reset">Ресет</string>

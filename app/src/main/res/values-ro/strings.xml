@@ -1293,7 +1293,6 @@
   <string name="talk_templates_new_message_compose_hint">Compune mesaj</string>
   <string name="talk_templates_new_message_dialog_cancel">Anulare</string>
   <string name="talk_templates_edit_message_dialog_title">Editați mesajul</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Editează numărul</string>
   <string name="patroller_tasks_filters_reset">Resetați</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Contribuții automate</string>
