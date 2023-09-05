@@ -337,7 +337,8 @@
             
         <activity
             android:name=".edit.insertmedia.InsertMediaActivity"
-            android:label="@string/insert_media_title"/>
+            android:label="@string/insert_media_title"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <provider
             android:name=".WikipediaFileProvider"
