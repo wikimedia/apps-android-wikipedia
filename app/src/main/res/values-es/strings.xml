@@ -7,6 +7,7 @@
 * Amaia
 * Amire80
 * Anarhistička Maca
+* Angoca
 * AnupamM
 * Asierog
 * Athena in Wonderland
@@ -1320,6 +1321,9 @@
   <string name="reading_list_share_message_v2">¡Hola! Me gustaría compartir mi lista de lectura de Wikipedia contigo:</string>
   <string name="reading_list_share_survey_title">¿Podrías ayudarnos a mejorar \"Compartir listas de lectura\"?</string>
   <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
+  <string name="talk_templates_edit_message_dialog_delete">Eliminar</string>
+  <string name="talk_templates_edit_message_confirm_description">¿Estás seguro de que deseas eliminar este %s mensaje de la lista?</string>
+  <string name="talk_templates_message_deleted">El mensaje se ha eliminado</string>
   <string name="data_opt_in_accept">Aceptar</string>
   <string name="data_opt_in_reject">Rechazar</string>
 </resources>

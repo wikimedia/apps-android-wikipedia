@@ -1578,6 +1578,7 @@
   <string name="patroller_tasks_filters_title">מסננים</string>
   <string name="patroller_tasks_filters_reset">איפוס</string>
   <string name="patroller_tasks_filters_wiki_filter_header">ויקי</string>
+  <string name="patroller_tasks_filters_all_text">הכול</string>
   <string name="patroller_tasks_filters_user_status_header">הרשמת משתמשים ורמת ניסיון</string>
   <string name="patroller_tasks_filters_user_status_unregistered">לא רשומים</string>
   <string name="patroller_tasks_filters_user_status_registered">רשומים</string>
