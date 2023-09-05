@@ -279,6 +279,8 @@
   <string name="edit_undo">Visszavonás</string>
   <string name="edit_redo">Újra</string>
   <string name="edit_rollback">Visszaállítás</string>
+  <string name="edit_quality" fuzzy="true">Minőség %s</string>
+  <string name="edit_intent" fuzzy="true">Szándék %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">egy bájt</item>
     <item quantity="other">%s bájt</item>
@@ -891,6 +893,8 @@
   <string name="suggested_edits_describe_articles">Szócikkek leírása</string>
   <string name="suggested_edits_caption_images">Hiányzó képfeliratok</string>
   <string name="suggested_edits_tag_images">Képek címkézése</string>
+  <string name="suggested_edits_edit_patrol_hint">Ellenőrizd a legutóbbi szerkesztéseket, és dönts el, hogy építő jellegűek vagy sem.</string>
+  <string name="suggested_edits_edit_patrol_review">Ellenőrzés</string>
   <string name="suggested_edits_review_description">Szócikkleírás ellenőrzése</string>
   <string name="suggested_edits_add_description_button">Leírás hozzáadása</string>
   <string name="suggested_edits_edit_description_button">Leírás szerkesztése</string>
@@ -1063,9 +1067,10 @@
     <item quantity="one">Hozzáadtál egy karaktert</item>
     <item quantity="other">Hozzáadtál %d karaktert</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Képjavasló algoritmus</string>
+  <string name="suggested_edits_image_recommendations_task_title">Cikk képek</string>
   <string name="suggested_edits_image_recommendations_task_detail">Tegyél könnyebben érthetővé Wikipédia-szócikkeket azzal, hogy ajánlott képeket helyezel el bennük.</string>
   <string name="image_recommendation_task_instruction">Hozzáadnád ezt a képet a cikkhez?</string>
+  <string name="image_recommendation_tutorial">Bevezető</string>
   <string name="image_recommendation_accept">Igen</string>
   <string name="image_recommendation_reject">Nem</string>
   <string name="image_recommendation_notsure">Nem tudom</string>
@@ -1084,8 +1089,11 @@
   <string name="image_recommendation_onboarding_3">A javaslatok gépi úton vannak generálva, és a te belátásodra van bízva, hogy elfogadod vagy elutasítod azokat.</string>
   <string name="image_recommendation_onboarding_4">A képek a Wikimédia Commonsból származnak, a Wikipédia által használt, szabadon licencelt képek gyűjteményéből.</string>
   <string name="image_recommendation_tooltip_next">Tovább</string>
+  <string name="suggested_edits_report_feature">Probléma a funkcióval</string>
+  <string name="suggested_edits_report_feature_subject">Probléma a Javasolt szerkesztésekkel</string>
   <string name="edit_summary_added_image">Új kép hozzáadása</string>
   <string name="edit_summary_added_caption">Képaláírás hozzáadása</string>
+  <string name="edit_summary_added_image_and_caption">Kép és felirat hozzáadva</string>
   <string name="edit_published_view">Megtekintés</string>
   <string name="file_page_activity_title">Fájllap</string>
   <string name="file_page_add_image_caption_button">Képaláírás hozzáadása</string>
@@ -1188,7 +1196,7 @@
   <string name="insert_media_settings">Részletek hozzáadása a képhez</string>
   <string name="insert_media_settings_uploaded_image">Feltöltött kép</string>
   <string name="insert_media_settings_caption">Képaláírás</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Minden olvasó számára megjelenő szöveg a média mellett</string>
+  <string name="insert_media_settings_caption_description">A cikkben látható képleírás</string>
   <string name="insert_media_settings_alternative_text">Alternatív szöveg</string>
   <string name="insert_media_settings_alternative_text_description">Leírás látássérült olvasók számára</string>
   <string name="insert_media_advanced_settings">Speciális beállítások</string>
@@ -1226,6 +1234,18 @@
   <string name="talk_user_title">Címzett: %s</string>
   <string name="talk_new_topic">Új téma létrehozása</string>
   <string name="talk_new_topic_submitted">Téma közzétéve.</string>
+  <string name="talk_warn">Figyelmeztetés</string>
+  <string name="talk_warn_save_dialog_title">Módosítások mentése?</string>
+  <string name="talk_warn_save_dialog_message">Mentés új üzenetként</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Mentés új üzenetként a listára</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Meglévő üzenet frissítése</string>
+  <string name="talk_warn_save_dialog_hint">Üzenet címe</string>
+  <string name="talk_warn_save_dialog_publish">Közzététel</string>
+  <string name="talk_warn_save_dialog_cancel">Mégse</string>
+  <string name="talk_warn_submitted">Az üzenet közzétéve a szerkesztő vitalapján</string>
+  <string name="talk_warn_submitted_and_saved">Az üzenet elmentve és közzétéve a szerkesztő vitalapján</string>
+  <string name="talk_warn_saved_message">Válassz ki egy meglévő figyelmeztető üzenetet, vagy írj új üzenetet.</string>
+  <string name="talk_warn_saved_message_dropdown">Mentett üzenetek</string>
   <string name="talk_page_empty">Ez a vitalap üres.</string>
   <string name="talk_page_empty_title">A beszélgetés itt kezdődik</string>
   <string name="talk_page_empty_content">A vitalapok annak megbeszélésére szolgálnak, hogy hogyan lehet a Wikipédia tartalmát a lehető legjobbá tenni. Indíts egy új témát a wikipédisták közösségével való kapcsolódáshoz és együttműködéshez.</string>
@@ -1346,6 +1366,7 @@
   <string name="watchlist_filter_title">Figyelőlista szűrése</string>
   <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">Mind</string>
+  <string name="watchlist_filter_watchlist_activity_header">Figyelőlista aktivitás</string>
   <string name="watchlist_filter_watchlist_activity_unseen">Még nem látott változtatások</string>
   <string name="watchlist_filter_watchlist_activity_seen">Látott változtatások</string>
   <string name="watchlist_filter_contribution_quality_header">A módosítások minőségének megbecslése</string>
@@ -1426,6 +1447,59 @@
   <string name="reading_list_share_message_v2">Szia! Szeretném megosztani veled a Wikipédia-olvasólistámat:</string>
   <string name="reading_list_share_survey_title">Tudnál segíteni nekünk ennek a funkciónak a fejlesztésében?</string>
   <string name="reading_list_share_survey_body">Az olvasólisták megosztása egy tesztelés alatt álló funkció, és szükségünk van a visszajelzésedre a fejlesztéséhez vagy eltávolításához.</string>
+  <string name="talk_templates_manage_title">Sablonok kezelése</string>
+  <string name="talk_templates_empty_message">Nincsenek mentett figyelmeztető üzeneteid.</string>
+  <string name="talk_templates_new_message_title">Új üzenetek</string>
+  <string name="talk_templates_new_message_description">Figyelmeztető üzenet írása.</string>
+  <string name="talk_templates_new_message_subject_hint">Tárgy</string>
+  <string name="talk_templates_new_message_compose_hint">Üzenet megfogalmazása</string>
+  <string name="talk_templates_new_message_save">Mentés</string>
+  <string name="talk_templates_new_message_dialog_title">Módosítások mentése</string>
+  <string name="talk_templates_new_message_dialog_description">Cím hozzáadása és üzenet mentése.</string>
+  <string name="talk_templates_new_message_dialog_hint">Üzenet címe</string>
+  <string name="talk_templates_new_message_dialog_save">Mentés</string>
+  <string name="talk_templates_new_message_dialog_cancel">Mégse</string>
+  <string name="talk_templates_new_message_dialog_exists">A(z) „%s” sablon már létezik</string>
+  <string name="talk_templates_new_message_saved">Az üzenet elmentve</string>
+  <string name="talk_templates_edit_message_dialog_title">Üzenet szerkesztése</string>
+  <string name="talk_templates_edit_message_dialog_save">Mentés</string>
+  <string name="talk_templates_edit_message_dialog_delete">Törlés</string>
+  <string name="talk_templates_edit_message_updated">Az üzenet frissítve</string>
+  <string name="talk_templates_message_deleted">Az üzenet törölve</string>
+  <string name="patroller_tasks_edits_list_title">Szerkesztések listája</string>
+  <string name="patroller_tasks_edits_list_search_hint">Szerkesztések keresése vagy szűrése</string>
+  <string name="patroller_tasks_edits_list_card_tags_text" fuzzy="true">Címkék: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Semmi</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Felhasználói adatok</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Köszönet</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Szerkesztésszám</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Bezárás</string>
+  <string name="patroller_tasks_filters_title">Szűrők</string>
+  <string name="patroller_tasks_filters_reset">Visszaállítás</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_all_text">Mind</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Újoncok</string>
+  <string name="patroller_tasks_filters_user_status_learners">Tanulók</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Tapasztalt szerkesztők</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Aktuális változat</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Automatikus szerkesztések</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Ember (nem bot)</string>
+  <string name="patroller_tasks_filters_significance_header">Fontosság</string>
+  <string name="patroller_tasks_filters_significance_minor">Apró szerkesztések</string>
+  <string name="patroller_tasks_filters_significance_edits">Nem apró szerkesztések</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Nagy valószínűséggel helyes</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Valószínűleg hibás</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Több mint valószínű, hogy hibás</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Valószínűleg rosszhiszemű</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Szinte biztosan rosszhiszemű</string>
+  <string name="patroller_tasks_patrol_edit_title">Járőr szerkesztése</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Visszavonod ezt a szerkesztést?</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Összefoglaló (nem kötelező)</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Visszaállítás kész</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Megtekintés</string>
+  <string name="patroller_tasks_overflow_report">Probléma a funkcióval</string>
+  <string name="patroller_tasks_overflow_learn">Tudj meg többet!</string>
   <string name="data_opt_in_accept">Elfogad</string>
   <string name="data_opt_in_reject">Elutasít</string>
   <string name="generic_release_notes">Kisebb hibajavítások és fejlesztések</string>

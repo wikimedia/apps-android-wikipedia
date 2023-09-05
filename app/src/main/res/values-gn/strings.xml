@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Dbrant
 * P. S. F. Freitas
 -->
 <resources>
@@ -104,6 +105,7 @@
   <string name="map_view_link_text">Ehecha peteĩ mápape</string>
   <string name="other_languages_indication_text">Emoñe\'ẽ ambue ñe\'ẽme</string>
   <string name="language_count_link_text">Ojeguereko %d ambue ñe\'ẽme</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="preference_title_language">Vikipetã ñe\'ẽnguéra</string>
   <string name="langlinks_filter_hint">Eheka</string>
   <string name="langlinks_empty">Ndaipóri ko kuatia ambue ñe\'ẽme.</string>
@@ -121,6 +123,10 @@
   <string name="menu_show_toc">Marandu Rechaukaha</string>
   <string name="search_no_results_found">Ndojuhúi mba\'eve</string>
   <string name="search_reading_list_no_results">Ndojejuhúi mba\'eve kóvapeː \" %s \"</string>
+  <string name="search_history_no_results">Ndaipóri mba\'e ojehekáva tembiasakuépe</string>
+  <string name="edit_section_captcha_message">Oipytyvõ hag̃ua oñeñangareko hag̃ua spam automatizado-gui, emoinge umi ñe\'ẽ ojehechaukáva iguýpe</string>
+  <string name="edit_section_captcha_request_an_account_message">Ndaikatúi piko rehecha pe ta\'anga? &lt;a href=\"https://es.wikipedia.org/wiki/Wikipedia:Crear_una_cuenta_de_usuario\"&gt;Ejerure nde kuatiarã&lt;/a&gt;</string>
+  <string name="edit_section_captcha_hint">Ehai jey ñe\'ẽ yvatépe oĩva</string>
   <string name="title_captcha">Ehai ko CAPTCHA</string>
   <string name="edit_section_captcha_reload">Epoko CAPTCHA rehe oiko jey hag̃ua</string>
   <string name="nav_item_login">Eike Vikipetãme</string>
@@ -178,7 +184,17 @@
   <string name="history_filter_list_hint">Embogua tembiasakue</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Emoĩ tembiapo ñangarekoha rysýipe</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Ehechapa mba\'épa oiko umi kuatiápe iporãvéva ndéve, epoko pe poravorã rehe ha eiporavo &lt;b&gt;Emoĩ tembiapo ñangarekoha rysýipe&lt;/b&gt; rehecha hag̃ua umi ñemoambue peteĩ kuatiápe.</string>
+  <string name="settings_item_preferences">Ñemyatyrõ</string>
+  <string name="settings_activity_title">Ñemyatyrõ</string>
+  <string name="about_description">Vikipetã app rehegua</string>
   <string name="privacy_policy_description">Mba\'e ñemiguáva rekorã</string>
+  <string name="terms_of_use_description">Ñe\'ẽme\'ẽ Jepururã</string>
+  <string name="about_wikipedia_url">https://gn.wikipedia.org/wiki/Vikipetã:Rehegua</string>
+  <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es#Offline_reading_and_data</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es</string>
+  <string name="android_app_request_an_account_url">https://es.wikipedia.org/wiki/Wikipedia:Crear_una_cuenta_de_usuario</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.es</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.es</string>
   <string name="edit_abandon_confirm_yes">Upéicha</string>
   <string name="edit_abandon_confirm_no">Nahániri</string>
   <string name="user_blocked_from_editing_title">Ojejoko</string>
@@ -211,6 +227,9 @@
   <string name="dialog_close_description">Emboty</string>
   <string name="preference_title_show_images">Ehecha ta\'angakuéra</string>
   <string name="gallery_menu_share">Eikuaauka</string>
+  <string name="menu_close_all_tabs">Embotypa tendaykekuéra</string>
+  <string name="close_all_tabs_confirm">Añetetépa rembotyseha tendaykekuéra?</string>
+  <string name="button_close_tab">Emboty tendayke</string>
   <string name="button_continue_to_talk_page">Eike ñemongeta kuatiápe</string>
   <string name="nav_item_donate">Viru me\'ẽ</string>
   <string name="error_message_generic">Oiko peteĩ jejavy</string>
@@ -250,9 +269,12 @@
   <string name="view_top_read_card_title">Ojehechavéva</string>
   <string name="view_top_read_card_action">Opaite umi ojehechavéva</string>
   <string name="view_main_page_card_title">Ko ára Vikipetãme</string>
-  <string name="view_main_page_card_action">Ehecha \"Ape kuatia\"</string>
+  <string name="view_main_page_card_action">Ehecha Kuatia Ñepyrũha</string>
   <string name="view_featured_image_card_title">Ko ára ra\'anga</string>
   <string name="view_featured_image_card_download">Emboguejy</string>
+  <string name="menu_feed_card_dismiss">Eñomi ko techaukaha</string>
+  <string name="menu_feed_card_edit_card_languages">Emohenda techaukaha ñe\'ẽ</string>
+  <string name="view_static_card_icon_content_description">Techaukaha ra\'anga</string>
   <string name="view_card_news_title">Marandukuéra</string>
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">kuehe</item>
@@ -261,9 +283,11 @@
   <string name="view_announcement_card_negative_action">Nahániri</string>
   <string name="view_featured_article_card_title">Kuatia poravopyre</string>
   <string name="feed_configure_menu_select_all">Ehechapaite</string>
+  <string name="feed_configure_menu_deselect_all">Eñomimba</string>
+  <string name="feed_configure_language_warning">Eikuaamíke ndaha\'eiha opaite techaukaha ojeguerekóva opaite Vikipetã ñe\'ẽme. Emohenda umi ñe\'ẽ reiporavóva Ñemyatyrõme.</string>
   <string name="feed_item_type_because_you_read">Kuatia ikatu rehechase remoñe\'ẽ haguére umi mba\'e ne rembiasakuépe</string>
   <string name="feed_item_type_featured_article">Ára ha ára ojehechaukáva Vikipetãme</string>
-  <string name="feed_item_type_main_page">Vikipetã Ape Kuatia ára ha ára orekóva mba\'e ojehechaukáva</string>
+  <string name="feed_item_type_main_page">Vikipetã Kuatia Ñepyrũha ára ha ára oreko mba\'e ojehechaukáva</string>
   <string name="top_read_activity_title">Ojehechavéva ára %s</string>
   <string name="description_edit_cancel_hint">Eheja</string>
   <string name="description_starts_with_uppercase">Eñepyrũ tai michĩva reheve ndaha\'éiramo pe ñe\'ẽ peteĩha ha\'éva tero tee.</string>
@@ -382,6 +406,7 @@
   <string name="category_empty">Ndojejuhúi kuatia ko ñemohendápe.</string>
   <string name="user_contrib_filter_ns">Embogua téra renda rupive</string>
   <string name="reading_list_share_message_v2">Mba\'éichapa! Roikuaaukasemi che moñe\'ẽrã rysýi Vikipetãme:</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Emboty</string>
   <string name="data_opt_in_accept">Oĩma</string>
   <string name="data_opt_in_reject">Ndaipotái</string>
 </resources>

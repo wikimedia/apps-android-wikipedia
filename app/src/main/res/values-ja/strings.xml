@@ -18,6 +18,7 @@
 * Kokoko-H
 * LaMagiaaa
 * Los688
+* M1660661
 * MagicAho
 * Makoto Asai
 * Marine-Blue
@@ -311,6 +312,9 @@
   <string name="edit_undo">取り消す</string>
   <string name="edit_redo">やり直す</string>
   <string name="edit_rollback">巻き戻し</string>
+  <string name="edit_warn">警告する</string>
+  <string name="edit_quality">品質%s</string>
+  <string name="edit_intent">インテント%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="other">%sバイト</item>
   </plurals>
@@ -910,6 +914,9 @@
   <string name="suggested_edits_describe_articles">記事の説明</string>
   <string name="suggested_edits_caption_images">画像キャプション</string>
   <string name="suggested_edits_tag_images">画像にタグを付ける</string>
+  <string name="suggested_edits_edit_patrol">パトロールの編集</string>
+  <string name="suggested_edits_edit_patrol_hint">最近の編集を確認し、それが建設的であるかどうかを判断します。</string>
+  <string name="suggested_edits_edit_patrol_review">レビュー</string>
   <string name="suggested_edits_review_description">記事の説明を確認</string>
   <string name="suggested_edits_add_description_button">説明を追加</string>
   <string name="suggested_edits_edit_description_button">説明を編集</string>
@@ -1104,8 +1111,16 @@
   <string name="image_recommendation_onboarding_3">提案は機械によって生成され、それを受け入れるか拒否するかを判断するのはユーザー自身です。</string>
   <string name="image_recommendation_onboarding_4">画像の出どころはウィキメディア・コモンズといい、コモンズではウィキペディアで使用されるフリーなライセンスの画像を収集しています。</string>
   <string name="image_recommendation_tooltip_1">この記事を読んでトピックを理解してください</string>
+  <string name="image_recommendation_tooltip_2">画像とその関連情報を検査する</string>
   <string name="image_recommendation_tooltip_3">この画像が、読者にとってこのトピックをよりよく理解するのに役立つかどうかを判断します</string>
   <string name="image_recommendation_tooltip_next">次へ</string>
+  <string name="image_recommendation_tooltip_warning">記事を読んでトピックを理解し、画像を確認してください。</string>
+  <string name="suggested_edits_report_feature">機能の問題</string>
+  <string name="suggested_edits_report_feature_subject">提案された編集に関する問題</string>
+  <string name="edit_summary_added_image">新しく画像を追加</string>
+  <string name="edit_summary_added_caption">キャプションを追加する</string>
+  <string name="edit_summary_added_image_and_caption">画像とキャプションを追加しました</string>
+  <string name="edit_published_view">閲覧</string>
   <string name="file_page_activity_title">ファイルページ</string>
   <string name="file_page_add_image_caption_button">画像キャプションを追加</string>
   <string name="file_page_add_image_tags_button">画像タグを追加</string>
@@ -1209,7 +1224,7 @@
   <string name="insert_media_settings_caption">画像キャプション</string>
   <string name="insert_media_settings_caption_description">記事内に表示される画像ラベル</string>
   <string name="insert_media_settings_alternative_text">代替テキスト</string>
-  <string name="insert_media_settings_alternative_text_description" fuzzy="true">画像が見えない人のための説明テキスト</string>
+  <string name="insert_media_settings_alternative_text_description">視覚障害のある読者向けの説明</string>
   <string name="insert_media_advanced_settings">高度な設定</string>
   <string name="insert_media_advanced_settings_wrap_image">テキストを画像に回り込ませる</string>
   <string name="insert_media_advanced_settings_image_position">画像の位置</string>
@@ -1439,6 +1454,8 @@
   <string name="shareable_reading_lists_new_imported_snackbar">あとで読むリストをインポートしました</string>
   <string name="reading_list_share_menu_label">共有…</string>
   <string name="reading_list_share_menu_tooltip">このあとで読むリストを他の人と共有する</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">なし</string>
+  <string name="patroller_tasks_filters_all_text">すべて</string>
   <string name="data_opt_in_accept">承認</string>
   <string name="data_opt_in_reject">却下</string>
   <string name="generic_release_notes">軽微なバグ修正と強化</string>
