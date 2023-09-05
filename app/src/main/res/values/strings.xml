@@ -1622,5 +1622,18 @@
     <string name="email_report_image_recommendations_body">I have encountered a problem with the Image Recommendations feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="email_report_patroller_tasks_subject">Issue Report- Edit Patrol Feature</string>
     <string name="email_report_patroller_tasks_body">I have encountered a problem with the Edit Patrol Feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]\n\n[Screenshots or Links]</string>
+    <plurals name="date_diff_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
 
+    <plurals name="date_diff_months">
+        <item quantity="one">%d month</item>
+        <item quantity="other">%d months</item>
+    </plurals>
+
+    <plurals name="date_diff_years">
+        <item quantity="one">%d year</item>
+        <item quantity="other">%d years</item>
+    </plurals>
 </resources>
