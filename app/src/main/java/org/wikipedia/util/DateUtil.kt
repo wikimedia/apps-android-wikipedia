@@ -8,6 +8,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.model.UtcDate
 import java.text.SimpleDateFormat
+import java.time.Duration
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -16,7 +17,11 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.time.temporal.TemporalAccessor
-import java.util.*
+import java.util.Calendar
+import java.util.Date
+import java.util.GregorianCalendar
+import java.util.Locale
+import java.util.TimeZone
 import java.util.concurrent.ConcurrentHashMap
 
 object DateUtil {
@@ -175,5 +180,20 @@ object DateUtil {
             return if (diffInYears == 0) L10nUtil.getStringForArticleLanguage(languageCode, R.string.this_year)
             else targetResource.getQuantityString(R.plurals.diff_years, diffInYears, diffInYears)
         }
+    }
+
+    fun getDateDiffString(context: Context, date: Date): String {
+        val nowDate = Calendar.getInstance().toInstant()
+        val beginDate = date.toInstant()
+        val diffDays = Duration.between(beginDate, nowDate).toDays().toInt()
+        if (diffDays <= 31) {
+            return context.resources.getQuantityString(R.plurals.date_diff_days, diffDays, diffDays)
+        }
+        val diffMonths = diffDays.floorDiv(31)
+        if (diffMonths <= 12) {
+            return context.resources.getQuantityString(R.plurals.date_diff_months, diffMonths, diffMonths)
+        }
+        val diffYear = diffMonths.floorDiv(12)
+        return context.resources.getQuantityString(R.plurals.date_diff_years, diffYear, diffYear)
     }
 }

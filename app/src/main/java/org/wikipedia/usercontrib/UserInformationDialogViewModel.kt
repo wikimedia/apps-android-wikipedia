@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import java.time.Duration
 import java.util.*
 
 class UserInformationDialogViewModel(bundle: Bundle) : ViewModel() {
@@ -35,11 +34,7 @@ class UserInformationDialogViewModel(bundle: Bundle) : ViewModel() {
                 ServiceFactory.get(WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)).globalUserInfo(userName)
             }
             userInfo.query?.globalUserInfo?.let {
-                val editCount = it.editCount.toString()
-                val nowDate = Calendar.getInstance().toInstant()
-                val registeredDate = it.registrationDate.toInstant()
-                val diffDays = Duration.between(registeredDate, nowDate).toDays().toString()
-                _uiState.value = UiState.Success(editCount, diffDays)
+                _uiState.value = UiState.Success(it.editCount.toString(), it.registrationDate)
             } ?: run {
                 _uiState.value = UiState.Error(Throwable("Cannot fetch user information."))
             }
@@ -48,7 +43,7 @@ class UserInformationDialogViewModel(bundle: Bundle) : ViewModel() {
 
     open class UiState {
         class Loading : UiState()
-        class Success(val editCount: String, val diffDays: String) : UiState()
+        class Success(val editCount: String, val registrationDate: Date) : UiState()
         class Error(val throwable: Throwable) : UiState()
     }
 
