@@ -1033,6 +1033,8 @@
   <string name="talk_title">আলাপ</string>
   <string name="talk_user_title">আলাপ: %s</string>
   <string name="talk_new_topic">নতুন প্রসঙ্গ</string>
+  <string name="talk_warn_save_dialog_hint">বার্তার শিরোনাম</string>
+  <string name="talk_warn_save_dialog_publish">প্রকাশ করুন</string>
   <string name="talk_page_empty">এই আলাপ পাতাটি খালি।</string>
   <string name="talk_add_reply">উত্তর</string>
   <string name="talk_no_subject">(কোনো বিষয় নেই)</string>
@@ -1153,6 +1155,15 @@
   <string name="reading_list_share_message_v2">শুভেচ্ছা নিন! আমি আপনার সাথে আমার উইকিপিডিয়া পঠন তালিকা শেয়ার করতে চাই:</string>
   <string name="reading_list_share_survey_title">আপনি কি আমাদের \"পড়ার তালিকা শেয়ার\" উন্নত করতে সহায়তা করতে পারবেন?</string>
   <string name="reading_list_share_survey_body">\"পড়ার তালিকা শেয়ার\" একটি পরীক্ষামূলক ফিচার এবং এটি উন্নত বা অপসারণ করতে আমাদের আপনার প্রতিক্রিয়া প্রয়োজন।</string>
+  <string name="talk_templates_new_message_save">সংরক্ষণ</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">ট্যাগ: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">কোনোটি নয়</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">ব্যবহারকারীর পাতা দেখুন</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">ধন্যবাদ</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">বন্ধ</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">উইকি</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">সারাংশ (ঐচ্ছিক)</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">দেখুন</string>
   <string name="data_opt_in_accept">গ্রহণ করুন</string>
   <string name="data_opt_in_reject">প্রত্যাখ্যান করুন</string>
   <string name="page_issues_title">পাতার সমস্যা</string>
