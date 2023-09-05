@@ -2,6 +2,7 @@ package org.wikipedia.usercontrib
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.View
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
@@ -32,17 +33,7 @@ class UserInformationDialog : DialogFragment() {
             .setPositiveButton(R.string.patroller_tasks_edits_list_user_information_dialog_close) { _, _ ->
                 dismiss()
             }.run {
-                lifecycleScope.launch {
-                    repeatOnLifecycle(Lifecycle.State.CREATED) {
-                        viewModel.uiState.collect {
-                            when (it) {
-                                is UserInformationDialogViewModel.UiState.Loading -> onLoading()
-                                is UserInformationDialogViewModel.UiState.Success -> onSuccess(it.editCount, it.registrationDate)
-                                is UserInformationDialogViewModel.UiState.Error -> onError(it.throwable)
-                            }
-                        }
-                    }
-                }
+                setupDialog()
                 this
             }.create()
     }
@@ -50,6 +41,26 @@ class UserInformationDialog : DialogFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setupDialog() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.uiState.collect {
+                    when (it) {
+                        is UserInformationDialogViewModel.UiState.Loading -> onLoading()
+                        is UserInformationDialogViewModel.UiState.Success -> onSuccess(it.editCount, it.registrationDate)
+                        is UserInformationDialogViewModel.UiState.Error -> onError(it.throwable)
+                    }
+                }
+            }
+        }
+        binding.dialogErrorView.backClickListener = View.OnClickListener {
+            dismiss()
+        }
+        binding.dialogErrorView.retryClickListener = View.OnClickListener {
+            dismiss()
+        }
     }
 
     private fun onLoading() {
