@@ -101,6 +101,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {
                     dialog.setTitleHint(R.string.talk_templates_new_message_dialog_hint)
+                    dialog.setPositiveButtonEnabled(false)
                 }
 
                 override fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog) {

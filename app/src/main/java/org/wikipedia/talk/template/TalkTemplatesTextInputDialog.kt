@@ -13,7 +13,7 @@ import org.wikipedia.databinding.DialogTalkTemplatesTextInputBinding
 
 class TalkTemplatesTextInputDialog constructor(context: Context,
                                                positiveButtonText: Int = R.string.text_input_dialog_ok_button_text,
-                                               negativeButtonText: Int = R.string.text_input_dialog_cancel_button_text) : MaterialAlertDialogBuilder(context) {
+                                               negativeButtonText: Int = R.string.text_input_dialog_cancel_button_text) : MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Input) {
     interface Callback {
         fun onShow(dialog: TalkTemplatesTextInputDialog)
         fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog)
@@ -37,6 +37,7 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         binding.titleInput.doOnTextChanged { text, _, _, _ ->
             callback?.onTextChanged(text ?: "", this)
         }
+
     }
 
     override fun create(): AlertDialog {

@@ -496,11 +496,15 @@
         <item name="elevationOverlayEnabled">false</item>
         <item name="materialAlertDialogTitleTextStyle">@style/H2.DialogTitle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
+    </style>
+
+    <style name="AlertDialogTheme.Input">
         <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
     </style>
 
     <style name="AlertDialogTheme.Delete">
         <item name="buttonBarPositiveButtonStyle">@style/DestructiveDialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
     </style>
 
     <style name="PlaceholderDialogButton" parent="Widget.Material3.Button.TextButton.Dialog">
