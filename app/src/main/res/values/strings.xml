@@ -1623,17 +1623,17 @@
     <string name="email_report_patroller_tasks_subject">Issue Report- Edit Patrol Feature</string>
     <string name="email_report_patroller_tasks_body">I have encountered a problem with the Edit Patrol Feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]\n\n[Screenshots or Links]</string>
     <plurals name="date_diff_days">
-        <item quantity="one">%d day</item>
-        <item quantity="other">%d days</item>
+        <item quantity="one">%s day</item>
+        <item quantity="other">%s days</item>
     </plurals>
 
     <plurals name="date_diff_months">
-        <item quantity="one">%d month</item>
-        <item quantity="other">%d months</item>
+        <item quantity="one">%s month</item>
+        <item quantity="other">%s months</item>
     </plurals>
 
     <plurals name="date_diff_years">
-        <item quantity="one">%d year</item>
-        <item quantity="other">%d years</item>
+        <item quantity="one">%s year</item>
+        <item quantity="other">%s years</item>
     </plurals>
 </resources>
