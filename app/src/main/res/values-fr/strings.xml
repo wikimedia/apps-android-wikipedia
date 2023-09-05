@@ -1571,5 +1571,5 @@
   <string name="email_report_image_recommendations_subject">Rapport de problème — Fonctionnalité de recommandations d’image</string>
   <string name="email_report_image_recommendations_body">J’ai rencontré un problème avec la fonctionnalité de recommandation d’image :\n- [Décrire le problème spécifique]\nLe comportement que je m’attendrais à voir est :\n- [Décrire la solution proposée]</string>
   <string name="email_report_patroller_tasks_subject">Rapport de problème — Fonctionnalité de tâches de patrouille</string>
-  <string name="email_report_patroller_tasks_body">J’ai rencontré un problème avec la fonctionnalité de tâches de patrouille :\n- [Décrire le problème spécifique]\nLe comportement que je m’attendrais à voir est :\n- [Décrire la solution proposée]</string>
+  <string name="email_report_patroller_tasks_body">J’ai rencontré un problème avec la fonctionnalité de tâches de patrouille :\n- [Décrire le problème spécifique]\nLe comportement que je m’attendrais à voir est :\n- [Décrire la solution proposée]\n\n[]</string>
 </resources>

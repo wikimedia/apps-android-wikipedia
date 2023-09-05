@@ -1550,5 +1550,5 @@
   <string name="email_report_image_recommendations_subject">問題報告 - 圖片推薦功能</string>
   <string name="email_report_image_recommendations_body">我遇到了圖片推薦功能的問題：\n- [描述具體問題]\n我希望看到的反應是：\n- [描述建議的解決方案]</string>
   <string name="email_report_patroller_tasks_subject">問題報告 - 巡查任務功能</string>
-  <string name="email_report_patroller_tasks_body">我遇到了巡查任務功能的問題：\n- [描述具體問題]\n我希望看到的反應是：\n- [描述建議的解決方案]</string>
+  <string name="email_report_patroller_tasks_body">我遇到了巡查任務功能的問題：\n- [描述具體問題]\n我希望看到的反應是：\n- [描述建議的解決方案]\n\n[]</string>
 </resources>

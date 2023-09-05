@@ -1560,5 +1560,5 @@
   <string name="email_report_image_recommendations_subject">Probleemrapport - Functie Afbeeldingsaanbevelingen</string>
   <string name="email_report_image_recommendations_body">Ik ben een probleem tegengekomen met de functie Afbeeldingsaanbevelingen:\n- [Beschrijf specifiek probleem]\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
   <string name="email_report_patroller_tasks_subject">Probleemrapport - Functie Patrollertaken</string>
-  <string name="email_report_patroller_tasks_body">Ik ben een probleem tegengekomen met de functie Patroller Tasks:\n- [Beschrijf specifiek probleem]\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
+  <string name="email_report_patroller_tasks_body">Ik ben een probleem tegengekomen met de functie Patroller Tasks:\n- [Beschrijf specifiek probleem]\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]\n\n[]</string>
 </resources>

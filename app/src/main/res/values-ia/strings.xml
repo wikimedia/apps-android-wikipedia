@@ -1520,5 +1520,5 @@
   <string name="email_report_image_recommendations_subject">Reporto de problema: function Recommendationes de imagines</string>
   <string name="email_report_image_recommendations_body">Io ha incontrate un problema con le function Recommendationes de imagines:\n- [Describe le problema specific]\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
   <string name="email_report_patroller_tasks_subject">Reporto de problema: function Cargas de patruliator</string>
-  <string name="email_report_patroller_tasks_body">Io ha incontrate un problema con le function Cargas de patruliator:\n- [Describe le problema specific]\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
+  <string name="email_report_patroller_tasks_body">Io ha incontrate un problema con le function Cargas de patruliator:\n- [Describe le problema specific]\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]\n\n[]</string>
 </resources>

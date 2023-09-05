@@ -1516,5 +1516,5 @@
   <string name="email_report_image_recommendations_subject">Laporan mas\'alah - Keboléan Saran Gambar</string>
   <string name="email_report_image_recommendations_body">Gua kepapagan ama masalah keboléan Saran Gambar:\n- [Jabarin masalah nyang dantanya]\nAbet nyang gua pèngèn liat ièlah:\n- [Jabarin ajuan pemecahan masalah]</string>
   <string name="email_report_patroller_tasks_subject">Laporan mas\'alah - Keboléan Tugas Pengronda</string>
-  <string name="email_report_patroller_tasks_body">Gua kepapagan ama masalah keboléan Tugas Pengronda:\n- [Jabarin masalah nyang dantanya]\nAbet nyang gua pèngèn liat ièlah:\n- [Jabarin ajuan pemecahan masalah]</string>
+  <string name="email_report_patroller_tasks_body">Gua kepapagan ama masalah keboléan Tugas Pengronda:\n- [Jabarin masalah nyang dantanya]\nAbet nyang gua pèngèn liat ièlah:\n- [Jabarin ajuan pemecahan masalah]\n\n[]</string>
 </resources>

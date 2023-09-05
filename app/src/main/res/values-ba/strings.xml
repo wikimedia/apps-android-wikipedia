@@ -1428,5 +1428,5 @@
   <string name="page_issues_title">Бит проблемалары</string>
   <string name="generic_release_notes">Әһәмиәте әҙ булған төҙәтеүҙәр һәм яҡшыртыуҙар</string>
   <string name="email_report_patroller_tasks_subject">Проблема тураһында мәғлүмәт - Тикшереү функцияһы</string>
-  <string name="email_report_patroller_tasks_body">Тикшереү функцияһы проблемаһы менән осраштым:\n[Аныҡ проблеманы күрһәтегеҙ]\nМин күрергә теләгән ғәмәл:\n[Хәл итеү юлын тасуирлағыҙ]</string>
+  <string name="email_report_patroller_tasks_body">Тикшереү функцияһы проблемаһы менән осраштым:\n[Аныҡ проблеманы күрһәтегеҙ]\nМин күрергә теләгән ғәмәл:\n[Хәл итеү юлын тасуирлағыҙ]\n\n[]</string>
 </resources>
