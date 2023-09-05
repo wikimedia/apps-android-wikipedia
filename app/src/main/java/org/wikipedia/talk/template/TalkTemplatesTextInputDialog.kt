@@ -37,7 +37,6 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         binding.titleInput.doOnTextChanged { text, _, _, _ ->
             callback?.onTextChanged(text ?: "", this)
         }
-
     }
 
     override fun create(): AlertDialog {
