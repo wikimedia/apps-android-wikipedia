@@ -279,8 +279,8 @@
   <string name="edit_undo">Visszavonás</string>
   <string name="edit_redo">Újra</string>
   <string name="edit_rollback">Visszaállítás</string>
-  <string name="edit_quality" fuzzy="true">Minőség %</string>
-  <string name="edit_intent" fuzzy="true">Szándék %</string>
+  <string name="edit_quality" fuzzy="true">Minőség %s</string>
+  <string name="edit_intent" fuzzy="true">Szándék %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">egy bájt</item>
     <item quantity="other">%s bájt</item>
@@ -1468,7 +1468,7 @@
   <string name="talk_templates_message_deleted">Az üzenet törölve</string>
   <string name="patroller_tasks_edits_list_title">Szerkesztések listája</string>
   <string name="patroller_tasks_edits_list_search_hint">Szerkesztések keresése vagy szűrése</string>
-  <string name="patroller_tasks_edits_list_card_tags_text" fuzzy="true">Címkék: %</string>
+  <string name="patroller_tasks_edits_list_card_tags_text" fuzzy="true">Címkék: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Semmi</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Felhasználói adatok</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Köszönet</string>
