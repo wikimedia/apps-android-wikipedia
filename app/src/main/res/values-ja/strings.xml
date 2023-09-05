@@ -1454,6 +1454,8 @@
   <string name="shareable_reading_lists_new_imported_snackbar">あとで読むリストをインポートしました</string>
   <string name="reading_list_share_menu_label">共有…</string>
   <string name="reading_list_share_menu_tooltip">このあとで読むリストを他の人と共有する</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">なし</string>
+  <string name="patroller_tasks_filters_all_text">すべて</string>
   <string name="data_opt_in_accept">承認</string>
   <string name="data_opt_in_reject">却下</string>
   <string name="generic_release_notes">軽微なバグ修正と強化</string>

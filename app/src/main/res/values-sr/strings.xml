@@ -1207,6 +1207,7 @@
   <string name="patroller_tasks_filters_title">Филтери</string>
   <string name="patroller_tasks_filters_reset">Ресет</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Вики</string>
+  <string name="patroller_tasks_filters_all_text">Све</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Нерегистровани</string>
   <string name="patroller_tasks_filters_user_status_registered">Регистровани</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Новајлије</string>
