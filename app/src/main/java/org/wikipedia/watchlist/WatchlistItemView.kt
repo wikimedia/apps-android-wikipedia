@@ -1,6 +1,7 @@
 package org.wikipedia.watchlist
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -47,7 +48,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         }
     }
 
-    fun setItem(item: MwQueryResult.WatchlistItem) {
+    fun setItem(item: MwQueryResult.WatchlistItem, currentQuery: String?) {
         this.item = item
         var isSummaryEmpty = false
         binding.titleText.text = item.title
@@ -97,6 +98,9 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
             binding.containerView.isClickable = true
         }
         L10nUtil.setConditionalLayoutDirection(this, item.wiki!!.languageCode)
+        StringUtil.highlightAndBoldenText(binding.titleText, currentQuery, true, Color.YELLOW)
+        StringUtil.highlightAndBoldenText(binding.userNameText, currentQuery, true, Color.YELLOW)
+        StringUtil.highlightAndBoldenText(binding.summaryText, currentQuery, true, Color.YELLOW)
     }
 
     private fun setButtonTextAndIconColor(text: String, @DrawableRes iconResourceDrawable: Int = 0) {
