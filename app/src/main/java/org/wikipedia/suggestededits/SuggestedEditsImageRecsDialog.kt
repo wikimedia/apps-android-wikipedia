@@ -10,6 +10,7 @@ import androidx.fragment.app.DialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecsDialogBinding
 
 class SuggestedEditsImageRecsDialog : DialogFragment() {
@@ -42,7 +43,10 @@ class SuggestedEditsImageRecsDialog : DialogFragment() {
 
         dialog = MaterialAlertDialogBuilder(requireActivity())
             .setView(binding.root)
-            .setNegativeButton(android.R.string.cancel) { _, _ -> dismiss() }
+            .setNegativeButton(android.R.string.cancel) { _, _ ->
+                ImageRecommendationsEvent.logAction("reject_cancel", "rejection_dialog",
+                    ImageRecommendationsEvent.getActionDataString(acceptanceState = "rejected"))
+                dismiss() }
             .setPositiveButton(R.string.image_recommendation_reject_submit) { _, _ ->
                 val itemList = checkboxes.mapIndexedNotNull { i, checkBox -> if (checkBox.isChecked) i else null }
                 callback()?.onDialogSubmit(responseCode, itemList)
@@ -50,6 +54,7 @@ class SuggestedEditsImageRecsDialog : DialogFragment() {
             }
             .setTitle(R.string.image_recommendation_reject_title)
             .create()
+        ImageRecommendationsEvent.logImpression("rejection_dialog")
         return dialog!!
     }
 

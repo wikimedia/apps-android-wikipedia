@@ -30,6 +30,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityInsertMediaBinding
 import org.wikipedia.databinding.ItemEditActionbarButtonBinding
@@ -145,6 +146,7 @@ class InsertMediaActivity : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val selectedImage = viewModel.selectedImage
         return when (item.itemId) {
             R.id.menu_next -> {
                 showMediaSettingsFragment()
@@ -152,11 +154,25 @@ class InsertMediaActivity : BaseActivity() {
                 true
             }
             R.id.menu_save -> {
+                if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && selectedImage != null) {
+                    ImageRecommendationsEvent.logAction("advanced_setting_save", "caption_entry",
+                        ImageRecommendationsEvent.getActionDataString(filename = selectedImage.prefixedText,
+                            recommendationSource = selectedImage.wikiSite.languageCode, acceptanceState = "accepted"),
+                        selectedImage.wikiSite.languageCode)
+                }
                 onBackPressed()
                 true
             }
             R.id.menu_insert -> {
-                viewModel.selectedImage?.let {
+                if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && selectedImage != null) {
+                    ImageRecommendationsEvent.logAction("caption_continue", "caption_entry",
+                        ImageRecommendationsEvent.getActionDataString(filename = selectedImage.prefixedText,
+                            recommendationSource = selectedImage.wikiSite.languageCode, acceptanceState = "accepted",
+                            captionAdd = insertMediaSettingsFragment.captionText.isNotEmpty(), altTextAdd = insertMediaSettingsFragment.alternativeText.isNotEmpty()
+                        ), selectedImage.wikiSite.languageCode
+                    )
+                }
+                selectedImage?.let {
                     val intent = Intent()
                         .putExtra(EXTRA_IMAGE_TITLE, it)
                         .putExtra(RESULT_IMAGE_CAPTION, insertMediaSettingsFragment.captionText)
@@ -357,6 +373,7 @@ class InsertMediaActivity : BaseActivity() {
     companion object {
         const val EXTRA_SEARCH_QUERY = "searchQuery"
         const val EXTRA_IMAGE_TITLE = "imageTitle"
+        const val EXTRA_IMAGE_SOURCE = "imageSource"
         const val EXTRA_ATTEMPT_INSERT_INTO_INFOBOX = "attemptInsertIntoInfobox"
         const val EXTRA_INSERTED_INTO_INFOBOX = "insertedIntoInfobox"
         const val RESULT_IMAGE_CAPTION = "resultImageCaption"
@@ -367,11 +384,12 @@ class InsertMediaActivity : BaseActivity() {
         const val RESULT_INSERT_MEDIA_SUCCESS = 100
 
         fun newIntent(context: Context, wikiSite: WikiSite, searchQuery: String,
-                      invokeSource: Constants.InvokeSource, imageTitle: PageTitle? = null): Intent {
+                      invokeSource: Constants.InvokeSource, imageTitle: PageTitle? = null, imageSource: String = ""): Intent {
             return Intent(context, InsertMediaActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
                 .putExtra(EXTRA_IMAGE_TITLE, imageTitle)
+                .putExtra(EXTRA_IMAGE_SOURCE, imageSource)
                 .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
         }
     }

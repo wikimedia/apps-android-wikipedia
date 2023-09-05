@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.onboarding.OnboardingPageView
 
 class SuggestedEditsImageRecsOnboardingActivity : BaseActivity() {
@@ -14,11 +15,13 @@ class SuggestedEditsImageRecsOnboardingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_suggested_edits_image_recs_onboarding)
+        ImageRecommendationsEvent.logImpression("onboarding_step_1_dialog")
         val onboardingView = findViewById<OnboardingPageView>(R.id.onboarding_view)
         onboardingView.setSecondaryText(getString(R.string.image_recommendation_onboarding_2) +
                 "\n\n" + getString(R.string.image_recommendation_onboarding_3))
 
         findViewById<View>(R.id.onboarding_done_button).setOnClickListener {
+            ImageRecommendationsEvent.logAction("next", "onboarding_step_1_dialog")
             setResult(Activity.RESULT_OK)
             finish()
         }

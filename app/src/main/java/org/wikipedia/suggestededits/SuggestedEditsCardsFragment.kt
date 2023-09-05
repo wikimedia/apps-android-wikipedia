@@ -405,6 +405,9 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         }
 
         override fun onPageSelected(position: Int) {
+            if (action == IMAGE_RECOMMENDATIONS) {
+                ((binding.cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(position) as SuggestedEditsImageRecsFragment).logImpression()
+            }
             updateBackButton(position)
             updateActionButton()
 

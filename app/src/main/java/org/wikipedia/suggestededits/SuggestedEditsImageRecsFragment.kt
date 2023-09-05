@@ -10,7 +10,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
-import android.view.View.*
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
@@ -32,6 +32,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecsItemBinding
 import org.wikipedia.dataclient.WikiSite
@@ -44,7 +45,12 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.*
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.ImageZoomHelper
@@ -60,6 +66,9 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     private var infoClicked = false
     private var scrolled = false
     private var resumedMillis = 0L
+    private var isVisibleToUser = false
+    private var isImpressionLogged = false
+    private var isLoaded = false
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<CoordinatorLayout>
 
@@ -72,7 +81,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 }
                 .setAnchorView(binding.acceptButton)
                 .show()
-
+            ImageRecommendationsEvent.logAction("editsummary_success_confirm", "editsummary_dialog",
+                getActionStringForAnalytics(acceptanceState = "accepted", revisionId = revId, addTimeSpent = true), viewModel.langCode)
             viewModel.acceptRecommendation(null, revId)
             callback().nextPage(this)
         }
@@ -82,6 +92,15 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsImageRecsItemBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    fun logImpression() {
+        isVisibleToUser = true
+        if (isLoaded && !isImpressionLogged) {
+            ImageRecommendationsEvent.logImpression("recommendedimagetoolbar",
+                getActionStringForAnalytics(), viewModel.langCode)
+            isImpressionLogged = true
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -102,21 +121,32 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
         binding.imageRecommendationsDepletedText.text = StringUtil.fromHtml(getString(R.string.image_recommendation_depleted))
         binding.imageRecommendationsDepletedText.movementMethod = LinkMovementMethodExt(
-            LinkMovementMethodExt.UrlHandler { requireActivity().finish() })
+            LinkMovementMethodExt.UrlHandler {
+                ImageRecommendationsEvent.logAction("suggested_edit_return", "nosuggestions_dialog",
+                    getActionStringForAnalytics(acceptanceState = "accepted"), viewModel.langCode)
+                requireActivity().finish() })
 
         binding.acceptButton.setOnClickListener {
+            ImageRecommendationsEvent.logAction("suggestion_accept", "recommendedimagetoolbar",
+                getActionStringForAnalytics(acceptanceState = "accepted"), viewModel.langCode)
             doPublish()
         }
 
         binding.rejectButton.setOnClickListener {
+            ImageRecommendationsEvent.logAction("suggestion_reject", "recommendedimagetoolbar",
+                getActionStringForAnalytics(acceptanceState = "rejected"), viewModel.langCode)
             SuggestedEditsImageRecsDialog.newInstance(0).show(childFragmentManager, null)
         }
 
         binding.notSureButton.setOnClickListener {
+            ImageRecommendationsEvent.logAction("suggestion_skip", "recommendedimagetoolbar",
+                getActionStringForAnalytics(acceptanceState = "undecided"), viewModel.langCode)
             publish()
         }
 
         binding.imageCard.setOnClickListener {
+            ImageRecommendationsEvent.logAction("image_detail_view", "recommendedimagetoolbar",
+                getActionStringForAnalytics(), viewModel.langCode)
             startActivity(FilePageActivity.newIntent(requireActivity(), PageTitle("File:" + viewModel.recommendation.images[0].image, WikiSite.forLanguageCode(viewModel.langCode)), false))
         }
 
@@ -133,6 +163,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         })
 
         binding.readMoreButton.setOnClickListener {
+            ImageRecommendationsEvent.logAction("read_more", "recommendedimagetoolbar",
+                getActionStringForAnalytics(), viewModel.langCode)
             val title = PageTitle(viewModel.recommendation.titleText, WikiSite.forLanguageCode(viewModel.langCode))
             startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_SUGGESTED_EDITS), title))
         }
@@ -193,6 +225,12 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     }
 
     private fun onLoadSuccess() {
+        isLoaded = true
+        if (isVisibleToUser && !isImpressionLogged) {
+            ImageRecommendationsEvent.logImpression("recommendedimagetoolbar",
+                getActionStringForAnalytics(), viewModel.langCode)
+            isImpressionLogged = true
+        }
         binding.cardItemProgressBar.isVisible = false
         binding.cardItemErrorView.isVisible = false
         binding.bottomSheetCoordinatorLayout.isVisible = true
@@ -258,6 +296,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     }
 
     private fun onDepletedState() {
+        ImageRecommendationsEvent.logImpression("nosuggestions_dialog",
+            getActionStringForAnalytics(), viewModel.langCode)
         binding.bottomSheetCoordinatorLayout.isVisible = false
         binding.articleContentContainer.isVisible = false
         binding.cardItemProgressBar.isVisible = false
@@ -272,11 +312,15 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.menu_tutorial -> {
+                ImageRecommendationsEvent.logAction("more_view_tutorial", "recommendedimagetoolbar",
+                    getActionStringForAnalytics(), viewModel.langCode)
                 bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
                 showTooltipSequence()
                 true
             }
             R.id.menu_learn_more -> {
+                ImageRecommendationsEvent.logAction("more_view_help", "recommendedimagetoolbar",
+                    getActionStringForAnalytics(), viewModel.langCode)
                 FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                 true
             }
@@ -299,23 +343,36 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
             val balloon1 = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_1), autoDismiss = true,
                 showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 1, countTotal = 3).apply {
                 setOnBalloonInitializedListener {
-                    // TODO: send event
+                    ImageRecommendationsEvent.logImpression("onboarding_step_2_dialog",
+                        getActionStringForAnalytics(), viewModel.langCode)
+                }
+                setOnBalloonDismissListener {
+                    ImageRecommendationsEvent.logAction("next", "onboarding_step_2_dialog",
+                        getActionStringForAnalytics(), viewModel.langCode)
                 }
             }
 
             val balloon2 = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_2), autoDismiss = true,
                 showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 2, countTotal = 3).apply {
                 setOnBalloonInitializedListener {
-                    // TODO: send event
+                    ImageRecommendationsEvent.logImpression("onboarding_step_3_dialog",
+                        getActionStringForAnalytics(), viewModel.langCode)
+                }
+                setOnBalloonDismissListener {
+                    ImageRecommendationsEvent.logAction("next", "onboarding_step_3_dialog",
+                        getActionStringForAnalytics(), viewModel.langCode)
                 }
             }
 
             val balloon3 = FeedbackUtil.getTooltip(requireContext(), getString(R.string.image_recommendation_tooltip_3), autoDismiss = true,
                 showDismissButton = true, countNum = 3, countTotal = 3).apply {
                 setOnBalloonInitializedListener {
-                    // TODO: send event
+                    ImageRecommendationsEvent.logImpression("onboarding_step_4_dialog",
+                        getActionStringForAnalytics(), viewModel.langCode)
                 }
                 setOnBalloonDismissListener {
+                    ImageRecommendationsEvent.logAction("get_started", "onboarding_step_4_dialog",
+                        getActionStringForAnalytics(), viewModel.langCode)
                     Prefs.suggestedEditsImageRecsOnboardingShown = true
                 }
             }
@@ -332,6 +389,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     private fun doPublish() {
         if (System.currentTimeMillis() - resumedMillis < MIN_TIME_WARNING_MILLIS) {
+            ImageRecommendationsEvent.logAction("warning", "recommendedimagetoolbar",
+                getActionStringForAnalytics(), viewModel.langCode)
             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.image_recommendation_tooltip_warning))
                 .setAnchorView(binding.acceptButton)
                 .show()
@@ -339,7 +398,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         }
 
         requestEdit.launch(EditSectionActivity.newIntent(requireContext(), 0, null,
-            viewModel.pageTitle, Constants.InvokeSource.EDIT_ADD_IMAGE, null, viewModel.recommendedImageTitle)
+            viewModel.pageTitle, Constants.InvokeSource.EDIT_ADD_IMAGE, null, viewModel.recommendedImageTitle, viewModel.recommendation.images[0].source)
             .putExtra(InsertMediaActivity.EXTRA_ATTEMPT_INSERT_INTO_INFOBOX, viewModel.attemptInsertInfobox))
     }
 
@@ -361,7 +420,32 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     override fun onDialogSubmit(response: Int, selectedItems: List<Int>) {
         viewModel.rejectRecommendation(null, selectedItems)
+        ImageRecommendationsEvent.logAction("reject_submit", "rejection_dialog",
+            getActionStringForAnalytics(rejectionReasons = selectedItems.map { ImageRecommendationsEvent.reasons.getOrNull(it) }.toString(),
+            acceptanceState = "rejected"), viewModel.langCode)
         publish()
+    }
+
+    private fun getActionStringForAnalytics(acceptanceState: String? = null, rejectionReasons: String? = null,
+                                            revisionId: Long? = null, addTimeSpent: Boolean = false): String {
+        val recommendedImage = viewModel.recommendation.images[0]
+        return ImageRecommendationsEvent.getActionDataString(filename = recommendedImage.image,
+            recommendationSource = recommendedImage.source,
+            recommendationSourceProjects = recommendedImage.projects.toString(),
+            acceptanceState = acceptanceState, rejectionReasons = rejectionReasons,
+            revisionId = revisionId, addTimeSpent = addTimeSpent)
+    }
+
+    override fun onBackPressed(): Boolean {
+        if (binding.imageRecommendationsDepletedContainer.isVisible) {
+            ImageRecommendationsEvent.logAction(
+                "back", "nosuggestions_dialog", getActionStringForAnalytics(), viewModel.langCode
+            )
+        } else {
+            ImageRecommendationsEvent.logAction("back", "recommendedimagetoolbar",
+                getActionStringForAnalytics(), viewModel.langCode)
+        }
+        return super.onBackPressed()
     }
 
     companion object {

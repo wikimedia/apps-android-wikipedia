@@ -22,6 +22,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentPreviewSummaryBinding
 import org.wikipedia.dataclient.ServiceFactory
@@ -75,10 +76,16 @@ class EditSummaryFragment : Fragment() {
         }
 
         binding.editSummaryTextLayout.setEndIconOnClickListener {
+            if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+                ImageRecommendationsEvent.logAction("tts_open", "editsummary_dialog")
+            }
             launchVoiceInput()
         }
 
         binding.learnMoreButton.setOnClickListener {
+            if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+                ImageRecommendationsEvent.logAction("view_help", "editsummary_dialog")
+            }
             UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.meta_edit_summary_url)))
         }
 
@@ -88,6 +95,12 @@ class EditSummaryFragment : Fragment() {
 
         binding.watchPageHelpButton.setOnClickListener {
             UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.meta_watching_pages_url)))
+        }
+
+        binding.watchPageCheckBox.setOnCheckedChangeListener { _, isChecked ->
+            if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
+                ImageRecommendationsEvent.logAction(if (isChecked) "add_watchlist" else "remove_watchlist", "editsummary_dialog")
+            }
         }
 
         getWatchedStatus()
