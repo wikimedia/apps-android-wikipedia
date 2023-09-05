@@ -22,7 +22,7 @@ object GeoIPCookieUnmarshaller {
     fun unmarshal(cookie: String?): GeoIPCookie {
         require(!cookie.isNullOrEmpty()) { "Cookie is empty." }
         val components = cookie.split(":".toRegex()).toTypedArray()
-        require(components.size >= Component.values().size) { "Cookie is malformed." }
+        require(components.size >= Component.entries.size) { "Cookie is malformed." }
         require(components[Component.VERSION.ordinal] == "v4") { "Incorrect cookie version." }
 
         var location: Location? = null

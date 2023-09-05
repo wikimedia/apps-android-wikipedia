@@ -103,7 +103,7 @@ open class SyntaxHighlightableEditText : EditText {
         }
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         if (prevLineCount != lineCount) {
             prevLineCount = lineCount
             computeLineNumbers(prevLineCount, layout, text.toString())
