@@ -17,7 +17,7 @@
             <item
                 android:id="@+id/menu_report_feature"
                 android:title="@string/patroller_tasks_overflow_report"
-                android:icon="@drawable/baseline_outlined_flag_24"
+                android:icon="@drawable/ic_report_flag"
                 app:iconTint="?attr/secondary_color" />
             <item
                 android:id="@+id/menu_learn_more"
