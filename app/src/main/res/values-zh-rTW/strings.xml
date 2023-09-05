@@ -1486,6 +1486,7 @@
   <string name="talk_templates_edit_message_confirm_description">您確定要從清單中刪除這則「%s」訊息嗎？</string>
   <string name="talk_templates_message_deleted">訊息已刪除</string>
   <string name="patroller_tasks_edits_list_title">編輯清單</string>
+  <string name="patroller_tasks_edits_list_search_hint">搜尋或篩選編輯</string>
   <string name="patroller_tasks_edits_list_card_tags_text">標籤：%s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">無</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">檢視使用者頁面</string>
@@ -1494,10 +1495,13 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">檢視使用者貢獻</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">感謝</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">使用者資訊</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">任期</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">編輯次數</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">關閉</string>
+  <string name="patroller_tasks_filters_title">篩選</string>
   <string name="patroller_tasks_filters_reset">重新設定</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_all_text">全部</string>
   <string name="patroller_tasks_filters_user_status_header">使用者註冊及經驗</string>
   <string name="patroller_tasks_filters_user_status_unregistered">未註冊</string>
   <string name="patroller_tasks_filters_user_status_registered">已註冊</string>
@@ -1510,6 +1514,7 @@
   <string name="patroller_tasks_filters_automated_contributions_header">自動化貢獻</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">機器人</string>
   <string name="patroller_tasks_filters_automated_contributions_human">人工（非機器人）</string>
+  <string name="patroller_tasks_filters_significance_header">重要性</string>
   <string name="patroller_tasks_filters_significance_minor">小修改</string>
   <string name="patroller_tasks_filters_significance_edits">非小修改</string>
   <string name="patroller_tasks_filters_contribution_quality_header">貢獻品質預測</string>
@@ -1523,6 +1528,10 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems">可能是惡意</string>
   <string name="patroller_tasks_filters_user_intent_bad">非常可能是惡意</string>
   <string name="patroller_tasks_filters_empty_search_message">嘗試移除%s來查看更多編輯</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d 個篩選</item>
+    <item quantity="other">%d 個篩選</item>
+  </plurals>
   <string name="patroller_tasks_patrol_edit_title">巡查編輯</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">條目編輯歷史</string>
   <string name="patroller_tasks_patrol_edit_undo_dialog_title">撤消此編輯？</string>
@@ -1530,6 +1539,11 @@
   <string name="patroller_tasks_patrol_edit_undo_dialog_message">撤銷代表著會回退一個或多個編輯的內容。</string>
   <string name="patroller_tasks_patrol_edit_undo_dialog_hint">摘要（可選）</string>
   <string name="patroller_tasks_patrol_edit_undo_dialog_helper">分享回退的原因</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">回退完成</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">您確定要回退嗎？</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">回退完成</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">檢視</string>
+  <string name="patroller_tasks_overflow_report">功能出現問題</string>
   <string name="patroller_tasks_overflow_learn">了解更多</string>
   <string name="data_opt_in_accept">接受</string>
   <string name="data_opt_in_reject">拒絕</string>
