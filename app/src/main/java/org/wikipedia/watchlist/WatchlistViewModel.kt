@@ -2,15 +2,18 @@ package org.wikipedia.watchlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.settings.Prefs
-import java.util.*
+import java.util.Calendar
 
 class WatchlistViewModel : ViewModel() {
 
@@ -94,10 +97,21 @@ class WatchlistViewModel : ViewModel() {
 
     fun filtersCount(): Int {
         val excludedWikiCodes = Prefs.watchlistExcludedWikiCodes
-        val defaultTypeSet = WatchlistFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }.toSet()
-        val nonDefaultChangeTypes = Prefs.watchlistIncludedTypeCodes.subtract(defaultTypeSet)
-            .union(defaultTypeSet.subtract(Prefs.watchlistIncludedTypeCodes.toSet()))
-        return WikipediaApp.instance.languageState.appLanguageCodes.count { excludedWikiCodes.contains(it) } + nonDefaultChangeTypes.size
+
+        val findSelectedTypesOfChanges = Prefs.watchlistIncludedTypeCodes
+            .filter { code -> WatchlistFilterTypes.TYPE_OF_CHANGES_GROUP.map { it.id }.contains(code) }
+
+        // It should include: "not" default values + "non-selected" default values
+        val defaultTypeOfChangeSet = WatchlistFilterTypes.DEFAULT_FILTER_TYPE_OF_CHANGES.map { it.id }.toSet()
+        val nonDefaultChangeTypes = findSelectedTypesOfChanges.subtract(defaultTypeOfChangeSet)
+            .union(defaultTypeOfChangeSet.subtract(findSelectedTypesOfChanges.toSet()))
+
+        // Find the remaining selected filters
+        val findSelectedOthers = Prefs.watchlistIncludedTypeCodes.subtract(findSelectedTypesOfChanges.toSet())
+        val defaultOthersSet = WatchlistFilterTypes.DEFAULT_FILTER_OTHERS.map { it.id }.toSet()
+        val nonDefaultOthers = defaultOthersSet.subtract(findSelectedOthers)
+
+        return WikipediaApp.instance.languageState.appLanguageCodes.count { excludedWikiCodes.contains(it) } + nonDefaultChangeTypes.size + nonDefaultOthers.size
     }
 
     private fun latestRevisions(): String? {
