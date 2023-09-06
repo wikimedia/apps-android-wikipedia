@@ -207,14 +207,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     public override fun onResume() {
         super.onResume()
-        registerReceiver(downloadReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        downloadReceiver.callback = downloadReceiverCallback
+        downloadReceiver.register(this, downloadReceiverCallback)
     }
 
     public override fun onPause() {
         super.onPause()
-        downloadReceiver.callback = null
-        unregisterReceiver(downloadReceiver)
+        downloadReceiver.unregister(this)
     }
 
     override fun onDownload(item: GalleryItemFragment) {

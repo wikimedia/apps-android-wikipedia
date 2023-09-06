@@ -154,15 +154,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onPause() {
         super.onPause()
-        downloadReceiver.callback = null
-        requireContext().unregisterReceiver(downloadReceiver)
+        downloadReceiver.unregister(requireContext())
     }
 
     override fun onResume() {
         super.onResume()
-        requireContext().registerReceiver(downloadReceiver,
-                IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        downloadReceiver.callback = downloadReceiverCallback
+        downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
         maybeShowWatchlistTooltip()
