@@ -3,10 +3,8 @@ package org.wikipedia.main
 import android.Manifest
 import android.app.Activity
 import android.app.ActivityOptions
-import android.app.DownloadManager
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Build
@@ -154,15 +152,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onPause() {
         super.onPause()
-        downloadReceiver.callback = null
-        requireContext().unregisterReceiver(downloadReceiver)
+        downloadReceiver.unregister(requireContext())
     }
 
     override fun onResume() {
         super.onResume()
-        requireContext().registerReceiver(downloadReceiver,
-                IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        downloadReceiver.callback = downloadReceiverCallback
+        downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
         maybeShowWatchlistTooltip()
