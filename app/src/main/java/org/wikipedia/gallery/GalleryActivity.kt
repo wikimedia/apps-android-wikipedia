@@ -1,10 +1,8 @@
 package org.wikipedia.gallery
 
 import android.app.Activity
-import android.app.DownloadManager
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
@@ -207,14 +205,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     public override fun onResume() {
         super.onResume()
-        registerReceiver(downloadReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        downloadReceiver.callback = downloadReceiverCallback
+        downloadReceiver.register(this, downloadReceiverCallback)
     }
 
     public override fun onPause() {
         super.onPause()
-        downloadReceiver.callback = null
-        unregisterReceiver(downloadReceiver)
+        downloadReceiver.unregister(this)
     }
 
     override fun onDownload(item: GalleryItemFragment) {
