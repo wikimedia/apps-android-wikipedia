@@ -1553,16 +1553,4 @@
   <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>
   <string name="email_report_patroller_tasks_body">Body of email for sending a report about a problem with the Patroller Tasks feature.</string>
-  <plurals name="date_diff_days">
-    <item quantity="one">Text for the date difference in days. %s will be replaced by the number of days</item>
-    <item quantity="other">Text for the date difference in days. %s will be replaced by the number of days</item>
-  </plurals>
-  <plurals name="date_diff_months">
-    <item quantity="one">Text for the date difference in months. %s will be replaced by the number of months</item>
-    <item quantity="other">Text for the date difference in months. %s will be replaced by the number of months</item>
-  </plurals>
-  <plurals name="date_diff_years">
-    <item quantity="one">Text for the date difference in years. %s will be replaced by the number of years</item>
-    <item quantity="other">Text for the date difference in years. %s will be replaced by the number of years</item>
-  </plurals>
 </resources>
