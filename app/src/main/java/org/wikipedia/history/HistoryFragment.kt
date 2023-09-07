@@ -1,7 +1,7 @@
 package org.wikipedia.history
 
-import android.app.AlertDialog
 import android.content.Context
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMarginsRelative
 import androidx.fragment.app.Fragment
@@ -20,6 +21,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -27,7 +29,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -142,9 +143,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
     private fun onClearHistoryClick() {
         lifecycleScope.launch {
             try {
-                withContext(Dispatchers.IO) {
-                    AppDatabase.instance.historyEntryDao().deleteAll()
-                }
+                AppDatabase.instance.historyEntryDao().deleteAll()
             } finally {
                 reloadHistoryItems()
             }
@@ -194,9 +193,9 @@ class HistoryFragment : Fragment(), BackPressedHandler {
 
     private fun deleteSelectedPages() {
         val selectedEntryList = mutableListOf<HistoryEntry>()
-        for (entry in selectedEntries) {
-            selectedEntryList.add(entry)
-            runBlocking(Dispatchers.IO) {
+        selectedEntryList.addAll(selectedEntries)
+        runBlocking(Dispatchers.IO) {
+            for (entry in selectedEntries) {
                 AppDatabase.instance.historyEntryDao().delete(entry)
             }
         }
@@ -211,9 +210,9 @@ class HistoryFragment : Fragment(), BackPressedHandler {
         val message = if (entries.size == 1) getString(R.string.history_item_deleted, entries[0].title.displayText) else getString(R.string.history_items_deleted, entries.size)
         val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), message)
         snackbar.setAction(R.string.history_item_delete_undo) {
-            lifecycleScope.launch(Dispatchers.IO) {
+            lifecycleScope.launch(Dispatchers.Main) {
                 AppDatabase.instance.historyEntryDao().insert(entries)
-                withContext(Dispatchers.Main) { reloadHistoryItems() }
+                reloadHistoryItems()
             }
         }
         snackbar.show()
@@ -273,7 +272,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
                         top = DimenUtil.roundedDpToPx(3f))
                 }
             }
-            searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22))
+            searchCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.background_color))
         }
 
         init {
@@ -282,6 +281,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             historyFilterButton = itemView.findViewById(R.id.history_filter)
             clearHistoryButton = itemView.findViewById(R.id.history_delete)
             searchCardView.setOnClickListener { (requireParentFragment() as MainFragment).openSearchActivity(Constants.InvokeSource.NAV_MENU, null, it) }
+            voiceSearchButton.isVisible = WikipediaApp.instance.voiceRecognitionAvailable
             voiceSearchButton.setOnClickListener { (requireParentFragment() as MainFragment).onFeedVoiceSearchRequested() }
             historyFilterButton.setOnClickListener {
                 if (actionMode == null) {
@@ -291,11 +291,11 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             }
             clearHistoryButton.setOnClickListener {
                 if (selectedEntries.size == 0) {
-                    AlertDialog.Builder(requireContext())
+                    MaterialAlertDialogBuilder(requireContext())
                             .setTitle(R.string.dialog_title_clear_history)
                             .setMessage(R.string.dialog_message_clear_history)
                             .setPositiveButton(R.string.dialog_message_clear_history_yes) { _, _ -> onClearHistoryClick() }
-                            .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show()
+                            .setNegativeButton(R.string.dialog_message_clear_history_no, null).show()
                 } else {
                     deleteSelectedPages()
                 }
@@ -312,6 +312,7 @@ class HistoryFragment : Fragment(), BackPressedHandler {
             this.entry = entry
             view.item = entry
             view.setTitle(entry.title.displayText)
+            view.setTitleTypeface(Typeface.NORMAL)
             view.setDescription(entry.title.description)
             view.setImageUrl(entry.title.thumbUrl)
             view.isSelected = selectedEntries.contains(entry)

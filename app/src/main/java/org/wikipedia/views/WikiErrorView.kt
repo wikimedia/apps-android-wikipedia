@@ -33,9 +33,11 @@ class WikiErrorView : LinearLayout {
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
-        val movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
-        binding.viewWikiErrorText.movementMethod = movementMethod
-        binding.viewWikiErrorFooterText.movementMethod = movementMethod
+        if (!isInEditMode) {
+            val movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
+            binding.viewWikiErrorText.movementMethod = movementMethod
+            binding.viewWikiErrorFooterText.movementMethod = movementMethod
+        }
     }
 
     fun setError(caught: Throwable?, pageTitle: PageTitle? = null) {

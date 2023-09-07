@@ -1,10 +1,11 @@
 package org.wikipedia.analytics.eventplatform
 
 import android.content.Context
+import android.view.MenuItem
 import android.view.View
-import android.widget.CheckBox
+import android.widget.Checkable
 import android.widget.TextView
-import androidx.appcompat.widget.SwitchCompat
+import androidx.fragment.app.Fragment
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.WikipediaApp
@@ -36,11 +37,15 @@ class BreadCrumbLogEvent(
             }
             val viewReadableName = BreadCrumbViewUtil.getReadableNameForView(view)
             val str = "$viewReadableName." + when (view) {
-                is SwitchCompat -> if (!view.isChecked) "on" else "off"
-                is CheckBox -> if (!view.isChecked) "on" else "off"
+                is Checkable -> if (!view.isChecked) "on" else "off"
                 else -> "click"
             }
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), str))
+        }
+
+        fun logClick(context: Context, item: MenuItem) {
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context),
+                context.resources.getResourceEntryName(item.itemId) + ".click"))
         }
 
         fun logLongClick(context: Context, view: View) {
@@ -48,8 +53,8 @@ class BreadCrumbLogEvent(
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), "$viewReadableName.longclick"))
         }
 
-        fun logScreenShown(context: Context) {
-            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), "show"))
+        fun logScreenShown(context: Context, fragment: Fragment? = null) {
+            EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context, fragment), "show"))
         }
 
         fun logBackPress(context: Context) {

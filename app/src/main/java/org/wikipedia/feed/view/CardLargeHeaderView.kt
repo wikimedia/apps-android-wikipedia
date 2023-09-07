@@ -12,6 +12,7 @@ import androidx.palette.graphics.Palette
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewCardHeaderLargeBinding
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -26,10 +27,12 @@ class CardLargeHeaderView : ConstraintLayout {
     val binding = ViewCardHeaderLargeBinding.inflate(LayoutInflater.from(context), this)
 
     init {
-        resetBackgroundColor()
+        if (!isInEditMode) {
+            resetBackgroundColor()
+        }
     }
 
-    val sharedElements = TransitionUtil.getSharedElements(context, binding.viewCardHeaderLargeImage)
+    val sharedElements get() = TransitionUtil.getSharedElements(context, binding.viewCardHeaderLargeImage)
 
     fun setLanguageCode(langCode: String): CardLargeHeaderView {
         L10nUtil.setConditionalLayoutDirection(this, langCode)
@@ -53,14 +56,14 @@ class CardLargeHeaderView : ConstraintLayout {
     }
 
     private fun resetBackgroundColor() {
-        setGradientDrawableBackground(ContextCompat.getColor(context, R.color.base100),
-                ContextCompat.getColor(context, R.color.base20))
+        setGradientDrawableBackground(ContextCompat.getColor(context, R.color.white),
+                ContextCompat.getColor(context, R.color.gray600))
     }
 
     private inner class ImageLoadListener : OnImageLoadListener {
         override fun onImageLoaded(palette: Palette, bmpWidth: Int, bmpHeight: Int) {
-            var color1 = palette.getLightVibrantColor(ContextCompat.getColor(context, R.color.base70))
-            var color2 = palette.getLightMutedColor(ContextCompat.getColor(context, R.color.base30))
+            var color1 = palette.getLightVibrantColor(ContextCompat.getColor(context, R.color.gray300))
+            var color2 = palette.getLightMutedColor(ContextCompat.getColor(context, R.color.gray500))
             if (WikipediaApp.instance.currentTheme.isDark) {
                 color1 = ResourceUtil.darkenColor(color1)
                 color2 = ResourceUtil.darkenColor(color2)
@@ -78,15 +81,9 @@ class CardLargeHeaderView : ConstraintLayout {
 
     private fun setGradientDrawableBackground(@ColorInt leftColor: Int, @ColorInt rightColor: Int) {
         val gradientDrawable = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(leftColor, rightColor))
-
-        // card background
         gradientDrawable.alpha = 70
-        gradientDrawable.cornerRadius = binding.viewCardHeaderLargeBorderBase.radius
-        binding.viewCardHeaderLargeContainer.background = gradientDrawable
-
-        // card border's background, which depends on the margin that is applied to the borderBaseView
-        gradientDrawable.alpha = 90
-        gradientDrawable.cornerRadius = resources.getDimension(R.dimen.wiki_card_radius)
-        binding.viewCardHeaderLargeBorderContainer.background = gradientDrawable
+        gradientDrawable.cornerRadius = DimenUtil.dpToPx(12f)
+        gradientDrawable.setStroke(DimenUtil.roundedDpToPx(0.5f), ResourceUtil.getThemedColor(context, R.attr.secondary_color))
+        background = gradientDrawable
     }
 }

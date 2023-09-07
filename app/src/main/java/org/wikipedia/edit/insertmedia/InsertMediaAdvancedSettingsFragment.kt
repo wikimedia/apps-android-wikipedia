@@ -18,7 +18,6 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
     private var _binding: FragmentInsertMediaAdvancedSettingsBinding? = null
     private val binding get() = _binding!!
     private val viewModel get() = (requireActivity() as InsertMediaActivity).viewModel
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     val isActive get() = binding.root.visibility == View.VISIBLE
 
@@ -27,15 +26,15 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
         activity = (requireActivity() as InsertMediaActivity)
 
         binding.imagePositionButton.setOnClickListener {
-            bottomSheetPresenter.show(childFragmentManager, InsertMediaImagePositionDialog.newInstance())
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, InsertMediaImagePositionDialog.newInstance())
         }
 
         binding.imageTypeButton.setOnClickListener {
-            bottomSheetPresenter.show(childFragmentManager, InsertMediaImageTypeDialog.newInstance())
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, InsertMediaImageTypeDialog.newInstance())
         }
 
         binding.imageSizeButton.setOnClickListener {
-            bottomSheetPresenter.show(childFragmentManager, InsertMediaImageSizeDialog.newInstance())
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, InsertMediaImageSizeDialog.newInstance())
         }
 
         binding.wrapImageSwitch.isChecked = viewModel.imagePosition != InsertMediaViewModel.IMAGE_POSITION_NONE
@@ -89,7 +88,7 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
         }
         binding.imagePositionButton.isEnabled = viewModel.imagePosition != InsertMediaViewModel.IMAGE_POSITION_NONE
         binding.imagePositionButton.setTextColor(ResourceUtil.getThemedColor(requireContext(),
-            if (binding.imagePositionButton.isEnabled) R.attr.colorAccent else R.attr.color_group_59))
+            if (binding.imagePositionButton.isEnabled) R.attr.progressive_color else R.attr.placeholder_color))
         binding.imagePositionButton.text = getString(newButtonText)
     }
 

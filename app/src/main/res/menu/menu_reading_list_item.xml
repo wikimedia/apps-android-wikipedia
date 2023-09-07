@@ -7,6 +7,10 @@
         android:title="@string/reading_list_action_menu_save_all_for_offline"/>
     <item android:id="@+id/menu_reading_list_remove_all_offline"
         android:title="@string/reading_list_action_menu_remove_all_from_offline"/>
+    <item android:id="@+id/menu_reading_list_export"
+        android:title="@string/reading_list_menu_export"/>
+    <item android:id="@+id/menu_reading_list_select"
+        android:title="@string/reading_list_menu_select"/>
     <item android:id="@+id/menu_reading_list_delete"
         android:title="@string/reading_list_menu_delete"/>
     <item android:id="@+id/menu_reading_list_share"

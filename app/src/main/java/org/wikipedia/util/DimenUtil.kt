@@ -9,6 +9,7 @@ import android.view.Window
 import androidx.annotation.DimenRes
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.util.log.L
 import kotlin.math.roundToInt
 
 object DimenUtil {
@@ -75,6 +76,19 @@ object DimenUtil {
         get() = resources.displayMetrics
     private val resources: Resources
         get() = WikipediaApp.instance.resources
+
+    fun htmlPxToInt(str: String): Int {
+        try {
+            return if (str.contains("px")) {
+                str.replace("px", "").toInt()
+            } else {
+                str.toInt()
+            }
+        } catch (e: Exception) {
+            L.e(e)
+        }
+        return 0
+    }
 
     fun getNavigationBarHeight(context: Context): Float {
         val id = getNavigationBarId(context)

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/paper_color"
+    tools:context=".watchlist.WatchlistFilterActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/watchlist_filters_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="24dp"
+        android:scrollbars="vertical" />
+</FrameLayout>

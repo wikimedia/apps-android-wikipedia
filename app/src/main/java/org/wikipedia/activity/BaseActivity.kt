@@ -1,19 +1,16 @@
 package org.wikipedia.activity
 
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
-import android.net.ConnectivityManager
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
-import android.view.*
-import android.widget.TextView
+import android.view.MenuItem
+import android.view.MotionEvent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.ColorInt
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.pm.ShortcutManagerCompat
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.skydoves.balloon.Balloon
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
@@ -21,41 +18,43 @@ import io.reactivex.rxjava3.functions.Consumer
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.LoginFunnel
+import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.connectivity.ConnectionStateMonitor
 import org.wikipedia.events.*
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
-import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs
 import org.wikipedia.readinglist.ReadingListsReceiveSurveyHelper
 import org.wikipedia.readinglist.ReadingListsShareSurveyHelper
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.recurring.RecurringTasksExecutor
-import org.wikipedia.savedpages.SavedPageSyncService
+import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.SiteInfoClient
-import org.wikipedia.util.*
+import org.wikipedia.theme.Theme
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
-import org.wikipedia.views.ViewUtil
-import kotlin.math.abs
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callback {
+    interface Callback {
+        fun onPermissionResult(activity: BaseActivity, isGranted: Boolean)
+    }
     private lateinit var exclusiveBusMethods: ExclusiveBusConsumer
-    private val networkStateReceiver = NetworkStateReceiver()
-    private var previousNetworkState = WikipediaApp.instance.isOnline
     private val disposables = CompositeDisposable()
     private var currentTooltip: Balloon? = null
     private var imageZoomHelper: ImageZoomHelper? = null
+    var callback: Callback? = null
 
-    private var startTouchX = 0f
-    private var startTouchY = 0f
-    private var startTouchMillis = 0L
-    private var touchSlopPx = 0
+    val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            callback?.onPermissionResult(this, isGranted)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,8 +84,7 @@ abstract class BaseActivity : AppCompatActivity() {
             ReadingListSyncAdapter.manualSyncWithForce()
         }
 
-        val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
-        registerReceiver(networkStateReceiver, filter)
+        WikipediaApp.instance.connectionStateMonitor.registerCallback(this)
 
         DeviceUtil.setLightSystemUiVisibility(this)
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
@@ -99,32 +97,28 @@ abstract class BaseActivity : AppCompatActivity() {
             ReadingListsReceiveSurveyHelper.maybeShowSurvey(this)
         }
 
-        touchSlopPx = ViewConfiguration.get(this).scaledTouchSlop
         Prefs.localClassName = localClassName
     }
 
-    override fun onResumeFragments() {
-        super.onResumeFragments()
-        BreadCrumbLogEvent.logScreenShown(this)
-    }
-
     override fun onDestroy() {
-        unregisterReceiver(networkStateReceiver)
+        WikipediaApp.instance.connectionStateMonitor.unregisterCallback(this)
         disposables.dispose()
         if (EXCLUSIVE_BUS_METHODS === exclusiveBusMethods) {
             unregisterExclusiveBusMethods()
         }
+        CustomHtmlParser.pruneBitmaps(this)
         super.onDestroy()
     }
 
     override fun onStop() {
-        WikipediaApp.instance.sessionFunnel.persistSession()
+        WikipediaApp.instance.appSessionEvent.persistSession()
         super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
-        WikipediaApp.instance.sessionFunnel.touchSession()
+        WikipediaApp.instance.appSessionEvent.touchSession()
+        BreadCrumbLogEvent.logScreenShown(this)
 
         // allow this activity's exclusive bus methods to override any existing ones.
         unregisterExclusiveBusMethods()
@@ -153,33 +147,7 @@ abstract class BaseActivity : AppCompatActivity() {
             dismissCurrentTooltip()
         }
 
-        when (event.action) {
-            MotionEvent.ACTION_DOWN -> {
-                startTouchMillis = System.currentTimeMillis()
-                startTouchX = event.x
-                startTouchY = event.y
-            }
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                val touchMillis = System.currentTimeMillis() - startTouchMillis
-                val dx = abs(startTouchX - event.x)
-                val dy = abs(startTouchY - event.y)
-
-                if (dx <= touchSlopPx && dy <= touchSlopPx) {
-                    ViewUtil.findClickableViewAtPoint(window.decorView, startTouchX.toInt(), startTouchY.toInt())?.let {
-                        if (it is TextView && it.movementMethod is LinkMovementMethodExt) {
-                            // If they clicked a link in a TextView, it will be handled by the
-                            // MovementMethod instead of here.
-                        } else {
-                            if (touchMillis > ViewConfiguration.getLongPressTimeout()) {
-                                BreadCrumbLogEvent.logLongClick(this@BaseActivity, it)
-                            } else {
-                                BreadCrumbLogEvent.logClick(this@BaseActivity, it)
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        BreadcrumbsContextHelper.dispatchTouchEvent(window, event)
 
         imageZoomHelper?.let {
             return it.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
@@ -198,29 +166,17 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected open fun setTheme() {
-        setTheme(WikipediaApp.instance.currentTheme.resourceId)
-    }
-
-    protected open fun onGoOffline() {}
-    protected open fun onGoOnline() {}
-
-    private inner class NetworkStateReceiver : BroadcastReceiver() {
-        override fun onReceive(context: Context, intent: Intent) {
-            val isDeviceOnline = WikipediaApp.instance.isOnline
-            if (isDeviceOnline) {
-                if (!previousNetworkState) {
-                    onGoOnline()
-                }
-                SavedPageSyncService.enqueue()
-            } else {
-                onGoOffline()
-            }
-            previousNetworkState = isDeviceOnline
+        if (WikipediaApp.instance.currentTheme != Theme.LIGHT) {
+            setTheme(WikipediaApp.instance.currentTheme.resourceId)
         }
     }
 
+    override fun onGoOffline() {}
+
+    override fun onGoOnline() {}
+
     private fun removeSplashBackground() {
-        window.setBackgroundDrawable(null)
+        window.setBackgroundDrawable(ColorDrawable(ResourceUtil.getThemedColor(this, R.attr.paper_color)))
     }
 
     private fun unregisterExclusiveBusMethods() {
@@ -232,11 +188,11 @@ abstract class BaseActivity : AppCompatActivity() {
     private fun maybeShowLoggedOutInBackgroundDialog() {
         if (Prefs.loggedOutInBackground) {
             Prefs.loggedOutInBackground = false
-            AlertDialog.Builder(this)
+            MaterialAlertDialogBuilder(this)
                     .setCancelable(false)
                     .setTitle(R.string.logged_out_in_background_title)
                     .setMessage(R.string.logged_out_in_background_dialog)
-                    .setPositiveButton(R.string.logged_out_in_background_login) { _, _ -> startActivity(LoginActivity.newIntent(this@BaseActivity, LoginFunnel.SOURCE_LOGOUT_BACKGROUND)) }
+                    .setPositiveButton(R.string.logged_out_in_background_login) { _, _ -> startActivity(LoginActivity.newIntent(this@BaseActivity, LoginActivity.SOURCE_LOGOUT_BACKGROUND)) }
                     .setNegativeButton(R.string.logged_out_in_background_cancel, null)
                     .show()
         }
@@ -274,10 +230,8 @@ abstract class BaseActivity : AppCompatActivity() {
      */
     private inner class ExclusiveBusConsumer : Consumer<Any> {
         override fun accept(event: Any) {
-            if (event is NetworkConnectEvent) {
-                SavedPageSyncService.enqueue()
-            } else if (event is SplitLargeListsEvent) {
-                AlertDialog.Builder(this@BaseActivity)
+            if (event is SplitLargeListsEvent) {
+                MaterialAlertDialogBuilder(this@BaseActivity)
                         .setMessage(getString(R.string.split_reading_list_message, SiteInfoClient.maxPagesPerReadingList))
                         .setPositiveButton(R.string.reading_list_split_dialog_ok_button_text, null)
                         .show()

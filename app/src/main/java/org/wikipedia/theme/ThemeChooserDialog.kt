@@ -1,6 +1,7 @@
 package org.wikipedia.theme
 
 import android.content.DialogInterface
+import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
@@ -9,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
-import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -21,13 +21,11 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
-import org.wikipedia.analytics.AppearanceChangeFunnel
 import org.wikipedia.analytics.eventplatform.AppearanceSettingInteractionEvent
 import org.wikipedia.databinding.DialogThemeChooserBinding
 import org.wikipedia.events.WebViewInvalidateEvent
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -48,7 +46,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private var app = WikipediaApp.instance
-    private lateinit var funnel: AppearanceChangeFunnel
     private lateinit var appearanceSettingInteractionEvent: AppearanceSettingInteractionEvent
     private lateinit var invokeSource: InvokeSource
     private val disposables = CompositeDisposable()
@@ -94,7 +91,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                         updateFontSize()
                     }
                 }
-                funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
                 appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
             }
 
@@ -119,11 +115,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
             callback()?.onEditingPrefsChanged()
         }
 
-        disableBackgroundDim()
-        requireDialog().window?.let {
-            DeviceUtil.setNavigationBarColor(it, ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
-        }
-
         disposables.add(WikipediaApp.instance.bus.subscribe(EventBusConsumer()))
 
         return binding.root
@@ -137,7 +128,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        funnel = AppearanceChangeFunnel(app, app.wikiSite, invokeSource)
         appearanceSettingInteractionEvent = AppearanceSettingInteractionEvent(invokeSource)
     }
 
@@ -195,7 +185,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
 
     private fun onToggleReadingFocusMode(enabled: Boolean) {
         Prefs.readingFocusModeEnabled = enabled
-        funnel.logReadingFocusMode(enabled)
         appearanceSettingInteractionEvent.logReadingFocusMode(enabled)
         callback()?.onToggleReadingFocusMode()
     }
@@ -258,8 +247,8 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateFontFamily() {
-        binding.buttonFontFamilySansSerif.strokeWidth = if (Prefs.fontFamily == binding.buttonFontFamilySansSerif.tag) BUTTON_STROKE_WIDTH else 0
-        binding.buttonFontFamilySerif.strokeWidth = if (Prefs.fontFamily == binding.buttonFontFamilySerif.tag) BUTTON_STROKE_WIDTH else 0
+        binding.buttonFontFamilySansSerif.strokeColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), if (Prefs.fontFamily == binding.buttonFontFamilySansSerif.tag) R.attr.progressive_color else R.attr.border_color))
+        binding.buttonFontFamilySerif.strokeColor = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), if (Prefs.fontFamily == binding.buttonFontFamilySerif.tag) R.attr.progressive_color else R.attr.border_color))
     }
 
     private fun updateThemeButtons() {
@@ -275,16 +264,15 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun updateDimImagesSwitch() {
+        val attrColor = if (binding.themeChooserDarkModeDimImagesSwitch.isEnabled) R.attr.secondary_color else R.attr.overlay_color
         binding.themeChooserDarkModeDimImagesSwitch.isChecked = Prefs.dimDarkModeImages
         binding.themeChooserDarkModeDimImagesSwitch.isEnabled = app.currentTheme.isDark
-        binding.themeChooserDarkModeDimImagesSwitch.setTextColor(if (binding.themeChooserDarkModeDimImagesSwitch.isEnabled)
-            ResourceUtil.getThemedColor(requireContext(), R.attr.section_title_color) else ContextCompat.getColor(requireContext(), R.color.black26))
+        binding.themeChooserDarkModeDimImagesSwitch.setTextColor(ResourceUtil.getThemedColor(requireContext(), attrColor))
     }
 
     private inner class ThemeButtonListener(private val theme: Theme) : View.OnClickListener {
         override fun onClick(v: View) {
             if (app.currentTheme !== theme) {
-                funnel.logThemeChange(app.currentTheme, theme)
                 appearanceSettingInteractionEvent.logThemeChange(app.currentTheme, theme)
                 app.currentTheme = theme
             }
@@ -295,7 +283,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
         override fun onClick(v: View) {
             if (v.tag != null) {
                 val newFontFamily = v.tag as String
-                funnel.logFontThemeChange(Prefs.fontFamily, newFontFamily)
                 appearanceSettingInteractionEvent.logFontThemeChange(Prefs.fontFamily, newFontFamily)
                 app.setFontFamily(newFontFamily)
             }
@@ -333,7 +320,6 @@ class ThemeChooserDialog : ExtendedBottomSheetDialogFragment() {
                     updateFontSize()
                 }
             }
-            funnel.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
             appearanceSettingInteractionEvent.logFontSizeChange(currentMultiplier.toFloat(), Prefs.textSizeMultiplier.toFloat())
         }
     }

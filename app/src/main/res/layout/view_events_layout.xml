@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="27dp"
-    android:background="?attr/chip_background_color"
+    android:background="?attr/border_color"
     android:clipChildren="false"
     android:clipToPadding="false">
 

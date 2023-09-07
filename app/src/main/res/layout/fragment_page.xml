@@ -43,15 +43,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="?attr/actionBarSize" />
+            android:layout_marginBottom="@dimen/nav_bar_height" />
 
-        <org.wikipedia.page.PageActionTabLayout
-            android:id="@+id/page_actions_tab_layout"
+        <FrameLayout
+            android:id="@+id/page_actions_tab_container"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/paper_color"
-            android:layout_gravity="bottom"
-            android:elevation="8dp"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+            <org.wikipedia.page.PageActionTabLayout
+                android:id="@+id/page_actions_tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nav_bar_height"
+                android:background="?attr/paper_color" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="?attr/border_color" />
+        </FrameLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

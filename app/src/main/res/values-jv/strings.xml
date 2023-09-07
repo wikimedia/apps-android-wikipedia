@@ -65,9 +65,8 @@
   <string name="map_view_link_text">Deleng ing gambar bumi</string>
   <string name="other_languages_indication_text">Waca ing basa liyané</string>
   <string name="language_count_link_text">Cumawis ing %d basa liyané</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Kanthi mbabar, kowé minangkani &lt;a href=\"%1$s\"&gt;Paugeran ing Panganggo&lt;/a&gt;, lan nguculaké pasumbangmu mawa lisènsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Kanthi nyimpen, panjenengan minangkani &lt;a href=\"%1$s\"&gt;Paugeran ing Guna&lt;/a&gt;, lan lila nguculaké sumbangané sampéyan mawa lisènsi &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Besutan bakal kagayutaké nyang alamat IP pirantiné panjenengan. Manawa panjenengan &lt;a href=\"https://#login\"&gt;mlebu log&lt;/a&gt;, panjenengan bakal éntuk privasi luwih.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Kanthi mbabar, kowé minangkani &lt;a href=\"%1$s\"&gt;Paugeran ing Panganggo&lt;/a&gt;, lan nguculaké pasumbangmu mawa lisènsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Kanthi nyimpen, panjenengan minangkani &lt;a href=\"%1$s\"&gt;Paugeran ing Guna&lt;/a&gt;, lan lila nguculaké sumbangané sampéyan mawa lisènsi &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Besutan bakal kagayutaké nyang alamat IP pirantiné panjenengan. Manawa panjenengan &lt;a href=\"https://#login\"&gt;mlebu log&lt;/a&gt;, panjenengan bakal éntuk privasi luwih.</string>
   <string name="preference_title_language">Basa Wikipédia</string>
   <string name="langlinks_filter_hint">Golèk</string>
   <string name="langlinks_empty">Kaca iki ora ana ing basa liya.</string>
@@ -184,8 +183,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Kapustakan sing dienggo</string>
   <string name="about_contributors_heading">Panyumbang</string>
@@ -327,10 +324,6 @@
   <string name="reading_list_create_new">Gawé anyar</string>
   <string name="reading_list_title_exists">Pratélan wacan \"%s\" wis ana.</string>
   <string name="reading_list_added_view_button">Deleng pratélan</string>
-  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d saka 1 artikel cumepak ing jaban jaringan, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d saka %2$d artikel cumepak ing jaban jaringan, %3$.2f MB</string>
   <string name="reading_list_sort">Urutaké</string>
   <string name="reading_list_sort_ellipsis">Urutaké miturut...</string>
   <string name="reading_list_sort_by_name">Urutaké miturut jeneng</string>

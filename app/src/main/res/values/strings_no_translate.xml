@@ -4,6 +4,7 @@
     <string name="channel" />
 
     <!-- URLs -->
+    <string name="support_email">android-support@wikimedia.org</string>
     <string name="donate_url">https://donate.wikimedia.org/?utm_medium=WikipediaApp&amp;utm_campaign=Android&amp;utm_source=%1$s&amp;uselang=%2$s</string>
     <string name="suggested_edits_survey_url">@null</string>
     <string name="talk_pages_survey_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Communication/UsertestingOctober2021</string>
@@ -65,4 +66,5 @@
     <!-- Tag ids for SwipeableItemTouchHelper -->
     <string name="tag_icon_key">tagIconKey</string>
     <string name="tag_text_key">tagTextKey</string>
+
 </resources>

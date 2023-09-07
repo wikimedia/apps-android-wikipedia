@@ -12,10 +12,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
 import androidx.core.view.MenuItemCompat
-import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.paging.PagingData
@@ -39,11 +40,9 @@ import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.*
@@ -61,7 +60,6 @@ class UserContribListActivity : BaseActivity() {
     private val loadHeader = LoadingItemAdapter { userContribListAdapter.retry() }
     private val loadFooter = LoadingItemAdapter { userContribListAdapter.retry() }
     private val viewModel: UserContribListViewModel by viewModels { UserContribListViewModel.Factory(intent.extras!!) }
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val searchActionModeCallback = SearchCallback()
 
@@ -85,10 +83,10 @@ class UserContribListActivity : BaseActivity() {
         binding = ActivityUserContribBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = ""
 
-        binding.titleView.isInvisible = true
-        binding.titleView.text = getString(R.string.user_contrib_activity_title, StringUtil.fromHtml(viewModel.userName))
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.title = getString(R.string.user_contrib_activity_title, StringUtil.fromHtml(viewModel.userName))
+
         linkHandler = UserContribLinkHandler(this)
         linkHandler.wikiSite = viewModel.wikiSite
 
@@ -102,29 +100,37 @@ class UserContribListActivity : BaseActivity() {
         binding.userContribRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                binding.titleView.isInvisible = binding.userContribRecycler.computeVerticalScrollOffset() <= recyclerView.getChildAt(0).height
+                supportActionBar?.setDisplayShowTitleEnabled(binding.userContribRecycler.computeVerticalScrollOffset() > recyclerView.getChildAt(0).height)
             }
         })
 
-        lifecycleScope.launchWhenCreated {
-            userContribListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
-                    .filter { it.refresh is LoadState.NotLoading }
-                    .collectLatest {
-                        if (binding.refreshContainer.isRefreshing) {
-                            binding.refreshContainer.isRefreshing = false
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                launch {
+                    userContribListAdapter.loadStateFlow.distinctUntilChangedBy { it.refresh }
+                        .filter { it.refresh is LoadState.NotLoading }
+                        .collectLatest {
+                            if (binding.refreshContainer.isRefreshing) {
+                                binding.refreshContainer.isRefreshing = false
+                            }
+                        }
+                }
+                launch {
+                    userContribListAdapter.loadStateFlow.collectLatest {
+                        loadHeader.loadState = it.refresh
+                        loadFooter.loadState = it.append
+                        val showEmpty = (it.append is LoadState.NotLoading && it.source.refresh is LoadState.NotLoading && userContribListAdapter.itemCount == 0)
+                        if (showEmpty) {
+                            (binding.userContribRecycler.adapter as ConcatAdapter).addAdapter(userContribEmptyMessagesAdapter)
+                        } else {
+                            (binding.userContribRecycler.adapter as ConcatAdapter).removeAdapter(userContribEmptyMessagesAdapter)
                         }
                     }
-        }
-
-        lifecycleScope.launchWhenCreated {
-            userContribListAdapter.loadStateFlow.collectLatest {
-                loadHeader.loadState = it.refresh
-                loadFooter.loadState = it.append
-                val showEmpty = (it.append is LoadState.NotLoading && it.source.refresh is LoadState.NotLoading && userContribListAdapter.itemCount == 0)
-                if (showEmpty) {
-                    (binding.userContribRecycler.adapter as ConcatAdapter).addAdapter(userContribEmptyMessagesAdapter)
-                } else {
-                    (binding.userContribRecycler.adapter as ConcatAdapter).removeAdapter(userContribEmptyMessagesAdapter)
+                }
+                launch {
+                    viewModel.userContribFlow.collectLatest {
+                        userContribListAdapter.submitData(it)
+                    }
                 }
             }
         }
@@ -133,12 +139,6 @@ class UserContribListActivity : BaseActivity() {
             if (it is Resource.Success) {
                 userContribStatsAdapter.notifyItemChanged(0)
                 userContribSearchBarAdapter.notifyItemChanged(0)
-            }
-        }
-
-        lifecycleScope.launch {
-            viewModel.userContribFlow.collectLatest {
-                userContribListAdapter.submitData(it)
             }
         }
 
@@ -300,7 +300,7 @@ class UserContribListActivity : BaseActivity() {
             val statsFlowValue = viewModel.userContribStatsData.value
             if (statsFlowValue is Resource.Success) {
                 binding.root.setCardBackgroundColor(
-                    ResourceUtil.getThemedColor(this@UserContribListActivity, R.attr.color_group_22)
+                    ResourceUtil.getThemedColor(this@UserContribListActivity, R.attr.background_color)
                 )
 
                 itemView.setOnClickListener {
@@ -321,12 +321,12 @@ class UserContribListActivity : BaseActivity() {
             if (excludedFilters == 0) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.color_group_9))
+                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.primary_color))
             } else {
                 binding.filterCount.visibility = View.VISIBLE
                 binding.filterCount.text = excludedFilters.toString()
                 ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.colorAccent))
+                    ResourceUtil.getThemedColorStateList(this@UserContribListActivity, R.attr.progressive_color))
             }
         }
     }
@@ -340,7 +340,6 @@ class UserContribListActivity : BaseActivity() {
 
         fun bindItem() {
             binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.page_edit_history_empty_search_message))
-            RichTextUtil.removeUnderlinesFromLinks(binding.emptySearchMessage)
         }
     }
 
@@ -355,7 +354,7 @@ class UserContribListActivity : BaseActivity() {
 
         override fun onClick() {
             startActivity(ArticleEditDetailsActivity.newIntent(this@UserContribListActivity,
-                    PageTitle(contrib.title, viewModel.wikiSite), contrib.revid))
+                    PageTitle(contrib.title, viewModel.wikiSite), contrib.pageid, contrib.revid))
         }
     }
 
@@ -446,7 +445,7 @@ class UserContribListActivity : BaseActivity() {
         }
 
         override fun onInternalLinkClicked(title: PageTitle) {
-            UserTalkPopupHelper.show(this@UserContribListActivity, bottomSheetPresenter, title, false, lastX, lastY,
+            UserTalkPopupHelper.show(this@UserContribListActivity, title, false, lastX, lastY,
                     Constants.InvokeSource.USER_CONTRIB_ACTIVITY, HistoryEntry.SOURCE_USER_CONTRIB, showContribs = false)
         }
     }

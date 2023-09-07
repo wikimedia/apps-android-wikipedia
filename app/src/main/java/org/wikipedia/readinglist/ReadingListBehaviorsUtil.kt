@@ -5,12 +5,11 @@ import android.content.DialogInterface
 import android.icu.text.ListFormatter
 import android.os.Build
 import android.text.Spanned
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.analytics.ReadingListsFunnel
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
@@ -86,20 +85,34 @@ object ReadingListBehaviorsUtil {
             return
         }
         if (showDialog) {
-            AlertDialog.Builder(activity)
+            MaterialAlertDialogBuilder(activity)
                     .setMessage(activity.getString(R.string.reading_list_delete_confirm, readingList.title))
                     .setPositiveButton(R.string.reading_list_delete_dialog_ok_button_text) { _, _ ->
                         AppDatabase.instance.readingListDao().deleteList(readingList)
                         AppDatabase.instance.readingListPageDao().markPagesForDeletion(readingList, readingList.pages, false)
                         callback.onCompleted() }
                     .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
-                    .create()
                     .show()
         } else {
             AppDatabase.instance.readingListDao().deleteList(readingList)
             AppDatabase.instance.readingListPageDao().markPagesForDeletion(readingList, readingList.pages, false)
             callback.onCompleted()
         }
+    }
+
+    fun deleteReadingLists(activity: Activity, readingLists: List<ReadingList>, callback: Callback) {
+        MaterialAlertDialogBuilder(activity)
+            .setTitle(R.string.reading_list_delete_lists_confirm_dialog_title)
+            .setMessage(activity.resources.getQuantityString(R.plurals.reading_list_delete_lists_confirm_dialog_message, readingLists.size, readingLists.size))
+            .setPositiveButton(R.string.reading_list_delete_lists_dialog_delete_button_text) { _, _ ->
+                readingLists.filterNot { it.isDefault }.forEach {
+                    AppDatabase.instance.readingListDao().deleteList(it)
+                    AppDatabase.instance.readingListPageDao().markPagesForDeletion(it, it.pages, false)
+                }
+                callback.onCompleted()
+            }
+            .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
+            .show()
     }
 
     fun deletePages(activity: Activity, listsContainPage: List<ReadingList>, readingListPage: ReadingListPage, snackbarCallback: SnackbarCallback, callback: Callback) {
@@ -205,6 +218,39 @@ object ReadingListBehaviorsUtil {
             .show()
     }
 
+    fun showDeleteListsUndoSnackbar(activity: Activity, readingLists: List<ReadingList>?, callback: SnackbarCallback) {
+        if (readingLists == null) {
+            return
+        }
+        val snackBar = FeedbackUtil.makeSnackbar(activity, getDeleteListMessage(activity, readingLists))
+        if (!(readingLists.size == 1 && readingLists[0].isDefault)) {
+            snackBar.setAction(R.string.reading_list_item_delete_undo) {
+                readingLists.filterNot { it.isDefault }.forEach {
+                    val newList = AppDatabase.instance.readingListDao().createList(it.title, it.description)
+                    val newPages = ArrayList<ReadingListPage>()
+                    for (page in it.pages) {
+                        newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
+                    }
+                    AppDatabase.instance.readingListPageDao().addPagesToList(newList, newPages, true)
+                }
+                callback.onUndoDeleteClicked()
+            }
+        }
+        snackBar.show()
+    }
+
+    private fun getDeleteListMessage(activity: Activity, readingLists: List<ReadingList>): String {
+        return if (readingLists.any { it.isDefault }) {
+            when (readingLists.size) {
+                1 -> activity.getString(R.string.reading_lists_default_list_delete_message, activity.getString(R.string.default_reading_list_name))
+                2 -> activity.getString(R.string.reading_lists_default_plus_one_list_delete_message, readingLists.first { !it.isDefault }.title, activity.getString(R.string.default_reading_list_name))
+                else -> activity.getString(R.string.reading_lists_default_plus_many_lists_delete_message, activity.getString(R.string.default_reading_list_name))
+            }
+        } else {
+            activity.resources.getQuantityString(R.plurals.reading_lists_deleted_message, readingLists.size, readingLists.size)
+        }
+    }
+
     fun togglePageOffline(activity: Activity, page: ReadingListPage?, callback: Callback) {
         if (page == null) {
             return
@@ -214,13 +260,12 @@ object ReadingListBehaviorsUtil {
                 val pages = withContext(dispatcher) { AppDatabase.instance.readingListPageDao().getAllPageOccurrences(ReadingListPage.toPageTitle(page)) }
                 val lists = withContext(dispatcher) { AppDatabase.instance.readingListDao().getListsFromPageOccurrences(pages) }
                 if (lists.size > 1) {
-                    val dialog = AlertDialog.Builder(activity)
+                    MaterialAlertDialogBuilder(activity)
                             .setTitle(R.string.reading_list_confirm_remove_article_from_offline_title)
                             .setMessage(getConfirmToggleOfflineMessage(activity, page, lists))
                             .setPositiveButton(R.string.reading_list_confirm_remove_article_from_offline) { _, _ -> toggleOffline(activity, page, callback) }
                             .setNegativeButton(R.string.reading_list_remove_from_offline_cancel_button_text, null)
-                            .create()
-                    dialog.show()
+                            .show()
                 } else {
                     toggleOffline(activity, page, callback)
                 }
@@ -251,7 +296,6 @@ object ReadingListBehaviorsUtil {
         val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
         val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(title))
         if (addedTitles.isNotEmpty()) {
-            ReadingListsFunnel().logAddToList(defaultList, 1, invokeSource)
             FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, title.displayText))
                 .setAction(R.string.reading_list_add_to_list_button) { addToDefaultListCallback.onMoveClicked(defaultList.id) }.show()
             callback?.onCompleted()
@@ -266,7 +310,7 @@ object ReadingListBehaviorsUtil {
     }
 
     private fun showMobileDataWarningDialog(activity: Activity, listener: DialogInterface.OnClickListener) {
-        AlertDialog.Builder(activity)
+        MaterialAlertDialogBuilder(activity)
                 .setTitle(R.string.dialog_title_download_only_over_wifi)
                 .setMessage(R.string.dialog_text_download_only_over_wifi)
                 .setPositiveButton(R.string.dialog_title_download_only_over_wifi_allow, listener)

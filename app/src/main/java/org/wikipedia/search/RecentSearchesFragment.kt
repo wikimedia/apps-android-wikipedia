@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -47,18 +47,16 @@ class RecentSearchesFragment : Fragment() {
         _binding = FragmentSearchRecentBinding.inflate(inflater, container, false)
 
         binding.recentSearchesDeleteButton.setOnClickListener {
-            AlertDialog.Builder(requireContext())
+            MaterialAlertDialogBuilder(requireContext())
                     .setMessage(getString(R.string.clear_recent_searches_confirm))
                     .setPositiveButton(getString(R.string.clear_recent_searches_confirm_yes)) { _, _ ->
                         lifecycleScope.launch(coroutineExceptionHandler) {
-                            withContext(Dispatchers.IO) {
-                                AppDatabase.instance.recentSearchDao().deleteAll()
-                            }
+                            AppDatabase.instance.recentSearchDao().deleteAll()
                             updateList()
                         }
                     }
                     .setNegativeButton(getString(R.string.clear_recent_searches_confirm_no), null)
-                    .create().show()
+                    .show()
         }
         binding.addLanguagesButton.setOnClickListener { onAddLangButtonClick() }
         binding.recentSearchesRecycler.layoutManager = LinearLayoutManager(requireActivity())
@@ -118,17 +116,13 @@ class RecentSearchesFragment : Fragment() {
         if (!namespaceMap.containsKey(langCode)) {
             val map = mutableMapOf<Namespace, String>()
             namespaceMap[langCode] = map
-            withContext(Dispatchers.IO) {
-                nsMap = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getPageNamespaceWithSiteInfo(null).query?.namespaces.orEmpty()
-                namespaceHints.forEach {
-                    map[it] = nsMap[it.code().toString()]?.name.orEmpty()
-                }
+            nsMap = ServiceFactory.get(WikiSite.forLanguageCode(langCode)).getPageNamespaceWithSiteInfo(null).query?.namespaces.orEmpty()
+            namespaceHints.forEach {
+                map[it] = nsMap[it.code().toString()]?.name.orEmpty()
             }
         }
 
-        withContext(Dispatchers.IO) {
-            searches = AppDatabase.instance.recentSearchDao().getRecentSearches()
-        }
+        searches = AppDatabase.instance.recentSearchDao().getRecentSearches()
 
         recentSearchList.clear()
         recentSearchList.addAll(searches)
@@ -157,9 +151,7 @@ class RecentSearchesFragment : Fragment() {
 
         override fun onSwipe() {
             lifecycleScope.launch(coroutineExceptionHandler) {
-                withContext(Dispatchers.IO) {
-                    AppDatabase.instance.recentSearchDao().delete(recentSearch)
-                }
+                AppDatabase.instance.recentSearchDao().delete(recentSearch)
                 updateList()
             }
         }
@@ -187,7 +179,7 @@ class RecentSearchesFragment : Fragment() {
             itemView.setOnClickListener(this)
             (itemView as TextView).text = if (isHeader) getString(R.string.search_namespaces) else namespaceMap[callback?.getLangCode()]?.get(ns).orEmpty() + ":"
             itemView.isEnabled = !isHeader
-            itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (isHeader) R.attr.material_theme_primary_color else R.attr.colorAccent))
+            itemView.setTextColor(ResourceUtil.getThemedColor(requireContext(), if (isHeader) R.attr.primary_color else R.attr.progressive_color))
         }
 
         override fun onClick(v: View) {

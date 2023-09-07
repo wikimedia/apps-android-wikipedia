@@ -78,7 +78,7 @@
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="?attr/color_group_60" />
+            android:background="?attr/border_color" />
 
         <ImageView
             android:id="@+id/close_button"
@@ -87,7 +87,7 @@
             android:padding="12dp"
             android:background="?attr/selectableItemBackground"
             app:srcCompat="@drawable/ic_close_black_24dp"
-            app:tint="?attr/colorAccent"
+            app:tint="?attr/progressive_color"
             android:contentDescription="@string/table_close" />
 
     </LinearLayout>
@@ -100,6 +100,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/color_group_60" />
+        android:background="?attr/border_color" />
 
 </merge>

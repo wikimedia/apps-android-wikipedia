@@ -31,7 +31,6 @@ class InsertMediaSettingsFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel get() = activity.viewModel
     private var currentVoiceInputParentLayout: View? = null
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     val isActive get() = binding.root.visibility == View.VISIBLE
     val alternativeText get() = binding.mediaAlternativeText.text.toString().trim()
@@ -66,9 +65,9 @@ class InsertMediaSettingsFragment : Fragment() {
         }
         binding.imageInfoContainer.setOnClickListener {
             viewModel.selectedImage?.let {
-                val summary = PageSummaryForEdit(it.pageTitle.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode, it.pageTitle,
-                    it.pageTitle.displayText, RichTextUtil.stripHtml(it.imageInfo!!.metadata!!.imageDescription()), it.imageInfo.thumbUrl)
-                bottomSheetPresenter.show(childFragmentManager,
+                val summary = PageSummaryForEdit(it.prefixedText, WikipediaApp.instance.appOrSystemLanguageCode, it,
+                    it.displayText, RichTextUtil.stripHtml(it.description), it.thumbUrl)
+                ExclusiveBottomSheetPresenter.show(childFragmentManager,
                     ImagePreviewDialog.newInstance(summary))
             }
         }
@@ -99,8 +98,9 @@ class InsertMediaSettingsFragment : Fragment() {
         activity.invalidateOptionsMenu()
         activity.supportActionBar?.title = getString(R.string.insert_media_settings)
         viewModel.selectedImage?.let {
-            ViewUtil.loadImageWithRoundedCorners(binding.imageView, it.pageTitle.thumbUrl, true)
-            binding.mediaDescription.text = StringUtil.removeHTMLTags(it.imageInfo?.metadata?.imageDescription().orEmpty().ifEmpty { it.pageTitle.displayText })
+            ViewUtil.loadImageWithRoundedCorners(binding.imageView, it.thumbUrl, true)
+            binding.mediaTitle.text = it.text
+            binding.mediaDescription.text = StringUtil.removeHTMLTags(it.description.orEmpty().ifEmpty { it.displayText }).trim()
         }
         binding.mediaCaptionLayout.requestFocus()
         DeviceUtil.showSoftKeyboard(binding.mediaCaptionText)

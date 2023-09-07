@@ -108,9 +108,6 @@
   <string name="location_service_disabled">Shërbimet e vendndodhjes janë të çaktivizuara.</string>
   <string name="enable_location_service">Aktivizo</string>
   <string name="color_theme_select">Tema</string>
-  <string name="format_reading_list_statistical_summary_singular" fuzzy="true">1 artikull, %1$.2f MiB</string>
-  <string name="format_reading_list_statistical_summary_plural" fuzzy="true">%1$d artikuj, %2$.2f MiB</string>
-  <string name="format_reading_list_statistical_detail_plural" fuzzy="true">%1$d nga %2$d artikuj janë në dispozicion offline, %3$.2f MiB</string>
   <string name="onboarding_welcome_title_v2" fuzzy="true">Enciklopedia falas\n...afersisht ne 300 gjuhe</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Largo nje variant ne Gjuhen Kineze nga gjuhet ne aplikacionin tuaj?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">You tani keni setin e varianteve te te dyjave te asaj Tradicionale dhe Kineze te thjeshtesuar ne gjuhet e aplikacionit.\nRino rradhitjen e gjuhes ne aplikacionin tuaj?</string>

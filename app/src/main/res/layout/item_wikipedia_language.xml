@@ -14,7 +14,7 @@
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="?attr/colorPrimary"
+        android:textColor="?attr/placeholder_color"
         android:textSize="14sp"
         tools:text="1" />
 
@@ -31,18 +31,20 @@
     <TextView
         android:id="@+id/wiki_language_code"
         style="@style/TextViewCentered"
-        android:layout_width="24dp"
+        android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="24dp"
         android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
+        android:minWidth="24dp"
+        android:paddingHorizontal="2dp"
         android:textAllCaps="true"
-        android:textColor="@color/base30" />
+        android:textColor="?attr/placeholder_color" />
 
     <TextView
         android:id="@+id/wiki_language_title"
-        style="@style/MaterialListTitle"
+        style="@style/H3.MaterialListTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -51,13 +53,13 @@
         android:paddingEnd="8dp"
         tools:text="Lorem ipsum" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/wiki_language_drag_handle"
         android:layout_width="56dp"
         android:layout_height="match_parent"
         android:contentDescription="@null"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_draggable"
-        app:tint="?attr/material_theme_de_emphasised_color" />
+        app:tint="?attr/placeholder_color" />
 
 </merge>

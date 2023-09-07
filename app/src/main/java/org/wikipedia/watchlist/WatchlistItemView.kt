@@ -1,6 +1,7 @@
 package org.wikipedia.watchlist
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -9,7 +10,7 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
-import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemWatchlistBinding
@@ -47,7 +48,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         }
     }
 
-    fun setItem(item: MwQueryResult.WatchlistItem) {
+    fun setItem(item: MwQueryResult.WatchlistItem, currentQuery: String?) {
         this.item = item
         var isSummaryEmpty = false
         binding.titleText.text = item.title
@@ -58,13 +59,14 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         }
         binding.summaryText.setTypeface(Typeface.SANS_SERIF, if (isSummaryEmpty) Typeface.ITALIC else Typeface.NORMAL)
         binding.summaryText.setTextColor(ResourceUtil.getThemedColor(context,
-            if (isSummaryEmpty) R.attr.material_theme_secondary_color else R.attr.material_theme_primary_color))
+            if (isSummaryEmpty) R.attr.secondary_color else R.attr.primary_color))
         binding.timeText.text = DateUtil.getTimeString(context, item.date)
         binding.userNameText.text = item.user
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)
 
         binding.userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_avatar)
         if (item.logtype.isNotEmpty()) {
+            binding.diffText.isVisible = true
             when (item.logtype) {
                 context.getString(R.string.page_moved) -> {
                     setButtonTextAndIconColor(context.getString(R.string.watchlist_page_moved), R.drawable.ic_info_outline_black_24dp)
@@ -75,31 +77,38 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
                 context.getString(R.string.page_deleted) -> {
                     setButtonTextAndIconColor(context.getString(R.string.watchlist_page_deleted), R.drawable.ic_delete_white_24dp)
                 }
+                else -> {
+                    binding.diffText.isVisible = false
+                    binding.summaryText.text = StringUtil.fromHtml(item.logdisplay)
+                }
             }
             binding.containerView.alpha = 0.5f
             binding.containerView.isClickable = false
         } else {
             val diffByteCount = item.newlen - item.oldlen
-            setButtonTextAndIconColor(StringUtil.getDiffBytesText(context, diffByteCount), textAllCaps = false)
+            setButtonTextAndIconColor(StringUtil.getDiffBytesText(context, diffByteCount))
             if (diffByteCount >= 0) {
-                binding.diffText.setTextColor(if (diffByteCount > 0) ContextCompat.getColor(context, R.color.green50)
-                else ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color))
+                val diffColor = if (diffByteCount > 0) R.attr.success_color else R.attr.secondary_color
+                binding.diffText.setTextColor(ResourceUtil.getThemedColor(context, diffColor))
             } else {
-                binding.diffText.setTextColor(ContextCompat.getColor(context, R.color.red50))
+                binding.diffText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.destructive_color))
             }
+            binding.diffText.isVisible = true
             binding.containerView.alpha = 1.0f
             binding.containerView.isClickable = true
         }
         L10nUtil.setConditionalLayoutDirection(this, item.wiki!!.languageCode)
+        StringUtil.highlightAndBoldenText(binding.titleText, currentQuery, true, Color.YELLOW)
+        StringUtil.highlightAndBoldenText(binding.userNameText, currentQuery, true, Color.YELLOW)
+        StringUtil.highlightAndBoldenText(binding.summaryText, currentQuery, true, Color.YELLOW)
     }
 
-    private fun setButtonTextAndIconColor(text: String, @DrawableRes iconResourceDrawable: Int = 0, textAllCaps: Boolean = true) {
-        val themedTint = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_61)
+    private fun setButtonTextAndIconColor(text: String, @DrawableRes iconResourceDrawable: Int = 0) {
+        val themedTint = ResourceUtil.getThemedColorStateList(context, R.attr.border_color)
         binding.diffText.text = text
         binding.diffText.setTextColor(themedTint)
         binding.diffText.setIconResource(iconResourceDrawable)
         binding.diffText.iconTint = themedTint
-        binding.diffText.isAllCaps = textAllCaps
     }
 
     interface Callback {

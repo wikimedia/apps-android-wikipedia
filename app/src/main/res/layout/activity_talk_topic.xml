@@ -17,34 +17,13 @@
             android:layout_marginTop="?attr/actionBarSize"
             android:scrollbars="vertical" />
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/replyToolbar"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            style="@style/ToolbarStyle.Small"
             app:contentInsetStart="0dp"
-            app:contentInsetEnd="0dp"
-            style="@style/ToolbarStyle">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/talkToolbarSubjectView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:textColor="?attr/primary_text_color"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </androidx.appcompat.widget.Toolbar>
+            app:contentInsetEnd="0dp" />
 
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/talkErrorView"
@@ -53,13 +32,11 @@
             android:layout_gravity="center"
             android:orientation="vertical" />
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/talkProgressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:layout_marginTop="-7dp"
             android:indeterminate="true" />
 
     </FrameLayout>

@@ -50,10 +50,11 @@
 
                     <org.wikipedia.views.AppTextView
                         android:id="@+id/primaryTextView"
-                        style="@style/MaterialLargePrimaryTitle"
+                        style="@style/H2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
+                        android:textAlignment="center"
                         tools:text="Lorem ipsum" />
 
                     <org.wikipedia.views.AppTextView
@@ -63,8 +64,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:lineSpacingMultiplier="1.22"
-                        android:textColor="?attr/material_theme_secondary_color"
-                        android:textColorLink="?attr/colorAccent"
+                        android:textColor="?attr/secondary_color"
+                        android:textColorLink="?attr/progressive_color"
                         android:textSize="16sp"
                         tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
 
@@ -76,36 +77,31 @@
                         android:visibility="gone"/>
 
                     <LinearLayout
-                        android:id="@+id/switchContainer"
+                        android:id="@+id/acceptRejectContainer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginTop="8dp"
-                        android:orientation="vertical">
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal"
+                        android:gravity="center">
 
-                        <View
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/rejectButton"
                             android:layout_width="wrap_content"
-                            android:layout_height="0.5dp"
-                            android:background="?attr/chart_shade5" />
-
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/switchView"
-                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginEnd="16dp"
-                            android:layout_marginTop="8dp"
-                            android:textColor="?attr/material_theme_primary_color"
-                            app:theme="@style/OnboardingSwitch"
-                            android:focusable="true"
-                            tools:text="Lorem ipsum" />
+                            style="@style/App.Button.Secondary"
+                            android:textSize="16sp"
+                            android:text="@string/data_opt_in_reject" />
 
-                        <View
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/acceptButton"
                             android:layout_width="wrap_content"
-                            android:layout_height="0.5dp"
-                            android:background="?attr/chart_shade5" />
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="@string/data_opt_in_accept"
+                            android:textSize="16sp" />
+
                     </LinearLayout>
+
                 </LinearLayout>
 
                 <org.wikipedia.views.GoneIfEmptyTextView
@@ -117,7 +113,7 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginTop="8dp"
                     android:text="@string/description_edit_tutorial_promise"
-                    android:textColor="?attr/material_theme_secondary_color"
+                    android:textColor="?attr/secondary_color"
                     android:textSize="12sp" />
             </LinearLayout>
 

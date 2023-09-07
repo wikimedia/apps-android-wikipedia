@@ -3,6 +3,7 @@
 * Anders Feder
 * Christian List
 * Dargelf
+* Dbrant
 * Dipsacus fullonum
 * Fitoschido
 * Gorbi
@@ -72,10 +73,28 @@
   <string name="page_edit_history_filter_by_user">Brugerredigeringer (%s)</string>
   <string name="page_edit_history_filter_by_anon">Anonyme redigeringer (%s)</string>
   <string name="page_edit_history_filter_by_bot">Bot redigeringer (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Målinger fra %1$s til %2$s</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%1$d redigering siden %2$s</item>
+    <item quantity="other">%1$d redigeringer siden %2$s</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d redigering siden %2$s (%3$s)</item>
+    <item quantity="other">%1$d redigeringer siden %2$s (%3$s)</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Prøv at ændre &lt;a href=\"#\"&gt;filtrene&lt;/a&gt; for at se flere redigeringer</string>
   <string name="menu_page_show_tabs">Vis faner</string>
   <string name="menu_page_other_languages">Skift sprog</string>
   <string name="menu_page_find_in_page">Find i artiklen</string>
   <string name="menu_page_add_to_watchlist">Tilføj til overvågningsliste</string>
+  <string name="menu_page_watch">Overvåg</string>
+  <string name="menu_page_unwatch">Overvåg ikke</string>
+  <string name="menu_page_view_talk">Vis diskussionsside</string>
+  <string name="menu_page_talk_page">Diskussionsside</string>
+  <string name="menu_page_view_edit_history">Vis redigeringshistorik</string>
+  <string name="menu_page_edit_history">Redigeringshistorik</string>
+  <string name="menu_page_remove_from_watchlist">Fjern fra overvågningsliste</string>
+  <string name="menu_page_watched">Overvåget</string>
   <string name="edit_section_find_in_page">Søg på siden</string>
   <string name="menu_page_font_and_theme">Skrifttype og tema</string>
   <string name="menu_page_add_to_list">Tilføj til læseliste</string>
@@ -83,10 +102,13 @@
   <string name="feed_card_add_to_list">Tilføj til læseliste</string>
   <string name="feed_card_add_to_default_list">Gem</string>
   <string name="menu_page_share">Del link</string>
+  <string name="menu_article_share">Del artikel</string>
+  <string name="menu_page_article_share">Del</string>
   <string name="menu_page_open_a_new_tab">Åbn en ny fane</string>
   <string name="menu_page_new_tab">Ny fane</string>
   <string name="menu_page_reading_lists">Læselister</string>
   <string name="menu_page_recently_viewed">Senest vist</string>
+  <string name="menu_page_archive">Arkiv</string>
   <string name="menu_long_press_open_page">Åbn</string>
   <string name="menu_long_press_open_in_new_tab">Åbn i ny fane</string>
   <string name="menu_long_press_copy_page">Kopier link-adresse</string>
@@ -94,15 +116,16 @@
   <string name="on_this_day_page_share">Del</string>
   <string name="reading_list_page_share">Del</string>
   <string name="menu_text_select_edit_here">Rediger her</string>
+  <string name="menu_edit_article">Rediger artikel</string>
   <string name="last_updated_text">Sidst opdateret %s</string>
   <string name="talk_page_link_text">Vis diskussionsside</string>
   <string name="edit_history_link_text">Vis redigeringshistorik</string>
   <string name="map_view_link_text">Vis på et kort</string>
   <string name="other_languages_indication_text">Læs på et andet sprog</string>
   <string name="language_count_link_text">Tilgængelig på %d andre sprog</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
-  <string name="edit_save_action_license_anon">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Ved at udgive, accepterer du &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt;, og du accepterer uigenkaldeligt at udgive dine bidrag under &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licensen. Ændringer vil blive tilskrevet IP-adressen for din enhed. Hvis du &lt;a href=\"https://#login\"&gt;logger på&lt;/a&gt;, vil du have mere privatliv.</string>
+  <string name="edit_anon_warning">Redigeringer vil blive tilskrevet din enheds IP-adresse. Hvis du &lt;a href=\"https://#login\"&gt;logger ind&lt;/a&gt;, får du mere privatliv.</string>
   <string name="preference_title_language">Wikipediasprog</string>
   <string name="langlinks_filter_hint">Søg</string>
   <string name="langlinks_empty">Denne side er ikke tilgængelig på andre sprog</string>
@@ -169,6 +192,7 @@
   <string name="dialog_create_account_checking_progress">Kontrollerer</string>
   <string name="create_account_email_hint">E-mail (valgfri)</string>
   <string name="create_account_password_repeat_hint">Gentag adgangskode</string>
+  <string name="create_account_password_is_username">Adgangskode kan ikke være det samme som brugernavn</string>
   <string name="create_account_passwords_mismatch_error">Adgangskoderne er ikke ens</string>
   <string name="create_account_email_error">Ugyldig e-mailadresse</string>
   <string name="create_account_username_error">Ugyldige tegn i brugernavn</string>
@@ -214,6 +238,7 @@
   <string name="page_protected_can_not_edit_anon">Beklager, denne side kan ikke redigeres anonymt på dette tidspunkt.</string>
   <string name="page_protected_can_not_edit_title">Denne side er beskyttet</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Tilføj til overvågningsliste</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Følg med på hvad som sker med artikler du er interesseret i. Tryk på menuen og vælg Tilføj til overvågningsliste for at se hvordan artiklen ændrer sig.</string>
   <string name="settings_item_preferences">Indstillinger</string>
   <string name="settings_activity_title">Indstillinger</string>
   <string name="about_description">Om Wikipedia-appen</string>
@@ -225,7 +250,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/da</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.da</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -250,6 +274,11 @@
   <string name="edit_preview">Forhåndsvis</string>
   <string name="edit_undo">Fortryd</string>
   <string name="edit_redo">Gentag</string>
+  <string name="edit_rollback">Tilbagerulning</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s byte</item>
+    <item quantity="other"> %s bytes</item>
+  </plurals>
   <string name="edit_zoom_in">Zoom in</string>
   <string name="edit_zoom_out">Zoom ud</string>
   <string name="edit_summary_tag_typo">Rettet stavefejl</string>
@@ -259,10 +288,15 @@
   <string name="edit_summary_tag_other_hint">Andre måder du forbedrede siden</string>
   <string name="edit_conflict_title">Redigeringskonflikt</string>
   <string name="edit_conflict_message">Siden er allerede blevet redigeret af en anden bruger, og er i konflikt med din redigering. Kopier venligst dine ændringer, gå tilbage og opdater siden, og forsøg så at redigere igen.</string>
+  <string name="edit_notices">Redigeringsbemærkninger</string>
+  <string name="edit_notices_please_read">Venligst læs før du redigerer</string>
+  <string name="edit_notices_show_auto">Vis redigeringsbemærkninger automatisk</string>
+  <string name="edit_notices_tooltip">Tryk på denne knap for at se redigeringsbemærkninger for denne artikel.</string>
   <string name="find_next">Find næste</string>
   <string name="find_previous">Find forrige</string>
   <string name="find_first_occurence">Dette er den første forekomst</string>
   <string name="find_last_occurence">Dette er den sidste forekomst</string>
+  <string name="article_opened_in_background_tab">Denne artikel er blevet åbnet i en baggrundsfane.</string>
   <string name="abusefilter_title_warn">Dette er muligvis ikke en konstruktiv redigering. Er du sikker på at du ønsker at offentliggøre den?</string>
   <string name="abusefilter_title_disallow">Du kan ikke offentliggøre denne redigering. Gå venligst tilbage og ændr den.</string>
   <string name="abusefilter_text_warn">Et automatisk filter har identificeret denne redigering som potentielt er ukonstruktiv. Den kan indeholde en eller flere af følgende:&lt;br /&gt;&lt;br /&gt;· Skrive udelukkende med store bogstaver&lt;br /&gt;· Slette alt i artikler eller spamming&lt;br /&gt;· Irrelevante eksterne links eller billeder&lt;br /&gt;· Gentagelser af tegn</string>
@@ -307,6 +341,7 @@
   <string name="gallery_save_success">Filen blev gemt.</string>
   <string name="gallery_error_video_failed">Kan ikke afspille video.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilladelse til lagring på din enhed er påkrævet for at gemme billeder.</string>
+  <string name="gallery_edit_button_content_description">Rediger billedtekst</string>
   <string name="gallery_add_image_caption_button">Tilføj billedtekst</string>
   <string name="gallery_add_image_caption_in_language_button">Tilføj billedtekst (%s)</string>
   <string name="err_cannot_save_file">Kan ikke gemme filen</string>
@@ -424,10 +459,6 @@
     <item quantity="one">%1$d af 1 artikel tilgængelig offline, %3$.2f MB</item>
     <item quantity="other">%1$d af %2$d artikler tilgængelige offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d artikler, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d af 1 artikler tilgængelige offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d of %2$d artikler tilgængelige offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sortér</string>
   <string name="reading_list_sort_ellipsis">Sorter efter ...</string>
   <string name="reading_list_sort_by_name">Sortér efter navn</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,8 +9,8 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/fragment_main_coordinator"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/nav_bar_height">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/main_view_pager"
@@ -21,10 +21,10 @@
 
     <LinearLayout
         android:id="@+id/main_nav_tab_container"
-        android:elevation="6dp"
-        android:background="?attr/nav_tab_background_color"
+        android:background="?attr/paper_color"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="@dimen/nav_bar_height"
+        android:layout_gravity="bottom"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -34,15 +34,14 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:layout_weight="0.8"
-            android:background="@android:color/transparent"
-            app:elevation="0dp"
-            app:itemIconTint="?attr/nav_tab_item_color_state"
-            app:itemTextAppearanceActive="@style/BottomNavigationTextAppearanceActive"
-            app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearanceInactive"
-            app:itemTextColor="?attr/nav_tab_item_color_state"
+            app:itemIconTint="@color/color_state_nav_tab"
+            app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance.Active"
+            app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearance"
+            app:itemTextColor="@color/color_state_nav_tab"
             app:labelVisibilityMode="labeled"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@android:color/transparent" />
+            app:itemPaddingTop="8dp"
+            app:elevation="0dp"/>
 
         <FrameLayout
             android:id="@+id/nav_more_container"
@@ -57,21 +56,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@null"
-                android:layout_marginTop="9.5dp"
+                android:layout_marginTop="12dp"
                 android:layout_gravity="center_horizontal"
-                app:tint="?attr/material_theme_secondary_color"
-                app:srcCompat="@drawable/ic_menu_themed_24dp" />
+                app:tint="?attr/placeholder_color"
+                app:srcCompat="@drawable/ic_menu_white_24dp" />
 
             <TextView
+                style="@style/BottomNavigationTextAppearance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="44dp"
                 android:textAlignment="center"
                 android:text="@string/nav_item_more"
-                android:textColor="?attr/material_theme_de_emphasised_color"
-                android:textSize="10sp" />
+                android:textColor="?attr/placeholder_color"/>
 
         </FrameLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="@dimen/nav_bar_height"
+        android:layout_gravity="bottom"
+        android:background="?attr/border_color"/>
+</FrameLayout>

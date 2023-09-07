@@ -11,7 +11,7 @@
         android:layout_height="0.5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/border_color" />
 
     <ImageView
         android:id="@+id/profileImage"
@@ -23,7 +23,7 @@
         android:layout_marginStart="16dp"
         android:padding="3dp"
         app:srcCompat="@drawable/ic_user_avatar"
-        app:tint="?attr/colorAccent"
+        app:tint="?attr/progressive_color"
         android:contentDescription="@null"/>
 
     <ImageView
@@ -38,106 +38,101 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_more_vert_white_24dp"
-        app:tint="?attr/material_theme_secondary_color"/>
+        app:tint="?attr/secondary_color"/>
 
     <View
         android:id="@+id/userNameTapTarget"
         android:layout_width="0dp"
         android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="@id/userNameText"
-        app:layout_constraintEnd_toEndOf="@id/userNameText"
-        android:layout_marginTop="4dp"
-        android:background="?attr/selectableItemBackgroundBorderless" />
+        app:layout_constraintEnd_toEndOf="@id/userNameText" />
 
     <TextView
         android:id="@+id/userNameText"
+        style="@style/H4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        android:textColor="?attr/progressive_color"
         app:layout_constraintTop_toTopOf="@id/profileImage"
         app:layout_constraintStart_toEndOf="@id/profileImage"
         app:layout_constraintEnd_toStartOf="@id/overflowButton"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintWidth_max="wrap"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="2dp"
-        android:textColor="?attr/colorAccent"
-        android:textStyle="bold"
-        android:lineSpacingExtra="6sp"
         tools:text="Lorem ipsum Lorem ipsum" />
 
     <TextView
         android:id="@+id/timeStampText"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="6dp"
         app:layout_constraintTop_toBottomOf="@id/userNameText"
         app:layout_constraintStart_toEndOf="@id/profileImage"
         app:layout_constraintEnd_toStartOf="@id/overflowButton"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="6dp"
-        android:textColor="?attr/material_theme_secondary_color"
-        android:lineSpacingExtra="6sp"
         tools:text="Lorem ipsum" />
 
     <TextView
         android:id="@+id/bodyText"
+        style="@style/List"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/timeStampText"
-        app:layout_constraintStart_toEndOf="@id/profileImage"
-        app:layout_constraintEnd_toStartOf="@id/overflowButton"
         android:layout_marginStart="4dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="16dp"
-        android:textColor="?attr/material_theme_primary_color"
-        android:textColorLink="?attr/colorAccent"
-        android:lineSpacingExtra="6sp"
+        android:textColorLink="?attr/progressive_color"
         android:textIsSelectable="true"
+        app:layout_constraintTop_toBottomOf="@id/timeStampText"
+        app:layout_constraintStart_toEndOf="@id/profileImage"
+        app:layout_constraintEnd_toStartOf="@id/overflowButton"
         tools:text="Lorem ipsum" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/replyButton"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        app:layout_constraintTop_toBottomOf="@id/bodyText"
-        app:layout_constraintStart_toStartOf="@id/bodyText"
-        app:layout_constraintBottom_toTopOf="@id/showRepliesContainer"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="16dp"
         android:text="@string/talk_add_reply"
         android:textColor="@android:color/white"
         android:paddingHorizontal="12dp"
+        app:layout_constraintTop_toBottomOf="@id/bodyText"
+        app:layout_constraintStart_toStartOf="@id/bodyText"
+        app:layout_constraintBottom_toTopOf="@id/showRepliesContainer"
         app:icon="@drawable/ic_reply_24"
         app:iconTint="@android:color/white"
-        app:backgroundTint="?attr/colorAccent"
-        app:rippleColor="?attr/color_group_56"
-        app:cornerRadius="8dp" />
+        app:backgroundTint="?attr/progressive_color" />
 
     <View
         android:id="@+id/showRepliesTapTarget"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/replyButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
-        android:focusable="true" />
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/replyButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <LinearLayout
         android:id="@+id/showRepliesContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="@id/showRepliesTapTarget"
         app:layout_constraintTop_toBottomOf="@id/replyButton"
         app:layout_constraintEnd_toEndOf="@id/showRepliesTapTarget"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp"
-        android:orientation="horizontal">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
             android:id="@+id/showRepliesArrow"
@@ -145,7 +140,7 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp"
-            app:tint="?attr/colorAccent"
+            app:tint="?attr/progressive_color"
             android:contentDescription="@null"/>
 
         <TextView
@@ -154,10 +149,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:textColorLink="?attr/colorAccent"
+            android:textColorLink="?attr/progressive_color"
             android:maxLines="1"
             android:ellipsize="end"
-            android:textColor="?attr/colorAccent"
+            android:textColor="?attr/progressive_color"
             android:fontFamily="sans-serif-medium"
             tools:text="Lorem ipsum" />
 
@@ -167,30 +162,30 @@
         android:id="@+id/threadLineTop"
         android:layout_width="1dp"
         android:layout_height="0dp"
+        android:layout_marginStart="11dp"
+        android:background="?attr/border_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/profileImage"
-        app:layout_constraintStart_toStartOf="@id/profileImage"
-        android:layout_marginStart="11dp"
-        android:background="?attr/material_theme_border_color" />
+        app:layout_constraintStart_toStartOf="@id/profileImage" />
 
     <View
         android:id="@+id/threadLineMiddle"
         android:layout_width="1dp"
         android:layout_height="0dp"
+        android:layout_marginStart="11dp"
+        android:background="?attr/border_color"
         app:layout_constraintTop_toBottomOf="@id/profileImage"
         app:layout_constraintBottom_toTopOf="@id/showRepliesContainer"
-        app:layout_constraintStart_toStartOf="@id/profileImage"
-        android:layout_marginStart="11dp"
-        android:background="?attr/material_theme_border_color" />
+        app:layout_constraintStart_toStartOf="@id/profileImage" />
 
     <View
         android:id="@+id/threadLineBottom"
         android:layout_width="1dp"
         android:layout_height="0dp"
+        android:layout_marginStart="11dp"
+        android:background="?attr/border_color"
         app:layout_constraintTop_toBottomOf="@id/showRepliesContainer"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/profileImage"
-        android:layout_marginStart="11dp"
-        android:background="?attr/material_theme_border_color" />
+        app:layout_constraintStart_toStartOf="@id/profileImage" />
 
 </merge>

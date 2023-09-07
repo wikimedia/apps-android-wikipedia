@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
             android:lineSpacingExtra="2sp"
-            android:textColor="?attr/material_theme_de_emphasised_color"
+            android:textColor="?attr/placeholder_color"
             android:textSize="14sp"
             tools:text="IMAGE CAPTION" />
         <ImageView
@@ -38,7 +38,7 @@
             android:layout_marginTop="-8dp"
             android:layout_marginBottom="-8dp"
             app:srcCompat="@drawable/ic_mode_edit_white_24dp"
-            app:tint="?attr/material_theme_de_emphasised_color"/>
+            app:tint="?attr/placeholder_color"/>
     </LinearLayout>
 
     <LinearLayout
@@ -56,7 +56,7 @@
             android:fontFamily="sans-serif-medium"
             android:layout_gravity="center_vertical"
             android:lineSpacingExtra="8sp"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="20sp"
             android:textIsSelectable="true"
             tools:text="Watercolor portrait of Ada King, Countess of Lovelace (Ada Lovelace)" />
@@ -69,7 +69,7 @@
             android:layout_marginTop="1dp"
             android:layout_gravity="center_vertical"
             android:contentDescription="@null"
-            app:tint="?attr/colorAccent"
+            app:tint="?attr/progressive_color"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_open_in_new_black_24px"
             tools:visibility="visible"/>
@@ -77,24 +77,17 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/actionButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/App.Button.Text"
         android:visibility="gone"
-        android:textSize="14sp"
-        android:fontFamily="sans-serif"
-        android:textStyle="bold"
-        android:textColor="?attr/colorAccent"
-        android:letterSpacing="0.04"
-        android:lineSpacingExtra="6sp"
-        android:textAlignment="textStart"
         android:layout_marginStart="-12dp"
         app:icon="@drawable/ic_add_gray_white_24dp"
-        app:iconSize="24dp"
-        app:iconPadding="8dp"
-        app:iconTint="?attr/colorAccent"/>
+        tools:visibility="visible"
+        tools:text="Lorem ipsum"/>
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/chip_background_color"/>
+        android:background="?attr/border_color"/>
 </LinearLayout>

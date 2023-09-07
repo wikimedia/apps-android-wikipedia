@@ -62,13 +62,15 @@ class SyntaxHighlightableEditText : EditText {
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
-        applyPaddingForLineNumbers()
+        if (!isInEditMode) {
+            applyPaddingForLineNumbers()
 
-        lineNumberPaint.isAntiAlias = true
-        lineNumberPaint.textAlign = if (isRtl) Paint.Align.LEFT else Paint.Align.RIGHT
-        lineNumberPaint.textSize = this.textSize * 0.8f
-        lineNumberPaint.color = ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)
-        lineNumberBackgroundPaint.color = ResourceUtil.getThemedColor(context, R.attr.chip_background_color)
+            lineNumberPaint.isAntiAlias = true
+            lineNumberPaint.textAlign = if (isRtl) Paint.Align.LEFT else Paint.Align.RIGHT
+            lineNumberPaint.textSize = this.textSize * 0.8f
+            lineNumberPaint.color = ResourceUtil.getThemedColor(context, R.attr.placeholder_color)
+            lineNumberBackgroundPaint.color = ResourceUtil.getThemedColor(context, R.attr.border_color)
+        }
     }
 
     fun enqueueNoScrollingLayoutChange() {
@@ -101,7 +103,7 @@ class SyntaxHighlightableEditText : EditText {
         }
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         if (prevLineCount != lineCount) {
             prevLineCount = lineCount
             computeLineNumbers(prevLineCount, layout, text.toString())

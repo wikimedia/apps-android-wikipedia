@@ -7,6 +7,8 @@
 * Kiranmayee
 * MuratTheTurkish
 * Praveen Illa
+* Thirumalgoud
+* V Bhavya
 * Veeven
 * రహ్మానుద్దీన్
 -->
@@ -104,9 +106,8 @@
   <string name="map_view_link_text">మ్యాపులో చూడండి</string>
   <string name="other_languages_indication_text">మరొక భాషలో చదవండి</string>
   <string name="language_count_link_text">%d ఇతర భాషల్లో ఉంది</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">ప్రచురించడం ద్వారా &lt;a href=\"%1$s\"&gt;వాడుక నియమాలకూ&lt;/a&gt;, మీ రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్సు కింద వెనక్కి తీసుకోలేని విధంగా విడుదల చేసేందుకూ అంగీకరిస్తున్నారు.</string>
-  <string name="edit_save_action_license_anon">ప్రచురించడంతో మీరు, &lt;a href=\"%1$s\"&gt;వాడుక నియమాలకూ&lt;/a&gt;, మీ రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్సు కింద వెనక్కి తీసుకోలేని విధంగా విడుదల చేసేందుకూ అంగీకరిస్తున్నారు. దిద్దుబాట్లను మీ ఐపి చిరునామాకి ఆపాదిస్తాం. &lt;a href=\"https://#login\"&gt;లాగిన్&lt;/a&gt; అయితే, మీకు ఎక్కువ గోప్యత ఉంటుంది.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">ప్రచురించడం ద్వారా &lt;a href=\"%1$s\"&gt;వాడుక నియమాలకూ&lt;/a&gt;, మీ రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్సు కింద వెనక్కి తీసుకోలేని విధంగా విడుదల చేసేందుకూ అంగీకరిస్తున్నారు.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">ప్రచురించడంతో మీరు, &lt;a href=\"%1$s\"&gt;వాడుక నియమాలకూ&lt;/a&gt;, మీ రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్సు కింద వెనక్కి తీసుకోలేని విధంగా విడుదల చేసేందుకూ అంగీకరిస్తున్నారు. దిద్దుబాట్లను మీ ఐపి చిరునామాకి ఆపాదిస్తాం. &lt;a href=\"https://#login\"&gt;లాగిన్&lt;/a&gt; అయితే, మీకు ఎక్కువ గోప్యత ఉంటుంది.</string>
   <string name="preference_title_language">వికీపీడియా భాషలు</string>
   <string name="langlinks_filter_hint">వెతుకు</string>
   <string name="langlinks_empty">ఈ పేజీ వేరే భాషలలో అందుబాటులో లేదు.</string>
@@ -230,8 +231,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/te</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/te</string>
   <string name="android_app_request_an_account_url">https://te.wikipedia.org/wiki/వికీపీడియా:ఖాతా కోసం అభ్యర్థన/ఖాతా మార్గసూచీ</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">వాడిన లైబ్రరీలు</string>
@@ -240,7 +239,7 @@
   <string name="about_translators_heading">అనువాదకులు</string>
   <string name="about_translators_translatewiki">ఈ అనువర్తనం &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; వద్ద స్వచ్చంద అనువాదకారులచే అనువదించబడింది.</string>
   <string name="about_app_license_heading">లైసెన్సు</string>
-  <string name="about_app_license">సోర్సు కోడు &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; వద్ద &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది. ప్రత్యేకించి చెప్పకపోతే, కంటెంటు &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది.</string>
+  <string name="about_app_license" fuzzy="true">సోర్సు కోడు &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; వద్ద &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది. ప్రత్యేకించి చెప్పకపోతే, కంటెంటు &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; కు లోబడి అందుబాటులో ఉంది.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;వికీమీడియా ఫౌండేషను&lt;/a&gt; వారి ఉత్పత్తి</string>
   <string name="about_activity_title">గురించి</string>
   <string name="edit_abandon_confirm">ఈ పేజీలో మార్పులు చేసారు. మీరు చేసిన మార్పులను భద్రపరచకుండానే వెళ్ళిపోవాలని నిశ్చయించుకున్నారా?</string>
@@ -448,10 +447,6 @@
     <item quantity="one">ఉన్న 1 వ్యాసంలో %1$d ఆఫ్‌లైనులో అందుబాటులో ఉంది, %3$.2f MB</item>
     <item quantity="other">%2$d వ్యాసాల్లో %1$d ఆఫ్‌లైనులో అందుబాటులో ఉన్నాయి, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 వ్యాసం, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d వ్యాసాలు, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">1 వ్యాసంలో %1$d ఆఫ్‌లైనులో అందుబాటులో ఉంది, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%2$d వ్యాసాల్లో %1$d ఆఫ్‌లైనులో అందుబాటులో ఉన్నాయి, %3$.2f MB</string>
   <string name="reading_list_sort">పేర్చు</string>
   <string name="reading_list_sort_ellipsis">ఈ విధంగా పేర్చు...</string>
   <string name="reading_list_sort_by_name">పేరు ప్రకారం పేర్చు</string>
@@ -555,6 +550,12 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">రద్దుచేయి</string>
   <string name="reading_list_split_dialog_ok_button_text">సరే</string>
   <string name="reading_list_activity_title">చదివే జాబితా: %s</string>
+  <string name="reading_lists_preview_header_title">భాగస్వామ్య జాబితా</string>
+  <string name="reading_lists_preview_save_button">భద్రపరచు</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">శీర్షిక</string>
+  <string name="reading_lists_preview_save_dialog_cancel">రద్దుచేయి</string>
+  <string name="reading_lists_preview_save_dialog_save">భద్రపరచు</string>
+  <string name="reading_lists_preview_saved_snackbar_action">చూడండి</string>
   <string name="user_option_sync_label">అభిరుచులు</string>
   <string name="notification_reverted_title">దిద్దుబాటును తిప్పికొట్టారు</string>
   <string name="notification_channel_title">వ్యాసాలను దిగుమతి చేస్తున్నాం</string>
@@ -753,7 +754,7 @@
   <string name="description_ends_with_punctuation">పాఠ్యం చివర వ్యాకరణ చిహ్నాలు ఉండకూడదు.</string>
   <string name="description_starts_with_uppercase">ఇంగ్లీషులోనైతే సంజ్ఞా నామవాచకమైతే తప్ప చిన్నబడి అక్షరంతొనే మొదలు పెట్టాలి.</string>
   <string name="description_is_in_different_language">ఈ పాఠ్యం అనుకోని భాషలో ఉంది. భాష %s అయి తీరాలి.</string>
-  <string name="description_verification_notice">మీ వివరణ %1$s లో ఉందని నిర్థారించుకోండి. మీర్రాసిన వివరణ %2$s లో ఉంటే ఈ గమనింపును సంకోచించకుండా తీసెయ్యండి..</string>
+  <string name="description_verification_notice" fuzzy="true">మీ వివరణ %1$s లో ఉందని నిర్థారించుకోండి. మీర్రాసిన వివరణ %2$s లో ఉంటే ఈ గమనింపును సంకోచించకుండా తీసెయ్యండి..</string>
   <string name="description_edit_success_saved">వ్యాస వివరణ ప్రచురితమయ్యింది!</string>
   <string name="description_edit_success_saved_snackbar">వ్యాస వివరణను ప్రచురించాం!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">వ్యాస వివరణను ప్రచురించాం! (%s)</string>
@@ -939,6 +940,14 @@
     <item quantity="one">మీరు %d కారెక్టరును చేర్చారు</item>
     <item quantity="other">మీరు %d కారెక్టర్లను చేర్చారు</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">వ్యాస చిత్రాలు</string>
+  <string name="suggested_edits_image_recommendations_task_detail">వికీపీడియా వ్యాసాలను మరింత మెరుగ్గా అర్థం చేసుకోవడానికి సూచించిన చిత్రాలను చేర్చండి.</string>
+  <string name="image_recommendation_accept">సరే</string>
+  <string name="image_recommendation_reject_title">ఎందుకని వద్దు?</string>
+  <string name="image_recommendation_reject_dont_know">ఈ విషయం గురించి నాకు తెలియదు</string>
+  <string name="image_recommendation_onboarding_2">సూచించబడిన చిత్రాన్ని వికీపీడియా వ్యాసంలో చేర్చాలా వద్దా అనేది నిర్ణయించవలసినది మీరే.</string>
+  <string name="image_recommendation_onboarding_3">ఈ సూచనలు యాంత్రికంగా తయారైనవి. వీటిని స్వీకరించాలో తిరస్కరించాలో లేదో మీ విజ్ఞతతో మీరే నిర్ణయించుకోవాలి.</string>
+  <string name="image_recommendation_tooltip_1">ఈ వ్యాస విషయం తెలుసుకోవడానికి దీన్ని సమీక్షించండి</string>
   <string name="file_page_activity_title">దస్త్రపు పేజీ</string>
   <string name="file_page_add_image_caption_button">బొమ్మకు వ్యాఖ్య చేర్చండి</string>
   <string name="file_page_add_image_tags_button">బొమ్మకు ట్యాగులు చేర్చండి</string>
@@ -1024,6 +1033,8 @@
   <string name="wikitext_template">మూస</string>
   <string name="wikitext_reference">మూలం</string>
   <string name="wikitext_preview_link">మునుజూపు లింకు</string>
+  <string name="insert_media_settings">బొమ్మ వివరాలను చేర్చండి</string>
+  <string name="insert_media_settings_alternative_text_description">దృష్టి లోపం ఉన్న పాఠకుల కోసం వివరణ</string>
   <string name="main_drawer_help">సహాయం</string>
   <string name="main_drawer_login">వికీపీడియాలో లాగినవండి / చేరండి</string>
   <string name="main_tooltip_text">%s గారూ, వికీపీడియాలో ప్రతీ ఒక్కరూ దిద్దుబాట్లు చెయ్యవచ్చని మీకు తెలుసా?</string>
@@ -1112,6 +1123,19 @@
   <string name="watchlist_page_moved">తరలించారు</string>
   <string name="watchlist_page_protected">సంరక్షించారు</string>
   <string name="watchlist_page_deleted">తొలగించారు</string>
+  <string name="watchlist_filter_wiki_filter_header">వికీ</string>
+  <string name="watchlist_filter_all_text">అన్నీ</string>
+  <string name="watchlist_filter_user_status_newcomers">కొత్తవాళ్ళు</string>
+  <string name="watchlist_filter_contribution_authorship_own">మీ దిద్దుబాట్లు</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">ఇతరుల దిద్దుబాట్లు</string>
+  <string name="watchlist_filter_significance_header">ప్రాముఖ్యం</string>
+  <string name="watchlist_filter_significance_minor">చిన్న మార్పులు</string>
+  <string name="watchlist_filter_type_of_change_page_edits">పేజీ దిద్దుబాట్లు</string>
+  <string name="watchlist_filter_type_of_change_page_creations">పేజీ సృష్టి</string>
+  <string name="watchlist_filter_type_of_change_category_changes">వర్గాల దిద్దుబాట్లు</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">వికీడేటా సవరణలు</string>
+  <string name="watchlist_filter_type_of_change_new_users">కొత్త వాడుకరులు</string>
+  <string name="watchlist_filter_reset_button">రీసెట్ చెయ్యి</string>
   <string name="action_item_categories">వర్గాలు</string>
   <string name="page_no_categories">ఈ పేజీ వార్గాలకు చెందినది కాదు.</string>
   <string name="category_tab_articles">వ్యాసాలు</string>

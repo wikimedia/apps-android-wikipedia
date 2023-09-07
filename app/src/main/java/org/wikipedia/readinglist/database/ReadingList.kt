@@ -29,6 +29,9 @@ class ReadingList(
     @Transient
     private var accentAndCaseInvariantTitle: String? = null
 
+    @Transient
+    var selected = false
+
     var title
         get() = listTitle.ifEmpty { WikipediaApp.instance.getString(R.string.default_reading_list_name) }
         set(value) { listTitle = value }

@@ -74,7 +74,7 @@
   <string name="menu_page_find_in_page">Најди во статијата</string>
   <string name="menu_page_add_to_watchlist">Додај во набљудувани</string>
   <string name="menu_page_watch">Набљудувај</string>
-  <string name="menu_page_unwatch">Престани со набљудување</string>
+  <string name="menu_page_unwatch">Прекини набљудување</string>
   <string name="menu_page_view_talk">Разговорна страница</string>
   <string name="menu_page_talk_page">Разговорна страница</string>
   <string name="menu_page_view_edit_history">Историја на уредувања</string>
@@ -109,9 +109,8 @@
   <string name="map_view_link_text">Погл. на карта</string>
   <string name="other_languages_indication_text">Прочитај на друг јазик</string>
   <string name="language_count_link_text">Достапно на %d други јазици</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="edit_save_action_license_anon">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
+  <string name="edit_save_action_license_logged_in">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;</string>
+  <string name="edit_save_action_license_anon">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt;, и дека неотповикливо ги објавувате вашите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако се &lt;a href=\"https://#login\"&gt;најавите&lt;/a&gt; ќе имате поголема приватност.</string>
   <string name="edit_anon_warning">Уредувањата ќе ѝ бидат припишани на IP-адресата на вашиот уред. Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt;, тогаш ќе имате повеќе приватност.</string>
   <string name="preference_title_language">Јазици на Википедија</string>
   <string name="langlinks_filter_hint">Пребарај</string>
@@ -237,7 +236,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/mk?uselang=mk</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.mk</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -247,7 +246,7 @@
   <string name="about_translators_heading">Преведувачи</string>
   <string name="about_translators_translatewiki">Прилогов го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Текст_на_лиценцата_Криејтив_комонс_Наведи извор-Сподели_под_исти_услови_3.0_Нелокализирана\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови Нелокализирана&lt;/a&gt;.</string>
+  <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.mk\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
@@ -263,6 +262,9 @@
   <string name="edit_undo">Врати</string>
   <string name="edit_redo">Повтори</string>
   <string name="edit_rollback">Отповикај</string>
+  <string name="edit_warn">Предупреди</string>
+  <string name="edit_quality">Квалитет %s</string>
+  <string name="edit_intent">Намера %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s бајт</item>
     <item quantity="other">%s бајти</item>
@@ -274,7 +276,7 @@
   <string name="edit_summary_tag_links">Додадени врски</string>
   <string name="edit_summary_tag_other">Друго</string>
   <string name="edit_summary_tag_other_hint">Други начини на кои ја подобривте страницата</string>
-  <string name="edit_conflict_title">Спротиставеност во уредувањето</string>
+  <string name="edit_conflict_title">Спротивставеност во уредувањето</string>
   <string name="edit_conflict_message">Оваа страница е веќе изменета од друг корисник, и се коси со вашето уредување. Прекопирајте ги вашите уредувања, превчитајте ја страницата и обидете се повторно.</string>
   <string name="edit_notices">Белешки за уредување</string>
   <string name="edit_notices_please_read">Прочитајте пред да уредувате</string>
@@ -353,7 +355,7 @@
   <string name="tool_tip_bookmark_icon_text">Стиснете на бележникот за да ја зачувате статијата во список за читање.</string>
   <string name="page_view_in_browser">Погледај во прелистувач</string>
   <string name="tool_tip_toc_title">Брз пристап до прегледот на содржините</string>
-  <string name="tool_tip_toc_text">Сега можете да повлечете лево за да го отворите прегледот на содржините, и да го допрете и влечете овој лизгач за брз преод низ разните поднаслови на статијата.</string>
+  <string name="tool_tip_toc_text">Сега можете да повлечете лево за да го отворите прегледот на содржините, и да го допрете и влечете овој лизгач за брз преод низ разните оддели на статијата.</string>
   <string name="tool_tip_lang_button">Сега можете да пребарувате и читате на повеќе јазици во прилогот.\n\n\nДопрете на иконката за да додадете уште јазици.</string>
   <string name="error_response_malformed">Одѕивот од опслужувачот не е исправно форматиран.</string>
   <string name="error_unknown">Се појави непозната грешка.</string>
@@ -368,6 +370,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Статијата не може да се вчита додека не сте на линија.</string>
   <string name="page_offline_notice_add_to_reading_list">Совет: Додајте ја статијата во список за читање, па истата ќе биде преземена кога ќе добиете линија.</string>
   <string name="page_offline_notice_last_date">Читате вонмрежна верзија на статијава, зачувана на %s.</string>
+  <string name="redirected_from_snackbar">Пренасочено од „%s“</string>
   <string name="button_get_directions">Дај насоки</string>
   <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
   <string name="preference_title_customize_explore_feed">Тековник „Истражи“</string>
@@ -457,18 +460,22 @@
   <string name="reading_list_articles_already_exist_message">Сè е во ред! %s веќе ги содржи сите статии.</string>
   <string name="reading_list_added_view_button">Погл. списокот</string>
   <string name="reading_list_add_to_list_button">Додај во список</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 статија</item>
+    <item quantity="other">%d статии</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">Една статија, %2$.2f МБ</item>
     <item quantity="other">%1$d статии, %2$.2f МБ</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d од една вонмрежно достапна статија</item>
+    <item quantity="other">%1$d од %2$d вонмрежно достапни статии</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d од една вонмрежно достапна статија, %3$.2f МБ</item>
     <item quantity="other">%1$d од %2$d вонмрежно достапни статии, %3$.2f МБ</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 статија, %1$.2f МБ</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f МБ</string>
-  <string name="format_reading_list_statistical_detail_singular">Вонмрежно достапна %1$d од 1 статија, %2$.2f МБ</string>
-  <string name="format_reading_list_statistical_detail_plural">Вонмрежно достапни %1$d од %2$d статии, %3$.2f МБ</string>
   <string name="reading_list_sort">Подреди</string>
   <string name="reading_list_sort_ellipsis">Подреди по…</string>
   <string name="reading_list_sort_by_name">Подреди по назив</string>
@@ -478,6 +485,10 @@
   <string name="reading_list_sort_by_created">Подреди по скорешност на создавање</string>
   <string name="reading_list_sort_by_created_desc">Подреди по дамнешност на создавање</string>
   <string name="reading_list_menu_delete">Избриши список</string>
+  <string name="reading_list_menu_export">Извези список</string>
+  <string name="reading_list_menu_select">Избери</string>
+  <string name="reading_list_menu_unselect">Одизбери</string>
+  <string name="reading_list_export_write_permission_rationale">Се бара дозвола за зачувување на вашиот уред за да може да се извезе списокот за читање.</string>
   <string name="reading_list_menu_rename">Измени име/опис</string>
   <string name="reading_list_action_menu_remove_from_offline">Отстрани од вонмрежни</string>
   <string name="reading_list_action_menu_save_for_offline">Зачувај за вонмрежно</string>
@@ -498,6 +509,15 @@
     <item quantity="one">Отстранета %d статија од %s</item>
     <item quantity="other">Отстранети %d статии од %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d избришан список</item>
+    <item quantity="other">%d избришани списоци</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Стандардниот список (%s) не може да се избрише</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s е избришан. Стандардниот список (%2$s) не може да се избрише.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Списоците се избришани. Стандардниот список (%s) не може да се избрише.</string>
+  <string name="single_list_json_file_name">%s (список за читање од Википедија).json</string>
+  <string name="multiple_lists_json_file_name">Списоци за читање од Википедија (%s и повеќе).json</string>
   <string name="reading_list_items_deleted">%d статии се отстранети од списокот</string>
   <string name="reading_lists_item_deleted">%s е отстранета од списоците</string>
   <string name="reading_list_item_delete_undo">Откажи</string>
@@ -530,6 +550,11 @@
   <string name="reading_list_articles_added_to_named">Додадени %1$d статии во %2$s</string>
   <string name="reading_list_articles_moved_to_named">Преместени %1$d статии во %2$s</string>
   <string name="reading_list_delete_confirm">Дали сте сигурни дека сакате да го избришете %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Да го избришан избраното?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Дали сигурно сакате да избришете %d список?</item>
+    <item quantity="other">Дали сигурно сакате да избришете %d списоци?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Најавете се за да го овозможите усогласувањето</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Најавете се за да дозволите списоците за читање да се зачуваат во вашата сметка.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Откажи</string>
@@ -553,6 +578,7 @@
   <string name="reading_list_article_limit_message">Не можам да го дополнам списоков. Ја достигнавте границата од %2$d статии по список за „%1$s“.</string>
   <string name="reading_lists_limit_message">Не можете да направите друг список. Ја достигнавте границата од 100 списоци по сметка.</string>
   <string name="reading_lists_menu_create_list">Создај нов список</string>
+  <string name="reading_lists_menu_import_list">Увези список</string>
   <string name="reading_lists_menu_sort_by">Подреди по</string>
   <string name="reading_lists_refresh_sync_option">Превчитај усогласување</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Најава / зачленување</string>
@@ -573,7 +599,33 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Откажи</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Откажи</string>
   <string name="reading_list_split_dialog_ok_button_text">ОК</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Избриши</string>
   <string name="reading_list_activity_title">Список за читање: %s</string>
+  <string name="reading_list_notification_title">Список/ците за читање (с)е извезен(и)</string>
+  <string name="reading_list_notification_text"> %d Список/ците за читање (с)е извезен(и) како „reading_lists export.json“ во вашата папка со преземања</string>
+  <string name="reading_list_notification_detailed_text">Списоците за читање се извезени во „reading_lists_export.json“</string>
+  <string name="reading_lists_action_menu_export_lists">Извези</string>
+  <string name="reading_lists_import_file_picker_title">Изберете податотека за увоз</string>
+  <string name="reading_lists_import_failure_message">Увозот на списоци за читање не успеа</string>
+  <string name="reading_lists_export_select_lists_message">Изберете список/ци за извоз</string>
+  <string name="reading_lists_export_completed_message">Список/ците за читање (с)е увезен(и)</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">Извозот на списокот за читање не успеа</item>
+    <item quantity="other">Извозот на списоците за читање не успеа</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">Списокот за читање е увезен</item>
+    <item quantity="other">Списоците за читање се увезени</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">Споделен список</string>
+  <string name="reading_lists_preview_save_button">Зачувај</string>
+  <string name="reading_lists_preview_save_dialog_title">Зачувај список</string>
+  <string name="reading_lists_preview_save_dialog_text">Именувајте го списокот и одберете статии за зачувување.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Наслов</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Откажи</string>
+  <string name="reading_lists_preview_save_dialog_save">Зачувај</string>
+  <string name="reading_lists_preview_saved_snackbar">Списокот а читање е зачуван</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Преглед</string>
   <string name="user_option_sync_label">Поставки</string>
   <string name="notification_reverted_title">Отповикано уредување</string>
   <string name="notification_channel_title">Преземање на статии</string>
@@ -793,7 +845,9 @@
   <string name="description_starts_with_uppercase">Почнете со мала буква освен ако зборот е лична именка.</string>
   <string name="description_starts_with_lowercase">Избегнувајте да почнувате со мала буква.</string>
   <string name="description_is_in_different_language">Се чини дека текстот е напишан на неочекуван јазик. Јазикот треба да биде %s.</string>
-  <string name="description_verification_notice">Потврдете дека вашиот опис е на %1$s. Слободно занемарете ја напоменава ако напишаниот опис ви е на %2$s.</string>
+  <string name="description_verification_notice">Потврдете дека вашиот опис е на %1$s. Слободно занемарете го ова предупредување ако напишаниот опис ви е на %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Прикажи предложен опис</string>
+  <string name="description_edit_suggested_description_button_tooltip">Пробајте ги машински предложените описи на статии</string>
   <string name="description_edit_success_saved">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_snackbar">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описот на статијата е објавен! (%s)</string>
@@ -811,6 +865,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По можност еден ред, од два до дванаесет збора</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Машински предлози</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Предлозите ги дава машина, а не доброволци или Фондацијата Викимедија</string>
   <string name="customize_toolbar_title">Прилагодување на алатникот</string>
   <string name="customize_toolbar_shortcut_description_text">Прилагодете го алатникот на дното со 5 кратенки кои ви се најкорисни.</string>
   <string name="customize_toolbar_category_toolbar">Алатник</string>
@@ -822,6 +878,9 @@
   <string name="suggested_edits_describe_articles">Опишување на статии</string>
   <string name="suggested_edits_caption_images">Толкување на слики</string>
   <string name="suggested_edits_tag_images">Означување на слики</string>
+  <string name="suggested_edits_edit_patrol">Патрола на уредувања</string>
+  <string name="suggested_edits_edit_patrol_hint">Прегледајте ги скорешните уредувања за да одредите дали се конструктивни.</string>
+  <string name="suggested_edits_edit_patrol_review">Провери</string>
   <string name="suggested_edits_review_description">Преглед на описот на статијата</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>
   <string name="suggested_edits_edit_description_button">Уреди опис</string>
@@ -897,6 +956,7 @@
   <string name="suggested_edits_image_tags_select_title">Немате избрано ниедна ознака за сликава</string>
   <string name="suggested_edits_image_tags_select_text">Во сликите ќе се додаваат само ознаки кои сте ги избрале вие. Неизбраните ознаки ќе се сметаат за одбиени. Дали сигурно сакате да ги означите сите како одбиени?</string>
   <string name="suggested_edits_image_tags_add_tag">Додај ознака</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Необјавените ознаки нема да се зачуваат</string>
   <string name="suggested_edits_image_zoom_tooltip">Штипнете за да ја приближите сликата.</string>
   <string name="suggested_edits_encouragement_message">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво, %s&lt;/b&gt;. Подолу погледајте како брзо и лесно начини да помогнете на Википедија. Штом започнете, ќе забележите каква разлика правите. Среќно уредување!</string>
@@ -969,6 +1029,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Ознака за слики</string>
   <string name="suggested_edits_contribution_current_revision_text">Вашето уредување сега е видливо на Википедија</string>
   <string name="suggested_card_more_edits">Повеќе предложени уредувања</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Предложени описи</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Што би сакале да пријавите?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Нема доволно информации</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Не можам да ги видам предложените описи</string>
+  <string name="suggested_edits_inappropriate_suggestion">Неприкладен предлог</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Не ја разбирам задачата</string>
+  <string name="suggested_edits_report_suggestion">Пријави</string>
+  <string name="suggested_edits_suggestion_report_submitted">Пријавата е поднесена</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s ознака</item>
     <item quantity="other">%1$s ознаки</item>
@@ -985,6 +1053,38 @@
     <item quantity="one">Додадовте %d знак</item>
     <item quantity="other">Додадовте %d знаци</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Слики за статии</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Додавајте предложени слики во википедиски статии за да ја подобрите претставата за содржината.</string>
+  <string name="image_recommendation_task_instruction">Дали би ја додале оваа слика во статијата?</string>
+  <string name="image_recommendation_tutorial">Упатства</string>
+  <string name="image_recommendation_accept">Да</string>
+  <string name="image_recommendation_reject">Не</string>
+  <string name="image_recommendation_notsure">Не знам</string>
+  <string name="image_recommendation_reject_title">Зошто не?</string>
+  <string name="image_recommendation_reject_subtitle">Вашите одговори ги подобруваат идните предлози.</string>
+  <string name="image_recommendation_reject_not_relevant">Сликата е нерелевантна</string>
+  <string name="image_recommendation_reject_no_info">Немам доволно сознанија за да одлучам</string>
+  <string name="image_recommendation_reject_offensive">Сликата е неумесна</string>
+  <string name="image_recommendation_reject_low_quality">Сликата е неквалитетна</string>
+  <string name="image_recommendation_reject_dont_know">Не се разбирам од темава</string>
+  <string name="image_recommendation_reject_other">Друго</string>
+  <string name="image_recommendation_reject_submit">Поднеси</string>
+  <string name="image_recommendation_tooltip_main">Додајте потребни слики во статии во „Предложени уредувања“</string>
+  <string name="image_recommendation_onboarding_1">Сликите им помагаат на читателите да ја разберат содржината, но многу статии немаат слики.</string>
+  <string name="image_recommendation_onboarding_2">Вие ќе одлучите дали предложената слика треба да се стави во википедиска статија.</string>
+  <string name="image_recommendation_onboarding_3">Предлозите се машински направени и на вас е да просудите дали да ги прифатите или одбиете.</string>
+  <string name="image_recommendation_onboarding_4">Сликите се од Ризницата, збирка на слободно лиценцирани слики што се користат на Википедија.</string>
+  <string name="image_recommendation_tooltip_1">Прочитајте ја статијава за да ја разберете темата.</string>
+  <string name="image_recommendation_tooltip_2">Разгледајте ја сликата и нејзините информации</string>
+  <string name="image_recommendation_tooltip_3">Решете дали сликата им помага на читателите подобро да ја разберат оваа тема</string>
+  <string name="image_recommendation_tooltip_next">Следно</string>
+  <string name="image_recommendation_tooltip_warning">Прочитајте ја статијата за да ја разберете темата и разгледајте ја сликата</string>
+  <string name="suggested_edits_report_feature">Проблем со функцијата</string>
+  <string name="suggested_edits_report_feature_subject">Проблем со Предложени уредувања</string>
+  <string name="edit_summary_added_image">Додадена слика</string>
+  <string name="edit_summary_added_caption">Додаден опис</string>
+  <string name="edit_summary_added_image_and_caption">Додадени слика и опис</string>
+  <string name="edit_published_view">Погледај</string>
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
   <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>
@@ -1083,12 +1183,12 @@
   <string name="insert_media_title">Вметнување на слика или снимка</string>
   <string name="insert_media_search_description">Изберете податотека од Ризницата</string>
   <string name="insert_media_search_hint">Пребарување на слики и снимки</string>
-  <string name="insert_media_settings">Поставки за слики и снимки</string>
+  <string name="insert_media_settings">Додајте поединости за сликата</string>
   <string name="insert_media_settings_uploaded_image">Подигната слика</string>
-  <string name="insert_media_settings_caption">Опис</string>
-  <string name="insert_media_settings_caption_description">Натпис кој се прикажува до ставката на сите читатели</string>
+  <string name="insert_media_settings_caption">Опис на сликата</string>
+  <string name="insert_media_settings_caption_description">Видлив натпис на сликата во статијата</string>
   <string name="insert_media_settings_alternative_text">Алтернативен текст</string>
-  <string name="insert_media_settings_alternative_text_description">Писмен опис за читателите кои не можат да ја видат сликата</string>
+  <string name="insert_media_settings_alternative_text_description">Оопис за читателите со попречен вид</string>
   <string name="insert_media_advanced_settings">Напредни нагодувања</string>
   <string name="insert_media_advanced_settings_wrap_image">Сложи го текстот околу сликата</string>
   <string name="insert_media_advanced_settings_image_position">Положба на сликата</string>
@@ -1124,6 +1224,18 @@
   <string name="talk_user_title">Разговор: %s</string>
   <string name="talk_new_topic">Нова тема</string>
   <string name="talk_new_topic_submitted">Темата е објавена.</string>
+  <string name="talk_warn">Предупреди</string>
+  <string name="talk_warn_save_dialog_title">Да ги зачувам промените?</string>
+  <string name="talk_warn_save_dialog_message">Зачувај како нова порака</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Зачувај како нова порака во списокот</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Поднови постоечка порака</string>
+  <string name="talk_warn_save_dialog_hint">Наслов на пораката</string>
+  <string name="talk_warn_save_dialog_publish">Објави</string>
+  <string name="talk_warn_save_dialog_cancel">Откажи</string>
+  <string name="talk_warn_submitted">Пораката е објавена на разговорната страница на корисникот</string>
+  <string name="talk_warn_submitted_and_saved">Пораката е зачувана и објавена на разговорната страница на уредникот</string>
+  <string name="talk_warn_saved_message">Изберете постоечка предупредувачка порака или напишете нова.</string>
+  <string name="talk_warn_saved_message_dropdown">Зачувани пораки</string>
   <string name="talk_page_empty">Оваа разговорна страница е празна.</string>
   <string name="talk_page_empty_title">Разговорот започнува тука</string>
   <string name="talk_page_empty_content">Разговорните страници се места кајшто луѓето дискутираат како да ја направат содржината на Википедија што подобра. Почнете нова тема на разговор за да се поврзете и да соработувате со заедница на википедијанци.</string>
@@ -1210,6 +1322,7 @@
   <string name="revision_diff_line_removed">Отстранет ред</string>
   <string name="revision_diff_paragraph_added">Додаден пасус</string>
   <string name="revision_diff_paragraph_removed">Отстранет пасус</string>
+  <string name="revision_diff_protected">Промените направени во оваа преработка не се јавно пристапни.</string>
   <string name="revision_undo_title">Врати уредување</string>
   <string name="revision_undo_message">Ова ќе ги врати промените направени со преработката/ките на тука прикажаната статија.</string>
   <string name="revision_undo_reason">За да продолжите, внесете причина за враќање на уредувањево:</string>
@@ -1233,6 +1346,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 месеци</string>
   <string name="watchlist_expiry_dialog_six_months">6 месеци</string>
   <string name="watchlist_empty">Немате ниедна статија во набљудуваните.</string>
+  <string name="watchlist_search">Пребарај по набљудуваните</string>
   <string name="watchlist_filter_all">Сите</string>
   <string name="watchlist_filter_talk">Разговор</string>
   <string name="watchlist_filter_pages">Страници</string>
@@ -1240,6 +1354,55 @@
   <string name="watchlist_page_moved">Преместена</string>
   <string name="watchlist_page_protected">Заштитена</string>
   <string name="watchlist_page_deleted">Избришана</string>
+  <string name="watchlist_filter_title">Филтер за набљудувани</string>
+  <string name="watchlist_filter_wiki_filter_header">Вики</string>
+  <string name="watchlist_filter_all_text">Сите</string>
+  <string name="watchlist_filter_watchlist_activity_header">Активности во набљудуваните</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">Невидени промени</string>
+  <string name="watchlist_filter_watchlist_activity_seen">Видени промени</string>
+  <string name="watchlist_filter_contribution_quality_header">Предвидувања за квалитет на придонесите</string>
+  <string name="watchlist_filter_contribution_quality_good">Многу веројатно добро</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Може да има проблеми</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Веројатно има проблеми</string>
+  <string name="watchlist_filter_contribution_quality_bad">Мошне веројатно има проблеми</string>
+  <string name="watchlist_filter_user_intent_header">Предвидувања за кориснички намери</string>
+  <string name="watchlist_filter_user_intent_good">Многу веројатно добронамерно</string>
+  <string name="watchlist_filter_user_intent_may_problems">Може да е недобронамерно</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Веројатно недобронамерно</string>
+  <string name="watchlist_filter_user_intent_bad">Многу веројатно недобронамерно</string>
+  <string name="watchlist_filter_user_status_header">Корисничко зачленување и искусност</string>
+  <string name="watchlist_filter_user_status_unregistered">Незачленети</string>
+  <string name="watchlist_filter_user_status_registered">Зачленети</string>
+  <string name="watchlist_filter_user_status_newcomers">Новодојденци</string>
+  <string name="watchlist_filter_user_status_learners">Ученици</string>
+  <string name="watchlist_filter_user_status_experienced">Искусни корисници</string>
+  <string name="watchlist_filter_contribution_authorship_header">Авторство на придонесот</string>
+  <string name="watchlist_filter_contribution_authorship_own">Ваши промени</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Туѓи промени</string>
+  <string name="watchlist_filter_automated_contributions_header">Автоматизирани придонеси</string>
+  <string name="watchlist_filter_automated_contributions_bot">Бот</string>
+  <string name="watchlist_filter_automated_contributions_human">Човечки (неботовски)</string>
+  <string name="watchlist_filter_significance_header">Значајност</string>
+  <string name="watchlist_filter_significance_minor">Ситни уредувања</string>
+  <string name="watchlist_filter_significance_edits">Неситни уредувања</string>
+  <string name="watchlist_filter_latest_revisions_header">Последни преработки</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Последна преработка</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">Не последната преработка</string>
+  <string name="watchlist_filter_type_of_change_header">Вид промена</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Уредувања на страници</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Создавања на страници</string>
+  <string name="watchlist_filter_type_of_change_category_changes">Промени во категории</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Уредувања на Википодатоците</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">Заведени дејства</string>
+  <string name="watchlist_filter_type_of_change_new_users">Нови корисници</string>
+  <string name="watchlist_filter_reset_button">Одново</string>
+  <string name="watchlist_search_bar_hint">Пребарај или филтрирај набљудувани</string>
+  <string name="watchlist_search_bar_filter_hint">Филтер за набљудувани</string>
+  <string name="watchlist_empty_search_message">Нема исходни ставки. Отстранете %s за да видите повеќе.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d филтер</item>
+    <item quantity="other">%d филтри</item>
+  </plurals>
   <string name="preview_edit_title">Преглед на уредувањето</string>
   <string name="preview_edit_summarize_edit_title">Опис на уредувањето</string>
   <string name="preview_edit_summarize_edit_hint">На кој начин ја подобривте страницава?</string>
@@ -1265,7 +1428,7 @@
   <string name="user_contrib_menu_label">Придонеси</string>
   <string name="user_contrib_filter_activity_title">Филтер на придонеси</string>
   <string name="shareable_reading_lists_import_dialog_title">Уевзи споделен список за читање</string>
-  <string name="shareable_reading_lists_import_dialog_content" fuzzy="true">Како би сакале да го наречете списокот за читање што се споделува со вас?</string>
+  <string name="shareable_reading_lists_import_dialog_content">Како би сакале да го наречете списокот за читање што се споделува со вас?</string>
   <string name="shareable_reading_lists_new_indicator">*ново*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">Некој сподели список за читање со вас</string>
   <string name="shareable_reading_lists_new_install_dialog_content">Забележавме дека некој сподели список за читање со вас. За да го видите списокот во овој прилог, вратете се на изворната порака и пак допрете ја врската.</string>
@@ -1273,8 +1436,95 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Списокот за читање е увезен</string>
   <string name="reading_list_share_menu_label">Сподели…</string>
   <string name="reading_list_share_menu_tooltip">Споделете го списоков за читање со други</string>
-  <string name="reading_list_share_title_tooltip">Промените што ќе ги направите во овој список не се видливи за другите.</string>
   <string name="reading_list_share_message_v2">Здраво! Сакам да споделам список за читање со вас:</string>
   <string name="reading_list_share_survey_title">Можете ли да ни помогнете да го подобриме „Споделување на списоци за читање“?</string>
   <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
+  <string name="talk_templates_manage_title">Раководење со предлошки</string>
+  <string name="talk_templates_empty_message">Немате зачувано ниедна предупредувачка порака.</string>
+  <string name="talk_templates_new_message_title">Нова порака</string>
+  <string name="talk_templates_new_message_description">Напиши предупредувачка порака.</string>
+  <string name="talk_templates_new_message_subject_hint">Наслов</string>
+  <string name="talk_templates_new_message_compose_hint">Напиши порака</string>
+  <string name="talk_templates_new_message_save">Зачувај</string>
+  <string name="talk_templates_new_message_dialog_title">Зачувај промени</string>
+  <string name="talk_templates_new_message_dialog_description">Додајте наслов и зачувајте ја пораката.</string>
+  <string name="talk_templates_new_message_dialog_hint">Наслов на пораката</string>
+  <string name="talk_templates_new_message_dialog_save">Зачувај</string>
+  <string name="talk_templates_new_message_dialog_cancel">Откажи</string>
+  <string name="talk_templates_new_message_dialog_exists">Предлошката „%s“ веќе постои.</string>
+  <string name="talk_templates_new_message_saved">Пораката е зачувана</string>
+  <string name="talk_templates_edit_message_dialog_title">Уреди порака</string>
+  <string name="talk_templates_edit_message_dialog_save">Зачувај</string>
+  <string name="talk_templates_edit_message_dialog_delete">Избриши</string>
+  <string name="talk_templates_edit_message_updated">Пораката е подновена</string>
+  <string name="talk_templates_edit_message_confirm_description">Дали сигурно сакате да ја избришете оваа порака %s од списокот.</string>
+  <string name="talk_templates_message_deleted">Пораката е избришана</string>
+  <string name="patroller_tasks_edits_list_title">Список на уредувања</string>
+  <string name="patroller_tasks_edits_list_search_hint">Пребарај или филтрирај уредувања</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Ознаки: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Нема</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Корисничка страница</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Разговорна страница</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Кориснички информации</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Кориснички придонеси</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Заблагодари се</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Кориснички информации</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Старост на сметката</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Број на уредувања</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Затвори</string>
+  <string name="patroller_tasks_filters_title">Филтри</string>
+  <string name="patroller_tasks_filters_reset">Одново</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Вики</string>
+  <string name="patroller_tasks_filters_all_text">Сите</string>
+  <string name="patroller_tasks_filters_user_status_header">Корисничко зачленување и искусност</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Незачленети</string>
+  <string name="patroller_tasks_filters_user_status_registered">Зачленети</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Новодојденци</string>
+  <string name="patroller_tasks_filters_user_status_learners">Ученици</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Искусни корисници</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Последни преработки</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Последна преработка</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Не последната преработка</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Автоматизирани придонеси</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Бот</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Човечки (неботовски)</string>
+  <string name="patroller_tasks_filters_significance_header">Значајност</string>
+  <string name="patroller_tasks_filters_significance_minor">Ситни уредувања</string>
+  <string name="patroller_tasks_filters_significance_edits">Неситни уредувања</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Предвидувања за квалитет на придонесите</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Многу веројатно добро</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Може да има проблеми</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Веројатно има проблеми</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Мошне веројатно има проблеми</string>
+  <string name="patroller_tasks_filters_user_intent_header">Предвидувања за кориснички намери</string>
+  <string name="patroller_tasks_filters_user_intent_good">Многу веројатно добронамерно</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Може да е недобронамерно</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Веројатно недобронамерно</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Многу веројатно недобронамерно</string>
+  <string name="patroller_tasks_filters_empty_search_message">Отстранете %s за да видите уште известувања</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d филтер</item>
+    <item quantity="other">%d филтри</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_title">Патролирај уредување</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Историја на уредување на статијата</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Да го вратам ова уредување?</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Дали сигурно дакате да го вратите ова уредување?</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Враќањето значи отповикување на дејствата од едно или повеќе уредувања.</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Опис (незадолж.)</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Наведете причина за враќањето</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Враќањето е завршено</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Дали сигурно сакате да отповикате?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Отповикувањето е завршено</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Преглед</string>
+  <string name="patroller_tasks_overflow_report">Проблем со функцијата</string>
+  <string name="patroller_tasks_overflow_learn">Дознајте повеќе</string>
+  <string name="data_opt_in_accept">Прифати</string>
+  <string name="data_opt_in_reject">Одбиј</string>
+  <string name="page_issues_title">Проблеми со страницата</string>
+  <string name="generic_release_notes">Ситни поправки на грешки и подобрувања</string>
+  <string name="email_report_image_recommendations_subject">Пријава на проблем — Функцијата Препорачување на слики</string>
+  <string name="email_report_image_recommendations_body">Наидов на проблем со функцијата Препорачување на слики:\n— [Опишете го конкретниот проблем]\nШто сакате да се поправи:\n— [Опишете го предложеното решение]</string>
+  <string name="email_report_patroller_tasks_subject">Пријава на проблем — Функција Патролерски задачи</string>
+  <string name="email_report_patroller_tasks_body">Наидов на проблем со функцијата Патролерски задачи:\n— [Опишете го конкретниот проблем]\nШто сакате да се поправи:\n— [Опишете го предложеното решение]</string>
 </resources>

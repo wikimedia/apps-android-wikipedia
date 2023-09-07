@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tabGravity="fill"
-        app:tabIndicatorColor="?attr/colorAccent"
+        app:tabIndicatorColor="?attr/progressive_color"
         app:tabIndicatorHeight="2dp"
         app:tabMaxWidth="0dp"
         app:tabMode="scrollable"
@@ -28,16 +28,15 @@
         app:tabPaddingEnd="8dp"
         app:tabPaddingStart="8dp"
         app:tabPaddingTop="8dp"
-        app:tabSelectedTextColor="?attr/colorAccent" />
+        app:tabSelectedTextColor="?attr/progressive_color" />
 
     <Button
         android:id="@+id/more_languages"
-        style="@style/TransparentButton"
+        style="@style/App.Button.Text"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:minWidth="0dp"
         android:text="@string/more_language_options"
-        android:textColor="?attr/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

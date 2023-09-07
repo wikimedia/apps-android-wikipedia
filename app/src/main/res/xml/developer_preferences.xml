@@ -10,7 +10,7 @@
             android:title="@string/preferences_developer_announcement_country_override"
             android:dialogMessage="@string/preferences_developer_announcement_country_override_hint" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_announcement_ignore_date"
             android:title="@string/preferences_developer_announcement_ignore_date" />
 
@@ -44,7 +44,7 @@
             \nDev: http://host:8080
             \nBeta cluster: https://wikipedia.beta.wmflabs.org" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_mediawiki_base_uri_supports_lang_code"
             android:title="@string/preference_key_mediawiki_base_uri_supports_lang_code"
             android:defaultValue="true" />
@@ -82,10 +82,15 @@
             android:title="@string/preference_developer_send_event_platform_test_event_title"
             android:summary="@string/preference_developer_send_event_platform_test_event_summary" />
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_event_platform_queue_size"
+            android:title="@string/preferences_developer_event_platform_queue_size_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_misc_heading">
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_visited_article_page"
             android:title="@string/preference_key_visited_article_page"
             android:defaultValue="false" />
@@ -137,11 +142,6 @@
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
-            android:key="@string/preference_key_locally_known_notifications"
-            android:title="@string/preference_key_locally_known_notifications" />
-
-        <org.wikipedia.settings.EditTextAutoSummarizePreference
-            style="@style/DataStringPreference"
             android:key="@string/preference_key_customize_toolbar_order"
             android:title="@string/preference_key_customize_toolbar_order" />
 
@@ -155,7 +155,7 @@
             android:key="@string/preference_key_remote_notifications_seen_time"
             android:title="@string/preference_key_remote_notifications_seen_time" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_anon_user_has_notification"
             android:title="@string/preference_key_anon_user_has_notification" />
 
@@ -190,15 +190,15 @@
             android:key="dailyEventTask-lastrun"
             android:title="dailyEventTask-lastrun" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_developer_settings"
             android:title="@string/preference_key_show_developer_settings" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_memory_leak_test"
             android:title="@string/preference_key_memory_leak_test" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_crashed_before_activity_created"
             android:title="@string/preference_key_crashed_before_activity_created" />
 
@@ -210,23 +210,23 @@
 
     <PreferenceCategory android:title="@string/preferences_developer_onboarding_heading">
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_initial_onboarding_enabled"
             android:title="@string/preference_key_initial_onboarding_enabled" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_description_edit_tutorial_enabled"
             android:title="@string/preference_key_description_edit_tutorial_enabled" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_multilingual_search_tooltip_shown"
             android:title="@string/preference_key_multilingual_search_tooltip_shown" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_reading_list_sync_reminder_enabled"
             android:title="@string/preference_key_reading_list_sync_reminder_enabled" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_reading_list_login_reminder_enabled"
             android:title="@string/preference_key_reading_list_login_reminder_enabled" />
 
@@ -240,7 +240,7 @@
             android:key="@string/preference_key_explore_feed_visit_count"
             android:title="@string/preference_key_explore_feed_visit_count" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_feed_customize_onboarding_card_enabled"
             android:title="@string/preference_key_feed_customize_onboarding_card_enabled" />
 
@@ -249,55 +249,55 @@
             android:key="@string/preference_key_feed_hidden_cards"
             android:title="@string/preference_key_feed_hidden_cards"/>
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_reading_lists_sync_prompt"
             android:title="@string/preference_key_show_reading_lists_sync_prompt" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_reading_lists_first_time_sync"
             android:title="@string/preference_key_reading_lists_first_time_sync" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_remove_chinese_variant_prompt"
             android:title="@string/preference_key_show_remove_chinese_variant_prompt" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_description_edit_success_prompt"
             android:title="@string/preference_key_show_description_edit_success_prompt" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_image_tags_onboarding_shown"
             android:title="@string/preference_key_image_tags_onboarding_shown" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_image_zoom_tooltip_shown"
             android:title="@string/preference_key_image_zoom_tooltip_shown" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_watchlist_page_onboarding_tooltip_shown"
             android:title="@string/preference_key_watchlist_page_onboarding_tooltip_shown" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_watchlist_main_onboarding_tooltip_shown"
             android:title="@string/preference_key_watchlist_main_onboarding_tooltip_shown" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_edit_notices_tooltip_shown"
             android:title="@string/preference_key_edit_notices_tooltip_shown" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_edit_talk_page_source_prompt"
             android:title="@string/preference_key_show_edit_talk_page_source_prompt" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_search_tab_tooltip"
             android:title="@string/preference_key_show_search_tab_tooltip" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_customize_toolbar_tooltip"
             android:title="@string/preference_key_customize_toolbar_tooltip" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_push_notification_options_set"
             android:title="@string/preference_key_push_notification_options_set" />
 
@@ -334,26 +334,22 @@
             android:key="@string/preference_key_add_malformed_reading_list_page"
             android:title="Add malformed pages to reading list" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_reading_lists_share_url_shorten"
             android:title="@string/preference_key_reading_lists_share_url_shorten" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_reading_lists_share_tooltip_shown"
             android:title="@string/preference_key_reading_lists_share_tooltip_shown" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_reading_lists_recent_receive_tooltip_shown"
-            android:title="@string/preference_key_reading_lists_recent_receive_tooltip_shown" />
 
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_suggested_edits_category">
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_suggested_edits_survey"
             android:title="@string/preference_key_show_suggested_edits_survey" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_suggested_edits_tooltip"
             android:title="@string/preference_key_show_suggested_edits_tooltip" />
 
@@ -367,7 +363,7 @@
             android:key="@string/preference_key_suggested_edits_pause_reverts"
             android:title="@string/preference_key_suggested_edits_pause_reverts" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_suggested_edits_override_counts"
             android:title="@string/preference_key_suggested_edits_override_counts"
             android:summary="Use the following two fields to override suggested edit counts:"/>
@@ -382,19 +378,23 @@
             android:key="@string/preference_key_suggested_edits_override_reverts"
             android:title="@string/preference_key_suggested_edits_override_reverts" />
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_suggested_edits_reactivation_test"
             android:title="@string/preference_key_suggested_edits_reactivation_test"
             android:summary="Change the 3 or 7 days editor reactivation rules to minutes"/>
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_suggested_edits_reactivation_pass_stage_one"
             android:title="@string/preference_key_suggested_edits_reactivation_pass_stage_one"
             android:summary="The first local notification for editor reactivation has shown."/>
 
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_sequential_user_stats_tooltip"
             android:title="@string/preference_key_show_sequential_user_stats_tooltip" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_se_machine_generated_descriptions_tooltip_shown"
+            android:title="seMachineGeneratedDescriptionsTooltipShown" />
 
         <Preference
             android:key="@string/preferences_developer_suggested_edits_reactivation_notification_stage_one"
@@ -419,18 +419,21 @@
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
-            android:key="@string/preference_key_reading_lists_share_survey_attempts"
-            android:title="readingListShareSurveyAttempts" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
             android:key="@string/preference_key_reading_lists_receive_survey_mode"
             android:title="Reading list receiving survey mode (0=inactive, 1=active, 2=override)" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_reading_lists_share_survey_dialog_shown"
+            android:title="readingListShareSurveyDialogShown" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_reading_lists_receive_survey_dialog_shown"
+            android:title="readingListReceiveSurveyDialogShown" />
+
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
-            android:key="@string/preference_key_reading_lists_receive_survey_attempts"
-            android:title="readingListReceiveSurveyAttempts" />
+            android:key="ab_test_mBART25"
+            android:title="Test group for machine generated article descriptions \n(0=no suggestions, 1=suggestions, 2=suggestions+blp)" />
 
     </PreferenceCategory>
 

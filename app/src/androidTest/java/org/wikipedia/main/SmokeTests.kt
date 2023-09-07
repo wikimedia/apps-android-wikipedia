@@ -9,6 +9,7 @@ import androidx.test.espresso.IdlingPolicies
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
+import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.espresso.web.assertion.WebViewAssertions
 import androidx.test.espresso.web.sugar.Web.onWebView
@@ -21,8 +22,10 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
-import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.`is`
+import org.hamcrest.Matchers.not
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -39,6 +42,14 @@ class SmokeTests {
     @Rule
     @JvmField
     var mActivityTestRule = ActivityScenarioRule(MainActivity::class.java)
+    private lateinit var activity: MainActivity
+
+    @Before
+    fun setActivity() {
+        mActivityTestRule.scenario.onActivity {
+            activity = it
+        }
+    }
 
     @Test
     fun mainActivityTest() {
@@ -54,24 +65,14 @@ class SmokeTests {
         onView(allOf(withId(R.id.fragment_onboarding_forward_button), isDisplayed()))
                 .perform(click())
 
-        TestUtil.delay(1)
+        onView(allOf(withId(R.id.fragment_onboarding_forward_button), isDisplayed()))
+                .perform(click())
 
         onView(allOf(withId(R.id.fragment_onboarding_forward_button), isDisplayed()))
                 .perform(click())
 
-        TestUtil.delay(1)
-
-        onView(allOf(withId(R.id.fragment_onboarding_forward_button), isDisplayed()))
-                .perform(click())
-
-        TestUtil.delay(1)
-
-        // Make sure the user sees the usage data opt-in switch
-        onView(allOf(withId(R.id.switchView), withText("Send usage data"), isDisplayed()))
-                .check(matches(isDisplayed()))
-
-        // Dismiss initial onboarding
-        onView(allOf(withId(R.id.fragment_onboarding_done_button), withText("Get started"), isDisplayed()))
+        // Dismiss initial onboarding by accepting analytics collection
+        onView(allOf(withId(R.id.acceptButton), withText("Accept"), isDisplayed()))
                 .perform(click())
 
         TestUtil.delay(2)
@@ -89,7 +90,7 @@ class SmokeTests {
         TestUtil.delay(1)
 
         // Type in our search term
-        onView(allOf(withId(R.id.search_src_text), isDisplayed()))
+        onView(allOf(withId(androidx.appcompat.R.id.search_src_text), isDisplayed()))
                 .perform(replaceText(SEARCH_TERM), closeSoftKeyboard())
 
         // Give the API plenty of time to return results
@@ -113,8 +114,9 @@ class SmokeTests {
 
         // Rotate the device back to the original orientation
         device.setOrientationNatural()
-        device.unfreezeRotation()
+        TestUtil.delay(2)
 
+        device.unfreezeRotation()
         TestUtil.delay(2)
 
         // Click on the first search result
@@ -123,6 +125,13 @@ class SmokeTests {
 
         // Give the page plenty of time to load fully
         TestUtil.delay(5)
+
+        // Dismiss tooltip, if any
+        onView(allOf(withId(R.id.buttonView)))
+            .inRoot(withDecorView(not(`is`(activity.window.decorView))))
+                .perform(click())
+
+        TestUtil.delay(2)
 
         // Click on a link to load a Link Preview dialog
         onWebView().withElement(findElement(Locator.CSS_SELECTOR, "a[title='3-sphere']"))
@@ -154,6 +163,7 @@ class SmokeTests {
 
         // Go back to the original article
         pressBack()
+        TestUtil.delay(2)
 
         // Ensure the header view (with lead image) is displayed
         onView(allOf(withId(R.id.page_header_view)))
@@ -164,12 +174,6 @@ class SmokeTests {
             .perform(click())
 
         TestUtil.delay(3)
-
-        // Flip through the gallery a couple of times
-        onView(allOf(withId(R.id.pager)))
-            .perform(swipeLeft())
-
-        TestUtil.delay(2)
 
         onView(allOf(withId(R.id.pager)))
             .perform(swipeLeft())
@@ -187,7 +191,6 @@ class SmokeTests {
 
         // Rotate the display to landscape
         device.setOrientationRight()
-
         TestUtil.delay(2)
 
         // Make sure the header view (with lead image) is not shown in landscape mode
@@ -200,15 +203,15 @@ class SmokeTests {
 
         // Rotate the device back to the original orientation
         device.setOrientationNatural()
-        device.unfreezeRotation()
-
         TestUtil.delay(2)
 
+        device.unfreezeRotation()
+
         // Bring up the theme chooser dialog
-        onView(withId(R.id.article_menu_font_and_theme))
+        onView(withId(R.id.page_theme))
                 .perform(click())
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
 
         // Switch off the "match system theme" option
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
@@ -236,7 +239,7 @@ class SmokeTests {
                 .check(matches(TestUtil.hasBackgroundColor(Color.BLACK)))
 
         // Go back to the Light theme
-        onView(withId(R.id.article_menu_font_and_theme))
+        onView(withId(R.id.page_theme))
                 .perform(click())
 
         TestUtil.delay(1)
@@ -258,40 +261,81 @@ class SmokeTests {
         onView(allOf(withId(R.id.title), withText("Edit introduction"), isDisplayed()))
                 .perform(click())
 
+        TestUtil.delay(3)
+
+        // Click on the fonts and theme icon
+        onView(allOf(withId(R.id.menu_edit_theme), isDisplayed()))
+            .perform(click())
+
         TestUtil.delay(2)
 
-        // Increase text size
-        onView(allOf(withId(R.id.menu_edit_zoom_in), isDisplayed()))
-                .perform(click())
+        // Increase text size by clicking on increase text icon
+        onView(allOf(withId(R.id.buttonIncreaseTextSize)))
+            .perform(scrollTo(), click())
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
 
-        // Decrease text size
-        onView(allOf(withId(R.id.menu_edit_zoom_out), isDisplayed()))
-                .perform(click())
+        onView(allOf(withId(R.id.buttonIncreaseTextSize)))
+            .perform(scrollTo(), click())
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
+
+        // Exit bottom sheet
+        pressBack()
+
+        TestUtil.delay(4)
+
+        onView(allOf(withId(R.id.menu_edit_theme), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(3)
+
+        // Decrease text size by clicking on decrease text icon
+        onView(allOf(withId(R.id.buttonDecreaseTextSize)))
+            .perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.buttonDecreaseTextSize)))
+            .perform(scrollTo(), click())
+
+        TestUtil.delay(2)
+
+        // Exit bottom sheet
+        pressBack()
+
+        TestUtil.delay(3)
 
         // Type in some stuff into the edit window
         onView(allOf(withId(R.id.edit_section_text)))
                 .perform(replaceText("abc"))
 
-        TestUtil.delay(1)
+        TestUtil.delay(3)
 
         // Proceed to edit preview
         onView(allOf(withId(R.id.edit_actionbar_button_text), isDisplayed()))
                 .perform(click())
 
         // Give sufficient time for the API to load the preview
-        TestUtil.delay(5)
+        TestUtil.delay(2)
+
+        onView(allOf(withId(R.id.edit_actionbar_button_text), isDisplayed()))
+            .perform(click())
+
+        TestUtil.delay(3)
 
         // Click one of the default edit summary choices
         onView(allOf(withText("Fixed typo")))
                 .perform(scrollTo(), click())
 
-        TestUtil.delay(1)
+        TestUtil.delay(3)
 
         // Go back out of the editing workflow
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
+                .perform(click())
+
+        TestUtil.delay(1)
+
         onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
                 .perform(click())
 
@@ -316,7 +360,7 @@ class SmokeTests {
         onView(allOf(withId(android.R.id.button1), withText("Yes")))
                 .perform(scrollTo(), click())
 
-        TestUtil.delay(1)
+        TestUtil.delay(2)
 
         // Click on the Tabs button to launch the tabs screen
         onView(allOf(withId(R.id.page_toolbar_button_tabs), isDisplayed()))
@@ -375,10 +419,6 @@ class SmokeTests {
 
         TestUtil.delay(4)
 
-        // Click on the second topic of the talk page
-        onView(allOf(withId(R.id.topicTitleText), withText(TALK_TOPIC_TITLE), isDisplayed()))
-            .check(matches(withText(TALK_TOPIC_TITLE)))
-
         // Click on the 3rd topic
         onView(withId(R.id.talkRecyclerView))
             .perform(actionOnItemAtPosition<ViewHolder>(2, click()))
@@ -389,9 +429,12 @@ class SmokeTests {
         // Go back out of the Talk interface
         pressBack()
 
+        // Get back to article screen
+        pressBack()
+
         if (AccountUtil.isLoggedIn) {
             // Click on the 5th topic
-            onView(withId(R.id.menu_notifications)).perform(click())
+            onView(withId(R.id.page_toolbar_button_notifications)).perform(click())
 
             // Give the page plenty of time to load fully
             TestUtil.delay(5)
@@ -413,14 +456,10 @@ class SmokeTests {
             pressBack()
         }
 
-        // Go back out of the article page
-        pressBack()
-
         TestUtil.delay(1)
 
-        // TODO: update the following actions when the customizable toolbar feature is released
         // Click on the Save button to add article to reading list
-        onView(withId(R.id.article_menu_bookmark)).perform(click())
+        onView(withId(R.id.page_save)).perform(click())
 
         TestUtil.delay(1)
 
@@ -438,7 +477,7 @@ class SmokeTests {
         TestUtil.delay(1)
 
         // Go to Saved tab
-        onView(withId(NavTab.READING_LISTS.id())).perform(click())
+        onView(withId(NavTab.READING_LISTS.id)).perform(click())
 
         TestUtil.delay(1)
 
@@ -449,11 +488,17 @@ class SmokeTests {
         // Waiting for the article to be saved to the database
         TestUtil.delay(5)
 
+        // Dismiss tooltip, if any
+        onView(allOf(withId(R.id.buttonView)))
+            .inRoot(withDecorView(not(`is`(activity.window.decorView))))
+            .perform(click())
+
+        TestUtil.delay(1)
+
         // Make sure one of the list item matches the title that we expect
         onView(allOf(withId(R.id.page_list_item_title), withText(ARTICLE_TITLE), isDisplayed()))
             .check(matches(withText(ARTICLE_TITLE)))
 
-        // Turn device to offline
         TestUtil.setAirplaneMode(true)
 
         TestUtil.delay(2)
@@ -464,7 +509,7 @@ class SmokeTests {
         TestUtil.delay(5)
 
         // Click on bookmark icon and open the menu
-        onView(withId(R.id.article_menu_bookmark)).perform(click())
+        onView(withId(R.id.page_save)).perform(click())
 
         TestUtil.delay(2)
 
@@ -473,7 +518,6 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        // Turn device to offline
         TestUtil.setAirplaneMode(false)
 
         TestUtil.delay(2)
@@ -482,6 +526,5 @@ class SmokeTests {
     companion object {
         private val SEARCH_TERM = "hopf fibration"
         private val ARTICLE_TITLE = "Hopf fibration"
-        private val TALK_TOPIC_TITLE = "natural metric?"
     }
 }

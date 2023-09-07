@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
-            app:tint="?attr/themed_icon_color"
+            app:tint="?attr/progressive_color"
             android:alpha="0.7"
             tools:src="@drawable/ic_article_description"
             android:contentDescription="@null"/>
@@ -34,7 +34,7 @@
             app:layout_constraintTop_toTopOf="@+id/taskIcon"
             android:layout_marginStart="24dp"
             android:textSize="@dimen/suggested_edits_message_textview_text_size"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/primary_color"
             android:textStyle="bold"
             android:lineSpacingExtra="6sp"
             tools:text="Lorem ipsum"/>
@@ -47,7 +47,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/taskTitle"
             android:layout_marginStart="4dp"
             android:textSize="@dimen/suggested_edits_message_textview_text_size"
-            android:textColor="@color/green50"
+            android:textColor="@color/green600"
             android:textStyle="bold"
             android:text="@string/suggested_edits_task_new"/>
 
@@ -61,30 +61,30 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:textSize="@dimen/suggested_edits_message_textview_text_size"
             android:lineSpacingExtra="6sp"
-            android:textColor="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
             tools:text="Lorem ipsum"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/primaryButton"
-            style="@style/FlatButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/App.Button.Secondary"
             android:text="@string/suggested_edits_task_action_text_add"
             app:layout_constraintTop_toBottomOf="@id/taskDescription"
             app:layout_constraintStart_toStartOf="@id/taskDescription"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:icon="@drawable/ic_add_gray_white_24dp"
-            app:iconSize="20dp"
-            app:iconTint="?attr/colorAccent"/>
+            app:icon="@drawable/ic_add_gray_white_24dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/secondaryButton"
-            style="@style/FlatButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/App.Button.Secondary"
             android:text="@string/suggested_edits_task_action_text_translate"
             android:layout_marginStart="16dp"
             app:layout_constraintTop_toTopOf="@id/primaryButton"
             app:layout_constraintStart_toEndOf="@id/primaryButton"
-            app:icon="@drawable/ic_translate_white_24dp"
-            app:iconSize="20dp"
-            app:iconTint="?attr/colorAccent"/>
+            app:icon="@drawable/ic_translate_white_24dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

@@ -107,9 +107,9 @@
   <string name="map_view_link_text">Pogl. na karti</string>
   <string name="other_languages_indication_text">Pročitaj na drugom jeziku</string>
   <string name="language_count_link_text">Dostupan na %d drugih jezika</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Objavljivanjem izmjena, prihvatate &lt;a href=\"%1$s\"&gt;Uslove korišćenja&lt;/a&gt; i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Objavljivanjem izmjena, prihvatate &lt;a href=\"%1$s\"&gt;Uslove korišćenja&lt;/a&gt;, i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmjene će biti pripisane IP adresi vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt; imaćete veću privatnost.</string>
+  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Objavljivanjem izmjena, prihvatate &lt;a href=\"%1$s\"&gt;Uslove korišćenja&lt;/a&gt; i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Objavljivanjem izmjena, prihvatate &lt;a href=\"%1$s\"&gt;Uslove korišćenja&lt;/a&gt;, i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmjene će biti pripisane IP adresi vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt; imaćete veću privatnost.</string>
   <string name="edit_anon_warning">Uređivanja će se pripisati IP adresi vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, onda imat ćete više privatnosti.</string>
   <string name="preference_title_language">Jezici Wikipedije</string>
   <string name="langlinks_filter_hint">Traži</string>
@@ -139,8 +139,8 @@
   <string name="login_username_hint">Korisničko ime</string>
   <string name="login_password_hint">Lozinka</string>
   <string name="account_creation_password_hint">Lozinka</string>
-  <string name="login_2fa_hint">Kôd dvočiniteljske potvrde</string>
-  <string name="login_2fa_other_workflow_error_msg">Zahtijeva se dvočiniteljska potvrda! Vratite se na glavnu aktivnost i prijavite se sa svojim 2FA-žetonom te pokušajte ponovo.</string>
+  <string name="login_2fa_hint">Kôd dvofaktorske autentikacije</string>
+  <string name="login_2fa_other_workflow_error_msg">Neophodna je dvofaktorska autentikacija! Vratite se na glavnu aktivnost i prijavite se sa svojim 2FA-žetonom te pokušajte ponovo.</string>
   <string name="onboarding_card_login">Prijavi se</string>
   <string name="page_editing_login">Prijavi se</string>
   <string name="reading_lists_sync_login">Prijavi se</string>
@@ -233,8 +233,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Korištene biblioteke</string>
@@ -243,7 +241,7 @@
   <string name="about_translators_heading">Prevodioci</string>
   <string name="about_translators_translatewiki">Ovaj prilog preveli su prevoditelji volonteri na projektu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
-  <string name="about_app_license">Izvorni kôd dostupan je na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; pod &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licencom Apache 2.0&lt;/a&gt;. Osim gdje je drugačije navedeno, sadržaj je dostupan pod &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;slobodnom licencom Autorstvo-Dijeliti pod istim uvjetima&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Izvorni kôd dostupan je na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; pod &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licencom Apache 2.0&lt;/a&gt;. Osim gdje je drugačije navedeno, sadržaj je dostupan pod &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;slobodnom licencom Autorstvo-Dijeliti pod istim uvjetima&lt;/a&gt;.</string>
   <string name="about_wmf">Proizvod &lt;a href=\"https://wikimediafoundation.org/\"&gt;Zadužbine Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O prilogu</string>
   <string name="edit_abandon_confirm">Stranica je promijenjena. Jeste li sigurni da želite izaći bez čuvanja napravljenih promjena?</string>
@@ -290,6 +288,11 @@
   <string name="search_did_you_mean">Jeste li mislili \"%s\"?</string>
   <string name="search_recent_header">Nedavne pretrage:</string>
   <string name="search_results_count_zero">Nema rezultata</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 rezultat</item>
+    <item quantity="few">%d rezultata</item>
+    <item quantity="other">%d rezultata</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Očisti nedavne pretrage</string>
   <string name="clear_recent_searches_confirm">Jeste li sigurni da želite očistiti historiju pretrage?</string>
   <string name="clear_recent_searches_confirm_yes">Da</string>
@@ -341,8 +344,24 @@
   <string name="all_tab_items_closed">Sve kartice su zatvorene.</string>
   <string name="tool_tip_bookmark_icon_title">Dodaj na spisak za čitanje</string>
   <string name="tool_tip_bookmark_icon_text">Dodirnite sličicu dočitnice da biste sačuvali članak na listu za čitanje.</string>
+  <string name="tool_tip_toc_text">Sada možete prevlačiti ulijevo da biste otvorili sadržaj, a zatim dodirnuti i prevući dugme ovog pomerača da biste brzo prešli na druge odjeljke članka.</string>
+  <string name="tool_tip_lang_button">Sada možete pretraživati i čitati na više jezika u prilogu.\n\n\nDodirnite ikonu da biste dodali još jezika.</string>
+  <string name="error_response_malformed">Odgovor servera nije ispravno formatiran.</string>
+  <string name="error_unknown">Došlo je do nepoznate greške.</string>
+  <string name="format_error_server_message">Poruka: \"%s\"</string>
+  <string name="address_copied">Adresa stavljena u međuspremnik</string>
+  <string name="text_copied">Tekst stavljen u međuspremnik.</string>
+  <string name="button_continue_to_article">Pročitaj članak</string>
+  <string name="button_continue_to_talk_page">Prikaži stranicu za razgovor</string>
+  <string name="button_continue_to_disambiguation">Pogl. slične stranice</string>
+  <string name="link_preview_disambiguation_description">Naslov se odnosi na više od jedne stranice:</string>
+  <string name="button_add_to_reading_list">Dodaj na spisak za čitanje</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Članak se ne može učitati dok ste van mreže.</string>
+  <string name="page_offline_notice_add_to_reading_list">Savjet: Dodajte članak na spisak za čitanje i bit će preuzet čim se ponovo povežete.</string>
   <string name="theme_category_editing">Uređivanje</string>
   <string name="editing_syntax_highlight_label">Isticanje sintakse</string>
+  <string name="reading_lists_preview_save_button">Sačuvaj</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Otkaži</string>
   <string name="wikitext_underline">Podvučeno</string>
   <string name="wikitext_strikethrough">Precrtano</string>
   <string name="wikitext_sup">Eksponent</string>
@@ -373,4 +392,6 @@
   <string name="user_contrib_current">trenutno</string>
   <string name="user_contrib_menu_label">Doprinosi</string>
   <string name="user_contrib_filter_activity_title">Filtriraj doprinose</string>
+  <string name="data_opt_in_accept">Prihvati</string>
+  <string name="data_opt_in_reject">Odbij</string>
 </resources>

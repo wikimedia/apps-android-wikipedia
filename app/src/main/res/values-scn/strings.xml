@@ -44,7 +44,6 @@
   <string name="edit_history_link_text">Talìa la crunuluggìa dî canciamenti</string>
   <string name="other_languages_indication_text">Leggi n n\'àutra lingua</string>
   <string name="language_count_link_text">Dispunìbbili n àutri %d lingui</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="preference_title_language">Lingui di Wikipedia</string>
   <string name="langlinks_filter_hint">Risciduta</string>
   <string name="langlinks_activity_title">Àutri lingui</string>
@@ -132,7 +131,7 @@
   <string name="crash_report_quit">Nesci</string>
   <string name="article_menu_bar_save_button">Sarva</string>
   <string name="article_menu_bar_language_button">Lingua</string>
-  <string name="article_menu_bar_contents_button">Cuntinuti</string>
+  <string name="article_menu_bar_contents_button">Ìnnici</string>
   <string name="article_header_edit_hint">Cancia...</string>
   <string name="article_header_edit_description">Cancia la discrizzioni dâ vuci</string>
   <string name="article_header_edit_lead_section">Cancia ntroduzzioni</string>
@@ -144,8 +143,6 @@
     <item quantity="one">1 vuci, %2$.2f MB</item>
     <item quantity="other">%1$d vuci, %2$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 vuci, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d vuci, %2$.2f MB</string>
   <string name="reading_list_menu_delete">Cancella elencu</string>
   <string name="reading_list_menu_rename">Cancia nomu/discrizzioni</string>
   <string name="reading_list_description_hint">Discrizzioni (facultativa)</string>

@@ -32,7 +32,7 @@
         android:lineSpacingExtra="8sp"
         android:linksClickable="false"
         android:maxLines="4"
-        android:textColor="?attr/primary_text_color"
-        android:textColorLink="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
+        android:textColorLink="?attr/primary_color"
         android:textSize="16sp" />
 </LinearLayout>

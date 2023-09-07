@@ -9,10 +9,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.FeedFunnel
 import org.wikipedia.databinding.ViewCardOnThisDayBinding
-import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
@@ -31,8 +28,6 @@ import org.wikipedia.views.ImageZoomHelper
 class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(context), CardFooterView.Callback {
 
     private val binding = ViewCardOnThisDayBinding.inflate(LayoutInflater.from(context), this, true)
-    private val funnel = FeedFunnel(WikipediaApp.instance)
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var age = 0
 
     init {
@@ -41,7 +36,6 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
 
     override fun onFooterClicked() {
         card?.let {
-            funnel.cardClicked(CardType.ON_THIS_DAY, it.wikiSite().languageCode)
             val options = ActivityOptions.makeSceneTransitionAnimation(context as Activity,
                 binding.cardHeader.titleView, context.getString(R.string.transition_on_this_day))
             context.startActivity(OnThisDayActivity.newIntent(context, age, -1,
@@ -90,7 +84,6 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
     private fun onCardClicked(view: View) {
         card?.let {
             val isYearClicked = view.id == R.id.year
-            funnel.cardClicked(CardType.ON_THIS_DAY, it.wikiSite().languageCode)
             val options = ActivityOptions.makeSceneTransitionAnimation(context as Activity,
                 binding.cardHeader.titleView, context.getString(R.string.transition_on_this_day))
             context.startActivity(OnThisDayActivity.newIntent(context, age, if (isYearClicked) it.year() else -1, it.wikiSite(),
@@ -152,7 +145,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                                         context as AppCompatActivity, entry.title,
                                         InvokeSource.ON_THIS_DAY_CARD_BODY
                                     ) { readingListId ->
-                                        bottomSheetPresenter.show(
+                                        ExclusiveBottomSheetPresenter.show(
                                             (context as AppCompatActivity).supportFragmentManager,
                                             MoveToReadingListDialog.newInstance(
                                                 readingListId,
@@ -162,7 +155,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                                         )
                                     }
                                 } else {
-                                    bottomSheetPresenter.show(
+                                    ExclusiveBottomSheetPresenter.show(
                                         (context as AppCompatActivity).supportFragmentManager,
                                         AddToReadingListDialog.newInstance(
                                             entry.title,
@@ -177,7 +170,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                                 entry: HistoryEntry
                             ) {
                                 page?.let {
-                                    bottomSheetPresenter.show(
+                                    ExclusiveBottomSheetPresenter.show(
                                         (context as AppCompatActivity).supportFragmentManager,
                                         MoveToReadingListDialog.newInstance(
                                             it.listId,

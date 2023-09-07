@@ -29,7 +29,7 @@
   <string name="error_network_error">Ji înternetê re nikare bê girêdan.</string>
   <string name="page_error_retry">Dîsa hewl bide</string>
   <string name="card_offline_error_retry">Dîsa hewl bide</string>
-  <string name="storage_access_error_retry">Dîsa bicerribîne</string>
+  <string name="storage_access_error_retry">Dîsa biceribîne</string>
   <string name="article_load_error_retry">Dîsa hewl bide</string>
   <string name="offline_load_error_retry">Dîsa hewl bide</string>
   <string name="page_error_back_to_main">Vegere</string>
@@ -112,9 +112,8 @@
   <string name="map_view_link_text">Ser nexşeyek bibîne</string>
   <string name="other_languages_indication_text">Bi zimanekî din bixwîne</string>
   <string name="language_count_link_text">Bi %d zimanên din jî berdest e</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Bi weşandinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî.</string>
-  <string name="edit_save_action_license_anon">Bi weşandinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî. Sererastkirin wê bi adrêsa te ya IPyê ya cîhaza te re bêne girêdan. Eger &lt;a href=\"https://#login\"&gt;têkevî&lt;/a&gt;, wê veşaritîya te zêdetir bê muhafezekirin.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Bi weşandinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Bi weşandinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî. Sererastkirin wê bi adrêsa te ya IPyê ya cîhaza te re bêne girêdan. Eger &lt;a href=\"https://#login\"&gt;têkevî&lt;/a&gt;, wê veşaritîya te zêdetir bê muhafezekirin.</string>
   <string name="edit_anon_warning">Guhartin wê bi adresa IPyê ya cîhaza te ve were îsnadkirin. Ger tu &lt;a href=\"https://#login\"&gt;têkevî&lt;/a&gt;, tu yê karibî bigihî veşarîtiyeke zêdetir.</string>
   <string name="preference_title_language">Zimanên Wîkîpediyayê</string>
   <string name="langlinks_filter_hint">Lêgerîn</string>
@@ -238,8 +237,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kitêbxaneyên bikarhatî</string>
@@ -248,7 +245,7 @@
   <string name="about_translators_heading">Wergêr</string>
   <string name="about_translators_translatewiki">Ev sepan ji aliyê bikarhênerên xwebexş ve li ser &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.netê&lt;/a&gt; hatiye wergerandin.</string>
   <string name="about_app_license_heading">Destûr</string>
-  <string name="about_app_license">Koda çavkanî berdest e li ser &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; û &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;ê li bin &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lîsansa Apache 2.0&lt;/a&gt;. Ger bi awayekî din nehatibe diyarkirin, naverok li bin &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lîsansa Creatice Commons yê Atfkirin-ParvekirinaWekhevan&lt;/a&gt; berdest e.</string>
+  <string name="about_app_license" fuzzy="true">Koda çavkanî berdest e li ser &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; û &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;ê li bin &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Lîsansa Apache 2.0&lt;/a&gt;. Ger bi awayekî din nehatibe diyarkirin, naverok li bin &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Lîsansa Creatice Commons yê Atfkirin-ParvekirinaWekhevan&lt;/a&gt; berdest e.</string>
   <string name="about_wmf">Berhemeke &lt;a href=\"https://wikimediafoundation.org/\"&gt;Weqfa Wîkîmedyayê&lt;/a&gt;</string>
   <string name="about_activity_title">Derbarê</string>
   <string name="edit_abandon_confirm">Ev rûpel hat guhartin. Bi rastî dixwazî bêyî tomarkirina guhartinên xwe derkevî?</string>
@@ -458,17 +455,20 @@
   <string name="reading_list_articles_already_exist_message">Tev baş in! %s jixwe temamê gotaran dihewîne.</string>
   <string name="reading_list_added_view_button">Lîsteyê bibîne</string>
   <string name="reading_list_add_to_list_button">Têxe lîsteyê</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="other">%d gotar</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="other">%1$d gotar, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d ji 1 gotarê wek offline berdest e</item>
+    <item quantity="other">%1$d ji %2$d gotaran wek offline berdest in</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d ji 1ê gotarê wek derhêl berdest e, %3$.2f MB</item>
     <item quantity="other">%1$d ji %2$d gotaran wek derhêl berdest in, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 gotar, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d gotar, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d ji 1 gotaran wek derhêl berdest in, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d ji %2$d gotaran wek derhêl berdest in, %3$.2f MB</string>
   <string name="reading_list_sort">Rêz bike</string>
   <string name="reading_list_sort_ellipsis">Rêz bike bi...</string>
   <string name="reading_list_sort_by_name">Li gorî nav rêz bike</string>
@@ -478,6 +478,10 @@
   <string name="reading_list_sort_by_created">Li gorî wextê çêkirinê rêz bike (yê nûtirîn)</string>
   <string name="reading_list_sort_by_created_desc">Li gorî wextê çêkirinê rêz bike (yê kevintirîn)</string>
   <string name="reading_list_menu_delete">Lîsteyê jê bibe</string>
+  <string name="reading_list_menu_export">Lîstê eksport bike</string>
+  <string name="reading_list_menu_select">Bibijêre</string>
+  <string name="reading_list_menu_unselect">Bijartinan rake</string>
+  <string name="reading_list_export_write_permission_rationale">Îzna nivîsîna li depoya cîhaza te lazim e ji bo eksportkirina lîsta te ya xwendinê.</string>
   <string name="reading_list_menu_rename">Nav/danasînê biguhêre</string>
   <string name="reading_list_action_menu_remove_from_offline">Ji derhêlê rake</string>
   <string name="reading_list_action_menu_save_for_offline">Qeyd bike ji bo derhêl</string>
@@ -495,6 +499,10 @@
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="other">%d gotar ji %s hate rakirin</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d lîst hate jêbirin</item>
+    <item quantity="other">%d hatin jêbirin</item>
   </plurals>
   <string name="reading_list_items_deleted">%d gotar ji lîstê hate rakirin</string>
   <string name="reading_lists_item_deleted">%s ji lîstan hate rakirin</string>
@@ -667,7 +675,7 @@
   <string name="preference_category_push_notifications">Agahdariyên yekser</string>
   <string name="preference_title_customize_push_notifications">Agahdariyên yekser bike xisûsî</string>
   <string name="preference_category_display_settings">Mîhengên nîşandanê</string>
-  <string name="preference_title_hide_read_notifications">Agahdariyên xwendî biveşêre</string>
+  <string name="preference_title_hide_read_notifications">Agahdariyên xwendî veşêre</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wîkîpediya</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Agahdariyên ji Wîkîpediyayê</string>
   <string name="notifications_channel_group_other_title">Yên din</string>
@@ -711,7 +719,7 @@
   <string name="view_featured_image_card_title">Wêneyê rojê</string>
   <string name="view_featured_image_card_download">Daxe</string>
   <string name="view_featured_image_card_share">Parve bike</string>
-  <string name="menu_feed_card_dismiss">Vê kartê biveşêre</string>
+  <string name="menu_feed_card_dismiss">Vê kartê veşêre</string>
   <string name="menu_feed_card_dismissed">Kart hate veşartin.</string>
   <string name="menu_feed_card_edit_card_languages">Zimanên kartê sererast bike</string>
   <string name="menu_feed_overflow_label">Zêdetir opsiyon</string>
@@ -733,7 +741,7 @@
   <string name="feed_configure_activity_title">Kanal xisûsî bike</string>
   <string name="feed_configure_menu_reset">Xuyabûna standard dîsa bîne</string>
   <string name="feed_configure_menu_select_all">Hemûyan nîşan bide</string>
-  <string name="feed_configure_menu_deselect_all">Temamê wan biveşêre</string>
+  <string name="feed_configure_menu_deselect_all">Temamê wan veşêre</string>
   <string name="feed_configure_language_warning">Ji bîr neke ku temamê çeşîdên kartan li ser hemû zimanên Wîkîpediyayê tine ne. Zimanê xwe yê bijartî ji Mîhengan biguhêre.</string>
   <string name="feed_item_type_news">Gotarên di derbarê çalakiyên rojane de</string>
   <string name="feed_item_type_on_this_day">Bûyerên dî dîrokê de îro</string>
@@ -788,7 +796,7 @@
   <string name="description_starts_with_uppercase">Ger peyva pêşî ne navdêreke xisûsî be, bi herfeke hûrdek dest pê bike.</string>
   <string name="description_starts_with_lowercase">Xwe ji destpêkirina bi herfeke hûrdek dûr bike.</string>
   <string name="description_is_in_different_language">Nivîs bi zimanekî nehêvîkirî tê xuyan. Divê ziman bibe %s.</string>
-  <string name="description_verification_notice">Ji kerema xwe tesdîq bike ku danasîna te bi zimanê %1$s ye. Ger danasîna te nivîsiye bi zimanê %2$s be, serbest î ku vê hişyariyê biveşêrî.</string>
+  <string name="description_verification_notice" fuzzy="true">Ji kerema xwe tesdîq bike ku danasîna te bi zimanê %1$s ye. Ger danasîna te nivîsiye bi zimanê %2$s be, serbest î ku vê hişyariyê biveşêrî.</string>
   <string name="description_edit_success_saved">Danasîna gotarê hate weşandin!</string>
   <string name="description_edit_success_saved_snackbar">Danasîna gotarê hate weşandin!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Danasîna gotarê hate weşandin! (%s)</string>
@@ -921,6 +929,7 @@
     <item quantity="one">Bila zimanê bijartî jê were rakirin?</item>
     <item quantity="other">Bila zimanên bijartî jê werin rakirin?</item>
   </plurals>
+  <string name="more_language_options">bêhtir</string>
   <string name="wikitext_reference">Çavkanî</string>
   <string name="main_tooltip_text_v2">Te zanibû ku her kes dikare li ser Wîkîpediyayê sererastkirinan bike?</string>
   <string name="main_tooltip_watchlist_title">Lîsteya şopandinê</string>

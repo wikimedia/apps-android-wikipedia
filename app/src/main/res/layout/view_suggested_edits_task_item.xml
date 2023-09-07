@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="12dp"
-        android:paddingBottom="4dp"
+        android:paddingBottom="8dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         tools:ignore="MissingConstraints">
@@ -20,48 +20,40 @@
             android:layout_height="28dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:tint="?attr/colorAccent"
-            android:alpha="0.7"
+            app:tint="?attr/progressive_color"
             tools:src="@drawable/ic_article_description"
             android:contentDescription="@null"/>
 
         <TextView
             android:id="@+id/taskTitle"
+            style="@style/H3.MaterialListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             app:layout_constraintStart_toEndOf="@+id/taskIcon"
             app:layout_constraintTop_toTopOf="@+id/taskIcon"
-            android:layout_marginStart="20dp"
-            android:textSize="16sp"
-            android:textColor="?attr/material_theme_primary_color"
-            android:textStyle="bold"
-            android:lineSpacingExtra="6sp"
             tools:text="Lorem ipsum"/>
 
         <TextView
             android:id="@+id/taskTitleNewLabel"
+            style="@style/Chip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="?attr/success_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/taskTitle"
-            android:layout_marginStart="4dp"
-            android:textSize="14sp"
-            android:textColor="@color/green50"
-            android:textStyle="bold"
-            android:textAllCaps="true"
             android:text="@string/suggested_edits_task_new"/>
 
         <TextView
             android:id="@+id/taskDescription"
+            style="@style/List.MaterialListSubtitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             app:layout_constraintStart_toStartOf="@+id/taskTitle"
             app:layout_constraintTop_toBottomOf="@+id/taskTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="14sp"
-            android:lineSpacingExtra="6sp"
-            android:textColor="?attr/material_theme_secondary_color"
             tools:text="Lorem ipsum"/>
 
         <androidx.constraintlayout.helper.widget.Flow
@@ -71,6 +63,7 @@
             app:layout_constraintStart_toStartOf="@id/taskDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="4dp"
             app:flow_horizontalGap="16dp"
             app:flow_horizontalStyle="packed"
             app:flow_horizontalBias="0"
@@ -79,19 +72,19 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/primaryButton"
-            style="@style/FlatButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/App.Button.Secondary"
             android:text="@string/suggested_edits_task_action_text_add"
-            app:icon="@drawable/ic_add_gray_white_24dp"
-            app:iconSize="20dp"
-            app:iconTint="?attr/colorAccent"/>
+            app:icon="@drawable/ic_add_gray_white_24dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/secondaryButton"
-            style="@style/FlatButton.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/App.Button.Secondary"
             android:text="@string/suggested_edits_task_action_text_translate"
-            app:icon="@drawable/ic_translate_white_24dp"
-            app:iconSize="20dp"
-            app:iconTint="?attr/colorAccent"/>
+            app:icon="@drawable/ic_translate_white_24dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

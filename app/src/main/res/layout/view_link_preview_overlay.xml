@@ -17,41 +17,38 @@
 
         <Button
             android:id="@+id/link_preview_tertiary_button"
-            style="@style/TransparentButton"
+            style="@style/App.Button.Text.Secondary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:text="@string/button_get_directions"
-            android:textColor="@color/base30" />
+            android:text="@string/button_get_directions" />
 
         <Button
             android:id="@+id/link_preview_secondary_button"
-            style="@style/TransparentButton"
+            style="@style/App.Button.Text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:fontFamily="sans-serif-medium"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:text="@string/menu_long_press_open_in_new_tab"
-            android:textColor="?attr/colorAccent" />
+            android:textColor="?attr/progressive_color" />
 
         <Button
             android:id="@+id/link_preview_primary_button"
-            style="@style/TransparentButton"
+            style="@style/App.Button.Text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:fontFamily="sans-serif-medium"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:text="@string/button_continue_to_article"
-            android:textColor="?attr/colorAccent" />
+            android:textColor="?attr/progressive_color" />
 
     </LinearLayout>
 </FrameLayout>

@@ -36,7 +36,6 @@ class NewsFragment : Fragment() {
 
     private var _binding: FragmentNewsBinding? = null
     private val binding get() = _binding!!
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private val viewModel: NewsViewModel by viewModels { NewsViewModel.Factory(requireArguments()) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -49,7 +48,7 @@ class NewsFragment : Fragment() {
 
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.wiki.languageCode)
 
-        binding.gradientView.background = GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP)
+        binding.gradientView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedColor(requireContext(), R.attr.overlay_color), Gravity.TOP)
         val imageUri = viewModel.item.thumb()
         if (imageUri == null) {
             binding.appBarLayout.setExpanded(false, false)
@@ -71,7 +70,7 @@ class NewsFragment : Fragment() {
         binding.storyTextView.text = RichTextUtil.stripHtml(viewModel.item.story)
         binding.newsStoryItemsRecyclerview.layoutManager = LinearLayoutManager(requireContext())
         binding.newsStoryItemsRecyclerview.addItemDecoration(DrawableItemDecoration(requireContext(),
-            R.attr.list_separator_drawable))
+            R.attr.list_divider))
         binding.newsStoryItemsRecyclerview.isNestedScrollingEnabled = false
         binding.newsStoryItemsRecyclerview.adapter = RecyclerAdapter(viewModel.item.linkCards(viewModel.wiki), Callback())
         return binding.root
@@ -122,12 +121,12 @@ class NewsFragment : Fragment() {
             if (addToDefault) {
                 ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, InvokeSource.NEWS_ACTIVITY) { readingListId -> onMovePageToList(readingListId, entry) }
             } else {
-                bottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(entry.title, InvokeSource.NEWS_ACTIVITY))
+                ExclusiveBottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(entry.title, InvokeSource.NEWS_ACTIVITY))
             }
         }
 
         override fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-            bottomSheetPresenter.show(childFragmentManager, MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.NEWS_ACTIVITY))
+            ExclusiveBottomSheetPresenter.show(childFragmentManager, MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.NEWS_ACTIVITY))
         }
     }
 
@@ -135,7 +134,7 @@ class NewsFragment : Fragment() {
         fun newInstance(item: NewsItem, wiki: WikiSite): NewsFragment {
             return NewsFragment().apply {
                 arguments = bundleOf(NewsActivity.EXTRA_NEWS_ITEM to item,
-                    NewsActivity.EXTRA_WIKI to wiki)
+                    Constants.ARG_WIKISITE to wiki)
             }
         }
     }

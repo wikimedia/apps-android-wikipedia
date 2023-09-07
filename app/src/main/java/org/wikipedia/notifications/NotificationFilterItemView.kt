@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Typeface
 import android.os.Build
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +15,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemNotificationFilterBinding
-import org.wikipedia.notifications.NotificationFilterActivity.Filter
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -25,25 +23,25 @@ import org.wikipedia.views.ViewUtil
 class NotificationFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     interface Callback {
-        fun onCheckedChanged(filter: Filter?)
+        fun onCheckedChanged(filter: NotificationFilterActivity.Filter?)
     }
 
     private var binding = ItemNotificationFilterBinding.inflate(LayoutInflater.from(context), this)
-    private var filter: Filter? = null
+    private var filter: NotificationFilterActivity.Filter? = null
     var callback: Callback? = null
 
     init {
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(48f))
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+            foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
         }
         setOnClickListener {
             callback?.onCheckedChanged(filter)
         }
     }
 
-    fun setContents(filter: Filter) {
+    fun setContents(filter: NotificationFilterActivity.Filter) {
         this.filter = filter
         binding.notificationFilterTitle.text = getTitleFor(filter.filterCode)
         binding.notificationFilterCheck.isVisible = filter.isEnabled()
@@ -59,7 +57,7 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         }
         filter.imageRes?.let {
             ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo,
-                ResourceUtil.getThemedColorStateList(context, R.attr.secondary_text_color))
+                ResourceUtil.getThemedColorStateList(context, R.attr.placeholder_color))
             binding.notificationFilterWikiLogo.setImageResource(it)
             binding.notificationFilterWikiLogo.visibility = View.VISIBLE
         } ?: run {
@@ -68,16 +66,15 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
     }
 
     fun setSingleLabel(text: String) {
-        val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
+        val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color)
         binding.notificationFilterLanguageCode.visibility = View.GONE
         binding.notificationFilterWikiLogo.visibility = View.VISIBLE
         ImageViewCompat.setImageTintList(binding.notificationFilterWikiLogo, accentColor)
-        binding.notificationFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_themed_24dp)
+        binding.notificationFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_white_24dp)
         binding.notificationFilterCheck.visibility = View.GONE
         binding.notificationFilterTitle.setTextColor(accentColor)
-        binding.notificationFilterTitle.text = text.uppercase()
+        binding.notificationFilterTitle.text = text
         binding.notificationFilterTitle.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-        binding.notificationFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
     }
 
     private fun getTitleCodeFor(filterCode: String): String? {

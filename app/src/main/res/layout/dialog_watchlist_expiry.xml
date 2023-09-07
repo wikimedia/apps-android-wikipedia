@@ -18,18 +18,18 @@
         android:lineSpacingExtra="7sp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_vertical"
-        android:background="?attr/color_group_60"/>
+        android:background="?attr/border_color"/>
 
     <LinearLayout
         android:id="@+id/watchlistExpiryPermanent"
         style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
             app:srcCompat="@drawable/ic_star_24"
-            app:tint="@color/yellow50" />
+            app:tint="@color/yellow500" />
 
         <TextView
             style="@android:style/TextAppearance"
@@ -40,26 +40,26 @@
             android:tag="text"
             android:text="@string/watchlist_expiry_dialog_permanent" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/watchlistExpiryOneWeek"
         style="@style/SideDrawerMenuItem">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
             app:srcCompat="@drawable/ic_baseline_star_half_24"
-            app:tint="@color/yellow50" />
+            app:tint="@color/yellow500" />
 
         <TextView
             style="@android:style/TextAppearance"
@@ -70,14 +70,14 @@
             android:tag="text"
             android:text="@string/watchlist_expiry_dialog_one_week" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -94,14 +94,14 @@
             android:tag="text"
             android:text="@string/watchlist_expiry_dialog_one_month" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -118,14 +118,14 @@
             android:tag="text"
             android:text="@string/watchlist_expiry_dialog_three_months" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
 
     </LinearLayout>
 
@@ -143,14 +143,14 @@
             android:tag="text"
             android:text="@string/watchlist_expiry_dialog_six_months" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
 
     </LinearLayout>
 

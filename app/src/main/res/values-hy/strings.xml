@@ -101,8 +101,7 @@
   <string name="map_view_link_text">Դիտել քարտեզի վրա</string>
   <string name="other_languages_indication_text">Կարդալ այլ լեզվով</string>
   <string name="language_count_link_text">Հասանելի է %d այլ լեզուներով</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"%1$s\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; թույլատրագրի ներքո անվերադարձ հրապարակելուն։</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"%1$s\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; թույլատրագրի ներքո անվերադարձ հրապարակելուն։</string>
   <string name="preference_title_language">Վիքիպեդիայի լեզուները</string>
   <string name="langlinks_filter_hint">Որոնել</string>
   <string name="langlinks_empty">Այս էջն այլ լեզուներով մատչելի չէ։</string>
@@ -252,6 +251,7 @@
   <string name="reading_list_sort">Տեսակավորել</string>
   <string name="reading_list_sort_ellipsis">Տեսակավորել ըստ...</string>
   <string name="reading_list_menu_delete">Ջնջել ցանկ</string>
+  <string name="reading_list_menu_select">Ընտրել</string>
   <string name="reading_list_menu_rename">Խմբագրել անվանումը/նկարագրությունը</string>
   <string name="reading_list_item_delete_undo">Հետ շրջել</string>
   <string name="reading_list_select_item">Ընտրել</string>
@@ -265,6 +265,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ոչ, շնորհակալություն</string>
   <string name="default_reading_list_name">Պահպանված է</string>
   <string name="default_reading_list_description">Ձեր պահպանված հոդվածների կանխադրված ցանկը</string>
+  <string name="reading_lists_menu_import_list">Ներմուծման ցանկ</string>
   <string name="reading_lists_menu_sort_by">Տեսակավորել ըստ</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Լավ</string>
   <string name="reading_list_delete_dialog_ok_button_text">Լավ</string>
@@ -273,6 +274,10 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Չեղարկել</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Չեղարկել</string>
   <string name="reading_list_split_dialog_ok_button_text">Լավ</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Ջնջել</string>
+  <string name="reading_lists_preview_save_button">Հիշել</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Չեղարկել</string>
+  <string name="reading_lists_preview_save_dialog_save">Հիշել</string>
   <string name="user_option_sync_label">Նախընտրություններ</string>
   <string name="notification_syncing_pause_button">Դադար</string>
   <string name="notification_syncing_resume_button">Շարունակել</string>
@@ -476,6 +481,12 @@
   <string name="watchlist_filter_talk">Քննարկում</string>
   <string name="watchlist_filter_pages">Էջեր</string>
   <string name="watchlist_page_protected">Պաշտպանված է</string>
+  <string name="watchlist_filter_user_status_newcomers">Նորեկներ</string>
+  <string name="watchlist_filter_user_status_learners">Սովորողներ</string>
+  <string name="watchlist_filter_automated_contributions_bot">Բոտ</string>
+  <string name="watchlist_filter_automated_contributions_human">Մարդ (ոչ բոտ)</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Էջի խմբագրումներ</string>
+  <string name="watchlist_filter_type_of_change_new_users">Նոր մասնակիցներ</string>
   <string name="search_namespaces">Անվանատարածքներ</string>
   <string name="user_contrib_filter_ns">Զտել ըստ անվանատարածքի</string>
   <string name="user_contrib_filter_all">Բոլոր անվանատարածքները</string>
@@ -484,4 +495,6 @@
   <string name="user_contrib_menu_label">Ներդրումներ</string>
   <string name="shareable_reading_lists_new_indicator">*նոր*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Հասկանալի է</string>
+  <string name="data_opt_in_accept">Ընդունել</string>
+  <string name="data_opt_in_reject">Մերժել</string>
 </resources>

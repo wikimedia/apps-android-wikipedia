@@ -1,7 +1,7 @@
 package org.wikipedia.views
 
 import android.annotation.SuppressLint
-import android.content.Context
+import android.app.Activity
 import android.net.Uri
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.databinding.DialogEditNoticesBinding
 import org.wikipedia.dataclient.WikiSite
@@ -23,10 +24,11 @@ import org.wikipedia.util.log.L
 class EditNoticesDialog constructor(
         val wikiSite: WikiSite,
         val editNotices: List<String>,
-        context: Context
-) : AlertDialog(context) {
+        activity: Activity
+) : MaterialAlertDialogBuilder(activity) {
 
-    private val binding = DialogEditNoticesBinding.inflate(layoutInflater)
+    private val binding = DialogEditNoticesBinding.inflate(activity.layoutInflater)
+    private var dialog: AlertDialog? = null
 
     private val movementMethod = LinkMovementMethodExt { urlStr ->
         L.v("Link clicked was $urlStr")
@@ -35,14 +37,19 @@ class EditNoticesDialog constructor(
 
     init {
         setView(binding.root)
-        binding.editNoticeCloseButton.setOnClickListener { dismiss() }
+        binding.editNoticeCloseButton.setOnClickListener { dialog?.dismiss() }
 
         binding.editNoticeRecycler.adapter = EditNoticesAdapter()
         binding.editNoticeRecycler.layoutManager = LinearLayoutManager(context)
-        binding.editNoticeRecycler.addItemDecoration(DrawableItemDecoration(context, R.attr.list_separator_drawable, drawStart = true, drawEnd = true))
+        binding.editNoticeRecycler.addItemDecoration(DrawableItemDecoration(context, R.attr.list_divider, drawStart = true, drawEnd = true))
 
         binding.editNoticeCheckbox.isChecked = Prefs.autoShowEditNotices
         binding.editNoticeCheckbox.setOnCheckedChangeListener { _, isChecked -> Prefs.autoShowEditNotices = isChecked }
+    }
+
+    override fun show(): AlertDialog {
+        dialog = super.show()
+        return dialog!!
     }
 
     private inner class EditNoticesAdapter : RecyclerView.Adapter<DefaultViewHolder>() {

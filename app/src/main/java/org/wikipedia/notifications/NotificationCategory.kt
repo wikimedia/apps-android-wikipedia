@@ -21,15 +21,15 @@ enum class NotificationCategory constructor(val id: String,
                                             @StringRes val title: Int,
                                             @StringRes val description: Int,
                                             @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
-                                            @AttrRes val iconColor: Int = R.attr.colorAccent,
+                                            @AttrRes val iconColor: Int = R.attr.progressive_color,
                                             val importance: Int = NotificationManagerCompat.IMPORTANCE_DEFAULT,
                                             val group: String? = GROUP_WIKIPEDIA_NOTIFICATIONS) : EnumCode {
     SYSTEM("system", R.string.preference_title_notification_system, R.string.preference_summary_notification_system, R.drawable.ic_settings_black_24dp),
     MILESTONE_EDIT("thank-you-edit", R.string.preference_title_notification_milestone, R.string.preference_summary_notification_milestone, R.drawable.ic_notification_milestone), // milestone
     EDIT_USER_TALK("edit-user-talk", R.string.preference_title_notification_user_talk, R.string.preference_summary_notification_user_talk, R.drawable.ic_notification_user_talk, importance = NotificationManagerCompat.IMPORTANCE_HIGH),
     EDIT_THANK("edit-thank", R.string.preference_title_notification_thanks, R.string.preference_summary_notification_thanks, R.drawable.ic_notification_thanks),
-    REVERTED("reverted", R.string.preference_title_notification_revert, R.string.preference_summary_notification_revert, R.drawable.ic_notification_reverted_edit, R.attr.colorError, importance = NotificationManagerCompat.IMPORTANCE_HIGH),
-    LOGIN_FAIL("login-fail", R.string.preference_title_notification_login_fail, R.string.preference_summary_notification_login_fail, R.drawable.ic_notification_alert, R.attr.colorError),
+    REVERTED("reverted", R.string.preference_title_notification_revert, R.string.preference_summary_notification_revert, R.drawable.ic_notification_reverted_edit, androidx.appcompat.R.attr.colorError, importance = NotificationManagerCompat.IMPORTANCE_HIGH),
+    LOGIN_FAIL("login-fail", R.string.preference_title_notification_login_fail, R.string.preference_summary_notification_login_fail, R.drawable.ic_notification_alert, androidx.appcompat.R.attr.colorError),
     MENTION("mention", R.string.preference_title_notification_mention, R.string.preference_summary_notification_mention, R.drawable.ic_notification_mention, importance = NotificationManagerCompat.IMPORTANCE_HIGH), // combines "mention", "mention-failure" and "mention-success"
     EMAIL_USER("emailuser", R.string.preference_title_notification_email_user, R.string.preference_summary_notification_email_user, R.drawable.ic_notification_email, importance = NotificationManagerCompat.IMPORTANCE_HIGH),
     USER_RIGHTS("user-rights", R.string.preference_title_notification_user_rights, R.string.preference_summary_notification_user_rights, R.drawable.ic_notification_user_rights, importance = NotificationManagerCompat.IMPORTANCE_HIGH),
@@ -49,7 +49,7 @@ enum class NotificationCategory constructor(val id: String,
         private val MENTIONS_GROUP = listOf(MENTION, EDIT_USER_TALK, EMAIL_USER, USER_RIGHTS, REVERTED)
         val FILTERS_GROUP = listOf(EDIT_USER_TALK, MENTION, EMAIL_USER, REVERTED, USER_RIGHTS, EDIT_THANK, MILESTONE_EDIT, LOGIN_FAIL, SYSTEM, ARTICLE_LINKED)
 
-        val MAP = EnumCodeMap(NotificationCategory::class.java)
+        private val MAP = EnumCodeMap(NotificationCategory::class.java)
 
         private fun findOrNull(id: String): NotificationCategory? {
             return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id.startsWith(it.id) }
@@ -104,7 +104,7 @@ enum class NotificationCategory constructor(val id: String,
                         .setName(context.getString(it.title))
                         .setDescription(context.getString(it.description))
                         .setGroup(it.group)
-                        .setLightColor(ContextCompat.getColor(context, R.color.accent50))
+                        .setLightColor(ContextCompat.getColor(context, R.color.blue600))
                         .setVibrationEnabled(true)
                         .build()
                 } else {

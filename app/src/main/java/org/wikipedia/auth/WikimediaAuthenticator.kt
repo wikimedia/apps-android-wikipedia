@@ -1,11 +1,13 @@
 package org.wikipedia.auth
 
-import android.accounts.*
+import android.accounts.AbstractAccountAuthenticator
+import android.accounts.Account
+import android.accounts.AccountAuthenticatorResponse
+import android.accounts.AccountManager
 import android.content.Context
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import org.wikipedia.R
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.auth.AccountUtil.account
 import org.wikipedia.auth.AccountUtil.accountType
 import org.wikipedia.login.LoginActivity
@@ -52,7 +54,7 @@ class WikimediaAuthenticator(private val context: Context) : AbstractAccountAuth
     }
 
     private fun addAccount(response: AccountAuthenticatorResponse): Bundle {
-        val intent = LoginActivity.newIntent(context, LoginFunnel.SOURCE_SYSTEM)
+        val intent = LoginActivity.newIntent(context, LoginActivity.SOURCE_SYSTEM)
                 .putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response)
         return bundleOf(AccountManager.KEY_INTENT to intent)
     }

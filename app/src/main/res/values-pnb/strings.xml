@@ -33,7 +33,7 @@
   <string name="history_item_delete_undo">واپس</string>
   <string name="notification_archive_undo">واپس</string>
   <string name="app_settings">ایپ دیا سیٹنگاں</string>
-  <string name="history_list_title">اتیت</string>
+  <string name="history_list_title">تریخ</string>
   <string name="image_content_description">تصویر: %s</string>
   <string name="page_content_description">صفحہ: %s</string>
   <string name="wikimedia_commons">وِکیمیڈیا کامنز</string>
@@ -114,7 +114,7 @@
   <string name="reset_password_description">تسیں آرذی پاسورڈ نال داغخ ہوتا ہے۔ داخلے نوں مکمل کرن لئی، مہرتھانی کرکے آپݨا نواں پاسورڈ اِتھے سیٹ کرو۔</string>
   <string name="reset_password_hint">نواں پاسورڈ</string>
   <string name="reset_password_button">سانبھو \'تے لَوگ اِین کرو</string>
-  <string name="preference_title_logout">لَوگ آؤٹ کرو</string>
+  <string name="preference_title_logout">لاگ آؤٹ کرو</string>
   <string name="logout_dialog_cancel_button_text">رد کرو</string>
   <string name="logged_out_in_background_login">لَوگ اِین کرو</string>
   <string name="logged_out_in_background_cancel">رد کرو</string>

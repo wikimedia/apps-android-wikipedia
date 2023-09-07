@@ -5,6 +5,10 @@ import android.os.Parcelable
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.parcelize.Parcelize
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
@@ -47,7 +51,16 @@ class SuggestedEditsFeedClient : FeedClient {
         if (age == 0) {
             // In the background, fetch the user's latest contribution stats, so that we can update whether the
             // Suggested Edits feature is paused or disabled, the next time the feed is refreshed.
-            UserContribStats.updateStatsInBackground()
+            CoroutineScope(Dispatchers.Main).launch {
+                withContext(Dispatchers.IO) {
+                    try {
+                        UserContribStats.verifyEditCountsAndPauseState()
+                    } catch (e: Exception) {
+                        // Log the exception; will retry next time the feed is refreshed.
+                        L.e(e)
+                    }
+                }
+            }
         }
 
         if (UserContribStats.isDisabled() || UserContribStats.maybePauseAndGetEndDate() != null) {

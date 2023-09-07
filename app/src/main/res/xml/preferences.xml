@@ -44,7 +44,7 @@
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/preferences_heading_data_usage">
-        <SwitchPreferenceCompat
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_download_only_over_wifi"
             android:defaultValue="false"
             android:title="@string/preference_title_download_only_over_wifi" />

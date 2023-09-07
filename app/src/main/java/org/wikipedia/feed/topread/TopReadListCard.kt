@@ -9,7 +9,6 @@ import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.ListCard
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.L10nUtil
-import java.util.concurrent.TimeUnit
 
 @Parcelize
 class TopReadListCard(private val articles: TopRead, val site: WikiSite) :
@@ -20,7 +19,7 @@ class TopReadListCard(private val articles: TopRead, val site: WikiSite) :
     }
 
     override fun subtitle(): String {
-        return DateUtil.getFeedCardDateString(articles.date())
+        return DateUtil.getShortDateString(articles.localDate)
     }
 
     override fun type(): CardType {
@@ -32,7 +31,7 @@ class TopReadListCard(private val articles: TopRead, val site: WikiSite) :
     }
 
     override fun dismissHashCode(): Int {
-        return TimeUnit.MILLISECONDS.toDays(articles.date().time).toInt() + wikiSite().hashCode()
+        return articles.localDate.toEpochDay().toInt() + wikiSite().hashCode()
     }
 
     companion object {

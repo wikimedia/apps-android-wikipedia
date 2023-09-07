@@ -17,7 +17,7 @@
         android:lineSpacingExtra="7sp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_vertical"
-        android:background="?attr/color_group_60"/>
+        android:background="?attr/border_color"/>
 
     <LinearLayout
         android:id="@+id/imageTypeThumbnail"
@@ -31,14 +31,14 @@
             android:tag="text"
             android:text="@string/insert_media_advanced_settings_image_type_thumbnail" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,14 +53,14 @@
             android:tag="text"
             android:text="@string/insert_media_advanced_settings_image_type_frame" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -75,14 +75,14 @@
             android:tag="text"
             android:text="@string/insert_media_advanced_settings_image_type_frameless" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -97,14 +97,14 @@
             android:tag="text"
             android:text="@string/insert_media_advanced_settings_image_type_basic" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
             android:tag="check"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
     </LinearLayout>
 
     <TextView

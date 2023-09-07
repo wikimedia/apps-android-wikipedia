@@ -30,7 +30,11 @@ object JavaScriptActionHandler {
     }
 
     fun setTopMargin(top: Int): String {
-        return String.format(Locale.ROOT, "pcs.c1.Page.setMargins({ top:'%dpx', right:'%dpx', bottom:'%dpx', left:'%dpx' })", top + 16, 16, 48, 16)
+        return setMargins(16, top + 16, 16, 48)
+    }
+
+    fun setMargins(left: Int, top: Int, right: Int, bottom: Int): String {
+        return "pcs.c1.Page.setMargins({ top:'${top}px', right:'${right}px', bottom:'${bottom}px', left:'${left}px' })"
     }
 
     fun getTextSelection(): String {
@@ -78,6 +82,10 @@ object JavaScriptActionHandler {
         return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink.replace("\"", "\\\"")}\", { highlight: $highlight } )"
     }
 
+    fun removeHighlights(): String {
+        return "pcs.c1.Page.removeHighlightsFromHighlightedElements()"
+    }
+
     fun setUp(context: Context, title: PageTitle, isPreview: Boolean, toolbarMargin: Int): String {
         val app = WikipediaApp.instance
         val topActionBarHeight = if (isPreview) 0 else DimenUtil.roundedPxToDp(toolbarMargin.toFloat())
@@ -101,12 +109,12 @@ object JavaScriptActionHandler {
                 "       \"tableOther\": \"${res[R.string.table_other]}\"," +
                 "       \"tableClose\": \"${res[R.string.table_close]}\"" +
                 "   }," +
-                "   \"theme\": \"${app.currentTheme.funnelName}\"," +
+                "   \"theme\": \"${app.currentTheme.tag}\"," +
                 "   \"bodyFont\": \"$fontFamily\"," +
                 "   \"dimImages\": ${(app.currentTheme.isDark && Prefs.dimDarkModeImages)}," +
                 "   \"margins\": { \"top\": \"%dpx\", \"right\": \"%dpx\", \"bottom\": \"%dpx\", \"left\": \"%dpx\" }," +
                 "   \"leadImageHeight\": \"%dpx\"," +
-                "   \"areTablesInitiallyExpanded\": ${!Prefs.isCollapseTablesEnabled}," +
+                "   \"areTablesInitiallyExpanded\": ${isPreview || !Prefs.isCollapseTablesEnabled}," +
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled}," +
                 "   \"userGroups\": \"${AccountUtil.groups}\"," +
@@ -137,6 +145,7 @@ object JavaScriptActionHandler {
                                 "pcs.c1.Footer.MenuItemType.lastEdited, " +
                                 (if (showTalkLink) "pcs.c1.Footer.MenuItemType.talkPage, " else "") +
                                 (if (showMapLink) "pcs.c1.Footer.MenuItemType.coordinate, " else "") +
+                                "pcs.c1.Footer.MenuItemType.pageIssues, " +
                 "               pcs.c1.Footer.MenuItemType.referenceList " +
                 "              ]," +
                 "       fragment: \"pcs-menu\"," +

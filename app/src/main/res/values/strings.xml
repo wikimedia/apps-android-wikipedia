@@ -114,9 +114,9 @@
     <string name="map_view_link_text">View on a map</string>
     <string name="other_languages_indication_text">Read in another language</string>
     <string name="language_count_link_text">Available in %d other languages</string>
-    <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-    <string name="edit_save_action_license_logged_in"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s">CC BY-SA 3.0</a> license.]]></string>
-    <string name="edit_save_action_license_anon"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s/">CC BY-SA 3.0</a> license. Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
+    <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
+    <string name="edit_save_action_license_logged_in"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s">CC BY-SA 4.0</a> license.]]></string>
+    <string name="edit_save_action_license_anon"><![CDATA[By publishing, you agree to the <a href="%1$s">Terms of Use</a>, and to irrevocably release your contributions under the <a href="%2$s/">CC BY-SA 4.0</a> license. Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
     <string name="edit_anon_warning"><![CDATA[Edits will be attributed to the IP address of your device. If you <a href="https://#login">log in</a>, you will have more privacy.]]></string>
     <string name="preference_title_language">Wikipedia languages</string>
     <string name="langlinks_filter_hint">Search</string>
@@ -242,7 +242,7 @@
     <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
     <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
     <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-    <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+    <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
     <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
     <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
     <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -252,7 +252,7 @@
     <string name="about_translators_heading">Translators</string>
     <string name="about_translators_translatewiki"><![CDATA[This app was translated by the volunteer translators at <a href="https://translatewiki.net">translatewiki.net</a>.]]></string>
     <string name="about_app_license_heading">License</string>
-    <string name="about_app_license"><![CDATA[Source code available on <a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\">Gerrit</a> and <a href=\"https://github.com/wikimedia/apps-android-wikipedia\">GitHub</a> under the <a href=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. Unless otherwise specified, content is available under a <a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\">Creative Commons Attribution-ShareAlike License</a>.]]></string>
+    <string name="about_app_license"><![CDATA[Source code available on <a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\">Gerrit</a> and <a href=\"https://github.com/wikimedia/apps-android-wikipedia\">GitHub</a> under the <a href=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. Unless otherwise specified, content is available under a <a href=\"https://creativecommons.org/licenses/by-sa/4.0\">Creative Commons Attribution-ShareAlike License</a>.]]></string>
     <string name="about_wmf"><![CDATA[A product of the <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>]]></string>
     <string name="about_activity_title">About</string>
     <string name="edit_abandon_confirm">The page has been modified. Are you sure you want to exit without saving your changes?</string>
@@ -268,6 +268,9 @@
     <string name="edit_undo">Undo</string>
     <string name="edit_redo">Redo</string>
     <string name="edit_rollback">Rollback</string>
+    <string name="edit_warn">Warn</string>
+    <string name="edit_quality">Quality %s</string>
+    <string name="edit_intent">Intent %s</string>
     <plurals name="edit_diff_bytes">
         <item quantity="one">%s byte</item>
         <item quantity="other">%s bytes</item>
@@ -374,6 +377,7 @@
     <string name="page_offline_notice_cannot_load_while_offline">Article cannot be loaded while offline.</string>
     <string name="page_offline_notice_add_to_reading_list">Hint: Add the article to a reading list and it will be downloaded once you\'re back online.</string>
     <string name="page_offline_notice_last_date">You are reading an offline version of this article saved on %s.</string>
+    <string name="redirected_from_snackbar">Redirected from \"%s\"</string>
     <string name="button_get_directions">Get directions</string>
     <string name="error_no_maps_app">Could not find any apps that provide directions.</string>
     <string name="preference_title_customize_explore_feed">Explore Feed</string>
@@ -475,18 +479,22 @@
     <string name="reading_list_articles_already_exist_message">All good! %s already contains all articles.</string>
     <string name="reading_list_added_view_button">View list</string>
     <string name="reading_list_add_to_list_button">Add to list</string>
+    <plurals name="format_reading_list_statistical_summary_without_size">
+        <item quantity="one">1 article</item>
+        <item quantity="other">%d articles</item>
+    </plurals>
     <plurals name="format_reading_list_statistical_summary">
         <item quantity="one">1 article, %2$.2f MB</item>
         <item quantity="other">%1$d articles, %2$.2f MB</item>
+    </plurals>
+    <plurals name="format_reading_list_statistical_detail_without_size">
+        <item quantity="one">%1$d of 1 article available offline</item>
+        <item quantity="other">%1$d of %2$d articles available offline</item>
     </plurals>
     <plurals name="format_reading_list_statistical_detail">
         <item quantity="one">%1$d of 1 article available offline, %3$.2f MB</item>
         <item quantity="other">%1$d of %2$d articles available offline, %3$.2f MB</item>
     </plurals>
-    <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
-    <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
-    <string name="format_reading_list_statistical_detail_singular">%1$d of 1 articles available offline, %2$.2f MB</string>
-    <string name="format_reading_list_statistical_detail_plural">%1$d of %2$d articles available offline, %3$.2f MB</string>
     <string name="reading_list_sort">Sort</string>
     <string name="reading_list_sort_ellipsis">Sort by…</string>
     <string name="reading_list_sort_by_name">Sort by name</string>
@@ -496,6 +504,10 @@
     <string name="reading_list_sort_by_created">Sort by date created (newest)</string>
     <string name="reading_list_sort_by_created_desc">Sort by date created (oldest)</string>
     <string name="reading_list_menu_delete">Delete list</string>
+    <string name="reading_list_menu_export">Export list</string>
+    <string name="reading_list_menu_select">Select</string>
+    <string name="reading_list_menu_unselect">Unselect</string>
+    <string name="reading_list_export_write_permission_rationale">Permission to write to storage on your device is required for exporting your reading list.</string>
     <string name="reading_list_menu_rename">Edit name/description</string>
     <string name="reading_list_action_menu_remove_from_offline">Remove from offline</string>
     <string name="reading_list_action_menu_save_for_offline">Save for offline</string>
@@ -516,6 +528,15 @@
         <item quantity="one">%d article removed from %s</item>
         <item quantity="other">%d articles removed from %s</item>
     </plurals>
+    <plurals name="reading_lists_deleted_message">
+        <item quantity="one">%d list deleted</item>
+        <item quantity="other">%d lists deleted</item>
+    </plurals>
+    <string name="reading_lists_default_list_delete_message">The default list (%s) can\'t be deleted</string>
+    <string name="reading_lists_default_plus_one_list_delete_message">%1$s deleted. The default list (%2$s) can\'t be deleted.</string>
+    <string name="reading_lists_default_plus_many_lists_delete_message">Lists deleted. The default list (%s) can\'t be deleted.</string>
+    <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
+    <string name="multiple_lists_json_file_name">Wikipedia reading lists (%s and more).json</string>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
@@ -548,6 +569,11 @@
     <string name="reading_list_articles_added_to_named">Added %1$d articles to %2$s</string>
     <string name="reading_list_articles_moved_to_named">Moved %1$d articles to %2$s</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete %s?</string>
+    <string name="reading_list_delete_lists_confirm_dialog_title">Delete selected list(s)?</string>
+    <plurals name="reading_list_delete_lists_confirm_dialog_message">
+        <item quantity="one">Are you sure you want to delete %d list?</item>
+        <item quantity="other">Are you sure you want to delete %d lists?</item>
+    </plurals>
     <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log in to enable sync</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log in to allow your reading lists to be saved to your account.</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Cancel</string>
@@ -571,6 +597,7 @@
     <string name="reading_list_article_limit_message">Can\'t add to this list. You\'ve reached the limit of %2$d articles per list for \"%1$s\".</string>
     <string name="reading_lists_limit_message">Can\'t create another list. You\'ve reached the limit of 100 reading lists per account.</string>
     <string name="reading_lists_menu_create_list">Create new list</string>
+    <string name="reading_lists_menu_import_list">Import list</string>
     <string name="reading_lists_menu_sort_by">Sort by</string>
     <string name="reading_lists_refresh_sync_option">Refresh sync</string>
     <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Log in / sign up</string>
@@ -591,7 +618,33 @@
     <string name="reading_list_remove_from_offline_cancel_button_text">Cancel</string>
     <string name="reading_list_download_using_mobile_data_cancel_button_text">Cancel</string>
     <string name="reading_list_split_dialog_ok_button_text">OK</string>
+    <string name="reading_list_delete_lists_dialog_delete_button_text">Delete</string>
     <string name="reading_list_activity_title">Reading list: %s</string>
+    <string name="reading_list_notification_title">Reading list(s) exported</string>
+    <string name="reading_list_notification_text">%d Reading list(s) have been exported as \'reading_lists export.json\' to your downloads folder</string>
+    <string name="reading_list_notification_detailed_text">Reading lists have been exported to \'reading_lists_export.json\'</string>
+    <string name="reading_lists_action_menu_export_lists">Export</string>
+    <string name="reading_lists_import_file_picker_title">Choose the file to import</string>
+    <string name="reading_lists_import_failure_message">Reading lists import failed</string>
+    <string name="reading_lists_export_select_lists_message">Select list(s) to export</string>
+    <string name="reading_lists_export_completed_message">Reading list(s) exported</string>
+    <plurals name="reading_list_export_failed_message">
+        <item quantity="one">Reading list export failed</item>
+        <item quantity="other">Reading lists export failed</item>
+    </plurals>
+    <plurals name="reading_list_import_success_message">
+        <item quantity="one">Reading list imported</item>
+        <item quantity="other">Reading lists imported</item>
+    </plurals>
+    <string name="reading_lists_preview_header_title">Shared list</string>
+    <string name="reading_lists_preview_save_button">Save</string>
+    <string name="reading_lists_preview_save_dialog_title">Save list</string>
+    <string name="reading_lists_preview_save_dialog_text">Name list and select articles to save.</string>
+    <string name="reading_lists_preview_save_dialog_title_hint">Title</string>
+    <string name="reading_lists_preview_save_dialog_cancel">Cancel</string>
+    <string name="reading_lists_preview_save_dialog_save">Save</string>
+    <string name="reading_lists_preview_saved_snackbar">Reading list saved</string>
+    <string name="reading_lists_preview_saved_snackbar_action">View</string>
     <!-- /Reading lists -->
 
     <!-- User options -->
@@ -827,7 +880,9 @@
     <string name="description_starts_with_uppercase">Start with a lowercase letter unless the first word is a proper noun.</string>
     <string name="description_starts_with_lowercase">Avoid starting with a lowercase letter.</string>
     <string name="description_is_in_different_language">The text appears to be in an unexpected language. The language should be %s.</string>
-    <string name="description_verification_notice">Please verify your description is in %1$s. Feel free to dismiss this notification if the description you\'ve written is in %2$s.</string>
+    <string name="description_verification_notice">Please verify your description is in %1$s. Feel free to ignore this warning if the description you\'ve written is in %2$s.</string>
+    <string name="description_edit_suggested_description_button_text">Show suggested descriptions</string>
+    <string name="description_edit_suggested_description_button_tooltip">Try machine-suggested article descriptions</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->
@@ -851,6 +906,8 @@
     <string name="description_edit_tutorial_keep_it_short_instructions">Ideally one line, between two to twelve words</string>
     <string name="description_edit_tutorial_button_label_start_editing">Start editing</string>
     <string name="description_edit_tutorial_promise">By starting, I promise not to misuse this feature.</string>
+    <string name="description_edit_tutorial_machine_suggestions_title">Machine suggestions</string>
+    <string name="description_edit_tutorial_machine_suggestions_description">The suggestions are generated by a machine, not volunteers or the Wikimedia Foundation</string>
     <!-- /Description editing tutorial -->
 
     <!-- Customize toolbar -->
@@ -868,6 +925,9 @@
     <string name="suggested_edits_describe_articles">Describe articles</string>
     <string name="suggested_edits_caption_images">Caption images</string>
     <string name="suggested_edits_tag_images">Tag images</string>
+    <string name="suggested_edits_edit_patrol">Edit patrol</string>
+    <string name="suggested_edits_edit_patrol_hint">Review recent edits and determine whether they are constructive or not.</string>
+    <string name="suggested_edits_edit_patrol_review">Review</string>
     <string name="suggested_edits_review_description">Review article description</string>
     <string name="suggested_edits_add_description_button">Add description</string>
     <string name="suggested_edits_edit_description_button">Edit description</string>
@@ -943,6 +1003,7 @@
     <string name="suggested_edits_image_tags_select_title">You haven\'t selected any tags for this image</string>
     <string name="suggested_edits_image_tags_select_text">Only tags that you choose will be added to images. Tags that are not selected will be marked as rejected. Are you sure you want to mark all tags as rejected?</string>
     <string name="suggested_edits_image_tags_add_tag">Add tag</string>
+    <string name="suggested_edits_image_tags_exit_dialog_message">The unpublished tags will not be saved</string>
     <string name="suggested_edits_image_zoom_tooltip">Pinch to zoom this image.</string>
     <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia.</string>
     <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, below you can find some quick and easy ways to help improve Wikipedia. You\'ll see the difference you\'re making as soon as you get started. Happy editing!]]></string>
@@ -1015,6 +1076,14 @@
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
     <string name="suggested_edits_contribution_current_revision_text">Your edit is currently live on Wikipedia</string>
     <string name="suggested_card_more_edits">More suggested edits</string>
+    <string name="suggested_edits_article_descriptions_dialog_title">Suggested descriptions</string>
+    <string name="suggested_edits_descriptions_report_dialog_title">What would you like to report?</string>
+    <string name="suggested_edits_descriptions_not_enough_info_suggestion">Not enough information</string>
+    <string name="suggested_edits_descriptions_cannot_see_suggestion">Can\'t see suggested descriptions</string>
+    <string name="suggested_edits_inappropriate_suggestion">Inappropriate suggestion</string>
+    <string name="suggested_edits_do_not_understand_suggestion">Don\'t understand the task</string>
+    <string name="suggested_edits_report_suggestion">Report</string>
+    <string name="suggested_edits_suggestion_report_submitted">Report submitted</string>
     <plurals name="suggested_edits_tags_diff_count_text">
         <item quantity="one">%1$s tag</item>
         <item quantity="other">%1$s tags</item>
@@ -1031,6 +1100,38 @@
         <item quantity="one">You added %d character</item>
         <item quantity="other">You added %d characters</item>
     </plurals>
+    <string name="suggested_edits_image_recommendations_task_title">Article images</string>
+    <string name="suggested_edits_image_recommendations_task_detail">Add suggested images to Wikipedia articles to enhance understanding.</string>
+    <string name="image_recommendation_task_instruction">Would you add this image to the article?</string>
+    <string name="image_recommendation_tutorial">Tutorial</string>
+    <string name="image_recommendation_accept">Yes</string>
+    <string name="image_recommendation_reject">No</string>
+    <string name="image_recommendation_notsure">Not sure</string>
+    <string name="image_recommendation_reject_title">Why not?</string>
+    <string name="image_recommendation_reject_subtitle">Your answers improve future suggestions.</string>
+    <string name="image_recommendation_reject_not_relevant">Image is not relevant</string>
+    <string name="image_recommendation_reject_no_info">Not enough information to decide</string>
+    <string name="image_recommendation_reject_offensive">Image is offensive</string>
+    <string name="image_recommendation_reject_low_quality">Image is low quality</string>
+    <string name="image_recommendation_reject_dont_know">I don\'t know this subject</string>
+    <string name="image_recommendation_reject_other">Other</string>
+    <string name="image_recommendation_reject_submit">Submit</string>
+    <string name="image_recommendation_tooltip_main">Add missing images to articles in Suggested Edits</string>
+    <string name="image_recommendation_onboarding_1">Pictures help people understand, but many articles don\'t have them.</string>
+    <string name="image_recommendation_onboarding_2">You will decide if a suggested image should be placed in a Wikipedia article.</string>
+    <string name="image_recommendation_onboarding_3">Suggestions are machine generated and you will use your judgment to decide whether to accept or reject them.</string>
+    <string name="image_recommendation_onboarding_4">Images are from Wikimedia Commons, a collection of freely licensed images used by Wikipedia.</string>
+    <string name="image_recommendation_tooltip_1">Review this article to understand its topic</string>
+    <string name="image_recommendation_tooltip_2">Inspect the image and its associated information</string>
+    <string name="image_recommendation_tooltip_3">Decide if the image helps readers understand this topic better</string>
+    <string name="image_recommendation_tooltip_next">Next</string>
+    <string name="image_recommendation_tooltip_warning">Please review the article to understand its topic and inspect the image</string>
+    <string name="suggested_edits_report_feature">Problem with feature</string>
+    <string name="suggested_edits_report_feature_subject">Problem with Suggested Edits</string>
+    <string name="edit_summary_added_image">Added image</string>
+    <string name="edit_summary_added_caption">Added caption</string>
+    <string name="edit_summary_added_image_and_caption">Added image and caption</string>
+    <string name="edit_published_view">View</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
@@ -1160,12 +1261,12 @@
     <string name="insert_media_title">Insert media</string>
     <string name="insert_media_search_description">Select a file from Wikimedia Commons</string>
     <string name="insert_media_search_hint">Search media</string>
-    <string name="insert_media_settings">Media settings</string>
+    <string name="insert_media_settings">Add image details</string>
     <string name="insert_media_settings_uploaded_image">Uploaded image</string>
-    <string name="insert_media_settings_caption">Caption</string>
-    <string name="insert_media_settings_caption_description">Label that shows next to the item for all readers</string>
+    <string name="insert_media_settings_caption">Image caption</string>
+    <string name="insert_media_settings_caption_description">Visible image label in the article</string>
     <string name="insert_media_settings_alternative_text">Alternative text</string>
-    <string name="insert_media_settings_alternative_text_description">Text description for readers who cannot see the image</string>
+    <string name="insert_media_settings_alternative_text_description">Description for visually impaired readers</string>
     <string name="insert_media_advanced_settings">Advanced settings</string>
     <string name="insert_media_advanced_settings_wrap_image">Wrap text around image</string>
     <string name="insert_media_advanced_settings_image_position">Image position</string>
@@ -1204,6 +1305,18 @@
     <string name="talk_user_title">Talk: %s</string>
     <string name="talk_new_topic">New topic</string>
     <string name="talk_new_topic_submitted">Topic posted.</string>
+    <string name="talk_warn">Warn</string>
+    <string name="talk_warn_save_dialog_title">Save changes?</string>
+    <string name="talk_warn_save_dialog_message">Save as a new message</string>
+    <string name="talk_warn_save_dialog_existing_new_message">Save as a new message to the list</string>
+    <string name="talk_warn_save_dialog_existing_update_message">Update existing message</string>
+    <string name="talk_warn_save_dialog_hint">Message title</string>
+    <string name="talk_warn_save_dialog_publish">Publish</string>
+    <string name="talk_warn_save_dialog_cancel">Cancel</string>
+    <string name="talk_warn_submitted">Message published to editor\'s user talk page</string>
+    <string name="talk_warn_submitted_and_saved">Message saved and published to editor\'s user talk page</string>
+    <string name="talk_warn_saved_message">Select an existing warning message or compose a new message.</string>
+    <string name="talk_warn_saved_message_dropdown">Saved messages</string>
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_page_empty_title">The conversation starts here</string>
     <string name="talk_page_empty_content">Talk pages are where people discuss how to make Wikipedia content the best it can be. Start by adding a new discussion topic to connect and collaborate with a community of Wikipedians.</string>
@@ -1290,6 +1403,7 @@
     <string name="revision_diff_line_removed">Line removed</string>
     <string name="revision_diff_paragraph_added">Paragraph added</string>
     <string name="revision_diff_paragraph_removed">Paragraph removed</string>
+    <string name="revision_diff_protected">The changes made in this revision are not publicly accessible.</string>
     <string name="revision_undo_title">Undo edit</string>
     <string name="revision_undo_message">This will undo the changes made by the revision(s) of the article shown here.</string>
     <string name="revision_undo_reason">To continue, please provide a reason for undoing this edit:</string>
@@ -1315,6 +1429,7 @@
     <string name="watchlist_expiry_dialog_three_months">3 months</string>
     <string name="watchlist_expiry_dialog_six_months">6 months</string>
     <string name="watchlist_empty">You do not have any articles in your watchlist.</string>
+    <string name="watchlist_search">Search watchlist</string>
     <string name="watchlist_filter_all">All</string>
     <string name="watchlist_filter_talk">Talk</string>
     <string name="watchlist_filter_pages">Pages</string>
@@ -1322,6 +1437,55 @@
     <string name="watchlist_page_moved">Moved</string>
     <string name="watchlist_page_protected">Protected</string>
     <string name="watchlist_page_deleted">Deleted</string>
+    <string name="watchlist_filter_title">Watchlist filter</string>
+    <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+    <string name="watchlist_filter_all_text">All</string>
+    <string name="watchlist_filter_watchlist_activity_header">Watchlist activity</string>
+    <string name="watchlist_filter_watchlist_activity_unseen">Unseen changes</string>
+    <string name="watchlist_filter_watchlist_activity_seen">Seen changes</string>
+    <string name="watchlist_filter_contribution_quality_header">Contribution quality predictions</string>
+    <string name="watchlist_filter_contribution_quality_good">Very likely good</string>
+    <string name="watchlist_filter_contribution_quality_may_problems">May have problems</string>
+    <string name="watchlist_filter_contribution_quality_likely_problems">Likely have problems</string>
+    <string name="watchlist_filter_contribution_quality_bad">Very likely have problems</string>
+    <string name="watchlist_filter_user_intent_header">User intent predictions</string>
+    <string name="watchlist_filter_user_intent_good">Very likely good faith</string>
+    <string name="watchlist_filter_user_intent_may_problems">May be bad faith</string>
+    <string name="watchlist_filter_user_intent_likely_problems">Likely bad faith</string>
+    <string name="watchlist_filter_user_intent_bad">Very likely bad faith</string>
+    <string name="watchlist_filter_user_status_header">User registration and experience</string>
+    <string name="watchlist_filter_user_status_unregistered">Unregistered</string>
+    <string name="watchlist_filter_user_status_registered">Registered</string>
+    <string name="watchlist_filter_user_status_newcomers">Newcomers</string>
+    <string name="watchlist_filter_user_status_learners">Learners</string>
+    <string name="watchlist_filter_user_status_experienced">Experienced users</string>
+    <string name="watchlist_filter_contribution_authorship_header">Contribution authorship</string>
+    <string name="watchlist_filter_contribution_authorship_own">Changes by you</string>
+    <string name="watchlist_filter_contribution_authorship_except_own">Changes by others</string>
+    <string name="watchlist_filter_automated_contributions_header">Automated contributions</string>
+    <string name="watchlist_filter_automated_contributions_bot">Bot</string>
+    <string name="watchlist_filter_automated_contributions_human">Human (not bot)</string>
+    <string name="watchlist_filter_significance_header">Significance</string>
+    <string name="watchlist_filter_significance_minor">Minor edits</string>
+    <string name="watchlist_filter_significance_edits">Non-minor edits</string>
+    <string name="watchlist_filter_latest_revisions_header">Latest revisions</string>
+    <string name="watchlist_filter_latest_revisions_latest_revision">Latest revision</string>
+    <string name="watchlist_filter_latest_revisions_not_latest_revision">Not the latest revision</string>
+    <string name="watchlist_filter_type_of_change_header">Type of change</string>
+    <string name="watchlist_filter_type_of_change_page_edits">Page edits</string>
+    <string name="watchlist_filter_type_of_change_page_creations">Page creations</string>
+    <string name="watchlist_filter_type_of_change_category_changes">Category changes</string>
+    <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata edits</string>
+    <string name="watchlist_filter_type_of_change_logged_actions">Logged actions</string>
+    <string name="watchlist_filter_type_of_change_new_users">New users</string>
+    <string name="watchlist_filter_reset_button">Reset</string>
+    <string name="watchlist_search_bar_hint">Search or filter watchlist</string>
+    <string name="watchlist_search_bar_filter_hint">Watchlist filter</string>
+    <string name="watchlist_empty_search_message">No results, try removing %s to see more.</string>
+    <plurals name="watchlist_number_of_filters">
+        <item quantity="one">%d filter</item>
+        <item quantity="other">%d filters</item>
+    </plurals>
     <!-- /Watchlist -->
 
     <!-- Preview edit -->
@@ -1362,10 +1526,101 @@
     <string name="shareable_reading_lists_new_imported_snackbar">Reading list imported</string>
     <string name="reading_list_share_menu_label">Share…</string>
     <string name="reading_list_share_menu_tooltip">Share this reading list with others</string>
-    <string name="reading_list_share_title_tooltip">Changes you make to this list are not visible to others.</string>
     <string name="reading_list_share_message_v2">Hi! I\'d like to share my Wikipedia reading list with you:</string>
     <string name="reading_list_share_survey_title">Could you help us improve \"Share reading lists\"?</string>
     <string name="reading_list_share_survey_body">\"Share reading lists\" is a test feature and we need your feedback to improve or remove it.</string>
     <!-- /Shareable reading lists -->
+
+    <!-- Patroller task -->
+    <string name="talk_templates_manage_title">Manage templates</string>
+    <string name="talk_templates_empty_message">You do not have any warning messages saved.</string>
+    <string name="talk_templates_new_message_title">New message</string>
+    <string name="talk_templates_new_message_description">Compose warning message.</string>
+    <string name="talk_templates_new_message_subject_hint">Subject</string>
+    <string name="talk_templates_new_message_compose_hint">Compose message</string>
+    <string name="talk_templates_new_message_save">Save</string>
+    <string name="talk_templates_new_message_dialog_title">Save changes</string>
+    <string name="talk_templates_new_message_dialog_description">Add title and save message.</string>
+    <string name="talk_templates_new_message_dialog_hint">Message title</string>
+    <string name="talk_templates_new_message_dialog_save">Save</string>
+    <string name="talk_templates_new_message_dialog_cancel">Cancel</string>
+    <string name="talk_templates_new_message_dialog_exists">Template \"%s\" already exists.</string>
+    <string name="talk_templates_new_message_saved">Message has been saved</string>
+    <string name="talk_templates_edit_message_dialog_title">Edit message</string>
+    <string name="talk_templates_edit_message_dialog_save">Save</string>
+    <string name="talk_templates_edit_message_dialog_delete">Delete</string>
+    <string name="talk_templates_edit_message_updated">Message has been updated</string>
+    <string name="talk_templates_edit_message_confirm_description">Are you sure you want to delete this %s message from the list?</string>
+    <string name="talk_templates_message_deleted">Message has been deleted</string>
+    <string name="patroller_tasks_edits_list_title">List of edits</string>
+    <string name="patroller_tasks_edits_list_search_hint">Search or filter edits</string>
+    <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
+    <string name="patroller_tasks_edits_list_card_tags_text_none">None</string>
+    <string name="patroller_tasks_edits_list_card_overflow_view_user_page">View user page</string>
+    <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">View talk page</string>
+    <string name="patroller_tasks_edits_list_card_overflow_user_information">User information</string>
+    <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">View user contributions</string>
+    <string name="patroller_tasks_edits_list_card_overflow_thank">Thank</string>
+    <string name="patroller_tasks_edits_list_user_information_dialog_title">User information</string>
+    <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Tenure</string>
+    <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Edit count</string>
+    <string name="patroller_tasks_edits_list_user_information_dialog_close">Close</string>
+    <string name="patroller_tasks_filters_title">Filters</string>
+    <string name="patroller_tasks_filters_reset">Reset</string>
+    <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+    <string name="patroller_tasks_filters_all_text">All</string>
+    <string name="patroller_tasks_filters_user_status_header">User registration and experience</string>
+    <string name="patroller_tasks_filters_user_status_unregistered">Unregistered</string>
+    <string name="patroller_tasks_filters_user_status_registered">Registered</string>
+    <string name="patroller_tasks_filters_user_status_newcomers">Newcomers</string>
+    <string name="patroller_tasks_filters_user_status_learners">Learners</string>
+    <string name="patroller_tasks_filters_user_status_experienced">Experienced users</string>
+    <string name="patroller_tasks_filters_latest_revisions_header">Latest revisions</string>
+    <string name="patroller_tasks_filters_latest_revisions_latest_revision">Latest revision</string>
+    <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Not the latest revision</string>
+    <string name="patroller_tasks_filters_automated_contributions_header">Automated contributions</string>
+    <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+    <string name="patroller_tasks_filters_automated_contributions_human">Human (not bot)</string>
+    <string name="patroller_tasks_filters_significance_header">Significance</string>
+    <string name="patroller_tasks_filters_significance_minor">Minor edits</string>
+    <string name="patroller_tasks_filters_significance_edits">Non-minor edits</string>
+    <string name="patroller_tasks_filters_contribution_quality_header">Contribution quality predictions</string>
+    <string name="patroller_tasks_filters_contribution_quality_good">Very likely good</string>
+    <string name="patroller_tasks_filters_contribution_quality_may_problems">May have problems</string>
+    <string name="patroller_tasks_filters_contribution_quality_likely_problems">Likely have problems</string>
+    <string name="patroller_tasks_filters_contribution_quality_bad">Very likely have problems</string>
+    <string name="patroller_tasks_filters_user_intent_header">User intent predictions</string>
+    <string name="patroller_tasks_filters_user_intent_good">Very likely good faith</string>
+    <string name="patroller_tasks_filters_user_intent_may_problems">May be bad faith</string>
+    <string name="patroller_tasks_filters_user_intent_likely_problems">Likely bad faith</string>
+    <string name="patroller_tasks_filters_user_intent_bad">Very likely bad faith</string>
+    <string name="patroller_tasks_filters_empty_search_message">Try removing %s to see more edits</string>
+    <plurals name="patroller_tasks_filters_number_of_filters">
+        <item quantity="one">%d filter</item>
+        <item quantity="other">%d filters</item>
+    </plurals>
+    <string name="patroller_tasks_patrol_edit_title">Patrol edit</string>
+    <string name="patroller_tasks_patrol_edit_overflow_edit_history">Article edit history</string>
+    <string name="patroller_tasks_patrol_edit_undo_dialog_title">Undo this edit?</string>
+    <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Are you sure you want to undo this edit?</string>
+    <string name="patroller_tasks_patrol_edit_undo_dialog_message">Undoing means reverting the effects of one or more edits.</string>
+    <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Summary (optional)</string>
+    <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Share the reason for the revert</string>
+    <string name="patroller_tasks_patrol_edit_undo_success">Revert complete</string>
+    <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Are you sure you want to rollback?</string>
+    <string name="patroller_tasks_patrol_edit_rollback_success">Rollback complete</string>
+    <string name="patroller_tasks_patrol_edit_snackbar_view">View</string>
+    <string name="patroller_tasks_overflow_report">Problem with feature</string>
+    <string name="patroller_tasks_overflow_learn">Learn more</string>
+    <!-- /Patroller task -->
+
+    <string name="data_opt_in_accept">Accept</string>
+    <string name="data_opt_in_reject">Reject</string>
+    <string name="page_issues_title">Page issues</string>
+    <string name="generic_release_notes">Minor bug fixes and enhancements</string>
+    <string name="email_report_image_recommendations_subject">Issue report - Image Recommendations feature</string>
+    <string name="email_report_image_recommendations_body">I have encountered a problem with the Image Recommendations feature:\n- [Describe specific problem]\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+    <string name="email_report_patroller_tasks_subject">Issue report - Patroller Tasks feature</string>
+    <string name="email_report_patroller_tasks_body">I have encountered a problem with the Patroller Tasks Feature:\n- [Describe specific problem]\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
 
 </resources>

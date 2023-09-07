@@ -47,7 +47,7 @@
         android:background="@drawable/button_shape_add_reading_list"
         android:contentDescription="@null"
         android:padding="10dp"
-        app:tint="@color/base30"
+        app:tint="@color/gray500"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/item_image_2"
         app:layout_constraintTop_toTopOf="parent"
@@ -59,16 +59,16 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/item_share_button"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="80dp"
+        app:layout_constraintStart_toEndOf="@id/item_select_checkbox"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:flexWrap="wrap"
         app:justifyContent="flex_start">
 
         <TextView
             android:id="@+id/item_title"
-            style="@style/MaterialListTitle"
+            style="@style/H3.MaterialListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -77,12 +77,12 @@
 
         <TextView
             android:id="@+id/item_title_indicator"
-            style="@style/MaterialListTitle"
+            style="@style/H3.MaterialListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:text="@string/shareable_reading_lists_new_indicator"
-            android:textColor="?attr/color_group_58"
+            android:textColor="?attr/success_color"
             android:textStyle="bold"
             android:visibility="gone"
             tools:text="Lorem ipsum" />
@@ -91,11 +91,12 @@
 
     <TextView
         android:id="@+id/item_reading_list_statistical_description"
-        style="@style/MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:maxLines="1"
+        android:maxLines="2"
+        android:layout_marginTop="6dp"
         app:layout_constraintEnd_toEndOf="@+id/item_title_container"
         app:layout_constraintStart_toStartOf="@+id/item_title_container"
         app:layout_constraintTop_toBottomOf="@+id/item_title_container"
@@ -103,14 +104,14 @@
 
     <TextView
         android:id="@+id/item_description"
-        style="@style/MaterialListSubtitle"
+        style="@style/List.MaterialListSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:ellipsize="end"
         android:maxLines="@integer/reading_list_description_summary_view_max_lines"
-        app:layout_constraintEnd_toEndOf="@+id/item_reading_list_statistical_description"
-        app:layout_constraintStart_toStartOf="@+id/item_reading_list_statistical_description"
+        app:layout_constraintEnd_toEndOf="@+id/item_title_container"
+        app:layout_constraintStart_toStartOf="@+id/item_title_container"
         app:layout_constraintTop_toBottomOf="@+id/item_reading_list_statistical_description"
         tools:text="Sample description" />
 
@@ -122,7 +123,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/reading_list_share_menu_label"
         android:visibility="gone"
-        app:tint="?attr/secondary_text_color"
+        app:tint="?attr/placeholder_color"
         app:layout_constraintEnd_toStartOf="@id/item_overflow_menu"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_share" />
@@ -134,9 +135,39 @@
         android:padding="8dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/abc_action_menu_overflow_description"
-        app:tint="?attr/secondary_text_color"
+        app:tint="?attr/placeholder_color"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_more_vert_white_24dp" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/item_preview_save_button"
+        style="@style/App.Button.Secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+        android:text="@string/reading_lists_preview_save_button"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:icon="@drawable/ic_bookmark_border_white_24dp"
+        tools:visibility="visible"/>
+
+    <CheckBox
+        android:id="@+id/item_select_checkbox"
+        android:layout_width="@dimen/view_list_card_item_image"
+        android:layout_height="@dimen/view_list_card_item_image"
+        android:layout_marginStart="@dimen/list_item_horizontal_padding"
+        android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+        android:contentDescription="@null"
+        android:padding="8dp"
+        android:visibility="gone"
+        app:backgroundTint="@color/blue600"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_check_black_24dp"
+        app:tint="@android:color/white"
+        tools:visibility="visible" />
 </merge>

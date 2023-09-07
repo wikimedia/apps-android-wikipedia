@@ -7,12 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
-import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
-import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -28,8 +27,9 @@ import org.wikipedia.page.*
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.views.ViewAnimations
 
 class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDialog.Callback {
 
@@ -38,8 +38,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
 
     private lateinit var bridge: CommunicationBridge
     private lateinit var references: PageReferences
-    private lateinit var funnel: EditFunnel
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     val isActive get() = binding.editPreviewContainer.visibility == View.VISIBLE
 
     override lateinit var linkHandler: LinkHandler
@@ -56,7 +54,6 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         val pageTitle = (requireActivity() as EditSectionActivity).pageTitle
         model.title = pageTitle
         model.curEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK)
-        funnel = WikipediaApp.instance.funnelManager.getEditFunnel(pageTitle)
         linkHandler = EditLinkHandler(requireContext())
         initWebView()
 
@@ -78,11 +75,13 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                 RestService.PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(title.prefixedText)
         val postData = "wikitext=" + UriUtil.encodeURL(wikiText)
         binding.editPreviewWebview.postUrl(url, postData.toByteArray())
-        ViewAnimations.fadeIn(binding.editPreviewContainer) { requireActivity().invalidateOptionsMenu() }
-        ViewAnimations.fadeOut(ActivityCompat.requireViewById(requireActivity(), R.id.edit_section_container))
+        ActivityCompat.requireViewById<View>(requireActivity(), R.id.edit_section_container).isVisible = false
+        binding.editPreviewContainer.isVisible = true
+        requireActivity().invalidateOptionsMenu()
     }
 
     private fun initWebView() {
+        webView.setBackgroundColor(ResourceUtil.getThemedColor(requireActivity(), R.attr.paper_color))
         binding.editPreviewWebview.webViewClient = object : OkHttpWebViewClient() {
 
             override val model get() = this@EditPreviewFragment.model
@@ -94,14 +93,19 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                 if (!isAdded) {
                     return
                 }
+                bridge.onMetadataReady()
+                bridge.execute(JavaScriptActionHandler.setMargins(16, 0, 16, 16 + DimenUtil.roundedPxToDp(binding.licenseText.height.toFloat())))
                 (requireActivity() as EditSectionActivity).showProgressBar(false)
                 requireActivity().invalidateOptionsMenu()
-                bridge.execute(JavaScriptActionHandler.setTopMargin(0))
             }
         }
 
         bridge.addListener("setup") { _, _ -> }
-        bridge.addListener("final_setup") { _, _ -> }
+        bridge.addListener("final_setup") { _, _ ->
+            if (isAdded) {
+                bridge.onPcsReady()
+            }
+        }
         bridge.addListener("link", linkHandler)
         bridge.addListener("image") { _, _ -> }
         bridge.addListener("media") { _, _ -> }
@@ -110,7 +114,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
             (JsonUtil.decodeFromString<PageReferences>(messagePayload.toString()))?.let {
                 references = it
                 if (references.referencesGroup.isNotEmpty()) {
-                    bottomSheetPresenter.show(childFragmentManager, ReferenceDialog())
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager, ReferenceDialog())
                 }
             }
         }
@@ -129,7 +133,9 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
      * When fade-out completes, the state of the actionbar button(s) is updated.
      */
     fun hide(toView: View) {
-        ViewAnimations.crossFade(binding.editPreviewContainer, toView) { requireActivity().invalidateOptionsMenu() }
+        binding.editPreviewContainer.isVisible = false
+        toView.isVisible = true
+        requireActivity().invalidateOptionsMenu()
     }
 
     inner class EditLinkHandler constructor(context: Context) : LinkHandler(context) {
@@ -168,7 +174,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
          */
         private fun showLeavingEditDialogue(runnable: Runnable) {
             // Ask the user if they really meant to leave the edit workflow
-            val leavingEditDialog = AlertDialog.Builder(requireActivity())
+            MaterialAlertDialogBuilder(requireActivity())
                 .setMessage(R.string.dialog_message_leaving_edit)
                 .setPositiveButton(R.string.dialog_message_leaving_edit_leave) { dialog, _: Int ->
                     // They meant to leave; close dialogue and run specified action
@@ -176,8 +182,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                     runnable.run()
                 }
                 .setNegativeButton(R.string.dialog_message_leaving_edit_stay, null)
-                .create()
-            leavingEditDialog.show()
+                .show()
         }
 
         @Suppress("UNUSED_PARAMETER")

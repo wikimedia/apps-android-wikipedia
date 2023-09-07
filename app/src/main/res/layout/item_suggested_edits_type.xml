@@ -29,7 +29,7 @@
             android:layout_height="20dp"
             android:layout_marginEnd="12dp"
             android:contentDescription="@null"
-            app:tint="?attr/colorAccent" />
+            app:tint="?attr/progressive_color" />
 
     </LinearLayout>
 

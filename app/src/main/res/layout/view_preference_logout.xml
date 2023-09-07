@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_marginTop="8dp"
-    android:divider="?attr/list_separator_drawable"
+    android:divider="?attr/list_divider"
     android:showDividers="beginning|end">
 
     <LinearLayout
@@ -20,7 +20,7 @@
             android:contentDescription="@null"
             android:layout_marginStart="16dp"
             app:srcCompat="@drawable/ic_baseline_person_24"
-            app:tint="?attr/color_group_59"/>
+            app:tint="?attr/placeholder_color"/>
 
         <TextView
             android:id="@+id/accountName"
@@ -32,7 +32,7 @@
 
         <Button
             android:id="@+id/logoutButton"
-            style="@style/TransparentButton"
+            style="@style/App.Button.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"

@@ -13,6 +13,7 @@
 * Inkbug
 * Matanya
 * MuratTheTurkish
+* Neriah
 * Or
 * Shoham
 * Steeve815
@@ -23,6 +24,7 @@
 * דגש חזק
 * המקיסט
 * מקף
+* נדב ס
 -->
 <resources>
   <string name="app_name_prod">ויקיפדיה</string>
@@ -130,9 +132,8 @@
   <string name="map_view_link_text">הצגה על מפה</string>
   <string name="other_languages_indication_text">קריאה בשפה אחרת</string>
   <string name="language_count_link_text">זמין בעוד %d שפות</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
+  <string name="edit_save_action_license_logged_in">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
   <string name="edit_anon_warning">עריכות ייוחסו לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך פרטיות רבה יותר.</string>
   <string name="preference_title_language">שפות ויקיפדיה</string>
   <string name="langlinks_filter_hint">חיפוש</string>
@@ -258,7 +259,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/he</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.he</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.he</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.he</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he#Image_tags</string>
@@ -271,7 +272,7 @@
   <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
-  <string name="edit_abandon_confirm">הדף שוּנה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
+  <string name="edit_abandon_confirm">הדף שונה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
   <string name="edit_abandon_confirm_yes">כן</string>
   <string name="edit_abandon_confirm_no">לא</string>
   <string name="user_blocked_from_editing_title">חסוּם</string>
@@ -284,6 +285,9 @@
   <string name="edit_undo">ביטול</string>
   <string name="edit_redo">ביצוע חוזר</string>
   <string name="edit_rollback">שחזור</string>
+  <string name="edit_warn">אזהרה</string>
+  <string name="edit_quality">איכות %s</string>
+  <string name="edit_intent">כוונה %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">בית אחד</item>
     <item quantity="two">%s בתים</item>
@@ -298,7 +302,7 @@
   <string name="edit_summary_tag_other">אחר</string>
   <string name="edit_summary_tag_other_hint">איך עוד שיפרת את הדף</string>
   <string name="edit_conflict_title">התנגשות עריכה</string>
-  <string name="edit_conflict_message">הדף כבר שוּנה על־ידי משתמש אחר, וזה מתנגש עם העריכה שלך. נא להעתיק את העריכות שלך, לחזור, לרענן את הדף, ולנסות לערוך שוב.</string>
+  <string name="edit_conflict_message">הדף כבר שונה על־ידי משתמש אחר, וזה מתנגש עם העריכה שלך. נא להעתיק את העריכות שלך, לחזור, לרענן את הדף, ולנסות לערוך שוב.</string>
   <string name="edit_notices">הודעות לעורכים</string>
   <string name="edit_notices_please_read">נא לקרוא לפני עריכה</string>
   <string name="edit_notices_show_auto">להציג אוטומטית את ההודעות לעורכים</string>
@@ -393,6 +397,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">אי־אפשר לטעון ערך ללא חיבור לרשת.</string>
   <string name="page_offline_notice_add_to_reading_list">רמז: הוסף את הערך לרשימת הקריאה, והוא יוּרד כששוב יהיה חיבור לרשת.</string>
   <string name="page_offline_notice_last_date">זאת גרסה לקריאה ללא חיבור לרשת של הערך הזה, שנשמרה ב־%s.</string>
+  <string name="redirected_from_snackbar">הופנה מהדף \"%s\"</string>
   <string name="button_get_directions">לקבל כיוונים</string>
   <string name="error_no_maps_app">לא מצאתי אף יישום שנותן הכוונה.</string>
   <string name="preference_title_customize_explore_feed">הזנת \"לחקור\"</string>
@@ -483,12 +488,24 @@
   <string name="reading_list_article_already_exists_message">הכול טוב! הרשימה %1$s כבר מכילה את הערך %2$s.</string>
   <string name="reading_list_articles_already_exist_message">הכול טוב! הרשימה %s כבר מכילה את כל הערכים.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
-  <string name="reading_list_add_to_list_button">הוספת לרשימה</string>
+  <string name="reading_list_add_to_list_button">הוספה לרשימה</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">ערך אחד</item>
+    <item quantity="two">%d ערכים</item>
+    <item quantity="many">%d ערכים</item>
+    <item quantity="other">%d ערכים</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">ערך אחד, %2$.2f מ״ב</item>
     <item quantity="two">שני ערכים %2$.2f מ״ב</item>
     <item quantity="many">%1$d ערכים, %2$.2f מ״ב</item>
     <item quantity="other">%1$d ערכים, %2$.2f מ״ב</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">ערך אחד זמין ללא חיבור לרשת</item>
+    <item quantity="two">%1$d מתוך %2$d ערכים זמינים ללא חיבור לרשת</item>
+    <item quantity="many">%1$d מתוך %2$d ערכים זמינים ללא חיבור לרשת</item>
+    <item quantity="other">%1$d מתוך %2$d ערכים זמינים ללא חיבור לרשת</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d מתוך ערך אחד זמינים מקומית, %3$.2f מ״ב</item>
@@ -496,10 +513,6 @@
     <item quantity="many">%1$d מתוך %2$d ערכים זמינים מקומית, %3$.2f מ״ב</item>
     <item quantity="other">%1$d מתוך %2$d ערכים זמינים מקומית, %3$.2f מ״ב</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d מתוך 1 ערכים זמינים ללא חיבור לרשת, %2$.2f מ\"ב</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d מתוך %2$d ערכים זמינים ללא חיבור לרשת, %3$.2f מ\"ב</string>
   <string name="reading_list_sort">מיון</string>
   <string name="reading_list_sort_ellipsis">מיון לפי...</string>
   <string name="reading_list_sort_by_name">מיון לפי שם</string>
@@ -509,6 +522,10 @@
   <string name="reading_list_sort_by_created">מיון לפי מועד היצירה (החדש ביותר)</string>
   <string name="reading_list_sort_by_created_desc">מיון לפי מועד היצירה (הישן ביותר)</string>
   <string name="reading_list_menu_delete">מחיקת רשימה</string>
+  <string name="reading_list_menu_export">יצוא רשימה</string>
+  <string name="reading_list_menu_select">בחירה</string>
+  <string name="reading_list_menu_unselect">ביטול בחירה</string>
+  <string name="reading_list_export_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה ליצוא רשימת הקריאה שלך.</string>
   <string name="reading_list_menu_rename">שינוי שם/תיאור</string>
   <string name="reading_list_action_menu_remove_from_offline">הסרה מקריאה ללא חיבור לרשת</string>
   <string name="reading_list_action_menu_save_for_offline">שמירה לקריאה ללא חיבור לרשת</string>
@@ -533,6 +550,17 @@
     <item quantity="many">%d ערכים הוסרו מהרשימה %s</item>
     <item quantity="other">%d ערכים הוסרו מהרשימה %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">נמחקה רשימה אחת</item>
+    <item quantity="two">נמחקו %d רשימות</item>
+    <item quantity="many">נמחקו %d רשימות</item>
+    <item quantity="other">נמחקו %d רשימות</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">לא ניתן למחוק את הרשימה ההתחלתית (%s).</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s נמחקה. לא ניתן למחוק את הרשימה ההתחלתית (%2$s).</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">רשימות נמחקו. לא ניתן למחוק את הרשימה ההתחלתית (%s).</string>
+  <string name="single_list_json_file_name">%s (רשימת קריאה של ויקיפדיה).json</string>
+  <string name="multiple_lists_json_file_name">רשימות קריאה של ויקיפדיה (%s ועוד).json</string>
   <string name="reading_list_items_deleted">%d ערכים הוסרו מהרשימה</string>
   <string name="reading_lists_item_deleted">%s הוסר מהרשימות</string>
   <string name="reading_list_item_delete_undo">ביטול</string>
@@ -565,6 +593,13 @@
   <string name="reading_list_articles_added_to_named">נוספו %1$d ערכים לרשימה %2$s</string>
   <string name="reading_list_articles_moved_to_named">הועברו %1$d ערכים לרשימה %2$s</string>
   <string name="reading_list_delete_confirm">למחוק את %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">למחוק את הרשימות שנבחרו?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">האם ברצונך באמת למחוק את הרשימה %d</item>
+    <item quantity="two">האם ברצונך באמת למחוק את הרשימות %d</item>
+    <item quantity="many">האם ברצונך באמת למחוק את הרשימות %d</item>
+    <item quantity="other">האם ברצונך באמת למחוק את הרשימות %d</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">נא להיכנס לשם הפעלת הסנכרון</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">נא להיכנס כדי לאפשר את השמירה של רשימות הקריאה שלך לחשבון שלך.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">ביטול</string>
@@ -588,6 +623,7 @@
   <string name="reading_list_article_limit_message">אי־אפשר להוסיף לרשימה הזאת. הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
   <string name="reading_lists_limit_message">לא ניתן ליצור עוד רשימה. הגעת למגבלה של 100 רשימות קריאה לחשבון.</string>
   <string name="reading_lists_menu_create_list">יצירת רשימה חדשה</string>
+  <string name="reading_lists_menu_import_list">יבוא רשימה</string>
   <string name="reading_lists_menu_sort_by">מיון לפי</string>
   <string name="reading_lists_refresh_sync_option">רענון סנכרון</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">כניסה / הרשמה לחשבון</string>
@@ -612,7 +648,37 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">ביטול</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">ביטול</string>
   <string name="reading_list_split_dialog_ok_button_text">אישור</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">מחיקה</string>
   <string name="reading_list_activity_title">רשימת קריאה: %s</string>
+  <string name="reading_list_notification_title">רשימות קריאה יוצאו</string>
+  <string name="reading_list_notification_text">%d רשימות קריאה יוצאו בתור \'reading_lists export.json\' לתיקיית ההורדות שלך</string>
+  <string name="reading_list_notification_detailed_text">רשימות קריאה יוצאו אל \'reading_lists_export.json\'</string>
+  <string name="reading_lists_action_menu_export_lists">יצוא</string>
+  <string name="reading_lists_import_file_picker_title">בחירת קובץ ליבוא</string>
+  <string name="reading_lists_import_failure_message">יבוא רשימות הקריאה נכשל</string>
+  <string name="reading_lists_export_select_lists_message">נא לבחור רשימות ליצוא</string>
+  <string name="reading_lists_export_completed_message">רשימות הקריאה יוצאו</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">יצוא רשימת הקריאה נכשל</item>
+    <item quantity="two">יצוא רשימות הקריאה נכשל</item>
+    <item quantity="many">יצוא רשימות הקריאה נכשל</item>
+    <item quantity="other">יצוא רשימות הקריאה נכשל</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">רשימת הקריאה יובאה</item>
+    <item quantity="two">רשימות הקריאה יובאו</item>
+    <item quantity="many">רשימות הקריאה יובאו</item>
+    <item quantity="other">רשימות הקריאה יובאו</item>
+  </plurals>
+  <string name="reading_lists_preview_header_title">רשימה ששותפה</string>
+  <string name="reading_lists_preview_save_button">שמירה</string>
+  <string name="reading_lists_preview_save_dialog_title">שמירת רשימה</string>
+  <string name="reading_lists_preview_save_dialog_text">נא לתת לרשימה שם ולבחור אילו ערכים לשמור.</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">כותרת</string>
+  <string name="reading_lists_preview_save_dialog_cancel">ביטול</string>
+  <string name="reading_lists_preview_save_dialog_save">שמירה</string>
+  <string name="reading_lists_preview_saved_snackbar">רשימת הקריאה נשמרה</string>
+  <string name="reading_lists_preview_saved_snackbar_action">הצגה</string>
   <string name="user_option_sync_label">העדפות</string>
   <string name="notification_reverted_title">עריכה משוחזרת</string>
   <string name="notification_channel_title">הורדת ערכים</string>
@@ -798,7 +864,7 @@
   <string name="feed_configure_menu_reset">שחזור התצוגה ההתחלתית</string>
   <string name="feed_configure_menu_select_all">להציג הכול</string>
   <string name="feed_configure_menu_deselect_all">להסתיר הכול</string>
-  <string name="feed_configure_language_warning">לתשומת לבך: לא כל סוגי הכרטיסים זמינים בכל השפות של ויקיפדיה. באפשרותך לערוך את השפות שבחרת בהגדרות.</string>
+  <string name="feed_configure_language_warning">לתשומת ליבך: לא כל סוגי הכרטיסים זמינים בכל השפות של ויקיפדיה. באפשרותך לערוך את השפות שבחרת בהגדרות.</string>
   <string name="feed_item_type_news">ערכים על אירועים אקטואליים</string>
   <string name="feed_item_type_on_this_day">אירועים בהיסטוריה ביום הזה</string>
   <string name="feed_item_type_because_you_read">הצעות על סמך ערכים שקראת לאחרונה מההיסטוריה שלך</string>
@@ -853,7 +919,9 @@
   <string name="description_starts_with_uppercase">יש להתחיל באות קטנה, אלא אם המילה הראשונה היא שם פרטי.</string>
   <string name="description_starts_with_lowercase">נא להימנע מלהתחיל את התיאור מאות קטנה.</string>
   <string name="description_is_in_different_language">הטקסט מופיע בשפה בלתי־צפויה. השפה אמורה להיות %s.</string>
-  <string name="description_verification_notice">נא לוודא שהשפה של התיאור שלך היא %1$s. אין בעיה לסגור את ההודעה הזאת אם השפה שכתבת בה היא %2$s.</string>
+  <string name="description_verification_notice">נא לוודא שהשפה של התיאור שלך היא %1$s. אפשר להתעלם מהאזהאה הזאת אם השפה שכתבת בה היא %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">הצגת תיאורים מומלצים</string>
+  <string name="description_edit_suggested_description_button_tooltip">לנסות תיאורי ערכים מוצעים על־ידי מכונה</string>
   <string name="description_edit_success_saved">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_snackbar">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">תיאור הערך פורסם! (%s)</string>
@@ -871,6 +939,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">יהיה מושלם אם זאת תהיה שורה אחת, בין שתיים לשתים־עשרה מילים</string>
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">הצעות ממכונה</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">ההצעות מחוללו על־ידי מכונה, לא על־ידי מתנדבים או על־ידי קרן ויקימדיה</string>
   <string name="customize_toolbar_title">התאמת סרגל כלים</string>
   <string name="customize_toolbar_shortcut_description_text">באפשרותך לעשות התאמה אישית של סרגל הכלית התחתון עם חמישה קיצורי דרך שהכי שימושיים לך.</string>
   <string name="customize_toolbar_category_toolbar">סרגל כלים</string>
@@ -882,6 +952,9 @@
   <string name="suggested_edits_describe_articles">הוספת תיאור לערכים</string>
   <string name="suggested_edits_caption_images">הוספת כיתוב לתמונות</string>
   <string name="suggested_edits_tag_images">לתייג תמונות</string>
+  <string name="suggested_edits_edit_patrol">ניטור עריכה</string>
+  <string name="suggested_edits_edit_patrol_hint">סקירת עריכות אחרונות וקביעה אם הן מועילות או לא.</string>
+  <string name="suggested_edits_edit_patrol_review">סקירה</string>
   <string name="suggested_edits_review_description">סקירת תיאור ערך</string>
   <string name="suggested_edits_add_description_button">להוסיף תיאור</string>
   <string name="suggested_edits_edit_description_button">עריכת תיאור</string>
@@ -959,6 +1032,7 @@
   <string name="suggested_edits_image_tags_select_title">לא בחרת שום תגים לתמונה הזאת</string>
   <string name="suggested_edits_image_tags_select_text">רק תגים שתבחרו יוספו לתמונות. תגים שלא בחרת יסומנו בתור תגים שנדחו. האם ברצונך באמת לסמן את כל התגים האלה בתור תגים שנדחו?</string>
   <string name="suggested_edits_image_tags_add_tag">להוסיף תג</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">התגים שלו פורסמו לא יישמרו</string>
   <string name="suggested_edits_image_zoom_tooltip">אפשר לקרב את התמונה הזאת בשתי אצבעות.</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;שלום %s&lt;/b&gt;, להלן אפשר למצוא כמה דרכים מהירות ופשוטות לעזור לשפר את ויקיפדיה. יהיה אפשר לראות את השינוי שאתה עושה מייד אחרי שתעשה אותו. עריכה מהנה!</string>
@@ -971,7 +1045,7 @@
   <string name="suggested_edits_paused_message">עריכות מוצעות הופסקו עד %1$s. מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_disabled_message">עריכות מוצעות הופסקו. מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.</string>
   <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסומה כרגע מעריכת ויקיפדיה.</string>
-  <string name="suggested_edits_gate_message">סליחה\" %s, חובה לעשות לפחות שלוש עריכות ישירות בערך כדי להשתמש בתכונה הזאת.</string>
+  <string name="suggested_edits_gate_message">סליחה, %s, יש לעשות לפחות שלוש עריכות ישירות בערכים שבמיזם כדי להשתמש בתכונה הזאת.</string>
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
   <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
   <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
@@ -1039,6 +1113,14 @@
   <string name="suggested_edits_contribution_type_image_tag">תג תמונה</string>
   <string name="suggested_edits_contribution_current_revision_text">העריכה שלך פורסמה כעת בוויקיפדיה</string>
   <string name="suggested_card_more_edits">עריכות מוצעות נוספות</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">תיאורים מומלצים</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">מה ברצונך לדווח?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">לא מספיק מידע</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">איני רואה הצעות תיאור</string>
+  <string name="suggested_edits_inappropriate_suggestion">הצעה בלתי־הולמת</string>
+  <string name="suggested_edits_do_not_understand_suggestion">לא הבנתי את המשימה</string>
+  <string name="suggested_edits_report_suggestion">דיווח</string>
+  <string name="suggested_edits_suggestion_report_submitted">הדיווח נשלח</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">תג אחד</item>
     <item quantity="two">שני תגים</item>
@@ -1063,6 +1145,38 @@
     <item quantity="many">הוספת %d תווים</item>
     <item quantity="other">הוספת %d תווים</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">תמונות בערכים</string>
+  <string name="suggested_edits_image_recommendations_task_detail">הוספת תמונות מוצעות לערכי ויקיפדיה כדי לשפר את ההבנה.</string>
+  <string name="image_recommendation_task_instruction">האם נראה לך מתאים להוסיף את התמונה הזאת לערך?</string>
+  <string name="image_recommendation_tutorial">מדריך</string>
+  <string name="image_recommendation_accept">כן</string>
+  <string name="image_recommendation_reject">לא</string>
+  <string name="image_recommendation_notsure">אין לי תשובה</string>
+  <string name="image_recommendation_reject_title">למה לא?</string>
+  <string name="image_recommendation_reject_subtitle">התשובות שלך משפרות הצעות עתידיות.</string>
+  <string name="image_recommendation_reject_not_relevant">התמונה אינה רלוונטית</string>
+  <string name="image_recommendation_reject_no_info">אין מספיק מידע בשביל להחליט</string>
+  <string name="image_recommendation_reject_offensive">התמונה פוגענית</string>
+  <string name="image_recommendation_reject_low_quality">התמונה באיכות נמוכה</string>
+  <string name="image_recommendation_reject_dont_know">הנושא לא מוכר לי</string>
+  <string name="image_recommendation_reject_other">אחר</string>
+  <string name="image_recommendation_reject_submit">שליחה</string>
+  <string name="image_recommendation_tooltip_main">הוספת תמונות חסרות לערכים בעריכות מוצעות</string>
+  <string name="image_recommendation_onboarding_1">תמונות עוזרות לאנשים להבין, אבל הן חסרות בהרבה ערכים.</string>
+  <string name="image_recommendation_onboarding_2">בידך ההחלטה האם לשים תמונה מוצעת בערך בוויקיפדיה.</string>
+  <string name="image_recommendation_onboarding_3">הצעות נוצרות על־ידי מכונה ויש להשתמש בשיקול דעתך כדי להחליט אם לקבל או לדחות אותן.</string>
+  <string name="image_recommendation_onboarding_4">התמונות מגיעות מוויקישיתוף, אוסף תמונות ברישיון חופשי, שמשמשות בוויקיפדיה.</string>
+  <string name="image_recommendation_tooltip_1">יש לעיין בערך הזה כדי להבין את הנושא שלו</string>
+  <string name="image_recommendation_tooltip_2">יש לבדוק את התמונה והמידע המשויך לה</string>
+  <string name="image_recommendation_tooltip_3">יש להחליט האם התמונה עוזרת לקוראים להבין טוב יותר את הנושא הזה</string>
+  <string name="image_recommendation_tooltip_next">הבא</string>
+  <string name="image_recommendation_tooltip_warning">נא לעיין בערך כדי להבין את הנושא שלו ולבדוק את התמונה</string>
+  <string name="suggested_edits_report_feature">בעיה עם תכונה</string>
+  <string name="suggested_edits_report_feature_subject">בעיה עם עריכות מוצעות</string>
+  <string name="edit_summary_added_image">נוספה תמונה</string>
+  <string name="edit_summary_added_caption">נוסף כיתוב</string>
+  <string name="edit_summary_added_image_and_caption">נוספו תמונה וכיתוב</string>
+  <string name="edit_published_view">הצגה</string>
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="file_page_add_image_caption_button">הוספת כיתוב תמונה</string>
   <string name="file_page_add_image_tags_button">הוספת תגי תמונה</string>
@@ -1165,12 +1279,12 @@
   <string name="insert_media_title">הוספת מדיה</string>
   <string name="insert_media_search_description">נא לבחור קובץ מוויקישיתוף</string>
   <string name="insert_media_search_hint">חיפוש מדיה</string>
-  <string name="insert_media_settings">הגדרות מדיה</string>
+  <string name="insert_media_settings">הוספת פרטי תמונה</string>
   <string name="insert_media_settings_uploaded_image">תמונה שהועלתה</string>
-  <string name="insert_media_settings_caption">כיתוב</string>
-  <string name="insert_media_settings_caption_description">תווית שמוצגת ליד הפריט לכל הקוראים</string>
+  <string name="insert_media_settings_caption">כיתוב תמונה</string>
+  <string name="insert_media_settings_caption_description">תווית תמונה גלויה בערך</string>
   <string name="insert_media_settings_alternative_text">טקסט חלופי</string>
-  <string name="insert_media_settings_alternative_text_description">תיאור טקסט בשביל קוראים שלא יכולים לראות את התמונה</string>
+  <string name="insert_media_settings_alternative_text_description">תיאור לקוראים לקויי ראייה</string>
   <string name="insert_media_advanced_settings">הגדרות מתקדמות</string>
   <string name="insert_media_advanced_settings_wrap_image">גלישת טקסט סביב תמונה</string>
   <string name="insert_media_advanced_settings_image_position">מיקום תמונה</string>
@@ -1206,6 +1320,18 @@
   <string name="talk_user_title">שיחה: %s</string>
   <string name="talk_new_topic">נושא חדש</string>
   <string name="talk_new_topic_submitted">הנושא פורסם.</string>
+  <string name="talk_warn">אזהרה</string>
+  <string name="talk_warn_save_dialog_title">לשמור את השינויים?</string>
+  <string name="talk_warn_save_dialog_message">שמירה כהודעה חדשה</string>
+  <string name="talk_warn_save_dialog_existing_new_message">שמירה כהודעה חדשה לרשימה</string>
+  <string name="talk_warn_save_dialog_existing_update_message">עדכון הודעה קיימת</string>
+  <string name="talk_warn_save_dialog_hint">כותרת ההודעה</string>
+  <string name="talk_warn_save_dialog_publish">פרסום</string>
+  <string name="talk_warn_save_dialog_cancel">ביטול</string>
+  <string name="talk_warn_submitted">ההודעה פורסמה בדף שיחת המשתמש של העורך</string>
+  <string name="talk_warn_submitted_and_saved">ההודעה נשמרה ופורסמה בדף השיחת המשתמש של העורך</string>
+  <string name="talk_warn_saved_message">בחירת הודעת אזהרה קיימת או כתיבת הודעה חדשה.</string>
+  <string name="talk_warn_saved_message_dropdown">הודעות שמורות</string>
   <string name="talk_page_empty">דף השיחה הזה ריק.</string>
   <string name="talk_page_empty_title">השיחה מתחילה כאן</string>
   <string name="talk_page_empty_content">דפי שיחה הם המקום שבו אנשים דנים איך להפוך את התוכן בוויקיפדיה לטוב ביותר שהוא יכול להיות. יש להתחיל בהוספת נושא דיון חדש כדי להתחבר ולשתף פעולה עם קהילה של ויקיפדים.</string>
@@ -1296,6 +1422,7 @@
   <string name="revision_diff_line_removed">שורה שהוסרה</string>
   <string name="revision_diff_paragraph_added">פסקה שנוספה</string>
   <string name="revision_diff_paragraph_removed">פסקה שהוסרה</string>
+  <string name="revision_diff_protected">השינויים שנעשו בגרסה הזאת אינם זמינים לציבור.</string>
   <string name="revision_undo_title">ביטול עריכה</string>
   <string name="revision_undo_message">זה יבטל את העריכה שנעשתה בגרסת הערך שמוצגת כאן.</string>
   <string name="revision_undo_reason">כדי להמשיך, נא לספק סיבה לביטול העריכה הזאת:</string>
@@ -1319,6 +1446,7 @@
   <string name="watchlist_expiry_dialog_three_months">3 חודשים</string>
   <string name="watchlist_expiry_dialog_six_months">6 חודשים</string>
   <string name="watchlist_empty">אין לך ערכים ברשימת המעקב.</string>
+  <string name="watchlist_search">חיפוש ברשימת המעקב</string>
   <string name="watchlist_filter_all">הכול</string>
   <string name="watchlist_filter_talk">שיחה</string>
   <string name="watchlist_filter_pages">דפים</string>
@@ -1326,6 +1454,57 @@
   <string name="watchlist_page_moved">הועבר</string>
   <string name="watchlist_page_protected">הוגן</string>
   <string name="watchlist_page_deleted">נמחק</string>
+  <string name="watchlist_filter_title">סינון רשימת מעקב</string>
+  <string name="watchlist_filter_wiki_filter_header">ויקי</string>
+  <string name="watchlist_filter_all_text">הכול</string>
+  <string name="watchlist_filter_watchlist_activity_header">פעילות ברשימת המעקב</string>
+  <string name="watchlist_filter_watchlist_activity_unseen">שינויים שלא נצפו</string>
+  <string name="watchlist_filter_watchlist_activity_seen">שינויים שנצפו</string>
+  <string name="watchlist_filter_contribution_quality_header">חיזויי איכות תרומות</string>
+  <string name="watchlist_filter_contribution_quality_good">טובות בסבירות גבוהה מאוד</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">ייתכן שיש בהן בעיות</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">כנראה יש בהן בעיות</string>
+  <string name="watchlist_filter_contribution_quality_bad">סביר מאוד שיש בהן בעיות</string>
+  <string name="watchlist_filter_user_intent_header">חיזויי כוונת משתמש</string>
+  <string name="watchlist_filter_user_intent_good">סבירות גבוהה מאוד לכוונה טובה</string>
+  <string name="watchlist_filter_user_intent_may_problems">אולי כוונה רעה</string>
+  <string name="watchlist_filter_user_intent_likely_problems">סבירות גבוהה לכוונה רעה</string>
+  <string name="watchlist_filter_user_intent_bad">כוונה רעה בסבירות גבוהה מאוד</string>
+  <string name="watchlist_filter_user_status_header">הרשמת משתמשים ורמת ניסיון</string>
+  <string name="watchlist_filter_user_status_unregistered">רשומים</string>
+  <string name="watchlist_filter_user_status_registered">לא רשומים</string>
+  <string name="watchlist_filter_user_status_newcomers">משתמשים מתחילים</string>
+  <string name="watchlist_filter_user_status_learners">לומדים</string>
+  <string name="watchlist_filter_user_status_experienced">משתמשים מנוסים</string>
+  <string name="watchlist_filter_contribution_authorship_header">מבצעי התרומה</string>
+  <string name="watchlist_filter_contribution_authorship_own">שינויים שלך</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">שינויים של אחרים</string>
+  <string name="watchlist_filter_automated_contributions_header">תרומות אוטומטיות</string>
+  <string name="watchlist_filter_automated_contributions_bot">בוטים</string>
+  <string name="watchlist_filter_automated_contributions_human">בני אדם (לא בוטים)</string>
+  <string name="watchlist_filter_significance_header">חשיבות</string>
+  <string name="watchlist_filter_significance_minor">עריכות משניות</string>
+  <string name="watchlist_filter_significance_edits">עריכות שאינן משניות</string>
+  <string name="watchlist_filter_latest_revisions_header">גרסאות אחרונות</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">גרסה אחרונה</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">לא הגרסה האחרונה</string>
+  <string name="watchlist_filter_type_of_change_header">סוג השינוי</string>
+  <string name="watchlist_filter_type_of_change_page_edits">עריכות דפים</string>
+  <string name="watchlist_filter_type_of_change_page_creations">יצירות דפים</string>
+  <string name="watchlist_filter_type_of_change_category_changes">שינויים בקטגוריות</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">עריכות ויקינתונים</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">פעולות יומן</string>
+  <string name="watchlist_filter_type_of_change_new_users">משתמשים חדשים</string>
+  <string name="watchlist_filter_reset_button">איפוס</string>
+  <string name="watchlist_search_bar_hint">חיפוש או סינון רשימת מעקב</string>
+  <string name="watchlist_search_bar_filter_hint">סינון רשימת מעקב</string>
+  <string name="watchlist_empty_search_message">אין תוצאות, נא לנסות להסיר %s כדי לראות יותר.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">מסנן אחד</item>
+    <item quantity="two">%d מסננים</item>
+    <item quantity="many">%d מסננים</item>
+    <item quantity="other">%d מסננים</item>
+  </plurals>
   <string name="preview_edit_title">תצוגה מקדימה של העריכה</string>
   <string name="preview_edit_summarize_edit_title">נא לכתוב סיכום של העריכה</string>
   <string name="preview_edit_summarize_edit_hint">איך שיפרת את הדף?</string>
@@ -1356,11 +1535,100 @@
   <string name="shareable_reading_lists_new_install_dialog_title">רשימת קריאה שותפה איתך</string>
   <string name="shareable_reading_lists_new_install_dialog_content">שמנו לב שרשימת קריאה שותפה איתך. כדי להציג את הרשימה הזאת ביישום, נא לחזור להודעה המקורית ולהקיש שוב על הקישור.</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">הבנתי</string>
-  <string name="shareable_reading_lists_new_imported_snackbar">רשימת הקריאה יובאה בהצלחה</string>
+  <string name="shareable_reading_lists_new_imported_snackbar">רשימת הקריאה יובאה</string>
   <string name="reading_list_share_menu_label">שיתוף...</string>
   <string name="reading_list_share_menu_tooltip">שיתוף רשימת הקריאה הזאת עם אחרים</string>
-  <string name="reading_list_share_title_tooltip">שינויים שנעשים ברשימה הזאת אינם גלויים לאחרים.</string>
   <string name="reading_list_share_message_v2">שלום! אני רוצה לשתף את רשימת הקריאה שלי בוויקיפדיה איתך:</string>
   <string name="reading_list_share_survey_title">אפשר לבקש ממך לעזור לנו לשפר את התכונה \"שיתוף רשימות קריאה\"?</string>
-  <string name="reading_list_share_survey_body">\"שיתוף רשימות קריאה\" היא תכונת הבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
+  <string name="reading_list_share_survey_body">\"שיתוף רשימות קריאה\" היא תכונה בבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
+  <string name="talk_templates_manage_title">ניהול תבניות</string>
+  <string name="talk_templates_empty_message">לא שמרת שום הודעת אזהרה.</string>
+  <string name="talk_templates_new_message_title">הודעה חדשה</string>
+  <string name="talk_templates_new_message_description">כתיבת הודעת אזהרה.</string>
+  <string name="talk_templates_new_message_subject_hint">נושא</string>
+  <string name="talk_templates_new_message_compose_hint">כתיבת הודעה</string>
+  <string name="talk_templates_new_message_save">שמירה</string>
+  <string name="talk_templates_new_message_dialog_title">שמירת השינויים</string>
+  <string name="talk_templates_new_message_dialog_description">להוסיף כותרת ולשמור את ההודעה.</string>
+  <string name="talk_templates_new_message_dialog_hint">כותרת ההודעה</string>
+  <string name="talk_templates_new_message_dialog_save">שמירה</string>
+  <string name="talk_templates_new_message_dialog_cancel">ביטול</string>
+  <string name="talk_templates_new_message_dialog_exists">התבנית \"%s\" כבר קיימת.</string>
+  <string name="talk_templates_new_message_saved">ההודעה נשמרה.</string>
+  <string name="talk_templates_edit_message_dialog_title">עריכת הודעה</string>
+  <string name="talk_templates_edit_message_dialog_save">שמירה</string>
+  <string name="talk_templates_edit_message_dialog_delete">מחיקה</string>
+  <string name="talk_templates_edit_message_updated">ההודעה עודכנה</string>
+  <string name="talk_templates_edit_message_confirm_description">האם ברצונך באמת למחוק את ההודעה %s מהרשימה?</string>
+  <string name="talk_templates_message_deleted">ההודעה נמחקה</string>
+  <string name="patroller_tasks_edits_list_title">רשימת עריכות</string>
+  <string name="patroller_tasks_edits_list_search_hint">חיפוש או סינון של עריכות</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">תגים: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">אין</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">הצגת דף המשתמש</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">הצגת דף השיחה</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">מידע על המשתמש</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">הצגת תרומות משתמש</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">תודה</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">מידע על המשתמש</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">ותק</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">מספר העריכות</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">סגירה</string>
+  <string name="patroller_tasks_filters_title">מסננים</string>
+  <string name="patroller_tasks_filters_reset">איפוס</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">ויקי</string>
+  <string name="patroller_tasks_filters_all_text">הכול</string>
+  <string name="patroller_tasks_filters_user_status_header">הרשמת משתמשים ורמת ניסיון</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">לא רשומים</string>
+  <string name="patroller_tasks_filters_user_status_registered">רשומים</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">משתמשים מתחילים</string>
+  <string name="patroller_tasks_filters_user_status_learners">לומדים</string>
+  <string name="patroller_tasks_filters_user_status_experienced">משתמשים מנוסים</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">גרסאות אחרונות</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">גרסה אחרונה</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">לא הגרסה האחרונה</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">תרומות אוטומטיות</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">בוט</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">בני אדם (לא בוטים)</string>
+  <string name="patroller_tasks_filters_significance_header">חשיבות</string>
+  <string name="patroller_tasks_filters_significance_minor">עריכות משניות</string>
+  <string name="patroller_tasks_filters_significance_edits">עריכות שאינן משניות</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">חיזויי איכות תרומות</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">טובות בסבירות גבוהה מאוד</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">ייתכן שיש בהן בעיות</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">כנראה יש בהן בעיות</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">סביר מאוד שיש בהן בעיות</string>
+  <string name="patroller_tasks_filters_user_intent_header">חיזויי כוונת משתמש</string>
+  <string name="patroller_tasks_filters_user_intent_good">סבירות גבוהה מאוד לכוונה טובה</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">אולי כוונה רעה</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">סבירות גבוהה לכוונה רעה</string>
+  <string name="patroller_tasks_filters_user_intent_bad">כוונה רעה בסבירות גבוהה מאוד</string>
+  <string name="patroller_tasks_filters_empty_search_message">נא לנסות להסיר %s כדי לראות עוד עריכות</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">מסנן אחד</item>
+    <item quantity="two">%d מסננים</item>
+    <item quantity="many">%d מסננים</item>
+    <item quantity="other">%d מסננים</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_title">סימון העריכה כבדוקה</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">היסטוריית העריכה של הערך</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_title">לבטל את העריכה הזאת?</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">האם ברצונך באמת לבטל את העריכה הזאת?</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_message">ביטול פירושו הסרת התוצאות של עריכה אחת או יותר.</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">תקציר (לא חובה)</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">לשתף את הסיבה לשחזור</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">השחזור הושלם</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">האם ברצונך באמת לשחזר?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">השחזור הושלם</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">הצגה</string>
+  <string name="patroller_tasks_overflow_report">בעיה עם תכונה</string>
+  <string name="patroller_tasks_overflow_learn">מידע נוסף</string>
+  <string name="data_opt_in_accept">לקבל</string>
+  <string name="data_opt_in_reject">לדחות</string>
+  <string name="page_issues_title">בעיות בדף</string>
+  <string name="generic_release_notes">תיקוני באגים קלים ושיפורים</string>
+  <string name="email_report_image_recommendations_subject">דו\"ח בעיה – תכונת המלצות תמונה</string>
+  <string name="email_report_image_recommendations_body">נתקלתי בבעיה בתכונת המלצות תמונה:\n- [נא לתאר בעיה ספציפית]\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
+  <string name="email_report_patroller_tasks_subject">דו\"ח בעיה - תכונת משימות ניטור</string>
+  <string name="email_report_patroller_tasks_body">נתקלתי בבעיה בתכונת משימות ניטור:\n- [נא לתאר בעיה ספציפית]\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
 </resources>

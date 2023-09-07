@@ -92,8 +92,7 @@
   <string name="map_view_link_text">شوف ف خريطة</string>
   <string name="other_languages_indication_text">قرا بلغة خرى</string>
   <string name="language_count_link_text">موجود ف %d لغة خرى</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">بالنشير، راك قابل على &lt;a href=\"%1$s\"&gt;شروط لإستخدام&lt;/a&gt;، وباللي مغاديش يتنادم معاك لحال الى تنشرات لمساهمة ديالك تحت ليصونص &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">بالنشير، راك قابل على &lt;a href=\"%1$s\"&gt;شروط لإستخدام&lt;/a&gt;، وباللي مغاديش يتنادم معاك لحال الى تنشرات لمساهمة ديالك تحت ليصونص &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="preference_title_language">لوغات د ويكيپيديا</string>
   <string name="langlinks_filter_hint">قلّب</string>
   <string name="langlinks_empty">هاد الصفحة ماكايناش ف لوغات خرين</string>
@@ -197,6 +196,7 @@
   <string name="edit_done">تنشر</string>
   <string name="edit_undo">ماتليتش</string>
   <string name="edit_redo">عاود</string>
+  <string name="edit_rollback">ترجاع</string>
   <string name="edit_zoom_in">زومي</string>
   <string name="edit_zoom_out">صغّر</string>
   <string name="edit_summary_tag_links">روابط تزادت</string>
@@ -257,6 +257,7 @@
   <string name="format_error_server_message">ميساج: \"%s\"</string>
   <string name="button_continue_to_article">قرا لمقال</string>
   <string name="button_continue_to_talk_page">حل صفحة لهضرة</string>
+  <string name="link_preview_disambiguation_description">هاد لعنوان مرتابط ب كتر من صفحة وحدة:</string>
   <string name="button_add_to_reading_list">زيد ل ليستة ديال لقراية</string>
   <string name="button_get_directions">خود لإتجاهات</string>
   <string name="nav_item_donate">تبرع</string>
@@ -345,6 +346,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">معلومات كتر</string>
   <string name="suggested_edits_task_action_text_add">زيد</string>
   <string name="suggested_edits_contributions_stat_tooltip">لمجموع د تبديلات ديالك حتال دابا.</string>
+  <string name="suggested_edits_disabled_message">التبديلات لمقتارحة مامفعلاش. سمح لينا %s، راه ترجّعو بزاف د لمساهمات اللخرة ديالك.</string>
   <string name="suggested_edits_quality_okay_text">واخا</string>
   <string name="suggested_edits_task_new">جديد</string>
   <string name="suggested_edits_contribution_language_label">لوغة</string>
@@ -352,7 +354,7 @@
   <string name="suggested_edits_contribution_image_label">تصويرة</string>
   <string name="suggested_edits_contribution_date_yesterday_text">لبارح</string>
   <string name="suggested_edits_encourage_account_creation_title">واش ف خبارك بلي أي واحد يمكنلو يكتب ف ويكيپيديا؟</string>
-  <string name="file_page_add_image_caption_button">زيد تعليق علا تصويرة</string>
+  <string name="file_page_add_image_caption_button">زيد تعليق على تصويرة</string>
   <string name="description_edit_login_cancel_button_text">لغي</string>
   <string name="onboarding_continue">كمل</string>
   <string name="onboarding_multilingual_add_language_text">زيد ولا بدل لوغات</string>

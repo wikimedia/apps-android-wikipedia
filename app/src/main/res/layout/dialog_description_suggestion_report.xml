@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/ic_warning_24" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@string/suggested_edits_descriptions_report_dialog_title"
+            android:textColor="?attr/primary_color"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/border_color" />
+
+        <CheckBox
+            android:id="@+id/notEnoughInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:buttonTint="?attr/colorAccent"
+            android:padding="16dp"
+            android:text="@string/suggested_edits_descriptions_not_enough_info_suggestion"
+            android:textColor="?attr/primary_color"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/border_color" />
+
+        <CheckBox
+            android:id="@+id/cannotSeeDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:buttonTint="?attr/colorAccent"
+            android:padding="16dp"
+            android:text="@string/suggested_edits_descriptions_cannot_see_suggestion"
+            android:textColor="?attr/primary_color"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/border_color" />
+
+        <CheckBox
+            android:id="@+id/inappropriateSuggestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:buttonTint="?attr/colorAccent"
+            android:padding="16dp"
+            android:text="@string/suggested_edits_inappropriate_suggestion"
+            android:textColor="?attr/primary_color"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/border_color" />
+
+        <CheckBox
+            android:id="@+id/doNotUnderstand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:buttonTint="?attr/colorAccent"
+            android:padding="16dp"
+            android:text="@string/suggested_edits_do_not_understand_suggestion"
+            android:textColor="?attr/primary_color"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/border_color" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/suggestionReportOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="start"
+            android:hint="@string/edit_summary_tag_other"
+            android:textAlignment="viewStart"
+            app:endIconDrawable="@drawable/chip_close_button_dark"
+            app:endIconMode="custom"
+            app:endIconTint="?attr/placeholder_color"
+            app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
+
+            <org.wikipedia.views.PlainPasteEditText
+                android:id="@+id/suggestionReportOtherEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="flagNoExtractUi|actionDone"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="6sp"
+                android:maxLength="@integer/description_max_chars"
+                android:textSize="16sp">
+
+                <requestFocus />
+            </org.wikipedia.views.PlainPasteEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_subscribe"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/talk_list_item_overflow_subscribe"
+        app:iconTint="?attr/secondary_color" />
+
+    <item
+        android:id="@+id/menu_mark_as_read"
+        android:icon="@drawable/ic_outline_markunread_24"
+        android:title="@string/talk_list_item_overflow_mark_as_read"
+        app:iconTint="?attr/secondary_color" />
+
+    <item
+        android:id="@+id/menu_share"
+        android:icon="@drawable/ic_share"
+        android:title="@string/talk_list_item_overflow_share"
+        app:iconTint="?attr/secondary_color" />
+
+</menu>

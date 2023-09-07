@@ -3,9 +3,11 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <dimen name="nav_bar_height">72dp</dimen>
+
     <dimen name="toolbar_default_elevation">4dp</dimen>
 
-    <dimen name="bottom_nav_label_text_size">10sp</dimen>
+    <dimen name="bottom_nav_label_text_size">11sp</dimen>
 
     <dimen name="popup_menu_drop_down_horizontal_offset">8dp</dimen>
     <dimen name="popup_menu_drop_down_vertical_offset">-8dp</dimen>
@@ -42,7 +44,7 @@
     <dimen name="bottomSheetPeekHeight">320dp</dimen>
     <dimen name="readingListSheetPeekHeight">360dp</dimen>
     <dimen name="imagePreviewSheetPeekHeight">280dp</dimen>
-    <dimen name="navTabDialogPeekHeight">400dp</dimen>
+
     <!-- Default size of images in Link Preview thumbnail gallery -->
     <dimen name="linkPreviewImageSize">112dp</dimen>
 
@@ -87,9 +89,6 @@
     <!-- Divider width -->
     <dimen name="divider_width_for_article">60dp</dimen>
 
-    <!-- Snackbar -->
-    <dimen name="snackbar_action_inline_max_dimen">128dp</dimen>
-
     <!-- Suggested Edits -->
     <dimen name="suggested_edits_icon_size">28dp</dimen>
     <dimen name="suggested_edits_icon_background_size">23dp</dimen>
@@ -101,7 +100,4 @@
     <!-- WikiCard -->
     <dimen name="wiki_card_radius">12dp</dimen>
 
-    <!-- This override system snackbar vertical padding -->
-    <dimen name="design_snackbar_padding_vertical">12dp</dimen>
-    <dimen name="design_snackbar_padding_vertical_2lines">12dp</dimen>
 </resources>

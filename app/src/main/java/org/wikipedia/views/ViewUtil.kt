@@ -7,10 +7,10 @@ import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.text.TextUtils
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -40,7 +40,7 @@ object ViewUtil {
                   listener: RequestListener<Drawable?>? = null) {
         val placeholder = getPlaceholderDrawable(view.context)
         var builder = Glide.with(view)
-                .load(if ((Prefs.isImageDownloadEnabled || force) && !TextUtils.isEmpty(url)) Uri.parse(url) else null)
+                .load(if ((Prefs.isImageDownloadEnabled || force) && !url.isNullOrEmpty()) Uri.parse(url) else null)
                 .placeholder(placeholder)
                 .downsample(DownsampleStrategy.CENTER_INSIDE)
                 .error(placeholder)
@@ -56,7 +56,7 @@ object ViewUtil {
     }
 
     fun getPlaceholderDrawable(context: Context): Drawable {
-        return ColorDrawable(getThemedColor(context, R.attr.material_theme_border_color))
+        return ColorDrawable(getThemedColor(context, R.attr.border_color))
     }
 
     fun setCloseButtonInActionMode(context: Context, actionMode: ActionMode) {
@@ -107,5 +107,14 @@ object ViewUtil {
                 recyclerView.viewTreeObserver.removeOnGlobalLayoutListener(this)
             }
         })
+    }
+
+    fun getTitleViewFromToolbar(toolbar: ViewGroup): TextView? {
+        toolbar.children.forEach {
+            if (it is TextView) {
+                return it
+            }
+        }
+        return null
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/right_icon"
     android:layout_width="24dp"
@@ -7,4 +7,4 @@
     android:layout_gravity="center"
     android:contentDescription="@null"
     app:srcCompat="@drawable/ic_open_in_new_black_24px"
-    app:tint="?attr/material_theme_secondary_color" />
+    app:tint="?attr/secondary_color" />

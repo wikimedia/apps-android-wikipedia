@@ -9,7 +9,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
@@ -32,6 +31,9 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 import retrofit2.Response
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
 
 class PageFragmentLoadState(private var model: PageViewModel,
                             private var fragment: PageFragment,
@@ -80,8 +82,10 @@ class PageFragmentLoadState(private var model: PageViewModel,
         }
     }
 
-    fun setTab(tab: Tab) {
+    fun setTab(tab: Tab): Boolean {
+        val isDifferent = tab != currentTab
         currentTab = tab
+        return isDifferent
     }
 
     fun goBack(): Boolean {
@@ -174,14 +178,15 @@ class PageFragmentLoadState(private var model: PageViewModel,
                         if (pageSummaryResponse.body() == null) {
                             throw RuntimeException("Summary response was invalid.")
                         }
+                        val redirectedFrom = if (pageSummaryResponse.raw().priorResponse?.isRedirect == true) model.title?.displayText else null
                         createPageModel(pageSummaryResponse, isWatched, hasWatchlistExpiry)
                         if (OfflineCacheInterceptor.SAVE_HEADER_SAVE == pageSummaryResponse.headers()[OfflineCacheInterceptor.SAVE_HEADER]) {
-                            showPageOfflineMessage(pageSummaryResponse.raw().header("date", ""))
+                            showPageOfflineMessage(pageSummaryResponse.headers().getInstant("date"))
                         }
                         if (delayLoadHtml) {
                             bridge.resetHtml(title)
                         }
-                        fragment.onPageMetadataLoaded()
+                        fragment.onPageMetadataLoaded(redirectedFrom)
 
                         if (AnonymousNotificationHelper.shouldCheckAnonNotifications(watchedResponse)) {
                             checkAnonNotifications(title)
@@ -196,27 +201,23 @@ class PageFragmentLoadState(private var model: PageViewModel,
 
     private fun checkAnonNotifications(title: PageTitle) {
         CoroutineScope(Dispatchers.Main).launch {
-            val response = withContext(Dispatchers.IO) {
-                ServiceFactory.get(title.wikiSite).getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
-            }
+            val response = ServiceFactory.get(title.wikiSite).getLastModified(UserTalkAliasData.valueFor(title.wikiSite.languageCode) + ":" + Prefs.lastAnonUserWithMessages)
             if (AnonymousNotificationHelper.anonTalkPageHasRecentMessage(response, title)) {
                 fragment.showAnonNotification()
             }
         }
     }
 
-    private fun showPageOfflineMessage(dateHeader: String?) {
-        if (!fragment.isAdded || dateHeader.isNullOrEmpty()) {
+    private fun showPageOfflineMessage(dateHeader: Instant?) {
+        if (!fragment.isAdded || dateHeader == null) {
             return
         }
-        try {
-            val dateStr = DateUtil.getShortDateString(DateUtil.getHttpLastModifiedDate(dateHeader))
-            Toast.makeText(fragment.requireContext().applicationContext,
-                    fragment.getString(R.string.page_offline_notice_last_date, dateStr),
-                    Toast.LENGTH_LONG).show()
-        } catch (e: Exception) {
-            // ignore
-        }
+        // TODO: Use LocalDate.ofInstant() instead once it is available in SDK 34.
+        val localDate = LocalDateTime.ofInstant(dateHeader, ZoneId.systemDefault()).toLocalDate()
+        val dateStr = DateUtil.getShortDateString(localDate)
+        Toast.makeText(fragment.requireContext().applicationContext,
+            fragment.getString(R.string.page_offline_notice_last_date, dateStr),
+            Toast.LENGTH_LONG).show()
     }
 
     private fun createPageModel(response: Response<PageSummary>,
@@ -236,7 +237,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
                 title.fragment = response.raw().request.url.fragment
             }
             if (title.description.isNullOrEmpty()) {
-                app.sessionFunnel.noDescription()
+                app.appSessionEvent.noDescription()
             }
             if (!title.isMainPage) {
                 title.displayText = page?.displayTitle.orEmpty()

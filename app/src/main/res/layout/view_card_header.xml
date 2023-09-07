@@ -1,9 +1,9 @@
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:layout_height="wrap_content"
-    tools:layout_width="match_parent"
-    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="-8dp">
 
     <TextView
         android:id="@+id/view_card_header_title"
@@ -11,19 +11,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="8dp"
+        style="@style/H1"
         android:ellipsize="end"
-        android:lineSpacingExtra="8sp"
         android:maxLines="1"
-        android:textColor="?android:attr/textColorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textColor="?attr/primary_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_lang_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/view_list_card_header_lang_background"
         android:layout_width="0dp"
         android:layout_height="18dp"
@@ -33,7 +31,7 @@
         app:layout_constraintStart_toStartOf="@+id/view_list_card_header_lang_code"
         app:layout_constraintTop_toTopOf="@+id/view_list_card_header_lang_code"
         app:srcCompat="@drawable/lang_button_shape_border"
-        app:tint="?attr/material_theme_de_emphasised_color" />
+        app:tint="?attr/primary_color" />
 
     <TextView
         android:id="@+id/view_list_card_header_lang_code"
@@ -43,13 +41,25 @@
         android:lineSpacingExtra="2sp"
         android:padding="3dp"
         android:textAllCaps="true"
-        android:textColor="?android:attr/textColorTertiary"
+        android:textColor="?attr/primary_color"
         android:textSize="10sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_menu"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/view_card_header_title"
+        app:layout_constraintEnd_toStartOf="@id/view_list_card_header_menu"
+        app:layout_constraintTop_toTopOf="@id/view_card_header_title"
         tools:text="zh-hant" />
+
+    <ImageView
+        android:id="@+id/view_list_card_header_secondary_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:contentDescription="@null"
+        app:layout_constraintBottom_toBottomOf="@id/view_card_header_title"
+        app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_menu"
+        app:layout_constraintTop_toTopOf="@id/view_card_header_title"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:tint="?attr/primary_color" />
 
     <ImageView
         android:id="@+id/view_list_card_header_menu"
@@ -61,10 +71,10 @@
         android:focusable="true"
         android:contentDescription="@string/abc_action_menu_overflow_description"
         android:padding="12dp"
-        app:tint="?attr/secondary_text_color"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:tint="?attr/primary_color"
+        app:layout_constraintBottom_toBottomOf="@id/view_card_header_title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/view_card_header_title"
         app:srcCompat="@drawable/ic_more_vert_white_24dp" />
 
-</merge>
+</androidx.constraintlayout.widget.ConstraintLayout>

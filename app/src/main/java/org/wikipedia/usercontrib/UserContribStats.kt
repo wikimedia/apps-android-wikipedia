@@ -1,10 +1,10 @@
 package org.wikipedia.usercontrib
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
@@ -23,88 +23,64 @@ object UserContribStats {
     var totalImageCaptionEdits: Int = 0
     var totalImageTagEdits: Int = 0
 
-    fun getEditCountsObservable(): Observable<MwQueryResponse> {
-        return ServiceFactory.get(Constants.wikidataWikiSite).editorTaskCounts
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext {
-                    if (it.query?.userInfo?.isBlocked != true) {
-                        val editorTaskCounts = it.query?.editorTaskCounts!!
-                        totalEdits = editorTaskCounts.totalEdits
-                        totalDescriptionEdits = editorTaskCounts.totalDescriptionEdits
-                        totalImageCaptionEdits = editorTaskCounts.totalImageCaptionEdits
-                        totalImageTagEdits = editorTaskCounts.totalDepictsEdits
-                        totalReverts = editorTaskCounts.totalReverts
-                        maybePauseAndGetEndDate()
-                    }
-                }
+    suspend fun verifyEditCountsAndPauseState() {
+        val response = ServiceFactory.get(Constants.wikidataWikiSite).getEditorTaskCounts()
+        if (response.query?.userInfo?.isBlocked != true) {
+            response.query?.editorTaskCounts?.let {
+                totalEdits = it.totalEdits
+                totalDescriptionEdits = it.totalDescriptionEdits
+                totalImageCaptionEdits = it.totalImageCaptionEdits
+                totalImageTagEdits = it.totalDepictsEdits
+                totalReverts = it.totalReverts
+                maybePauseAndGetEndDate()
+            }
+        }
     }
 
-    fun getPageViewsObservable(): Observable<Long> {
-        return ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .flatMap { response ->
-                    getPageViewsObservable(response)
-                }
-    }
-
-    fun getPageViewsObservable(response: MwQueryResponse): Observable<Long> {
-        val qLangMap = HashMap<String, HashSet<String>>()
+    suspend fun getPageViews(response: MwQueryResponse): Long {
+        val qLangMap = mutableMapOf<String, MutableSet<String>>()
 
         for (userContribution in response.query!!.userContributions) {
             val descLang = userContribution.comment.split(" ")
-                    .filter { "wbsetdescription" in it }
-                    .flatMap { it.split("|") }
-                    .getOrNull(1)
-            if (descLang.isNullOrEmpty()) {
-                continue
+                .filter { "wbsetdescription" in it }
+                .flatMap { it.split("|") }
+                .getOrNull(1)
+            if (!descLang.isNullOrEmpty()) {
+                qLangMap.getOrPut(userContribution.title) { mutableSetOf() }.add(descLang)
             }
-
-            qLangMap.getOrPut(userContribution.title) { HashSet() }.add(descLang)
         }
 
-        return ServiceFactory.get(Constants.wikidataWikiSite).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
-                .subscribeOn(Schedulers.io())
-                .flatMap { entities ->
-                    if (entities.entities.isEmpty()) {
-                        return@flatMap Observable.just(0L)
-                    }
-                    val langArticleMap = HashMap<String, ArrayList<String>>()
-                    entities.entities.forEach { (entityKey, entity) ->
-                        for ((qKey, langs) in qLangMap) {
-                            if (qKey == entityKey) {
-                                for (lang in langs) {
-                                    val dbName = WikiSite.forLanguageCode(lang).dbName()
-                                    if (entity.sitelinks.containsKey(dbName)) {
-                                        langArticleMap.getOrPut(lang) { ArrayList() }
-                                                .add(entity.sitelinks[dbName]?.title!!)
-                                    }
-                                }
-                                break
-                            }
+        val entities = ServiceFactory.get(Constants.wikidataWikiSite).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
+        if (entities.entities.isEmpty()) {
+            return 0L
+        }
+
+        val langArticleMap = mutableMapOf<String, MutableList<String>>()
+        entities.entities.forEach { (entityKey, entity) ->
+            for ((qKey, langs) in qLangMap) {
+                if (qKey == entityKey) {
+                    for (lang in langs) {
+                        val dbName = WikiSite.forLanguageCode(lang).dbName()
+                        if (entity.sitelinks.containsKey(dbName)) {
+                            langArticleMap.getOrPut(lang) { mutableListOf() }.add(entity.sitelinks[dbName]?.title!!)
                         }
                     }
-
-                    val observableList = langArticleMap.map { (key, value) ->
-                        val site = WikiSite.forLanguageCode(key)
-                        ServiceFactory.get(site).getPageViewsForTitles(value.joinToString("|"))
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                    }
-
-                    Observable.zip(observableList) { resultList ->
-                        resultList.filterIsInstance<MwQueryResponse>()
-                                .mapNotNull { it.query }
-                                .flatMap { it.pages!! }
-                                .flatMap { it.pageViewsMap.values }
-                                .sumOf { it ?: 0 }
-                    }
+                    break
                 }
-    }
+            }
+        }
 
-    fun updateStatsInBackground() {
-        getEditCountsObservable().subscribe()
+        withContext(Dispatchers.IO) {
+            langArticleMap.map { (key, value) ->
+                async { ServiceFactory.get(WikiSite.forLanguageCode(key)).getPageViewsForTitles(value.joinToString("|")) }
+            }.awaitAll()
+                .mapNotNull { it.query?.pages }
+                .flatten()
+                .flatMap { it.pageViewsMap.values }
+                .sumOf { it ?: 0 }
+        }.let {
+            return it
+        }
     }
 
     fun getRevertSeverity(): Int {

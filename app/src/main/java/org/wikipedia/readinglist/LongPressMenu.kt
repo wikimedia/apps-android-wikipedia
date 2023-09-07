@@ -12,8 +12,8 @@ import androidx.appcompat.widget.PopupMenu
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.database.ReadingList
@@ -40,11 +40,9 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
     fun show(entry: HistoryEntry?) {
         entry?.let {
             CoroutineScope(Dispatchers.Main).launch {
-                listsContainingPage = withContext(Dispatchers.IO) {
-                    AppDatabase.instance.readingListDao().getListsFromPageOccurrences(
+                listsContainingPage = AppDatabase.instance.readingListDao().getListsFromPageOccurrences(
                         AppDatabase.instance.readingListPageDao().getAllPageOccurrences(it.title)
                     )
-                }
                 if (!anchorView.isAttachedToWindow) {
                     return@launch
                 }
@@ -117,6 +115,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
 
     private inner class PageSaveMenuClickListener : PopupMenu.OnMenuItemClickListener {
         override fun onMenuItemClick(item: MenuItem): Boolean {
+            BreadCrumbLogEvent.logClick(anchorView.context, item)
             return when (item.itemId) {
                 R.id.menu_long_press_open_page -> {
                     entry?.let { callback?.onOpenLink(it) }

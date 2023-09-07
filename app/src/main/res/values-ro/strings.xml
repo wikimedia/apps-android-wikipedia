@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Alesaru
+* Amire80
 * Andreyyshore
 * Carcassonne93
 * Danutz
@@ -117,7 +119,6 @@
   <string name="map_view_link_text">Vezi pe o hartă</string>
   <string name="other_languages_indication_text">Citește în altă limbă</string>
   <string name="language_count_link_text">Disponibilă în %d alte limbi</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Salvând, sunteți de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Salvând, sunteți de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Modificările vor fi atribuite adresei IP a dispozitivului dumneavoastră. Dacă vă &lt;a href=\"https://#login\"&gt;autentificați&lt;/a&gt; veți beneficia de mai multă confidențialitate.</string>
   <string name="edit_anon_warning">Modificările vor fi atribuite adresei IP a dispozitivului dvs. Dacă vă &lt;a href=\"https://#login\"&gt;conectați&lt;/a&gt;, veți avea mai multă confidențialitate.</string>
@@ -245,8 +246,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ro</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ro</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Biblioteci utilizate</string>
@@ -478,10 +479,6 @@
     <item quantity="few">%1$d de %2$d articole disponibile offline, %3$.2f MB</item>
     <item quantity="other">%1$d de %2$d articole disponibile offline, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 articol, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d articole, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d din 1 articole disponibile offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d din %2$d articole disponibile offline, %3$.2f MB</string>
   <string name="reading_list_sort">Sortare</string>
   <string name="reading_list_sort_ellipsis">Sortare după:</string>
   <string name="reading_list_sort_by_name">Sortare după titlu</string>
@@ -814,7 +811,9 @@
   <string name="description_starts_with_uppercase">Începeți cu o literă mică exceptând cazul în care primul cuvânt este un substantiv propriu.</string>
   <string name="description_starts_with_lowercase">Evitați începerea cu o literă mică.</string>
   <string name="description_is_in_different_language">Textul pare a fi într-o limbă neașteptată. Limba ar trebui să fie %s.</string>
-  <string name="description_verification_notice">Verificați că descrierea dvs. este în %1$s. Simțiți-vă liber să respingeți această notificare dacă descrierea pe care ați scris-o este în %2$s.</string>
+  <string name="description_verification_notice" fuzzy="true">Verificați că descrierea dvs. este în %1$s. Simțiți-vă liber să respingeți această notificare dacă descrierea pe care ați scris-o este în %2$s.</string>
+  <string name="description_edit_suggested_description_button_text">Arată descrieri sugerate</string>
+  <string name="description_edit_suggested_description_button_tooltip">Încercați descrieri de articole sugerate automat</string>
   <string name="description_edit_success_saved">Descrierea articolului publicată!</string>
   <string name="description_edit_success_saved_snackbar">Descrierea articolului publicată!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrierea articolului publicată! (%s)</string>
@@ -832,6 +831,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">În mod ideal, o linie, între două până la douăsprezece cuvinte</string>
   <string name="description_edit_tutorial_button_label_start_editing">Începeți modificarea</string>
   <string name="description_edit_tutorial_promise">Începând, promit să nu folosesc greșit această caracteristică.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Sugestii automate</string>
+  <string name="description_edit_tutorial_machine_suggestions_description">Sugestiile sunt generate de o mașină, nu de voluntari sau de Fundația Wikimedia</string>
   <string name="customize_toolbar_title">Personalizați-vă bara de instrumente</string>
   <string name="customize_toolbar_shortcut_description_text">\nPersonalizați bara de instrumente de jos cu 5 comenzi rapide pe care le considerați cele mai utile.</string>
   <string name="customize_toolbar_category_toolbar">Bara de instrumente</string>
@@ -995,6 +996,14 @@
   <string name="suggested_edits_contribution_type_image_tag">Etichetă imagine</string>
   <string name="suggested_edits_contribution_current_revision_text">Editarea dvs. este în prezent activă pe Wikipedia</string>
   <string name="suggested_card_more_edits">Mai multe editări sugerate</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Descrieri sugerate</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Ce doriți să raportați?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Informații insuficiente</string>
+  <string name="suggested_edits_descriptions_cannot_see_suggestion">Nu văd descrierile sugerate</string>
+  <string name="suggested_edits_inappropriate_suggestion">Sugestie neadecvată</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Nu înțeleg sarcina</string>
+  <string name="suggested_edits_report_suggestion">Raportare</string>
+  <string name="suggested_edits_suggestion_report_submitted">Raportare trimisă</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etichetă</item>
     <item quantity="few">%1$s etichete</item>
@@ -1015,6 +1024,8 @@
     <item quantity="few">Aţi adăugat %d caractere</item>
     <item quantity="other">Aţi adăugat %d caractere</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Antrenați algoritmul pentru imagini</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Decideți dacă o imagine sugerată va îmbunătăți un articol.</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
   <string name="file_page_add_image_tags_button">Adaugă etichete pentru imagine</string>
@@ -1115,9 +1126,9 @@
   <string name="insert_media_title">Inserare media</string>
   <string name="insert_media_search_description">Selectați un fișier din Wikimedia Commons</string>
   <string name="insert_media_search_hint">Căutare media</string>
-  <string name="insert_media_settings">Setări media</string>
+  <string name="insert_media_settings" fuzzy="true">Setări media</string>
   <string name="insert_media_settings_uploaded_image">Imagine încărcată</string>
-  <string name="insert_media_settings_caption">Descriere</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Descriere</string>
   <string name="insert_media_settings_alternative_text">Text alternativ</string>
   <string name="insert_media_advanced_settings">Setări avansate</string>
   <string name="insert_media_advanced_settings_wrap_image">Înfășoară textul în jurul imaginii</string>
@@ -1153,6 +1164,7 @@
   <string name="talk_user_title">Discuție: %s</string>
   <string name="talk_new_topic">Subiect nou</string>
   <string name="talk_new_topic_submitted">Subiect postat.</string>
+  <string name="talk_warn_save_dialog_message">Salvați ca mesaj nou</string>
   <string name="talk_page_empty">Această pagină de discuție este goală.</string>
   <string name="talk_add_reply">Răspunde</string>
   <string name="talk_no_subject">(Niciun subiect)</string>
@@ -1275,4 +1287,19 @@
   <string name="user_contrib_filter_ns_header">Filtru de spațiu de nume</string>
   <string name="namespace_article">Articol</string>
   <string name="user_contrib_menu_label">Contribuții</string>
+  <string name="shareable_reading_lists_new_install_dialog_got_it">Am înțeles</string>
+  <string name="reading_list_share_menu_label">Distribuiți...</string>
+  <string name="talk_templates_new_message_compose_hint">Compune mesaj</string>
+  <string name="talk_templates_new_message_dialog_cancel">Anulare</string>
+  <string name="talk_templates_edit_message_dialog_title">Editați mesajul</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Editează numărul</string>
+  <string name="patroller_tasks_filters_reset">Resetați</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Contribuții automate</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Foarte probabil bine</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Foarte probabil rea-credință</string>
+  <string name="patroller_tasks_patrol_edit_title">Editare de patrulare</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Reveniți complet</string>
+  <string name="data_opt_in_accept">Accept</string>
+  <string name="data_opt_in_reject">Refuz</string>
 </resources>

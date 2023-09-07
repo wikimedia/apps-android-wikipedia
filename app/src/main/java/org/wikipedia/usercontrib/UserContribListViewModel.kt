@@ -7,10 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
@@ -59,10 +57,10 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
         }.map {
             UserContribItem(it)
         }.insertSeparators { before, after ->
-            val dateBefore = if (before != null) DateUtil.getShortDateString(before.item.date()) else ""
-            val dateAfter = if (after != null) DateUtil.getShortDateString(after.item.date()) else ""
-            if (dateAfter.isNotEmpty() && dateAfter != dateBefore) {
-                UserContribSeparator(dateAfter)
+            val dateBefore = before?.item?.parsedDateTime?.toLocalDate()
+            val dateAfter = after?.item?.parsedDateTime?.toLocalDate()
+            if (dateAfter != null && dateAfter != dateBefore) {
+                UserContribSeparator(DateUtil.getShortDateString(dateAfter))
             } else {
                 null
             }
@@ -82,13 +80,11 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
         }) {
-            withContext(Dispatchers.IO) {
-                val messageName = "project-localized-name-${wikiSite.dbName()}"
-                val query = ServiceFactory.get(wikiSite).userInfoWithMessages(userName, messageName).query
+            val messageName = "project-localized-name-${wikiSite.dbName()}"
+            val query = ServiceFactory.get(wikiSite).userInfoWithMessages(userName, messageName).query
 
-                userContribStatsData.postValue(Resource.Success(UserContribStats(query?.users!![0].editCount,
-                        query.users[0].registrationDate, query.allmessages.orEmpty().getOrNull(0)?.content.orEmpty().ifEmpty { wikiSite.dbName() })))
-            }
+            userContribStatsData.postValue(Resource.Success(UserContribStats(query?.users!![0].editCount,
+                    query.users[0].registrationDate, query.allmessages.orEmpty().getOrNull(0)?.content.orEmpty().ifEmpty { wikiSite.dbName() })))
         }
     }
 
@@ -107,7 +103,9 @@ class UserContribListViewModel(bundle: Bundle) : ViewModel() {
                     return LoadResult.Page(emptyList(), null, null)
                 }
 
-                val nsFilter = UserContribFilterActivity.NAMESPACE_LIST.filter { !Prefs.userContribFilterExcludedNs.contains(it) }.joinToString("|")
+                val nsFilter = if (Prefs.userContribFilterExcludedNs.isEmpty()) "" else
+                    UserContribFilterActivity.NAMESPACE_LIST.filter { !Prefs.userContribFilterExcludedNs.contains(it) }.joinToString("|")
+
                 val response = ServiceFactory.get(wikiSite).getUserContrib(userName, 500, nsFilter.ifEmpty { null }, null, params.key)
                 val contribs = response.query?.userContributions!!
 

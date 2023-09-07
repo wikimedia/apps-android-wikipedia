@@ -80,7 +80,7 @@ object TestUtil {
 
         device.executeShellCommand("su 0 settings put global airplane_mode_on " + if (enabled) "1" else "0")
         device.executeShellCommand("su 0 am broadcast -a android.intent.action.AIRPLANE_MODE")
-        */
+         */
         /*
         Extremely hacky:
 
@@ -90,22 +90,15 @@ object TestUtil {
         Thread.sleep(2000)
         device.pressBack()
         Thread.sleep(delaySecAfter * 1000)
-        */
+         */
 
         // Slightly less hacky:
         device.executeShellCommand("am start -a android.settings.AIRPLANE_MODE_SETTINGS")
         Thread.sleep(2000)
 
-        val obj = device.findObject(By.text("Airplane mode"))
-        // get the parent container that is actually clickable
-        var parent = obj
-        while (!parent.isClickable) {
-            parent = parent.parent
-        }
-        // look for the switch component and ascertain its state
-        val switch = parent.findObject(By.checkable(true))
+        var switch = device.findObject(By.checkable(true))
         if ((switch.isChecked && !enabled) || (!switch.isChecked && enabled)) {
-            parent.click()
+            switch.click()
         }
 
         Thread.sleep(delaySecAfter * 1000)

@@ -7,34 +7,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        style="@style/ToolbarStyle">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/titleView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_vertical"
-                android:lineSpacingExtra="4sp"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:textColor="?attr/primary_text_color"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-
-    </androidx.appcompat.widget.Toolbar>
+        style="@style/ToolbarStyle.Small"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -61,41 +38,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scrollbars="vertical" />
-
-                    <TextView
-                        android:id="@+id/search_empty_text"
-                        style="@style/MaterialMediumSecondaryCaption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginStart="24dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/search_results_count_zero"
-                        android:visibility="gone" />
-
-                    <LinearLayout
-                        android:id="@+id/search_empty_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:visibility="gone">
-
-                        <ImageView
-                            android:layout_width="160dp"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@null"
-                            app:srcCompat="@drawable/ic_notifications_search_empty_icon" />
-
-                        <TextView
-                            android:id="@+id/empty_search_message"
-                            style="@style/MaterialMediumSecondaryCaption"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="24dp" />
-
-                    </LinearLayout>
 
                 </FrameLayout>
 

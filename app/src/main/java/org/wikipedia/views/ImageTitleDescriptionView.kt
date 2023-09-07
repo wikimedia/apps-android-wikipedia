@@ -8,14 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.content.ContextCompat
 import androidx.core.view.updateLayoutParams
 import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewImageTitleDescriptionBinding
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
 
 internal class ImageTitleDescriptionView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
@@ -26,7 +25,10 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setOnLongClickListener {
             if (tooltipText.isNotEmpty()) {
-                FeedbackUtil.showTooltip(context as Activity, binding.description, tooltipText, false, true)
+                FeedbackUtil.showTooltip(context as Activity, binding.description, tooltipText,
+                    aboveOrBelow = false,
+                    autoDismiss = true
+                )
             }
             true
         }
@@ -51,32 +53,31 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
     fun setGoodnessState(severity: Int) {
         val iconRes: Int
         val iconTint: Int
-        val backgroundTint: Int
         val textRes: Int
         val circleProgress: Double
 
         when (severity) {
-            0 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_perfect_text; circleProgress = 100.0 }
-            1 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_excellent_text; circleProgress = 85.0 }
-            2 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_very_good_text; circleProgress = 75.0 }
-            3 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.green50; backgroundTint = R.color.green90; textRes = R.string.suggested_edits_quality_good_text; circleProgress = 55.0 }
-            4 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.yellow50; backgroundTint = R.color.yellow90; textRes = R.string.suggested_edits_quality_okay_text; circleProgress = 40.0 }
-            5 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.color.yellow50; backgroundTint = R.color.yellow90; textRes = R.string.suggested_edits_quality_sufficient_text; circleProgress = 30.0 }
-            else -> { iconRes = R.drawable.ic_exclamation_borderless; iconTint = R.color.red50; backgroundTint = R.color.red90; textRes = R.string.suggested_edits_quality_poor_text; circleProgress = 20.0 }
+            0 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.success_color; textRes = R.string.suggested_edits_quality_perfect_text; circleProgress = 100.0 }
+            1 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.success_color; textRes = R.string.suggested_edits_quality_excellent_text; circleProgress = 85.0 }
+            2 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.success_color; textRes = R.string.suggested_edits_quality_very_good_text; circleProgress = 75.0 }
+            3 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.success_color; textRes = R.string.suggested_edits_quality_good_text; circleProgress = 55.0 }
+            4 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.highlight_color; textRes = R.string.suggested_edits_quality_okay_text; circleProgress = 40.0 }
+            5 -> { iconRes = R.drawable.ic_check_borderless; iconTint = R.attr.highlight_color; textRes = R.string.suggested_edits_quality_sufficient_text; circleProgress = 30.0 }
+            else -> { iconRes = R.drawable.ic_exclamation_borderless; iconTint = R.attr.destructive_color; textRes = R.string.suggested_edits_quality_poor_text; circleProgress = 20.0 }
         }
 
         binding.circularProgressBar.setCurrentProgress(circleProgress)
-        binding.circularProgressBar.progressBackgroundColor = ContextCompat.getColor(context, backgroundTint)
-        binding.circularProgressBar.progressColor = ContextCompat.getColor(context, iconTint)
+        binding.circularProgressBar.progressBackgroundColor = ResourceUtil.getThemedColor(context, R.attr.paper_color)
+        binding.circularProgressBar.progressColor = ResourceUtil.getThemedColor(context, iconTint)
         binding.circularProgressBar.visibility = View.VISIBLE
 
-        ImageViewCompat.setImageTintList(binding.circularProgressBarOverlay, AppCompatResources.getColorStateList(context, backgroundTint))
+        ImageViewCompat.setImageTintList(binding.circularProgressBarOverlay, ResourceUtil.getThemedColorStateList(context, R.attr.paper_color))
         binding.circularProgressBarOverlay.visibility = View.VISIBLE
 
         binding.title.text = context.getString(textRes)
 
         binding.image.setImageResource(iconRes)
-        ImageViewCompat.setImageTintList(binding.image, AppCompatResources.getColorStateList(context, iconTint))
+        ImageViewCompat.setImageTintList(binding.image, ResourceUtil.getThemedColorStateList(context, iconTint))
 
         binding.image.updateLayoutParams {
             width = DimenUtil.roundedDpToPx(DimenUtil.getDimension(R.dimen.suggested_edits_icon_size) * 3 / 4)

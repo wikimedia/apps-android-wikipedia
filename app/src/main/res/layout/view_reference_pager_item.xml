@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
     android:paddingTop="16dp"
@@ -31,5 +32,16 @@
         android:textSize="16sp"
         android:textDirection="locale"
         tools:text="Reference text" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/reference_ext_link"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="16dp"
+        android:contentDescription="@null"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_open_in_new_black_24px"
+        app:tint="?attr/secondary_color" />
 
 </LinearLayout>

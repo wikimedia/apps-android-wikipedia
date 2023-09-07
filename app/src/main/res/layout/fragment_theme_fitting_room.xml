@@ -22,7 +22,7 @@
                 android:layout_margin="16dp"
                 android:fontFamily="serif"
                 android:text="@string/color_theme_test_title"
-                android:textColor="?attr/primary_text_color" />
+                android:textColor="?attr/primary_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                     android:layout_weight="1"
                     android:lineSpacingExtra="8sp"
                     android:text="@string/color_theme_test_text"
-                    android:textColor="?attr/primary_text_color" />
+                    android:textColor="?attr/primary_color" />
 
                 <org.wikipedia.views.FaceAndColorDetectImageView
                     android:id="@+id/theme_test_image"

@@ -1,7 +1,6 @@
 package org.wikipedia.onboarding
 
 import android.content.Context
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -12,6 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.withStyledAttributes
+import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,13 +25,13 @@ import java.util.*
 
 class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
-        fun onSwitchChange(view: OnboardingPageView, checked: Boolean)
+        fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean)
         fun onLinkClick(view: OnboardingPageView, url: String)
         fun onListActionButtonClicked(view: OnboardingPageView)
     }
 
     class DefaultCallback : Callback {
-        override fun onSwitchChange(view: OnboardingPageView, checked: Boolean) {}
+        override fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean) {}
         override fun onLinkClick(view: OnboardingPageView, url: String) {}
         override fun onListActionButtonClicked(view: OnboardingPageView) {}
     }
@@ -49,7 +49,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 val primaryText = getString(R.styleable.OnboardingPageView_primaryText)
                 val secondaryText = getString(R.styleable.OnboardingPageView_secondaryText)
                 val tertiaryText = getString(R.styleable.OnboardingPageView_tertiaryText)
-                val switchText = getString(R.styleable.OnboardingPageView_switchText)
+                val acceptRejectButtons = getBoolean(R.styleable.OnboardingPageView_acceptRejectButtons, false)
                 listDataType = getString(R.styleable.OnboardingPageView_dataType)
                 val showListView = getBoolean(R.styleable.OnboardingPageView_showListView, false)
                 val background = getDrawable(R.styleable.OnboardingPageView_background)
@@ -67,20 +67,22 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 binding.primaryTextView.text = primaryText
                 binding.secondaryTextView.text = StringUtil.fromHtml(secondaryText)
                 binding.tertiaryTextView.text = tertiaryText
-                binding.switchContainer.visibility = if (TextUtils.isEmpty(switchText)) View.GONE else View.VISIBLE
-                binding.switchView.text = switchText
+                binding.acceptRejectContainer.isVisible = acceptRejectButtons
                 setUpLanguageListContainer(showListView, listDataType)
                 binding.secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->
                     callback?.onLinkClick(this@OnboardingPageView, url)
                 }
-                binding.languageListContainer.addLangContainer.setOnClickListener {
+                binding.languageListContainer.addLanguageButton.setOnClickListener {
                     callback?.onListActionButtonClicked(this@OnboardingPageView)
                 }
-                binding.switchView.setOnCheckedChangeListener { _, checked ->
-                    callback?.onSwitchChange(this@OnboardingPageView, checked)
-                }
+                binding.acceptButton.setOnClickListener { callback?.onAcceptOrReject(this@OnboardingPageView, true) }
+                binding.rejectButton.setOnClickListener { callback?.onAcceptOrReject(this@OnboardingPageView, false) }
             }
         }
+    }
+
+    fun setTertiaryTextViewVisible(isVisible: Boolean) {
+        binding.tertiaryTextView.isVisible = isVisible
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -102,10 +104,6 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         )
         params.gravity = Gravity.NO_GRAVITY
         binding.scrollViewContainer?.layoutParams = params
-    }
-
-    fun setSwitchChecked(checked: Boolean) {
-        binding.switchView.isChecked = checked
     }
 
     private fun setUpLanguageListContainer(showListView: Boolean, dataType: String?) {

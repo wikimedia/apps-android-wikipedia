@@ -23,6 +23,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
+
     private lateinit var binding: ActivityMainBinding
 
     private var controlNavTabInFragment = false
@@ -37,7 +38,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         super.onCreate(savedInstanceState)
 
         setImageZoomHelper()
-        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null && !intent.hasExtra(Constants.INTENT_EXTRA_IMPORT_READING_LISTS)) {
+        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null && !intent.hasExtra(
+                Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
             // Updating preference so the search multilingual tooltip
             // is not shown again for first time users
             Prefs.isMultilingualSearchTooltipShown = false
@@ -45,7 +47,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             // Use startActivityForResult to avoid preload the Feed contents before finishing the initial onboarding.
             onboardingLauncher.launch(InitialOnboardingActivity.newIntent(this))
         }
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.nav_tab_background_color))
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setSupportActionBar(binding.mainToolbar)
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
@@ -72,11 +74,11 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
             controlNavTabInFragment = false
         } else {
             if (tab == NavTab.SEARCH && Prefs.showSearchTabTooltip) {
-                FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id()), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
+                FeedbackUtil.showTooltip(this, fragment.binding.mainNavTabLayout.findViewById(NavTab.SEARCH.id), getString(R.string.search_tab_tooltip), aboveOrBelow = true, autoDismiss = false)
                 Prefs.showSearchTabTooltip = false
             }
             binding.mainToolbarWordmark.visibility = View.GONE
-            binding.mainToolbar.setTitle(tab.text())
+            binding.mainToolbar.setTitle(tab.text)
             controlNavTabInFragment = true
         }
         fragment.requestUpdateToolbarElevation()

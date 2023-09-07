@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Patriccck
 * Srđan
 -->
@@ -60,8 +61,8 @@
   <string name="map_view_link_text">Prikaži na mapi</string>
   <string name="other_languages_indication_text">Pročitaj na drugom jeziku</string>
   <string name="language_count_link_text">Dostupan na drugim jezicima (%d)</string>
-  <string name="edit_save_action_license_logged_in">Objavljivanjem izmena, prihvatate &lt;a href=\"%1$s\"&gt;uslove korišćenja&lt;/a&gt; i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Objavljivanjem izmena, prihvatate &lt;a href=\"%1$s\"&gt;uslove korišćenja&lt;/a&gt; i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmene će biti pripisane IP adresi vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, imaćete veću privatnost.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Objavljivanjem izmena, prihvatate &lt;a href=\"%1$s\"&gt;uslove korišćenja&lt;/a&gt; i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Objavljivanjem izmena, prihvatate &lt;a href=\"%1$s\"&gt;uslove korišćenja&lt;/a&gt; i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmene će biti pripisane IP adresi vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, imaćete veću privatnost.</string>
   <string name="preference_title_language">Jezici Vikipedije</string>
   <string name="langlinks_filter_hint">Pretražite</string>
   <string name="langlinks_empty">Ova stranica nije dostupna na drugim jezicima.</string>
@@ -181,8 +182,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr_LATN</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sr_LATN</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr</string>
   <string name="about_libraries_heading">Korišćene biblioteke</string>
   <string name="about_contributors_heading">Saradnici</string>
@@ -339,10 +340,6 @@
   <string name="reading_list_create_new">Napravi novi</string>
   <string name="reading_list_title_exists">Lista za čitanje „%s” već postoji.</string>
   <string name="reading_list_added_view_button">Prikaži listu</string>
-  <string name="format_reading_list_statistical_summary_singular">1 članak, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d članaka, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">Oflajn je dostupno %1$d od 1 članak, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">Oflajn je dostupno %1$d od %2$d članaka, %3$.2f MB</string>
   <string name="reading_list_sort">Sortiraj</string>
   <string name="reading_list_sort_ellipsis">Sortiraj po…</string>
   <string name="reading_list_sort_by_name">Sortiraj po imenu</string>

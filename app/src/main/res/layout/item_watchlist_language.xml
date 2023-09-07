@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="@+id/langCodeText"
         app:layout_constraintTop_toTopOf="@+id/langCodeText"
         app:srcCompat="@drawable/lang_button_shape_border"
-        app:tint="?attr/material_theme_secondary_color" />
+        app:tint="?attr/secondary_color" />
 
     <TextView
         android:id="@+id/langCodeText"
@@ -30,7 +30,7 @@
         android:lineSpacingExtra="2sp"
         android:padding="3dp"
         android:textAllCaps="true"
-        android:textColor="?attr/material_theme_secondary_color"
+        android:textColor="?attr/secondary_color"
         android:textSize="10sp"
         android:textStyle="bold"
         tools:text="zh-hant" />
@@ -47,7 +47,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textSize="16sp"
-        android:textColor="?attr/material_theme_primary_color"
+        android:textColor="?attr/primary_color"
         tools:text="English"/>
 
     <CheckBox

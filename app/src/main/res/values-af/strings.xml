@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Arnobarnard
 * Biggs ZA
 * Envlh
@@ -140,8 +141,7 @@
   <string name="privacy_policy_description">Privaatheidsbeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaardes</string>
   <string name="about_wikipedia_url">https://af.wikipedia.org/wiki/Wikipedia:Omtrent</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.af</string>
   <string name="about_libraries_heading">Biblioteke gebruik</string>
   <string name="about_contributors_heading">Bydraers</string>
   <string name="about_translators_heading">Vertalers</string>
@@ -260,8 +260,6 @@
   <string name="reading_list_create_new">Skep nuwe</string>
   <string name="reading_list_title_exists">Leeslys “%s” bestaan reeds.</string>
   <string name="reading_list_added_view_button">Bekyk lys</string>
-  <string name="format_reading_list_statistical_summary_singular">1 bladsy, %1$.2f MG</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d bladsye, %2$.2f MG</string>
   <string name="reading_list_sort">Sorteer</string>
   <string name="reading_list_sort_ellipsis">Sorteer volgens…</string>
   <string name="reading_list_sort_by_name">Sorteer volgens naam</string>

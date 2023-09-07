@@ -10,11 +10,9 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.analytics.LoginFunnel.Companion.SOURCE_SUGGESTED_EDITS
 import org.wikipedia.databinding.ViewMessageCardBinding
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
@@ -81,7 +79,6 @@ class MessageCardView constructor(context: Context, attrs: AttributeSet? = null)
             binding.messageTitleView.visibility = GONE
             binding.messageTextView.text = StringUtil.fromHtml(message)
             binding.messageTextView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod()
-            RichTextUtil.removeUnderlinesFromLinks(binding.messageTextView)
         }
         binding.positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
         setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
@@ -93,8 +90,8 @@ class MessageCardView constructor(context: Context, attrs: AttributeSet? = null)
         binding.messageTextView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
         binding.imageView.setImageResource(R.drawable.ic_require_login_header)
         binding.positiveButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
-        binding.positiveButton.setOnClickListener { fragment.startActivityForResult(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_LOGIN) }
-        binding.containerClickArea.setOnClickListener { fragment.startActivityForResult(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_LOGIN) }
+        binding.positiveButton.setOnClickListener { fragment.startActivityForResult(LoginActivity.newIntent(context, LoginActivity.SOURCE_SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_LOGIN) }
+        binding.containerClickArea.setOnClickListener { fragment.startActivityForResult(LoginActivity.newIntent(context, LoginActivity.SOURCE_SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_LOGIN) }
     }
 
     private fun setDefaultState() {

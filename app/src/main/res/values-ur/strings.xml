@@ -3,6 +3,7 @@
 * Abdulq
 * BukhariSaeed
 * Cooltey
+* Dbrant
 * Hindustanilanguage
 * Meno25
 * Muhammad Shuaib
@@ -82,9 +83,8 @@
   <string name="map_view_link_text">نقشے پر دیکھیں</string>
   <string name="other_languages_indication_text">دوسری زبان میں پڑھیں</string>
   <string name="language_count_link_text">%d دیگر زبانوں میں دستیاب ہے</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔</string>
-  <string name="edit_save_action_license_anon">شائع کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;  اجازت نامے کے تحت آزاد سمجھا جائے گا۔ واضح رہے کہ ان ترامیم کو آپ کے آئی پی پتے سے منسلک کیا جائے گا، تاہم اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی پتا ظاہر نہیں ہوگا۔</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">محفوظ کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; اجازت نامے کے تحت آزاد سمجھا جائے گا۔</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">شائع کرنے پر آپ کو &lt;a href=\"%1$s\"&gt;استعمال کی شرائط&lt;/a&gt; سے متفق اور ترامیم کو&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;  اجازت نامے کے تحت آزاد سمجھا جائے گا۔ واضح رہے کہ ان ترامیم کو آپ کے آئی پی پتے سے منسلک کیا جائے گا، تاہم اگر آپ &lt;a href=\"https://#login\"&gt;لاگ ان&lt;/a&gt; ہوجائیں تو آپکا آئی پی پتا ظاہر نہیں ہوگا۔</string>
   <string name="preference_title_language">ویکیپیڈیا کی زبانیں</string>
   <string name="langlinks_filter_hint">تلاش</string>
   <string name="langlinks_empty">یہ صفحہ دوسری زبانوں میں دستیاب نہیں ہے۔</string>
@@ -204,8 +204,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://ur.wikipedia.org/wiki/وپ:اکاؤنٹ کے لیے درخواست دیں</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">مستعمل کتب خانے</string>
@@ -388,10 +386,6 @@
   <string name="reading_list_article_moved_to_named">%1$s کو %2$s پر منتقل کر دیا گیا۔</string>
   <string name="reading_list_added_view_button">فہرست دیکھیں</string>
   <string name="reading_list_add_to_list_button">فہرست میں شامل کریں</string>
-  <string name="format_reading_list_statistical_summary_singular">ایک مضمون، %1$.2f ایم بی</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d مضمون، %2$.2f ایم بی</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d میں سے ایک مضمون آف لائن دستیاب ہے، %2$.2f ایم بی</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d کیں سے %2$d مضامین آف لائن دستیاب ہیں، %3$.2f ایم بی</string>
   <string name="reading_list_sort">چھانٹ</string>
   <string name="reading_list_sort_ellipsis">ترتیب بمطابق</string>
   <string name="reading_list_sort_by_name">نام سے ترتیب دیں</string>
@@ -453,6 +447,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">منسوخ</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">منسوخ</string>
   <string name="reading_list_split_dialog_ok_button_text">ٹھیک</string>
+  <string name="reading_lists_preview_save_dialog_cancel">منسوخ کریں</string>
   <string name="user_option_sync_label">ترجیحات</string>
   <string name="notification_reverted_title">ترمیم پھیری گئی</string>
   <string name="notification_channel_description">ڈاؤنلوڈ کارکردگی</string>
@@ -694,7 +689,6 @@
   <string name="watchlist_expiry_dialog_permanent">مستقل</string>
   <string name="reading_list_share_menu_label">شیئر کریں...</string>
   <string name="reading_list_share_menu_tooltip">اس مطالعہ کی فہرست \n کو دوسروں کے ساتھ شیئر کریں</string>
-  <string name="reading_list_share_title_tooltip">اس فہرست میں آپ جو تبدیلیاں کرتے ہیں وہ دوسروں کو نظر نہیں آتی ہیں۔</string>
   <string name="reading_list_share_message_v2">آداب! میں آپ کے ساتھ اپنی ویکیپیڈیا کی مطالعہ کی فہرست شیئر کرنا چاہتا/چاہتی ہوں:</string>
   <string name="reading_list_share_survey_title">کیا آپ \'مطالعہ کی فہرستیں شیئر کریں\' کو بہتر بنانے میں ہماری مدد کر سکتے ہیں؟</string>
   <string name="reading_list_share_survey_body">مطالعہ کی فہرستیں\' شیئر کریں ایک ٹیسٹنگ خصوصیت ہے اور اسے بہتر بنانے یا ہٹانے کے لیے ہمیں آپ کے تاثرات درکار ہیں۔</string>

@@ -3,25 +3,29 @@
 
     <style name="ThemeBlack" parent="ThemeDark">
 
-        <!-- Overrides of our own custom color attributes -->
-        <item name="themed_icon_color">@android:color/white</item>
-        <item name="nav_tab_background_color">@color/base14</item>
-        <item name="randomizer_dice_icon_color">@color/accent50</item>
-        <item name="toc_scroller_button_color">@color/base14</item>
-        <item name="button_background_color">@color/base18</item>
-        <item name="tab_placeholder_text_color">@color/base4</item>
-        <item name="chip_background_color">@color/base14</item>
-        <item name="color_group_9">@color/base70</item>
+        <item name="paper_color">@color/black</item>
+        <item name="background_color">@color/gray700</item>
+        <item name="border_color">@color/gray675</item>
+        <item name="inactive_color">@color/gray500</item>
+        <item name="placeholder_color">@color/gray400</item>
+        <item name="secondary_color">@color/gray300</item>
+        <item name="primary_color">@color/gray200</item>
+        <item name="progressive_color">@color/blue300</item>
+        <item name="success_color">@color/green600</item>
+        <item name="destructive_color">@color/red500</item>
+        <item name="warning_color">@color/orange500</item>
+        <item name="highlight_color">@color/yellow500_40</item>
+        <item name="focus_color">@color/orange500_50</item>
+        <item name="addition_color">@color/blue600_30</item>
+        <item name="overlay_color">@color/black_70</item>
+        <item name="list_divider">@drawable/divider_black</item>
 
-        <!-- Background for cards, lists, and controls -->
-        <item name="paper_color">@color/base0</item>
-        <item name="suggestions_background_color">@color/base0</item>
-        <item name="color_group_22">@color/base14</item>
-        <item name="color_group_53">@color/accent20</item>
-        <item name="color_group_54">@color/base10</item>
-        <item name="color_group_60">@color/base18</item>
-        <item name="color_group_69">@color/green50_10b</item>
+        <item name="materialAlertDialogTheme">@style/AlertDialogTheme.Black</item>
 
+    </style>
+
+    <style name="AlertDialogTheme.Black">
+        <item name="colorSurface">?attr/background_color</item>
     </style>
 
 </resources>

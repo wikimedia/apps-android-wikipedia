@@ -88,6 +88,7 @@
   <string name="menu_page_new_tab">Nova kartica</string>
   <string name="menu_page_reading_lists">Spiskovi za čitanje</string>
   <string name="menu_page_recently_viewed">Nedavno pregledano</string>
+  <string name="menu_page_archive">Arhiva</string>
   <string name="menu_long_press_open_page">Otvori</string>
   <string name="menu_long_press_open_in_new_tab">Otvori u novoj kartici</string>
   <string name="menu_long_press_copy_page">Kopiraj adresu linka</string>
@@ -95,15 +96,15 @@
   <string name="on_this_day_page_share">Podijeli</string>
   <string name="reading_list_page_share">Podijeli</string>
   <string name="menu_text_select_edit_here">Uredi ovdje</string>
+  <string name="menu_edit_article">Uredi članak</string>
   <string name="last_updated_text">Posljednja izmjena: %s</string>
   <string name="talk_page_link_text">Prikaži stranicu za razgovor</string>
   <string name="edit_history_link_text">Prikaži historiju izmjena</string>
   <string name="map_view_link_text">Prikaži na karti</string>
   <string name="other_languages_indication_text">Pročitaj na drugom jeziku</string>
   <string name="language_count_link_text">Dostupan na %d dr. jezika</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Objavljivanjem prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Objavljivanjem prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmjene koje napravite pripisat će se IP-adresi Vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, imat ćete veću privatnost.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Objavljivanjem prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Objavljivanjem prihvatate &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo se slažete da svoj doprinos objavite pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmjene koje napravite pripisat će se IP-adresi Vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, imat ćete veću privatnost.</string>
   <string name="preference_title_language">Jezici Wikipedije</string>
   <string name="langlinks_filter_hint">Pretraži</string>
   <string name="langlinks_empty">Ova stranica nije dostupna na drugim jezicima.</string>
@@ -223,13 +224,11 @@
   <string name="privacy_policy_description">Pravila o privatnosti</string>
   <string name="terms_of_use_description">Uslovi korištenja</string>
   <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/bs</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Korištene biblioteke</string>
@@ -238,7 +237,7 @@
   <string name="about_translators_heading">Prevodioci</string>
   <string name="about_translators_translatewiki">Aplikaciju su preveli dobrovoljci na sajtu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
-  <string name="about_app_license">Izvorni kôd dostupan je na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; pod &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licencom Apache 2.0&lt;/a&gt;. Osim gdje je drukčije navedeno, sadržaj je dostupan pod &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;slobodnom licencom Autorstvo-Dijeliti pod istim uvjetima&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Izvorni kôd dostupan je na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; pod &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licencom Apache 2.0&lt;/a&gt;. Osim gdje je drukčije navedeno, sadržaj je dostupan pod &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;slobodnom licencom Autorstvo-Dijeliti pod istim uvjetima&lt;/a&gt;.</string>
   <string name="about_wmf">Proizvod &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondacije Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaciji</string>
   <string name="edit_abandon_confirm">Izmijenili ste stranicu. Jeste li sigurni da želite izaći bez da sačuvate izmjene?</string>
@@ -253,6 +252,7 @@
   <string name="edit_preview">Pregled</string>
   <string name="edit_undo">Vrati</string>
   <string name="edit_redo">Ponovi</string>
+  <string name="edit_rollback">Vrati</string>
   <string name="edit_zoom_in">Približi</string>
   <string name="edit_zoom_out">Udalji</string>
   <string name="edit_summary_tag_typo">Popravljen tipfeler</string>
@@ -314,6 +314,7 @@
   <string name="captcha_image">Slika CAPTCHA</string>
   <string name="gallery_fair_use_license">Poštena upotreba</string>
   <string name="gallery_uploader_unknown">Pošiljalac nepoznat</string>
+  <string name="gallery_not_available_offline_snackbar">Prikaz galerije nije dostupan van mreže.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Odbaci</string>
   <string name="menu_new_tab">Nova kartica</string>
   <string name="menu_close_all_tabs">Zatvori sve kartice</string>
@@ -335,13 +336,16 @@
   <string name="button_continue_to_article">Pročitaj članak</string>
   <string name="button_continue_to_talk_page">Prikaži stranicu za razgovor</string>
   <string name="button_continue_to_disambiguation">Prikaži slične stranice</string>
+  <string name="link_preview_disambiguation_description">Naslov se odnosi na više od jedne stranice:</string>
   <string name="button_add_to_reading_list">Dodaj na spisak za čitanje</string>
   <string name="page_offline_notice_cannot_load_while_offline">Članak se ne može učitati dok ste van mreže.</string>
   <string name="page_offline_notice_add_to_reading_list">Savjet: Dodajte članak na spisak za čitanje i bit će preuzet čim se ponovo povežete.</string>
   <string name="page_offline_notice_last_date">Čitate vanmrežnu verziju članka, sačuvanu na %s.</string>
   <string name="button_get_directions">Dobij uputstva</string>
   <string name="error_no_maps_app">Ne mogu pronaći aplikacije koje pružaju uputstva.</string>
+  <string name="preference_title_customize_explore_feed">Stranica Istraži</string>
   <string name="preference_title_show_link_previews">Prikaži preglede linkova</string>
+  <string name="preference_summary_customize_explore_feed">Prilagodite stranicu Istraži</string>
   <string name="preference_summary_show_link_previews">Omogućite brz pregled članaka kad dodirnete linkove.</string>
   <string name="preference_title_collapse_tables">Skupljanje tabela</string>
   <string name="nav_item_donate">Donirajte</string>
@@ -371,6 +375,7 @@
   <string name="crash_report_relaunch_or_quit">Žao nam je. Došlo je do greške u aplikaciji Wikipedia i prekinula je s radom.\n\nŽelite li je ponovo pokrenuti ili je zatvoriti?</string>
   <string name="crash_report_relaunch">Ponovo pokreni</string>
   <string name="crash_report_quit">Zatvori</string>
+  <string name="article_menu_bar_save_button">Sačuvaj</string>
   <string name="article_menu_bar_language_button">Jezik</string>
   <string name="article_menu_bar_search_button">Pretraži</string>
   <string name="article_menu_bar_theme_button">Tema</string>
@@ -390,16 +395,17 @@
   <string name="text_size_increase">Povećaj veličinu teksta</string>
   <string name="text_size_decrease">Smanji veličinu teksta</string>
   <string name="text_size_percent_default">%s (predodređeno)</string>
+  <string name="text_style_title">Font</string>
+  <string name="theme_category_reading">Čitanje</string>
+  <string name="theme_category_editing">Uređivanje</string>
+  <string name="editing_syntax_highlight_label">Isticanje sintakse</string>
+  <string name="editing_line_numbers_label">Prikaži brojeve redova</string>
   <string name="nav_item_saved">Sačuvano</string>
   <string name="reading_list_save_to">Sačuvaj na spisak za čitanje</string>
   <string name="reading_list_move_to">Premjesti na spisak za čitanje</string>
   <string name="reading_list_create_new">Napravi novi</string>
   <string name="reading_list_title_exists">Spisak za čitanje \"%s\" već postoji.</string>
   <string name="reading_list_added_view_button">Prikaži spisak</string>
-  <string name="format_reading_list_statistical_summary_singular">1 članaka, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d članka, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">Vanmrežno je dostupno %1$d od 1 članka, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">Vanmrežno je dostupno %1$d od %2$d članka, %3$.2f MB</string>
   <string name="reading_list_sort">Sortiraj</string>
   <string name="reading_list_sort_ellipsis">Sortiraj po…</string>
   <string name="reading_list_sort_by_name">Sortiraj po imenu</string>
@@ -409,6 +415,8 @@
   <string name="reading_list_sort_by_created">Sortiraj po datumu dodavanja (najnoviji)</string>
   <string name="reading_list_sort_by_created_desc">Sortiraj po datumu dodavanja (najstariji)</string>
   <string name="reading_list_menu_delete">Izbriši spisak</string>
+  <string name="reading_list_menu_select">Izaberi</string>
+  <string name="reading_list_menu_unselect">Poništi izbor</string>
   <string name="reading_list_menu_rename">Izmijeni ime/opis</string>
   <string name="reading_list_action_menu_remove_from_offline">Ukloni iz vanmrežnih</string>
   <string name="reading_list_action_menu_remove_all_from_offline">Ukloni sve iz vanmrežnih</string>
@@ -473,6 +481,12 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Otkaži</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Otkaži</string>
   <string name="reading_list_split_dialog_ok_button_text">U redu</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Izbriši</string>
+  <string name="reading_lists_preview_save_button">Sačuvaj</string>
+  <string name="reading_lists_preview_save_dialog_title">Sačuvaj spisak</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Naslov</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Otkaži</string>
+  <string name="reading_lists_preview_save_dialog_save">Sačuvaj</string>
   <string name="user_option_sync_label">Postavke</string>
   <string name="notification_reverted_title">Vraćena izmjena</string>
   <string name="notification_channel_description">Napredak preuzimanja</string>
@@ -501,8 +515,15 @@
   <string name="notifications_archive">Označi kao pročitano i arhiviraj</string>
   <string name="notifications_poll_enable_negative">Ne sada</string>
   <string name="notifications_empty_message">Nemate novih obavještenja!</string>
+  <string name="notifications_direct_reply_action">Odgovori</string>
   <string name="watchlist_title">Spisak praćenja</string>
+  <string name="preference_title_notification_system">Sistem</string>
   <string name="preference_title_notification_thanks">Zahvali se</string>
+  <string name="notifications_select_all_filters">Izaberi sve filtere</string>
+  <string name="notifications_tab_filter_all">Sve</string>
+  <string name="notifications_tab_filter_mentions">Spominjanja</string>
+  <string name="notifications_menu_mark_as_read">Označi kao pročitano</string>
+  <string name="notifications_menu_mark_as_unread">Označi kao nepročitano</string>
   <string name="view_because_you_read_card_title">Budući da ste pročitali</string>
   <string name="view_random_card_title">Nasumična stranica</string>
   <string name="view_random_article_card_title">Nasumični članak</string>
@@ -568,6 +589,8 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Hvala Vam na kontinuiranom interesovanju za uređivanje opisa članaka! Da biste napravili još izmjena, prijavite se na svoj račun na Wikipediji.</string>
   <string name="description_edit_license_notice">Mijenjanjem opisa članka prihvatam &lt;a href=\"%1$s\"&gt;uslove korištenja&lt;/a&gt; i neopozivo objavljujem svoje doprinose pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="description_too_short">Tekst je prekratak.</string>
+  <string name="description_starts_with_lowercase">Izbjegavajte počinjanje malim slovom.</string>
   <string name="description_edit_success_saved">Opis članka je objavljen!</string>
   <string name="description_edit_success_encouragement">Upravo ste svima poboljšali Wikipediju</string>
   <string name="description_edit_success_done">Gotovo</string>
@@ -579,6 +602,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealno da bude 1 red, od 2 do 12 riječi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Počni uređivati</string>
   <string name="description_edit_tutorial_promise">Počevši obećavam da neću zloupotrijebiti ovu mogućnost.</string>
+  <string name="customize_toolbar_reset_to_default_button">Vrati na predodređeno</string>
   <string name="suggested_edits_describe_articles">Opisivanje članaka</string>
   <string name="suggested_edits_caption_images">Opisivanje slika</string>
   <string name="suggested_edits_my_contributions">Moji doprinosi</string>

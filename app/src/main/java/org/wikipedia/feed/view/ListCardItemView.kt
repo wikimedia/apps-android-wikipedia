@@ -48,7 +48,7 @@ class ListCardItemView @JvmOverloads constructor(context: Context, attrs: Attrib
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding.toFloat()),
             0, DimenUtil.roundedDpToPx(topBottomPadding.toFloat()))
         DeviceUtil.setContextClickAsLongClick(this)
-        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
 
         setOnClickListener {
             if (historyEntry != null && card != null) {

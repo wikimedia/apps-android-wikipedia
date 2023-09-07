@@ -81,9 +81,8 @@
   <string name="map_view_link_text">ဗဵု ပ္ဍဲ ဗီုတိ</string>
   <string name="other_languages_indication_text">ဗှ် နကဵု အရေဝ်ဘာသာတၞဟ်</string>
   <string name="language_count_link_text">ဟွံမွဲဏီ ပ္ဍဲ %d ဘာသာတၞဟ်</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">နကဵု တြးပတိတ်ဒၟံၚ် မၞးတုပ်စိုတ် ကု &lt;a href=\"%1$s\"&gt; Terms of Use &lt;/a&gt;, တုဲပၠန် ဗလးပတိုန် လိက်မၞး နကဵု အခေါင်လာင်ဇြေန်&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လာၚ်ဇြေန်.</string>
-  <string name="edit_save_action_license_anon">နကဵုမဂိုင်သိပ်ဂှ် မၞးတုပ်စိုတ် ကု &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, တုဲပၠန် ဗလးပတိုန် လိက်မၞး နကဵု အခေါင်လာင်ဇြေန်&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; ၊၊ အရာမပလေဝ်ဒါန်လဝ်ဂှ် စုတ်ပ္ဍဲ မုက်လိက် IP address မၞးရောင်၊၊ ယဝ်ရ မၞး &lt;a href=\"https://#login\"&gt;လုပ်လံက်အေန်&lt;/a&gt;, မၞးကလိဂွံ အခေါင်ပိုင်ပြဳပူဂဵုဂၠိုင်ရ၊၊</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">နကဵု တြးပတိတ်ဒၟံၚ် မၞးတုပ်စိုတ် ကု &lt;a href=\"%1$s\"&gt; Terms of Use &lt;/a&gt;, တုဲပၠန် ဗလးပတိုန် လိက်မၞး နကဵု အခေါင်လာင်ဇြေန်&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လာၚ်ဇြေန်.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">နကဵုမဂိုင်သိပ်ဂှ် မၞးတုပ်စိုတ် ကု &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, တုဲပၠန် ဗလးပတိုန် လိက်မၞး နကဵု အခေါင်လာင်ဇြေန်&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; ၊၊ အရာမပလေဝ်ဒါန်လဝ်ဂှ် စုတ်ပ္ဍဲ မုက်လိက် IP address မၞးရောင်၊၊ ယဝ်ရ မၞး &lt;a href=\"https://#login\"&gt;လုပ်လံက်အေန်&lt;/a&gt;, မၞးကလိဂွံ အခေါင်ပိုင်ပြဳပူဂဵုဂၠိုင်ရ၊၊</string>
   <string name="preference_title_language">အရေဝ်ဘာသာ ပ္ဍဲ ဝဳကဳပဳဒဳယာ ဂမၠိုင်</string>
   <string name="langlinks_filter_hint">ဂၠာဲ</string>
   <string name="langlinks_empty">မုက်လိက်ဏအ်ဂှ် ပ္ဍဲအရေဝ်ဘာသာတၞဟ် ဟွံမွဲ၊၊</string>
@@ -204,8 +203,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">တိုက်ဗွဟ်လိက် မသုင်စောဲလဝ်</string>
@@ -214,7 +211,7 @@
   <string name="about_translators_heading">ညးတြာဲဘာသာဂမၠိုင်</string>
   <string name="about_translators_translatewiki">app ဏအ်ဂှ် ကၠာဲစၠောအ်လဝ် နကဵုမၞိဟ်မကၠာဲဘာသာ နကဵုစေတနာ ပ္ဍဲ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">လာင်ဇြေန်</string>
-  <string name="about_app_license">ကုဒ်တင်ဂၞင် မကလိဂွံမာန်နူပ္ဍဲ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">ကုဒ်တင်ဂၞင် မကလိဂွံမာန်နူပ္ဍဲ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt; Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">မဒှ်အရာ မကၠောန်ပတိတ် နူ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">ပရူ</string>
   <string name="edit_abandon_confirm">မုက်လိက်ဏအ် ပလေဝ်ပလေတ်လဝ်၊၊ မၞး မိက်ဂွံတိတ် နူမုက်လိက် သီုဟွံဂိုင်သိပ် ကွေဟ်ဟ်ရဟာ？</string>
@@ -414,10 +411,6 @@
     <item quantity="one">%1$d ဂှ် လိက်ပရေင် ၁ ဗှ်ကေတ်ဂွံ မ္ၚးလာင်, %3$.2f MB</item>
     <item quantity="other">%1$d %2$d လိက်ပရေင်ဂမၠိုင် ဗှ်ကေတ်ဂွံ မ္ၚးလာင်, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">၁ လိက်ပရေင်, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d လိက်ပရေင်, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d of ၁ လိက်ပရေင် ဗှ်မ္ၚးလာင် ဂွံ, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d ဒဒက်တဴ %2$d လိက်ပရေင်မဗှ်မ္ၚးလာင်ဂွံ, %3$.2f MB</string>
   <string name="reading_list_sort">ဖျေဟ်ဒၞာဲ</string>
   <string name="reading_list_sort_ellipsis">ဖျေဟ်ဒၞာဲ နကဵု</string>
   <string name="reading_list_sort_by_name">ဖျေဟ်ဒၞာဲ နကဵု ယၟု</string>
@@ -485,7 +478,7 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">လုပ်လံက်အေန်</string>
   <string name="reading_list_turned_sync_off_dialog_title">ကချဳဓရာင် စရင် လိက်ဗွဟ် ကၟာတ်</string>
   <string name="reading_list_turned_sync_off_dialog_text">ကချဳဓရာင် စရင် လိက်ဗွဟ် ဂှ် ကၟာတ်ဒၟံင် သွက် အကံက် မၞး၊ ဂိုင်သိပ် လိက်ပရေင် ပ္ဍဲလံက်အေန် device မၞးဂှ် ကလေင်ကေတ် ဟွံဂွံ၊၊ ပံက် ကချဳဓရာင် ပ္ဍဲ ဒၞာဲမဖျေဟ်ဒၞာဲ၊၊</string>
-  <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">အဝ်ခေ</string>
   <string name="reading_list_turned_sync_off_dialog_settings">ဒၞာဲမဖျေဟ်ဒၞာဲ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">ပံက် ကချဳဓရာင် စရင် လိက်ဗွဟ် ဟာ？</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_text">လိက်ပရေင် မဂိုင်သိပ် ပ္ဍဲ စရင် လိက်ဗွဟ်ဂှ် လၟုဟ်ပချဳဓရာင် ပ္ဍဲအကံက် ဝဳကဳပဳဒဳယာ မၞး ဂွံရ၊၊ &lt;a href=\"#faq\"&gt;ဆက် ဗှ်&lt;/a&gt;</string>

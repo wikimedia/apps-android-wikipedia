@@ -35,19 +35,20 @@
                 app:srcCompat="@drawable/ic_illustration_empty_feed" />
 
             <TextView
-                style="@style/MaterialMediumSecondaryCaption"
+                style="@style/P"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="@string/feed_empty_message" />
+                android:text="@string/feed_empty_message"
+                android:textAlignment="center" />
 
-            <TextView
+            <Button
                 android:id="@+id/customize_button"
-                style="@style/App.Button"
-                android:text="@string/feed_configure_onboarding_action"
-                android:textColor="?attr/secondary_text_color"
-                app:backgroundTint="?attr/button_background_color" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/App.Button.Tertiary"
+                android:text="@string/feed_configure_onboarding_action" />
 
         </LinearLayout>
 

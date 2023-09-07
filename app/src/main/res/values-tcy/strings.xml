@@ -2,9 +2,11 @@
 <!-- Authors:
 * BHARATHESHA ALASANDEMAJALU
 * Bharathesha Alasandemajalu
+* ChiK
 * Chidananda Kampa
 * Kiranpoojary
 * Lokesha kunchadka
+* Mahaveer Indra
 * Ravi Mundkur
 * Vishwanatha Badikana
 -->
@@ -17,7 +19,9 @@
   <string name="page_tabs_back">ಪಿರ</string>
   <string name="nav_item_forward">ದುಂಬು</string>
   <string name="search_hint">ವಿಕಿಪೀಡಿಯಟ್ ನಾಡ್ಲೇ</string>
+  <string name="search_hint_voice_search">ದನಿ ಇನ್‌ಪುಟ್ ನಾಡ್ಲೆ</string>
   <string name="search_hint_search_languages">ಬಾಸೆಲೆನ್ ನಡ್ಲೆ</string>
+  <string name="filter_hint_filter_my_lists_and_articles">ಎನ್ನ ಪಟ್ಟಿಲೆನ್ ಅರ್ತ್‌ದ್ ತೋಜಾಲ</string>
   <string name="nav_item_suggested_edits">ಸಂಪೊಲಿಪುಲೆ</string>
   <string name="nav_item_more">ನನಾತ್</string>
   <string name="nav_item_search">ನಾಡ್‍ಲೆ</string>
@@ -29,12 +33,19 @@
   <string name="offline_load_error_retry">ಪಿರ ಯತ್ನ ಮಲ್ಪುಲೆ</string>
   <string name="page_error_back_to_main">ಪಿರ ಪೋಲೆ</string>
   <string name="error_back">ಪಿರ ಪೋಲೆ</string>
+  <string name="error_next">ನನತ್ತ</string>
   <string name="menu_clear_all_history">ಇತಿಹಾಸನೂ ಮಾಜಾಲೇ</string>
   <string name="history_item_deleted">%s ಪನ್ಪಿ ಲೇಕನೊನು ಇತಿಹಾಸೊಡ್ದ್ ದೆತ್ತ್ಂಡ್</string>
   <string name="history_items_deleted">%d ಲೆಕನೊಲೆನ್ ಇತಿಹಾಸೊಡ್ದ್ ದೆತ್ತ್ಂಡ್</string>
   <string name="history_item_delete_undo">ದುಂಬುದಲೆಕೊ ಮಲ್ಪು</string>
   <string name="notification_archive_undo">ದುಂಬಿತ್ತಿಲೆಕ್ಕ</string>
   <string name="app_settings">\nಅಪ್ಲಿಕೇಶನ್ ಸೆಟ್ಟಿಂಗ್</string>
+  <string name="search_tab_tooltip">ನಾಡುನ ಪದೊನ್ ಬರೆವರ ಚಿಹ್ನೆದ ಮಿತ್ತ್ ಕುಡ ವರ ಒತ್ತುಲೆ</string>
+  <string name="history_list_title">ಇತಿಯಾಸೊ</string>
+  <string name="image_content_description">ಪಟ: %s</string>
+  <string name="page_content_description">ಪುಟೊ: %s</string>
+  <string name="wikimedia_commons">ವಿಕಿಮೀಡಿಯಾ ಕಾಮನ್ಸ್</string>
+  <string name="wikidata">ವಿಕಿಡಾಟ</string>
   <string name="dialog_title_clear_history">ಬ್ರೌಸ್ ಮಲ್ತಿ ಇತಿಹಾಸೊನ್ ಮಾಜಾಲೆ</string>
   <string name="dialog_message_clear_history">ಉಂದು ಈರ್ ಬ್ರೌಸ್ ಮಲ್ತಿನ ಮಾಂತಾ ಇತಿಹಾಸೊನ್ ಮಾಜಪುಂಡು, ಇತ್ತೆ ತೂಪುನ ಟ್ಯಾಬ್‌ನ್ಲಾ ಉಂತಾಪುಂಡು. ಈರ್ ಒಪ್ಪುವರಾ?</string>
   <string name="dialog_message_clear_history_yes">ಅಂದ್</string>
@@ -42,14 +53,41 @@
   <string name="share_via">ನೆನ್ನೊಟ್ಟುಗೂ ಪಟ್ಟೊನ್ಲೆ</string>
   <string name="image_share_via">ಮೂಲಕ ಪಟ್ಟುಲೆ</string>
   <string name="search_redirect_from">%s ರ್ದ್ ಪಿರ ನಿರ್ದೇಸನೊ</string>
+  <string name="page_edit_history_activity_title">ಬದಲಾವನೆಲೆನ ಇತಿಯಾಸೊ:%s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">ಸಂಪಾದಿದ ಸಾರಾಂಸೊನು ಮಾಜಾಲೆ</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">ಸಂಪಾದಿನ್ ನಾಡ್‌ಲೆ ಅತ್ಂಡ ಅರ್ತ್‌ದ್ ತೋಜಾಲೆ</string>
+  <string name="page_edit_history_filter_by">ಅರಿಪೆದ ಐಡಿ</string>
+  <string name="page_edit_history_filter_by_all">ಮಾಂತ ಸಂಪಾದನೆಲು (%s)</string>
+  <string name="page_edit_history_filter_by_user">ಬಳಕೆದಾರೆರೆನ ಸಂಪಾದಿ (%s)</string>
+  <string name="page_edit_history_filter_by_anon">ಮಾಂತ ಸಂಪಾದನೆಲು (%s)</string>
+  <string name="page_edit_history_filter_by_bot">ಬಾಟ್ ಸಂಪಾದಿಲು (%s)</string>
+  <string name="page_edit_history_empty_search_message">ನನಾತ್ ಜಾಸ್ತಿ ಸಂಪಾದಿ ತೂವರ &lt;a href=\"#\"&gt;&lt;/a&gt; ಉಂದೆನ್ ಪಗತ್‌ದ್ ತೂಲೆ.</string>
   <string name="menu_page_show_tabs">ಟ್ಯಾಬ್ ನು ತೊಜಾಲೆ</string>
   <string name="menu_page_other_languages">ಬಾಸೆನ್ ಬದಲ್ ಮಾನ್ಪಿ</string>
   <string name="menu_page_find_in_page">ಲೇಕನೊಟು ನಾಡ್ಲೆ</string>
+  <string name="menu_page_add_to_watchlist">ತೂಪಿಪಟ್ಟಿಗ್ ಸೇರಾಲೆ</string>
+  <string name="menu_page_watch">ತೂಲೆ</string>
+  <string name="menu_page_unwatch">ತೂಪಿಪಟ್ಟಿಡ್‌ದ್ ದೆಪ್ಪುಲೆ</string>
+  <string name="menu_page_view_talk">ಚರ್ಚೆ ಪುಟೊನು ತೂಲೆ</string>
+  <string name="menu_page_talk_page">ಪಾತೆರ ಪುಟೊ</string>
+  <string name="menu_page_view_edit_history">ಸಂಪಾದಿದ ಇತಿಹಾಸೊ ತೂಲೆ</string>
+  <string name="menu_page_edit_history">ಸಂಪೊಲಿತಿನ ಇತಿಹಾಸೊ</string>
+  <string name="menu_page_remove_from_watchlist">ತೂಪಿಪಟ್ಟಿಡ್ದ್ ದೆಪ್ಪುಲೆ</string>
+  <string name="menu_page_watched">ತೂಯಿನವು</string>
   <string name="edit_section_find_in_page">ಪುಟೊಟು ಪತ್ತೆ ಮಲ್ಪುಲೆ</string>
   <string name="menu_page_font_and_theme">ಅಕ್ಷರದ ನಮೂನೆ ಬುಕ್ಕಾ ಬಣ್ಣೊ</string>
   <string name="menu_page_add_to_list">ಓದುನ ಪಟ್ಟಿಗ್ ಸೇರ್ಪಾಲೆ</string>
+  <string name="menu_page_add_to_default_list">ಒರಿಪಾಲೆ</string>
   <string name="feed_card_add_to_list">ಓದುನ ಪಟ್ಟಿಗ್ ಸೇರಾಲೆ</string>
+  <string name="feed_card_add_to_default_list">ಒರಿಪಾಲೆ</string>
   <string name="menu_page_share">ಕೊಂಡಿನ್ ಪಟ್ಟ್‌ಲೆ</string>
+  <string name="menu_article_share">ಬರವುನು ಪಟ್ಟೊನುಲೆ</string>
+  <string name="menu_page_article_share">ಪಟ್ಟ್‌ಲೆ</string>
+  <string name="menu_page_open_a_new_tab">ಪೊಸ ಪಟ್ಟಿಡ್ ತೋಜಾಲೆ</string>
+  <string name="menu_page_new_tab">ಪೊಸ ಪಟ್ಟಿ</string>
+  <string name="menu_page_reading_lists">ಓದುನ ಪಟ್ಟಿ</string>
+  <string name="menu_page_recently_viewed">ಇಂಚಪ ತೂಯಿನವು</string>
   <string name="menu_long_press_open_page">ತೋಜಾಲೇ</string>
   <string name="menu_long_press_open_in_new_tab">ಪೊಸ ಪಟ್ಟಿಡ್ ತೋಜಾಲೇ</string>
   <string name="menu_long_press_copy_page">ಕೊಂಡಿದ ವಿಳಾಸೊನು ನಕಲ್ ಮಲ್ಪುಲೆ</string>
@@ -57,6 +95,7 @@
   <string name="on_this_day_page_share">ಪಟ್ಟುಲೆ</string>
   <string name="reading_list_page_share">ಪಟ್ಟುಲೆ</string>
   <string name="menu_text_select_edit_here">ಮುಲ್ಪ ಸಂಪೊಲಿಪುಲೆ</string>
+  <string name="menu_edit_article">ಬರವು ಸಂಪಾದಿಸಾಲೆ</string>
   <string name="last_updated_text">ಕಡೇತಾ ಪರಿಷ್ಕರಣೆ ಮಾಂತುನಾ %s</string>
   <string name="talk_page_link_text">ಪಾತೆರ ಪುಟೊನು ತೂಲೆ</string>
   <string name="edit_history_link_text">ವಿಸಯ ಸೇರಾಯಿನ ಇತಿಹಾಸೊ ತೂಲೆ</string>
@@ -65,6 +104,7 @@
   <string name="language_count_link_text">ಬೇತೆ %d ಬಾಸೆಲೆಡ್ ಉಂಡು</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">ಬದಲಾವಣೆಲೆನ್ ಒರಿಪಾವುನ ಮೂಲಕ, ಈರ್ &lt;a href=\"%1$s\"&gt;ಗಲಸುನ ನಿಬಂದನೆಲೆನ್&lt;/a&gt; ಒತ್ತೊನುವರ್, ಬೊಕ್ಕ ಇರೆನ ಕಾನಿಕೆಲೆನ್  &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ಲೈಸೆನ್ಸ್‌ದಡಿಟ್ ಬುಡುಗಡೆ ಮಲ್ಪೆರೆ ಈರ್ ಬದಲ್ ಮಲ್ಪೆರಾವಂದಿಲೆಕ ಒತ್ತೊನುವರ್. ಬದಲಾವಣೆದ ಶ್ರೇಯೊ (ಕ್ರೆಡಿಟ್ಸ್), ಇರೆನ ಸಾಧನೊದ ಐ.ಪಿ. ವಿಲಾಸೊಗು ತಿಕ್ಕುಂಡು. ಈರ್ &lt;a href=\"https://#login\"&gt;ಲಾಗ್ ಇನ್&lt;/a&gt; ಆಂಡ, ಇರೆಗ್ ದಿಂಜ ಗೌಪ್ಯತೆ ಉಪ್ಪುಂಡು.</string>
+  <string name="edit_anon_warning">ಇರೆನ ತಿದ್ದಿಪಾಟೊಲು ಇರ್ ಗಲಸಿನ ಡಿವೈಸ್‌ದ ಐಪಿ ವಿಳಾಸೊದ ಪುದರ್‌ಡ್ ಒರಿಪುಂಡು. ಈರ್&lt;a href=\"https://#login\"&gt; ಲಾಗಿನ್ &lt;/a&gt; ಮಲ್ತರ್ಂಡ ಐಪಿ ವಿಳಾಸ ಏರೆಗ್ಲಾ ತೋಜುಜಿ.</string>
   <string name="preference_title_language">ವಿಕಿಪೀಡಿಯಾ ಬಾಸೆ</string>
   <string name="langlinks_filter_hint">ನಾಡ್‍ಲೆ</string>
   <string name="langlinks_empty">ಈ ಪುಟ ಬೇತೆ ಬಾಸೆಲೆಡ್ ತಿಕೊಂತಿಜ್ಜಿ.</string>
@@ -76,7 +116,7 @@
   <string name="dialog_message_edit_failed">ಸಂಪಾದನೆನ್ ಒರಿಪಾಯರಾ ಅಯಿಜಿ!</string>
   <string name="dialog_message_edit_failed_retry">ನನೊರ ಪ್ರಯತ್ನ ಮಾನ್ಪುಲೇ</string>
   <string name="dialog_message_edit_failed_cancel">ವಜಾ ಮಲ್ಪುಲೆ</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">ಇರೇನಾ ಬದಲಾವಣೆನ್ ಒರಿಪಾತೂಜಿ. ಈ ಪುಟೊತ್ತು  ಪಿದಾಯಿ ಪೋಯರಾ ಬಯಕುವರಾ?</string>
+  <string name="dialog_message_leaving_edit">ಇರೇನಾ ಬದಲಾವಣೆನ್ ಒರಿಪಾದಿಜಿ. ಈ ಪುಟೊಡ್ದು  ಪಿದಾಯಿ ಪೋಯರ ಬಯಕುವರಾ?</string>
   <string name="dialog_message_leaving_edit_leave">ಬುಡ್ಲೆ</string>
   <string name="dialog_message_leaving_edit_stay">ಇಪ್ಪುಲೇ</string>
   <string name="menu_show_toc">ಪರಿವಿಡಿ</string>
@@ -85,7 +125,7 @@
   <string name="search_reading_lists_no_results">ಓದುನ ಪಟ್ಟಿಲೆಡ್ ದಾಲ ಫಲಿತಾಂಶೊ ತಿಕ್ಕಿಜಿ</string>
   <string name="search_history_no_results">ಇತಿಹಾಸೊಡು ದಾಲ ಫಲಿತಾಂಶೊ ತಿಕ್ಕಿಜಿ</string>
   <string name="edit_section_captcha_message">ಅಟೊಮೇಟೆಡ್ ಸ್ಪ್ಯಾಮ್ ಉಂಡಾಪಿನೆನ್ ಉಂತಾಯೆರೆ ಬೋಡಾದ್, ದಯಮಲ್ತ್‌ದ್ ತಿರ್ತ್ ತೋಜುನ ಪಠ್ಯೊನು ಬರೆಲೆ.</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">ಚಿತ್ರೊನ್ ತುಯಾರ ಅಪುಜ್ಜಿ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Learn more&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">ಚಿತ್ರೊನ್ ತುಯರ ಅಪುಜಾ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;ಮುಲ್ಪ ತೂಲೆ&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">ಮಿತ್ತ ಪದೊನ್ ಮುಲ್ಪ ಬರೆಲೆ</string>
   <string name="title_captcha">CAPTCHAನ್ ಬರೆಲೆ</string>
   <string name="edit_section_captcha_reload">ಕುಡ ಲೋಡ್ ಮಲ್ಪೆರೆ CAPTCHA ನ್ ಒತ್ತುಲೆ</string>
@@ -100,17 +140,24 @@
   <string name="reading_lists_sync_login">ಉಳಗಮನ</string>
   <string name="create_account_login">ಉಳಗಮನ</string>
   <string name="menu_login">ಲಾಗಿನ್ ಆಲೆ</string>
-  <string name="login_activity_title" fuzzy="true">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಆಲೆ</string>
+  <string name="login_activity_title">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಆಲೆ</string>
   <string name="login_in_progress_dialog_message">ಈರ್ ಲಾಗ್-ಇನ್ ಅವೊಂತುಲ್ಲಾರ್…</string>
-  <string name="login_success_toast" fuzzy="true">ಲಾಗ್-ಇನ್ ಆಯಾರ್!</string>
+  <string name="login_success_toast">ಲಾಗ್-ಇನ್ ಆಯರ್!</string>
   <string name="reset_password_title">ಪ್ರವೇಸೊ ಪದೊನ್ ಬರೆಲೆ</string>
   <string name="reset_password_description">ಇರ್ ತಾತ್ಕಾಲಿಕೊ ಪಾಸ್ವರ್ಡ್ ನೊಟ್ಟ್‌ಗ್ ಲಾಗ್ ಇನ್ ಮಾಲ್ಪುಲೆ. ಲಾಗಿಂಗ್‌ನ್ ಪೂರ್ಣ ಮಾಲ್ಪುಯಾರ, ದಯ ಮಾಲ್ತ್ ಇರೆನಾ ಪೊಸ ಪಾಸ್ವರ್ಡ್‌ನ್ ಮುಲ್ಪ ಸರಿ ಮಾಲ್ಪುಲೆ.</string>
   <string name="reset_password_hint">ಪೊಸ ಪ್ರವೇಸೊಪದ</string>
   <string name="reset_password_button">ಸೇವ್ ಬುಕ್ಕೊ ಲಾಗಿನ್</string>
   <string name="preference_title_logout">ಲಾಗ್ ಔಟ್</string>
   <string name="toast_logout_complete">ಲಾಗ್ ಔಟ್ ಆಯಾರ್</string>
+  <string name="logout_prompt">ದುಂಬೇ ಲಾಗಿನ್ ಮಲ್ತಿನ ಸಲಕರಣೆಲೆಡ್ದ್ ಉಂದು ಲಾಗೌಟ್ ಆಪುಂಡು. ಲಾಗೌಟ್ ಮಲ್ಪೊಡಾ?</string>
+  <string name="logout_dialog_cancel_button_text">ಬೊಡ್ಚಿ</string>
+  <string name="logged_out_in_background_title">ಲಾಗ್ ಔಟ್ ಆಯರ್</string>
+  <string name="logged_out_in_background_dialog">ಈರ್ ವಿಕಿಪೀಡಿಯಡ್‌ದ್ ಲಾಗೌಟ್ ಆಯರ್. ಕುಡ ಲಾಗಿನ್ ಆಪರಾ?</string>
+  <string name="logged_out_in_background_login">ಲಾಗಿನ್ ಆಲೆ</string>
+  <string name="logged_out_in_background_cancel">ವಜಾ ಮಲ್ಪುಲೆ</string>
   <string name="history_empty_title">ಮುಲ್ಪ ಇಂಚಿಪೋ ತೂಯಿನಾ ಪುಟೋ ಇಜ್ಜಿ</string>
   <string name="history_empty_message">ಈರ್ ಮೂಲು ಓದೊಂದುಪ್ಪುನೇನ್ ಟ್ರ್ಯಾಕ್ ಮಲ್ಪುಲೆ</string>
+  <string name="history_offline_articles_toast">ಆಫ್‌ಲೈನ್ ಇಪ್ಪುನಗ ಕೆಲವು ಪರತ್ ಬರವುಲು ತೋಜಂದೆ ಉಪ್ಪು.</string>
   <string name="search_empty_message">ಉಚಿತ ಎನ್ಸೈಕ್ಲೋಪೀಡಿಯಾನ್ ಇರೆನ ಬಾಸೆಡ್ ನಾಡ್‌ದ್ ಓದುಲೆ.</string>
   <string name="search_empty_message_multilingual_upgrade">ಬೇತೆ ಬಾಸೆತ ವಿಕಿಪೀಡಿಯೊನ್ ನಾಡುಲೆ.</string>
   <string name="delete_selected_items">ಆಯ್ಕೆ ಮಲ್ತಿನೆನ್ ಮಾಜಾಲೆ</string>
@@ -124,10 +171,11 @@
   <string name="dialog_create_account_checking_progress">ಪರಿಶೀಲನೆ ಮಲ್ತೊಂದುಂಡು</string>
   <string name="create_account_email_hint">ಇಮೈಲ್ (ಇಚ್ಛೆ ಇತುಂಡ ಮಾತ್ರೋ)</string>
   <string name="create_account_password_repeat_hint">ಪ್ರವೇಸೊ ಪದೊನ್ ಪಿರ ಓರ ಬರೆಲೆ</string>
+  <string name="create_account_password_is_username">ಬಳಕೆದಾರೆ ಪುದರ್ ಬುಕ್ಕ ಗುಪ್ತಪದ ಒಂಜೇ ಆದಿಪ್ಪರ ಬಲ್ಲಿ.</string>
   <string name="create_account_passwords_mismatch_error">ಪ್ರವೇಶೋ ಪದ ಜೋಡಿ ಆಪುಜಿ</string>
   <string name="create_account_email_error">ಇಮೇಲ್ ಸರಿ ಇಜ್ಜಿ</string>
   <string name="create_account_username_error">ಸದಸ್ಯೆರೆ ಪುದರ್‌ಡ್ ಅಮಾನ್ಯ ಅಕ್ಷರ ಉಂಡು.</string>
-  <string name="create_account_password_error" fuzzy="true">ಪ್ರವೇಶಪದ ಸರಿ ಇಜ್ಜಿ</string>
+  <string name="create_account_password_error">ಪ್ರವೇಶಪದ ಕಡಮೆ ಪಂಡ ೮ ಸಬ್ದ ಆಂಡಲಾ ಇಪ್ಪೊಡು.</string>
   <string name="create_account_generic_error">ಕಾತೆ ನಿರ್ಮಾಣೊ ಮಲ್ಪೆರೆ ಆವೊಂದಿದ್ದಿ</string>
   <string name="create_account_next">ನನತಾ</string>
   <string name="email_recommendation_dialog_title">ಪೊಸ ಖಾತೆ ಬುಕ್ಕೊ ಮಿಂಚಂಚೆ ವಿಲಾಸೊ ಇಜ್ಜಿ.</string>
@@ -141,6 +189,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">ವಿವರೊ</string>
   <string name="preferences_general_heading">ಸಾಮಾನ್ಯೊ</string>
+  <string name="preferences_account_heading">ಖಾತೆ</string>
   <string name="wikipedia_app_faq">ವಿಕಿಪೀಡಿಯ ಅಪ್ ತಾ ಅಪಗಪಗ ಕೇನುನ ಪ್ರಶ್ನೆಲು</string>
   <string name="send_feedback">ಅಪ್ ತಾ ಬಗೆತಾ ಅಭಿಪ್ರಾಯೊ ಕಡಪುಡ್ಲೆ</string>
   <string name="create_account_account_created_toast">ಖಾತೆ ಸೃಷ್ಟಿಯಾಂಡ್.</string>
@@ -149,6 +198,10 @@
   <string name="preferences_heading_experimental">ಪರೀಕ್ಷಾರ್ತೊ</string>
   <string name="preference_title_sync_reading_lists_from_account">ಓದುನ ಲಿಸ್ಟ್</string>
   <string name="preference_title_download_reading_list_articles">ಪಟ್ಟಿತ  ಲೇಖನೊನ್ ಓದಿರ ಡೌನ್ಲೋಡ್ ಮಾಲ್ಪುಲೆ.</string>
+  <string name="preference_summary_sync_reading_lists">ಓದುನ ಪಟ್ಟಿನ್ ಮಾತಾ ಡಿವೈಸ್‌ಗ್ ಸೇರಾವರ ಇರೆನ ವಿಕಿಪೀಡಿಯ ಖಾತೆಡ್ ಒರಿಪಾಲೆ</string>
+  <string name="preference_summary_sync_reading_lists_from_account">ಓದುನ ಪಟ್ಟಿನ್ ಮಾತಾ ಡಿವೈಸ್‌ಗ್ ಸೇರಾವರ ಇರೆನ ವಿಕಿಪೀಡಿಯ ಖಾತೆ%sಡ್ ಒರಿಪಾಲೆ</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">ಸೇರಾಯಿನ ಓದುನ ಪಟ್ಟಿನ್ %sಡ್ದ್ ದೆಪ್ಪೊಡಾ?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">ದುಂಬು ಸೇರಾಯಿನ ಓದುನ ಮಾತಾ ಪಟ್ಟಿನ್ ಉಂದು ಮಾಜಾವುಂಡು. ಸೇರಾಯಿನ ಪಟ್ಟಿನ್ %sಡ್ದ್ ಇರೆನ ಖಾತೆಡ್ದ್ ದೆಪ್ಪೊಡಾ?</string>
   <string name="preferences_privacy_settings_heading">ಸೊಂತೊ</string>
   <string name="preference_title_eventlogging_opt_in">ಬೊಡಪಿ ವರದಿನ್ ಕಡಪುಡ್ಲೆ</string>
   <string name="preference_title_auto_upload_crash_reports">ಬೊಡ್ಚಂತಿನ ವರದಿ ಕಡಪ‍್ಡುಕಾ</string>
@@ -163,8 +216,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">ಗ್ರಂಥಾಲಯಟ್ ಬಲಕೆ ಅಪುಂಡು</string>
   <string name="about_contributors_heading">ಕಾನಿಕೆ ಕೊರ್ನಾರ್</string>
   <string name="about_translators_heading">ಅನುವಾದಕೆರ್</string>
@@ -180,6 +231,14 @@
   <string name="edit_next">ನನತಾ</string>
   <string name="edit_done">ಪ್ರಕಟ ಮಾನ್ಪುಲೆ</string>
   <string name="edit_preview">ದುಂಬುತಾ</string>
+  <string name="edit_undo">ದುಂಬುದಲೆಕೊ</string>
+  <string name="edit_redo">ಕುಡಮಲ್ಪಿ</string>
+  <string name="edit_rollback">ಪಿರ ತಿರ್ಗಾಲೆ</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s ಬೈಟ್</item>
+    <item quantity="other">%s ಬೈಟ್‌ಗಳು</item>
+  </plurals>
+  <string name="edit_zoom_in">ಮಲ್ಲೆ ಮನ್ಪುಲೆ</string>
   <string name="edit_summary_tag_grammar">ವ್ಯಾಕರಣ ಸರಿ ಅಂಡ್</string>
   <string name="edit_summary_tag_links">ಕೊಂಡಿ ಸೇರ್ಸಾನ್ಡ್</string>
   <string name="edit_summary_tag_other">ಬೇತೆ</string>
@@ -206,7 +265,7 @@
   <string name="gallery_error_draw_failed">ಇಂಚಿನಾ ಚಿತ್ರ ಇಜ್ಜಿ</string>
   <string name="gallery_menu_share">ಪಟ್ಟುಕಾ</string>
   <string name="gallery_save_progress">ಫೈಲ್ ಡೌನ್ಲೋಡ್ ಅವೊನ್ತುಂಡು...</string>
-  <string name="gallery_save_success" fuzzy="true">ಫೈಲ್ ಒರಿಪಾಂಡ್.</string>
+  <string name="gallery_save_success">ಫೈಲ್ ಒರಿಪಾಂಡ್.</string>
   <string name="gallery_error_video_failed">ವಿಡಿಯೋ</string>
   <string name="err_cannot_save_file">ಫೈಲ್ ಒರಿಪಾಯಿಜೀ</string>
   <string name="expand_refs">ಪಟ್ಟಿ ತೂಯರ ಉತ್ತುಲೇ</string>
@@ -229,20 +288,21 @@
   <string name="error_page_does_not_exist">ಈ ಪುಟೊ ನನಲ ಅಸ್ತಿತ್ವೊಡ್ ಇಜ್ಜಿ</string>
   <string name="view_wiki_error_message_offline">ನೆಟ್ವರ್ಕ್ ಸರಿಕಟ್ಟ್ ತಿಕೊಂತಿಜ್ಜಿ.</string>
   <string name="reference_title">ಉಲ್ಲೆಕೊ %s</string>
+  <string name="reference_list_title">ಉಲ್ಲೆಕೊಲು</string>
   <string name="crash_report_quit">ಬುಡ್ಲೆ</string>
+  <string name="article_menu_bar_language_button">ಬಾಸೆ</string>
+  <string name="article_menu_bar_search_button">ನಾಡ್‍ಲೆ</string>
+  <string name="article_menu_bar_contents_button">ವಿಸಯೊಲು</string>
   <string name="article_header_edit_hint">ಸಂಪೊಲಿಪುಲೆ...</string>
   <string name="article_header_edit_description" fuzzy="true">ತರೆ ಬರವುದಾ ವಿವರಣೆನ್ ಸೇರಾಲೆ</string>
   <string name="color_theme_select">ಬಣ್ಣೊತಾ ಪಟ್ಟಿ</string>
   <string name="color_theme_light">ಎಲಮೆ ಬಣ್ಣೊ</string>
   <string name="color_theme_dark">ಕಡ್ಪೋ ಬಣ್ಣೊ</string>
   <string name="color_theme_black">ಕಪ್ಪು</string>
+  <string name="theme_category_editing">ಸಂಪೊಲಿಪು</string>
   <string name="reading_list_save_to">ಓದಿನ ಲಿಸ್ಟ್ನ್ ಒರಿಪಾಲೇ</string>
   <string name="reading_list_create_new">ಪೊಸತ್ ಮಾನ್ಪುಲೇ</string>
   <string name="reading_list_added_view_button">ಪಟ್ಟಿ ತುಲೇ</string>
-  <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d of 1 articles available offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d of %2$d articles available offline, %3$.2f MB</string>
   <string name="reading_list_sort">ಅಜಪುಲೇ</string>
   <string name="reading_list_sort_by_name">ಪುದರ್ತ ತರೋ</string>
   <string name="reading_list_sort_by_name_desc">ಪುದರ್ತ ತರೋ(ತಿರ್ಗಾತ್)</string>
@@ -256,6 +316,7 @@
   <string name="reading_list_item_delete_undo">ದುಂಬುದಲೆಕೊ</string>
   <string name="reading_list_deleted">%s ದೆತ್ತುಂಡು</string>
   <string name="saved_list_empty_title">ಓದಿನ ಲಿಸ್ಟ್ ಮುಲ್ಪ ಇಜ್ಜಿ</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ಬೊಡ್ಚಿ ಸೊಲ್ಮೆಲೋ</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">This article will now be available offline.</item>
     <item quantity="other">These articles will now be available offline.</item>
@@ -264,6 +325,8 @@
     <item quantity="one">This article will no longer be available offline.</item>
     <item quantity="other">These articles will no longer be available offline.</item>
   </plurals>
+  <string name="reading_list_remove_list_dialog_ok_button_text">ಸರಿ</string>
+  <string name="reading_lists_preview_save_dialog_cancel">ವಜಾ ಮಲ್ಪುಲೆ</string>
   <string name="user_option_sync_label">ಪ್ರಾಸಸ್ತ್ಯೊಲು</string>
   <string name="notification_reverted_title">ಸೇರ್ಸಾಯಿನೆನ್ ಪಿರದಿಂಜಾನ್ಡ್</string>
   <string name="notification_echo_channel_description">ವಿಕಿಪೀಡಿಯ ಸೂಚನೆಲು.</string>
@@ -272,12 +335,19 @@
   <string name="notifications_poll_enable_negative">ಉಂದು ಅತ್ತ್.</string>
   <string name="preference_title_notification_milestone">ಮೈಲ್ ಕಂಬ</string>
   <string name="preference_title_notification_thanks">ಸೊಲ್ಮೆಲೋ</string>
+  <string name="preference_title_notification_login_fail">ಲಾಗಿನ್</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ವಿಕಿಪೀಡಿಯ</string>
   <string name="notifications_channel_group_other_title">ಬೇತೆ</string>
+  <string name="notifications_tab_filter_all">ಮಾತಾ</string>
+  <string name="notifications_swipe_action_read">ಓದ್‍ಲೆ</string>
   <string name="view_main_page_card_title">ವಿಕಿಪೀಡಿಯಾಡ್ ಇನಿ</string>
+  <string name="view_featured_image_card_title">ಇ ದಿನೊತ್ತಾ ಪೆಟೊ</string>
   <string name="view_featured_image_card_download">ಡೌನ್‍ಲೋಡ್</string>
+  <string name="view_featured_image_card_share">ಪಟ್ಟ್‌ಲೆ</string>
   <string name="menu_feed_card_dismiss">ಈ ಅಭಿಪ್ರಾಯೊನು ದೆಂಗಾಲೆ</string>
   <string name="menu_feed_card_dismissed">ಅಭಿಪ್ರಾಯೊ ದೆಂಗಾಲೆ</string>
   <string name="menu_feed_overflow_label">ನಾನಾತ್ ಆಯ್ಕೆಲೂ</string>
+  <string name="home">ಇಲ್ಲಗ್</string>
   <string name="view_continue_reading_card_subtitle_today">ಇನಿ.</string>
   <string name="view_continue_reading_card_subtitle_read_date">ಓದುಲೆ %s.</string>
   <string name="view_announcement_card_negative_action">ಬೊಡ್ಚಿ ಸೊಲ್ಮೆಲೋ</string>

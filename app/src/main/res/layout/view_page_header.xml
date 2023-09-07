@@ -48,9 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:fontFamily="sans-serif-medium"
-                android:textAllCaps="true"
-                android:textColor="@color/base100"
-                android:letterSpacing="0.1" />
+                android:textColor="@color/white" />
         </LinearLayout>
 
     </FrameLayout>

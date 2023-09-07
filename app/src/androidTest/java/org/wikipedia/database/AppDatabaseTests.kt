@@ -5,8 +5,9 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.count
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.*
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.After
@@ -20,6 +21,7 @@ import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
+import org.wikipedia.util.log.L
 import java.util.*
 
 @RunWith(AndroidJUnit4::class)
@@ -67,18 +69,24 @@ class AppDatabaseTests {
 
     @Test
     fun testTalkPageSeen() {
-        talkPageSeenDao.insertTalkPageSeen(TalkPageSeen("328b389f2063da236be9d363b272eb0fa6e065816607099c7db8c09e1c919617"))
-        talkPageSeenDao.insertTalkPageSeen(TalkPageSeen("5fbbb2d46ead3355750e90032feb34051a552a6f1c76cf1b4072d8d158af9de7"))
+        CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, msg ->
+            run {
+                L.e(msg)
+            }
+        }) { withContext(Dispatchers.Main) {
+            talkPageSeenDao.insertTalkPageSeen(TalkPageSeen("328b389f2063da236be9d363b272eb0fa6e065816607099c7db8c09e1c919617"))
+            talkPageSeenDao.insertTalkPageSeen(TalkPageSeen("5fbbb2d46ead3355750e90032feb34051a552a6f1c76cf1b4072d8d158af9de7"))
+            assertThat(talkPageSeenDao.getTalkPageSeen("328b389f2063da236be9d363b272eb0fa6e065816607099c7db8c09e1c919617"), notNullValue())
+            assertThat(talkPageSeenDao.getTalkPageSeen("foo"), nullValue())
 
-        assertThat(talkPageSeenDao.getTalkPageSeen("328b389f2063da236be9d363b272eb0fa6e065816607099c7db8c09e1c919617"), notNullValue())
-        assertThat(talkPageSeenDao.getTalkPageSeen("foo"), nullValue())
+            var allSeen = talkPageSeenDao.getAll()
+            assertThat(allSeen.count(), equalTo(2))
 
-        var allSeen = talkPageSeenDao.getAll()
-        assertThat(allSeen.size, equalTo(2))
-
-        talkPageSeenDao.deleteAll().blockingSubscribe()
-        allSeen = talkPageSeenDao.getAll()
-        assertThat(allSeen.size, equalTo(0))
+            talkPageSeenDao.deleteAll()
+            allSeen = talkPageSeenDao.getAll()
+            assertThat(allSeen.count(), equalTo(0))
+        }
+        }
     }
 
     @Test
@@ -99,7 +107,7 @@ class AppDatabaseTests {
         assertThat(zhWikiList.first().id, equalTo(2470933))
         assertThat(enWikiList.first().isUnread, equalTo(false))
         assertThat(enWikiList.size, equalTo(2))
-        assertThat(notificationDao.getAllNotifications().first().size, equalTo(3))
+        assertThat(notificationDao.getAllNotifications().size, equalTo(3))
 
         val firstEnNotification = enWikiList.first()
         firstEnNotification.read = null
@@ -111,13 +119,13 @@ class AppDatabaseTests {
         assertThat(enWikiList.first().isUnread, equalTo(true))
 
         notificationDao.deleteNotification(firstEnNotification)
-        assertThat(notificationDao.getAllNotifications().first().size, equalTo(2))
+        assertThat(notificationDao.getAllNotifications().size, equalTo(2))
         assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().size, equalTo(1))
 
         notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().first())
         assertThat(notificationDao.getNotificationsByWiki(listOf("enwiki")).first().isEmpty(), equalTo(true))
 
         notificationDao.deleteNotification(notificationDao.getNotificationsByWiki(listOf("zhwiki")).first().first())
-        assertThat(notificationDao.getAllNotifications().first().isEmpty(), equalTo(true))
+        assertThat(notificationDao.getAllNotifications().isEmpty(), equalTo(true))
     }
 }

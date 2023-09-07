@@ -26,7 +26,7 @@
             android:layout_marginTop="16dp"
             android:textSize="12sp"
             android:lineSpacingExtra="4dp"
-            android:textColor="?attr/material_theme_secondary_color"
+            android:textColor="?attr/secondary_color"
             android:maxLines="1"
             android:ellipsize="end"
             tools:text="Item description" />
@@ -41,6 +41,6 @@
         android:src="@drawable/ic_check_circle_black_24dp"
         android:layout_margin="3dp"
         android:visibility="gone"
-        app:tint="?attr/colorAccent"/>
+        app:tint="?attr/progressive_color"/>
 
 </FrameLayout>

@@ -2,6 +2,7 @@ package org.wikipedia.util
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -11,13 +12,13 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.skydoves.balloon.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
@@ -27,9 +28,9 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
-import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.util.log.L
 
 object FeedbackUtil {
     private const val LENGTH_SHORT = 3000
@@ -104,8 +105,18 @@ object FeedbackUtil {
 
     fun showAndroidAppEditingFAQ(context: Context,
                                  @StringRes urlStr: Int = R.string.android_app_edit_help_url) {
-        SuggestedEditsFunnel.get().helpOpened()
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
+    }
+
+    fun composeFeedbackEmail(context: Context, subject: String, body: String = "") {
+        val intent = Intent()
+            .setAction(Intent.ACTION_SENDTO)
+            .setData(Uri.parse("mailto:${context.getString(R.string.support_email)}?subject=${Uri.encode(subject)}&body=${Uri.encode(body)}"))
+        try {
+            context.startActivity(intent)
+        } catch (e: Exception) {
+            L.e(e)
+        }
     }
 
     fun setButtonLongPressToast(vararg views: View) {
@@ -119,19 +130,16 @@ object FeedbackUtil {
     fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
         val view = findBestView(activity)
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
-        val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
-        textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
+        val textView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
+        textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
-        RichTextUtil.removeUnderlinesFromLinks(textView)
-        val actionView = snackbar.view.findViewById<TextView>(R.id.snackbar_action)
-        actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.color_group_52))
         return snackbar
     }
 
     fun showToastOverView(view: View, text: CharSequence?, duration: Int): Toast {
         val toast = Toast.makeText(view.context, text, duration)
-        val v = LayoutInflater.from(view.context).inflate(R.layout.abc_tooltip, null)
-        val message = v.findViewById<TextView>(R.id.message)
+        val v = LayoutInflater.from(view.context).inflate(androidx.appcompat.R.layout.abc_tooltip, null)
+        val message = v.findViewById<TextView>(androidx.appcompat.R.id.message)
         message.text = StringUtil.removeHTMLTags(text.toString())
         message.maxLines = Int.MAX_VALUE
         toast.view = v
@@ -169,9 +177,7 @@ object FeedbackUtil {
                    topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false): Balloon {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
-        if (showDismissButton) {
-            binding.buttonView.visibility = View.VISIBLE
-        }
+        binding.buttonView.isVisible = showDismissButton
 
         val balloon = createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
@@ -182,7 +188,7 @@ object FeedbackUtil {
             setMarginRight(8)
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
             setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
-            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.progressive_color))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(binding.root)
             setWidth(BalloonSizeSpec.WRAP)
@@ -208,7 +214,7 @@ object FeedbackUtil {
             setMarginRight(8)
             setMarginTop(if (aboveOrBelow) 0 else topOrBottomMargin)
             setMarginBottom(if (aboveOrBelow) topOrBottomMargin else 0)
-            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+            setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.progressive_color))
             setDismissWhenTouchOutside(autoDismiss)
             setLayout(layoutRes)
             setWidth(BalloonSizeSpec.WRAP)

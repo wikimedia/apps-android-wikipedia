@@ -12,7 +12,7 @@
         android:layout_height="48dp"
         android:contentDescription="@null"
         android:padding="12dp"
-        app:tint="?attr/material_theme_primary_color" />
+        app:tint="?attr/primary_color" />
 
     <TextView
         android:id="@+id/wikitext_button_text"
@@ -22,7 +22,7 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textSize="18sp"
-        android:textColor="?attr/material_theme_primary_color"
+        android:textColor="?attr/primary_color"
         android:textStyle="bold"
         tools:text="test" />
 
@@ -32,7 +32,7 @@
         android:layout_height="14dp"
         android:layout_gravity="end|center_vertical"
         app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp"
-        app:tint="?attr/material_theme_primary_color"
+        app:tint="?attr/primary_color"
         android:visibility="gone"
         android:contentDescription="@null" />
 

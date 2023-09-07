@@ -12,7 +12,7 @@ class AppearanceSettingInteractionEvent(private val source: InvokeSource) {
     }
 
     fun logThemeChange(currentTheme: Theme, newTheme: Theme) {
-        submitEvent("themeChange", currentTheme.funnelName, newTheme.funnelName)
+        submitEvent("themeChange", currentTheme.tag, newTheme.tag)
     }
 
     fun logFontThemeChange(currentFontFamily: String?, newFontFamily: String?) {

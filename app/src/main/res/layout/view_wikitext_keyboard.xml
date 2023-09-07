@@ -98,6 +98,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/color_group_60" />
+        android:background="?attr/border_color" />
 
 </merge>

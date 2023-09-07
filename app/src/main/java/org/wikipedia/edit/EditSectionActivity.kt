@@ -12,13 +12,13 @@ import android.text.TextWatcher
 import android.view.*
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import androidx.core.os.postDelayed
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -26,8 +26,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.analytics.EditFunnel
-import org.wikipedia.analytics.LoginFunnel
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.auth.AccountUtil.isLoggedIn
@@ -46,6 +44,7 @@ import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -62,11 +61,11 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.EditNoticesDialog
 import org.wikipedia.views.ViewUtil
 import java.io.IOException
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private lateinit var binding: ActivityEditSectionBinding
-    private lateinit var funnel: EditFunnel
     private lateinit var textWatcher: TextWatcher
     private lateinit var captchaHandler: CaptchaHandler
     private lateinit var editPreviewFragment: EditPreviewFragment
@@ -87,13 +86,12 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     // Current revision of the article, to be passed back to the server to detect possible edit conflicts.
     private var currentRevision: Long = 0
-    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
     private var actionMode: ActionMode? = null
     private val disposables = CompositeDisposable()
 
     private val requestLinkFromSearch = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
-            it.data?.getParcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)?.let { title ->
+            it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)?.let { title ->
                 binding.editKeyboardOverlay.insertLink(title, pageTitle.wikiSite.languageCode)
             }
         }
@@ -102,10 +100,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             updateEditLicenseText()
-            funnel.logLoginSuccess()
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
-        } else {
-            funnel.logLoginFailure()
         }
     }
 
@@ -136,7 +131,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private val syntaxButtonCallback = object : WikiTextKeyboardView.Callback {
         override fun onPreviewLink(title: String) {
             val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null)
-            bottomSheetPresenter.show(supportFragmentManager, dialog)
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager, dialog)
             binding.root.post {
                 dialog.dialog?.setOnDismissListener {
                     if (!isDestroyed) {
@@ -149,7 +144,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
 
         override fun onRequestInsertMedia() {
-            requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.displayText))
+            requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.wikiSite, pageTitle.displayText))
         }
 
         override fun onRequestInsertLink() {
@@ -187,11 +182,14 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         setContentView(binding.root)
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
 
-        pageTitle = intent.getParcelableExtra(EXTRA_TITLE)!!
+        pageTitle = intent.parcelableExtra(Constants.ARG_TITLE)!!
         sectionID = intent.getIntExtra(EXTRA_SECTION_ID, -1)
         sectionAnchor = intent.getStringExtra(EXTRA_SECTION_ANCHOR)
         textToHighlight = intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT)
+
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""
+
         syntaxHighlighter = SyntaxHighlighter(this, binding.editSectionText, binding.editSectionScroll)
         binding.editSectionScroll.isSmoothScrollingEnabled = false
         captchaHandler = CaptchaHandler(this, pageTitle.wikiSite, binding.captchaContainer.root,
@@ -199,11 +197,9 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         editPreviewFragment = supportFragmentManager.findFragmentById(R.id.edit_section_preview_fragment) as EditPreviewFragment
         editSummaryFragment = supportFragmentManager.findFragmentById(R.id.edit_section_summary_fragment) as EditSummaryFragment
         editSummaryFragment.title = pageTitle
-        funnel = WikipediaApp.instance.funnelManager.getEditFunnel(pageTitle)
 
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
-            funnel.logStart()
             EditAttemptStepEvent.logInit(pageTitle)
         }
         if (savedInstanceState != null) {
@@ -288,12 +284,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.licenseText)
         editLicenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
-                getString(R.string.cc_by_sa_3_url)))
+                getString(R.string.cc_by_sa_4_url)))
         editLicenseText.movementMethod = LinkMovementMethodExt { url: String ->
             if (url == "https://#login") {
-                funnel.logLoginAttempt()
-                val loginIntent = LoginActivity.newIntent(this@EditSectionActivity,
-                        LoginFunnel.SOURCE_EDIT, funnel.sessionToken)
+                val loginIntent = LoginActivity.newIntent(this@EditSectionActivity, LoginActivity.SOURCE_EDIT)
                 requestLogin.launch(loginIntent)
             } else {
                 UriUtil.handleExternalLink(this@EditSectionActivity, url.toUri())
@@ -368,7 +362,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     private fun onEditSuccess(result: EditResult) {
         if (result is EditSuccessResult) {
-            funnel.logSaved(result.revID)
             EditAttemptStepEvent.logSaveSuccess(pageTitle)
             // TODO: remove the artificial delay and use the new revision
             // ID returned to request the updated version of the page once
@@ -388,15 +381,9 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
         showProgressBar(false)
         if (result is CaptchaResult) {
-            if (captchaHandler.isActive) {
-                // Captcha entry failed!
-                funnel.logCaptchaFailure()
-            }
             binding.editSectionCaptchaContainer.visibility = View.VISIBLE
             captchaHandler.handleCaptcha(null, result)
-            funnel.logCaptchaShown()
         } else {
-            funnel.logError(result.result)
             EditAttemptStepEvent.logSaveFailure(pageTitle)
             // Expand to do everything.
             onEditFailure(Throwable())
@@ -414,15 +401,14 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     }
 
     private fun showRetryDialog(t: Throwable) {
-        val retryDialog = AlertDialog.Builder(this@EditSectionActivity)
+        MaterialAlertDialogBuilder(this@EditSectionActivity)
                 .setTitle(R.string.dialog_message_edit_failed)
                 .setMessage(t.localizedMessage)
                 .setPositiveButton(R.string.dialog_message_edit_failed_retry) { dialog, _ ->
                     editTokenThenSave
                     dialog.dismiss()
                 }
-                .setNegativeButton(R.string.dialog_message_edit_failed_cancel) { dialog, _ -> dialog.dismiss() }.create()
-        retryDialog.show()
+                .setNegativeButton(R.string.dialog_message_edit_failed_cancel) { dialog, _ -> dialog.dismiss() }.show()
     }
 
     /**
@@ -440,7 +426,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response: MwParseResponse -> showError(MwException(MwServiceError(code, response.text))) }) { showError(it) })
         } else if ("editconflict" == code) {
-            AlertDialog.Builder(this@EditSectionActivity)
+            MaterialAlertDialogBuilder(this@EditSectionActivity)
                     .setTitle(R.string.edit_conflict_title)
                     .setMessage(R.string.edit_conflict_message)
                     .setPositiveButton(R.string.edit_conflict_dialog_ok_button_text, null)
@@ -459,7 +445,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         when {
             editSummaryFragment.isActive -> {
                 editTokenThenSave
-                funnel.logSaveAttempt()
                 EditAttemptStepEvent.logSaveAttempt(pageTitle)
                 supportActionBar?.title = getString(R.string.preview_edit_summarize_edit_title)
             }
@@ -471,7 +456,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 // we must be showing the editing window, so show the Preview.
                 DeviceUtil.hideSoftKeyboard(this)
                 editPreviewFragment.showPreview(pageTitle, binding.editSectionText.text.toString())
-                funnel.logPreview()
                 EditAttemptStepEvent.logSaveIntent(pageTitle)
                 supportActionBar?.title = getString(R.string.preview_edit_title)
                 setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
@@ -487,7 +471,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             }
             R.id.menu_edit_theme -> {
                 binding.editSectionText.enqueueNoScrollingLayoutChange()
-                bottomSheetPresenter.show(supportFragmentManager, ThemeChooserDialog.newInstance(Constants.InvokeSource.EDIT_ACTIVITY, true))
+                ExclusiveBottomSheetPresenter.show(supportFragmentManager, ThemeChooserDialog.newInstance(Constants.InvokeSource.EDIT_ACTIVITY, true))
                 true
             }
             R.id.menu_find_in_editor -> {
@@ -535,7 +519,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         actionBarButtonBinding.editActionbarButtonText.text = menuItem.title
         actionBarButtonBinding.editActionbarButtonText.setTextColor(
             ResourceUtil.getThemedColor(this,
-                if (emphasize) R.attr.colorAccent else R.attr.material_theme_de_emphasised_color))
+                if (emphasize) R.attr.progressive_color else R.attr.placeholder_color))
         actionBarButtonBinding.root.tag = menuItem
         actionBarButtonBinding.root.isEnabled = menuItem.isEnabled
         actionBarButtonBinding.root.setOnClickListener { onOptionsItemSelected(it.tag as MenuItem) }
@@ -619,7 +603,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                         pageTitle = PageTitle(firstPage.title, pageTitle.wikiSite).apply {
                             this.displayText = pageTitle.displayText
                         }
-                        sectionWikitext = rev.content
+                        sectionWikitext = rev.contentMain
                         currentRevision = rev.revId
 
                         val editError = response.query?.firstPage()!!.getErrorForAction("edit")
@@ -631,27 +615,23 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                         }
                         displaySectionText()
                         maybeShowEditSourceDialog()
-                    }) {
-                        showError(it)
-                        L.e(it)
-                    })
-            disposables.add(ServiceFactory.get(pageTitle.wikiSite).getVisualEditorMetadata(pageTitle.prefixedText)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({
+
                         editNotices.clear()
                         // Populate edit notices, but filter out anonymous edit warnings, since
                         // we show that type of warning ourselves when previewing.
-                        editNotices.addAll(it.visualeditor?.getEditNotices().orEmpty()
-                                .filterKeys { key -> key.startsWith("editnotice") }
-                                .values.filter { str -> StringUtil.fromHtml(str).trim().isNotEmpty() })
+                        editNotices.addAll(firstPage.getEditNotices()
+                            .filterKeys { key -> (key.startsWith("editnotice") && !key.endsWith("-notext")) }
+                            .values.filter { str -> StringUtil.fromHtml(str).trim().isNotEmpty() })
                         invalidateOptionsMenu()
                         if (Prefs.autoShowEditNotices) {
                             showEditNotices()
                         } else {
                             maybeShowEditNoticesTooltip()
                         }
-                    }, { L.e(it) }))
+                    }) {
+                        showError(it)
+                        L.e(it)
+                    })
         } else {
             displaySectionText()
         }
@@ -683,7 +663,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         val binding = DialogWithCheckboxBinding.inflate(layoutInflater)
         binding.dialogMessage.text = StringUtil.fromHtml(getString(R.string.talk_edit_disclaimer))
         binding.dialogMessage.movementMethod = movementMethod
-        AlertDialog.Builder(this@EditSectionActivity)
+        MaterialAlertDialogBuilder(this@EditSectionActivity)
             .setView(binding.root)
             .setPositiveButton(R.string.onboarding_got_it) { dialog, _ -> dialog.dismiss() }
             .setOnDismissListener {
@@ -743,7 +723,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
         DeviceUtil.hideSoftKeyboard(this)
         if (sectionTextModified) {
-            val alert = AlertDialog.Builder(this)
+            val alert = MaterialAlertDialogBuilder(this)
             alert.setMessage(getString(R.string.edit_abandon_confirm))
             alert.setPositiveButton(getString(R.string.edit_abandon_confirm_yes)) { dialog, _ ->
                 dialog.dismiss()
@@ -760,7 +740,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         private const val EXTRA_KEY_SECTION_TEXT_MODIFIED = "sectionTextModified"
         private const val EXTRA_KEY_TEMPORARY_WIKITEXT_STORED = "hasTemporaryWikitextStored"
         private const val EXTRA_KEY_EDITING_ALLOWED = "editingAllowed"
-        const val EXTRA_TITLE = "org.wikipedia.edit_section.title"
         const val EXTRA_SECTION_ID = "org.wikipedia.edit_section.sectionid"
         const val EXTRA_SECTION_ANCHOR = "org.wikipedia.edit_section.anchor"
         const val EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight"
@@ -769,7 +748,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             return Intent(context, EditSectionActivity::class.java)
                 .putExtra(EXTRA_SECTION_ID, sectionId)
                 .putExtra(EXTRA_SECTION_ANCHOR, sectionAnchor)
-                .putExtra(EXTRA_TITLE, title)
+                .putExtra(Constants.ARG_TITLE, title)
                 .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
         }
     }

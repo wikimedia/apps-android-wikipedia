@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Aefgh39622
+* Amire80
 * Ans
 * B20180
 * Bluegram
@@ -63,16 +64,25 @@
   <string name="search_redirect_from">เปลี่ยนทางจาก %s</string>
   <string name="page_edit_history_activity_title">ประวัติรุ่นแก้ไข: %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;ล&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">สรุปการแก้ไขว่าง</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">ค้นหาหรือกรองการแก้ไข</string>
+  <string name="page_edit_history_filter_by">กรองตาม</string>
+  <string name="page_edit_history_filter_by_all">การแก้ไขทั้งหมด (%s)</string>
+  <string name="page_edit_history_filter_by_user">การแก้ไขโดยผู้ใช้ (%s)</string>
+  <string name="page_edit_history_filter_by_anon">การแก้ไขนิรนาม (%s)</string>
+  <string name="page_edit_history_filter_by_bot">การแก้ไขโดยบอต (%s)</string>
   <string name="menu_page_show_tabs">แสดงแท็บ</string>
   <string name="menu_page_other_languages">เปลี่ยนภาษา</string>
   <string name="menu_page_find_in_page">ค้นหาในบทความ</string>
   <string name="menu_page_add_to_watchlist">เพิ่มเข้ารายการเฝ้าดู</string>
+  <string name="menu_page_watch">เฝ้าดู</string>
   <string name="menu_page_unwatch">เลิกเฝ้าดู</string>
   <string name="menu_page_view_talk">ดูหน้าอภิปราย</string>
   <string name="menu_page_talk_page">หน้าอภิปราย</string>
   <string name="menu_page_view_edit_history">ดูประวัติการแก้ไข</string>
   <string name="menu_page_edit_history">ประวัติการแก้ไข</string>
   <string name="menu_page_remove_from_watchlist">เอาออกจากรายการเฝ้าดู</string>
+  <string name="menu_page_watched">เฝ้าดูอยู่</string>
   <string name="edit_section_find_in_page">ค้นหาในหน้า</string>
   <string name="menu_page_font_and_theme">แบบอักษรและชุดตกแต่ง</string>
   <string name="menu_page_add_to_list">เพิ่มในรายการอ่าน</string>
@@ -80,10 +90,13 @@
   <string name="feed_card_add_to_list">เพิ่มในรายการอ่าน</string>
   <string name="feed_card_add_to_default_list">บันทึก</string>
   <string name="menu_page_share">แบ่งปันลิงก์</string>
+  <string name="menu_article_share">แบ่งปันบทความ</string>
+  <string name="menu_page_article_share">แบ่งปัน</string>
   <string name="menu_page_open_a_new_tab">เปิดแท็บใหม่</string>
   <string name="menu_page_new_tab">แท็บใหม่</string>
   <string name="menu_page_reading_lists">รายการอ่าน</string>
   <string name="menu_page_recently_viewed">ดูล่าสุด</string>
+  <string name="menu_page_archive">เก็บถาวร</string>
   <string name="menu_long_press_open_page">เปิด</string>
   <string name="menu_long_press_open_in_new_tab">เปิดในแท็บใหม่</string>
   <string name="menu_long_press_copy_page">คัดลอกที่อยู่ลิงก์</string>
@@ -91,15 +104,15 @@
   <string name="on_this_day_page_share">แบ่งปัน</string>
   <string name="reading_list_page_share">แบ่งปัน</string>
   <string name="menu_text_select_edit_here">แก้ไขตรงนี้</string>
+  <string name="menu_edit_article">แก้ไขบทความ</string>
   <string name="last_updated_text">ปรับปรุงครั้งล่าสุดเมื่อ %s</string>
   <string name="talk_page_link_text">ดูหน้าคุย</string>
   <string name="edit_history_link_text">ดูประวัติการแก้ไข</string>
   <string name="map_view_link_text">ดูบนแผนที่</string>
   <string name="other_languages_indication_text">อ่านในภาษาอื่น</string>
   <string name="language_count_link_text">มีให้อ่านในอีก %d ภาษา</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้</string>
-  <string name="edit_save_action_license_anon">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้ การแก้ไขจะถูกถือว่าเป็นของเลขที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ&lt;a href=\"https://#login\"&gt;เข้าสู่ระบบ&lt;/a&gt;</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้ การแก้ไขจะถูกถือว่าเป็นของเลขที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ&lt;a href=\"https://#login\"&gt;เข้าสู่ระบบ&lt;/a&gt;</string>
   <string name="preference_title_language">ภาษาของวิกิพีเดีย</string>
   <string name="langlinks_filter_hint">ค้นหา</string>
   <string name="langlinks_empty">หน้านี้ไม่มีในภาษาอื่น</string>
@@ -170,7 +183,7 @@
   <string name="create_account_passwords_mismatch_error">รหัสผ่านไม่ตรงกัน</string>
   <string name="create_account_email_error">ที่อยู่อีเมลไม่ถูกต้อง</string>
   <string name="create_account_username_error">ตัวอักษรในชื่อผู้ใช้ไม่ถูกต้อง</string>
-  <string name="create_account_password_error" fuzzy="true">รหัสผ่านไม่ถูกต้อง</string>
+  <string name="create_account_password_error">รหัสผ่านต้องมีอักขระอย่างน้อย 8 ตัว</string>
   <string name="create_account_generic_error">ไม่สามารถสร้างบัญชีได้</string>
   <string name="create_account_next">ถัดไป</string>
   <string name="email_recommendation_dialog_title">สร้างบัญชีโดยไม่มีที่อยู่อีเมลหรือไม่?</string>
@@ -221,7 +234,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.th</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.th</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.th</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/th</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -231,7 +244,7 @@
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_translators_translatewiki">แอปนี้แปลโดยผู้แปลอาสาสมัครจาก &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
-  <string name="about_app_license" fuzzy="true">ซอร์สโค้ดอยู่ที่ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; และ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ภายใต้ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; เนื้อหาถูกเผยแพร่ภายใต้ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; เว้นแต่จะระบุเป็นอย่างอื่น</string>
+  <string name="about_app_license" fuzzy="true">ซอร์สโค้ดอยู่ที่ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; และ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ภายใต้ &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; เนื้อหาถูกเผยแพร่ภายใต้ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; เว้นแต่จะระบุเป็นอย่างอื่น</string>
   <string name="about_wmf">ผลิตภัณฑ์ของ&lt;a href=\"https://wikimediafoundation.org/\"&gt;มูลนิธิวิกิมีเดีย&lt;/a&gt;</string>
   <string name="about_activity_title">เกี่ยวกับ</string>
   <string name="edit_abandon_confirm">หน้านี้ถูกแก้ไขแล้ว คุณแน่ใจหรือไม่ว่าต้องการออกโดยไม่บันทึกการเปลี่ยนแปลง?</string>
@@ -246,6 +259,7 @@
   <string name="edit_preview">แสดงตัวอย่าง</string>
   <string name="edit_undo">เลิกทำ</string>
   <string name="edit_redo">ทำซ้ำ</string>
+  <string name="edit_rollback">ย้อนรวดเดียว</string>
   <string name="edit_zoom_in">ซูมเข้า</string>
   <string name="edit_zoom_out">ซูมออก</string>
   <string name="edit_summary_tag_typo">แก้ไขการสะกด</string>
@@ -255,10 +269,12 @@
   <string name="edit_summary_tag_other_hint">วิธีการอื่นที่คุณปรับปรุงบทความนี้</string>
   <string name="edit_conflict_title">แก้ไขชนกัน</string>
   <string name="edit_conflict_message">หน้านี้ได้ถูกแก้ไขโดยผู้ใช้คนอื่นไปแล้ว และเมื่อคุณแก้ไขจึงมีการชนกันเกิดขึ้น คุณสามารถแก้ปัญหาเบื้องต้นโดยการคัดลอกการแก้ไขของคุณ และลองโหลดหน้านี้ใหม่ แล้วแก้ไขอีกครั้ง</string>
+  <string name="edit_notices_please_read">โปรดอ่านก่อนแก้ไข</string>
   <string name="find_next">ค้นหาถัดไป</string>
   <string name="find_previous">ค้นหาก่อนหน้า</string>
   <string name="find_first_occurence">นี่คือสิ่งแรกที่พบ</string>
   <string name="find_last_occurence">นี่คือสิ่งสุดท้ายที่พบ</string>
+  <string name="article_opened_in_background_tab">เปิดบทความในแท็บเบื้องหลังแล้ว</string>
   <string name="abusefilter_title_warn">การแก้ไขนี้อาจเป็นการแก้ไขที่ไม่สร้างสรรค์ คุณแน่ใจหรือไม่ว่าต้องการเผยแพร่การแก้ไขนี้?</string>
   <string name="abusefilter_title_disallow">คุณไม่สามารถเผยแพร่การแก้ไขนี้ได้ โปรดย้อนกลับและเปลี่ยนแปลง</string>
   <string name="abusefilter_text_warn">ตัวกรองอัตโนมัติได้ระบุการแก้ไขนี้ว่าอาจไม่สร้างสรรค์ โดยอาจมีปัญหาใดปัญหาหนึ่งต่อไปนี้:&lt;br /&gt;&lt;br /&gt;· พิมพ์ด้วยตัวพิมพ์ใหญ่ทั้งหมด&lt;br /&gt;· บทความเปล่าหรือการสร้างสแปม&lt;br /&gt;· แหล่งข้อมูลอื่นหรือภาพที่ไม่เกี่ยวข้อง&lt;br /&gt;· อักขระซ้ำกัน</string>
@@ -375,7 +391,14 @@
   <string name="page_footer_license_text">เนื้อหาอนุญาตให้เผยแพร่ภายใต้ $1 เว้นแต่ระบุไว้เป็นอื่น</string>
   <string name="empty_tab_title">แท็บใหม่</string>
   <string name="menu_save_all_tabs">บันทึกแท็บทั้งหมด</string>
+  <string name="error_blocked_title">ชื่อผู้ใช้หรือที่อยู่ IP ของคุณถูกบล็อก</string>
+  <string name="error_blocked_by">บล็อกโดย &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">เหตุผลที่ให้ไว้คือ: %s</string>
+  <string name="error_blocked_start">เวลาเริ่มต้นการบล็อก: %s</string>
+  <string name="error_blocked_expiry">เวลาหมดอายุการบล็อก: %s</string>
+  <string name="error_blocked_id">ID การบล็อก: %s</string>
+  <string name="error_blocked_footer">คุณสามารถติดต่อ &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; หรือ&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ผู้ดูแลระบบ&lt;/a&gt;คนอื่นเพื่อพูดคุยเกี่ยวกับการบล็อกได้</string>
+  <string name="error_blocked_footer_no_blocker">คุณสามารถติดต่อ&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;ผู้ดูแลระบบ&lt;/a&gt;เพื่อพูดคุยเกี่ยวกับการบล็อกได้</string>
   <string name="crash_report_activity_title">แอพพลิเคชันเกิดข้อผิดพลาด</string>
   <string name="crash_report_relaunch_or_quit">เราขออภัย แอปวิกิพีเดียพบปัญหาและสิ้นสุดการทำงาน\n\nคุณต้องการเริ่มการทำงานใหม่หรือออกจากแอป</string>
   <string name="crash_report_relaunch">เริ่มการทำงานใหม่</string>
@@ -401,6 +424,9 @@
   <string name="text_size_decrease">ลดขนาดข้อความ</string>
   <string name="text_size_percent_default">%s (ค่าเริ่มต้น)</string>
   <string name="text_style_title">แบบอักษร</string>
+  <string name="theme_category_reading">การอ่าน</string>
+  <string name="theme_category_editing">การแก้ไข</string>
+  <string name="reading_focus_mode">โหมดโฟกัสการอ่าน</string>
   <string name="nav_item_saved">บันทึกแล้ว</string>
   <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
   <string name="reading_list_move_to">ย้ายลงในรายการอ่าน</string>
@@ -419,10 +445,6 @@
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="other">%1$d จาก %2$d บทความสามารถใช้ได้ขณะออฟไลน์, %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">1 บทความ, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d บทความ, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d จาก 1 บทความที่ใช้ได้ขณะออฟไลน์, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d จาก %2$d บทความที่ใช้ได้ขณะออฟไลน์, %3$.2f MB</string>
   <string name="reading_list_sort">เรียงลำดับ</string>
   <string name="reading_list_sort_ellipsis">เรียงตาม…</string>
   <string name="reading_list_sort_by_name">เรียงตามชื่อ</string>
@@ -432,6 +454,8 @@
   <string name="reading_list_sort_by_created">เรียงตามวันที่สร้าง (ล่าสุด)</string>
   <string name="reading_list_sort_by_created_desc">เรียงตามวันที่สร้าง (เก่าสุด)</string>
   <string name="reading_list_menu_delete">ลบรายการ</string>
+  <string name="reading_list_menu_select">เลือก</string>
+  <string name="reading_list_menu_unselect">ยกเลิกเลือก</string>
   <string name="reading_list_menu_rename">แก้ไขชื่อ/คำอธิบาย</string>
   <string name="reading_list_action_menu_remove_from_offline">เอาออกจากออฟไลน์</string>
   <string name="reading_list_action_menu_save_for_offline">บันทึกสำหรับออฟไลน์</string>
@@ -524,8 +548,18 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">ยกเลิก</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">ยกเลิก</string>
   <string name="reading_list_split_dialog_ok_button_text">ตกลง</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">ลบ</string>
+  <string name="reading_list_activity_title">รายการอ่าน: %s</string>
+  <string name="reading_lists_action_menu_export_lists">ส่งออก</string>
+  <string name="reading_lists_preview_save_button">บันทึก</string>
+  <string name="reading_lists_preview_save_dialog_title">บันทึกรายการ</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">ชื่อเรื่อง</string>
+  <string name="reading_lists_preview_save_dialog_cancel">ยกเลิก</string>
+  <string name="reading_lists_preview_save_dialog_save">บันทึก</string>
+  <string name="reading_lists_preview_saved_snackbar_action">ดู</string>
   <string name="user_option_sync_label">การตั้งค่า</string>
   <string name="notification_reverted_title">การแก้ไขที่ถูกย้อน</string>
+  <string name="notification_channel_title">กำลังดาวน์โหลดบทความ</string>
   <string name="notification_channel_description">ความคืบหน้าการดาวน์โหลด</string>
   <string name="notification_syncing_pause_button">หยุดชั่วคราว</string>
   <string name="notification_syncing_resume_button">ทำต่อ</string>
@@ -575,6 +609,7 @@
   <string name="notifications_view_archived_button_text">ดูการแจ้งเตือนที่เก็บถาวร</string>
   <string name="notification_preferences_title">การตั้งค่าการแจ้งเตือน</string>
   <string name="notifications_mark_unread">ทำเครื่องหมายว่ายังไม่ได้อ่าน</string>
+  <string name="notifications_mark_all_as_read">ทำเครื่องหมายทั้งหมดว่าอ่านแล้ว</string>
   <string name="notifications_direct_reply_action">ตอบกลับ</string>
   <string name="watchlist_title">รายการเฝ้าดู</string>
   <string name="preference_title_notification_poll">การแจ้งเตือนโพล</string>
@@ -593,11 +628,26 @@
   <string name="preference_title_notification_mention">การกล่าวถึง</string>
   <string name="preference_summary_notification_mention">มีคนกล่าวถึงคุณในหน้า</string>
   <string name="preference_title_notification_user_talk">หน้าคุย</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">ข้อความจากหน้าคุย</string>
+  <string name="preference_summary_notification_user_talk">ข้อความและการตอบกลับจากหน้าคุย</string>
+  <string name="preference_title_notification_email_user">ได้รับอีเมล</string>
+  <string name="preference_summary_notification_email_user">มีคนส่งอีเมลถึงคุณผ่านวิกิ</string>
+  <string name="preference_title_notification_user_rights">เปลี่ยนแปลงสิทธิ์ผู้ใช้</string>
+  <string name="preference_category_display_settings">การตั้งค่าการแสดงผล</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">วิกิพีเดีย</string>
+  <string name="notifications_channel_group_wikipedia_notifications_description">การแจ้งเตือนจากวิกิพีเดีย</string>
+  <string name="notifications_channel_group_other_title">อื่น ๆ</string>
+  <string name="notifications_filter_label">กรองการแจ้งเตือน</string>
+  <string name="notifications_filter_icon_content_description">กรองการแจ้งเตือน</string>
+  <string name="notifications_filter_update_app_languages">ปรับปรุงภาษาของแอป</string>
+  <string name="notifications_select_all_filters">เลือกตัวกรองทั้งหมด</string>
   <string name="notifications_tab_filter_all">ทั้งหมด</string>
   <string name="notifications_menu_mark_as_read">ทำเครื่องหมายว่าอ่านแล้ว</string>
   <string name="notifications_menu_mark_as_unread">ทำเครื่องหมายว่ายังไม่ได้อ่าน</string>
+  <string name="notifications_swipe_action_read">อ่านแล้ว</string>
+  <string name="notifications_wiki_filter_header">ตัวกรองวิกิ</string>
+  <string name="notifications_all_wikis_text">ทุก \"วิกิ\"</string>
+  <string name="notifications_all_types_text">ทุก \"ชนิด\"</string>
+  <string name="notifications_menu_user_talk_page">หน้าคุยของ %s</string>
   <string name="view_because_you_read_card_title">เนื่องจากคุณอ่าน</string>
   <string name="view_random_card_title">ตัวสุ่ม</string>
   <string name="view_random_article_card_title">สุ่มบทความ</string>
@@ -655,6 +705,7 @@
   <string name="feed_accessibility_card_text">คุณได้มาถึงส่วนล่างสุดของฟีดแล้ว</string>
   <string name="feed_accessibility_card_load_more_button">โหลดเพิ่มเติม</string>
   <string name="top_read_activity_title">อ่านมากที่สุดบน %s</string>
+  <string name="tabs_activity_title">ป้ายกำกับ</string>
   <string name="description_edit_text_hint">คำอธิบายบทความ</string>
   <string name="description_edit_article_description_label">บทความ</string>
   <string name="description_edit_translate_article_description_label_per_language">คำอธิบายบทความ (%s)</string>
@@ -682,6 +733,7 @@
   <string name="description_too_short">ข้อความสั้นเกินไป</string>
   <string name="description_ends_with_punctuation">ข้อความต้องไม่ลงท้ายด้วยเครื่องหมายวรรคตอน</string>
   <string name="description_starts_with_uppercase">ขึ้นต้นด้วยตัวพิมพ์เล็ก นอกจากคำแรกจะเป็นคำนามเฉพาะ</string>
+  <string name="description_starts_with_lowercase">หลีกเลี่ยงการขึ้นต้นด้วยตัวพิมพ์เล็ก</string>
   <string name="description_is_in_different_language">ดูเหมือนว่าข้อความจะปรากฏในภาษาที่ไม่ต้องการ ภาษาต้องเป็น %s</string>
   <string name="description_edit_success_saved">เผยแพร่คำอธิบายบทความแล้ว!</string>
   <string name="description_edit_success_saved_snackbar">เผยแพร่คำอธิบายบทความแล้ว!</string>
@@ -700,7 +752,9 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ควรเขียนให้พอดีหนึ่งบรรทัด และเขียนตั้งแต่ 2-12 คำ</string>
   <string name="description_edit_tutorial_button_label_start_editing">เริ่มแก้ไข</string>
   <string name="description_edit_tutorial_promise">ฉันสัญญาว่าจะไม่ใช้คุณลักษณะนี้ในทางที่ผิด</string>
+  <string name="customize_toolbar_category_toolbar">แถบเครื่องมือ</string>
   <string name="customize_toolbar_category_menu">เมนู</string>
+  <string name="customize_toolbar_reset_to_default_button">รีเซ็ตเป็นค่าเริ่มต้น</string>
   <string name="suggested_edits_describe_articles">อธิบายบทความ</string>
   <string name="suggested_edits_caption_images">เขียนคำอธิบายภาพ</string>
   <string name="suggested_edits_tag_images">เพิ่มป้ายระบุให้กับภาพ</string>
@@ -819,6 +873,7 @@
   <string name="file_page_activity_title">หน้าไฟล์</string>
   <string name="file_page_add_image_caption_button">เพิ่มคำบรรยายภาพ</string>
   <string name="file_page_add_image_tags_button">เพิ่มป้ายกำกับภาพ</string>
+  <string name="file_page_edit_button_content_description">แก้ไข %s</string>
   <string name="description_edit_revert_subtitle">ขอบคุณที่แก้ไขวิกิพีเดีย!</string>
   <string name="description_edit_revert_intro">เรารู้ว่าคุณพยายามอย่างดีที่สุด แต่ผู้ตรวจทานคนใดคนหนึ่งมีข้อสงสัย เหตุผลที่เป็นไปได้ที่การแก้ไขของคุณถูกย้อนมี:</string>
   <string name="description_edit_revert_reason1">การมีส่วนร่วมของคุณไม่สอดคล้องตาม&lt;a href=\"%1$s\"&gt;แนวปฏิบัติ&lt;/a&gt;ข้อใดข้อหนึ่ง</string>
@@ -893,6 +948,7 @@
   <string name="content_description_for_page_indicator">หน้า %1$d จาก %2$d</string>
   <string name="wikitext_bold">ตัวหนา</string>
   <string name="wikitext_italic">ตัวเอน</string>
+  <string name="wikitext_code">รหัส</string>
   <string name="wikitext_link">ลิงก์</string>
   <string name="wikitext_bulleted_list">รายการสัญลักษณ์</string>
   <string name="wikitext_numbered_list">รายการลำดับเลข</string>
@@ -910,13 +966,21 @@
   <string name="text_input_dialog_cancel_button_text">ยกเลิก</string>
   <string name="custom_date_picker_dialog_cancel_button_text">ยกเลิก</string>
   <string name="talk_title">คุย</string>
+  <string name="talk_user_title">คุย: %s</string>
   <string name="talk_new_topic">หัวข้อใหม่</string>
   <string name="talk_page_empty">หน้าคุยนี้ว่างเปล่า</string>
   <string name="talk_add_reply">ตอบกลับ</string>
   <string name="talk_no_subject">(ไม่มีหัวเรื่อง)</string>
   <string name="talk_reply_subject">หัวเรื่อง</string>
+  <string name="talk_reply_hint">เขียนการตอบกลับ</string>
+  <string name="talk_message_hint">เขียนข้อความ</string>
+  <string name="talk_message_empty">ข้อความต้องไม่ว่างเปล่า</string>
+  <string name="talk_subject_empty">หัวเรื่องต้องไม่ว่างเปล่า</string>
   <string name="talk_overflow_sort_by">เรียงตาม</string>
   <string name="talk_overflow_sort_date_published">วันที่เผยแพร่</string>
+  <string name="menu_option_share_edit">แบ่งปันการแก้ไข</string>
+  <string name="menu_option_user_contributions">การมีส่วนร่วมของ %s</string>
+  <string name="watchlist_details_watch_label">เฝ้าดู</string>
   <string name="watchlist_details_next_edit">การแก้ไขถัดไป</string>
   <string name="watchlist_details_prev_edit">การแก้ไขก่อนหน้า</string>
   <string name="thank_label">ขอบคุณ</string>
@@ -929,7 +993,16 @@
   <string name="revision_diff_from">จาก:</string>
   <string name="revision_diff_to">ถึง:</string>
   <string name="revision_compare_button">เปรียบเทียบ</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">เปลี่ยน</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">ถาวร</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">1 สัปดาห์</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">1 เดือน</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 เดือน</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">6 เดือน</string>
+  <string name="watchlist_expiry_dialog_one_week">1 สัปดาห์</string>
+  <string name="watchlist_expiry_dialog_one_month">1 เดือน</string>
+  <string name="watchlist_expiry_dialog_three_months">3 เดือน</string>
+  <string name="watchlist_expiry_dialog_six_months">6 เดือน</string>
   <string name="watchlist_filter_all">ทั้งหมด</string>
   <string name="watchlist_filter_talk">คุย</string>
   <string name="watchlist_filter_pages">หน้า</string>
@@ -942,4 +1015,5 @@
   <string name="category_tab_subcategories">หมวดหมู่ย่อย</string>
   <string name="category_empty">ไม่พบบทความในหมวดหมู่นี้</string>
   <string name="subcategory_empty">ไม่พบหมวดหมู่ย่อยในหมวดหมู่นี้</string>
+  <string name="revision_initial_none">ไม่มี (นี่คือรุ่นแก้ไขแรก)</string>
 </resources>

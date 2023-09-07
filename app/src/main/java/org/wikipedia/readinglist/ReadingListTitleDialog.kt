@@ -14,13 +14,8 @@ object ReadingListTitleDialog {
                                title: String,
                                description: String?,
                                otherTitles: List<String?>,
-                               fromShareableLink: Boolean = false,
                                callback: Callback?): TextInputDialog {
         return TextInputDialog(activity).let { textInputDialog ->
-            if (fromShareableLink) {
-                textInputDialog.setTitle(R.string.shareable_reading_lists_import_dialog_title)
-                textInputDialog.setMessage(activity.getString(R.string.shareable_reading_lists_import_dialog_content))
-            }
             textInputDialog.callback = object : TextInputDialog.Callback {
                 override fun onShow(dialog: TextInputDialog) {
                     dialog.setHint(R.string.reading_list_name_hint)

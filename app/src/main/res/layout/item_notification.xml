@@ -27,19 +27,19 @@
         android:contentDescription="@null"
         app:tint="@android:color/white"
         android:visibility="gone"
-        app:backgroundTint="@color/accent50"
+        app:backgroundTint="@color/blue600"
         app:layout_constraintStart_toStartOf="@id/notificationItemImage"
         app:layout_constraintTop_toTopOf="@id/notificationItemImage"
         app:srcCompat="@drawable/ic_check_black_24dp" />
 
     <TextView
         android:id="@+id/notificationTitle"
+        style="@style/H3.MaterialListTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginEnd="8dp"
-        android:textSize="16sp"
-        android:textColor="?attr/colorAccent"
+        android:textColor="?attr/progressive_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/notificationItemImage"
         app:layout_constraintEnd_toStartOf="@id/notificationTime"
@@ -49,7 +49,7 @@
         android:id="@+id/notificationTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="?attr/secondary_text_color"
+        android:textColor="?attr/primary_color"
         android:layout_marginEnd="-8dp"
         app:layout_constraintTop_toTopOf="@id/notificationTitle"
         app:layout_constraintBottom_toBottomOf="@id/notificationTitle"
@@ -64,7 +64,7 @@
         android:contentDescription="@string/abc_action_menu_overflow_description"
         android:paddingVertical="12dp"
         android:layout_marginEnd="-16dp"
-        app:tint="?attr/secondary_text_color"
+        app:tint="?attr/primary_color"
         app:layout_constraintTop_toTopOf="@id/notificationTitle"
         app:layout_constraintBottom_toBottomOf="@id/notificationTitle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,13 +72,12 @@
 
     <TextView
         android:id="@+id/notificationSubtitle"
+        style="@style/List"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:textColor="?android:attr/textColorPrimary"
-        android:lineSpacingExtra="8sp"
         app:layout_constraintTop_toBottomOf="@id/notificationTitle"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,13 +85,12 @@
 
     <TextView
         android:id="@+id/notificationDescription"
+        style="@style/List"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:textColor="?attr/primary_text_color"
-        android:lineSpacingExtra="8sp"
         app:layout_constraintTop_toBottomOf="@id/notificationSubtitle"
         app:layout_constraintStart_toStartOf="@id/notificationTitle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +110,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
-            app:tint="?attr/primary_text_color"
+            app:tint="?attr/primary_color"
             tools:src="@drawable/ic_wikidata_logo" />
 
         <TextView
@@ -126,10 +124,10 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:background="@drawable/lang_button_shape_border"
-            android:backgroundTint="?attr/primary_text_color"
+            android:backgroundTint="?attr/primary_color"
             android:fontFamily="sans-serif-medium"
             android:textAllCaps="true"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="12sp" />
 
     </FrameLayout>
@@ -138,7 +136,7 @@
         android:id="@+id/notificationSource"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="?attr/primary_text_color"
+        android:textColor="?attr/primary_color"
         android:drawablePadding="8dp"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constrainedWidth="true"
@@ -146,7 +144,7 @@
         app:layout_constraintTop_toTopOf="@id/notificationWikiCodeContainer"
         app:layout_constraintBottom_toBottomOf="@id/notificationWikiCodeContainer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:drawableTint="?attr/primary_text_color"
+        app:drawableTint="?attr/primary_color"
         tools:text="Lorem ipsum" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

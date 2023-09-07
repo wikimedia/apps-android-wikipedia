@@ -126,8 +126,8 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
 
     private fun setUpViewForLink(textView: TextView, link: Notification.Link,
                                  @DrawableRes customIcon: Int = R.drawable.ic_arrow_forward_black_24dp,
-                                 @ColorInt customIconColor: Int = ResourceUtil.getThemedColor(context, R.attr.material_theme_secondary_color),
-                                 @ColorInt customTextColor: Int = ResourceUtil.getThemedColor(context, R.attr.primary_text_color)) {
+                                 @ColorInt customIconColor: Int = ResourceUtil.getThemedColor(context, R.attr.secondary_color),
+                                 @ColorInt customTextColor: Int = ResourceUtil.getThemedColor(context, R.attr.primary_color)) {
         textView.text = StringUtil.fromHtml(link.tooltip.ifEmpty { link.label })
 
         val icon = when (link.icon()) {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Edgars2007
 * MuratTheTurkish
 * Natalilake
@@ -133,6 +134,8 @@
   <string name="privacy_policy_description">Privātuma politika</string>
   <string name="terms_of_use_description">Lietošanas noteikumi</string>
   <string name="about_wikipedia_url">https://lv.wikipedia.org/wiki/Vikipēdija:Par</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.lv</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.lv</string>
   <string name="about_libraries_heading">Izmantotās bibliotēkas</string>
   <string name="about_translators_heading">Tulkotāji</string>
   <string name="about_translators_translatewiki">Šo lietotni iztulkoja brīvprātīgie tulkotāji no &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
@@ -221,8 +224,6 @@
   <string name="theme_category_reading">Lasīšana</string>
   <string name="reading_list_create_new">Izveidot jaunu</string>
   <string name="reading_list_added_view_button">Skatīt sarakstu</string>
-  <string name="format_reading_list_statistical_summary_singular">1 raksts, %1$.2f MB</string>
-  <string name="format_reading_list_statistical_summary_plural">%1$d raksti, %2$.2f MB</string>
   <string name="reading_list_sort">Kārtot</string>
   <string name="reading_list_sort_ellipsis">Kārtot pēc...</string>
   <string name="reading_list_sort_by_name">Kārtot pēc nosaukuma</string>
@@ -230,6 +231,7 @@
   <string name="reading_list_sort_by_recent" fuzzy="true">Kārtot pēc visjaunākā</string>
   <string name="reading_list_sort_by_recent_desc" fuzzy="true">Kārtot pēc visvecākā</string>
   <string name="reading_list_menu_delete">Dzēst sarakstu</string>
+  <string name="reading_list_menu_select">Izvēlēties</string>
   <string name="reading_list_menu_rename">Labot nosaukumu/aprakstu</string>
   <string name="reading_list_action_menu_add_to_another_list">Pievienot citam sarakstam</string>
   <string name="reading_list_description_hint">Apraksts (nav obligāts)</string>
@@ -256,6 +258,8 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Atcelt</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Atcelt</string>
   <string name="reading_list_split_dialog_ok_button_text">Labi</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Dzēst</string>
+  <string name="reading_lists_action_menu_export_lists">Eksportēt</string>
   <string name="user_option_sync_label">Izvēles</string>
   <string name="notification_reverted_title">Atcelts labojums</string>
   <string name="notification_channel_description">Lejupielādes progress</string>

@@ -8,4 +8,4 @@
     app:imageSize="160dp"
     app:primaryText="@string/onboarding_analytics_title"
     app:secondaryText="@string/onboarding_analytics_offline_text"
-    app:switchText="@string/onboarding_analytics_switch_title" />
+    app:acceptRejectButtons="true" />

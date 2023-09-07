@@ -17,7 +17,7 @@ import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkThreadItemBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.richtext.setHtml
 import org.wikipedia.util.*
 
 @SuppressLint("RestrictedApi")
@@ -73,8 +73,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             binding.timeStampText.text = DateUtil.getTimeAndDateString(context, it)
             StringUtil.highlightAndBoldenText(binding.timeStampText, searchQuery, true, Color.YELLOW)
         }
-        binding.bodyText.text = StringUtil.fromHtml(StringUtil.removeStyleTags(item.html)).trim()
-        RichTextUtil.removeUnderlinesFromLinks(binding.bodyText)
+        binding.bodyText.setHtml(StringUtil.removeStyleTags(item.html))
         StringUtil.highlightAndBoldenText(binding.bodyText, searchQuery, true, Color.YELLOW)
         binding.bodyText.movementMethod = movementMethod
 
@@ -90,13 +89,13 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         }
 
         if (item.isFirstTopLevel) {
-            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
+            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color)
             binding.replyButton.iconTint = ColorStateList.valueOf(Color.WHITE)
             binding.replyButton.setTextColor(Color.WHITE)
         } else {
-            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.color_group_22)
-            binding.replyButton.iconTint = ResourceUtil.getThemedColorStateList(context, R.attr.colorAccent)
-            binding.replyButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+            binding.replyButton.backgroundTintList = ResourceUtil.getThemedColorStateList(context, R.attr.background_color)
+            binding.replyButton.iconTint = ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color)
+            binding.replyButton.setTextColor(ResourceUtil.getThemedColor(context, R.attr.progressive_color))
         }
 
         binding.topDivider.isVisible = item.level <= 2
@@ -108,7 +107,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
     }
 
     fun animateSelectedBackground() {
-        val colorFrom = ResourceUtil.getThemedColor(context, R.attr.material_theme_de_emphasised_color)
+        val colorFrom = ResourceUtil.getThemedColor(context, R.attr.placeholder_color)
         val colorTo = ResourceUtil.getThemedColor(context, R.attr.paper_color)
         val anim = ValueAnimator.ofObject(ArgbEvaluator(), colorFrom, colorTo)
         anim.duration = 1000

@@ -2,6 +2,7 @@
 <!-- Authors:
 * Khun Kt
 * Ninjastrikers
+* ခွန်ဖန်ဒွဲ့
 * ဗန်ကှိုန်
 * လွိုင်ႏအာထင်ႏထိုထဲင်း
 * 咽頭べさ
@@ -50,13 +51,24 @@
   <string name="share_via">ဖန်းဖြယ်</string>
   <string name="image_share_via">ဖန်းဖြယ်</string>
   <string name="search_redirect_from">%s ယီးနယ်ခါꩻချာ</string>
+  <string name="page_edit_history_activity_title">ထွားချာဖျင်ဆင် မုဲင်တောင်ꩻ: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_filter_by_all">ခြပ်ချော်ꩻမုꩻကားကအဝ်ႏ (%s)</string>
+  <string name="page_edit_history_filter_by_user">ကေားသုင်ꩻသား မွဉ်းဖျင်ခြပ်ချော်ꩻဖိုင်ႏ (%s)</string>
+  <string name="page_edit_history_filter_by_anon">သေတဝ်းအမိဉ်ꩻ မွဉ်းဖျင်ခြပ်ချော်ꩻဖိုင်ႏ (%s)</string>
+  <string name="page_edit_history_filter_by_bot">ဗော့ မွဉ်းဖျင်ခြပ်ချော်ꩻဖိုင်ႏ (%s)</string>
   <string name="menu_page_show_tabs">အွောန်ႏနယ် tab ဖိုင်ႏ</string>
   <string name="menu_page_other_languages">ပြောင်ꩻလုဲင်ႏ ဘာႏသာႏငဝ်းငွါ</string>
   <string name="menu_page_find_in_page">ထိုမ်ႏထွား ရောမ်ဖြုဲင်ꩻကို</string>
   <string name="menu_page_add_to_watchlist">ထဲမ်သော့ꩻ ပွေားထွားစာႏရင်ꩻကို</string>
+  <string name="menu_page_watch">ပွေားထွား</string>
+  <string name="menu_page_unwatch">ပွေားထွားတဝ်း</string>
   <string name="menu_page_view_talk">ထွား အိုင်ကိုမ်ချက်လိတ်မဲ့ငါ</string>
+  <string name="menu_page_talk_page">အိုင်ကိုမ်ဒေါ့ꩻရီ လိတ်မဲ့ငါ</string>
   <string name="menu_page_view_edit_history">ထွား မွဉ်းဖျင်မုꩻရာႏဇာႏဝင်ႏ</string>
+  <string name="menu_page_edit_history">မွဉ်းဖျင်ရာႏဇာႏဝင်ႏ</string>
   <string name="menu_page_remove_from_watchlist">အဝ်ႏပွေားထွားစာႏရင်ꩻကို ဖုဲင်းထန်ႏထိုꩻ</string>
+  <string name="menu_page_watched">ပွေားထွားလဲဉ်း</string>
   <string name="edit_section_find_in_page">ထိုမ်ႏထွား လိတ်မဲ့ငါကို</string>
   <string name="menu_page_font_and_theme">ဖောင့်တောမ်ႏ အလွိုးအငုဲင်ꩻ</string>
   <string name="menu_page_add_to_list">ထဲမ်သော့ꩻ ပွေားထွားစာႏရင်ꩻကို</string>
@@ -65,6 +77,7 @@
   <string name="feed_card_add_to_default_list">သိမ်ꩻ</string>
   <string name="menu_page_share">ဖန်းဖြယ်လိဉ့်</string>
   <string name="menu_article_share">ဖန်းဖြယ်ရောမ်ဖြုဲင်ꩻ</string>
+  <string name="menu_page_article_share">ဖန်းဖြယ်</string>
   <string name="menu_page_open_a_new_tab">ဗွောင် tab တသာ</string>
   <string name="menu_page_new_tab">tab တသာ</string>
   <string name="menu_page_reading_lists">အဝ်ႏဟော်ꩻဒျာႏစာႏရင်ꩻဖိုင်ႏသွူ။</string>
@@ -76,15 +89,15 @@
   <string name="on_this_day_page_share">ဖန်းဖြယ်</string>
   <string name="reading_list_page_share">ဖန်းဖြယ်</string>
   <string name="menu_text_select_edit_here">မွဉ်းဖျင် ယိုကို</string>
+  <string name="menu_edit_article">မွဉ်းဖျင်ခြပ်ချော်ꩻ ရောမ်ဖြုဲင်ꩻ</string>
   <string name="last_updated_text">အဆုဲင်ꩻသွတ်ꩻ ဖျင်ခါꩻခိန်ႏ %s</string>
   <string name="talk_page_link_text">ထွား အိုင်ကိုမ်ချက်လိတ်မဲ့ငါ</string>
   <string name="edit_history_link_text">ထွား မွဉ်းဖျင်မုꩻရာႏဇာႏဝင်ႏ</string>
   <string name="map_view_link_text">ထွားဟံႏပုင်ႏကို</string>
   <string name="other_languages_indication_text">ဟော်ꩻနေးတောမ်ႏ ဘာႏသာႏငဝ်းငွါအလင်။</string>
   <string name="language_count_link_text">လꩻနွောင်ꩻဒျာႏ တောမ်ႏဘာႏသာႏငဝ်းငွါအလင် %d ဗာႏသွူ။</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">မိဉ်ႏသိမ်ꩻထိုꩻယိုနဝ်ꩻ တောမ်ႏနာꩻကသꩻဖော်ꩻတူႏထွူလဲဉ်း &lt;a href=\"%1$s\"&gt;ထူႏသုင်ꩻမုꩻသꩻဖော်ꩻဗိုန်ချက်တဲင်&lt;/a&gt;နာꩻဖန်းဖြယ်မုꩻလဲ့ အီႏဖန်းလီတောမ်ႏ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လုဲင်သိဉ်အကျောင်ꩻ သေနာႏခါꩻထွူဗာႏနဝ်ꩻသွူ။</string>
-  <string name="edit_save_action_license_anon">မိဉ်ႏသိမ်ꩻထိုꩻယိုနဝ်ꩻ တောမ်ႏနာꩻကသꩻဖော်ꩻတူႏထွူလဲဉ်း &lt;a href=\"%1$s\"&gt;ထူႏသုင်ꩻမုꩻသꩻဖော်ꩻဗိုန်ချက်တဲင်&lt;/a&gt;နာꩻဖန်းဖြယ်မုꩻလဲ့ အီႏဖန်းလီတောမ်ႏ&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; လုဲင်သိဉ်အကျောင်ꩻ သေနာႏခါꩻထွူဗာႏနဝ်ꩻသွူ။\nမွဉ်းဖျင်ခြပ်ချော်ꩻမုꩻဖိုင်ႏလဲ့ အီႏသိမ်ꩻအီတောမ်ႏ နာꩻအုဲင်ပီလိပ်စာသွူ။ နာꩻသုဲက်ထျꩻ&lt;a href=\"https://#login\"&gt;လိုမ်းဗိဉ်ႏမုꩻ&lt;/a&gt;ယိန်းဟဝ်အီနဝ်ꩻသွူ။</string>
+  <string name="edit_save_action_license_logged_in">မိဉ်ႏသိမ်ꩻထိုꩻယိုနဝ်ꩻ တောမ်ႏနာꩻကသꩻဖော်ꩻတူႏထွူလဲဉ်း &lt;a href=\"%1$s\"&gt;ထူႏသုင်ꩻမုꩻသꩻဖော်ꩻဗိုန်ချက်တဲင်&lt;/a&gt;နာꩻဖန်းဖြယ်မုꩻလဲ့ အီႏဖန်းလီတောမ်ႏ &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; လုဲင်သိဉ်အကျောင်ꩻ သေနာႏခါꩻထွူဗာႏနဝ်ꩻသွူ။</string>
+  <string name="edit_save_action_license_anon">မိဉ်ႏသိမ်ꩻထိုꩻယိုနဝ်ꩻ တောမ်ႏနာꩻကသꩻဖော်ꩻတူႏထွူလဲဉ်း &lt;a href=\"%1$s\"&gt;ထူႏသုင်ꩻမုꩻသꩻဖော်ꩻဗိုန်ချက်တဲင်&lt;/a&gt;နာꩻဖန်းဖြယ်မုꩻလဲ့ အီႏဖန်းလီတောမ်ႏ&lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; လုဲင်သိဉ်အကျောင်ꩻ သေနာႏခါꩻထွူဗာႏနဝ်ꩻသွူ။\nမွဉ်းဖျင်ခြပ်ချော်ꩻမုꩻဖိုင်ႏလဲ့ အီႏသိမ်ꩻအီတောမ်ႏ နာꩻအုဲင်ပီလိပ်စာသွူ။ နာꩻသုဲက်ထျꩻ&lt;a href=\"https://#login\"&gt;လိုမ်းဗိဉ်ႏမုꩻ&lt;/a&gt;ယိန်းဟဝ်အီနဝ်ꩻသွူ။</string>
   <string name="preference_title_language">ဝီခီပီးဒီးယားဘာႏသာႏဖိုင်ႏ</string>
   <string name="langlinks_filter_hint">ထိုမ်ႏ</string>
   <string name="langlinks_empty">လိတ်မဲ့ငါယိုနဝ်ꩻ ဘာႏသာႏအလင်ကို အဝ်ႏတဝ်းဒွိုန်း။</string>
@@ -151,6 +164,7 @@
   <string name="dialog_create_account_checking_progress">အဝ်ႏစဲစ်ထွား</string>
   <string name="create_account_email_hint">အီးမေး (မိဉ်ႏအဝ်ႏနဝ်ꩻ)</string>
   <string name="create_account_password_repeat_hint">နျꩻသမ်းသွော့ ငဝ်းဗိဉ်ႏပလို့ꩻဩ။</string>
+  <string name="create_account_password_is_username">ငဝ်းဗိဉ်ႏပလို့ꩻနဝ်ꩻ အွဉ်ႏဗွိုန်ပီဗာႏတဝ်း တောမ်ႏကေားသုင်ꩻသားမိဉ်ꩻ</string>
   <string name="create_account_passwords_mismatch_error">ငဝ်းဗိဉ်ႏပလို့ꩻဖိုင်ႏ မဲဉ်ႏစွို့ꩻတဝ်းဩ။</string>
   <string name="create_account_email_error">တရာꩻဝင်ႏတဝ်း အီးမေးလိပ်စာ</string>
   <string name="create_account_username_error">တရာꩻဝင်ႏတဝ်း ကေားသုင်ꩻသားမိဉ်ꩻအက္ခရာႏဖိုင်ႏ</string>
@@ -206,8 +220,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://blk.wikipedia.org/wiki/ဝီခီပီးဒီးယား:ကွီ_အကောက်_တဗာႏ</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/blk</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ကထွားခါꩻဖို လိတ်ထွားခင်ႏလမ်းဖုံႏ</string>
@@ -216,7 +228,7 @@
   <string name="about_translators_heading">ကေားပြန်ႏဘာႏသာႏသားဖိုင်ႏ</string>
   <string name="about_translators_translatewiki">အဲပ်ယိုနဝ်ꩻ လိုꩻကေားစွဲးကမ်းဖေႏခြေင်သား ချာႏပြန်ႏခါꩻဖေႏဒျာႏ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ကိုဩ။</string>
   <string name="about_app_license_heading">လုဲင်သိဉ်</string>
-  <string name="about_app_license">ကိုဒ်ခြွီရွီးခိုႏနဝ်ꩻ လꩻနွောင်ꩻဒျာႏ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; တောမ်ႏ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;ကို တောမ်ႏ &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;လုဲင်သိဉ်ဆꩻလ့သွူ။ စဲင်းစဲ့တဗာႏ မိဉ်ႏမွေးတဝ်းတဲ့ ကတဲမ်းခါꩻထာꩻနဝ်ꩻ လꩻဒါႏ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ထျꩻကိုဩ။</string>
+  <string name="about_app_license">ကိုဒ်ခြွီရွီးခိုႏနဝ်ꩻ လꩻနွောင်ꩻဒျာႏ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; တောမ်ႏ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;ကို တောမ်ႏလုဲင်သိဉ် &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; ဆꩻလ့သွူ။ စဲင်းစဲ့တဗာႏ မိဉ်ႏမွေးတဝ်းတဲ့ ကတဲမ်းခါꩻထာꩻနဝ်ꩻ လꩻဒါႏ &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ထျꩻကိုဩ။</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ဝီခီမီဒီယာဖောင်ဒေးသိဉ်း&lt;/a&gt; တခြိုꩻတဗာႏဒျာႏသွူ</string>
   <string name="about_activity_title">အကျောင်ꩻခရာႏ</string>
   <string name="edit_abandon_confirm">လိတ်မဲ့ငါနဝ်ꩻ ဖျင်တဲပ်ခါꩻထွူလဲန်းသွူ။ သဲမ်ဟဝ်တဝ်းဒွုမ် နာꩻထာꩻကြုဲင်းလုဲင်ႏဖိုင်ႏနဝ်ꩻ မွေးဒျာႏနဲ့ဟောင်း?</string>
@@ -231,6 +243,7 @@
   <string name="edit_preview">နမူႏနာႏ</string>
   <string name="edit_undo">သဲင်ꩻဖျင်ချာ</string>
   <string name="edit_redo">သဲင်ꩻဖျင်ငါ</string>
+  <string name="edit_rollback">သဲင်ꩻချာ</string>
   <string name="edit_zoom_in">မာꩻထီႏဗော့ꩻ</string>
   <string name="edit_zoom_out">မာꩻထီႏညာꩻ</string>
   <string name="edit_summary_tag_typo">ဖျင်ရော့ꩻခါꩻ လိတ်ဖြုံႏ</string>
@@ -388,6 +401,7 @@
   <string name="text_size_percent_default">%s (နုဲင်းမူလအတွိုင်ꩻ)</string>
   <string name="text_style_title">ဖောင့်</string>
   <string name="theme_category_reading">ဟော်ꩻထွား</string>
+  <string name="theme_category_editing">အဝ်ႏမွဉ်းဖျင်</string>
   <string name="nav_item_saved">သဲမ်ထွူလဲဉ်း</string>
   <string name="reading_list_save_to">သဲမ်သော့ꩻ ဟော်ꩻလိတ်စာႏရင်ꩻထျꩻ</string>
   <string name="reading_list_move_to">ခြုဲင်းသော့ꩻ ဟော်ꩻလိတ်စာႏရင်ꩻထျꩻ</string>
@@ -408,8 +422,6 @@
     <item quantity="one">ရောမ်ဖြုဲင်ꩻ 1 ဗာႏ လꩻနွောင်ꩻလိုႏတဝ်းလဲင်းစား %1$d ဗာႏ၊ %3$.2f MB</item>
     <item quantity="other"> ရောမ်ဖြုဲင်ꩻ %2$d ဗာႏ လꩻနွောင်ꩻလိုႏတဝ်းလဲင်းစား %1$d ဗာႏ၊ %3$.2f MB</item>
   </plurals>
-  <string name="format_reading_list_statistical_summary_singular">ရောမ်ဖြုဲင်ꩻ 1 ဗာႏ၊ %1$.2f မီဂါဗုဲက်</string>
-  <string name="format_reading_list_statistical_summary_plural">ရောမ်ဖြုဲင်ꩻ %1$d ဗာႏ၊ %2$.2f မီဂါဗုဲက်</string>
   <string name="reading_list_sort">စီႏစဲဉ်ႏ</string>
   <string name="reading_list_sort_ellipsis">အရဲဉ်ႏအတွိုင်ꩻ...</string>
   <string name="reading_list_sort_by_name">ရဲဉ်းတောမ်ႏမိဉ်ꩻစဲဉ်ႏ</string>
@@ -419,6 +431,8 @@
   <string name="reading_list_sort_by_created">ရဲဉ်ႏတောမ်ႏဖန်ဆင်ꩻမွူးနီꩻစဲဉ်ႏအတွိုင်ꩻ (တသာသွတ်ꩻ)</string>
   <string name="reading_list_sort_by_created_desc">ရဲဉ်ႏတောမ်ႏဖန်ဆင်ꩻမွူးနီꩻစဲဉ်ႏအတွိုင်ꩻ (အယသွတ်ꩻ)</string>
   <string name="reading_list_menu_delete">ယားကုဲင်စာႏရင်ꩻ</string>
+  <string name="reading_list_menu_select">လွိုက်</string>
+  <string name="reading_list_menu_unselect">လွိုက်တဝ်းဒွုမ်</string>
   <string name="reading_list_menu_rename">မွဉ်းဖျင် မိဉ်ꩻ/အွောန်ႏနယ်ချက်</string>
   <string name="reading_list_action_menu_remove_from_offline">ဖုဲင်းထိုꩻ လိုႏတဝ်းလဲင်းစား</string>
   <string name="reading_list_action_menu_save_for_offline">သဲမ်ဟဝ် ဖေႏကထွားချာလꩻ လိုႏတဝ်းလဲင်းစားတာႏ</string>
@@ -505,6 +519,10 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">မာꩻတဝ်းဒွုမ်</string>
   <string name="reading_list_split_dialog_ok_button_text">မွေးသွူ</string>
   <string name="reading_list_activity_title">ဟော်ꩻထွားစာႏရင်ꩻ: %s</string>
+  <string name="reading_lists_preview_save_button">ထူႏဟဝ်</string>
+  <string name="reading_lists_preview_save_dialog_title">ထူႏဟဝ်စာႏရင်ꩻ</string>
+  <string name="reading_lists_preview_save_dialog_cancel">မာꩻတဝ်းဒွုမ်</string>
+  <string name="reading_lists_preview_save_dialog_save">ထူႏဟဝ်</string>
   <string name="user_option_sync_label">လွိုက်ရွေꩻခရာႏဖုံႏ</string>
   <string name="notification_reverted_title">သဲင်ꩻဖျင်ချာ မွဉ်းဖျင်မုꩻ</string>
   <string name="notification_channel_title">အဝ်ႏဒေါင်းထူႏ ရောမ်ဖြုဲင်ꩻဖိုင်ႏ</string>

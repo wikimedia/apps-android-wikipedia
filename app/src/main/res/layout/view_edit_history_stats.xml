@@ -22,7 +22,7 @@
             android:lineSpacingExtra="4sp"
             android:fontFamily="sans-serif"
             android:textStyle="bold"
-            android:textColor="?attr/primary_text_color"
+            android:textColor="?attr/primary_color"
             android:textSize="24sp"
             android:hyphenationFrequency="normal"/>
 
@@ -34,7 +34,7 @@
             android:layout_marginEnd="8dp"
             android:lineSpacingExtra="5sp"
             android:fontFamily="sans-serif-medium"
-            android:textColor="?green_highlight_color"
+            android:textColor="?attr/success_color"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -44,7 +44,7 @@
         android:layout_height="140dp"
         android:contentDescription="@string/about_app_license_heading"
         android:background="@drawable/graph_background_base80"
-        android:backgroundTint="?attr/chip_background_color"
+        android:backgroundTint="?attr/border_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.40"/>

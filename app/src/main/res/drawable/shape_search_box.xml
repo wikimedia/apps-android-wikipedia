@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:exitFadeDuration="@android:integer/config_shortAnimTime"
-    android:color="?attr/color_group_61" >
+    android:color="?attr/border_color" >
     <item>
         <shape
             android:shape="rectangle">
             <corners android:radius="20dp" />
-            <solid android:color="?attr/color_group_22"/>
+            <solid android:color="?attr/background_color"/>
         </shape>
     </item>
 </ripple>

@@ -59,8 +59,8 @@
             android:lineSpacingExtra="6sp"
             android:maxLines="3"
             android:ellipsize="end"
-            android:textColor="?attr/color_group_59"
-            android:textColorLink="?attr/color_group_59"
+            android:textColor="?attr/placeholder_color"
+            android:textColorLink="?attr/placeholder_color"
             android:textIsSelectable="true"
             tools:text="Lorem ipsum"/>
 
@@ -83,7 +83,7 @@
                 android:textAlignment="center"
                 android:text="@string/suggested_edits_image_tags_choose"
                 android:textStyle="italic"
-                android:textColor="?attr/color_group_59"/>
+                android:textColor="?attr/placeholder_color"/>
 
             <TextView
                 android:id="@+id/tagsLicenseText"
@@ -141,7 +141,7 @@
             android:indeterminate="false"
             android:max="100"
             android:secondaryProgress="100"
-            android:progressDrawable="@drawable/circular_progress" />
+            android:progressDrawable="@drawable/circular_progress"/>
 
         <ImageView
             android:id="@+id/publishProgressCheck"
@@ -157,9 +157,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="38dp"
-            android:textAllCaps="true"
             android:fontFamily="sans-serif-medium"
-            android:letterSpacing="0.06"
             android:text="@string/suggested_edits_image_tags_publishing"/>
 
     </FrameLayout>
