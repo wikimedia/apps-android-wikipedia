@@ -1469,8 +1469,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Кориснички придонеси</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Заблагодари се</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Кориснички информации</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Старост на сметката</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Број на уредувања</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Затвори</string>
   <string name="patroller_tasks_filters_title">Филтри</string>
   <string name="patroller_tasks_filters_reset">Одново</string>
@@ -1526,5 +1524,5 @@
   <string name="email_report_image_recommendations_subject">Пријава на проблем — Функцијата Препорачување на слики</string>
   <string name="email_report_image_recommendations_body">Наидов на проблем со функцијата Препорачување на слики:\n— [Опишете го конкретниот проблем]\nШто сакате да се поправи:\n— [Опишете го предложеното решение]</string>
   <string name="email_report_patroller_tasks_subject">Пријава на проблем — Функција Патролерски задачи</string>
-  <string name="email_report_patroller_tasks_body">Наидов на проблем со функцијата Патролерски задачи:\n— [Опишете го конкретниот проблем]\nШто сакате да се поправи:\n— [Опишете го предложеното решение]</string>
+  <string name="email_report_patroller_tasks_body">Наидов на проблем со функцијата Патролерски задачи:\n— [Опишете го конкретниот проблем]\nШто сакате да се поправи:\n— [Опишете го предложеното решение]\n\n[]</string>
 </resources>
