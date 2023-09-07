@@ -16,6 +16,8 @@ import org.wikipedia.R
 import org.wikipedia.databinding.DialogUserInformationBinding
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.Date
 
 class UserInformationDialog : DialogFragment() {
@@ -73,8 +75,9 @@ class UserInformationDialog : DialogFragment() {
         binding.userInformationContainer.isVisible = true
         binding.dialogProgressBar.isVisible = false
         binding.dialogErrorView.isVisible = false
-        val dateDiffString = DateUtil.getDateDiffString(requireContext(), registrationDate)
-        binding.userTenure.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_edits_list_user_information_dialog_tenure_text, dateDiffString))
+        val localDate = LocalDateTime.ofInstant(registrationDate.toInstant(), ZoneId.systemDefault()).toLocalDate()
+        val dateStr = DateUtil.getShortDateString(localDate)
+        binding.userTenure.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_edits_list_user_information_dialog_joined_date_text, dateStr))
         binding.editCount.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_edits_list_user_information_dialog_edit_count_text, editCount))
     }
 

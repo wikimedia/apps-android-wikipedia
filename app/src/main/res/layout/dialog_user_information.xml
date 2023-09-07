@@ -14,29 +14,19 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingHorizontal="24dp"
+            android:paddingHorizontal="12dp"
             android:paddingTop="12dp">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?attr/list_divider"/>
 
             <TextView
                 style="@style/P.MaterialListTitle"
                 android:id="@+id/userTenure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/patroller_tasks_edits_list_user_information_dialog_tenure_text"
+                android:text="@string/patroller_tasks_edits_list_user_information_dialog_joined_date_text"
                 android:paddingVertical="12dp"
                 android:drawablePadding="8dp"
                 app:drawableStartCompat="@drawable/ic_timer_black_24dp"
                 app:drawableTint="?attr/progressive_color" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?attr/list_divider"/>
 
             <TextView
                 style="@style/P.MaterialListTitle"
@@ -48,11 +38,6 @@
                 android:drawablePadding="8dp"
                 app:drawableStartCompat="@drawable/ic_mode_edit_white_24dp"
                 app:drawableTint="?attr/progressive_color" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?attr/list_divider"/>
 
         </LinearLayout>
 
