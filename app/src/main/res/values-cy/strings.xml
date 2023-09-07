@@ -95,7 +95,6 @@
   <string name="map_view_link_text">Gweld ar fap</string>
   <string name="other_languages_indication_text">Darllen mewn iaith arall</string>
   <string name="language_count_link_text">Ar gael mewn %d ieithoedd eraill</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Drwy arbed, rydych yn cytuno i &lt;a href=\"%1$s\"&gt;Dermau\'r Defnydd&lt;/a&gt;, ac i ryddhau eich cyfraniad mewn modd di-droi\'n-ôl ar drwydded &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Drwy arbed, rydych yn cytuno i &lt;a href=\"%1$s\"&gt;Dermau Defnyddio&lt;/a&gt;, ac yn rhyddhau, yn ddi-droi\'n ol, eich cyfraniadau dan drwydded &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Bydd y golygiadau\'n cael eu tadogi i gyfeiriad IP eich dyfais. Ond os ydych yn &lt;a href=\"https://#login\"&gt;mewngofnodi&lt;/a&gt;, bydd eich golygiadau\'n breifat.</string>
   <string name="preference_title_language">Ieithoedd Wicipedia</string>
@@ -201,7 +200,6 @@
   <string name="privacy_policy_description">Polisi preifatrwydd</string>
   <string name="terms_of_use_description">Termau Defnyddiwr</string>
   <string name="about_wikipedia_url">https://cy.wikipedia.org/wiki/Wicipedia:Ynglŷn_â_Wicipedia</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Y llyfrgelloedd a ddefnyddir</string>
   <string name="about_contributors_heading">Cyfrannwyr</string>
   <string name="about_translators_heading">Cyfieithwyr</string>

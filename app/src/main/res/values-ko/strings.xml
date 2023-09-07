@@ -132,7 +132,7 @@
   <string name="map_view_link_text">지도에서 보기</string>
   <string name="other_languages_indication_text">다른 언어로 읽기</string>
   <string name="language_count_link_text">%d개의 다른 언어로 읽을 수 있음</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0</string>
+  <string name="content_license_cc_by_sa">크리에이티브 커먼즈 저작자표시-동일조건변경허락 4.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다. 편집에 당신이 쓴 기기의 IP 주소가 남습니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인정보를 더 보호할 수 있습니다.</string>
   <string name="edit_anon_warning">편집에 당신의 장치의 IP 주소가 들어갑니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면 개인정보를 더 보호할 수 있습니다.</string>

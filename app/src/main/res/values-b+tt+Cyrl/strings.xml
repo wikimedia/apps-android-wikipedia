@@ -111,7 +111,6 @@
   <string name="map_view_link_text">Харитада карау</string>
   <string name="other_languages_indication_text">Башка телдә уку</string>
   <string name="language_count_link_text">Башка %d телдә укып була</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Үзгәрешләрне саклап, &lt;a href=\"%1$s\"&gt;Куллану шартлары&lt;/a&gt; белән ризалашасыз һәм үз материалларыгызны &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензиясе нигезендә кире кайтарылмаслык итеп бастырасыз.</string>
   <string name="edit_save_action_license_anon">Үзгәрешләрне саклап, &lt;a href=\"%1$s\"&gt;Куллану шартлары&lt;/a&gt; белән ризалашасыз һәм үз материалларыыгызны &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензиясе нигезендә кире кайтарылмаслык итеп бастырсыз. Үзгәрешләр җайланмагызның IP-адресына бәйле булачак. Әгәр дә &lt;a href=\"https://#login\"&gt;системага керсәгез&lt;/a&gt; конфиденциальлегегез күбрәк булачак.</string>
   <string name="edit_anon_warning">Үзгәрешләр сезнең җайланманың IP-адресына бәйле булачак. Әгәр дә &lt;a href=\"https://#login\"&gt;системага керсәгез&lt;/a&gt;,  конфиденциальлегегез күбрәк булачак.</string>
@@ -237,8 +236,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt#Оффлайнда_уку_һәм_мәгълүматлар</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tt</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tt</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кулланыла торган китапханәләр</string>
@@ -276,7 +273,7 @@
   <string name="edit_summary_tag_links">Сылтамалар өстәлде</string>
   <string name="edit_summary_tag_other">Башка</string>
   <string name="edit_summary_tag_other_hint">Битне яхшыртуның башка ысуллары</string>
-  <string name="edit_conflict_title">Мөхәррирләү конфликты</string>
+  <string name="edit_conflict_title">Үзгәртү конфликты</string>
   <string name="edit_conflict_message">Бит башка кулланучы тарафыннан үзгәртелгән һәм сезнең мөхәррирләүгә каршы килә.\nЗинһар, үзегезнең үзгәрешләрне йөкләп алыгыз, биткә кире кайтыгыз һәм яңартыгыз, шуннан соң мөхәррирләү омтылышын кабатлагыз.</string>
   <string name="edit_notices">Хәбәрнамәне мөхәррирләү</string>
   <string name="edit_notices_please_read">Зинһар, редакцияләгәнче укып чыгыгыз</string>
@@ -992,7 +989,7 @@
   <string name="suggested_edits_paused_title">Туктатылган</string>
   <string name="suggested_edits_disabled_title">Сүндерелгән</string>
   <string name="suggested_edits_ip_blocked_title">IP блокланган</string>
-  <string name="suggested_edits_last_edited">Соңгы мөхәррирләү</string>
+  <string name="suggested_edits_last_edited">Соңгы үзгәреш</string>
   <string name="suggested_edits_last_edited_never">Һичкайчан</string>
   <string name="suggested_edits_task_new">яңа</string>
   <string name="suggested_edits_cc0_notice">Бастырып чыгарганда &lt;a href=\"%1$s\"&gt;куллану шартлары&lt;/a&gt; белән килешәсез һәм бу керемне &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; лицензиясе нигезендә кире кайтара алмаслык рәвештә бастырасыз.</string>
@@ -1269,7 +1266,7 @@
   <string name="menu_option_share_talk_page">Фикер алышу бите белән уртаклашырга</string>
   <string name="menu_option_share_edit">Мөхәррирләү белән уртаклашырга</string>
   <string name="menu_option_user_contributions">%s кертемнәре</string>
-  <string name="menu_option_edit_source">Чыганакны мөхәррирләү</string>
+  <string name="menu_option_edit_source">Чыганакны үзгәртү</string>
   <string name="menu_option_user_page">%s исемле кулланучы бите</string>
   <string name="menu_option_find_in_talk_page_topic">Фикер алышу битендә теманы табыгыз</string>
   <string name="menu_option_copy_link_to_clipboard">Сылтаманы алмаштыру буферына күчерергә</string>
@@ -1385,7 +1382,7 @@
   <string name="preview_edit_summarize_edit_title">Мөхәррирләүне гомумиләштерергә</string>
   <string name="preview_edit_summarize_edit_hint">Сез бу битне ничек яхшырттыгыз?</string>
   <string name="preview_edit_minor_edit">Бу зур булмаган төзәтмә</string>
-  <string name="preview_edit_watch_this_page">Бу битне карагыз</string>
+  <string name="preview_edit_watch_this_page">Битне күзәтергә</string>
   <string name="preview_edit_learn_more">Үзгәрешләрнең тасвирламалары турында тулырак мәгълүмат</string>
   <string name="action_item_categories">Төркемнәр</string>
   <string name="page_no_categories">Бу бит бернинди төркемнәргә дә карамый.</string>

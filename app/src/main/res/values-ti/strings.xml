@@ -77,7 +77,6 @@
   <string name="map_view_link_text">ኣብ ካርታ ርኣይ</string>
   <string name="other_languages_indication_text">ብካልእ ቋንቋ ኣንብብ</string>
   <string name="language_count_link_text">ብ%d ካልኦት ቋንቋታት ዝርከብ</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="preference_title_language">ቋንቋታት ዊኪፐድያ</string>
   <string name="langlinks_filter_hint">ድለይ</string>
   <string name="langlinks_empty">እዚ ገጽ ብካልኦት ቋንቋታት ኣይርከብን እዩ።</string>

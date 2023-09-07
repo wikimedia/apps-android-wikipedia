@@ -132,7 +132,6 @@
   <string name="map_view_link_text">הצגה על מפה</string>
   <string name="other_languages_indication_text">קריאה בשפה אחרת</string>
   <string name="language_count_link_text">זמין בעוד %d שפות</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
   <string name="edit_anon_warning">עריכות ייוחסו לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך פרטיות רבה יותר.</string>

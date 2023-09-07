@@ -128,7 +128,6 @@
   <string name="map_view_link_text">Гл. на карце</string>
   <string name="other_languages_indication_text">Чытаць на іншай мове</string>
   <string name="language_count_link_text">Даступна на %d іншых мовах</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Публікуючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Публікуючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Праўкі будуць прывязаны да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;аўтарызуецеся&lt;/a&gt;, то атрымаеце вышэйшы ўзровень прыватнасці.</string>
   <string name="edit_anon_warning">Праўкі будуць звязаны з IP-адрасам вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце&lt;/a&gt;, у вас будзе больш прыватнасці.</string>
