@@ -119,7 +119,6 @@
   <string name="map_view_link_text">Картала ҡарарға</string>
   <string name="other_languages_indication_text">Башҡа телдә уҡырға</string>
   <string name="language_count_link_text">Башҡа %d телдә бар</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Яҙҙырып ҡуйып, &lt;a href=\"%1$s\"&gt;ҡулланыу шарттары&lt;/a&gt; һәм мәҡәләләрегеҙҙе &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензияһына ярашлы, ирекле ҡулланыу менән ризалашаһығыҙ.</string>
   <string name="edit_save_action_license_anon">Үҙгәрештәрҙе яҙҙырып ҡуйып, &lt;a href=\"%1$s\"&gt;ҡулланыу шарттары&lt;/a&gt; менән килешәһегеҙ һәм мәҡәләләрегеҙҙе &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензияһына ярашлы баҫтыраһығыҙ. Төҙәтеүҙәр ҡоролмағыҙҙың IP-адресына бәйләнәсәк. Әгәр ҙә &lt;a href=\"https://#login\"&gt;танылһағыҙ&lt;/a&gt;, сер һаҡлауҙың юғары кимәле менән ҡуллана алаһығыҙ.</string>
   <string name="edit_anon_warning">Төҙәтеүҙәрегеҙ ҡоролманың IP-адресы менән имзаланасаҡ.  &lt;a href=\"https://#login\"&gt;Әгәр системаға инһәгеҙ&lt;/a&gt;, шәхси эшләргә мөмкинлектәрегеҙ күберәк буласаҡ</string>
@@ -245,8 +244,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Офлайнда уҡыу һәм мәғлүмәттәр</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ba</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_4_url">https\n://creativecommons.org/licenses/by-sa/4.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Файҙаланылған китапханалар</string>
@@ -1428,5 +1425,5 @@
   <string name="page_issues_title">Бит проблемалары</string>
   <string name="generic_release_notes">Әһәмиәте әҙ булған төҙәтеүҙәр һәм яҡшыртыуҙар</string>
   <string name="email_report_patroller_tasks_subject">Проблема тураһында мәғлүмәт - Тикшереү функцияһы</string>
-  <string name="email_report_patroller_tasks_body">Тикшереү функцияһы проблемаһы менән осраштым:\n[Аныҡ проблеманы күрһәтегеҙ]\nМин күрергә теләгән ғәмәл:\n[Хәл итеү юлын тасуирлағыҙ]</string>
+  <string name="email_report_patroller_tasks_body">Тикшереү функцияһы проблемаһы менән осраштым:\n[Аныҡ проблеманы күрһәтегеҙ]\nМин күрергә теләгән ғәмәл:\n[Хәл итеү юлын тасуирлағыҙ]\n\n[]</string>
 </resources>

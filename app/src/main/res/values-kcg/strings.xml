@@ -71,7 +71,6 @@
   <string name="map_view_link_text">Di tazwa ta̱si̱la</string>
   <string name="other_languages_indication_text">Fam da̱ a̱lyem a̱ghyang</string>
   <string name="language_count_link_text">A̱ shyia̱ di̱ lilyem %d</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Ka̱nang a shei, a shim ma̱ng &lt;a href=\"%1$s\"&gt;A̱yaaka̱nda̱n Nyian Ta̱m&lt;/a&gt;, a si̱ shim byii̱k nwuat mi̱ nwuat ang hu a̱tafa kwambwat yak&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; hu a̱ni.</string>
   <string name="preference_title_language">Lilyem Wikipidya</string>
   <string name="langlinks_filter_hint">Zop</string>
@@ -174,7 +173,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Á̱tutunkwambwat nang á̱ nyian ta̱m ma̱ng a̱mba</string>

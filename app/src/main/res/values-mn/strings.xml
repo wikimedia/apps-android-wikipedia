@@ -71,7 +71,6 @@
   <string name="edit_history_link_text">Хувилбарын түүхийг үзэх</string>
   <string name="map_view_link_text">Газрын зураг дээр үзэх</string>
   <string name="other_languages_indication_text">Өөр хэл дээр унших</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="preference_title_language">Википедиагийн хэлнүүд</string>
   <string name="langlinks_filter_hint">Хайлт</string>
   <string name="langlinks_empty">Энэ хуудсыг бусад хэл дээр үзэх боломжгүй.</string>

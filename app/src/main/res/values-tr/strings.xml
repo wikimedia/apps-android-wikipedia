@@ -151,7 +151,6 @@
   <string name="map_view_link_text">Haritada görüntüle</string>
   <string name="other_languages_indication_text">Başka dilde oku</string>
   <string name="language_count_link_text">%d farklı dilde mevcut</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Yayımlayarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; lisansıyla yayımlamayı kabul etmiş olursunuz.</string>
   <string name="edit_save_action_license_anon">Yayımlayarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
   <string name="edit_anon_warning">Değişiklikler cihazınızın IP adresiyle yayınlanır.  &lt;a href=\"https://#login\"&gt;Oturum açarsanız yaparsanız&lt;/a&gt; daha fazla gizlilik sağlayabilirsiniz.</string>
@@ -1508,8 +1507,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Kullanıcı katkılarını görüntüle</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Teşekkür et</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Kullanıcı bilgisi</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Görev süresi</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Değişiklik sayısı</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Kapat</string>
   <string name="patroller_tasks_filters_title">Süzgeçler</string>
   <string name="patroller_tasks_filters_reset">Sıfırla</string>
@@ -1565,5 +1562,5 @@
   <string name="email_report_image_recommendations_subject">Sorun bildirimi - Görsel Önerileri özelliği</string>
   <string name="email_report_image_recommendations_body">Görsel Önerileri özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]</string>
   <string name="email_report_patroller_tasks_subject">Sorun bildirimi - Devriye Görevleri özelliği</string>
-  <string name="email_report_patroller_tasks_body">Devriye Görevleri özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]</string>
+  <string name="email_report_patroller_tasks_body">Devriye Görevleri özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]\n\n[]</string>
 </resources>
