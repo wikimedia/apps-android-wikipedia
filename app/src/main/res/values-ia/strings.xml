@@ -109,7 +109,6 @@
   <string name="map_view_link_text">Vider sur un carta</string>
   <string name="other_languages_indication_text">Leger in un altere lingua</string>
   <string name="language_count_link_text">Disponibile in %d altere linguas</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Si tu publica, tu accepta le &lt;a href=\"%1$s\"&gt;conditiones de uso&lt;/a&gt; e le liberation irrevocabile de tu contributiones sub le licentia &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Si tu publica, tu accepta le &lt;a href=\"%1$s\"&gt;conditiones de uso&lt;/a&gt; e le liberation irrevocabile de tu contributiones sub le licentia &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Le modificationes essera attribuite al adresse IP de tu apparato. Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt;, tu habera plus confidentialitate.</string>
   <string name="edit_anon_warning">Le modificationes essera attribuite al adresse IP de tu apparato. Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt;, tu habera plus de confidentialitate.</string>
@@ -1465,8 +1464,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Vider contributiones del usator</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Regratiar</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Information de usator</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Periodo de uso</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Numero de modificationes</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Clauder</string>
   <string name="patroller_tasks_filters_title">Filtros</string>
   <string name="patroller_tasks_filters_reset">Reinitialisar</string>
@@ -1522,5 +1519,5 @@
   <string name="email_report_image_recommendations_subject">Reporto de problema: function Recommendationes de imagines</string>
   <string name="email_report_image_recommendations_body">Io ha incontrate un problema con le function Recommendationes de imagines:\n- [Describe le problema specific]\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
   <string name="email_report_patroller_tasks_subject">Reporto de problema: function Cargas de patruliator</string>
-  <string name="email_report_patroller_tasks_body">Io ha incontrate un problema con le function Cargas de patruliator:\n- [Describe le problema specific]\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
+  <string name="email_report_patroller_tasks_body">Io ha incontrate un problema con le function Cargas de patruliator:\n- [Describe le problema specific]\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]\n\n[]</string>
 </resources>

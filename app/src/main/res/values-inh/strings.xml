@@ -109,7 +109,6 @@
   <string name="map_view_link_text">Карта тIа хьажа</string>
   <string name="other_languages_indication_text">Кхыча меттала деша</string>
   <string name="language_count_link_text">Таржам даь йолаш я %d меттала</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Iайха даь хувцамаш дIаяздарца хьо раьза хул &lt;a href=\"%1$s\" &gt;пайда эцара бехкамашта&lt;/a&gt;, цул совгIа раьза хул хьо &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; яхача лицензех а дола юхадаккха вIаштIехьа хургдоацача кепатохарá.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Iайха даь хувцамаш дIаяздарца хьо раьза хул &lt;a href=\"%1$s\"&gt;пайда эцара бехкамашта&lt;/a&gt;, цул совгIа раьза хул хьо &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; яхача лицензех а дола юхадаккха вIаштIехьа хургдоацача кепатохарá. Хьа хувцамаш хьа устройства IP-цIайнах дIахьерча хургда. Нагахьа санна Iа &lt;a href=\"https://#login\"&gt;авторизаци йой&lt;/a&gt;, конфиденциальность лакхагIа хургья хьа.</string>
   <string name="edit_anon_warning">Ӏа даь хувцамаш хьа IP-цӀайца дувзаденна хургда (IP-цӀай гуш хургда). Нагахьа санна хьо &lt;a href=\"https://#login\"&gt;система чу чувоале&lt;/a&gt;, хье мала ва къайладахьар аттагӀа хургда.</string>

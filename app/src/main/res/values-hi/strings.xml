@@ -138,7 +138,6 @@
   <string name="map_view_link_text">नक्शे पर देखें</string>
   <string name="other_languages_indication_text">किसी दूसरी भाषा में पढ़ें</string>
   <string name="language_count_link_text">दूसरी %d भाषाओं में उपलब्ध</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">इसे सहेजते हुए आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत होंगे और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अंतर्गत अपरिवर्तनीय रूप से प्रकाशित करने को तैयार होंगे।</string>
   <string name="edit_save_action_license_anon" fuzzy="true">इसे सहेजते हुए आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत होंगे और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अंतर्गत अपरिवर्तनीय रूप से प्रकाशित करने को तैयार होंगे। संपादनों का श्रेय आपके डिवाइस के IP पते को दिया जाएगा। अगर आप &lt;a href=\"https://#login\"&gt;लॉग-इन करते&lt;/a&gt; हैं, आपके पास अधिक निजता होगी।</string>
   <string name="edit_anon_warning">संपादनों का श्रेय आपके डिवाइस के IP पते को दिया जाएगा। अगर आप &lt;a href=\"https://#login\"&gt;लॉग-इन करते&lt;/a&gt; हैं, आपके पास अधिक निजता होगी।</string>
@@ -264,7 +263,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ का प्रयोग किया गया</string>
