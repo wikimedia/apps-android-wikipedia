@@ -413,11 +413,18 @@
   <string name="menu_option_view_user_profile">Čájet geavaheaddjisiiddu</string>
   <string name="menu_option_view_user_contributions">Čájet geavaheaddji rievdadusaid</string>
   <string name="watchlist_page_deleted">Sihkkojuvvon</string>
+  <string name="watchlist_filter_user_status_header">Geavaheaddji registreren ja hárjánusdássi</string>
+  <string name="watchlist_filter_automated_contributions_header">Automatiserejuvvon rievdadusat</string>
   <string name="watchlist_filter_significance_minor">Unna rievdadusažat</string>
+  <string name="watchlist_filter_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-rievdadusat</string>
   <string name="preview_edit_minor_edit">Dát lea unna rievdadusaš</string>
   <string name="category_tab_subcategories">Vuollekategoriijat</string>
   <string name="search_namespaces">Nammagomuvuođat</string>
   <string name="shareable_reading_lists_new_indicator">*ođđa*</string>
+  <string name="patroller_tasks_filters_user_status_header">Geavaheaddji registreren ja hárjánusdássi</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Automatiserejuvvon rievdadusat</string>
   <string name="patroller_tasks_filters_significance_minor">Unna rievdadusažat</string>
+  <string name="patroller_tasks_filters_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
   <string name="data_opt_in_accept">Dohkket</string>
 </resources>
