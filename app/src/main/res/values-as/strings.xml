@@ -92,7 +92,6 @@
   <string name="map_view_link_text">এখন মানচিত্ৰত চাওক</string>
   <string name="other_languages_indication_text">আন এটা ভাষাত পঢ়ক</string>
   <string name="language_count_link_text">আন %d ভাষাত উপলব্ধ</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">প্ৰকাশ কৰি আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে।</string>
   <string name="edit_save_action_license_anon" fuzzy="true">সাঁচি থওঁতে আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে। সম্পাদনাসমূহ আপোনাৰ সঁজুলিৰ আই পি ঠিকনাৰ লগত যুক্ত কৰা হ\'ব। আপুনি &lt;a href=\"https://#login\"&gt;লগ্‌ ইন&lt;/a&gt; কৰিলে অধিক গোপনীয়তা লাভ কৰিব।</string>
   <string name="preference_title_language">ৱিকিপিডিয়াৰ ভাষাসমূহ</string>
@@ -217,7 +216,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://as.wikipedia.org/wiki/ৱিকিপিডিয়া:এটা একাউণ্ট অনুৰোধ কৰক</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">ব্যৱহৃত পুথিভঁৰাল</string>
   <string name="about_contributors_heading">অৱদানকাৰীসমূহ</string>
   <string name="about_translators_heading">অনুবাদকসকল</string>

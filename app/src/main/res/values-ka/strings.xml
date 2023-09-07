@@ -82,7 +82,6 @@
   <string name="map_view_link_text">რუკაზე ნახვა</string>
   <string name="other_languages_indication_text">სხვა ენაზე წაკითხვა</string>
   <string name="language_count_link_text">ხელმისაწვდომია %d სხვა ენაზე</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">გამოქვეყნებით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">გამოქვეყნებით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას. რედაქტირების ავტორად დაფიქსირდება თქვენი მოწყობილობის IP-მისამართი. რეკომენდებულია &lt;a href=\"https://#login\"&gt;ავტორიზაციის&lt;/a&gt; გავლა მეტი დაცულობისათვის.</string>
   <string name="preference_title_language">ვიკიპედიის ენები</string>
