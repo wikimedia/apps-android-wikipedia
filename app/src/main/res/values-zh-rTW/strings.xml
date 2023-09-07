@@ -1494,8 +1494,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">檢視使用者貢獻</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">感謝</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">使用者資訊</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">任期</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">編輯次數</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">關閉</string>
   <string name="patroller_tasks_filters_title">篩選</string>
   <string name="patroller_tasks_filters_reset">重新設定</string>
@@ -1551,5 +1549,5 @@
   <string name="email_report_image_recommendations_subject">問題報告 - 圖片推薦功能</string>
   <string name="email_report_image_recommendations_body">我遇到了圖片推薦功能的問題：\n- [描述具體問題]\n我希望看到的反應是：\n- [描述建議的解決方案]</string>
   <string name="email_report_patroller_tasks_subject">問題報告 - 巡查任務功能</string>
-  <string name="email_report_patroller_tasks_body">我遇到了巡查任務功能的問題：\n- [描述具體問題]\n我希望看到的反應是：\n- [描述建議的解決方案]</string>
+  <string name="email_report_patroller_tasks_body">我遇到了巡查任務功能的問題：\n- [描述具體問題]\n我希望看到的反應是：\n- [描述建議的解決方案]\n\n[]</string>
 </resources>
