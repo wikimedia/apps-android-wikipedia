@@ -142,7 +142,6 @@
   <string name="map_view_link_text">Zobrazit na mapě</string>
   <string name="other_languages_indication_text">Přečíst v jiném jazyce</string>
   <string name="language_count_link_text">Dostupný v %d dalších jazycích</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelným uveřejněním svých příspěvků pod licencí &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. &lt;/br&gt;Editace bude přiřazena k IP adrese vašeho zařízení.&lt;br /&gt; Po &lt;a href=\"https://#login\"&gt;přihlášení&lt;/a&gt; budete mít více soukromí.</string>
   <string name="edit_anon_warning">Editace budou přiřazeny IP adrese vašeho zařízení. Pokud se &lt;a href=\"https://#login\"&gt;přihlásíte&lt;/a&gt;, budete mít více soukromí.</string>
