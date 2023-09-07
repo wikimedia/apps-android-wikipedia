@@ -84,7 +84,7 @@
   <string name="map_view_link_text">Pogledaj na karti</string>
   <string name="other_languages_indication_text">Čitaj na drugom jeziku</string>
   <string name="language_count_link_text">Dostupan na drugim jezicima (%d)</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">Imenovanje-Dijeli pod istim uvjetima 3.0</string>
+  <string name="content_license_cc_by_sa">Imenovanje-Dijeli pod istim uvjetima 4.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete Vaše doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Objavljivanjem prihvaćate &lt;a href=\"%1$s\"&gt;Uvjete uporabe&lt;/a&gt; i neopozivo objavljujete svoje doprinose pod licencijom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Uređivanja će biti pripisana IP adresi Vašeg uređaja. &lt;a href=\"https://#login\"&gt;Prijavite&lt;/a&gt; li se, imat ćete veću privatnost.</string>
   <string name="preference_title_language">Jezici Wikipedije</string>
