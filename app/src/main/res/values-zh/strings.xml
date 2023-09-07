@@ -171,7 +171,6 @@
   <string name="map_view_link_text">在地图上查看</string>
   <string name="other_languages_indication_text">阅读其他语言</string>
   <string name="language_count_link_text">在%d种语言中可用</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
   <string name="edit_save_action_license_anon">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
   <string name="edit_anon_warning">编辑将以您设备的 IP 地址发布。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;，您将拥有更多隐私。</string>

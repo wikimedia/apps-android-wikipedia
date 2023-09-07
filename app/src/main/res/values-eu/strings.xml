@@ -87,7 +87,6 @@
   <string name="map_view_link_text">Ikusi mapan</string>
   <string name="other_languages_indication_text">Irakurri beste hizkuntza batean</string>
   <string name="language_count_link_text">Irakurgarri beste %d hizkuntzatan</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Gordetzen baduzu &lt;a href=\"%1$s\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Aurreztuz, &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; onartuko duzu, eta ezinbestez zure ekarpenak askatu beharko dituzu &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziaren babespean. Aldaketak zure gailuaren IP helbideari egotziko zaizkio. Zu &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt; ba zara, pribautasun gehiago edukiko duzu.</string>
   <string name="preference_title_language">Wikipediako hizkuntzak</string>

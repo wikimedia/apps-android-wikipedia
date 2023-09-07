@@ -149,7 +149,6 @@
   <string name="map_view_link_text">Ver no mapa</string>
   <string name="other_languages_indication_text">Ler em outro idioma</string>
   <string name="language_count_link_text">Disponível em %d outros idiomas</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ao publicar, você estará concordando com os &lt;a href=\"%1$s\"&gt;termos de uso&lt;/a&gt; e em publicar irrevogavelmente sua contribuição sob a licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço de IP do seu dispositivo. Para ter mais privacidade, &lt;a href=\"https://#login\"&gt;autentique-se&lt;/a&gt;.</string>
   <string name="edit_anon_warning">As edições serão atribuídas ao endereço IP do seu dispositivo. Se você &lt;a href=\"https://#login\"&gt;se conectar&lt;/a&gt;, terá mais privacidade.</string>

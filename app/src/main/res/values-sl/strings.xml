@@ -115,7 +115,6 @@
   <string name="map_view_link_text">Prikaži na karti</string>
   <string name="other_languages_indication_text">Preberite v drugem jeziku</string>
   <string name="language_count_link_text">Na voljo v %d drugih jezikih</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Z objavo izražate strinjanje s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljate pod licenco &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Z objavo se strinjate s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljate pod licenco &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;. Urejanja bodo pripisana IP-naslovu vaše naprave. Če se boste &lt;a href=\"https://#login\"&gt;prijavili&lt;/a&gt;, boste imeli več zasebnosti.</string>
   <string name="edit_anon_warning">Urejanja bodo pripisana IP-naslovu vaše naprave. Če se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, boste imeli več zasebnosti.</string>

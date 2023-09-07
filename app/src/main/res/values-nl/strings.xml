@@ -146,7 +146,6 @@
   <string name="map_view_link_text">Op een kaart bekijken</string>
   <string name="other_languages_indication_text">In een andere taal lezen</string>
   <string name="language_count_link_text">Beschikbaar in %d andere talen</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en geeft u onherroepelijk uw bijdragen vrij onder de licentie &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en geeft u onherroepelijk uw bijdragen vrij onder de licentie &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt; krijgt u meer privacy.</string>
   <string name="edit_anon_warning">Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt; krijgt u meer privacy.</string>

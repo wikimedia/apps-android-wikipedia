@@ -106,7 +106,6 @@
   <string name="map_view_link_text">Картыште ончалаш</string>
   <string name="other_languages_indication_text">Вес йылме дене лудаш</string>
   <string name="language_count_link_text">%d вес йылме дене кучылташ лиеш</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Шке вашталтымашет колтет гын, тый &lt;a href=\"%1$s\" &gt;кучылтмо шотышто келшык дене&lt;/a&gt;, тыгак &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензий почеш пӧртылташ лийдыме савыктымаш дене келшет.</string>
   <string name="edit_save_action_license_anon">Шке вашталтымашет колтет гын, тый &lt;a href=\"%1$s\" &gt;кучылтмо шотышто келшык дене&lt;/a&gt;, тыгак &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензий почеш пӧртылташ лийдыме савыктымаш дене келшет. Тӧрлымаш-влак арверетын IP-адресше дене кылдыме лийыт. Тый &lt;a href=\"https://#login\"&gt;системылан шкем палдарет&lt;/a&gt; гын, шолыплык шотышто кугурак кӱкшытым налын кертат.</string>
   <string name="edit_anon_warning">Тӧрлымаш-влак арверетын IP-адресше возен шындалтыт. Тый &lt;a href=\"https://#login\"&gt;системыш пурет&lt;/a&gt; гын, тыйын шукырак шолыплык лиеш.</string>
@@ -216,7 +215,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mhr</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кучылтмо библиотеке-влак</string>

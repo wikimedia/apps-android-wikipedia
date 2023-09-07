@@ -177,7 +177,6 @@
   <string name="map_view_link_text">Посмотреть на карте</string>
   <string name="other_languages_indication_text">Читать на другом языке</string>
   <string name="language_count_link_text">Доступно на %d других языках</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Отправляя свои изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Публикуя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Правки будут привязаны к IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
   <string name="edit_anon_warning">Правки будут подписаны IP-адресом вашего устройства. У вас будет больше приватности, если вы &lt;a href=\"https://#login\"&gt;войдёте в систему&lt;/a&gt;.</string>
