@@ -113,7 +113,6 @@
   <string name="map_view_link_text">Xaritada ko‘rmoq</string>
   <string name="other_languages_indication_text">Boshqa tilda oʻqish</string>
   <string name="language_count_link_text">Maqola %d ta tilda mavjud</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt; Foydalanish shartlari&lt;/a&gt; hamda o‘z hissangizni &lt;a href=\"%2$s\"&gt; CC BY-SA 4.0&lt;/a&gt; litsenziyasi ostida qaytarib berilmaslikka rozilik bildirasiz.</string>
   <string name="edit_save_action_license_anon">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt;Foydalanish shartlari&lt;/a&gt;ga va oʻz hissangizni &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; litsenziyasi ostida qaytarib berilmaslikka rozilik bildirasiz. Oʻzgarishlar sizning qurilmangiz IP-manziliga tegishli boʻladi. Agar &lt;a href=\"https://#login\"&gt;tizimga kirsangiz&lt;/a&gt;, koʻproq shaxsiylikka ega boʻlasiz.</string>
   <string name="edit_anon_warning">Tahrirlar qurilmangiz IP manziliga tegishli boʻladi. Agar Siz tizimga &lt;a href=\"https://#login\"&gt;kirsangiz&lt;/a&gt;, maxfiylikka ega boʻlasiz.</string>
@@ -242,7 +241,6 @@
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uz</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Ilovada foydalanilgan tashqi manbalar:</string>
@@ -1474,5 +1472,5 @@
   <string name="email_report_image_recommendations_subject">Muammo hisoboti - Rasm tavsiyalari xususiyati</string>
   <string name="email_report_image_recommendations_body">Tasvir tavsiyalari funksiyasi bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]</string>
   <string name="email_report_patroller_tasks_subject">Muammo hisoboti - Kuzatuvchi vazifalari xususiyati</string>
-  <string name="email_report_patroller_tasks_body">Men Kuzatuvchi vazifalari xususiyati bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]</string>
+  <string name="email_report_patroller_tasks_body">Men Kuzatuvchi vazifalari xususiyati bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]\n\n[]</string>
 </resources>

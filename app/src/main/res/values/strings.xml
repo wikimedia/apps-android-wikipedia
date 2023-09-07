@@ -1562,7 +1562,7 @@
     <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">View user contributions</string>
     <string name="patroller_tasks_edits_list_card_overflow_thank">Thank</string>
     <string name="patroller_tasks_edits_list_user_information_dialog_title">User information</string>
-    <string name="patroller_tasks_edits_list_user_information_dialog_tenure_text"><![CDATA[<b>Tenure: </b> %s]]></string>
+    <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text"><![CDATA[<b>Joined Wikipedia on: </b> %s]]></string>
     <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text"><![CDATA[<b>Edit count: </b> %s]]></string>
     <string name="patroller_tasks_edits_list_user_information_dialog_close">Close</string>
     <string name="patroller_tasks_filters_title">Filters</string>
@@ -1618,24 +1618,8 @@
     <string name="data_opt_in_reject">Reject</string>
     <string name="page_issues_title">Page issues</string>
     <string name="generic_release_notes">Minor bug fixes and enhancements</string>
-    <string name="email_report_image_recommendations_subject">Issue report - Image Recommendations feature</string>
-    <string name="email_report_image_recommendations_body">I have encountered a problem with the Image Recommendations feature:\n- [Describe specific problem]\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
-    <string name="email_report_patroller_tasks_subject">Issue report - Patroller Tasks feature</string>
-    <string name="email_report_patroller_tasks_body">I have encountered a problem with the Patroller Tasks Feature:\n- [Describe specific problem]\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
-
-    <plurals name="date_diff_days">
-        <item quantity="one">%s day</item>
-        <item quantity="other">%s days</item>
-    </plurals>
-
-    <plurals name="date_diff_months">
-        <item quantity="one">%s month</item>
-        <item quantity="other">%s months</item>
-    </plurals>
-
-    <plurals name="date_diff_years">
-        <item quantity="one">%s year</item>
-        <item quantity="other">%s years</item>
-    </plurals>
-
+    <string name="email_report_image_recommendations_subject">Issue Report - Image Recommendations feature</string>
+    <string name="email_report_image_recommendations_body">I have encountered a problem with the Image Recommendations feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+    <string name="email_report_patroller_tasks_subject">Issue Report- Edit Patrol Feature</string>
+    <string name="email_report_patroller_tasks_body">I have encountered a problem with the Edit Patrol Feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]\n\n[Screenshots or Links]</string>
 </resources>
