@@ -1458,8 +1458,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Deleng sumbangsih pemaké</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Makasi</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Inpormasi pemaké</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Jabatan</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Jumblah permakan</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Tutup</string>
   <string name="patroller_tasks_filters_title">Saringan</string>
   <string name="patroller_tasks_filters_reset">Setèl ulang</string>
@@ -1515,5 +1513,5 @@
   <string name="email_report_image_recommendations_subject">Laporan mas\'alah - Keboléan Saran Gambar</string>
   <string name="email_report_image_recommendations_body">Gua kepapagan ama masalah keboléan Saran Gambar:\n- [Jabarin masalah nyang dantanya]\nAbet nyang gua pèngèn liat ièlah:\n- [Jabarin ajuan pemecahan masalah]</string>
   <string name="email_report_patroller_tasks_subject">Laporan mas\'alah - Keboléan Tugas Pengronda</string>
-  <string name="email_report_patroller_tasks_body">Gua kepapagan ama masalah keboléan Tugas Pengronda:\n- [Jabarin masalah nyang dantanya]\nAbet nyang gua pèngèn liat ièlah:\n- [Jabarin ajuan pemecahan masalah]</string>
+  <string name="email_report_patroller_tasks_body">Gua kepapagan ama masalah keboléan Tugas Pengronda:\n- [Jabarin masalah nyang dantanya]\nAbet nyang gua pèngèn liat ièlah:\n- [Jabarin ajuan pemecahan masalah]\n\n[]</string>
 </resources>

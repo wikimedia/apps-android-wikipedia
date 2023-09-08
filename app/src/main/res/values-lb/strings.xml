@@ -1140,7 +1140,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Benotzerinformatiounen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Benotzerkontributioune weisen</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Benotzerinformatiounen</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Zuel vun den Ännerungen</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Zoumaachen</string>
   <string name="patroller_tasks_filters_title">Filteren</string>
   <string name="patroller_tasks_filters_reset">Zrécksetzen</string>
