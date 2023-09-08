@@ -279,6 +279,11 @@
             android:name=".suggestededits.SuggestedEditsRecentEditsActivity"/>
 
         <activity
+            android:name=".suggestededits.SuggestedEditsRecentEditsFilterActivity"
+            android:label="@string/patroller_tasks_filters_title"
+            android:theme="@style/AppTheme.ActionBar"/>
+
+        <activity
             android:name=".commons.FilePageActivity"
             android:label=""
             android:theme="@style/AppTheme.ActionBar"/>
