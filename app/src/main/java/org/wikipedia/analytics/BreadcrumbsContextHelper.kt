@@ -1,5 +1,6 @@
 package org.wikipedia.analytics
 
+import android.graphics.Point
 import android.view.*
 import android.widget.TextView
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
@@ -29,7 +30,8 @@ object BreadcrumbsContextHelper {
                 val dy = abs(startTouchY - event.y)
 
                 if (dx <= touchSlopPx && dy <= touchSlopPx) {
-                    ViewUtil.findClickableViewAtPoint(window.decorView, startTouchX.toInt(), startTouchY.toInt())?.let {
+                    val point = Point(startTouchX.toInt(), startTouchY.toInt())
+                    ViewUtil.findClickableViewAtPoint(window.decorView, point)?.let {
                         if (it is TextView && it.movementMethod is LinkMovementMethodExt) {
                             // If they clicked a link in a TextView, it will be handled by the
                             // MovementMethod instead of here.
