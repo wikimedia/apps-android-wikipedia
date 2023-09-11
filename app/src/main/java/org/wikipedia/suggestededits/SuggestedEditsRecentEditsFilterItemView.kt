@@ -45,7 +45,6 @@ class SuggestedEditsRecentEditsFilterItemView constructor(context: Context, attr
         this.filter = filter
         binding.recentEditsFilterTitle.text = getTitleFor(filter)
         binding.recentEditsFilterCheck.isVisible = filter.isEnabled()
-        binding.recentEditsFilterCheck.setImageResource(if (filter.isCheckBox) R.drawable.ic_check_borderless else R.drawable.ic_baseline_radio_button_checked_24)
 
         getTitleCodeFor(filter)?.let {
             binding.recentEditsFilterLanguageCode.text = it

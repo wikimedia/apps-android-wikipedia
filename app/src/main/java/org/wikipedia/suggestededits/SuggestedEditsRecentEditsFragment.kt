@@ -333,7 +333,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             }
 
             binding.filterByButton.setOnClickListener {
-                // TODO: implement this
+                launchFilterActivity.launch(SuggestedEditsRecentEditsFilterActivity.newIntent(requireContext()))
             }
 
             FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
@@ -358,7 +358,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
     private inner class EmptyMessagesViewHolder constructor(val binding: ViewEditHistoryEmptyMessagesBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.emptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
-                // TODO: implement this
+                launchFilterActivity.launch(SuggestedEditsRecentEditsFilterActivity.newIntent(requireContext()))
             }
         }
 
