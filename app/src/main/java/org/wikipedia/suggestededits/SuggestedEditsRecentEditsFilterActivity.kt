@@ -92,11 +92,11 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         }
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_contribution_quality_header))
         SuggestedEditsRecentEditsFilterTypes.CONTRIBUTION_QUALITY_GROUP.forEach {
-            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id))
+            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, true))
         }
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_user_intent_header))
         SuggestedEditsRecentEditsFilterTypes.USER_INTENT_GROUP.forEach {
-            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id))
+            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, true))
         }
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_significance_header))
         SuggestedEditsRecentEditsFilterTypes.MINOR_EDITS_GROUP.forEach {
@@ -176,10 +176,15 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
                 if (it.type == FILTER_TYPE_WIKI) {
                     Prefs.recentEditsWikiCode = it.filterCode
                 } else if (filter.type == FILTER_TYPE_CATEGORY) {
-                    val group = SuggestedEditsRecentEditsFilterTypes.findGroup(filter.filterCode)
-                    includedTypeCodes.removeAll(group.map { type -> type.id }.toSet())
-                    // Find the group belongs to it and remove others.
-                    includedTypeCodes.add(filter.filterCode)
+                    if (filter.isCheckBox) {
+                        if (includedTypeCodes.contains(filter.filterCode)) includedTypeCodes.remove(filter.filterCode)
+                        else includedTypeCodes.add(filter.filterCode)
+                    } else {
+                        val group = SuggestedEditsRecentEditsFilterTypes.findGroup(filter.filterCode)
+                        includedTypeCodes.removeAll(group.map { type -> type.id }.toSet())
+                        // Find the group belongs to it and remove others.
+                        includedTypeCodes.add(filter.filterCode)
+                    }
                 }
                 Prefs.recentEditsIncludedTypeCodes = includedTypeCodes
                 notifyItemRangeChanged(0, itemCount)
@@ -188,7 +193,7 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         }
     }
 
-    inner class Filter constructor(val type: Int, val filterCode: String) {
+    inner class Filter constructor(val type: Int, val filterCode: String, val isCheckBox: Boolean = false) {
         fun isEnabled(): Boolean {
             return if (type == FILTER_TYPE_WIKI) {
                 Prefs.recentEditsWikiCode == filterCode

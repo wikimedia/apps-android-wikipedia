@@ -16,7 +16,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemSuggestedEditsRecentEditsFilterBinding
 import org.wikipedia.search.SearchFragment
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ViewUtil
 
@@ -31,7 +30,7 @@ class SuggestedEditsRecentEditsFilterItemView constructor(context: Context, attr
     var callback: Callback? = null
 
     init {
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(48f))
+        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackground))
@@ -43,8 +42,27 @@ class SuggestedEditsRecentEditsFilterItemView constructor(context: Context, attr
 
     fun setContents(filter: SuggestedEditsRecentEditsFilterActivity.Filter) {
         this.filter = filter
-        binding.recentEditsFilterTitle.text = getTitleFor(filter)
-        binding.recentEditsFilterCheck.isVisible = filter.isEnabled()
+
+        val titleText: String?
+        var showDescription = false
+        if (filter.type == SuggestedEditsRecentEditsFilterActivity.FILTER_TYPE_CATEGORY) {
+            val filterType = SuggestedEditsRecentEditsFilterTypes.find(filter.filterCode)
+            titleText = context.getString(filterType.title)
+            filterType.description?.let {
+                binding.recentEditsFilterDesc.text = context.getString(it)
+                showDescription = true
+            }
+        } else {
+            titleText = when (filter.filterCode) {
+                context.getString(R.string.notifications_all_wikis_text) -> filter.filterCode
+                else -> WikipediaApp.instance.languageState.getAppLanguageCanonicalName(filter.filterCode).orEmpty()
+            }
+        }
+
+        binding.recentEditsFilterTitle.text = titleText
+        binding.recentEditsFilterCheck.visibility = if (filter.isEnabled()) View.VISIBLE else View.INVISIBLE
+        binding.recentEditsFilterCheck.setImageResource(if (filter.isCheckBox) R.drawable.ic_check_borderless else R.drawable.ic_baseline_radio_button_checked_24)
+        binding.recentEditsFilterDesc.isVisible = showDescription
 
         getTitleCodeFor(filter)?.let {
             binding.recentEditsFilterLanguageCode.text = it
@@ -74,15 +92,5 @@ class SuggestedEditsRecentEditsFilterItemView constructor(context: Context, attr
     private fun getTitleCodeFor(filter: SuggestedEditsRecentEditsFilterActivity.Filter): String? {
         return if (filter.filterCode != context.getString(R.string.patroller_tasks_filters_all_text) && filter.type == SuggestedEditsRecentEditsFilterActivity.FILTER_TYPE_WIKI) filter.filterCode
         else null
-    }
-
-    private fun getTitleFor(filter: SuggestedEditsRecentEditsFilterActivity.Filter): String {
-        if (filter.type == SuggestedEditsRecentEditsFilterActivity.FILTER_TYPE_CATEGORY) {
-            return context.getString(SuggestedEditsRecentEditsFilterTypes.find(filter.filterCode).title)
-        }
-        return when (filter.filterCode) {
-            context.getString(R.string.notifications_all_wikis_text) -> filter.filterCode
-            else -> WikipediaApp.instance.languageState.getAppLanguageCanonicalName(filter.filterCode).orEmpty()
-        }
     }
 }
