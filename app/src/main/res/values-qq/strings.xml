@@ -1496,7 +1496,7 @@
   <string name="patroller_tasks_edits_list_card_overflow_thank">Menu item text for the item overflow menu to thank the user.</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Title of the user information dialog.</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">Text of the user information dialog that shows the date of registration. %s will be replaced by the date of registration.</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">Text of the user information dialog that shows the user edit count. %s will be replaced by the edit count.</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">Text of the user information dialog that shows the user edit count. %s will be replaced by the edit count. Functionally similar to {{msg-mw|Prefs-edits}}.</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Button label of closing the user information dialog.</string>
   <string name="patroller_tasks_filters_title">Title of the list of edits filter screen.</string>
   <string name="patroller_tasks_filters_reset">Button label of resetting the filters.</string>
