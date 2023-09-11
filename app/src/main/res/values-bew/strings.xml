@@ -344,7 +344,7 @@
   <string name="tab_item_closed">%s ketutup.</string>
   <string name="all_tab_items_closed">Semua lembaran ketutup.</string>
   <string name="tool_tip_bookmark_icon_title">Tambahin ke daptar bacaan</string>
-  <string name="tool_tip_bookmark_icon_text">Teken lambang tenger kitap bakal nyimpen makalah ke daptar bacaan.</string>
+  <string name="tool_tip_bookmark_icon_text">Teken lambang tenger kitab bakal nyimpen makalah ke daptar bacaan.</string>
   <string name="page_view_in_browser">Deleng halaman di pengorag</string>
   <string name="tool_tip_toc_title">Aksès lekas daptar isi</string>
   <string name="tool_tip_toc_text">Lu sekarang bisa mingsèrin ke kèbot bakal ngebuka daptar isi, èn juga\' teken-tarik di ni tombol pengglincir biar lekas loncat ke bagèan laèn deri makalah.</string>
@@ -692,7 +692,7 @@
   <string name="preference_category_notification_types">Jenis ma\'lumat dalem-aplikasi</string>
   <string name="preference_title_notification_system">Sistim</string>
   <string name="preference_summary_notification_system">Pesen deri sistim</string>
-  <string name="preference_title_notification_milestone">Pendapetan</string>
+  <string name="preference_title_notification_milestone">Tapal jejek</string>
   <string name="preference_summary_notification_milestone">Jumblah permakan ketentu kesampéan</string>
   <string name="preference_title_notification_thanks">Makasi</string>
   <string name="preference_summary_notification_thanks">Ada orang makasi ama lu bakal permakan</string>
@@ -1161,7 +1161,7 @@
   <string name="wikitext_code">Kode</string>
   <string name="wikitext_link">Sènggètan</string>
   <string name="wikitext_heading_n">Anakkop %d</string>
-  <string name="wikitext_formatting">Pemormatan</string>
+  <string name="wikitext_formatting">Pembentukan</string>
   <string name="wikitext_headings">Kop</string>
   <string name="wikitext_insert_media">Selesepin média</string>
   <string name="wikitext_bulleted_list">Daptar poinan</string>
@@ -1190,7 +1190,7 @@
   <string name="insert_media_advanced_settings_image_type_frameless">Sonderpigura</string>
   <string name="insert_media_advanced_settings_image_type_frame">Lis</string>
   <string name="insert_media_advanced_settings_image_type_basic">Dasar</string>
-  <string name="insert_media_advanced_settings_image_type_tip">Lu bisa setèl gimana butir média bakal nongol di halaman. Ni kudunya sih paké pormat longokan biar ajeg ama laèn-laèn halaman kebanyakan.</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Lu bisa setèl gimana butir média bakal nongol di halaman. Ni kudunya sih paké bentukan longokan biar ajeg ama laèn-laèn halaman kebanyakan.</string>
   <string name="insert_media_advanced_settings_image_size">Ukuran gambar</string>
   <string name="insert_media_advanced_settings_image_size_default">Bawaan</string>
   <string name="insert_media_advanced_settings_image_size_custom">Cèngliin</string>
@@ -1510,8 +1510,8 @@
   <string name="data_opt_in_reject">Tolak</string>
   <string name="page_issues_title">Masalah halaman</string>
   <string name="generic_release_notes">Perbaèkan bangsat èn peningkatan kecit</string>
-  <string name="email_report_image_recommendations_subject">Laporan mas\'alah - Keboléan Saran Gambar</string>
-  <string name="email_report_image_recommendations_body">Gua kepapagan ama masalah keboléan Saran Gambar:\n- [Jabarin masalah nyang dantanya]\nAbet nyang gua pèngèn liat ièlah:\n- [Jabarin ajuan pemecahan masalah]</string>
-  <string name="email_report_patroller_tasks_subject">Laporan mas\'alah - Keboléan Tugas Pengronda</string>
-  <string name="email_report_patroller_tasks_body">Gua kepapagan ama masalah keboléan Tugas Pengronda:\n- [Jabarin masalah nyang dantanya]\nAbet nyang gua pèngèn liat ièlah:\n- [Jabarin ajuan pemecahan masalah]\n\n[]</string>
+  <string name="email_report_image_recommendations_subject" fuzzy="true">Laporan mas\'alah - Keboléan Saran Gambar</string>
+  <string name="email_report_image_recommendations_body" fuzzy="true">Gua kepapagan ama masalah keboléan Saran Gambar:\n- [Jabarin masalah nyang dantanya]\nAbet nyang gua pèngèn liat ièlah:\n- [Jabarin ajuan pemecahan masalah]</string>
+  <string name="email_report_patroller_tasks_subject" fuzzy="true">Laporan mas\'alah - Keboléan Tugas Pengronda</string>
+  <string name="email_report_patroller_tasks_body" fuzzy="true">Gua kepapagan ama masalah keboléan Tugas Pengronda:\n- [Jabarin masalah nyang dantanya]\nAbet nyang gua pèngèn liat ièlah:\n- [Jabarin ajuan pemecahan masalah]\n\n[]</string>
 </resources>

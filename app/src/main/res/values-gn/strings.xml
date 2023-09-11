@@ -226,6 +226,7 @@
   <string name="dialog_close_description">Emboty</string>
   <string name="preference_title_show_images">Ehecha ta\'angakuéra</string>
   <string name="gallery_menu_share">Eikuaauka</string>
+  <string name="gallery_uploader_unknown">Ndojekuaái ohupívape</string>
   <string name="menu_close_all_tabs">Embotypa tendaykekuéra</string>
   <string name="close_all_tabs_confirm">Añetetépa rembotyseha tendaykekuéra?</string>
   <string name="button_close_tab">Emboty tendayke</string>
@@ -355,6 +356,7 @@
   <string name="wikitext_large">Embotuicha</string>
   <string name="wikitext_small">Emomichĩ</string>
   <string name="wikitext_link">Joajuha</string>
+  <string name="insert_media_settings_uploaded_image">Ta\'anga ojehupímava</string>
   <string name="insert_media_advanced_settings_image_position_right">Akatúa</string>
   <string name="insert_media_advanced_settings_image_position_left">Asu</string>
   <string name="insert_media_advanced_settings_image_position_center">Mbyte</string>
