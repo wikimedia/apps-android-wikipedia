@@ -111,10 +111,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun getAlarmPendingIntent(context: Context): PendingIntent {
             val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             intent.action = ACTION_POLL
-            return PendingIntentCompat.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT, false)
+            return PendingIntentCompat.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT, false)!!
         }
 
-        fun getCancelNotificationPendingIntent(context: Context, id: Long, type: String?): PendingIntent {
+        fun getCancelNotificationPendingIntent(context: Context, id: Long, type: String?): PendingIntent? {
             val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
                     .setAction(ACTION_CANCEL)
                     .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)
