@@ -14,7 +14,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.databinding.ItemWatchlistFilterBinding
+import org.wikipedia.databinding.ItemRecentEditsFilterBinding
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -26,7 +26,7 @@ class SuggestedEditsRecentEditsFilterItemView constructor(context: Context, attr
         fun onCheckedChanged(filter: SuggestedEditsRecentEditsFilterActivity.Filter?)
     }
 
-    private var binding = ItemWatchlistFilterBinding.inflate(LayoutInflater.from(context), this)
+    private var binding = ItemRecentEditsFilterBinding.inflate(LayoutInflater.from(context), this)
     private var filter: SuggestedEditsRecentEditsFilterActivity.Filter? = null
     var callback: Callback? = null
 
@@ -43,43 +43,43 @@ class SuggestedEditsRecentEditsFilterItemView constructor(context: Context, attr
 
     fun setContents(filter: SuggestedEditsRecentEditsFilterActivity.Filter) {
         this.filter = filter
-        binding.watchlistFilterTitle.text = getTitleFor(filter)
-        binding.watchlistFilterCheck.isVisible = filter.isEnabled()
-        binding.watchlistFilterCheck.setImageResource(if (filter.isCheckBox) R.drawable.ic_check_borderless else R.drawable.ic_baseline_radio_button_checked_24)
+        binding.recentEditsFilterTitle.text = getTitleFor(filter)
+        binding.recentEditsFilterCheck.isVisible = filter.isEnabled()
+        binding.recentEditsFilterCheck.setImageResource(if (filter.isCheckBox) R.drawable.ic_check_borderless else R.drawable.ic_baseline_radio_button_checked_24)
 
         getTitleCodeFor(filter)?.let {
-            binding.watchlistFilterLanguageCode.text = it
-            binding.watchlistFilterLanguageCode.visibility = View.VISIBLE
-            ViewUtil.formatLangButton(binding.watchlistFilterLanguageCode, it,
+            binding.recentEditsFilterLanguageCode.text = it
+            binding.recentEditsFilterLanguageCode.visibility = View.VISIBLE
+            ViewUtil.formatLangButton(binding.recentEditsFilterLanguageCode, it,
                 SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         } ?: run {
-            binding.watchlistFilterLanguageCode.visibility = View.GONE
+            binding.recentEditsFilterLanguageCode.visibility = View.GONE
         }
 
-        binding.watchlistFilterWikiLogo.visibility = View.GONE
+        binding.recentEditsFilterWikiLogo.visibility = View.GONE
     }
 
     fun setSingleLabel(text: String) {
         val accentColor = ResourceUtil.getThemedColorStateList(context, R.attr.progressive_color)
-        binding.watchlistFilterLanguageCode.visibility = View.GONE
-        binding.watchlistFilterWikiLogo.visibility = View.VISIBLE
-        ImageViewCompat.setImageTintList(binding.watchlistFilterWikiLogo, accentColor)
-        binding.watchlistFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_white_24dp)
-        binding.watchlistFilterCheck.visibility = View.GONE
-        binding.watchlistFilterTitle.setTextColor(accentColor)
-        binding.watchlistFilterTitle.text = text
-        binding.watchlistFilterTitle.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-        binding.watchlistFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
+        binding.recentEditsFilterLanguageCode.visibility = View.GONE
+        binding.recentEditsFilterWikiLogo.visibility = View.VISIBLE
+        ImageViewCompat.setImageTintList(binding.recentEditsFilterWikiLogo, accentColor)
+        binding.recentEditsFilterWikiLogo.setImageResource(R.drawable.ic_mode_edit_white_24dp)
+        binding.recentEditsFilterCheck.visibility = View.GONE
+        binding.recentEditsFilterTitle.setTextColor(accentColor)
+        binding.recentEditsFilterTitle.text = text
+        binding.recentEditsFilterTitle.typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+        binding.recentEditsFilterTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
     }
 
     private fun getTitleCodeFor(filter: SuggestedEditsRecentEditsFilterActivity.Filter): String? {
-        return if (filter.filterCode != context.getString(R.string.watchlist_filter_all_text) && filter.type == SuggestedEditsRecentEditsFilterActivity.FILTER_TYPE_WIKI) filter.filterCode
+        return if (filter.filterCode != context.getString(R.string.patroller_tasks_filters_all_text) && filter.type == SuggestedEditsRecentEditsFilterActivity.FILTER_TYPE_WIKI) filter.filterCode
         else null
     }
 
     private fun getTitleFor(filter: SuggestedEditsRecentEditsFilterActivity.Filter): String {
         if (filter.type == SuggestedEditsRecentEditsFilterActivity.FILTER_TYPE_CATEGORY) {
-            return context.getString(WatchlistFilterTypes.find(filter.filterCode).title)
+            return context.getString(SuggestedEditsRecentEditsFilterTypes.find(filter.filterCode).title)
         }
         return when (filter.filterCode) {
             context.getString(R.string.notifications_all_wikis_text) -> filter.filterCode
