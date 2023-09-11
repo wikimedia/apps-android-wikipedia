@@ -1,8 +1,10 @@
 package org.wikipedia.page
 
 import android.net.Uri
+import android.text.Selection
 import android.text.Spannable
 import android.text.method.LinkMovementMethod
+import android.text.method.Touch
 import android.text.style.URLSpan
 import android.view.MotionEvent
 import android.widget.TextView
@@ -50,6 +52,16 @@ class LinkMovementMethodExt : LinkMovementMethod {
             val y = event.y.toInt() - widget.totalPaddingTop + widget.scrollY
             val layout = widget.layout
             val line = layout.getLineForVertical(y)
+
+            // Avoid links being activated by touches outside the line bounds.
+            // Implementation taken from LinkMovementMethodCompat
+            if (y !in 0..layout.height ||
+                x.toFloat() !in layout.getLineLeft(line)..layout.getLineRight(line)
+            ) {
+                Selection.removeSelection(buffer)
+                return Touch.onTouchEvent(widget, buffer, event)
+            }
+
             val off = layout.getOffsetForHorizontal(line, x.toFloat())
             val links = buffer.getSpans<URLSpan>(off, off)
             if (links.isNotEmpty()) {
@@ -64,17 +76,12 @@ class LinkMovementMethodExt : LinkMovementMethod {
 
                 BreadCrumbLogEvent.logClick(widget.context, widget)
 
-                handler?.run {
-                    onUrlClick(url)
-                }
+                handler?.onUrlClick(url)
 
-                handlerWithText?.run {
-                    onUrlClick(url, UriUtil.getTitleFromUrl(url), linkText)
-                }
+                handlerWithText?.onUrlClick(url, UriUtil.getTitleFromUrl(url), linkText)
 
-                handlerWithTextAndCoords?.run {
-                    onUrlClick(url, UriUtil.getTitleFromUrl(url), linkText, event.rawX.toInt(), event.rawY.toInt())
-                }
+                handlerWithTextAndCoords?.onUrlClick(url, UriUtil.getTitleFromUrl(url), linkText,
+                    event.rawX.toInt(), event.rawY.toInt())
 
                 return true
             }
