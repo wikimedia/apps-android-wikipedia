@@ -1292,6 +1292,8 @@
   <string name="talk_templates_new_message_compose_hint">Compune mesaj</string>
   <string name="talk_templates_new_message_dialog_cancel">Anulare</string>
   <string name="talk_templates_edit_message_dialog_title">Editați mesajul</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cont de la:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Număr de editări:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_filters_reset">Resetați</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Contribuții automate</string>
@@ -1301,4 +1303,8 @@
   <string name="patroller_tasks_patrol_edit_undo_success">Reveniți complet</string>
   <string name="data_opt_in_accept">Accept</string>
   <string name="data_opt_in_reject">Refuz</string>
+  <string name="email_report_image_recommendations_subject">Raport de problemă - Funcția Recomandări de imagini</string>
+  <string name="email_report_image_recommendations_body">Am întâmpinat o problemă cu funcția Recomandări imagini:\n- [Descrieți problema specifică]\n\nComportamentul pe care aș dori să-l văd este:\n- [Descrieți soluția propusă]</string>
+  <string name="email_report_patroller_tasks_subject">Raport de problemă - Editați funcția de patrulare</string>
+  <string name="email_report_patroller_tasks_body">Am întâmpinat o problemă cu funcția Edit Patrol:\n- [Descrieți problema specifică]\n\nComportamentul pe care aș dori să-l văd este:\n- [Descrieți soluția propusă]\n\n [Capturi de ecran sau linkuri]</string>
 </resources>

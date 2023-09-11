@@ -427,6 +427,7 @@
   <string name="error_message_generic">Došlo k chybě</string>
   <string name="view_link_preview_error_button_dismiss">Skrýt</string>
   <string name="error_page_does_not_exist">Tato stránka neexistuje</string>
+  <string name="error_user_page_does_not_exist">Na Wikipedii není &lt;a href=\"%1$s\"&gt;uživatelská stránka&lt;/a&gt; přesně s tímto jménem. Obecně by tato stránka měla být vytvořená a upravovaná uživatelem &lt;b&gt;%2$s&lt;/b&gt;. Jste-li na pochybách, ověřte si prosím, jestli uživatel \"%3$s\" existuje.</string>
   <string name="view_wiki_error_message_offline">Nejste připojeni k internetu.</string>
   <string name="view_wiki_error_message_timeout">Nelze se připojit k Wikipedii. Zkontrolujte vaše připojení k internetu, nebo to zkuste znovu později</string>
   <string name="reference_title">Reference %s</string>
@@ -780,6 +781,7 @@
   <string name="notifications_type_filter_header">Filtr typu</string>
   <string name="notifications_all_wikis_text">Vše \"wiki\"</string>
   <string name="notifications_all_types_text">Všechny „typy“</string>
+  <string name="notifications_menu_user_talk_page">Diskusní stránka uživatele %s</string>
   <string name="view_because_you_read_card_title">Protože jste četli</string>
   <string name="view_random_card_title">Náhodný článek</string>
   <string name="view_random_article_card_title">Náhodný článek</string>
@@ -1272,6 +1274,7 @@
   <string name="watchlist_filter_significance_minor">Malé editace</string>
   <string name="watchlist_filter_significance_edits">Nemalé editace</string>
   <string name="watchlist_filter_latest_revisions_header">Aktuální revize</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Aktuální verze</string>
   <string name="watchlist_filter_latest_revisions_not_latest_revision">Aktuální revize ne</string>
   <string name="watchlist_filter_type_of_change_header">Typ změny</string>
   <string name="watchlist_filter_type_of_change_page_edits">Editace stránek</string>
@@ -1303,5 +1306,6 @@
   <string name="user_contrib_filter_ns_header">Filtr jmenného prostoru</string>
   <string name="namespace_article">Článek</string>
   <string name="user_contrib_current">aktuální</string>
+  <string name="user_contrib_menu_label">Příspěvky</string>
   <string name="user_contrib_filter_activity_title">Filtrovat příspěvky</string>
 </resources>

@@ -1625,8 +1625,8 @@
   <string name="data_opt_in_reject">Відхилити</string>
   <string name="page_issues_title">Проблеми сторінки</string>
   <string name="generic_release_notes">Незначні виправлення помилок і вдосконалення</string>
-  <string name="email_report_image_recommendations_subject">Звіт про проблему – функція рекомендацій зображень</string>
-  <string name="email_report_image_recommendations_body">У мене виникла проблема з функцією рекомендацій зображень:\n- [Опишіть конкретну проблему]\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
-  <string name="email_report_patroller_tasks_subject">Звіт про проблему – функція завдань патрулювання</string>
-  <string name="email_report_patroller_tasks_body">У мене виникла проблема з функцією завдань патрулювання:\n- [Опишіть конкретну проблему]\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]\n\n[]</string>
+  <string name="email_report_image_recommendations_subject" fuzzy="true">Звіт про проблему – функція рекомендацій зображень</string>
+  <string name="email_report_image_recommendations_body" fuzzy="true">У мене виникла проблема з функцією рекомендацій зображень:\n- [Опишіть конкретну проблему]\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
+  <string name="email_report_patroller_tasks_subject" fuzzy="true">Звіт про проблему – функція завдань патрулювання</string>
+  <string name="email_report_patroller_tasks_body" fuzzy="true">У мене виникла проблема з функцією завдань патрулювання:\n- [Опишіть конкретну проблему]\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]\n\n[]</string>
 </resources>
