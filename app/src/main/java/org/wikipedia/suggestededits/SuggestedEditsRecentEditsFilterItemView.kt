@@ -14,7 +14,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
-import org.wikipedia.databinding.ItemRecentEditsFilterBinding
+import org.wikipedia.databinding.ItemSuggestedEditsRecentEditsFilterBinding
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -26,7 +26,7 @@ class SuggestedEditsRecentEditsFilterItemView constructor(context: Context, attr
         fun onCheckedChanged(filter: SuggestedEditsRecentEditsFilterActivity.Filter?)
     }
 
-    private var binding = ItemRecentEditsFilterBinding.inflate(LayoutInflater.from(context), this)
+    private var binding = ItemSuggestedEditsRecentEditsFilterBinding.inflate(LayoutInflater.from(context), this)
     private var filter: SuggestedEditsRecentEditsFilterActivity.Filter? = null
     var callback: Callback? = null
 

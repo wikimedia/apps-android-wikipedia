@@ -15,14 +15,14 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.databinding.ActivityRecentEditsFiltersBinding
+import org.wikipedia.databinding.ActivitySuggestedEditsRecentEditsFiltersBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.views.DefaultViewHolder
 
 class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
 
-    private lateinit var binding: ActivityRecentEditsFiltersBinding
+    private lateinit var binding: ActivitySuggestedEditsRecentEditsFiltersBinding
 
     private val languageChooserLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         setUpRecyclerView()
@@ -30,7 +30,7 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRecentEditsFiltersBinding.inflate(layoutInflater)
+        binding = ActivitySuggestedEditsRecentEditsFiltersBinding.inflate(layoutInflater)
         setResult(RESULT_OK)
         setUpRecyclerView()
         setContentView(binding.root)
