@@ -1507,6 +1507,8 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Kullanıcı katkılarını görüntüle</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Teşekkür et</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Kullanıcı bilgisi</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Hesap tarihi: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Düzenleme sayısı: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Kapat</string>
   <string name="patroller_tasks_filters_title">Süzgeçler</string>
   <string name="patroller_tasks_filters_reset">Sıfırla</string>
@@ -1559,8 +1561,8 @@
   <string name="data_opt_in_reject">Reddet</string>
   <string name="page_issues_title">Sayfa sorunları</string>
   <string name="generic_release_notes">Küçük hata düzeltmeleri ve iyileştirmeler</string>
-  <string name="email_report_image_recommendations_subject">Sorun bildirimi - Görsel Önerileri özelliği</string>
-  <string name="email_report_image_recommendations_body">Görsel Önerileri özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]</string>
-  <string name="email_report_patroller_tasks_subject">Sorun bildirimi - Devriye Görevleri özelliği</string>
-  <string name="email_report_patroller_tasks_body">Devriye Görevleri özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]\n\n[]</string>
+  <string name="email_report_image_recommendations_subject">Sorun Bildirimi - Görsel Önerileri özelliği</string>
+  <string name="email_report_image_recommendations_body">Görsel Önerileri özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\n\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]</string>
+  <string name="email_report_patroller_tasks_subject">Sorun Bildirimi - Değişiklik Kolluğu Özelliği</string>
+  <string name="email_report_patroller_tasks_body">Değişiklik Kolluğu özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\n\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]\n\n[Ekran görüntüleri ya da Bağlantılar]</string>
 </resources>

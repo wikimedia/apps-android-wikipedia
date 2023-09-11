@@ -105,7 +105,7 @@ class NotificationWithProgressBar {
     private fun pendingIntentBuilder(context: Context,
                                      targetClass: Class<*>,
                                      intentExtra: String,
-                                     requestCode: Int): PendingIntent {
+                                     requestCode: Int): PendingIntent? {
         val resultIntent = Intent(context, targetClass)
         resultIntent.putExtra(intentExtra, true)
         resultIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

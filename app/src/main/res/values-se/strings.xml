@@ -100,7 +100,6 @@
   <string name="map_view_link_text">Čájet kárttas</string>
   <string name="other_languages_indication_text">Loga eará gillii</string>
   <string name="language_count_link_text">Gávdnamis %d eará gillii</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_anon_warning">Rievdadusat čadnojuvvojit du ovttadaga IP-čujuhussii. Jus don &lt;a href=\"https://#login\"&gt;čálihat sisa&lt;/a&gt;, de lea dus eanet peršuvdnasuodjalus.</string>
   <string name="preference_title_language">Wikipedia gielat</string>
   <string name="langlinks_filter_hint">Ohcan</string>

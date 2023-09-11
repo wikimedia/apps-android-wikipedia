@@ -2,9 +2,9 @@ package org.wikipedia.settings
 
 import android.app.Activity
 import android.os.Bundle
-import android.text.method.LinkMovementMethod
 import android.view.View
 import android.widget.TextView
+import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.descendants
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
@@ -29,7 +29,7 @@ class AboutActivity : BaseActivity() {
         binding.aboutVersionText.text = BuildConfig.VERSION_NAME
         binding.aboutLogoImage.setOnClickListener(AboutLogoClickListener())
         binding.aboutContainer.descendants.filterIsInstance<TextView>().forEach {
-            it.movementMethod = LinkMovementMethod.getInstance()
+            it.movementMethod = LinkMovementMethodCompat.getInstance()
         }
         binding.sendFeedbackText.setOnClickListener {
             FeedbackUtil.composeFeedbackEmail(this, "Android App ${BuildConfig.VERSION_NAME} Feedback")
