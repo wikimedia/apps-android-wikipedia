@@ -54,7 +54,6 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.FaceAndColorDetectImageView
 import org.wikipedia.views.ImageZoomHelper
-import org.wikipedia.views.ViewAnimations
 
 class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvider, SuggestedEditsImageRecsDialog.Callback {
     private var _binding: FragmentSuggestedEditsImageRecsItemBinding? = null
@@ -286,7 +285,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
         binding.imageSuggestionReason.text = viewModel.recommendation.images.first().metadata?.reason
 
-        ViewAnimations.fadeIn(binding.imageSuggestionContainer)
+        binding.imageSuggestionContainer.isVisible = true
+        requireActivity().invalidateOptionsMenu()
 
         if (!Prefs.suggestedEditsImageRecsOnboardingShown) {
             showTooltipSequence()
@@ -307,6 +307,11 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.menu_image_recommendations, menu)
+    }
+
+    override fun onPrepareMenu(menu: Menu) {
+        super.onPrepareMenu(menu)
+        menu.findItem(R.id.menu_tutorial).isVisible = viewModel.uiState.value is SuggestedEditsImageRecsFragmentViewModel.UiState.Success
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
@@ -428,10 +433,10 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     private fun getActionStringForAnalytics(acceptanceState: String? = null, rejectionReasons: String? = null,
                                             revisionId: Long? = null, addTimeSpent: Boolean = false): String {
-        val recommendedImage = viewModel.recommendation.images[0]
-        return ImageRecommendationsEvent.getActionDataString(filename = recommendedImage.image,
-            recommendationSource = recommendedImage.source,
-            recommendationSourceProjects = recommendedImage.projects.toString(),
+        val recommendedImage = if (viewModel.uiState.value is SuggestedEditsImageRecsFragmentViewModel.UiState.Success) viewModel.recommendation.images[0] else null
+        return ImageRecommendationsEvent.getActionDataString(filename = recommendedImage?.image,
+            recommendationSource = recommendedImage?.source,
+            recommendationSourceProjects = recommendedImage?.projects.toString(),
             acceptanceState = acceptanceState, rejectionReasons = rejectionReasons,
             revisionId = revisionId, addTimeSpent = addTimeSpent)
     }
