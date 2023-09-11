@@ -1469,8 +1469,8 @@
   <string name="data_opt_in_reject">Rad etish</string>
   <string name="page_issues_title">Sahifa muammolari</string>
   <string name="generic_release_notes">Asosiy kamchiliklar tuzatildi hamda takomillashtirildi</string>
-  <string name="email_report_image_recommendations_subject">Muammo hisoboti - Rasm tavsiyalari xususiyati</string>
-  <string name="email_report_image_recommendations_body">Tasvir tavsiyalari funksiyasi bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]</string>
-  <string name="email_report_patroller_tasks_subject">Muammo hisoboti - Kuzatuvchi vazifalari xususiyati</string>
-  <string name="email_report_patroller_tasks_body">Men Kuzatuvchi vazifalari xususiyati bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]\n\n[]</string>
+  <string name="email_report_image_recommendations_subject" fuzzy="true">Muammo hisoboti - Rasm tavsiyalari xususiyati</string>
+  <string name="email_report_image_recommendations_body" fuzzy="true">Tasvir tavsiyalari funksiyasi bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]</string>
+  <string name="email_report_patroller_tasks_subject" fuzzy="true">Muammo hisoboti - Kuzatuvchi vazifalari xususiyati</string>
+  <string name="email_report_patroller_tasks_body" fuzzy="true">Men Kuzatuvchi vazifalari xususiyati bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]\n\n[]</string>
 </resources>

@@ -12,9 +12,11 @@ import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Pair
 import android.view.*
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
+import androidx.core.view.descendants
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -119,7 +121,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         binding.mainViewPager.isUserInputEnabled = false
         binding.mainViewPager.adapter = NavTabFragmentPagerAdapter(this)
         binding.mainViewPager.registerOnPageChangeCallback(pageChangeCallback)
-        binding.mainNavTabLayout.updateMaxLines(binding.mainNavTabLayout)
+        binding.mainNavTabLayout.descendants.filterIsInstance<TextView>().forEach {
+            it.maxLines = 2
+        }
 
         FeedbackUtil.setButtonLongPressToast(binding.navMoreContainer)
         binding.navMoreContainer.setOnClickListener {

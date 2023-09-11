@@ -1555,6 +1555,8 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Ogled uporabnikovih prispevkov</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Zahvali se</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Uporabniški podatki</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Račun od: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Število urejanj&lt;/b&gt;: %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Zapri</string>
   <string name="patroller_tasks_filters_title">Filtri</string>
   <string name="patroller_tasks_filters_reset">Ponastavi</string>
@@ -1610,7 +1612,7 @@
   <string name="page_issues_title">Težaev strani</string>
   <string name="generic_release_notes">Manjši popravki napak in izboljšave</string>
   <string name="email_report_image_recommendations_subject">Poročilo o težavi – možnost slikovnih priporočil</string>
-  <string name="email_report_image_recommendations_body">Naletel_a sem na težavo z možnostjo slikovnih priporočil:\n– [Opišite specifično težavo]\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]</string>
-  <string name="email_report_patroller_tasks_subject">Poročilo o težavi – možnost Patruljna opravila</string>
-  <string name="email_report_patroller_tasks_body">Naletel_a sem na težavo z možnostjo Patruljna opravila:\n– [Opišite specifično težavo]\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]\n\n[]</string>
+  <string name="email_report_image_recommendations_body">Naletel_a sem na težavo z možnostjo slikovnih priporočil:\n– [Opišite specifično težavo]\n\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]</string>
+  <string name="email_report_patroller_tasks_subject">Poročilo o težavi – možnost pregledovanja urejanj</string>
+  <string name="email_report_patroller_tasks_body">Naletel_a sem na težavo z možnostjo Pregledovanje urejanj:\n– [Opišite specifično težavo]\n\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]\n\n[]</string>
 </resources>
