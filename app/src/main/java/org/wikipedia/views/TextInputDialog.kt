@@ -64,7 +64,7 @@ class TextInputDialog constructor(context: Context) : MaterialAlertDialogBuilder
     }
 
     fun setHint(@StringRes id: Int) {
-        binding.textInput.hint = context.resources.getString(id)
+        binding.textInputContainer.hint = context.resources.getString(id)
     }
 
     fun setSecondaryHint(@StringRes id: Int) {

@@ -40,7 +40,7 @@ open class AutoFitRecyclerView constructor(context: Context, attrs: AttributeSet
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         // https://issuetracker.google.com/issues/37034096
-        // TODO: check again in Sep 2021
+        // TODO: check again in August 2024
         try {
             super.onLayout(changed, l, t, r, b)
         } catch (e: Exception) {

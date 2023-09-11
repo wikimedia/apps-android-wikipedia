@@ -129,7 +129,6 @@
   <string name="map_view_link_text">Mostra al mapa</string>
   <string name="other_languages_indication_text">Llegeix en una altra llengua</string>
   <string name="language_count_link_text">Disponible en %d altres llengües</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
   <string name="edit_anon_warning">Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt;, gaudireu de més privadesa.</string>
@@ -388,6 +387,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">No es pot carregar l\'article si no teniu connexió a Internet.</string>
   <string name="page_offline_notice_add_to_reading_list">Pista: En afegir l\'article a una llista de lectura es baixarà una vegada torneu a estar en línia.</string>
   <string name="page_offline_notice_last_date">Esteu llegint una versió fora de línia de l\'article desada el %s.</string>
+  <string name="redirected_from_snackbar">Redirigit de «%s»</string>
   <string name="button_get_directions">Obtén indicacions</string>
   <string name="error_no_maps_app">No es pot trobar cap aplicació que proporcioni direccions.</string>
   <string name="preference_title_customize_explore_feed">Canal d\'exploració</string>
@@ -1321,6 +1321,7 @@
   <string name="revision_diff_line_removed">Línia eliminada</string>
   <string name="revision_diff_paragraph_added">Paràgraf afegit</string>
   <string name="revision_diff_paragraph_removed">Paràgraf eliminat</string>
+  <string name="revision_diff_protected">Els canvis fets en aquesta revisió no són accessible públicament.</string>
   <string name="revision_undo_title">Desfés la modificació</string>
   <string name="revision_undo_message">Això desfarà els canvis fets en les revisions de l\'article que es mostra a continuació.</string>
   <string name="revision_undo_reason">Per a continuar, proporcioneu un motiu per a desfer la modificació:</string>

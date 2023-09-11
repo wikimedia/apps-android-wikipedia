@@ -12,6 +12,7 @@
             <item
                 android:id="@+id/menu_categories"
                 android:icon="@drawable/ic_category_black_24dp"
+                app:iconTint="?attr/secondary_color"
                 android:title="@string/action_item_categories" />
         </menu>
     </item>

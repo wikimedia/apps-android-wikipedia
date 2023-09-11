@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Aftabuzzaman
+* Aishik Rehman
 * Al Riaz Uddin Ripon
 * Ankan
 * Bellayet
@@ -532,6 +533,7 @@
   <string name="no_user_lists_msg">ভ্রমণের স্থান, প্রিয় বিষয় এবং আরও অনেক কিছু নিয়ে তালিকা তৈরি করুন</string>
   <string name="reading_list_saved_list_rename">%1$s (ব্যবহারকারী তৈরি করেছেন)</string>
   <string name="reading_lists_menu_create_list">নতুন তালিকা তৈরি করুন</string>
+  <string name="reading_lists_menu_import_list">আমদানিতালিকা</string>
   <string name="reading_lists_menu_sort_by">সাজান</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">প্রবেশ করুন / নিবন্ধন করুন</string>
   <plurals name="reading_list_article_offline_message">
@@ -549,6 +551,9 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">বাতিল</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">বাতিল</string>
   <string name="reading_list_split_dialog_ok_button_text">ঠিক আছে</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">অপসারণ</string>
+  <string name="reading_list_activity_title">পঠন তালিকা: %s</string>
+  <string name="reading_list_notification_title">পঠন তালিকা(সমূহ) আমদানি করা হয়েছে</string>
   <string name="reading_lists_preview_save_button">সংরক্ষণ</string>
   <string name="reading_lists_preview_save_dialog_title">তালিকা সংরক্ষণ করুন</string>
   <string name="reading_lists_preview_save_dialog_text">তালিকার নাম দিন ও সংরক্ষণ করতে নিবন্ধ নির্বাচন করুন।</string>
@@ -646,6 +651,7 @@
   <string name="notifications_menu_check_all">সকল আইটেম চিহ্নিত করুন</string>
   <string name="notifications_wiki_filter_header">উইকি ছাকনি</string>
   <string name="notifications_all_wikis_text">সকল \"উইকি\"</string>
+  <string name="notifications_all_types_text">সমস্ত \"ধরন\"</string>
   <string name="notifications_menu_user_talk_page">%s-এর আলাপ পাতা</string>
   <string name="notifications_offline_disable_message">অফলাইনে এই ফাংশনটি কার্যকর নয়।</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>
@@ -731,10 +737,13 @@
   <string name="description_edit_license_notice">নিবন্ধের বিবরণ পরিবর্তন করার দ্বারা, আমি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত ও আমি আমার অবদান &lt;a href=\"%2$s\"&gt;ক্রিয়েটিভ কমন্স সিসি০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশ করছি।</string>
   <string name="description_edit_helper_text_lowercase_warning">সাধারণত একটি ছোট ছাঁদের অক্ষর দিয়ে শুরু করা উচিত</string>
   <string name="description_edit_voice_input_description">কণ্ঠ ইনপুট</string>
+  <string name="description_edit_learn_more">নিবন্ধের বিবরণ সম্পর্কে আরও জানুন</string>
+  <string name="description_edit_image_caption_learn_more">চিত্রের ক্যাপশন সম্পর্কে আরও জানুন</string>
   <string name="description_too_short">আপনার লেখাটি খুবই ছোট।</string>
   <string name="description_ends_with_punctuation">বাক্যের শেষে কোনো বিরামচিহ্ন ব্যবহার করা উচিত নয়।</string>
   <string name="description_starts_with_uppercase">নামবাচক বিশেষ্য না হলে ছোট ছাঁদের অক্ষর দিয়ে শুরু করুন।</string>
   <string name="description_starts_with_lowercase">ছোট ছাঁদের অক্ষর দিয়ে লেখা শুরু করা পরিহার করুন।</string>
+  <string name="description_edit_suggested_description_button_text">প্রস্তাবিত বিবরণ দেখান</string>
   <string name="description_edit_success_saved">নিবন্ধের বিবরণ প্রকাশিত হয়েছে!</string>
   <string name="description_edit_success_saved_snackbar">নিবন্ধের বিবরণ প্রকাশিত হয়েছে!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">নিবন্ধের বিবরণ প্রকাশিত হয়েছে! (%s)</string>
@@ -875,15 +884,37 @@
   <string name="suggested_edits_contribution_type_image_tag">চিত্রের ট্যাগ</string>
   <string name="suggested_edits_contribution_current_revision_text">আপনার সম্পাদনা উইকিপিডিয়ায় প্রকাশিত হয়েছে</string>
   <string name="suggested_card_more_edits">আরও পরামর্শকৃত সম্পাদনা</string>
+  <string name="suggested_edits_report_suggestion">অভিযোগ</string>
+  <string name="suggested_edits_suggestion_report_submitted">অভিযোগ জমা দেওয়া হয়েছে</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$sটি তালিকা</item>
+    <item quantity="other">%1$sটি তালিকা</item>
+  </plurals>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$sটি অক্ষর</item>
     <item quantity="other">%1$sটি অক্ষর</item>
   </plurals>
+  <string name="image_recommendation_task_instruction">আপনি কি এই চিত্রটি নিবন্ধে যোগ করবেন?</string>
+  <string name="image_recommendation_tutorial">টিউটোরিয়াল</string>
   <string name="image_recommendation_accept">হ্যাঁ</string>
   <string name="image_recommendation_reject">না</string>
+  <string name="image_recommendation_notsure">নিশ্চিত না</string>
+  <string name="image_recommendation_reject_title">\"না\" কেন?</string>
+  <string name="image_recommendation_reject_subtitle">আপনার উত্তরসমূহ ভবিষ্যত পরামর্শগুলোকে উন্নত করবে।</string>
+  <string name="image_recommendation_reject_not_relevant">চিত্রটি প্রাসঙ্গিক নয়</string>
+  <string name="image_recommendation_reject_no_info">সিদ্ধান্ত নেয়ার মত যথেষ্ট তথ্য নেই</string>
+  <string name="image_recommendation_reject_offensive">চিত্রটি আপত্তিকর</string>
   <string name="image_recommendation_reject_low_quality">ছবিটি নিম্নমানের</string>
+  <string name="image_recommendation_reject_dont_know">আমি এই বিষয়টা জানি না</string>
+  <string name="image_recommendation_reject_other">অন্যান্য</string>
   <string name="image_recommendation_reject_submit">জমা দিন</string>
+  <string name="image_recommendation_tooltip_main">প্রস্তাবিত সম্পাদনার মাধ্যমে নিবন্ধে অনুপস্থিত চিত্রগুলো যোগ করুন</string>
+  <string name="image_recommendation_onboarding_1">চিত্র মানুষকে বুঝতে সাহায্য করে কিন্তু অনেক নিবন্ধে তা থাকে না।</string>
+  <string name="image_recommendation_onboarding_2">আপনি সিদ্ধান্ত নেবেন যে প্রস্তাবিত চিত্রটি উইকিপিডিয়া নিবন্ধে যুক্ত করা উচিত কিনা।</string>
+  <string name="image_recommendation_tooltip_1">এই নিবন্ধটির বিষয়বস্তু বুঝতে পর্যালোচনা করুন</string>
   <string name="image_recommendation_tooltip_next">পরবর্তী</string>
+  <string name="edit_summary_added_image">চিত্র যোগ করা হয়েছে</string>
+  <string name="edit_summary_added_caption">ক্যাপশন যোগ করা হয়েছে</string>
   <string name="edit_published_view">দেখুন</string>
   <string name="file_page_activity_title">ফাইলের পাতা</string>
   <string name="file_page_add_image_caption_button">ছবির ক্যাপশন যোগ করুন</string>
@@ -1002,6 +1033,8 @@
   <string name="talk_title">আলাপ</string>
   <string name="talk_user_title">আলাপ: %s</string>
   <string name="talk_new_topic">নতুন প্রসঙ্গ</string>
+  <string name="talk_warn_save_dialog_hint">বার্তার শিরোনাম</string>
+  <string name="talk_warn_save_dialog_publish">প্রকাশ করুন</string>
   <string name="talk_page_empty">এই আলাপ পাতাটি খালি।</string>
   <string name="talk_add_reply">উত্তর</string>
   <string name="talk_no_subject">(কোনো বিষয় নেই)</string>
@@ -1122,6 +1155,15 @@
   <string name="reading_list_share_message_v2">শুভেচ্ছা নিন! আমি আপনার সাথে আমার উইকিপিডিয়া পঠন তালিকা শেয়ার করতে চাই:</string>
   <string name="reading_list_share_survey_title">আপনি কি আমাদের \"পড়ার তালিকা শেয়ার\" উন্নত করতে সহায়তা করতে পারবেন?</string>
   <string name="reading_list_share_survey_body">\"পড়ার তালিকা শেয়ার\" একটি পরীক্ষামূলক ফিচার এবং এটি উন্নত বা অপসারণ করতে আমাদের আপনার প্রতিক্রিয়া প্রয়োজন।</string>
+  <string name="talk_templates_new_message_save">সংরক্ষণ</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">ট্যাগ: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">কোনোটি নয়</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">ব্যবহারকারীর পাতা দেখুন</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">ধন্যবাদ</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">বন্ধ</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">উইকি</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">সারাংশ (ঐচ্ছিক)</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">দেখুন</string>
   <string name="data_opt_in_accept">গ্রহণ করুন</string>
   <string name="data_opt_in_reject">প্রত্যাখ্যান করুন</string>
   <string name="page_issues_title">পাতার সমস্যা</string>

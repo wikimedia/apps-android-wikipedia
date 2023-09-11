@@ -160,6 +160,14 @@ interface Service {
     @get:Headers("Cache-Control: no-cache")
     val randomWithImageInfo: Observable<MwQueryResponse>
 
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&list=recentchanges&rcprop=title|timestamp|ids|oresscores|sizes|tags|user|parsedcomment|comment|flags&rcnamespace=0&rctoponly=1&rctype=edit|new")
+    suspend fun getRecentEdits(
+        @Query("rclimit") count: Int,
+        @Query("rcstart") startTimeStamp: String,
+        @Query("rcshow") filters: String?
+    ): MwQueryResponse
+
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=options")
     fun postSetOptions(

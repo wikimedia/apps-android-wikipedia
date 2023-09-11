@@ -151,7 +151,6 @@
   <string name="map_view_link_text">Visualizza sulla mappa</string>
   <string name="other_languages_indication_text">Leggi in un\'altra lingua</string>
   <string name="language_count_link_text">Disponibile in altre %d lingue</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt; avrai maggiore privacy.</string>
   <string name="edit_anon_warning">Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt;, avrai più privacy.</string>
@@ -1082,6 +1081,8 @@
   <string name="image_recommendation_accept">Sì</string>
   <string name="image_recommendation_reject_title">Perché no?</string>
   <string name="image_recommendation_reject_dont_know">Non conosco questo argomento</string>
+  <string name="suggested_edits_report_feature_subject">Problemi con le modifiche suggerite</string>
+  <string name="edit_summary_added_image_and_caption">Immagine e didascalia aggiunti</string>
   <string name="file_page_activity_title">Pagina del file</string>
   <string name="file_page_add_image_caption_button">Aggiungi didascalia immagine</string>
   <string name="file_page_add_image_tags_button">Aggiungi etichette all\'immagine</string>
@@ -1221,6 +1222,7 @@
   <string name="talk_user_title">Discussione: %s</string>
   <string name="talk_new_topic">Nuovo argomento</string>
   <string name="talk_new_topic_submitted">Argomento pubblicato.</string>
+  <string name="talk_warn_save_dialog_message">Salva come nuovo messaggio</string>
   <string name="talk_page_empty">Questa pagina di discussione è vuota.</string>
   <string name="talk_page_empty_title">La conversazione inizia qui</string>
   <string name="talk_page_empty_content">Le pagine di discussione sono dove le persone discutono su come rendere il contenuto di Wikipedia il migliore possibile. Inizia aggiungendo un nuovo argomento di discussione per connetterti e collaborare con una comunità di wikipediani.</string>
@@ -1418,6 +1420,24 @@
   <string name="reading_list_share_message_v2">Ciao! Vorrei condividere il mio elenco di lettura di Wikipedia con te:</string>
   <string name="reading_list_share_survey_title">Puoi aiutarci a migliorare \"Condividi elenchi di lettura\"?</string>
   <string name="reading_list_share_survey_body">\"Condividi elenchi di lettura\" è una funzione di prova e abbiamo bisogno del tuo commento per migliorarla o rimuoverla.</string>
+  <string name="talk_templates_new_message_compose_hint">Scrivi un messaggio</string>
+  <string name="talk_templates_new_message_dialog_cancel">Annulla</string>
+  <string name="talk_templates_edit_message_dialog_title">Modifica messaggio</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Etichette: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Nessuno</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Informazioni utente</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_all_text">Tutto</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Contributi automatici</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Molto probabilmente buona</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Molto probabilmente ha problemi</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Probabile in malafede</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Molto probabilmente in mala fede</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d filtro</item>
+    <item quantity="other">%d filtri</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_title">Verifica modifica</string>
   <string name="data_opt_in_accept">Accetta</string>
   <string name="data_opt_in_reject">Rifiuta</string>
 </resources>

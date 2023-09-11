@@ -99,7 +99,6 @@
   <string name="map_view_link_text">Faigi ba peta</string>
   <string name="other_languages_indication_text">Baso ba li tanö bö\'ö</string>
   <string name="language_count_link_text">So ba %d li tanö bö\'ö</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Na öbe\'e terbit da\'a, fao dödömö ba &lt;a href=\"%1$s\"&gt;Goi-goi wangoguna\'ö&lt;/a&gt;, ba silötolalö\'ö ötou\'ö kontribusimö barö  lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Na öbe\'e terbit da\'a, fao dödömö ba &lt;a href=\"%1$s\"&gt;Goi-goi wangoguna\'ö&lt;/a&gt;, ba silötolalö\'ö ötou\'ö kontribusimö barö lisensi &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Famulö\'ö tefaböbö ba alamat IP perangkatmö. Na no &lt;a href=\"https://#login\"&gt;möi\'ö bakha&lt;/a&gt;, so khöu nasa privasi.</string>
   <string name="preference_title_language">Li Wikipedia</string>
@@ -221,7 +220,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/nia</string>
   <string name="android_app_request_an_account_url">https://nia.wikipedia.org/wiki/Wikipedia:Mangandrö_wamazökhi_akun</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Pustaka ni\'oguna\'ö</string>
   <string name="about_contributors_heading">Kontributor</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Nga\'örö tim&lt;/a&gt;</string>

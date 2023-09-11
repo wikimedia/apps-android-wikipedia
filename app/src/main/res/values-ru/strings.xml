@@ -177,7 +177,6 @@
   <string name="map_view_link_text">Посмотреть на карте</string>
   <string name="other_languages_indication_text">Читать на другом языке</string>
   <string name="language_count_link_text">Доступно на %d других языках</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Отправляя свои изменения, вы соглашаетесь с &lt;a href=\"%1$s\" &gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Публикуя изменения, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Правки будут привязаны к IP-адресу вашего устройства. Если вы &lt;a href=\"https://#login\"&gt;авторизуйтесь&lt;/a&gt;, то сможете получить более высокий уровень конфиденциальности.</string>
   <string name="edit_anon_warning">Правки будут подписаны IP-адресом вашего устройства. У вас будет больше приватности, если вы &lt;a href=\"https://#login\"&gt;войдёте в систему&lt;/a&gt;.</string>
@@ -585,6 +584,7 @@
     <item quantity="many">Статей удалено из %s: %d</item>
     <item quantity="other">Статей удалено из %s: %d</item>
   </plurals>
+  <string name="reading_lists_default_list_delete_message">Список по умолчанию (%s) не может быть удалён</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Списки удалены. Список по умолчанию (%s) не может быть удалён.</string>
   <string name="reading_list_items_deleted">%d статей удалено из списка</string>
   <string name="reading_lists_item_deleted">%s удалено из списков</string>
@@ -1476,6 +1476,12 @@
   <string name="watchlist_filter_reset_button">Сбросить</string>
   <string name="watchlist_search_bar_hint">Поиск или фильтрация в списке наблюдения</string>
   <string name="watchlist_search_bar_filter_hint">Фильтр списка наблюдения</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d фильтр</item>
+    <item quantity="few">%d фильтра</item>
+    <item quantity="many">%d фильтров</item>
+    <item quantity="other">%d фильтров</item>
+  </plurals>
   <string name="preview_edit_title">Предпросмотр правки</string>
   <string name="preview_edit_summarize_edit_title">Резюмируйте изменение</string>
   <string name="preview_edit_summarize_edit_hint">Как вы улучшили эту страницу?</string>
@@ -1512,4 +1518,6 @@
   <string name="reading_list_share_survey_body">«Поделиться списком для чтения» — тестовый функционал, и нам была бы полезная ваша обратная связь, чтобы в дальнейшем улучшить или удалить этот функционал.</string>
   <string name="data_opt_in_accept">Принять</string>
   <string name="data_opt_in_reject">Отклонить</string>
+  <string name="page_issues_title">Проблемы страницы</string>
+  <string name="generic_release_notes">Незначительные исправления ошибок и улучшения</string>
 </resources>

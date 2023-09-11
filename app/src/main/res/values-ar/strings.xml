@@ -143,7 +143,7 @@
   <string name="map_view_link_text">اعرض على خريطة</string>
   <string name="other_languages_indication_text">اقرأ بلغة أخرى</string>
   <string name="language_count_link_text">متاحة في %d لغة أخرى</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">المشاع الإبداعي النسبة-الترخيص بالمثل 3.0</string>
+  <string name="content_license_cc_by_sa">المشاع الإبداعي النسبة-الترخيص بالمثل 4.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مسجلا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
   <string name="edit_anon_warning">ستُنسب التعديلات إلى عنوان IP الخاص بجهازك. إذا قمت &lt;a href=\"https://#login\"&gt;بتسجيل الدخول&lt;/a&gt; ، سيكون لديك المزيد من الخصوصية.</string>
@@ -281,7 +281,7 @@
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
-  <string name="about_app_license" fuzzy="true">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ترخيص Apache 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_المشاع_الإبداعي:_النسبة-الترخيص_بالمثل_3.0\"&gt; ترخيص Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">النص المصدري متاحٌ على &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;جيريت&lt;/a&gt; و&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;جيت هاب&lt;/a&gt; تحت &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;رخصة أباتشي 2.0&lt;/a&gt;. مالم يُصرّح بغير ذلك، المحتوى متاح تحت &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;رخصة المشاع الإبداعي الملزمة بنسبة العمل لمؤلفه وبترخيص الأعمال المشتقة بالمثل&lt;/a&gt;.</string>
   <string name="about_wmf">منتج من &lt;a href=\"https://wikimediafoundation.org/\"&gt;مؤسسة ويكيميديا&lt;/a&gt;</string>
   <string name="about_activity_title">حول</string>
   <string name="edit_abandon_confirm">تم تعديل هذه الصفحة. هل أنت متأكد من أنك تريد الخروج من غير حفظ تعديلاتك؟</string>
@@ -402,6 +402,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">لا يمكن تحميل المقالة في حالة عدم الاتصال.</string>
   <string name="page_offline_notice_add_to_reading_list">ملحوظة: أضف المقالة إلى قائمة قراءة وسيتم تنزيلها حينما تعاود الاتصال بالشبكة.</string>
   <string name="page_offline_notice_last_date">أنت تقرأ نسخةً من هذه المقالة بوضع عدم الاتصال تم حفظها في %s.</string>
+  <string name="redirected_from_snackbar">تحويل من \"%s\"</string>
   <string name="button_get_directions">احصل على الاتجاهات</string>
   <string name="error_no_maps_app">تعذّر إيجاد أي تطبيقٍ يوفر الاتجاهات</string>
   <string name="preference_title_customize_explore_feed">خلاصة الاستكشاف</string>
@@ -1070,7 +1071,13 @@
   <string name="suggested_edits_suggestion_report_submitted">تم إرسال التقرير</string>
   <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">درّب خوارزمية الصور</string>
   <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">قرّر ما إذا كانت الصور ستُحسن المقالة.</string>
+  <string name="image_recommendation_accept">نعم</string>
+  <string name="image_recommendation_reject">لا</string>
+  <string name="image_recommendation_notsure">لست متأكدًا</string>
   <string name="image_recommendation_tooltip_next">التالي</string>
+  <string name="edit_summary_added_image">أضيفت صورة</string>
+  <string name="edit_summary_added_caption">إضافة شرح لصورة</string>
+  <string name="edit_summary_added_image_and_caption">إضافة صورة وشرح</string>
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="file_page_add_image_caption_button">إضافة تعليق الصورة</string>
   <string name="file_page_add_image_tags_button">أضف وسوم الصور</string>
@@ -1408,5 +1415,6 @@
   <string name="reading_list_share_survey_body">\"مشاركة قوائم القراءة\" هي ميزة اختبار ونحن بحاجة إلى ملاحظاتك لتحسينها أو إزالتها.</string>
   <string name="data_opt_in_accept">قبول</string>
   <string name="data_opt_in_reject">رفض</string>
+  <string name="page_issues_title">مشكلات الصفحة</string>
   <string name="generic_release_notes">إصلاحات الشوائب الطفيفة والتحسينات</string>
 </resources>

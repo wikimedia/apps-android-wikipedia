@@ -3,10 +3,8 @@ package org.wikipedia.main
 import android.Manifest
 import android.app.Activity
 import android.app.ActivityOptions
-import android.app.DownloadManager
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Build
@@ -14,9 +12,11 @@ import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Pair
 import android.view.*
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuProvider
+import androidx.core.view.descendants
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -29,6 +29,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentMainBinding
@@ -120,7 +121,9 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         binding.mainViewPager.isUserInputEnabled = false
         binding.mainViewPager.adapter = NavTabFragmentPagerAdapter(this)
         binding.mainViewPager.registerOnPageChangeCallback(pageChangeCallback)
-        binding.mainNavTabLayout.updateMaxLines(binding.mainNavTabLayout)
+        binding.mainNavTabLayout.descendants.filterIsInstance<TextView>().forEach {
+            it.maxLines = 2
+        }
 
         FeedbackUtil.setButtonLongPressToast(binding.navMoreContainer)
         binding.navMoreContainer.setOnClickListener {
@@ -153,15 +156,12 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onPause() {
         super.onPause()
-        downloadReceiver.callback = null
-        requireContext().unregisterReceiver(downloadReceiver)
+        downloadReceiver.unregister(requireContext())
     }
 
     override fun onResume() {
         super.onResume()
-        requireContext().registerReceiver(downloadReceiver,
-                IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        downloadReceiver.callback = downloadReceiverCallback
+        downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
         maybeShowWatchlistTooltip()
@@ -553,6 +553,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     private fun maybeShowImportReadingListsNewInstallDialog() {
         if (!Prefs.importReadingListsNewInstallDialogShown) {
+            ReadingListsAnalyticsHelper.logReceiveStart(requireActivity())
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.shareable_reading_lists_new_install_dialog_title)
                 .setMessage(R.string.shareable_reading_lists_new_install_dialog_content)

@@ -2,10 +2,10 @@ package org.wikipedia.feed.announcement
 
 import android.content.Context
 import android.net.Uri
-import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.updateLayoutParams
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewCardAnnouncementBinding
@@ -24,8 +24,8 @@ class AnnouncementCardView(context: Context) : DefaultFeedCardView<AnnouncementC
     var localCallback: Callback? = null
 
     init {
-        binding.viewAnnouncementText.movementMethod = LinkMovementMethod.getInstance()
-        binding.viewAnnouncementFooterText.movementMethod = LinkMovementMethod.getInstance()
+        binding.viewAnnouncementText.movementMethod = LinkMovementMethodCompat.getInstance()
+        binding.viewAnnouncementFooterText.movementMethod = LinkMovementMethodCompat.getInstance()
         binding.viewAnnouncementActionPositive.setOnClickListener { onPositiveActionClick() }
         binding.viewAnnouncementDialogActionPositive.setOnClickListener { onPositiveActionClick() }
         binding.viewAnnouncementActionNegative.setOnClickListener { onNegativeActionClick() }

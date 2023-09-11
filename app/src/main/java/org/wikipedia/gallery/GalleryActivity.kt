@@ -1,10 +1,8 @@
 package org.wikipedia.gallery
 
 import android.app.Activity
-import android.app.DownloadManager
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
@@ -51,7 +49,16 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.*
+import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.GradientUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 import org.wikipedia.views.ViewAnimations
@@ -198,14 +205,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     public override fun onResume() {
         super.onResume()
-        registerReceiver(downloadReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        downloadReceiver.callback = downloadReceiverCallback
+        downloadReceiver.register(this, downloadReceiverCallback)
     }
 
     public override fun onPause() {
         super.onPause()
-        downloadReceiver.callback = null
-        unregisterReceiver(downloadReceiver)
+        downloadReceiver.unregister(this)
     }
 
     override fun onDownload(item: GalleryItemFragment) {
@@ -225,6 +230,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         } else {
             ShareUtil.shareText(this, title)
         }
+    }
+
+    override fun onError(throwable: Throwable) {
+        showError(throwable)
     }
 
     override fun setTheme() {
