@@ -32,6 +32,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentSuggestedEditsImageRecsItemBinding
@@ -82,6 +83,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 .show()
             ImageRecommendationsEvent.logAction("editsummary_success_confirm", "editsummary_dialog",
                 getActionStringForAnalytics(acceptanceState = "accepted", revisionId = revId, addTimeSpent = true), viewModel.langCode)
+            EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle)
             viewModel.acceptRecommendation(null, revId)
             callback().nextPage(this)
         }
@@ -128,6 +130,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.acceptButton.setOnClickListener {
             ImageRecommendationsEvent.logAction("suggestion_accept", "recommendedimagetoolbar",
                 getActionStringForAnalytics(acceptanceState = "accepted"), viewModel.langCode)
+            EditAttemptStepEvent.logInit(viewModel.pageTitle)
             doPublish()
         }
 
@@ -164,8 +167,7 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         binding.readMoreButton.setOnClickListener {
             ImageRecommendationsEvent.logAction("read_more", "recommendedimagetoolbar",
                 getActionStringForAnalytics(), viewModel.langCode)
-            val title = PageTitle(viewModel.recommendation.titleText, WikiSite.forLanguageCode(viewModel.langCode))
-            startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(title, HistoryEntry.SOURCE_SUGGESTED_EDITS), title))
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), viewModel.pageTitle))
         }
 
         ImageZoomHelper.setViewZoomable(binding.imageView)
