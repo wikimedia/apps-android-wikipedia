@@ -2,11 +2,10 @@ package org.wikipedia.settings
 
 import android.app.Activity
 import android.os.Bundle
-import android.text.method.LinkMovementMethod
 import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.view.forEach
+import androidx.core.text.method.LinkMovementMethodCompat
+import androidx.core.view.descendants
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
@@ -29,20 +28,11 @@ class AboutActivity : BaseActivity() {
         binding.activityAboutLibraries.setHtml(getString(R.string.libraries_list))
         binding.aboutVersionText.text = BuildConfig.VERSION_NAME
         binding.aboutLogoImage.setOnClickListener(AboutLogoClickListener())
-        makeEverythingClickable(binding.aboutContainer)
-
+        binding.aboutContainer.descendants.filterIsInstance<TextView>().forEach {
+            it.movementMethod = LinkMovementMethodCompat.getInstance()
+        }
         binding.sendFeedbackText.setOnClickListener {
             FeedbackUtil.composeFeedbackEmail(this, "Android App ${BuildConfig.VERSION_NAME} Feedback")
-        }
-    }
-
-    private fun makeEverythingClickable(vg: ViewGroup) {
-        vg.forEach {
-            if (it is ViewGroup) {
-                makeEverythingClickable(it)
-            } else if (it is TextView) {
-                it.movementMethod = LinkMovementMethod.getInstance()
-            }
         }
     }
 
