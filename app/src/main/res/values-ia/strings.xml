@@ -336,7 +336,7 @@
   <string name="expand_refs">Tocca pro expander</string>
   <string name="cc_logo">Licentia Creative Commons</string>
   <string name="captcha_image">Imagine CAPTCHA</string>
-  <string name="gallery_fair_use_license">“Fair use” (uso legitime)</string>
+  <string name="gallery_fair_use_license">Uso juste</string>
   <string name="gallery_uploader_unknown">Incargator incognite</string>
   <string name="gallery_not_available_offline_snackbar">Le vista in galeria non es disponibile foras de linea.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Clauder</string>
@@ -1464,6 +1464,8 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Vider contributiones del usator</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Regratiar</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Information de usator</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Conto create le: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Numero de modificationes: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Clauder</string>
   <string name="patroller_tasks_filters_title">Filtros</string>
   <string name="patroller_tasks_filters_reset">Reinitialisar</string>
@@ -1517,7 +1519,7 @@
   <string name="page_issues_title">Problemas con le pagina</string>
   <string name="generic_release_notes">Correctiones de errores e meliorationes minor</string>
   <string name="email_report_image_recommendations_subject">Reporto de problema: function Recommendationes de imagines</string>
-  <string name="email_report_image_recommendations_body">Io ha incontrate un problema con le function Recommendationes de imagines:\n- [Describe le problema specific]\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
+  <string name="email_report_image_recommendations_body">Io ha incontrate un problema con le function Recommendationes de imagines:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
   <string name="email_report_patroller_tasks_subject">Reporto de problema: function Cargas de patruliator</string>
-  <string name="email_report_patroller_tasks_body">Io ha incontrate un problema con le function Cargas de patruliator:\n- [Describe le problema specific]\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]\n\n[]</string>
+  <string name="email_report_patroller_tasks_body">Io ha incontrate un problema con le function Cargas de patruliator:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]\n\n[Capturas de schermo o ligamines]</string>
 </resources>
