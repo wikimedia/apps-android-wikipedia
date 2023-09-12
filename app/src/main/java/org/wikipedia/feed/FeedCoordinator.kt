@@ -33,7 +33,7 @@ class FeedCoordinator internal constructor(context: Context) : FeedCoordinatorBa
         conditionallyAddPendingClient(OnboardingClient(), age == 0)
         conditionallyAddPendingClient(OfflineCardClient(), age == 0 && !online)
 
-        for (contentType in FeedContentType.values().sortedBy { it.order }) {
+        for (contentType in FeedContentType.entries.sortedBy { it.order }) {
             addPendingClient(contentType.newClient(aggregatedClient, age))
         }
     }

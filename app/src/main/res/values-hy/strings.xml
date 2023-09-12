@@ -101,7 +101,6 @@
   <string name="map_view_link_text">Դիտել քարտեզի վրա</string>
   <string name="other_languages_indication_text">Կարդալ այլ լեզվով</string>
   <string name="language_count_link_text">Հասանելի է %d այլ լեզուներով</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Սեղմելով «Հիշել էջը»՝ Դուք համաձայնվում եք &lt;a href=\"%1$s\"&gt;օգտագործման պայմաններին&lt;/a&gt; և Ձեր ներդրումները &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; թույլատրագրի ներքո անվերադարձ հրապարակելուն։</string>
   <string name="preference_title_language">Վիքիպեդիայի լեզուները</string>
   <string name="langlinks_filter_hint">Որոնել</string>

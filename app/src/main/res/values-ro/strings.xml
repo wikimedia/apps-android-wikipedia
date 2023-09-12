@@ -119,7 +119,6 @@
   <string name="map_view_link_text">Vezi pe o hartă</string>
   <string name="other_languages_indication_text">Citește în altă limbă</string>
   <string name="language_count_link_text">Disponibilă în %d alte limbi</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Salvând, sunteți de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Salvând, sunteți de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și acceptați să vă publicați irevocabil modificările sub licența &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Modificările vor fi atribuite adresei IP a dispozitivului dumneavoastră. Dacă vă &lt;a href=\"https://#login\"&gt;autentificați&lt;/a&gt; veți beneficia de mai multă confidențialitate.</string>
   <string name="edit_anon_warning">Modificările vor fi atribuite adresei IP a dispozitivului dvs. Dacă vă &lt;a href=\"https://#login\"&gt;conectați&lt;/a&gt;, veți avea mai multă confidențialitate.</string>
@@ -1165,6 +1164,7 @@
   <string name="talk_user_title">Discuție: %s</string>
   <string name="talk_new_topic">Subiect nou</string>
   <string name="talk_new_topic_submitted">Subiect postat.</string>
+  <string name="talk_warn_save_dialog_message">Salvați ca mesaj nou</string>
   <string name="talk_page_empty">Această pagină de discuție este goală.</string>
   <string name="talk_add_reply">Răspunde</string>
   <string name="talk_no_subject">(Niciun subiect)</string>
@@ -1289,6 +1289,22 @@
   <string name="user_contrib_menu_label">Contribuții</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Am înțeles</string>
   <string name="reading_list_share_menu_label">Distribuiți...</string>
+  <string name="talk_templates_new_message_compose_hint">Compune mesaj</string>
+  <string name="talk_templates_new_message_dialog_cancel">Anulare</string>
+  <string name="talk_templates_edit_message_dialog_title">Editați mesajul</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cont de la:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Număr de editări:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_filters_reset">Resetați</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Contribuții automate</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Foarte probabil bine</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Foarte probabil rea-credință</string>
+  <string name="patroller_tasks_patrol_edit_title">Editare de patrulare</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Reveniți complet</string>
   <string name="data_opt_in_accept">Accept</string>
   <string name="data_opt_in_reject">Refuz</string>
+  <string name="email_report_image_recommendations_subject">Raport de problemă - Funcția Recomandări de imagini</string>
+  <string name="email_report_image_recommendations_body">Am întâmpinat o problemă cu funcția Recomandări imagini:\n- [Descrieți problema specifică]\n\nComportamentul pe care aș dori să-l văd este:\n- [Descrieți soluția propusă]</string>
+  <string name="email_report_patroller_tasks_subject">Raport de problemă - Editați funcția de patrulare</string>
+  <string name="email_report_patroller_tasks_body">Am întâmpinat o problemă cu funcția Edit Patrol:\n- [Descrieți problema specifică]\n\nComportamentul pe care aș dori să-l văd este:\n- [Descrieți soluția propusă]\n\n [Capturi de ecran sau linkuri]</string>
 </resources>

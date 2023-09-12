@@ -764,7 +764,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bridge.addListener("back_link") { _, messagePayload ->
             messagePayload?.let { payload ->
                 val backLinks = payload["backLinks"]?.jsonArray
-                if (backLinks != null && !backLinks.isEmpty()) {
+                if (!backLinks.isNullOrEmpty()) {
                     val backLinksList = backLinks.map { it.jsonObject["id"]?.jsonPrimitive?.content }
                     showFindReferenceInPage(payload["referenceId"]?.jsonPrimitive?.content.orEmpty(), backLinksList, payload["referenceText"]?.jsonPrimitive?.content.orEmpty())
                 }
@@ -861,12 +861,13 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         }
     }
 
-    fun reloadFromBackstack() {
-        pageFragmentLoadState.setTab(currentTab)
-        if (!pageFragmentLoadState.backStackEmpty()) {
-            pageFragmentLoadState.loadFromBackStack()
-        } else {
-            callback()?.onPageLoadMainPageInForegroundTab()
+    fun reloadFromBackstack(forceReload: Boolean = true) {
+        if (pageFragmentLoadState.setTab(currentTab) || forceReload) {
+            if (!pageFragmentLoadState.backStackEmpty()) {
+                pageFragmentLoadState.loadFromBackStack()
+            } else {
+                callback()?.onPageLoadMainPageInForegroundTab()
+            }
         }
     }
 
@@ -1060,8 +1061,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     return@evaluate
                 }
                 val articleFindInPageInteractionEvent = ArticleFindInPageInteractionEvent(model.page?.pageProperties?.pageId ?: -1)
-                val metricsPlatformArticleEventFindInPageInteraction = ArticleFindInPageInteraction(this)
-                val findInPageActionProvider = FindInWebPageActionProvider(this, articleFindInPageInteractionEvent)
+                val articleFindInPageInteractionEventMetricsPlatform = ArticleFindInPageInteraction(this)
+                val findInPageActionProvider = FindInWebPageActionProvider(this, articleFindInPageInteractionEvent, articleFindInPageInteractionEventMetricsPlatform)
                 startSupportActionMode(object : ActionMode.Callback {
                     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
                         val menuItem = menu.add(R.string.menu_page_find_in_page)
@@ -1086,8 +1087,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         }
                         articleFindInPageInteractionEvent.pageHeight = webView.contentHeight
                         articleFindInPageInteractionEvent.logDone()
-                        metricsPlatformArticleEventFindInPageInteraction.pageHeight = webView.contentHeight
-                        metricsPlatformArticleEventFindInPageInteraction.logDone()
+                        articleFindInPageInteractionEventMetricsPlatform.pageHeight = webView.contentHeight
+                        articleFindInPageInteractionEventMetricsPlatform.logDone()
                         webView.clearMatches()
                         callback()?.onPageHideSoftKeyboard()
                         callback()?.onPageSetToolbarElevationEnabled(true)

@@ -73,7 +73,6 @@
   <string name="map_view_link_text">ⵙⴽⵏ ⴳ ⵜⴽⴰⵕⴹⴰ</string>
   <string name="other_languages_indication_text">ⵖⵔ ⵙ ⵛⴰ ⵏ ⵜⵓⵜⵍⴰⵢⵜ ⵢⴰⴹⵏ</string>
   <string name="language_count_link_text">ⵉⵍⵍⴰ ⵙ %d ⵜⵓⵜⵍⴰⵢⵉⵏ ⵢⴰⴹⵏⵉⵏ</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">ⵙ ⵓⴼⵙⴰⵔ, ⵜⵎⵙⴰⵙⴰⴷ ⵖⴼ &lt;a href=\"%1$s\"&gt;ⵜⴼⴰⴷⵉⵡⵉⵏ ⵏ ⵓⵙⵙⵎⵔⵙ&lt;/a&gt;, ⴷ ⵔⴰⴷ ⴰⴱⴷⴰ ⵉⵍⵉⵏⵜ ⵜⵓⵎⵓⵜⵉⵏ ⵏⵏⴽ ⴷⴷⴰⵡ ⵜⵓⵔⴰⴳⵜ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">ⵙ ⵓⴼⵙⴰⵔ, ⵜⵎⵙⴰⵙⴰⴷ ⵖⴼ &lt;a href=\"%1$s\"&gt;ⵜⴼⴰⴷⵉⵡⵉⵏ ⵏ ⵓⵙⵙⵎⵔⵙ&lt;/a&gt;, ⴷ ⴰⴷ ⴰⴱⴷⴰ ⵉⵍⵉⵏⵜⵏ ⵜⵓⵎⵓⵜⵉⵏ ⵏⵏⴽ ⴷⴷⴰⵡ ⵜⵓⵔⴰⴳⵜ &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. ⵉⵙⵏⴼⵍ ⵔⴰⴷ ⴹⴼⵕⵏ ⴰⵏⵙⴰ ⵏ ⵓⴱⵔⵓⵟⵓⴽⵓⵍ ⵏ ⵡⴰⵏⵜⵉⵔⵏⵉⵜ ⵏ ⵡⴰⵍⵍⴰⵍ ⵏⵏⴽ. ⵎⴽ &lt;a href=\"https://#login\"&gt;ⵜⴽⵛⵎⴷ&lt;/a&gt;, ⵔⴰⴷ ⵖⵓⵔⴽ ⵜⵉⵍⵉ ⵜⵉⵏⵏⵓⵜⵍⴰ ⵓⴳⴳⵯⴰⵔ.</string>
   <string name="preference_title_language">ⵜⵓⵜⵍⴰⵢⵉⵏ ⵏ ⵡⵉⴽⵉⴱⵉⴷⵢⴰ</string>
@@ -159,7 +158,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_contributors_heading">ⵉⵏⴰⵎⵓⵜⵏ</string>
@@ -174,7 +172,7 @@
   <string name="user_anon_blocked_from_editing">ⴰⵏⵙⴰ ⵏ IP ⵏⵏⴽ ⵉⴷⴷⵓⴳⴷⴰⵍ ⵙⴳ ⵓⵙⵏⴼⵍ.</string>
   <string name="edit_how_page_improved">ⵎⴰⵏⵎⴽ ⴰ ⵙ ⵜⵙⴱⵓⵖⵍⵉⴷ ⵜⴰⵙⵏⴰ?</string>
   <string name="edit_done">ⴼⵙⵔ</string>
-  <string name="edit_preview">ⴰⵣⵔⴰⵙⴽⴰⵏ</string>
+  <string name="edit_preview">ⵜⴰⵎⵓⵖⵍⵉ</string>
   <string name="edit_undo">ⵙⵔ</string>
   <string name="edit_redo">ⴰⵍⵙ</string>
   <string name="edit_zoom_in">ⵙⵉⵎⵖⵓⵔ</string>

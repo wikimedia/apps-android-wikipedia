@@ -1,10 +1,8 @@
 package org.wikipedia.gallery
 
 import android.app.Activity
-import android.app.DownloadManager
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
@@ -39,6 +37,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
@@ -50,7 +49,16 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.*
+import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.GradientUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 import org.wikipedia.views.ViewAnimations
@@ -127,11 +135,11 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             loadGalleryContent()
         }
         if (intent.hasExtra(Constants.ARG_TITLE)) {
-            pageTitle = intent.getParcelableExtra(Constants.ARG_TITLE)
+            pageTitle = intent.parcelableExtra(Constants.ARG_TITLE)
         }
         initialFilename = intent.getStringExtra(EXTRA_FILENAME)
         revision = intent.getLongExtra(EXTRA_REVISION, 0)
-        sourceWiki = intent.getParcelableExtra(Constants.ARG_WIKISITE)!!
+        sourceWiki = intent.parcelableExtra(Constants.ARG_WIKISITE)!!
         galleryAdapter = GalleryItemAdapter(this@GalleryActivity)
         binding.pager.adapter = galleryAdapter
         binding.pager.registerOnPageChangeCallback(pageChangeListener)
@@ -197,14 +205,12 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     public override fun onResume() {
         super.onResume()
-        registerReceiver(downloadReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        downloadReceiver.callback = downloadReceiverCallback
+        downloadReceiver.register(this, downloadReceiverCallback)
     }
 
     public override fun onPause() {
         super.onPause()
-        downloadReceiver.callback = null
-        unregisterReceiver(downloadReceiver)
+        downloadReceiver.unregister(this)
     }
 
     override fun onDownload(item: GalleryItemFragment) {
@@ -224,6 +230,10 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         } else {
             ShareUtil.shareText(this, title)
         }
+    }
+
+    override fun onError(throwable: Throwable) {
+        showError(throwable)
     }
 
     override fun setTheme() {

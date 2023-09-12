@@ -91,7 +91,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         markerBitmapBase = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.map_marker_outline,
-            null /* ResourceUtil.getThemedAttributeId(requireContext(), R.attr.secondary_color) */)
+            null) // ResourceUtil.getThemedAttributeId(requireContext(), R.attr.secondary_color)
         markerBitmapBaseRect = Rect(0, 0, markerBitmapBase.width, markerBitmapBase.height)
 
         Mapbox.getInstance(requireActivity().applicationContext)

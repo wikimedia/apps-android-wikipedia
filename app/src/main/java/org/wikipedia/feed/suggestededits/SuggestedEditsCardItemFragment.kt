@@ -24,6 +24,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
 import org.wikipedia.descriptions.DescriptionEditReviewView.Companion.ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
@@ -81,7 +82,7 @@ class SuggestedEditsCardItemFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             age = it.getInt(AGE)
-            val pageSummary = it.getParcelable<SuggestedEditsFeedClient.SuggestedEditsSummary?>(PAGE_SUMMARY)
+            val pageSummary = it.parcelable<SuggestedEditsFeedClient.SuggestedEditsSummary>(PAGE_SUMMARY)
             if (pageSummary != null) {
                 sourceSummaryForEdit = pageSummary.sourceSummaryForEdit
                 targetSummaryForEdit = pageSummary.targetSummaryForEdit

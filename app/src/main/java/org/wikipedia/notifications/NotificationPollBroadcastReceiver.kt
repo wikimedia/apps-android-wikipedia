@@ -21,8 +21,10 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.UnreadNotificationsEvent
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.db.Notification
+import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
@@ -61,11 +63,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 val remoteInput = RemoteInput.getResultsFromIntent(intent)
                 val text = remoteInput?.getCharSequence(RESULT_KEY_DIRECT_REPLY)
 
-                if (intent.hasExtra(Constants.ARG_WIKISITE) && intent.hasExtra(Constants.ARG_TITLE) && !text.isNullOrEmpty()) {
-                    NotificationDirectReplyHelper.handleReply(context,
-                        intent.getParcelableExtra(Constants.ARG_WIKISITE)!!,
-                        intent.getParcelableExtra(Constants.ARG_TITLE)!!,
-                        text.toString(),
+                val wiki = intent.parcelableExtra<WikiSite>(Constants.ARG_WIKISITE)
+                val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
+                if (wiki != null && title != null && !text.isNullOrEmpty()) {
+                    NotificationDirectReplyHelper.handleReply(context, wiki, title, text.toString(),
                         intent.getStringExtra(RESULT_EXTRA_REPLY_TO).orEmpty(),
                         intent.getIntExtra(RESULT_EXTRA_ID, 0))
                 }
@@ -110,10 +111,10 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private fun getAlarmPendingIntent(context: Context): PendingIntent {
             val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
             intent.action = ACTION_POLL
-            return PendingIntentCompat.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT, false)
+            return PendingIntentCompat.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT, false)!!
         }
 
-        fun getCancelNotificationPendingIntent(context: Context, id: Long, type: String?): PendingIntent {
+        fun getCancelNotificationPendingIntent(context: Context, id: Long, type: String?): PendingIntent? {
             val intent = Intent(context, NotificationPollBroadcastReceiver::class.java)
                     .setAction(ACTION_CANCEL)
                     .putExtra(Constants.INTENT_EXTRA_NOTIFICATION_ID, id)

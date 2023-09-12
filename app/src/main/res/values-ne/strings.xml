@@ -105,7 +105,7 @@
   <string name="map_view_link_text">कुनै नक्सामा हेर्नुहोस्</string>
   <string name="other_languages_indication_text">अर्को भाषामा पढ्नुहोस्</string>
   <string name="language_count_link_text">अरू %d ओटा भाषाहरूमा उपलब्ध</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA ३.०</string>
+  <string name="content_license_cc_by_sa">CC BY-SA ४.०</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">सङ्ग्रह गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ।</string>
   <string name="edit_save_action_license_anon" fuzzy="true">प्रकाशन गरेर तपाईँ &lt;a href=\"%1$s\"&gt;प्रयोगका सर्तहरू&lt;/a&gt;मा सहमत हुनुहुन्छ र आफ्ना योगदानहरू अपरिवर्तनीय रूपमा &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इजाजतपत्र अन्तर्गत प्रकाशन गर्नुहुन्छ। सम्पादनहरू तपाईँको उपकरणको आइपओ ठेगानामा एट्रिब्युट गरिनेछन् । यदि &lt;a href=\"https://#login\"&gt;लग इन&lt;/a&gt;,  गर्नु भयो भने राम्रो गोपनियता प्राप्त हुनसक्छ।</string>
   <string name="preference_title_language">विकिपिडिया भाषाहरू</string>
@@ -228,7 +228,6 @@
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ne.wikipedia.org/wiki/विकिपिडिया:खाता_बनाउनको_लागि_अनुरोध</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">प्रयोग भएका पुस्तकालयहरू</string>
   <string name="about_contributors_heading">योगदानकर्ताहरू</string>
   <string name="about_translators_heading">अनुवादकहरू</string>

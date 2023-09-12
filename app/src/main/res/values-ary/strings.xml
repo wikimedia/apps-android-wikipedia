@@ -92,7 +92,6 @@
   <string name="map_view_link_text">شوف ف خريطة</string>
   <string name="other_languages_indication_text">قرا بلغة خرى</string>
   <string name="language_count_link_text">موجود ف %d لغة خرى</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">بالنشير، راك قابل على &lt;a href=\"%1$s\"&gt;شروط لإستخدام&lt;/a&gt;، وباللي مغاديش يتنادم معاك لحال الى تنشرات لمساهمة ديالك تحت ليصونص &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="preference_title_language">لوغات د ويكيپيديا</string>
   <string name="langlinks_filter_hint">قلّب</string>
@@ -355,7 +354,7 @@
   <string name="suggested_edits_contribution_image_label">تصويرة</string>
   <string name="suggested_edits_contribution_date_yesterday_text">لبارح</string>
   <string name="suggested_edits_encourage_account_creation_title">واش ف خبارك بلي أي واحد يمكنلو يكتب ف ويكيپيديا؟</string>
-  <string name="file_page_add_image_caption_button">زيد تعليق علا تصويرة</string>
+  <string name="file_page_add_image_caption_button">زيد تعليق على تصويرة</string>
   <string name="description_edit_login_cancel_button_text">لغي</string>
   <string name="onboarding_continue">كمل</string>
   <string name="onboarding_multilingual_add_language_text">زيد ولا بدل لوغات</string>

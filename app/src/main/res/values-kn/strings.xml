@@ -88,7 +88,6 @@
   <string name="map_view_link_text">ಒಂದು ಭೂಪಟದಲ್ಲಿ ನೋಡಿ</string>
   <string name="other_languages_indication_text">ಬೇರೆ ಭಾಷೆಯಲ್ಲಿ ಓದಿ</string>
   <string name="language_count_link_text">%d ಬೇರೆ ಭಾಷೆಗಳಲ್ಲಿ ಲಭ್ಯವಿದೆ</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="preference_title_language">ವಿಕಿಪೀಡಿಯ ಭಾಷೆಗಳು</string>
   <string name="langlinks_filter_hint">ಹುಡುಕು</string>
   <string name="langlinks_empty">ಈ ಪುಟ ಬೇರೆಭಾಷೆಗಳಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ.</string>
@@ -180,7 +179,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_contributors_heading">ಕೊಡುಗೆದಾರರು</string>

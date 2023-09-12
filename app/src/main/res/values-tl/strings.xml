@@ -23,11 +23,11 @@
   <string name="search_hint">Maghanap sa Wikipedia</string>
   <string name="search_hint_voice_search">Maghanap gamit boses</string>
   <string name="search_hint_search_languages">Maghanap ng wika</string>
-  <string name="filter_hint_filter_my_lists_and_articles">I-filter ang mga listahan ko</string>
+  <string name="filter_hint_filter_my_lists_and_articles">I-filter mga listahan ko</string>
   <string name="nav_item_suggested_edits">Mga binago</string>
   <string name="nav_item_more">Karagdagan</string>
   <string name="nav_item_search">Maghanap</string>
-  <string name="error_network_error">Hindi makakonekta sa Internet.</string>
+  <string name="error_network_error">Hindi makakonekta sa internet.</string>
   <string name="page_error_retry">Subukan muli</string>
   <string name="card_offline_error_retry">Subukan muli</string>
   <string name="storage_access_error_retry">Subukan muli</string>
@@ -38,7 +38,7 @@
   <string name="error_next">Sunod</string>
   <string name="menu_clear_all_history">Linisin ang nakaraan</string>
   <string name="history_item_deleted">Tinanggal na ang %s mula sa nakaraan</string>
-  <string name="history_items_deleted">Tinanggal ang %d (na) artikulo mula sa nakaraan</string>
+  <string name="history_items_deleted">Tinanggal na ang %d (na) artikulo mula sa nakaraan</string>
   <string name="history_item_delete_undo">I-undo</string>
   <string name="notification_archive_undo">I-undo</string>
   <string name="app_settings">Pagsasaayos</string>
@@ -68,6 +68,10 @@
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d edit simula noong %2$s</item>
     <item quantity="other">%1$d (na) simula noong %2$s</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d edit noon pang %2$s (%3$s)</item>
+    <item quantity="other">%1$d (na) edit noon pang %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Subukang baguhin ang &lt;a href=\"#\"&gt;mga filter&lt;/a&gt; para makakita pa ng mga edit</string>
   <string name="menu_page_show_tabs">Ipakita ang mga tab</string>
@@ -110,9 +114,8 @@
   <string name="map_view_link_text">Tingnan sa mapa</string>
   <string name="other_languages_indication_text">Basahin sa ibang wika</string>
   <string name="language_count_link_text">Mababasa sa %d (na) wika</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Sa paglathala, sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Kasunduan sa Paggamit&lt;/a&gt;, pati na rin sa paglisensiya sa mga ambag mo sa ilalim ng lisensiyang &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Sa paglathala, sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Kasunduan sa Paggamit&lt;/a&gt;, pati na rin sa paglisensiya sa mga ambag mo sa ilalim ng lisensiyang &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Gagamitin ang IP address ng device mo bilang atribusyon sa mga edit. Magiging mas pribado ka kung &lt;a href=\"https://#login\"&gt;magla-login&lt;/a&gt; ka.</string>
+  <string name="edit_save_action_license_logged_in">Sa paglathala, sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Kasunduan sa Paggamit&lt;/a&gt;, pati na rin sa paglisensiya sa mga ambag mo sa ilalim ng lisensiyang &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Sa paglathala, sumasang-ayon ka sa &lt;a href=\"%1$s\"&gt;Kasunduan sa Paggamit&lt;/a&gt;, pati na rin sa paglisensiya sa mga ambag mo sa ilalim ng lisensiyang &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Gagamitin ang IP address ng device mo bilang atribusyon sa mga edit. Magiging mas pribado ka kung &lt;a href=\"https://#login\"&gt;magla-login&lt;/a&gt; ka.</string>
   <string name="edit_anon_warning">Gagamitin ang IP address ng device mo bilang attibusyon sa mga edit. Magiging mas pribado ka kung &lt;a href=\"https://#login\"&gt;magla-login&lt;/a&gt; ka.</string>
   <string name="preference_title_language">Mga wika sa Wikipedia</string>
   <string name="langlinks_filter_hint">Maghanap</string>
@@ -236,7 +239,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Mga ginamit na library</string>
@@ -245,7 +247,7 @@
   <string name="about_translators_heading">Mga nagsalin</string>
   <string name="about_translators_translatewiki">Boluntaryong isinalin ang app na ito sa &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensiya</string>
-  <string name="about_app_license" fuzzy="true">Magagamit ang source code sa &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; at &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sa ilalim ng &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;lisensiyang Apache 2.0&lt;/a&gt;.\nMaliban lang kung nakasaad, magagamit ang nilalaman sa ilalim ng &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;lisensiyang Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Magagamit ang source code sa &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; at &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sa ilalim ng &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;lisensiyang Apache 2.0&lt;/a&gt;.\nMaliban lang kung nakasaad, magagamit ang nilalaman sa ilalim ng &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;lisensiyang Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Produkto ng &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Patungkol</string>
   <string name="edit_abandon_confirm">Binago mo ang pahinang ito. Sigurado ka bang aalis ka nang hindi sine-save ang mga binago mo?</string>
@@ -366,6 +368,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Di malo-load ang artikulo kapag offline.</string>
   <string name="page_offline_notice_add_to_reading_list">Hint: Idagdag ang artikulo sa mga babasahin at ida-download agad ito kapag online ka na ulit.</string>
   <string name="page_offline_notice_last_date">Binabasa mo ngayon ang isang offline na bersyon ng artikulong ito na na-save noong %s.</string>
+  <string name="redirected_from_snackbar">Na-redirect mula \"%s\"</string>
   <string name="button_get_directions">Kunin ang mga direksyon</string>
   <string name="error_no_maps_app">Walang nakitang app na makakapagbigay ng mga direksyon.</string>
   <string name="preference_title_customize_explore_feed">Maglibot</string>
@@ -436,8 +439,13 @@
   <string name="text_size_percent_default">%s (Ipinaubaya)</string>
   <string name="text_style_title">Font</string>
   <string name="theme_category_reading">Pagbabasa</string>
+  <string name="theme_category_editing">Pag-eedit</string>
   <string name="reading_focus_mode">Nakapokus sa pagbabasa</string>
   <string name="reading_focus_mode_detail">Tinatago ang mga feature sa pag-edit at ang toolbar sa baba pagka-scroll</string>
+  <string name="editing_syntax_highlight_label">Pagha-highlight sa syntax</string>
+  <string name="editing_line_numbers_label">Ipakita ang bilang ng linya</string>
+  <string name="editing_monospace_font_label">Gumamit ng monospace font</string>
+  <string name="editing_typing_suggestions">Ipakita ang mga suhestiyon sa pagta-type</string>
   <string name="nav_item_saved">Na-save na</string>
   <string name="reading_list_save_to">I-save sa mga babasahin</string>
   <string name="reading_list_move_to">Ilipat sa mga babasahin</string>
@@ -450,9 +458,17 @@
   <string name="reading_list_articles_already_exist_message">Okey na! Naglalaman na ang %s ng lahat ng mga artikulo.</string>
   <string name="reading_list_added_view_button">Tingnan</string>
   <string name="reading_list_add_to_list_button">Idagdag</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 artikulo</item>
+    <item quantity="other">%d (na) artikulo</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 artikulo, %2$.2f (na) MB</item>
     <item quantity="other">%1$d (na) artikulo, %2$.2f (na) MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d sa 1 artikulo ang mababasa offline</item>
+    <item quantity="other">%1$d sa %2$d (na) artikulo ang mababasa offline</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d sa 1 artikulo ang offline, %3$.2f (na) MB</item>
@@ -467,6 +483,10 @@
   <string name="reading_list_sort_by_created">Ayusin base sa petsa ng paggawa (bago muna)</string>
   <string name="reading_list_sort_by_created_desc">Ayusin base sa petsa ng paggawa (luma muna)</string>
   <string name="reading_list_menu_delete">Burahin</string>
+  <string name="reading_list_menu_export">I-export ang listahan</string>
+  <string name="reading_list_menu_select">Pumili</string>
+  <string name="reading_list_menu_unselect">Wag piliin</string>
+  <string name="reading_list_export_write_permission_rationale">Kailangan ang permiso sa pagsulat sa storage ng iyong device para ma-export ang iyong listahan.</string>
   <string name="reading_list_menu_rename">Baguhin ang pangalan/paglalarawan</string>
   <string name="reading_list_action_menu_remove_from_offline">Tanggalin sa offline</string>
   <string name="reading_list_action_menu_save_for_offline">I-save offline</string>
@@ -487,6 +507,15 @@
     <item quantity="one">Tinanggal na ang %d artikulo sa %s</item>
     <item quantity="other">Tinanggal na ang %d (na) artikulo sa %s</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">Nabura na ang %d listahan</item>
+    <item quantity="other">Nabura na ang %d (na) listahan</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Bawal burahin ang default na listahan (%s)</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">Nabura na ang %1$s. Bawal burahin ang default na listahan (%2$s).</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">Nabura na ang mga listahan. Bawal burahin ang default na listahan (%s).</string>
+  <string name="single_list_json_file_name">%s (Wikipedia reading list).json</string>
+  <string name="multiple_lists_json_file_name">Wikipedia reading lists (%s at iba pa).json</string>
   <string name="reading_list_items_deleted">Tinanggal na ang %d (na) artikulo</string>
   <string name="reading_lists_item_deleted">Tinanggal na ang %s</string>
   <string name="reading_list_item_delete_undo">I-undo</string>
@@ -519,6 +548,7 @@
   <string name="reading_list_articles_added_to_named">Dinagdag na ang %1$d (na) artikulo sa %2$s</string>
   <string name="reading_list_articles_moved_to_named">Nilipat na ang %1$d (na) artikulo sa %2$s</string>
   <string name="reading_list_delete_confirm">Buburahin mo ba talaga ang %s?</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Burahin ang (mga) napiling listahan?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Mag-login para mabuksan ang pag-sync</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Mag-login para payagang mai-save ang mga babasahin mo sa account mo.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ikansela</string>

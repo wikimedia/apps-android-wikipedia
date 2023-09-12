@@ -14,6 +14,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Metrics
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -24,10 +25,9 @@ import java.io.IOException
 import java.util.*
 
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
-
     val editHistoryStatsData = MutableLiveData<Resource<EditHistoryStats>>()
 
-    var pageTitle: PageTitle = bundle.getParcelable(Constants.ARG_TITLE)!!
+    var pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     var pageId = -1
         private set
     var comparing = false

@@ -33,7 +33,6 @@ class NotificationRepository constructor(private val notificationDao: Notificati
         var newContinueStr: String? = null
         val response = ServiceFactory.get(WikipediaApp.instance.wikiSite).getAllNotifications(wikiList, filter, continueStr)
         response.query?.notifications?.let {
-            // TODO: maybe add a logic to avoid adding same data into database.
             insertNotifications(it.list.orEmpty())
             newContinueStr = it.continueStr
         }
