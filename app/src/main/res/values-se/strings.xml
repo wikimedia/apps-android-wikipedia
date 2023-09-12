@@ -100,7 +100,6 @@
   <string name="map_view_link_text">Čájet kárttas</string>
   <string name="other_languages_indication_text">Loga eará gillii</string>
   <string name="language_count_link_text">Gávdnamis %d eará gillii</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_anon_warning">Rievdadusat čadnojuvvojit du ovttadaga IP-čujuhussii. Jus don &lt;a href=\"https://#login\"&gt;čálihat sisa&lt;/a&gt;, de lea dus eanet peršuvdnasuodjalus.</string>
   <string name="preference_title_language">Wikipedia gielat</string>
   <string name="langlinks_filter_hint">Ohcan</string>
@@ -413,11 +412,18 @@
   <string name="menu_option_view_user_profile">Čájet geavaheaddjisiiddu</string>
   <string name="menu_option_view_user_contributions">Čájet geavaheaddji rievdadusaid</string>
   <string name="watchlist_page_deleted">Sihkkojuvvon</string>
+  <string name="watchlist_filter_user_status_header">Geavaheaddji registreren ja hárjánusdássi</string>
+  <string name="watchlist_filter_automated_contributions_header">Automatiserejuvvon rievdadusat</string>
   <string name="watchlist_filter_significance_minor">Unna rievdadusažat</string>
+  <string name="watchlist_filter_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">Wikidata-rievdadusat</string>
   <string name="preview_edit_minor_edit">Dát lea unna rievdadusaš</string>
   <string name="category_tab_subcategories">Vuollekategoriijat</string>
   <string name="search_namespaces">Nammagomuvuođat</string>
   <string name="shareable_reading_lists_new_indicator">*ođđa*</string>
+  <string name="patroller_tasks_filters_user_status_header">Geavaheaddji registreren ja hárjánusdássi</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Automatiserejuvvon rievdadusat</string>
   <string name="patroller_tasks_filters_significance_minor">Unna rievdadusažat</string>
+  <string name="patroller_tasks_filters_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
   <string name="data_opt_in_accept">Dohkket</string>
 </resources>

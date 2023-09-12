@@ -95,7 +95,7 @@
   <string name="page_edit_history_filter_by_all">Alle bewerkingen (%s)</string>
   <string name="page_edit_history_filter_by_user">Gebruikersbewerkingen (%s)</string>
   <string name="page_edit_history_filter_by_anon">Anonieme bewerkingen (%s)</string>
-  <string name="page_edit_history_filter_by_bot">Botbewerkingen (%s)</string>
+  <string name="page_edit_history_filter_by_bot">Robotbewerkingen (%s)</string>
   <string name="page_edit_history_metrics_content_description">Statistieken van %1$s tot %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d bewerking sinds %2$s</item>
@@ -146,7 +146,6 @@
   <string name="map_view_link_text">Op een kaart bekijken</string>
   <string name="other_languages_indication_text">In een andere taal lezen</string>
   <string name="language_count_link_text">Beschikbaar in %d andere talen</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en geeft u onherroepelijk uw bijdragen vrij onder de licentie &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en geeft u onherroepelijk uw bijdragen vrij onder de licentie &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt; krijgt u meer privacy.</string>
   <string name="edit_anon_warning">Bewerkingen worden toegeschreven aan het IP-adres van uw apparaat. Als u zich &lt;a href=\"https://#login\"&gt;aanmeldt&lt;/a&gt; krijgt u meer privacy.</string>
@@ -1505,8 +1504,8 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Gebruikersbijdragen bekijken</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Bedanken</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Gebruikersgegevens</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Dienstverband</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Aantal bewerkingen</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text" fuzzy="true">&lt;b&gt;Ingeschreven bij Wikipedia op: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Aantal bewerkingen: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Sluiten</string>
   <string name="patroller_tasks_filters_title">Filters</string>
   <string name="patroller_tasks_filters_reset">Opnieuw instellen</string>
@@ -1559,8 +1558,8 @@
   <string name="data_opt_in_reject">Afwijzen</string>
   <string name="page_issues_title">Paginaproblemen</string>
   <string name="generic_release_notes">Kleine bugfixes en verbeteringen</string>
-  <string name="email_report_image_recommendations_subject">Probleemrapport - Functie Afbeeldingsaanbevelingen</string>
-  <string name="email_report_image_recommendations_body">Ik ben een probleem tegengekomen met de functie Afbeeldingsaanbevelingen:\n- [Beschrijf specifiek probleem]\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
-  <string name="email_report_patroller_tasks_subject">Probleemrapport - Functie Patrollertaken</string>
-  <string name="email_report_patroller_tasks_body">Ik ben een probleem tegengekomen met de functie Patroller Tasks:\n- [Beschrijf specifiek probleem]\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
+  <string name="email_report_image_recommendations_subject">Probleemmelding: functie Afbeeldingsaanbevelingen</string>
+  <string name="email_report_image_recommendations_body">Ik ben een probleem tegengekomen met de functie Afbeeldingsaanbevelingen:\n- [Beschrijf precies het probleem]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
+  <string name="email_report_patroller_tasks_subject">Probleemmelding: functie Patrollertaken</string>
+  <string name="email_report_patroller_tasks_body">Ik ben een probleem tegengekomen met de functie Patrollertaken:\n- [Beschrijf precies het probleem]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]\n\n[Schermafbeeldingen of koppelingen]</string>
 </resources>

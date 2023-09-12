@@ -1,8 +1,7 @@
 package org.wikipedia.views
 
-import android.app.Activity
 import android.content.Context
-import android.content.ContextWrapper
+import android.graphics.Point
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
@@ -10,6 +9,8 @@ import android.net.Uri
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.graphics.contains
+import androidx.core.view.allViews
 import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
@@ -79,25 +80,13 @@ object ViewUtil {
         return (Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat() / thumbWidth * thumbHeight * containerWidth / Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat()).toInt()
     }
 
-    tailrec fun Context.getActivity(): Activity? = this as? Activity
-        ?: (this as? ContextWrapper)?.baseContext?.getActivity()
-
-    fun findClickableViewAtPoint(parentView: View, x: Int, y: Int): View? {
+    fun findClickableViewAtPoint(parentView: View, point: Point): View? {
         val location = IntArray(2)
-        parentView.getLocationOnScreen(location)
-        val rect = Rect(location[0], location[1], location[0] + parentView.width, location[1] + parentView.height)
-        if (rect.contains(x, y) && parentView.isVisible) {
-            if (parentView is ViewGroup) {
-                for (i in parentView.childCount - 1 downTo 0) {
-                    val v = parentView.getChildAt(i)
-                    findClickableViewAtPoint(v, x, y)?.let { return it }
-                }
-            }
-            if (parentView.isEnabled && parentView.isClickable) {
-                return parentView
-            }
+        return parentView.allViews.lastOrNull {
+            val (x, y) = location.apply { it.getLocationOnScreen(this) }
+            val rect = Rect(x, y, x + it.width, y + it.height)
+            point in rect && it.isVisible && it.isEnabled && it.isClickable
         }
-        return null
     }
 
     fun jumpToPositionWithoutAnimation(recyclerView: RecyclerView, position: Int) {
