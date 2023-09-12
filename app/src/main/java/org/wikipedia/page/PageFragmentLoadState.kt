@@ -32,7 +32,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
 import retrofit2.Response
 import java.time.Instant
-import java.time.LocalDateTime
+import java.time.LocalDate
 import java.time.ZoneId
 
 class PageFragmentLoadState(private var model: PageViewModel,
@@ -212,8 +212,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
         if (!fragment.isAdded || dateHeader == null) {
             return
         }
-        // TODO: Use LocalDate.ofInstant() instead once it is available in SDK 34.
-        val localDate = LocalDateTime.ofInstant(dateHeader, ZoneId.systemDefault()).toLocalDate()
+        val localDate = LocalDate.ofInstant(dateHeader, ZoneId.systemDefault())
         val dateStr = DateUtil.getShortDateString(localDate)
         Toast.makeText(fragment.requireContext().applicationContext,
             fragment.getString(R.string.page_offline_notice_last_date, dateStr),
