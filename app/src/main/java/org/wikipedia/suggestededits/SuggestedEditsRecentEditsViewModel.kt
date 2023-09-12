@@ -70,10 +70,22 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     }
 
     fun filtersCount(): Int {
-        val defaultTypeSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }.toSet()
-        val nonDefaultChangeTypes = Prefs.recentEditsIncludedTypeCodes.subtract(defaultTypeSet)
-            .union(defaultTypeSet.subtract(Prefs.recentEditsIncludedTypeCodes.toSet()))
-        return nonDefaultChangeTypes.size
+        val findSelectedUserStatus = Prefs.recentEditsIncludedTypeCodes
+            .filter { code ->
+                SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.map { it.id }.contains(code) ||
+                SuggestedEditsRecentEditsFilterTypes.USER_EXPERIENCE_GROUP.map { it.id }.contains(code)
+            }
+
+        // It should include: "not" default values + "non-selected" default values
+        val defaultUserStatusSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_USER_STATUS.map { it.id }.toSet()
+        val nonDefaultUserStatus = findSelectedUserStatus.subtract(defaultUserStatusSet)
+            .union(defaultUserStatusSet.subtract(findSelectedUserStatus.toSet()))
+
+        // Find the remaining selected filters
+        val findSelectedOthers = Prefs.recentEditsIncludedTypeCodes.subtract(findSelectedUserStatus.toSet())
+        val defaultOthersSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_OTHERS.map { it.id }.toSet()
+        val nonDefaultOthers = defaultOthersSet.subtract(findSelectedOthers)
+        return nonDefaultUserStatus.size + nonDefaultOthers.size
     }
 
     private fun latestRevisions(): String? {
@@ -107,7 +119,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             }
         }
 
-        if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.USER_STATUS_GROUP.map { it.id })) {
+        if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.map { it.id })) {
             if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.REGISTERED.id)) {
                 list.add(SuggestedEditsRecentEditsFilterTypes.REGISTERED.value)
             }

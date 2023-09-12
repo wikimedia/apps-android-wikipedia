@@ -18,6 +18,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivitySuggestedEditsRecentEditsFiltersBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 
 class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
@@ -42,7 +43,8 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
-        val shouldShowResetButton = Prefs.recentEditsWikiCode.isNotEmpty() || !Prefs.recentEditsIncludedTypeCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id })
+        val shouldShowResetButton = !(Prefs.recentEditsIncludedTypeCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }) &&
+                Prefs.recentEditsIncludedTypeCodes.toSet().subtract(SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }.toSet()).isEmpty())
         menu.findItem(R.id.menu_filter_reset).isVisible = shouldShowResetButton
         return super.onPrepareOptionsMenu(menu)
     }
@@ -78,8 +80,11 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         }
         filterListWithHeaders.add(getString(R.string.notifications_filter_update_app_languages))
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_user_status_header))
-        SuggestedEditsRecentEditsFilterTypes.USER_STATUS_GROUP.forEach {
-            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id))
+        SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.forEach {
+            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, true))
+        }
+        SuggestedEditsRecentEditsFilterTypes.USER_EXPERIENCE_GROUP.forEach {
+            filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, true))
         }
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_latest_revisions_header))
         SuggestedEditsRecentEditsFilterTypes.LATEST_REVISIONS_GROUP.forEach {
