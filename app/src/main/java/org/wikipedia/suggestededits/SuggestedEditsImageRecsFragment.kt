@@ -25,6 +25,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.viewModelScope
 import androidx.palette.graphics.Palette
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
@@ -430,12 +431,17 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
 
     private fun getActionStringForAnalytics(acceptanceState: String? = null, rejectionReasons: String? = null,
                                             revisionId: Long? = null, addTimeSpent: Boolean = false): String {
-        val recommendedImage = viewModel.recommendation.images[0]
-        return ImageRecommendationsEvent.getActionDataString(filename = recommendedImage.image,
-            recommendationSource = recommendedImage.source,
-            recommendationSourceProjects = recommendedImage.projects.toString(),
-            acceptanceState = acceptanceState, rejectionReasons = rejectionReasons,
-            revisionId = revisionId, addTimeSpent = addTimeSpent)
+
+        return if (viewModel.isRecommendationInitialized) {
+            val recommendedImage = viewModel.recommendation.images[0]
+            ImageRecommendationsEvent.getActionDataString(
+                filename = recommendedImage.image,
+                recommendationSource = recommendedImage.source,
+                recommendationSourceProjects = recommendedImage.projects.toString(),
+                acceptanceState = acceptanceState, rejectionReasons = rejectionReasons,
+                revisionId = revisionId, addTimeSpent = addTimeSpent
+            )
+        } else ""
     }
 
     override fun onBackPressed(): Boolean {

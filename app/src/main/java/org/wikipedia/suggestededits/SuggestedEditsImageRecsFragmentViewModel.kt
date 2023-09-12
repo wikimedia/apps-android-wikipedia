@@ -41,6 +41,7 @@ class SuggestedEditsImageRecsFragmentViewModel(bundle: Bundle) : ViewModel() {
     lateinit var summary: PageSummary
     lateinit var recommendedImageTitle: PageTitle
     var attemptInsertInfobox = false
+    val isRecommendationInitialized get() = ::recommendation.isInitialized
 
     val langCode = bundle.getString(SuggestedEditsImageRecsFragment.ARG_LANG)!!
     private val _uiState = MutableStateFlow(UiState())
