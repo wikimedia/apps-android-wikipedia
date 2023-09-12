@@ -23,8 +23,6 @@ enum class SuggestedEditsRecentEditsFilterTypes constructor(val id: String,
         R.string.patroller_tasks_filters_automated_contributions_bot),
     HUMAN("human", "!bot",
         R.string.patroller_tasks_filters_automated_contributions_human),
-    ALL_REVISIONS("allRevisions", "",
-        R.string.patroller_tasks_filters_all_text),
     LATEST_REVISION("latestRevision", "",
         R.string.patroller_tasks_filters_latest_revisions_latest_revision),
     NOT_LATEST_REVISION("notLatestRevision", "1",
@@ -62,11 +60,11 @@ enum class SuggestedEditsRecentEditsFilterTypes constructor(val id: String,
     companion object {
         val MINOR_EDITS_GROUP = listOf(ALL_EDITS, MINOR_EDITS, NON_MINOR_EDITS)
         val BOT_EDITS_GROUP = listOf(ALL_EDITORS, BOT, HUMAN)
-        val LATEST_REVISIONS_GROUP = listOf(ALL_REVISIONS, LATEST_REVISION, NOT_LATEST_REVISION)
+        val LATEST_REVISIONS_GROUP = listOf(LATEST_REVISION, NOT_LATEST_REVISION)
         val USER_STATUS_GROUP = listOf(ALL_USERS, UNREGISTERED, REGISTERED)
         val CONTRIBUTION_QUALITY_GROUP = listOf(QUALITY_GOOD, QUALITY_MAY_PROBLEMS, QUALITY_LIKELY_PROBLEMS, QUALITY_VERY_LIKELY_PROBLEMS)
         val USER_INTENT_GROUP = listOf(INTENT_GOOD, INTENT_MAY_PROBLEMS, INTENT_LIKELY_PROBLEMS, INTENT_VERY_LIKELY_PROBLEMS)
-        val DEFAULT_FILTER_TYPE_SET = setOf(ALL_EDITS, ALL_REVISIONS, ALL_EDITORS, ALL_USERS)
+        val DEFAULT_FILTER_TYPE_SET = setOf(ALL_EDITS, LATEST_REVISION, ALL_EDITORS, ALL_USERS)
 
         private val MAP = EnumCodeMap(SuggestedEditsRecentEditsFilterTypes::class.java)
 

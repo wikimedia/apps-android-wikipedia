@@ -73,7 +73,6 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
     private fun filterListWithHeaders(): List<Any> {
         val filterListWithHeaders = mutableListOf<Any>()
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_wiki_filter_header))
-        filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, getString(R.string.patroller_tasks_filters_all_text)))
         WikipediaApp.instance.languageState.appLanguageCodes.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it))
         }
