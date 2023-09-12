@@ -1256,6 +1256,7 @@
     <string name="wikitext_template">Template</string>
     <string name="wikitext_reference">Reference</string>
     <string name="wikitext_preview_link">Preview link</string>
+    <string name="wikitext_mention_user">Mention a user</string>
 
     <!-- Insert media -->
     <string name="insert_media_title">Insert media</string>

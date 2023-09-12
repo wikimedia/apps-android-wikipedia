@@ -95,7 +95,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
 
         SyntaxHighlightViewAdapter(this, viewModel.pageTitle.wikiSite, binding.root, binding.replyInputView.editText,
-            binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings)
+            binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings, true)
 
         onInitialLoad()
     }

@@ -1206,6 +1206,7 @@
   <string name="wikitext_template">Button label for making the selected text into a template.\n{{Identical|Template}}</string>
   <string name="wikitext_reference">Button label for adding a reference at the current cursor position.\n{{Identical|Reference}}</string>
   <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
+  <string name="wikitext_mention_user">Button label for mentioning a user in a message.</string>
   <string name="insert_media_title">Title of the insert media screen.</string>
   <string name="insert_media_search_description">Message saying that the user can select a file from Wikimedia Commons.</string>
   <string name="insert_media_search_hint">Hint label for the insert media search field.</string>

@@ -23,7 +23,8 @@ class SyntaxHighlightViewAdapter(
     val editText: SyntaxHighlightableEditText,
     private val wikiTextKeyboardView: WikiTextKeyboardView,
     private val wikiTextKeyboardFormattingView: WikiTextKeyboardFormattingView,
-    private val wikiTextKeyboardHeadingsView: WikiTextKeyboardHeadingsView
+    private val wikiTextKeyboardHeadingsView: WikiTextKeyboardHeadingsView,
+    showUserMention: Boolean = false
 ) : WikiTextKeyboardView.Callback {
 
     init {
@@ -33,6 +34,7 @@ class SyntaxHighlightViewAdapter(
         wikiTextKeyboardFormattingView.callback = this
         wikiTextKeyboardHeadingsView.editText = editText
         wikiTextKeyboardHeadingsView.callback = this
+        wikiTextKeyboardView.userMentionVisible = showUserMention
 
         activity.window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
             activity.window.decorView.post {

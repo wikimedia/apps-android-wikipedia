@@ -70,10 +70,14 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
 
     override fun onUserNameChanged(userName: String) {
         var userNamePrefix = userName
-        if (userNamePrefix.startsWith("@") && userNamePrefix.length > 1) {
-            userNamePrefix = userNamePrefix.substring(1)
-            if (userNamePrefix.isNotEmpty()) {
+        if (userNamePrefix.startsWith("@")) {
+            if (userNamePrefix.length > 1) {
+                userNamePrefix = userNamePrefix.substring(1)
                 searchForUserName(userNamePrefix)
+            } else {
+                userNameList.clear()
+                userNameList.addAll(userNameHints)
+                onSearchResults()
             }
         }
     }
