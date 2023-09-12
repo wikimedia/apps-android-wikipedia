@@ -18,7 +18,6 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivitySuggestedEditsRecentEditsFiltersBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 
 class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
@@ -43,8 +42,9 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
-        val shouldShowResetButton = !(Prefs.recentEditsIncludedTypeCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }) &&
-                Prefs.recentEditsIncludedTypeCodes.toSet().subtract(SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }.toSet()).isEmpty())
+        val defaultTypeSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }
+        val shouldShowResetButton = !(Prefs.recentEditsIncludedTypeCodes.containsAll(defaultTypeSet) &&
+                Prefs.recentEditsIncludedTypeCodes.subtract(defaultTypeSet.toSet()).isEmpty())
         menu.findItem(R.id.menu_filter_reset).isVisible = shouldShowResetButton
         return super.onPrepareOptionsMenu(menu)
     }
