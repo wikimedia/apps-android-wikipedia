@@ -12,6 +12,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -37,6 +38,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
 
         binding.mainDrawerAccountContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerAccountContainer)
+            BreadcrumbLogEvent().logClick(requireActivity(), binding.mainDrawerAccountContainer)
             if (AccountUtil.isLoggedIn) {
                 callback()?.usernameClick()
             } else {
@@ -47,30 +49,35 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
 
         binding.mainDrawerTalkContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerTalkContainer)
+            BreadcrumbLogEvent().logClick(requireActivity(), binding.mainDrawerTalkContainer)
             callback()?.talkClick()
             dismiss()
         }
 
         binding.mainDrawerWatchlistContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerWatchlistContainer)
+            BreadcrumbLogEvent().logClick(requireActivity(), binding.mainDrawerWatchlistContainer)
             callback()?.watchlistClick()
             dismiss()
         }
 
         binding.mainDrawerSettingsContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerSettingsContainer)
+            BreadcrumbLogEvent().logClick(requireActivity(), binding.mainDrawerSettingsContainer)
             callback()?.settingsClick()
             dismiss()
         }
 
         binding.mainDrawerContribsContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerContribsContainer)
+            BreadcrumbLogEvent().logClick(requireActivity(), binding.mainDrawerContribsContainer)
             callback()?.contribsClick()
             dismiss()
         }
 
         binding.mainDrawerDonateContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
+            BreadcrumbLogEvent().logClick(requireActivity(), binding.mainDrawerDonateContainer)
             visitInExternalBrowser(requireContext(),
                     Uri.parse(getString(R.string.donate_url,
                             BuildConfig.VERSION_NAME, WikipediaApp.instance.languageState.systemLanguageCode)))

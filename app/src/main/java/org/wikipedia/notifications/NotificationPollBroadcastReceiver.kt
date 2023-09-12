@@ -58,6 +58,7 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
             ACTION_CANCEL == intent.action -> {
                 NotificationInteractionEvent.processIntent(intent)
+                org.wikipedia.analytics.metricsplatform.NotificationInteractionEvent.processIntent(intent)
             }
             ACTION_DIRECT_REPLY == intent.action -> {
                 val remoteInput = RemoteInput.getResultsFromIntent(intent)
@@ -144,11 +145,13 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             if (notificationsToDisplay.size > 2) {
                 // Record that there is an incoming notification to track/compare further actions on it.
                 NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
+                org.wikipedia.analytics.metricsplatform.NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
                 NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
             } else {
                 for (n in notificationsToDisplay) {
                     // Record that there is an incoming notification to track/compare further actions on it.
                     NotificationInteractionEvent.logIncoming(n, null)
+                    org.wikipedia.analytics.metricsplatform.NotificationInteractionEvent.logIncoming(n, null)
                     NotificationPresenter.showNotification(context, n,
                         dbWikiNameMap.getOrElse(n.wiki) { n.wiki },
                         dbWikiSiteMap.getValue(n.wiki).languageCode)

@@ -118,6 +118,7 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         val notification = container.notification
         if (url.isNotEmpty() && notification != null) {
             NotificationInteractionEvent.logAction(notification, linkIndex, link)
+            org.wikipedia.analytics.metricsplatform.NotificationInteractionEvent.logAction(notification, linkIndex, link)
             linkHandler.wikiSite = WikiSite(url)
             linkHandler.onUrlClick(url, null, "")
         }

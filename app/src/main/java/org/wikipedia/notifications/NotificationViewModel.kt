@@ -170,6 +170,7 @@ class NotificationViewModel : ViewModel() {
             notificationsPerWiki.getOrPut(wiki) { mutableListOf() }.add(notification)
             if (!markUnread) {
                 NotificationInteractionEvent.logMarkRead(notification, selectionKey)
+                org.wikipedia.analytics.metricsplatform.NotificationInteractionEvent.logMarkRead(notification, selectionKey)
             }
         }
 

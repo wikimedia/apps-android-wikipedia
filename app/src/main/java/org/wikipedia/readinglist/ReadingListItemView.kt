@@ -11,6 +11,7 @@ import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.databinding.ItemReadingListBinding
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.util.*
@@ -205,6 +206,7 @@ class ReadingListItemView : ConstraintLayout {
     private inner class OverflowMenuClickListener constructor(private val list: ReadingList?) : PopupMenu.OnMenuItemClickListener {
         override fun onMenuItemClick(item: MenuItem): Boolean {
             BreadCrumbLogEvent.logClick(context, item)
+            BreadcrumbLogEvent().logClick(context, item)
             when (item.itemId) {
                 R.id.menu_reading_list_rename -> {
                     list?.let { callback?.onRename(it) }

@@ -4,6 +4,7 @@ import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.PageTitle
@@ -92,6 +93,7 @@ class MachineGeneratedArticleDescriptionsAnalyticsHelper {
             return
         }
         EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context), logString))
+        BreadcrumbLogEvent().log(context, logString)
     }
 
     private fun getOrderString(wasChosen: Boolean, suggestion: String): String {

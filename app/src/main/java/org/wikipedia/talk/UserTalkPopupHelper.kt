@@ -67,14 +67,16 @@ object UserTalkPopupHelper {
     private fun showThankDialog(activity: Activity, title: PageTitle, revisionId: Long, pageId: Int) {
         val parent = FrameLayout(activity)
         val editHistoryInteractionEvent = EditHistoryInteractionEvent(title.wikiSite.dbName(), pageId)
+        val editHistoryInteractionEventMetricsPlatform = org.wikipedia.analytics.metricsplatform.EditHistoryInteractionEvent(title, pageId, revisionId)
         val dialog =
             MaterialAlertDialogBuilder(activity)
                 .setView(parent)
                 .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
-                    sendThanks(activity, title.wikiSite, revisionId, title, editHistoryInteractionEvent)
+                    sendThanks(activity, title.wikiSite, revisionId, title, editHistoryInteractionEvent, editHistoryInteractionEventMetricsPlatform)
                 }
                 .setNegativeButton(R.string.thank_dialog_negative_button_text) { _, _ ->
                     editHistoryInteractionEvent.logThankCancel()
+                    editHistoryInteractionEventMetricsPlatform.logThankCancel()
                 }
                 .create()
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
@@ -82,16 +84,20 @@ object UserTalkPopupHelper {
     }
 
     private fun sendThanks(activity: Activity, wikiSite: WikiSite, revisionId: Long?, title: PageTitle,
-                           editHistoryInteractionEvent: EditHistoryInteractionEvent) {
+                           editHistoryInteractionEvent: EditHistoryInteractionEvent,
+                           editHistoryInteractionEventMetricsPlatform: org.wikipedia.analytics.metricsplatform.EditHistoryInteractionEvent
+    ) {
         CoroutineScope(Dispatchers.Default).launch(CoroutineExceptionHandler { _, throwable ->
             L.e(throwable)
             editHistoryInteractionEvent.logThankFail()
+            editHistoryInteractionEventMetricsPlatform.logThankFail()
         }) {
             val token = ServiceFactory.get(wikiSite).getToken().query?.csrfToken()
             if (revisionId != null && token != null) {
                 ServiceFactory.get(wikiSite).postThanksToRevision(revisionId, token)
                 FeedbackUtil.showMessage(activity, activity.getString(R.string.thank_success_message, title.text))
                 editHistoryInteractionEvent.logThankSuccess()
+                editHistoryInteractionEventMetricsPlatform.logThankSuccess()
             }
         }
     }

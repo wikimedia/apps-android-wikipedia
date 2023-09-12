@@ -9,6 +9,7 @@ import android.widget.PopupWindow
 import androidx.core.widget.PopupWindowCompat
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.databinding.ViewReadingListsOverflowBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -30,26 +31,31 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
     init {
         binding.readingListsOverflowSortBy.setOnClickListener {
             BreadCrumbLogEvent.logClick(context, it)
+            BreadcrumbLogEvent().logClick(context, it)
             dismissPopupWindowHost()
             callback?.sortByClick()
         }
         binding.readingListsOverflowCreateNewList.setOnClickListener {
             BreadCrumbLogEvent.logClick(context, it)
+            BreadcrumbLogEvent().logClick(context, it)
             dismissPopupWindowHost()
             callback?.createNewListClick()
         }
         binding.readingListsOverflowImportList.setOnClickListener {
             BreadCrumbLogEvent.logClick(context, it)
+            BreadcrumbLogEvent().logClick(context, it)
             dismissPopupWindowHost()
             callback?.importNewList()
         }
         binding.readingListsOverflowSelect.setOnClickListener {
             BreadCrumbLogEvent.logClick(context, it)
+            BreadcrumbLogEvent().logClick(context, it)
             dismissPopupWindowHost()
             callback?.selectListClick()
         }
         binding.readingListsOverflowRefresh.setOnClickListener {
             BreadCrumbLogEvent.logClick(context, it)
+            BreadcrumbLogEvent().logClick(context, it)
             dismissPopupWindowHost()
             callback?.refreshClick()
         }

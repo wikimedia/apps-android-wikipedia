@@ -20,6 +20,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.databinding.ViewPlainTextTooltipBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.main.MainActivity
@@ -170,6 +171,7 @@ object FeedbackUtil {
             (activity as BaseActivity).setCurrentTooltip(balloon)
         }
         BreadCrumbLogEvent.logTooltipShown(activity, anchor)
+        BreadcrumbLogEvent().logTooltipShown(activity, anchor)
         return balloon
     }
 

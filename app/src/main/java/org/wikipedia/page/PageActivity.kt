@@ -24,6 +24,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityPageBinding
@@ -317,6 +318,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             return
         }
         app.appSessionEvent.backPressed()
+        app.sessionEvent.backPressed()
         if (pageFragment.onBackPressed()) {
             return
         }
@@ -587,6 +589,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 else -> pageFragment.openFromExistingTab(pageTitle, entry)
             }
             app.appSessionEvent.pageViewed(entry)
+            app.sessionEvent.pageViewed(entry)
         }
     }
 
@@ -714,6 +717,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     isTooltipShowing = false
                 }
                 BreadCrumbLogEvent.logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
+                BreadcrumbLogEvent().logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
                 showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
                 setCurrentTooltip(this)
                 isTooltipShowing = true

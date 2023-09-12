@@ -11,6 +11,7 @@ import org.wikipedia.databinding.DialogUndoEditBinding
 
 class UndoEditDialog constructor(
     private val editHistoryInteractionEvent: EditHistoryInteractionEvent?,
+    private val editHistoryInteractionEventMetricsPlatform: org.wikipedia.analytics.metricsplatform.EditHistoryInteractionEvent,
     context: Context,
     callback: Callback
 ) : MaterialAlertDialogBuilder(context) {
@@ -32,6 +33,7 @@ class UndoEditDialog constructor(
 
         setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _, _ ->
             editHistoryInteractionEvent?.logUndoCancel()
+            editHistoryInteractionEventMetricsPlatform.logUndoCancel()
         }
 
         binding.textInput.doOnTextChanged { text, _, _, _ ->

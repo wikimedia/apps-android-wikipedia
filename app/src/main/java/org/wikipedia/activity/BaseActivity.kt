@@ -21,6 +21,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.BreadcrumbsContextHelper
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.NotificationInteractionEvent
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.appshortcuts.AppShortcuts
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.connectivity.ConnectionStateMonitor
@@ -74,6 +75,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         if (savedInstanceState == null) {
             NotificationInteractionEvent.processIntent(intent)
+            org.wikipedia.analytics.metricsplatform.NotificationInteractionEvent.processIntent(intent)
         }
 
         // Conditionally execute all recurring tasks
@@ -112,13 +114,16 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
 
     override fun onStop() {
         WikipediaApp.instance.appSessionEvent.persistSession()
+        WikipediaApp.instance.sessionEvent.persistSession()
         super.onStop()
     }
 
     override fun onResume() {
         super.onResume()
         WikipediaApp.instance.appSessionEvent.touchSession()
+        WikipediaApp.instance.sessionEvent.touchSession()
         BreadCrumbLogEvent.logScreenShown(this)
+        BreadcrumbLogEvent().logScreenShown(this)
 
         // allow this activity's exclusive bus methods to override any existing ones.
         unregisterExclusiveBusMethods()
@@ -139,6 +144,7 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
     override fun onBackPressed() {
         super.onBackPressed()
         BreadCrumbLogEvent.logBackPress(this)
+        BreadcrumbLogEvent().logBackPress(this)
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {

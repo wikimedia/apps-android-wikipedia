@@ -238,6 +238,7 @@ class PageFragmentLoadState(private var model: PageViewModel,
             }
             if (title.description.isNullOrEmpty()) {
                 app.appSessionEvent.noDescription()
+                app.sessionEvent.noDescription()
             }
             if (!title.isMainPage) {
                 title.displayText = page?.displayTitle.orEmpty()

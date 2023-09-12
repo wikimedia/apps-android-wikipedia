@@ -7,9 +7,11 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.diff.ArticleEditDetailsViewModel
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.edithistory.EditHistoryListViewModel
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
 
@@ -72,6 +74,30 @@ open class MetricsEvent {
             revisionId,
             "",
             pageTitle.wikiSite.languageCode,
+            null, null, null)
+    }
+
+    protected fun getPageData(viewModel: ArticleEditDetailsViewModel, revisionId: Long): PageData? {
+        return PageData(
+            viewModel.pageId,
+            viewModel.pageTitle.prefixedText,
+            viewModel.pageTitle.namespace().code(),
+            Namespace.of(viewModel.pageTitle.namespace().code()).toString(),
+            viewModel.revisionToId,
+            "",
+            viewModel.pageTitle.wikiSite.languageCode,
+            null, null, null)
+    }
+
+    protected fun getPageData(viewModel: EditHistoryListViewModel): PageData? {
+        return PageData(
+            viewModel.pageId,
+            viewModel.pageTitle.prefixedText,
+            viewModel.pageTitle.namespace().code(),
+            Namespace.of(viewModel.pageTitle.namespace().code()).toString(),
+            viewModel.selectedRevisionFrom?.revId,
+            "",
+            viewModel.pageTitle.wikiSite.languageCode,
             null, null, null)
     }
 

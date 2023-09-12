@@ -42,6 +42,7 @@ class CreateAccountActivity : BaseActivity() {
     private lateinit var binding: ActivityCreateAccountBinding
     private lateinit var captchaHandler: CaptchaHandler
     private lateinit var createAccountEvent: CreateAccountEvent
+    private lateinit var createAccountEventMetricsPlatform: org.wikipedia.analytics.metricsplatform.CreateAccountEvent
     private val disposables = CompositeDisposable()
     private var wiki = WikipediaApp.instance.wikiSite
     private var userNameTextWatcher: TextWatcher? = null
@@ -58,9 +59,11 @@ class CreateAccountActivity : BaseActivity() {
         NonEmptyValidator(binding.captchaContainer.captchaSubmitButton, binding.captchaContainer.captchaText)
         setClickListeners()
         createAccountEvent = CreateAccountEvent(intent.getStringExtra(LOGIN_REQUEST_SOURCE).orEmpty())
+        createAccountEventMetricsPlatform = org.wikipedia.analytics.metricsplatform.CreateAccountEvent(intent.getStringExtra(LOGIN_REQUEST_SOURCE).orEmpty())
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
             createAccountEvent.logStart()
+            createAccountEventMetricsPlatform.logStart()
         }
         // Set default result to failed, so we can override if it did not
         setResult(RESULT_ACCOUNT_NOT_CREATED)
@@ -161,11 +164,13 @@ class CreateAccountActivity : BaseActivity() {
                         finishWithUserResult(response.user)
                     } else {
                         createAccountEvent.logError(StringUtil.removeStyleTags(response.message))
+                        createAccountEventMetricsPlatform.logError(StringUtil.removeStyleTags(response.message))
                         throw CreateAccountException(StringUtil.removeStyleTags(response.message))
                     }
                 }) { caught ->
                     L.e(caught.toString())
                     createAccountEvent.logError(caught.toString())
+                    createAccountEventMetricsPlatform.logError(caught.toString())
                     showProgressBar(false)
                     showError(caught)
                 })
@@ -266,6 +271,7 @@ class CreateAccountActivity : BaseActivity() {
         showProgressBar(false)
         captchaHandler.cancelCaptcha()
         createAccountEvent.logSuccess()
+        createAccountEventMetricsPlatform.logSuccess()
         DeviceUtil.hideSoftKeyboard(this@CreateAccountActivity)
         finish()
     }

@@ -24,6 +24,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
+import org.wikipedia.analytics.metricsplatform.BreadcrumbLogEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
@@ -63,6 +64,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), binding.editQualityStatsView.tooltipText, autoDismiss = true, showDismissButton = true), binding.editQualityStatsView.getDescriptionView())
         Prefs.showOneTimeSequentialUserStatsTooltip = false
         BreadCrumbLogEvent.logTooltipShown(requireActivity(), binding.contributionsStatsView)
+        BreadcrumbLogEvent().logTooltipShown(requireActivity(), binding.contributionsStatsView)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -250,6 +252,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.disabledStatesView.setIPBlocked(viewModel.blockMessageWikipedia)
         binding.disabledStatesView.visibility = VISIBLE
         UserContributionEvent.logIpBlock()
+        org.wikipedia.analytics.metricsplatform.UserContributionEvent.logIpBlock()
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
@@ -269,12 +272,14 @@ class SuggestedEditsTasksFragment : Fragment() {
             binding.disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
             UserContributionEvent.logDisabled()
+            org.wikipedia.analytics.metricsplatform.UserContributionEvent.logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
             UserContributionEvent.logPaused()
+            org.wikipedia.analytics.metricsplatform.UserContributionEvent.logPaused()
             return true
         }
 

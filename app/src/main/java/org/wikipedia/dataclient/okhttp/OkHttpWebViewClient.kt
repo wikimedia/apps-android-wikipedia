@@ -49,10 +49,12 @@ abstract class OkHttpWebViewClient : WebViewClient() {
             val shouldLogLatency = request.url.encodedPath?.contains(RestService.PAGE_HTML_ENDPOINT) == true
             if (shouldLogLatency) {
                 WikipediaApp.instance.appSessionEvent.pageFetchStart()
+                WikipediaApp.instance.sessionEvent.pageFetchStart()
             }
             val rsp = request(request)
             if (rsp.networkResponse != null && shouldLogLatency) {
                 WikipediaApp.instance.appSessionEvent.pageFetchEnd()
+                WikipediaApp.instance.sessionEvent.pageFetchEnd()
             }
             response = if (CONTENT_TYPE_OGG == rsp.header(HEADER_CONTENT_TYPE) ||
                     CONTENT_TYPE_WEBM == rsp.header(HEADER_CONTENT_TYPE)) {
