@@ -37,6 +37,7 @@ import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.*
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
+import java.time.LocalDate
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -190,7 +191,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.pageViewStatsView.setTitle(viewModel.totalPageviews.toString())
 
         if (viewModel.latestEditStreak < 2) {
-            binding.editStreakStatsView.setTitle(if (viewModel.latestEditDate > DateUtil.EPOCH_DATE) {
+            binding.editStreakStatsView.setTitle(if (viewModel.latestEditDate > LocalDate.EPOCH) {
                 DateUtil.getMDYDateString(viewModel.latestEditDate)
             } else {
                 resources.getString(R.string.suggested_edits_last_edited_never)

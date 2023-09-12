@@ -19,14 +19,9 @@ import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
 object DateUtil {
-    // TODO: Use LocalDate.EPOCH instead.
-    @JvmField
-    val EPOCH_DATE: LocalDate = LocalDate.of(1970, 1, 1)
-
     private val DATE_FORMATS = ConcurrentHashMap<String, SimpleDateFormat>()
     private val DATE_TIME_FORMATTERS = ConcurrentHashMap<String, DateTimeFormatter>()
 
-    // TODO: Switch to DateTimeFormatter when minSdk = 26.
     fun iso8601LocalDateTimeParse(timestamp: String): LocalDateTime {
         return LocalDateTime.ofInstant(Instant.parse(timestamp), ZoneId.systemDefault())
     }

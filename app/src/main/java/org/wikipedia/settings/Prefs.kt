@@ -19,6 +19,7 @@ import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import java.time.Instant
+import java.time.LocalDate
 import java.time.LocalDateTime
 
 /** Shared preferences utility for convenient POJO access.  */
@@ -430,7 +431,7 @@ object Prefs {
         get() {
             val pref = PrefsIoUtil.getString(R.string.preference_key_suggested_edits_pause_date, "")
             val localDateTime = if (!pref.isNullOrEmpty()) { DateUtil.dbLocalDateTimeParse(pref) } else null
-            return if (localDateTime != DateUtil.EPOCH_DATE.atStartOfDay()) localDateTime else null
+            return if (localDateTime != LocalDate.EPOCH.atStartOfDay()) localDateTime else null
         }
         set(localDateTime) {
             val dateString = localDateTime?.let { DateUtil.dbLocalDateTimeFormat(it) }

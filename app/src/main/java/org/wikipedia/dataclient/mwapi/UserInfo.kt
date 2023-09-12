@@ -4,14 +4,13 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.mwapi.MwServiceError.BlockInfo
 import org.wikipedia.json.LocalDateAsTimestamp
-import org.wikipedia.util.DateUtil
-import java.util.*
+import java.time.LocalDate
 
 @Serializable
 class UserInfo : BlockInfo() {
     val id = 0
     private val groups: List<String>? = null
-    @SerialName("latestcontrib") val latestContrib: LocalDateAsTimestamp = DateUtil.EPOCH_DATE
+    @SerialName("latestcontrib") val latestContrib: LocalDateAsTimestamp = LocalDate.EPOCH
     @SerialName("registrationdate") private val regDate: LocalDateAsTimestamp? = null
     @SerialName("registration") private val registration: LocalDateAsTimestamp? = null
     @SerialName("editcount") val editCount = -1
@@ -30,8 +29,8 @@ class UserInfo : BlockInfo() {
         return groups?.toSet() ?: emptySet()
     }
 
-    val registrationDate
-        get() = regDate ?: registration ?: DateUtil.EPOCH_DATE
+    val registrationDate: LocalDate
+        get() = regDate ?: registration ?: LocalDate.EPOCH
 
     @Serializable
     class Options {
