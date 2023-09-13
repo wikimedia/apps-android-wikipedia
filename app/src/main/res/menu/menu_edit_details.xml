@@ -19,6 +19,21 @@
                 android:icon="@drawable/ic_content_copy_24"
                 app:iconTint="?attr/secondary_color"
                 android:title="@string/menu_option_copy_link_to_clipboard" />
+            <item
+                android:id="@+id/menu_view_edit_history"
+                android:icon="@drawable/ic_icon_revision_history_apps"
+                app:iconTint="?attr/secondary_color"
+                android:title="@string/menu_page_edit_history" />
+            <item
+                android:id="@+id/menu_report_feature"
+                android:icon="@drawable/ic_report_flag"
+                app:iconTint="?attr/secondary_color"
+                android:title="@string/patroller_tasks_overflow_report" />
+            <item
+                android:id="@+id/menu_learn_more"
+                android:icon="@drawable/ic_info_outline_black_24dp"
+                app:iconTint="?attr/secondary_color"
+                android:title="@string/suggested_edits_learn_more" />
         </menu>
     </item>
 </menu>

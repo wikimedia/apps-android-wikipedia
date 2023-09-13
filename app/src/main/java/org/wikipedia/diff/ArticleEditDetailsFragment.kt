@@ -33,6 +33,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.UserAliasData
@@ -290,6 +291,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         inflater.inflate(R.menu.menu_edit_details, menu)
     }
 
+    override fun onPrepareMenu(menu: Menu) {
+        super.onPrepareMenu(menu)
+        menu.findItem(R.id.menu_view_edit_history).isVisible = viewModel.fromRecentEdits
+        menu.findItem(R.id.menu_report_feature).isVisible = viewModel.fromRecentEdits
+        menu.findItem(R.id.menu_learn_more).isVisible = viewModel.fromRecentEdits
+    }
+
     override fun onMenuItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_share_edit -> {
@@ -299,6 +307,18 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
             R.id.menu_copy_link_to_clipboard -> {
                 copyLink(getSharableDiffUrl())
+                true
+            }
+            R.id.menu_view_edit_history -> {
+                startActivity(EditHistoryListActivity.newIntent(requireContext(), viewModel.pageTitle))
+                true
+            }
+            R.id.menu_learn_more -> {
+                FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+                true
+            }
+            R.id.menu_report_feature -> {
+                // TODO
                 true
             }
             else -> false
@@ -362,6 +382,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
 
         binding.oresDamagingButton.isVisible = false
+        binding.oresGoodFaithButton.isVisible = false
 
         viewModel.revisionTo?.let {
             binding.usernameToButton.text = it.user
@@ -371,7 +392,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
             if (it.ores != null) {
                 binding.oresDamagingButton.isVisible = true
-                binding.oresDamagingButton.text = "Quality: " + (100f - ((it.ores?.damagingProb) ?: 0f) * 100f).toInt() + "%"
+                binding.oresDamagingButton.text = getString(R.string.edit_quality, (100f - ((it.ores?.damagingProb) ?: 0f) * 100f).toInt().toString())
+                binding.oresGoodFaithButton.isVisible = true
+                binding.oresGoodFaithButton.text = getString(R.string.edit_intent, (((it.ores?.goodFaithProb) ?: 0f) * 100f).toInt().toString())
             }
         }
 
