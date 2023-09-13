@@ -81,11 +81,18 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         val nonDefaultUserStatus = findSelectedUserStatus.subtract(defaultUserStatusSet)
             .union(defaultUserStatusSet.subtract(findSelectedUserStatus.toSet()))
 
+        // Ores related: default is empty
+        val findSelectedOres = Prefs.recentEditsIncludedTypeCodes.subtract(findSelectedUserStatus.toSet())
+            .filter { code ->
+                SuggestedEditsRecentEditsFilterTypes.USER_INTENT_GROUP.map { it.id }.contains(code) ||
+                        SuggestedEditsRecentEditsFilterTypes.CONTRIBUTION_QUALITY_GROUP.map { it.id }.contains(code)
+            }
+
         // Find the remaining selected filters
-        val findSelectedOthers = Prefs.recentEditsIncludedTypeCodes.subtract(findSelectedUserStatus.toSet())
+        val findSelectedOthers = Prefs.recentEditsIncludedTypeCodes.subtract(findSelectedOres.toSet())
         val defaultOthersSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_OTHERS.map { it.id }.toSet()
         val nonDefaultOthers = defaultOthersSet.subtract(findSelectedOthers)
-        return nonDefaultUserStatus.size + nonDefaultOthers.size
+        return nonDefaultUserStatus.size + nonDefaultOthers.size + findSelectedOres.size
     }
 
     private fun latestRevisions(): String? {
@@ -129,7 +136,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         }
 
         if (includedTypesCodes.any { code ->
-                SuggestedEditsRecentEditsFilterTypes.USER_INTENT_GROUP.map { it.id }.contains(code)  ||
+                SuggestedEditsRecentEditsFilterTypes.USER_INTENT_GROUP.map { it.id }.contains(code) ||
                         SuggestedEditsRecentEditsFilterTypes.CONTRIBUTION_QUALITY_GROUP.map { it.id }.contains(code) }) {
             list.add("oresreview")
         }
