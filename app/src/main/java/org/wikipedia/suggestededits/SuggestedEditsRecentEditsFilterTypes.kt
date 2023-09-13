@@ -31,28 +31,32 @@ enum class SuggestedEditsRecentEditsFilterTypes constructor(val id: String,
         R.string.patroller_tasks_filters_user_status_unregistered, R.string.patroller_tasks_filters_user_status_unregistered_desc),
     REGISTERED("registered", "!anon",
         R.string.patroller_tasks_filters_user_status_registered, R.string.patroller_tasks_filters_user_status_registered_desc),
+    // TODO: SPIKE ====
     NEWCOMERS("newcomers", "10|4",
         R.string.patroller_tasks_filters_user_status_newcomers, R.string.patroller_tasks_filters_user_status_newcomers_desc),
     LEARNERS("learners", "500|30",
         R.string.patroller_tasks_filters_user_status_learners, R.string.patroller_tasks_filters_user_status_learners_desc),
     EXPERIENCED_USERS("experiencedUsers", "",
         R.string.patroller_tasks_filters_user_status_experienced, R.string.patroller_tasks_filters_user_status_experienced_desc),
+    // TODO: SPIKE ====
     // ORES score reference: https://github.com/wikimedia/mediawiki-extensions-ORES/blob/master/extension.json#L201-L232C28
-    QUALITY_GOOD("qualityGood", "0|0.699",
+    // Only check the damaging: { true } score
+    QUALITY_GOOD("qualityGood", "0.149",
         R.string.patroller_tasks_filters_contribution_quality_good, R.string.patroller_tasks_filters_contribution_quality_good_desc),
-    QUALITY_MAY_PROBLEMS("qualityMayProblems", "0.149|1",
+    QUALITY_MAY_PROBLEMS("qualityMayProblems", "0.629",
         R.string.patroller_tasks_filters_contribution_quality_may_problems, R.string.patroller_tasks_filters_contribution_quality_may_problems_desc),
-    QUALITY_LIKELY_PROBLEMS("qualityLikelyProblems", "0.629|1",
+    QUALITY_LIKELY_PROBLEMS("qualityLikelyProblems", "0.944",
         R.string.patroller_tasks_filters_contribution_quality_likely_problems, R.string.patroller_tasks_filters_contribution_quality_likely_problems_desc),
-    QUALITY_VERY_LIKELY_PROBLEMS("qualityBad", "0.944|1",
+    QUALITY_VERY_LIKELY_PROBLEMS("qualityBad", "1",
         R.string.patroller_tasks_filters_contribution_quality_bad, R.string.patroller_tasks_filters_contribution_quality_bad_desc),
-    INTENT_GOOD("intentGood", "0.777|1",
+    // Only check the goodfaith: { true } score
+    INTENT_GOOD("intentGood", "1",
         R.string.patroller_tasks_filters_user_intent_good, R.string.patroller_tasks_filters_user_intent_good_desc),
-    INTENT_MAY_PROBLEMS("intentMayProblems", "0|0.075",
+    INTENT_MAY_PROBLEMS("intentMayProblems", "0.75",
         R.string.patroller_tasks_filters_user_intent_may_problems, R.string.patroller_tasks_filters_user_intent_may_problems_desc),
-    INTENT_LIKELY_PROBLEMS("intentLikelyProblems", "0|0.647",
+    INTENT_LIKELY_PROBLEMS("intentLikelyProblems", "0.647",
         R.string.patroller_tasks_filters_user_intent_likely_problems, R.string.patroller_tasks_filters_user_intent_likely_problems_desc),
-    INTENT_VERY_LIKELY_PROBLEMS("intentBad", "false",
+    INTENT_VERY_LIKELY_PROBLEMS("intentBad", "0",
         R.string.patroller_tasks_filters_user_intent_bad, R.string.patroller_tasks_filters_user_intent_bad_desc);
 
     override fun code(): Int {

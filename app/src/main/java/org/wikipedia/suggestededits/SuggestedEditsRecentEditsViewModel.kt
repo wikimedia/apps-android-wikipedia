@@ -128,7 +128,11 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             }
         }
 
-        // TODO: add damaging and goodfaith logic here
+        if (includedTypesCodes.any { code ->
+                SuggestedEditsRecentEditsFilterTypes.USER_INTENT_GROUP.map { it.id }.contains(code)  ||
+                        SuggestedEditsRecentEditsFilterTypes.CONTRIBUTION_QUALITY_GROUP.map { it.id }.contains(code) }) {
+            list.add("oresreview")
+        }
 
         return list.joinToString(separator = "|")
     }
