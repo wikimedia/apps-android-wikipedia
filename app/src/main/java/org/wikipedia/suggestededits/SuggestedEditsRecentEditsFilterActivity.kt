@@ -95,11 +95,11 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
             filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id))
         }
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_contribution_quality_header))
-        SuggestedEditsRecentEditsFilterTypes.CONTRIBUTION_QUALITY_GROUP.forEach {
+        SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, true))
         }
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_user_intent_header))
-        SuggestedEditsRecentEditsFilterTypes.USER_INTENT_GROUP.forEach {
+        SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, true))
         }
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_significance_header))

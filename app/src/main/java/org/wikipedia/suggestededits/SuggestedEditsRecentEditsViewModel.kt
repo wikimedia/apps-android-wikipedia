@@ -84,8 +84,8 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         // Ores related: default is empty
         val findSelectedOres = Prefs.recentEditsIncludedTypeCodes.subtract(findSelectedUserStatus.toSet())
             .filter { code ->
-                SuggestedEditsRecentEditsFilterTypes.USER_INTENT_GROUP.map { it.id }.contains(code) ||
-                        SuggestedEditsRecentEditsFilterTypes.CONTRIBUTION_QUALITY_GROUP.map { it.id }.contains(code)
+                SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.map { it.id }.contains(code) ||
+                        SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }.contains(code)
             }
 
         // Find the remaining selected filters
@@ -136,8 +136,8 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         }
 
         if (includedTypesCodes.any { code ->
-                SuggestedEditsRecentEditsFilterTypes.USER_INTENT_GROUP.map { it.id }.contains(code) ||
-                        SuggestedEditsRecentEditsFilterTypes.CONTRIBUTION_QUALITY_GROUP.map { it.id }.contains(code) }) {
+                SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.map { it.id }.contains(code) ||
+                        SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }.contains(code) }) {
             list.add("oresreview")
         }
 
@@ -154,7 +154,8 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 val response = ServiceFactory.get(wikiSite)
                     .getRecentEdits(params.loadSize, Date().toInstant().toString(), latestRevisions(), showCriteriaString(), params.key)
 
-                val recentChanges = response.query?.recentChanges.orEmpty()
+                // Filtering Ores damaging and goodfaith
+                val recentChanges = filterOresScores(filterOresScores(response.query?.recentChanges.orEmpty(), true), false)
 
                 cachedContinueKey = response.continuation?.rcContinuation
                 cachedRecentEdits.addAll(recentChanges)
@@ -169,6 +170,33 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
         override fun getRefreshKey(state: PagingState<String, MwQueryResult.RecentChange>): String? {
             return null
+        }
+
+        fun filterOresScores(recentChanges: List<MwQueryResult.RecentChange>, isDamagingGroup: Boolean): List<MwQueryResult.RecentChange> {
+            val filterGroupSet = if (isDamagingGroup) SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }
+            else SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.map { it.id }
+
+            if (Prefs.recentEditsIncludedTypeCodes.any { code -> filterGroupSet.contains(code) }) {
+                val findOresFilters = Prefs.recentEditsIncludedTypeCodes
+                    .filter { code ->
+                        filterGroupSet.contains(code)
+                    }.map {
+                        SuggestedEditsRecentEditsFilterTypes.find(it)
+                    }
+
+                // TODO: optimize it
+                return recentChanges.filter {
+                    val scoreRanges = findOresFilters.map { type -> type.value }
+                    val oresScore = if (isDamagingGroup) it.ores?.damagingProb ?: 0f else it.ores?.goodfaithProb ?: 0f
+                    var inScoreRange = false
+                    scoreRanges.forEach { range ->
+                        val scoreRangeArray = range.split("|")
+                        inScoreRange = oresScore >= scoreRangeArray.first().toFloat() && oresScore <= scoreRangeArray.last().toFloat()
+                    }
+                    inScoreRange
+                }
+            }
+            return recentChanges
         }
     }
 
