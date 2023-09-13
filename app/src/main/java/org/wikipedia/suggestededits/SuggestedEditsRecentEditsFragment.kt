@@ -66,7 +66,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
 
     private val launchFilterActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == AppCompatActivity.RESULT_OK) {
-            viewModel.langCode = Prefs.userContribFilterLangCode
+            viewModel.langCode = Prefs.recentEditsWikiCode
             setupAdapters()
             viewModel.clearCache()
             recentEditsListAdapter.reload()

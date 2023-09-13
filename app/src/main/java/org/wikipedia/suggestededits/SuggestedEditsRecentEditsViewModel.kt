@@ -37,6 +37,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     var actionModeActive = false
     var recentEditsSource: RecentEditsPagingSource? = null
 
+    // TODO: verify if we need cached?
     private val cachedRecentEdits = mutableListOf<MwQueryResult.RecentChange>()
     private var cachedContinueKey: String? = null
 
@@ -172,7 +173,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             return null
         }
 
-        fun filterOresScores(recentChanges: List<MwQueryResult.RecentChange>, isDamagingGroup: Boolean): List<MwQueryResult.RecentChange> {
+        private fun filterOresScores(recentChanges: List<MwQueryResult.RecentChange>, isDamagingGroup: Boolean): List<MwQueryResult.RecentChange> {
             val filterGroupSet = if (isDamagingGroup) SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }
             else SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.map { it.id }
 
@@ -192,6 +193,9 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     scoreRanges.forEach { range ->
                         val scoreRangeArray = range.split("|")
                         inScoreRange = oresScore >= scoreRangeArray.first().toFloat() && oresScore <= scoreRangeArray.last().toFloat()
+                        if (inScoreRange) {
+                            return@forEach
+                        }
                     }
                     inScoreRange
                 }
