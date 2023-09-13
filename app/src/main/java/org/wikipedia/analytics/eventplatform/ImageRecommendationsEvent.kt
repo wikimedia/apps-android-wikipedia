@@ -19,7 +19,7 @@ class ImageRecommendationsEvent(
 ) : MobileAppsEvent(STREAM_NAME) {
 
     companion object {
-        private const val STREAM_NAME = "android.android_image_recommendation_event"
+        private const val STREAM_NAME = "android.image_recommendation_event"
         val reasons = listOf("notrelevant", "noinfo", "offensive", "lowquality", "unfamiliar", "other")
         private val timer = ActiveTimer()
 
