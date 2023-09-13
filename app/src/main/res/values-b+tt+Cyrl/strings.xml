@@ -1139,7 +1139,7 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Хәзерге вакытта сезнең кушымтада кытай теленең традицион һәм гадиләштерелгән вариантлары урнаштырылган. Кушымтаның тел көйләүләрен яңартыргамы?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Телләрне мөхәррирләргә</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Юк, рәхмәт</string>
-  <string name="remove_language_dialog_cancel_button_text">Гамәлдән чыгарырга</string>
+  <string name="remove_language_dialog_cancel_button_text">Кире кайтарырга</string>
   <string name="remove_language_dialog_ok_button_text">Ярар</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Ярар</string>
   <string name="protected_page_warning_dialog_ok_button_text">Ярар</string>
@@ -1223,7 +1223,7 @@
   <string name="talk_message_empty">Хәбәр буш була алмый.</string>
   <string name="talk_subject_empty">Тема буш була алмый.</string>
   <string name="talk_response_submitted">Җавап басылган.</string>
-  <string name="talk_snackbar_undo">Гамәлдән чыгарырга</string>
+  <string name="talk_snackbar_undo">Кире кагырга</string>
   <string name="talk_last_modified">%2$s кулланучы тарафыннан &lt;b&gt;%1$s датасы белән соңгы мөхәррирләү&lt;/b&gt;</string>
   <string name="talk_snackbar_survey_text">Фикер алышу битләреннән файдаланганыгыз өчен рәхмәт. Сез сораштыруда катнашып, безгә кушымтаны яхшыртырга ярдәм итә аласызмы?</string>
   <string name="talk_snackbar_survey_action_text">Башларга</string>
@@ -1282,7 +1282,7 @@
   <string name="thank_dialog_title_text">\'Рәхмәт\'не ачык рәвештә юлларга</string>
   <string name="thank_dialog_text">\'Рәхмәт\' — мөхәрриргә Википедиядә эшләгәне өчен рәхмәт әйтү өчен гади ысул. \'Рәхмәт\'не гамәлдән чыгарырга һәм ачык рәвештә карарга мөмкин түгел.</string>
   <string name="thank_dialog_positive_button_text">Рәхмәт әйтегез</string>
-  <string name="thank_dialog_negative_button_text">Гамәлдән чыгарырга</string>
+  <string name="thank_dialog_negative_button_text">Кире кагырга</string>
   <string name="thank_success_message">Сезнең \'Рәхмәт\' %s кулланучысына җибәрелде 👍</string>
   <string name="menu_option_view_user_profile">Кулланучының битен карау</string>
   <string name="menu_option_view_user_talk">Фикер алышу битен карау</string>

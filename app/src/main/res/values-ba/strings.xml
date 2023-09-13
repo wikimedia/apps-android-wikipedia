@@ -268,6 +268,9 @@
   <string name="edit_undo">Кире алырға</string>
   <string name="edit_redo">Ҡабатларға</string>
   <string name="edit_rollback">Кире ҡайтарырға</string>
+  <string name="edit_warn">Иҫкәртергә</string>
+  <string name="edit_quality">Сифаты %s</string>
+  <string name="edit_intent">Маҡсат %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
     <item quantity="few">%s байт</item>
@@ -1424,6 +1427,6 @@
   <string name="data_opt_in_reject">Кире ҡағырға</string>
   <string name="page_issues_title">Бит проблемалары</string>
   <string name="generic_release_notes">Әһәмиәте әҙ булған төҙәтеүҙәр һәм яҡшыртыуҙар</string>
-  <string name="email_report_patroller_tasks_subject">Проблема тураһында мәғлүмәт - Тикшереү функцияһы</string>
-  <string name="email_report_patroller_tasks_body">Тикшереү функцияһы проблемаһы менән осраштым:\n[Аныҡ проблеманы күрһәтегеҙ]\nМин күрергә теләгән ғәмәл:\n[Хәл итеү юлын тасуирлағыҙ]\n\n[]</string>
+  <string name="email_report_patroller_tasks_subject" fuzzy="true">Проблема тураһында мәғлүмәт - Тикшереү функцияһы</string>
+  <string name="email_report_patroller_tasks_body" fuzzy="true">Тикшереү функцияһы проблемаһы менән осраштым:\n[Аныҡ проблеманы күрһәтегеҙ]\nМин күрергә теләгән ғәмәл:\n[Хәл итеү юлын тасуирлағыҙ]\n\n[]</string>
 </resources>
