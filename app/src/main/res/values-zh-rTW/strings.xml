@@ -1494,6 +1494,8 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">檢視使用者貢獻</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">感謝</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">使用者資訊</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;帳號註冊日期：&lt;/b&gt;%s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;編輯次數：&lt;/b&gt;%s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">關閉</string>
   <string name="patroller_tasks_filters_title">篩選</string>
   <string name="patroller_tasks_filters_reset">重新設定</string>
@@ -1546,8 +1548,8 @@
   <string name="data_opt_in_reject">拒絕</string>
   <string name="page_issues_title">頁面問題</string>
   <string name="generic_release_notes">小錯誤修正和改善</string>
-  <string name="email_report_image_recommendations_subject" fuzzy="true">問題報告 - 圖片推薦功能</string>
-  <string name="email_report_image_recommendations_body" fuzzy="true">我遇到了圖片推薦功能的問題：\n- [描述具體問題]\n我希望看到的反應是：\n- [描述建議的解決方案]</string>
-  <string name="email_report_patroller_tasks_subject" fuzzy="true">問題報告 - 巡查任務功能</string>
-  <string name="email_report_patroller_tasks_body" fuzzy="true">我遇到了巡查任務功能的問題：\n- [描述具體問題]\n我希望看到的反應是：\n- [描述建議的解決方案]\n\n[]</string>
+  <string name="email_report_image_recommendations_subject">問題報告 - 圖片推薦功能</string>
+  <string name="email_report_image_recommendations_body">我遇到了圖片推薦功能的問題：\n- [描述具體問題]\n\n我希望看到的反應是：\n- [描述建議的解決方案]</string>
+  <string name="email_report_patroller_tasks_subject">問題報告 - 巡查任務功能</string>
+  <string name="email_report_patroller_tasks_body">我遇到了編輯巡查功能的問題：\n- [描述具體問題]\n\n我希望看到的反應是：\n- [描述建議的解決方案]\n\n[截圖或是連結]</string>
 </resources>
