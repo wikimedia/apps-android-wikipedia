@@ -117,13 +117,13 @@ class EditSummaryFragment : Fragment() {
         return binding.root
     }
 
-    private fun getActionDataStringForData(): String{
+    private fun getActionDataStringForData(): String {
         val addImageTitle = activity?.intent?.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
         val addImageSource = activity?.intent?.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE)
         val addImageSourceProjects = activity?.intent?.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE_PROJECTS)
         return ImageRecommendationsEvent.getActionDataString(filename = addImageTitle?.prefixedText.orEmpty(),
             recommendationSource = addImageSource, recommendationSourceProjects = addImageSourceProjects,
-            acceptanceState = "accepted",  captionAdd = !activity?.intent?.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
+            acceptanceState = "accepted", captionAdd = !activity?.intent?.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
             altTextAdd = !activity?.intent?.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())
     }
     override fun onStart() {
