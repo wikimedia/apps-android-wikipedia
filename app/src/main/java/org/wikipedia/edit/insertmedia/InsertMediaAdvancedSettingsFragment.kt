@@ -71,7 +71,7 @@ class InsertMediaAdvancedSettingsFragment : Fragment(), InsertMediaImagePosition
         if (isActive) {
             ImageRecommendationsEvent.logAction("advanced_setting_back", "caption_entry",
                 ImageRecommendationsEvent.getActionDataString(filename = viewModel.selectedImage?.prefixedText.orEmpty(),
-                    recommendationSource = viewModel.selectedImageSource), viewModel.wikiSite.languageCode)
+                    recommendationSource = viewModel.selectedImageSource, recommendationSourceProjects = viewModel.selectedImageSourceProjects), viewModel.wikiSite.languageCode)
             hide()
             return true
         }

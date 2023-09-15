@@ -156,9 +156,8 @@ class InsertMediaActivity : BaseActivity() {
             R.id.menu_save -> {
                 if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && selectedImage != null) {
                     ImageRecommendationsEvent.logAction("advanced_setting_save", "caption_entry",
-                        ImageRecommendationsEvent.getActionDataString(filename = selectedImage.prefixedText,
-                            recommendationSource = selectedImage.wikiSite.languageCode, acceptanceState = "accepted"),
-                        selectedImage.wikiSite.languageCode)
+                        ImageRecommendationsEvent.getActionDataString(filename = selectedImage.prefixedText, recommendationSource = viewModel.selectedImageSource,
+                            recommendationSourceProjects = viewModel.selectedImageSourceProjects, acceptanceState = "accepted"), selectedImage.wikiSite.languageCode)
                 }
                 onBackPressed()
                 true
@@ -166,8 +165,8 @@ class InsertMediaActivity : BaseActivity() {
             R.id.menu_insert -> {
                 if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && selectedImage != null) {
                     ImageRecommendationsEvent.logAction("caption_continue", "caption_entry",
-                        ImageRecommendationsEvent.getActionDataString(filename = selectedImage.prefixedText,
-                            recommendationSource = selectedImage.wikiSite.languageCode, acceptanceState = "accepted",
+                        ImageRecommendationsEvent.getActionDataString(filename = selectedImage.prefixedText, recommendationSource = viewModel.selectedImageSource,
+                            recommendationSourceProjects = viewModel.selectedImageSourceProjects, acceptanceState = "accepted",
                             captionAdd = insertMediaSettingsFragment.captionText.isNotEmpty(), altTextAdd = insertMediaSettingsFragment.alternativeText.isNotEmpty()
                         ), selectedImage.wikiSite.languageCode
                     )
@@ -374,6 +373,7 @@ class InsertMediaActivity : BaseActivity() {
         const val EXTRA_SEARCH_QUERY = "searchQuery"
         const val EXTRA_IMAGE_TITLE = "imageTitle"
         const val EXTRA_IMAGE_SOURCE = "imageSource"
+        const val EXTRA_IMAGE_SOURCE_PROJECTS = "imageSourceProjects"
         const val EXTRA_ATTEMPT_INSERT_INTO_INFOBOX = "attemptInsertIntoInfobox"
         const val EXTRA_INSERTED_INTO_INFOBOX = "insertedIntoInfobox"
         const val RESULT_IMAGE_CAPTION = "resultImageCaption"
@@ -384,12 +384,14 @@ class InsertMediaActivity : BaseActivity() {
         const val RESULT_INSERT_MEDIA_SUCCESS = 100
 
         fun newIntent(context: Context, wikiSite: WikiSite, searchQuery: String,
-                      invokeSource: Constants.InvokeSource, imageTitle: PageTitle? = null, imageSource: String = ""): Intent {
+                      invokeSource: Constants.InvokeSource, imageTitle: PageTitle? = null,
+                      imageSource: String = "", imageSourceProjects: String = ""): Intent {
             return Intent(context, InsertMediaActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)
                 .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
                 .putExtra(EXTRA_IMAGE_TITLE, imageTitle)
                 .putExtra(EXTRA_IMAGE_SOURCE, imageSource)
+                .putExtra(EXTRA_IMAGE_SOURCE_PROJECTS, imageSourceProjects)
                 .putExtra(EXTRA_SEARCH_QUERY, searchQuery)
         }
     }
