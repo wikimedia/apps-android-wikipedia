@@ -15,6 +15,7 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.PageActivity
@@ -39,8 +40,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         super.onCreate(savedInstanceState)
 
         setImageZoomHelper()
-        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null && !intent.hasExtra(
-                Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
+        if (Prefs.isInitialOnboardingEnabled && savedInstanceState == null &&
+            intent.serializableExtra<NavTab>(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB) != NavTab.READING_LISTS) {
             // Updating preference so the search multilingual tooltip
             // is not shown again for first time users
             Prefs.isMultilingualSearchTooltipShown = false
