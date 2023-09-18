@@ -385,7 +385,6 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         override fun onUserClick(item: MwQueryResult.RecentChange, view: View) {
-            // TODO: verify source name and value
             UserTalkPopupHelper.show(requireActivity() as AppCompatActivity,
                 PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), item.user, viewModel.wikiSite),
                 item.anon, view, Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS, HistoryEntry.SOURCE_SUGGESTED_EDITS_RECENT_EDITS,
@@ -408,6 +407,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                     }
 
                     override fun onFilterIconClick() {
+                        launchFilterActivity.launch(SuggestedEditsRecentEditsFilterActivity.newIntent(requireContext()))
                     }
 
                     override fun getExcludedFilterCount(): Int {

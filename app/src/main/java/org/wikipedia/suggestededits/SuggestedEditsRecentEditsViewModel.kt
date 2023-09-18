@@ -172,7 +172,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     }
 
                 // TODO: optimize it
-                return recentChanges.filter {
+                return recentChanges.filter { it.ores != null }.filter {
                     val scoreRanges = findOresFilters.map { type -> type.value }
                     val oresScore = if (isDamagingGroup) it.ores?.damagingProb ?: 0f else it.ores?.goodfaithProb ?: 0f
                     var inScoreRange = false
