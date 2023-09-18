@@ -10,14 +10,18 @@ import androidx.paging.cachedIn
 import androidx.paging.filter
 import androidx.paging.insertSeparators
 import androidx.paging.map
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.dataclient.mwapi.UserInfo
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.log.L
 import retrofit2.HttpException
 import java.io.IOException
 import java.util.Date
@@ -147,6 +151,21 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 // Filtering Ores damaging and goodfaith
                 val recentChanges = filterOresScores(filterOresScores(response.query?.recentChanges.orEmpty(), true), false)
 
+                // Get usernames
+                val usernames = recentChanges.filter { !it.anon }.map { it.user }.distinct().joinToString(separator = "|")
+
+                // TODO: cache user information
+                val usersInfo = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(wikiSite).userInfo(usernames)
+                }.query?.users ?: emptyList()
+
+                L.d("UsersInfo: " + usersInfo.map { it.name })
+//                if (usersInfo.isNotEmpty()) {
+//                    recentChanges.filter { usersInfo.map { info -> info.name }.contains(it.user) }.forEach {
+//
+//                    }
+//                }
+
                 LoadResult.Page(recentChanges, null, response.continuation?.rcContinuation)
             } catch (e: IOException) {
                 LoadResult.Error(e)
@@ -157,6 +176,25 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
         override fun getRefreshKey(state: PagingState<String, MwQueryResult.RecentChange>): String? {
             return null
+        }
+
+        @Suppress("KotlinConstantConditions")
+        private fun filterUserExperience(recentChanges: List<MwQueryResult.RecentChange>, usersInfo: List<UserInfo>): List<MwQueryResult.RecentChange> {
+            val filterGroupSet = SuggestedEditsRecentEditsFilterTypes.USER_EXPERIENCE_GROUP.map { it.id }
+            if (Prefs.recentEditsIncludedTypeCodes.any { code -> filterGroupSet.contains(code) }) {
+                val findUserExperienceFilters = Prefs.recentEditsIncludedTypeCodes
+                    .filter { code ->
+                        filterGroupSet.contains(code)
+                    }.map {
+                        SuggestedEditsRecentEditsFilterTypes.find(it)
+                    }
+                return recentChanges.filter {
+                    val userInfo = usersInfo.find { info -> info.name == it.user }
+                    // TODO: implement this
+                    true
+                }
+            }
+            return recentChanges
         }
 
         private fun filterOresScores(recentChanges: List<MwQueryResult.RecentChange>, isDamagingGroup: Boolean): List<MwQueryResult.RecentChange> {
