@@ -115,7 +115,7 @@ class InsertMediaSettingsFragment : Fragment() {
         if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && viewModel.selectedImage != null) {
             ImageRecommendationsEvent.logImpression("caption_entry", ImageRecommendationsEvent.getActionDataString(
                 filename = viewModel.selectedImage?.prefixedText!!, recommendationSource = viewModel.selectedImageSource,
-                acceptanceState = "accepted"), viewModel.selectedImage?.wikiSite?.languageCode!!)
+                recommendationSourceProjects = viewModel.selectedImageSourceProjects, acceptanceState = "accepted"), viewModel.selectedImage?.wikiSite?.languageCode!!)
         }
         return binding.root
     }
@@ -124,7 +124,7 @@ class InsertMediaSettingsFragment : Fragment() {
         if (viewModel.invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE && viewModel.selectedImage != null) {
             ImageRecommendationsEvent.logAction(action, "caption_entry", ImageRecommendationsEvent.getActionDataString(
                 filename = viewModel.selectedImage?.prefixedText!!, recommendationSource = viewModel.selectedImageSource,
-                acceptanceState = "accepted"), viewModel.selectedImage?.wikiSite?.languageCode!!)
+                recommendationSourceProjects = viewModel.selectedImageSourceProjects, acceptanceState = "accepted"), viewModel.selectedImage?.wikiSite?.languageCode!!)
         }
     }
 

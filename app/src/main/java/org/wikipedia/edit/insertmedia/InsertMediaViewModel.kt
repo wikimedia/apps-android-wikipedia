@@ -26,6 +26,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
     val originalSearchQuery = searchQuery
     var selectedImage = bundle.parcelable<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
     var selectedImageSource = bundle.getString(InsertMediaActivity.EXTRA_IMAGE_SOURCE).orEmpty()
+    var selectedImageSourceProjects = bundle.getString(InsertMediaActivity.EXTRA_IMAGE_SOURCE_PROJECTS).orEmpty()
     var imagePosition: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_POS, IMAGE_POSITION_RIGHT)
     var imageType: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_TYPE, IMAGE_TYPE_THUMBNAIL)
     var imageSize: String = bundle.getString(InsertMediaActivity.RESULT_IMAGE_SIZE, IMAGE_SIZE_DEFAULT)

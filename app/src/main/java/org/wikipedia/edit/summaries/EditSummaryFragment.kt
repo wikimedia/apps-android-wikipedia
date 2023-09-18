@@ -27,8 +27,15 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentPreviewSummaryBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.edit.EditSectionActivity
+import org.wikipedia.edit.insertmedia.InsertMediaActivity
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewAnimations
 
@@ -77,14 +84,14 @@ class EditSummaryFragment : Fragment() {
 
         binding.editSummaryTextLayout.setEndIconOnClickListener {
             if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
-                ImageRecommendationsEvent.logAction("tts_open", "editsummary_dialog")
+                ImageRecommendationsEvent.logAction("tts_open", "editsummary_dialog", getActionDataStringForData())
             }
             launchVoiceInput()
         }
 
         binding.learnMoreButton.setOnClickListener {
             if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
-                ImageRecommendationsEvent.logAction("view_help", "editsummary_dialog")
+                ImageRecommendationsEvent.logAction("view_help", "editsummary_dialog", getActionDataStringForData())
             }
             UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.meta_edit_summary_url)))
         }
@@ -99,7 +106,7 @@ class EditSummaryFragment : Fragment() {
 
         binding.watchPageCheckBox.setOnCheckedChangeListener { _, isChecked ->
             if ((requireActivity() as EditSectionActivity).invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
-                ImageRecommendationsEvent.logAction(if (isChecked) "add_watchlist" else "remove_watchlist", "editsummary_dialog")
+                ImageRecommendationsEvent.logAction(if (isChecked) "add_watchlist" else "remove_watchlist", "editsummary_dialog", getActionDataStringForData())
             }
         }
 
@@ -110,6 +117,15 @@ class EditSummaryFragment : Fragment() {
         return binding.root
     }
 
+    private fun getActionDataStringForData(): String {
+        val addImageTitle = activity?.intent?.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+        val addImageSource = activity?.intent?.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE)
+        val addImageSourceProjects = activity?.intent?.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE_PROJECTS)
+        return ImageRecommendationsEvent.getActionDataString(filename = addImageTitle?.prefixedText.orEmpty(),
+            recommendationSource = addImageSource, recommendationSourceProjects = addImageSourceProjects,
+            acceptanceState = "accepted", captionAdd = !activity?.intent?.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
+            altTextAdd = !activity?.intent?.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())
+    }
     override fun onStart() {
         super.onStart()
         editSummaryHandler = EditSummaryHandler(binding.root, binding.editSummaryText, title)

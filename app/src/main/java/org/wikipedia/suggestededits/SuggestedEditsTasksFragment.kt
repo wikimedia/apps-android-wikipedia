@@ -121,7 +121,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }
             }
         }
-        ImageRecommendationsEvent.logImpression("suggested_edit_dialog")
     }
 
     private fun Group.addOnClickListener(listener: View.OnClickListener) {

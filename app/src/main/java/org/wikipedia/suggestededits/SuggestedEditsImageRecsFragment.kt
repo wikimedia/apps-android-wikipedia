@@ -332,6 +332,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
                 true
             }
             R.id.menu_report_feature -> {
+                ImageRecommendationsEvent.logAction("report_problem", "recommendedimagetoolbar",
+                    getActionStringForAnalytics(), viewModel.langCode)
                 FeedbackUtil.composeFeedbackEmail(requireContext(),
                     getString(R.string.email_report_image_recommendations_subject),
                     getString(R.string.email_report_image_recommendations_body))
@@ -405,7 +407,8 @@ class SuggestedEditsImageRecsFragment : SuggestedEditsItemFragment(), MenuProvid
         }
 
         requestEdit.launch(EditSectionActivity.newIntent(requireContext(), 0, null,
-            viewModel.pageTitle, Constants.InvokeSource.EDIT_ADD_IMAGE, null, viewModel.recommendedImageTitle, viewModel.recommendation.images[0].source)
+            viewModel.pageTitle, Constants.InvokeSource.EDIT_ADD_IMAGE, null, viewModel.recommendedImageTitle,
+            viewModel.recommendation.images[0].source, viewModel.recommendation.images[0].projects.toString())
             .putExtra(InsertMediaActivity.EXTRA_ATTEMPT_INSERT_INTO_INFOBOX, viewModel.attemptInsertInfobox))
     }
 
