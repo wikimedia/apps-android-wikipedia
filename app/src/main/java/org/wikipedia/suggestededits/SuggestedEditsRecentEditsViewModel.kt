@@ -37,10 +37,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     var actionModeActive = false
     var recentEditsSource: RecentEditsPagingSource? = null
 
-    // TODO: verify if we need cached?
-    private val cachedRecentEdits = mutableListOf<MwQueryResult.RecentChange>()
-    private var cachedContinueKey: String? = null
-
     val recentEditsFlow = Pager(PagingConfig(pageSize = 50), pagingSourceFactory = {
         recentEditsSource = RecentEditsPagingSource()
         recentEditsSource!!
@@ -65,10 +61,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             }
         }
     }.cachedIn(viewModelScope)
-
-    fun clearCache() {
-        cachedRecentEdits.clear()
-    }
 
     fun filtersCount(): Int {
         val findSelectedUserStatus = Prefs.recentEditsIncludedTypeCodes
@@ -148,9 +140,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     inner class RecentEditsPagingSource : PagingSource<String, MwQueryResult.RecentChange>() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryResult.RecentChange> {
             return try {
-                if (params.key == null && cachedRecentEdits.isNotEmpty()) {
-                    return LoadResult.Page(cachedRecentEdits, null, cachedContinueKey)
-                }
 
                 val response = ServiceFactory.get(wikiSite)
                     .getRecentEdits(params.loadSize, Date().toInstant().toString(), latestRevisions(), showCriteriaString(), params.key)
@@ -158,10 +147,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 // Filtering Ores damaging and goodfaith
                 val recentChanges = filterOresScores(filterOresScores(response.query?.recentChanges.orEmpty(), true), false)
 
-                cachedContinueKey = response.continuation?.rcContinuation
-                cachedRecentEdits.addAll(recentChanges)
-
-                LoadResult.Page(recentChanges, null, cachedContinueKey)
+                LoadResult.Page(recentChanges, null, response.continuation?.rcContinuation)
             } catch (e: IOException) {
                 LoadResult.Error(e)
             } catch (e: HttpException) {
