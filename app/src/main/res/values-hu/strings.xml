@@ -1476,6 +1476,8 @@
   <string name="patroller_tasks_filters_reset">Visszaállítás</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Mind</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Szerkesztők, akik nincsenek bejelentkezve.</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Bejelentkezett szerkesztők.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Újoncok</string>
   <string name="patroller_tasks_filters_user_status_learners">Tanulók</string>
   <string name="patroller_tasks_filters_user_status_experienced">Tapasztalt szerkesztők</string>
