@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewDescriptionEditSuccessBinding
+import org.wikipedia.views.AppTextViewWithImages
 
 class DescriptionEditSuccessView : FrameLayout {
     interface Callback {
@@ -21,7 +22,7 @@ class DescriptionEditSuccessView : FrameLayout {
 
     init {
         val editHint = resources.getString(R.string.description_edit_success_article_edit_hint)
-        binding.viewDescriptionEditSuccessHintText.setTextWithDrawables(editHint, R.drawable.ic_mode_edit_white_24dp)
+        AppTextViewWithImages.setTextWithDrawables(binding.viewDescriptionEditSuccessHintText, editHint, R.drawable.ic_mode_edit_white_24dp)
         binding.viewDescriptionEditSuccessDoneButton.setOnClickListener {
             callback?.onDismissClick()
         }

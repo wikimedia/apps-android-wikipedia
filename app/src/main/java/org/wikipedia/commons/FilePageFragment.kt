@@ -13,6 +13,7 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.databinding.FragmentFilePageBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -72,6 +73,7 @@ class FilePageFragment : Fragment(), FilePageView.Callback {
         }
         binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
         loadImageInfo()
+        ImageRecommendationsEvent.logImpression("imagedetails_dialog", ImageRecommendationsEvent.getActionDataString(filename = pageTitle.prefixedText))
     }
 
     override fun onDestroyView() {
