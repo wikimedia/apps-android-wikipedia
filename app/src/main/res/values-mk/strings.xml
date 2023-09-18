@@ -224,7 +224,7 @@
   <string name="page_protected_can_not_edit_anon">За жал, страницава засега не може да се уредува анонимно.</string>
   <string name="page_protected_can_not_edit_title">Оваа страница е заштитена</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Додај во набљудувани</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Следете што се случува со статиите кои ве интересираат. Допрете на расклопеното мени и изберете and select &lt;b&gt;Додај во набљудувани&lt;/b&gt; за да видите промени во статија.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Следете што се случува со статиите кои ве интересираат. Допрете на расклопеното мени и изберете &lt;b&gt;Додај во набљудувани&lt;/b&gt; за да видите промени во статија.</string>
   <string name="settings_item_preferences">Нагодувања</string>
   <string name="settings_activity_title">Нагодувања</string>
   <string name="about_description">За прилогот „Википедија“</string>
@@ -1469,7 +1469,7 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Кориснички придонеси</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Заблагодари се</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Кориснички информации</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text" fuzzy="true">&lt;b&gt;Се зачлени на Википедија на: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Сметка од: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Број на уредувања: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Затвори</string>
   <string name="patroller_tasks_filters_title">Филтри</string>
@@ -1478,10 +1478,15 @@
   <string name="patroller_tasks_filters_all_text">Сите</string>
   <string name="patroller_tasks_filters_user_status_header">Корисничко зачленување и искусност</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Незачленети</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Уредници кои не се најавени.</string>
   <string name="patroller_tasks_filters_user_status_registered">Зачленети</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Најавени уредници.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Новодојденци</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Зачленети уредници со помалку од 10 уредувања и 4 дена активност.</string>
   <string name="patroller_tasks_filters_user_status_learners">Ученици</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Зачленети уредници чие искуство е некаде меѓу „новодојденци“ и „искусни корисници“.</string>
   <string name="patroller_tasks_filters_user_status_experienced">Искусни корисници</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Зачленети уредници со повеќе од 500 уредувања и 30 дена активност.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Последни преработки</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Последна преработка</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Не последната преработка</string>
@@ -1493,14 +1498,22 @@
   <string name="patroller_tasks_filters_significance_edits">Неситни уредувања</string>
   <string name="patroller_tasks_filters_contribution_quality_header">Предвидувања за квалитет на придонесите</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Многу веројатно добро</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Многу делотворно при пронаоѓање на речиси сите уредувања без проблеми, со голема точност.</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Може да има проблеми</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Ги наоѓа највеќето проблематични или штетни уредувања, но со помала точност.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Веројатно има проблеми</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Со средна точност, наоѓа среден удел на проблематични уредувања.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Мошне веројатно има проблеми</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Исклучително точно ги наоѓа најочигледно погрешните или штетни уредувања.</string>
   <string name="patroller_tasks_filters_user_intent_header">Предвидувања за кориснички намери</string>
   <string name="patroller_tasks_filters_user_intent_good">Многу веројатно добронамерно</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Многу делотворно при пронаоѓање на речиси сите добронамерни уредувања, со голема точност.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Може да е недобронамерно</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Ги наоѓа највеќето недобронамерни уредувања, но со помала точност.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Веројатно недобронамерно</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Со средна точност, наоѓа среден удел на недобронамерни уредувања.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Многу веројатно недобронамерно</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Исклучително точно ги наоѓа најочигледните недобронамерни уредувања.</string>
   <string name="patroller_tasks_filters_empty_search_message">Отстранете %s за да видите уште известувања</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d филтер</item>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/empty"
+        android:icon="@drawable/ic_more_vert_white_24dp"
+        android:title="@string/nav_item_more"
+        app:iconTint="?attr/primary_color"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menu_tutorial"
+                android:title="@string/image_recommendation_tutorial"
+                android:icon="@drawable/ic_light_bulb"
+                app:iconTint="?attr/secondary_color" />
+            <item
+                android:id="@+id/menu_learn_more"
+                android:title="@string/suggested_edits_learn_more"
+                android:icon="@drawable/ic_info_outline_black_24dp"
+                app:iconTint="?attr/secondary_color" />
+            <item
+                android:id="@+id/menu_report_feature"
+                android:title="@string/suggested_edits_report_feature"
+                android:icon="@drawable/ic_report_flag"
+                app:iconTint="?attr/secondary_color" />
+        </menu>
+    </item>
+</menu>

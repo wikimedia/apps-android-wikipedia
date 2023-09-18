@@ -13,13 +13,14 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.suggestededits.SuggestedEditsRecentEditsFilterTypes
 import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
 import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
-import java.util.*
+import java.util.Date
 
 /** Shared preferences utility for convenient POJO access.  */
 object Prefs {
@@ -652,6 +653,10 @@ object Prefs {
         get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_reading_lists_recent_receive_id, value)
 
+    var suggestedEditsImageRecsOnboardingShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_se_image_recs_onboarding_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_se_image_recs_onboarding_shown, value)
+
     var suggestedEditsMachineGeneratedDescriptionTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_se_machine_generated_descriptions_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_se_machine_generated_descriptions_tooltip_shown, value)
@@ -673,4 +678,13 @@ object Prefs {
     var analyticsQueueSize
         get() = PrefsIoUtil.getInt(R.string.preference_key_event_platform_queue_size, 128)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_event_platform_queue_size, value)
+
+    var recentEditsWikiCode
+        get() = PrefsIoUtil.getString(R.string.preference_key_recent_edits_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_recent_edits_wiki_code, value)
+
+    var recentEditsIncludedTypeCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_recent_edits_included_type_codes, null))
+            ?: SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_recent_edits_included_type_codes, JsonUtil.encodeToString(types))
 }
