@@ -251,9 +251,10 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                             android.R.attr.textColorPrimary
                     )
             )
+            val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
             binding.linkPreviewExtractWebview.loadDataWithBaseURL(
                     null,
-                    "${JavaScriptActionHandler.getCssStyles(viewModel.pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\">${contents.extract}</div>",
+                    "${JavaScriptActionHandler.getCssStyles(viewModel.pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">${contents.extract}</div>",
                     "text/html",
                     "UTF-8",
                     null
