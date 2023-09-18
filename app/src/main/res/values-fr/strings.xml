@@ -40,6 +40,7 @@
 * NemesisIII
 * Niridya
 * Noé
+* Obscaeris
 * Oupsa
 * Seb35
 * SleaY
@@ -1550,7 +1551,7 @@
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">A probablement des problèmes</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Avec une précision moyenne, trouve une fraction intermédiaire des modifications à problème.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Très susceptible d’avoir des problèmes</string>
-  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Très précis pour trouver les modifications incorrectes ou fautives les plus manifestes.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Très précis pour trouver les modifications incorrectes ou fautives les plus évidentes.</string>
   <string name="patroller_tasks_filters_user_intent_header">Prédictions d’intention de l’utilisateur</string>
   <string name="patroller_tasks_filters_user_intent_good">Très vraisemblablement de bonne foi</string>
   <string name="patroller_tasks_filters_user_intent_good_desc">Très précis pour trouver presque toutes les modifications de bonne foi.</string>
@@ -1559,7 +1560,7 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems">Probablement de mauvaise foi</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Avec une précision moyenne, trouve une fraction intermédiaire des modifications de mauvaise foi.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Très probablement de mauvaise foi</string>
-  <string name="patroller_tasks_filters_user_intent_bad_desc">Très précis pour trouver les modifications de mauvaise foi les plus manifestes.</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Très précis pour trouver les modifications de mauvaise foi les plus évidentes.</string>
   <string name="patroller_tasks_filters_empty_search_message">Essayez de supprimer %s pour voir plus de modifications</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d filtre</item>

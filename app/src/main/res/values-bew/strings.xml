@@ -1175,7 +1175,7 @@
   <string name="insert_media_settings">Tambahin tètèk bengèk gambar</string>
   <string name="insert_media_settings_uploaded_image">Gambar nyang diangkat</string>
   <string name="insert_media_settings_caption">Keterangan gambar</string>
-  <string name="insert_media_settings_caption_description">Lèbel gambar nyang kiatan di makalah</string>
+  <string name="insert_media_settings_caption_description">Ènclèkan gambar nyang kiatan di makalah</string>
   <string name="insert_media_settings_alternative_text">Tèks alternatip</string>
   <string name="insert_media_settings_alternative_text_description">Jabaran bakal pembaca nyang kaga\' bisa ngiat</string>
   <string name="insert_media_advanced_settings">Penyetèlan lanjutan</string>
