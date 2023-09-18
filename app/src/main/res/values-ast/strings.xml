@@ -5,6 +5,7 @@
 * Fitoschido
 * Tokvo
 * Xuacu
+* YoaR
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -808,4 +809,7 @@
   <string name="watchlist_expiry_dialog_one_week">1 selmana</string>
   <string name="watchlist_filter_talk">Alderique</string>
   <string name="watchlist_filter_pages">Páxines</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Editores que nun tán coneutaos.</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Editores coneutaos.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Con precisión media, atopa un númberu intermediu d\'ediciones de mala fe.</string>
 </resources>
