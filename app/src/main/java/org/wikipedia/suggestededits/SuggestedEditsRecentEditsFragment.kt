@@ -40,12 +40,12 @@ import org.wikipedia.databinding.FragmentSuggestedEditsRecentEditsBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
 import org.wikipedia.databinding.ViewEditHistorySearchBarBinding
 import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.settings.Prefs
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.FeedbackUtil
