@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2
@@ -73,8 +74,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
-        action =
-            arguments?.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
+        action = arguments?.getSerializable(Constants.INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -97,6 +97,10 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         binding.cardsViewPager.offscreenPageLimit = 2
         binding.cardsViewPager.registerOnPageChangeCallback(viewPagerListener) // addOnPageChangeListener(viewPagerListener)
         resetViewPagerItemAdapter()
+
+        if (action == IMAGE_RECOMMENDATIONS) {
+            binding.cardsViewPager.isUserInputEnabled = false
+        }
 
         if (binding.wikiLanguageDropdownContainer.visibility == VISIBLE) {
             if (languageList.isEmpty()) {
@@ -125,6 +129,10 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        if (action == IMAGE_RECOMMENDATIONS) {
+            // In the case of image recommendations, the sub-fragment will have its own menu.
+            return
+        }
         menuInflater.inflate(R.menu.menu_suggested_edits, menu)
     }
 
@@ -140,6 +148,10 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
                         FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                     }
                 }
+                val child = topBaseChild()
+                if (child != null && child is SuggestedEditsImageRecsFragment) {
+                    child.onInfoClicked()
+                }
                 true
             }
             else -> false
@@ -150,6 +162,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         return when (action) {
             ADD_IMAGE_TAGS -> getString(R.string.suggested_edits_tag_images)
             ADD_CAPTION, TRANSLATE_CAPTION -> getString(R.string.suggested_edits_caption_images)
+            IMAGE_RECOMMENDATIONS -> ""
             else -> getString(R.string.suggested_edits_describe_articles)
         }
     }
@@ -158,6 +171,8 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         if (action == ADD_IMAGE_TAGS && Prefs.showImageTagsOnboarding) {
             Prefs.showImageTagsOnboarding = false
             startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
+        } else if (action == IMAGE_RECOMMENDATIONS && !Prefs.suggestedEditsImageRecsOnboardingShown) {
+            startActivity(SuggestedEditsImageRecsOnboardingActivity.newIntent(requireActivity()))
         }
     }
 
@@ -186,6 +201,8 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
             binding.addContributionButton.isEnabled = child.publishEnabled()
             binding.addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
         }
+
+        binding.bottomButtonContainer.isVisible = action != IMAGE_RECOMMENDATIONS
 
         if (action == ADD_IMAGE_TAGS) {
             if (binding.addContributionButton.tag == "landscape") {
@@ -252,8 +269,10 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     fun onSelectPage() {
-        if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
-            topBaseChild()!!.publish()
+        if (action == ADD_IMAGE_TAGS) {
+            topBaseChild()?.publish()
+        } else if (action == IMAGE_RECOMMENDATIONS) {
+            topBaseChild()?.publish()
         } else if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummaryForEdit, topChild()!!.targetSummaryForEdit,
                 action, Constants.InvokeSource.SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
@@ -365,6 +384,9 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
                 ADD_IMAGE_TAGS -> {
                     SuggestedEditsImageTagsFragment.newInstance()
                 }
+                IMAGE_RECOMMENDATIONS -> {
+                    SuggestedEditsImageRecsFragment.newInstance()
+                }
                 else -> {
                     SuggestedEditsCardsItemFragment.newInstance()
                 }
@@ -381,6 +403,9 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         }
 
         override fun onPageSelected(position: Int) {
+            if (action == IMAGE_RECOMMENDATIONS) {
+                ((binding.cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(position) as SuggestedEditsImageRecsFragment).logImpression()
+            }
             updateBackButton(position)
             updateActionButton()
 

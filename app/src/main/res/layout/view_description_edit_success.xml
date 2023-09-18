@@ -81,7 +81,7 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <org.wikipedia.views.AppTextViewWithImages
+            <org.wikipedia.views.AppTextView
                 android:id="@+id/view_description_edit_success_hint_text"
                 style="@style/TextViewCentered"
                 android:layout_width="wrap_content"
