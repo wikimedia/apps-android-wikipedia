@@ -261,6 +261,8 @@
 
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
+        <activity android:name=".suggestededits.SuggestedEditsImageRecsOnboardingActivity" />
+
         <activity
             android:name=".watchlist.WatchlistActivity"
             android:label="@string/watchlist_title"
@@ -332,7 +334,8 @@
             
         <activity
             android:name=".edit.insertmedia.InsertMediaActivity"
-            android:label="@string/insert_media_title"/>
+            android:label="@string/insert_media_title"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <provider
             android:name=".WikipediaFileProvider"

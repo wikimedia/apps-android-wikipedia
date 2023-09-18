@@ -262,6 +262,7 @@
   <string name="edit_rollback">Кире кайтарырга</string>
   <string name="edit_warn">Кисәтү</string>
   <string name="edit_quality">Сыйфат %s</string>
+  <string name="edit_intent">%s ният</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
     <item quantity="other">%s байт</item>
@@ -872,6 +873,9 @@
   <string name="suggested_edits_describe_articles">Мәкаләләрне тасвирларга</string>
   <string name="suggested_edits_caption_images">Анлатмалы сурәтләр</string>
   <string name="suggested_edits_tag_images">Сурәтләрне теглар белән билгеләгез</string>
+  <string name="suggested_edits_edit_patrol">Күзәтүне үзгәртү</string>
+  <string name="suggested_edits_edit_patrol_hint">Соңгы төзәтмәләрне карагыз һәм аларның конструктив булу-булмавын билгеләгез.</string>
+  <string name="suggested_edits_edit_patrol_review">Тикшерү</string>
   <string name="suggested_edits_review_description">Күзәтеү мәкаләсенең тасвирламасы</string>
   <string name="suggested_edits_add_description_button">Тасвирлама өстәргә</string>
   <string name="suggested_edits_edit_description_button">Тасвирламаны мөхәррирләү</string>

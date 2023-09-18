@@ -103,7 +103,8 @@ object Constants {
         WATCHLIST_FILTER_ACTIVITY("watchlistFilter"),
         WIDGET("widget"),
         USER_CONTRIB_ACTIVITY("userContribActivity"),
-        RECENT_EDITS_FILTER_ACTIVITY("recentEditsFilter"),
+        EDIT_ADD_IMAGE("editAddImage"),
+        SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits"),
     }
 
     enum class ImageEditType(name: String) {

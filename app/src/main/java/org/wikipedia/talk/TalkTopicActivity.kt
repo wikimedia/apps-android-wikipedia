@@ -180,7 +180,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 true
             }
             R.id.menu_edit_source -> {
-                requestEditSource.launch(EditSectionActivity.newIntent(this, viewModel.sectionId, null, viewModel.pageTitle))
+                requestEditSource.launch(EditSectionActivity.newIntent(this, viewModel.sectionId, null,
+                    viewModel.pageTitle, Constants.InvokeSource.TALK_TOPIC_ACTIVITY))
                 true
             }
             R.id.menu_talk_topic_expand -> {

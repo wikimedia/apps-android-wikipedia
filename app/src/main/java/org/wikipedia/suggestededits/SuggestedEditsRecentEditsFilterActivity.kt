@@ -133,7 +133,7 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         }
 
         override fun onCheckedChanged(filter: Filter?) {
-            languageChooserLauncher.launch(WikipediaLanguagesActivity.newIntent(this@SuggestedEditsRecentEditsFilterActivity, Constants.InvokeSource.RECENT_EDITS_FILTER_ACTIVITY))
+            languageChooserLauncher.launch(WikipediaLanguagesActivity.newIntent(this@SuggestedEditsRecentEditsFilterActivity, Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS))
         }
     }
 
