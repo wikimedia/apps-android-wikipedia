@@ -21,9 +21,10 @@ import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.mwapi.UserInfo
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.log.L
 import retrofit2.HttpException
 import java.io.IOException
+import java.time.Duration
+import java.util.Calendar
 import java.util.Date
 
 class SuggestedEditsRecentEditsViewModel : ViewModel() {
@@ -159,14 +160,9 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     ServiceFactory.get(wikiSite).userInfo(usernames)
                 }.query?.users ?: emptyList()
 
-                L.d("UsersInfo: " + usersInfo.map { it.name })
-//                if (usersInfo.isNotEmpty()) {
-//                    recentChanges.filter { usersInfo.map { info -> info.name }.contains(it.user) }.forEach {
-//
-//                    }
-//                }
+                val finalRecentChanges = filterUserExperience(recentChanges, usersInfo)
 
-                LoadResult.Page(recentChanges, null, response.continuation?.rcContinuation)
+                LoadResult.Page(finalRecentChanges, null, response.continuation?.rcContinuation)
             } catch (e: IOException) {
                 LoadResult.Error(e)
             } catch (e: HttpException) {
@@ -188,10 +184,29 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     }.map {
                         SuggestedEditsRecentEditsFilterTypes.find(it)
                     }
-                return recentChanges.filter {
+                return recentChanges.filter { !it.anon }.filter {
                     val userInfo = usersInfo.find { info -> info.name == it.user }
-                    // TODO: implement this
-                    true
+                    var qualifiedUser = false
+                    userInfo?.let {
+                        val editsCount = userInfo.editCount
+                        val diffDays = diffDays(userInfo.registrationDate)
+                        findUserExperienceFilters.forEach { type ->
+                            val userExperienceArray = type.value.split("|")
+                            val requiredEdits = userExperienceArray.first().split(",")
+                            val requiredMinEdits = requiredEdits.first().toInt()
+                            val requiredMaxEdits = requiredEdits.last().toInt()
+                            val requiredLength = userExperienceArray.last().split(",")
+                            val requiredMinLength = requiredLength.first().toLong()
+                            val requiredMaxLength = requiredLength.last().toLong()
+
+                            qualifiedUser = if (requiredMaxEdits == -1 && requiredMaxLength == -1L) {
+                                editsCount >= requiredMinEdits && diffDays >= requiredMinLength
+                            } else {
+                                editsCount in requiredMinEdits..requiredMaxEdits && diffDays in requiredMinLength..requiredMaxLength
+                            }
+                        }
+                    }
+                    qualifiedUser
                 }
             }
             return recentChanges
@@ -225,6 +240,12 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 }
             }
             return recentChanges
+        }
+
+        private fun diffDays(date: Date): Long {
+            val nowDate = Calendar.getInstance().toInstant()
+            val beginDate = date.toInstant()
+            return Duration.between(beginDate, nowDate).toDays()
         }
     }
 

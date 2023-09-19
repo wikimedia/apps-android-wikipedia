@@ -32,11 +32,11 @@ enum class SuggestedEditsRecentEditsFilterTypes constructor(val id: String,
     REGISTERED("registered", "!anon",
         R.string.patroller_tasks_filters_user_status_registered, R.string.patroller_tasks_filters_user_status_registered_desc),
     // TODO: SPIKE ====
-    NEWCOMERS("newcomers", "10|4",
+    NEWCOMERS("newcomers", "0,10|0,4",
         R.string.patroller_tasks_filters_user_status_newcomers, R.string.patroller_tasks_filters_user_status_newcomers_desc),
-    LEARNERS("learners", "500|30",
+    LEARNERS("learners", "10,500|4,30",
         R.string.patroller_tasks_filters_user_status_learners, R.string.patroller_tasks_filters_user_status_learners_desc),
-    EXPERIENCED_USERS("experiencedUsers", "",
+    EXPERIENCED_USERS("experiencedUsers", "500,-1|30,-1",
         R.string.patroller_tasks_filters_user_status_experienced, R.string.patroller_tasks_filters_user_status_experienced_desc),
     // TODO: SPIKE ====
     // ORES score reference: https://github.com/wikimedia/mediawiki-extensions-ORES/blob/master/extension.json#L201-L232C28
