@@ -124,16 +124,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             }
         }
 
-        // Skip API level parameter.
-//        if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.map { it.id })) {
-//            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.REGISTERED.id)) {
-//                list.add(SuggestedEditsRecentEditsFilterTypes.REGISTERED.value)
-//            }
-//            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.id)) {
-//                list.add(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.value)
-//            }
-//        }
-
         if (includedTypesCodes.any { code ->
                 SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.map { it.id }.contains(code) ||
                         SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }.contains(code) }) {
@@ -161,7 +151,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     ServiceFactory.get(wikiSite).userInfo(usernames)
                 }.query?.users ?: emptyList()
 
-                // Filtering User experiences and registration
+                // Filtering User experiences and registration.
                 val finalRecentChanges = filterUserRegistration(filterUserExperience(recentChanges, usersInfo))
 
                 LoadResult.Page(finalRecentChanges, null, response.continuation?.rcContinuation)
