@@ -124,14 +124,15 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             }
         }
 
-        if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.map { it.id })) {
-            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.REGISTERED.id)) {
-                list.add(SuggestedEditsRecentEditsFilterTypes.REGISTERED.value)
-            }
-            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.id)) {
-                list.add(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.value)
-            }
-        }
+        // Skip API level parameter.
+//        if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.map { it.id })) {
+//            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.REGISTERED.id)) {
+//                list.add(SuggestedEditsRecentEditsFilterTypes.REGISTERED.value)
+//            }
+//            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.id)) {
+//                list.add(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.value)
+//            }
+//        }
 
         if (includedTypesCodes.any { code ->
                 SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.map { it.id }.contains(code) ||
@@ -160,7 +161,8 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     ServiceFactory.get(wikiSite).userInfo(usernames)
                 }.query?.users ?: emptyList()
 
-                val finalRecentChanges = filterUserExperience(recentChanges, usersInfo)
+                // Filtering User experiences and registration
+                val finalRecentChanges = filterUserRegistration(filterUserExperience(recentChanges, usersInfo))
 
                 LoadResult.Page(finalRecentChanges, null, response.continuation?.rcContinuation)
             } catch (e: IOException) {
@@ -184,6 +186,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     }.map {
                         SuggestedEditsRecentEditsFilterTypes.find(it)
                     }
+                // Filtering non-anon items with requirements and add anon items.
                 return recentChanges.filter { !it.anon }.filter {
                     val userInfo = usersInfo.find { info -> info.name == it.user }
                     var qualifiedUser = false
@@ -210,7 +213,25 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                         }
                     }
                     qualifiedUser
+                } + recentChanges.filter { it.anon }
+            }
+            return recentChanges
+        }
+
+        private fun filterUserRegistration(recentChanges: List<MwQueryResult.RecentChange>): List<MwQueryResult.RecentChange> {
+            val includedTypesCodes = Prefs.recentEditsIncludedTypeCodes
+            val filterUserExperiencesGroupSet = SuggestedEditsRecentEditsFilterTypes.USER_EXPERIENCE_GROUP.map { it.id }
+            // 1. Skip when: both anon and non-anon selected; or anon and user experiences selected.
+            if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.map { it.id }) &&
+                !(includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.id) &&
+                        includedTypesCodes.any { filterUserExperiencesGroupSet.contains(it) })) {
+
+                // 2. Filter anon items when only "UNREGISTERED" selected.
+                if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.id)) {
+                    return recentChanges.filter { it.anon }
                 }
+                // 3. Filter non-anon items. E.g. registered or any user experiences selected.
+                return recentChanges.filter { !it.anon }
             }
             return recentChanges
         }
