@@ -42,7 +42,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     var actionModeActive = false
     var recentEditsSource: RecentEditsPagingSource? = null
 
-    val recentEditsFlow = Pager(PagingConfig(pageSize = 50), pagingSourceFactory = {
+    val recentEditsFlow = Pager(PagingConfig(pageSize = 50, initialLoadSize = 50), pagingSourceFactory = {
         recentEditsSource = RecentEditsPagingSource()
         recentEditsSource!!
     }).flow.map { pagingData ->
@@ -204,6 +204,9 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                             } else {
                                 editsCount in requiredMinEdits..requiredMaxEdits && diffDays in requiredMinLength..requiredMaxLength
                             }
+                            if (qualifiedUser) {
+                                return@filter qualifiedUser
+                            }
                         }
                     }
                     qualifiedUser
@@ -233,10 +236,10 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                         val scoreRangeArray = range.split("|")
                         inScoreRange = oresScore >= scoreRangeArray.first().toFloat() && oresScore <= scoreRangeArray.last().toFloat()
                         if (inScoreRange) {
-                            return@forEach
+                            return@filter true
                         }
                     }
-                    inScoreRange
+                    false
                 }
             }
             return recentChanges
