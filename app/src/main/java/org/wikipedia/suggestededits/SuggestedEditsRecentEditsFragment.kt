@@ -73,6 +73,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         if (it.resultCode == AppCompatActivity.RESULT_OK) {
             viewModel.langCode = Prefs.recentEditsWikiCode
             setupAdapters()
+            viewModel.clearCache()
             recentEditsListAdapter.reload()
             recentEditsSearchBarAdapter.notifyItemChanged(0)
         }
@@ -96,10 +97,12 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         binding.refreshContainer.setOnRefreshListener {
+            viewModel.clearCache()
             recentEditsListAdapter.reload()
         }
 
         binding.refreshContainer.setOnRefreshListener {
+            viewModel.clearCache()
             recentEditsListAdapter.reload()
         }
 

@@ -42,6 +42,8 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     var actionModeActive = false
     var recentEditsSource: RecentEditsPagingSource? = null
 
+    private val cachedUserInfo = mutableListOf<UserInfo>()
+
     val recentEditsFlow = Pager(PagingConfig(pageSize = 50, initialLoadSize = 50), pagingSourceFactory = {
         recentEditsSource = RecentEditsPagingSource()
         recentEditsSource!!
@@ -66,6 +68,10 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             }
         }
     }.cachedIn(viewModelScope)
+
+    fun clearCache() {
+        cachedUserInfo.clear()
+    }
 
     fun filtersCount(): Int {
         val findSelectedUserStatus = Prefs.recentEditsIncludedTypeCodes
@@ -144,15 +150,18 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 val recentChanges = filterOresScores(filterOresScores(response.query?.recentChanges.orEmpty(), true), false)
 
                 // Get usernames
-                val usernames = recentChanges.filter { !it.anon }.map { it.user }.distinct().joinToString(separator = "|")
+                val usernames = recentChanges.filter { !it.anon }.map { it.user }.distinct().filter {
+                    !cachedUserInfo.map { userInfo -> userInfo.name }.contains(it)
+                }
 
-                // TODO: cache user information
-                val usersInfo = withContext(Dispatchers.IO) {
-                    ServiceFactory.get(wikiSite).userInfo(usernames)
+                val usersInfoResponse = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(wikiSite).userInfo(usernames.joinToString(separator = "|"))
                 }.query?.users ?: emptyList()
 
+                cachedUserInfo.addAll(usersInfoResponse)
+
                 // Filtering User experiences and registration.
-                val finalRecentChanges = filterUserRegistration(filterUserExperience(recentChanges, usersInfo))
+                val finalRecentChanges = filterUserRegistration(filterUserExperience(recentChanges, cachedUserInfo))
 
                 LoadResult.Page(finalRecentChanges, null, response.continuation?.rcContinuation)
             } catch (e: IOException) {
