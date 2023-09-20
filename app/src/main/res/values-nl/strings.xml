@@ -1504,7 +1504,7 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Gebruikersbijdragen bekijken</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Bedanken</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Gebruikersgegevens</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text" fuzzy="true">&lt;b&gt;Ingeschreven bij Wikipedia op: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Account van:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Aantal bewerkingen: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Sluiten</string>
   <string name="patroller_tasks_filters_title">Filters</string>
@@ -1514,9 +1514,13 @@
   <string name="patroller_tasks_filters_user_status_header">Gebruikersregistratie en -ervaring</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Niet geregistreerd</string>
   <string name="patroller_tasks_filters_user_status_registered">Geregistreerd</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Aangemelde bewerkers.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Nieuwkomers</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Geregistreerde bewerkers die minder dan 10 bewerkingen hebben gemaakt of 4 dagen actief zijn geweest.</string>
   <string name="patroller_tasks_filters_user_status_learners">Leerlingen</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Geregistreerde bewerkers met meer ervaring dan \"nieuwkomers\", maar minder dan \"ervaren gebruikers\".</string>
   <string name="patroller_tasks_filters_user_status_experienced">Ervaren gebruikers</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Geregistreerde bewerkers met meer dan 500 bewerkingen en 30 dagen van activiteit.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Laatste versies</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Laatste versie</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Niet de laatste versie</string>

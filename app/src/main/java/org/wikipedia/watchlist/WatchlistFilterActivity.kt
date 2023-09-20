@@ -43,7 +43,9 @@ class WatchlistFilterActivity : BaseActivity() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu): Boolean {
-        val shouldShowResetButton = Prefs.watchlistExcludedWikiCodes.isNotEmpty() || !Prefs.watchlistIncludedTypeCodes.containsAll(WatchlistFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id })
+        val defaultTypeSet = WatchlistFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }
+        val shouldShowResetButton = Prefs.watchlistExcludedWikiCodes.isNotEmpty() ||
+                !(Prefs.watchlistIncludedTypeCodes.containsAll(defaultTypeSet) && Prefs.watchlistIncludedTypeCodes.subtract(defaultTypeSet.toSet()).isEmpty())
         menu.findItem(R.id.menu_filter_reset).isVisible = shouldShowResetButton
         return super.onPrepareOptionsMenu(menu)
     }

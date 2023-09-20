@@ -111,7 +111,7 @@
   <string name="edit_saved_successfully">Rievdadeapmi almmuhuvvon!</string>
   <string name="dialog_message_edit_failed">Rievdadusa almmuheapmi ii lihkostuvvan!</string>
   <string name="dialog_message_edit_failed_retry">Geahččal ođđasit</string>
-  <string name="dialog_message_edit_failed_cancel">Šluhtte</string>
+  <string name="dialog_message_edit_failed_cancel">Gaskkalduhte</string>
   <string name="dialog_message_leaving_edit">Du rievdadeamit eai leat vel almmuhuvvon. Áiggut go duođai guođđit dán siiddu?</string>
   <string name="dialog_message_leaving_edit_leave">Guođe</string>
   <string name="dialog_message_leaving_edit_stay">Biso dás</string>
@@ -277,7 +277,7 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">Sihko</string>
   <string name="reading_list_activity_title">Lohkanlistu: %s</string>
   <string name="reading_lists_preview_save_dialog_title">Vurke listtu</string>
-  <string name="reading_lists_preview_save_dialog_cancel">Šluhtte</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Gaskkalduhte</string>
   <string name="reading_lists_preview_save_dialog_save">Vurke</string>
   <string name="reading_lists_preview_saved_snackbar_action">Čájet</string>
   <string name="user_option_sync_label">Ásahusat</string>
@@ -402,6 +402,7 @@
   <string name="main_tooltip_watchlist_title">Čuovvunlistu</string>
   <string name="text_input_dialog_cancel_button_text">Gaskkalduhte</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Gaskkalduhte</string>
+  <string name="talk_warn_save_dialog_cancel">Gaskkalduhte</string>
   <string name="talk_overflow_sort_date_updated">Maŋemus rievdaduvvon</string>
   <string name="talk_list_item_overflow_subscribe">Diŋgo</string>
   <string name="menu_option_edit_source">Rievdat wikiteavsttain</string>
@@ -421,6 +422,7 @@
   <string name="category_tab_subcategories">Vuollekategoriijat</string>
   <string name="search_namespaces">Nammagomuvuođat</string>
   <string name="shareable_reading_lists_new_indicator">*ođđa*</string>
+  <string name="talk_templates_new_message_dialog_cancel">Gaskkalduhte</string>
   <string name="patroller_tasks_filters_user_status_header">Geavaheaddji registreren ja hárjánusdássi</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Automatiserejuvvon rievdadusat</string>
   <string name="patroller_tasks_filters_significance_minor">Unna rievdadusažat</string>

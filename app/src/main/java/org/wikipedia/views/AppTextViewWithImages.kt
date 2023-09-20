@@ -8,10 +8,10 @@ import android.text.Spannable
 import android.text.Spanned
 import android.text.TextUtils
 import android.text.style.ImageSpan
-import android.util.AttributeSet
+import android.widget.TextView
+import android.widget.TextView.BufferType
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
-import androidx.annotation.VisibleForTesting
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.updateBounds
 import androidx.core.graphics.withTranslation
@@ -20,7 +20,7 @@ import androidx.core.text.toSpannable
 import kotlin.math.roundToInt
 
 // Credit: https://stackoverflow.com/a/38977396
-class AppTextViewWithImages constructor(context: Context, attrs: AttributeSet? = null) : AppTextView(context, attrs) {
+object AppTextViewWithImages {
     /**
      * A method to set a Spanned character sequence containing drawable resources.
      *
@@ -30,21 +30,18 @@ class AppTextViewWithImages constructor(context: Context, attrs: AttributeSet? =
      * @param drawableIds Numeric drawable IDs for the drawables which are to replace the
      * placeholders, in the order in which they should appear.
      */
-    fun setTextWithDrawables(text: CharSequence, @DrawableRes vararg drawableIds: Int) {
-        setText(text, getImageSpans(*drawableIds))
-    }
-
-    private fun getImageSpans(@DrawableRes vararg drawableIds: Int): List<Spanned> {
-        return drawableIds.map { makeImageSpan(it, textSize, currentTextColor) }
-    }
-
-    private fun setText(text: CharSequence, spans: List<Spanned>) {
+    fun setTextWithDrawables(textView: TextView, text: CharSequence, @DrawableRes vararg drawableIds: Int) {
+        val spans = getImageSpans(textView, *drawableIds)
         if (spans.isNotEmpty()) {
             val spanned = TextUtils.expandTemplate(text, *spans.toTypedArray<CharSequence>())
-            super.setText(spanned, BufferType.SPANNABLE)
+            textView.setText(spanned, BufferType.SPANNABLE)
         } else {
-            super.setText(text)
+            textView.text = text
         }
+    }
+
+    private fun getImageSpans(textView: TextView, @DrawableRes vararg drawableIds: Int): List<Spanned> {
+        return drawableIds.map { makeImageSpan(textView.context, textView.lineSpacingMultiplier, it, textView.textSize, textView.currentTextColor) }
     }
 
     /**
@@ -57,16 +54,15 @@ class AppTextViewWithImages constructor(context: Context, attrs: AttributeSet? =
      * @return A single-length ImageSpan that can be swapped into a CharSequence to replace a
      * placeholder.
      */
-    @VisibleForTesting
-    fun makeImageSpan(@DrawableRes drawableId: Int, size: Float, @ColorInt color: Int): Spannable {
+    private fun makeImageSpan(context: Context, lineSpacingMultiplier: Float, @DrawableRes drawableId: Int,
+                      size: Float, @ColorInt color: Int): Spannable {
         val result = " ".toSpannable()
-        val drawable = getFormattedDrawable(drawableId, size, color)
+        val drawable = getFormattedDrawable(context, drawableId, size, color)
         result[0, 1] = BaselineAlignedYTranslationImageSpan(drawable, lineSpacingMultiplier)
         return result
     }
 
-    @VisibleForTesting
-    fun getFormattedDrawable(@DrawableRes drawableId: Int, size: Float, @ColorInt color: Int): Drawable {
+    private fun getFormattedDrawable(context: Context, @DrawableRes drawableId: Int, size: Float, @ColorInt color: Int): Drawable {
         val drawable = AppCompatResources.getDrawable(context, drawableId)!!
         drawable.setTint(color)
         val ratio = drawable.intrinsicWidth / drawable.intrinsicHeight.toFloat()
@@ -95,7 +91,7 @@ class AppTextViewWithImages constructor(context: Context, attrs: AttributeSet? =
                           y: Int, bottom: Int, paint: Paint) {
             val drawable = drawable
             var transY = bottom - drawable.bounds.bottom
-            transY -= paint.fontMetricsInt.descent * lineSpacingMultiplier.toInt()
+            transY -= (paint.fontMetricsInt.descent * lineSpacingMultiplier.toInt()) / 2
             canvas.withTranslation(x = x, y = transY.toFloat()) {
                 drawable.draw(this)
             }
