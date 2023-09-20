@@ -219,9 +219,10 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
         private fun filterUserRegistration(recentChanges: List<MwQueryResult.RecentChange>): List<MwQueryResult.RecentChange> {
             val includedTypesCodes = Prefs.recentEditsIncludedTypeCodes
+            val filterUserRegistrationGroupSet = SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.map { it.id }
             val filterUserExperiencesGroupSet = SuggestedEditsRecentEditsFilterTypes.USER_EXPERIENCE_GROUP.map { it.id }
             // 1. Skip when: both anon and non-anon selected; or anon and user experiences selected.
-            if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.map { it.id }) &&
+            if (!includedTypesCodes.containsAll(filterUserRegistrationGroupSet) &&
                 !(includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.id) &&
                         includedTypesCodes.any { filterUserExperiencesGroupSet.contains(it) })) {
 

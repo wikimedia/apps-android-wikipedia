@@ -347,17 +347,12 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         private fun updateFilterCount() {
-            val filtersCount = viewModel.filtersCount()
-            if (filtersCount == 0) {
-                binding.filterCount.visibility = View.GONE
-                ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(requireContext(), R.attr.primary_color))
-            } else {
-                binding.filterCount.visibility = View.VISIBLE
-                binding.filterCount.text = filtersCount.toString()
-                ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(requireContext(), R.attr.progressive_color))
-            }
+            val showFilterCount = viewModel.filtersCount() != 0
+            val filterButtonColor = if (showFilterCount) R.attr.progressive_color else R.attr.primary_color
+            binding.filterCount.isVisible = showFilterCount
+            binding.filterCount.text = viewModel.filtersCount().toString()
+            ImageViewCompat.setImageTintList(binding.filterByButton,
+                ResourceUtil.getThemedColorStateList(requireContext(), filterButtonColor))
         }
     }
 

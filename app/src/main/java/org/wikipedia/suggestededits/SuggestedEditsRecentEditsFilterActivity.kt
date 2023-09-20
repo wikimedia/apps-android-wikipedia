@@ -124,12 +124,12 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         }
     }
 
-    private inner class RecentEditsFilterItemViewAddLanguageViewHolder constructor(itemView: SuggestedEditsRecentEditsFilterItemView) :
-            DefaultViewHolder<SuggestedEditsRecentEditsFilterItemView>(itemView), SuggestedEditsRecentEditsFilterItemView.Callback {
+    private inner class RecentEditsFilterItemViewAddLanguageViewHolder constructor(private val filterItemView: SuggestedEditsRecentEditsFilterItemView) :
+            DefaultViewHolder<SuggestedEditsRecentEditsFilterItemView>(filterItemView), SuggestedEditsRecentEditsFilterItemView.Callback {
 
         fun bindItem(text: String) {
-            (itemView as SuggestedEditsRecentEditsFilterItemView).callback = this
-            itemView.setSingleLabel(text)
+            filterItemView.callback = this
+            filterItemView.setSingleLabel(text)
         }
 
         override fun onCheckedChanged(filter: Filter?) {
