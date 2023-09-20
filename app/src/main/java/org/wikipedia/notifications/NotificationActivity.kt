@@ -52,7 +52,6 @@ import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
@@ -357,7 +356,7 @@ class NotificationActivity : BaseActivity() {
         init {
             itemView.setOnClickListener(this)
             itemView.setOnLongClickListener(this)
-            setContextClickAsLongClick(itemView)
+            DeviceUtil.setContextClickAsLongClick(itemView)
         }
 
         fun bindItem(container: NotificationListItemContainer, pos: Int) {
