@@ -24,6 +24,7 @@ class SyntaxHighlightViewAdapter(
     private val wikiTextKeyboardView: WikiTextKeyboardView,
     private val wikiTextKeyboardFormattingView: WikiTextKeyboardFormattingView,
     private val wikiTextKeyboardHeadingsView: WikiTextKeyboardHeadingsView,
+    private val invokeSource: Constants.InvokeSource,
     showUserMention: Boolean = false
 ) : WikiTextKeyboardView.Callback {
 
@@ -85,7 +86,7 @@ class SyntaxHighlightViewAdapter(
     }
 
     override fun onRequestInsertLink() {
-        requestLinkFromSearch.launch(SearchActivity.newIntent(activity, Constants.InvokeSource.TALK_REPLY_ACTIVITY, null, true))
+        requestLinkFromSearch.launch(SearchActivity.newIntent(activity, invokeSource, null, true))
     }
 
     override fun onRequestHeading() {

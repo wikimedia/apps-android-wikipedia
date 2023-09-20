@@ -165,7 +165,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         }
 
         SyntaxHighlightViewAdapter(this, pageTitle.wikiSite, binding.root, binding.editSectionText,
-            binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings)
+            binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
+            Constants.InvokeSource.EDIT_ACTIVITY)
 
         binding.editSectionText.setOnClickListener { finishActionMode() }
         onEditingPrefsChanged()
