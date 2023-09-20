@@ -68,18 +68,18 @@ class NotificationFilterActivity : BaseActivity() {
 
     class NotificationFilterHeaderViewHolder constructor(itemView: View) :
         DefaultViewHolder<View>(itemView) {
-        val headerText = itemView.findViewById<TextView>(R.id.filter_header_title)!!
+        private val headerText = itemView.findViewById<TextView>(R.id.filter_header_title)!!
 
         fun bindItem(filterHeader: String) {
             headerText.text = filterHeader
         }
     }
 
-    private inner class NotificationFilterAddLanguageViewHolder constructor(itemView: NotificationFilterItemView) :
-            DefaultViewHolder<NotificationFilterItemView>(itemView), NotificationFilterItemView.Callback {
+    private inner class NotificationFilterAddLanguageViewHolder constructor(private val filterItemView: NotificationFilterItemView) :
+            DefaultViewHolder<NotificationFilterItemView>(filterItemView), NotificationFilterItemView.Callback {
         fun bindItem(text: String) {
-            (itemView as NotificationFilterItemView).callback = this
-            itemView.setSingleLabel(text)
+            filterItemView.callback = this
+            filterItemView.setSingleLabel(text)
         }
 
         override fun onCheckedChanged(filter: Filter?) {
