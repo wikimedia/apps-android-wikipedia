@@ -1028,7 +1028,7 @@
   <string name="suggested_edits_ip_blocked_title">Zablokovaná IP</string>
   <string name="suggested_edits_last_edited">Poslední editace</string>
   <string name="suggested_edits_last_edited_never">Nikdy</string>
-  <string name="suggested_edits_task_new">nové</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nové</string>
   <string name="suggested_edits_cc0_notice">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami použití&lt;/a&gt; a neodvolatelně také souhlasíte se zveřejněním tohoto příspěvku pod &lt;a href=\"%2$s\"&gt;licencí CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Navrhování editací</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Děkujeme, že editujete Wikipedii! Proč nepokračovat tam, kde jste skončili?</string>

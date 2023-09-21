@@ -680,7 +680,7 @@
   <string name="suggested_edits_ip_blocked_title">IP kacadel</string>
   <string name="suggested_edits_last_edited">Kauah ungkur</string>
   <string name="suggested_edits_last_edited_never">Nénten naénin</string>
-  <string name="suggested_edits_task_new">anyar</string>
+  <string name="suggested_edits_task_new" fuzzy="true">anyar</string>
   <string name="suggested_edits_contributions_screen_title">%s\'s pituut</string>
   <string name="suggested_edits_contribution_language_label">Basa</string>
   <string name="suggested_edits_contribution_date_time_label">Tanggal/Galah</string>
