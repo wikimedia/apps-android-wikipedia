@@ -131,7 +131,6 @@
   <string name="map_view_link_text">Переглянути на мапі</string>
   <string name="other_languages_indication_text">Читати іншою мовою</string>
   <string name="language_count_link_text">Доступно %d іншими мовами</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та остаточно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та невідклично публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете до системи&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="edit_anon_warning">Редагування будуть приписані ІР-адресі вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, ваші дії будуть більш конфіденційними.</string>
@@ -285,6 +284,9 @@
   <string name="edit_undo">Скасувати</string>
   <string name="edit_redo">Повторити</string>
   <string name="edit_rollback">Відкіт</string>
+  <string name="edit_warn">Попередження</string>
+  <string name="edit_quality">Якість %s</string>
+  <string name="edit_intent">Намір %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
     <item quantity="few">%s байти</item>
@@ -394,6 +396,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Статтю неможливо завантажити, перебуваючи поза мережею.</string>
   <string name="page_offline_notice_add_to_reading_list">Підказка: Додайте статтю до списку для читання, та її буде завантажено, щойно Ви отримаєте доступ до мережі.</string>
   <string name="page_offline_notice_last_date">Ви читаєте автономну версію цієї статті, збережену %s.</string>
+  <string name="redirected_from_snackbar">Перенаправлено з «%s»</string>
   <string name="button_get_directions">Прокласти маршрут</string>
   <string name="error_no_maps_app">Не вдалося знайти жодної програми, яка прокладала б маршрут.</string>
   <string name="preference_title_customize_explore_feed">Стрічка</string>
@@ -949,6 +952,9 @@
   <string name="suggested_edits_describe_articles">Опишіть статті</string>
   <string name="suggested_edits_caption_images">Назвіть зображення</string>
   <string name="suggested_edits_tag_images">Теги до зображень</string>
+  <string name="suggested_edits_edit_patrol">Патрулювання редагувань</string>
+  <string name="suggested_edits_edit_patrol_hint">Перегляньте останні зміни та визначте, чи є вони конструктивними чи ні.</string>
+  <string name="suggested_edits_edit_patrol_review">Перевірити</string>
   <string name="suggested_edits_review_description">Перевірити опис статті</string>
   <string name="suggested_edits_add_description_button">Додати опис</string>
   <string name="suggested_edits_edit_description_button">Редагувати опис</string>
@@ -1074,7 +1080,7 @@
   <string name="suggested_edits_ip_blocked_title">IP заблоковано</string>
   <string name="suggested_edits_last_edited">Останнє редагування</string>
   <string name="suggested_edits_last_edited_never">Ніколи</string>
-  <string name="suggested_edits_task_new">нове</string>
+  <string name="suggested_edits_task_new" fuzzy="true">нове</string>
   <string name="suggested_edits_cc0_notice">Публікуючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, а також даєте невідкличну згоду на публікацію цього внеску на умовах &lt;a href=\"%2$s\"&gt;ліцензії CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Пропоновані редагування</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Дякуємо за редагування Вікіпедії! Продовжимо з того моменту, як вийшли?</string>
@@ -1165,8 +1171,11 @@
   <string name="image_recommendation_tooltip_3">Вирішіть, чи допоможе зображення краще зрозуміти читачам цю тему</string>
   <string name="image_recommendation_tooltip_next">Далі</string>
   <string name="image_recommendation_tooltip_warning">Перегляньте статтю, щоб зрозуміти її тему, і перегляньте зображення</string>
+  <string name="suggested_edits_report_feature">Проблема з функцією</string>
+  <string name="suggested_edits_report_feature_subject">Проблема із запропонованими редагуваннями</string>
   <string name="edit_summary_added_image">Додати зображення</string>
   <string name="edit_summary_added_caption">Додати підпис</string>
+  <string name="edit_summary_added_image_and_caption">Додано зображення та підпис</string>
   <string name="edit_published_view">Переглянути</string>
   <string name="file_page_activity_title">Сторінка файлу</string>
   <string name="file_page_add_image_caption_button">Додати підпис зображення</string>
@@ -1311,6 +1320,18 @@
   <string name="talk_user_title">Обговорення: %s</string>
   <string name="talk_new_topic">Нова тема</string>
   <string name="talk_new_topic_submitted">Тему опубліковано.</string>
+  <string name="talk_warn">Попередження</string>
+  <string name="talk_warn_save_dialog_title">Зберегти зміни?</string>
+  <string name="talk_warn_save_dialog_message">Зберегти як нове повідомлення</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Зберегти як нове повідомлення до списку</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Оновити наявне повідомлення</string>
+  <string name="talk_warn_save_dialog_hint">Заголовок повідомлення</string>
+  <string name="talk_warn_save_dialog_publish">Опублікувати</string>
+  <string name="talk_warn_save_dialog_cancel">Скасувати</string>
+  <string name="talk_warn_submitted">Повідомлення опубліковано на сторінці обговорення користувача</string>
+  <string name="talk_warn_submitted_and_saved">Повідомлення збережено та опубліковано на сторінці обговорення користувача</string>
+  <string name="talk_warn_saved_message">Виберіть наявне попередження або створіть нове повідомлення.</string>
+  <string name="talk_warn_saved_message_dropdown">Збережені повідомлення</string>
   <string name="talk_page_empty">Ця сторінка обговорення порожня.</string>
   <string name="talk_page_empty_title">Розмова починається тут</string>
   <string name="talk_page_empty_content">Сторінки обговорення — це місце, де люди обговорюють, як зробити вміст Вікіпедії якнайкращим. Почніть із додавання нової теми для обговорення, щоб зв\'язатися та співпрацювати зі спільнотою вікіпедистів.</string>
@@ -1401,6 +1422,7 @@
   <string name="revision_diff_line_removed">Рядок вилучено</string>
   <string name="revision_diff_paragraph_added">Абзац додано</string>
   <string name="revision_diff_paragraph_removed">Абзац вилучено</string>
+  <string name="revision_diff_protected">Ця версія сторінки не є загальнодоступною.</string>
   <string name="revision_undo_title">Скасувати редагування</string>
   <string name="revision_undo_message">Це прибере зміни, внесені версією(-ями) статті, що показано тут.</string>
   <string name="revision_undo_reason">Щоб продовжити, вкажіть, будь ласка, причину скасування цього редагування:</string>
@@ -1519,8 +1541,92 @@
   <string name="reading_list_share_message_v2">Привіт! Хочу поділитися з вами своїм списком для читання у Вікіпедії:</string>
   <string name="reading_list_share_survey_title">Чи могли б ви допомогти нам покращити функцію спільних списків для читання?</string>
   <string name="reading_list_share_survey_body">Спільні списки читання є тестовою функцією і нам потрібні ваші відгуки, щоб ми могли її покращити або прибрати.</string>
+  <string name="talk_templates_manage_title">Керування шаблонами</string>
+  <string name="talk_templates_empty_message">У вас немає збережених попереджень.</string>
+  <string name="talk_templates_new_message_title">Нове повідомлення</string>
+  <string name="talk_templates_new_message_description">Створіть попереджувальне повідомлення.</string>
+  <string name="talk_templates_new_message_subject_hint">Тема</string>
+  <string name="talk_templates_new_message_compose_hint">Написати повідомлення</string>
+  <string name="talk_templates_new_message_save">Зберегти</string>
+  <string name="talk_templates_new_message_dialog_title">Зберегти зміни</string>
+  <string name="talk_templates_new_message_dialog_description">Додайте назву та збережіть повідомлення.</string>
+  <string name="talk_templates_new_message_dialog_hint">Заголовок повідомлення</string>
+  <string name="talk_templates_new_message_dialog_save">Зберегти</string>
+  <string name="talk_templates_new_message_dialog_cancel">Скасувати</string>
+  <string name="talk_templates_new_message_dialog_exists">Шаблон «%s» уже існує.</string>
+  <string name="talk_templates_new_message_saved">Повідомлення збережено</string>
+  <string name="talk_templates_edit_message_dialog_title">Редагувати повідомлення</string>
+  <string name="talk_templates_edit_message_dialog_save">Зберегти</string>
+  <string name="talk_templates_edit_message_dialog_delete">Вилучити</string>
+  <string name="talk_templates_edit_message_updated">Повідомлення оновлено</string>
+  <string name="talk_templates_edit_message_confirm_description">Ви впевнені, що хочете вилучити повідомлення «%s» зі списку?</string>
+  <string name="talk_templates_message_deleted">Повідомлення вилучено</string>
+  <string name="patroller_tasks_edits_list_title">Список редагувань</string>
+  <string name="patroller_tasks_edits_list_search_hint">Шукати або фільтрувати редагування</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Мітки: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Немає</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Переглянути сторінку користувача</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Переглянути сторінку обговорення</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Інформація про користувача</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Переглянути внесок користувача</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Подякувати</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Інформація про користувача</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Закрити</string>
+  <string name="patroller_tasks_filters_title">Фільтри</string>
+  <string name="patroller_tasks_filters_reset">Скинути</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Вікі</string>
+  <string name="patroller_tasks_filters_all_text">Усі</string>
+  <string name="patroller_tasks_filters_user_status_header">Реєстрація користувача і його досвід</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Незареєстровані</string>
+  <string name="patroller_tasks_filters_user_status_registered">Зареєстровані</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Новачки</string>
+  <string name="patroller_tasks_filters_user_status_learners">Учні</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Досвідчені користувачі</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Останні версії</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Поточна версія</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Не остання версія</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Автоматизовані редагування</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Бот</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Людина (не бот)</string>
+  <string name="patroller_tasks_filters_significance_header">Важливість</string>
+  <string name="patroller_tasks_filters_significance_minor">Незначні редагування</string>
+  <string name="patroller_tasks_filters_significance_edits">Звичайні редагування</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Передбачення якості внеску</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Найімовірніше добрі</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Можуть бути проблематичними</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Схоже, мають проблеми</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Найімовірніше, мають проблеми</string>
+  <string name="patroller_tasks_filters_user_intent_header">Передбачення намірів користувачів</string>
+  <string name="patroller_tasks_filters_user_intent_good">Найімовірніше, добрі наміри</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Можливо, погані наміри</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Схоже, погані наміри</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Найімовірніше, погані наміри</string>
+  <string name="patroller_tasks_filters_empty_search_message">Спробуйте прибрати %s, щоб побачити більше редагувань</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d фільтр</item>
+    <item quantity="few">%d фільтри</item>
+    <item quantity="many">%d фільтрів</item>
+    <item quantity="other">%d фільтрів</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_title">Відпатрулювати редагування</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Історія редагування статті</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Скасувати цю зміну?</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Ви дійсно хочете скасувати це редагування?</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Скасування повністю відхилить дію одного чи кількох редагувань.</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Опис (необов\'язково)</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Вкажіть причину скасування</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Скасування виконано</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Ви дійсно хочете відкинути?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Відкіт виконано</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Переглянути</string>
+  <string name="patroller_tasks_overflow_report">Проблема з функцією</string>
+  <string name="patroller_tasks_overflow_learn">Дізнатися більше</string>
   <string name="data_opt_in_accept">Прийняти</string>
   <string name="data_opt_in_reject">Відхилити</string>
   <string name="page_issues_title">Проблеми сторінки</string>
   <string name="generic_release_notes">Незначні виправлення помилок і вдосконалення</string>
+  <string name="email_report_image_recommendations_subject" fuzzy="true">Звіт про проблему – функція рекомендацій зображень</string>
+  <string name="email_report_image_recommendations_body" fuzzy="true">У мене виникла проблема з функцією рекомендацій зображень:\n- [Опишіть конкретну проблему]\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
+  <string name="email_report_patroller_tasks_subject" fuzzy="true">Звіт про проблему – функція завдань патрулювання</string>
+  <string name="email_report_patroller_tasks_body" fuzzy="true">У мене виникла проблема з функцією завдань патрулювання:\n- [Опишіть конкретну проблему]\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]\n\n[]</string>
 </resources>

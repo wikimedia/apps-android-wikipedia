@@ -13,8 +13,9 @@ import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.Stack
 import java.util.concurrent.Semaphore
+import kotlin.math.abs
 
 object EditingSuggestionsProvider {
     private val mutex: Semaphore = Semaphore(1)
@@ -33,6 +34,10 @@ object EditingSuggestionsProvider {
     private var imagesWithTranslatableCaptionCacheToLang: String = ""
 
     private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
+
+    private val articlesWithImageRecommendationsCache: Stack<MwQueryPage> = Stack()
+    private var articlesWithImageRecommendationsCacheLang: String = ""
+    private var articlesWithImageRecommendationsLastMillis: Long = 0
 
     private var revertCandidateLang: String = ""
     private val revertCandidateCache: Stack<MwQueryResult.RecentChange> = Stack()
@@ -301,6 +306,45 @@ object EditingSuggestionsProvider {
         }.doFinally { mutex.release() }
     }
 
+    suspend fun getNextArticleWithImageRecommendation(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): MwQueryPage {
+        var page: MwQueryPage
+        withContext(Dispatchers.IO) {
+            mutex.acquire()
+            try {
+                if (articlesWithImageRecommendationsCacheLang != lang) {
+                    // evict the cache if the language has changed.
+                    articlesWithImageRecommendationsCache.clear()
+                }
+                articlesWithImageRecommendationsCacheLang = lang
+
+                // Wait at least 5 seconds before serving up the next recommendation.
+                while (abs(System.currentTimeMillis() - articlesWithImageRecommendationsLastMillis) < 5000) {
+                    Thread.sleep(1000)
+                }
+                articlesWithImageRecommendationsLastMillis = System.currentTimeMillis()
+
+                var tries = 0
+                do {
+                    if (articlesWithImageRecommendationsCache.empty()) {
+                        val response = ServiceFactory.get(WikiSite.forLanguageCode(articlesWithImageRecommendationsCacheLang))
+                            .getPagesWithImageRecommendations(10)
+                        // TODO: make use of continuation parameter?
+                        response.query?.pages?.forEach {
+                            if (it.growthimagesuggestiondata?.get(0)?.images != null) {
+                                articlesWithImageRecommendationsCache.push(it)
+                            }
+                        }
+                    }
+                } while (tries++ < retryLimit && articlesWithImageRecommendationsCache.empty())
+
+                page = articlesWithImageRecommendationsCache.pop()
+            } finally {
+                mutex.release()
+            }
+        }
+        return page
+    }
+
     @Suppress("KotlinConstantConditions")
     suspend fun getNextRevertCandidate(lang: String): MwQueryResult.RecentChange {
         return withContext(Dispatchers.IO) {
@@ -322,7 +366,7 @@ object EditingSuggestionsProvider {
                     while (this.coroutineContext.isActive) {
                         try {
                             val response = ServiceFactory.get(WikiSite.forLanguageCode(lang))
-                                .getRecentEdits(10, "now", null) // revertCandidateLastTimeStamp
+                                .getRecentEdits(10, "now", null, null, null) // revertCandidateLastTimeStamp
                             var maxRevId = 0L
                             for (candidate in response.query?.recentChanges!!) {
                                 if (candidate.curRev > maxRevId) {

@@ -197,20 +197,23 @@ class MwQueryResult {
         val pageid: Int = 0
         @SerialName("revid") val curRev: Long = 0
         @SerialName("old_revid") val revFrom: Long = 0
-        private val rcid: Long = 0
+        val rcid: Long = 0
         val user: String = ""
         val anon = false
         val bot = false
 
         @SerialName("new") private val isNew = false
         private val minor = false
-        private val oldlen = 0
-        private val newlen = 0
+        val oldlen = 0
+        val newlen = 0
         private val timestamp: String = ""
 
-        val parsedcomment: String = ""
+        @SerialName("parsedcomment") val parsedComment: String = ""
         private val tags: List<String>? = null
         private val oresscores: JsonElement? = null
+
+        val parsedDateTime by lazy { DateUtil.iso8601LocalDateTimeParse(timestamp) }
+        val joinedTags by lazy { tags?.joinToString(separator = ", ").orEmpty() }
 
         override fun toString(): String {
             return title

@@ -98,7 +98,6 @@
   <string name="map_view_link_text">நிலப்படத்தில் காட்டுக</string>
   <string name="other_languages_indication_text">வேறொரு மொழியில் படிக்கவும்</string>
   <string name="language_count_link_text">%d மற்ற மொழிகளில் கிடைக்கத்தக்கது</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள்.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள். தொகுப்புகள் தங்களது கருவியின் IP முகவரிக்கு உடைமையாக்கபடும். நீங்கள் &lt;a href=\"https://#login\"&gt;புகுபதிகை செய்தால்&lt;/a&gt;, உங்களுக்கு மேலும் தனியுரிமை இருக்கும்.</string>
   <string name="preference_title_language">விக்கிபீடியா மொழிகள்</string>
@@ -219,7 +218,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://meta.wikimedia.org/wiki/Terms_of_use/ta</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">பயன்படுத்தும் நிரலகங்கள்</string>

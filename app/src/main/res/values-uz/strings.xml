@@ -113,7 +113,6 @@
   <string name="map_view_link_text">Xaritada ko‘rmoq</string>
   <string name="other_languages_indication_text">Boshqa tilda oʻqish</string>
   <string name="language_count_link_text">Maqola %d ta tilda mavjud</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt; Foydalanish shartlari&lt;/a&gt; hamda o‘z hissangizni &lt;a href=\"%2$s\"&gt; CC BY-SA 4.0&lt;/a&gt; litsenziyasi ostida qaytarib berilmaslikka rozilik bildirasiz.</string>
   <string name="edit_save_action_license_anon">Nashr qilish bilan Siz &lt;a href=\"%1$s\"&gt;Foydalanish shartlari&lt;/a&gt;ga va oʻz hissangizni &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; litsenziyasi ostida qaytarib berilmaslikka rozilik bildirasiz. Oʻzgarishlar sizning qurilmangiz IP-manziliga tegishli boʻladi. Agar &lt;a href=\"https://#login\"&gt;tizimga kirsangiz&lt;/a&gt;, koʻproq shaxsiylikka ega boʻlasiz.</string>
   <string name="edit_anon_warning">Tahrirlar qurilmangiz IP manziliga tegishli boʻladi. Agar Siz tizimga &lt;a href=\"https://#login\"&gt;kirsangiz&lt;/a&gt;, maxfiylikka ega boʻlasiz.</string>
@@ -242,7 +241,6 @@
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uz</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Ilovada foydalanilgan tashqi manbalar:</string>
@@ -267,6 +265,9 @@
   <string name="edit_undo">Bekor qilish</string>
   <string name="edit_redo">Qaytarmoq</string>
   <string name="edit_rollback">Eski holiga qaytarish</string>
+  <string name="edit_warn">Ogohlantirish</string>
+  <string name="edit_quality">%s sifati</string>
+  <string name="edit_intent">%s maqsadi</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bayt</item>
     <item quantity="other">%s bayt</item>
@@ -878,6 +879,9 @@
   <string name="suggested_edits_describe_articles">Maqolani taʼriflang</string>
   <string name="suggested_edits_caption_images">Rasmlar sarlavhasi</string>
   <string name="suggested_edits_tag_images">Rasmlar tegi</string>
+  <string name="suggested_edits_edit_patrol">Patrul muharriri</string>
+  <string name="suggested_edits_edit_patrol_hint">Oxirgi tahrirlarni koʻrib chiqing va ular konstruktiv yoki yoʻqligini aniqlang.</string>
+  <string name="suggested_edits_edit_patrol_review">Koʻrib chiqish</string>
   <string name="suggested_edits_review_description">Maqola tavsifini koʻrib chiqish</string>
   <string name="suggested_edits_add_description_button">Tavsif qoʻshmoq</string>
   <string name="suggested_edits_edit_description_button">Tavsifni oʻzgartirmoq</string>
@@ -997,7 +1001,7 @@
   <string name="suggested_edits_ip_blocked_title">IP bloklangan</string>
   <string name="suggested_edits_last_edited">Soʻnggi tahrir</string>
   <string name="suggested_edits_last_edited_never">Hech qachon</string>
-  <string name="suggested_edits_task_new">yangi</string>
+  <string name="suggested_edits_task_new" fuzzy="true">yangi</string>
   <string name="suggested_edits_cc0_notice">Nashr qilish bilan siz &lt;a href=\"%1$s\"&gt; foydalanish shartlari &lt;/a&gt;ga va ushbu hissani &lt;a href=\"%2$s\"&gt;CC0 litsenziyasi&lt;/a&gt; asosida qaytarib olmasligingizga rozilik bildirasiz.</string>
   <string name="suggested_edits_reactivation_notification_title">Tavsiya etilgan tahrirlar</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Vikipediyani tahrir qilganingiz uchun tashakkur! Nima uchun toʻxtagan joyingizda davom etmayapsiz?</string>
@@ -1221,6 +1225,18 @@
   <string name="talk_user_title">Munozara: %s</string>
   <string name="talk_new_topic">Yangi mavzu</string>
   <string name="talk_new_topic_submitted">Mavzu tasdiqlandi.</string>
+  <string name="talk_warn">Ogohlantirish</string>
+  <string name="talk_warn_save_dialog_title">Oʻzgarishlar saqlansinmi?</string>
+  <string name="talk_warn_save_dialog_message">Yangi xabar sifatida saqlash</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Roʻyxatga yangi xabar sifatida saqlash</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Mavjud xabarni yangilash</string>
+  <string name="talk_warn_save_dialog_hint">Xabar sarlavhasi</string>
+  <string name="talk_warn_save_dialog_publish">Chop etish</string>
+  <string name="talk_warn_save_dialog_cancel">Bekor qilish</string>
+  <string name="talk_warn_submitted">Xabar muharrirning munozara sahifasida chop etildi</string>
+  <string name="talk_warn_submitted_and_saved">Xabar saqlandi va muharrirning foydalanuvchi munozara sahifasida chop etildi</string>
+  <string name="talk_warn_saved_message">Mavjud ogohlantirish xabarini tanlang yoki yangi xabar yozing.</string>
+  <string name="talk_warn_saved_message_dropdown">Saqlangan xabarlar</string>
   <string name="talk_page_empty">Bu munozara sahifasi boʻsh.</string>
   <string name="talk_page_empty_title">Suhbat shu yerda boshlanadi</string>
   <string name="talk_page_empty_content">Muloqot sahifalarida odamlar Vikipediya kontentini qanday qilib yaxshilash borasida muhokama qilishadi. Vikipediyachilar hamjamiyati bilan bogʻlanish va hamkorlik qilish uchun yangi muhokama mavzusini qoʻshishdan boshlang.</string>
@@ -1424,12 +1440,53 @@
   <string name="reading_list_share_message_v2">Salom! Men Siz bilan Vikipediya oʻqish roʻyxatini baham koʻrmoqchiman:</string>
   <string name="reading_list_share_survey_title">“Oʻqish roʻyxatini baham koʻrish”ni yaxshilashga yordam bera olasizmi?</string>
   <string name="reading_list_share_survey_body">“Oʻqish roʻyxatlarini ulashish” sinov koʻrinishida boʻlib, uni yaxshilash yoki olib tashlash uchun fikr-mulohazalaringiz kerak.</string>
+  <string name="talk_templates_manage_title">Shablonlar boshqaruvi</string>
+  <string name="talk_templates_empty_message">Sizda hech qanday ogohlantirish xabari saqlanmagan.</string>
+  <string name="talk_templates_new_message_title">Yangi xabar</string>
+  <string name="talk_templates_new_message_description">Ogohlantirish xabarini tuzish.</string>
+  <string name="talk_templates_new_message_subject_hint">Mavzu</string>
+  <string name="talk_templates_new_message_compose_hint">Xabar qoldirish</string>
+  <string name="talk_templates_new_message_save">Saqlamoq</string>
+  <string name="talk_templates_new_message_dialog_title">Oʻzgarishlarni saqlash</string>
+  <string name="talk_templates_new_message_dialog_description">Sarlavha qoʻshish va xabarni saqlash.</string>
+  <string name="talk_templates_new_message_dialog_hint">Xabar sarlavhasi</string>
+  <string name="talk_templates_new_message_dialog_save">Saqlamoq</string>
+  <string name="talk_templates_new_message_dialog_cancel">Bekor qilish</string>
+  <string name="talk_templates_new_message_dialog_exists">\"%s\" shablon allaqachon mavjud.</string>
+  <string name="talk_templates_new_message_saved">Xabar saqlandi</string>
+  <string name="talk_templates_edit_message_dialog_title">Xabarni tahrirlash</string>
+  <string name="talk_templates_edit_message_dialog_save">Saqlash</string>
+  <string name="talk_templates_edit_message_dialog_delete">Oʻchirish</string>
+  <string name="talk_templates_edit_message_updated">Xabar yangilandi</string>
+  <string name="talk_templates_edit_message_confirm_description">Haqiqatan ham %s xabarini roʻyxatdan oʻchirib tashlamoqchimisiz?</string>
+  <string name="talk_templates_message_deleted">Xabar oʻchirildi</string>
+  <string name="patroller_tasks_edits_list_title">Tahrirlar roʻyxati</string>
+  <string name="patroller_tasks_edits_list_search_hint">Tahrirlarni qidirish yoki filtrlash</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Teglar: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Hech qaysi</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Foydalanuvchi sahifasini koʻrish</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Munozara sahifani koʻrish</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Foydalanuvchi maʼlumotlari</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Foydalanuvchi hissasini koʻrmoq</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Tashakkur</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Foydalanuvchi maʼlumotlari</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Hisob:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Tahrirlashlar soni:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Yopish</string>
+  <string name="patroller_tasks_filters_title">Filtrlar</string>
+  <string name="patroller_tasks_filters_reset">Asliga</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Viki</string>
+  <string name="patroller_tasks_filters_all_text">Barchasi</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Koʻrish</string>
+  <string name="patroller_tasks_overflow_report">Xususiyat bilan bogʻliq muammo</string>
+  <string name="patroller_tasks_overflow_learn">Batafsil</string>
   <string name="data_opt_in_accept">Qabul qilish</string>
   <string name="data_opt_in_reject">Rad etish</string>
   <string name="page_issues_title">Sahifa muammolari</string>
   <string name="generic_release_notes">Asosiy kamchiliklar tuzatildi hamda takomillashtirildi</string>
-  <string name="email_report_image_recommendations_subject">Muammo hisoboti - Rasm tavsiyalari xususiyati</string>
-  <string name="email_report_image_recommendations_body">Tasvir tavsiyalari funksiyasi bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]</string>
-  <string name="email_report_patroller_tasks_subject">Muammo hisoboti - Kuzatuvchi vazifalari xususiyati</string>
-  <string name="email_report_patroller_tasks_body">Men Kuzatuvchi vazifalari xususiyati bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]</string>
+  <string name="email_report_image_recommendations_subject" fuzzy="true">Muammo hisoboti - Rasm tavsiyalari xususiyati</string>
+  <string name="email_report_image_recommendations_body" fuzzy="true">Tasvir tavsiyalari funksiyasi bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]</string>
+  <string name="email_report_patroller_tasks_subject" fuzzy="true">Muammo hisoboti - Kuzatuvchi vazifalari xususiyati</string>
+  <string name="email_report_patroller_tasks_body" fuzzy="true">Men Kuzatuvchi vazifalari xususiyati bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]\n\n[]</string>
 </resources>

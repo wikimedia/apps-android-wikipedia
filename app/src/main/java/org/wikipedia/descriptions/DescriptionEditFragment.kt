@@ -24,6 +24,7 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_3
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
@@ -358,6 +359,7 @@ class DescriptionEditFragment : Fragment() {
                                         binding.fragmentDescriptionEditView.wasSuggestionModified,
                                         pageTitle, newRevId
                                     )
+                                    ImageRecommendationsEvent.logEditSuccess(action, pageTitle.wikiSite.languageCode, newRevId)
                                 }
                                 hasEditErrorCode -> {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
@@ -408,6 +410,7 @@ class DescriptionEditFragment : Fragment() {
                                 binding.fragmentDescriptionEditView.wasSuggestionModified,
                                 pageTitle, response.entity?.lastRevId ?: 0
                             )
+                            ImageRecommendationsEvent.logEditSuccess(action, pageTitle.wikiSite.languageCode, response.entity?.lastRevId ?: 0)
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)

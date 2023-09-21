@@ -129,7 +129,6 @@
   <string name="map_view_link_text">Mostra al mapa</string>
   <string name="other_languages_indication_text">Llegeix en una altra llengua</string>
   <string name="language_count_link_text">Disponible en %d altres llengües</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En publicar accepteu les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; i que alliberareu irrevocablement les vostres contribucions sota la llicència &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt; gaudireu de més privadesa.</string>
   <string name="edit_anon_warning">Les edicions s\'atribuiran a l\'adreça IP del vostre dispositiu. Si &lt;a href=\"https://#login\"&gt;inicieu una sessió&lt;/a&gt;, gaudireu de més privadesa.</string>
@@ -283,6 +282,7 @@
   <string name="edit_undo">Desfés</string>
   <string name="edit_redo">Refés</string>
   <string name="edit_rollback">Reverteix</string>
+  <string name="edit_warn">Avís</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
     <item quantity="other">%s bytes</item>
@@ -896,6 +896,7 @@
   <string name="suggested_edits_describe_articles">Descriu articles</string>
   <string name="suggested_edits_caption_images">Posa llegendes a les imatges</string>
   <string name="suggested_edits_tag_images">Etiqueta les imatges</string>
+  <string name="suggested_edits_edit_patrol_review">Revisa</string>
   <string name="suggested_edits_review_description">Revisa la descripció d\'article</string>
   <string name="suggested_edits_add_description_button">Afegeix una descripció</string>
   <string name="suggested_edits_edit_description_button">Modifica la descripció</string>
@@ -1015,7 +1016,7 @@
   <string name="suggested_edits_ip_blocked_title">IP blocada</string>
   <string name="suggested_edits_last_edited">Darrera modificació</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
-  <string name="suggested_edits_task_new">nou</string>
+  <string name="suggested_edits_task_new">Nou</string>
   <string name="suggested_edits_cc0_notice">En publicar-ho, esteu d\'acord amb les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; tot alliberant la contribució de forma irrevocable sota la &lt;a href=\"%2$s\"&gt;llicència CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Edicions suggerides</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Gràcies per editar a la Viquipèdia! Per què no continueu on ho heu deixat?</string>
@@ -1236,6 +1237,8 @@
   <string name="talk_user_title">Discussió: %s</string>
   <string name="talk_new_topic">Tema nou</string>
   <string name="talk_new_topic_submitted">S\'ha enviat un tema.</string>
+  <string name="talk_warn_save_dialog_publish">Publica</string>
+  <string name="talk_warn_save_dialog_cancel">Cancel·la</string>
   <string name="talk_page_empty">La pàgina de discussió és en blanc.</string>
   <string name="talk_page_empty_title">La conversa comença aquí</string>
   <string name="talk_page_empty_content">Les pàgines de discussió és on es discuteix on fer el contingut de la Viquipèdia el millor possible. Inicieu-vos-hi afegint-hi un nou tema de discussió per a connectar-vos i col·laborar amb una comunitat viquipedista.</string>
@@ -1439,6 +1442,17 @@
   <string name="reading_list_share_message_v2">Hola! Voldria compartir-vos la meva llista de lectura de la Viquipèdia:</string>
   <string name="reading_list_share_survey_title">Ens podeu ajudar a millorar la funcionalitat de «Comparteix llistes de lectura»?</string>
   <string name="reading_list_share_survey_body">«Comparteix llistes de lectura» és una funcionalitat de prova i ens calen opinions per a millorar-la o bé treure-la.</string>
+  <string name="talk_templates_new_message_subject_hint">Assumpte</string>
+  <string name="talk_templates_new_message_save">Desa</string>
+  <string name="talk_templates_new_message_dialog_title">Desa els canvis</string>
+  <string name="talk_templates_new_message_dialog_hint">Títol del missatge</string>
+  <string name="talk_templates_edit_message_dialog_save">Desa</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Agraeix</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Informació de l\'usuari</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Nouvinguts</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Mostra</string>
+  <string name="patroller_tasks_overflow_report">Problema amb la funcionalitat</string>
+  <string name="patroller_tasks_overflow_learn">Més informació</string>
   <string name="data_opt_in_accept">Accepta</string>
   <string name="data_opt_in_reject">Rebutja</string>
   <string name="page_issues_title">Problemes de la pàgina</string>

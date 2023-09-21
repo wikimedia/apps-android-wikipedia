@@ -107,7 +107,6 @@
   <string name="map_view_link_text">Op enger Kaart weisen</string>
   <string name="other_languages_indication_text">An enger anerer Sprooch liesen</string>
   <string name="language_count_link_text">Disponibel an %d anere Sproochen</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Mam Verëffentleche sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-Lizenz.</string>
   <string name="preference_title_language">Wikipedia-Sproochen</string>
   <string name="langlinks_filter_hint">Sichen</string>
@@ -220,7 +219,6 @@
   <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_contributors_heading">Auteuren</string>
@@ -243,6 +241,8 @@
   <string name="edit_undo">Réckgängeg maachen</string>
   <string name="edit_redo">Widderhuelen</string>
   <string name="edit_rollback">Zrécksetzen</string>
+  <string name="edit_warn">Warnen</string>
+  <string name="edit_quality">Qualitéit %s</string>
   <string name="edit_zoom_in">Vergréisseren</string>
   <string name="edit_zoom_out"> Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>
@@ -744,6 +744,7 @@
   <string name="customize_toolbar_reset_to_default_button">Op de Standard zrécksetzen</string>
   <string name="suggested_edits_describe_articles">Artikele beschreiwen</string>
   <string name="suggested_edits_caption_images">Ënnertitel fir Biller</string>
+  <string name="suggested_edits_edit_patrol_review">Nokucken</string>
   <string name="suggested_edits_review_description">Artikel-Beschreiwung iwwerliesen</string>
   <string name="suggested_edits_add_description_button">Beschreiwung derbäisetzen</string>
   <string name="suggested_edits_edit_description_button">Beschreiwung änneren</string>
@@ -814,7 +815,7 @@
   <string name="suggested_edits_ip_blocked_title">IP gespaart</string>
   <string name="suggested_edits_last_edited">Lescht Ännerung</string>
   <string name="suggested_edits_last_edited_never">Ni</string>
-  <string name="suggested_edits_task_new">nei</string>
+  <string name="suggested_edits_task_new">Nei</string>
   <string name="suggested_edits_reactivation_notification_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci fir Är Ännerungen op Wikipedia! Firwat net einfach do weidermaachen, wou Dir opgehalen hutt?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Hutt Dir eng Minutt Zäit fir d\'Wikipedia weider ze verbesseren? Kuckt Iech dës Virschléi, fir Ännerungen ze maachen, un.</string>
@@ -964,6 +965,13 @@
   <string name="talk_title">Diskussioun</string>
   <string name="talk_user_title">Diskussioun: %s</string>
   <string name="talk_new_topic">Neit Thema</string>
+  <string name="talk_warn">Warnen</string>
+  <string name="talk_warn_save_dialog_title">Ännerunge späicheren?</string>
+  <string name="talk_warn_save_dialog_message">Als neie Message späicheren</string>
+  <string name="talk_warn_save_dialog_hint">Titel vum Message</string>
+  <string name="talk_warn_save_dialog_publish">Verëffentlechen</string>
+  <string name="talk_warn_save_dialog_cancel">Ofbriechen</string>
+  <string name="talk_warn_saved_message_dropdown">Gespäichert Messagen</string>
   <string name="talk_page_empty">Dës Diskussiouns-Säit ass eidel.</string>
   <string name="talk_add_reply">Äntweren</string>
   <string name="talk_no_subject">(Kee Sujet)</string>
@@ -1108,6 +1116,52 @@
   <string name="reading_list_share_message_v2">Moien! Ech géif gäre meng Wikipedia-Lieslëscht mat Iech deelen:</string>
   <string name="reading_list_share_survey_title">Kéint Dir eis hëllefe fir d\'Funktioun \"Lieslëscht deelen\" besser ze maachen?</string>
   <string name="reading_list_share_survey_body">\"Lieslëscht deelen\" ass eng Testfunktioun a mir sinn op Äre Feedback ugewise fir se ze verbesseren oder eventuell ewechzehuelen.</string>
+  <string name="talk_templates_new_message_title">Neie Message</string>
+  <string name="talk_templates_new_message_subject_hint">Sujet</string>
+  <string name="talk_templates_new_message_compose_hint">Message schreiwen</string>
+  <string name="talk_templates_new_message_save">Späicheren</string>
+  <string name="talk_templates_new_message_dialog_title">Ännerunge späicheren</string>
+  <string name="talk_templates_new_message_dialog_description">Titel derbäisetzen a Message späicheren.</string>
+  <string name="talk_templates_new_message_dialog_hint">Titel vum Message</string>
+  <string name="talk_templates_new_message_dialog_save">Späicheren</string>
+  <string name="talk_templates_new_message_dialog_cancel">Ofbriechen</string>
+  <string name="talk_templates_new_message_dialog_exists">D\'Schabloun „%s“ gëtt et schonn.</string>
+  <string name="talk_templates_new_message_saved">Message gouf gespäichert</string>
+  <string name="talk_templates_edit_message_dialog_title">Message änneren</string>
+  <string name="talk_templates_edit_message_dialog_save">Späicheren</string>
+  <string name="talk_templates_edit_message_dialog_delete">Läschen</string>
+  <string name="talk_templates_edit_message_updated">Message gouf aktualiséiert</string>
+  <string name="talk_templates_edit_message_confirm_description">Sidd Dir sécher, datt Dir dëse(n) %s-Message vun der Lëscht läsche wëllt?</string>
+  <string name="talk_templates_message_deleted">Message gouf geläscht</string>
+  <string name="patroller_tasks_edits_list_title">Lëscht vun Ännerungen</string>
+  <string name="patroller_tasks_edits_list_search_hint">Ännerungen duerchsichen oder filteren</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benotzersäit weisen</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Diskussiounssäit weisen</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Benotzerinformatiounen</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Benotzerkontributioune weisen</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Benotzerinformatiounen</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Zoumaachen</string>
+  <string name="patroller_tasks_filters_title">Filteren</string>
+  <string name="patroller_tasks_filters_reset">Zrécksetzen</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Lescht Versiounen</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Aktuell Versioun</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Net déi lescht Versioun</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Automatiséiert Kontributiounen</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Mënsch (kee Bot)</string>
+  <string name="patroller_tasks_filters_significance_minor">Kleng Ännerungen</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Héchstwarscheinlech gutt</string>
+  <string name="patroller_tasks_filters_user_intent_good">Héchstwarscheinlech gutt Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Vläicht schlecht Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Warscheinlech schlecht Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Héchstwarscheinlech schlecht Absicht</string>
+  <string name="patroller_tasks_filters_empty_search_message">Probéiert fir %s ewechzehuele fir méi Ännerungen ugewisen ze kréien</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d Filter</item>
+    <item quantity="other">%d Filteren</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Sidd Dir sécher, datt Dir dës Ännerung réckgängeg maache wëllt?</string>
   <string name="data_opt_in_accept">Akzeptéieren</string>
   <string name="data_opt_in_reject">Refuséieren</string>
 </resources>

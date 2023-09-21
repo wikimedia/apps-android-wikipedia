@@ -32,11 +32,13 @@ class SwipeableListView constructor(context: Context, attrs: AttributeSet? = nul
 
     private inner class ViewGestureListener : GestureDetector.SimpleOnGestureListener() {
 
-        override fun onFling(event1: MotionEvent, event2: MotionEvent,
+        override fun onFling(event1: MotionEvent?, event2: MotionEvent,
                              velocityX: Float, velocityY: Float): Boolean {
-            if (swipeDetected(event1, event2) && abs(velocityX) > SWIPE_MIN_X_VELOCITY &&
+            if (event1 != null) {
+                if (swipeDetected(event1, event2) && abs(velocityX) > SWIPE_MIN_X_VELOCITY &&
                     abs(velocityY) < SWIPE_MAX_Y_VELOCITY) {
-                listener?.onSwipeOut()
+                    listener?.onSwipeOut()
+                }
             }
             return false
         }
