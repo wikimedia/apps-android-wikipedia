@@ -2,7 +2,6 @@ package org.wikipedia.edit
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
@@ -51,15 +50,12 @@ import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
 import org.wikipedia.extensions.parcelableExtra
-import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.linkpreview.LinkPreviewDialog
-import org.wikipedia.search.SearchActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestedEditsImageRecsFragment
 import org.wikipedia.theme.ThemeChooserDialog
@@ -104,14 +100,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     private var actionMode: ActionMode? = null
     private val disposables = CompositeDisposable()
 
-    private val requestLinkFromSearch = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
-            it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)?.let { title ->
-                binding.editKeyboardOverlay.insertLink(title, pageTitle.wikiSite.languageCode)
-            }
-        }
-    }
-
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             updateEditLicenseText()
@@ -149,8 +137,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 binding.editSectionText.setText(newWikiText.first)
                 intent.putExtra(InsertMediaActivity.EXTRA_INSERTED_INTO_INFOBOX, newWikiText.second)
 
-                // TODO: automatically highlight what was added.
-                // binding.editSectionText.setSelection(cursorPos, cursorPos + newText.length)
+                val insertPos = newWikiText.third
+                binding.editSectionText.setSelection(insertPos.first, insertPos.first + insertPos.second)
 
                 if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
                     // If we came from the Image Recommendation workflow, go directly to Preview.
@@ -177,55 +165,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
 
     private val movementMethod = LinkMovementMethodExt { urlStr ->
         UriUtil.visitInExternalBrowser(this, Uri.parse(UriUtil.resolveProtocolRelativeUrl(pageTitle.wikiSite, urlStr)))
-    }
-
-    private val syntaxButtonCallback = object : WikiTextKeyboardView.Callback {
-        override fun onPreviewLink(title: String) {
-            val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null)
-            ExclusiveBottomSheetPresenter.show(supportFragmentManager, dialog)
-            binding.root.post {
-                dialog.dialog?.setOnDismissListener {
-                    if (!isDestroyed) {
-                        binding.root.postDelayed({
-                            DeviceUtil.showSoftKeyboard(binding.editSectionText)
-                        }, 200)
-                    }
-                }
-            }
-        }
-
-        override fun onRequestInsertMedia() {
-            requestInsertMedia.launch(InsertMediaActivity.newIntent(this@EditSectionActivity, pageTitle.wikiSite,
-                pageTitle.displayText, Constants.InvokeSource.EDIT_ACTIVITY))
-        }
-
-        override fun onRequestInsertLink() {
-            requestLinkFromSearch.launch(SearchActivity.newIntent(this@EditSectionActivity, Constants.InvokeSource.EDIT_ACTIVITY, null, true))
-        }
-
-        override fun onRequestHeading() {
-            if (binding.editKeyboardOverlayHeadings.isVisible) {
-                hideAllSyntaxModals()
-                return
-            }
-            hideAllSyntaxModals()
-            binding.editKeyboardOverlayHeadings.isVisible = true
-            binding.editKeyboardOverlay.onAfterHeadingsShown()
-        }
-
-        override fun onRequestFormatting() {
-            if (binding.editKeyboardOverlayFormattingContainer.isVisible) {
-                hideAllSyntaxModals()
-                return
-            }
-            hideAllSyntaxModals()
-            binding.editKeyboardOverlayFormattingContainer.isVisible = true
-            binding.editKeyboardOverlay.onAfterFormattingShown()
-        }
-
-        override fun onSyntaxOverlayCollapse() {
-            hideAllSyntaxModals()
-        }
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -285,28 +224,13 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 invalidateOptionsMenu()
             }
         }
-        binding.editKeyboardOverlay.editText = binding.editSectionText
-        binding.editKeyboardOverlay.callback = syntaxButtonCallback
-        binding.editKeyboardOverlayFormatting.editText = binding.editSectionText
-        binding.editKeyboardOverlayFormatting.callback = syntaxButtonCallback
-        binding.editKeyboardOverlayHeadings.editText = binding.editSectionText
-        binding.editKeyboardOverlayHeadings.callback = syntaxButtonCallback
+
+        SyntaxHighlightViewAdapter(this, pageTitle, binding.root, binding.editSectionText,
+            binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
+            Constants.InvokeSource.EDIT_ACTIVITY, requestInsertMedia)
 
         binding.editSectionText.setOnClickListener { finishActionMode() }
         onEditingPrefsChanged()
-
-        binding.editSectionContainer.viewTreeObserver.addOnGlobalLayoutListener {
-            binding.editSectionContainer.post {
-                if (!isDestroyed) {
-                    if (isHardKeyboardAttached() || window.decorView.height - binding.editSectionContainer.height > DimenUtil.roundedDpToPx(150f)) {
-                        binding.editKeyboardOverlayContainer.isVisible = true
-                    } else {
-                        hideAllSyntaxModals()
-                        binding.editKeyboardOverlayContainer.isVisible = false
-                    }
-                }
-            }
-        }
 
         if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
             // If the intent is to add an image to the article, go directly to the image insertion flow.
@@ -316,7 +240,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         // set focus to the EditText, but keep the keyboard hidden until the user changes the cursor location:
         binding.editSectionText.requestFocus()
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
-        hideAllSyntaxModals()
     }
 
     public override fun onStart() {
@@ -330,12 +253,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding.editSectionText.removeTextChangedListener(textWatcher)
         syntaxHighlighter.cleanup()
         super.onDestroy()
-    }
-
-    private fun isHardKeyboardAttached(): Boolean {
-        return (resources.configuration.hardKeyboardHidden == Configuration.KEYBOARDHIDDEN_NO &&
-                resources.configuration.keyboard != Configuration.KEYBOARD_UNDEFINED &&
-                resources.configuration.keyboard != Configuration.KEYBOARD_NOKEYS)
     }
 
     private fun updateEditLicenseText() {
@@ -771,7 +688,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         scrollToHighlight(textToHighlight)
         binding.editSectionText.isEnabled = editingAllowed
         binding.editKeyboardOverlay.isVisible = editingAllowed
-        hideAllSyntaxModals()
     }
 
     private fun scrollToHighlight(highlightText: String?) {
@@ -779,12 +695,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             return
         }
         binding.editSectionText.highlightText(highlightText)
-    }
-
-    private fun hideAllSyntaxModals() {
-        binding.editKeyboardOverlayHeadings.isVisible = false
-        binding.editKeyboardOverlayFormattingContainer.isVisible = false
-        binding.editKeyboardOverlay.onAfterOverlaysHidden()
     }
 
     fun showProgressBar(enable: Boolean) {

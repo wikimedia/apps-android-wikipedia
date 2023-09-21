@@ -34,7 +34,7 @@ import kotlin.math.min
  * case we need to copy over any useful compatibility logic.
  */
 @SuppressLint("AppCompatCustomView")
-class SyntaxHighlightableEditText : EditText {
+open class SyntaxHighlightableEditText : EditText {
 
     private var prevLineCount = -1
     private val lineNumberPaint = TextPaint()
@@ -46,7 +46,7 @@ class SyntaxHighlightableEditText : EditText {
     private val gutterRect = Rect()
     private var allowScrollToCursor = true
 
-    lateinit var scrollView: View
+    var scrollView: View? = null
     private lateinit var actualLineFromRenderedLine: IntArray
 
     var inputConnection: InputConnection? = null
@@ -112,8 +112,8 @@ class SyntaxHighlightableEditText : EditText {
         if (showLineNumbers && layout != null) {
             val wrapContent = true // TODO: make wrap content optional?
 
-            val firstLine = layout.getLineForVertical(scrollView.scrollY)
-            val lastLine = layout.getLineForVertical(scrollView.scrollY + scrollView.height)
+            val firstLine = if (scrollView != null) layout.getLineForVertical(scrollView!!.scrollY) else 0
+            val lastLine = if (scrollView != null) layout.getLineForVertical(scrollView!!.scrollY + scrollView!!.height) else layout.lineCount - 1
 
             // paint the gutter area with a slightly different color than text background.
             canvas?.drawRect(gutterRect, lineNumberBackgroundPaint)
