@@ -868,7 +868,7 @@
   <string name="suggested_edits_ip_blocked_title">IP адреса је блокирана</string>
   <string name="suggested_edits_last_edited">Последњи пут уређено</string>
   <string name="suggested_edits_last_edited_never">Никад</string>
-  <string name="suggested_edits_task_new">ново</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ново</string>
   <string name="suggested_edits_cc0_notice">Објављивањем измена прихватате &lt;a href=\"%1$s\"&gt;услове коришћења&lt;/a&gt; и неопозиво објављивање свог доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложене измене</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Хвала на уређивању Википедије. Зашто не бисте наставили тамо где сте стали?</string>

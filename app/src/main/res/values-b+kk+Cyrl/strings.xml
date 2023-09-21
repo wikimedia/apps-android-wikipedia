@@ -241,7 +241,7 @@
   <string name="description_edit_cancel_hint">Болдырмау</string>
   <string name="description_edit_help_about_wikidata">Уикидерек туралы</string>
   <string name="suggested_edits_task_action_text_translate">Аудару</string>
-  <string name="suggested_edits_task_new">жаңа</string>
+  <string name="suggested_edits_task_new" fuzzy="true">жаңа</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
   <string name="main_drawer_help">Анықтама</string>

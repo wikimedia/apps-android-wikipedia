@@ -123,12 +123,12 @@ class WatchlistFilterActivity : BaseActivity() {
         }
     }
 
-    private inner class WatchlistFilterItemViewAddLanguageViewHolder constructor(itemView: WatchlistFilterItemView) :
-            DefaultViewHolder<WatchlistFilterItemView>(itemView), WatchlistFilterItemView.Callback {
+    private inner class WatchlistFilterItemViewAddLanguageViewHolder constructor(private val filterItemView: WatchlistFilterItemView) :
+            DefaultViewHolder<WatchlistFilterItemView>(filterItemView), WatchlistFilterItemView.Callback {
 
         fun bindItem(text: String) {
-            (itemView as WatchlistFilterItemView).callback = this
-            itemView.setSingleLabel(text)
+            filterItemView.callback = this
+            filterItemView.setSingleLabel(text)
         }
 
         override fun onCheckedChanged(filter: Filter?) {

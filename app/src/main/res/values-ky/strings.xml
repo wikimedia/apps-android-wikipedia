@@ -186,7 +186,7 @@
   <string name="suggested_edits_image_caption_summary_title_source">Булак</string>
   <string name="suggested_edits_task_action_text_add">Кошуу</string>
   <string name="suggested_edits_task_action_text_translate">Которуу</string>
-  <string name="suggested_edits_task_new">жаңы</string>
+  <string name="suggested_edits_task_new" fuzzy="true">жаңы</string>
   <string name="suggested_edits_contribution_language_label">Тил</string>
   <string name="file_page_edit_button_content_description">%s түзөтүү</string>
   <string name="description_edit_login_cancel_button_text">Жокко чыгаруу</string>
