@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextWatcher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
@@ -18,6 +19,10 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityAddTemplateBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.edit.SyntaxHighlightViewAdapter
+import org.wikipedia.edit.insertmedia.InsertMediaActivity
+import org.wikipedia.edit.insertmedia.InsertMediaViewModel
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -38,7 +43,31 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     private val viewModel: AddTemplateViewModel by viewModels()
     private var userMentionScrolled = false
 
-    private val wikiSite = WikiSite(WikipediaApp.instance.appOrSystemLanguageCode)
+    private val wikiSite = WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)
+
+    private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == InsertMediaActivity.RESULT_INSERT_MEDIA_SUCCESS) {
+            it.data?.let { data ->
+                val imageTitle = data.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+                val imageCaption = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION)
+                val imageAlt = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT)
+                val imageSize = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_SIZE)
+                val imageType = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_TYPE)
+                val imagePos = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_POS)
+
+                val newWikiText = InsertMediaViewModel.insertImageIntoWikiText(wikiSite.languageCode,
+                    binding.addTemplateInputView.editText.text.toString(), imageTitle?.text.orEmpty(), imageCaption.orEmpty(),
+                    imageAlt.orEmpty(), imageSize.orEmpty(), imageType.orEmpty(), imagePos.orEmpty(),
+                    binding.addTemplateInputView.editText.selectionStart, autoInsert = false, attemptInfobox = false
+                )
+
+                binding.addTemplateInputView.editText.setText(newWikiText.first)
+
+                val insertPos = newWikiText.third
+                binding.addTemplateInputView.editText.setSelection(insertPos.first, insertPos.first + insertPos.second)
+            }
+        }
+    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +80,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         textWatcher = binding.addTemplateSubjectText.doOnTextChanged { _, _, _, _ ->
             binding.addTemplateSubjectLayout.error = null
             binding.addTemplateInputView.textInputLayout.error = null
-            setSaveButtonEnabled(!binding.addTemplateInputView.editText.text.isNullOrBlank())
+            setSaveButtonEnabled(binding.addTemplateInputView.editText.text.isNotBlank())
         }
         binding.addTemplateInputView.editText.addTextChangedListener(textWatcher)
 
@@ -61,6 +90,11 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
 
         binding.addTemplateInputView.wikiSite = wikiSite
         binding.addTemplateInputView.listener = this
+
+
+        SyntaxHighlightViewAdapter(this, PageTitle("Main Page", wikiSite), binding.root, binding.addTemplateInputView.editText,
+            binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
+            Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -144,7 +178,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
 
     private fun onSaveClicked() {
         val subject = binding.addTemplateSubjectText.text.toString().trim()
-        val body = binding.addTemplateInputView.editText.getParsedText(wikiSite).trim()
+        val body = binding.addTemplateInputView.editText.toString().trim()
 
         if (subject.isEmpty()) {
             binding.addTemplateSubjectLayout.error = getString(R.string.talk_subject_empty)
@@ -191,7 +225,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     }
 
     override fun onBackPressed() {
-        if (!binding.addTemplateSubjectText.text.isNullOrEmpty() || !binding.addTemplateInputView.editText.text.isNullOrEmpty()) {
+        if (!binding.addTemplateSubjectText.text.isNullOrEmpty() || binding.addTemplateInputView.editText.text.isNotEmpty()) {
             MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.talk_new_topic_exit_dialog_title)
