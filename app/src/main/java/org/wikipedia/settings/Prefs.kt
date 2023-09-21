@@ -556,7 +556,7 @@ object Prefs {
 
     var customizeToolbarMenuOrder: List<Int>
         get() {
-            val notInToolbarList = PageActionItem.values().map { it.code() }.subtract(customizeToolbarOrder)
+            val notInToolbarList = PageActionItem.entries.map { it.code() }.subtract(customizeToolbarOrder)
             val currentList = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_menu_order, null))
                     ?: notInToolbarList
             return currentList.union(notInToolbarList).toList()
@@ -651,6 +651,10 @@ object Prefs {
     var readingListRecentReceivedId
         get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_reading_lists_recent_receive_id, value)
+
+    var suggestedEditsImageRecsOnboardingShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_se_image_recs_onboarding_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_se_image_recs_onboarding_shown, value)
 
     var suggestedEditsMachineGeneratedDescriptionTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_se_machine_generated_descriptions_tooltip_shown, false)

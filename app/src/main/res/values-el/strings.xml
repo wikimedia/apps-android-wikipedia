@@ -108,7 +108,6 @@
   <string name="map_view_link_text">Εμφάνιση σε χάρτη</string>
   <string name="other_languages_indication_text">Διαβάστε σε άλλη γλώσσα</string>
   <string name="language_count_link_text">Διαθέσιμο σε %d άλλες γλώσσες</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Με την δημοσίευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt; και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Με την δημοσίευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt; και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Οι επεξεργασίες σας θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε περισσότερη ιδιωτικότητα.</string>
   <string name="preference_title_language">Γλώσσες Βικιπαίδειας</string>
@@ -235,7 +234,7 @@
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.el</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/3.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.el</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/el</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Βιβλιοθήκες που χρησιμοποιούνται</string>
@@ -845,7 +844,7 @@
   <string name="suggested_edits_disabled_title">Απενεργοποιημένο</string>
   <string name="suggested_edits_last_edited">Τελευταία απεξεργασία</string>
   <string name="suggested_edits_last_edited_never">Ποτέ</string>
-  <string name="suggested_edits_task_new">νέα</string>
+  <string name="suggested_edits_task_new" fuzzy="true">νέα</string>
   <string name="suggested_edits_reactivation_notification_title">Προτεινόμενες τροποποιήσεις</string>
   <string name="suggested_edits_contributions_screen_title">Οι συνεισφορές του %s</string>
   <string name="suggested_edits_contribution_language_label">Γλώσσα</string>

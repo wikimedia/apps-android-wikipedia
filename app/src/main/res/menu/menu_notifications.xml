@@ -14,13 +14,13 @@
             <item android:id="@+id/menu_notifications_mark_all_as_read"
                 android:icon="@drawable/ic_mark_all_as_read_white_24dp"
                 android:title="@string/notifications_mark_all_as_read"
-                app:iconTint="?attr/primary_color"
+                app:iconTint="?attr/secondary_color"
                 app:showAsAction="ifRoom" />
 
             <item android:id="@+id/menu_notifications_prefs"
                 android:icon="@drawable/ic_settings_black_24dp"
                 android:title="@string/notifications_prefs"
-                app:iconTint="?attr/primary_color"
+                app:iconTint="?attr/secondary_color"
                 app:showAsAction="never" />
 
         </menu>

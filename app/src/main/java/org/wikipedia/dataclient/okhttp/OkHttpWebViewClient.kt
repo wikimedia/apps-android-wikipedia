@@ -23,7 +23,7 @@ abstract class OkHttpWebViewClient : WebViewClient() {
     /*
         Note: Any data transformations performed here are only for the benefit of WebViews.
         They should not be made into general Interceptors.
-    */
+     */
 
     abstract val model: PageViewModel
     abstract val linkHandler: LinkHandler

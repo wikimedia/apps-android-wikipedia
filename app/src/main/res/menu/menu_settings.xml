@@ -6,7 +6,7 @@
     <item android:id="@+id/developer_settings"
         android:icon="@drawable/ic_developer_mode_white_24dp"
         android:title="@string/menu_developer_settings"
-        app:iconTint="?attr/primary_color"
+        app:iconTint="?attr/secondary_color"
         app:showAsAction="ifRoom" />
 
 </menu>

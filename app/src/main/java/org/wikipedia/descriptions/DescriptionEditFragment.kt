@@ -24,6 +24,7 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_3
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
+import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
@@ -36,6 +37,7 @@ import org.wikipedia.dataclient.mwapi.MwException
 import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -120,16 +122,12 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageTitle = requireArguments().getParcelable(Constants.ARG_TITLE)!!
+        pageTitle = requireArguments().parcelable(Constants.ARG_TITLE)!!
         highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT)
         action = requireArguments().getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        requireArguments().getParcelable<PageSummaryForEdit>(ARG_SOURCE_SUMMARY)?.let {
-            sourceSummary = it
-        }
-        requireArguments().getParcelable<PageSummaryForEdit>(ARG_TARGET_SUMMARY)?.let {
-            targetSummary = it
-        }
+        sourceSummary = requireArguments().parcelable(ARG_SOURCE_SUMMARY)
+        targetSummary = requireArguments().parcelable(ARG_TARGET_SUMMARY)
         EditAttemptStepEvent.logInit(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
     }
 
@@ -361,6 +359,7 @@ class DescriptionEditFragment : Fragment() {
                                         binding.fragmentDescriptionEditView.wasSuggestionModified,
                                         pageTitle, newRevId
                                     )
+                                    ImageRecommendationsEvent.logEditSuccess(action, pageTitle.wikiSite.languageCode, newRevId)
                                 }
                                 hasEditErrorCode -> {
                                     editFailed(MwException(MwServiceError(code, spamblacklist)), false)
@@ -411,6 +410,7 @@ class DescriptionEditFragment : Fragment() {
                                 binding.fragmentDescriptionEditView.wasSuggestionModified,
                                 pageTitle, response.entity?.lastRevId ?: 0
                             )
+                            ImageRecommendationsEvent.logEditSuccess(action, pageTitle.wikiSite.languageCode, response.entity?.lastRevId ?: 0)
                             EditAttemptStepEvent.logSaveSuccess(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
                         } else {
                             editFailed(RuntimeException("Received unrecognized description edit response"), true)

@@ -110,9 +110,8 @@
   <string name="map_view_link_text">Skoða á korti</string>
   <string name="other_languages_indication_text">Lesa á öðru tungumáli</string>
   <string name="language_count_link_text">Aðgengilegt á %d öðrum tungumálum</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir ævinlega út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Með því að birta þetta samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; notkunarleyfinu. Breytingar verða tengdar IP-vistfangi tækisins þíns. Ef þú &lt;a href=\"https://#login\"&gt;skráir þig inn&lt;/a&gt;, mun gagnaleynd þín aukast.</string>
+  <string name="edit_save_action_license_logged_in">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir ævinlega út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; leyfinu.</string>
+  <string name="edit_save_action_license_anon">Með því að birta þetta samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; notkunarleyfinu. Breytingar verða tengdar IP-vistfangi tækisins þíns. Ef þú &lt;a href=\"https://#login\"&gt;skráir þig inn&lt;/a&gt;, mun gagnaleynd þín aukast.</string>
   <string name="edit_anon_warning">Breytingar verða skráðar undir IP-tölu tækisins þíns. Til að tryggja öryggi þitt er best að &lt;a href=\"https://#login\"&gt;skrá þig inn&lt;/a&gt;.</string>
   <string name="preference_title_language">Tungumál Wikipediu</string>
   <string name="langlinks_filter_hint">Leita</string>
@@ -239,7 +238,7 @@
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.is</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.is</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">notuð aðgerðasöfn</string>
@@ -248,7 +247,7 @@
   <string name="about_translators_heading">þýðendur</string>
   <string name="about_translators_translatewiki">Þetta forrit/app var þýtt af sjálfboðaliðum á &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Notkunarleyfi</string>
-  <string name="about_app_license" fuzzy="true">Grunnkóðinn er tiltækur á &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; með &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt; Apache 2.0 notkunarleyfinu&lt;/a&gt;. Ef ekkert annað er tekið fram, er allt efnið tiltækt með &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike notkunarleyfi&lt;/a&gt;.</string>
+  <string name="about_app_license">Grunnkóðinn er tiltækur á &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; með &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt; Apache 2.0 notkunarleyfinu&lt;/a&gt;. Ef ekkert annað er tekið fram, er allt efnið tiltækt með &lt;a href=\"https://creativecommons\n.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike notkunarleyfi&lt;/a&gt;.</string>
   <string name="about_wmf">Í boði &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Um hugbúnaðinn</string>
   <string name="edit_abandon_confirm">Síðunni hefur verið breytt. Ertu viss um að þú viljir hætta án þess að vista breytingarnar þínar ?</string>
@@ -369,6 +368,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Grein er ekki hægt að hlaða inn án nettengingar.</string>
   <string name="page_offline_notice_add_to_reading_list">Vísbending: Bættu þessari grein á leslista og náð verður í hana þegar þú kemst aftur í netsamband.</string>
   <string name="page_offline_notice_last_date">Þú ert að lesa ónettengda útgáfu greinarinnar sem vistuð er á %s.</string>
+  <string name="redirected_from_snackbar">Endurbeint frá \"%s\"</string>
   <string name="button_get_directions">Fá leiðsögn</string>
   <string name="error_no_maps_app">Gat ekki fundið nein forrit fyrir kortaleiðsögn.</string>
   <string name="preference_title_customize_explore_feed">\'Uppgötva\'-streymið</string>
@@ -995,7 +995,7 @@
   <string name="suggested_edits_ip_blocked_title">IP-vistfang bannað</string>
   <string name="suggested_edits_last_edited">Síðast breytt</string>
   <string name="suggested_edits_last_edited_never">Aldrei</string>
-  <string name="suggested_edits_task_new">nýtt</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nýtt</string>
   <string name="suggested_edits_cc0_notice">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að þú gefir framlag þitt ævinlega út með &lt;a href=\"%2$s\"&gt;CC0 notkunarleyfinu&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Tillögur að breytingum</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Takk fyrir framlag þitt til Wikipedia! Því ekki að halda áfram þar sem þú skildir við síðast?</string>
@@ -1048,6 +1048,37 @@
     <item quantity="one">Þú bættir við %d staf</item>
     <item quantity="other">Þú bættir við %d stöfum</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Myndir í grein</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Bættu við myndum í Wikipedia-greinar til að bæta skilning.</string>
+  <string name="image_recommendation_task_instruction">Vilt þú bæta þessari mynd við greinina?</string>
+  <string name="image_recommendation_tutorial">Kennsla</string>
+  <string name="image_recommendation_accept">Já</string>
+  <string name="image_recommendation_reject">Nei</string>
+  <string name="image_recommendation_notsure">Ekki viss</string>
+  <string name="image_recommendation_reject_title">Af hverju ekki?</string>
+  <string name="image_recommendation_reject_subtitle">Svör þínar bæta tillögur í framtíðinni.</string>
+  <string name="image_recommendation_reject_not_relevant">Mynd er ekki viðeigandi</string>
+  <string name="image_recommendation_reject_no_info">Ekki nægar upplýsingar til að ákveða</string>
+  <string name="image_recommendation_reject_offensive">Myndin er ögrandi</string>
+  <string name="image_recommendation_reject_low_quality">Myndin er léleg</string>
+  <string name="image_recommendation_reject_dont_know">Ég þekki þetta efni ekki</string>
+  <string name="image_recommendation_reject_other">Annað</string>
+  <string name="image_recommendation_reject_submit">Senda inn</string>
+  <string name="image_recommendation_onboarding_1">Myndir geta hjálpað fólki að skilja betur viðfangsefnin, en margar greinar eru ekki með myndir.</string>
+  <string name="image_recommendation_onboarding_2">Þú munt ákveða hvort mynd sem stungið er upp á eigi að setja í Wikipediugrein.</string>
+  <string name="image_recommendation_onboarding_3">Tillögur eru vélgerðar og þú þarft að nota dómgreind þína til að ákveða hvort þú samþykkir þær eða hafnar þeim.</string>
+  <string name="image_recommendation_onboarding_4">Myndirnar eru frá Wikimedia Commons, safni mynda með frjálsum notkunarleyfum sem Wikipedia notar.</string>
+  <string name="image_recommendation_tooltip_1">Yfirfarðu þessa grein til að skilja efni hennar</string>
+  <string name="image_recommendation_tooltip_2">Skoðaðu myndina og upplýsingar tengdar henni</string>
+  <string name="image_recommendation_tooltip_3">Ákveddu hvort myndin hjálpi lesendum að skilja þetta efni betur</string>
+  <string name="image_recommendation_tooltip_next">Næsta</string>
+  <string name="image_recommendation_tooltip_warning">Yfirfarðu greinina til að skilja efni hennar og skoðaðu myndina</string>
+  <string name="suggested_edits_report_feature">Vandamál með eiginleika</string>
+  <string name="suggested_edits_report_feature_subject">Vandamál með tillögur að breytingum</string>
+  <string name="edit_summary_added_image">Bætti við mynd</string>
+  <string name="edit_summary_added_caption">Bætti við myndatexta</string>
+  <string name="edit_summary_added_image_and_caption">Bætti við mynd og myndatexta</string>
+  <string name="edit_published_view">Skoða</string>
   <string name="file_page_activity_title">Síða skráarinnar</string>
   <string name="file_page_add_image_caption_button">Bæta við myndatexta</string>
   <string name="file_page_add_image_tags_button">Bæta við merkjum á myndir</string>
@@ -1146,12 +1177,12 @@
   <string name="insert_media_title">Settu inn efni</string>
   <string name="insert_media_search_description">Veldu skrá frá Wikimedia Commons</string>
   <string name="insert_media_search_hint">Leita að efni</string>
-  <string name="insert_media_settings" fuzzy="true">Stillingar margmiðlunargagna</string>
+  <string name="insert_media_settings">Bæta nánari upplýsingum við mynd</string>
   <string name="insert_media_settings_uploaded_image">Innsend mynd</string>
-  <string name="insert_media_settings_caption" fuzzy="true">Myndatexti</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Skýring sem birtist öllum notendum næst atriðinu</string>
+  <string name="insert_media_settings_caption">Myndatexti</string>
+  <string name="insert_media_settings_caption_description">Sýnilegur myndatexti í greininni</string>
   <string name="insert_media_settings_alternative_text">Annar texti</string>
-  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Lýsing á myndinni fyrir lesendur sem ekki sjá myndina</string>
+  <string name="insert_media_settings_alternative_text_description">Lýsing fyrir sjónskerta lesendur</string>
   <string name="insert_media_advanced_settings">Ítarlegar stillingar</string>
   <string name="insert_media_advanced_settings_wrap_image">Vefja texta utan um myndina</string>
   <string name="insert_media_advanced_settings_image_position">Staðsetning myndar</string>
@@ -1273,6 +1304,7 @@
   <string name="revision_diff_line_removed">Lína fjarlægð</string>
   <string name="revision_diff_paragraph_added">Málsgrein bætt við</string>
   <string name="revision_diff_paragraph_removed">Málsgrein fjarlægð</string>
+  <string name="revision_diff_protected">Breytingarnar sem gerðar eru í þessari endurskoðun eru ekki aðgengilegar almenningi.</string>
   <string name="revision_undo_title">Afturkalla breytingu</string>
   <string name="revision_undo_message">Þetta mun afturkalla þær breytingar sem gerðar hafa verið við yfirferð(ir) á greininni sem birtist hér.</string>
   <string name="revision_undo_reason">Til að halda áfram skaltu gefa upp ástæðu fyrir afturköllun þessarar breytingar:</string>
@@ -1391,5 +1423,6 @@
   <string name="reading_list_share_survey_body">\"Deila leslistum\" er prófunareiginleiki og við þurfum álit þitt til að bæta eða fjarlægja hann.</string>
   <string name="data_opt_in_accept">Samþykkja</string>
   <string name="data_opt_in_reject">Hafna</string>
+  <string name="page_issues_title">Vandamál varðandi síðu</string>
   <string name="generic_release_notes">Minniháttar villuleiðréttingar og endurbætur</string>
 </resources>

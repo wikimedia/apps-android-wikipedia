@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Lifeway
+* Mxalexandrov86
 -->
 <resources>
   <string name="app_name_prod">Википедий</string>
@@ -39,6 +41,7 @@
   <string name="wikimedia_commons">Викиклат</string>
   <string name="wikidata">Викиданный</string>
   <string name="dialog_title_clear_history">Ончымаш историйым эрыкташ</string>
+  <string name="dialog_message_clear_history">Чыла велыжыш пурымо эртылык кораҥдыме лиеш да чыла почмо ушештарымаш-влак тӱчылтыт. Шуяш?</string>
   <string name="dialog_message_clear_history_yes">Туге</string>
   <string name="dialog_message_clear_history_no">Уке</string>
   <string name="share_via">Пайлалташ...</string>
@@ -103,7 +106,6 @@
   <string name="map_view_link_text">Картыште ончалаш</string>
   <string name="other_languages_indication_text">Вес йылме дене лудаш</string>
   <string name="language_count_link_text">%d вес йылме дене кучылташ лиеш</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Шке вашталтымашет колтет гын, тый &lt;a href=\"%1$s\" &gt;кучылтмо шотышто келшык дене&lt;/a&gt;, тыгак &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензий почеш пӧртылташ лийдыме савыктымаш дене келшет.</string>
   <string name="edit_save_action_license_anon">Шке вашталтымашет колтет гын, тый &lt;a href=\"%1$s\" &gt;кучылтмо шотышто келшык дене&lt;/a&gt;, тыгак &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензий почеш пӧртылташ лийдыме савыктымаш дене келшет. Тӧрлымаш-влак арверетын IP-адресше дене кылдыме лийыт. Тый &lt;a href=\"https://#login\"&gt;системылан шкем палдарет&lt;/a&gt; гын, шолыплык шотышто кугурак кӱкшытым налын кертат.</string>
   <string name="edit_anon_warning">Тӧрлымаш-влак арверетын IP-адресше возен шындалтыт. Тый &lt;a href=\"https://#login\"&gt;системыш пурет&lt;/a&gt; гын, тыйын шукырак шолыплык лиеш.</string>
@@ -126,6 +128,8 @@
   <string name="search_reading_list_no_results">\"%s\" спискыште лектышым мумо огыл</string>
   <string name="search_reading_lists_no_results">Лудашлан спискылаште лектышым мумо огыл</string>
   <string name="search_history_no_results">Историйыште лектышым мумо огыл</string>
+  <string name="edit_section_captcha_message">Автоматизированный спам деч аралалташлан, поро лийза, ӱлнӧ ончыктымо мут-влакым пуртыза</string>
+  <string name="edit_section_captcha_request_an_account_message">Капчан сӱретшым  ода уж? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Аккаунтым йодса&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Кӱшнӧ ончыктымо мут-влакым уэштаре</string>
   <string name="title_captcha">CAPTCHA-м пурто</string>
   <string name="edit_section_captcha_reload">CAPTCHA-м уэмдаш манын, тудым логал</string>
@@ -134,6 +138,7 @@
   <string name="login_password_hint">Шолыпмут</string>
   <string name="account_creation_password_hint">Шолыпмут</string>
   <string name="login_2fa_hint">Кок йыжыҥан аутентификацийын кодшо</string>
+  <string name="login_2fa_other_workflow_error_msg">Кок факторан аутентификаций кӱлеш! Поро лийза, тӱҥ паша дек пӧртылза да системыш тендан 2FA токен ден пайдаланен пурыза, эше ик гана тыршен ончыза.</string>
   <string name="onboarding_card_login">Пураш</string>
   <string name="page_editing_login">Пураш</string>
   <string name="reading_lists_sync_login">Пураш</string>
@@ -143,16 +148,20 @@
   <string name="login_in_progress_dialog_message">Системыш пурымаш…</string>
   <string name="login_success_toast">Системыш пурымо!</string>
   <string name="reset_password_title">Шолыпмутым шынде</string>
+  <string name="reset_password_description">Тый жаплан ыштыме шолыпмут дене шкем палдаренат. Системыш пурымым мучашлашлан, поро лий у шолыпмутым ончыкто:</string>
   <string name="reset_password_hint">У шолыпмут</string>
   <string name="reset_password_button">Аралаш да пураш</string>
   <string name="preference_title_logout">Лекташ</string>
   <string name="toast_logout_complete">Аккаунт гыч лектынат</string>
+  <string name="logout_prompt">Тендан аккаунт гыч чыла верыштат лекме лие. Шуяш шонеда?</string>
   <string name="logout_dialog_cancel_button_text">Чараш</string>
   <string name="logged_out_in_background_title">Аккаунт гыч лектынат</string>
+  <string name="logged_out_in_background_dialog">Тый Википедий шке аккаунт гыч лектынат. Угыч пурынет?</string>
   <string name="logged_out_in_background_login">Пураш</string>
   <string name="logged_out_in_background_cancel">Чараш</string>
   <string name="history_empty_title">Шукерте огыл ончен лекме статья уке</string>
   <string name="history_empty_message">Тыште тыйын лудмо статья-влакым эскере.</string>
+  <string name="history_offline_articles_toast">Эртылыкысе южо велыж-влак офлайн шот дене логалдыме лийын кертыт.</string>
   <string name="search_empty_message">Шке йылмет дене эрыкан энциклопедийым кычал да луд</string>
   <string name="search_empty_message_multilingual_upgrade">Википедийыште вес йылме дене кычалаш</string>
   <string name="delete_selected_items">Ойырымо иктык-влакым кораҥдаш</string>
@@ -206,7 +215,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mhr</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mhr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кучылтмо библиотеке-влак</string>
@@ -620,7 +628,7 @@
   <string name="suggested_edits_ip_blocked_title">IP петыралтын</string>
   <string name="suggested_edits_last_edited">Пытартыш тӧрлатымаш</string>
   <string name="suggested_edits_last_edited_never">Нигунам</string>
-  <string name="suggested_edits_task_new">у</string>
+  <string name="suggested_edits_task_new" fuzzy="true">у</string>
   <string name="suggested_edits_contribution_language_label">Йылме</string>
   <string name="suggested_edits_contribution_date_time_label">Кече / Жап</string>
   <string name="suggested_edits_contribution_type_label">Надыр тӱрлылык</string>

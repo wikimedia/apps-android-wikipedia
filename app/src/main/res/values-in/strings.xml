@@ -141,7 +141,6 @@
   <string name="map_view_link_text">Lihat di peta</string>
   <string name="other_languages_indication_text">Baca dalam bahasa lain</string>
   <string name="language_count_link_text">Tersedia dalam %d bahasa lain</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Dengan menerbitkan ini, Anda menyetujui &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda dengan lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Dengan menerbitkan ini, Anda menyetujui &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda dengan lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntingan akan dihubungkan ke alamat IP perangkat. Jika Anda &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt;, Anda akan memiliki privasi lebih.</string>
   <string name="edit_anon_warning">Suntingan akan dikaitkan dengan alamat IP perangkat Anda. Jika Anda &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt;, Anda akan memiliki lebih banyak privasi.</string>
@@ -270,7 +269,7 @@
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/id</string>
   <string name="android_app_request_an_account_url">https://id.wikipedia.org/wiki/Wikipedia:Mohon_buatkan_akun</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.id</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.id</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/id</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Pustaka yang digunakan</string>
@@ -998,7 +997,7 @@
   <string name="suggested_edits_ip_blocked_title">IP diblokir</string>
   <string name="suggested_edits_last_edited">Suntingan terakhir</string>
   <string name="suggested_edits_last_edited_never">Tidak pernah</string>
-  <string name="suggested_edits_task_new">baru</string>
+  <string name="suggested_edits_task_new" fuzzy="true">baru</string>
   <string name="suggested_edits_cc0_notice">Dengan menerbitkan, Anda setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt;, dan melepas kontribusi Anda di bawah lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Penyuntingan yang disarankan</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Terima kasih telah menyunting Wikipedia! Mengapa Anda tidak melanjutkan dan keluar?</string>

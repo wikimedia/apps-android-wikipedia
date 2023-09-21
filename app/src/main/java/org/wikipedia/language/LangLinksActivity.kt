@@ -254,7 +254,6 @@ class LangLinksActivity : BaseActivity() {
             if (canonicalName.isNullOrEmpty() || languageCode == app.languageState.systemLanguageCode) {
                 nonLocalizedLanguageNameTextView.visibility = View.GONE
             } else {
-                // TODO: Fix an issue when app language is zh-hant, the subtitle in zh-hans will display in English
                 nonLocalizedLanguageNameTextView.text = canonicalName
                 nonLocalizedLanguageNameTextView.visibility = View.VISIBLE
             }

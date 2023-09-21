@@ -107,7 +107,6 @@
   <string name="map_view_link_text">Pogl. na karti</string>
   <string name="other_languages_indication_text">Pročitaj na drugom jeziku</string>
   <string name="language_count_link_text">Dostupan na %d drugih jezika</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Objavljivanjem izmjena, prihvatate &lt;a href=\"%1$s\"&gt;Uslove korišćenja&lt;/a&gt; i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Objavljivanjem izmjena, prihvatate &lt;a href=\"%1$s\"&gt;Uslove korišćenja&lt;/a&gt;, i neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Izmjene će biti pripisane IP adresi vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt; imaćete veću privatnost.</string>
   <string name="edit_anon_warning">Uređivanja će se pripisati IP adresi vašeg uređaja. Ako se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, onda imat ćete više privatnosti.</string>
@@ -233,7 +232,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Korištene biblioteke</string>

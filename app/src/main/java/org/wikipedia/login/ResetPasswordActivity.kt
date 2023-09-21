@@ -15,6 +15,7 @@ import org.wikipedia.auth.AccountUtil.updateAccount
 import org.wikipedia.createaccount.CreateAccountActivity.Companion.validateInput
 import org.wikipedia.createaccount.CreateAccountActivity.ValidateResult
 import org.wikipedia.databinding.ActivityResetPasswordBinding
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -106,8 +107,7 @@ class ResetPasswordActivity : BaseActivity() {
         override fun success(result: LoginResult) {
             showProgressBar(false)
             if (result.pass()) {
-                val extras = intent.extras
-                val response = extras?.getParcelable<AccountAuthenticatorResponse>(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE)
+                val response = intent.parcelableExtra<AccountAuthenticatorResponse>(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE)
                 updateAccount(response, result)
                 DeviceUtil.hideSoftKeyboard(this@ResetPasswordActivity)
                 setResult(RESULT_OK)
