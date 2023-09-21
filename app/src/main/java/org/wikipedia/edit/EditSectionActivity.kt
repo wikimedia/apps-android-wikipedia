@@ -137,8 +137,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 binding.editSectionText.setText(newWikiText.first)
                 intent.putExtra(InsertMediaActivity.EXTRA_INSERTED_INTO_INFOBOX, newWikiText.second)
 
-                // TODO: automatically highlight what was added.
-                // binding.editSectionText.setSelection(cursorPos, cursorPos + newText.length)
+                val insertPos = newWikiText.third
+                binding.editSectionText.setSelection(insertPos.first, insertPos.first + insertPos.second)
 
                 if (invokeSource == Constants.InvokeSource.EDIT_ADD_IMAGE) {
                     // If we came from the Image Recommendation workflow, go directly to Preview.
@@ -225,7 +225,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
             }
         }
 
-        SyntaxHighlightViewAdapter(this, pageTitle.wikiSite, binding.root, binding.editSectionText,
+        SyntaxHighlightViewAdapter(this, pageTitle, binding.root, binding.editSectionText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
             Constants.InvokeSource.EDIT_ACTIVITY, requestInsertMedia)
 

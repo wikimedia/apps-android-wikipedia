@@ -73,8 +73,8 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
                 binding.replyInputView.editText.setText(newWikiText.first)
 
-                // TODO: automatically highlight what was added.
-                // binding.editSectionText.setSelection(cursorPos, cursorPos + newText.length)
+                val insertPos = newWikiText.third
+                binding.replyInputView.editText.setSelection(insertPos.first, insertPos.first + insertPos.second)
             }
         }
     }
@@ -120,7 +120,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             }
         }
 
-        SyntaxHighlightViewAdapter(this, viewModel.pageTitle.wikiSite, binding.root, binding.replyInputView.editText,
+        SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.replyInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
             Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
 

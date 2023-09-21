@@ -7,7 +7,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import org.wikipedia.Constants
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
@@ -20,7 +19,7 @@ import org.wikipedia.util.DimenUtil
 
 class SyntaxHighlightViewAdapter(
     val activity: AppCompatActivity,
-    val wikiSite: WikiSite,
+    val pageTitle: PageTitle,
     private val rootView: View,
     val editText: SyntaxHighlightableEditText,
     private val wikiTextKeyboardView: WikiTextKeyboardView,
@@ -39,6 +38,7 @@ class SyntaxHighlightViewAdapter(
         wikiTextKeyboardHeadingsView.editText = editText
         wikiTextKeyboardHeadingsView.callback = this
         wikiTextKeyboardView.userMentionVisible = showUserMention
+        hideAllSyntaxModals()
 
         activity.window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
             activity.window.decorView.post {
@@ -56,13 +56,13 @@ class SyntaxHighlightViewAdapter(
     private val requestLinkFromSearch = activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
             it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)?.let { title ->
-                wikiTextKeyboardView.insertLink(title, wikiSite.languageCode)
+                wikiTextKeyboardView.insertLink(title, pageTitle.wikiSite.languageCode)
             }
         }
     }
 
     override fun onPreviewLink(title: String) {
-        val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null)
+        val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null)
         ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager, dialog)
         editText.post {
             dialog.dialog?.setOnDismissListener {
@@ -76,7 +76,9 @@ class SyntaxHighlightViewAdapter(
     }
 
     override fun onRequestInsertMedia() {
-        requestInsertMedia.launch(InsertMediaActivity.newIntent(activity, wikiSite, "", invokeSource))
+        requestInsertMedia.launch(InsertMediaActivity.newIntent(activity, pageTitle.wikiSite,
+            if (invokeSource == Constants.InvokeSource.EDIT_ACTIVITY) pageTitle.displayText else "",
+            invokeSource))
     }
 
     override fun onRequestInsertLink() {
