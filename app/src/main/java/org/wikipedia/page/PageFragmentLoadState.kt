@@ -22,9 +22,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ObservableWebView
-import java.time.Instant
-import java.time.LocalDate
-import java.time.ZoneId
 
 class PageFragmentLoadState(private var model: PageViewModel,
                             private var fragment: PageFragment,
