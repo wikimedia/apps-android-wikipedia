@@ -830,7 +830,7 @@
   <string name="suggested_edits_ip_blocked_title">Ip ပေ့ꩻခါꩻဒျာႏသွူ</string>
   <string name="suggested_edits_last_edited">မွဉ်းဖျင်ခါꩻလဲဉ်း</string>
   <string name="suggested_edits_last_edited_never">မုဲင်ꩻခါတယဝ်း</string>
-  <string name="suggested_edits_task_new">တသာ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">တသာ</string>
   <string name="suggested_edits_reactivation_notification_title">ဖေႏကျံႏညဏ်ႏခါꩻဒါႏ မွဉ်းဖျင်မုꩻဖိုင်ႏ</string>
   <string name="suggested_edits_contributions_screen_title">%s စွဲးကမ်းခွုမ်မာꩻမုꩻဖိုင်ႏ</string>
   <string name="suggested_edits_contribution_language_label">ဘာႏသာႏငဝ်းငွါ</string>

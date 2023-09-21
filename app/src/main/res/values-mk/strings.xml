@@ -1000,7 +1000,7 @@
   <string name="suggested_edits_ip_blocked_title">IP-адресата е блокирана</string>
   <string name="suggested_edits_last_edited">Последно уредување</string>
   <string name="suggested_edits_last_edited_never">Никогаш</string>
-  <string name="suggested_edits_task_new">ново</string>
+  <string name="suggested_edits_task_new">Ново</string>
   <string name="suggested_edits_cc0_notice">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо го објавувате овој придонес под лиценцата &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложени уредувања</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Ви благодариме што ја урадувавте Википедија! Зошто не продолжите од кајшто запревте?</string>
@@ -1079,6 +1079,7 @@
   <string name="image_recommendation_tooltip_3">Решете дали сликата им помага на читателите подобро да ја разберат оваа тема</string>
   <string name="image_recommendation_tooltip_next">Следно</string>
   <string name="image_recommendation_tooltip_warning">Прочитајте ја статијата за да ја разберете темата и разгледајте ја сликата</string>
+  <string name="image_recommendation_depleted">За жак, засега нема повеќе предложени слики. Истражете ги другите &lt;a href=\"#\"&gt;предложени уредувања&lt;/a&gt; или вратете се подоцна.</string>
   <string name="suggested_edits_report_feature">Проблем со функцијата</string>
   <string name="suggested_edits_report_feature_subject">Проблем со Предложени уредувања</string>
   <string name="edit_summary_added_image">Додадена слика</string>

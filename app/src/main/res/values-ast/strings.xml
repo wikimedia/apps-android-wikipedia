@@ -706,7 +706,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">Última edición</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
-  <string name="suggested_edits_task_new">nueva</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nueva</string>
   <string name="suggested_edits_cc0_notice">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la &lt;a href=\"%2$s\"&gt;llicencia CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Ediciones suxeríes</string>
   <string name="suggested_edits_reactivation_notification_stage_one">¡Gracies por editar Wikipedia! ¿Cómo nun sigues onde lo dexasti?</string>

@@ -261,7 +261,7 @@
   </plurals>
   <string name="suggested_edits_learn_more">Àutri nfurmazzioni</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
-  <string name="suggested_edits_task_new">novu</string>
+  <string name="suggested_edits_task_new" fuzzy="true">novu</string>
   <string name="suggested_edits_contributions_screen_title">Cuntribbuti di %s</string>
   <string name="suggested_edits_contribution_language_label">Lingua</string>
   <string name="suggested_edits_contribution_type_label">Tipu di cuntribbutu</string>

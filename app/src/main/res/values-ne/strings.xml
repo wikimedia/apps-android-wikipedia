@@ -604,7 +604,7 @@
   <string name="suggested_edits_paused_title">विराम लागेको</string>
   <string name="suggested_edits_last_edited">अन्तिम पटक सम्पादन</string>
   <string name="suggested_edits_last_edited_never">कहिल्यै</string>
-  <string name="suggested_edits_task_new">नयाँ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">नयाँ</string>
   <string name="suggested_edits_reactivation_notification_title">सुझाइएका सम्पादनहरू</string>
   <string name="suggested_edits_contribution_language_label">भाषा</string>
   <string name="suggested_edits_contribution_date_time_label">मिति/समय</string>

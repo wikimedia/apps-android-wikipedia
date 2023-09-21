@@ -912,7 +912,7 @@
   <string name="suggested_edits_ip_blocked_title">ئای پی بەربەست کراوە</string>
   <string name="suggested_edits_last_edited">کۆتا دەستکاری</string>
   <string name="suggested_edits_last_edited_never">ھەرگیز</string>
-  <string name="suggested_edits_task_new">نوێ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">نوێ</string>
   <string name="suggested_edits_cc0_notice">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;بەندەکانی  بەکارھێنان&lt;/a&gt;، و بە بڵاوکردنەوەی بەشدارییەکانت لەژێر مۆڵەتی &lt;a href=\"%2$s\"&gt;CC0 license&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">دەستکارییە پێشنیارکراوەکان</string>
   <string name="suggested_edits_reactivation_notification_stage_one">سپاس بۆ بەشداریکردنت لە ویکیپیدیا! بۆچی لە شوێنی پێشووت دەست پێ نەکەینەوە؟</string>
