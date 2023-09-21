@@ -208,11 +208,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         super.onDestroyView()
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.initOnResume()
-    }
-
     private fun setUpListeners() {
         binding.articleTitleView.setOnClickListener {
             if (viewModel.pageTitle.namespace() == Namespace.USER_TALK || viewModel.pageTitle.namespace() == Namespace.TALK) {

@@ -12,6 +12,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
+import org.wikipedia.suggestededits.SuggestedEditsRecentEditsViewModel
 import org.wikipedia.util.log.L
 import java.util.Stack
 import java.util.concurrent.Semaphore
@@ -39,7 +40,7 @@ object EditingSuggestionsProvider {
     private var articlesWithImageRecommendationsCacheLang: String = ""
     private var articlesWithImageRecommendationsLastMillis: Long = 0
 
-    private var revertCandidateLang: String = ""
+    var revertCandidateLang: String = ""
     private val revertCandidateCache: Stack<MwQueryResult.RecentChange> = Stack()
     private var revertCandidateLastRevId = 0L
 
@@ -345,6 +346,14 @@ object EditingSuggestionsProvider {
         return page
     }
 
+    fun populateRevertCandidateCache(lang: String, recentChanges: List<MwQueryResult.RecentChange>) {
+        revertCandidateLang = lang
+        revertCandidateCache.clear()
+        recentChanges.forEach {
+            revertCandidateCache.push(it)
+        }
+    }
+
     @Suppress("KotlinConstantConditions")
     suspend fun getNextRevertCandidate(lang: String): MwQueryResult.RecentChange {
         return withContext(Dispatchers.IO) {
@@ -365,31 +374,16 @@ object EditingSuggestionsProvider {
                 if (cachedItem == null) {
                     while (this.coroutineContext.isActive) {
                         try {
-                            val response = ServiceFactory.get(WikiSite.forLanguageCode(lang))
-                                .getRecentEdits(10, "now", null, null, null) // revertCandidateLastTimeStamp
+                            val response = SuggestedEditsRecentEditsViewModel.getRecentEditsCall(WikiSite.forLanguageCode(lang), 10)
                             var maxRevId = 0L
-                            for (candidate in response.query?.recentChanges!!) {
+                            val recentChanges = response.query?.recentChanges!!.sortedByDescending { it.curRev }
+
+                            for (candidate in recentChanges) {
                                 if (candidate.curRev > maxRevId) {
                                     maxRevId = candidate.curRev
                                 }
                                 if (candidate.curRev <= revertCandidateLastRevId) {
                                     continue
-                                }
-
-                                // TODO: apply filtering roughly somewhere here:
-
-                                if (candidate.bot) {
-                                    // Bot edits are not likely to be damaging.
-                                    continue
-                                }
-                                if (candidate.revFrom == 0L) {
-                                    // Can't deal with newly-created pages, for now.
-                                    continue
-                                }
-                                if (candidate.ores != null) {
-                                    // if (!candidate.anon && candidate.ores!!.damagingProb < 0.5) {
-                                    //     continue
-                                    // }
                                 }
 
                                 revertCandidateCache.push(candidate)
@@ -398,7 +392,6 @@ object EditingSuggestionsProvider {
                                 revertCandidateLastRevId = maxRevId
                             }
                             if (!revertCandidateCache.empty()) {
-                                L.d(revertCandidateCache.toString())
                                 cachedItem = revertCandidateCache.pop()
                             }
                             if (cachedItem == null) {

@@ -41,7 +41,6 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     var lastWatchExpiry = WatchlistExpiry.NEVER
 
     val fromRecentEdits = bundle.getBoolean(ArticleEditDetailsActivity.EXTRA_FROM_RECENT_EDITS, false)
-    private var fromRecentEditsResumed = false
 
     var pageTitle = bundle.parcelable<PageTitle>(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE)!!
         private set
@@ -59,12 +58,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     init {
         if (!fromRecentEdits) {
             getRevisionDetails(revisionToId, revisionFromId)
-        }
-    }
-
-    fun initOnResume() {
-        if (fromRecentEdits && !fromRecentEditsResumed) {
-            fromRecentEditsResumed = true
+        } else {
             getNextRecentEdit()
         }
     }
@@ -111,7 +105,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    fun getNextRecentEdit() {
+    private fun getNextRecentEdit() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             revisionDetails.postValue(Resource.Error(throwable))
         }) {

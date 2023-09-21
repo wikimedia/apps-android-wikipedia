@@ -40,6 +40,7 @@ import org.wikipedia.databinding.FragmentSuggestedEditsRecentEditsBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
 import org.wikipedia.databinding.ViewEditHistorySearchBarBinding
 import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
@@ -346,7 +347,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         private fun updateFilterCount() {
-            val filtersCount = viewModel.filtersCount()
+            val filtersCount = SuggestedEditsRecentEditsViewModel.filtersCount()
             if (filtersCount == 0) {
                 binding.filterCount.visibility = View.GONE
                 ImageViewCompat.setImageTintList(binding.filterByButton,
@@ -368,7 +369,8 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         fun bindItem() {
-            val filtersStr = resources.getQuantityString(R.plurals.patroller_tasks_filters_number_of_filters, viewModel.filtersCount(), viewModel.filtersCount())
+            val filtersStr = resources.getQuantityString(R.plurals.patroller_tasks_filters_number_of_filters,
+                SuggestedEditsRecentEditsViewModel.filtersCount(), SuggestedEditsRecentEditsViewModel.filtersCount())
             binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_filters_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
         }
     }
@@ -383,7 +385,9 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         override fun onItemClick(item: MwQueryResult.RecentChange) {
-            // TODO: implement this
+            viewModel.populateEditingSuggestionsProvider(item)
+            startActivity(SuggestionsActivity.newIntent(requireActivity(),
+                DescriptionEditActivity.Action.VANDALISM_PATROL, Constants.InvokeSource.SUGGESTED_EDITS))
         }
 
         override fun onUserClick(item: MwQueryResult.RecentChange, view: View) {
@@ -413,7 +417,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                     }
 
                     override fun getExcludedFilterCount(): Int {
-                        return viewModel.filtersCount()
+                        return SuggestedEditsRecentEditsViewModel.filtersCount()
                     }
 
                     override fun getFilterIconContentDescription(): Int {

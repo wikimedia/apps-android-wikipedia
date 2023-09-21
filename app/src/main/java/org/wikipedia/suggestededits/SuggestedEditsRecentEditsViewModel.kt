@@ -15,12 +15,15 @@ import org.wikipedia.Constants
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.settings.Prefs
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
 import retrofit2.HttpException
 import java.io.IOException
 import java.util.Date
+import kotlin.math.max
 
 class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
@@ -69,56 +72,11 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         cachedRecentEdits.clear()
     }
 
-    fun filtersCount(): Int {
-        val defaultTypeSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }.toSet()
-        val nonDefaultChangeTypes = Prefs.recentEditsIncludedTypeCodes.subtract(defaultTypeSet)
-            .union(defaultTypeSet.subtract(Prefs.recentEditsIncludedTypeCodes.toSet()))
-        return nonDefaultChangeTypes.size
-    }
-
-    private fun latestRevisions(): String? {
-        val includedTypesCodes = Prefs.recentEditsIncludedTypeCodes
-        if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.LATEST_REVISIONS_GROUP.map { it.id }) &&
-            !includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.LATEST_REVISION.id)) {
-            return SuggestedEditsRecentEditsFilterTypes.NOT_LATEST_REVISION.value
+    fun populateEditingSuggestionsProvider(topItem: MwQueryResult.RecentChange) {
+        if (cachedRecentEdits.isNotEmpty()) {
+            val index = max(cachedRecentEdits.indexOf(topItem), 0)
+            EditingSuggestionsProvider.populateRevertCandidateCache(langCode, cachedRecentEdits.subList(0, index + 1))
         }
-        return null
-    }
-
-    private fun showCriteriaString(): String {
-        val includedTypesCodes = Prefs.recentEditsIncludedTypeCodes
-        val list = mutableListOf<String>()
-
-        if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.BOT_EDITS_GROUP.map { it.id })) {
-            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.BOT.id)) {
-                list.add(SuggestedEditsRecentEditsFilterTypes.BOT.value)
-            }
-            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.HUMAN.id)) {
-                list.add(SuggestedEditsRecentEditsFilterTypes.HUMAN.value)
-            }
-        }
-
-        if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.MINOR_EDITS_GROUP.map { it.id })) {
-            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.MINOR_EDITS.id)) {
-                list.add(SuggestedEditsRecentEditsFilterTypes.MINOR_EDITS.value)
-            }
-            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.NON_MINOR_EDITS.id)) {
-                list.add(SuggestedEditsRecentEditsFilterTypes.NON_MINOR_EDITS.value)
-            }
-        }
-
-        if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.USER_STATUS_GROUP.map { it.id })) {
-            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.REGISTERED.id)) {
-                list.add(SuggestedEditsRecentEditsFilterTypes.REGISTERED.value)
-            }
-            if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.id)) {
-                list.add(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.value)
-            }
-        }
-
-        // TODO: add damaging and goodfaith logic here
-
-        return list.joinToString(separator = "|")
     }
 
     inner class RecentEditsPagingSource : PagingSource<String, MwQueryResult.RecentChange>() {
@@ -128,9 +86,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     return LoadResult.Page(cachedRecentEdits, null, cachedContinueKey)
                 }
 
-                val response = ServiceFactory.get(wikiSite)
-                    .getRecentEdits(params.loadSize, Date().toInstant().toString(), latestRevisions(), showCriteriaString(), params.key)
-
+                val response = getRecentEditsCall(wikiSite, params.loadSize, params.key)
                 val recentChanges = response.query?.recentChanges.orEmpty()
 
                 cachedContinueKey = response.continuation?.rcContinuation
@@ -152,4 +108,64 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     open class RecentEditsItemModel
     class RecentEditsItem(val item: MwQueryResult.RecentChange) : RecentEditsItemModel()
     class RecentEditsSeparator(val date: String) : RecentEditsItemModel()
+
+    companion object {
+
+        suspend fun getRecentEditsCall(wikiSite: WikiSite, count: Int, continueStr: String? = null): MwQueryResponse {
+            return ServiceFactory.get(wikiSite)
+                .getRecentEdits(count, Date().toInstant().toString(), latestRevisions(), showCriteriaString(), continueStr)
+        }
+
+        fun filtersCount(): Int {
+            val defaultTypeSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }.toSet()
+            val nonDefaultChangeTypes = Prefs.recentEditsIncludedTypeCodes.subtract(defaultTypeSet)
+                .union(defaultTypeSet.subtract(Prefs.recentEditsIncludedTypeCodes.toSet()))
+            return nonDefaultChangeTypes.size
+        }
+
+        fun latestRevisions(): String? {
+            val includedTypesCodes = Prefs.recentEditsIncludedTypeCodes
+            if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.LATEST_REVISIONS_GROUP.map { it.id }) &&
+                !includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.LATEST_REVISION.id)) {
+                return SuggestedEditsRecentEditsFilterTypes.NOT_LATEST_REVISION.value
+            }
+            return null
+        }
+
+        fun showCriteriaString(): String {
+            val includedTypesCodes = Prefs.recentEditsIncludedTypeCodes
+            val list = mutableListOf<String>()
+
+            if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.BOT_EDITS_GROUP.map { it.id })) {
+                if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.BOT.id)) {
+                    list.add(SuggestedEditsRecentEditsFilterTypes.BOT.value)
+                }
+                if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.HUMAN.id)) {
+                    list.add(SuggestedEditsRecentEditsFilterTypes.HUMAN.value)
+                }
+            }
+
+            if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.MINOR_EDITS_GROUP.map { it.id })) {
+                if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.MINOR_EDITS.id)) {
+                    list.add(SuggestedEditsRecentEditsFilterTypes.MINOR_EDITS.value)
+                }
+                if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.NON_MINOR_EDITS.id)) {
+                    list.add(SuggestedEditsRecentEditsFilterTypes.NON_MINOR_EDITS.value)
+                }
+            }
+
+            if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.USER_STATUS_GROUP.map { it.id })) {
+                if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.REGISTERED.id)) {
+                    list.add(SuggestedEditsRecentEditsFilterTypes.REGISTERED.value)
+                }
+                if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.id)) {
+                    list.add(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.value)
+                }
+            }
+
+            // TODO: add damaging and goodfaith logic here
+
+            return list.joinToString(separator = "|")
+        }
+    }
 }
