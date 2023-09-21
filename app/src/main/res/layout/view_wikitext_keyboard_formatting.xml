@@ -6,10 +6,15 @@
     android:layout_height="wrap_content"
     tools:parentTag="android.widget.FrameLayout">
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:scrollbars="none">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="1dp"
         android:orientation="horizontal">
 
         <org.wikipedia.views.WikitextKeyboardButtonView
@@ -92,10 +97,7 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/transparent" />
+    </HorizontalScrollView>
 
     <View
         android:layout_width="match_parent"

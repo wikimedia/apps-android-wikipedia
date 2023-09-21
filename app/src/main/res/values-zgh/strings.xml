@@ -283,7 +283,7 @@
   <string name="suggested_edits_views_label_text">ⵜⴰⵏⵏⴰⵢⵉⵏ</string>
   <string name="suggested_edits_learn_more">ⵍⵎⴷ ⵓⴳⴳⴰⵔ</string>
   <string name="suggested_edits_last_edited_never">ⵓⵙⴰⵔ</string>
-  <string name="suggested_edits_task_new">ⴰⵎⴰⵢⵏⵓ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ⴰⵎⴰⵢⵏⵓ</string>
   <string name="suggested_edits_contribution_language_label">ⵜⵓⵜⵍⴰⵢⵜ</string>
   <string name="suggested_edits_contribution_date_time_label">ⴰⵙⴰⴽⵓⴷ/ⴰⴽⵓⴷ</string>
   <string name="suggested_edits_contribution_views">%s ⵜⴰⵏⵏⴰⵢⵉⵏ</string>

@@ -573,7 +573,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">Vurnayışo peyên</string>
   <string name="suggested_edits_last_edited_never">Qet</string>
-  <string name="suggested_edits_task_new">newe</string>
+  <string name="suggested_edits_task_new" fuzzy="true">newe</string>
   <string name="description_edit_revert_subtitle">Seba vurnayışê Wikipedia teşekur keme!</string>
   <string name="description_edit_login_cancel_button_text">Bıtexelne</string>
   <string name="size_gb">%.2f GB</string>

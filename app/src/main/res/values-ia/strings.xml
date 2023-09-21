@@ -995,7 +995,7 @@
   <string name="suggested_edits_ip_blocked_title">IP blocate</string>
   <string name="suggested_edits_last_edited">Ultime modification</string>
   <string name="suggested_edits_last_edited_never">Nunquam</string>
-  <string name="suggested_edits_task_new">nove</string>
+  <string name="suggested_edits_task_new">Nove</string>
   <string name="suggested_edits_cc0_notice">Publicante, tu accepta le &lt;a href=\"%1$s\"&gt;conditiones de uso&lt;/a&gt; e tu libera irrevocabilemente tu contributiones sub le licentia &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modificationes suggerite</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Gratias pro modificar Wikipedia! Proque non continuar ubi tu lassava?</string>
@@ -1074,6 +1074,7 @@
   <string name="image_recommendation_tooltip_3">Decide si le imagine adjuta lectores a comprender melio iste subjecto</string>
   <string name="image_recommendation_tooltip_next">Sequente</string>
   <string name="image_recommendation_tooltip_warning">Per favor revide le articulo pro comprender su subjecto e inspectar le imagine</string>
+  <string name="image_recommendation_depleted">Guai, il non ha plus imagines suggerite disponibile al momento. Per favor explora altere &lt;a href=\"#\"&gt;modificationes suggerite&lt;/a&gt; o reveni plus tarde.</string>
   <string name="suggested_edits_report_feature">Problema de functionalitate</string>
   <string name="suggested_edits_report_feature_subject">Problema con modificationes suggerite</string>
   <string name="edit_summary_added_image">Imagine addite</string>

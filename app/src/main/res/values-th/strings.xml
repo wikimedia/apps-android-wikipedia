@@ -857,7 +857,7 @@
   <string name="suggested_edits_ip_blocked_title">เลขที่อยู่ไอพีถูกระงับ</string>
   <string name="suggested_edits_last_edited">แก้ไขล่าสุดเมื่อ</string>
   <string name="suggested_edits_last_edited_never">ไม่เคย</string>
-  <string name="suggested_edits_task_new">ใหม่</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ใหม่</string>
   <string name="suggested_edits_reactivation_notification_title">การแก้ไขที่แนะนำ</string>
   <string name="suggested_edits_contributions_screen_title">เรื่องที่มีส่วนร่วมของ %s</string>
   <string name="suggested_edits_contribution_language_label">ภาษา</string>

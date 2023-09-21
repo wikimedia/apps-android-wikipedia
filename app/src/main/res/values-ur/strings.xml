@@ -617,7 +617,7 @@
   <string name="suggested_edits_ip_blocked_title">آئی پی مسدود</string>
   <string name="suggested_edits_last_edited">آخری ترمیم</string>
   <string name="suggested_edits_last_edited_never">کبھی نہیں</string>
-  <string name="suggested_edits_task_new">نیا</string>
+  <string name="suggested_edits_task_new" fuzzy="true">نیا</string>
   <string name="suggested_edits_contribution_language_label">زبان</string>
   <string name="suggested_edits_contribution_type_label">شراکت کی قسم</string>
   <string name="suggested_edits_contribution_image_label">تصویر</string>

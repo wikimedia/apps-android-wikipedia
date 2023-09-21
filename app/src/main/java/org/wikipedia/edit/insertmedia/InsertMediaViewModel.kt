@@ -164,7 +164,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
         fun insertImageIntoWikiText(langCode: String, oldWikiText: String, imageTitle: String, imageCaption: String,
                                     imageAltText: String, imageSize: String, imageType: String, imagePos: String,
-                                    cursorPos: Int = 0, autoInsert: Boolean = false, attemptInfobox: Boolean = false): Pair<String, Boolean> {
+                                    cursorPos: Int = 0, autoInsert: Boolean = false, attemptInfobox: Boolean = false): Triple<String, Boolean, Pair<Int, Int>> {
             var wikiText = oldWikiText
             val namespaceName = FileAliasData.valueFor(langCode)
 
@@ -190,6 +190,8 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             // the article has an infobox, and if so, see if we can inject the image right in there.
 
             var insertedIntoInfobox = false
+            var insertLocation = 0
+            var insertLength = 0
 
             val infoboxVars = infoboxVarsByLang[langCode] ?: infoboxVarsByLang["en"]!!
 
@@ -306,7 +308,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                 // that might be hatnotes, etc.
 
                 var braceLevel = 0
-                var insertIndex = cursorPos
+                insertLocation = cursorPos
 
                 if (autoInsert) {
                     for (i in wikiText.indices) {
@@ -316,18 +318,20 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                             braceLevel--
                         } else if (braceLevel == 0) {
                             if (!wikiText[i].isWhitespace()) {
-                                insertIndex = i
+                                insertLocation = i
                                 break
                             }
                         }
                     }
                 }
 
-                insertIndex = insertIndex.coerceIn(0, wikiText.length)
-                wikiText = wikiText.substring(0, insertIndex) + template + "\n" + wikiText.substring(insertIndex)
+                insertLocation = insertLocation.coerceIn(0, wikiText.length)
+                val insertText = template + "\n"
+                insertLength = insertText.length
+                wikiText = wikiText.substring(0, insertLocation) + insertText + wikiText.substring(insertLocation)
             }
 
-            return Pair(wikiText, insertedIntoInfobox)
+            return Triple(wikiText, insertedIntoInfobox, Pair(insertLocation, insertLength))
         }
 
         private fun findNameParamInTemplate(possibleNameParamNames: Array<String>, wikiText: String, startIndex: Int, endIndex: Int): Pair<Int, String> {

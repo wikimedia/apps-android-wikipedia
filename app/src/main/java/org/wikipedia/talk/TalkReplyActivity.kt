@@ -21,6 +21,10 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkReplyBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.edit.SyntaxHighlightViewAdapter
+import org.wikipedia.edit.insertmedia.InsertMediaActivity
+import org.wikipedia.edit.insertmedia.InsertMediaViewModel
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -64,6 +68,29 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
     }
 
+    private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == InsertMediaActivity.RESULT_INSERT_MEDIA_SUCCESS) {
+            it.data?.let { data ->
+                val imageTitle = data.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+                val imageCaption = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION)
+                val imageAlt = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT)
+                val imageSize = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_SIZE)
+                val imageType = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_TYPE)
+                val imagePos = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_POS)
+
+                val newWikiText = InsertMediaViewModel.insertImageIntoWikiText(viewModel.pageTitle.wikiSite.languageCode,
+                    binding.replyInputView.editText.text.toString(), imageTitle?.text.orEmpty(), imageCaption.orEmpty(),
+                    imageAlt.orEmpty(), imageSize.orEmpty(), imageType.orEmpty(), imagePos.orEmpty(),
+                    binding.replyInputView.editText.selectionStart, false, false)
+
+                binding.replyInputView.editText.setText(newWikiText.first)
+
+                val insertPos = newWikiText.third
+                binding.replyInputView.editText.setSelection(insertPos.first, insertPos.first + insertPos.second)
+            }
+        }
+    }
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkReplyBinding.inflate(layoutInflater)
@@ -78,7 +105,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
             binding.replySubjectLayout.error = null
             binding.replyInputView.textInputLayout.error = null
-            setSaveButtonEnabled(!binding.replyInputView.editText.text.isNullOrBlank())
+            setSaveButtonEnabled(binding.replyInputView.editText.text.isNotBlank())
         }
         binding.replyInputView.editText.addTextChangedListener(textWatcher)
 
@@ -105,12 +132,16 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             }
         }
 
+        SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.replyInputView.editText,
+            binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
+            Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
+
         onInitialLoad()
     }
 
     public override fun onDestroy() {
-        if (!savedSuccess && !binding.replyInputView.editText.text.isNullOrBlank() && viewModel.topic != null) {
-            draftReplies.put(viewModel.topic!!.id, binding.replyInputView.editText.text!!)
+        if (!savedSuccess && binding.replyInputView.editText.text.isNotBlank() && viewModel.topic != null) {
+            draftReplies.put(viewModel.topic!!.id, binding.replyInputView.editText.text)
         }
         binding.replySubjectText.removeTextChangedListener(textWatcher)
         binding.replyInputView.editText.removeTextChangedListener(textWatcher)
@@ -135,7 +166,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         binding.progressBar.isVisible = false
         binding.replySubjectText.setText(intent.getCharSequenceExtra(EXTRA_SUBJECT))
-        if (intent.hasExtra(EXTRA_BODY) && binding.replyInputView.editText.text.isNullOrEmpty()) {
+        if (intent.hasExtra(EXTRA_BODY) && binding.replyInputView.editText.text.isEmpty()) {
             binding.replyInputView.editText.setText(intent.getCharSequenceExtra(EXTRA_BODY))
             binding.replyInputView.editText.setSelection(binding.replyInputView.editText.text.toString().length)
         }
@@ -217,7 +248,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
-        val body = binding.replyInputView.editText.getParsedText(viewModel.pageTitle.wikiSite).trim()
+        val body = binding.replyInputView.editText.text.toString().trim()
         Intent().let {
             it.putExtra(EXTRA_SUBJECT, subject)
             it.putExtra(EXTRA_BODY, body)
@@ -307,7 +338,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     override fun onBackPressed() {
         setResult(RESULT_BACK_FROM_TOPIC)
         if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
-                    !binding.replyInputView.editText.text.isNullOrEmpty())) {
+                    binding.replyInputView.editText.text.isNotEmpty())) {
             MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.talk_new_topic_exit_dialog_title)
