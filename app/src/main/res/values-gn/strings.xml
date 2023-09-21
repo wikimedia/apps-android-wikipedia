@@ -303,7 +303,7 @@
     <item quantity="other">%d ára</item>
   </plurals>
   <string name="suggested_edits_last_edited_never">Araka\'eve</string>
-  <string name="suggested_edits_task_new">ipyahúva</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ipyahúva</string>
   <string name="suggested_edits_contribution_language_label">Ñe\'ẽnguéra</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kuehe</string>
   <string name="suggested_edits_encourage_account_creation_title">Reikuaápa opavave ikatuha ohai Vikipetãme?</string>

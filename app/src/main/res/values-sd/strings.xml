@@ -900,7 +900,7 @@
   <string name="suggested_edits_ip_blocked_title">آئپي تي بندش وڌل آھي</string>
   <string name="suggested_edits_last_edited">آخري دفعو سنواريل</string>
   <string name="suggested_edits_last_edited_never">ڪڏهن بہ نہ</string>
-  <string name="suggested_edits_task_new">نوان</string>
+  <string name="suggested_edits_task_new" fuzzy="true">نوان</string>
   <string name="suggested_edits_reactivation_notification_title">ڏسيل سنوارون</string>
   <string name="suggested_edits_reactivation_notification_stage_one">وڪيپيڊيا کي سنوارڻ لاءِ مھرباني! ڇو نہ اتان شروع ڪجي جتان ڇڏيوسين؟</string>
   <string name="suggested_edits_contributions_screen_title">%s جون ڀاڱيداريون</string>

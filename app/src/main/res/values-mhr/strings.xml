@@ -628,7 +628,7 @@
   <string name="suggested_edits_ip_blocked_title">IP петыралтын</string>
   <string name="suggested_edits_last_edited">Пытартыш тӧрлатымаш</string>
   <string name="suggested_edits_last_edited_never">Нигунам</string>
-  <string name="suggested_edits_task_new">у</string>
+  <string name="suggested_edits_task_new" fuzzy="true">у</string>
   <string name="suggested_edits_contribution_language_label">Йылме</string>
   <string name="suggested_edits_contribution_date_time_label">Кече / Жап</string>
   <string name="suggested_edits_contribution_type_label">Надыр тӱрлылык</string>

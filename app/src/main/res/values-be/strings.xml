@@ -1061,7 +1061,7 @@
   <string name="suggested_edits_ip_blocked_title">IP заблакаваны</string>
   <string name="suggested_edits_last_edited">Апошняя праўка</string>
   <string name="suggested_edits_last_edited_never">Ніколі</string>
-  <string name="suggested_edits_task_new">новы</string>
+  <string name="suggested_edits_task_new" fuzzy="true">новы</string>
   <string name="suggested_edits_cc0_notice">Публікуючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на неадклікальную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Прапанаваныя праўкі</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Дзякуй за праўкі ў Вікіпедыі! Чаму б не працягнуць адтуль, дзе вы спыніліся?</string>

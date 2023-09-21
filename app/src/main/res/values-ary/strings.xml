@@ -348,7 +348,7 @@
   <string name="suggested_edits_contributions_stat_tooltip">لمجموع د تبديلات ديالك حتال دابا.</string>
   <string name="suggested_edits_disabled_message">التبديلات لمقتارحة مامفعلاش. سمح لينا %s، راه ترجّعو بزاف د لمساهمات اللخرة ديالك.</string>
   <string name="suggested_edits_quality_okay_text">واخا</string>
-  <string name="suggested_edits_task_new">جديد</string>
+  <string name="suggested_edits_task_new" fuzzy="true">جديد</string>
   <string name="suggested_edits_contribution_language_label">لوغة</string>
   <string name="suggested_edits_contribution_date_time_label">تاريخ / وقت</string>
   <string name="suggested_edits_contribution_image_label">تصويرة</string>

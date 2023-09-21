@@ -699,7 +699,7 @@
   </plurals>
   <string name="suggested_edits_learn_more">Ekscii pli</string>
   <string name="suggested_edits_last_edited_never">Neniam</string>
-  <string name="suggested_edits_task_new">nova</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nova</string>
   <string name="suggested_edits_contributions_screen_title">Kontribuoj de %s</string>
   <string name="suggested_edits_contribution_language_label">Lingvo</string>
   <string name="suggested_edits_contribution_image_label">Bildo</string>

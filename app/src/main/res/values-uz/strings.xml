@@ -1001,7 +1001,7 @@
   <string name="suggested_edits_ip_blocked_title">IP bloklangan</string>
   <string name="suggested_edits_last_edited">Soʻnggi tahrir</string>
   <string name="suggested_edits_last_edited_never">Hech qachon</string>
-  <string name="suggested_edits_task_new">yangi</string>
+  <string name="suggested_edits_task_new" fuzzy="true">yangi</string>
   <string name="suggested_edits_cc0_notice">Nashr qilish bilan siz &lt;a href=\"%1$s\"&gt; foydalanish shartlari &lt;/a&gt;ga va ushbu hissani &lt;a href=\"%2$s\"&gt;CC0 litsenziyasi&lt;/a&gt; asosida qaytarib olmasligingizga rozilik bildirasiz.</string>
   <string name="suggested_edits_reactivation_notification_title">Tavsiya etilgan tahrirlar</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Vikipediyani tahrir qilganingiz uchun tashakkur! Nima uchun toʻxtagan joyingizda davom etmayapsiz?</string>

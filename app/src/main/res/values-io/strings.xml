@@ -922,7 +922,7 @@
   <string name="suggested_edits_ip_blocked_title">IP blokusita</string>
   <string name="suggested_edits_last_edited">Lasta redakturo</string>
   <string name="suggested_edits_last_edited_never">Nultempe</string>
-  <string name="suggested_edits_task_new">nova</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nova</string>
   <string name="suggested_edits_cc0_notice">Publikiganta l\'artiklo, vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub permiso &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Redakturi sugestita</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Danko por redaktar che Wikipedio! Pro quo ne durigar de ube vu cesis?</string>

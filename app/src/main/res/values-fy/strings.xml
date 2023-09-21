@@ -783,7 +783,7 @@
   <string name="suggested_edits_ip_blocked_title">YP útsletten</string>
   <string name="suggested_edits_last_edited">Lêst bewurke</string>
   <string name="suggested_edits_last_edited_never">Nea</string>
-  <string name="suggested_edits_task_new">nij</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nij</string>
   <string name="suggested_edits_cc0_notice">Mei it publisearjen, stimme jo yn mei de &lt;a href=\"%1$s\"&gt;gebrûksbetingsten&lt;/a&gt;, en om dizze bydrage ûnwerroplik frij te jaan ûnder de lisinsje &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Bewurksuggestjes</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Tank foar jo Wikipedy-bewurkings! Wêrom ek net de tried wer opnimme?</string>

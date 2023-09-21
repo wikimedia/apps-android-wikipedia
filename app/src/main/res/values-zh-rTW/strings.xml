@@ -1104,6 +1104,7 @@
   <string name="image_recommendation_tooltip_3">決定圖片是否可以幫助讀者更好理解這個主題</string>
   <string name="image_recommendation_tooltip_next">下一個</string>
   <string name="image_recommendation_tooltip_warning">請檢閱條目來了解該主題並檢查圖片</string>
+  <string name="image_recommendation_depleted">很抱歉，目前沒有更多可用的建議圖片。請探索其他&lt;a href=\"#\"&gt;建議編輯&lt;/a&gt;，或是稍後回來。</string>
   <string name="suggested_edits_report_feature">功能出現問題</string>
   <string name="suggested_edits_report_feature_subject">建議編輯出現問題</string>
   <string name="edit_summary_added_image">已新增圖片</string>
@@ -1503,10 +1504,15 @@
   <string name="patroller_tasks_filters_all_text">全部</string>
   <string name="patroller_tasks_filters_user_status_header">使用者註冊及經驗</string>
   <string name="patroller_tasks_filters_user_status_unregistered">未註冊</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">未登入的編輯者。</string>
   <string name="patroller_tasks_filters_user_status_registered">已註冊</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">已登入編輯者。</string>
   <string name="patroller_tasks_filters_user_status_newcomers">新手</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">4 天活動裡編輯少於 10 次的註冊編輯者。</string>
   <string name="patroller_tasks_filters_user_status_learners">初學者</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">經驗介於「新手」和「有經驗的使用者」之間的註冊編輯者。</string>
   <string name="patroller_tasks_filters_user_status_experienced">有經驗的使用者</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">活動超過 30 天且編輯超過 500 次的註冊編輯者。</string>
   <string name="patroller_tasks_filters_latest_revisions_header">最新修訂</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">最新修訂</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">不是最新修訂</string>
@@ -1518,14 +1524,22 @@
   <string name="patroller_tasks_filters_significance_edits">非小修改</string>
   <string name="patroller_tasks_filters_contribution_quality_header">貢獻品質預測</string>
   <string name="patroller_tasks_filters_contribution_quality_good">非常良好</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">高精準度來找出幾乎沒問題的編輯。</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">也許有問題</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">低精準度來找出明顯缺陷或是破壞性的編輯。</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">可能有問題</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">中精準度來找出有中間程度問題的編輯。</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">非常可能有問題</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">極高精準度來找出明顯缺陷或是破壞性的編輯。</string>
   <string name="patroller_tasks_filters_user_intent_header">使用者目的預測</string>
   <string name="patroller_tasks_filters_user_intent_good">非常可能是善意</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">高精準度來找出明顯為善意內容的編輯。</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">也許是惡意</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">低精準度來找出明顯為惡意內容的編輯。</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">可能是惡意</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">中精準度來找出有中間程度惡意的編輯。</string>
   <string name="patroller_tasks_filters_user_intent_bad">非常可能是惡意</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">極高精準度來找出明顯為惡意內容的編輯。</string>
   <string name="patroller_tasks_filters_empty_search_message">嘗試移除%s來查看更多編輯</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d 個篩選</item>

@@ -860,7 +860,7 @@
   <string name="suggested_edits_ip_blocked_title">আইপি বাধাপ্রাপ্ত</string>
   <string name="suggested_edits_last_edited">সর্বশেষ সম্পাদিত</string>
   <string name="suggested_edits_last_edited_never">কখনো না</string>
-  <string name="suggested_edits_task_new">নতুন</string>
+  <string name="suggested_edits_task_new" fuzzy="true">নতুন</string>
   <string name="suggested_edits_reactivation_notification_title">পরামর্শকৃত সম্পাদনা</string>
   <string name="suggested_edits_contributions_screen_title">%s-এর অবদান</string>
   <string name="suggested_edits_contribution_language_label">ভাষা</string>
