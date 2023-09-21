@@ -844,7 +844,7 @@
   <string name="suggested_edits_disabled_title">Απενεργοποιημένο</string>
   <string name="suggested_edits_last_edited">Τελευταία απεξεργασία</string>
   <string name="suggested_edits_last_edited_never">Ποτέ</string>
-  <string name="suggested_edits_task_new">νέα</string>
+  <string name="suggested_edits_task_new" fuzzy="true">νέα</string>
   <string name="suggested_edits_reactivation_notification_title">Προτεινόμενες τροποποιήσεις</string>
   <string name="suggested_edits_contributions_screen_title">Οι συνεισφορές του %s</string>
   <string name="suggested_edits_contribution_language_label">Γλώσσα</string>

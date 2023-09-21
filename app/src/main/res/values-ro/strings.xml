@@ -965,7 +965,7 @@
   <string name="suggested_edits_ip_blocked_title">IP blocat</string>
   <string name="suggested_edits_last_edited">Ultima modificare:</string>
   <string name="suggested_edits_last_edited_never">Niciodată</string>
-  <string name="suggested_edits_task_new">nou</string>
+  <string name="suggested_edits_task_new">Nou</string>
   <string name="suggested_edits_cc0_notice">Prin publicare, sunteți de acord cu &lt;a href=\"%1$s\"&gt;termenii de utilizare&lt;/a&gt; și pentru a elibera irevocabil această contribuție în temeiul &lt;a href=\"%2$s\"&gt;licenței CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modificări sugerate</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Mulțumim pentru editarea Wikipedia! De ce să nu continui de la locul unde ai rămas?</string>
@@ -1026,6 +1026,7 @@
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Antrenați algoritmul pentru imagini</string>
   <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Decideți dacă o imagine sugerată va îmbunătăți un articol.</string>
+  <string name="image_recommendation_depleted">Ne pare rău, nu există alte imagini sugerate disponibile în acest moment. Explorați alte &lt;a href=\"#\"&gt;modificări sugerate&lt;/a&gt; sau reveniți mai târziu.</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
   <string name="file_page_add_image_tags_button">Adaugă etichete pentru imagine</string>

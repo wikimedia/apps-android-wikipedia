@@ -971,7 +971,7 @@
   <string name="suggested_edits_ip_blocked_title">نشانی آی‌پی مسدود است</string>
   <string name="suggested_edits_last_edited">آخرین ویرایش</string>
   <string name="suggested_edits_last_edited_never">هرگز</string>
-  <string name="suggested_edits_task_new">تازه</string>
+  <string name="suggested_edits_task_new" fuzzy="true">تازه</string>
   <string name="suggested_edits_cc0_notice">با ذخیره کردن، شما &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; را می‌پذیرید و به طور غیرقابل بازگشتی این مشارکت را تحت &lt;a href=\"%2$s\"&gt;پروانه CC0&lt;/a&gt; منتشر می‌کنید.</string>
   <string name="suggested_edits_reactivation_notification_title">ویرایش‌های پیشنهادی</string>
   <string name="suggested_edits_reactivation_notification_stage_one">ممنون برای ویرایش ویکی‌پدیا! چرا از جایی که رها کردید ادامه نمی‌دهید؟</string>

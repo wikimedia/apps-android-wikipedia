@@ -22,6 +22,9 @@ import org.wikipedia.databinding.ActivityTalkReplyBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.edit.SyntaxHighlightViewAdapter
+import org.wikipedia.edit.insertmedia.InsertMediaActivity
+import org.wikipedia.edit.insertmedia.InsertMediaViewModel
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -50,6 +53,29 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             updateEditLicenseText()
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
+        }
+    }
+
+    private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == InsertMediaActivity.RESULT_INSERT_MEDIA_SUCCESS) {
+            it.data?.let { data ->
+                val imageTitle = data.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+                val imageCaption = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION)
+                val imageAlt = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT)
+                val imageSize = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_SIZE)
+                val imageType = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_TYPE)
+                val imagePos = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_POS)
+
+                val newWikiText = InsertMediaViewModel.insertImageIntoWikiText(viewModel.pageTitle.wikiSite.languageCode,
+                    binding.replyInputView.editText.text.toString(), imageTitle?.text.orEmpty(), imageCaption.orEmpty(),
+                    imageAlt.orEmpty(), imageSize.orEmpty(), imageType.orEmpty(), imagePos.orEmpty(),
+                    binding.replyInputView.editText.selectionStart, false, false)
+
+                binding.replyInputView.editText.setText(newWikiText.first)
+
+                // TODO: automatically highlight what was added.
+                // binding.editSectionText.setSelection(cursorPos, cursorPos + newText.length)
+            }
         }
     }
 
@@ -96,7 +122,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         SyntaxHighlightViewAdapter(this, viewModel.pageTitle.wikiSite, binding.root, binding.replyInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
-            Constants.InvokeSource.TALK_REPLY_ACTIVITY, true)
+            Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
 
         onInitialLoad()
     }

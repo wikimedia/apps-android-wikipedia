@@ -393,7 +393,7 @@
     <item quantity="other">%d ದಿನಗಳು</item>
   </plurals>
   <string name="suggested_edits_learn_more">ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</string>
-  <string name="suggested_edits_task_new">ಹೊಸ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ಹೊಸ</string>
   <string name="suggested_edits_reactivation_notification_title">ಸೂಚಿಸಲ್ಪಟ್ಟ ಸಂಪಾದನೆಗಳು</string>
   <string name="suggested_edits_contributions_screen_title">%s ರ ಕಾಣಿಕೆಗಳು</string>
   <string name="suggested_edits_contribution_language_label">ಭಾಷೆ</string>

@@ -995,7 +995,7 @@
   <string name="suggested_edits_ip_blocked_title">IP-vistfang bannað</string>
   <string name="suggested_edits_last_edited">Síðast breytt</string>
   <string name="suggested_edits_last_edited_never">Aldrei</string>
-  <string name="suggested_edits_task_new">nýtt</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nýtt</string>
   <string name="suggested_edits_cc0_notice">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að þú gefir framlag þitt ævinlega út með &lt;a href=\"%2$s\"&gt;CC0 notkunarleyfinu&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Tillögur að breytingum</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Takk fyrir framlag þitt til Wikipedia! Því ekki að halda áfram þar sem þú skildir við síðast?</string>

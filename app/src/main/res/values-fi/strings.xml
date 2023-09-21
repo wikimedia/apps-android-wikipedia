@@ -1015,7 +1015,7 @@
   <string name="suggested_edits_ip_blocked_title">IP-osoite estetty</string>
   <string name="suggested_edits_last_edited">Viimeksi muokattu</string>
   <string name="suggested_edits_last_edited_never">Ei koskaan</string>
-  <string name="suggested_edits_task_new">uusi</string>
+  <string name="suggested_edits_task_new" fuzzy="true">uusi</string>
   <string name="suggested_edits_cc0_notice">Julkaisemalla hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_reactivation_notification_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Kiitos Wikipedian muokkaamisesta! Miksi et jatkaisi siitä mihin jäit?</string>

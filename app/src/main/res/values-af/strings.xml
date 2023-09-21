@@ -319,7 +319,7 @@
   <string name="suggested_edits_image_tags_choose" fuzzy="true">Kies bypassende etikette</string>
   <string name="suggested_edits_image_tags_select_title">U het geen merkers vir hierdie prent gekies nie</string>
   <string name="suggested_edits_image_tags_select_text">Slegs merkers wat u kies, sal by prente gevoeg word. Merkers wat nie gekies is nie, sal as verwerp gemerk word. Is u seker dat u alle merkers as verwerp wil merk?</string>
-  <string name="suggested_edits_task_new">nuwe</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nuwe</string>
   <string name="suggested_edits_cc0_notice">Deur te publiseer, stem u in tot die &lt;a href=\"%1$s\"&gt;gebruiksvoorwaardes&lt;/a&gt; en om hierdie bydrae onherroeplik vry te stel onder die &lt;a href=\"%2$s\"&gt;CC0-lisensie&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">Dankie dat u bydra tot Wikipedia!</string>
   <string name="size_gb">%.2f GG</string>

@@ -914,7 +914,7 @@
   <string name="suggested_edits_ip_blocked_title">IP адресът е блокиран</string>
   <string name="suggested_edits_last_edited">Последна редакция</string>
   <string name="suggested_edits_last_edited_never">Никога</string>
-  <string name="suggested_edits_task_new">нова</string>
+  <string name="suggested_edits_task_new" fuzzy="true">нова</string>
   <string name="suggested_edits_cc0_notice">Публикувайки, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC0 лиценз&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложения за редактиране</string>
   <string name="suggested_edits_contributions_screen_title">Приносите на %s</string>

@@ -1080,7 +1080,7 @@
   <string name="suggested_edits_ip_blocked_title">כתובת ה־IP חסומה</string>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
-  <string name="suggested_edits_task_new">חדשה</string>
+  <string name="suggested_edits_task_new" fuzzy="true">חדשה</string>
   <string name="suggested_edits_cc0_notice">הפרסום מהווה את הסכמתך הבלתי־חוזרת ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור של התרומה הזאת לפי &lt;a href=\"%2$s\"&gt;רישיון CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">עריכות מוצעות</string>
   <string name="suggested_edits_reactivation_notification_stage_one">תודה על עריכת ויקיפדיה! מדוע לא להמשיך היכן שהפסקת?</string>

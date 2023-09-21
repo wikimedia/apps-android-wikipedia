@@ -1031,7 +1031,7 @@
   <string name="suggested_edits_ip_blocked_title">IP bloqueado</string>
   <string name="suggested_edits_last_edited">Última edição</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
-  <string name="suggested_edits_task_new">novo</string>
+  <string name="suggested_edits_task_new" fuzzy="true">novo</string>
   <string name="suggested_edits_cc0_notice">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Edições sugeridas</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Obrigado por editar a Wikipédia! Por que não continuar de onde parou?</string>

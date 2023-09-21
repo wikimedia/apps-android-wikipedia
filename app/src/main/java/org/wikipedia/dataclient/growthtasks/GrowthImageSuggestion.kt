@@ -1,5 +1,7 @@
 package org.wikipedia.dataclient.growthtasks
 
+import kotlinx.serialization.EncodeDefault
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
 
 @Suppress("unused")
@@ -38,13 +40,15 @@ class GrowthImageSuggestion(
     )
 
     @Serializable
-    class AddImageFeedbackBody(
+    @OptIn(ExperimentalSerializationApi::class)
+    class AddImageFeedbackBody constructor(
         val token: String = "",
         val editRevId: Long = 0,
         val filename: String = "",
-        // Boolean fields must be nullable for androidx.serialization to serialize properly.
-        val accepted: Boolean? = null,
-        val reasons: List<String> = emptyList(),
-        val caption: String? = null
+        @EncodeDefault(EncodeDefault.Mode.ALWAYS) val accepted: Boolean = false,
+        @EncodeDefault(EncodeDefault.Mode.ALWAYS) val reasons: List<String> = emptyList(),
+        @EncodeDefault(EncodeDefault.Mode.ALWAYS) val caption: String? = null,
+        @EncodeDefault(EncodeDefault.Mode.ALWAYS) val sectionTitle: String? = null,
+        @EncodeDefault(EncodeDefault.Mode.ALWAYS) val sectionNumber: Int? = null
     )
 }

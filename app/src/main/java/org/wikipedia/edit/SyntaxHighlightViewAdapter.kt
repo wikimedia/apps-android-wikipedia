@@ -1,6 +1,8 @@
 package org.wikipedia.edit
 
+import android.content.Intent
 import android.view.View
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -25,6 +27,7 @@ class SyntaxHighlightViewAdapter(
     private val wikiTextKeyboardFormattingView: WikiTextKeyboardFormattingView,
     private val wikiTextKeyboardHeadingsView: WikiTextKeyboardHeadingsView,
     private val invokeSource: Constants.InvokeSource,
+    private val requestInsertMedia: ActivityResultLauncher<Intent>,
     showUserMention: Boolean = false
 ) : WikiTextKeyboardView.Callback {
 
@@ -58,15 +61,6 @@ class SyntaxHighlightViewAdapter(
         }
     }
 
-    private val requestInsertMedia = activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == InsertMediaActivity.RESULT_INSERT_MEDIA_SUCCESS) {
-            it.data?.let { intent ->
-                editText.inputConnection?.commitText("${intent.getStringExtra(
-                    InsertMediaActivity.RESULT_WIKITEXT)}", 1)
-            }
-        }
-    }
-
     override fun onPreviewLink(title: String) {
         val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null)
         ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager, dialog)
@@ -82,7 +76,7 @@ class SyntaxHighlightViewAdapter(
     }
 
     override fun onRequestInsertMedia() {
-        requestInsertMedia.launch(InsertMediaActivity.newIntent(activity, wikiSite, ""))
+        requestInsertMedia.launch(InsertMediaActivity.newIntent(activity, wikiSite, "", invokeSource))
     }
 
     override fun onRequestInsertLink() {

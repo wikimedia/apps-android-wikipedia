@@ -989,7 +989,7 @@
   <string name="suggested_edits_ip_blocked_title">IP diblokir</string>
   <string name="suggested_edits_last_edited">Paling akir dipermak</string>
   <string name="suggested_edits_last_edited_never">Kaga\' perna</string>
-  <string name="suggested_edits_task_new">baru</string>
+  <string name="suggested_edits_task_new" fuzzy="true">baru</string>
   <string name="suggested_edits_cc0_notice">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;ketentuan pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah &lt;a href=\"%2$s\"&gt;ongji CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Permakan nyang disaranin</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Makasi ya udah mermak Wikipédi! Ngapa kaga\' lanjutin nyang belakangan?</string>
