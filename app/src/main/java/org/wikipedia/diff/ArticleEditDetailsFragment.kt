@@ -313,7 +313,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 true
             }
             R.id.menu_report_feature -> {
-                // TODO
+                FeedbackUtil.composeFeedbackEmail(requireContext(),
+                    getString(R.string.email_report_patroller_tasks_subject),
+                    getString(R.string.email_report_patroller_tasks_body))
                 true
             }
             else -> false
