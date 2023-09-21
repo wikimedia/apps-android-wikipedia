@@ -25,7 +25,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.edit.insertmedia.InsertMediaActivity
+import org.wikipedia.edit.insertmedia.InsertMediaViewModel
+import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.DrawableItemDecoration
@@ -36,7 +42,9 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     private val viewModel: TalkTemplatesViewModel by viewModels()
     private val binding get() = _binding!!
 
+    private val wikiSite = WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)
     private lateinit var itemTouchHelper: ItemTouchHelper
+    private lateinit var textInputDialog: TalkTemplatesTextInputDialog
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -51,6 +59,30 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         if (result.resultCode == RESULT_OK) {
             viewModel.loadTalkTemplates()
             FeedbackUtil.showMessage(this, R.string.talk_templates_new_message_saved)
+        }
+    }
+
+    private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == InsertMediaActivity.RESULT_INSERT_MEDIA_SUCCESS) {
+            it.data?.let { data ->
+                val imageTitle = data.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
+                val imageCaption = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION)
+                val imageAlt = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT)
+                val imageSize = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_SIZE)
+                val imageType = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_TYPE)
+                val imagePos = data.getStringExtra(InsertMediaActivity.RESULT_IMAGE_POS)
+
+                val newWikiText = InsertMediaViewModel.insertImageIntoWikiText(wikiSite.languageCode,
+                    textInputDialog.bodyTextInput.editText.text.toString(), imageTitle?.text.orEmpty(), imageCaption.orEmpty(),
+                    imageAlt.orEmpty(), imageSize.orEmpty(), imageType.orEmpty(), imagePos.orEmpty(),
+                    textInputDialog.bodyTextInput.editText.selectionStart, autoInsert = false, attemptInfobox = false
+                )
+
+                textInputDialog.bodyTextInput.editText.setText(newWikiText.first)
+
+                val insertPos = newWikiText.third
+                textInputDialog.bodyTextInput.editText.setSelection(insertPos.first, insertPos.first + insertPos.second)
+            }
         }
     }
 
@@ -146,8 +178,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     private fun showEditDialog(talkTemplate: TalkTemplate) {
-        TalkTemplatesTextInputDialog(requireContext(), R.string.talk_templates_new_message_dialog_save,
-            R.string.talk_templates_edit_message_dialog_delete).let { textInputDialog ->
+        TalkTemplatesTextInputDialog(requireActivity() as AppCompatActivity, R.string.talk_templates_new_message_dialog_save,
+            R.string.talk_templates_edit_message_dialog_delete, requestInsertMedia).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {
                     dialog.setTitleHint(R.string.talk_templates_new_message_dialog_hint)
@@ -200,6 +232,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             textInputDialog.showSubjectText(true)
             textInputDialog.showBodyText(true)
             textInputDialog.setTitle(R.string.talk_templates_edit_message_dialog_title)
+            this.textInputDialog = textInputDialog
+            textInputDialog
         }.show()
     }
 

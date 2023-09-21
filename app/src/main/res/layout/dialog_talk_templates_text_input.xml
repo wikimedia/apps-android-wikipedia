@@ -1,53 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingVertical="8dp"
-    android:paddingHorizontal="24dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        style="@style/H3.MaterialListTitle"
-        android:id="@+id/dialogMessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/titleInputContainer"
+    <ScrollView
+        android:id="@+id/scrollContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <org.wikipedia.views.PlainPasteEditText
-            android:id="@+id/titleInput"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapSentences"
-            android:textSize="16sp">
-            <requestFocus />
-        </org.wikipedia.views.PlainPasteEditText>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="24dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/subjectTextInputContainer"
-        android:layout_width="match_parent"
+            <TextView
+                style="@style/H3.MaterialListTitle"
+                android:id="@+id/dialogMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/titleInputContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <org.wikipedia.views.PlainPasteEditText
+                    android:id="@+id/titleInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    android:textSize="16sp">
+                    <requestFocus />
+                </org.wikipedia.views.PlainPasteEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/subjectTextInputContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <org.wikipedia.views.PlainPasteEditText
+                    android:id="@+id/subjectTextInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <org.wikipedia.views.UserMentionInputView
+                android:id="@+id/bodyTextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <org.wikipedia.edit.WikiTextKeyboardHeadingsView
+        android:id="@+id/edit_keyboard_overlay_headings"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone">
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="48dp"
+        android:background="?attr/paper_color"
+        android:elevation="12dp" />
 
-        <org.wikipedia.views.PlainPasteEditText
-            android:id="@+id/subjectTextInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textCapSentences"
-            android:textSize="16sp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <org.wikipedia.views.UserMentionInputView
-        android:id="@+id/bodyTextInput"
-        android:layout_width="match_parent"
+    <org.wikipedia.edit.WikiTextKeyboardFormattingView
+        android:id="@+id/edit_keyboard_overlay_formatting"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:visibility="gone" />
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="48dp"
+        android:background="?attr/paper_color"
+        android:elevation="12dp"/>
 
-</LinearLayout>
+    <org.wikipedia.edit.WikiTextKeyboardView
+        android:id="@+id/edit_keyboard_overlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?attr/paper_color"
+        android:elevation="12dp"/>
+
+</FrameLayout>
