@@ -142,7 +142,12 @@ class WikiTextKeyboardView : FrameLayout {
             if (title.wikiSite.languageCode != baseLangCode) {
                 text += ":" + title.wikiSite.languageCode + ":"
             }
-            text += title.prefixedText + "|" + StringUtil.fromHtml(title.displayText).toString() + "]]"
+            val displayText = StringUtil.fromHtml(title.displayText).toString()
+            text += if (StringUtil.removeUnderscores(title.prefixedText) != displayText) {
+                title.prefixedText + "|" + displayText + "]]"
+            } else {
+                "$displayText]]"
+            }
             editText?.inputConnection?.commitText(text, 1)
         }
     }
