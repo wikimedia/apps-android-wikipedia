@@ -177,7 +177,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
 
     private fun onSaveClicked() {
         val subject = binding.addTemplateSubjectText.text.toString().trim()
-        val body = binding.addTemplateInputView.editText.toString().trim()
+        val body = binding.addTemplateInputView.editText.text.toString().trim()
 
         if (subject.isEmpty()) {
             binding.addTemplateSubjectLayout.error = getString(R.string.talk_subject_empty)
