@@ -91,10 +91,9 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         binding.addTemplateInputView.wikiSite = wikiSite
         binding.addTemplateInputView.listener = this
 
-
         SyntaxHighlightViewAdapter(this, PageTitle("Main Page", wikiSite), binding.root, binding.addTemplateInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
-            Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
+            Constants.InvokeSource.ADD_TEMPLATE_ACTIVITY, requestInsertMedia, true)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
