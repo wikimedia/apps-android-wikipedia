@@ -111,7 +111,6 @@
   <string name="map_view_link_text">ดูบนแผนที่</string>
   <string name="other_languages_indication_text">อ่านในภาษาอื่น</string>
   <string name="language_count_link_text">มีให้อ่านในอีก %d ภาษา</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้</string>
   <string name="edit_save_action_license_anon" fuzzy="true">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้ การแก้ไขจะถูกถือว่าเป็นของเลขที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ&lt;a href=\"https://#login\"&gt;เข้าสู่ระบบ&lt;/a&gt;</string>
   <string name="preference_title_language">ภาษาของวิกิพีเดีย</string>
@@ -858,7 +857,7 @@
   <string name="suggested_edits_ip_blocked_title">เลขที่อยู่ไอพีถูกระงับ</string>
   <string name="suggested_edits_last_edited">แก้ไขล่าสุดเมื่อ</string>
   <string name="suggested_edits_last_edited_never">ไม่เคย</string>
-  <string name="suggested_edits_task_new">ใหม่</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ใหม่</string>
   <string name="suggested_edits_reactivation_notification_title">การแก้ไขที่แนะนำ</string>
   <string name="suggested_edits_contributions_screen_title">เรื่องที่มีส่วนร่วมของ %s</string>
   <string name="suggested_edits_contribution_language_label">ภาษา</string>

@@ -77,7 +77,6 @@
   <string name="map_view_link_text">ኣብ ካርታ ርኣይ</string>
   <string name="other_languages_indication_text">ብካልእ ቋንቋ ኣንብብ</string>
   <string name="language_count_link_text">ብ%d ካልኦት ቋንቋታት ዝርከብ</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="preference_title_language">ቋንቋታት ዊኪፐድያ</string>
   <string name="langlinks_filter_hint">ድለይ</string>
   <string name="langlinks_empty">እዚ ገጽ ብካልኦት ቋንቋታት ኣይርከብን እዩ።</string>
@@ -457,7 +456,7 @@
   </plurals>
   <string name="suggested_edits_learn_more">ተወሳኺ ፍለጥ</string>
   <string name="suggested_edits_last_edited_never">ብፍጹም</string>
-  <string name="suggested_edits_task_new">ሓድሽ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ሓድሽ</string>
   <string name="suggested_edits_contributions_screen_title">ኣበርክቶታት %s</string>
   <string name="suggested_edits_contribution_language_label">ቋንቋ</string>
   <string name="suggested_edits_contribution_date_time_label">ዕለት / ሰዓት</string>

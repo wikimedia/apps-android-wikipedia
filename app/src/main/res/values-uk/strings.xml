@@ -131,7 +131,6 @@
   <string name="map_view_link_text">Переглянути на мапі</string>
   <string name="other_languages_indication_text">Читати іншою мовою</string>
   <string name="language_count_link_text">Доступно %d іншими мовами</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та остаточно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та невідклично публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете до системи&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="edit_anon_warning">Редагування будуть приписані ІР-адресі вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, ваші дії будуть більш конфіденційними.</string>
@@ -1081,7 +1080,7 @@
   <string name="suggested_edits_ip_blocked_title">IP заблоковано</string>
   <string name="suggested_edits_last_edited">Останнє редагування</string>
   <string name="suggested_edits_last_edited_never">Ніколи</string>
-  <string name="suggested_edits_task_new">нове</string>
+  <string name="suggested_edits_task_new" fuzzy="true">нове</string>
   <string name="suggested_edits_cc0_notice">Публікуючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, а також даєте невідкличну згоду на публікацію цього внеску на умовах &lt;a href=\"%2$s\"&gt;ліцензії CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Пропоновані редагування</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Дякуємо за редагування Вікіпедії! Продовжимо з того моменту, як вийшли?</string>
@@ -1572,8 +1571,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Переглянути внесок користувача</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Подякувати</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Інформація про користувача</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Термін</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Лічильник редагувань</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Закрити</string>
   <string name="patroller_tasks_filters_title">Фільтри</string>
   <string name="patroller_tasks_filters_reset">Скинути</string>
@@ -1628,8 +1625,8 @@
   <string name="data_opt_in_reject">Відхилити</string>
   <string name="page_issues_title">Проблеми сторінки</string>
   <string name="generic_release_notes">Незначні виправлення помилок і вдосконалення</string>
-  <string name="email_report_image_recommendations_subject">Звіт про проблему – функція рекомендацій зображень</string>
-  <string name="email_report_image_recommendations_body">У мене виникла проблема з функцією рекомендацій зображень:\n- [Опишіть конкретну проблему]\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
-  <string name="email_report_patroller_tasks_subject">Звіт про проблему – функція завдань патрулювання</string>
-  <string name="email_report_patroller_tasks_body">У мене виникла проблема з функцією завдань патрулювання:\n- [Опишіть конкретну проблему]\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
+  <string name="email_report_image_recommendations_subject" fuzzy="true">Звіт про проблему – функція рекомендацій зображень</string>
+  <string name="email_report_image_recommendations_body" fuzzy="true">У мене виникла проблема з функцією рекомендацій зображень:\n- [Опишіть конкретну проблему]\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
+  <string name="email_report_patroller_tasks_subject" fuzzy="true">Звіт про проблему – функція завдань патрулювання</string>
+  <string name="email_report_patroller_tasks_body" fuzzy="true">У мене виникла проблема з функцією завдань патрулювання:\n- [Опишіть конкретну проблему]\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]\n\n[]</string>
 </resources>

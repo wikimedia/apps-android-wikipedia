@@ -109,7 +109,6 @@
   <string name="map_view_link_text">Vider sur un carta</string>
   <string name="other_languages_indication_text">Leger in un altere lingua</string>
   <string name="language_count_link_text">Disponibile in %d altere linguas</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Si tu publica, tu accepta le &lt;a href=\"%1$s\"&gt;conditiones de uso&lt;/a&gt; e le liberation irrevocabile de tu contributiones sub le licentia &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Si tu publica, tu accepta le &lt;a href=\"%1$s\"&gt;conditiones de uso&lt;/a&gt; e le liberation irrevocabile de tu contributiones sub le licentia &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Le modificationes essera attribuite al adresse IP de tu apparato. Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt;, tu habera plus confidentialitate.</string>
   <string name="edit_anon_warning">Le modificationes essera attribuite al adresse IP de tu apparato. Si tu &lt;a href=\"https://#login\"&gt;aperi session&lt;/a&gt;, tu habera plus de confidentialitate.</string>
@@ -337,7 +336,7 @@
   <string name="expand_refs">Tocca pro expander</string>
   <string name="cc_logo">Licentia Creative Commons</string>
   <string name="captcha_image">Imagine CAPTCHA</string>
-  <string name="gallery_fair_use_license">“Fair use” (uso legitime)</string>
+  <string name="gallery_fair_use_license">Uso juste</string>
   <string name="gallery_uploader_unknown">Incargator incognite</string>
   <string name="gallery_not_available_offline_snackbar">Le vista in galeria non es disponibile foras de linea.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Clauder</string>
@@ -996,7 +995,7 @@
   <string name="suggested_edits_ip_blocked_title">IP blocate</string>
   <string name="suggested_edits_last_edited">Ultime modification</string>
   <string name="suggested_edits_last_edited_never">Nunquam</string>
-  <string name="suggested_edits_task_new">nove</string>
+  <string name="suggested_edits_task_new">Nove</string>
   <string name="suggested_edits_cc0_notice">Publicante, tu accepta le &lt;a href=\"%1$s\"&gt;conditiones de uso&lt;/a&gt; e tu libera irrevocabilemente tu contributiones sub le licentia &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modificationes suggerite</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Gratias pro modificar Wikipedia! Proque non continuar ubi tu lassava?</string>
@@ -1075,6 +1074,7 @@
   <string name="image_recommendation_tooltip_3">Decide si le imagine adjuta lectores a comprender melio iste subjecto</string>
   <string name="image_recommendation_tooltip_next">Sequente</string>
   <string name="image_recommendation_tooltip_warning">Per favor revide le articulo pro comprender su subjecto e inspectar le imagine</string>
+  <string name="image_recommendation_depleted">Guai, il non ha plus imagines suggerite disponibile al momento. Per favor explora altere &lt;a href=\"#\"&gt;modificationes suggerite&lt;/a&gt; o reveni plus tarde.</string>
   <string name="suggested_edits_report_feature">Problema de functionalitate</string>
   <string name="suggested_edits_report_feature_subject">Problema con modificationes suggerite</string>
   <string name="edit_summary_added_image">Imagine addite</string>
@@ -1465,8 +1465,8 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Vider contributiones del usator</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Regratiar</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Information de usator</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Periodo de uso</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Numero de modificationes</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Conto create le: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Numero de modificationes: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Clauder</string>
   <string name="patroller_tasks_filters_title">Filtros</string>
   <string name="patroller_tasks_filters_reset">Reinitialisar</string>
@@ -1474,10 +1474,15 @@
   <string name="patroller_tasks_filters_all_text">Totes</string>
   <string name="patroller_tasks_filters_user_status_header">Registration e experientia del usator</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Non registrate</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Redactores que non ha aperite session.</string>
   <string name="patroller_tasks_filters_user_status_registered">Registrate</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Redactores que ha aperite session.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Novicios</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Redactores registrate que ha minus de 10 modificationes in 4 dies de activitate.</string>
   <string name="patroller_tasks_filters_user_status_learners">Apprentisses</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Redactores registrate con experientia inter “Novicios” e “Usatores con experientia”.</string>
   <string name="patroller_tasks_filters_user_status_experienced">Usatores con experientia</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Redactores registrate con plus de 500 modificationes e 30 dies de activitate.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Ultime versiones</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Ultime version</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Non le ultime version</string>
@@ -1489,14 +1494,22 @@
   <string name="patroller_tasks_filters_significance_edits">Modificationes non minor</string>
   <string name="patroller_tasks_filters_contribution_quality_header">Prediction de qualitate de contributiones</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Multo probabilemente bon</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Multo precise pro trovar quasi tote le modificationes sin problemas.</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Pote haber problemas</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Trova le major parte de modificationes imperfecte o damnific, ma con minor precision.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Probabilemente ha problemas</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Con precision medie, trova un fraction intermedie de modificationes problematic.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Multo probabilemente ha problemas</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Trova con altissime precision le modificationes le plus obviemente defectuose o damnific.</string>
   <string name="patroller_tasks_filters_user_intent_header">Predictiones del intentiones del usator</string>
   <string name="patroller_tasks_filters_user_intent_good">Multo probabilemente de bon fide</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Multo precise pro trovar quasi tote le modificationes de bon fide.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Pote esser de mal fide</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Trova le major parte del modificationes de mal fide, ma con minor precision.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Probabilemente de mal fide</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Con precision medie, trova un fraction intermedie de modificationes de mal fide.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Multo probabilemente de mal fide</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Trova con altissime precision le modificationes de mal fide le plus evidente.</string>
   <string name="patroller_tasks_filters_empty_search_message">Tenta remover %s pro vider plus modificationes</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d filtro</item>
@@ -1520,7 +1533,7 @@
   <string name="page_issues_title">Problemas con le pagina</string>
   <string name="generic_release_notes">Correctiones de errores e meliorationes minor</string>
   <string name="email_report_image_recommendations_subject">Reporto de problema: function Recommendationes de imagines</string>
-  <string name="email_report_image_recommendations_body">Io ha incontrate un problema con le function Recommendationes de imagines:\n- [Describe le problema specific]\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
+  <string name="email_report_image_recommendations_body">Io ha incontrate un problema con le function Recommendationes de imagines:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
   <string name="email_report_patroller_tasks_subject">Reporto de problema: function Cargas de patruliator</string>
-  <string name="email_report_patroller_tasks_body">Io ha incontrate un problema con le function Cargas de patruliator:\n- [Describe le problema specific]\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
+  <string name="email_report_patroller_tasks_body">Io ha incontrate un problema con le function Cargas de patruliator:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]\n\n[Capturas de schermo o ligamines]</string>
 </resources>

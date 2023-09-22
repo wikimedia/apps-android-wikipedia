@@ -104,7 +104,6 @@
   <string name="map_view_link_text">Umaã mapa rupí</string>
   <string name="other_languages_indication_text">Umũgetá amũ nhẽẽga rupí</string>
   <string name="language_count_link_text">Yukuawa amũ %d nhẽẽga\'etá rupí</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Umukuau ramẽ, ĩdé remunhã yawé &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; rupí, açuí ĩdé te remurú remuterie maitepawa ne pitimũgawa reçé, &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; mutarawa wiripe.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Umukuau ramẽ, ĩdé remunhã yawé &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; irũ, açuí ĩdé te remurú remuterie maitepawa yawá reçé &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; mutarawa wiripe. Murupiawa’etá tausó kurí tauyumũdi ne murakimaé IP ikurẽdawa reçé. Ĩdé repuraĩ &lt;a href=\"https://#login\"&gt;reiké&lt;/a&gt;, ĩdé reputari çupirũgawa píri ramẽ.</string>
   <string name="edit_anon_warning">Murupiawa’etá tausó tauyumeẽ ne murakimaé IP ikurẽdawa reçé. Ĩdé &lt;a href=\"https://#login\"&gt;reyumũdí&lt;/a&gt; ramẽ, ĩdé rerikú kurí çupirũgawa píri.</string>
@@ -217,7 +216,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/yrl</string>
   <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/yrl</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/yrl</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/yrl</string>
   <string name="about_contributors_heading">Pitimũgara\'etá</string>
@@ -457,7 +455,7 @@
   </plurals>
   <string name="suggested_edits_learn_more">Ukuau píri</string>
   <string name="suggested_edits_last_edited_never">Nemairamé</string>
-  <string name="suggested_edits_task_new">piçaçú</string>
+  <string name="suggested_edits_task_new" fuzzy="true">piçaçú</string>
   <string name="suggested_edits_contribution_language_label">Nhẽẽga</string>
   <string name="suggested_edits_contribution_image_label">Çãgawa</string>
   <string name="suggested_edits_contribution_article_label">Kuatiara</string>

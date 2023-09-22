@@ -112,7 +112,6 @@
   <string name="map_view_link_text">Прикажи на мапи</string>
   <string name="other_languages_indication_text">Прочитај на другом језику</string>
   <string name="language_count_link_text">Доступан на другим језицима (%d)</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Објављивањем измена прихватате &lt;a href=\"%1$s\"&gt;услове коришћења&lt;/a&gt; и неопозиво објављивање свог доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Објављивањем измена прихватате &lt;a href=\"%1$s\"&gt;услове коришћења&lt;/a&gt; и неопозиво објављивање свог доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете већу приватност.</string>
   <string name="edit_anon_warning">Измене ће бити приписане IP адреси вашег уређаја. Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt;, имаћете више приватности.</string>
@@ -240,7 +239,6 @@
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.sr</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sr#Ознаке_слика</string>
   <string name="about_libraries_heading">Коришћене библиотеке</string>
@@ -870,7 +868,7 @@
   <string name="suggested_edits_ip_blocked_title">IP адреса је блокирана</string>
   <string name="suggested_edits_last_edited">Последњи пут уређено</string>
   <string name="suggested_edits_last_edited_never">Никад</string>
-  <string name="suggested_edits_task_new">ново</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ново</string>
   <string name="suggested_edits_cc0_notice">Објављивањем измена прихватате &lt;a href=\"%1$s\"&gt;услове коришћења&lt;/a&gt; и неопозиво објављивање свог доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложене измене</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Хвала на уређивању Википедије. Зашто не бисте наставили тамо где сте стали?</string>
@@ -1202,14 +1200,17 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Прикажи доприносе</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Хвала</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Кориснички подаци</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Број измена</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Налог направљен: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Број измена: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Затвори</string>
   <string name="patroller_tasks_filters_title">Филтери</string>
   <string name="patroller_tasks_filters_reset">Ресет</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Вики</string>
   <string name="patroller_tasks_filters_all_text">Све</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Нерегистровани</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Нерегистровани уредници.</string>
   <string name="patroller_tasks_filters_user_status_registered">Регистровани</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Пријављени уредници.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Новајлије</string>
   <string name="patroller_tasks_filters_user_status_experienced">Искусни корисници</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Последње измене</string>

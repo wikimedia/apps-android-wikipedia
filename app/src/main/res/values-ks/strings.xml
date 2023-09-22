@@ -107,7 +107,6 @@
   <string name="map_view_link_text">نَقشَس پؠٹھ وُچھِو</string>
   <string name="other_languages_indication_text">بییٚیِس زبٲنی منٛز پٕریٚو</string>
   <string name="language_count_link_text">موٗجوٗد چھُ %d باقین زبانن منٛز تہِ</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">شایعہ کرنس پؠٹھ، چھوٗ تۄٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمالس&lt;/a&gt;سٕتی مُتفِق تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s\"&gt;یتھ تحت اقرار کران&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon" fuzzy="true">شایعہ کرنس پؠٹھ، چھو توٚہہِ &lt;a href=\"%1$s\"&gt;شرٲئطہِ استعمال اقرار کرٕنی&lt;/a&gt;، تہٕ اٹل طورس پؠٹھ پنٕنی شموٗلِیَت &lt;a href=\"%2$s/\"&gt;یتھ اِجازت نامس تاحت مانٕنی&lt;/a&gt;. ایڑِٹٕز یِن تُہنٛدس ڈِوایسٕکس IP پتاہ ہَس کُن مَنسوٗب کرنہٕ. اگر تۄٚہہِ &lt;a href=\"https://#login\"&gt;دٲخل گژھیوٚ&lt;/a&gt;، توٚہہِ مِلیو زیادٕ رازدأری.</string>
   <string name="edit_anon_warning">ایڑِٹ یِنی تُہنٛدِ ڈِوایسٕکی IP پتاہ ہَس کُن مَنسوٗب کرنہٕ. اگر تُہہ &lt;a href=\"https://#login\"&gt;توٚہہِ گژھیو زیادٕ حفاظت فراہم.&lt;/a&gt;</string>
@@ -553,7 +552,7 @@
   <string name="suggested_edits_quality_very_good_text">واریاہ اَصٕل</string>
   <string name="suggested_edits_quality_okay_text">تھیٖک چھُ</string>
   <string name="suggested_edits_last_edited_never">زانٛہہ نہٕ</string>
-  <string name="suggested_edits_task_new">نٔو</string>
+  <string name="suggested_edits_task_new" fuzzy="true">نٔو</string>
   <string name="suggested_edits_contribution_language_label">زَبان</string>
   <string name="suggested_edits_contribution_date_time_label">تٲریٖخ/وَقت</string>
   <string name="suggested_edits_contribution_type_label">شَرکٲژٕ قٕسم:</string>

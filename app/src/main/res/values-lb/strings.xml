@@ -107,7 +107,6 @@
   <string name="map_view_link_text">Op enger Kaart weisen</string>
   <string name="other_languages_indication_text">An enger anerer Sprooch liesen</string>
   <string name="language_count_link_text">Disponibel an %d anere Sproochen</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Mam Verëffentleche sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-Lizenz.</string>
   <string name="preference_title_language">Wikipedia-Sproochen</string>
   <string name="langlinks_filter_hint">Sichen</string>
@@ -220,7 +219,6 @@
   <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_contributors_heading">Auteuren</string>
@@ -817,7 +815,7 @@
   <string name="suggested_edits_ip_blocked_title">IP gespaart</string>
   <string name="suggested_edits_last_edited">Lescht Ännerung</string>
   <string name="suggested_edits_last_edited_never">Ni</string>
-  <string name="suggested_edits_task_new">nei</string>
+  <string name="suggested_edits_task_new">Nei</string>
   <string name="suggested_edits_reactivation_notification_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci fir Är Ännerungen op Wikipedia! Firwat net einfach do weidermaachen, wou Dir opgehalen hutt?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Hutt Dir eng Minutt Zäit fir d\'Wikipedia weider ze verbesseren? Kuckt Iech dës Virschléi, fir Ännerungen ze maachen, un.</string>
@@ -1142,7 +1140,6 @@
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Benotzerinformatiounen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Benotzerkontributioune weisen</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Benotzerinformatiounen</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Zuel vun den Ännerungen</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Zoumaachen</string>
   <string name="patroller_tasks_filters_title">Filteren</string>
   <string name="patroller_tasks_filters_reset">Zrécksetzen</string>

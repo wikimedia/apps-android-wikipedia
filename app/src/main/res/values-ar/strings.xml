@@ -143,7 +143,7 @@
   <string name="map_view_link_text">اعرض على خريطة</string>
   <string name="other_languages_indication_text">اقرأ بلغة أخرى</string>
   <string name="language_count_link_text">متاحة في %d لغة أخرى</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">المشاع الإبداعي النسبة-الترخيص بالمثل 3.0</string>
+  <string name="content_license_cc_by_sa">المشاع الإبداعي النسبة-الترخيص بالمثل 4.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;وعلى نشر مساهماتك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;المشاع الإبداعي: النسبة-الترخيص بالمثل 3.0&lt;/a&gt;. التعديلات سوف تنسب إلى عنوان بروتوكول الإنترنت الخاص بجهازك. في حال كنت &lt;a href=\"https://#login\"&gt;مسجلا للدخول&lt;/a&gt;، فإنك ستحظى بالمزيد من الخصوصية.</string>
   <string name="edit_anon_warning">ستُنسب التعديلات إلى عنوان IP الخاص بجهازك. إذا قمت &lt;a href=\"https://#login\"&gt;بتسجيل الدخول&lt;/a&gt; ، سيكون لديك المزيد من الخصوصية.</string>
@@ -1040,7 +1040,7 @@
   <string name="suggested_edits_ip_blocked_title">عنوان بروتوكول إنترنت محجوب</string>
   <string name="suggested_edits_last_edited">آخر تعديل</string>
   <string name="suggested_edits_last_edited_never">أبدا</string>
-  <string name="suggested_edits_task_new">جديد</string>
+  <string name="suggested_edits_task_new" fuzzy="true">جديد</string>
   <string name="suggested_edits_cc0_notice">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">التعديلات المقترحة</string>
   <string name="suggested_edits_reactivation_notification_stage_one">شكرًا لتعديلك ويكيبيديا! لماذا لا تُكمل من حيث توقفت؟</string>

@@ -132,7 +132,6 @@
   <string name="map_view_link_text">הצגה על מפה</string>
   <string name="other_languages_indication_text">קריאה בשפה אחרת</string>
   <string name="language_count_link_text">זמין בעוד %d שפות</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">פרסום השינויים מהווה את הסכמתך ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור בלתי־חוזר של תרומותיך לפי רישיון &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. העריכות תיוחסנה לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך יותר פרטיות.</string>
   <string name="edit_anon_warning">עריכות ייוחסו לכתובת ה־IP של המכשיר שלך. &lt;a href=\"https://#login\"&gt;כניסה לחשבון&lt;/a&gt; תעניק לך פרטיות רבה יותר.</string>
@@ -204,7 +203,7 @@
   <string name="create_account_password_repeat_hint">חזרה על סיסמה</string>
   <string name="create_account_password_is_username">הסיסמה אינה יכולה להיות זהה לשם המשתמש</string>
   <string name="create_account_passwords_mismatch_error">הסיסמאות אינן תואמות</string>
-  <string name="create_account_email_error">כתובת דוא\"ל שגויה</string>
+  <string name="create_account_email_error">כתובת דוא״ל שגויה</string>
   <string name="create_account_username_error">תווים בלתי־תקינים בשם המשתמש</string>
   <string name="create_account_password_error">הסיסמה צריכה להיות באורך 8 תווים לפחות</string>
   <string name="create_account_generic_error">לא היה ניתן ליצור חשבון</string>
@@ -221,7 +220,7 @@
   <string name="create_account_ip_block_details">פרטים</string>
   <string name="preferences_general_heading">כללי</string>
   <string name="preferences_account_heading">חשבון</string>
-  <string name="wikipedia_app_faq">שו\"ת יישום ויקיפדיה</string>
+  <string name="wikipedia_app_faq">שו״ת יישום ויקיפדיה</string>
   <string name="send_feedback">לשלוח משוב על היישום</string>
   <string name="create_account_account_created_toast">החשבון נוצר!</string>
   <string name="preferences_heading_syncing">סנכרון</string>
@@ -248,7 +247,7 @@
   <string name="page_protected_can_not_edit_anon">סליחה, לא ניתן עכשיו לערוך את הדף הזה בלי להיכנס לחשבון.</string>
   <string name="page_protected_can_not_edit_title">הדף הזה מוגן</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">הוספה לרשימת המעקב</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">עקוב אחרי מה שקורה הערכים שמעניינים אותך. לחץ על תפריט הפעולות הנוספות ובחר &lt;b&gt;הוספה לרשימת המעקב&lt;/b&gt; כיד לראות את השינויים לערך.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">כאן אפשר לעקוב אחרי מה שקורה בערכים שמעניינים אותך. יש ללחוץ על תפריט הפעולות הנוספות ולבחור &lt;b&gt;הוספה לרשימת המעקב&lt;/b&gt; כדי לראות את השינויים לערך.</string>
   <string name="settings_item_preferences">הגדרות</string>
   <string name="settings_activity_title">הגדרות</string>
   <string name="about_description">אודות יישום ויקיפדיה</string>
@@ -836,7 +835,7 @@
   <string name="view_top_read_card_pageviews_m_suffix">%d מיליון</string>
   <string name="view_next_random_article">לטעון ערך אקראי נוסף</string>
   <string name="view_main_page_card_title">היום בוויקיפדיה</string>
-  <string name="view_main_page_card_action">הצגת הדף הראשי</string>
+  <string name="view_main_page_card_action">הצגת העמוד הראשי</string>
   <string name="view_featured_image_card_title">תמונת היום</string>
   <string name="view_featured_image_card_download">הורדה</string>
   <string name="view_featured_image_card_share">שיתוף</string>
@@ -872,7 +871,7 @@
   <string name="feed_item_type_featured_article">ערך מומלץ יומי בוויקיפדיה</string>
   <string name="feed_item_type_trending">הערכים המוצגים ביותר ביום</string>
   <string name="feed_item_type_featured_image">תמונה יומית מומלצת מוויקישיתוף</string>
-  <string name="feed_item_type_main_page">דף ראשי של ויקיפדיה עם תוכן יומי מומלץ</string>
+  <string name="feed_item_type_main_page">עמוד ראשי של ויקיפדיה עם תוכן יומי מומלץ</string>
   <string name="feed_item_type_randomizer">יצירת ערכים אקראיים לקריאה</string>
   <string name="feed_item_type_suggested_edits">הצעות להוספת תוכן לוויקיפדיה</string>
   <string name="feed_empty_message">אין שום דבר בהזנת ה\"לחקור\" שלך</string>
@@ -1081,7 +1080,7 @@
   <string name="suggested_edits_ip_blocked_title">כתובת ה־IP חסומה</string>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
-  <string name="suggested_edits_task_new">חדשה</string>
+  <string name="suggested_edits_task_new" fuzzy="true">חדשה</string>
   <string name="suggested_edits_cc0_notice">הפרסום מהווה את הסכמתך הבלתי־חוזרת ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור של התרומה הזאת לפי &lt;a href=\"%2$s\"&gt;רישיון CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">עריכות מוצעות</string>
   <string name="suggested_edits_reactivation_notification_stage_one">תודה על עריכת ויקיפדיה! מדוע לא להמשיך היכן שהפסקת?</string>
@@ -1472,7 +1471,7 @@
   <string name="watchlist_filter_user_intent_likely_problems">סבירות גבוהה לכוונה רעה</string>
   <string name="watchlist_filter_user_intent_bad">כוונה רעה בסבירות גבוהה מאוד</string>
   <string name="watchlist_filter_user_status_header">הרשמת משתמשים ורמת ניסיון</string>
-  <string name="watchlist_filter_user_status_unregistered">רשומים</string>
+  <string name="watchlist_filter_user_status_unregistered">לא רשומים</string>
   <string name="watchlist_filter_user_status_registered">לא רשומים</string>
   <string name="watchlist_filter_user_status_newcomers">משתמשים מתחילים</string>
   <string name="watchlist_filter_user_status_learners">לומדים</string>
@@ -1494,7 +1493,7 @@
   <string name="watchlist_filter_type_of_change_page_creations">יצירות דפים</string>
   <string name="watchlist_filter_type_of_change_category_changes">שינויים בקטגוריות</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">עריכות ויקינתונים</string>
-  <string name="watchlist_filter_type_of_change_logged_actions">פעולות יומן</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">פעולות שנרשמו ביומן</string>
   <string name="watchlist_filter_type_of_change_new_users">משתמשים חדשים</string>
   <string name="watchlist_filter_reset_button">איפוס</string>
   <string name="watchlist_search_bar_hint">חיפוש או סינון רשימת מעקב</string>
@@ -1572,8 +1571,8 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">הצגת תרומות משתמש</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">תודה</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">מידע על המשתמש</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">ותק</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">מספר העריכות</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;החשבון קיים מאז:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;מספר העריכות:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">סגירה</string>
   <string name="patroller_tasks_filters_title">מסננים</string>
   <string name="patroller_tasks_filters_reset">איפוס</string>
@@ -1581,10 +1580,15 @@
   <string name="patroller_tasks_filters_all_text">הכול</string>
   <string name="patroller_tasks_filters_user_status_header">הרשמת משתמשים ורמת ניסיון</string>
   <string name="patroller_tasks_filters_user_status_unregistered">לא רשומים</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">עורכים שלא נכנסו לחשבון.</string>
   <string name="patroller_tasks_filters_user_status_registered">רשומים</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">עורכים שנכנסו לחשבון.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">משתמשים מתחילים</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">עורכים רשומים עם פחות מ־10 עריכות או פחות מ־4 ימים של פעילות.</string>
   <string name="patroller_tasks_filters_user_status_learners">לומדים</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">עורכים רשומים שרמת הניסיון שלהם היא בין \"משתמשים מתחילים\" לבין \"משתמשים מנוסים\".</string>
   <string name="patroller_tasks_filters_user_status_experienced">משתמשים מנוסים</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">עורכים רשומים עם יותר מ־500 עריכות ויותר מ־30 ימים של פעילות.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">גרסאות אחרונות</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">גרסה אחרונה</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">לא הגרסה האחרונה</string>
@@ -1596,14 +1600,22 @@
   <string name="patroller_tasks_filters_significance_edits">עריכות שאינן משניות</string>
   <string name="patroller_tasks_filters_contribution_quality_header">חיזויי איכות תרומות</string>
   <string name="patroller_tasks_filters_contribution_quality_good">טובות בסבירות גבוהה מאוד</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">מדויק מאוד במציאה של כמעט כל העריכות שאין בהן בעיות.</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">ייתכן שיש בהן בעיות</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">מוצא את רוב העריכות הפגומות או המזיקות, אבל בדיוק נמוך יותר.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">כנראה יש בהן בעיות</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">עם דיוק בינוני, מוצא חלק בינוני של עריכות בעייתיות.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">סביר מאוד שיש בהן בעיות</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">בעל דיוק גבוה מאוד במציאת העריכות שברור ביותר שהן פגומות או מזיקות.</string>
   <string name="patroller_tasks_filters_user_intent_header">חיזויי כוונת משתמש</string>
   <string name="patroller_tasks_filters_user_intent_good">סבירות גבוהה מאוד לכוונה טובה</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">מדויק מאוד במציאת כמעט כל העריכות שנעשו בכוונה טובה.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">אולי כוונה רעה</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">מוצא את רוב העריכות שנעשו בכוונה רעה, אבל בדיוק נמוך יותר.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">סבירות גבוהה לכוונה רעה</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">עם דיוק בינוני, מוצא חלק בינוני של עריכות שנעשו בכוונה רעה.</string>
   <string name="patroller_tasks_filters_user_intent_bad">כוונה רעה בסבירות גבוהה מאוד</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">בעל דיוק גבוה מאוד במציאת העריכות שברור ביותר שנעשו בכוונה רעה.</string>
   <string name="patroller_tasks_filters_empty_search_message">נא לנסות להסיר %s כדי לראות עוד עריכות</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">מסנן אחד</item>
@@ -1629,7 +1641,7 @@
   <string name="page_issues_title">בעיות בדף</string>
   <string name="generic_release_notes">תיקוני באגים קלים ושיפורים</string>
   <string name="email_report_image_recommendations_subject">דו\"ח בעיה – תכונת המלצות תמונה</string>
-  <string name="email_report_image_recommendations_body">נתקלתי בבעיה בתכונת המלצות תמונה:\n- [נא לתאר בעיה ספציפית]\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
+  <string name="email_report_image_recommendations_body">נתקלתי בבעיה בתכונת המלצות תמונה:\n- [נא לתאר בעיה ספציפית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
   <string name="email_report_patroller_tasks_subject">דו\"ח בעיה - תכונת משימות ניטור</string>
-  <string name="email_report_patroller_tasks_body">נתקלתי בבעיה בתכונת משימות ניטור:\n- [נא לתאר בעיה ספציפית]\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]</string>
+  <string name="email_report_patroller_tasks_body">נתקלתי בבעיה בתכונת משימות ניטור עריכות:\n- [נא לתאר בעיה ספציפית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]\n\n[צילומי מסך או קישורים]</string>
 </resources>

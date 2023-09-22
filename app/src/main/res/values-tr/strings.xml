@@ -151,7 +151,6 @@
   <string name="map_view_link_text">Haritada görüntüle</string>
   <string name="other_languages_indication_text">Başka dilde oku</string>
   <string name="language_count_link_text">%d farklı dilde mevcut</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Yayımlayarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; lisansıyla yayımlamayı kabul etmiş olursunuz.</string>
   <string name="edit_save_action_license_anon">Yayımlayarak &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\'nı ve katkılarınızı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; lisansıyla yayınlamayı kabul etmiş olursunuz. Değişiklikleriniz cihazınızın IP adresiyle kaydedilecek. Eğer &lt;a href=\"https://#login\"&gt;giriş yaparsanız&lt;/a&gt; daha fazla gizliliğe sahip olursunuz.</string>
   <string name="edit_anon_warning">Değişiklikler cihazınızın IP adresiyle yayınlanır.  &lt;a href=\"https://#login\"&gt;Oturum açarsanız yaparsanız&lt;/a&gt; daha fazla gizlilik sağlayabilirsiniz.</string>
@@ -1042,7 +1041,7 @@
   <string name="suggested_edits_ip_blocked_title">IP engellendi</string>
   <string name="suggested_edits_last_edited">Son düzenleme</string>
   <string name="suggested_edits_last_edited_never">Asla</string>
-  <string name="suggested_edits_task_new">yeni</string>
+  <string name="suggested_edits_task_new">Yeni</string>
   <string name="suggested_edits_cc0_notice">Yayınlayarak, &lt;a href=\"%1$s\"&gt;kullanım şartlarını&lt;/a&gt; ve bu katkıyı &lt;a href=\"%2$s\"&gt;CC0 lisansı&lt;/a&gt; altında geri dönülmez bir şekilde serbest bırakmayı kabul edersiniz.</string>
   <string name="suggested_edits_reactivation_notification_title">Önerilen düzenlemeler</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Vikipedi\'yi düzenlediğiniz için teşekkürler! Neden kaldığınız yerden devam etmiyorsunuz?</string>
@@ -1508,8 +1507,8 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Kullanıcı katkılarını görüntüle</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Teşekkür et</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Kullanıcı bilgisi</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Görev süresi</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Değişiklik sayısı</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Hesap tarihi: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Düzenleme sayısı: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Kapat</string>
   <string name="patroller_tasks_filters_title">Süzgeçler</string>
   <string name="patroller_tasks_filters_reset">Sıfırla</string>
@@ -1517,7 +1516,9 @@
   <string name="patroller_tasks_filters_all_text">Hepsi</string>
   <string name="patroller_tasks_filters_user_status_header">Kullanıcı kaydı ve deneyimi</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Kayıtsız</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Oturum açmamış düzenleyiciler.</string>
   <string name="patroller_tasks_filters_user_status_registered">Kayıtlı</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Oturum açmış düzenleyiciler.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Yeni başlayanlar</string>
   <string name="patroller_tasks_filters_user_status_learners">Öğrenenler</string>
   <string name="patroller_tasks_filters_user_status_experienced">Deneyimli kullanıcılar</string>
@@ -1562,8 +1563,8 @@
   <string name="data_opt_in_reject">Reddet</string>
   <string name="page_issues_title">Sayfa sorunları</string>
   <string name="generic_release_notes">Küçük hata düzeltmeleri ve iyileştirmeler</string>
-  <string name="email_report_image_recommendations_subject">Sorun bildirimi - Görsel Önerileri özelliği</string>
-  <string name="email_report_image_recommendations_body">Görsel Önerileri özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]</string>
-  <string name="email_report_patroller_tasks_subject">Sorun bildirimi - Devriye Görevleri özelliği</string>
-  <string name="email_report_patroller_tasks_body">Devriye Görevleri özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]</string>
+  <string name="email_report_image_recommendations_subject">Sorun Bildirimi - Görsel Önerileri özelliği</string>
+  <string name="email_report_image_recommendations_body">Görsel Önerileri özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\n\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]</string>
+  <string name="email_report_patroller_tasks_subject">Sorun Bildirimi - Değişiklik Kolluğu Özelliği</string>
+  <string name="email_report_patroller_tasks_body">Değişiklik Kolluğu özelliğiyle ilgili bir sorunla karşılaştım:\n- [Belirli bir sorunu tanımlayın]\n\nGörmek istediğim davranış:\n- [Önerilen çözümü tanımlayın]\n\n[Ekran görüntüleri ya da Bağlantılar]</string>
 </resources>

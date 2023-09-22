@@ -105,7 +105,6 @@
   <string name="map_view_link_text">Ehecha peteĩ mápape</string>
   <string name="other_languages_indication_text">Emoñe\'ẽ ambue ñe\'ẽme</string>
   <string name="language_count_link_text">Ojeguereko %d ambue ñe\'ẽme</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="preference_title_language">Vikipetã ñe\'ẽnguéra</string>
   <string name="langlinks_filter_hint">Eheka</string>
   <string name="langlinks_empty">Ndaipóri ko kuatia ambue ñe\'ẽme.</string>
@@ -227,6 +226,7 @@
   <string name="dialog_close_description">Emboty</string>
   <string name="preference_title_show_images">Ehecha ta\'angakuéra</string>
   <string name="gallery_menu_share">Eikuaauka</string>
+  <string name="gallery_uploader_unknown">Ndojekuaái ohupívape</string>
   <string name="menu_close_all_tabs">Embotypa tendaykekuéra</string>
   <string name="close_all_tabs_confirm">Añetetépa rembotyseha tendaykekuéra?</string>
   <string name="button_close_tab">Emboty tendayke</string>
@@ -303,7 +303,7 @@
     <item quantity="other">%d ára</item>
   </plurals>
   <string name="suggested_edits_last_edited_never">Araka\'eve</string>
-  <string name="suggested_edits_task_new">ipyahúva</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ipyahúva</string>
   <string name="suggested_edits_contribution_language_label">Ñe\'ẽnguéra</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Kuehe</string>
   <string name="suggested_edits_encourage_account_creation_title">Reikuaápa opavave ikatuha ohai Vikipetãme?</string>
@@ -356,6 +356,7 @@
   <string name="wikitext_large">Embotuicha</string>
   <string name="wikitext_small">Emomichĩ</string>
   <string name="wikitext_link">Joajuha</string>
+  <string name="insert_media_settings_uploaded_image">Ta\'anga ojehupímava</string>
   <string name="insert_media_advanced_settings_image_position_right">Akatúa</string>
   <string name="insert_media_advanced_settings_image_position_left">Asu</string>
   <string name="insert_media_advanced_settings_image_position_center">Mbyte</string>

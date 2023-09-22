@@ -105,7 +105,6 @@
   <string name="map_view_link_text">Cingak ring peta</string>
   <string name="other_languages_indication_text">Wacen ring basa tiosan</string>
   <string name="language_count_link_text">Cumawis ring %d basa tiosan</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Antuk ngawedar, Ida ngidep majeng &lt;a href=\"%1$s\"&gt;Katentuan Sang Anganggé&lt;/a&gt;, miwah ngalepas pituut Ida ring metén lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Antuk ngawedar, Ida ngidep majeng &lt;a href=\"%1$s\"&gt;Katentuan Sang Angaggé&lt;/a&gt;, miwah ngalepas pituut Ida ring metén lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Uahan pacang katemonin nuju alamat IP piranti. Pinaka Ida &lt;a href=\"https://#login\"&gt;manjing log&lt;/a&gt;, Ida pacang medué privasi langkung.</string>
   <string name="edit_anon_warning">Uahan pacang kasuwécayang nuju alamat IP piranti ragané. Pinaka ragané &lt;a href=\"https://#login\"&gt;manjing log&lt;/a&gt;, ragané pacang polih langkung paragaan.</string>
@@ -232,7 +231,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ban.wikipedia.org/wiki/Wikipedia:Pinunas_satunggal_akun</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kapustakaan kaanggén</string>
@@ -682,7 +680,7 @@
   <string name="suggested_edits_ip_blocked_title">IP kacadel</string>
   <string name="suggested_edits_last_edited">Kauah ungkur</string>
   <string name="suggested_edits_last_edited_never">Nénten naénin</string>
-  <string name="suggested_edits_task_new">anyar</string>
+  <string name="suggested_edits_task_new" fuzzy="true">anyar</string>
   <string name="suggested_edits_contributions_screen_title">%s\'s pituut</string>
   <string name="suggested_edits_contribution_language_label">Basa</string>
   <string name="suggested_edits_contribution_date_time_label">Tanggal/Galah</string>

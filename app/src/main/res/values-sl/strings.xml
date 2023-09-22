@@ -115,7 +115,6 @@
   <string name="map_view_link_text">Prikaži na karti</string>
   <string name="other_languages_indication_text">Preberite v drugem jeziku</string>
   <string name="language_count_link_text">Na voljo v %d drugih jezikih</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Z objavo izražate strinjanje s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljate pod licenco &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Z objavo se strinjate s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljate pod licenco &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;. Urejanja bodo pripisana IP-naslovu vaše naprave. Če se boste &lt;a href=\"https://#login\"&gt;prijavili&lt;/a&gt;, boste imeli več zasebnosti.</string>
   <string name="edit_anon_warning">Urejanja bodo pripisana IP-naslovu vaše naprave. Če se &lt;a href=\"https://#login\"&gt;prijavite&lt;/a&gt;, boste imeli več zasebnosti.</string>
@@ -231,7 +230,7 @@
   <string name="page_protected_can_not_edit_anon">Žal te strani trenutno ni mogoče urejati anonimno.</string>
   <string name="page_protected_can_not_edit_title">Stran je zaščitena</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Dodaj na spisek nadzorov</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Sledite spremembe člankov, ki vas zanimajo. Tapnite prelivni meni in izberite &lt;b&gt;Dodaj na spisek nadzorov&lt;/b&gt;, da si ogledate spremembe članka.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Spremljajte spremembe člankov, ki vas zanimajo. Za opazovanje sprememb tapnite prelivni meni in izberite &lt;b&gt;Dodaj na spisek nadzorov&lt;/b&gt;.</string>
   <string name="settings_item_preferences">Nastavitve</string>
   <string name="settings_activity_title">Nastavitve</string>
   <string name="about_description">O aplikaciji Wikipedija</string>
@@ -1065,7 +1064,7 @@
   <string name="suggested_edits_ip_blocked_title">IP blokiran</string>
   <string name="suggested_edits_last_edited">Zadnje urejanje</string>
   <string name="suggested_edits_last_edited_never">Nikoli</string>
-  <string name="suggested_edits_task_new">novo</string>
+  <string name="suggested_edits_task_new">Novo</string>
   <string name="suggested_edits_cc0_notice">Z objavo izražate strinjanje s &lt;a href=\"%1$s\"&gt;pogoji uporabe&lt;/a&gt; in ta prispevek nepreklicno objavljate pod licenco &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Predlagana urejanja</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Hvala za urejanje Wikipedije! Zakaj ne bi nadaljevali, kjer ste končali?</string>
@@ -1156,6 +1155,7 @@
   <string name="image_recommendation_tooltip_3">Odločite se, ali slika bralcem pomaga bolje razumeti to temo</string>
   <string name="image_recommendation_tooltip_next">Naprej</string>
   <string name="image_recommendation_tooltip_warning">Preglejte članek, da boste razumeli njegovo temo, in preglejte sliko.</string>
+  <string name="image_recommendation_depleted">Oprostite, trenutno ni več predlaganih slik. Raziščite druge &lt;a href=\"#\"&gt;predlagane popravke&lt;/a&gt; ali se vrnite pozneje.</string>
   <string name="suggested_edits_report_feature">Težava z možnostjo</string>
   <string name="suggested_edits_report_feature_subject">Težava s predlaganimi popravki</string>
   <string name="edit_summary_added_image">dodana slika</string>
@@ -1556,8 +1556,8 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Ogled uporabnikovih prispevkov</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Zahvali se</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Uporabniški podatki</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_tenure">Staž</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Število urejanj</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Račun od: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Število urejanj&lt;/b&gt;: %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Zapri</string>
   <string name="patroller_tasks_filters_title">Filtri</string>
   <string name="patroller_tasks_filters_reset">Ponastavi</string>
@@ -1565,10 +1565,15 @@
   <string name="patroller_tasks_filters_all_text">Vse</string>
   <string name="patroller_tasks_filters_user_status_header">Registriranost in izkušnje uporabnika</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Neregistriran</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Uporabniki, ki niso prijavljeni.</string>
   <string name="patroller_tasks_filters_user_status_registered">Registriran</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Prijavljeni uporabniki.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Novinci</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrirani uporabniki, ki imajo manj kot 10 urejanj ali 4 dni dejavnosti.</string>
   <string name="patroller_tasks_filters_user_status_learners">Učenci</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Registrirani urejevalci, ki so po izkušenosti med »novinci« in »izkušenimi uporabniki«.</string>
   <string name="patroller_tasks_filters_user_status_experienced">Izkušeni uporabniki</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Registrirani uporabniki z več kot 500 urejanji in 30 dnevi dejavnosti.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Zadnje redakcije</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Zadnja redakcija</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ni zadnja redakcija</string>
@@ -1580,14 +1585,22 @@
   <string name="patroller_tasks_filters_significance_edits">Nemanjše urejanje</string>
   <string name="patroller_tasks_filters_contribution_quality_header">Napovedi kakovosti prispevkov</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Zelo verjetno dobro</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Zelo natančen pri iskanju skoraj vseh neproblematičnih urejanj.</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Mogoče problematično</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Poišče najbolj pomanjkljiva ali škodljiva urejanja, vendar z manjšo natančnostjo.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Verjetno problematično</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">S srednjo natančnostjo najde vmesni del problematičnih urejanj.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Zelo verjetno problematično</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Zelo natančen pri iskanju najbolj očitno pomanjkljivih ali škodljivih urejanj.</string>
   <string name="patroller_tasks_filters_user_intent_header">Napovedi namere uporabnikov</string>
   <string name="patroller_tasks_filters_user_intent_good">Zelo verjetno dobronamerno</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Zelo natančen pri iskanju skoraj vseh dobronamernih urejanj.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Morda slabonamerno</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Najde večino slabonamernih urejanj, vendar z manjšo natančnostjo.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Verjetno slabonamerno</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">S srednjo natančnostjo najde vmesni del slabonamernih urejanj.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Zelo verjetno slabonamerno</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Zelo natančen pri iskanju najbolj očitno slabonamernih urejanj.</string>
   <string name="patroller_tasks_filters_empty_search_message">Za ogled več urejanj poskusite odstraniti %s</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d filter</item>
@@ -1613,7 +1626,7 @@
   <string name="page_issues_title">Težaev strani</string>
   <string name="generic_release_notes">Manjši popravki napak in izboljšave</string>
   <string name="email_report_image_recommendations_subject">Poročilo o težavi – možnost slikovnih priporočil</string>
-  <string name="email_report_image_recommendations_body">Naletel_a sem na težavo z možnostjo slikovnih priporočil:\n– [Opišite specifično težavo]\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]</string>
-  <string name="email_report_patroller_tasks_subject">Poročilo o težavi – možnost Patruljna opravila</string>
-  <string name="email_report_patroller_tasks_body">Naletel_a sem na težavo z možnostjo Patruljna opravila:\n– [Opišite specifično težavo]\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]</string>
+  <string name="email_report_image_recommendations_body">Naletel_a sem na težavo z možnostjo slikovnih priporočil:\n– [Opišite specifično težavo]\n\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]</string>
+  <string name="email_report_patroller_tasks_subject">Poročilo o težavi – možnost pregledovanja urejanj</string>
+  <string name="email_report_patroller_tasks_body">Naletel_a sem na težavo z možnostjo Pregledovanje urejanj:\n– [Opišite specifično težavo]\n\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]\n\n[]</string>
 </resources>

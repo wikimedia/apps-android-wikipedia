@@ -5,6 +5,7 @@
 * Fitoschido
 * Tokvo
 * Xuacu
+* YoaR
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -64,7 +65,6 @@
   <string name="map_view_link_text">Ver nun mapa</string>
   <string name="other_languages_indication_text">Lleer n\'otra llingua</string>
   <string name="language_count_link_text">Disponible\'n %d idiomes más</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les ediciones atribuiránse a la dirección IP del to preséu. Si &lt;a href=\"https://#login\"&gt;anicies sesión&lt;/a&gt;, tendrás más intimidá.</string>
   <string name="preference_title_language">Llingües de Wikipedia</string>
@@ -186,7 +186,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/ast</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bbiblioteques utilizaes</string>
@@ -707,7 +706,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">Última edición</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
-  <string name="suggested_edits_task_new">nueva</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nueva</string>
   <string name="suggested_edits_cc0_notice">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la &lt;a href=\"%2$s\"&gt;llicencia CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Ediciones suxeríes</string>
   <string name="suggested_edits_reactivation_notification_stage_one">¡Gracies por editar Wikipedia! ¿Cómo nun sigues onde lo dexasti?</string>
@@ -810,4 +809,7 @@
   <string name="watchlist_expiry_dialog_one_week">1 selmana</string>
   <string name="watchlist_filter_talk">Alderique</string>
   <string name="watchlist_filter_pages">Páxines</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Editores que nun tán coneutaos.</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Editores coneutaos.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Con precisión media, atopa un númberu intermediu d\'ediciones de mala fe.</string>
 </resources>

@@ -125,7 +125,6 @@
   <string name="map_view_link_text">Megtekintés térképen</string>
   <string name="other_languages_indication_text">Olvasás más nyelven</string>
   <string name="language_count_link_text">Elérhető %d másik nyelven</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">A közzététellel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; licenc alatt.</string>
   <string name="edit_save_action_license_anon">A közzététellel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és a közreműködéseidet visszavonhatatlanul közzéteszed a &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; licenc alatt. A szerkesztések az eszközöd IP-címéhez lesznek rendelve. Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt;, nagyobb adatvédelmet szerzel.</string>
   <string name="edit_anon_warning">A szerkesztéseid az eszközöd IP-címéhez lesznek társítva. Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt;, nagyobb adatvédelmet élvezhetsz.</string>
@@ -279,8 +278,8 @@
   <string name="edit_undo">Visszavonás</string>
   <string name="edit_redo">Újra</string>
   <string name="edit_rollback">Visszaállítás</string>
-  <string name="edit_quality" fuzzy="true">Minőség %s</string>
-  <string name="edit_intent" fuzzy="true">Szándék %s</string>
+  <string name="edit_quality">Minőség %s</string>
+  <string name="edit_intent">Szándék %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">egy bájt</item>
     <item quantity="other">%s bájt</item>
@@ -1014,7 +1013,7 @@
   <string name="suggested_edits_ip_blocked_title">IP-cím blokkolva</string>
   <string name="suggested_edits_last_edited">Utoljára szerkesztve</string>
   <string name="suggested_edits_last_edited_never">Soha</string>
-  <string name="suggested_edits_task_new">új</string>
+  <string name="suggested_edits_task_new" fuzzy="true">új</string>
   <string name="suggested_edits_cc0_notice">A közzététellel beleegyezel a &lt;a href=\"%1$s\"&gt;használati feltételekbe&lt;/a&gt; és visszavonhatatlanul közzéteszed ezt a közreműködést &lt;a href=\"%2$s\"&gt;CC0 licenc&lt;/a&gt; alatt.</string>
   <string name="suggested_edits_reactivation_notification_title">Javasolt szerkesztések</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Köszönjük a Wikipédia szerkesztését! Miért nem folytatod, ahol abbahagytad?</string>
@@ -1472,12 +1471,13 @@
   <string name="patroller_tasks_edits_list_card_tags_text_none">Semmi</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Felhasználói adatok</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Köszönet</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Szerkesztésszám</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Bezárás</string>
   <string name="patroller_tasks_filters_title">Szűrők</string>
   <string name="patroller_tasks_filters_reset">Visszaállítás</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Mind</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Szerkesztők, akik nincsenek bejelentkezve.</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Bejelentkezett szerkesztők.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Újoncok</string>
   <string name="patroller_tasks_filters_user_status_learners">Tanulók</string>
   <string name="patroller_tasks_filters_user_status_experienced">Tapasztalt szerkesztők</string>

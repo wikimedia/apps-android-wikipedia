@@ -109,7 +109,6 @@
   <string name="map_view_link_text">Žiūrėti žemėlapyje</string>
   <string name="other_languages_indication_text">Skaityti kita kalba</string>
   <string name="language_count_link_text">Prieinama %d kitų kalbų</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Paskelbdami sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir neatšaukiamu savo indėlio paskelbimu pagal &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; licenciją.</string>
   <string name="edit_save_action_license_anon">Paskelbdami sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir negrįžtamai paskelbiate savo indelį pagal &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; licenciją. Keitimai bus priskirti jūsų įrenginio IP adresui. Jeigu &lt;a href=\"https://#login\"&gt;prisijungsite&lt;/a&gt;, turėsite daugiau privatumo.</string>
   <string name="edit_anon_warning">Keitimai bus priskirti jūsų įrenginio IP adresui. Jeigu &lt;a href=\"https://#login\"&gt;prisijungsite&lt;/a&gt;, turėsite daugiau privatumo.</string>
@@ -863,7 +862,7 @@
   <string name="suggested_edits_ip_blocked_title">IP užblokuotas</string>
   <string name="suggested_edits_last_edited">Paskutinis pakeitimas</string>
   <string name="suggested_edits_last_edited_never">Niekada</string>
-  <string name="suggested_edits_task_new">naujas</string>
+  <string name="suggested_edits_task_new" fuzzy="true">naujas</string>
   <string name="suggested_edits_cc0_notice">Paskelbdami jūs sutinkate su &lt;a href=\"%1$s\"&gt;naudojimosi sąlygomis&lt;/a&gt; ir neatšaukiamu savo indėlio paskelbimu pagal &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; licenciją.</string>
   <string name="suggested_edits_reactivation_notification_title">Siūlomi keitimai</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Ačiū, kad redaguojate Vikipediją! Galbūt norite pratęsti?</string>

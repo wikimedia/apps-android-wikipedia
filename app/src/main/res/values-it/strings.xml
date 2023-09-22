@@ -151,7 +151,6 @@
   <string name="map_view_link_text">Visualizza sulla mappa</string>
   <string name="other_languages_indication_text">Leggi in un\'altra lingua</string>
   <string name="language_count_link_text">Disponibile in altre %d lingue</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt; avrai maggiore privacy.</string>
   <string name="edit_anon_warning">Le modifiche verranno attribuite all\'indirizzo IP del tuo dispositivo. Se &lt;a href=\"https://#login\"&gt;accedi&lt;/a&gt;, avrai più privacy.</string>
@@ -1024,7 +1023,7 @@
   <string name="suggested_edits_ip_blocked_title">IP bloccato</string>
   <string name="suggested_edits_last_edited">Ultima modifica</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
-  <string name="suggested_edits_task_new">nuovo</string>
+  <string name="suggested_edits_task_new">Nuovo</string>
   <string name="suggested_edits_cc0_notice">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla &lt;a href=\"%2$s\"&gt;licenza CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modifiche suggerite</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Grazie per aver modificato Wikipedia! Perché non continuare da dove avevi interrotto?</string>
@@ -1427,7 +1426,6 @@
   <string name="patroller_tasks_edits_list_card_tags_text">Etichette: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Nessuno</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Informazioni utente</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count">Conteggio delle modifiche</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Tutto</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Contributi automatici</string>

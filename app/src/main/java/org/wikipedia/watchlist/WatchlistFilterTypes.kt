@@ -38,8 +38,6 @@ enum class WatchlistFilterTypes constructor(val id: String,
         R.string.watchlist_filter_watchlist_activity_unseen, "unread"),
     SEEN_CHANGES("seenChanges",
         R.string.watchlist_filter_watchlist_activity_seen, "!unread"),
-    ALL_REVISIONS("allRevisions",
-        R.string.watchlist_filter_all_text, ""),
     LATEST_REVISION("latestRevision",
         R.string.watchlist_filter_latest_revisions_latest_revision, ""),
     NOT_LATEST_REVISION("notLatestRevision",
@@ -92,9 +90,14 @@ enum class WatchlistFilterTypes constructor(val id: String,
         val MINOR_EDITS_GROUP = listOf(ALL_EDITS, MINOR_EDITS, NON_MINOR_EDITS)
         val BOT_EDITS_GROUP = listOf(ALL_EDITORS, BOT, HUMAN)
         val UNSEEN_CHANGES_GROUP = listOf(ALL_CHANGES, UNSEEN_CHANGES, SEEN_CHANGES)
-        val LATEST_REVISIONS_GROUP = listOf(ALL_REVISIONS, LATEST_REVISION, NOT_LATEST_REVISION)
+        val LATEST_REVISIONS_GROUP = listOf(LATEST_REVISION, NOT_LATEST_REVISION)
         val USER_STATUS_GROUP = listOf(ALL_USERS, UNREGISTERED, REGISTERED)
-        val DEFAULT_FILTER_TYPE_SET = setOf(PAGE_EDITS, PAGE_CREATIONS, LOGGED_ACTIONS, ALL_EDITS, ALL_CHANGES, ALL_REVISIONS, ALL_EDITORS, ALL_USERS)
+
+        // Multiple choice
+        val DEFAULT_FILTER_TYPE_OF_CHANGES = setOf(PAGE_EDITS, PAGE_CREATIONS, LOGGED_ACTIONS)
+        // Single choice
+        val DEFAULT_FILTER_OTHERS = setOf(ALL_EDITS, ALL_CHANGES, LATEST_REVISION, ALL_EDITORS, ALL_USERS)
+        val DEFAULT_FILTER_TYPE_SET = DEFAULT_FILTER_OTHERS + DEFAULT_FILTER_TYPE_OF_CHANGES
 
         private val MAP = EnumCodeMap(WatchlistFilterTypes::class.java)
 
