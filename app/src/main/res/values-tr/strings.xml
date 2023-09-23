@@ -1041,7 +1041,7 @@
   <string name="suggested_edits_ip_blocked_title">IP engellendi</string>
   <string name="suggested_edits_last_edited">Son düzenleme</string>
   <string name="suggested_edits_last_edited_never">Asla</string>
-  <string name="suggested_edits_task_new">yeni</string>
+  <string name="suggested_edits_task_new">Yeni</string>
   <string name="suggested_edits_cc0_notice">Yayınlayarak, &lt;a href=\"%1$s\"&gt;kullanım şartlarını&lt;/a&gt; ve bu katkıyı &lt;a href=\"%2$s\"&gt;CC0 lisansı&lt;/a&gt; altında geri dönülmez bir şekilde serbest bırakmayı kabul edersiniz.</string>
   <string name="suggested_edits_reactivation_notification_title">Önerilen düzenlemeler</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Vikipedi\'yi düzenlediğiniz için teşekkürler! Neden kaldığınız yerden devam etmiyorsunuz?</string>
@@ -1516,7 +1516,9 @@
   <string name="patroller_tasks_filters_all_text">Hepsi</string>
   <string name="patroller_tasks_filters_user_status_header">Kullanıcı kaydı ve deneyimi</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Kayıtsız</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Oturum açmamış düzenleyiciler.</string>
   <string name="patroller_tasks_filters_user_status_registered">Kayıtlı</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Oturum açmış düzenleyiciler.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Yeni başlayanlar</string>
   <string name="patroller_tasks_filters_user_status_learners">Öğrenenler</string>
   <string name="patroller_tasks_filters_user_status_experienced">Deneyimli kullanıcılar</string>

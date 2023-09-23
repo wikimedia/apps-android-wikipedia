@@ -33,7 +33,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:paddingStart="@dimen/activity_horizontal_margin"
                 android:paddingEnd="@dimen/activity_horizontal_margin">
@@ -45,14 +44,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
                     android:focusableInTouchMode="true"
-                    android:textAlignment="center"
+                    android:textColor="?attr/primary_color"
                     tools:text="Lorem ipsum" />
 
                 <org.wikipedia.views.AppTextView
                     android:id="@+id/secondaryTextView"
-                    style="@style/TextViewCentered"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="@style/P"
                     android:layout_marginBottom="8dp"
                     android:lineSpacingMultiplier="1.22"
                     android:textColor="?attr/secondary_color"
@@ -92,13 +91,13 @@
 
                 <org.wikipedia.views.GoneIfEmptyTextView
                     android:id="@+id/tertiaryTextView"
-                    style="@style/TextViewCentered"
+                    style="@style/List"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="16dp"
                     android:text="@string/description_edit_tutorial_promise"
-                    android:textColor="?attr/secondary_color"
+                    android:textColor="?attr/placeholder_color"
                     android:textSize="12sp" />
 
             </LinearLayout>

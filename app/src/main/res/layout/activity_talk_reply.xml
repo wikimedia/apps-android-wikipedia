@@ -64,6 +64,32 @@
 
     </ScrollView>
 
+    <org.wikipedia.edit.WikiTextKeyboardHeadingsView
+        android:id="@+id/edit_keyboard_overlay_headings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="48dp"
+        android:background="?attr/paper_color"
+        android:elevation="12dp" />
+
+    <org.wikipedia.edit.WikiTextKeyboardFormattingView
+        android:id="@+id/edit_keyboard_overlay_formatting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="48dp"
+        android:background="?attr/paper_color"
+        android:elevation="12dp"/>
+
+    <org.wikipedia.edit.WikiTextKeyboardView
+        android:id="@+id/edit_keyboard_overlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?attr/paper_color"
+        android:elevation="12dp"/>
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/replyToolbar"
         android:layout_width="match_parent"

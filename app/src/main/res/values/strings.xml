@@ -1047,7 +1047,7 @@
     <string name="suggested_edits_ip_blocked_title">IP blocked</string>
     <string name="suggested_edits_last_edited">Last edited</string>
     <string name="suggested_edits_last_edited_never">Never</string>
-    <string name="suggested_edits_task_new">new</string>
+    <string name="suggested_edits_task_new">New</string>
     <string name="suggested_edits_cc0_notice"><![CDATA[By publishing, you agree to the <a href="%1$s">terms of use</a> and to irrevocably release this contribution under the <a href="%2$s">CC0 license</a>.]]></string>
     <string name="suggested_edits_reactivation_notification_title">Suggested edits</string>
     <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue where you left off?</string>
@@ -1126,6 +1126,7 @@
     <string name="image_recommendation_tooltip_3">Decide if the image helps readers understand this topic better</string>
     <string name="image_recommendation_tooltip_next">Next</string>
     <string name="image_recommendation_tooltip_warning">Please review the article to understand its topic and inspect the image</string>
+    <string name="image_recommendation_depleted"><![CDATA[Sorry, there are no more suggested images available at this time. Please explore other <a href="#">suggested edits</a> or return later.]]></string>
     <string name="suggested_edits_report_feature">Problem with feature</string>
     <string name="suggested_edits_report_feature_subject">Problem with Suggested Edits</string>
     <string name="edit_summary_added_image">Added image</string>
@@ -1256,6 +1257,7 @@
     <string name="wikitext_template">Template</string>
     <string name="wikitext_reference">Reference</string>
     <string name="wikitext_preview_link">Preview link</string>
+    <string name="wikitext_mention_user">Mention a user</string>
 
     <!-- Insert media -->
     <string name="insert_media_title">Insert media</string>
@@ -1571,10 +1573,15 @@
     <string name="patroller_tasks_filters_all_text">All</string>
     <string name="patroller_tasks_filters_user_status_header">User registration and experience</string>
     <string name="patroller_tasks_filters_user_status_unregistered">Unregistered</string>
+    <string name="patroller_tasks_filters_user_status_unregistered_desc">Editors who aren\'t logged-in.</string>
     <string name="patroller_tasks_filters_user_status_registered">Registered</string>
+    <string name="patroller_tasks_filters_user_status_registered_desc">Logged-in editors.</string>
     <string name="patroller_tasks_filters_user_status_newcomers">Newcomers</string>
+    <string name="patroller_tasks_filters_user_status_newcomers_desc">Registered editors who have fewer than 10 edits of 4 days of activity.</string>
     <string name="patroller_tasks_filters_user_status_learners">Learners</string>
+    <string name="patroller_tasks_filters_user_status_learners_desc">Registered editors whose experience falls between \"Newcomers\" and \"Experienced users\".</string>
     <string name="patroller_tasks_filters_user_status_experienced">Experienced users</string>
+    <string name="patroller_tasks_filters_user_status_experienced_desc">Registered editors with more than 500 edits and 30 days of activity.</string>
     <string name="patroller_tasks_filters_latest_revisions_header">Latest revisions</string>
     <string name="patroller_tasks_filters_latest_revisions_latest_revision">Latest revision</string>
     <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Not the latest revision</string>
@@ -1586,14 +1593,22 @@
     <string name="patroller_tasks_filters_significance_edits">Non-minor edits</string>
     <string name="patroller_tasks_filters_contribution_quality_header">Contribution quality predictions</string>
     <string name="patroller_tasks_filters_contribution_quality_good">Very likely good</string>
+    <string name="patroller_tasks_filters_contribution_quality_good_desc">Highly accurate at finding almost all problem-free edits.</string>
     <string name="patroller_tasks_filters_contribution_quality_may_problems">May have problems</string>
+    <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Finds most flawed or damaging edits but with lower accuracy.</string>
     <string name="patroller_tasks_filters_contribution_quality_likely_problems">Likely have problems</string>
+    <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">With medium accuracy, finds as intermediate fraction of problem edits.</string>
     <string name="patroller_tasks_filters_contribution_quality_bad">Very likely have problems</string>
+    <string name="patroller_tasks_filters_contribution_quality_bad_desc">Very highly accurate at finding the most obviously flawed or damaging edits.</string>
     <string name="patroller_tasks_filters_user_intent_header">User intent predictions</string>
     <string name="patroller_tasks_filters_user_intent_good">Very likely good faith</string>
+    <string name="patroller_tasks_filters_user_intent_good_desc">Highly accurate at finding almost all good-faith edits.</string>
     <string name="patroller_tasks_filters_user_intent_may_problems">May be bad faith</string>
+    <string name="patroller_tasks_filters_user_intent_may_problems_desc">Finds most bad-faith edits but with a lower accuracy.</string>
     <string name="patroller_tasks_filters_user_intent_likely_problems">Likely bad faith</string>
+    <string name="patroller_tasks_filters_user_intent_likely_problems_desc">With medium accuracy, finds an intermediate fraction of bad-faith edits.</string>
     <string name="patroller_tasks_filters_user_intent_bad">Very likely bad faith</string>
+    <string name="patroller_tasks_filters_user_intent_bad_desc">Very highly accurate at finding the most obvious bad-faith edits.</string>
     <string name="patroller_tasks_filters_empty_search_message">Try removing %s to see more edits</string>
     <plurals name="patroller_tasks_filters_number_of_filters">
         <item quantity="one">%d filter</item>

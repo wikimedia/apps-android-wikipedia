@@ -455,7 +455,7 @@
   </plurals>
   <string name="suggested_edits_learn_more">Ukuau píri</string>
   <string name="suggested_edits_last_edited_never">Nemairamé</string>
-  <string name="suggested_edits_task_new">piçaçú</string>
+  <string name="suggested_edits_task_new" fuzzy="true">piçaçú</string>
   <string name="suggested_edits_contribution_language_label">Nhẽẽga</string>
   <string name="suggested_edits_contribution_image_label">Çãgawa</string>
   <string name="suggested_edits_contribution_article_label">Kuatiara</string>

@@ -456,7 +456,7 @@
   </plurals>
   <string name="suggested_edits_learn_more">ተወሳኺ ፍለጥ</string>
   <string name="suggested_edits_last_edited_never">ብፍጹም</string>
-  <string name="suggested_edits_task_new">ሓድሽ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ሓድሽ</string>
   <string name="suggested_edits_contributions_screen_title">ኣበርክቶታት %s</string>
   <string name="suggested_edits_contribution_language_label">ቋንቋ</string>
   <string name="suggested_edits_contribution_date_time_label">ዕለት / ሰዓት</string>

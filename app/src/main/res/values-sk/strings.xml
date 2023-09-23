@@ -980,7 +980,7 @@
   <string name="suggested_edits_ip_blocked_title">Adresa IP zablokovaná</string>
   <string name="suggested_edits_last_edited">Posledná úprava</string>
   <string name="suggested_edits_last_edited_never">Nikdy</string>
-  <string name="suggested_edits_task_new">nové</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nové</string>
   <string name="suggested_edits_cc0_notice">Publikovaním súhlasíte s &lt;a href=\"%1$s\"&gt;podmienkami používania&lt;/a&gt; a neodvolateľne takisto so zverejnením tohto príspevku pod &lt;a href=\"%2$s\"&gt;licenciou CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Navrhované úpravy</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Ďakujeme, že upravujete Wikipédiu! Pokojne pokračujte tam, kde ste skončili.</string>

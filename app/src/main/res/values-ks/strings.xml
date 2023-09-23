@@ -552,7 +552,7 @@
   <string name="suggested_edits_quality_very_good_text">واریاہ اَصٕل</string>
   <string name="suggested_edits_quality_okay_text">تھیٖک چھُ</string>
   <string name="suggested_edits_last_edited_never">زانٛہہ نہٕ</string>
-  <string name="suggested_edits_task_new">نٔو</string>
+  <string name="suggested_edits_task_new" fuzzy="true">نٔو</string>
   <string name="suggested_edits_contribution_language_label">زَبان</string>
   <string name="suggested_edits_contribution_date_time_label">تٲریٖخ/وَقت</string>
   <string name="suggested_edits_contribution_type_label">شَرکٲژٕ قٕسم:</string>
