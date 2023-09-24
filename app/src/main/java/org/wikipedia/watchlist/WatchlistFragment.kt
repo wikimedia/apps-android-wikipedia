@@ -2,7 +2,12 @@ package org.wikipedia.watchlist
 
 import android.content.Context
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -36,7 +41,11 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.UserTalkPopupHelper
-import org.wikipedia.util.*
+import org.wikipedia.util.DateUtil
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.SearchAndFilterActionProvider
 import java.time.LocalDate
@@ -224,15 +233,12 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         }
 
         fun updateFilterIconAndCount() {
-            val filterCount = viewModel.filtersCount()
-            if (filterCount == 0) {
-                itemBinding.filterCount.visibility = View.GONE
-                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.primary_color))
-            } else {
-                itemBinding.filterCount.visibility = View.VISIBLE
-                itemBinding.filterCount.text = filterCount.toString()
-                ImageViewCompat.setImageTintList(itemBinding.filterButton, ResourceUtil.getThemedColorStateList(requireContext(), R.attr.progressive_color))
-            }
+            val showFilterCount = viewModel.filtersCount() != 0
+            val filterButtonColor = if (showFilterCount) R.attr.progressive_color else R.attr.primary_color
+            itemBinding.filterCount.isVisible = showFilterCount
+            itemBinding.filterCount.text = viewModel.filtersCount().toString()
+            ImageViewCompat.setImageTintList(itemBinding.filterButton,
+                ResourceUtil.getThemedColorStateList(requireContext(), filterButtonColor))
         }
     }
 

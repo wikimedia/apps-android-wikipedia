@@ -256,18 +256,18 @@
   <string name="error_can_not_process_link">Kon de koppeling niet weergeven</string>
   <string name="page_protected_autoconfirmed">Deze pagina is semibeveiligd.</string>
   <string name="page_protected_sysop">Deze pagina is volledig beveiligd.</string>
-  <string name="page_protected_other">Deze pagina is beveiligd tot de volgende niveau\'s: %s</string>
-  <string name="page_protected_can_not_edit">Sorry, uw account heeft niet de benodigde rechten om op deze moment deze pagina aan te passen.</string>
-  <string name="page_protected_can_not_edit_anon">Sorry, deze pagina kan momenteel niet anoniem aangepast worden.</string>
+  <string name="page_protected_other">Deze pagina is beveiligd op de volgende niveaus: %s</string>
+  <string name="page_protected_can_not_edit">Helaas, uw account heeft momenteel niet voldoende rechten om deze pagina te bewerken.</string>
+  <string name="page_protected_can_not_edit_anon">Helaas, deze pagina kan momenteel niet anoniem worden bewerkt.</string>
   <string name="page_protected_can_not_edit_title">Deze pagina is beveiligd</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Toevoegen aan volglijst</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Blijf op de hoogte van artikelen waar je geïnteresseerd in bent. Selecteer &lt;b&gt;Toevoegen aan Watchlist&lt;/b&gt; om wijzigingen aan een artikelen te zien.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Blijf op de hoogte van artikelen waarin u geïnteresseerd bent. Tik op het overloopmenu en selecteer &lt;b&gt;Toevoegen aan volglijst&lt;/b&gt; om wijzigingen aan een artikelen te zien.</string>
   <string name="settings_item_preferences">Instellingen</string>
   <string name="settings_activity_title">Instellingen</string>
   <string name="about_description">Over de Wikipedia-app</string>
   <string name="privacy_policy_description">Privacybeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaarden</string>
-  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://nl.wikipedia.org/wiki/Help:Unieke_van_Wikipedia</string>
   <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -1035,7 +1035,7 @@
   <string name="suggested_edits_ip_blocked_title">IP geblokkeerd</string>
   <string name="suggested_edits_last_edited">Laatste bewerking:</string>
   <string name="suggested_edits_last_edited_never">Nooit</string>
-  <string name="suggested_edits_task_new">nieuw</string>
+  <string name="suggested_edits_task_new">Nieuw</string>
   <string name="suggested_edits_cc0_notice">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en geeft u onherroepelijk deze bijdrage vrij onder de &lt;a href=\"%2$s\"&gt;licentie CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Bedankt voor het bewerken van Wikipedia! Wilt u verder gaan waar u gebleven was?</string>
@@ -1114,6 +1114,7 @@
   <string name="image_recommendation_tooltip_3">Bepaal of de afbeelding lezers helpt dit onderwerp beter te begrijpen</string>
   <string name="image_recommendation_tooltip_next">Volgende</string>
   <string name="image_recommendation_tooltip_warning">Lees het artikel om het onderwerp te begrijpen en inspecteer de afbeelding</string>
+  <string name="image_recommendation_depleted">Helaas zijn er momenteel geen voorgestelde afbeeldingen meer beschikbaar. Bekijk andere &lt;a href=\"#\"&gt;voorgestelde bewerkingen&lt;/a&gt; of kom later terug.</string>
   <string name="suggested_edits_report_feature">Probleem met functie</string>
   <string name="suggested_edits_report_feature_subject">Probleem met voorgestelde bewerkingen</string>
   <string name="edit_summary_added_image">Toegevoegde afbeelding</string>
@@ -1504,7 +1505,7 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Gebruikersbijdragen bekijken</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Bedanken</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Gebruikersgegevens</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text" fuzzy="true">&lt;b&gt;Ingeschreven bij Wikipedia op: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Account van:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Aantal bewerkingen: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Sluiten</string>
   <string name="patroller_tasks_filters_title">Filters</string>
@@ -1513,10 +1514,15 @@
   <string name="patroller_tasks_filters_all_text">Alle</string>
   <string name="patroller_tasks_filters_user_status_header">Gebruikersregistratie en -ervaring</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Niet geregistreerd</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Bewerkers die niet zijn aangemeld.</string>
   <string name="patroller_tasks_filters_user_status_registered">Geregistreerd</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Aangemelde bewerkers.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Nieuwkomers</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Geregistreerde bewerkers die minder dan 10 bewerkingen hebben gemaakt of 4 dagen actief zijn geweest.</string>
   <string name="patroller_tasks_filters_user_status_learners">Leerlingen</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Geregistreerde bewerkers met meer ervaring dan \"nieuwkomers\", maar minder dan \"ervaren gebruikers\".</string>
   <string name="patroller_tasks_filters_user_status_experienced">Ervaren gebruikers</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Geregistreerde bewerkers met meer dan 500 bewerkingen en 30 dagen van activiteit.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Laatste versies</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Laatste versie</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Niet de laatste versie</string>
@@ -1528,14 +1534,22 @@
   <string name="patroller_tasks_filters_significance_edits">Niet-kleine bewerkingen</string>
   <string name="patroller_tasks_filters_contribution_quality_header">Kwaliteitsvoorspellingen voor bijdragen</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Zeer waarschijnlijk goed</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Zeer nauwkeurig bij het vinden van bijna alle probleemloze bewerkingen.</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Heeft wellicht problemen</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Vindt de gebrekkigste of schadelijkste bewerkingen, maar met minder nauwkeurigheid.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Heeft waarschijnlijk problemen</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Vindt met gemiddelde nauwkeurigheid een middelgroot deel van de probleembewerkingen.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Heeft zeer waarschijnlijk problemen</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Zeer nauwkeurig bij het vinden van de duidelijkste foutieve of schadelijke bewerkingen.</string>
   <string name="patroller_tasks_filters_user_intent_header">Gebruikersintentievoorspellingen</string>
   <string name="patroller_tasks_filters_user_intent_good">Zeer waarschijnlijk goede trouw</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Zeer nauwkeurig bij het vinden van bijna alle te goeder trouw gemaakte bewerkingen.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Mogelijk kwade trouw</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Vindt de meeste te kwader trouw gemaakte bewerkingen, maar met minder nauwkeurigheid.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Waarschijnlijk kwade trouw</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Vindt met gemiddelde nauwkeurigheid een middelgroot deel van de te kwader trouw gemaakte bewerkingen.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Zeer waarschijnlijk kwade trouw</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Zeer nauwkeurig bij het vinden van de duidelijkste te kwader trouw gemaakte bewerkingen.</string>
   <string name="patroller_tasks_filters_empty_search_message">Probeer er %s te verwijderen om meer meldingen te zien</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d filter</item>

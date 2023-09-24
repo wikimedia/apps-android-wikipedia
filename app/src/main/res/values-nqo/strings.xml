@@ -866,7 +866,7 @@
   <string name="suggested_edits_ip_blocked_title">IP ߓߊ߬ߟߌ߬ߣߍ߲</string>
   <string name="suggested_edits_last_edited">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߟߊߓߊ߲</string>
   <string name="suggested_edits_last_edited_never">ߡߎ߰ߡߍ߫</string>
-  <string name="suggested_edits_task_new">ߞߎߘߊ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ߞߎߘߊ</string>
   <string name="suggested_edits_cc0_notice">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, ߊ߬ ߣߴߌ ߣߡߌߛߓߊߟߌߦߊ߫ ߘߌߢߍߣߍ߲߫ ߦߴߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲߫ ߠߊߓߌ߬ߟߊ ߡߊ߬ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license ߟߊߓߌ߬ߟߊ ߘߐ߫.</string>
   <string name="suggested_edits_reactivation_notification_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ</string>
   <string name="suggested_edits_reactivation_notification_stage_one">ߌ ߣߌ߫ ߗߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊߦߟߍ߬ߡߊ߲ ߠߊ߫߹ ߡߎ߬ ߠߊ߫ ߌ ߡߴߊ߬ ߘߊߓߊ߲߫ ߌ ߣߵߊ߬ ߓߌ߬ߟߊ߬ ߟߊ߫ ߘߊߞߎ߲ ߡߍ߲ ߘߐ߫؟</string>

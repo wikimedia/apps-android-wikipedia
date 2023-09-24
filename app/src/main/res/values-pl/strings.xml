@@ -950,7 +950,7 @@
   <string name="suggested_edits_ip_blocked_title">Adres IP zablokowany</string>
   <string name="suggested_edits_last_edited">Ostatnia edycja</string>
   <string name="suggested_edits_last_edited_never">Nigdy</string>
-  <string name="suggested_edits_task_new">nowe</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nowe</string>
   <string name="suggested_edits_cc0_notice">Publikując, zgadzasz się na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniasz ten wkład na podstawie &lt;a href=\"%2$s\"&gt;Licencji CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Sugerowane edycje</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Dziękujemy za edycję Wikipedii! Dlaczego nie kontynuować od miejsca, w którym skończyłeś?</string>

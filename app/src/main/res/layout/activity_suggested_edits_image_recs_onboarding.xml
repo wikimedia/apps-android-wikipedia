@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <org.wikipedia.onboarding.OnboardingPageView
+        android:id="@+id/onboarding_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:centeredImage="@drawable/illustration_add_images"
+        app:imageSize="360dp"
+        app:primaryText="@string/image_recommendation_onboarding_1"
+        app:secondaryText="@string/image_recommendation_onboarding_2"
+        app:tertiaryText="@string/image_recommendation_onboarding_4"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="?attr/border_color" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/onboarding_done_button"
+                style="@style/App.Button.Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/onboarding_get_started" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

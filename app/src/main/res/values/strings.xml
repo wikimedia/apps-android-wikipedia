@@ -1047,7 +1047,7 @@
     <string name="suggested_edits_ip_blocked_title">IP blocked</string>
     <string name="suggested_edits_last_edited">Last edited</string>
     <string name="suggested_edits_last_edited_never">Never</string>
-    <string name="suggested_edits_task_new">new</string>
+    <string name="suggested_edits_task_new">New</string>
     <string name="suggested_edits_cc0_notice"><![CDATA[By publishing, you agree to the <a href="%1$s">terms of use</a> and to irrevocably release this contribution under the <a href="%2$s">CC0 license</a>.]]></string>
     <string name="suggested_edits_reactivation_notification_title">Suggested edits</string>
     <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue where you left off?</string>
@@ -1126,6 +1126,7 @@
     <string name="image_recommendation_tooltip_3">Decide if the image helps readers understand this topic better</string>
     <string name="image_recommendation_tooltip_next">Next</string>
     <string name="image_recommendation_tooltip_warning">Please review the article to understand its topic and inspect the image</string>
+    <string name="image_recommendation_depleted"><![CDATA[Sorry, there are no more suggested images available at this time. Please explore other <a href="#">suggested edits</a> or return later.]]></string>
     <string name="suggested_edits_report_feature">Problem with feature</string>
     <string name="suggested_edits_report_feature_subject">Problem with Suggested Edits</string>
     <string name="edit_summary_added_image">Added image</string>
@@ -1256,6 +1257,7 @@
     <string name="wikitext_template">Template</string>
     <string name="wikitext_reference">Reference</string>
     <string name="wikitext_preview_link">Preview link</string>
+    <string name="wikitext_mention_user">Mention a user</string>
 
     <!-- Insert media -->
     <string name="insert_media_title">Insert media</string>

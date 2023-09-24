@@ -698,7 +698,7 @@
   <string name="suggested_edits_learn_more">আৰু পঢ়ক</string>
   <string name="suggested_edits_disabled_title">নিষ্ক্ৰিয়</string>
   <string name="suggested_edits_last_edited_never">কেতিয়াও নহয়</string>
-  <string name="suggested_edits_task_new">নতুন</string>
+  <string name="suggested_edits_task_new" fuzzy="true">নতুন</string>
   <string name="suggested_edits_reactivation_notification_title">পৰামৰ্শকৃত সম্পাদনা</string>
   <string name="suggested_edits_reactivation_notification_stage_one">ৱিকিপিডিয়াত সম্পাদনা কৰাৰ বাবে ধন্যবাদ! আপুনি য\'ত এৰিছিল তাৰে পৰাই অব্যাহত নাৰাখে?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">ৱিকিপিডিয়াৰ উন্নতিৰ বাবে আপোনাৰ ওচৰত এক মিনিট আছেনে? এই সম্পাদনাৰ পৰামৰ্শবোৰ চাওক।</string>
