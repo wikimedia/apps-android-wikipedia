@@ -816,7 +816,7 @@
   <string name="suggested_edits_ip_blocked_title">IP disekat</string>
   <string name="suggested_edits_last_edited">Kali terakhir disunting</string>
   <string name="suggested_edits_last_edited_never">Tidak pernah</string>
-  <string name="suggested_edits_task_new">baru</string>
+  <string name="suggested_edits_task_new" fuzzy="true">baru</string>
   <string name="suggested_edits_contributions_screen_title">Sumbangan %s</string>
   <string name="suggested_edits_contribution_language_label">Bahasa</string>
   <string name="suggested_edits_contribution_date_time_label">Tarikh / Masa</string>

@@ -262,6 +262,7 @@
   <string name="edit_rollback">Кире кайтарырга</string>
   <string name="edit_warn">Кисәтү</string>
   <string name="edit_quality">Сыйфат %s</string>
+  <string name="edit_intent">%s ният</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
     <item quantity="other">%s байт</item>
@@ -872,6 +873,9 @@
   <string name="suggested_edits_describe_articles">Мәкаләләрне тасвирларга</string>
   <string name="suggested_edits_caption_images">Анлатмалы сурәтләр</string>
   <string name="suggested_edits_tag_images">Сурәтләрне теглар белән билгеләгез</string>
+  <string name="suggested_edits_edit_patrol">Күзәтүне үзгәртү</string>
+  <string name="suggested_edits_edit_patrol_hint">Соңгы төзәтмәләрне карагыз һәм аларның конструктив булу-булмавын билгеләгез.</string>
+  <string name="suggested_edits_edit_patrol_review">Тикшерү</string>
   <string name="suggested_edits_review_description">Күзәтеү мәкаләсенең тасвирламасы</string>
   <string name="suggested_edits_add_description_button">Тасвирлама өстәргә</string>
   <string name="suggested_edits_edit_description_button">Тасвирламаны мөхәррирләү</string>
@@ -991,7 +995,7 @@
   <string name="suggested_edits_ip_blocked_title">IP блокланган</string>
   <string name="suggested_edits_last_edited">Соңгы үзгәреш</string>
   <string name="suggested_edits_last_edited_never">Һичкайчан</string>
-  <string name="suggested_edits_task_new">яңа</string>
+  <string name="suggested_edits_task_new" fuzzy="true">яңа</string>
   <string name="suggested_edits_cc0_notice">Бастырып чыгарганда &lt;a href=\"%1$s\"&gt;куллану шартлары&lt;/a&gt; белән килешәсез һәм бу керемне &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; лицензиясе нигезендә кире кайтара алмаслык рәвештә бастырасыз.</string>
   <string name="suggested_edits_reactivation_notification_title">Тәкъдим ителгән үзгәртүләр</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Википедияне мөхәррирләгән өчен рәхмәт! Нигә сез тукталган урыннан дәвам итмәскә?</string>

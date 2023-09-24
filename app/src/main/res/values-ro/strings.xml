@@ -965,7 +965,7 @@
   <string name="suggested_edits_ip_blocked_title">IP blocat</string>
   <string name="suggested_edits_last_edited">Ultima modificare:</string>
   <string name="suggested_edits_last_edited_never">Niciodată</string>
-  <string name="suggested_edits_task_new">nou</string>
+  <string name="suggested_edits_task_new">Nou</string>
   <string name="suggested_edits_cc0_notice">Prin publicare, sunteți de acord cu &lt;a href=\"%1$s\"&gt;termenii de utilizare&lt;/a&gt; și pentru a elibera irevocabil această contribuție în temeiul &lt;a href=\"%2$s\"&gt;licenței CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modificări sugerate</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Mulțumim pentru editarea Wikipedia! De ce să nu continui de la locul unde ai rămas?</string>
@@ -1026,6 +1026,7 @@
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Antrenați algoritmul pentru imagini</string>
   <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Decideți dacă o imagine sugerată va îmbunătăți un articol.</string>
+  <string name="image_recommendation_depleted">Ne pare rău, nu există alte imagini sugerate disponibile în acest moment. Explorați alte &lt;a href=\"#\"&gt;modificări sugerate&lt;/a&gt; sau reveniți mai târziu.</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="file_page_add_image_caption_button">Adaugă legendă pentru imagine</string>
   <string name="file_page_add_image_tags_button">Adaugă etichete pentru imagine</string>
@@ -1296,9 +1297,18 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Număr de editări:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_filters_reset">Resetați</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Editori autentificati.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Editori înregistrați care au mai puțin de 10 editări din 4 zile de activitate.</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Editori înregistrați a căror experiență se încadrează între „Noi veniți” și „Utilizatori cu experiență”.</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Contribuții automate</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Foarte probabil bine</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Foarte precis în găsirea aproape a tuturor editărilor fără probleme.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Găsește cele mai multe editări defecte sau dăunătoare, dar cu o precizie mai mică.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Cu precizie medie, constatări ca fracțiune intermediară a editărilor problemei.</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Foarte precis în găsirea aproape a tuturor editărilor de bună-credință.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Găsește cele mai multe editări de rea-credință, dar cu o precizie mai mică.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Foarte probabil rea-credință</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Foarte precis în găsirea celor mai evidente editări de rea-credință.</string>
   <string name="patroller_tasks_patrol_edit_title">Editare de patrulare</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Reveniți complet</string>
   <string name="data_opt_in_accept">Accept</string>

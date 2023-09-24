@@ -1010,7 +1010,7 @@
   <string name="suggested_edits_ip_blocked_title">IP blokkert</string>
   <string name="suggested_edits_last_edited">Sist redigert</string>
   <string name="suggested_edits_last_edited_never">Aldri</string>
-  <string name="suggested_edits_task_new">ny</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ny</string>
   <string name="suggested_edits_cc0_notice">Ved å publisere, godtar du &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidraget under &lt;a href=\"%2$s\"&gt;CC0-lisensen&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Redigeringsforslag</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Takk for at du redigerer Wikipedia! Hvorfor ikke fortsette der du slapp?</string>

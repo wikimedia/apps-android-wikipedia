@@ -40,6 +40,7 @@
 * NemesisIII
 * Niridya
 * Noé
+* Obscaeris
 * Oupsa
 * Seb35
 * SleaY
@@ -1046,7 +1047,7 @@
   <string name="suggested_edits_ip_blocked_title">IP bloquée</string>
   <string name="suggested_edits_last_edited">Dernière modification</string>
   <string name="suggested_edits_last_edited_never">Jamais</string>
-  <string name="suggested_edits_task_new">nouveau</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nouveau</string>
   <string name="suggested_edits_cc0_notice">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;conditions d’utilisation&lt;/a&gt; et de mettre de façon irrévocable cette contribution sous la &lt;a href=\"%2$s\"&gt;licence CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modifications suggérées</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci d’avoir modifié Wikipédia ! Pourquoi ne pas reprendre là où vous en étiez ?</string>
@@ -1524,10 +1525,15 @@
   <string name="patroller_tasks_filters_all_text">Tous</string>
   <string name="patroller_tasks_filters_user_status_header">Inscription et expérience de l’utilisateur</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Non inscrit</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Éditeurs qui ne sont pas connectés</string>
   <string name="patroller_tasks_filters_user_status_registered">Inscrit</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Éditeurs connectés.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Nouveaux arrivants</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Éditeurs inscrits qui ont moins de 10 modifications sur 4 jours d’activité.</string>
   <string name="patroller_tasks_filters_user_status_learners">Apprenants</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Éditeurs inscrits dont l’expérience est entre « Nouveaux arrivants » et « Utilisateurs expérimentés ».</string>
   <string name="patroller_tasks_filters_user_status_experienced">Utilisateurs expérimentés</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Éditeurs inscrits avec plus de 500 modifications et 30 jours d’activité</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Dernières révisions</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Dernière révision</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Pas la dernière révision</string>
@@ -1539,14 +1545,22 @@
   <string name="patroller_tasks_filters_significance_edits">Modifications non mineures</string>
   <string name="patroller_tasks_filters_contribution_quality_header">Prédictions de qualité de la contribution</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Très vraisemblablement bonne</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Très précis pour trouver presque toutes les modifications sans problème.</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Peut avoir des problèmes</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Trouve la plupart des modifications incorrectes ou fautives mais avec une précision moindre.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">A probablement des problèmes</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Avec une précision moyenne, trouve une fraction intermédiaire des modifications à problème.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Très susceptible d’avoir des problèmes</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Très précis pour trouver les modifications incorrectes ou fautives les plus évidentes.</string>
   <string name="patroller_tasks_filters_user_intent_header">Prédictions d’intention de l’utilisateur</string>
   <string name="patroller_tasks_filters_user_intent_good">Très vraisemblablement de bonne foi</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Très précis pour trouver presque toutes les modifications de bonne foi.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Peut être de mauvaise foi</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Trouve la plupart des modifications de mauvaise foi, mais avec une faible précision.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Probablement de mauvaise foi</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Avec une précision moyenne, trouve une fraction intermédiaire des modifications de mauvaise foi.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Très probablement de mauvaise foi</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Très précis pour trouver les modifications de mauvaise foi les plus évidentes.</string>
   <string name="patroller_tasks_filters_empty_search_message">Essayez de supprimer %s pour voir plus de modifications</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d filtre</item>

@@ -262,7 +262,7 @@
   <string name="about_description">Summary of the preference item to show the About screen.</string>
   <string name="privacy_policy_description">Summary of the preference item to show the terms of use.\n{{Identical|Privacy policy}}</string>
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
-  <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for Czech (lang code \"cs\"): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
+  <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL, please do so. If not, feel free to keep the English one. Example for Czech (lang code ‘cs’): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
   <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
   <string name="offline_reading_and_data_url">{{optional}}\nURL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
   <string name="android_app_faq_url">{{optional}}\nURL leading to the page of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site, please do so.</string>
@@ -1105,6 +1105,7 @@
   <string name="image_recommendation_tooltip_3">Tooltip message during the onboarding sequence for the image recommendations feature.</string>
   <string name="image_recommendation_tooltip_next">Button label for going to the next tooltip in the onboarding sequence.</string>
   <string name="image_recommendation_tooltip_warning">Tooltip that warns the user to examine the article thoroughly before acting on the recommendation.</string>
+  <string name="image_recommendation_depleted">Text shown when there are no more image recommendations available. Please leave the href link intact.</string>
   <string name="suggested_edits_report_feature">Menu item for reporting a general issue with the feature.</string>
   <string name="suggested_edits_report_feature_subject">Subject heading for message when reporting a problem with the feature.</string>
   <string name="edit_summary_added_image">Edit summary when an image was added.</string>
@@ -1206,6 +1207,7 @@
   <string name="wikitext_template">Button label for making the selected text into a template.\n{{Identical|Template}}</string>
   <string name="wikitext_reference">Button label for adding a reference at the current cursor position.\n{{Identical|Reference}}</string>
   <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
+  <string name="wikitext_mention_user">Button label for mentioning a user in a message.</string>
   <string name="insert_media_title">Title of the insert media screen.</string>
   <string name="insert_media_search_description">Message saying that the user can select a file from Wikimedia Commons.</string>
   <string name="insert_media_search_hint">Hint label for the insert media search field.</string>

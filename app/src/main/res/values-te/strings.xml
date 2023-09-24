@@ -896,7 +896,7 @@
   <string name="suggested_edits_ip_blocked_title">ఐపీని నిరోధించారు</string>
   <string name="suggested_edits_last_edited">చివరిగా దిద్దుబాటు చేసినది</string>
   <string name="suggested_edits_last_edited_never">ఎప్పటికీ వద్దు</string>
-  <string name="suggested_edits_task_new">కొత్త</string>
+  <string name="suggested_edits_task_new" fuzzy="true">కొత్త</string>
   <string name="suggested_edits_cc0_notice">ప్రచురించడంతో మీరు &lt;a href=\"%1$s\"&gt;వినియోగ నియమాలనూ&lt;/a&gt;, ఈ దిద్దుబాటును &lt;a href=\"%2$s\"&gt;CC0 license&lt;/a&gt; కింద వెనక్కు తీసుకోలేని విధంగా విడుదల చేసేందుకూ అంగీకరిస్తున్నారు.</string>
   <string name="suggested_edits_reactivation_notification_title">సూచించిన దిద్దుబాట్లు</string>
   <string name="suggested_edits_reactivation_notification_stage_one">వికీపీడియాలో మార్పుచేర్పులు చేస్తున్నందుకు ధన్యవాదాలు! వదిలేసిన వద్దనే తిరిగి మొదలు పెడతారా?</string>

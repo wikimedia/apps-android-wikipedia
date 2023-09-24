@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.inputmethod.InputConnection
 import android.widget.EditText
 import android.widget.FrameLayout
+import androidx.core.view.isVisible
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
@@ -24,6 +25,10 @@ class WikiTextKeyboardView : FrameLayout {
     private val binding = ViewWikitextKeyboardBinding.inflate(LayoutInflater.from(context), this)
     var callback: Callback? = null
     var editText: SyntaxHighlightableEditText? = null
+
+    var userMentionVisible: Boolean
+        get() { return binding.wikitextButtonUserMention.isVisible }
+        set(value) { binding.wikitextButtonUserMention.isVisible = value }
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -125,6 +130,10 @@ class WikiTextKeyboardView : FrameLayout {
         binding.wikitextButtonRedo.setOnClickListener {
             editText?.redo()
         }
+
+        binding.wikitextButtonUserMention.setOnClickListener {
+            editText?.inputConnection?.commitText("@", 1)
+        }
     }
 
     fun insertLink(title: PageTitle, baseLangCode: String) {
@@ -133,7 +142,12 @@ class WikiTextKeyboardView : FrameLayout {
             if (title.wikiSite.languageCode != baseLangCode) {
                 text += ":" + title.wikiSite.languageCode + ":"
             }
-            text += StringUtil.fromHtml(title.displayText).toString() + "]]"
+            val displayText = StringUtil.fromHtml(title.displayText).toString()
+            text += if (StringUtil.removeUnderscores(title.prefixedText) != displayText) {
+                title.prefixedText + "|" + displayText + "]]"
+            } else {
+                "$displayText]]"
+            }
             editText?.inputConnection?.commitText(text, 1)
         }
     }

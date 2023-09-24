@@ -375,7 +375,7 @@
     <item quantity="other">Ներդրումներ</item>
   </plurals>
   <string name="suggested_edits_last_edited_never">Երբեք</string>
-  <string name="suggested_edits_task_new">նոր</string>
+  <string name="suggested_edits_task_new" fuzzy="true">նոր</string>
   <string name="suggested_edits_contribution_language_label">Լեզու</string>
   <string name="suggested_edits_contribution_image_label">Պատկեր</string>
   <string name="suggested_edits_contribution_article_label">Հոդված</string>

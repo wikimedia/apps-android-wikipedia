@@ -174,10 +174,17 @@ object FeedbackUtil {
     }
 
     fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, arrowAnchorPadding: Int = 0,
-                   topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false): Balloon {
+                   topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false,
+                   @StringRes dismissButtonText: Int = R.string.onboarding_got_it, countNum: Int = 0, countTotal: Int = 0): Balloon {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
         binding.buttonView.isVisible = showDismissButton
+        binding.buttonView.setText(dismissButtonText)
+
+        if (countTotal > 0) {
+            binding.countView.isVisible = true
+            binding.countView.text = context.getString(R.string.x_of_y, countNum, countTotal)
+        }
 
         val balloon = createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
