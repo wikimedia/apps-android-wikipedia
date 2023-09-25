@@ -213,6 +213,7 @@
   <string name="notification_echo_channel_description">Wikipedia almottâsah</string>
   <string name="notifications_activity_title">Almottâsah</string>
   <string name="watchlist_title">Tarkkumlisto</string>
+  <string name="preference_title_notification_thanks">Takkâ</string>
   <string name="preference_title_notification_login_fail">Čáládât siisâ</string>
   <string name="preference_title_notification_user_talk">Savâstâllâmsijđo</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
@@ -330,6 +331,7 @@
   <string name="watchlist_details_watch_label">Tarkkuustâl</string>
   <string name="thank_label">Kijte</string>
   <string name="view_user_page">Čääiti kevtteesiijđo</string>
+  <string name="thank_dialog_positive_button_text">Vuolgât kijttosijd</string>
   <string name="thank_dialog_negative_button_text">Jooskâ</string>
   <string name="menu_option_view_user_profile">Čääiti kevtteesiijđo</string>
   <string name="menu_option_view_user_talk">Čääiti savâstâllâmsiijđo</string>
