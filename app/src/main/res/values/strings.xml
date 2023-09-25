@@ -1640,6 +1640,15 @@
     <string name="patroller_onboarding_two_undo_content">Choose \'Undo\' to undo or rollback a potentially destructive edit.</string>
     <string name="patroller_diff_tooltip_one">Damage predicts if an edit causes damage to a wiki.</string>
     <string name="patroller_diff_tooltip_two">Intent predicts likelihood of an edit being saved in good-faith.</string>
+    <string name="patroller_diff_feedback_dialog_title">Help us improve this feature</string>
+    <string name="patroller_diff_feedback_dialog_message">Are you satisfied with this feature?</string>
+    <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfied</string>
+    <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
+    <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unsatisfied</string>
+    <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
+    <string name="patroller_diff_feedback_dialog_submit">Submit</string>
+    <string name="patroller_diff_feedback_submitted_snackbar">Feedback submitted.</string>
+    <string name="patroller_diff_feedback_tooltip">Tap on overflow menu to submit feedback anytime under \'Problem with feature\'.</string>
 
     <!-- /Patroller task -->
 
