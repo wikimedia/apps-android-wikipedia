@@ -860,7 +860,7 @@
   <string name="suggested_edits_ip_blocked_title">আইপি বাধাপ্রাপ্ত</string>
   <string name="suggested_edits_last_edited">সর্বশেষ সম্পাদিত</string>
   <string name="suggested_edits_last_edited_never">কখনো না</string>
-  <string name="suggested_edits_task_new" fuzzy="true">নতুন</string>
+  <string name="suggested_edits_task_new">নতুন</string>
   <string name="suggested_edits_reactivation_notification_title">পরামর্শকৃত সম্পাদনা</string>
   <string name="suggested_edits_contributions_screen_title">%s-এর অবদান</string>
   <string name="suggested_edits_contribution_language_label">ভাষা</string>
@@ -997,6 +997,7 @@
   <string name="wikitext_numbered_list">সংখ্যায়িত তালিকা</string>
   <string name="wikitext_template">টেমপ্লেট</string>
   <string name="wikitext_reference">তথ্যসূত্র</string>
+  <string name="wikitext_mention_user">একজন ব্যবহারকারীকে উল্লেখ করুন</string>
   <string name="insert_media_search_description">উইকিমিডিয়া কমন্স থেকে একটি ফাইল নির্বাচন করুন</string>
   <string name="insert_media_search_hint">মিডিয়া অনুসন্ধান</string>
   <string name="insert_media_settings" fuzzy="true">মিডিয়া সেটিং</string>
