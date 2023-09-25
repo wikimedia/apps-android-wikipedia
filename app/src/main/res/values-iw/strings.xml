@@ -1080,7 +1080,7 @@
   <string name="suggested_edits_ip_blocked_title">כתובת ה־IP חסומה</string>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
-  <string name="suggested_edits_task_new" fuzzy="true">חדשה</string>
+  <string name="suggested_edits_task_new">חדש</string>
   <string name="suggested_edits_cc0_notice">הפרסום מהווה את הסכמתך הבלתי־חוזרת ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור של התרומה הזאת לפי &lt;a href=\"%2$s\"&gt;רישיון CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">עריכות מוצעות</string>
   <string name="suggested_edits_reactivation_notification_stage_one">תודה על עריכת ויקיפדיה! מדוע לא להמשיך היכן שהפסקת?</string>
@@ -1171,6 +1171,7 @@
   <string name="image_recommendation_tooltip_3">יש להחליט האם התמונה עוזרת לקוראים להבין טוב יותר את הנושא הזה</string>
   <string name="image_recommendation_tooltip_next">הבא</string>
   <string name="image_recommendation_tooltip_warning">נא לעיין בערך כדי להבין את הנושא שלו ולבדוק את התמונה</string>
+  <string name="image_recommendation_depleted">מצטערים, אין עוד תמונות מוצעות עכשיו. נא לבדוק &lt;a href=\"#\"&gt;עריכות מוצעות&lt;/a&gt; אחרות או לחזור מאוחר יותר.</string>
   <string name="suggested_edits_report_feature">בעיה עם תכונה</string>
   <string name="suggested_edits_report_feature_subject">בעיה עם עריכות מוצעות</string>
   <string name="edit_summary_added_image">נוספה תמונה</string>
@@ -1276,6 +1277,7 @@
   <string name="wikitext_template">תבנית</string>
   <string name="wikitext_reference">הערת שוליים</string>
   <string name="wikitext_preview_link">תצוגה מקדימה של קישור</string>
+  <string name="wikitext_mention_user">אזכור משתמש</string>
   <string name="insert_media_title">הוספת מדיה</string>
   <string name="insert_media_search_description">נא לבחור קובץ מוויקישיתוף</string>
   <string name="insert_media_search_hint">חיפוש מדיה</string>
