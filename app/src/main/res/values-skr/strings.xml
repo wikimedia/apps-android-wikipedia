@@ -457,7 +457,7 @@
   <string name="suggested_edits_ip_blocked_title">آئی پی بلاک تھیا</string>
   <string name="suggested_edits_last_edited">چھیکڑی تبدیلی تھئی</string>
   <string name="suggested_edits_last_edited_never">کݙاہیں وی کائناں</string>
-  <string name="suggested_edits_task_new" fuzzy="true">نواں</string>
+  <string name="suggested_edits_task_new">نواں</string>
   <string name="suggested_edits_reactivation_notification_title">مجوزہ تبدیلیاں</string>
   <string name="suggested_edits_contribution_language_label">زبان</string>
   <string name="suggested_edits_contribution_date_time_label">تریخ/ویلا</string>
