@@ -1573,6 +1573,16 @@
   <string name="patroller_onboarding_two_undo_content">Content of the undo/rollback section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_diff_tooltip_one">Text of the first tooltip for patrol edit diff screen.</string>
   <string name="patroller_diff_tooltip_two">Text of the second tooltip for patrol edit diff screen.</string>
+  <string name="patroller_diff_feedback_dialog_title">Dialog title for the feedback form in the patrol edit screen.</string>
+  <string name="patroller_diff_feedback_dialog_message">Dialog message for the feedback form in the patrol edit screen.</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Option for the feedback form in the patrol edit screen that indicates satisfied.</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Option for the feedback form in the patrol edit screen that indicates neutral.</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Option for the feedback form in the patrol edit screen that indicates unsatisfied.</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Hint text for input field for the feedback form in the patrol edit screen.</string>
+  <string name="patroller_diff_feedback_dialog_submit">Button label for input field for the feedback form in the patrol edit screen.</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Text for the snackbar message the feedback form in the patrol edit screen that indicates the feedback has been submitted.</string>
+  <string name="patroller_diff_feedback_tooltip">Text of the tooltip for the patrol edit screen indicates how to submit feedback for the feature.</string>
+
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
   <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
