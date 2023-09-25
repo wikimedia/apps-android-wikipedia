@@ -1571,6 +1571,8 @@
   <string name="patroller_onboarding_two_warm_content">Content of the warm section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_undo_title">Title of the undo/rollback section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_undo_content">Content of the undo/rollback section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_diff_tooltip_one">Text of the first tooltip for patrol edit diff screen.</string>
+  <string name="patroller_diff_tooltip_two">Text of the second tooltip for patrol edit diff screen.</string>
   <string name="patroller_diff_feedback_dialog_title">Dialog title for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_dialog_message">Dialog message for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Option for the feedback form in the patrol edit screen that indicates satisfied.</string>
