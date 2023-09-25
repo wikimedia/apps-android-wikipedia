@@ -2,7 +2,6 @@ package org.wikipedia.readinglist.sync
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.wikipedia.dataclient.page.PageSummary
 import java.text.Normalizer
 import java.time.Instant
 import java.util.*
@@ -34,7 +33,6 @@ data class SyncedReadingLists(val lists: List<RemoteReadingList>? = null,
         private val title: String,
         val created: String = Instant.now().toString(),
         val updated: String = Instant.now().toString(),
-        val summary: PageSummary? = null,
         @SerialName("deleted") val isDeleted: Boolean = false
     ) {
         fun project(): String = Normalizer.normalize(project, Normalizer.Form.NFC)
