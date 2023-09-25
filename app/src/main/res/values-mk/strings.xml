@@ -1181,6 +1181,7 @@
   <string name="wikitext_template">Предлошка</string>
   <string name="wikitext_reference">Навод</string>
   <string name="wikitext_preview_link">Преглед на врската</string>
+  <string name="wikitext_mention_user">Спомни корисник</string>
   <string name="insert_media_title">Вметнување на слика или снимка</string>
   <string name="insert_media_search_description">Изберете податотека од Ризницата</string>
   <string name="insert_media_search_hint">Пребарување на слики и снимки</string>

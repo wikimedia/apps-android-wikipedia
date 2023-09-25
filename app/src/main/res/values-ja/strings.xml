@@ -1036,7 +1036,7 @@
   <string name="suggested_edits_ip_blocked_title">IPブロック済み</string>
   <string name="suggested_edits_last_edited">最終編集:</string>
   <string name="suggested_edits_last_edited_never">なし</string>
-  <string name="suggested_edits_task_new" fuzzy="true">新規</string>
+  <string name="suggested_edits_task_new">新規</string>
   <string name="suggested_edits_cc0_notice">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0ライセンス&lt;/a&gt;の下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="suggested_edits_reactivation_notification_title">編集提案</string>
   <string name="suggested_edits_reactivation_notification_stage_one">ウィキペディアを編集していただきありがとうございます! このまま編集を続けてみてはどうでしょうか?</string>
