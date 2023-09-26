@@ -478,8 +478,10 @@
   <string name="preference_summary_notification_thanks">သေၵေႃႉၵေႃႉ ၶွပ်ႈၸႂ်ထိုင် ၸဝ်ႈၵဝ်ႇ တွၼ်ႈတႃႇ လွင်ႈမႄးထတ်း</string>
   <string name="preference_title_notification_revert">ပိၼ်ႈၶိုၼ်း</string>
   <string name="preference_summary_notification_revert">ၼႂ်းၵႃႈ လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇၼၼ်ႉ တႃႇဢၼ်ၼိုင်ႈ ထုၵ်ႇပိၼ်ႈၶိုၼ်းဝႆႉ</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="view_because_you_read_card_title">ယွၼ်ႉပိူဝ်ႈၸဝ်ႈၵဝ်ႇ လူ</string>
   <string name="view_random_card_title">တူဝ်တႅဝ်ႇ</string>
+  <string name="view_top_read_card_title">လူလိူဝ်သုတ်း</string>
   <string name="view_next_random_article">ပိုတ်ႇပွင်ႈလိၵ်ႈၵမ်ႉမၢၼ် တၢင်ႇဢၼ်</string>
   <string name="view_main_page_card_title">မိူဝ်ႈၼႆႉ တီႈၼိူဝ် ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="view_main_page_card_action">တူၺ်းၼႃးလိၵ်ႈႁူဝ်ႁႅၵ်ႈ</string>
@@ -523,6 +525,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;မႄးၵမ်ႉၸႂ် တီႈပိုတ်ႇလူၸဝ်ႈၵဝ်ႇ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;ယၢမ်းလဵဝ် ၸဝ်ႈၵဝ်ႇၸၢင်ႈလိူၵ်ႈပၼ်ဝႃႈ တေလႆႈၼႄပၼ်သင် တွၼ်ႈတႃႇလူ၊ လႄႈ ၸၢင်ႈပၼ်ပႃႇၸႃး လမ်းၼႂ်း မဵဝ်းဢၼ်ၸဝ်ႈၵဝ်ႇတိူဝ်းလႆႈၸႂ်။</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
+  <string name="top_read_activity_title">လူလိူဝ်သုတ်း တီႈ %s</string>
   <string name="description_edit_text_hint">ၶေႃႈသပ်းလႅင်း ႁူဝ်ၶေႃႈ</string>
   <string name="description_edit_translate_caption_hint_per_language">ႁူဝ်ၶေႃႈ ၶႅပ်းႁၢင်ႈ (%s)</string>
   <string name="description_edit_save">ပိုၼ်ဢွၵ်ႇ</string>

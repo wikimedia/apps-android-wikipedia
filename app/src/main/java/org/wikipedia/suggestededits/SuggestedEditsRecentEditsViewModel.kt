@@ -10,18 +10,23 @@ import androidx.paging.cachedIn
 import androidx.paging.filter
 import androidx.paging.insertSeparators
 import androidx.paging.map
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.dataclient.mwapi.UserInfo
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
 import retrofit2.HttpException
 import java.io.IOException
+import java.time.Duration
+import java.util.Calendar
 import java.util.Date
 import kotlin.math.max
 
@@ -40,10 +45,9 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     var actionModeActive = false
     var recentEditsSource: RecentEditsPagingSource? = null
 
-    private val cachedRecentEdits = mutableListOf<MwQueryResult.RecentChange>()
-    private var cachedContinueKey: String? = null
+    private val cachedUserInfo = mutableListOf<UserInfo>()
 
-    val recentEditsFlow = Pager(PagingConfig(pageSize = 50), pagingSourceFactory = {
+    val recentEditsFlow = Pager(PagingConfig(pageSize = 50, initialLoadSize = 50), pagingSourceFactory = {
         recentEditsSource = RecentEditsPagingSource()
         recentEditsSource!!
     }).flow.map { pagingData ->
@@ -69,30 +73,40 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     }.cachedIn(viewModelScope)
 
     fun clearCache() {
-        cachedRecentEdits.clear()
+        cachedUserInfo.clear()
     }
 
     fun populateEditingSuggestionsProvider(topItem: MwQueryResult.RecentChange) {
-        if (cachedRecentEdits.isNotEmpty()) {
-            val index = max(cachedRecentEdits.indexOf(topItem), 0)
-            EditingSuggestionsProvider.populateRevertCandidateCache(langCode, cachedRecentEdits.subList(0, index + 1))
-        }
+        //if (cachedRecentEdits.isNotEmpty()) {
+        //    val index = max(cachedRecentEdits.indexOf(topItem), 0)
+        //    EditingSuggestionsProvider.populateRevertCandidateCache(langCode, cachedRecentEdits.subList(0, index + 1))
+        //}
     }
 
     inner class RecentEditsPagingSource : PagingSource<String, MwQueryResult.RecentChange>() {
         override suspend fun load(params: LoadParams<String>): LoadResult<String, MwQueryResult.RecentChange> {
             return try {
-                if (params.key == null && cachedRecentEdits.isNotEmpty()) {
-                    return LoadResult.Page(cachedRecentEdits, null, cachedContinueKey)
-                }
 
                 val response = getRecentEditsCall(wikiSite, params.loadSize, params.key)
-                val recentChanges = response.query?.recentChanges.orEmpty()
 
-                cachedContinueKey = response.continuation?.rcContinuation
-                cachedRecentEdits.addAll(recentChanges)
+                // Filtering Ores damaging and goodfaith
+                val recentChanges = filterOresScores(filterOresScores(response.query?.recentChanges.orEmpty(), true), false)
 
-                LoadResult.Page(recentChanges, null, cachedContinueKey)
+                // Get usernames
+                val usernames = recentChanges.filter { !it.anon }.map { it.user }.distinct().filter {
+                    !cachedUserInfo.map { userInfo -> userInfo.name }.contains(it)
+                }
+
+                val usersInfoResponse = withContext(Dispatchers.IO) {
+                    ServiceFactory.get(wikiSite).userInfo(usernames.joinToString(separator = "|"))
+                }.query?.users ?: emptyList()
+
+                cachedUserInfo.addAll(usersInfoResponse)
+
+                // Filtering User experiences and registration.
+                val finalRecentChanges = filterUserRegistration(filterUserExperience(recentChanges, cachedUserInfo))
+
+                LoadResult.Page(finalRecentChanges, null, response.continuation?.rcContinuation)
             } catch (e: IOException) {
                 LoadResult.Error(e)
             } catch (e: HttpException) {
@@ -102,6 +116,101 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
         override fun getRefreshKey(state: PagingState<String, MwQueryResult.RecentChange>): String? {
             return null
+        }
+
+        @Suppress("KotlinConstantConditions")
+        private fun filterUserExperience(recentChanges: List<MwQueryResult.RecentChange>, usersInfo: List<UserInfo>): List<MwQueryResult.RecentChange> {
+            val filterGroupSet = SuggestedEditsRecentEditsFilterTypes.USER_EXPERIENCE_GROUP.map { it.id }
+            if (Prefs.recentEditsIncludedTypeCodes.any { code -> filterGroupSet.contains(code) }) {
+                val findUserExperienceFilters = Prefs.recentEditsIncludedTypeCodes
+                    .filter { code ->
+                        filterGroupSet.contains(code)
+                    }.map {
+                        SuggestedEditsRecentEditsFilterTypes.find(it)
+                    }
+                // Filtering non-anon items with requirements and add anon items.
+                return recentChanges.filter { !it.anon }.filter {
+                    val userInfo = usersInfo.find { info -> info.name == it.user }
+                    var qualifiedUser = false
+                    userInfo?.let {
+                        val editsCount = userInfo.editCount
+                        val diffDays = diffDays(userInfo.registrationDate)
+                        findUserExperienceFilters.forEach { type ->
+                            val userExperienceArray = type.value.split("|")
+                            val requiredEdits = userExperienceArray.first().split(",")
+                            val requiredMinEdits = requiredEdits.first().toInt()
+                            val requiredMaxEdits = requiredEdits.last().toInt()
+                            val requiredLength = userExperienceArray.last().split(",")
+                            val requiredMinLength = requiredLength.first().toLong()
+                            val requiredMaxLength = requiredLength.last().toLong()
+
+                            qualifiedUser = if (requiredMaxEdits == -1 && requiredMaxLength == -1L) {
+                                editsCount >= requiredMinEdits && diffDays >= requiredMinLength
+                            } else {
+                                editsCount in requiredMinEdits..requiredMaxEdits && diffDays in requiredMinLength..requiredMaxLength
+                            }
+                            if (qualifiedUser) {
+                                return@filter qualifiedUser
+                            }
+                        }
+                    }
+                    qualifiedUser
+                } + recentChanges.filter { it.anon }
+            }
+            return recentChanges
+        }
+
+        private fun filterUserRegistration(recentChanges: List<MwQueryResult.RecentChange>): List<MwQueryResult.RecentChange> {
+            val includedTypesCodes = Prefs.recentEditsIncludedTypeCodes
+            val filterUserRegistrationGroupSet = SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.map { it.id }
+            val filterUserExperiencesGroupSet = SuggestedEditsRecentEditsFilterTypes.USER_EXPERIENCE_GROUP.map { it.id }
+            // 1. Skip when: both anon and non-anon selected; or anon and user experiences selected.
+            if (!includedTypesCodes.containsAll(filterUserRegistrationGroupSet) &&
+                !(includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.id) &&
+                        includedTypesCodes.any { filterUserExperiencesGroupSet.contains(it) })) {
+
+                // 2. Filter anon items when only "UNREGISTERED" selected.
+                if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.id)) {
+                    return recentChanges.filter { it.anon }
+                }
+                // 3. Filter non-anon items. E.g. registered or any user experiences selected.
+                return recentChanges.filter { !it.anon }
+            }
+            return recentChanges
+        }
+
+        private fun filterOresScores(recentChanges: List<MwQueryResult.RecentChange>, isDamagingGroup: Boolean): List<MwQueryResult.RecentChange> {
+            val filterGroupSet = if (isDamagingGroup) SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }
+            else SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.map { it.id }
+
+            if (Prefs.recentEditsIncludedTypeCodes.any { code -> filterGroupSet.contains(code) }) {
+                val findOresFilters = Prefs.recentEditsIncludedTypeCodes
+                    .filter { code ->
+                        filterGroupSet.contains(code)
+                    }.map {
+                        SuggestedEditsRecentEditsFilterTypes.find(it)
+                    }
+
+                return recentChanges.filter { it.ores != null }.filter {
+                    val scoreRanges = findOresFilters.map { type -> type.value }
+                    val oresScore = if (isDamagingGroup) it.ores?.damagingProb ?: 0f else it.ores?.goodfaithProb ?: 0f
+                    scoreRanges.forEach { range ->
+                        val scoreRangeArray = range.split("|")
+                        val inScoreRange = oresScore >= scoreRangeArray.first().toFloat() && oresScore <= scoreRangeArray.last().toFloat()
+                        if (inScoreRange) {
+                            return@filter true
+                        }
+                    }
+                    false
+                }
+            }
+            return recentChanges
+        }
+
+        private fun diffDays(date: Date): Long {
+            val nowDate = Calendar.getInstance().toInstant()
+            val beginDate = date.toInstant()
+            return Duration.between(beginDate, nowDate).toDays()
         }
     }
 
@@ -117,10 +226,29 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         }
 
         fun filtersCount(): Int {
-            val defaultTypeSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }.toSet()
-            val nonDefaultChangeTypes = Prefs.recentEditsIncludedTypeCodes.subtract(defaultTypeSet)
-                .union(defaultTypeSet.subtract(Prefs.recentEditsIncludedTypeCodes.toSet()))
-            return nonDefaultChangeTypes.size
+            val findSelectedUserStatus = Prefs.recentEditsIncludedTypeCodes
+                .filter { code ->
+                    SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.map { it.id }.contains(code) ||
+                            SuggestedEditsRecentEditsFilterTypes.USER_EXPERIENCE_GROUP.map { it.id }.contains(code)
+                }
+
+            // It should include: "not" default values + "non-selected" default values
+            val defaultUserStatusSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_USER_STATUS.map { it.id }.toSet()
+            val nonDefaultUserStatus = findSelectedUserStatus.subtract(defaultUserStatusSet)
+                .union(defaultUserStatusSet.subtract(findSelectedUserStatus.toSet()))
+
+            // Ores related: default is empty
+            val findSelectedOres = Prefs.recentEditsIncludedTypeCodes.subtract(findSelectedUserStatus.toSet())
+                .filter { code ->
+                    SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.map { it.id }.contains(code) ||
+                            SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }.contains(code)
+                }
+
+            // Find the remaining selected filters
+            val findSelectedOthers = Prefs.recentEditsIncludedTypeCodes.subtract(findSelectedOres.toSet())
+            val defaultOthersSet = SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_OTHERS.map { it.id }.toSet()
+            val nonDefaultOthers = defaultOthersSet.subtract(findSelectedOthers)
+            return nonDefaultUserStatus.size + nonDefaultOthers.size + findSelectedOres.size
         }
 
         fun latestRevisions(): String? {
@@ -154,16 +282,11 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 }
             }
 
-            if (!includedTypesCodes.containsAll(SuggestedEditsRecentEditsFilterTypes.USER_STATUS_GROUP.map { it.id })) {
-                if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.REGISTERED.id)) {
-                    list.add(SuggestedEditsRecentEditsFilterTypes.REGISTERED.value)
-                }
-                if (includedTypesCodes.contains(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.id)) {
-                    list.add(SuggestedEditsRecentEditsFilterTypes.UNREGISTERED.value)
-                }
+            if (includedTypesCodes.any { code ->
+                    SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.map { it.id }.contains(code) ||
+                            SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }.contains(code) }) {
+                list.add("oresreview")
             }
-
-            // TODO: add damaging and goodfaith logic here
 
             return list.joinToString(separator = "|")
         }

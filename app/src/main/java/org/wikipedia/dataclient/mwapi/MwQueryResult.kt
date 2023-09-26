@@ -234,8 +234,7 @@ class MwQueryResult {
         // TODO: draftquality
         val damagingProb: Float
             get() = damaging?.trueProb ?: 0f
-
-        val goodFaithProb: Float
+        val goodfaithProb: Float
             get() = goodfaith?.trueProb ?: 0f
     }
 

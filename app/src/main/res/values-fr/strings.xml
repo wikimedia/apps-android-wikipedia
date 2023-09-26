@@ -1047,7 +1047,7 @@
   <string name="suggested_edits_ip_blocked_title">IP bloquée</string>
   <string name="suggested_edits_last_edited">Dernière modification</string>
   <string name="suggested_edits_last_edited_never">Jamais</string>
-  <string name="suggested_edits_task_new" fuzzy="true">nouveau</string>
+  <string name="suggested_edits_task_new">Nouveau</string>
   <string name="suggested_edits_cc0_notice">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;conditions d’utilisation&lt;/a&gt; et de mettre de façon irrévocable cette contribution sous la &lt;a href=\"%2$s\"&gt;licence CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modifications suggérées</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci d’avoir modifié Wikipédia ! Pourquoi ne pas reprendre là où vous en étiez ?</string>
@@ -1126,6 +1126,7 @@
   <string name="image_recommendation_tooltip_3">Décider si l’image aide les lecteurs à comprendre mieux ce sujet</string>
   <string name="image_recommendation_tooltip_next">Suivant</string>
   <string name="image_recommendation_tooltip_warning">Veuillez relire l’article pour comprendre son sujet et inspecter l’image</string>
+  <string name="image_recommendation_depleted">Désolé, il n’y a plus d’images suggérées disponibles en ce moment. Veuillez explorer d’autres &lt;a href=\"#\"&gt;modifications suggérées&lt;/a&gt; ou revenir ultérieurement.</string>
   <string name="suggested_edits_report_feature">Problème avec la fonctionnalité</string>
   <string name="suggested_edits_report_feature_subject">Problème avec les modifications suggérées</string>
   <string name="edit_summary_added_image">Image ajoutée</string>
@@ -1227,6 +1228,7 @@
   <string name="wikitext_template">Modèle</string>
   <string name="wikitext_reference">Référence</string>
   <string name="wikitext_preview_link">Lien vers l’aperçu</string>
+  <string name="wikitext_mention_user">Mentionner un utilisateur</string>
   <string name="insert_media_title">Insérer un média</string>
   <string name="insert_media_search_description">Sélectionner un fichier de Wikimedia Commons</string>
   <string name="insert_media_search_hint">Rechercher un média</string>

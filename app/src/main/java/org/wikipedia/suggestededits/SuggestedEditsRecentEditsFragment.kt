@@ -72,7 +72,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
 
     private val launchFilterActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == AppCompatActivity.RESULT_OK) {
-            viewModel.langCode = Prefs.userContribFilterLangCode
+            viewModel.langCode = Prefs.recentEditsWikiCode
             setupAdapters()
             viewModel.clearCache()
             recentEditsListAdapter.reload()
@@ -253,6 +253,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
     }
 
+    @Suppress("KotlinConstantConditions")
     private inner class RecentEditsDiffCallback : DiffUtil.ItemCallback<SuggestedEditsRecentEditsViewModel.RecentEditsItemModel>() {
         override fun areContentsTheSame(oldItem: SuggestedEditsRecentEditsViewModel.RecentEditsItemModel, newItem: SuggestedEditsRecentEditsViewModel.RecentEditsItemModel): Boolean {
             if (oldItem is SuggestedEditsRecentEditsViewModel.RecentEditsSeparator && newItem is SuggestedEditsRecentEditsViewModel.RecentEditsSeparator) {
@@ -339,7 +340,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             }
 
             binding.filterByButton.setOnClickListener {
-                // TODO: implement this
+                launchFilterActivity.launch(SuggestedEditsRecentEditsFilterActivity.newIntent(requireContext()))
             }
 
             FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
@@ -347,24 +348,19 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         private fun updateFilterCount() {
-            val filtersCount = SuggestedEditsRecentEditsViewModel.filtersCount()
-            if (filtersCount == 0) {
-                binding.filterCount.visibility = View.GONE
-                ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(requireContext(), R.attr.primary_color))
-            } else {
-                binding.filterCount.visibility = View.VISIBLE
-                binding.filterCount.text = filtersCount.toString()
-                ImageViewCompat.setImageTintList(binding.filterByButton,
-                    ResourceUtil.getThemedColorStateList(requireContext(), R.attr.progressive_color))
-            }
+            val showFilterCount = viewModel.filtersCount() != 0
+            val filterButtonColor = if (showFilterCount) R.attr.progressive_color else R.attr.primary_color
+            binding.filterCount.isVisible = showFilterCount
+            binding.filterCount.text = viewModel.filtersCount().toString()
+            ImageViewCompat.setImageTintList(binding.filterByButton,
+                ResourceUtil.getThemedColorStateList(requireContext(), filterButtonColor))
         }
     }
 
     private inner class EmptyMessagesViewHolder constructor(val binding: ViewEditHistoryEmptyMessagesBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.emptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
-                // TODO: implement this
+                launchFilterActivity.launch(SuggestedEditsRecentEditsFilterActivity.newIntent(requireContext()))
             }
         }
 
@@ -391,7 +387,6 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         override fun onUserClick(item: MwQueryResult.RecentChange, view: View) {
-            // TODO: verify source name and value
             UserTalkPopupHelper.show(requireActivity() as AppCompatActivity,
                 PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), item.user, viewModel.wikiSite),
                 item.anon, view, Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS, HistoryEntry.SOURCE_SUGGESTED_EDITS_RECENT_EDITS,
@@ -414,6 +409,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                     }
 
                     override fun onFilterIconClick() {
+                        launchFilterActivity.launch(SuggestedEditsRecentEditsFilterActivity.newIntent(requireContext()))
                     }
 
                     override fun getExcludedFilterCount(): Int {
