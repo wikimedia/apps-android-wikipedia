@@ -31,15 +31,16 @@ class Campaign(
     class Assets(
         val text: String? = "",
         val footer: String? = "",
-        @SerialName("action_positive") val actionPositive: Action?,
-        @SerialName("action_negative") val actionNegative: Action?,
+        val actions: Array<Action> = emptyArray()
     )
 
     @Serializable
     class Action(
         val title: String = "",
-        val url: String? = null
-    )
+        @SerialName("url") val rawUrl: String? = null
+    ) {
+        val url get() = rawUrl?.replace("\$platform;", "Android")
+    }
 
     @Serializable
     class PlatformParams

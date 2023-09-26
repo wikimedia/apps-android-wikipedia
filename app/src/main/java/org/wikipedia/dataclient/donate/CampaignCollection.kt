@@ -25,9 +25,7 @@ object CampaignCollection {
         withContext(Dispatchers.IO) {
             val request = Request.Builder().url(CAMPAIGNS_URL_DEBUG).build()
             val response = OkHttpConnectionFactory.client.newCall(request).execute()
-            val json = response.body!!.string()
-
-            val campaigns = JsonUtil.decodeFromString<List<JsonElement>>(json).orEmpty()
+            val campaigns = JsonUtil.decodeFromString<List<JsonElement>>(response.body?.string()).orEmpty()
 
             campaignList.addAll(campaigns.filter {
                 val proto = JsonUtil.json.decodeFromJsonElement<CampaignProto>(it)
