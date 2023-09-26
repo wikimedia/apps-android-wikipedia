@@ -21,7 +21,7 @@ import org.wikipedia.databinding.ViewOnboardingPageBinding
 import org.wikipedia.onboarding.OnboardingPageView.LanguageListAdapter.OptionsViewHolder
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.util.Locale
 
 class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
@@ -54,6 +54,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 val showListView = getBoolean(R.styleable.OnboardingPageView_showListView, false)
                 val background = getDrawable(R.styleable.OnboardingPageView_background)
                 val imageSize = getDimension(R.styleable.OnboardingPageView_imageSize, 0f)
+                val showPatrollerTasksButtons = getBoolean(R.styleable.OnboardingPageView_patrollerTasksButtons, false)
                 background?.let { setBackground(it) }
                 binding.imageViewCentered.setImageDrawable(centeredImage)
                 if (imageSize > 0 && centeredImage != null && centeredImage.intrinsicHeight > 0) {
@@ -77,6 +78,8 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 }
                 binding.acceptButton.setOnClickListener { callback?.onAcceptOrReject(this@OnboardingPageView, true) }
                 binding.rejectButton.setOnClickListener { callback?.onAcceptOrReject(this@OnboardingPageView, false) }
+
+                binding.patrollerTasksButtonsContainer?.root?.isVisible = showPatrollerTasksButtons
             }
         }
     }
