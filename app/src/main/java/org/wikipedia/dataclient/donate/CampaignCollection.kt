@@ -27,8 +27,6 @@ object CampaignCollection {
             val response = OkHttpConnectionFactory.client.newCall(request).execute()
             val json = response.body!!.string()
 
-            Thread.sleep(5000)
-
             val campaigns = JsonUtil.decodeFromString<List<JsonElement>>(json).orEmpty()
 
             campaignList.addAll(campaigns.filter {
