@@ -11,15 +11,19 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
 
         <ImageView
             android:id="@+id/thankImage"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            app:src="@drawable/ic_heart_24"
-            app:tint="?attr/progressive_color"
+            android:src="@drawable/ic_heart_24"
+            android:padding="8dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="?attr/addition_color"
             android:contentDescription="@null"
+            app:tint="?attr/progressive_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -56,9 +60,12 @@
             android:id="@+id/watchImage"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            app:src="@drawable/ic_heart_24"
-            app:tint="?attr/progressive_color"
+            android:src="@drawable/ic_star_24"
+            android:padding="8dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="?attr/addition_color"
             android:contentDescription="@null"
+            app:tint="?attr/progressive_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -95,9 +102,12 @@
             android:id="@+id/warnImage"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            app:src="@drawable/ic_heart_24"
-            app:tint="?attr/progressive_color"
+            android:src="@drawable/ic_warning_24"
+            android:padding="8dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="?attr/addition_color"
             android:contentDescription="@null"
+            app:tint="?attr/progressive_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -134,9 +144,12 @@
             android:id="@+id/undoImage"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            app:src="@drawable/ic_heart_24"
-            app:tint="?attr/progressive_color"
+            android:src="@drawable/ic_undo_themed_24dp"
+            android:padding="8dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="?attr/addition_color"
             android:contentDescription="@null"
+            app:tint="?attr/progressive_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 

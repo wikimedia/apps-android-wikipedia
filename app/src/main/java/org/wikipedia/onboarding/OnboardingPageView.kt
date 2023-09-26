@@ -44,8 +44,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
     init {
         attrs?.let { attrSet ->
             context.withStyledAttributes(attrSet, R.styleable.OnboardingPageView) {
-                val centeredImage = AppCompatResources.getDrawable(context,
-                        getResourceId(R.styleable.OnboardingPageView_centeredImage, -1))
+                val imageResource = getResourceId(R.styleable.OnboardingPageView_centeredImage, -1)
                 val primaryText = getString(R.styleable.OnboardingPageView_primaryText)
                 val secondaryText = getString(R.styleable.OnboardingPageView_secondaryText)
                 val tertiaryText = getString(R.styleable.OnboardingPageView_tertiaryText)
@@ -56,17 +55,24 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 val imageSize = getDimension(R.styleable.OnboardingPageView_imageSize, 0f)
                 val showPatrollerTasksButtons = getBoolean(R.styleable.OnboardingPageView_patrollerTasksButtons, false)
                 background?.let { setBackground(it) }
-                binding.imageViewCentered.setImageDrawable(centeredImage)
-                if (imageSize > 0 && centeredImage != null && centeredImage.intrinsicHeight > 0) {
-                    val aspect = centeredImage.intrinsicWidth.toFloat() / centeredImage.intrinsicHeight
-                    binding.imageViewCentered.updateLayoutParams {
-                        width = imageSize.toInt()
-                        height = (imageSize / aspect).toInt()
+                binding.imageViewCentered.isVisible = imageResource != -1
+                if (imageSize > 0 && imageResource != -1) {
+                    val centeredImage = AppCompatResources.getDrawable(context, imageResource)
+                    if (centeredImage != null && centeredImage.intrinsicHeight > 0) {
+                        binding.imageViewCentered.setImageDrawable(centeredImage)
+                        val aspect =
+                            centeredImage.intrinsicWidth.toFloat() / centeredImage.intrinsicHeight
+                        binding.imageViewCentered.updateLayoutParams {
+                            width = imageSize.toInt()
+                            height = (imageSize / aspect).toInt()
+                        }
                     }
                 }
                 binding.primaryTextView.visibility = if (primaryText.isNullOrEmpty()) GONE else VISIBLE
                 binding.primaryTextView.text = primaryText
+                binding.secondaryTextView.visibility = if (secondaryText.isNullOrEmpty()) GONE else VISIBLE
                 binding.secondaryTextView.text = StringUtil.fromHtml(secondaryText)
+                binding.tertiaryTextView.visibility = if (tertiaryText.isNullOrEmpty()) GONE else VISIBLE
                 binding.tertiaryTextView.text = tertiaryText
                 binding.acceptRejectContainer.isVisible = acceptRejectButtons
                 setUpLanguageListContainer(showListView, listDataType)

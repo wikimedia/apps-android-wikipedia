@@ -687,4 +687,8 @@ object Prefs {
         get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_recent_edits_included_type_codes, null))
             ?: SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }
         set(types) = PrefsIoUtil.setString(R.string.preference_key_recent_edits_included_type_codes, JsonUtil.encodeToString(types))
+
+    var showRecentEditsOnboarding
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recent_edits_onboarding_shown, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recent_edits_onboarding_shown, value)
 }

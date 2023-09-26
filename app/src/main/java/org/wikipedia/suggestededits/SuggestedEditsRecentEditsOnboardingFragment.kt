@@ -12,7 +12,7 @@ import org.wikipedia.onboarding.OnboardingFragment
 import org.wikipedia.onboarding.OnboardingPageView
 
 class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment() {
-    override val doneButtonText = R.string.description_edit_tutorial_button_label_start_editing
+    override val doneButtonText = R.string.onboarding_get_started
     override val showDoneButton = true
 
     override fun getAdapter(): FragmentStateAdapter {
@@ -21,7 +21,7 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment() {
 
     internal inner class DescriptionEditTutorialPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
-            return pages.size - 1
+            return pages.size
         }
 
         override fun createFragment(position: Int): Fragment {
