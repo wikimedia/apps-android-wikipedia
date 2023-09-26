@@ -29,7 +29,7 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment() {
         }
     }
 
-    class ItemFragment() : Fragment() {
+    class ItemFragment : Fragment() {
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
             super.onCreateView(inflater, container, savedInstanceState)
             val position = requireArguments().getInt(ARG_POSITION, 0)
