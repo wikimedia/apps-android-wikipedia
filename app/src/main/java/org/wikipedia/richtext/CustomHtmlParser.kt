@@ -176,7 +176,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                     }
                 }
             } else if (tag == "code" && output != null) {
-                if(opening) {
+                if (opening) {
                     output.setSpan(TypefaceSpan("monospace"), output.length, output.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
                 } else {
                     val spans = output.getSpans<TypefaceSpan>(output.length)
