@@ -348,10 +348,10 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         private fun updateFilterCount() {
-            val showFilterCount = viewModel.filtersCount() != 0
+            val showFilterCount = SuggestedEditsRecentEditsViewModel.filtersCount() != 0
             val filterButtonColor = if (showFilterCount) R.attr.progressive_color else R.attr.primary_color
             binding.filterCount.isVisible = showFilterCount
-            binding.filterCount.text = viewModel.filtersCount().toString()
+            binding.filterCount.text = SuggestedEditsRecentEditsViewModel.filtersCount().toString()
             ImageViewCompat.setImageTintList(binding.filterByButton,
                 ResourceUtil.getThemedColorStateList(requireContext(), filterButtonColor))
         }

@@ -40,7 +40,7 @@ object EditingSuggestionsProvider {
     private var articlesWithImageRecommendationsCacheLang: String = ""
     private var articlesWithImageRecommendationsLastMillis: Long = 0
 
-    var revertCandidateLang: String = ""
+    private var revertCandidateLang: String = ""
     private val revertCandidateCache: Stack<MwQueryResult.RecentChange> = Stack()
     private var revertCandidateLastRevId = 0L
 
@@ -374,9 +374,9 @@ object EditingSuggestionsProvider {
                 if (cachedItem == null) {
                     while (this.coroutineContext.isActive) {
                         try {
-                            val response = SuggestedEditsRecentEditsViewModel.getRecentEditsCall(WikiSite.forLanguageCode(lang), 10)
+                            val recentChanges = SuggestedEditsRecentEditsViewModel.getRecentEditsCall(WikiSite.forLanguageCode(lang), 10, null, mutableListOf())
+                                .first.sortedByDescending { it.curRev }
                             var maxRevId = 0L
-                            val recentChanges = response.query?.recentChanges!!.sortedByDescending { it.curRev }
 
                             for (candidate in recentChanges) {
                                 if (candidate.curRev > maxRevId) {

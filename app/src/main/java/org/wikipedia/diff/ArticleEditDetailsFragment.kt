@@ -391,7 +391,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 binding.oresDamagingButton.isVisible = true
                 binding.oresDamagingButton.text = getString(R.string.edit_quality, (100f - ((it.ores?.damagingProb) ?: 0f) * 100f).toInt().toString())
                 binding.oresGoodFaithButton.isVisible = true
-                binding.oresGoodFaithButton.text = getString(R.string.edit_intent, (((it.ores?.goodFaithProb) ?: 0f) * 100f).toInt().toString())
+                binding.oresGoodFaithButton.text = getString(R.string.edit_intent, (((it.ores?.goodfaithProb) ?: 0f) * 100f).toInt().toString())
             }
         }
 
