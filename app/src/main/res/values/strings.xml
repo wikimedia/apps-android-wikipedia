@@ -1634,8 +1634,8 @@
     <string name="patroller_onboarding_two_thank_content">See a productive edit? Thank a user for their contribution.</string>
     <string name="patroller_onboarding_two_watch_title">Watch</string>
     <string name="patroller_onboarding_two_watch_content">Want to track article edits? Add to your Watchlist. View it under \'More\'.</string>
-    <string name="patroller_onboarding_two_warm_title">Warm</string>
-    <string name="patroller_onboarding_two_warm_content">Create, send, and store warning messages on an editor\'s talk page.</string>
+    <string name="patroller_onboarding_two_warn_title">Warn</string>
+    <string name="patroller_onboarding_two_warn_content">Create, send, and store warning messages on an editor\'s talk page.</string>
     <string name="patroller_onboarding_two_undo_title">Undo/Rollback</string>
     <string name="patroller_onboarding_two_undo_content">Choose \'Undo\' to undo or rollback a potentially destructive edit.</string>
     <string name="patroller_diff_tooltip_one">Damage predicts if an edit causes damage to a wiki.</string>
