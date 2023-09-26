@@ -408,6 +408,10 @@
             android:key="@string/preference_key_se_image_recs_onboarding_shown"
             android:title="@string/preference_key_se_image_recs_onboarding_shown" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_recent_edits_onboarding_shown"
+            android:title="@string/preference_key_recent_edits_onboarding_shown" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Tests and surveys">

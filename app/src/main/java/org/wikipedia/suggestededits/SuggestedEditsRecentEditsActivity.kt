@@ -10,7 +10,6 @@ class SuggestedEditsRecentEditsActivity : SingleFragmentActivity<SuggestedEditsR
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Prefs.showRecentEditsOnboarding = true
         maybeShowOnboarding()
     }
 
@@ -23,8 +22,8 @@ class SuggestedEditsRecentEditsActivity : SingleFragmentActivity<SuggestedEditsR
     }
 
     private fun maybeShowOnboarding() {
-        if (Prefs.showRecentEditsOnboarding) {
-            Prefs.showRecentEditsOnboarding = false
+        if (!Prefs.recentEditsOnboardingShown) {
+            Prefs.recentEditsOnboardingShown = true
             startActivity(SuggestedEditsRecentEditsOnboardingActivity.newIntent(this))
         }
     }
