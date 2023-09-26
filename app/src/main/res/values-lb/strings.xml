@@ -934,6 +934,7 @@
   <string name="wikitext_numbered_list">Nummeréiert Lëscht</string>
   <string name="wikitext_template">Schabloun</string>
   <string name="wikitext_reference">Referenz</string>
+  <string name="wikitext_mention_user">E Benotzer ernimmen</string>
   <string name="insert_media_search_description">Wielt e Fichier vu Wikimedia Commons</string>
   <string name="insert_media_settings">Bilddetailer derbäisetzen</string>
   <string name="insert_media_settings_uploaded_image">Eropgeluedent Bild</string>

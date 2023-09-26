@@ -1014,7 +1014,7 @@
   <string name="suggested_edits_ip_blocked_title">Blockerad IP-adress</string>
   <string name="suggested_edits_last_edited">Redigerade senast</string>
   <string name="suggested_edits_last_edited_never">Aldrig</string>
-  <string name="suggested_edits_task_new" fuzzy="true">ny</string>
+  <string name="suggested_edits_task_new">Ny</string>
   <string name="suggested_edits_cc0_notice">Genom att publicera samtycker du till &lt;a href=\"%1$s\"&gt;användningsvillkoren&lt;/a&gt; och att oåterkalleligen släppa detta bidrag under licensen &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Redigeringsförslag</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Tack för att du redigerar på Wikipedia! Varför inte fortsätta där du slutade sist?</string>
@@ -1093,6 +1093,7 @@
   <string name="image_recommendation_tooltip_3">Bestäm om bilden hjälper läsarna att förstå detta ämne bättre</string>
   <string name="image_recommendation_tooltip_next">Nästa</string>
   <string name="image_recommendation_tooltip_warning">Granska artikeln för att förstå ämnet och inspektera bilden</string>
+  <string name="image_recommendation_depleted">Tyvärr finns det inga fler tillgängliga föreslagna bilder just nu. Var god utforska andra &lt;a href=\"#\"&gt;föreslagna redigeringar&lt;/a&gt; eller återvänd senare.</string>
   <string name="suggested_edits_report_feature">Problem med funktion</string>
   <string name="suggested_edits_report_feature_subject">Problem med Föreslagna redigeringar</string>
   <string name="edit_summary_added_image">Lade till ny bild</string>
@@ -1194,6 +1195,7 @@
   <string name="wikitext_template">Mall</string>
   <string name="wikitext_reference">Referens</string>
   <string name="wikitext_preview_link">Förhandsvisa länk</string>
+  <string name="wikitext_mention_user">Nämn en användare</string>
   <string name="insert_media_title">Infoga media</string>
   <string name="insert_media_search_description">Välj en fil från Wikimedia Commons</string>
   <string name="insert_media_search_hint">Sök efter media</string>
