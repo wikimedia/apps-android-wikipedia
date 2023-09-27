@@ -23,7 +23,8 @@ object CampaignCollection {
         val campaignList = mutableListOf<Campaign>()
 
         withContext(Dispatchers.IO) {
-            val request = Request.Builder().url(CAMPAIGNS_URL_DEBUG).build()
+            val url = if (Prefs.announcementDebugUrl) CAMPAIGNS_URL_DEBUG else CAMPAIGNS_URL
+            val request = Request.Builder().url(url).build()
             val response = OkHttpConnectionFactory.client.newCall(request).execute()
             val campaigns = JsonUtil.decodeFromString<List<JsonElement>>(response.body?.string()).orEmpty()
 
