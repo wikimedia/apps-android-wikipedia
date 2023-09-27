@@ -325,9 +325,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun showUserPopupMenu(revision: Revision?, anchorView: View) {
         revision?.let {
             UserTalkPopupHelper.show(requireActivity() as AppCompatActivity,
-                    PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode),
-                            it.user, viewModel.pageTitle.wikiSite), it.isAnon, anchorView,
-                    InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)
+                PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode),
+                    it.user, viewModel.pageTitle.wikiSite), it.isAnon, anchorView,
+                InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS,
+                revisionId = it.revId, pageId = viewModel.pageId, showUserInfo = true)
         }
     }
 
