@@ -1406,9 +1406,10 @@
     <string name="revision_diff_paragraph_added">Paragraph added</string>
     <string name="revision_diff_paragraph_removed">Paragraph removed</string>
     <string name="revision_diff_protected">The changes made in this revision are not publicly accessible.</string>
-    <string name="revision_undo_title">Undo edit</string>
-    <string name="revision_undo_message">This will undo the changes made by the revision(s) of the article shown here.</string>
-    <string name="revision_undo_reason">To continue, please provide a reason for undoing this edit:</string>
+    <string name="revision_undo_title">Are you sure you want to undo this edit?</string>
+    <string name="revision_undo_message">Undoing means reverting the effects of one or more edits.</string>
+    <string name="revision_undo_summary_hint">Summary (optional)</string>
+    <string name="revision_undo_reason">Share the reason for the revert</string>
     <string name="revision_undo_success">The revision was undone.</string>
     <string name="revision_rollback_dialog_title">Are you sure you want to rollback the edits?</string>
     <string name="revision_rollback_success">Edits reverted.</string>
