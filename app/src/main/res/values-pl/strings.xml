@@ -1186,9 +1186,9 @@
   <string name="revision_diff_line_removed">Wiersz usunięty</string>
   <string name="revision_diff_paragraph_added">Dodany akapit</string>
   <string name="revision_diff_paragraph_removed">Usunięty akapit</string>
-  <string name="revision_undo_title">Cofnij edycję</string>
-  <string name="revision_undo_message">Spowoduje to cofnięcie zmian wprowadzonych przez poprawki pokazanego tutaj artykułu.</string>
-  <string name="revision_undo_reason">Aby kontynuować, podaj powód cofnięcia tej zmiany:</string>
+  <string name="revision_undo_title" fuzzy="true">Cofnij edycję</string>
+  <string name="revision_undo_message" fuzzy="true">Spowoduje to cofnięcie zmian wprowadzonych przez poprawki pokazanego tutaj artykułu.</string>
+  <string name="revision_undo_reason" fuzzy="true">Aby kontynuować, podaj powód cofnięcia tej zmiany:</string>
   <string name="revision_undo_success">Rewizja została cofnięta.</string>
   <string name="revision_rollback_dialog_title">Czy na pewno chcesz cofnąć zmiany?</string>
   <string name="revision_rollback_success">Zmiany zostały cofnięte.</string>

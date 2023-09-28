@@ -1303,9 +1303,9 @@
   <string name="revision_diff_line_removed">Rivi poistettu</string>
   <string name="revision_diff_paragraph_added">Kappale lisätty</string>
   <string name="revision_diff_paragraph_removed">Kappale poistettu</string>
-  <string name="revision_undo_title">Kumoa muokkaus</string>
-  <string name="revision_undo_message">Tämä kumoaa tässä näkyvään artikkeliin mainitu(i)ssa versio(i)ssa tehdyt muutokset.</string>
-  <string name="revision_undo_reason">Anna syy tämän muokkauksen kumoamiselle jatkaaksesi:</string>
+  <string name="revision_undo_title" fuzzy="true">Kumoa muokkaus</string>
+  <string name="revision_undo_message" fuzzy="true">Tämä kumoaa tässä näkyvään artikkeliin mainitu(i)ssa versio(i)ssa tehdyt muutokset.</string>
+  <string name="revision_undo_reason" fuzzy="true">Anna syy tämän muokkauksen kumoamiselle jatkaaksesi:</string>
   <string name="revision_undo_success">Versio kumottiin.</string>
   <string name="revision_rollback_dialog_title">Haluatko varmasti kumota muokkaukset?</string>
   <string name="revision_rollback_success">Muokkaukset palautettu.</string>

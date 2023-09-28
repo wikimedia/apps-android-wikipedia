@@ -1372,9 +1372,9 @@
   <string name="revision_diff_paragraph_added">Paragraphe ajouté</string>
   <string name="revision_diff_paragraph_removed">Paragraphe supprimé</string>
   <string name="revision_diff_protected">Les modifications faites dans cette révision ne sont pas accessibles publiquement.</string>
-  <string name="revision_undo_title">Annuler la modification</string>
-  <string name="revision_undo_message">Cela annulera les modifications réalisées dans les révisions de l’article affichées ici.</string>
-  <string name="revision_undo_reason">Pour poursuivre, veuillez fournir un motif pour annuler cette modification :</string>
+  <string name="revision_undo_title" fuzzy="true">Annuler la modification</string>
+  <string name="revision_undo_message" fuzzy="true">Cela annulera les modifications réalisées dans les révisions de l’article affichées ici.</string>
+  <string name="revision_undo_reason" fuzzy="true">Pour poursuivre, veuillez fournir un motif pour annuler cette modification :</string>
   <string name="revision_undo_success">La révision a été annulée.</string>
   <string name="revision_rollback_dialog_title">Voulez-vous vraiment révoquer les modifications ?</string>
   <string name="revision_rollback_success">Modifications révoquées.</string>
@@ -1581,6 +1581,8 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Afficher</string>
   <string name="patroller_tasks_overflow_report">Problème avec la fonctionnalité</string>
   <string name="patroller_tasks_overflow_learn">En savoir plus</string>
+  <string name="patroller_onboarding_one_title">Contribuer à la surveillance et à l’approbation des modifications de Wikipédia.</string>
+  <string name="patroller_onboarding_one_content">Améliore la qualité du contenu de Wikipédia en relisant activement un flux de nouvelles modifications et en fournissant des conseils, un contrôle de qualité et des encouragements à d’autres éditeurs.</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Rejeter</string>
   <string name="page_issues_title">Problèmes de la page</string>
