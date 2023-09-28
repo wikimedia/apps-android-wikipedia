@@ -34,6 +34,8 @@
                 android:paddingEnd="16dp"
                 android:textColor="?attr/primary_color"
                 android:textSize="16sp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 tools:text="Lorem ipsum" />
 
         </ScrollView>
@@ -46,6 +48,7 @@
             android:paddingHorizontal="16dp"
             android:clipToPadding="false"
             android:orientation="vertical"
+            android:background="?attr/paper_color"
             tools:visibility="visible">
 
             <com.google.android.material.button.MaterialButton
@@ -84,8 +87,20 @@
             android:padding="16dp"
             android:textColor="?attr/placeholder_color"
             android:textSize="12sp"
+            android:background="?attr/paper_color"
             tools:text="Lorem ipsum" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/closeButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_close_black_24dp"
+        android:padding="12dp"
+        android:layout_gravity="end"
+        android:contentDescription="@string/dialog_close_description"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:tint="?attr/primary_color"/>
 
 </org.wikipedia.views.WikiCardView>

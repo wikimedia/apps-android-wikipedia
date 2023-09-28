@@ -33,6 +33,10 @@ class CampaignDialogView(context: Context) : FrameLayout(context) {
 
             binding.buttonsContainer.isVisible = true
 
+            binding.closeButton.setOnClickListener {
+                callback?.onNegativeAction()
+            }
+
             // TODO: think about optimizing the usage of actions array
             try {
                 if (it.actions.size >= 3) {

@@ -17,7 +17,7 @@ object CampaignCollection {
     private const val CAMPAIGN_VERSION = 1
 
     private const val CAMPAIGNS_URL = "https://donate.wikimedia.org/wiki/MediaWiki:AppsCampaignConfig.json?action=raw"
-    private const val CAMPAIGNS_URL_DEBUG = "https://donate.wikimedia.org/wiki/MediaWiki:AppsCampaignConfigStaging.json?action=raw"
+    private const val CAMPAIGNS_URL_DEBUG = "https://test.wikipedia.org/wiki/MediaWiki:AppsCampaignConfig.json?action=raw"
 
     suspend fun getActiveCampaigns(): List<Campaign> {
         val campaignList = mutableListOf<Campaign>()
