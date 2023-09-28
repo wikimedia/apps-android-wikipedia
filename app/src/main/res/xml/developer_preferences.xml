@@ -12,7 +12,7 @@
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_announcement_debug_url"
-            android:title="@string/preferences_developer_announcement_ignore_date" />
+            android:title="@string/preferences_developer_announcement_debug_url" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_announcement_ignore_date"
