@@ -345,7 +345,7 @@
   <string name="menu_option_view_user_talk">Čuäʹjet saǥstõõllâmseeid</string>
   <string name="revision_diff_compare">Verddõõl versioid</string>
   <string name="revision_diff_compare_title">Verddõõl versioid: %s</string>
-  <string name="revision_undo_title">Kååʹmet muttâz</string>
+  <string name="revision_undo_title" fuzzy="true">Kååʹmet muttâz</string>
   <string name="revision_undo_success">Versio kååʹmteš.</string>
   <string name="revision_rollback_success">Muttâz lie kååʹmtum.</string>
   <string name="revision_compare_button">Verddõõl</string>

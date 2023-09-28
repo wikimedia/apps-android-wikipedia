@@ -1141,9 +1141,9 @@
   <string name="revision_diff_line_removed">Lineo efacita</string>
   <string name="revision_diff_paragraph_added">Paragrafo adjuntita</string>
   <string name="revision_diff_paragraph_removed">Paragrafo efacita</string>
-  <string name="revision_undo_title">Desfacez redakturo</string>
-  <string name="revision_undo_message">To desfacos la modifikuri facita dal revizero o revizeri dil artiklo montrata hike.</string>
-  <string name="revision_undo_reason">Por durar, informez motivo por desfacar ca redakturo:</string>
+  <string name="revision_undo_title" fuzzy="true">Desfacez redakturo</string>
+  <string name="revision_undo_message" fuzzy="true">To desfacos la modifikuri facita dal revizero o revizeri dil artiklo montrata hike.</string>
+  <string name="revision_undo_reason" fuzzy="true">Por durar, informez motivo por desfacar ca redakturo:</string>
   <string name="revision_undo_success">La revizo desfacesis.</string>
   <string name="revision_compare_button">Komparez</string>
   <string name="revision_compare_two_only">Nur du revizi povas selektesar.</string>

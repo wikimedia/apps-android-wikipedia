@@ -868,7 +868,7 @@
   <string name="suggested_edits_ip_blocked_title">IP адреса је блокирана</string>
   <string name="suggested_edits_last_edited">Последњи пут уређено</string>
   <string name="suggested_edits_last_edited_never">Никад</string>
-  <string name="suggested_edits_task_new" fuzzy="true">ново</string>
+  <string name="suggested_edits_task_new">Ново</string>
   <string name="suggested_edits_cc0_notice">Објављивањем измена прихватате &lt;a href=\"%1$s\"&gt;услове коришћења&lt;/a&gt; и неопозиво објављивање свог доприноса под лиценцом &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложене измене</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Хвала на уређивању Википедије. Зашто не бисте наставили тамо где сте стали?</string>
@@ -1096,7 +1096,7 @@
   <string name="revision_diff_line_removed">Линија уклоњена</string>
   <string name="revision_diff_paragraph_added">Додат пасус</string>
   <string name="revision_diff_paragraph_removed">Пасус уклоњен</string>
-  <string name="revision_undo_title">Поништавање измене</string>
+  <string name="revision_undo_title" fuzzy="true">Поништавање измене</string>
   <string name="revision_undo_success">Измена је поништена.</string>
   <string name="revision_rollback_dialog_title">Враћање измена?</string>
   <string name="revision_rollback_success">Измене враћене.</string>
@@ -1242,6 +1242,15 @@
   <string name="patroller_tasks_patrol_edit_rollback_success">Враћање извршено</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Прикажи</string>
   <string name="patroller_tasks_overflow_learn">Сазнајте више</string>
+  <string name="patroller_onboarding_two_thank_title">Хвала</string>
+  <string name="patroller_onboarding_two_watch_title">Надгледај</string>
+  <string name="patroller_onboarding_two_warn_title">Упозори</string>
+  <string name="patroller_onboarding_two_undo_title">Поништи/врати</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Задовољавајуће</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Неутрално</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадовољавајуће</string>
+  <string name="patroller_diff_feedback_dialog_submit">Пошаљи</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Повратне информације послате.</string>
   <string name="data_opt_in_accept">Прихватам</string>
   <string name="data_opt_in_reject">Одбаци</string>
   <string name="page_issues_title">Проблеми странице</string>

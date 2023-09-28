@@ -1351,9 +1351,9 @@
   <string name="revision_diff_line_removed">Радок выдалены</string>
   <string name="revision_diff_paragraph_added">Абзац дададзены</string>
   <string name="revision_diff_paragraph_removed">Абзац выдалены</string>
-  <string name="revision_undo_title">Скасаваць праўку</string>
-  <string name="revision_undo_message">Гэта скасуе змяненні, зробленыя ў рамках паказанай тут версіі (рэдакцыі) артыкула.</string>
-  <string name="revision_undo_reason">Каб працягнуць, калі ласка, пазначце прычыну скасавання гэтай праўкі:</string>
+  <string name="revision_undo_title" fuzzy="true">Скасаваць праўку</string>
+  <string name="revision_undo_message" fuzzy="true">Гэта скасуе змяненні, зробленыя ў рамках паказанай тут версіі (рэдакцыі) артыкула.</string>
+  <string name="revision_undo_reason" fuzzy="true">Каб працягнуць, калі ласка, пазначце прычыну скасавання гэтай праўкі:</string>
   <string name="revision_undo_success">Версія была скасавана.</string>
   <string name="revision_rollback_dialog_title">Вы ўпэўнены, што хочаце адкаціць праўкі?</string>
   <string name="revision_rollback_success">Праўкі адхілены.</string>
