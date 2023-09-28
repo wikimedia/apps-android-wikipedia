@@ -1016,7 +1016,7 @@
   <string name="suggested_edits_quality_very_good_text">とてもよい</string>
   <string name="suggested_edits_quality_good_text">よい</string>
   <string name="suggested_edits_quality_okay_text">まあまあ</string>
-  <string name="suggested_edits_quality_sufficient_text">最低限</string>
+  <string name="suggested_edits_quality_sufficient_text">十分</string>
   <string name="suggested_edits_quality_poor_text">よくない</string>
   <string name="suggested_edits_quality_bad_text">悪い</string>
   <string name="suggested_edits_label">編集提案</string>
@@ -1216,6 +1216,7 @@
   <string name="wikitext_template">テンプレート</string>
   <string name="wikitext_reference">脚注</string>
   <string name="wikitext_preview_link">リンクをプレビュー</string>
+  <string name="wikitext_mention_user">利用者に言及</string>
   <string name="insert_media_title">メディアを挿入</string>
   <string name="insert_media_search_description">ウィキメディアコモンズからファイルを選択</string>
   <string name="insert_media_search_hint">メディアを検索</string>
@@ -1356,9 +1357,10 @@
   <string name="revision_diff_line_removed">行を除去</string>
   <string name="revision_diff_paragraph_added">段落を追加</string>
   <string name="revision_diff_paragraph_removed">段落を除去</string>
-  <string name="revision_undo_title">編集を取り消す</string>
-  <string name="revision_undo_message">これにより、ここに表示されている記事の版で行われた変更が取り消されます。</string>
-  <string name="revision_undo_reason">操作を続ける場合、編集を取り消す理由を記入してください。</string>
+  <string name="revision_diff_protected">この版で行われた変更は一般に公開されていません。</string>
+  <string name="revision_undo_title" fuzzy="true">編集を取り消す</string>
+  <string name="revision_undo_message" fuzzy="true">これにより、ここに表示されている記事の版で行われた変更が取り消されます。</string>
+  <string name="revision_undo_reason" fuzzy="true">操作を続ける場合、編集を取り消す理由を記入してください。</string>
   <string name="revision_undo_success">この版は取り消されました。</string>
   <string name="revision_rollback_dialog_title">本当に編集を巻き戻しますか？</string>
   <string name="revision_rollback_success">編集が差し戻されました</string>
@@ -1509,8 +1511,11 @@
   <string name="patroller_tasks_filters_user_status_registered">登録済み</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">ログイン済みの編集者。</string>
   <string name="patroller_tasks_filters_user_status_newcomers">新規利用者</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">活動が4日、編集が10回以下の登録済み編集者。</string>
   <string name="patroller_tasks_filters_user_status_learners">初学者</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">編集経験が「新規利用者」と「経験者」の中間の登録済み編集者。</string>
   <string name="patroller_tasks_filters_user_status_experienced">経験者</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">500編集以上かつ30日以上の活動がある登録済み編集者。</string>
   <string name="patroller_tasks_filters_latest_revisions_header">最新版</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">最新版</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">最新版以外</string>
@@ -1522,14 +1527,22 @@
   <string name="patroller_tasks_filters_significance_edits">細部でない編集</string>
   <string name="patroller_tasks_filters_contribution_quality_header">投稿品質の推定</string>
   <string name="patroller_tasks_filters_contribution_quality_good">良好である可能性が高い</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">高い精度で、ほとんどすべての問題のない編集を見つけます。</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">問題があるかもしれない</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">不備または害がある編集のほとんどを見つけますが、精度は低くなります。</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">問題がある可能性</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">中程度の精度で、問題のある編集の中程度の分量を見つけます。</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">問題がある可能性が高い</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">非常に高い精度で、明らかな欠陥や害がある編集を見つけます。</string>
   <string name="patroller_tasks_filters_user_intent_header">利用者の意図の推定</string>
   <string name="patroller_tasks_filters_user_intent_good">善意である可能性が高い</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">高い精度で、ほとんどすべての善意による編集を見つけます。</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">悪意であるかもしれない</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">ほとんどの悪意のある編集を見つけますが、精度は低くなります。</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">悪意である可能性</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">中程度の精度で、悪意のある編集の中程度の分量を見つけます。</string>
   <string name="patroller_tasks_filters_user_intent_bad">悪意である可能性が高い</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">非常に高い精度で明らかに悪意のある編集を見つけます。</string>
   <string name="patroller_tasks_filters_empty_search_message">さらに編集を表示するには、%sを除去してみてください</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="other">%d件のフィルター</item>
@@ -1547,6 +1560,13 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">表示</string>
   <string name="patroller_tasks_overflow_report">機能の問題</string>
   <string name="patroller_tasks_overflow_learn">詳細</string>
+  <string name="patroller_onboarding_two_thank_title">感謝</string>
+  <string name="patroller_onboarding_two_warn_title">警告</string>
+  <string name="patroller_onboarding_two_undo_title">取り消し/巻き戻し</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">中立</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">フィードバック</string>
+  <string name="patroller_diff_feedback_dialog_submit">送信</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">フィードバックが送信されました。</string>
   <string name="data_opt_in_accept">承認</string>
   <string name="data_opt_in_reject">却下</string>
   <string name="page_issues_title">ページの問題点</string>

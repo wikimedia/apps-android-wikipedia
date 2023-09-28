@@ -1321,9 +1321,9 @@
   <string name="revision_diff_line_removed">लाइन हटाई गई</string>
   <string name="revision_diff_paragraph_added">अनुच्छेद जोड़ा गया</string>
   <string name="revision_diff_paragraph_removed">पैराग्राफ हटा दिया गया</string>
-  <string name="revision_undo_title">संपादन पूर्ववत करें</string>
-  <string name="revision_undo_message">यह, यहां दिखाए गए लेख के संपादन परिवर्तनों को पूर्ववत कर देगा।</string>
-  <string name="revision_undo_reason">जारी रखने के लिए, कृपया इस संपादन को पूर्ववत करने का एक कारण प्रदान करें:</string>
+  <string name="revision_undo_title" fuzzy="true">संपादन पूर्ववत करें</string>
+  <string name="revision_undo_message" fuzzy="true">यह, यहां दिखाए गए लेख के संपादन परिवर्तनों को पूर्ववत कर देगा।</string>
+  <string name="revision_undo_reason" fuzzy="true">जारी रखने के लिए, कृपया इस संपादन को पूर्ववत करने का एक कारण प्रदान करें:</string>
   <string name="revision_undo_success">संशोधन पूर्ववत किया गया था।</string>
   <string name="revision_rollback_dialog_title">क्या आप वाकई संपादनों को रोलबैक करना चाहते हैं?</string>
   <string name="revision_rollback_success">संपादन पूर्ववत किए गए।</string>
@@ -1439,6 +1439,7 @@
   <string name="reading_list_share_survey_body">\"रीडिंग लिस्ट साझा करें\" इस टेस्ट फीचर है और उसे सुधरने या हटाने में आपकी फीडबैक की जरूरत है।</string>
   <string name="talk_templates_new_message_dialog_cancel">रद्द करें</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">कोई नहीं</string>
+  <string name="patroller_onboarding_two_warn_title">चेतावनी</string>
   <string name="data_opt_in_accept">स्वीकार करें</string>
   <string name="data_opt_in_reject">अस्वीकार करें</string>
   <string name="generic_release_notes">मामूली बग फिक्स और सुधार</string>

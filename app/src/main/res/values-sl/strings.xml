@@ -1409,9 +1409,9 @@
   <string name="revision_diff_paragraph_added">Dodani odstavek</string>
   <string name="revision_diff_paragraph_removed">Odstavek odstranjen</string>
   <string name="revision_diff_protected">Spremembe v tej redakciji niso javno dostopne.</string>
-  <string name="revision_undo_title">Razveljavi urejanje</string>
-  <string name="revision_undo_message">To bo razveljavilo spremembe v tukaj prikazani(h) redakciji(ah).</string>
-  <string name="revision_undo_reason">Za nadaljevanje navedite razlog za razveljavitev tega urejanja:</string>
+  <string name="revision_undo_title" fuzzy="true">Razveljavi urejanje</string>
+  <string name="revision_undo_message" fuzzy="true">To bo razveljavilo spremembe v tukaj prikazani(h) redakciji(ah).</string>
+  <string name="revision_undo_reason" fuzzy="true">Za nadaljevanje navedite razlog za razveljavitev tega urejanja:</string>
   <string name="revision_undo_success">Redakcija je bila razveljavljena.</string>
   <string name="revision_rollback_dialog_title">Ali res želite vrniti urejanje?</string>
   <string name="revision_rollback_success">Urejanje vrnjeno.</string>
@@ -1622,6 +1622,27 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Ogled</string>
   <string name="patroller_tasks_overflow_report">Težava z možnostjo</string>
   <string name="patroller_tasks_overflow_learn">Več o tem</string>
+  <string name="patroller_onboarding_one_title">Prispevajte k pregledovanju in odobritvi urejanj Wikipedije.</string>
+  <string name="patroller_onboarding_one_content">Izboljšajte kakovost vsebine Wikipedije z aktivnim pregledovanjem vira nedavnih urejanj ter usmerjanjem, nadzorom kakovosti in opogumljanjem drugih urednikov.</string>
+  <string name="patroller_onboarding_two_title">Prispevajte povratne informacije, spremljajte urejanja in izvajajte dejanja na zaslonu razlike</string>
+  <string name="patroller_onboarding_two_thank_title">Zahvala</string>
+  <string name="patroller_onboarding_two_thank_content">Vidite produktivno urejanje? Zahvalite se uporabniku za njegov prispevek.</string>
+  <string name="patroller_onboarding_two_watch_title">Opazuj</string>
+  <string name="patroller_onboarding_two_watch_content">Želite spremljati urejanje člankov? Dodajte jih na svoj spisek nadzorov. Oglejte si ga pod »Več«.</string>
+  <string name="patroller_onboarding_two_warn_content">Ustvarjajte, pošljajte in shranjujte opozorilna sporočila na urejevalčevi pogovorni strani.</string>
+  <string name="patroller_onboarding_two_undo_title">Razveljavi/vrni</string>
+  <string name="patroller_onboarding_two_undo_content">Izberite »Razveljavi«, da razveljavite ali vrnete morebitno škodljivo urejanje.</string>
+  <string name="patroller_diff_tooltip_one">Škoda napoveduje, ali urejanje škoduje vikiju.</string>
+  <string name="patroller_diff_tooltip_two">Namen predvideva verjetnost, da bo urejanje shranjeno dobronamerno.</string>
+  <string name="patroller_diff_feedback_dialog_title">Pomagajte nam izboljšati to možnost</string>
+  <string name="patroller_diff_feedback_dialog_message">Ste zadovoljni s to možnostjo?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Možnost je ustrezna</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Nevtralno</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Ne ustreza mi</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Povratne informacije</string>
+  <string name="patroller_diff_feedback_dialog_submit">Pošlji</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Povratne informacije so poslane.</string>
+  <string name="patroller_diff_feedback_tooltip">Kadsr koli lahko v razdelku »Težava z možnostjo« tapnete prekrivni meni, da pošljete povratne informacije.</string>
   <string name="data_opt_in_accept">Sprejmem</string>
   <string name="data_opt_in_reject">Zavrnem</string>
   <string name="page_issues_title">Težaev strani</string>

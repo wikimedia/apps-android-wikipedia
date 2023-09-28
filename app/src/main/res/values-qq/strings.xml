@@ -1353,9 +1353,9 @@
   <string name="revision_diff_protected">Error message explaining that the diff of this revision cannot be viewed publicly.</string>
   <string name="revision_undo_title">Dialog title for undoing an edit.</string>
   <string name="revision_undo_message">Dialog message explaining that the selected revision will be undone.</string>
+  <string name="revision_undo_summary_hint">Hint for adding an edit summary.</string>
   <string name="revision_undo_reason">Dialog message requesting a reason for undoing the selected revision.</string>
   <string name="revision_undo_success">Message shown when an edit was undone successfully.</string>
-  <string name="revision_undo_summary_hint">Hint for adding an edit summary.</string>
   <string name="revision_rollback_dialog_title">Title of the rollback dialog.</string>
   <string name="revision_rollback_success">Message shown when edits were reverted successfully.</string>
   <string name="revision_compare_button">Button label for comparing two revisions.</string>
@@ -1582,8 +1582,7 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Hint text for input field for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_dialog_submit">Button label for input field for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Text for the snackbar message the feedback form in the patrol edit screen that indicates the feedback has been submitted.</string>
-  <string name="patroller_diff_feedback_tooltip">Text of the tooltip for the patrol edit screen indicates how to submit feedback for the feature.</string>
-
+  <string name="patroller_diff_feedback_tooltip">Text of the tooltip for the patrol edit screen indicates how to submit feedback for the feature.\n\n\"Problem with feature\" is {{msg-wm|Wikipedia-android-strings-suggested edits report feature}}</string>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
   <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
