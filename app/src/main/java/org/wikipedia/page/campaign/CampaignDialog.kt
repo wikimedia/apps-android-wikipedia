@@ -14,6 +14,7 @@ class CampaignDialog internal constructor(context: Context, val campaign: Campai
     init {
         val campaignView = CampaignDialogView(context)
         campaignView.campaignAssets = campaign.assets[WikipediaApp.instance.appOrSystemLanguageCode]
+        campaignView.callback = this
         campaignView.setupViews()
         setView(campaignView)
     }

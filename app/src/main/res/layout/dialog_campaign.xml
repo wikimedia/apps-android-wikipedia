@@ -5,11 +5,8 @@
     android:id="@+id/dialogContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="8dp"
     app:strokeColor="@color/red700"
-    app:strokeWidth="10dp"
+    app:strokeWidth="5dp"
     app:radius="0dp"
     app:hasBorder="false">
 
@@ -46,9 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginBottom="12dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:paddingHorizontal="16dp"
             android:clipToPadding="false"
             android:orientation="vertical"
             tools:visibility="visible">
@@ -63,14 +58,14 @@
                 android:id="@+id/neutralButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/App.Button.Text.Secondary"
+                style="@style/App.Button.Text"
                 android:text="@string/view_announcement_card_negative_action"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/negativeButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/App.Button.Text.Secondary"
+                style="@style/App.Button.Text"
                 android:text="@string/view_announcement_card_negative_action"/>
 
         </LinearLayout>
@@ -80,8 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?attr/border_color"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp" />
+            android:layout_marginHorizontal="16dp"/>
 
         <TextView
             android:id="@+id/footerText"
