@@ -289,7 +289,7 @@
   <string name="revision_diff_line_nums">Righi %d–%d</string>
   <string name="revision_diff_line_added">Riga aggiùnta</string>
   <string name="revision_diff_line_removed">riga rimossa</string>
-  <string name="revision_undo_title">annulla mudifiga</string>
+  <string name="revision_undo_title" fuzzy="true">annulla mudifiga</string>
   <string name="revision_compare_button">Cunfrònta</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ciamba</string>
   <string name="watchlist_expiry_dialog_one_week">1 chedda</string>

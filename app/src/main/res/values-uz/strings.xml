@@ -1324,9 +1324,9 @@
   <string name="revision_diff_paragraph_added">Paragraf qoʻshildi</string>
   <string name="revision_diff_paragraph_removed">Paragraf oʻchirildi</string>
   <string name="revision_diff_protected">Ushbu tahrirda kiritilgan oʻzgartirishlar hamma uchun ochiq emas.</string>
-  <string name="revision_undo_title">Tahrirni bekor qilish</string>
-  <string name="revision_undo_message">Bu yerda koʻrsatilgan maqolaning tahrir(lar)i tomonidan kiritilgan oʻzgarishlar bekor qilinadi.</string>
-  <string name="revision_undo_reason">Davom etish uchun ushbu tahrirni bekor qilish sababini keltiring:</string>
+  <string name="revision_undo_title" fuzzy="true">Tahrirni bekor qilish</string>
+  <string name="revision_undo_message" fuzzy="true">Bu yerda koʻrsatilgan maqolaning tahrir(lar)i tomonidan kiritilgan oʻzgarishlar bekor qilinadi.</string>
+  <string name="revision_undo_reason" fuzzy="true">Davom etish uchun ushbu tahrirni bekor qilish sababini keltiring:</string>
   <string name="revision_undo_success">Qayta koʻrib chiqish bekor qilindi.</string>
   <string name="revision_rollback_dialog_title">Haqiqatan ham tahrirlarni bekor qilmoqchimisiz?</string>
   <string name="revision_rollback_success">Tahrirlar qaytarildi.</string>

@@ -1423,9 +1423,9 @@
   <string name="revision_diff_paragraph_added">Абзац додано</string>
   <string name="revision_diff_paragraph_removed">Абзац вилучено</string>
   <string name="revision_diff_protected">Ця версія сторінки не є загальнодоступною.</string>
-  <string name="revision_undo_title">Скасувати редагування</string>
-  <string name="revision_undo_message">Це прибере зміни, внесені версією(-ями) статті, що показано тут.</string>
-  <string name="revision_undo_reason">Щоб продовжити, вкажіть, будь ласка, причину скасування цього редагування:</string>
+  <string name="revision_undo_title" fuzzy="true">Скасувати редагування</string>
+  <string name="revision_undo_message" fuzzy="true">Це прибере зміни, внесені версією(-ями) статті, що показано тут.</string>
+  <string name="revision_undo_reason" fuzzy="true">Щоб продовжити, вкажіть, будь ласка, причину скасування цього редагування:</string>
   <string name="revision_undo_success">Версію скасовано.</string>
   <string name="revision_rollback_dialog_title">Ви впевнені, що хочете відкотити редагування?</string>
   <string name="revision_rollback_success">Редагування відкочено.</string>

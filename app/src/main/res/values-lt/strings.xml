@@ -1132,8 +1132,8 @@
   <string name="revision_diff_paragraph_added">Pastraipa pridėta</string>
   <string name="revision_diff_paragraph_removed">Pastraipa pašalinta</string>
   <string name="revision_diff_protected">Šioje versijoje padaryti pakeitimai nėra viešai prieinami.</string>
-  <string name="revision_undo_title">Anuliuoti keitimą</string>
-  <string name="revision_undo_reason">Jei norite tęsti, nurodykite šio keitimo atmetimo priežastį:</string>
+  <string name="revision_undo_title" fuzzy="true">Anuliuoti keitimą</string>
+  <string name="revision_undo_reason" fuzzy="true">Jei norite tęsti, nurodykite šio keitimo atmetimo priežastį:</string>
   <string name="revision_undo_success">Keitimas atmestas.</string>
   <string name="revision_compare_button">Palyginti</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Keisti</string>
