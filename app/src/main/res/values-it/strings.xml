@@ -1178,6 +1178,7 @@
   <string name="wikitext_template">Template</string>
   <string name="wikitext_reference">Riferimento</string>
   <string name="wikitext_preview_link">Anteprima collegamento</string>
+  <string name="wikitext_mention_user">Menziona un utente</string>
   <string name="insert_media_title">Inserisci un file multimediale</string>
   <string name="insert_media_search_description">Seleziona un file da Wikimedia Commons</string>
   <string name="insert_media_search_hint">Ricerca file multimediali</string>

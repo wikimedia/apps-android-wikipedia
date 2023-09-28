@@ -1176,6 +1176,7 @@
   <string name="wikitext_template">Patrono</string>
   <string name="wikitext_reference">Referentia</string>
   <string name="wikitext_preview_link">Previsualisar ligamine</string>
+  <string name="wikitext_mention_user">Mentionar un usator</string>
   <string name="insert_media_title">Inserer multimedia</string>
   <string name="insert_media_search_description">Selige un file de Wikimedia Commons</string>
   <string name="insert_media_search_hint">Cercar multimedia</string>

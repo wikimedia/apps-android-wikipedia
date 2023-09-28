@@ -1013,7 +1013,7 @@
   <string name="suggested_edits_ip_blocked_title">IP-cím blokkolva</string>
   <string name="suggested_edits_last_edited">Utoljára szerkesztve</string>
   <string name="suggested_edits_last_edited_never">Soha</string>
-  <string name="suggested_edits_task_new" fuzzy="true">új</string>
+  <string name="suggested_edits_task_new">Új</string>
   <string name="suggested_edits_cc0_notice">A közzététellel beleegyezel a &lt;a href=\"%1$s\"&gt;használati feltételekbe&lt;/a&gt; és visszavonhatatlanul közzéteszed ezt a közreműködést &lt;a href=\"%2$s\"&gt;CC0 licenc&lt;/a&gt; alatt.</string>
   <string name="suggested_edits_reactivation_notification_title">Javasolt szerkesztések</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Köszönjük a Wikipédia szerkesztését! Miért nem folytatod, ahol abbahagytad?</string>
@@ -1189,6 +1189,7 @@
   <string name="wikitext_template">Sablon</string>
   <string name="wikitext_reference">Hivatkozás</string>
   <string name="wikitext_preview_link">Link előnézete</string>
+  <string name="wikitext_mention_user">Felhasználó megemlítése</string>
   <string name="insert_media_title">Média beszúrása</string>
   <string name="insert_media_search_description">Fájl kiválasztása a Wikimedia Commonsról</string>
   <string name="insert_media_search_hint">Média keresése</string>

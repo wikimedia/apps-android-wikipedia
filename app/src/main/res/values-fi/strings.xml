@@ -1015,7 +1015,7 @@
   <string name="suggested_edits_ip_blocked_title">IP-osoite estetty</string>
   <string name="suggested_edits_last_edited">Viimeksi muokattu</string>
   <string name="suggested_edits_last_edited_never">Ei koskaan</string>
-  <string name="suggested_edits_task_new" fuzzy="true">uusi</string>
+  <string name="suggested_edits_task_new">Uusi</string>
   <string name="suggested_edits_cc0_notice">Julkaisemalla hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_reactivation_notification_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Kiitos Wikipedian muokkaamisesta! Miksi et jatkaisi siitä mihin jäit?</string>
@@ -1419,6 +1419,22 @@
   <string name="reading_list_share_message_v2">Hei! Haluan jakaa Wikipedian lukulistani kanssasi:</string>
   <string name="reading_list_share_survey_title">Voisitko auttaa meitä parantamaan lukulistojen jakamista?</string>
   <string name="reading_list_share_survey_body">Lukulistojen jakaminen on testiominaisuus, jonka kehittämiseen tarvitsemme palautettasi.</string>
+  <string name="talk_templates_edit_message_dialog_save">Tallenna</string>
+  <string name="talk_templates_edit_message_dialog_delete">Poista</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Näytä käyttäjäsivu</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Näytä keskustelusivu</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Käyttäjätiedot</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Tarkastele käyttäjän muokkauksia</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Kiitä</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Käyttäjätiedot</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Sulje</string>
+  <string name="patroller_tasks_filters_all_text">Kaikki</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Sisäänkirjautuneet muokkaajat.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Tulokkaat</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Automatisoidut muutokset</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Botti</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Ihminen (ei botti)</string>
+  <string name="patroller_tasks_filters_significance_minor">Pienet muutokset</string>
   <string name="data_opt_in_accept">Hyväksy</string>
   <string name="data_opt_in_reject">Hylkää</string>
 </resources>

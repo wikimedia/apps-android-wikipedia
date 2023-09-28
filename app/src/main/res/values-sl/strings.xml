@@ -1261,6 +1261,7 @@
   <string name="wikitext_template">Predloga</string>
   <string name="wikitext_reference">Sklic</string>
   <string name="wikitext_preview_link">Predogled povezave</string>
+  <string name="wikitext_mention_user">Omeni uporabnika</string>
   <string name="insert_media_title">Vstavi predstavnost</string>
   <string name="insert_media_search_description">Izberite datoteko iz Wikimedijine zbirke</string>
   <string name="insert_media_search_hint">Poišči predstavnost</string>

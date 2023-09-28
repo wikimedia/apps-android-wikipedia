@@ -1180,6 +1180,7 @@
   <string name="wikitext_template">Ҡалып</string>
   <string name="wikitext_reference">Иҫкәрмә</string>
   <string name="wikitext_preview_link">Һылтанманы ҡарап сығыу</string>
+  <string name="wikitext_mention_user">Ҡатнашыусыны телгә алырға</string>
   <string name="insert_media_title">Медиа-файл ҡуйырға</string>
   <string name="insert_media_search_description">Викимилектән файл һайлағыҙ</string>
   <string name="insert_media_search_hint">Медиа эҙләргә</string>
@@ -1439,6 +1440,7 @@
   <string name="reading_list_share_message_v2">Сәләм! Мин һеҙҙең менән Википедиялағы үҙемдең уҡыу исемлеге менән уртаҡлашырға теләйем:</string>
   <string name="reading_list_share_survey_title">\"Уҡыу исемлектәре менән уртаҡлашыу\" мөмкинлеген яҡшыртырға ярҙам итә алаһығыҙмы?</string>
   <string name="reading_list_share_survey_body">\"Уҡыу исемлектәре менән уртаҡлашырға\" — был тест функцияһы һәм уны яҡшыртыу йәки юйҙырыу өсөн фекерҙәрегеҙ кәрәк.</string>
+  <string name="talk_templates_manage_title">Ҡалыптар менән идара итеү</string>
   <string name="talk_templates_empty_message">Һеҙҙә бер ниндәй ҙә иҫкәртеү хәбәрҙәре һаҡланмаған.</string>
   <string name="talk_templates_new_message_title">Яңы хәбәр</string>
   <string name="talk_templates_new_message_description">Иҫкәртеү яҙығыҙ.</string>
