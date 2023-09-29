@@ -14,9 +14,11 @@ class CampaignDialogView(context: Context) : FrameLayout(context) {
         fun onPositiveAction(url: String)
         fun onNegativeAction()
         fun onNeutralAction()
+        fun onClose()
     }
 
     private val binding = DialogCampaignBinding.inflate(LayoutInflater.from(context), this, true)
+    var showNeutralButton = true
     var campaignAssets: Campaign.Assets? = null
     var callback: Callback? = null
 
@@ -34,7 +36,7 @@ class CampaignDialogView(context: Context) : FrameLayout(context) {
             binding.buttonsContainer.isVisible = true
 
             binding.closeButton.setOnClickListener {
-                callback?.onNegativeAction()
+                callback?.onClose()
             }
 
             // TODO: think about optimizing the usage of actions array
@@ -52,6 +54,7 @@ class CampaignDialogView(context: Context) : FrameLayout(context) {
                     }
 
                     binding.neutralButton.text = neutralButton.title
+                    binding.neutralButton.isVisible = showNeutralButton
                     binding.neutralButton.setOnClickListener {
                         callback?.onNeutralAction()
                     }

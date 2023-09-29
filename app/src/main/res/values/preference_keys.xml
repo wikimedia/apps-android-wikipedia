@@ -19,6 +19,7 @@
     <string name="preference_key_announcement_ignore_date">announcementIgnoreDate</string>
     <string name="preference_key_announcement_version_code">announcementVersionCode</string>
     <string name="preference_key_announcement_shown_dialogs">announcementShownDialogs</string>
+    <string name="preference_key_announcement_pause_time">announcementPauseTime</string>
     <string name="preference_key_announcement_debug_url">announcementDebugUrl</string>
     <string name="preference_key_restbase_uri_format">RESTBaseUriFormat</string>
     <string name="preference_key_mediawiki_base_uri">mediaWikiBaseUri</string>

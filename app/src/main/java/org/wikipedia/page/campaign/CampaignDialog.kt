@@ -1,11 +1,17 @@
 package org.wikipedia.page.campaign
 
+import android.app.Activity
 import android.content.Context
 import androidx.appcompat.app.AlertDialog
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.donate.Campaign
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
+import org.wikipedia.util.FeedbackUtil
+import java.time.Duration
+import java.time.Instant
+import java.util.Date
 
 class CampaignDialog internal constructor(context: Context, val campaign: Campaign) : AlertDialog.Builder(context), CampaignDialogView.Callback {
 
@@ -15,6 +21,8 @@ class CampaignDialog internal constructor(context: Context, val campaign: Campai
         val campaignView = CampaignDialogView(context)
         campaignView.campaignAssets = campaign.assets[WikipediaApp.instance.appOrSystemLanguageCode]
         campaignView.callback = this
+        val dateDiff = Duration.between(Instant.ofEpochMilli(Prefs.announcementPauseTime), Instant.now())
+        campaignView.showNeutralButton = dateDiff.toHours() >= 24
         campaignView.setupViews()
         setView(campaignView)
     }
@@ -37,12 +45,17 @@ class CampaignDialog internal constructor(context: Context, val campaign: Campai
     }
 
     override fun onNegativeAction() {
-        // TODO: implement negative action: I already donated
+        FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_donated_snackbar)
         dismissDialog()
     }
 
     override fun onNeutralAction() {
-        // TODO: implement neutral action: maybe later
+        Prefs.announcementPauseTime = Date().time
+        FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
+        dismissDialog()
+    }
+
+    override fun onClose() {
         dismissDialog()
     }
 }
