@@ -7,6 +7,7 @@ import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.isVisible
 import org.wikipedia.databinding.DialogCampaignBinding
 import org.wikipedia.dataclient.donate.Campaign
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 
 class CampaignDialogView(context: Context) : FrameLayout(context) {
@@ -38,6 +39,7 @@ class CampaignDialogView(context: Context) : FrameLayout(context) {
             binding.closeButton.setOnClickListener {
                 callback?.onClose()
             }
+            FeedbackUtil.setButtonLongPressToast(binding.closeButton)
 
             // TODO: think about optimizing the usage of actions array
             try {

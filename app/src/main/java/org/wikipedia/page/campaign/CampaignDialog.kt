@@ -11,9 +11,10 @@ import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.FeedbackUtil
 import java.time.Duration
 import java.time.Instant
+import java.time.LocalDateTime
 import java.util.Date
 
-class CampaignDialog internal constructor(context: Context, val campaign: Campaign) : AlertDialog.Builder(context), CampaignDialogView.Callback {
+class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign) : AlertDialog.Builder(context), CampaignDialogView.Callback {
 
     private var dialog: AlertDialog? = null
 
@@ -22,7 +23,7 @@ class CampaignDialog internal constructor(context: Context, val campaign: Campai
         campaignView.campaignAssets = campaign.assets[WikipediaApp.instance.appOrSystemLanguageCode]
         campaignView.callback = this
         val dateDiff = Duration.between(Instant.ofEpochMilli(Prefs.announcementPauseTime), Instant.now())
-        campaignView.showNeutralButton = dateDiff.toHours() >= 24
+        campaignView.showNeutralButton = dateDiff.toDays() >= 1 && campaign.endDateTime?.isAfter(LocalDateTime.now().plusDays(1)) == true
         campaignView.setupViews()
         setView(campaignView)
     }
@@ -32,8 +33,11 @@ class CampaignDialog internal constructor(context: Context, val campaign: Campai
         return dialog!!
     }
 
-    private fun dismissDialog() {
-        Prefs.announcementShownDialogs = setOf(campaign.id)
+    private fun dismissDialog(skipCampaign: Boolean = true) {
+        // "Maybe later" option will show up the campaign after one day.
+        if (skipCampaign) {
+            Prefs.announcementShownDialogs = setOf(campaign.id)
+        }
         dialog?.dismiss()
     }
 
@@ -52,7 +56,7 @@ class CampaignDialog internal constructor(context: Context, val campaign: Campai
     override fun onNeutralAction() {
         Prefs.announcementPauseTime = Date().time
         FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
-        dismissDialog()
+        dismissDialog(false)
     }
 
     override fun onClose() {
