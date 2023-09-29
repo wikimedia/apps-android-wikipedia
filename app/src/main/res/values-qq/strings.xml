@@ -1591,4 +1591,6 @@
   <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>
   <string name="email_report_patroller_tasks_body">Body of email for sending a report about a problem with the Patroller Tasks feature.</string>
+  <string name="donation_campaign_maybe_later_snackbar">Text for the snackbar message when user hits the "maybe later" option.</string>
+  <string name="donation_campaign_donated_snackbar">Text for the snackbar message when user hits the "I already donated" option.</string>
 </resources>
