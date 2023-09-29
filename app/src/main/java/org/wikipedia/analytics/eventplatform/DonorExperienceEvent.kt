@@ -6,7 +6,7 @@ import org.wikipedia.WikipediaApp
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/mobile_apps/wikipedia_android_app/1.0.0")
+@SerialName("/analytics/mobile_apps/app_interaction/1.0.0")
 class DonorExperienceEvent(
     private val action: String,
     private val active_interface: String,
