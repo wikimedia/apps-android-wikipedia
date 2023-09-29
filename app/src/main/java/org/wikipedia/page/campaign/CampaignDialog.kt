@@ -3,9 +3,9 @@ package org.wikipedia.page.campaign
 import android.content.Context
 import androidx.appcompat.app.AlertDialog
 import org.wikipedia.WikipediaApp
-import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.dataclient.donate.Campaign
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.CustomTabsUtil
 
 class CampaignDialog internal constructor(context: Context, val campaign: Campaign) : AlertDialog.Builder(context), CampaignDialogView.Callback {
 
@@ -30,7 +30,9 @@ class CampaignDialog internal constructor(context: Context, val campaign: Campai
     }
 
     override fun onPositiveAction(url: String) {
-        context.startActivity(SingleWebViewActivity.newIntent(context, url))
+        // TODO: maybe use the WebView after we figured out the way of perform the all JavaScript function in the donation page.
+        // context.startActivity(SingleWebViewActivity.newIntent(context, newUrl))
+        CustomTabsUtil.openInCustomTab(context, url)
         dismissDialog()
     }
 
