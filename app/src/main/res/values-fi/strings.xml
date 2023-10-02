@@ -1217,6 +1217,8 @@
   <string name="talk_user_title">Keskustelu käyttäjästä: %s</string>
   <string name="talk_new_topic">Uusi aihe</string>
   <string name="talk_new_topic_submitted">Aihe julkaistu.</string>
+  <string name="talk_warn_save_dialog_publish">Julkaise</string>
+  <string name="talk_warn_save_dialog_cancel">Peruuta</string>
   <string name="talk_page_empty">Tämä keskustelusivu on tyhjä.</string>
   <string name="talk_page_empty_title">Keskustelu alkaa tästä</string>
   <string name="talk_page_empty_content">Parhaat Wikipedia-artikkelit syntyvät yhteistyöllä. Näillä sivuilla käyttäjät keskustella artikkelin sisällöstä ja kehittämisestä.</string>

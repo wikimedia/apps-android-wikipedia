@@ -1550,4 +1550,6 @@
   <string name="data_opt_in_reject">Отклонить</string>
   <string name="page_issues_title">Проблемы страницы</string>
   <string name="generic_release_notes">Незначительные исправления ошибок и улучшения</string>
+  <string name="donation_campaign_maybe_later_snackbar">Мы напомним вам снова завтра.</string>
+  <string name="donation_campaign_donated_snackbar">Спасибо за ваше пожертвование! Ваша поддержка помогает Википедии и её родственным проектам процветать.</string>
 </resources>

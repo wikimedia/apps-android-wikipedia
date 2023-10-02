@@ -1325,9 +1325,10 @@
   <string name="revision_diff_paragraph_added">Додаден пасус</string>
   <string name="revision_diff_paragraph_removed">Отстранет пасус</string>
   <string name="revision_diff_protected">Промените направени во оваа преработка не се јавно пристапни.</string>
-  <string name="revision_undo_title" fuzzy="true">Врати уредување</string>
-  <string name="revision_undo_message" fuzzy="true">Ова ќе ги врати промените направени со преработката/ките на тука прикажаната статија.</string>
-  <string name="revision_undo_reason" fuzzy="true">За да продолжите, внесете причина за враќање на уредувањево:</string>
+  <string name="revision_undo_title">Дали сигурно дакате да го отповикате ова уредување?</string>
+  <string name="revision_undo_message">Ова ќе ги отповика промените направени со преработката/ките на тука прикажаната статија.</string>
+  <string name="revision_undo_summary_hint">Опис (незадолж.)</string>
+  <string name="revision_undo_reason">Споделете ја причината за отповикувањето</string>
   <string name="revision_undo_success">Преработката е вратена.</string>
   <string name="revision_rollback_dialog_title">Дали сигурно сакате да ги отповикате уредувањата?</string>
   <string name="revision_rollback_success">Уредувањата се отповикани.</string>
@@ -1541,6 +1542,7 @@
   <string name="patroller_onboarding_two_thank_content">Видовте продуктивно уредување? Заблагодарете му се не корисникот.</string>
   <string name="patroller_onboarding_two_watch_title">Набљудувај</string>
   <string name="patroller_onboarding_two_watch_content">Сакате да гу следите уредувањата во статијата? Додајте ја во Набљудуваните. Погледајте ја во „Повеќе“.</string>
+  <string name="patroller_onboarding_two_warn_title">Предупреди</string>
   <string name="patroller_onboarding_two_warn_content">Создавајте, испраќајте и складирајте предупредителни пораки на корисничка разговорна страница.</string>
   <string name="patroller_onboarding_two_undo_title">Враќање/Поништување</string>
   <string name="patroller_onboarding_two_undo_content">Изберете „Врати“ за да поништите или отповикате потенцијално штетно уредување.</string>
@@ -1563,4 +1565,6 @@
   <string name="email_report_image_recommendations_body">Наидов на проблем со функцијата „Препорачување на слики“:\n— [Опишете го конкретниот проблем]\n\nШто сакате да се поправи:\n— [Опишете го предложеното решение]</string>
   <string name="email_report_patroller_tasks_subject">Пријава на проблем — Функцијата „Патрола на уредувања“</string>
   <string name="email_report_patroller_tasks_body">Наидов на проблем со функцијата „Патрола на уредувања“:\n— [Опишете го конкретниот проблем]\n\nШто сакате да се поправи:\n— [Опишете го предложеното решение]\n\n[Екрански снимки или врски]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Утре пак ќе ве потсетиме.</string>
+  <string name="donation_campaign_donated_snackbar">Ви благодариме, драг дарителу! Википедија и нејзините збратимени проекти напредуваат благодарение на вашата великодушност.</string>
 </resources>

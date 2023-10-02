@@ -145,7 +145,7 @@
   <string name="langlinks_activity_title">其他語言</string>
   <string name="langlinks_your_wikipedia_languages">您的維基百科語言</string>
   <string name="menu_save_changes">發布變更</string>
-  <string name="edit_saved_successfully">已發佈編輯！</string>
+  <string name="edit_saved_successfully">已發布編輯！</string>
   <string name="dialog_message_edit_failed">編輯失敗 ！</string>
   <string name="dialog_message_edit_failed_retry">重試</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
@@ -283,7 +283,7 @@
   <string name="user_anon_blocked_from_editing">您的 IP 位址已被封鎖，無法編輯。</string>
   <string name="edit_how_page_improved">您如何改善此頁面？</string>
   <string name="edit_next">下一步</string>
-  <string name="edit_done">發佈</string>
+  <string name="edit_done">發布</string>
   <string name="edit_preview">預覽</string>
   <string name="edit_undo">撤銷</string>
   <string name="edit_redo">重做</string>
@@ -843,7 +843,7 @@
   <string name="description_edit_add_caption_hint">圖片說明</string>
   <string name="description_edit_translate_caption_label_per_language">圖片說明（%s）</string>
   <string name="description_edit_translate_caption_hint_per_language">圖片說明（%s）</string>
-  <string name="description_edit_save">發佈</string>
+  <string name="description_edit_save">發布</string>
   <string name="description_edit_read">閱讀</string>
   <string name="description_edit_add_description">新增條目描述</string>
   <string name="description_edit_translate_description">翻譯條目描述</string>
@@ -874,9 +874,9 @@
   <string name="description_edit_suggested_description_button_text">顯示建議的描述</string>
   <string name="description_edit_suggested_description_button_tooltip">嘗試由機器建議的條目描述</string>
   <string name="description_edit_success_saved">已發布條目描述！</string>
-  <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
+  <string name="description_edit_success_saved_snackbar">已發布條目描述！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發布！（%s）</string>
-  <string name="description_edit_success_saved_image_caption_snackbar">圖片說明已發佈！</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">已發布圖片說明！</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">圖片說明已發布！（%s）</string>
   <string name="description_edit_success_saved_image_tags_snackbar">圖片標籤已發布！</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">不夠過癮？協助我們添加更多。</string>
@@ -909,8 +909,8 @@
   <string name="suggested_edits_review_description">檢閱條目描述</string>
   <string name="suggested_edits_add_description_button">添加描述</string>
   <string name="suggested_edits_edit_description_button">編輯描述</string>
-  <string name="suggested_edits_add_translation_button">新增翻譯</string>
-  <string name="suggested_edits_edit_translation_button">編輯翻譯</string>
+  <string name="suggested_edits_add_translation_button">新增譯文</string>
+  <string name="suggested_edits_edit_translation_button">編輯譯文</string>
   <string name="suggested_edits_add_caption_button">新增說明</string>
   <string name="suggested_edits_edit_caption_button">編輯說明</string>
   <string name="suggested_edits_review_image_caption">檢視語言說明</string>

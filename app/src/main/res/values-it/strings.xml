@@ -1311,9 +1311,9 @@
   <string name="revision_diff_paragraph_added">Paragrafo aggiunto</string>
   <string name="revision_diff_paragraph_removed">Paragrafo rimosso</string>
   <string name="revision_diff_protected">Le modifiche apportate in questa versione non sono accessibili pubblicamente.</string>
-  <string name="revision_undo_title" fuzzy="true">Annulla modifica</string>
-  <string name="revision_undo_message" fuzzy="true">Ciò annullerà le modifiche apportate alla versione della voce mostrata qui.</string>
-  <string name="revision_undo_reason" fuzzy="true">Per continuare, fornisci un motivo per annullare questa modifica:</string>
+  <string name="revision_undo_title">Sei sicuro di voler annullare questa modifica?</string>
+  <string name="revision_undo_message">Annullare significa annullare gli effetti di una o più modifiche.</string>
+  <string name="revision_undo_reason">Condividi il motivo del ripristino</string>
   <string name="revision_undo_success">La versione è stata annullata.</string>
   <string name="revision_rollback_dialog_title">Sei sicuro di voler annullare le modifiche?</string>
   <string name="revision_rollback_success">Modifiche annullate.</string>
