@@ -4,6 +4,7 @@
 * Alno
 * Amire80
 * Bbernrd
+* BlueCamille
 * Blurby
 * C13m3n7
 * Cigaryno
@@ -1372,7 +1373,7 @@
   <string name="revision_diff_paragraph_added">Paragraphe ajouté</string>
   <string name="revision_diff_paragraph_removed">Paragraphe supprimé</string>
   <string name="revision_diff_protected">Les modifications faites dans cette révision ne sont pas accessibles publiquement.</string>
-  <string name="revision_undo_title" fuzzy="true">Annuler la modification</string>
+  <string name="revision_undo_title">Êtes-vous sûr d\'annuler cette modification ?</string>
   <string name="revision_undo_message" fuzzy="true">Cela annulera les modifications réalisées dans les révisions de l’article affichées ici.</string>
   <string name="revision_undo_reason" fuzzy="true">Pour poursuivre, veuillez fournir un motif pour annuler cette modification :</string>
   <string name="revision_undo_success">La révision a été annulée.</string>
@@ -1583,6 +1584,15 @@
   <string name="patroller_tasks_overflow_learn">En savoir plus</string>
   <string name="patroller_onboarding_one_title">Contribuer à la surveillance et à l’approbation des modifications de Wikipédia.</string>
   <string name="patroller_onboarding_one_content">Améliore la qualité du contenu de Wikipédia en relisant activement un flux de nouvelles modifications et en fournissant des conseils, un contrôle de qualité et des encouragements à d’autres éditeurs.</string>
+  <string name="patroller_onboarding_two_thank_title">Remercier</string>
+  <string name="patroller_onboarding_two_thank_content">Vous voyez une modification pertinente ? Remerciez un utilisateur pour sa contribution !</string>
+  <string name="patroller_onboarding_two_watch_title">Suivre</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfait</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutre</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfait</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Commentaire</string>
+  <string name="patroller_diff_feedback_dialog_submit">Soumettre</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Commentaire envoyé.</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Rejeter</string>
   <string name="page_issues_title">Problèmes de la page</string>
@@ -1591,4 +1601,5 @@
   <string name="email_report_image_recommendations_body">J’ai rencontré un problème avec la fonctionnalité de recommandation d’image :\n- [Décrire le problème spécifique]\n\nLe comportement que je m’attendrais à voir est :\n- [Décrire la solution proposée]</string>
   <string name="email_report_patroller_tasks_subject">Rapport de problème — Fonctionnalité de patrouille de modifications</string>
   <string name="email_report_patroller_tasks_body">J’ai rencontré un problème en rapport avec la fonctionnalité d\'édition du patrouillage :\n- [Décrire le problème spécifique]\n\nLe comportement que je souhaite voir est :\n- [Décrire la solution proposée]\n\n[Captures d\'écrans ou liens]\n\n\n\n\n\n[]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Nous vous le rappellerons demain.</string>
 </resources>
