@@ -108,6 +108,7 @@
   <string name="language_count_link_text">Dastrəse bə %d čo zyvononədə</string>
   <string name="edit_save_action_license_logged_in">Yštə ovaxtətijon vyǧandejədə šymə rozi bejdəjon de &lt;a href=\"%1$s\" &gt;oko doj šərton&lt;/a&gt;, ijən hažygo rozi bejdəjon bə raj onygardə edaštəj de lisensijə &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Ovaxtə cijon edaštejədə šymə rozi bejdəjon de &lt;a href=\"%1$s\"&gt;oko doj šərton&lt;/a&gt;, ijən hažygo rozi bejdəjon bə raj nypegətə edaštəj de lisensijə &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Ovaxtətijon dəcoknijə bəben bə šymə diləgi IP-adresi. Girəm šymə &lt;a href=\"https://#login\"&gt;ǧejd bəbejon&lt;/a&gt;, bəvədə bəzynejon məxfijəti barzə səvijə səj.</string>
+  <string name="edit_anon_warning">Ovaxtə cijon imzo kardə bəbe de šymə diləgi IP-adresi. Šymə xysusijəti ve bəbe, girəm šymə &lt;a href=\"https://#login\"&gt;dəšəjon bə akkaunt&lt;/a&gt;.</string>
   <string name="preference_title_language">Vikipedia zyvonon</string>
   <string name="langlinks_filter_hint">Nəve</string>
   <string name="langlinks_empty">Ym səhifə dastrəs ni čo zyvononədə.</string>
@@ -119,12 +120,16 @@
   <string name="dialog_message_edit_failed">Sərost karde xətoǃ</string>
   <string name="dialog_message_edit_failed_retry">Sənibəton kardej</string>
   <string name="dialog_message_edit_failed_cancel">Ohašte</string>
+  <string name="dialog_message_leaving_edit">Dəǧəndə cijon edaštə nybin. Šymə peštypurijon ki pidəjone ce səhifəku beše?</string>
   <string name="dialog_message_leaving_edit_leave">Beše</string>
   <string name="dialog_message_leaving_edit_stay">Mande</string>
   <string name="menu_show_toc">Myndəričot</string>
   <string name="search_no_results_found">Hici pəjdo byəni</string>
   <string name="search_reading_list_no_results">Ijo \"%s\" nətičon pəjdo nybin</string>
+  <string name="search_reading_lists_no_results">Handə sijohijonədə nətičon pəjdo nybin</string>
   <string name="search_history_no_results">Tarixədə nətičon pəjdo nybin</string>
+  <string name="edit_section_captcha_message">Bo əmə dastək bej ce avtomatik spamiku noǧo doj yštəni, zəhmət nybu, žintono nišon kardə byə syxanon bynyvyštən</string>
+  <string name="edit_section_captcha_request_an_account_message">Kapcə šikili vindənijon? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Byparsən akkaunti&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Pentonədə nišon kardə byə syxanon sənibəton bykən</string>
   <string name="title_captcha">CAPTCHA bynyvyštən</string>
   <string name="edit_section_captcha_reload">Bə CAPTCHA dast byžənən əj nujə kardejro</string>
@@ -178,6 +183,8 @@
   <string name="preference_title_sync_reading_lists_from_account">Sijohijon sinxronizasijə karde bo hande</string>
   <string name="preference_title_download_reading_list_articles">Hande sijohiku məǧolon okyrnije</string>
   <string name="preferences_privacy_settings_heading">Məxfi</string>
+  <string name="preference_title_eventlogging_opt_in">Oko doj hisobon vyǧande</string>
+  <string name="preference_title_auto_upload_crash_reports">Xəto barədə hisobon vyǧande</string>
   <string name="history_filter_list_hint">Parzyni tarix</string>
   <string name="error_can_not_process_link">Ym linki nišon doj mymkun nybe</string>
   <string name="page_protected_autoconfirmed">Ym səhifə nimə nydofijə kardə be.</string>
@@ -212,6 +219,7 @@
   <string name="edit_redo">Tikror karde</string>
   <string name="edit_rollback">Ohaštej</string>
   <string name="edit_warn">Cocašin</string>
+  <string name="edit_quality">Kejfijət %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bajt</item>
     <item quantity="other">%s bajton</item>
@@ -223,15 +231,25 @@
   <string name="edit_summary_tag_links">Linkon əlovə kardə byən</string>
   <string name="edit_summary_tag_other">Čo</string>
   <string name="edit_summary_tag_other_hint">Čo cəmon de komon šymə səhifə təkmil kardyjone</string>
+  <string name="edit_conflict_title">Sərost karde xəto</string>
+  <string name="edit_notices">Ovaxtə cijonku xəbədo</string>
   <string name="edit_notices_please_read">Zəhmət nybu, byhandən nav sərost karde</string>
   <string name="edit_notices_show_auto">Ovaxət cijon barədə xəbədo avtomatik nišon doj</string>
   <string name="find_next">Dumotonošə nəve</string>
   <string name="find_previous">Dumoədə nəve</string>
   <string name="page_similar_titles">Oxšəš doə səhifon</string>
+  <string name="search_did_you_mean">Bəzne be šymə ymi nəvedəjon «%s»?</string>
   <string name="search_recent_header">Oxonə nəve:</string>
   <string name="search_results_count_zero">Hiči pəjdo nybe</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 gylə nətičə</item>
+    <item quantity="other">%d gylə nətičon</item>
+  </plurals>
+  <string name="button_clear_all_recent_searches">Oxonə nəvə syvolon sijohi mole</string>
+  <string name="clear_recent_searches_confirm">Šymə pežtypurijon ki pidəjone nəvə syvolon sijohi mole?</string>
   <string name="clear_recent_searches_confirm_yes">Bəle</string>
   <string name="clear_recent_searches_confirm_no">Ne</string>
+  <string name="error_browser_not_found">Səhifə onybe (brauzeri čynəvə pəjdo nybe).</string>
   <string name="table_infobox">Kyrtə fakton</string>
   <string name="table_other">Zijodə məlumot</string>
   <string name="table_close">Žəj</string>
@@ -239,6 +257,7 @@
   <string name="widget_title_featured_page">Ruži vyžnijə byə məǧolə:</string>
   <string name="widget_name_search">Vikipediədə nəve</string>
   <string name="wiktionary_no_definitions_found">Hic gylə tarif pəjdo kardə nybe.</string>
+  <string name="alpha_update_notification_title">Ce alfa-versijə nujə versijə heste</string>
   <string name="alpha_update_notification_text">Egətən bo okyrnijero</string>
   <string name="dialog_close_description">Žəj</string>
   <string name="preference_title_show_images">Šikilon nišon doj</string>
@@ -247,11 +266,13 @@
   <string name="read_more_section">Hande idomə karde</string>
   <string name="about_article_section">Ce məǧolə barədə</string>
   <string name="menu_gallery_visit_image_page">Bə fajli səhifə dəvarde</string>
+  <string name="gallery_error_draw_failed">Šikil nišon doə nybe.</string>
   <string name="license_title">Lisensijə bo %s</string>
   <string name="gallery_menu_share">Pevylo kardej</string>
   <string name="gallery_share_error">Šikil pevylo kardə nybe: %s</string>
   <string name="gallery_save_progress">Fajli əlovə karde...</string>
   <string name="gallery_save_success">Fajl ogətə byə.</string>
+  <string name="gallery_error_video_failed">Viseo pekardə nybe.</string>
   <string name="gallery_edit_button_content_description">Ce šikili sərnomi sərost karde</string>
   <string name="gallery_add_image_caption_button">Šikili nom-nyšoni əlovə karde</string>
   <string name="gallery_add_image_caption_in_language_button">Šikili nom-nyšoni əlovə karde (%s)</string>
@@ -259,10 +280,13 @@
   <string name="expand_refs">Egətən bo okarde</string>
   <string name="cc_logo">Creative Commons lisensijə</string>
   <string name="captcha_image">Captcha šikil</string>
+  <string name="gallery_fair_use_license">Vičdoninə oko doj</string>
   <string name="gallery_uploader_unknown">Əlovə kardəkəs noməlume</string>
+  <string name="gallery_not_available_offline_snackbar">Galerejə režim be interneti dastrəs ni.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Žəj</string>
   <string name="menu_new_tab">Nujə vərəǧ</string>
   <string name="menu_close_all_tabs">Həmmə vərəǧon žəj</string>
+  <string name="close_all_tabs_confirm">Šymə peštypurijon ki pidəjone vərəǧon žəj?</string>
   <string name="close_all_tabs_confirm_yes">Bəle</string>
   <string name="close_all_tabs_confirm_no">Ne</string>
   <string name="button_close_tab">Vərəǧi žəj</string>
@@ -270,17 +294,26 @@
   <string name="tab_item_closed">Žə byə: %s</string>
   <string name="all_tab_items_closed">Həmmə vərəǧon žə byən.</string>
   <string name="tool_tip_bookmark_icon_title">Bə hande sijohi dəǧande</string>
+  <string name="page_view_in_browser">Səhifə brauzerədə dijə karde</string>
+  <string name="tool_tip_toc_title">Rəjrə dastrəs bə məzmuni</string>
+  <string name="error_unknown">Noməlumə xəto beše</string>
+  <string name="address_copied">Adres kopijə kardə byə.</string>
+  <string name="text_copied">Mətn kopijə kardə byə.</string>
   <string name="button_continue_to_article">Məǧolə hande</string>
   <string name="button_continue_to_talk_page">No-pegəti səhifə okarde</string>
   <string name="button_continue_to_disambiguation">Oxšəš doə səhifon dijə karde</string>
+  <string name="link_preview_disambiguation_description">Žygo sərnom bə kali səhifon aide:</string>
   <string name="button_add_to_reading_list">Bə hande sijohi dəǧande</string>
   <string name="redirected_from_snackbar">Səmt ovaxtə byə cyjo %s</string>
   <string name="button_get_directions">Səmti idomə kardej</string>
   <string name="preference_title_customize_explore_feed">Lenti umute</string>
+  <string name="preference_title_show_link_previews">Linkon syftənə nišon doj təmšo</string>
   <string name="preference_title_collapse_tables">Čədvəlon burmə karde</string>
   <string name="nav_item_donate">Vəxm doj</string>
+  <string name="error_voice_search_not_available">Bybaxšən, sədo zyne dastrəs ni.</string>
   <string name="enable_location_service">Pekardej</string>
   <string name="location_permissions_enable_action">Pekardej</string>
+  <string name="multi_items_selected">{{PLURAL\n|one=%d vyžnijə byə|%d vyžnijə byə}}</string>
   <string name="multi_select_items_selected">%d vyžnijə byə</string>
   <string name="error_message_generic">Xəto beše</string>
   <string name="view_link_preview_error_button_dismiss">Žəj</string>
@@ -288,14 +321,22 @@
   <string name="view_wiki_error_message_offline">Bə internet dəše mymkun ni</string>
   <string name="reference_title">Ǧejd %s</string>
   <string name="reference_list_title">İstinadon</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Šikili tojki karde</string>
+  <string name="preference_title_prefer_offline_content">Oflajn məzmuni prioritet</string>
+  <string name="page_footer_license_text">Girəm čo cij nišon kardə byəni məzmun de ymi $1 dastrəse.</string>
   <string name="empty_tab_title">Nujə vərəǧ</string>
   <string name="menu_save_all_tabs">Həmmə vərəǧon ogətej</string>
+  <string name="error_blocked_title">Šymə okoədə nom ja IP adres dəbastə byə.</string>
+  <string name="error_blocked_by">Dəbastəše ym okoədə &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Nišon doə səbəb: %s</string>
   <string name="error_blocked_start">Dəbaste bino: %s</string>
   <string name="error_blocked_expiry">Dəbaste oxoj: %s</string>
   <string name="error_blocked_id">Dəbaste ID: %s</string>
+  <string name="error_blocked_footer">Šymə bəzynejon əloǧə gəte de &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; ja de čo &lt;a href=\"https://ru.wikipedia.org/wiki/Vikipedia:Mudiron\"&gt;mudiri&lt;/a&gt; dəbaste barədə no-pegət karde.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Yštə diləgon paneli cəmisə bynən</string>
+  <string name="error_blocked_footer_no_blocker">Šymə bəzynejon əloǧə gəte de &lt;a href=\"https://en.wikipedia.org/wiki/Vikipedia:Mudiron\"&gt;mudiri&lt;/a&gt; dəbaste barədə no-pegət karde.</string>
   <string name="crash_report_activity_title">Čynəvə xəto</string>
+  <string name="crash_report_relaunch_or_quit">Bybaxšən əmma Vikipedia čynəvədə xəto beše ijən bə cəj gornə əv dəbastə be.\n\nŠymə pidəjone əj sənibəton pekarde ja beše?</string>
   <string name="crash_report_relaunch">Ižənən pekarde</string>
   <string name="crash_report_quit">Beše</string>
   <string name="article_menu_bar_save_button">Ogətej</string>
@@ -304,6 +345,7 @@
   <string name="article_menu_bar_theme_button">Myžor</string>
   <string name="article_menu_bar_contents_button">Myndəričot</string>
   <string name="article_header_edit_hint">Sərost kardej...</string>
+  <string name="article_header_edit_description">Səhifə nom-nyšoni ovaxte</string>
   <string name="article_header_edit_lead_section">Vəsə sərost kardej</string>
   <string name="color_theme_select">Myžor</string>
   <string name="color_theme_light">Rušin</string>
@@ -329,14 +371,49 @@
   <string name="reading_list_sort">Cešidin kardej</string>
   <string name="reading_list_sort_ellipsis">Cešidin karde de...</string>
   <string name="reading_list_sort_by_name">Cešidin karde de nomi</string>
+  <string name="reading_list_sort_by_name_desc">De nomi cešidin karde (tərsin)</string>
   <string name="reading_list_sort_by_recent">Cešidin karde de əlovə karde tarixi (pentonədə nujə gylon)</string>
+  <string name="reading_list_sort_by_recent_desc">De əlovə kardə be cešidin karde (kano gylon pentono)</string>
+  <string name="reading_list_sort_by_created">De soxte taryxi cešidin karde (nujə gylon pentono)</string>
+  <string name="reading_list_sort_by_created_desc">De soxte taryxi cešidin karde (kanə gylon pentono)</string>
   <string name="reading_list_menu_delete">Sijohi mole</string>
   <string name="reading_list_menu_select">Vyžnije</string>
   <string name="reading_list_menu_unselect">Vyžyni ohašte</string>
   <string name="reading_list_menu_rename">Nomi/nom-nyšoni ovaxte</string>
   <string name="reading_list_action_menu_remove_from_offline">Oflajn režimiku mole</string>
+  <string name="reading_list_action_menu_save_for_offline">Bo oflajni ogəte</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Ce oflan režimiku həmmə mole</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Həmmə bo oflajn režimi ogəte</string>
+  <string name="reading_list_action_menu_add_to_another_list">Bə čo sijohi əlovə karde</string>
+  <string name="reading_list_action_menu_move_to_another_list">Bə čo sijohi vyrəbəvyrə karde</string>
+  <string name="reading_list_name_sample">Cymy hande sijohi</string>
+  <string name="reading_list_name_hint">Ym sijohi nom</string>
+  <string name="reading_list_description_hint">Nom-nyšon (məčburi nybə)</string>
+  <string name="reading_list_item_deleted">%s sijohiku molə byə</string>
+  <string name="reading_list_item_deleted_from_list">%1$s molə byə cyjo %2$s</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d gylə məǧolə ce sijohiku molə byə</item>
+    <item quantity="other">%d gylə məǧolon ce sijohiku molə byə</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d gylə məǧolə molə byə cyjo %s</item>
+    <item quantity="other">%d gylə məǧolə molə byə cyjo %s</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d gylə sijohi molə byə</item>
+    <item quantity="other">%d gylə sijohijon molə byən</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">Besyxan sijohi (%s) molə be əzyni</string>
+  <string name="single_list_json_file_name">%s (су Vikipedia handə sijohi).json</string>
+  <string name="multiple_lists_json_file_name">Vikipedia handə sijohi (%s ijən hənijən).json</string>
+  <string name="reading_list_items_deleted">%d gylə məǧolə ce sijohiku molə byə</string>
+  <string name="reading_lists_item_deleted">%s ce sijohijonku molə byə</string>
   <string name="reading_list_item_delete_undo">Ohaštej</string>
   <string name="reading_list_deleted">%s molə byə</string>
+  <string name="saved_list_empty_title">Hələ ki bo hande sijohijon nin</string>
+  <string name="reading_lists_empty_message">Bə sijohi məǧolon əlovə kykardən bo pešo əvoni handejro, hətto girəm šymə oflajnədəjon.</string>
+  <string name="reading_list_empty">By sijohijədə əlovə kardə byə məǧolon nin.</string>
+  <string name="reading_list_article_offline">Be interneti dastrəse</string>
   <string name="reading_list_select_item">Vyžnije</string>
   <string name="reading_lists_ignore_button">Ysət ne</string>
   <string name="reading_lists_confirm_remote_delete_yes">Bəle</string>

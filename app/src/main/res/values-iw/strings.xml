@@ -1080,7 +1080,7 @@
   <string name="suggested_edits_ip_blocked_title">כתובת ה־IP חסומה</string>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
-  <string name="suggested_edits_task_new" fuzzy="true">חדשה</string>
+  <string name="suggested_edits_task_new">חדש</string>
   <string name="suggested_edits_cc0_notice">הפרסום מהווה את הסכמתך הבלתי־חוזרת ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור של התרומה הזאת לפי &lt;a href=\"%2$s\"&gt;רישיון CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">עריכות מוצעות</string>
   <string name="suggested_edits_reactivation_notification_stage_one">תודה על עריכת ויקיפדיה! מדוע לא להמשיך היכן שהפסקת?</string>
@@ -1171,6 +1171,7 @@
   <string name="image_recommendation_tooltip_3">יש להחליט האם התמונה עוזרת לקוראים להבין טוב יותר את הנושא הזה</string>
   <string name="image_recommendation_tooltip_next">הבא</string>
   <string name="image_recommendation_tooltip_warning">נא לעיין בערך כדי להבין את הנושא שלו ולבדוק את התמונה</string>
+  <string name="image_recommendation_depleted">מצטערים, אין עוד תמונות מוצעות עכשיו. נא לבדוק &lt;a href=\"#\"&gt;עריכות מוצעות&lt;/a&gt; אחרות או לחזור מאוחר יותר.</string>
   <string name="suggested_edits_report_feature">בעיה עם תכונה</string>
   <string name="suggested_edits_report_feature_subject">בעיה עם עריכות מוצעות</string>
   <string name="edit_summary_added_image">נוספה תמונה</string>
@@ -1276,6 +1277,7 @@
   <string name="wikitext_template">תבנית</string>
   <string name="wikitext_reference">הערת שוליים</string>
   <string name="wikitext_preview_link">תצוגה מקדימה של קישור</string>
+  <string name="wikitext_mention_user">אזכור משתמש</string>
   <string name="insert_media_title">הוספת מדיה</string>
   <string name="insert_media_search_description">נא לבחור קובץ מוויקישיתוף</string>
   <string name="insert_media_search_hint">חיפוש מדיה</string>
@@ -1423,9 +1425,9 @@
   <string name="revision_diff_paragraph_added">פסקה שנוספה</string>
   <string name="revision_diff_paragraph_removed">פסקה שהוסרה</string>
   <string name="revision_diff_protected">השינויים שנעשו בגרסה הזאת אינם זמינים לציבור.</string>
-  <string name="revision_undo_title">ביטול עריכה</string>
-  <string name="revision_undo_message">זה יבטל את העריכה שנעשתה בגרסת הערך שמוצגת כאן.</string>
-  <string name="revision_undo_reason">כדי להמשיך, נא לספק סיבה לביטול העריכה הזאת:</string>
+  <string name="revision_undo_title" fuzzy="true">ביטול עריכה</string>
+  <string name="revision_undo_message" fuzzy="true">זה יבטל את העריכה שנעשתה בגרסת הערך שמוצגת כאן.</string>
+  <string name="revision_undo_reason" fuzzy="true">כדי להמשיך, נא לספק סיבה לביטול העריכה הזאת:</string>
   <string name="revision_undo_success">הגרסה בוטלה.</string>
   <string name="revision_rollback_dialog_title">האם ברצונך באמת לשחזר את העריכות?</string>
   <string name="revision_rollback_success">העריכות שוחזרו.</string>
@@ -1636,6 +1638,28 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">הצגה</string>
   <string name="patroller_tasks_overflow_report">בעיה עם תכונה</string>
   <string name="patroller_tasks_overflow_learn">מידע נוסף</string>
+  <string name="patroller_onboarding_one_title">תרומה לפיקוח ואישור של עריכות ויקיפדיה.</string>
+  <string name="patroller_onboarding_one_content">שיפור האיכות של התוכן של ויקיפדיה על־ידי סקירה פעילה של הזנה של עריכות אחרונות ומתן הדרכה, בקרת איכות ועידוד לעורכים אחרים.</string>
+  <string name="patroller_onboarding_two_title">הצעת משוב, מעקב אחר עריכות וביצוע פעולות בתצוגת ההבדלים</string>
+  <string name="patroller_onboarding_two_thank_title">תודה</string>
+  <string name="patroller_onboarding_two_thank_content">רואה עריכה מועילה? אפשר לשלוח תודה למשתמש על תרומתו.</string>
+  <string name="patroller_onboarding_two_watch_title">מעקב</string>
+  <string name="patroller_onboarding_two_watch_content">רוצה לעקוב אחר עריכות בערך? אפשר להוסיף לרשימת המעקב שלך. אפשר להציג אותה תחת \"עוד\".</string>
+  <string name="patroller_onboarding_two_warn_title">אזהרה</string>
+  <string name="patroller_onboarding_two_warn_content">יצירה, שליחה ואחסון של הודעות אזהרה בדף שיחה של עורך.</string>
+  <string name="patroller_onboarding_two_undo_title">ביטול/שחזור</string>
+  <string name="patroller_onboarding_two_undo_content">יש לבחור \"ביטול\" כדי לבטל או לשחזור עריכה שעשויה להיות הרסנית.</string>
+  <string name="patroller_diff_tooltip_one">מדד \"נזק\" מנבא אם עריכה גורמת נזק לוויקי.</string>
+  <string name="patroller_diff_tooltip_two">מדד \"כוונה\" מנבא את הסבירות שעריכה תישמר מתוך כוונה טובה.</string>
+  <string name="patroller_diff_feedback_dialog_title">באפשרותך לעזור לנו לשפר התכונה הזאת</string>
+  <string name="patroller_diff_feedback_dialog_message">מרוצה מהתכונה הזאת?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">מרוצה</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">אין דעה</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">לא מרוצה</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">משוב</string>
+  <string name="patroller_diff_feedback_dialog_submit">שליחה</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">המשוב נשלח.</string>
+  <string name="patroller_diff_feedback_tooltip">יש להקיש על התפריט הצף כדי לשלוח משוב בכל עת תחת \"בעיה עם תכונה\".</string>
   <string name="data_opt_in_accept">לקבל</string>
   <string name="data_opt_in_reject">לדחות</string>
   <string name="page_issues_title">בעיות בדף</string>

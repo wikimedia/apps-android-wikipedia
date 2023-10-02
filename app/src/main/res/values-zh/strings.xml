@@ -1304,9 +1304,9 @@
   <string name="revision_diff_line_removed">已移除行</string>
   <string name="revision_diff_paragraph_added">已添加段落</string>
   <string name="revision_diff_paragraph_removed">已移除段落</string>
-  <string name="revision_undo_title">撤销编辑</string>
-  <string name="revision_undo_message">这将会撤销此处展示的条目修订所做出的更改。</string>
-  <string name="revision_undo_reason">若要继续，请提供撤销此编辑的原因：</string>
+  <string name="revision_undo_title" fuzzy="true">撤销编辑</string>
+  <string name="revision_undo_message" fuzzy="true">这将会撤销此处展示的条目修订所做出的更改。</string>
+  <string name="revision_undo_reason" fuzzy="true">若要继续，请提供撤销此编辑的原因：</string>
   <string name="revision_undo_success">已撤消修订。</string>
   <string name="revision_rollback_dialog_title">确定要回退这些编辑吗？</string>
   <string name="revision_rollback_success">已回退编辑。</string>

@@ -1406,9 +1406,10 @@
     <string name="revision_diff_paragraph_added">Paragraph added</string>
     <string name="revision_diff_paragraph_removed">Paragraph removed</string>
     <string name="revision_diff_protected">The changes made in this revision are not publicly accessible.</string>
-    <string name="revision_undo_title">Undo edit</string>
-    <string name="revision_undo_message">This will undo the changes made by the revision(s) of the article shown here.</string>
-    <string name="revision_undo_reason">To continue, please provide a reason for undoing this edit:</string>
+    <string name="revision_undo_title">Are you sure you want to undo this edit?</string>
+    <string name="revision_undo_message">Undoing means reverting the effects of one or more edits.</string>
+    <string name="revision_undo_summary_hint">Summary (optional)</string>
+    <string name="revision_undo_reason">Share the reason for the revert</string>
     <string name="revision_undo_success">The revision was undone.</string>
     <string name="revision_rollback_dialog_title">Are you sure you want to rollback the edits?</string>
     <string name="revision_rollback_success">Edits reverted.</string>
@@ -1627,6 +1628,29 @@
     <string name="patroller_tasks_patrol_edit_snackbar_view">View</string>
     <string name="patroller_tasks_overflow_report">Problem with feature</string>
     <string name="patroller_tasks_overflow_learn">Learn more</string>
+    <string name="patroller_onboarding_one_title">Contribute to the oversight and approval of Wikipedia edits.</string>
+    <string name="patroller_onboarding_one_content">Enhance the quality of Wikipedia content by actively reviewing a feed of recent edits and providing guidance, quality control, and encouragement to other editors.</string>
+    <string name="patroller_onboarding_two_title">Offer feedback, monitor edits, and take actions on the diff screen</string>
+    <string name="patroller_onboarding_two_thank_title">Thank</string>
+    <string name="patroller_onboarding_two_thank_content">See a productive edit? Thank a user for their contribution.</string>
+    <string name="patroller_onboarding_two_watch_title">Watch</string>
+    <string name="patroller_onboarding_two_watch_content">Want to track article edits? Add to your Watchlist. View it under \'More\'.</string>
+    <string name="patroller_onboarding_two_warn_title">Warn</string>
+    <string name="patroller_onboarding_two_warn_content">Create, send, and store warning messages on an editor\'s talk page.</string>
+    <string name="patroller_onboarding_two_undo_title">Undo/Rollback</string>
+    <string name="patroller_onboarding_two_undo_content">Choose \'Undo\' to undo or rollback a potentially destructive edit.</string>
+    <string name="patroller_diff_tooltip_one">Damage predicts if an edit causes damage to a wiki.</string>
+    <string name="patroller_diff_tooltip_two">Intent predicts likelihood of an edit being saved in good-faith.</string>
+    <string name="patroller_diff_feedback_dialog_title">Help us improve this feature</string>
+    <string name="patroller_diff_feedback_dialog_message">Are you satisfied with this feature?</string>
+    <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfied</string>
+    <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
+    <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unsatisfied</string>
+    <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
+    <string name="patroller_diff_feedback_dialog_submit">Submit</string>
+    <string name="patroller_diff_feedback_submitted_snackbar">Feedback submitted.</string>
+    <string name="patroller_diff_feedback_tooltip">Tap on overflow menu to submit feedback anytime under \'Problem with feature\'.</string>
+
     <!-- /Patroller task -->
 
     <string name="data_opt_in_accept">Accept</string>
@@ -1637,4 +1661,9 @@
     <string name="email_report_image_recommendations_body">I have encountered a problem with the Image Recommendations feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="email_report_patroller_tasks_subject">Issue Report- Edit Patrol Feature</string>
     <string name="email_report_patroller_tasks_body">I have encountered a problem with the Edit Patrol Feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]\n\n[Screenshots or Links]</string>
+
+    <!-- Donor experience -->
+    <string name="donation_campaign_maybe_later_snackbar">We will remind you again tomorrow.</string>
+    <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and its sister sites thriving.</string>
+    <!-- Donor experience -->
 </resources>

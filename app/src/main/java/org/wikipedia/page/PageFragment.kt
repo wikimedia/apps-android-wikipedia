@@ -648,6 +648,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private fun maybeShowAnnouncement() {
         title?.let {
             if (Prefs.hasVisitedArticlePage) {
+
+                // TODO: replace with new Campaign call
+
                 disposables.add(ServiceFactory.getRest(it.wikiSite).announcements
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
