@@ -514,9 +514,10 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 val language = wiki.languageCode.lowercase(Locale.getDefault())
                 val isDonationRelated = language == "donate" || language == "thankyou"
                 if (isDonationRelated || (title.isSpecial && !title.isContributions)) {
-                    // Stop bounce out if the URL is from the Android app customTab.
+                    // Stop bouncing out if the URL is from the Android app customTab.
                     val utmCampaign = uri.getQueryParameter("utm_campaign")
                     if (utmCampaign != null && utmCampaign == "Android") {
+                        finish()
                         return
                     }
                     UriUtil.visitInExternalBrowser(this, it)
