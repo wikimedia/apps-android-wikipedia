@@ -323,6 +323,7 @@
   <string name="edit_undo">撤销</string>
   <string name="edit_redo">重做</string>
   <string name="edit_rollback">回退</string>
+  <string name="edit_warn">警告</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s 字节</item>
     <item quantity="other">%s 字节</item>
@@ -533,6 +534,8 @@
   <string name="reading_list_sort_by_created">按创建日期排序（最近优先）</string>
   <string name="reading_list_sort_by_created_desc">按创建日期排序（最早优先）</string>
   <string name="reading_list_menu_delete">删除列表</string>
+  <string name="reading_list_menu_select">选择</string>
+  <string name="reading_list_menu_unselect">取消选择</string>
   <string name="reading_list_menu_rename">编辑名称/描述</string>
   <string name="reading_list_action_menu_remove_from_offline">从离线内容中移除</string>
   <string name="reading_list_action_menu_save_for_offline">保存供离线使用</string>
@@ -629,6 +632,7 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">取消</string>
   <string name="reading_list_split_dialog_ok_button_text">确定</string>
   <string name="reading_list_activity_title">阅读列表：%s</string>
+  <string name="reading_lists_action_menu_export_lists">导出</string>
   <string name="reading_lists_preview_header_title">分享清单</string>
   <string name="reading_lists_preview_save_button">储存</string>
   <string name="reading_lists_preview_save_dialog_title_hint">标题</string>
@@ -1076,6 +1080,7 @@
   <string name="image_recommendation_tooltip_3">确定该图片是否能帮助读者更好地理解文章的主题。</string>
   <string name="image_recommendation_tooltip_next">下一步</string>
   <string name="image_recommendation_tooltip_warning">请查看文章以了解其主题，并检查图片</string>
+  <string name="suggested_edits_report_feature">功能问题反馈</string>
   <string name="edit_summary_added_image">已添加图片</string>
   <string name="edit_summary_added_caption">已添加说明</string>
   <string name="edit_published_view">查看</string>
@@ -1304,9 +1309,9 @@
   <string name="revision_diff_line_removed">已移除行</string>
   <string name="revision_diff_paragraph_added">已添加段落</string>
   <string name="revision_diff_paragraph_removed">已移除段落</string>
-  <string name="revision_undo_title" fuzzy="true">撤销编辑</string>
-  <string name="revision_undo_message" fuzzy="true">这将会撤销此处展示的条目修订所做出的更改。</string>
-  <string name="revision_undo_reason" fuzzy="true">若要继续，请提供撤销此编辑的原因：</string>
+  <string name="revision_undo_title">您确定要撤消此编辑吗？</string>
+  <string name="revision_undo_message">撤消意味着恢复一笔或多笔编辑产生的效果。</string>
+  <string name="revision_undo_reason">请说明做出此恢复的原因</string>
   <string name="revision_undo_success">已撤消修订。</string>
   <string name="revision_rollback_dialog_title">确定要回退这些编辑吗？</string>
   <string name="revision_rollback_success">已回退编辑。</string>
@@ -1334,6 +1339,15 @@
   <string name="watchlist_page_moved">已移动</string>
   <string name="watchlist_page_protected">受保护</string>
   <string name="watchlist_page_deleted">已删除</string>
+  <string name="watchlist_filter_wiki_filter_header">维基</string>
+  <string name="watchlist_filter_all_text">全部</string>
+  <string name="watchlist_filter_type_of_change_header">更改类型</string>
+  <string name="watchlist_filter_type_of_change_page_edits">页面编辑</string>
+  <string name="watchlist_filter_type_of_change_page_creations">页面创建</string>
+  <string name="watchlist_filter_type_of_change_category_changes">分类更改</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">维基数据编辑</string>
+  <string name="watchlist_filter_type_of_change_new_users">新用户</string>
+  <string name="watchlist_filter_reset_button">重置</string>
   <string name="preview_edit_title">预览编辑</string>
   <string name="preview_edit_summarize_edit_title">编辑摘要</string>
   <string name="preview_edit_summarize_edit_hint">您是如何改进此页面的？</string>
@@ -1370,4 +1384,31 @@
   <string name="reading_list_share_message_v2">你好！我想给你分享我的维基百科阅读清单：</string>
   <string name="reading_list_share_survey_title">您能帮助我们改进“分享阅读清单”吗？</string>
   <string name="reading_list_share_survey_body">“分享阅读清单”是一项测试功能，我们需要您的反馈来改进或删除它。</string>
+  <string name="talk_templates_new_message_title">新留言</string>
+  <string name="talk_templates_new_message_description">撰写警告留言。</string>
+  <string name="talk_templates_new_message_dialog_save">保存</string>
+  <string name="talk_templates_new_message_dialog_cancel">取消</string>
+  <string name="talk_templates_edit_message_dialog_save">保存</string>
+  <string name="talk_templates_edit_message_dialog_delete">删除</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">感谢</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">用户信息</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;注册日期：&lt;/b&gt;%s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;编辑数：&lt;/b&gt;%s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">关闭</string>
+  <string name="patroller_tasks_filters_reset">重置</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">维基</string>
+  <string name="patroller_tasks_filters_all_text">全部</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">未注册</string>
+  <string name="patroller_tasks_filters_user_status_registered">注册</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">已登录的编者。</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">新人</string>
+  <string name="patroller_diff_feedback_dialog_message">您对该功能满意吗？</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">满意</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">中立</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">不满意</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">反馈</string>
+  <string name="patroller_diff_feedback_dialog_submit">提交</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">已提交反馈。</string>
+  <string name="data_opt_in_accept">接受</string>
+  <string name="data_opt_in_reject">拒绝</string>
 </resources>
