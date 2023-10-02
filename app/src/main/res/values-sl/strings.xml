@@ -1409,9 +1409,10 @@
   <string name="revision_diff_paragraph_added">Dodani odstavek</string>
   <string name="revision_diff_paragraph_removed">Odstavek odstranjen</string>
   <string name="revision_diff_protected">Spremembe v tej redakciji niso javno dostopne.</string>
-  <string name="revision_undo_title" fuzzy="true">Razveljavi urejanje</string>
-  <string name="revision_undo_message" fuzzy="true">To bo razveljavilo spremembe v tukaj prikazani(h) redakciji(ah).</string>
-  <string name="revision_undo_reason" fuzzy="true">Za nadaljevanje navedite razlog za razveljavitev tega urejanja:</string>
+  <string name="revision_undo_title">Ali res želite razveljaviti to urejanje?</string>
+  <string name="revision_undo_message">Razveljavitev pomeni preklic sprememb enega ali več urejanj.</string>
+  <string name="revision_undo_summary_hint">Povzetek (izbirno)</string>
+  <string name="revision_undo_reason">Navedite razlog za razveljavitev</string>
   <string name="revision_undo_success">Redakcija je bila razveljavljena.</string>
   <string name="revision_rollback_dialog_title">Ali res želite vrniti urejanje?</string>
   <string name="revision_rollback_success">Urejanje vrnjeno.</string>
@@ -1629,6 +1630,7 @@
   <string name="patroller_onboarding_two_thank_content">Vidite produktivno urejanje? Zahvalite se uporabniku za njegov prispevek.</string>
   <string name="patroller_onboarding_two_watch_title">Opazuj</string>
   <string name="patroller_onboarding_two_watch_content">Želite spremljati urejanje člankov? Dodajte jih na svoj spisek nadzorov. Oglejte si ga pod »Več«.</string>
+  <string name="patroller_onboarding_two_warn_title">Opozorilo</string>
   <string name="patroller_onboarding_two_warn_content">Ustvarjajte, pošljajte in shranjujte opozorilna sporočila na urejevalčevi pogovorni strani.</string>
   <string name="patroller_onboarding_two_undo_title">Razveljavi/vrni</string>
   <string name="patroller_onboarding_two_undo_content">Izberite »Razveljavi«, da razveljavite ali vrnete morebitno škodljivo urejanje.</string>
@@ -1651,4 +1653,6 @@
   <string name="email_report_image_recommendations_body">Naletel_a sem na težavo z možnostjo slikovnih priporočil:\n– [Opišite specifično težavo]\n\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]</string>
   <string name="email_report_patroller_tasks_subject">Poročilo o težavi – možnost pregledovanja urejanj</string>
   <string name="email_report_patroller_tasks_body">Naletel_a sem na težavo z možnostjo Pregledovanje urejanj:\n– [Opišite specifično težavo]\n\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]\n\n[]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Znova vas bomo opomnili jutri.</string>
+  <string name="donation_campaign_donated_snackbar">Hvala vam, spoštovani darovalec! Vaša velikodušnost pomaga ohranjati uspeh Wikipedije in njenih sestrskih spletnih mest.</string>
 </resources>

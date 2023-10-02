@@ -1324,9 +1324,10 @@
   <string name="revision_diff_paragraph_added">Абзац өҫтәлгән</string>
   <string name="revision_diff_paragraph_removed">Абзац юйылған</string>
   <string name="revision_diff_protected">Был өлгөгә индерелгән үҙгәрештәр башҡа ҡулланыусыларға күренмәй.</string>
-  <string name="revision_undo_title" fuzzy="true">Төҙәтеүҙе кире алырға</string>
-  <string name="revision_undo_message" fuzzy="true">Был ғәмәл күрһәтелгән өлгөләр араһындағы  үҙгәртеүҙе кире ҡайтара.</string>
-  <string name="revision_undo_reason" fuzzy="true">Дауам итеү өсөн, был үҙгәртеүҙе кире ҡайтарыу сәбәбен яҙығыҙ:</string>
+  <string name="revision_undo_title">Был үҙгәртеүҙе кире алырға теләйһегеҙме?</string>
+  <string name="revision_undo_message">Был ғәмәл күрһәтелгән өлгөләр араһындағы  үҙгәртеүҙе кире ҡайтара.</string>
+  <string name="revision_undo_summary_hint">Һығымта (мотлаҡ түгел)</string>
+  <string name="revision_undo_reason">Кире ҡайтарыуҙың сәбәбен яҙығыҙ</string>
   <string name="revision_undo_success">Өлгө кире ҡайтарылды</string>
   <string name="revision_rollback_dialog_title">Үҙгәртеүҙәрҙе кире ҡайтарырға теләйһегеҙме?</string>
   <string name="revision_rollback_success">Үҙгәртеүҙәр кире ҡайтарылды.</string>
@@ -1484,7 +1485,7 @@
   <string name="patroller_tasks_filters_user_status_registered_desc">Танылған мөхәррирҙәр</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Яңы килгәндәр</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">4 көн элек теркәлгән һәм төҙәтеүҙәре 10-дан аҙ булған мөхәррирҙәр</string>
-  <string name="patroller_tasks_filters_user_status_learners">Уҡыусылар</string>
+  <string name="patroller_tasks_filters_user_status_learners">Өйрәнсектәр</string>
   <string name="patroller_tasks_filters_user_status_learners_desc">\"Яңы килеүсе\" һәм \"Тәжрибәле ҡулланыусы\" кимәле араһында булған теркәлгән мөхәррирҙәр.</string>
   <string name="patroller_tasks_filters_user_status_experienced">Тәжрибәле ҡатнашыусылар</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">Төҙәтеүҙәре 500-ҙән күберәк һәм әүҙемлеге 30 көндән ашҡан теркәлгән мөхәррирҙәр.</string>
@@ -1560,4 +1561,6 @@
   <string name="email_report_image_recommendations_body">Һүрәт буйынса күрһәтмәләр функцияһы проблемалары менән осраштым: \n-[Аныҡ проблеманы күрһәтегеҙ]\n\nМин күрергә теләгән ғәмәл: \n-[Хәл итеү юлын тасуирлағыҙ]</string>
   <string name="email_report_patroller_tasks_subject">Проблема тураһында мәғлүмәт - Тикшереү функцияһы</string>
   <string name="email_report_patroller_tasks_body">Тикшереү функцияһы проблемаһы менән осраштым:\n-[Аныҡ проблеманы күрһәтегеҙ]\nМин күрергә теләгән ғәмәл:\n-[Хәл итеү юлын тасуирлағыҙ]\n\n[Скриншоттар йәки һылтанмалар]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Иртәгә тағы ла иҫегеҙгә төшөрөрбөҙ.</string>
+  <string name="donation_campaign_donated_snackbar">Рәхмәт! Йомартлығығыҙ Википедияның һәм уның туғандаш проекттарының үҫешеүенә булышлыҡ итә.</string>
 </resources>
