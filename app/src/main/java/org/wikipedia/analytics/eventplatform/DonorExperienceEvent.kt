@@ -20,7 +20,7 @@ class DonorExperienceEvent(
         private const val STREAM_NAME = "app_donor_experience"
 
         fun logImpression(activeInterface: String, actionData: String = "", wikiId: String = "") {
-            submitImageRecommendationEvent("impression", activeInterface, actionData, wikiId)
+            submitDonorExperienceEvent("impression", activeInterface, actionData, wikiId)
         }
 
         fun logAction(
@@ -29,7 +29,7 @@ class DonorExperienceEvent(
             wikiId: String = "",
             campaignId: Long? = null
         ) {
-            submitImageRecommendationEvent(
+            submitDonorExperienceEvent(
                 action,
                 activeInterface,
                 getActionDataString(campaignId),
@@ -41,7 +41,7 @@ class DonorExperienceEvent(
             return campaignId?.let { "campaign_id: $it, " }.orEmpty()
         }
 
-        private fun submitImageRecommendationEvent(
+        private fun submitDonorExperienceEvent(
             action: String,
             activeInterface: String,
             actionData: String,
