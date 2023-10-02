@@ -6,7 +6,6 @@ import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
 import org.wikipedia.R
 
-
 object CustomTabsUtil {
 
     fun openInCustomTab(context: Context, url: String) {

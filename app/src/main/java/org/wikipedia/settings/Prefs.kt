@@ -137,6 +137,9 @@ object Prefs {
     val announcementDebugUrl
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_announcement_debug_url, false)
 
+    val announcementCustomTabTestUrl
+        get() = PrefsIoUtil.getString(R.string.preference_key_announcement_custom_tab_test_url, null)
+
     val announcementsVersionCode
         get() = PrefsIoUtil.getInt(R.string.preference_key_announcement_version_code, 0)
 

@@ -42,9 +42,8 @@ class CampaignDialog internal constructor(private val context: Context, val camp
     }
 
     override fun onPositiveAction(url: String) {
-        // TODO: maybe use the WebView after we figured out the way of perform the all JavaScript function in the donation page.
-        // context.startActivity(SingleWebViewActivity.newIntent(context, newUrl))
-        CustomTabsUtil.openInCustomTab(context, url)
+        val customTabUrl = Prefs.announcementCustomTabTestUrl.orEmpty().ifEmpty { url }
+        CustomTabsUtil.openInCustomTab(context, customTabUrl)
         dismissDialog()
     }
 

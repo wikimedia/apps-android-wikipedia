@@ -30,6 +30,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
@@ -517,6 +518,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     // Stop bouncing out if the URL is from the Android app customTab.
                     val utmCampaign = uri.getQueryParameter("utm_campaign")
                     if (utmCampaign != null && utmCampaign == "Android") {
+                        // TODO: need to verify if the page can be displayed and logged properly.
+                        startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString()))
                         finish()
                         return
                     }

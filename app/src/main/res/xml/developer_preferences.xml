@@ -14,6 +14,12 @@
             android:key="@string/preference_key_announcement_debug_url"
             android:title="@string/preferences_developer_announcement_debug_url" />
 
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
+            android:key="@string/preference_key_announcement_custom_tab_test_url"
+            android:title="@string/preference_key_announcement_custom_tab_test_url"
+            android:dialogMessage="Overrides the URL from the `Donate now` button in CustomTab. \n https://etherpad.wikimedia.org/p/DeepLinkForTests"/>
+
         <org.wikipedia.settings.LongPreference
             style="@style/LongPreference"
             android:key="@string/preference_key_announcement_pause_time"
