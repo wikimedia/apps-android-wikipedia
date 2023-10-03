@@ -519,7 +519,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                     val utmCampaign = uri.getQueryParameter("utm_campaign")
                     if (utmCampaign != null && utmCampaign == "Android") {
                         // TODO: need to verify if the page can be displayed and logged properly.
-                        startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(), true))
+                        startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(), true, pageFragment.title))
                         finish()
                         return
                     }

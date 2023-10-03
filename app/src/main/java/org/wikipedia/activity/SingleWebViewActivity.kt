@@ -12,7 +12,10 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ActivitySingleWebViewBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
+import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.LinkHandler
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 
@@ -20,6 +23,7 @@ class SingleWebViewActivity : BaseActivity() {
     private lateinit var binding: ActivitySingleWebViewBinding
     private lateinit var blankLinkHandler: LinkHandler
     private lateinit var targetUrl: String
+    private var pageTitle: PageTitle? = null
     private var showBackButton: Boolean = false
     val blankModel = PageViewModel()
 
@@ -33,10 +37,15 @@ class SingleWebViewActivity : BaseActivity() {
 
         targetUrl = intent.getStringExtra(EXTRA_URL)!!
         showBackButton = intent.getBooleanExtra(EXTRA_SHOW_BACK_BUTTON, false)
+        pageTitle = intent.parcelableExtra(EXTRA_PAGE_TITLE)
         blankLinkHandler = EditLinkHandler(this, WikipediaApp.instance.wikiSite)
 
         binding.backButton.isVisible = showBackButton
         binding.backButton.setOnClickListener {
+            pageTitle?.let {
+                val entry = HistoryEntry(it, HistoryEntry.SOURCE_SINGLE_WEBVIEW)
+                startActivity(PageActivity.newIntentForExistingTab(this@SingleWebViewActivity, entry, entry.title))
+            }
             finish()
         }
         binding.webView.settings.javaScriptEnabled = true
@@ -85,11 +94,13 @@ class SingleWebViewActivity : BaseActivity() {
     companion object {
         const val EXTRA_URL = "url"
         const val EXTRA_SHOW_BACK_BUTTON = "goBack"
+        const val EXTRA_PAGE_TITLE = "pageTitle"
 
-        fun newIntent(context: Context, url: String, showBackButton: Boolean = false): Intent {
+        fun newIntent(context: Context, url: String, showBackButton: Boolean = false, pageTitle: PageTitle? = null): Intent {
             return Intent(context, SingleWebViewActivity::class.java)
                     .putExtra(EXTRA_URL, url)
                     .putExtra(EXTRA_SHOW_BACK_BUTTON, showBackButton)
+                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
         }
     }
 }
