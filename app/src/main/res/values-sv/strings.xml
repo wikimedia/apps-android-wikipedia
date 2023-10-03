@@ -1339,9 +1339,9 @@
   <string name="revision_diff_paragraph_added">Paragrafen lades till</string>
   <string name="revision_diff_paragraph_removed">Paragrafen togs bort</string>
   <string name="revision_diff_protected">Ändringarna som gjordes i denna version är inte offentligt tillgängliga.</string>
-  <string name="revision_undo_title">Gör redigering ogjord</string>
-  <string name="revision_undo_message">Detta kommer att göra ändringarna som syns i revisionen/revisionerna av artikeln som visas här ogjorda.</string>
-  <string name="revision_undo_reason">För att fortsätta, vänligen ange en orsak för att göra den här redigeringen ogjord:</string>
+  <string name="revision_undo_title" fuzzy="true">Gör redigering ogjord</string>
+  <string name="revision_undo_message" fuzzy="true">Detta kommer att göra ändringarna som syns i revisionen/revisionerna av artikeln som visas här ogjorda.</string>
+  <string name="revision_undo_reason" fuzzy="true">För att fortsätta, vänligen ange en orsak för att göra den här redigeringen ogjord:</string>
   <string name="revision_undo_success">Versionen återställdes.</string>
   <string name="revision_rollback_dialog_title">Är du säker på att du vill rulla tillbaka redigeringarna?</string>
   <string name="revision_rollback_success">Redigeringar återställdes.</string>

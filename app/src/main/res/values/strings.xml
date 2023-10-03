@@ -1661,4 +1661,9 @@
     <string name="email_report_image_recommendations_body">I have encountered a problem with the Image Recommendations feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="email_report_patroller_tasks_subject">Issue Report- Edit Patrol Feature</string>
     <string name="email_report_patroller_tasks_body">I have encountered a problem with the Edit Patrol Feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]\n\n[Screenshots or Links]</string>
+
+    <!-- Donor experience -->
+    <string name="donation_campaign_maybe_later_snackbar">We will remind you again tomorrow.</string>
+    <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and its sister sites thriving.</string>
+    <!-- Donor experience -->
 </resources>
