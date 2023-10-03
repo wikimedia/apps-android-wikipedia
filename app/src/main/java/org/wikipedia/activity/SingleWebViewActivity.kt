@@ -20,6 +20,7 @@ class SingleWebViewActivity : BaseActivity() {
     private lateinit var binding: ActivitySingleWebViewBinding
     private lateinit var blankLinkHandler: LinkHandler
     private lateinit var targetUrl: String
+    private var showBackButton: Boolean = false
     val blankModel = PageViewModel()
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -31,8 +32,13 @@ class SingleWebViewActivity : BaseActivity() {
         supportActionBar?.title = ""
 
         targetUrl = intent.getStringExtra(EXTRA_URL)!!
+        showBackButton = intent.getBooleanExtra(EXTRA_SHOW_BACK_BUTTON, false)
         blankLinkHandler = EditLinkHandler(this, WikipediaApp.instance.wikiSite)
 
+        binding.backButton.isVisible = showBackButton
+        binding.backButton.setOnClickListener {
+            finish()
+        }
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.settings.mediaPlaybackRequiresUserGesture = false
         binding.webView.webViewClient = object : OkHttpWebViewClient() {
@@ -78,10 +84,12 @@ class SingleWebViewActivity : BaseActivity() {
 
     companion object {
         const val EXTRA_URL = "url"
+        const val EXTRA_SHOW_BACK_BUTTON = "goBack"
 
-        fun newIntent(context: Context, url: String): Intent {
+        fun newIntent(context: Context, url: String, showBackButton: Boolean = false): Intent {
             return Intent(context, SingleWebViewActivity::class.java)
                     .putExtra(EXTRA_URL, url)
+                    .putExtra(EXTRA_SHOW_BACK_BUTTON, showBackButton)
         }
     }
 }

@@ -1665,5 +1665,6 @@
     <!-- Donor experience -->
     <string name="donation_campaign_maybe_later_snackbar">We will remind you again tomorrow.</string>
     <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and its sister sites thriving.</string>
+    <string name="donation_campaign_go_back_button">Go back</string>
     <!-- Donor experience -->
 </resources>
