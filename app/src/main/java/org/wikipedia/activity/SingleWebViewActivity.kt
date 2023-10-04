@@ -4,10 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.core.view.isVisible
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ActivitySingleWebViewBinding
 import org.wikipedia.dataclient.WikiSite
@@ -18,11 +22,13 @@ import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
+import org.wikipedia.util.UriUtil
 
 class SingleWebViewActivity : BaseActivity() {
     private lateinit var binding: ActivitySingleWebViewBinding
     private lateinit var blankLinkHandler: LinkHandler
     private lateinit var targetUrl: String
+    private var currentUrl: String? = null
     private var pageTitle: PageTitle? = null
     private var showBackButton: Boolean = false
     val blankModel = PageViewModel()
@@ -33,6 +39,7 @@ class SingleWebViewActivity : BaseActivity() {
         binding = ActivitySingleWebViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = ""
 
         targetUrl = intent.getStringExtra(EXTRA_URL)!!
@@ -42,11 +49,7 @@ class SingleWebViewActivity : BaseActivity() {
 
         binding.backButton.isVisible = showBackButton
         binding.backButton.setOnClickListener {
-            pageTitle?.let {
-                val entry = HistoryEntry(it, HistoryEntry.SOURCE_SINGLE_WEBVIEW)
-                startActivity(PageActivity.newIntentForExistingTab(this@SingleWebViewActivity, entry, entry.title))
-            }
-            finish()
+            goBack()
         }
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.settings.mediaPlaybackRequiresUserGesture = false
@@ -57,16 +60,43 @@ class SingleWebViewActivity : BaseActivity() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
                 binding.progressBar.isVisible = true
+                invalidateOptionsMenu()
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 binding.progressBar.isVisible = false
+                currentUrl = url
+                invalidateOptionsMenu()
             }
         }
 
         if (savedInstanceState == null) {
             binding.webView.loadUrl(targetUrl)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_single_webview, menu)
+        return true
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        menu.findItem(R.id.menu_group)?.isVisible = !binding.progressBar.isVisible && !currentUrl.isNullOrEmpty()
+        return super.onPrepareOptionsMenu(menu)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.menu_in_new -> {
+                currentUrl?.let {
+                    UriUtil.visitInExternalBrowser(this@SingleWebViewActivity, Uri.parse(it))
+                }
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
@@ -81,7 +111,16 @@ class SingleWebViewActivity : BaseActivity() {
             binding.webView.goBack()
             return
         }
+        goBack()
         super.onBackPressed()
+    }
+
+    private fun goBack() {
+        pageTitle?.let {
+            val entry = HistoryEntry(it, HistoryEntry.SOURCE_SINGLE_WEBVIEW)
+            startActivity(PageActivity.newIntentForExistingTab(this@SingleWebViewActivity, entry, entry.title))
+        }
+        finish()
     }
 
     inner class EditLinkHandler constructor(context: Context, override var wikiSite: WikiSite) : LinkHandler(context) {
