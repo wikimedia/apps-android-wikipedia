@@ -1275,9 +1275,9 @@
   <string name="revision_diff_line_removed">МугӀ дӀабаьккхаб</string>
   <string name="revision_diff_paragraph_added">ЦӀе мугӀ тӀатехаб</string>
   <string name="revision_diff_paragraph_removed">ЦӀе мугӀ дӀабаьккхаб</string>
-  <string name="revision_undo_title">Тоадар юхадаккха</string>
-  <string name="revision_undo_message">Укхаза гойташ дола статья чу даь хувцамаш юхадоаккхаргда.</string>
-  <string name="revision_undo_reason">ДӀахо гӀоргволаш, ер хувцар юхадаккхара бахьан белгалдаккха</string>
+  <string name="revision_undo_title" fuzzy="true">Тоадар юхадаккха</string>
+  <string name="revision_undo_message" fuzzy="true">Укхаза гойташ дола статья чу даь хувцамаш юхадоаккхаргда.</string>
+  <string name="revision_undo_reason" fuzzy="true">ДӀахо гӀоргволаш, ер хувцар юхадаккхара бахьан белгалдаккха</string>
   <string name="revision_undo_success">Хувцар юхадаьккхад.</string>
   <string name="revision_rollback_dialog_title">Боккъонца лой хьона хувцамаш юхататта?</string>
   <string name="revision_rollback_success">Хувцамаш юхатеттад.</string>

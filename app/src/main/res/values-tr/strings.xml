@@ -1361,9 +1361,9 @@
   <string name="revision_diff_paragraph_added">Paragraf eklendi</string>
   <string name="revision_diff_paragraph_removed">Paragraf kalırıldı</string>
   <string name="revision_diff_protected">Bu sürümde yapılan değişiklikler herkesin erişimine açık değildir.</string>
-  <string name="revision_undo_title">Değişikliği geri al</string>
-  <string name="revision_undo_message">Bu eylem, burada gösterilen madde sürümlerinde yapılan değişiklikleri geri alacaktır.</string>
-  <string name="revision_undo_reason">Devam etmek için lütfen bu değişikliği geri alma sebebinizi belirtin:</string>
+  <string name="revision_undo_title" fuzzy="true">Değişikliği geri al</string>
+  <string name="revision_undo_message" fuzzy="true">Bu eylem, burada gösterilen madde sürümlerinde yapılan değişiklikleri geri alacaktır.</string>
+  <string name="revision_undo_reason" fuzzy="true">Devam etmek için lütfen bu değişikliği geri alma sebebinizi belirtin:</string>
   <string name="revision_undo_success">Sürüm geri alındı.</string>
   <string name="revision_rollback_dialog_title">Değişiklikleri geri almak istediğinizden emin misiniz?</string>
   <string name="revision_rollback_success">Değişiklikler geri alındı.</string>

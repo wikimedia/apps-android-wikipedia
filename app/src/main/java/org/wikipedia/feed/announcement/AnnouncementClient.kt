@@ -16,7 +16,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.Date
 
 class AnnouncementClient : FeedClient {
 

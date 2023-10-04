@@ -1359,9 +1359,9 @@
   <string name="revision_diff_paragraph_added">Alinea toegevoegd</string>
   <string name="revision_diff_paragraph_removed">Alinea verwijderd</string>
   <string name="revision_diff_protected">De wijzigingen die in deze versie zijn aangebracht, zijn niet openbaar toegankelijk.</string>
-  <string name="revision_undo_title">Bewerken ongedaan maken</string>
-  <string name="revision_undo_message">Hiermee worden de wijzigingen ongedaan gemaakt door de revisie(s) van het hier getoonde artikel.</string>
-  <string name="revision_undo_reason">Geef om door te gaan een reden op waarom u deze bewerking ongedaan wilt maken:</string>
+  <string name="revision_undo_title" fuzzy="true">Bewerken ongedaan maken</string>
+  <string name="revision_undo_message" fuzzy="true">Hiermee worden de wijzigingen ongedaan gemaakt door de revisie(s) van het hier getoonde artikel.</string>
+  <string name="revision_undo_reason" fuzzy="true">Geef om door te gaan een reden op waarom u deze bewerking ongedaan wilt maken:</string>
   <string name="revision_undo_success">De versie is ongedaan gemaakt.</string>
   <string name="revision_rollback_dialog_title">weet je zeker dat je de bewerkingen wil terugdraaien?</string>
   <string name="revision_rollback_success">Bewerkingen omgedraaid.</string>

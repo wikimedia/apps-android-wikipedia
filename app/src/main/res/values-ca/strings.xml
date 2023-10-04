@@ -283,6 +283,8 @@
   <string name="edit_redo">Refés</string>
   <string name="edit_rollback">Reverteix</string>
   <string name="edit_warn">Avís</string>
+  <string name="edit_quality">%s de qualitat</string>
+  <string name="edit_intent">%s d\'intenció</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
     <item quantity="other">%s bytes</item>
@@ -428,7 +430,7 @@
   <string name="error_blocked_by">El blocatge ha estat fet per &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">El motiu: %s</string>
   <string name="error_blocked_start">Inici del blocatge: %s</string>
-  <string name="error_blocked_expiry">Expiració del blocatge: %s</string>
+  <string name="error_blocked_expiry">Venciment del blocatge: %s</string>
   <string name="error_blocked_id">ID del blocatge: %s</string>
   <string name="error_blocked_footer">Podeu contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o un altre &lt;a href=\"https://ca.wikipedia.org/wiki/Viquipèdia:Administradors\"&gt;administrador o administradora&lt;/a&gt; per a discutir el blocatge.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personalitza la barra d\'eines</string>
@@ -896,6 +898,8 @@
   <string name="suggested_edits_describe_articles">Descriu articles</string>
   <string name="suggested_edits_caption_images">Posa llegendes a les imatges</string>
   <string name="suggested_edits_tag_images">Etiqueta les imatges</string>
+  <string name="suggested_edits_edit_patrol">Patrulla d\'edicions</string>
+  <string name="suggested_edits_edit_patrol_hint">Reviseu les edicions recents i determineu si són constructives o no.</string>
   <string name="suggested_edits_edit_patrol_review">Revisa</string>
   <string name="suggested_edits_review_description">Revisa la descripció d\'article</string>
   <string name="suggested_edits_add_description_button">Afegeix una descripció</string>
@@ -1341,9 +1345,9 @@
   <string name="revision_diff_paragraph_added">Paràgraf afegit</string>
   <string name="revision_diff_paragraph_removed">Paràgraf eliminat</string>
   <string name="revision_diff_protected">Els canvis fets en aquesta revisió no són accessible públicament.</string>
-  <string name="revision_undo_title">Desfés la modificació</string>
-  <string name="revision_undo_message">Això desfarà els canvis fets en les revisions de l\'article que es mostra a continuació.</string>
-  <string name="revision_undo_reason">Per a continuar, proporcioneu un motiu per a desfer la modificació:</string>
+  <string name="revision_undo_title" fuzzy="true">Desfés la modificació</string>
+  <string name="revision_undo_message" fuzzy="true">Això desfarà els canvis fets en les revisions de l\'article que es mostra a continuació.</string>
+  <string name="revision_undo_reason" fuzzy="true">Per a continuar, proporcioneu un motiu per a desfer la modificació:</string>
   <string name="revision_undo_success">S\'ha desfet la revisió.</string>
   <string name="revision_rollback_dialog_title">Esteu segur que voleu revertir les edicions?</string>
   <string name="revision_rollback_success">S\'han revertit les edicions.</string>
@@ -1504,12 +1508,49 @@
   <string name="patroller_tasks_filters_user_status_learners">Aprenents</string>
   <string name="patroller_tasks_filters_user_status_learners_desc">Editors registrats l\'experiència dels quals es troba entre «nouvinguts» i «usuaris experimentats».</string>
   <string name="patroller_tasks_filters_user_status_experienced">Usuaris experimentats</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Editors registrats amb més de 500 edicions i 30 dies d\'activitat.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Darreres revisions</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Darrera revisió</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">No la darrera revisió</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Contribucions automatitzades</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Humà (no bot)</string>
   <string name="patroller_tasks_filters_significance_header">Importància</string>
   <string name="patroller_tasks_filters_significance_minor">Modificacions menors</string>
   <string name="patroller_tasks_filters_significance_edits">Modificacions no menors</string>
   <string name="patroller_tasks_filters_contribution_quality_header">Prediccions de la qualitat de les contribucions</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Molt possiblement bo</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Molt precís en trobar gairebé totes les edicions sense problemes.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Pot tenir problemes</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Troba les edicions més defectuoses o perjudicials, però amb menor precisió.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Possiblement tenen problemes</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Amb precisió mitjana, troba una fracció intermèdia de les edicions problemàtiques.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Molt possiblement tenen problemes</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Molt precisa en trobar les edicions més òbviament defectuoses o perjudicials.</string>
+  <string name="patroller_tasks_filters_user_intent_header">Prediccions de la intenció de l\'usuari</string>
+  <string name="patroller_tasks_filters_user_intent_good">Molt possiblement bona fe</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Molt precís en trobar gairebé totes les edicions de bona fe.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Pot ser mala fe</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Troba la majoria de les edicions de mala fe, però amb una precisió més baixa.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Possiblement mala fe</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Amb una precisió mitjana, troba una fracció intermèdia d\'edicions de mala fe.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Molt possiblement mala fe</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Molt precisa per trobar les edicions més òbvies de mala fe.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Proveu d\'eliminar %s per a veure més edicions</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d filtre</item>
+    <item quantity="other">%d filtres</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_title">Patrulla l\'edició</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historial d\'edició de l\'article</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Voleu desfer aquesta edició?</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Esteu segur que voleu desfer aquesta edició?</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Desfer significa revertir els efectes d\'una o més edicions.</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Resum (opcional)</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Comparteix el motiu de la reversió</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">S\'ha completat la reversió</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Esteu segur que voleu revertir enrere?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">S\'ha completat la reversió enrere</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Mostra</string>
   <string name="patroller_tasks_overflow_report">Problema amb la funcionalitat</string>
   <string name="patroller_tasks_overflow_learn">Més informació</string>
@@ -1517,4 +1558,8 @@
   <string name="data_opt_in_reject">Rebutja</string>
   <string name="page_issues_title">Problemes de la pàgina</string>
   <string name="generic_release_notes">Correccions d\'error menors i millores</string>
+  <string name="email_report_image_recommendations_subject">Informe d\'incidència - Funcionalitat de recomanació d\'imatges</string>
+  <string name="email_report_image_recommendations_body">He trobat un problema amb la funcionalitat de recomanació d\'imatges: \n- [Descriviu un problema específic] \n\nEl comportament que m\'agradaria veure-hi és: \n- [Descriviu la solució proposada]</string>
+  <string name="email_report_patroller_tasks_subject">Informe d\'incidència - Funcionalitat de la patrulla d\'edicions</string>
+  <string name="email_report_patroller_tasks_body">He trobat un problema amb la funcionalitat de patrulla d\'edicions: \n- [Descriviu el problema específic] \n\nEl comportament que m\'agradaria veure-hi és: \n- [Descriviu la solució proposada] \n\n[Captures de pantalla o enllaços]</string>
 </resources>

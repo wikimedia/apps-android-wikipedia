@@ -1154,7 +1154,7 @@
   <string name="revision_diff_line_removed">ڪڍيل سِٽ</string>
   <string name="revision_diff_paragraph_added">وڌل پيراگراف</string>
   <string name="revision_diff_paragraph_removed">ڪڍيل پيراگراف</string>
-  <string name="revision_undo_title">سنوار اڻڪريو</string>
+  <string name="revision_undo_title" fuzzy="true">سنوار اڻڪريو</string>
   <string name="revision_undo_success">ورجاء کي ختم ڪيو ويو.</string>
   <string name="revision_rollback_dialog_title">ڇا توھان کي پڪ آھي تہ توھان سنوارن کي واپس ورائڻ چاھيو ٿا؟</string>
   <string name="revision_rollback_success">سنوارون موٽايون ويون</string>

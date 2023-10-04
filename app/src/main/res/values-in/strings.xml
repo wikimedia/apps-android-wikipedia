@@ -1287,9 +1287,9 @@
   <string name="revision_diff_line_removed">Baris dihapus</string>
   <string name="revision_diff_paragraph_added">Paragraf ditambahkan</string>
   <string name="revision_diff_paragraph_removed">Paragraf dihapus</string>
-  <string name="revision_undo_title">Batalkan suntingan</string>
-  <string name="revision_undo_message">Ini akan membatalkan perubahan yang dibuat oleh revisi artikel yang ditampilkan di sini.</string>
-  <string name="revision_undo_reason">Untuk melanjutkan, tolong berikan alasan suntingan ini dibatalkan:</string>
+  <string name="revision_undo_title" fuzzy="true">Batalkan suntingan</string>
+  <string name="revision_undo_message" fuzzy="true">Ini akan membatalkan perubahan yang dibuat oleh revisi artikel yang ditampilkan di sini.</string>
+  <string name="revision_undo_reason" fuzzy="true">Untuk melanjutkan, tolong berikan alasan suntingan ini dibatalkan:</string>
   <string name="revision_undo_success">Revisi telah dibatalkan.</string>
   <string name="revision_rollback_dialog_title">Apakah Anda yakin ingin mengembalikan suntingan?</string>
   <string name="revision_rollback_success">Penyuntingan telah dibalikkan.</string>

@@ -106,6 +106,7 @@ interface RestService {
     @GET("feed/onthisday/events/{mm}/{dd}")
     fun getOnThisDay(@Path("mm") month: Int, @Path("dd") day: Int): Observable<OnThisDay>
 
+    // TODO: Remove this before next fundraising campaign in 2024
     @get:GET("feed/announcements")
     @get:Headers("Accept: " + ACCEPT_HEADER_PREFIX + "announcements/0.1.0\"")
     val announcements: Observable<AnnouncementList>

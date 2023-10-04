@@ -1224,9 +1224,9 @@
   <string name="revision_diff_line_removed">Riadok odstránený</string>
   <string name="revision_diff_paragraph_added">Odsek pridaný</string>
   <string name="revision_diff_paragraph_removed">Odsek odstránený</string>
-  <string name="revision_undo_title">Vrátiť úpravu</string>
-  <string name="revision_undo_message">Toto vráti naspäť úpravu urobenú revíziou artikla zobrazeného tu.</string>
-  <string name="revision_undo_reason">Pre pokračovanie prosím zadajte dôvod prečo chcete úpravu vrátiť späť:</string>
+  <string name="revision_undo_title" fuzzy="true">Vrátiť úpravu</string>
+  <string name="revision_undo_message" fuzzy="true">Toto vráti naspäť úpravu urobenú revíziou artikla zobrazeného tu.</string>
+  <string name="revision_undo_reason" fuzzy="true">Pre pokračovanie prosím zadajte dôvod prečo chcete úpravu vrátiť späť:</string>
   <string name="revision_undo_success">Revízia bola vrátená späť.</string>
   <string name="revision_rollback_dialog_title">Naozaj chcete vrátiť úpravy späť?</string>
   <string name="revision_rollback_success">Úpravy boli vrátené.</string>

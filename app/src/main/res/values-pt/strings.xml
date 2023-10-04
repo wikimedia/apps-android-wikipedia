@@ -1251,9 +1251,9 @@
   <string name="revision_diff_line_removed">Linha removida</string>
   <string name="revision_diff_paragraph_added">Parágrafo acrescentado</string>
   <string name="revision_diff_paragraph_removed">Parágrafo removido</string>
-  <string name="revision_undo_title">Desfazer edição</string>
-  <string name="revision_undo_message">Esta operação irá desfazer as mudanças realizadas pelas revisões do artigo que são mostradas aqui.</string>
-  <string name="revision_undo_reason">Para continuar, por favor forneça um motivo para desfazer esta edição:</string>
+  <string name="revision_undo_title" fuzzy="true">Desfazer edição</string>
+  <string name="revision_undo_message" fuzzy="true">Esta operação irá desfazer as mudanças realizadas pelas revisões do artigo que são mostradas aqui.</string>
+  <string name="revision_undo_reason" fuzzy="true">Para continuar, por favor forneça um motivo para desfazer esta edição:</string>
   <string name="revision_undo_success">A revisão foi desfeita.</string>
   <string name="revision_rollback_dialog_title">Tem a certeza de que deseja reverter as edições?</string>
   <string name="revision_rollback_success">Edições revertidas.</string>

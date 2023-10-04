@@ -300,7 +300,7 @@
 
         <activity
             android:name=".activity.SingleWebViewActivity"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name=".page.customize.CustomizeToolbarActivity"

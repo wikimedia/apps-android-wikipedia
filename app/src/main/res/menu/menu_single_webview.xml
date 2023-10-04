@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="AlwaysShowAction">
+
+    <item
+        android:id="@+id/menu_group"
+        android:icon="@drawable/ic_more_vert_white_24dp"
+        android:title="@string/nav_item_more"
+        app:iconTint="?attr/primary_color"
+        app:showAsAction="always">
+        <menu>
+
+            <item
+                android:id="@+id/menu_in_new"
+                android:icon="@drawable/ic_open_in_new_black_24px"
+                android:title="@string/menu_single_webview_open_external"
+                app:iconTint="?attr/secondary_color"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+</menu>

@@ -32,14 +32,12 @@ class ThreadItem(
     @IgnoredOnParcel @Transient val plainText = StringUtil.fromHtml(StringUtil.removeStyleTags(html)).toString()
     @IgnoredOnParcel @Transient val plainOtherContent = StringUtil.fromHtml(StringUtil.removeStyleTags(othercontent)).toString()
 
-    @IgnoredOnParcel val allReplies: List<ThreadItem>
-        get() {
-            val list = mutableListOf<ThreadItem>()
+    @IgnoredOnParcel val allReplies: Sequence<ThreadItem>
+        get() = sequence {
             replies.forEach {
-                list.add(it)
-                list.addAll(it.allReplies)
+                yield(it)
+                yieldAll(it.allReplies)
             }
-            return list
         }
 
     @IgnoredOnParcel @Transient val date = try {
