@@ -86,7 +86,6 @@ class SingleWebViewActivity : BaseActivity() {
         return super.onPrepareOptionsMenu(menu)
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         super.onOptionsItemSelected(item)
         return when (item.itemId) {
