@@ -17,13 +17,14 @@ object CampaignCollection {
     private const val CAMPAIGN_VERSION = 1
 
     private const val CAMPAIGNS_URL = "https://donate.wikimedia.org/wiki/MediaWiki:AppsCampaignConfig.json?action=raw"
-    private const val CAMPAIGNS_URL_DEBUG = "https://donate.wikimedia.org/wiki/MediaWiki:AppsCampaignConfigStaging.json?action=raw"
+    private const val CAMPAIGNS_URL_DEBUG = "https://test.wikipedia.org/wiki/MediaWiki:AppsCampaignConfig.json?action=raw"
 
     suspend fun getActiveCampaigns(): List<Campaign> {
         val campaignList = mutableListOf<Campaign>()
 
         withContext(Dispatchers.IO) {
-            val request = Request.Builder().url(CAMPAIGNS_URL_DEBUG).build()
+            val url = if (Prefs.announcementDebugUrl) CAMPAIGNS_URL_DEBUG else CAMPAIGNS_URL
+            val request = Request.Builder().url(url).build()
             val response = OkHttpConnectionFactory.client.newCall(request).execute()
             val campaigns = JsonUtil.decodeFromString<List<JsonElement>>(response.body?.string()).orEmpty()
 
