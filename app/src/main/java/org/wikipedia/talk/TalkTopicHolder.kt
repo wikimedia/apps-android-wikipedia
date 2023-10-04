@@ -51,7 +51,7 @@ class TalkTopicHolder internal constructor(
             showOverflowMenu(it)
         }
 
-        val allReplies = threadItem.allReplies
+        val allReplies = threadItem.allReplies.toList()
 
         if (allReplies.isEmpty()) {
             binding.topicUserIcon.isVisible = false

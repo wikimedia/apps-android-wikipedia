@@ -1289,9 +1289,9 @@
   <string name="revision_diff_paragraph_added">문단 추가됨</string>
   <string name="revision_diff_paragraph_removed">문단 제거됨</string>
   <string name="revision_diff_protected">이 판의 변경 내용은 비공개입니다.</string>
-  <string name="revision_undo_title">편집 취소</string>
-  <string name="revision_undo_message">여기에 보이는 문서의 판들에 의한 변경사항을 취소합니다.</string>
-  <string name="revision_undo_reason">계속하려면 이 편집을 취소하려는 이유를 제공해 주십시오:</string>
+  <string name="revision_undo_title" fuzzy="true">편집 취소</string>
+  <string name="revision_undo_message" fuzzy="true">여기에 보이는 문서의 판들에 의한 변경사항을 취소합니다.</string>
+  <string name="revision_undo_reason" fuzzy="true">계속하려면 이 편집을 취소하려는 이유를 제공해 주십시오:</string>
   <string name="revision_undo_success">이 판의 편집이 취소되었습니다.</string>
   <string name="revision_rollback_dialog_title">이 편집을 일괄적으로 되돌리시겠습니까?</string>
   <string name="revision_rollback_success">편집이 되돌려졌습니다.</string>

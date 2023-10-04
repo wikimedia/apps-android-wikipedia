@@ -1272,9 +1272,9 @@
   <string name="revision_diff_line_removed">سطر حذف شد</string>
   <string name="revision_diff_paragraph_added">پاراگراف اضافه شد</string>
   <string name="revision_diff_paragraph_removed">بند حذف شد</string>
-  <string name="revision_undo_title">برگرداندن ویرایش</string>
-  <string name="revision_undo_message">این عمل باعث برگردانده‌شدن تغییرات اعمال‌شده در نسخه(های) مقالهٔ نمایش‌یافته در اینجا می‌شود.</string>
-  <string name="revision_undo_reason">برای ادامه، لطفاً دلیلی برای برگرداندن این ویرایش ارائه دهید:</string>
+  <string name="revision_undo_title" fuzzy="true">برگرداندن ویرایش</string>
+  <string name="revision_undo_message" fuzzy="true">این عمل باعث برگردانده‌شدن تغییرات اعمال‌شده در نسخه(های) مقالهٔ نمایش‌یافته در اینجا می‌شود.</string>
+  <string name="revision_undo_reason" fuzzy="true">برای ادامه، لطفاً دلیلی برای برگرداندن این ویرایش ارائه دهید:</string>
   <string name="revision_undo_success">نسخه برگردانده شد.</string>
   <string name="revision_rollback_dialog_title">آیا از واگردانی این ویرایش‌ها مطمئن هستید؟</string>
   <string name="revision_rollback_success">ویرایش‌ها برگردانده شدند.</string>

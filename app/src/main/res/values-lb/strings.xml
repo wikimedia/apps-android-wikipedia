@@ -1039,8 +1039,8 @@
   <string name="revision_diff_line_removed">Zeil ewechgeholl</string>
   <string name="revision_diff_paragraph_added">Abschnitt derbäigesat</string>
   <string name="revision_diff_paragraph_removed">Abschnitt ewechgeholl</string>
-  <string name="revision_undo_title">Ännerung zrécksetzen</string>
-  <string name="revision_undo_reason">Fir weiderzefueren, gitt wgl. e Grond u fir dës Ännerung réckgängeg ze maachen.</string>
+  <string name="revision_undo_title">Sidd Dir sécher, datt Dir dës Ännerung réckgängeg maache wëllt?</string>
+  <string name="revision_undo_reason" fuzzy="true">Fir weiderzefueren, gitt wgl. e Grond u fir dës Ännerung réckgängeg ze maachen.</string>
   <string name="revision_undo_success">D\'Versioun gouf réckgängeg gemaach.</string>
   <string name="revision_rollback_dialog_title">Sidd Dir sécher datt Dir dës Ännerungen zrécksetze wëllt?</string>
   <string name="revision_rollback_success">Ännerung zréckgesat.</string>
@@ -1163,6 +1163,12 @@
     <item quantity="other">%d Filteren</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Sidd Dir sécher, datt Dir dës Ännerung réckgängeg maache wëllt?</string>
+  <string name="patroller_onboarding_two_warn_title">Warnen</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Zefridden</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Onzefridden</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
   <string name="data_opt_in_accept">Akzeptéieren</string>
   <string name="data_opt_in_reject">Refuséieren</string>
+  <string name="donation_campaign_maybe_later_snackbar">Mir erënneren Iech muer nach eng Kéier.</string>
 </resources>
