@@ -337,8 +337,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             displayedTasks.add(addDescriptionsTask)
         }
 
-        if (ReleaseUtil.isPreProdRelease &&
-            viewModel.totalContributions > 50 &&
+        if (viewModel.totalContributions > 50 &&
             viewModel.wikiSupportsImageRecommendations &&
             viewModel.blockMessageWikipedia.isNullOrEmpty()) {
             displayedTasks.add(imageRecommendationsTask)
