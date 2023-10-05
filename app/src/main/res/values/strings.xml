@@ -1635,8 +1635,8 @@
     <string name="patroller_onboarding_two_thank_content">See a productive edit? Thank a user for their contribution.</string>
     <string name="patroller_onboarding_two_watch_title">Watch</string>
     <string name="patroller_onboarding_two_watch_content">Want to track article edits? Add to your Watchlist. View it under \'More\'.</string>
-    <string name="patroller_onboarding_two_warm_title">Warm</string>
-    <string name="patroller_onboarding_two_warm_content">Create, send, and store warning messages on an editor\'s talk page.</string>
+    <string name="patroller_onboarding_two_warn_title">Warn</string>
+    <string name="patroller_onboarding_two_warn_content">Create, send, and store warning messages on an editor\'s talk page.</string>
     <string name="patroller_onboarding_two_undo_title">Undo/Rollback</string>
     <string name="patroller_onboarding_two_undo_content">Choose \'Undo\' to undo or rollback a potentially destructive edit.</string>
     <string name="patroller_diff_tooltip_one">Damage predicts if an edit causes damage to a wiki.</string>
@@ -1661,4 +1661,11 @@
     <string name="email_report_image_recommendations_body">I have encountered a problem with the Image Recommendations feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
     <string name="email_report_patroller_tasks_subject">Issue Report- Edit Patrol Feature</string>
     <string name="email_report_patroller_tasks_body">I have encountered a problem with the Edit Patrol Feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]\n\n[Screenshots or Links]</string>
+
+    <!-- Donor experience -->
+    <string name="donation_campaign_maybe_later_snackbar">We will remind you again tomorrow.</string>
+    <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and its sister sites thriving.</string>
+    <string name="donation_campaign_go_back_button">Go back</string>
+    <string name="menu_single_webview_open_external">Open in system browser</string>
+    <!-- Donor experience -->
 </resources>

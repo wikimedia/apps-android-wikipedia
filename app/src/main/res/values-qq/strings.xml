@@ -1353,6 +1353,7 @@
   <string name="revision_diff_protected">Error message explaining that the diff of this revision cannot be viewed publicly.</string>
   <string name="revision_undo_title">Dialog title for undoing an edit.</string>
   <string name="revision_undo_message">Dialog message explaining that the selected revision will be undone.</string>
+  <string name="revision_undo_summary_hint">Hint for adding an edit summary.</string>
   <string name="revision_undo_reason">Dialog message requesting a reason for undoing the selected revision.</string>
   <string name="revision_undo_success">Message shown when an edit was undone successfully.</string>
   <string name="revision_undo_summary_hint">Hint for adding an edit summary.</string>
@@ -1568,8 +1569,8 @@
   <string name="patroller_onboarding_two_thank_content">Content of the thank section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_watch_title">Title of the watch section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_watch_content">Content of the watch section of the second patroller tasks onboarding screen.</string>
-  <string name="patroller_onboarding_two_warm_title">Title of the warm section of the second patroller tasks onboarding screen.</string>
-  <string name="patroller_onboarding_two_warm_content">Content of the warm section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_warn_title">Title of the warn section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_warn_content">Content of the warn section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_undo_title">Title of the undo/rollback section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_undo_content">Content of the undo/rollback section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_diff_tooltip_one">Text of the first tooltip for patrol edit diff screen.</string>
@@ -1582,8 +1583,7 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Hint text for input field for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_dialog_submit">Button label for input field for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Text for the snackbar message the feedback form in the patrol edit screen that indicates the feedback has been submitted.</string>
-  <string name="patroller_diff_feedback_tooltip">Text of the tooltip for the patrol edit screen indicates how to submit feedback for the feature.</string>
-
+  <string name="patroller_diff_feedback_tooltip">Text of the tooltip for the patrol edit screen indicates how to submit feedback for the feature.\n\n\"Problem with feature\" is {{msg-wm|Wikipedia-android-strings-suggested edits report feature}}</string>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
   <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
@@ -1592,4 +1592,8 @@
   <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>
   <string name="email_report_patroller_tasks_body">Body of email for sending a report about a problem with the Patroller Tasks feature.</string>
+  <string name="donation_campaign_maybe_later_snackbar">Text for the snackbar message when user hits the \"maybe later\" option.</string>
+  <string name="donation_campaign_donated_snackbar">Text for the snackbar message when user hits the \"I already donated\" option.</string>
+  <string name="donation_campaign_go_back_button">Button label for the webview that can go back to the previous screen.</string>
+  <string name="menu_single_webview_open_external">Menu option that indicates the web page can be opened in a system browser.</string>
 </resources>

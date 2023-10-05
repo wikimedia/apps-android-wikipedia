@@ -1324,9 +1324,10 @@
   <string name="revision_diff_paragraph_added">Абзац өҫтәлгән</string>
   <string name="revision_diff_paragraph_removed">Абзац юйылған</string>
   <string name="revision_diff_protected">Был өлгөгә индерелгән үҙгәрештәр башҡа ҡулланыусыларға күренмәй.</string>
-  <string name="revision_undo_title">Төҙәтеүҙе кире алырға</string>
+  <string name="revision_undo_title">Был үҙгәртеүҙе кире алырға теләйһегеҙме?</string>
   <string name="revision_undo_message">Был ғәмәл күрһәтелгән өлгөләр араһындағы  үҙгәртеүҙе кире ҡайтара.</string>
-  <string name="revision_undo_reason">Дауам итеү өсөн, был үҙгәртеүҙе кире ҡайтарыу сәбәбен яҙығыҙ:</string>
+  <string name="revision_undo_summary_hint">Һығымта (мотлаҡ түгел)</string>
+  <string name="revision_undo_reason">Кире ҡайтарыуҙың сәбәбен яҙығыҙ</string>
   <string name="revision_undo_success">Өлгө кире ҡайтарылды</string>
   <string name="revision_rollback_dialog_title">Үҙгәртеүҙәрҙе кире ҡайтарырға теләйһегеҙме?</string>
   <string name="revision_rollback_success">Үҙгәртеүҙәр кире ҡайтарылды.</string>
@@ -1484,7 +1485,7 @@
   <string name="patroller_tasks_filters_user_status_registered_desc">Танылған мөхәррирҙәр</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Яңы килгәндәр</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">4 көн элек теркәлгән һәм төҙәтеүҙәре 10-дан аҙ булған мөхәррирҙәр</string>
-  <string name="patroller_tasks_filters_user_status_learners">Уҡыусылар</string>
+  <string name="patroller_tasks_filters_user_status_learners">Өйрәнсектәр</string>
   <string name="patroller_tasks_filters_user_status_learners_desc">\"Яңы килеүсе\" һәм \"Тәжрибәле ҡулланыусы\" кимәле араһында булған теркәлгән мөхәррирҙәр.</string>
   <string name="patroller_tasks_filters_user_status_experienced">Тәжрибәле ҡатнашыусылар</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">Төҙәтеүҙәре 500-ҙән күберәк һәм әүҙемлеге 30 көндән ашҡан теркәлгән мөхәррирҙәр.</string>
@@ -1530,6 +1531,28 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Ҡарарға</string>
   <string name="patroller_tasks_overflow_report">Функциональ проблема</string>
   <string name="patroller_tasks_overflow_learn">Күберәк белергә</string>
+  <string name="patroller_onboarding_one_title">Википедиялағы үҙгәртеүҙәрҙе күҙәтеү һәр раҫлауға үҙ өлөшөгөҙҙө индерегеҙ.</string>
+  <string name="patroller_onboarding_one_content">Һуңғы үҙгәртеүҙәрҙе әүҙем ҡарап барып, күрһәтмәләр биреп, сифатты тикшереп һәм башҡа мөхәррирҙәрҙе дәртләндереп, Википедия эстәлегенең сифатын яҡшыртығыҙ.</string>
+  <string name="patroller_onboarding_two_title">Бәйләнеш булдырығыҙ, үҙгәрештәрҙе күҙәтеп барығыҙ һәм айырмалар араһында ғәмәлдәр башҡарығыҙ</string>
+  <string name="patroller_onboarding_two_thank_title">Рәхмәт</string>
+  <string name="patroller_onboarding_two_thank_content">Һөҙөмтәле үҙгәртеү күрәһегеҙме? Индергән өлөшө өсөн ҡатнашыусыға рәхмәт әйтегеҙ.</string>
+  <string name="patroller_onboarding_two_watch_title">Күҙәтергә</string>
+  <string name="patroller_onboarding_two_watch_content">Мәҡәләләрҙәге үҙгәртеүҙәрҙе күҙәтеп барырға теләйһегеҙме? Күҙәтеү исемлегегеҙгә өҫтәгеҙ. Уны \"Ентеклерәк\" тип аталған бүлектә ҡарағыҙ.</string>
+  <string name="patroller_onboarding_two_warn_title">Иҫкәртеү</string>
+  <string name="patroller_onboarding_two_warn_content">Мөхәррирҙең фекер алышыу битендә иҫкәртеү хәбәрҙәрен яҙығыҙ, ебәрегеҙ, һаҡлағыҙ.</string>
+  <string name="patroller_onboarding_two_undo_title">Кире алырға</string>
+  <string name="patroller_onboarding_two_undo_content">Зыянлы үҙгәртеүҙе кире алыу өсөн \"Кире алырға\" ғәмәлен һайлағыҙ.</string>
+  <string name="patroller_diff_tooltip_one">Мөхәррирләү викиҙың боҙолоуына килтерәме икәнен күҙаллай.</string>
+  <string name="patroller_diff_tooltip_two">Был алым мөхәррирләү изге ниәт менән һаҡланыу ихтималлығын күҙаллай.</string>
+  <string name="patroller_diff_feedback_dialog_title">Был функцияны яҡшыртырға ярҙам итегеҙ</string>
+  <string name="patroller_diff_feedback_dialog_message">Был функция менән ҡәнәғәтһегеҙме?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Ҡәнәғәт</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Нейтраль</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Ҡәнәғәт түгел</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Бәйләнеш</string>
+  <string name="patroller_diff_feedback_dialog_submit">Тәҡдим итергә</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Фекер ебәрелде.</string>
+  <string name="patroller_diff_feedback_tooltip">«Функция проблемалары» бүлегендә теләгән ваҡытта баһалама яҙыу өсөн өҫтәмә менюға баҫығыҙ.</string>
   <string name="data_opt_in_accept">Ҡабул итергә</string>
   <string name="data_opt_in_reject">Кире ҡағырға</string>
   <string name="page_issues_title">Бит проблемалары</string>
@@ -1538,4 +1561,6 @@
   <string name="email_report_image_recommendations_body">Һүрәт буйынса күрһәтмәләр функцияһы проблемалары менән осраштым: \n-[Аныҡ проблеманы күрһәтегеҙ]\n\nМин күрергә теләгән ғәмәл: \n-[Хәл итеү юлын тасуирлағыҙ]</string>
   <string name="email_report_patroller_tasks_subject">Проблема тураһында мәғлүмәт - Тикшереү функцияһы</string>
   <string name="email_report_patroller_tasks_body">Тикшереү функцияһы проблемаһы менән осраштым:\n-[Аныҡ проблеманы күрһәтегеҙ]\nМин күрергә теләгән ғәмәл:\n-[Хәл итеү юлын тасуирлағыҙ]\n\n[Скриншоттар йәки һылтанмалар]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Иртәгә тағы ла иҫегеҙгә төшөрөрбөҙ.</string>
+  <string name="donation_campaign_donated_snackbar">Рәхмәт! Йомартлығығыҙ Википедияның һәм уның туғандаш проекттарының үҫешеүенә булышлыҡ итә.</string>
 </resources>
