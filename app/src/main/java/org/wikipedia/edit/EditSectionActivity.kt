@@ -589,7 +589,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
     }
 
     private fun updateTextSize() {
-        binding.editSectionText.textSize = WikipediaApp.instance.getFontSize(window, editing = true)
+        binding.editSectionText.textSize = WikipediaApp.instance.getFontSize(this, editing = true)
     }
 
     private fun resetToStart() {
