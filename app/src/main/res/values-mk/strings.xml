@@ -1567,4 +1567,6 @@
   <string name="email_report_patroller_tasks_body">Наидов на проблем со функцијата „Патрола на уредувања“:\n— [Опишете го конкретниот проблем]\n\nШто сакате да се поправи:\n— [Опишете го предложеното решение]\n\n[Екрански снимки или врски]</string>
   <string name="donation_campaign_maybe_later_snackbar">Утре пак ќе ве потсетиме.</string>
   <string name="donation_campaign_donated_snackbar">Ви благодариме, драг дарителу! Википедија и нејзините збратимени проекти напредуваат благодарение на вашата великодушност.</string>
+  <string name="donation_campaign_go_back_button">Назад</string>
+  <string name="menu_single_webview_open_external">Отвори во системскиот прелистувач</string>
 </resources>

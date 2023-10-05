@@ -1513,7 +1513,21 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Megtekintés</string>
   <string name="patroller_tasks_overflow_report">Probléma a funkcióval</string>
   <string name="patroller_tasks_overflow_learn">Tudj meg többet!</string>
+  <string name="patroller_onboarding_two_thank_title">Köszönet</string>
+  <string name="patroller_onboarding_two_warn_title">Figyelmeztetés</string>
+  <string name="patroller_diff_feedback_dialog_title">Segíts a funkció fejlesztésében!</string>
+  <string name="patroller_diff_feedback_dialog_message">Elégedett vagy ezzel a funkcióval?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Elégedett</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Semleges</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Elégedetlen</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Visszajelzés</string>
+  <string name="patroller_diff_feedback_dialog_submit">Elküldés</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Visszajelzés elküldve.</string>
   <string name="data_opt_in_accept">Elfogad</string>
   <string name="data_opt_in_reject">Elutasít</string>
   <string name="generic_release_notes">Kisebb hibajavítások és fejlesztések</string>
+  <string name="donation_campaign_maybe_later_snackbar">Holnap újra emlékeztetünk.</string>
+  <string name="donation_campaign_donated_snackbar">Köszönjük, kedves adományozó! Nagylelkűségeddel segíted a Wikipédia és testvéroldalainak fejlődését!</string>
+  <string name="donation_campaign_go_back_button">Visszalépés</string>
+  <string name="menu_single_webview_open_external">Nyisd meg a rendszerböngészőben!</string>
 </resources>

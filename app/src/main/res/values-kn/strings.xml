@@ -478,7 +478,12 @@
   <string name="talk_new_topic">ಹೊಸ ವಿಷಯ</string>
   <string name="talk_page_empty">ಈ ಚರ್ಚೆ ಪುಟ ಖಾಲಿಯಾಗಿದೆ.</string>
   <string name="talk_add_reply">ಉತ್ತರಿಸಿ</string>
+  <string name="revision_undo_title">ಈ ಸಂಪಾದನೆಯನ್ನು ರದ್ದುಗೊಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?</string>
+  <string name="revision_undo_message">ರದ್ದುಗೊಳಿಸುವುದು ಎಂದರೆ ಒಂದು ಅಥವಾ ಹೆಚ್ಚಿನ ಸಂಪಾದನೆಗಳ ಪರಿಣಾಮಗಳನ್ನು ಹಿಂತಿರುಗಿಸುವುದು.</string>
+  <string name="revision_undo_summary_hint">ಸಾರಾಂಶ (ಐಚ್ಛಿಕ)</string>
+  <string name="revision_undo_reason">ಹಿಂತಿರುಗಲು ಕಾರಣವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;ಎಡಿಟ್ ಎಣಿಕೆ: &lt;/b&gt; %s</string>
   <string name="email_report_image_recommendations_subject">ಸಂಚಿಕೆ ವರದಿ - ಚಿತ್ರ ಶಿಫಾರಸುಗಳ ವೈಶಿಷ್ಟ್ಯ</string>
   <string name="email_report_patroller_tasks_subject">ಸಂಚಿಕೆ ವರದಿ- ಪೆಟ್ರೋಲ್ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಸಂಪಾದಿಸಿ</string>
+  <string name="donation_campaign_maybe_later_snackbar">ನಾಳೆ ಮತ್ತೊಮ್ಮೆ ನಿಮಗೆ ನೆನಪಿಸುತ್ತೇವೆ.</string>
 </resources>
