@@ -1356,7 +1356,6 @@
   <string name="revision_undo_summary_hint">Hint for adding an edit summary.</string>
   <string name="revision_undo_reason">Dialog message requesting a reason for undoing the selected revision.</string>
   <string name="revision_undo_success">Message shown when an edit was undone successfully.</string>
-  <string name="revision_undo_summary_hint">Hint for adding an edit summary.</string>
   <string name="revision_rollback_dialog_title">Title of the rollback dialog.</string>
   <string name="revision_rollback_success">Message shown when edits were reverted successfully.</string>
   <string name="revision_compare_button">Button label for comparing two revisions.</string>
