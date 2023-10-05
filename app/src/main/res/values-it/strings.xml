@@ -1450,4 +1450,6 @@
   <string name="patroller_diff_feedback_dialog_submit">Invia</string>
   <string name="data_opt_in_accept">Accetta</string>
   <string name="data_opt_in_reject">Rifiuta</string>
+  <string name="donation_campaign_go_back_button">Torna indietro</string>
+  <string name="menu_single_webview_open_external">Apri nel browser di sistema</string>
 </resources>
