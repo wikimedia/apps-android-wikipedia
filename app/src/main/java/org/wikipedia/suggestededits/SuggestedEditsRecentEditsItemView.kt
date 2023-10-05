@@ -44,7 +44,7 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
         this.item = item
         var isSummaryEmpty = false
         var isTagsEmpty = false
-        binding.titleText.text = item.title
+        StringUtil.setHighlightedAndBoldenedText(binding.titleText, item.title, currentQuery)
         binding.summaryText.text = StringUtil.fromHtml(item.parsedComment).ifEmpty {
             isSummaryEmpty = true
             context.getString(R.string.page_edit_history_comment_placeholder)
@@ -52,19 +52,18 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
         binding.summaryText.setTypeface(Typeface.SANS_SERIF, if (isSummaryEmpty) Typeface.ITALIC else Typeface.NORMAL)
         binding.summaryText.setTextColor(ResourceUtil.getThemedColor(context,
             if (isSummaryEmpty) R.attr.secondary_color else R.attr.primary_color))
-
         val tagsString = item.joinedTags.ifEmpty {
             isTagsEmpty = true
             context.getString(R.string.patroller_tasks_edits_list_card_tags_text_none)
         }
-        binding.tagsText.text = context.getString(R.string.patroller_tasks_edits_list_card_tags_text, tagsString)
+        StringUtil.setHighlightedAndBoldenedText(binding.tagsText, context.getString(R.string.patroller_tasks_edits_list_card_tags_text, tagsString), currentQuery)
         binding.tagsText.setTypeface(Typeface.SANS_SERIF, if (isTagsEmpty) Typeface.ITALIC else Typeface.NORMAL)
         binding.tagsText.setTextColor(ResourceUtil.getThemedColor(context,
             if (isTagsEmpty) R.attr.secondary_color else R.attr.primary_color))
-        binding.timeText.text = DateUtil.getTimeString(context, item.parsedDateTime)
+        StringUtil.setHighlightedAndBoldenedText(binding.timeText, DateUtil.getTimeString(context, item.parsedDateTime), currentQuery)
         binding.userNameText.text = item.user
+        StringUtil.setHighlightedAndBoldenedText(binding.userNameText, item.user, currentQuery)
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)
-
         binding.userNameText.setIconResource(if (item.anon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_avatar)
         val diffByteCount = item.newlen - item.oldlen
         setButtonTextAndIconColor(StringUtil.getDiffBytesText(context, diffByteCount))
@@ -77,11 +76,6 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
         binding.diffText.isVisible = true
         binding.containerView.alpha = 1.0f
         binding.containerView.isClickable = true
-
-        StringUtil.highlightAndBoldenText(binding.titleText, currentQuery, true, Color.YELLOW)
-        StringUtil.highlightAndBoldenText(binding.timeText, currentQuery, true, Color.YELLOW)
-        StringUtil.highlightAndBoldenText(binding.userNameText, currentQuery, true, Color.YELLOW)
-        StringUtil.highlightAndBoldenText(binding.tagsText, currentQuery, true, Color.YELLOW)
     }
 
     private fun setButtonTextAndIconColor(text: String, @DrawableRes iconResourceDrawable: Int = 0) {
