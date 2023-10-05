@@ -46,6 +46,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
         DonorExperienceEvent.logAction("donate_start_click", "article_banner", campaignId = campaign.id)
         val customTabUrl = Prefs.announcementCustomTabTestUrl.orEmpty().ifEmpty { url }
         CustomTabsUtil.openInCustomTab(context, customTabUrl)
+        // Todo: Wire donation screen impression
         dismissDialog()
     }
 
