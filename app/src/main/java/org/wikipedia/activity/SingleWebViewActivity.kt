@@ -13,6 +13,7 @@ import android.webkit.WebView
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ActivitySingleWebViewBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
@@ -115,6 +116,7 @@ class SingleWebViewActivity : BaseActivity() {
     }
 
     private fun goBack() {
+        DonorExperienceEvent.logAction("article_return_click", "webpay_processed")
         pageTitle?.let {
             val entry = HistoryEntry(it, HistoryEntry.SOURCE_SINGLE_WEBVIEW)
             startActivity(PageActivity.newIntentForExistingTab(this@SingleWebViewActivity, entry, entry.title))

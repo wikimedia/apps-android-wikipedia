@@ -30,6 +30,7 @@ class CampaignDialogView(context: Context) : FrameLayout(context) {
                 binding.contentText.text = StringUtil.fromHtml(it.text)
             }
             if (!it.footer.isNullOrEmpty()) {
+                // DonorExperienceEvent.logAction("donor_policy_click", "article_banner")
                 binding.footerText.movementMethod = LinkMovementMethodCompat.getInstance()
                 binding.footerText.text = StringUtil.fromHtml(it.footer)
             }
