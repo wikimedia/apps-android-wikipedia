@@ -547,7 +547,7 @@
   <string name="notifications_search_bar_filter_hint">Xəbədo parzyn</string>
   <string name="notifications_menu_mark_as_read">Bənə handə byə gylə nyšon kardej</string>
   <string name="notifications_menu_mark_as_unread">Bənə handə nybyə gylə nyšon kardej</string>
-  <string name="notifications_swipe_action_read">Bıhand</string>
+  <string name="notifications_swipe_action_read">Byhand</string>
   <string name="notifications_swipe_action_unread">Handə byəni</string>
   <string name="notifications_menu_check_all">Həmmə objekton nyšon kardej</string>
   <string name="notifications_menu_uncheck_all">Ce həmmə objektonku nyšonon pegəte</string>
@@ -613,7 +613,7 @@
   <string name="description_edit_translate_caption_label_per_language">Šikili nom-nyšon (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Šikilon nom-nyšon (%s)</string>
   <string name="description_edit_save">Edaštej</string>
-  <string name="description_edit_read">Bıhand</string>
+  <string name="description_edit_read">Byhand</string>
   <string name="description_edit_add_description">Ce məǧolə nom-nyšoni əlovə karde</string>
   <string name="description_edit_translate_description">Ce məǧolon nom-nyšonon pegordynije</string>
   <string name="description_edit_edit_description">Məǧolə nom-nyšoni sərost karde</string>
@@ -635,6 +635,6 @@
   <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue konco you left off?</string>
   <string name="suggested_edits_contribution_image_label">Şəkl</string>
   <string name="main_tooltip_watchlist_title">Rımuzəsiyohi</string>
-  <string name="talk_list_item_swipe_mark_as_read">Bıhand</string>
+  <string name="talk_list_item_swipe_mark_as_read">Byhand</string>
   <string name="shareable_reading_lists_new_indicator">*tojə*</string>
 </resources>
