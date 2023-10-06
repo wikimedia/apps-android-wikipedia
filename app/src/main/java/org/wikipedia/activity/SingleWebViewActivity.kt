@@ -116,7 +116,7 @@ class SingleWebViewActivity : BaseActivity() {
     }
 
     private fun goBack() {
-        if (intent.getStringExtra(EXTRA_PAGE_CONTENT_INFO).orEmpty() == EXTRA_DONOR_EXPERIENCE) {
+        if (intent.getStringExtra(EXTRA_PAGE_CONTENT_INFO).orEmpty() == PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE) {
             DonorExperienceEvent.logAction("article_return_click", "webpay_processed")
         }
         pageTitle?.let {
@@ -138,7 +138,7 @@ class SingleWebViewActivity : BaseActivity() {
         const val EXTRA_SHOW_BACK_BUTTON = "goBack"
         const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_PAGE_CONTENT_INFO = "pageContentInfo"
-        const val EXTRA_DONOR_EXPERIENCE = "donorExperience"
+        const val PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE = "donorExperience"
 
         fun newIntent(context: Context, url: String, showBackButton: Boolean = false, pageTitle: PageTitle? = null, pageContentInfo: String? = null): Intent {
             return Intent(context, SingleWebViewActivity::class.java)

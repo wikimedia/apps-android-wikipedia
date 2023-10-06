@@ -522,7 +522,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                         // TODO: need to verify if the page can be displayed and logged properly.
                         DonorExperienceEvent.logImpression("webpay_processed")
                         startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
-                            true, pageFragment.title, SingleWebViewActivity.EXTRA_DONOR_EXPERIENCE))
+                            true, pageFragment.title, SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE))
                         finish()
                         return
                     }
