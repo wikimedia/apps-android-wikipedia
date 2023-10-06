@@ -1,14 +1,18 @@
 package org.wikipedia.page.campaign
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.core.text.method.LinkMovementMethodCompat
 import androidx.core.view.isVisible
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.DialogCampaignBinding
 import org.wikipedia.dataclient.donate.Campaign
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 
 class CampaignDialogView(context: Context) : FrameLayout(context) {
     interface Callback {
@@ -30,8 +34,10 @@ class CampaignDialogView(context: Context) : FrameLayout(context) {
                 binding.contentText.text = StringUtil.fromHtml(it.text)
             }
             if (!it.footer.isNullOrEmpty()) {
-                // DonorExperienceEvent.logAction("donor_policy_click", "article_banner")
-                binding.footerText.movementMethod = LinkMovementMethodCompat.getInstance()
+                binding.footerText.movementMethod = LinkMovementMethodExt { url: String ->
+                    DonorExperienceEvent.logAction("donor_policy_click", "article_banner")
+                    UriUtil.visitInExternalBrowser(this.context, Uri.parse(url))
+                }
                 binding.footerText.text = StringUtil.fromHtml(it.footer)
             }
 

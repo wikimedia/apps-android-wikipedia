@@ -12,6 +12,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -70,6 +71,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerDonateContainer.setOnClickListener {
+            DonorExperienceEvent.logAction("donate_start_click", "article_banner")
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
             visitInExternalBrowser(requireContext(),
                     Uri.parse(getString(R.string.donate_url,
