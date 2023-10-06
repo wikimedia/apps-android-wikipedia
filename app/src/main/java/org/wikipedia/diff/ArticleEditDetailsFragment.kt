@@ -1,8 +1,15 @@
 package org.wikipedia.diff
 
 import android.graphics.Rect
+import android.net.Uri
 import android.os.Bundle
-import android.view.*
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -39,7 +46,15 @@ import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
-import org.wikipedia.util.*
+import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.DateUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
@@ -231,11 +246,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
 
         binding.usernameFromButton.setOnClickListener {
-            showUserPopupMenu(viewModel.revisionFrom, binding.usernameFromButton)
+            showUserPopupMenu(viewModel.revisionFrom, false, binding.usernameFromButton)
         }
 
         binding.usernameToButton.setOnClickListener {
-            showUserPopupMenu(viewModel.revisionTo, binding.usernameToButton)
+            showUserPopupMenu(viewModel.revisionTo, true, binding.usernameToButton)
         }
 
         binding.thankButton.setOnClickListener {
@@ -322,13 +337,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
     }
 
-    private fun showUserPopupMenu(revision: Revision?, anchorView: View) {
+    private fun showUserPopupMenu(revision: Revision?, showThankButton: Boolean, anchorView: View) {
         revision?.let {
             UserTalkPopupHelper.show(requireActivity() as AppCompatActivity,
                 PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode),
                     it.user, viewModel.pageTitle.wikiSite), it.isAnon, anchorView,
                 InvokeSource.DIFF_ACTIVITY, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS,
-                revisionId = it.revId, pageId = viewModel.pageId, showUserInfo = true)
+                revisionId = if (showThankButton) it.revId else null, pageId = viewModel.pageId, showUserInfo = true)
         }
     }
 
@@ -391,8 +406,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it.ores != null) {
                 binding.oresDamagingButton.isVisible = true
                 binding.oresDamagingButton.text = getString(R.string.edit_quality, (100f - ((it.ores?.damagingProb) ?: 0f) * 100f).toInt().toString())
+                binding.oresDamagingButton.setOnClickListener(openQualityAndIntentFiltersPage)
                 binding.oresGoodFaithButton.isVisible = true
                 binding.oresGoodFaithButton.text = getString(R.string.edit_intent, (((it.ores?.goodfaithProb) ?: 0f) * 100f).toInt().toString())
+                binding.oresGoodFaithButton.setOnClickListener(openQualityAndIntentFiltersPage)
             }
         }
 
@@ -405,6 +422,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         binding.revisionDetailsView.isVisible = true
         binding.errorView.isVisible = false
+    }
+
+    private val openQualityAndIntentFiltersPage = View.OnClickListener { _ ->
+        UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.quality_and_intent_filters_url)))
     }
 
     private fun updateAfterDiffFetchSuccess() {
