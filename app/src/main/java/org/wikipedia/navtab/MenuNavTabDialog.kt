@@ -71,7 +71,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerDonateContainer.setOnClickListener {
-            DonorExperienceEvent.logAction("donate_start_click", "article_banner")
+            DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
             visitInExternalBrowser(requireContext(),
                     Uri.parse(getString(R.string.donate_url,
