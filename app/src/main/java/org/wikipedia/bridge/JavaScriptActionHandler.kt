@@ -13,13 +13,11 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.DimenUtil.densityScalar
 import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
 import java.util.Date
 import java.util.Locale
 import java.util.concurrent.TimeUnit
-import kotlin.math.roundToInt
 
 object JavaScriptActionHandler {
 
@@ -92,8 +90,12 @@ object JavaScriptActionHandler {
         val topActionBarHeight = if (isPreview) 0 else DimenUtil.roundedPxToDp(toolbarMargin.toFloat())
         val res = L10nUtil.getStringsForArticleLanguage(title, intArrayOf(R.string.description_edit_add_description,
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
-        val leadImageHeight = if (isPreview) 0 else
-            (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled) 0 else (leadImageHeightForDevice(context) / densityScalar).roundToInt() - topActionBarHeight)
+        val leadImageHeight =
+            if (isPreview || DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled) {
+                0
+            } else {
+                DimenUtil.roundedPxToDp(leadImageHeightForDevice(context)) - topActionBarHeight
+            }
         val topMargin = topActionBarHeight + 16
 
         var fontFamily = Prefs.fontFamily

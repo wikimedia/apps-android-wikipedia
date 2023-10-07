@@ -10,7 +10,7 @@ import android.view.ViewConfiguration
 import android.webkit.WebView
 import org.wikipedia.WikipediaApp
 import org.wikipedia.events.WebViewInvalidateEvent
-import org.wikipedia.util.DimenUtil.densityScalar
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer.Companion.setChildViewScrolled
 import java.util.*
 import kotlin.math.abs
@@ -194,8 +194,8 @@ class ObservableWebView : WebView {
 
     companion object {
         private val INVALIDATE_EVENT = WebViewInvalidateEvent()
-        private val FAST_SCROLL_THRESHOLD = (1000 * densityScalar).toInt()
-        private val MAX_HUMAN_SCROLL = (500 * densityScalar).toInt()
+        private val FAST_SCROLL_THRESHOLD = DimenUtil.dpToPx(1000f).toInt()
+        private val MAX_HUMAN_SCROLL = DimenUtil.dpToPx(500f).toInt()
         private const val MAX_MILLIS_BETWEEN_SCROLLS = 500
         private const val SWIPE_DRAW_TOLERANCE = 4
     }

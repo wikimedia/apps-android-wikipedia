@@ -22,8 +22,12 @@ object DimenUtil {
         return dpToPx(dp).roundToInt()
     }
 
+    fun pxToDp(px: Float): Float {
+        return TypedValueCompat.pxToDp(px, displayMetrics)
+    }
+
     fun roundedPxToDp(px: Float): Int {
-        return TypedValueCompat.pxToDp(px, displayMetrics).roundToInt()
+        return pxToDp(px).roundToInt()
     }
 
     val densityScalar: Float
@@ -39,7 +43,7 @@ object DimenUtil {
 
     // TODO: use getResources().getDimensionPixelSize()?  Define leadImageWidth with px, not dp?
     fun calculateLeadImageWidth(): Int {
-        return dpToPx(WikipediaApp.instance.resources.getDimension(R.dimen.leadImageWidth)).toInt()
+        return pxToDp(WikipediaApp.instance.resources.getDimension(R.dimen.leadImageWidth)).toInt()
     }
 
     val displayWidthPx: Int
@@ -105,8 +109,9 @@ object DimenUtil {
         return context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
     }
 
-    fun leadImageHeightForDevice(context: Context): Int {
-        return if (isLandscape(context)) (displayWidthPx * articleHeaderViewScreenHeightRatio()).toInt() else (displayHeightPx * articleHeaderViewScreenHeightRatio()).toInt()
+    fun leadImageHeightForDevice(context: Context): Float {
+        val dimenPx = if (isLandscape(context)) displayWidthPx else displayHeightPx
+        return dimenPx * articleHeaderViewScreenHeightRatio()
     }
 
     private fun articleHeaderViewScreenHeightRatio(): Float {

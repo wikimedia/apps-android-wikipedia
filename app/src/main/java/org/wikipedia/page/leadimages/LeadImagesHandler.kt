@@ -88,7 +88,7 @@ class LeadImagesHandler(private val parentFragment: PageFragment,
     }
 
     private fun initDisplayDimensions() {
-        displayHeightDp = (DimenUtil.displayHeightPx / DimenUtil.densityScalar).toInt()
+        displayHeightDp = DimenUtil.pxToDp(DimenUtil.displayHeightPx.toFloat()).toInt()
     }
 
     private fun updateCallToAction() {

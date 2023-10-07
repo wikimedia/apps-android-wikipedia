@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.DimenUtil.densityScalar
 import org.wikipedia.util.ResourceUtil.bitmapFromVectorDrawable
 import org.wikipedia.util.ResourceUtil.getThemedColor
 
@@ -95,14 +94,15 @@ class SwipeableItemTouchHelperCallback(
             canvas.drawRect(0f, viewHolder.itemView.top.toFloat(), viewHolder.itemView.width.toFloat(), (viewHolder.itemView.top + viewHolder.itemView.height).toFloat(), swipeBackgroundPaint)
             val iconPositionY = (viewHolder.itemView.top + (viewHolder.itemView.height / 2 - (if (swipeIconAndTextFromTag) (swipeIconBitmap.height / SWIPE_ICON_POSITION_SCALE).toInt() else swipeIconBitmap.height / 2))).toFloat()
             val iconTextPositionY = viewHolder.itemView.top + (viewHolder.itemView.height / 2 + swipeIconBitmap.height) - SWIPE_ICON_PADDING_DP + SWIPE_TEXT_PADDING_DP
+            val leftPositionPx = DimenUtil.dpToPx(SWIPE_ICON_PADDING_DP * SWIPE_ICON_POSITION_SCALE)
             if (dx >= 0) {
-                canvas.drawBitmap(swipeIconBitmap, SWIPE_ICON_PADDING_DP * SWIPE_ICON_POSITION_SCALE * densityScalar, iconPositionY, swipeIconPaint)
+                canvas.drawBitmap(swipeIconBitmap, leftPositionPx, iconPositionY, swipeIconPaint)
                 if (swipeIconAndTextFromTag) {
                     canvas.drawText(swipeText, swipeIconBitmap.width + SWIPE_ICON_PADDING_DP * SWIPE_TEXT_POSITION_SCALE,
                         iconTextPositionY, valueTextPaint)
                 }
             } else {
-                canvas.drawBitmap(swipeIconBitmap, viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP * SWIPE_ICON_POSITION_SCALE * densityScalar, iconPositionY, swipeIconPaint)
+                canvas.drawBitmap(swipeIconBitmap, viewHolder.itemView.right - swipeIconBitmap.width - leftPositionPx, iconPositionY, swipeIconPaint)
                 if (swipeIconAndTextFromTag) {
                     canvas.drawText(swipeText, viewHolder.itemView.right - swipeIconBitmap.width - SWIPE_ICON_PADDING_DP * SWIPE_TEXT_POSITION_SCALE,
                         iconTextPositionY, valueTextPaint)

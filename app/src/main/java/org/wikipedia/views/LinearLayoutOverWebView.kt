@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.ViewConfiguration
 import android.widget.LinearLayout
-import org.wikipedia.util.DimenUtil.densityScalar
+import org.wikipedia.util.DimenUtil
 import kotlin.math.abs
 
 open class LinearLayoutOverWebView : LinearLayout {
@@ -34,7 +34,7 @@ open class LinearLayoutOverWebView : LinearLayout {
                 amountScrolled = 0
             }
             MotionEvent.ACTION_MOVE -> if (viewPressed) {
-                val contentHeight = (webView.contentHeight * densityScalar).toInt()
+                val contentHeight = DimenUtil.dpToPx(webView.contentHeight.toFloat()).toInt()
                 val minScroll = -webView.scrollY
                 val maxScroll = contentHeight - webView.scrollY - webView.height
                 var scrollAmount = (startY - event.y).toInt().coerceAtMost(maxScroll)

@@ -1294,7 +1294,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private inner class WebViewScrollTriggerListener : ObservableWebView.OnContentHeightChangedListener {
         var stagedScrollY = 0
         override fun onContentHeightChanged(contentHeight: Int) {
-            if (stagedScrollY > 0 && contentHeight * DimenUtil.densityScalar - webView.height > stagedScrollY) {
+            if (stagedScrollY > 0 && DimenUtil.dpToPx(contentHeight.toFloat()) - webView.height > stagedScrollY) {
                 webView.scrollY = stagedScrollY
                 stagedScrollY = 0
             }
@@ -1400,10 +1400,11 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
             // If we're looking at the top of the article, then scroll down a bit so that at least
             // some of the text is shown.
-            if (webView.scrollY < DimenUtil.leadImageHeightForDevice(requireActivity())) {
+            val imageHeight = DimenUtil.leadImageHeightForDevice(requireActivity())
+            if (webView.scrollY < imageHeight) {
                 scrolledUpForThemeChange = true
                 val animDuration = 250
-                val anim = ObjectAnimator.ofInt(webView, "scrollY", webView.scrollY, DimenUtil.leadImageHeightForDevice(requireActivity()))
+                val anim = ObjectAnimator.ofInt(webView, "scrollY", webView.scrollY, imageHeight.toInt())
                 anim.setDuration(animDuration.toLong()).doOnEnd {
                     showBottomSheet(ThemeChooserDialog.newInstance(InvokeSource.PAGE_ACTION_TAB))
                 }
@@ -1502,6 +1503,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
     companion object {
         private const val ARG_THEME_CHANGE_SCROLLED = "themeChangeScrolled"
-        private val REFRESH_SPINNER_ADDITIONAL_OFFSET = (16 * DimenUtil.densityScalar).toInt()
+        private val REFRESH_SPINNER_ADDITIONAL_OFFSET = DimenUtil.dpToPx(16f).toInt()
     }
 }
