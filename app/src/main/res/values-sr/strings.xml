@@ -1096,7 +1096,8 @@
   <string name="revision_diff_line_removed">Линија уклоњена</string>
   <string name="revision_diff_paragraph_added">Додат пасус</string>
   <string name="revision_diff_paragraph_removed">Пасус уклоњен</string>
-  <string name="revision_undo_title" fuzzy="true">Поништавање измене</string>
+  <string name="revision_undo_title">Сигурно поништи измену?</string>
+  <string name="revision_undo_summary_hint">Опис (необавезно)</string>
   <string name="revision_undo_success">Измена је поништена.</string>
   <string name="revision_rollback_dialog_title">Враћање измена?</string>
   <string name="revision_rollback_success">Измене враћене.</string>

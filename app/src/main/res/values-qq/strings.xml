@@ -1591,6 +1591,8 @@
   <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>
   <string name="email_report_patroller_tasks_body">Body of email for sending a report about a problem with the Patroller Tasks feature.</string>
-  <string name="donation_campaign_maybe_later_snackbar">Text for the snackbar message when user hits the "maybe later" option.</string>
-  <string name="donation_campaign_donated_snackbar">Text for the snackbar message when user hits the "I already donated" option.</string>
+  <string name="donation_campaign_maybe_later_snackbar">Text for the snackbar message when user hits the \"maybe later\" option.</string>
+  <string name="donation_campaign_donated_snackbar">Text for the snackbar message when user hits the \"I already donated\" option.</string>
+  <string name="donation_campaign_go_back_button">Button label for the webview that can go back to the previous screen.</string>
+  <string name="menu_single_webview_open_external">Menu option that indicates the web page can be opened in a system browser.</string>
 </resources>

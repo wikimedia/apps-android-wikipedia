@@ -131,6 +131,16 @@ object Prefs {
     val ignoreDateForAnnouncements
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_announcement_ignore_date, false)
 
+    var announcementPauseTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_announcement_pause_time, 0)
+        set(time) = PrefsIoUtil.setLong(R.string.preference_key_announcement_pause_time, time)
+
+    val announcementDebugUrl
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_announcement_debug_url, false)
+
+    val announcementCustomTabTestUrl
+        get() = PrefsIoUtil.getString(R.string.preference_key_announcement_custom_tab_test_url, null)
+
     val announcementsVersionCode
         get() = PrefsIoUtil.getInt(R.string.preference_key_announcement_version_code, 0)
 

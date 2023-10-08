@@ -793,7 +793,7 @@
   <string name="description_edit_success_encouragement">Vu plubonigis Wikipedia por omni</string>
   <string name="description_edit_success_done">Facita</string>
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
-  <string name="description_edit_success_article_edit_hint">Vu anke povas redaktar artikli uzanta ca \'\'app\'\'. En altra okaziono, probez korektigar ortografial erori e kurta frazi uzanta ikono ^1</string>
+  <string name="description_edit_success_article_edit_hint">Vu anke povas redaktar artikli uzanta ca \'\'app\'\'. En altra okaziono, probez korektigar ortografial erori e kurta frazi uzante ikono ^1</string>
   <string name="description_edit_tutorial_title_descriptions">Deskripti dil artilko</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Rezumar artiklo por helpar lekteri rapide savar pri quo ol esas</string>
   <string name="description_edit_tutorial_keep_it_short">Mantenez ol kurta</string>

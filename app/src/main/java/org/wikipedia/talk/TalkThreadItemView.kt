@@ -13,11 +13,12 @@ import android.view.*
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuPopupHelper
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkThreadItemBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
-import org.wikipedia.richtext.setHtml
+import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.util.*
 
 @SuppressLint("RestrictedApi")
@@ -62,19 +63,19 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
 
     fun bindItem(item: ThreadItem, movementMethod: MovementMethod, replying: Boolean = false, searchQuery: String? = null) {
         this.item = item
-        binding.userNameText.text = item.author
+        val showAuthor = item.author.isNotEmpty()
+        binding.userNameText.isVisible = showAuthor
+        binding.userNameTapTarget.isVisible = showAuthor
+        StringUtil.setHighlightedAndBoldenedText(binding.userNameText, item.author, searchQuery)
         binding.userNameTapTarget.contentDescription = binding.userNameText.text
-        binding.userNameText.isVisible = item.author.isNotEmpty()
-        binding.userNameTapTarget.isVisible = binding.userNameText.isVisible
-        StringUtil.highlightAndBoldenText(binding.userNameText, searchQuery, true, Color.YELLOW)
-        binding.profileImage.visibility = if (binding.userNameText.isVisible) View.VISIBLE else View.INVISIBLE
+        binding.profileImage.isInvisible = !showAuthor
         binding.timeStampText.isVisible = item.localDateTime != null
         item.localDateTime?.let {
-            binding.timeStampText.text = DateUtil.getTimeAndDateString(context, it)
-            StringUtil.highlightAndBoldenText(binding.timeStampText, searchQuery, true, Color.YELLOW)
+            val timestamp = DateUtil.getTimeAndDateString(context, it)
+            StringUtil.setHighlightedAndBoldenedText(binding.timeStampText, timestamp, searchQuery)
         }
-        binding.bodyText.setHtml(StringUtil.removeStyleTags(item.html))
-        StringUtil.highlightAndBoldenText(binding.bodyText, searchQuery, true, Color.YELLOW)
+        val body = CustomHtmlParser.fromHtml(StringUtil.removeStyleTags(item.html), binding.bodyText).trim()
+        StringUtil.setHighlightedAndBoldenedText(binding.bodyText, body, searchQuery)
         binding.bodyText.movementMethod = movementMethod
 
         if (replying) {
