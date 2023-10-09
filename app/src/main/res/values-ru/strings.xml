@@ -58,6 +58,7 @@
 * Teretalexev
 * Thothsum
 * ToJack
+* Ukhant Erdemt
 * UniCollab
 * VitalKanev
 * Vlad5250
@@ -1552,4 +1553,6 @@
   <string name="generic_release_notes">Незначительные исправления ошибок и улучшения</string>
   <string name="donation_campaign_maybe_later_snackbar">Мы напомним вам снова завтра.</string>
   <string name="donation_campaign_donated_snackbar">Спасибо за ваше пожертвование! Ваша поддержка помогает Википедии и её родственным проектам процветать.</string>
+  <string name="donation_campaign_go_back_button">Назад</string>
+  <string name="menu_single_webview_open_external">Открыть в системном браузере</string>
 </resources>

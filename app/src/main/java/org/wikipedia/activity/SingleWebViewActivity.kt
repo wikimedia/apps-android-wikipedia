@@ -13,6 +13,7 @@ import android.webkit.WebView
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ActivitySingleWebViewBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
@@ -115,6 +116,9 @@ class SingleWebViewActivity : BaseActivity() {
     }
 
     private fun goBack() {
+        if (intent.getStringExtra(EXTRA_PAGE_CONTENT_INFO).orEmpty() == PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE) {
+            DonorExperienceEvent.logAction("article_return_click", "webpay_processed")
+        }
         pageTitle?.let {
             val entry = HistoryEntry(it, HistoryEntry.SOURCE_SINGLE_WEBVIEW)
             startActivity(PageActivity.newIntentForExistingTab(this@SingleWebViewActivity, entry, entry.title))
@@ -133,12 +137,15 @@ class SingleWebViewActivity : BaseActivity() {
         const val EXTRA_URL = "url"
         const val EXTRA_SHOW_BACK_BUTTON = "goBack"
         const val EXTRA_PAGE_TITLE = "pageTitle"
+        const val EXTRA_PAGE_CONTENT_INFO = "pageContentInfo"
+        const val PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE = "donorExperience"
 
-        fun newIntent(context: Context, url: String, showBackButton: Boolean = false, pageTitle: PageTitle? = null): Intent {
+        fun newIntent(context: Context, url: String, showBackButton: Boolean = false, pageTitle: PageTitle? = null, pageContentInfo: String? = null): Intent {
             return Intent(context, SingleWebViewActivity::class.java)
                     .putExtra(EXTRA_URL, url)
                     .putExtra(EXTRA_SHOW_BACK_BUTTON, showBackButton)
                     .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                    .putExtra(EXTRA_PAGE_CONTENT_INFO, pageContentInfo)
         }
     }
 }
