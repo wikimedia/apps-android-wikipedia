@@ -1345,9 +1345,10 @@
   <string name="revision_diff_paragraph_added">Paràgraf afegit</string>
   <string name="revision_diff_paragraph_removed">Paràgraf eliminat</string>
   <string name="revision_diff_protected">Els canvis fets en aquesta revisió no són accessible públicament.</string>
-  <string name="revision_undo_title" fuzzy="true">Desfés la modificació</string>
-  <string name="revision_undo_message" fuzzy="true">Això desfarà els canvis fets en les revisions de l\'article que es mostra a continuació.</string>
-  <string name="revision_undo_reason" fuzzy="true">Per a continuar, proporcioneu un motiu per a desfer la modificació:</string>
+  <string name="revision_undo_title">Esteu segur que voleu desfer aquesta modificació?</string>
+  <string name="revision_undo_message">En desfer-se es revertiran els efectes d\'una o més edicions.</string>
+  <string name="revision_undo_summary_hint">Resum (opcional)</string>
+  <string name="revision_undo_reason">Comparteix el motiu de la reversió</string>
   <string name="revision_undo_success">S\'ha desfet la revisió.</string>
   <string name="revision_rollback_dialog_title">Esteu segur que voleu revertir les edicions?</string>
   <string name="revision_rollback_success">S\'han revertit les edicions.</string>
@@ -1554,6 +1555,16 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Mostra</string>
   <string name="patroller_tasks_overflow_report">Problema amb la funcionalitat</string>
   <string name="patroller_tasks_overflow_learn">Més informació</string>
+  <string name="patroller_onboarding_one_title">Contribuïu a la supervisió i aprovació de les edicions de la Viquipèdia.</string>
+  <string name="patroller_onboarding_two_thank_title">Agraeix</string>
+  <string name="patroller_onboarding_two_watch_title">Vigila</string>
+  <string name="patroller_onboarding_two_warn_title">Avisa</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfet</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfet</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Comentaris</string>
+  <string name="patroller_diff_feedback_dialog_submit">Tramet</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">S\'han tramès els comentaris.</string>
   <string name="data_opt_in_accept">Accepta</string>
   <string name="data_opt_in_reject">Rebutja</string>
   <string name="page_issues_title">Problemes de la pàgina</string>
@@ -1562,4 +1573,6 @@
   <string name="email_report_image_recommendations_body">He trobat un problema amb la funcionalitat de recomanació d\'imatges: \n- [Descriviu un problema específic] \n\nEl comportament que m\'agradaria veure-hi és: \n- [Descriviu la solució proposada]</string>
   <string name="email_report_patroller_tasks_subject">Informe d\'incidència - Funcionalitat de la patrulla d\'edicions</string>
   <string name="email_report_patroller_tasks_body">He trobat un problema amb la funcionalitat de patrulla d\'edicions: \n- [Descriviu el problema específic] \n\nEl comportament que m\'agradaria veure-hi és: \n- [Descriviu la solució proposada] \n\n[Captures de pantalla o enllaços]</string>
+  <string name="donation_campaign_go_back_button">Enrere</string>
+  <string name="menu_single_webview_open_external">Obre al navegador del sistema</string>
 </resources>

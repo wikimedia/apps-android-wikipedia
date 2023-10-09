@@ -1671,4 +1671,6 @@
   <string name="email_report_patroller_tasks_body">נתקלתי בבעיה בתכונת משימות ניטור עריכות:\n- [נא לתאר בעיה ספציפית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]\n\n[צילומי מסך או קישורים]</string>
   <string name="donation_campaign_maybe_later_snackbar">נזכיר לך שוב מחר.</string>
   <string name="donation_campaign_donated_snackbar">תודה, תורם יקר! הנדיבות שלך עוזרת להבטיח את צמיחתם של ויקיפדיה ושל האתרים הקשורים אליה.</string>
+  <string name="donation_campaign_go_back_button">חזרה</string>
+  <string name="menu_single_webview_open_external">פתיחה בדפדפן המערכת</string>
 </resources>
