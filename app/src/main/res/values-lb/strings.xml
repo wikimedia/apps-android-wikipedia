@@ -1171,4 +1171,5 @@
   <string name="data_opt_in_accept">Akzeptéieren</string>
   <string name="data_opt_in_reject">Refuséieren</string>
   <string name="donation_campaign_maybe_later_snackbar">Mir erënneren Iech muer nach eng Kéier.</string>
+  <string name="donation_campaign_go_back_button">Zréckgoen</string>
 </resources>

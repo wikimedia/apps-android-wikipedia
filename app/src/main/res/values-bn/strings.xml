@@ -1169,4 +1169,6 @@
   <string name="data_opt_in_accept">গ্রহণ করুন</string>
   <string name="data_opt_in_reject">প্রত্যাখ্যান করুন</string>
   <string name="page_issues_title">পাতার সমস্যা</string>
+  <string name="donation_campaign_go_back_button">ফিরে যান</string>
+  <string name="menu_single_webview_open_external">সিস্টেম ব্রাউজারে খুলুন</string>
 </resources>
