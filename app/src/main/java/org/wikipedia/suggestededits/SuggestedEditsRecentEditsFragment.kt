@@ -390,7 +390,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             UserTalkPopupHelper.show(requireActivity() as AppCompatActivity,
                 PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), item.user, viewModel.wikiSite),
                 item.anon, view, Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS, HistoryEntry.SOURCE_SUGGESTED_EDITS_RECENT_EDITS,
-                revisionId = item.curRev, pageId = item.pageid.toInt(), showUserInfo = true)
+                revisionId = item.curRev, pageId = item.pageid, showUserInfo = true)
         }
     }
 

@@ -246,11 +246,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
 
         binding.usernameFromButton.setOnClickListener {
-            showUserPopupMenu(viewModel.revisionFrom, false, binding.usernameFromButton)
+            showUserPopupMenu(viewModel.revisionFrom, true, binding.usernameFromButton)
         }
 
         binding.usernameToButton.setOnClickListener {
-            showUserPopupMenu(viewModel.revisionTo, true, binding.usernameToButton)
+            showUserPopupMenu(viewModel.revisionTo, false, binding.usernameToButton)
         }
 
         binding.thankButton.setOnClickListener {
