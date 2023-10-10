@@ -8,6 +8,7 @@ import org.wikipedia.databinding.FragmentSuggestedEditsVandalismItemBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.diff.ArticleEditDetailsFragment
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 
 class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), ArticleEditDetailsFragment.Callback {
     private var _binding: FragmentSuggestedEditsVandalismItemBinding? = null
@@ -17,9 +18,11 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Arti
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentSuggestedEditsVandalismItemBinding.inflate(inflater, container, false)
 
+        val targetWikiLangCode = Prefs.recentEditsWikiCode
+
         childFragmentManager.beginTransaction()
             .add(binding.suggestedEditsItemRootView.id, ArticleEditDetailsFragment
-                .newInstance(PageTitle("", WikiSite.forLanguageCode(parent().langFromCode)), -1, -1, -1, fromRecentEdits = true))
+                .newInstance(PageTitle("", WikiSite.forLanguageCode(targetWikiLangCode)), -1, -1, -1, fromRecentEdits = true))
             .commit()
 
         return binding.root
