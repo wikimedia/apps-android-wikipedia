@@ -1001,7 +1001,7 @@
   <string name="suggested_edits_ip_blocked_title">IP bloklangan</string>
   <string name="suggested_edits_last_edited">Soʻnggi tahrir</string>
   <string name="suggested_edits_last_edited_never">Hech qachon</string>
-  <string name="suggested_edits_task_new" fuzzy="true">yangi</string>
+  <string name="suggested_edits_task_new">Yangi</string>
   <string name="suggested_edits_cc0_notice">Nashr qilish bilan siz &lt;a href=\"%1$s\"&gt; foydalanish shartlari &lt;/a&gt;ga va ushbu hissani &lt;a href=\"%2$s\"&gt;CC0 litsenziyasi&lt;/a&gt; asosida qaytarib olmasligingizga rozilik bildirasiz.</string>
   <string name="suggested_edits_reactivation_notification_title">Tavsiya etilgan tahrirlar</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Vikipediyani tahrir qilganingiz uchun tashakkur! Nima uchun toʻxtagan joyingizda davom etmayapsiz?</string>
@@ -1080,6 +1080,7 @@
   <string name="image_recommendation_tooltip_3">Rasm oʻquvchilarga ushbu mavzuni yaxshiroq tushunishga yordam beradimi yoki yoʻqligini aniqlang</string>
   <string name="image_recommendation_tooltip_next">Keyingisi</string>
   <string name="image_recommendation_tooltip_warning">Mavzuni tushunish uchun maqolani koʻrib chiqing va rasmni tekshiring</string>
+  <string name="image_recommendation_depleted">Kechirasiz, hozirda boshqa tavsiya etilgan rasmlar mavjud emas. Boshqa &lt;a href=\"#\"&gt;tavsiya etilgan tahrirlarni&lt;/a&gt; koʻrib chiqing yoki keyinroq qayting.</string>
   <string name="suggested_edits_report_feature">Oʻziga xoslik bilan muammo</string>
   <string name="suggested_edits_report_feature_subject">Tavsiya etilgan tahrirlar bilan muammo</string>
   <string name="edit_summary_added_image">Qoʻshilgan rasm</string>
@@ -1181,6 +1182,7 @@
   <string name="wikitext_template">Andoza</string>
   <string name="wikitext_reference">Manba</string>
   <string name="wikitext_preview_link">Koʻrish havolasi</string>
+  <string name="wikitext_mention_user">Foydalanuvchini eslatib oʻtish</string>
   <string name="insert_media_title">Mediani qoʻymoq</string>
   <string name="insert_media_search_description">Wikimedia Commonsʼdan fayl tanlamoq</string>
   <string name="insert_media_search_hint">Media qidiruvi</string>
@@ -1324,9 +1326,10 @@
   <string name="revision_diff_paragraph_added">Paragraf qoʻshildi</string>
   <string name="revision_diff_paragraph_removed">Paragraf oʻchirildi</string>
   <string name="revision_diff_protected">Ushbu tahrirda kiritilgan oʻzgartirishlar hamma uchun ochiq emas.</string>
-  <string name="revision_undo_title">Tahrirni bekor qilish</string>
-  <string name="revision_undo_message">Bu yerda koʻrsatilgan maqolaning tahrir(lar)i tomonidan kiritilgan oʻzgarishlar bekor qilinadi.</string>
-  <string name="revision_undo_reason">Davom etish uchun ushbu tahrirni bekor qilish sababini keltiring:</string>
+  <string name="revision_undo_title">Haqiqatan ham bu tahrirni bekor qilmoqchimisiz?</string>
+  <string name="revision_undo_message">Bekor qilish bir yoki bir nechta tahrirlarning qaytarishni anglatadi.</string>
+  <string name="revision_undo_summary_hint">Umumiy (ixtiyoriy)</string>
+  <string name="revision_undo_reason">Qaytish sababini baham ko\'ring</string>
   <string name="revision_undo_success">Qayta koʻrib chiqish bekor qilindi.</string>
   <string name="revision_rollback_dialog_title">Haqiqatan ham tahrirlarni bekor qilmoqchimisiz?</string>
   <string name="revision_rollback_success">Tahrirlar qaytarildi.</string>
@@ -1477,6 +1480,8 @@
   <string name="patroller_tasks_filters_reset">Asliga</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Viki</string>
   <string name="patroller_tasks_filters_all_text">Barchasi</string>
+  <string name="patroller_tasks_filters_user_status_header">Foydalanuvchi qaydi va tajribasi</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Roʻyxatdan oʻtmagan</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Koʻrish</string>
   <string name="patroller_tasks_overflow_report">Xususiyat bilan bogʻliq muammo</string>

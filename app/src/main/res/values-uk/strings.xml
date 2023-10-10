@@ -1423,9 +1423,9 @@
   <string name="revision_diff_paragraph_added">Абзац додано</string>
   <string name="revision_diff_paragraph_removed">Абзац вилучено</string>
   <string name="revision_diff_protected">Ця версія сторінки не є загальнодоступною.</string>
-  <string name="revision_undo_title">Скасувати редагування</string>
-  <string name="revision_undo_message">Це прибере зміни, внесені версією(-ями) статті, що показано тут.</string>
-  <string name="revision_undo_reason">Щоб продовжити, вкажіть, будь ласка, причину скасування цього редагування:</string>
+  <string name="revision_undo_title">Ви дійсно хочете скасувати це редагування?</string>
+  <string name="revision_undo_message" fuzzy="true">Це прибере зміни, внесені версією(-ями) статті, що показано тут.</string>
+  <string name="revision_undo_reason" fuzzy="true">Щоб продовжити, вкажіть, будь ласка, причину скасування цього редагування:</string>
   <string name="revision_undo_success">Версію скасовано.</string>
   <string name="revision_rollback_dialog_title">Ви впевнені, що хочете відкотити редагування?</string>
   <string name="revision_rollback_success">Редагування відкочено.</string>
@@ -1610,7 +1610,7 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Відпатрулювати редагування</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Історія редагування статті</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Скасувати цю зміну?</string>
+  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Скасувати це редагування?</string>
   <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Ви дійсно хочете скасувати це редагування?</string>
   <string name="patroller_tasks_patrol_edit_undo_dialog_message">Скасування повністю відхилить дію одного чи кількох редагувань.</string>
   <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Опис (необов\'язково)</string>

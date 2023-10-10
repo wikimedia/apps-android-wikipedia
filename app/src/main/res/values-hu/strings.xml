@@ -278,6 +278,7 @@
   <string name="edit_undo">Visszavonás</string>
   <string name="edit_redo">Újra</string>
   <string name="edit_rollback">Visszaállítás</string>
+  <string name="edit_warn">Figyelmeztetés</string>
   <string name="edit_quality">Minőség %s</string>
   <string name="edit_intent">Szándék %s</string>
   <plurals name="edit_diff_bytes">
@@ -1013,7 +1014,7 @@
   <string name="suggested_edits_ip_blocked_title">IP-cím blokkolva</string>
   <string name="suggested_edits_last_edited">Utoljára szerkesztve</string>
   <string name="suggested_edits_last_edited_never">Soha</string>
-  <string name="suggested_edits_task_new" fuzzy="true">új</string>
+  <string name="suggested_edits_task_new">Új</string>
   <string name="suggested_edits_cc0_notice">A közzététellel beleegyezel a &lt;a href=\"%1$s\"&gt;használati feltételekbe&lt;/a&gt; és visszavonhatatlanul közzéteszed ezt a közreműködést &lt;a href=\"%2$s\"&gt;CC0 licenc&lt;/a&gt; alatt.</string>
   <string name="suggested_edits_reactivation_notification_title">Javasolt szerkesztések</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Köszönjük a Wikipédia szerkesztését! Miért nem folytatod, ahol abbahagytad?</string>
@@ -1087,7 +1088,12 @@
   <string name="image_recommendation_onboarding_2">Te fogod eldönteni, hogy egy javasolt kép bekerüljön-e egy Wikipédia-szócikkbe.</string>
   <string name="image_recommendation_onboarding_3">A javaslatok gépi úton vannak generálva, és a te belátásodra van bízva, hogy elfogadod vagy elutasítod azokat.</string>
   <string name="image_recommendation_onboarding_4">A képek a Wikimédia Commonsból származnak, a Wikipédia által használt, szabadon licencelt képek gyűjteményéből.</string>
+  <string name="image_recommendation_tooltip_1">Nézd át a cikket a témájának megértéséhez</string>
+  <string name="image_recommendation_tooltip_2">Vizsgáld meg a képet és a kapcsolódó információkat</string>
+  <string name="image_recommendation_tooltip_3">Döntsd el, hogy a kép segít-e az olvasóknak a téma jobb megértésében</string>
   <string name="image_recommendation_tooltip_next">Tovább</string>
+  <string name="image_recommendation_tooltip_warning">Kérjük, nézd át a cikket a témájának megértéséhez, és vizsgáld meg a képet</string>
+  <string name="image_recommendation_depleted">Sajnos jelenleg nincs több javasolt kép. Fedezz fel más &lt;a href=\"#\"&gt;javasolt szerkesztéseket&lt;/a&gt;, vagy térj vissza később.</string>
   <string name="suggested_edits_report_feature">Probléma a funkcióval</string>
   <string name="suggested_edits_report_feature_subject">Probléma a Javasolt szerkesztésekkel</string>
   <string name="edit_summary_added_image">Új kép hozzáadása</string>
@@ -1189,6 +1195,7 @@
   <string name="wikitext_template">Sablon</string>
   <string name="wikitext_reference">Hivatkozás</string>
   <string name="wikitext_preview_link">Link előnézete</string>
+  <string name="wikitext_mention_user">Felhasználó megemlítése</string>
   <string name="insert_media_title">Média beszúrása</string>
   <string name="insert_media_search_description">Fájl kiválasztása a Wikimedia Commonsról</string>
   <string name="insert_media_search_hint">Média keresése</string>
@@ -1331,9 +1338,10 @@
   <string name="revision_diff_paragraph_added">Bekezdés hozzáadva</string>
   <string name="revision_diff_paragraph_removed">Bekezdés eltávolítva</string>
   <string name="revision_diff_protected">Az ebben a változatban végrehajtott változtatások nem nyilvánosak.</string>
-  <string name="revision_undo_title">Szerkesztés visszavonása</string>
-  <string name="revision_undo_message">Ezzel visszavonod a szócikk itt látható lapváltozata(i) által végzett módosításokat.</string>
-  <string name="revision_undo_reason">A folytatáshoz add meg a visszavonás okát:</string>
+  <string name="revision_undo_title">Biztosan vissza akarod vonni ezt a szerkesztést?</string>
+  <string name="revision_undo_message" fuzzy="true">Ezzel visszavonod a szócikk itt látható lapváltozata(i) által végzett módosításokat.</string>
+  <string name="revision_undo_summary_hint">Összefoglaló (nem kötelező)</string>
+  <string name="revision_undo_reason">Add meg a visszavonás okát</string>
   <string name="revision_undo_success">A változtatás visszavonva.</string>
   <string name="revision_rollback_dialog_title">Biztosan vissza akarod vonni a szerkesztéseket?</string>
   <string name="revision_rollback_success">Szerkesztések visszavonva.</string>
@@ -1467,10 +1475,15 @@
   <string name="talk_templates_message_deleted">Az üzenet törölve</string>
   <string name="patroller_tasks_edits_list_title">Szerkesztések listája</string>
   <string name="patroller_tasks_edits_list_search_hint">Szerkesztések keresése vagy szűrése</string>
-  <string name="patroller_tasks_edits_list_card_tags_text" fuzzy="true">Címkék: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Címkék: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Semmi</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Szerkesztőlap megtekintése</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Vitalap megtekintése</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Felhasználói adatok</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Szerkesztő közreműködéseinek megtekintése</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Köszönet</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Fiók létrehozva:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Szerkesztésszám:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Bezárás</string>
   <string name="patroller_tasks_filters_title">Szűrők</string>
   <string name="patroller_tasks_filters_reset">Visszaállítás</string>
@@ -1500,7 +1513,21 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Megtekintés</string>
   <string name="patroller_tasks_overflow_report">Probléma a funkcióval</string>
   <string name="patroller_tasks_overflow_learn">Tudj meg többet!</string>
+  <string name="patroller_onboarding_two_thank_title">Köszönet</string>
+  <string name="patroller_onboarding_two_warn_title">Figyelmeztetés</string>
+  <string name="patroller_diff_feedback_dialog_title">Segíts a funkció fejlesztésében!</string>
+  <string name="patroller_diff_feedback_dialog_message">Elégedett vagy ezzel a funkcióval?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Elégedett</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Semleges</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Elégedetlen</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Visszajelzés</string>
+  <string name="patroller_diff_feedback_dialog_submit">Elküldés</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Visszajelzés elküldve.</string>
   <string name="data_opt_in_accept">Elfogad</string>
   <string name="data_opt_in_reject">Elutasít</string>
   <string name="generic_release_notes">Kisebb hibajavítások és fejlesztések</string>
+  <string name="donation_campaign_maybe_later_snackbar">Holnap újra emlékeztetünk.</string>
+  <string name="donation_campaign_donated_snackbar">Köszönjük, kedves adományozó! Nagylelkűségeddel segíted a Wikipédia és testvéroldalainak fejlődését!</string>
+  <string name="donation_campaign_go_back_button">Visszalépés</string>
+  <string name="menu_single_webview_open_external">Nyisd meg a rendszerböngészőben!</string>
 </resources>
