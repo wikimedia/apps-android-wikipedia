@@ -1452,4 +1452,6 @@
   <string name="data_opt_in_reject">Rifiuta</string>
   <string name="donation_campaign_go_back_button">Torna indietro</string>
   <string name="menu_single_webview_open_external">Apri nel browser di sistema</string>
+  <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità aiuta a far crescere Wikipedia e i suoi siti correlati.</string>
+  <string name="donation_campaign_maybe_later_snackbar">Te lo ricorderemo di nuovo domani.</string>
 </resources>
