@@ -1572,6 +1572,9 @@
   <string name="patroller_onboarding_two_warn_content">Content of the warn section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_undo_title">Title of the undo/rollback section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_undo_content">Content of the undo/rollback section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_three_title">Title of the third patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_three_content">Content of the third patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_three_switch">Text of the switch on the third patroller tasks on boarding screen</string>
   <string name="patroller_diff_tooltip_one">Text of the first tooltip for patrol edit diff screen.</string>
   <string name="patroller_diff_tooltip_two">Text of the second tooltip for patrol edit diff screen.</string>
   <string name="patroller_diff_feedback_dialog_title">Dialog title for the feedback form in the patrol edit screen.</string>

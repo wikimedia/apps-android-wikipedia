@@ -1639,6 +1639,9 @@
     <string name="patroller_onboarding_two_warn_content">Create, send, and store warning messages on an editor\'s talk page.</string>
     <string name="patroller_onboarding_two_undo_title">Undo/Rollback</string>
     <string name="patroller_onboarding_two_undo_content">Choose \'Undo\' to undo or rollback a potentially destructive edit.</string>
+    <string name="patroller_onboarding_three_title">Send anonymous data</string>
+    <string name="patroller_onboarding_three_content"><![CDATA[Help make the feature better by letting us know how you use it. Data collected is anonymous. <a href="#privacy">Learn more</a>]]></string>
+    <string name="patroller_onboarding_three_switch">Send usage reports</string>
     <string name="patroller_diff_tooltip_one">Damage predicts if an edit causes damage to a wiki.</string>
     <string name="patroller_diff_tooltip_two">Intent predicts likelihood of an edit being saved in good-faith.</string>
     <string name="patroller_diff_feedback_dialog_title">Help us improve this feature</string>
