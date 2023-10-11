@@ -167,4 +167,5 @@
     <string name="preference_key_recent_edits_wiki_code">filterRecentEditsWikiCode</string>
     <string name="preference_key_recent_edits_included_type_codes">filterRecentEditsIncludedTypeCodes</string>
     <string name="preference_key_recent_edits_onboarding_shown">recentEditsOnboardingShown</string>
+    <string name="preference_key_show_sequential_recent_edits_diff_tooltip">showSequentialRecentEditsDiffTooltip</string>
 </resources>

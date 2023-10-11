@@ -43,6 +43,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
+import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
@@ -73,6 +74,17 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
+
+    private val sequentialTooltipRunnable = Runnable {
+        if (!isAdded || !Prefs.showOneTimeSequentialRecentEditsDiffTooltip) {
+            return@Runnable
+        }
+        Prefs.showOneTimeSequentialRecentEditsDiffTooltip = false
+        val balloon = FeedbackUtil.getTooltip(requireContext(), getString(R.string.patroller_diff_tooltip_one), autoDismiss = true, showDismissButton = true)
+        balloon.showAlignBottom(binding.oresDamagingButton)
+        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), getString(R.string.patroller_diff_tooltip_two), autoDismiss = true, showDismissButton = true), binding.oresGoodFaithButton)
+        // TODO: log tooltip?
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -219,6 +231,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     override fun onDestroyView() {
+        binding.scrollContainer.removeCallbacks(sequentialTooltipRunnable)
         _binding = null
         super.onDestroyView()
     }
@@ -347,6 +360,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
     }
 
+    private fun showOneTimeSequentialRecentEditsTooltips() {
+        binding.scrollContainer.fullScroll(View.FOCUS_UP)
+        binding.scrollContainer.removeCallbacks(sequentialTooltipRunnable)
+        binding.scrollContainer.postDelayed(sequentialTooltipRunnable, 500)
+    }
+
     private fun setErrorState(t: Throwable) {
         L.e(t)
         binding.errorView.setError(t)
@@ -410,6 +429,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 binding.oresGoodFaithButton.isVisible = true
                 binding.oresGoodFaithButton.text = getString(R.string.edit_intent, (((it.ores?.goodfaithProb) ?: 0f) * 100f).toInt().toString())
                 binding.oresGoodFaithButton.setOnClickListener(openQualityAndIntentFiltersPage)
+                if (Prefs.showOneTimeSequentialRecentEditsDiffTooltip && viewModel.fromRecentEdits) {
+                    showOneTimeSequentialRecentEditsTooltips()
+                }
             }
         }
 
