@@ -1649,6 +1649,7 @@
     <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfied</string>
     <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
     <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unsatisfied</string>
+    <string name="patroller_diff_feedback_dialog_feedback_title">How can we improve the feature?</string>
     <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
     <string name="patroller_diff_feedback_dialog_submit">Submit</string>
     <string name="patroller_diff_feedback_submitted_snackbar">Feedback submitted.</string>

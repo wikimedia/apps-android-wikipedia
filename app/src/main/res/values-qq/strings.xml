@@ -1582,6 +1582,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Option for the feedback form in the patrol edit screen that indicates satisfied.</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Option for the feedback form in the patrol edit screen that indicates neutral.</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Option for the feedback form in the patrol edit screen that indicates unsatisfied.</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Dialog title for the feedback input in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Hint text for input field for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_dialog_submit">Button label for input field for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Text for the snackbar message the feedback form in the patrol edit screen that indicates the feedback has been submitted.</string>
