@@ -8,6 +8,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.databinding.DialogUndoEditBinding
+import org.wikipedia.util.ResourceUtil
 
 class UndoEditDialog constructor(
     private val editHistoryInteractionEvent: EditHistoryInteractionEvent?,
@@ -24,7 +25,6 @@ class UndoEditDialog constructor(
 
     init {
         setView(binding.root)
-        binding.textInputContainer.isErrorEnabled = true
 
         setPositiveButton(R.string.edit_undo) { _, _ ->
             callback.onSuccess(binding.textInput.text.toString())
@@ -43,6 +43,9 @@ class UndoEditDialog constructor(
 
     override fun show(): AlertDialog {
         dialog = super.show()
+
+        dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.setTextColor(ResourceUtil.getThemedColor(context, R.attr.destructive_color))
+
         setPositiveButtonEnabled(false)
         return dialog!!
     }

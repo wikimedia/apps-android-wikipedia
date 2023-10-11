@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialogContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:strokeColor="@color/red700"
+    app:strokeWidth="2dp"
+    app:radius="0dp"
+    app:hasBorder="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/contentText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:lineSpacingMultiplier="1.21"
+                android:fontFamily="sans-serif"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="24dp"
+                android:textColor="?attr/primary_color"
+                android:textSize="16sp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                tools:text="Lorem ipsum" />
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/buttonsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="16dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:background="?attr/paper_color"
+            tools:visibility="visible">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/positiveButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Lorem ipsum"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/neutralButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/App.Button.Text"
+                android:text="@string/view_announcement_card_negative_action"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/negativeButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/App.Button.Text"
+                android:text="@string/view_announcement_card_negative_action"/>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/footerBorder"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?attr/border_color"
+            android:layout_marginHorizontal="16dp"/>
+
+        <TextView
+            android:id="@+id/footerText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textColor="?attr/placeholder_color"
+            android:textSize="12sp"
+            android:background="?attr/paper_color"
+            tools:text="Lorem ipsum" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/closeButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_close_black_24dp"
+        android:padding="12dp"
+        android:layout_gravity="end"
+        android:contentDescription="@string/dialog_close_description"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:tint="?attr/primary_color"/>
+
+</org.wikipedia.views.WikiCardView>

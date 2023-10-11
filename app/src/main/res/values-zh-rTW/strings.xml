@@ -145,7 +145,7 @@
   <string name="langlinks_activity_title">其他語言</string>
   <string name="langlinks_your_wikipedia_languages">您的維基百科語言</string>
   <string name="menu_save_changes">發布變更</string>
-  <string name="edit_saved_successfully">已發佈編輯！</string>
+  <string name="edit_saved_successfully">已發布編輯！</string>
   <string name="dialog_message_edit_failed">編輯失敗 ！</string>
   <string name="dialog_message_edit_failed_retry">重試</string>
   <string name="dialog_message_edit_failed_cancel">取消</string>
@@ -283,7 +283,7 @@
   <string name="user_anon_blocked_from_editing">您的 IP 位址已被封鎖，無法編輯。</string>
   <string name="edit_how_page_improved">您如何改善此頁面？</string>
   <string name="edit_next">下一步</string>
-  <string name="edit_done">發佈</string>
+  <string name="edit_done">發布</string>
   <string name="edit_preview">預覽</string>
   <string name="edit_undo">撤銷</string>
   <string name="edit_redo">重做</string>
@@ -843,7 +843,7 @@
   <string name="description_edit_add_caption_hint">圖片說明</string>
   <string name="description_edit_translate_caption_label_per_language">圖片說明（%s）</string>
   <string name="description_edit_translate_caption_hint_per_language">圖片說明（%s）</string>
-  <string name="description_edit_save">發佈</string>
+  <string name="description_edit_save">發布</string>
   <string name="description_edit_read">閱讀</string>
   <string name="description_edit_add_description">新增條目描述</string>
   <string name="description_edit_translate_description">翻譯條目描述</string>
@@ -874,9 +874,9 @@
   <string name="description_edit_suggested_description_button_text">顯示建議的描述</string>
   <string name="description_edit_suggested_description_button_tooltip">嘗試由機器建議的條目描述</string>
   <string name="description_edit_success_saved">已發布條目描述！</string>
-  <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
+  <string name="description_edit_success_saved_snackbar">已發布條目描述！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發布！（%s）</string>
-  <string name="description_edit_success_saved_image_caption_snackbar">圖片說明已發佈！</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">已發布圖片說明！</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">圖片說明已發布！（%s）</string>
   <string name="description_edit_success_saved_image_tags_snackbar">圖片標籤已發布！</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">不夠過癮？協助我們添加更多。</string>
@@ -909,8 +909,8 @@
   <string name="suggested_edits_review_description">檢閱條目描述</string>
   <string name="suggested_edits_add_description_button">添加描述</string>
   <string name="suggested_edits_edit_description_button">編輯描述</string>
-  <string name="suggested_edits_add_translation_button">新增翻譯</string>
-  <string name="suggested_edits_edit_translation_button">編輯翻譯</string>
+  <string name="suggested_edits_add_translation_button">新增譯文</string>
+  <string name="suggested_edits_edit_translation_button">編輯譯文</string>
   <string name="suggested_edits_add_caption_button">新增說明</string>
   <string name="suggested_edits_edit_caption_button">編輯說明</string>
   <string name="suggested_edits_review_image_caption">檢視語言說明</string>
@@ -1105,7 +1105,7 @@
   <string name="image_recommendation_tooltip_next">下一個</string>
   <string name="image_recommendation_tooltip_warning">請檢閱條目來了解該主題並檢查圖片</string>
   <string name="image_recommendation_depleted">很抱歉，目前沒有更多可用的建議圖片。請探索其他&lt;a href=\"#\"&gt;建議編輯&lt;/a&gt;，或是稍後回來。</string>
-  <string name="suggested_edits_report_feature">功能出現問題</string>
+  <string name="suggested_edits_report_feature">功能問題</string>
   <string name="suggested_edits_report_feature_subject">建議編輯出現問題</string>
   <string name="edit_summary_added_image">已新增圖片</string>
   <string name="edit_summary_added_caption">已新增說明</string>
@@ -1206,6 +1206,7 @@
   <string name="wikitext_template">模板</string>
   <string name="wikitext_reference">參考資料</string>
   <string name="wikitext_preview_link">預覽連結</string>
+  <string name="wikitext_mention_user">提及一位使用者</string>
   <string name="insert_media_title">插入媒體</string>
   <string name="insert_media_search_description">選擇來自維基共享資源的檔案</string>
   <string name="insert_media_search_hint">搜尋媒體</string>
@@ -1349,9 +1350,10 @@
   <string name="revision_diff_paragraph_added">已新增章節</string>
   <string name="revision_diff_paragraph_removed">章節已移除</string>
   <string name="revision_diff_protected">此修訂所做出的更改不公開。</string>
-  <string name="revision_undo_title">撤銷編輯</string>
-  <string name="revision_undo_message">這將會撤銷掉在此顯示出的修訂在條目裡所做出的變更內容。</string>
-  <string name="revision_undo_reason">若要繼續，請提供撤銷此編輯內容的原因：</string>
+  <string name="revision_undo_title">您確定您要撤銷這個編輯嗎？</string>
+  <string name="revision_undo_message">撤銷代表著會回退一個或多個編輯內容。</string>
+  <string name="revision_undo_summary_hint">摘要（可選）</string>
+  <string name="revision_undo_reason">分享回退的原因</string>
   <string name="revision_undo_success">已撤銷修訂。</string>
   <string name="revision_rollback_dialog_title">確定要回退這些編輯嗎？</string>
   <string name="revision_rollback_success">已回退編輯。</string>
@@ -1556,8 +1558,24 @@
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">您確定要回退嗎？</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">回退完成</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">檢視</string>
-  <string name="patroller_tasks_overflow_report">功能出現問題</string>
+  <string name="patroller_tasks_overflow_report">功能問題</string>
   <string name="patroller_tasks_overflow_learn">了解更多</string>
+  <string name="patroller_onboarding_one_title">為維基百科編輯的監督和核准做出貢獻。</string>
+  <string name="patroller_onboarding_two_title">提供意見回饋、監控編輯，並在差異畫面上採取操作</string>
+  <string name="patroller_onboarding_two_thank_title">感謝</string>
+  <string name="patroller_onboarding_two_watch_title">監視</string>
+  <string name="patroller_onboarding_two_watch_content">想要追蹤條目的編輯嗎？添加到您的監視清單。在「更多」下方查看。</string>
+  <string name="patroller_onboarding_two_warn_title">警告</string>
+  <string name="patroller_onboarding_two_warn_content">在編輯者的討論頁面上建立、發送，和儲存警告訊息。</string>
+  <string name="patroller_diff_feedback_dialog_title">幫助我們改善這個功能</string>
+  <string name="patroller_diff_feedback_dialog_message">您滿意這個功能嗎？</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">滿意</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">普通</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">不滿意</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">意見回饋</string>
+  <string name="patroller_diff_feedback_dialog_submit">提交</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">意見回饋提交成功。</string>
+  <string name="patroller_diff_feedback_tooltip">點選溢出選單，在「功能問題」下方隨時提交回饋。</string>
   <string name="data_opt_in_accept">接受</string>
   <string name="data_opt_in_reject">拒絕</string>
   <string name="page_issues_title">頁面問題</string>
@@ -1566,4 +1584,8 @@
   <string name="email_report_image_recommendations_body">我遇到了圖片推薦功能的問題：\n- [描述具體問題]\n\n我希望看到的反應是：\n- [描述建議的解決方案]</string>
   <string name="email_report_patroller_tasks_subject">問題報告 - 巡查任務功能</string>
   <string name="email_report_patroller_tasks_body">我遇到了編輯巡查功能的問題：\n- [描述具體問題]\n\n我希望看到的反應是：\n- [描述建議的解決方案]\n\n[截圖或是連結]</string>
+  <string name="donation_campaign_maybe_later_snackbar">明天我們會再次提醒您。</string>
+  <string name="donation_campaign_donated_snackbar">謝謝您，親愛的捐贈者！您的慷慨贊助會幫助維基百科與相關姐妹網站蓬勃發展。</string>
+  <string name="donation_campaign_go_back_button">返回</string>
+  <string name="menu_single_webview_open_external">在系統瀏覽器開啟</string>
 </resources>

@@ -49,7 +49,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
     }
 
     val isFullyExpanded: Boolean get() {
-        return !currentSearchQuery.isNullOrEmpty() || flattenedThreadItems.size == topic?.allReplies?.size
+        return !currentSearchQuery.isNullOrEmpty() || flattenedThreadItems.size == topic?.allReplies?.count()
     }
 
     init {
@@ -62,7 +62,7 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
         }) {
             val discussionToolsInfoResponse = ServiceFactory.get(pageTitle.wikiSite).getTalkPageTopics(pageTitle.prefixedText,
                     OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.wikiSite.languageCode, UriUtil.encodeURL(pageTitle.prefixedText))
-            val oldItemsFlattened = topic?.allReplies.orEmpty()
+            val oldItemIdsFlattened = topic?.allReplies.orEmpty().map { it.id }.toSet()
 
             topic = discussionToolsInfoResponse.pageInfo?.threads.orEmpty().find { it.id == topicId }
 
@@ -74,9 +74,11 @@ class TalkTopicViewModel(bundle: Bundle) : ViewModel() {
                 AppDatabase.instance.talkPageSeenDao().insertTalkPageSeen(TalkPageSeen(it))
             }
 
-            val newItemsFlattened = topic?.allReplies.orEmpty().filter { it.id !in oldItemsFlattened.map { item -> item.id } }
+            val newItemsFlattened = topic?.allReplies.orEmpty()
+                .filter { it.id !in oldItemIdsFlattened }
+                .toList()
 
-            if (oldItemsFlattened.isNotEmpty() && newItemsFlattened.isNotEmpty()) {
+            if (oldItemIdsFlattened.isNotEmpty() && newItemsFlattened.isNotEmpty()) {
                 if (AccountUtil.isLoggedIn) {
                     scrollTargetId = newItemsFlattened.findLast { it.author == AccountUtil.userName }?.id
                 }

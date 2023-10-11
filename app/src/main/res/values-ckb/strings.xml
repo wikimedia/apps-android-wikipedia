@@ -1172,9 +1172,9 @@
   <string name="revision_diff_line_removed">دێڕ سڕدرایەوە</string>
   <string name="revision_diff_paragraph_added">پەڕەگراف زیاد کرا</string>
   <string name="revision_diff_paragraph_removed">پەڕەگراف لابرا</string>
-  <string name="revision_undo_title">دەستکارییەکە پووچەڵ بکەوە</string>
-  <string name="revision_undo_message">ئەمە ئەو گۆڕانکارییانە ھەڵدەوەشێنێتەوە کە لەلایەن پێداچوونەوە(ەکان)ی ئەم وتارەی خوارەوە ئەنجام دراوە.</string>
-  <string name="revision_undo_reason">بۆ بەردەوامبوون، تکایە مەبەستێک دیاری بکە بۆ گەڕاندنەوەی ئەم دەستکارییە:</string>
+  <string name="revision_undo_title" fuzzy="true">دەستکارییەکە پووچەڵ بکەوە</string>
+  <string name="revision_undo_message" fuzzy="true">ئەمە ئەو گۆڕانکارییانە ھەڵدەوەشێنێتەوە کە لەلایەن پێداچوونەوە(ەکان)ی ئەم وتارەی خوارەوە ئەنجام دراوە.</string>
+  <string name="revision_undo_reason" fuzzy="true">بۆ بەردەوامبوون، تکایە مەبەستێک دیاری بکە بۆ گەڕاندنەوەی ئەم دەستکارییە:</string>
   <string name="revision_undo_success">دەستکارییەکە گەڕێندرایەوە</string>
   <string name="revision_rollback_dialog_title">ئایا دڵنیایت کە دەتەوێت دەستکارییەکان بگەڕێنیتەوە؟</string>
   <string name="revision_rollback_success">دەستکارییەکان گەڕێندرانەوە.</string>

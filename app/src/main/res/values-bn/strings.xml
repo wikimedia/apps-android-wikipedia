@@ -1095,8 +1095,9 @@
   <string name="revision_diff_line_removed">লাইন সরানো হয়েছে</string>
   <string name="revision_diff_paragraph_added">অনুচ্ছেদ যোগ করা হয়েছে</string>
   <string name="revision_diff_paragraph_removed">অনুচ্ছেদ সরানো হয়েছে</string>
-  <string name="revision_undo_title">সম্পাদনা বাতিল করুন</string>
-  <string name="revision_undo_reason">চালিয়ে যেতে, অনুগ্রহ করে এই সম্পাদনাটি পূর্বাবস্থায় ফেরত নেয়ার একটি কারণ প্রদান করুন:</string>
+  <string name="revision_undo_title">আপনি কি নিশ্চিত যে আপনি এই সম্পাদনাটি পূর্বাবস্থায় ফেরাতে চান?</string>
+  <string name="revision_undo_summary_hint">সারাংশ (ঐচ্ছিক)</string>
+  <string name="revision_undo_reason">সম্পাদনাটি পূর্বাবস্থায় ফেরত নেয়ার একটি কারণ প্রদান করুন</string>
   <string name="revision_rollback_success">সম্পাদনা পুনর্বহাল করা হয়েছে।</string>
   <string name="revision_compare_button">তুলনা করুন</string>
   <string name="revision_compare_two_only">শুধুমাত্র দুটি সংশোধন নির্বাচন করা যাবে।</string>
@@ -1168,4 +1169,6 @@
   <string name="data_opt_in_accept">গ্রহণ করুন</string>
   <string name="data_opt_in_reject">প্রত্যাখ্যান করুন</string>
   <string name="page_issues_title">পাতার সমস্যা</string>
+  <string name="donation_campaign_go_back_button">ফিরে যান</string>
+  <string name="menu_single_webview_open_external">সিস্টেম ব্রাউজারে খুলুন</string>
 </resources>

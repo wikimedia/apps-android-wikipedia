@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.icu.text.CompactDecimalFormat
 import android.os.Build
-import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.BackgroundColorSpan
 import android.text.style.ForegroundColorSpan
@@ -13,6 +12,8 @@ import android.text.style.StyleSpan
 import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.IntRange
+import androidx.core.text.buildSpannedString
+import androidx.core.text.set
 import okio.ByteString.Companion.encodeUtf8
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
@@ -22,12 +23,14 @@ import org.wikipedia.staticdata.UserAliasData
 import java.nio.charset.StandardCharsets
 import java.text.Collator
 import java.text.Normalizer
+import java.util.EnumSet
 import java.util.Locale
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
 object StringUtil {
     private const val CSV_DELIMITER = ","
+    private val HIGHLIGHT_REGEX_OPTIONS = EnumSet.of(RegexOption.LITERAL, RegexOption.IGNORE_CASE)
 
     fun listToCsv(list: List<String?>): String {
         return list.joinToString(CSV_DELIMITER)
@@ -141,20 +144,18 @@ object StringUtil {
         textView.text = fromHtml(parentTextStr)
     }
 
-    fun highlightAndBoldenText(textView: TextView, input: String?, shouldBolden: Boolean, highlightColor: Int) {
-        if (!input.isNullOrEmpty()) {
-            val spannableString = SpannableString(textView.text)
-            val caseInsensitiveSpannableString = SpannableString(textView.text.toString().lowercase())
-            var indexOfKeyword = caseInsensitiveSpannableString.toString().lowercase().indexOf(input.lowercase())
-            while (indexOfKeyword >= 0) {
-                spannableString.setSpan(BackgroundColorSpan(highlightColor), indexOfKeyword, indexOfKeyword + input.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-                spannableString.setSpan(ForegroundColorSpan(Color.BLACK), indexOfKeyword, indexOfKeyword + input.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-                if (shouldBolden) {
-                    spannableString.setSpan(StyleSpan(Typeface.BOLD), indexOfKeyword, indexOfKeyword + input.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+    fun setHighlightedAndBoldenedText(textView: TextView, parentText: CharSequence, query: String?) {
+        textView.text = if (query.isNullOrEmpty()) parentText else buildSpannedString {
+            append(parentText)
+
+            query.toRegex(HIGHLIGHT_REGEX_OPTIONS).findAll(parentText)
+                .forEach {
+                    val range = it.range
+                    val (start, end) = range.first to range.last + 1
+                    this[start, end] = BackgroundColorSpan(Color.YELLOW)
+                    this[start, end] = ForegroundColorSpan(Color.BLACK)
+                    this[start, end] = StyleSpan(Typeface.BOLD)
                 }
-                indexOfKeyword = caseInsensitiveSpannableString.indexOf(input.lowercase(), indexOfKeyword + input.length)
-            }
-            textView.text = spannableString
         }
     }
 
