@@ -40,6 +40,7 @@ import org.wikipedia.databinding.FragmentSuggestedEditsRecentEditsBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
 import org.wikipedia.databinding.ViewEditHistorySearchBarBinding
 import org.wikipedia.dataclient.mwapi.MwQueryResult
+import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.notifications.NotificationActivity
@@ -347,10 +348,10 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         private fun updateFilterCount() {
-            val showFilterCount = viewModel.filtersCount() != 0
+            val showFilterCount = SuggestedEditsRecentEditsViewModel.filtersCount() != 0
             val filterButtonColor = if (showFilterCount) R.attr.progressive_color else R.attr.primary_color
             binding.filterCount.isVisible = showFilterCount
-            binding.filterCount.text = viewModel.filtersCount().toString()
+            binding.filterCount.text = SuggestedEditsRecentEditsViewModel.filtersCount().toString()
             ImageViewCompat.setImageTintList(binding.filterByButton,
                 ResourceUtil.getThemedColorStateList(requireContext(), filterButtonColor))
         }
@@ -364,7 +365,8 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         fun bindItem() {
-            val filtersStr = resources.getQuantityString(R.plurals.patroller_tasks_filters_number_of_filters, viewModel.filtersCount(), viewModel.filtersCount())
+            val filtersStr = resources.getQuantityString(R.plurals.patroller_tasks_filters_number_of_filters,
+                SuggestedEditsRecentEditsViewModel.filtersCount(), SuggestedEditsRecentEditsViewModel.filtersCount())
             binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_filters_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
         }
     }
@@ -379,14 +381,16 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         override fun onItemClick(item: MwQueryResult.RecentChange) {
-            // TODO: implement this
+            viewModel.populateEditingSuggestionsProvider(item)
+            startActivity(SuggestionsActivity.newIntent(requireActivity(),
+                DescriptionEditActivity.Action.VANDALISM_PATROL, Constants.InvokeSource.SUGGESTED_EDITS))
         }
 
         override fun onUserClick(item: MwQueryResult.RecentChange, view: View) {
             UserTalkPopupHelper.show(requireActivity() as AppCompatActivity,
                 PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), item.user, viewModel.wikiSite),
                 item.anon, view, Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS, HistoryEntry.SOURCE_SUGGESTED_EDITS_RECENT_EDITS,
-                revisionId = item.curRev, pageId = item.pageid.toInt(), showUserInfo = true)
+                revisionId = item.curRev, pageId = item.pageid, showUserInfo = true)
         }
     }
 
@@ -409,7 +413,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                     }
 
                     override fun getExcludedFilterCount(): Int {
-                        return viewModel.filtersCount()
+                        return SuggestedEditsRecentEditsViewModel.filtersCount()
                     }
 
                     override fun getFilterIconContentDescription(): Int {
