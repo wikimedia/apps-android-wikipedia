@@ -1561,7 +1561,7 @@
   <string name="email_report_patroller_tasks_subject">Reporto de problema: function Cargas de patruliator</string>
   <string name="email_report_patroller_tasks_body">Io ha incontrate un problema con le function Cargas de patruliator:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]\n\n[Capturas de schermo o ligamines]</string>
   <string name="donation_campaign_maybe_later_snackbar">Nos te lo recordara de novo deman.</string>
-  <string name="donation_campaign_donated_snackbar">Gratias, car donor! Tu generositate adjuta Wikipedia e su sitos fratres a prosperar.</string>
+  <string name="donation_campaign_donated_snackbar">Gratias, car donator! Tu generositate adjuta Wikipedia e su sitos fratres a prosperar.</string>
   <string name="donation_campaign_go_back_button">Retornar</string>
   <string name="menu_single_webview_open_external">Aperir in le navigator del systema</string>
 </resources>
