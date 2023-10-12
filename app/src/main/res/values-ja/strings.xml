@@ -1577,4 +1577,6 @@
   <string name="email_report_image_recommendations_body">画像お勧め機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]</string>
   <string name="email_report_patroller_tasks_subject">問題報告 - 編集巡回機能</string>
   <string name="email_report_patroller_tasks_body">編集巡回機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]\n\n[スクリーンショットまたはリンク]</string>
+  <string name="donation_campaign_go_back_button">戻る</string>
+  <string name="menu_single_webview_open_external">システムブラウザで開く</string>
 </resources>
