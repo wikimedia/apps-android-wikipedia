@@ -10,7 +10,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.talk.db.TalkTemplate
-import org.wikipedia.util.log.L
 import java.util.Collections
 
 class TalkTemplatesViewModel : ViewModel() {

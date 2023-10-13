@@ -200,6 +200,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                         .setNegativeButton(R.string.talk_templates_new_message_dialog_cancel, null)
                         .show()
                 }
+
+                override fun onDismiss() { }
             }
             textInputDialog.showDialogMessage(false)
             textInputDialog.showSubjectText(true)

@@ -167,7 +167,13 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
                     viewModel.saveTemplate(titleText.toString(), subject, body)
                 }
 
-                override fun onCancel() {}
+                override fun onCancel() {
+                    setSaveButtonEnabled(true)
+                }
+
+                override fun onDismiss() {
+                    setSaveButtonEnabled(true)
+                }
             }
             textInputDialog.setDialogMessage(getString(R.string.talk_templates_new_message_dialog_description))
             textInputDialog.showDialogMessage(true)

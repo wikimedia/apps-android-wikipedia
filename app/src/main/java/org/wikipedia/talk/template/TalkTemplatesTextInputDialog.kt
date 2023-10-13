@@ -19,6 +19,7 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog)
         fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence)
         fun onCancel()
+        fun onDismiss()
     }
 
     private var binding = DialogTalkTemplatesTextInputBinding.inflate(LayoutInflater.from(context))
@@ -36,6 +37,9 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         }
         binding.titleInput.doOnTextChanged { text, _, _, _ ->
             callback?.onTextChanged(text ?: "", this)
+        }
+        setOnDismissListener {
+            callback?.onDismiss()
         }
     }
 
