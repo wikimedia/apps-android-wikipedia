@@ -129,8 +129,8 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-        if (action == IMAGE_RECOMMENDATIONS) {
-            // In the case of image recommendations, the sub-fragment will have its own menu.
+        if (action == IMAGE_RECOMMENDATIONS || action == VANDALISM_PATROL) {
+            // In these cases, the sub-fragment will have its own menu.
             return
         }
         menuInflater.inflate(R.menu.menu_suggested_edits, menu)
@@ -163,6 +163,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
             ADD_IMAGE_TAGS -> getString(R.string.suggested_edits_tag_images)
             ADD_CAPTION, TRANSLATE_CAPTION -> getString(R.string.suggested_edits_caption_images)
             IMAGE_RECOMMENDATIONS -> ""
+            VANDALISM_PATROL -> getString(R.string.patroller_tasks_patrol_edit_title)
             else -> getString(R.string.suggested_edits_describe_articles)
         }
     }
@@ -204,7 +205,9 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
 
         binding.bottomButtonContainer.isVisible = action != IMAGE_RECOMMENDATIONS
 
-        if (action == ADD_IMAGE_TAGS) {
+        if (action == VANDALISM_PATROL) {
+            binding.bottomButtonContainer.isVisible = false
+        } else if (action == ADD_IMAGE_TAGS) {
             if (binding.addContributionButton.tag == "landscape") {
                 // implying landscape mode, where addContributionText doesn't exist.
                 binding.addContributionButton.text = null
@@ -269,7 +272,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
     }
 
     fun onSelectPage() {
-        if (action == ADD_IMAGE_TAGS) {
+        if ((action == ADD_IMAGE_TAGS || action == VANDALISM_PATROL) && topBaseChild() != null) {
             topBaseChild()?.publish()
         } else if (action == IMAGE_RECOMMENDATIONS) {
             topBaseChild()?.publish()
@@ -378,9 +381,11 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         override fun getItemCount(): Int {
             return Integer.MAX_VALUE
         }
-
         override fun createFragment(position: Int): Fragment {
             return when (action) {
+                VANDALISM_PATROL -> {
+                    SuggestedEditsVandalismPatrolFragment.newInstance()
+                }
                 ADD_IMAGE_TAGS -> {
                     SuggestedEditsImageTagsFragment.newInstance()
                 }

@@ -1311,9 +1311,9 @@
   <string name="revision_diff_line_removed">Linje fjernet</string>
   <string name="revision_diff_paragraph_added">Avsnitt lagt til</string>
   <string name="revision_diff_paragraph_removed">Avsnitt fjernet</string>
-  <string name="revision_undo_title">Gjør om redigering</string>
-  <string name="revision_undo_message">Dette vil gjøre om redigeringene som ble gjort i revisjonen(e) som vises her.</string>
-  <string name="revision_undo_reason">Angi en årsak til at du gjør om denne redigeringen for å fortsette:</string>
+  <string name="revision_undo_title" fuzzy="true">Gjør om redigering</string>
+  <string name="revision_undo_message" fuzzy="true">Dette vil gjøre om redigeringene som ble gjort i revisjonen(e) som vises her.</string>
+  <string name="revision_undo_reason" fuzzy="true">Angi en årsak til at du gjør om denne redigeringen for å fortsette:</string>
   <string name="revision_undo_success">Revisjonen ble gjort om.</string>
   <string name="revision_rollback_dialog_title">Er du sikker på at du vil tilbakestille redigeringene?</string>
   <string name="revision_rollback_success">Redigeringer tilbakestilt.</string>

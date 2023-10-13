@@ -1178,6 +1178,7 @@
   <string name="wikitext_template">Template</string>
   <string name="wikitext_reference">Riferimento</string>
   <string name="wikitext_preview_link">Anteprima collegamento</string>
+  <string name="wikitext_mention_user">Menziona un utente</string>
   <string name="insert_media_title">Inserisci un file multimediale</string>
   <string name="insert_media_search_description">Seleziona un file da Wikimedia Commons</string>
   <string name="insert_media_search_hint">Ricerca file multimediali</string>
@@ -1310,9 +1311,9 @@
   <string name="revision_diff_paragraph_added">Paragrafo aggiunto</string>
   <string name="revision_diff_paragraph_removed">Paragrafo rimosso</string>
   <string name="revision_diff_protected">Le modifiche apportate in questa versione non sono accessibili pubblicamente.</string>
-  <string name="revision_undo_title">Annulla modifica</string>
-  <string name="revision_undo_message">Ciò annullerà le modifiche apportate alla versione della voce mostrata qui.</string>
-  <string name="revision_undo_reason">Per continuare, fornisci un motivo per annullare questa modifica:</string>
+  <string name="revision_undo_title">Sei sicuro di voler annullare questa modifica?</string>
+  <string name="revision_undo_message">Annullare significa annullare gli effetti di una o più modifiche.</string>
+  <string name="revision_undo_reason">Condividi il motivo del ripristino</string>
   <string name="revision_undo_success">La versione è stata annullata.</string>
   <string name="revision_rollback_dialog_title">Sei sicuro di voler annullare le modifiche?</string>
   <string name="revision_rollback_success">Modifiche annullate.</string>
@@ -1438,6 +1439,19 @@
     <item quantity="other">%d filtri</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Verifica modifica</string>
+  <string name="patroller_onboarding_two_thank_title">Ringrazia</string>
+  <string name="patroller_onboarding_two_warn_title">Avvisi</string>
+  <string name="patroller_onboarding_two_undo_title">Annulla/Ripristina</string>
+  <string name="patroller_onboarding_two_undo_content">Scegli \"Annulla\" per annullare o ripristinare una modifica potenzialmente distruttiva.</string>
+  <string name="patroller_diff_feedback_dialog_message">Sei soddisfatto di questa funzionalità?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Soddisfatto</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutrale</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Non soddisfatto</string>
+  <string name="patroller_diff_feedback_dialog_submit">Invia</string>
   <string name="data_opt_in_accept">Accetta</string>
   <string name="data_opt_in_reject">Rifiuta</string>
+  <string name="donation_campaign_maybe_later_snackbar">Te lo ricorderemo di nuovo domani.</string>
+  <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità aiuta a far crescere Wikipedia e i suoi siti correlati.</string>
+  <string name="donation_campaign_go_back_button">Torna indietro</string>
+  <string name="menu_single_webview_open_external">Apri nel browser di sistema</string>
 </resources>
