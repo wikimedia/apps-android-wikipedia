@@ -17,7 +17,7 @@ class PatrollerActivityEvent(
 ) : MobileAppsEvent(STREAM_NAME) {
 
     companion object {
-        private const val STREAM_NAME = "app_patroller_interaction"
+        private const val STREAM_NAME = "app_patroller_experience"
 
         fun logImpression(
             activeInterface: String,
