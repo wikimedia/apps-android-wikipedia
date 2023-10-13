@@ -89,6 +89,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentArticleEditDetailsBinding.inflate(inflater, container, false)
+        Prefs.showOneTimeSequentialRecentEditsDiffTooltip = true
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
         return binding.root
@@ -360,10 +361,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
     }
 
-    private fun showOneTimeSequentialRecentEditsTooltips() {
-        binding.scrollContainer.fullScroll(View.FOCUS_UP)
-        binding.scrollContainer.removeCallbacks(sequentialTooltipRunnable)
-        binding.scrollContainer.postDelayed(sequentialTooltipRunnable, 500)
+    private fun maybeShowOneTimeSequentialRecentEditsTooltips() {
+        // TODO: fix the issue of missing tagging the view
+        if (Prefs.showOneTimeSequentialRecentEditsDiffTooltip && viewModel.fromRecentEdits &&
+            binding.oresDamagingButton.isVisible && binding.oresGoodFaithButton.isVisible) {
+            binding.scrollContainer.removeCallbacks(sequentialTooltipRunnable)
+            binding.scrollContainer.postDelayed(sequentialTooltipRunnable, 500)
+        }
     }
 
     private fun setErrorState(t: Throwable) {
@@ -429,9 +433,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 binding.oresGoodFaithButton.isVisible = true
                 binding.oresGoodFaithButton.text = getString(R.string.edit_intent, (((it.ores?.goodfaithProb) ?: 0f) * 100f).toInt().toString())
                 binding.oresGoodFaithButton.setOnClickListener(openQualityAndIntentFiltersPage)
-                if (Prefs.showOneTimeSequentialRecentEditsDiffTooltip && viewModel.fromRecentEdits) {
-                    showOneTimeSequentialRecentEditsTooltips()
-                }
+
+                maybeShowOneTimeSequentialRecentEditsTooltips()
             }
         }
 
