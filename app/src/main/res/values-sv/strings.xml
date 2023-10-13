@@ -1473,7 +1473,6 @@
   <string name="talk_templates_edit_message_dialog_save">Spara</string>
   <string name="talk_templates_edit_message_dialog_delete">Radera</string>
   <string name="talk_templates_edit_message_updated">Meddelandet har uppdaterats</string>
-  <string name="talk_templates_edit_message_confirm_description">Är du säker på att du vill radera meddelandet %s från listan?</string>
   <string name="talk_templates_message_deleted">Meddelandet har raderats</string>
   <string name="patroller_tasks_edits_list_title">Lista över redigeringar</string>
   <string name="patroller_tasks_edits_list_search_hint">Sök eller filtrera redigeringar</string>

@@ -1485,7 +1485,6 @@
   <string name="talk_templates_edit_message_dialog_save">儲存</string>
   <string name="talk_templates_edit_message_dialog_delete">刪除</string>
   <string name="talk_templates_edit_message_updated">訊息已更新</string>
-  <string name="talk_templates_edit_message_confirm_description">您確定要從清單中刪除這則「%s」訊息嗎？</string>
   <string name="talk_templates_message_deleted">訊息已刪除</string>
   <string name="patroller_tasks_edits_list_title">編輯清單</string>
   <string name="patroller_tasks_edits_list_search_hint">搜尋或篩選編輯</string>
