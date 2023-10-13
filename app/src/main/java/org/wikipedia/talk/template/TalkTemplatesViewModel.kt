@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.talk.db.TalkTemplate
+import org.wikipedia.util.log.L
 import java.util.Collections
 
 class TalkTemplatesViewModel : ViewModel() {
@@ -17,6 +18,9 @@ class TalkTemplatesViewModel : ViewModel() {
     private val talkTemplatesRepository = TalkTemplatesRepository(AppDatabase.instance.talkTemplateDao())
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = UiState.Error(throwable)
+    }
+    private val actionHandler = CoroutineExceptionHandler { _, throwable ->
+        _actionState.value = ActionState.Error(throwable)
     }
     val talkTemplatesList = mutableListOf<TalkTemplate>()
 
@@ -48,7 +52,7 @@ class TalkTemplatesViewModel : ViewModel() {
 
     private fun resetOrder() {
         for (i in talkTemplatesList.indices) {
-            talkTemplatesList[i].order = i
+            talkTemplatesList[i].order = i + 1
         }
     }
 
@@ -61,30 +65,32 @@ class TalkTemplatesViewModel : ViewModel() {
     }
 
     fun updateTalkTemplate(title: String, subject: String, body: String, talkTemplate: TalkTemplate) {
-        viewModelScope.launch(handler) {
+        viewModelScope.launch(actionHandler) {
             withContext(Dispatchers.IO) {
-                talkTemplate.title = title
-                talkTemplate.subject = subject
-                talkTemplate.message = body
+                talkTemplate.apply {
+                    this.title = title
+                    this.subject = subject
+                    this.message = body
+                }
                 talkTemplatesRepository.updateTemplate(talkTemplate)
                 talkTemplatesList.find { it == talkTemplate }?.apply {
                     this.title = title
                     this.subject = subject
                     this.message = body
                 }
-                _actionState.value = ActionState.Saved(talkTemplate.order)
+                _actionState.value = ActionState.Saved(talkTemplate.order - 1)
             }
         }
     }
 
     fun deleteTemplate(talkTemplate: TalkTemplate) {
-        viewModelScope.launch(handler) {
+        viewModelScope.launch(actionHandler) {
             withContext(Dispatchers.IO) {
                 talkTemplatesRepository.deleteTemplate(talkTemplate)
                 talkTemplatesList.remove(talkTemplate)
                 resetOrder()
                 talkTemplatesRepository.updateTemplates(talkTemplatesList)
-                _actionState.value = ActionState.Deleted(talkTemplate.order)
+                _actionState.value = ActionState.Deleted(talkTemplate.order - 1)
             }
         }
     }
@@ -98,5 +104,6 @@ class TalkTemplatesViewModel : ViewModel() {
     open class ActionState {
         class Saved(val position: Int) : ActionState()
         class Deleted(val position: Int) : ActionState()
+        class Error(val throwable: Throwable) : ActionState()
     }
 }

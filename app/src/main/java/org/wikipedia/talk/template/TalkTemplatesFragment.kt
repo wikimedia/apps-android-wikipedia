@@ -77,6 +77,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                         when (it) {
                             is TalkTemplatesViewModel.ActionState.Saved -> onSaved(it.position)
                             is TalkTemplatesViewModel.ActionState.Deleted -> onDeleted(it.position)
+                            is TalkTemplatesViewModel.ActionState.Error -> onActionError(it.throwable)
                         }
                     }
                 }
@@ -137,6 +138,10 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesRecyclerView.adapter?.notifyItemRemoved(position)
         binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesRecyclerView.isVisible = viewModel.talkTemplatesList.isNotEmpty()
+    }
+
+    private fun onActionError(t: Throwable) {
+        FeedbackUtil.showMessage(this, t.toString())
     }
 
     private fun onError(t: Throwable) {
