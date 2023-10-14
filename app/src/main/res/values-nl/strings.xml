@@ -1495,7 +1495,6 @@
   <string name="talk_templates_edit_message_dialog_save">Opslaan</string>
   <string name="talk_templates_edit_message_dialog_delete">Verwijderen</string>
   <string name="talk_templates_edit_message_updated">Bericht is bijgewerkt</string>
-  <string name="talk_templates_edit_message_confirm_description">Weet u zeker dat u dit bericht \"%s\" uit de lijst wilt verwijderen?</string>
   <string name="talk_templates_message_deleted">Bericht is verwijderd</string>
   <string name="patroller_tasks_edits_list_title">Lijst met bewerkingen</string>
   <string name="patroller_tasks_edits_list_search_hint">Bewerkingen zoeken of filteren</string>

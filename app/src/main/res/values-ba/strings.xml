@@ -1459,7 +1459,6 @@
   <string name="talk_templates_edit_message_dialog_save">Һаҡларға</string>
   <string name="talk_templates_edit_message_dialog_delete">Юйырға</string>
   <string name="talk_templates_edit_message_updated">Хәбәр яңыртылған</string>
-  <string name="talk_templates_edit_message_confirm_description">%s хәбәрен исемлектән юйырға теләйһегеҙме?</string>
   <string name="talk_templates_message_deleted">Хәбәр юйылған</string>
   <string name="patroller_tasks_edits_list_title">Үҙгәртеүҙәр исемлеге</string>
   <string name="patroller_tasks_edits_list_search_hint">Төҙәтеүҙәрҙе табырға йәки фильтрларға</string>

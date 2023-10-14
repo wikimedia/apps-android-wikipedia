@@ -1546,7 +1546,6 @@
   <string name="talk_templates_edit_message_dialog_save">Shrani</string>
   <string name="talk_templates_edit_message_dialog_delete">Izbriši</string>
   <string name="talk_templates_edit_message_updated">Sporočilo je posodobljeno</string>
-  <string name="talk_templates_edit_message_confirm_description">Ste prepričani, da želite izbrisati to sporočilo %s s seznama?</string>
   <string name="talk_templates_message_deleted">Sporočilo je izbrisano</string>
   <string name="patroller_tasks_edits_list_title">Seznam urejanj</string>
   <string name="patroller_tasks_edits_list_search_hint">Iskanje ali filtriranje urejanj</string>
