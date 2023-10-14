@@ -76,10 +76,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
 
     private val sequentialTooltipRunnable = Runnable {
-        if (!isAdded || !Prefs.showOneTimeSequentialRecentEditsDiffTooltip) {
+        if (!isAdded) {
             return@Runnable
         }
-        Prefs.showOneTimeSequentialRecentEditsDiffTooltip = false
         val balloon = FeedbackUtil.getTooltip(requireContext(), getString(R.string.patroller_diff_tooltip_one), autoDismiss = true, showDismissButton = true, countNum = 1, countTotal = 2)
         balloon.showAlignBottom(binding.oresDamagingButton)
         balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), getString(R.string.patroller_diff_tooltip_two), autoDismiss = true, showDismissButton = true, countNum = 2, countTotal = 2), binding.oresGoodFaithButton)
@@ -89,7 +88,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentArticleEditDetailsBinding.inflate(inflater, container, false)
-        Prefs.showOneTimeSequentialRecentEditsDiffTooltip = true
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
         return binding.root
@@ -362,9 +360,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun maybeShowOneTimeSequentialRecentEditsTooltips() {
-        // TODO: fix the issue of missing tagging the view
         if (Prefs.showOneTimeSequentialRecentEditsDiffTooltip && viewModel.fromRecentEdits &&
             binding.oresDamagingButton.isVisible && binding.oresGoodFaithButton.isVisible) {
+            Prefs.showOneTimeSequentialRecentEditsDiffTooltip = false
             binding.scrollContainer.removeCallbacks(sequentialTooltipRunnable)
             binding.scrollContainer.postDelayed(sequentialTooltipRunnable, 500)
         }

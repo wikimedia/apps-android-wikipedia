@@ -4,9 +4,14 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.drawable.Animatable
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -27,7 +32,13 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
-import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.IMAGE_RECOMMENDATIONS
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.VANDALISM_PATROL
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestionsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
@@ -94,7 +105,10 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         super.onViewCreated(view, savedInstanceState)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         setInitialUiState()
-        binding.cardsViewPager.offscreenPageLimit = 2
+        // Disable offscreenPageLimit for recentEdits can avoid the tooltips showing incorrectly.
+        if (action != VANDALISM_PATROL && !Prefs.showOneTimeSequentialRecentEditsDiffTooltip) {
+            binding.cardsViewPager.offscreenPageLimit = 2
+        }
         binding.cardsViewPager.registerOnPageChangeCallback(viewPagerListener) // addOnPageChangeListener(viewPagerListener)
         resetViewPagerItemAdapter()
 
