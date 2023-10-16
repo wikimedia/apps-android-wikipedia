@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,13 +9,16 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import org.wikipedia.R
+import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.onboarding.OnboardingFragment
 import org.wikipedia.onboarding.OnboardingPageView
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.UriUtil
 
-class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment() {
+class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callback {
     override val doneButtonText = R.string.onboarding_get_started
-    override val showDoneButton = true
+    override val showDoneButton = false
 
     override fun getAdapter(): FragmentStateAdapter {
         return DescriptionEditTutorialPagerAdapter(this)
@@ -30,14 +34,35 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment() {
         }
     }
 
+    override fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean) {
+        if ((view.tag as Int) == 2) {
+            Prefs.isEventLoggingEnabled = accept
+            requireActivity().finish()
+        }
+    }
+
+    override fun onLinkClick(view: OnboardingPageView, url: String) {
+        when (url) {
+            "#privacy" -> FeedbackUtil.showPrivacyPolicy(requireContext())
+            else -> UriUtil.handleExternalLink(requireActivity(), Uri.parse(url))
+        }
+    }
+
+    override fun onListActionButtonClicked(view: OnboardingPageView) { }
+
     class ItemFragment : Fragment() {
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
             super.onCreateView(inflater, container, savedInstanceState)
             val position = requireArguments().getInt(ARG_POSITION, 0)
             val view = inflater.inflate(pages[position], container, false) as OnboardingPageView
-            view.callback = OnboardingPageView.DefaultCallback()
+            view.tag = position
+            view.callback = callback
             return view
         }
+
+        private val callback
+            get() = FragmentUtil.getCallback(this, OnboardingPageView.Callback::class.java)
+
     }
 
     companion object {

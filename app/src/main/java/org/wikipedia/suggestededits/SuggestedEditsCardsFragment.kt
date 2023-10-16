@@ -106,7 +106,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         setInitialUiState()
         // Disable offscreenPageLimit for recentEdits can avoid the tooltips showing incorrectly.
-        if (action != VANDALISM_PATROL && !Prefs.showOneTimeSequentialRecentEditsDiffTooltip) {
+        if (action != VANDALISM_PATROL) {
             binding.cardsViewPager.offscreenPageLimit = 2
         }
         binding.cardsViewPager.registerOnPageChangeCallback(viewPagerListener) // addOnPageChangeListener(viewPagerListener)
