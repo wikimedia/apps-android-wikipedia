@@ -62,7 +62,6 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
 
         private val callback
             get() = FragmentUtil.getCallback(this, OnboardingPageView.Callback::class.java)
-
     }
 
     companion object {
