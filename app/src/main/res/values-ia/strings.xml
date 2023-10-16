@@ -1455,7 +1455,7 @@
   <string name="talk_templates_edit_message_dialog_save">Salveguardar</string>
   <string name="talk_templates_edit_message_dialog_delete">Deler</string>
   <string name="talk_templates_edit_message_updated">Le message ha essite actualisate</string>
-  <string name="talk_templates_edit_message_confirm_description">Es tu secur de voler deler le message “%s” del lista?</string>
+  <string name="talk_templates_edit_message_delete_description">Es tu secur de voler deler le message “%s” del lista?</string>
   <string name="talk_templates_message_deleted">Le message ha essite delite</string>
   <string name="patroller_tasks_edits_list_title">Lista de modificationes</string>
   <string name="patroller_tasks_edits_list_search_hint">Cercar o filtrar modificationes</string>
@@ -1541,6 +1541,9 @@
   <string name="patroller_onboarding_two_warn_content">Crear, inviar e immagazinar messages de advertimento sur le pagina de discussion de un redactor.</string>
   <string name="patroller_onboarding_two_undo_title">Disfacer/Revocar</string>
   <string name="patroller_onboarding_two_undo_content">Elige ‘Disfacer’ pro disfacer o revocar un modification potentialmente destructive.</string>
+  <string name="patroller_onboarding_three_title">Inviar datos anonyme</string>
+  <string name="patroller_onboarding_three_content">Adjuta nos a meliorar iste function faciente nos saper como tu lo usa. Le datos colligite es anonyme. &lt;a href=\"#privacy\"&gt;Leger plus&lt;/a&gt;</string>
+  <string name="patroller_onboarding_three_switch">Inviar reportos de uso</string>
   <string name="patroller_diff_tooltip_one">‘Damnos’ previde si un modification causa damnos a un wiki.</string>
   <string name="patroller_diff_tooltip_two">‘Intention’ previde le probabilitate que un modification es facite in bon fide.</string>
   <string name="patroller_diff_feedback_dialog_title">Adjuta nos a meliorar iste function</string>
@@ -1548,6 +1551,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfacite</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Non satisfacite</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Como pote nos meliorar le function?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Commentario</string>
   <string name="patroller_diff_feedback_dialog_submit">Submitter</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Commentario submittite.</string>
