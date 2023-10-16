@@ -1565,8 +1565,7 @@
   <string name="patroller_onboarding_three_title">Send anonym data</string>
   <string name="patroller_onboarding_three_content">Hjelp med å gjøre appen bedre ved å la oss vite hvordan du bruker den. Innsamlet informasjon er anonym. &lt;a href=\"#privacy\"&gt;Lær mer&lt;/a&gt;</string>
   <string name="patroller_onboarding_three_switch">Send bruksrapporter</string>
-  <string name="patroller_diff_tooltip_one">Skade forutsier om en redigering forårsaker skade på en wiki.</string>
-  <string name="patroller_diff_tooltip_two">Hensikt forutsier sannsynligheten for at en redigering lagres med gode hensikter.</string>
+  <string name="patroller_diff_tooltip_intent">Hensikt forutsier sannsynligheten for at en redigering lagres med gode hensikter.</string>
   <string name="patroller_diff_feedback_dialog_title">Hjelp oss å forbedre denne funksjonen</string>
   <string name="patroller_diff_feedback_dialog_message">Er du fornøyd med denne funksjonen?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Fornøyd</string>
