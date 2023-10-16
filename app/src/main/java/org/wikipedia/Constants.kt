@@ -96,6 +96,7 @@ object Constants {
         TALK_TOPICS_ACTIVITY("talkTopicsActivity"),
         TALK_TOPIC_ACTIVITY("talkTopicActivity"),
         TALK_REPLY_ACTIVITY("talkReplyActivity"),
+        ADD_TEMPLATE_ACTIVITY("addTemplateActivity"),
         EDIT_ACTIVITY("editActivity"),
         TOOLBAR("toolbar"),
         VOICE("voice"),

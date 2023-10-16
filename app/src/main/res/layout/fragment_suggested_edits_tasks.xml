@@ -265,6 +265,15 @@
                             android:textColor="?attr/progressive_color"
                             android:textSize="@dimen/bottom_nav_label_text_size"
                             android:text="Onboarding" />
+
+                        <TextView
+                            android:id="@+id/showManageTalkTemplates"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="?attr/progressive_color"
+                            android:textSize="@dimen/bottom_nav_label_text_size"
+                            android:text="Manage TalkTemplates" />
                     </LinearLayout>
 
                 </LinearLayout>
