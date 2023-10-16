@@ -29,8 +29,9 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
     init {
         setView(binding.root)
         binding.titleInputContainer.isErrorEnabled = true
+
         setPositiveButton(positiveButtonText) { _, _ ->
-            callback?.onSuccess(binding.titleInput.text.toString(), binding.subjectTextInput.text.toString(), binding.bodyTextInput.editText.text.toString())
+            callback?.onSuccess(binding.titleInput.text.toString().trim(), binding.subjectTextInput.text.toString().trim(), binding.bodyTextInput.editText.text.toString().trim())
         }
         setNegativeButton(negativeButtonText) { _, _ ->
             callback?.onCancel()
@@ -41,6 +42,7 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         setOnDismissListener {
             callback?.onDismiss()
         }
+
     }
 
     override fun create(): AlertDialog {
@@ -48,8 +50,36 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         dialog?.setOnShowListener {
             dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
             callback?.onShow(this@TalkTemplatesTextInputDialog)
+            addTextWatcher()
         }
         return dialog!!
+    }
+
+    private fun addTextWatcher() {
+        val textWatcher = binding.titleInput.doOnTextChanged { _, _, _, _ ->
+            binding.titleInputContainer.error = null
+            binding.subjectTextInputContainer.error = null
+            binding.bodyTextInput.textInputLayout.error = null
+            val title = binding.titleInput.text.toString().trim()
+            val subject = binding.subjectTextInput.text.toString().trim()
+            val body = binding.bodyTextInput.editText.text.toString().trim()
+            if (title.isEmpty()) {
+                binding.titleInputContainer.error = context.getString(R.string.talk_templates_message_title_empty)
+            }
+            if (subject.isEmpty()) {
+                binding.subjectTextInputContainer.error = context.getString(R.string.talk_subject_empty)
+            }
+            if (body.isEmpty()) {
+                binding.bodyTextInput.textInputLayout.error = context.getString(R.string.talk_message_empty)
+            }
+            if (binding.subjectTextInputContainer.isVisible && binding.bodyTextInput.isVisible) {
+                setPositiveButtonEnabled(title.isNotBlank() && subject.isNotBlank() && body.isNotBlank())
+            } else {
+                setPositiveButtonEnabled(title.isNotBlank())
+            }
+        }
+        binding.subjectTextInput.addTextChangedListener(textWatcher)
+        binding.bodyTextInput.editText.addTextChangedListener(textWatcher)
     }
 
     fun setDialogMessage(text: String) {
