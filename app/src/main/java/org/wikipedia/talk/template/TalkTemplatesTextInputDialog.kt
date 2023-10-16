@@ -42,7 +42,6 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         setOnDismissListener {
             callback?.onDismiss()
         }
-
     }
 
     override fun create(): AlertDialog {
