@@ -195,7 +195,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
                 override fun onCancel() {
                     MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme_Delete)
-                        .setMessage(getString(R.string.talk_templates_edit_message_confirm_description, talkTemplate.title))
+                        .setMessage(getString(R.string.talk_templates_edit_message_delete_description, talkTemplate.title))
                         .setPositiveButton(R.string.talk_templates_edit_message_dialog_delete) { _, _ -> viewModel.deleteTemplate(talkTemplate) }
                         .setNegativeButton(R.string.talk_templates_new_message_dialog_cancel, null)
                         .show()
