@@ -1562,6 +1562,7 @@
   <string name="talk_templates_edit_message_dialog_save">שמירה</string>
   <string name="talk_templates_edit_message_dialog_delete">מחיקה</string>
   <string name="talk_templates_edit_message_updated">ההודעה עודכנה</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">האם ברצונך באמת למחוק את ההודעה %s מהרשימה?</string>
   <string name="talk_templates_message_deleted">ההודעה נמחקה</string>
   <string name="patroller_tasks_edits_list_title">רשימת עריכות</string>
   <string name="patroller_tasks_edits_list_search_hint">חיפוש או סינון של עריכות</string>
@@ -1649,6 +1650,9 @@
   <string name="patroller_onboarding_two_warn_content">יצירה, שליחה ואחסון של הודעות אזהרה בדף שיחה של עורך.</string>
   <string name="patroller_onboarding_two_undo_title">ביטול/שחזור</string>
   <string name="patroller_onboarding_two_undo_content">יש לבחור \"ביטול\" כדי לבטל או לשחזור עריכה שעשויה להיות הרסנית.</string>
+  <string name="patroller_onboarding_three_title">שליחת נתונים אלמוניים</string>
+  <string name="patroller_onboarding_three_content">עזרו לנו לשפר את התכונה על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בה. איסוף הנתונים נעשה באלמוניות. &lt;a href=\"#privacy\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="patroller_onboarding_three_switch">לשלוח דיווחי שימוש</string>
   <string name="patroller_diff_tooltip_one">מדד \"נזק\" מנבא אם עריכה גורמת נזק לוויקי.</string>
   <string name="patroller_diff_tooltip_two">מדד \"כוונה\" מנבא את הסבירות שעריכה תישמר מתוך כוונה טובה.</string>
   <string name="patroller_diff_feedback_dialog_title">באפשרותך לעזור לנו לשפר התכונה הזאת</string>
@@ -1656,6 +1660,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">מרוצה</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">אין דעה</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">לא מרוצה</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">איך נוכל לשפר את התכונה?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">משוב</string>
   <string name="patroller_diff_feedback_dialog_submit">שליחה</string>
   <string name="patroller_diff_feedback_submitted_snackbar">המשוב נשלח.</string>

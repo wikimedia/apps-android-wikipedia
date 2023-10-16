@@ -1546,6 +1546,7 @@
   <string name="talk_templates_edit_message_dialog_save">Shrani</string>
   <string name="talk_templates_edit_message_dialog_delete">Izbriši</string>
   <string name="talk_templates_edit_message_updated">Sporočilo je posodobljeno</string>
+  <string name="talk_templates_edit_message_delete_description">Ste prepričani, da želite sporočilo »%s« izbrisati s seznama?</string>
   <string name="talk_templates_message_deleted">Sporočilo je izbrisano</string>
   <string name="patroller_tasks_edits_list_title">Seznam urejanj</string>
   <string name="patroller_tasks_edits_list_search_hint">Iskanje ali filtriranje urejanj</string>
@@ -1633,6 +1634,9 @@
   <string name="patroller_onboarding_two_warn_content">Ustvarjajte, pošljajte in shranjujte opozorilna sporočila na urejevalčevi pogovorni strani.</string>
   <string name="patroller_onboarding_two_undo_title">Razveljavi/vrni</string>
   <string name="patroller_onboarding_two_undo_content">Izberite »Razveljavi«, da razveljavite ali vrnete morebitno škodljivo urejanje.</string>
+  <string name="patroller_onboarding_three_title">Pošiljanje anonimnih podatkov</string>
+  <string name="patroller_onboarding_three_content">Pomagajte izboljšati aplikacijo s tem, da nam sporočate, kako jo uporabljate. Zbrani podatki so anonimni. &lt;a href=\"#privacy\"&gt;Več o tem&lt;/a&gt;</string>
+  <string name="patroller_onboarding_three_switch">Pošiljaj poročila o uporabi</string>
   <string name="patroller_diff_tooltip_one">Škoda napoveduje, ali urejanje škoduje vikiju.</string>
   <string name="patroller_diff_tooltip_two">Namen predvideva verjetnost, da bo urejanje shranjeno dobronamerno.</string>
   <string name="patroller_diff_feedback_dialog_title">Pomagajte nam izboljšati to možnost</string>
@@ -1640,6 +1644,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Možnost je ustrezna</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Nevtralno</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Ne ustreza mi</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Kako lahko izboljšamo to možnost?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Povratne informacije</string>
   <string name="patroller_diff_feedback_dialog_submit">Pošlji</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Povratne informacije so poslane.</string>
@@ -1654,4 +1659,6 @@
   <string name="email_report_patroller_tasks_body">Naletel_a sem na težavo z možnostjo Pregledovanje urejanj:\n– [Opišite specifično težavo]\n\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]\n\n[]</string>
   <string name="donation_campaign_maybe_later_snackbar">Znova vas bomo opomnili jutri.</string>
   <string name="donation_campaign_donated_snackbar">Hvala vam, spoštovani darovalec! Vaša velikodušnost pomaga ohranjati uspeh Wikipedije in njenih sestrskih spletnih mest.</string>
+  <string name="donation_campaign_go_back_button">Nazaj</string>
+  <string name="menu_single_webview_open_external">Odprtje v sistemskem brskalniku</string>
 </resources>

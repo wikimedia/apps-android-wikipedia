@@ -1495,6 +1495,7 @@
   <string name="talk_templates_edit_message_dialog_save">Sakla</string>
   <string name="talk_templates_edit_message_dialog_delete">Sil</string>
   <string name="talk_templates_edit_message_updated">İleti güncellendi</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Bu %s iletisini listeden silmek istediğinizden emin misiniz?</string>
   <string name="talk_templates_message_deleted">İleti silindi</string>
   <string name="patroller_tasks_edits_list_title">Değişiklik listesi</string>
   <string name="patroller_tasks_edits_list_search_hint">Değişiklikleri ara ya da filtrele</string>

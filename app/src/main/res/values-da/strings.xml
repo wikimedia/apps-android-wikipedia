@@ -1139,6 +1139,7 @@
   <string name="talk_templates_edit_message_dialog_save">Gem</string>
   <string name="talk_templates_edit_message_dialog_delete">Slet</string>
   <string name="talk_templates_edit_message_updated">Beskeden er blevet opdateret</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Er du sikker på, at du vil slette denne %s besked fra listen?</string>
   <string name="talk_templates_message_deleted">Beskeden er blevet slettet</string>
   <string name="patroller_tasks_edits_list_title">Liste over redigeringer</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
