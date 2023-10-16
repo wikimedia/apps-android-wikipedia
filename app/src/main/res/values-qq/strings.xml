@@ -1488,6 +1488,7 @@
   <string name="talk_templates_edit_message_updated">Snackbar message that show the message has been updated.</string>
   <string name="talk_templates_edit_message_delete_description">Message of confirming the action of deleting the message. %s will be replaced by the title of the saved message.</string>
   <string name="talk_templates_message_deleted">Snackbar message that show the message has been deleted.</string>
+  <string name="talk_templates_message_title_empty">Error message shown when the template title is empty.</string>
   <string name="patroller_tasks_edits_list_title">Title of the screen that shows a list of edits.</string>
   <string name="patroller_tasks_edits_list_search_hint">Hint text of in the search bar of searching or filtering edits.</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Text of showing added tags in this edit. %s will be replaced by the added tags.</string>
@@ -1575,8 +1576,8 @@
   <string name="patroller_onboarding_three_title">Title of the third patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_three_content">Content of the third patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_three_switch">Text of the switch on the third patroller tasks on boarding screen</string>
-  <string name="patroller_diff_tooltip_one">Text of the first tooltip for patrol edit diff screen.</string>
-  <string name="patroller_diff_tooltip_two">Text of the second tooltip for patrol edit diff screen.</string>
+  <string name="patroller_diff_tooltip_quality">Text of the first tooltip for patrol edit diff screen that indicates the quality chip.</string>
+  <string name="patroller_diff_tooltip_intent">Text of the second tooltip for patrol edit diff screen that indicates the intent chip.</string>
   <string name="patroller_diff_feedback_dialog_title">Dialog title for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_dialog_message">Dialog message for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Option for the feedback form in the patrol edit screen that indicates satisfied.</string>

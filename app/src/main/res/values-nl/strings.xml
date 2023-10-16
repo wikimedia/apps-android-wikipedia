@@ -1584,8 +1584,7 @@
   <string name="patroller_onboarding_three_title">Gegevens anoniem versturen</string>
   <string name="patroller_onboarding_three_content">Help de functie te verbeteren door ons te laten weten hoe u deze gebruikt. De verzamelde gegevens zijn anoniem. &lt;a href=\"#privacy\"&gt;Meer weten&lt;/a&gt;</string>
   <string name="patroller_onboarding_three_switch">Gebruiksrapporten verzenden</string>
-  <string name="patroller_diff_tooltip_one">Schade voorspelt of een bewerking schade aan een wiki veroorzaakt.</string>
-  <string name="patroller_diff_tooltip_two">Intentie voorspelt de waarschijnlijkheid dat een bewerking te goeder trouw wordt opgeslagen.</string>
+  <string name="patroller_diff_tooltip_intent">Intentie voorspelt de waarschijnlijkheid dat een bewerking te goeder trouw wordt opgeslagen.</string>
   <string name="patroller_diff_feedback_dialog_title">Help ons deze functie te verbeteren</string>
   <string name="patroller_diff_feedback_dialog_message">Bent u tevreden over deze functie?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Tevreden</string>
