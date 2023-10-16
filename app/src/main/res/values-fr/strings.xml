@@ -1507,6 +1507,7 @@
   <string name="talk_templates_edit_message_dialog_save">Enregistrer</string>
   <string name="talk_templates_edit_message_dialog_delete">Supprimer</string>
   <string name="talk_templates_edit_message_updated">Le message a été mis à jour</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Êtes-vous sûr de vouloir supprimer ce message %s de la liste ?</string>
   <string name="talk_templates_message_deleted">Le message a été supprimé</string>
   <string name="patroller_tasks_edits_list_title">Liste des modifications</string>
   <string name="patroller_tasks_edits_list_search_hint">Rechercher ou filtrer les modifications</string>

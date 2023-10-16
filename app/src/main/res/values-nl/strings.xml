@@ -1495,6 +1495,7 @@
   <string name="talk_templates_edit_message_dialog_save">Opslaan</string>
   <string name="talk_templates_edit_message_dialog_delete">Verwijderen</string>
   <string name="talk_templates_edit_message_updated">Bericht is bijgewerkt</string>
+  <string name="talk_templates_edit_message_delete_description">Weet u zeker dat u dit bericht “%s” uit de lijst wilt verwijderen?</string>
   <string name="talk_templates_message_deleted">Bericht is verwijderd</string>
   <string name="patroller_tasks_edits_list_title">Lijst met bewerkingen</string>
   <string name="patroller_tasks_edits_list_search_hint">Bewerkingen zoeken of filteren</string>
@@ -1580,6 +1581,9 @@
   <string name="patroller_onboarding_two_warn_content">Creëer, verzend en bewaar waarschuwingsberichten op de overlegpagina van een redacteur.</string>
   <string name="patroller_onboarding_two_undo_title">Ongedaan maken/terugdraaien</string>
   <string name="patroller_onboarding_two_undo_content">Kies ‘Ongedaan maken’ om een mogelijk destructieve bewerking ongedaan te maken of terug te draaien.</string>
+  <string name="patroller_onboarding_three_title">Gegevens anoniem versturen</string>
+  <string name="patroller_onboarding_three_content">Help de functie te verbeteren door ons te laten weten hoe u deze gebruikt. De verzamelde gegevens zijn anoniem. &lt;a href=\"#privacy\"&gt;Meer weten&lt;/a&gt;</string>
+  <string name="patroller_onboarding_three_switch">Gebruiksrapporten verzenden</string>
   <string name="patroller_diff_tooltip_one">Schade voorspelt of een bewerking schade aan een wiki veroorzaakt.</string>
   <string name="patroller_diff_tooltip_two">Intentie voorspelt de waarschijnlijkheid dat een bewerking te goeder trouw wordt opgeslagen.</string>
   <string name="patroller_diff_feedback_dialog_title">Help ons deze functie te verbeteren</string>
@@ -1587,6 +1591,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Tevreden</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutraal</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Niet tevreden</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Hoe kunnen we de functie verbeteren?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Terugkoppeling</string>
   <string name="patroller_diff_feedback_dialog_submit">Opslaan</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Terugkoppeling ingediend.</string>

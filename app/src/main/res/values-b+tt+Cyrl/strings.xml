@@ -1455,6 +1455,7 @@
   <string name="talk_templates_edit_message_dialog_save">Сакларга</string>
   <string name="talk_templates_edit_message_dialog_delete">Бетерергә</string>
   <string name="talk_templates_edit_message_updated">Хәбәр яңартылды</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Сез чыннан да %s исемле хәбәрне исемлектән бетерергә телисезме?</string>
   <string name="talk_templates_message_deleted">Хәбәр бетерелде</string>
   <string name="patroller_tasks_edits_list_title">Төзәтмәләр исемлеге</string>
   <string name="patroller_tasks_edits_list_search_hint">Үзгәрешләрне эзләү яки фильтрлау</string>
