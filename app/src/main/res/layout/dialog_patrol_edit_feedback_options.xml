@@ -11,15 +11,21 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:orientation="vertical"
-        android:paddingTop="12dp"
+        android:paddingHorizontal="24dp"
         android:paddingBottom="12dp">
+
+        <TextView
+            style="@style/P.MaterialListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="@string/patroller_diff_feedback_dialog_message"/>
 
         <TextView
             android:id="@+id/optionSatisfied"
             style="@style/Chip.Accessible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="@string/patroller_diff_feedback_dialog_option_satisfied"
             android:background="@drawable/background_8dp_radius"
             android:foreground="?attr/selectableItemBackground"

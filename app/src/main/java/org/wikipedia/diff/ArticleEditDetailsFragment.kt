@@ -12,6 +12,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
@@ -25,6 +27,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
@@ -509,6 +512,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .create()
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
         dialog.show()
+
+        dialog.setOnDismissListener {
+            showFeedbackOptionsDialog()
+        }
     }
 
     private fun showUndoDialog() {
@@ -531,6 +538,40 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 }
             }
             .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
+    private fun showFeedbackOptionsDialog() {
+        var dialog: AlertDialog? = null
+        val feedbackView = layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_options, null)
+
+        val clickListener = View.OnClickListener {
+            viewModel.feedbackOption = (it as TextView).text.toString()
+            dialog?.dismiss()
+            showFeedbackInputDialog()
+        }
+
+        feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
+        feedbackView.findViewById<TextView>(R.id.optionNeutral).setOnClickListener(clickListener)
+        feedbackView.findViewById<TextView>(R.id.optionUnsatisfied).setOnClickListener(clickListener)
+
+        dialog = MaterialAlertDialogBuilder(requireActivity())
+            .setTitle(R.string.patroller_diff_feedback_dialog_title)
+            .setView(feedbackView)
+            .show()
+    }
+
+    private fun showFeedbackInputDialog() {
+        val feedbackView = layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_input, null)
+        val feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
+        MaterialAlertDialogBuilder(requireActivity())
+            .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
+            .setView(feedbackView)
+            .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit)  { _, _ ->
+                viewModel.feedbackInput = feedbackInput
+                // TODO: send to the event logging
+                FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, R.string.patroller_diff_feedback_submitted_snackbar)
+            }
             .show()
     }
 
