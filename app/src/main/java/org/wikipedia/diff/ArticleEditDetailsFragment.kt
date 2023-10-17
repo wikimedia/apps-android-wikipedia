@@ -27,6 +27,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -499,9 +500,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
                 }
             }
+            snackbar.addCallback(object : Snackbar.Callback() {
+                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                    if (!isAdded) {
+                        return
+                    }
+                    showFeedbackOptionsDialog()
+                }
+            })
             snackbar.show()
         }
-        showFeedbackOptionsDialog()
     }
 
     private fun showThankDialog() {
@@ -596,14 +604,22 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showFeedbackSnackbarAndTooltip() {
-        FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, R.string.patroller_diff_feedback_submitted_snackbar)
-        binding.root.postDelayed({
-            val anchorView = requireActivity().findViewById<View>(R.id.more_options)
-            if (isAdded && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
-                FeedbackUtil.showTooltip(requireActivity(), anchorView, getString(R.string.edit_notices_tooltip), aboveOrBelow = false, autoDismiss = false)
-                Prefs.showOneTimeRecentEditsFeedbackForm = false
+        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.patroller_diff_feedback_submitted_snackbar))
+        snackbar.addCallback(object : Snackbar.Callback() {
+            override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                if (!isAdded) {
+                    return
+                }
+                binding.root.postDelayed({
+                    val anchorView = requireActivity().findViewById<View>(R.id.more_options)
+                    if (isAdded && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
+                        FeedbackUtil.showTooltip(requireActivity(), anchorView, getString(R.string.edit_notices_tooltip), aboveOrBelow = false, autoDismiss = false)
+                        Prefs.showOneTimeRecentEditsFeedbackForm = false
+                    }
+                }, 100)
             }
-        }, 100)
+        })
+        snackbar.show()
     }
 
     private fun updateActionButtons() {
