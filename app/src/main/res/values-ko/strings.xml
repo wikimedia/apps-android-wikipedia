@@ -285,7 +285,6 @@
   <string name="edit_redo">다시 실행</string>
   <string name="edit_rollback">일괄 되돌리기</string>
   <string name="edit_warn">경고</string>
-  <string name="edit_quality">품질 %s</string>
   <string name="edit_intent">의도 %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="other">%s바이트</item>

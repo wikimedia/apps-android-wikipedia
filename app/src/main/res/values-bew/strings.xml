@@ -255,7 +255,6 @@
   <string name="edit_redo">Ulangin</string>
   <string name="edit_rollback">Aterèt</string>
   <string name="edit_warn">Wanti-wanti</string>
-  <string name="edit_quality">Kualitèt %s</string>
   <string name="edit_intent">Maksud %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bèt</item>

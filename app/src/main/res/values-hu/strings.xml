@@ -279,7 +279,6 @@
   <string name="edit_redo">Újra</string>
   <string name="edit_rollback">Visszaállítás</string>
   <string name="edit_warn">Figyelmeztetés</string>
-  <string name="edit_quality">Minőség %s</string>
   <string name="edit_intent">Szándék %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">egy bájt</item>

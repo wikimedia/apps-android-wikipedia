@@ -269,7 +269,6 @@
   <string name="edit_redo">Ҡабатларға</string>
   <string name="edit_rollback">Кире ҡайтарырға</string>
   <string name="edit_warn">Иҫкәртергә</string>
-  <string name="edit_quality">Сифаты %s</string>
   <string name="edit_intent">Маҡсат %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
@@ -1542,7 +1541,8 @@
   <string name="patroller_onboarding_two_warn_content">Мөхәррирҙең фекер алышыу битендә иҫкәртеү хәбәрҙәрен яҙығыҙ, ебәрегеҙ, һаҡлағыҙ.</string>
   <string name="patroller_onboarding_two_undo_title">Кире алырға</string>
   <string name="patroller_onboarding_two_undo_content">Зыянлы үҙгәртеүҙе кире алыу өсөн \"Кире алырға\" ғәмәлен һайлағыҙ.</string>
-  <string name="patroller_diff_tooltip_intent">Был алым мөхәррирләү изге ниәт менән һаҡланыу ихтималлығын күҙаллай.</string>
+  <string name="patroller_diff_tooltip_one">Мөхәррирләү викиҙың боҙолоуына килтерәме икәнен күҙаллай.</string>
+  <string name="patroller_diff_tooltip_two">Был алым мөхәррирләү изге ниәт менән һаҡланыу ихтималлығын күҙаллай.</string>
   <string name="patroller_diff_feedback_dialog_title">Был функцияны яҡшыртырға ярҙам итегеҙ</string>
   <string name="patroller_diff_feedback_dialog_message">Был функция менән ҡәнәғәтһегеҙме?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Ҡәнәғәт</string>

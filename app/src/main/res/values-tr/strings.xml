@@ -305,7 +305,6 @@
   <string name="edit_redo">Yinele</string>
   <string name="edit_rollback">Geri döndürme</string>
   <string name="edit_warn">Uyar</string>
-  <string name="edit_quality">Nitelik %s</string>
   <string name="edit_intent">Amaç %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bayt</item>

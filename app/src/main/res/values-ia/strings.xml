@@ -261,7 +261,6 @@
   <string name="edit_redo">Refacer</string>
   <string name="edit_rollback">Revocar</string>
   <string name="edit_warn">Advertir</string>
-  <string name="edit_quality">Qualitate %s</string>
   <string name="edit_intent">Intention %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
@@ -1544,7 +1543,8 @@
   <string name="patroller_onboarding_three_title">Inviar datos anonyme</string>
   <string name="patroller_onboarding_three_content">Adjuta nos a meliorar iste function faciente nos saper como tu lo usa. Le datos colligite es anonyme. &lt;a href=\"#privacy\"&gt;Leger plus&lt;/a&gt;</string>
   <string name="patroller_onboarding_three_switch">Inviar reportos de uso</string>
-  <string name="patroller_diff_tooltip_intent">‘Intention’ previde le probabilitate que un modification es facite in bon fide.</string>
+  <string name="patroller_diff_tooltip_one">‘Damnos’ previde si un modification causa damnos a un wiki.</string>
+  <string name="patroller_diff_tooltip_two">‘Intention’ previde le probabilitate que un modification es facite in bon fide.</string>
   <string name="patroller_diff_feedback_dialog_title">Adjuta nos a meliorar iste function</string>
   <string name="patroller_diff_feedback_dialog_message">Es tu satisfacite de iste function?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfacite</string>

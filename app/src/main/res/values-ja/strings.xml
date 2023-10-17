@@ -313,7 +313,6 @@
   <string name="edit_redo">やり直す</string>
   <string name="edit_rollback">巻き戻し</string>
   <string name="edit_warn">警告する</string>
-  <string name="edit_quality">品質%s</string>
   <string name="edit_intent">インテント%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="other">%sバイト</item>
