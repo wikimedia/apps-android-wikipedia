@@ -18,7 +18,7 @@ import org.wikipedia.util.UriUtil
 
 class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callback {
     override val doneButtonText = R.string.onboarding_get_started
-    override val showDoneButton = false
+    override val showDoneButton = Prefs.isEventLoggingEnabled
 
     override fun getAdapter(): FragmentStateAdapter {
         return DescriptionEditTutorialPagerAdapter(this)

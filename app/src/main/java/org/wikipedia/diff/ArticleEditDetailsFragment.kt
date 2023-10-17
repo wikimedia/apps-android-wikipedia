@@ -565,8 +565,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             dialog?.dismiss()
             if (viewModel.feedbackOption == getString(R.string.patroller_diff_feedback_dialog_option_satisfied)) {
                 // TODO: send to the event logging since it is satisfied
+                showFeedbackSnackbarAndTooltip()
             } else {
-                // TODO: send to the event logging
                 showFeedbackInputDialog()
             }
         }
@@ -590,10 +590,20 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
                 viewModel.feedbackInput = feedbackInput
                 // TODO: send to the event logging
-                FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, R.string.patroller_diff_feedback_submitted_snackbar)
-                Prefs.showOneTimeRecentEditsFeedbackForm = false
+                showFeedbackSnackbarAndTooltip()
             }
             .show()
+    }
+
+    private fun showFeedbackSnackbarAndTooltip() {
+        FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, R.string.patroller_diff_feedback_submitted_snackbar)
+        binding.root.postDelayed({
+            val anchorView = requireActivity().findViewById<View>(R.id.more_options)
+            if (isAdded && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
+                FeedbackUtil.showTooltip(requireActivity(), anchorView, getString(R.string.edit_notices_tooltip), aboveOrBelow = false, autoDismiss = false)
+                Prefs.showOneTimeRecentEditsFeedbackForm = false
+            }
+        }, 100)
     }
 
     private fun updateActionButtons() {
