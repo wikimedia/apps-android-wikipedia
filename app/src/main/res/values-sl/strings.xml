@@ -1637,7 +1637,8 @@
   <string name="patroller_onboarding_three_title">Pošiljanje anonimnih podatkov</string>
   <string name="patroller_onboarding_three_content">Pomagajte izboljšati aplikacijo s tem, da nam sporočate, kako jo uporabljate. Zbrani podatki so anonimni. &lt;a href=\"#privacy\"&gt;Več o tem&lt;/a&gt;</string>
   <string name="patroller_onboarding_three_switch">Pošiljaj poročila o uporabi</string>
-  <string name="patroller_diff_tooltip_intent">Namen predvideva verjetnost, da bo urejanje shranjeno dobronamerno.</string>
+  <string name="patroller_diff_tooltip_one">Škoda napoveduje, ali urejanje škoduje vikiju.</string>
+  <string name="patroller_diff_tooltip_two">Namen predvideva verjetnost, da bo urejanje shranjeno dobronamerno.</string>
   <string name="patroller_diff_feedback_dialog_title">Pomagajte nam izboljšati to možnost</string>
   <string name="patroller_diff_feedback_dialog_message">Ste zadovoljni s to možnostjo?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Možnost je ustrezna</string>

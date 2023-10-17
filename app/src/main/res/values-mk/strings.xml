@@ -1549,7 +1549,8 @@
   <string name="patroller_onboarding_three_title">Испраќај анонимни податоци</string>
   <string name="patroller_onboarding_three_content">Помогнете ни да ја подобриме функцијата со тоа што ќе добиваме информации како ја користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#privacy\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="patroller_onboarding_three_switch">Испраќај извештаи за употребата</string>
-  <string name="patroller_diff_tooltip_intent">Намерата ја предвидува веројатноста едно уредување да биде зачувано како добронамерно.</string>
+  <string name="patroller_diff_tooltip_one">Штетата предвидува дали едно уредување ќе причини штета на едно вики.</string>
+  <string name="patroller_diff_tooltip_two">Намерата ја предвидува веројатноста едно уредување да биде зачувано како добронамерно.</string>
   <string name="patroller_diff_feedback_dialog_title">Помогнете ни да ја подобриме оваа функција</string>
   <string name="patroller_diff_feedback_dialog_message">Дали сте задоволни со оваа функција?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволителна е</string>

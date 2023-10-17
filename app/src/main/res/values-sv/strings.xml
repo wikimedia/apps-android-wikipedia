@@ -1563,7 +1563,8 @@
   <string name="patroller_onboarding_three_title">Skicka anonym data</string>
   <string name="patroller_onboarding_three_content">Hjälp till att göra funktionen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#privacy\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="patroller_onboarding_three_switch">Skicka användningsrapporter</string>
-  <string name="patroller_diff_tooltip_intent">Avsikt förutsäger sannolikheten om en redigering sparas i god tro.</string>
+  <string name="patroller_diff_tooltip_one">Skada förutsäger om en redigering orsakar skada på en wiki.</string>
+  <string name="patroller_diff_tooltip_two">Avsikt förutsäger sannolikheten om en redigering sparas i god tro.</string>
   <string name="patroller_diff_feedback_dialog_title">Hjälp oss att förbättra denna funktion</string>
   <string name="patroller_diff_feedback_dialog_message">Är du nöjd med denna funktion?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Nöjd</string>
