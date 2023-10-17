@@ -276,7 +276,6 @@
   <string name="edit_redo">Gentag</string>
   <string name="edit_rollback">Tilbagerulning</string>
   <string name="edit_warn">Advar</string>
-  <string name="edit_quality">Kvalitet %s</string>
   <string name="edit_intent">Hensigt %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>

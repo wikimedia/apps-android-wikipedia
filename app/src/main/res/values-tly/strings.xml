@@ -232,7 +232,6 @@
   <string name="edit_redo">Tikror karde</string>
   <string name="edit_rollback">Ohaštej</string>
   <string name="edit_warn">Cocašin</string>
-  <string name="edit_quality">Kejfijət %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bajt</item>
     <item quantity="other">%s bajton</item>

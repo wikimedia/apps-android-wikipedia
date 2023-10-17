@@ -300,7 +300,6 @@
   <string name="edit_redo">Opnieuw uitvoeren</string>
   <string name="edit_rollback">Terugdraaien</string>
   <string name="edit_warn">Waarschuwen</string>
-  <string name="edit_quality">Kwaliteit %s</string>
   <string name="edit_intent">Bedoeling %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>

@@ -286,7 +286,6 @@
   <string name="edit_redo">ביצוע חוזר</string>
   <string name="edit_rollback">שחזור</string>
   <string name="edit_warn">אזהרה</string>
-  <string name="edit_quality">איכות %s</string>
   <string name="edit_intent">כוונה %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">בית אחד</item>

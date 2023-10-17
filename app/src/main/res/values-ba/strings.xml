@@ -269,7 +269,6 @@
   <string name="edit_redo">Ҡабатларға</string>
   <string name="edit_rollback">Кире ҡайтарырға</string>
   <string name="edit_warn">Иҫкәртергә</string>
-  <string name="edit_quality">Сифаты %s</string>
   <string name="edit_intent">Маҡсат %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>

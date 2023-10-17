@@ -264,7 +264,6 @@
   <string name="edit_redo">Понови</string>
   <string name="edit_rollback">Врати</string>
   <string name="edit_warn">Упозори</string>
-  <string name="edit_quality">Квалитет %s</string>
   <string name="edit_zoom_in">Увећај</string>
   <string name="edit_zoom_out">Умањи</string>
   <string name="edit_summary_tag_typo">Исправљена грешка у куцању</string>

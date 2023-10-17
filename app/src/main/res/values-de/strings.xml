@@ -301,7 +301,6 @@
   <string name="edit_redo">Wiederherstellen</string>
   <string name="edit_rollback">Zurücksetzen</string>
   <string name="edit_warn">Warnen</string>
-  <string name="edit_quality">Qualität %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s Byte</item>
     <item quantity="other">%s Bytes</item>
