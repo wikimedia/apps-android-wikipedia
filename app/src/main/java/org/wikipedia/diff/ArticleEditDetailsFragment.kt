@@ -542,6 +542,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showFeedbackOptionsDialog() {
+        // TODO: add "patrol edit" only logic
         var dialog: AlertDialog? = null
         val feedbackView = layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_options, null)
 
