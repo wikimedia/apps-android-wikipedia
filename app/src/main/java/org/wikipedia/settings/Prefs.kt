@@ -705,4 +705,8 @@ object Prefs {
     var showOneTimeSequentialRecentEditsDiffTooltip
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_sequential_recent_edits_diff_tooltip, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_sequential_recent_edits_diff_tooltip, value)
+
+    var showOneTimeRecentEditsFeedbackForm
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_recent_edits_feedback_form, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_recent_edits_feedback_form, value)
 }

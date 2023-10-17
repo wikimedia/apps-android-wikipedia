@@ -309,6 +309,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
         updateWatchButton(isWatched, hasWatchlistExpiry)
 
+        binding.warnButton.setOnClickListener {
+            // TODO: implement this
+        }
+
         binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
     }
 
@@ -497,6 +501,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
             snackbar.show()
         }
+        showFeedbackOptionsDialog()
     }
 
     private fun showThankDialog() {
@@ -526,10 +531,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
         dialog.show()
+        dialog.setOnDismissListener {
+            showFeedbackOptionsDialog()
+        }
     }
 
     private fun showRollbackDialog() {
-        MaterialAlertDialogBuilder(requireActivity())
+        val dialog = MaterialAlertDialogBuilder(requireActivity())
             .setMessage(R.string.revision_rollback_dialog_title)
             .setPositiveButton(android.R.string.ok) { _, _ ->
                 binding.progressBar.isVisible = true
@@ -539,17 +547,28 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
             .setNegativeButton(android.R.string.cancel, null)
             .show()
+        dialog.setOnDismissListener {
+            showFeedbackOptionsDialog()
+        }
     }
 
-    private fun showFeedbackOptionsDialog() {
-        // TODO: add "patrol edit" only logic
+    private fun showFeedbackOptionsDialog(skipPreference: Boolean = false) {
+        if (!skipPreference && !Prefs.showOneTimeRecentEditsFeedbackForm) {
+            return
+        }
+
         var dialog: AlertDialog? = null
         val feedbackView = layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_options, null)
 
         val clickListener = View.OnClickListener {
             viewModel.feedbackOption = (it as TextView).text.toString()
             dialog?.dismiss()
-            showFeedbackInputDialog()
+            if (viewModel.feedbackOption == getString(R.string.patroller_diff_feedback_dialog_option_satisfied)) {
+                // TODO: send to the event logging since it is satisfied
+            } else {
+                // TODO: send to the event logging
+                showFeedbackInputDialog()
+            }
         }
 
         feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
@@ -568,10 +587,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         MaterialAlertDialogBuilder(requireActivity())
             .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
             .setView(feedbackView)
-            .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit)  { _, _ ->
+            .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
                 viewModel.feedbackInput = feedbackInput
                 // TODO: send to the event logging
                 FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, R.string.patroller_diff_feedback_submitted_snackbar)
+                Prefs.showOneTimeRecentEditsFeedbackForm = false
             }
             .show()
     }
