@@ -283,7 +283,6 @@
   <string name="edit_redo">Refés</string>
   <string name="edit_rollback">Reverteix</string>
   <string name="edit_warn">Avís</string>
-  <string name="edit_quality">%s de qualitat</string>
   <string name="edit_intent">%s d\'intenció</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>

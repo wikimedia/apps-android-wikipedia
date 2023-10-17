@@ -286,7 +286,6 @@
   <string name="edit_redo">Повторити</string>
   <string name="edit_rollback">Відкіт</string>
   <string name="edit_warn">Попередження</string>
-  <string name="edit_quality">Якість %s</string>
   <string name="edit_intent">Намір %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>

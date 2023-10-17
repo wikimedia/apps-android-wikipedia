@@ -261,7 +261,6 @@
   <string name="edit_redo">Refacer</string>
   <string name="edit_rollback">Revocar</string>
   <string name="edit_warn">Advertir</string>
-  <string name="edit_quality">Qualitate %s</string>
   <string name="edit_intent">Intention %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>

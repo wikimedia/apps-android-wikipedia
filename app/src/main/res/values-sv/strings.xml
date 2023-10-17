@@ -278,7 +278,6 @@
   <string name="edit_redo">Gör om</string>
   <string name="edit_rollback">Rulla tillbaka</string>
   <string name="edit_warn">Varna</string>
-  <string name="edit_quality">Kvalitet %s</string>
   <string name="edit_intent">Avsikt %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>

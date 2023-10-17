@@ -242,7 +242,6 @@
   <string name="edit_redo">Widderhuelen</string>
   <string name="edit_rollback">Zrécksetzen</string>
   <string name="edit_warn">Warnen</string>
-  <string name="edit_quality">Qualitéit %s</string>
   <string name="edit_zoom_in">Vergréisseren</string>
   <string name="edit_zoom_out">Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>

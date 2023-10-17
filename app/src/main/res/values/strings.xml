@@ -269,7 +269,7 @@
     <string name="edit_redo">Redo</string>
     <string name="edit_rollback">Rollback</string>
     <string name="edit_warn">Warn</string>
-    <string name="edit_quality">Quality %s</string>
+    <string name="edit_damage">Damage %s</string>
     <string name="edit_intent">Intent %s</string>
     <plurals name="edit_diff_bytes">
         <item quantity="one">%s byte</item>

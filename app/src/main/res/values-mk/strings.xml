@@ -263,7 +263,6 @@
   <string name="edit_redo">Повтори</string>
   <string name="edit_rollback">Отповикај</string>
   <string name="edit_warn">Предупреди</string>
-  <string name="edit_quality">Квалитет %s</string>
   <string name="edit_intent">Намера %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s бајт</item>
