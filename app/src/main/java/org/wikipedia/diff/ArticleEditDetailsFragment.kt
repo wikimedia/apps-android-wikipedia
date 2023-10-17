@@ -144,10 +144,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         viewModel.thankStatus.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
-                FeedbackUtil.showMessage(requireActivity(), getString(R.string.thank_success_message,
-                        viewModel.revisionTo?.user))
-                binding.thankIcon.setImageResource(R.drawable.ic_heart_24)
-                binding.thankButton.isEnabled = false
+                showThankSnackbar()
                 editHistoryInteractionEvent?.logThankSuccess()
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
@@ -172,7 +169,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it is Resource.Success) {
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.edit!!.newRevId)
-                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success)).show()
+                showUndoSnackbar()
                 editHistoryInteractionEvent?.logUndoSuccess()
                 callback()?.onUndoSuccess()
             } else if (it is Resource.Error) {
@@ -197,7 +194,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             if (it is Resource.Success) {
                 setLoadingState()
                 viewModel.getRevisionDetails(it.data.rollback?.revision ?: 0)
-                FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_rollback_success), FeedbackUtil.LENGTH_DEFAULT).show()
+                showRollbackSnackbar()
                 callback()?.onRollbackSuccess()
             } else if (it is Resource.Error) {
                 it.throwable.printStackTrace()
@@ -348,9 +345,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 true
             }
             R.id.menu_report_feature -> {
-                FeedbackUtil.composeFeedbackEmail(requireContext(),
-                    getString(R.string.email_report_patroller_tasks_subject),
-                    getString(R.string.email_report_patroller_tasks_body))
+                showFeedbackOptionsDialog(true)
                 true
             }
             else -> false
@@ -512,6 +507,22 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
     }
 
+    private fun showThankSnackbar() {
+        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.thank_success_message,
+            viewModel.revisionTo?.user))
+        binding.thankIcon.setImageResource(R.drawable.ic_heart_24)
+        binding.thankButton.isEnabled = false
+        snackbar.addCallback(object : Snackbar.Callback() {
+            override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                if (!isAdded) {
+                    return
+                }
+                showFeedbackOptionsDialog()
+            }
+        })
+        snackbar.show()
+    }
+
     private fun showThankDialog() {
         val parent = FrameLayout(requireContext())
         val dialog = MaterialAlertDialogBuilder(requireActivity())
@@ -525,10 +536,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 .create()
         dialog.layoutInflater.inflate(R.layout.view_thank_dialog, parent)
         dialog.show()
-
-        dialog.setOnDismissListener {
-            showFeedbackOptionsDialog()
-        }
     }
 
     private fun showUndoDialog() {
@@ -539,13 +546,23 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
         dialog.show()
-        dialog.setOnDismissListener {
-            showFeedbackOptionsDialog()
-        }
+    }
+
+    private fun showUndoSnackbar() {
+        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_undo_success))
+        snackbar.addCallback(object : Snackbar.Callback() {
+            override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                if (!isAdded) {
+                    return
+                }
+                showFeedbackOptionsDialog()
+            }
+        })
+        snackbar.show()
     }
 
     private fun showRollbackDialog() {
-        val dialog = MaterialAlertDialogBuilder(requireActivity())
+        MaterialAlertDialogBuilder(requireActivity())
             .setMessage(R.string.revision_rollback_dialog_title)
             .setPositiveButton(android.R.string.ok) { _, _ ->
                 binding.progressBar.isVisible = true
@@ -555,9 +572,19 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
             .setNegativeButton(android.R.string.cancel, null)
             .show()
-        dialog.setOnDismissListener {
-            showFeedbackOptionsDialog()
-        }
+    }
+
+    private fun showRollbackSnackbar() {
+        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.revision_rollback_success))
+        snackbar.addCallback(object : Snackbar.Callback() {
+            override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                if (!isAdded) {
+                    return
+                }
+                showFeedbackOptionsDialog()
+            }
+        })
+        snackbar.show()
     }
 
     private fun showFeedbackOptionsDialog(skipPreference: Boolean = false) {
@@ -604,22 +631,14 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showFeedbackSnackbarAndTooltip() {
-        val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.patroller_diff_feedback_submitted_snackbar))
-        snackbar.addCallback(object : Snackbar.Callback() {
-            override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                if (!isAdded) {
-                    return
-                }
-                binding.root.postDelayed({
-                    val anchorView = requireActivity().findViewById<View>(R.id.more_options)
-                    if (isAdded && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
-                        FeedbackUtil.showTooltip(requireActivity(), anchorView, getString(R.string.edit_notices_tooltip), aboveOrBelow = false, autoDismiss = false)
-                        Prefs.showOneTimeRecentEditsFeedbackForm = false
-                    }
-                }, 100)
+        FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, R.string.patroller_diff_feedback_submitted_snackbar)
+        binding.root.postDelayed({
+            val anchorView = requireActivity().findViewById<View>(R.id.more_options)
+            if (isAdded && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
+                FeedbackUtil.showTooltip(requireActivity(), anchorView, getString(R.string.edit_notices_tooltip), aboveOrBelow = false, autoDismiss = false)
+                Prefs.showOneTimeRecentEditsFeedbackForm = false
             }
-        })
-        snackbar.show()
+        }, 100)
     }
 
     private fun updateActionButtons() {
