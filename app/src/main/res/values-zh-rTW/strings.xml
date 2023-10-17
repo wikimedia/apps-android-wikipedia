@@ -289,7 +289,6 @@
   <string name="edit_redo">重做</string>
   <string name="edit_rollback">回退</string>
   <string name="edit_warn">警告</string>
-  <string name="edit_quality">品質：%s</string>
   <string name="edit_intent">意圖：%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s 位元組</item>
@@ -1485,7 +1484,7 @@
   <string name="talk_templates_edit_message_dialog_save">儲存</string>
   <string name="talk_templates_edit_message_dialog_delete">刪除</string>
   <string name="talk_templates_edit_message_updated">訊息已更新</string>
-  <string name="talk_templates_edit_message_confirm_description">您確定要從清單中刪除這則「%s」訊息嗎？</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">您確定要從清單中刪除這則「%s」訊息嗎？</string>
   <string name="talk_templates_message_deleted">訊息已刪除</string>
   <string name="patroller_tasks_edits_list_title">編輯清單</string>
   <string name="patroller_tasks_edits_list_search_hint">搜尋或篩選編輯</string>

@@ -339,6 +339,14 @@
             android:label="@string/insert_media_title"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
+        <activity
+            android:name=".talk.template.TalkTemplatesActivity"
+            android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
+            android:name=".talk.template.AddTemplateActivity"
+            android:theme="@style/AppTheme" />
+
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"

@@ -242,7 +242,6 @@
   <string name="edit_redo">Widderhuelen</string>
   <string name="edit_rollback">Zrécksetzen</string>
   <string name="edit_warn">Warnen</string>
-  <string name="edit_quality">Qualitéit %s</string>
   <string name="edit_zoom_in">Vergréisseren</string>
   <string name="edit_zoom_out">Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>
@@ -1132,7 +1131,7 @@
   <string name="talk_templates_edit_message_dialog_save">Späicheren</string>
   <string name="talk_templates_edit_message_dialog_delete">Läschen</string>
   <string name="talk_templates_edit_message_updated">Message gouf aktualiséiert</string>
-  <string name="talk_templates_edit_message_confirm_description">Sidd Dir sécher, datt Dir dëse(n) %s-Message vun der Lëscht läsche wëllt?</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Sidd Dir sécher, datt Dir dëse(n) %s-Message vun der Lëscht läsche wëllt?</string>
   <string name="talk_templates_message_deleted">Message gouf geläscht</string>
   <string name="patroller_tasks_edits_list_title">Lëscht vun Ännerungen</string>
   <string name="patroller_tasks_edits_list_search_hint">Ännerungen duerchsichen oder filteren</string>

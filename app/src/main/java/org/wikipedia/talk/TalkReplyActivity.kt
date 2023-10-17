@@ -28,11 +28,23 @@ import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
-import org.wikipedia.page.*
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.LinkHandler
+import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.TalkAliasData
-import org.wikipedia.util.*
+import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.UserMentionInputView
 import org.wikipedia.views.ViewUtil
 
@@ -231,7 +243,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private fun setSaveButtonEnabled(enabled: Boolean) {
         binding.replySaveButton.isEnabled = enabled
         binding.replySaveButton.setTextColor(ResourceUtil
-            .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.placeholder_color))
+            .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.inactive_color))
     }
 
     private fun onSaveClicked() {

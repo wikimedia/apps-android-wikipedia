@@ -325,7 +325,6 @@
   <string name="edit_redo">重做</string>
   <string name="edit_rollback">回退</string>
   <string name="edit_warn">警告</string>
-  <string name="edit_quality">质量%s</string>
   <string name="edit_intent">意图%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s 字节</item>
@@ -1507,7 +1506,7 @@
   <string name="talk_templates_edit_message_dialog_save">保存</string>
   <string name="talk_templates_edit_message_dialog_delete">删除</string>
   <string name="talk_templates_edit_message_updated">消息已更新</string>
-  <string name="talk_templates_edit_message_confirm_description">您确定要从列表中删除%s这个消息吗？</string>
+  <string name="talk_templates_edit_message_delete_description">您确定要从列表中删除“%s”这个消息吗？</string>
   <string name="talk_templates_message_deleted">消息已删除</string>
   <string name="patroller_tasks_edits_list_title">编辑列表</string>
   <string name="patroller_tasks_edits_list_search_hint">搜索或过滤编辑</string>

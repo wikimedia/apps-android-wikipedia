@@ -266,7 +266,6 @@
   <string name="edit_redo">Qaytarmoq</string>
   <string name="edit_rollback">Eski holiga qaytarish</string>
   <string name="edit_warn">Ogohlantirish</string>
-  <string name="edit_quality">%s sifati</string>
   <string name="edit_intent">%s maqsadi</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bayt</item>
@@ -1461,7 +1460,7 @@
   <string name="talk_templates_edit_message_dialog_save">Saqlash</string>
   <string name="talk_templates_edit_message_dialog_delete">Oʻchirish</string>
   <string name="talk_templates_edit_message_updated">Xabar yangilandi</string>
-  <string name="talk_templates_edit_message_confirm_description">Haqiqatan ham %s xabarini roʻyxatdan oʻchirib tashlamoqchimisiz?</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Haqiqatan ham %s xabarini roʻyxatdan oʻchirib tashlamoqchimisiz?</string>
   <string name="talk_templates_message_deleted">Xabar oʻchirildi</string>
   <string name="patroller_tasks_edits_list_title">Tahrirlar roʻyxati</string>
   <string name="patroller_tasks_edits_list_search_hint">Tahrirlarni qidirish yoki filtrlash</string>

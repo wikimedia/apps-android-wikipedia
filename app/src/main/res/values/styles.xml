@@ -476,6 +476,8 @@
         <item name="hintTextColor">?attr/progressive_color</item>
         <item name="helperTextTextColor">?attr/placeholder_color</item>
         <item name="counterTextColor">?attr/placeholder_color</item>
+        <item name="errorTextColor">?attr/destructive_color</item>
+        <item name="boxStrokeErrorColor">?attr/destructive_color</item>
         <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
     </style>
 
@@ -494,6 +496,23 @@
         <item name="elevationOverlayEnabled">false</item>
         <item name="materialAlertDialogTitleTextStyle">@style/H2.DialogTitle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
+    </style>
+
+    <style name="AlertDialogTheme.Input">
+        <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
+    </style>
+
+    <style name="AlertDialogTheme.Delete">
+        <item name="buttonBarPositiveButtonStyle">@style/DestructiveDialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
+    </style>
+
+    <style name="PlaceholderDialogButton" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/placeholder_color</item>
+    </style>
+
+    <style name="DestructiveDialogButton" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/destructive_color</item>
     </style>
 
     <style name="PreferenceDialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog">
