@@ -53,6 +53,7 @@ import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
@@ -83,7 +84,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         if (!isAdded) {
             return@Runnable
         }
-        val balloon = FeedbackUtil.getTooltip(requireContext(), getString(R.string.patroller_diff_tooltip_one), autoDismiss = true, showDismissButton = true, countNum = 1, countTotal = 2)
+        val balloon = FeedbackUtil.getTooltip(requireContext(), getString(R.string.patroller_diff_tooltip_one), autoDismiss = true, showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 1, countTotal = 2)
         balloon.showAlignBottom(binding.oresDamagingButton)
         balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), getString(R.string.patroller_diff_tooltip_two), autoDismiss = true, showDismissButton = true, countNum = 2, countTotal = 2), binding.oresGoodFaithButton)
         // TODO: log tooltip?
@@ -497,7 +498,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
             snackbar.addCallback(object : Snackbar.Callback() {
                 override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                    if (!isAdded) {
+                    if (!isAdded || viewModel.watchlistExpiryChanged) {
                         return
                     }
                     showFeedbackOptionsDialog()
@@ -612,6 +613,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         dialog = MaterialAlertDialogBuilder(requireActivity())
             .setTitle(R.string.patroller_diff_feedback_dialog_title)
+            .setCancelable(false)
             .setView(feedbackView)
             .show()
     }
@@ -621,6 +623,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         val feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
         MaterialAlertDialogBuilder(requireActivity())
             .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
+            .setCancelable(false)
             .setView(feedbackView)
             .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
                 viewModel.feedbackInput = feedbackInput
@@ -635,7 +638,18 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.root.postDelayed({
             val anchorView = requireActivity().findViewById<View>(R.id.more_options)
             if (isAdded && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
-                FeedbackUtil.showTooltip(requireActivity(), anchorView, getString(R.string.edit_notices_tooltip), aboveOrBelow = false, autoDismiss = false)
+                FeedbackUtil.getTooltip(
+                    requireActivity(),
+                    getString(R.string.patroller_diff_feedback_tooltip),
+                    arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
+                    topOrBottomMargin = 0,
+                    aboveOrBelow = false,
+                    autoDismiss = false,
+                    showDismissButton = true
+                ).apply {
+                    showAlignBottom(anchorView)
+                    Prefs.showOneTimeRecentEditsFeedbackForm = false
+                }
                 Prefs.showOneTimeRecentEditsFeedbackForm = false
             }
         }, 100)
@@ -656,6 +670,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     override fun onExpirySelect(expiry: WatchlistExpiry) {
         viewModel.watchOrUnwatch(isWatched, expiry, false)
         ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
+        showFeedbackOptionsDialog()
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
