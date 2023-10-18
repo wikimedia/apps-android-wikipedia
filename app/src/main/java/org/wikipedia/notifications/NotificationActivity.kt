@@ -373,18 +373,19 @@ class NotificationActivity : BaseActivity() {
             ImageViewCompat.setImageTintList(binding.notificationItemImage, if (n.isUnread) notificationColor else
                 ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.placeholder_color))
             n.contents?.let {
-                binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
-                StringUtil.highlightAndBoldenText(binding.notificationSubtitle, viewModel.currentSearchQuery, true, Color.YELLOW)
-                if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
-                    binding.notificationDescription.text = RichTextUtil.stripHtml(it.body)
-                    StringUtil.highlightAndBoldenText(binding.notificationDescription, viewModel.currentSearchQuery, true, Color.YELLOW)
-                    binding.notificationDescription.visibility = View.VISIBLE
-                } else {
-                    binding.notificationDescription.visibility = View.GONE
+                StringUtil.setHighlightedAndBoldenedText(binding.notificationSubtitle,
+                    RichTextUtil.stripHtml(it.header), viewModel.currentSearchQuery)
+
+                val showDescription = it.body.isNotBlank()
+                binding.notificationDescription.isVisible = showDescription
+                if (showDescription) {
+                    StringUtil.setHighlightedAndBoldenedText(binding.notificationDescription,
+                        RichTextUtil.stripHtml(it.body), viewModel.currentSearchQuery)
                 }
+
                 it.links?.secondary?.firstOrNull()?.let { link ->
-                    binding.notificationTitle.text = link.label
-                    StringUtil.highlightAndBoldenText(binding.notificationTitle, viewModel.currentSearchQuery, true, Color.YELLOW)
+                    StringUtil.setHighlightedAndBoldenedText(binding.notificationTitle, link.label,
+                        viewModel.currentSearchQuery)
                 } ?: run {
                     binding.notificationTitle.text = getString(notificationCategory.title)
                 }
@@ -402,8 +403,8 @@ class NotificationActivity : BaseActivity() {
             L10nUtil.setConditionalLayoutDirection(itemView, langCode)
 
             n.title?.let { title ->
-                binding.notificationSource.text = title.full
-                StringUtil.highlightAndBoldenText(binding.notificationSource, viewModel.currentSearchQuery, true, Color.YELLOW)
+                StringUtil.setHighlightedAndBoldenedText(binding.notificationSource, title.full,
+                    viewModel.currentSearchQuery)
                 n.contents?.links?.getPrimary()?.url?.let {
                     binding.notificationSource.setCompoundDrawablesRelative(null, null,
                             if (UriUtil.isAppSupportedLink(Uri.parse(it))) null else externalLinkIcon, null)

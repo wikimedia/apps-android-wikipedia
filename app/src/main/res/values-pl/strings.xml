@@ -583,6 +583,12 @@
   <string name="reading_list_activity_title">Lista do przeczytania: %s</string>
   <string name="reading_lists_action_menu_export_lists">Eksport</string>
   <string name="reading_lists_import_file_picker_title">Wybierz plik do importu</string>
+  <string name="reading_lists_preview_save_button">Zapisz</string>
+  <string name="reading_lists_preview_save_dialog_title">Zapisz listę</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">Tytuł</string>
+  <string name="reading_lists_preview_save_dialog_cancel">Anuluj</string>
+  <string name="reading_lists_preview_save_dialog_save">Zapisz</string>
+  <string name="reading_lists_preview_saved_snackbar_action">Zobacz</string>
   <string name="user_option_sync_label">Preferencje</string>
   <string name="notification_reverted_title">Wycofana edycja</string>
   <string name="notification_channel_title">Pobieranie artykułów</string>
@@ -827,6 +833,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
   <string name="description_edit_tutorial_promise">Rozpoczynając, obiecuję nie nadużywać tej funkcji.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Sugestie maszynowe</string>
   <string name="customize_toolbar_title">Personalizuj pasek narzędzi</string>
   <string name="customize_toolbar_shortcut_description_text">Dostosuj dolny pasek narzędzi za pomocą 5 najbardziej przydatnych skrótów.</string>
   <string name="customize_toolbar_category_toolbar">Pasek narzędzi</string>
@@ -838,6 +845,7 @@
   <string name="suggested_edits_describe_articles">Opisz artykuły</string>
   <string name="suggested_edits_caption_images">Podpisz obrazy</string>
   <string name="suggested_edits_tag_images">Dodaj znaczniki do obrazów</string>
+  <string name="suggested_edits_edit_patrol_review">Przejrzyj</string>
   <string name="suggested_edits_review_description">Sprawdź opis artykułu</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
   <string name="suggested_edits_edit_description_button">Edytuj opis</string>
@@ -950,7 +958,7 @@
   <string name="suggested_edits_ip_blocked_title">Adres IP zablokowany</string>
   <string name="suggested_edits_last_edited">Ostatnia edycja</string>
   <string name="suggested_edits_last_edited_never">Nigdy</string>
-  <string name="suggested_edits_task_new" fuzzy="true">nowe</string>
+  <string name="suggested_edits_task_new">Nowe</string>
   <string name="suggested_edits_cc0_notice">Publikując, zgadzasz się na &lt;a href=\"%1$s\"&gt;warunki korzystania&lt;/a&gt; i nieodwołalnie udostępniasz ten wkład na podstawie &lt;a href=\"%2$s\"&gt;Licencji CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Sugerowane edycje</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Dziękujemy za edycję Wikipedii! Dlaczego nie kontynuować od miejsca, w którym skończyłeś?</string>
@@ -1186,9 +1194,9 @@
   <string name="revision_diff_line_removed">Wiersz usunięty</string>
   <string name="revision_diff_paragraph_added">Dodany akapit</string>
   <string name="revision_diff_paragraph_removed">Usunięty akapit</string>
-  <string name="revision_undo_title">Cofnij edycję</string>
-  <string name="revision_undo_message">Spowoduje to cofnięcie zmian wprowadzonych przez poprawki pokazanego tutaj artykułu.</string>
-  <string name="revision_undo_reason">Aby kontynuować, podaj powód cofnięcia tej zmiany:</string>
+  <string name="revision_undo_title" fuzzy="true">Cofnij edycję</string>
+  <string name="revision_undo_message" fuzzy="true">Spowoduje to cofnięcie zmian wprowadzonych przez poprawki pokazanego tutaj artykułu.</string>
+  <string name="revision_undo_reason" fuzzy="true">Aby kontynuować, podaj powód cofnięcia tej zmiany:</string>
   <string name="revision_undo_success">Rewizja została cofnięta.</string>
   <string name="revision_rollback_dialog_title">Czy na pewno chcesz cofnąć zmiany?</string>
   <string name="revision_rollback_success">Zmiany zostały cofnięte.</string>

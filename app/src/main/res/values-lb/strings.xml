@@ -242,9 +242,8 @@
   <string name="edit_redo">Widderhuelen</string>
   <string name="edit_rollback">Zrécksetzen</string>
   <string name="edit_warn">Warnen</string>
-  <string name="edit_quality">Qualitéit %s</string>
   <string name="edit_zoom_in">Vergréisseren</string>
-  <string name="edit_zoom_out"> Verklengeren</string>
+  <string name="edit_zoom_out">Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>
   <string name="edit_summary_tag_grammar">Grammaire verbessert</string>
   <string name="edit_summary_tag_links">Derbäigesat Linken</string>
@@ -934,6 +933,7 @@
   <string name="wikitext_numbered_list">Nummeréiert Lëscht</string>
   <string name="wikitext_template">Schabloun</string>
   <string name="wikitext_reference">Referenz</string>
+  <string name="wikitext_mention_user">E Benotzer ernimmen</string>
   <string name="insert_media_search_description">Wielt e Fichier vu Wikimedia Commons</string>
   <string name="insert_media_settings">Bilddetailer derbäisetzen</string>
   <string name="insert_media_settings_uploaded_image">Eropgeluedent Bild</string>
@@ -1038,8 +1038,8 @@
   <string name="revision_diff_line_removed">Zeil ewechgeholl</string>
   <string name="revision_diff_paragraph_added">Abschnitt derbäigesat</string>
   <string name="revision_diff_paragraph_removed">Abschnitt ewechgeholl</string>
-  <string name="revision_undo_title">Ännerung zrécksetzen</string>
-  <string name="revision_undo_reason">Fir weiderzefueren, gitt wgl. e Grond u fir dës Ännerung réckgängeg ze maachen.</string>
+  <string name="revision_undo_title">Sidd Dir sécher, datt Dir dës Ännerung réckgängeg maache wëllt?</string>
+  <string name="revision_undo_reason" fuzzy="true">Fir weiderzefueren, gitt wgl. e Grond u fir dës Ännerung réckgängeg ze maachen.</string>
   <string name="revision_undo_success">D\'Versioun gouf réckgängeg gemaach.</string>
   <string name="revision_rollback_dialog_title">Sidd Dir sécher datt Dir dës Ännerungen zrécksetze wëllt?</string>
   <string name="revision_rollback_success">Ännerung zréckgesat.</string>
@@ -1131,7 +1131,7 @@
   <string name="talk_templates_edit_message_dialog_save">Späicheren</string>
   <string name="talk_templates_edit_message_dialog_delete">Läschen</string>
   <string name="talk_templates_edit_message_updated">Message gouf aktualiséiert</string>
-  <string name="talk_templates_edit_message_confirm_description">Sidd Dir sécher, datt Dir dëse(n) %s-Message vun der Lëscht läsche wëllt?</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Sidd Dir sécher, datt Dir dëse(n) %s-Message vun der Lëscht läsche wëllt?</string>
   <string name="talk_templates_message_deleted">Message gouf geläscht</string>
   <string name="patroller_tasks_edits_list_title">Lëscht vun Ännerungen</string>
   <string name="patroller_tasks_edits_list_search_hint">Ännerungen duerchsichen oder filteren</string>
@@ -1162,6 +1162,13 @@
     <item quantity="other">%d Filteren</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Sidd Dir sécher, datt Dir dës Ännerung réckgängeg maache wëllt?</string>
+  <string name="patroller_onboarding_two_warn_title">Warnen</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Zefridden</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Onzefridden</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
   <string name="data_opt_in_accept">Akzeptéieren</string>
   <string name="data_opt_in_reject">Refuséieren</string>
+  <string name="donation_campaign_maybe_later_snackbar">Mir erënneren Iech muer nach eng Kéier.</string>
+  <string name="donation_campaign_go_back_button">Zréckgoen</string>
 </resources>

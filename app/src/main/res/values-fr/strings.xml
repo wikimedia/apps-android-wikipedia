@@ -4,6 +4,7 @@
 * Alno
 * Amire80
 * Bbernrd
+* BlueCamille
 * Blurby
 * C13m3n7
 * Cigaryno
@@ -310,7 +311,6 @@
   <string name="edit_redo">Refaire</string>
   <string name="edit_rollback">Révoquer</string>
   <string name="edit_warn">Avertissement</string>
-  <string name="edit_quality">%s de qualité</string>
   <string name="edit_intent">%s d’intention</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s octet</item>
@@ -1047,7 +1047,7 @@
   <string name="suggested_edits_ip_blocked_title">IP bloquée</string>
   <string name="suggested_edits_last_edited">Dernière modification</string>
   <string name="suggested_edits_last_edited_never">Jamais</string>
-  <string name="suggested_edits_task_new" fuzzy="true">nouveau</string>
+  <string name="suggested_edits_task_new">Nouveau</string>
   <string name="suggested_edits_cc0_notice">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;conditions d’utilisation&lt;/a&gt; et de mettre de façon irrévocable cette contribution sous la &lt;a href=\"%2$s\"&gt;licence CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modifications suggérées</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci d’avoir modifié Wikipédia ! Pourquoi ne pas reprendre là où vous en étiez ?</string>
@@ -1126,6 +1126,7 @@
   <string name="image_recommendation_tooltip_3">Décider si l’image aide les lecteurs à comprendre mieux ce sujet</string>
   <string name="image_recommendation_tooltip_next">Suivant</string>
   <string name="image_recommendation_tooltip_warning">Veuillez relire l’article pour comprendre son sujet et inspecter l’image</string>
+  <string name="image_recommendation_depleted">Désolé, il n’y a plus d’images suggérées disponibles en ce moment. Veuillez explorer d’autres &lt;a href=\"#\"&gt;modifications suggérées&lt;/a&gt; ou revenir ultérieurement.</string>
   <string name="suggested_edits_report_feature">Problème avec la fonctionnalité</string>
   <string name="suggested_edits_report_feature_subject">Problème avec les modifications suggérées</string>
   <string name="edit_summary_added_image">Image ajoutée</string>
@@ -1227,6 +1228,7 @@
   <string name="wikitext_template">Modèle</string>
   <string name="wikitext_reference">Référence</string>
   <string name="wikitext_preview_link">Lien vers l’aperçu</string>
+  <string name="wikitext_mention_user">Mentionner un utilisateur</string>
   <string name="insert_media_title">Insérer un média</string>
   <string name="insert_media_search_description">Sélectionner un fichier de Wikimedia Commons</string>
   <string name="insert_media_search_hint">Rechercher un média</string>
@@ -1370,9 +1372,9 @@
   <string name="revision_diff_paragraph_added">Paragraphe ajouté</string>
   <string name="revision_diff_paragraph_removed">Paragraphe supprimé</string>
   <string name="revision_diff_protected">Les modifications faites dans cette révision ne sont pas accessibles publiquement.</string>
-  <string name="revision_undo_title">Annuler la modification</string>
-  <string name="revision_undo_message">Cela annulera les modifications réalisées dans les révisions de l’article affichées ici.</string>
-  <string name="revision_undo_reason">Pour poursuivre, veuillez fournir un motif pour annuler cette modification :</string>
+  <string name="revision_undo_title">Êtes-vous sûr d\'annuler cette modification ?</string>
+  <string name="revision_undo_message" fuzzy="true">Cela annulera les modifications réalisées dans les révisions de l’article affichées ici.</string>
+  <string name="revision_undo_reason" fuzzy="true">Pour poursuivre, veuillez fournir un motif pour annuler cette modification :</string>
   <string name="revision_undo_success">La révision a été annulée.</string>
   <string name="revision_rollback_dialog_title">Voulez-vous vraiment révoquer les modifications ?</string>
   <string name="revision_rollback_success">Modifications révoquées.</string>
@@ -1504,7 +1506,7 @@
   <string name="talk_templates_edit_message_dialog_save">Enregistrer</string>
   <string name="talk_templates_edit_message_dialog_delete">Supprimer</string>
   <string name="talk_templates_edit_message_updated">Le message a été mis à jour</string>
-  <string name="talk_templates_edit_message_confirm_description">Êtes-vous sûr de vouloir supprimer ce message %s de la liste ?</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Êtes-vous sûr de vouloir supprimer ce message %s de la liste ?</string>
   <string name="talk_templates_message_deleted">Le message a été supprimé</string>
   <string name="patroller_tasks_edits_list_title">Liste des modifications</string>
   <string name="patroller_tasks_edits_list_search_hint">Rechercher ou filtrer les modifications</string>
@@ -1579,6 +1581,17 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Afficher</string>
   <string name="patroller_tasks_overflow_report">Problème avec la fonctionnalité</string>
   <string name="patroller_tasks_overflow_learn">En savoir plus</string>
+  <string name="patroller_onboarding_one_title">Contribuer à la surveillance et à l’approbation des modifications de Wikipédia.</string>
+  <string name="patroller_onboarding_one_content">Améliore la qualité du contenu de Wikipédia en relisant activement un flux de nouvelles modifications et en fournissant des conseils, un contrôle de qualité et des encouragements à d’autres éditeurs.</string>
+  <string name="patroller_onboarding_two_thank_title">Remercier</string>
+  <string name="patroller_onboarding_two_thank_content">Vous voyez une modification pertinente ? Remerciez un utilisateur pour sa contribution !</string>
+  <string name="patroller_onboarding_two_watch_title">Suivre</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfait</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutre</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfait</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Commentaire</string>
+  <string name="patroller_diff_feedback_dialog_submit">Soumettre</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Commentaire envoyé.</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Rejeter</string>
   <string name="page_issues_title">Problèmes de la page</string>
@@ -1587,4 +1600,5 @@
   <string name="email_report_image_recommendations_body">J’ai rencontré un problème avec la fonctionnalité de recommandation d’image :\n- [Décrire le problème spécifique]\n\nLe comportement que je m’attendrais à voir est :\n- [Décrire la solution proposée]</string>
   <string name="email_report_patroller_tasks_subject">Rapport de problème — Fonctionnalité de patrouille de modifications</string>
   <string name="email_report_patroller_tasks_body">J’ai rencontré un problème en rapport avec la fonctionnalité d\'édition du patrouillage :\n- [Décrire le problème spécifique]\n\nLe comportement que je souhaite voir est :\n- [Décrire la solution proposée]\n\n[Captures d\'écrans ou liens]\n\n\n\n\n\n[]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Nous vous le rappellerons demain.</string>
 </resources>

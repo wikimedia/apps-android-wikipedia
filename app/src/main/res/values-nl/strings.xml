@@ -261,7 +261,7 @@
   <string name="page_protected_can_not_edit_anon">Helaas, deze pagina kan momenteel niet anoniem worden bewerkt.</string>
   <string name="page_protected_can_not_edit_title">Deze pagina is beveiligd</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Toevoegen aan volglijst</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Blijf op de hoogte van artikelen waarin u geïnteresseerd bent. Tik op het overloopmenu en selecteer &lt;b&gt;Toevoegen aan volglijst&lt;/b&gt; om wijzigingen aan een artikelen te zien.</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Blijf op de hoogte van artikelen waarin u geïnteresseerd bent. Tik op het overloopmenu en selecteer &lt;b&gt;Toevoegen aan volglijst&lt;/b&gt; om wijzigingen aan een artikel te zien.</string>
   <string name="settings_item_preferences">Instellingen</string>
   <string name="settings_activity_title">Instellingen</string>
   <string name="about_description">Over de Wikipedia-app</string>
@@ -300,7 +300,6 @@
   <string name="edit_redo">Opnieuw uitvoeren</string>
   <string name="edit_rollback">Terugdraaien</string>
   <string name="edit_warn">Waarschuwen</string>
-  <string name="edit_quality">Kwaliteit %s</string>
   <string name="edit_intent">Bedoeling %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
@@ -1216,6 +1215,7 @@
   <string name="wikitext_template">Sjabloon</string>
   <string name="wikitext_reference">Referentie</string>
   <string name="wikitext_preview_link">Voorvertoning koppeling</string>
+  <string name="wikitext_mention_user">Een gebruiker noemen</string>
   <string name="insert_media_title">Media invoegen</string>
   <string name="insert_media_search_description">Selecteer een bestand van Wikimedia Commons</string>
   <string name="insert_media_search_hint">Zoeken naar media</string>
@@ -1359,9 +1359,10 @@
   <string name="revision_diff_paragraph_added">Alinea toegevoegd</string>
   <string name="revision_diff_paragraph_removed">Alinea verwijderd</string>
   <string name="revision_diff_protected">De wijzigingen die in deze versie zijn aangebracht, zijn niet openbaar toegankelijk.</string>
-  <string name="revision_undo_title">Bewerken ongedaan maken</string>
-  <string name="revision_undo_message">Hiermee worden de wijzigingen ongedaan gemaakt door de revisie(s) van het hier getoonde artikel.</string>
-  <string name="revision_undo_reason">Geef om door te gaan een reden op waarom u deze bewerking ongedaan wilt maken:</string>
+  <string name="revision_undo_title">Weet u zeker dat u deze bewerking ongedaan wilt maken?</string>
+  <string name="revision_undo_message">Ongedaan maken betekent het terugdraaien van de effecten van een of meer bewerkingen.</string>
+  <string name="revision_undo_summary_hint">Samenvatting (optioneel)</string>
+  <string name="revision_undo_reason">Geef de reden voor het ongedaan maken op</string>
   <string name="revision_undo_success">De versie is ongedaan gemaakt.</string>
   <string name="revision_rollback_dialog_title">weet je zeker dat je de bewerkingen wil terugdraaien?</string>
   <string name="revision_rollback_success">Bewerkingen omgedraaid.</string>
@@ -1493,7 +1494,7 @@
   <string name="talk_templates_edit_message_dialog_save">Opslaan</string>
   <string name="talk_templates_edit_message_dialog_delete">Verwijderen</string>
   <string name="talk_templates_edit_message_updated">Bericht is bijgewerkt</string>
-  <string name="talk_templates_edit_message_confirm_description">Weet u zeker dat u dit bericht \"%s\" uit de lijst wilt verwijderen?</string>
+  <string name="talk_templates_edit_message_delete_description">Weet u zeker dat u dit bericht “%s” uit de lijst wilt verwijderen?</string>
   <string name="talk_templates_message_deleted">Bericht is verwijderd</string>
   <string name="patroller_tasks_edits_list_title">Lijst met bewerkingen</string>
   <string name="patroller_tasks_edits_list_search_hint">Bewerkingen zoeken of filteren</string>
@@ -1568,6 +1569,32 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Bekijken</string>
   <string name="patroller_tasks_overflow_report">Probleem met functie</string>
   <string name="patroller_tasks_overflow_learn">Meer lezen</string>
+  <string name="patroller_onboarding_one_title">Draag bij aan het toezicht op en de goedkeuring van Wikipedia-bewerkingen.</string>
+  <string name="patroller_onboarding_one_content">Verbeter de kwaliteit van Wikipedia-inhoud door een feed met recente bewerkingen actief te beoordelen en andere redacteuren begeleiding, kwaliteitscontrole en aanmoediging te bieden.</string>
+  <string name="patroller_onboarding_two_title">Bied feedback, controleer bewerkingen en onderneem actie op het wijzigingenscherm</string>
+  <string name="patroller_onboarding_two_thank_title">Bedanken</string>
+  <string name="patroller_onboarding_two_thank_content">Ziet u een productieve bewerking? Bedank een gebruiker voor diens bijdrage.</string>
+  <string name="patroller_onboarding_two_watch_title">Volgen</string>
+  <string name="patroller_onboarding_two_watch_content">Wilt u de bewerkingen van een artikel bijhouden? Voeg het toe aan uw volglijst. Bekijk het onder ‘Meer’.</string>
+  <string name="patroller_onboarding_two_warn_title">Waarschuwen</string>
+  <string name="patroller_onboarding_two_warn_content">Creëer, verzend en bewaar waarschuwingsberichten op de overlegpagina van een redacteur.</string>
+  <string name="patroller_onboarding_two_undo_title">Ongedaan maken/terugdraaien</string>
+  <string name="patroller_onboarding_two_undo_content">Kies ‘Ongedaan maken’ om een mogelijk destructieve bewerking ongedaan te maken of terug te draaien.</string>
+  <string name="patroller_onboarding_three_title">Gegevens anoniem versturen</string>
+  <string name="patroller_onboarding_three_content">Help de functie te verbeteren door ons te laten weten hoe u deze gebruikt. De verzamelde gegevens zijn anoniem. &lt;a href=\"#privacy\"&gt;Meer weten&lt;/a&gt;</string>
+  <string name="patroller_onboarding_three_switch">Gebruiksrapporten verzenden</string>
+  <string name="patroller_diff_tooltip_one">Schade voorspelt of een bewerking schade aan een wiki veroorzaakt.</string>
+  <string name="patroller_diff_tooltip_two">Intentie voorspelt de waarschijnlijkheid dat een bewerking te goeder trouw wordt opgeslagen.</string>
+  <string name="patroller_diff_feedback_dialog_title">Help ons deze functie te verbeteren</string>
+  <string name="patroller_diff_feedback_dialog_message">Bent u tevreden over deze functie?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Tevreden</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutraal</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Niet tevreden</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Hoe kunnen we de functie verbeteren?</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Terugkoppeling</string>
+  <string name="patroller_diff_feedback_dialog_submit">Opslaan</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Terugkoppeling ingediend.</string>
+  <string name="patroller_diff_feedback_tooltip">Tik op het overloopmenu om op elk gewenst moment terugkoppeling te geven onder ‘Probleem met functie’.</string>
   <string name="data_opt_in_accept">Aanvaarden</string>
   <string name="data_opt_in_reject">Afwijzen</string>
   <string name="page_issues_title">Paginaproblemen</string>
@@ -1576,4 +1603,8 @@
   <string name="email_report_image_recommendations_body">Ik ben een probleem tegengekomen met de functie Afbeeldingsaanbevelingen:\n- [Beschrijf precies het probleem]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]</string>
   <string name="email_report_patroller_tasks_subject">Probleemmelding: functie Patrollertaken</string>
   <string name="email_report_patroller_tasks_body">Ik ben een probleem tegengekomen met de functie Patrollertaken:\n- [Beschrijf precies het probleem]\n\nHet gedrag dat ik wil zien is:\n- [Beschrijf de voorgestelde oplossing]\n\n[Schermafbeeldingen of koppelingen]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Morgen herinneren wij u er nogmaals aan.</string>
+  <string name="donation_campaign_donated_snackbar">Bedankt, lieve donateur! Uw vrijgevigheid helpt Wikipedia en haar zustersites bloeiend te houden.</string>
+  <string name="donation_campaign_go_back_button">Terug</string>
+  <string name="menu_single_webview_open_external">Openen in systeembrowser</string>
 </resources>
