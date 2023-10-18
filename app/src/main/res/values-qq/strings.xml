@@ -295,7 +295,7 @@
   <string name="edit_redo">Button label to redo the previous text that was typed.</string>
   <string name="edit_rollback">Button label to rollback the article to the previous revision.</string>
   <string name="edit_warn">Title of the screen of publishing a warn message to a user talk page.</string>
-  <string name="edit_quality">Label of the edit quality in the article edit detail page. %s will be replaced by the percentage of edit quality.</string>
+  <string name="edit_damage">Label of the edit damage in the article edit detail page. %s will be replaced by the percentage of edit damage.</string>
   <string name="edit_intent">Label of the edit intent in the article edit detail page. %s will be replaced by the percentage of edit intent.</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">Text for the revisions difference in bytes. %s will be replaced by the positive one or negative one.</item>
@@ -1486,7 +1486,7 @@
   <string name="talk_templates_edit_message_dialog_save">Button label of the dialog of editing the selected message that save the changes.</string>
   <string name="talk_templates_edit_message_dialog_delete">Button label of the dialog of editing the selected message that delete the message.</string>
   <string name="talk_templates_edit_message_updated">Snackbar message that show the message has been updated.</string>
-  <string name="talk_templates_edit_message_confirm_description">Message of confirming the action of deleting the message. %s will be replaced by the title of the saved message.</string>
+  <string name="talk_templates_edit_message_delete_description">Message of confirming the action of deleting the message. %s will be replaced by the title of the saved message.</string>
   <string name="talk_templates_message_deleted">Snackbar message that show the message has been deleted.</string>
   <string name="patroller_tasks_edits_list_title">Title of the screen that shows a list of edits.</string>
   <string name="patroller_tasks_edits_list_search_hint">Hint text of in the search bar of searching or filtering edits.</string>
@@ -1572,6 +1572,9 @@
   <string name="patroller_onboarding_two_warn_content">Content of the warn section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_undo_title">Title of the undo/rollback section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_undo_content">Content of the undo/rollback section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_three_title">Title of the third patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_three_content">Content of the third patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_three_switch">Text of the switch on the third patroller tasks on boarding screen</string>
   <string name="patroller_diff_tooltip_one">Text of the first tooltip for patrol edit diff screen.</string>
   <string name="patroller_diff_tooltip_two">Text of the second tooltip for patrol edit diff screen.</string>
   <string name="patroller_diff_feedback_dialog_title">Dialog title for the feedback form in the patrol edit screen.</string>
@@ -1579,6 +1582,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Option for the feedback form in the patrol edit screen that indicates satisfied.</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Option for the feedback form in the patrol edit screen that indicates neutral.</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Option for the feedback form in the patrol edit screen that indicates unsatisfied.</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Dialog title for the feedback input in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Hint text for input field for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_dialog_submit">Button label for input field for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Text for the snackbar message the feedback form in the patrol edit screen that indicates the feedback has been submitted.</string>

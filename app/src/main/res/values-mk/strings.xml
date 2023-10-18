@@ -263,7 +263,6 @@
   <string name="edit_redo">Повтори</string>
   <string name="edit_rollback">Отповикај</string>
   <string name="edit_warn">Предупреди</string>
-  <string name="edit_quality">Квалитет %s</string>
   <string name="edit_intent">Намера %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s бајт</item>
@@ -1460,7 +1459,7 @@
   <string name="talk_templates_edit_message_dialog_save">Зачувај</string>
   <string name="talk_templates_edit_message_dialog_delete">Избриши</string>
   <string name="talk_templates_edit_message_updated">Пораката е подновена</string>
-  <string name="talk_templates_edit_message_confirm_description">Дали сигурно сакате да ја избришете оваа порака %s од списокот.</string>
+  <string name="talk_templates_edit_message_delete_description">Дали сигурно сакате да ја избришете оваа порака „%s“ од списокот.</string>
   <string name="talk_templates_message_deleted">Пораката е избришана</string>
   <string name="patroller_tasks_edits_list_title">Список на уредувања</string>
   <string name="patroller_tasks_edits_list_search_hint">Пребарај или филтрирај уредувања</string>
@@ -1546,6 +1545,9 @@
   <string name="patroller_onboarding_two_warn_content">Создавајте, испраќајте и складирајте предупредителни пораки на корисничка разговорна страница.</string>
   <string name="patroller_onboarding_two_undo_title">Враќање/Поништување</string>
   <string name="patroller_onboarding_two_undo_content">Изберете „Врати“ за да поништите или отповикате потенцијално штетно уредување.</string>
+  <string name="patroller_onboarding_three_title">Испраќај анонимни податоци</string>
+  <string name="patroller_onboarding_three_content">Помогнете ни да ја подобриме функцијата со тоа што ќе добиваме информации како ја користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#privacy\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="patroller_onboarding_three_switch">Испраќај извештаи за употребата</string>
   <string name="patroller_diff_tooltip_one">Штетата предвидува дали едно уредување ќе причини штета на едно вики.</string>
   <string name="patroller_diff_tooltip_two">Намерата ја предвидува веројатноста едно уредување да биде зачувано како добронамерно.</string>
   <string name="patroller_diff_feedback_dialog_title">Помогнете ни да ја подобриме оваа функција</string>
@@ -1553,6 +1555,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволителна е</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Неутрално</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволителна е</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Како можеме да ја подобриме функцијата?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Мислење</string>
   <string name="patroller_diff_feedback_dialog_submit">Поднеси</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Мислењето е поднесено.</string>

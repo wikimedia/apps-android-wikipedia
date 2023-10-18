@@ -1443,13 +1443,19 @@
   <string name="patroller_onboarding_two_warn_title">Avvisi</string>
   <string name="patroller_onboarding_two_undo_title">Annulla/Ripristina</string>
   <string name="patroller_onboarding_two_undo_content">Scegli \"Annulla\" per annullare o ripristinare una modifica potenzialmente distruttiva.</string>
+  <string name="patroller_onboarding_three_title">Invia dati anonimi</string>
+  <string name="patroller_onboarding_three_content">Contribuisci a migliorare la funzionalità facendoci sapere come la usi. I dati raccolti sono anonimi. &lt;a href=\"#privacy\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
+  <string name="patroller_onboarding_three_switch">Invia rapporti sull\'utilizzo</string>
   <string name="patroller_diff_feedback_dialog_message">Sei soddisfatto di questa funzionalità?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Soddisfatto</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutrale</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Non soddisfatto</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Come possiamo migliorare la funzionalità?</string>
   <string name="patroller_diff_feedback_dialog_submit">Invia</string>
   <string name="data_opt_in_accept">Accetta</string>
   <string name="data_opt_in_reject">Rifiuta</string>
+  <string name="donation_campaign_maybe_later_snackbar">Te lo ricorderemo di nuovo domani.</string>
+  <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità aiuta a far crescere Wikipedia e i suoi siti correlati.</string>
   <string name="donation_campaign_go_back_button">Torna indietro</string>
   <string name="menu_single_webview_open_external">Apri nel browser di sistema</string>
 </resources>

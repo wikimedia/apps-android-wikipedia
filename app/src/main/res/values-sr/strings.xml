@@ -264,7 +264,6 @@
   <string name="edit_redo">Понови</string>
   <string name="edit_rollback">Врати</string>
   <string name="edit_warn">Упозори</string>
-  <string name="edit_quality">Квалитет %s</string>
   <string name="edit_zoom_in">Увећај</string>
   <string name="edit_zoom_out">Умањи</string>
   <string name="edit_summary_tag_typo">Исправљена грешка у куцању</string>
@@ -998,6 +997,7 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Референца</string>
   <string name="wikitext_preview_link">Преглед везе</string>
+  <string name="wikitext_mention_user">Спомени корисника</string>
   <string name="insert_media_search_description">Изаберите датотеку са Викимедијине оставе</string>
   <string name="insert_media_search_hint">Претрага медија</string>
   <string name="insert_media_settings">Додај детаље о слици</string>
@@ -1250,10 +1250,13 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Задовољавајуће</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Неутрално</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадовољавајуће</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Повратне информације</string>
   <string name="patroller_diff_feedback_dialog_submit">Пошаљи</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Повратне информације послате.</string>
   <string name="data_opt_in_accept">Прихватам</string>
   <string name="data_opt_in_reject">Одбаци</string>
   <string name="page_issues_title">Проблеми странице</string>
   <string name="generic_release_notes">Ситне поправке и унапређења</string>
+  <string name="donation_campaign_go_back_button">Назад</string>
+  <string name="menu_single_webview_open_external">Отвори у прегледачу</string>
 </resources>
