@@ -650,7 +650,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                     showAlignBottom(anchorView)
                     Prefs.showOneTimeRecentEditsFeedbackForm = false
                 }
-                Prefs.showOneTimeRecentEditsFeedbackForm = false
             }
         }, 100)
     }
