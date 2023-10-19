@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     android:background="?attr/paper_color"
     android:orientation="vertical"
+    android:clipChildren="false"
     android:visibility="gone"
     tools:visibility="visible">
 
@@ -17,36 +18,40 @@
         android:orientation="vertical"
         android:layout_margin="16dp">
 
-        <LinearLayout
+        <org.wikipedia.views.WikiCardView
             android:id="@+id/imageInfoContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            app:cardCornerRadius="16dp">
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
                 android:scaleType="centerInside"
+                android:layout_gravity="end|center_vertical"
                 android:contentDescription="@null"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:orientation="vertical"
-                tools:visibility="visible">
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="92dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/mediaTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
-                    android:textColor="?android:attr/textColorTertiary"
-                    android:textSize="14sp"
+                    android:textColor="?attr/progressive_color"
                     android:lineSpacingExtra="6sp"
-                    android:text="@string/insert_media_settings_uploaded_image"
-                    tools:text="Article" />
+                    android:text="@string/insert_media_settings_uploaded_image" />
 
                 <TextView
                     android:id="@+id/mediaDescription"
@@ -58,19 +63,18 @@
                     android:gravity="start"
                     android:lineSpacingExtra="6sp"
                     android:maxLines="2"
-                    android:textColor="?attr/primary_color"
-                    android:textSize="16sp"
+                    android:textColor="?attr/secondary_color"
                     tools:text="Lorem ipsum" />
 
             </LinearLayout>
 
-        </LinearLayout>
+        </org.wikipedia.views.WikiCardView>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/mediaCaptionLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:gravity="start"
             android:textAlignment="viewStart"
             android:hint="@string/insert_media_settings_caption"
@@ -120,21 +124,15 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="?attr/list_divider"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
-
         <Button
             android:id="@+id/advancedSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/App.Button.Tertiary"
+            style="@style/App.Button.Text"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
             android:text="@string/insert_media_advanced_settings"
-            android:layout_gravity="center"
-            tools:text="Article" />
+            android:layout_gravity="center" />
 
     </LinearLayout>
 

@@ -18,6 +18,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewUserMentionInputBinding
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 import java.util.concurrent.TimeUnit
@@ -41,13 +42,14 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     private val binding = ViewUserMentionInputBinding.inflate(LayoutInflater.from(context), this)
     private val disposables = CompositeDisposable()
     private val userNameList = mutableListOf<String>()
+    private val syntaxHighlighter: SyntaxHighlighter
 
     init {
         orientation = VERTICAL
         binding.inputEditText.listener = this
         binding.userListRecycler.layoutManager = LinearLayoutManager(context)
         binding.userListRecycler.adapter = UserNameAdapter()
-        binding.inputEditText.isTextInputLayoutFocusedRectEnabled = false
+        syntaxHighlighter = SyntaxHighlighter(context, binding.inputEditText, null, 200)
     }
 
     override fun onDetachedFromWindow() {
@@ -68,10 +70,14 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
 
     override fun onUserNameChanged(userName: String) {
         var userNamePrefix = userName
-        if (userNamePrefix.startsWith("@") && userNamePrefix.length > 1) {
-            userNamePrefix = userNamePrefix.substring(1)
-            if (userNamePrefix.isNotEmpty()) {
+        if (userNamePrefix.startsWith("@")) {
+            if (userNamePrefix.length > 1) {
+                userNamePrefix = userNamePrefix.substring(1)
                 searchForUserName(userNamePrefix)
+            } else {
+                userNameList.clear()
+                userNameList.addAll(userNameHints)
+                onSearchResults()
             }
         }
     }
@@ -81,7 +87,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
             val candidateName = userNameHints.first()
             if (candidateName != currentUserName &&
                     StringUtil.addUnderscores(candidateName.lowercase()) != StringUtil.addUnderscores(currentPageTitle.text.lowercase())) {
-                binding.inputEditText.prepopulateUserName(candidateName)
+                binding.inputEditText.prepopulateUserName(candidateName, wikiSite)
             }
         }
     }
@@ -129,7 +135,7 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
         }
 
         override fun onClick(v: View) {
-            binding.inputEditText.onCommitUserName(userName)
+            binding.inputEditText.onCommitUserName(userName, wikiSite)
             listener?.onUserMentionComplete()
         }
     }

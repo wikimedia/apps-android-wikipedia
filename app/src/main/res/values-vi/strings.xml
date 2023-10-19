@@ -908,7 +908,7 @@
   <string name="suggested_edits_ip_blocked_title">IP đã bị cấm</string>
   <string name="suggested_edits_last_edited">Lần sửa đổi cuối</string>
   <string name="suggested_edits_last_edited_never">Không bao giờ</string>
-  <string name="suggested_edits_task_new">mới</string>
+  <string name="suggested_edits_task_new" fuzzy="true">mới</string>
   <string name="suggested_edits_cc0_notice">Bằng việc xuất bản trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Sửa đổi gợi ý</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Cảm ơn đã đóng góp cho Wikipedia! Tại sao không tiếp tục nơi bạn đã dừng lại?</string>
@@ -1100,7 +1100,7 @@
   <string name="revision_diff_compare">So sánh các phiên bản</string>
   <string name="revision_diff_from">Từ:</string>
   <string name="revision_diff_to">Đến:</string>
-  <string name="revision_undo_title">Hoàn tác sửa đổi</string>
+  <string name="revision_undo_title" fuzzy="true">Hoàn tác sửa đổi</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s cùng trang thảo luận đã được thêm vào danh sách theo dõi của bạn %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Thay đổi</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">vô hạn</string>

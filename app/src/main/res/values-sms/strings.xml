@@ -282,7 +282,7 @@
   <string name="suggested_edits_label">Eʹtǩǩuum muttâz</string>
   <string name="suggested_edits_learn_more">Lââʹssteâđ</string>
   <string name="suggested_edits_last_edited">Mââimõssân muttum</string>
-  <string name="suggested_edits_task_new">ođđ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ođđ</string>
   <string name="suggested_edits_reactivation_notification_title">Eʹtǩǩuum muttâz</string>
   <string name="suggested_edits_contribution_language_label">Ǩiõll</string>
   <string name="suggested_edits_contribution_image_label">Snimldõk</string>
@@ -345,7 +345,7 @@
   <string name="menu_option_view_user_talk">Čuäʹjet saǥstõõllâmseeid</string>
   <string name="revision_diff_compare">Verddõõl versioid</string>
   <string name="revision_diff_compare_title">Verddõõl versioid: %s</string>
-  <string name="revision_undo_title">Kååʹmet muttâz</string>
+  <string name="revision_undo_title" fuzzy="true">Kååʹmet muttâz</string>
   <string name="revision_undo_success">Versio kååʹmteš.</string>
   <string name="revision_rollback_success">Muttâz lie kååʹmtum.</string>
   <string name="revision_compare_button">Verddõõl</string>

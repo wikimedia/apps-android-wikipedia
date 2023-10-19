@@ -998,7 +998,7 @@
   <string name="suggested_edits_ip_blocked_title">IP блок теха да</string>
   <string name="suggested_edits_last_edited">ТӀехьара хувцам</string>
   <string name="suggested_edits_last_edited_never">ЦIаккха</string>
-  <string name="suggested_edits_task_new">керда</string>
+  <string name="suggested_edits_task_new" fuzzy="true">керда</string>
   <string name="suggested_edits_cc0_notice">Iайха даь хувцамаш дIаяздарца хьо раьза хул &lt;a href=\"%1$s\" &gt;пайда эцара бехкамашта&lt;/a&gt;, цул совгIа раьза хул хьо &lt;a href=\"%2$s\"&gt;CCO яхача лицензех&lt;/a&gt; а дола юхадаккха вIаштIехьа хургдоацача кепатохарá.</string>
   <string name="suggested_edits_reactivation_notification_title">Тоаде мегаш дар</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Баркал хьона Википеди тоаярах! Хьалха хье сецачара дӀа хӀана волалац/йолалац хьо?</string>
@@ -1275,9 +1275,9 @@
   <string name="revision_diff_line_removed">МугӀ дӀабаьккхаб</string>
   <string name="revision_diff_paragraph_added">ЦӀе мугӀ тӀатехаб</string>
   <string name="revision_diff_paragraph_removed">ЦӀе мугӀ дӀабаьккхаб</string>
-  <string name="revision_undo_title">Тоадар юхадаккха</string>
-  <string name="revision_undo_message">Укхаза гойташ дола статья чу даь хувцамаш юхадоаккхаргда.</string>
-  <string name="revision_undo_reason">ДӀахо гӀоргволаш, ер хувцар юхадаккхара бахьан белгалдаккха</string>
+  <string name="revision_undo_title" fuzzy="true">Тоадар юхадаккха</string>
+  <string name="revision_undo_message" fuzzy="true">Укхаза гойташ дола статья чу даь хувцамаш юхадоаккхаргда.</string>
+  <string name="revision_undo_reason" fuzzy="true">ДӀахо гӀоргволаш, ер хувцар юхадаккхара бахьан белгалдаккха</string>
   <string name="revision_undo_success">Хувцар юхадаьккхад.</string>
   <string name="revision_rollback_dialog_title">Боккъонца лой хьона хувцамаш юхататта?</string>
   <string name="revision_rollback_success">Хувцамаш юхатеттад.</string>

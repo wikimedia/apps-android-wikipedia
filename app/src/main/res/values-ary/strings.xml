@@ -348,7 +348,7 @@
   <string name="suggested_edits_contributions_stat_tooltip">لمجموع د تبديلات ديالك حتال دابا.</string>
   <string name="suggested_edits_disabled_message">التبديلات لمقتارحة مامفعلاش. سمح لينا %s، راه ترجّعو بزاف د لمساهمات اللخرة ديالك.</string>
   <string name="suggested_edits_quality_okay_text">واخا</string>
-  <string name="suggested_edits_task_new">جديد</string>
+  <string name="suggested_edits_task_new" fuzzy="true">جديد</string>
   <string name="suggested_edits_contribution_language_label">لوغة</string>
   <string name="suggested_edits_contribution_date_time_label">تاريخ / وقت</string>
   <string name="suggested_edits_contribution_image_label">تصويرة</string>
@@ -367,6 +367,7 @@
   <string name="languages_list_activity_title">زيد لوغة</string>
   <string name="wikipedia_languages_add_language_text">زيد لوغة</string>
   <string name="more_language_options">كتر</string>
+  <string name="add_wikipedia_languages_text">زيد لوغات د ويكيپيديا</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">لا شكرا</string>
   <string name="remove_language_dialog_cancel_button_text">لغي</string>
   <string name="remove_language_dialog_ok_button_text">واخا</string>

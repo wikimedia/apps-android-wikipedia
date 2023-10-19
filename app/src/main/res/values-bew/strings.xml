@@ -255,7 +255,6 @@
   <string name="edit_redo">Ulangin</string>
   <string name="edit_rollback">Aterèt</string>
   <string name="edit_warn">Wanti-wanti</string>
-  <string name="edit_quality">Kualitèt %s</string>
   <string name="edit_intent">Maksud %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bèt</item>
@@ -989,7 +988,7 @@
   <string name="suggested_edits_ip_blocked_title">IP diblokir</string>
   <string name="suggested_edits_last_edited">Paling akir dipermak</string>
   <string name="suggested_edits_last_edited_never">Kaga\' perna</string>
-  <string name="suggested_edits_task_new">baru</string>
+  <string name="suggested_edits_task_new" fuzzy="true">baru</string>
   <string name="suggested_edits_cc0_notice">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;ketentuan pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah &lt;a href=\"%2$s\"&gt;ongji CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Permakan nyang disaranin</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Makasi ya udah mermak Wikipédi! Ngapa kaga\' lanjutin nyang belakangan?</string>
@@ -1175,7 +1174,7 @@
   <string name="insert_media_settings">Tambahin tètèk bengèk gambar</string>
   <string name="insert_media_settings_uploaded_image">Gambar nyang diangkat</string>
   <string name="insert_media_settings_caption">Keterangan gambar</string>
-  <string name="insert_media_settings_caption_description">Lèbel gambar nyang kiatan di makalah</string>
+  <string name="insert_media_settings_caption_description">Ènclèkan gambar nyang kiatan di makalah</string>
   <string name="insert_media_settings_alternative_text">Tèks alternatip</string>
   <string name="insert_media_settings_alternative_text_description">Jabaran bakal pembaca nyang kaga\' bisa ngiat</string>
   <string name="insert_media_advanced_settings">Penyetèlan lanjutan</string>
@@ -1312,9 +1311,9 @@
   <string name="revision_diff_paragraph_added">Paragrap ditambahin</string>
   <string name="revision_diff_paragraph_removed">Paragrap dibuang</string>
   <string name="revision_diff_protected">Perobahan nyang dikeja di ni perbaèkan kaga\' kena dibuka halayak umum.</string>
-  <string name="revision_undo_title">Balikin permakan</string>
-  <string name="revision_undo_message">Ni bakal mbalikin perobahan nyang dikeja ama perbaèkan deri makalah nyang dikasi unjuk di mari.</string>
-  <string name="revision_undo_reason">Bakal nerusin, tulung kasi alesan ngapa balikin ni permakan:</string>
+  <string name="revision_undo_title" fuzzy="true">Balikin permakan</string>
+  <string name="revision_undo_message" fuzzy="true">Ni bakal mbalikin perobahan nyang dikeja ama perbaèkan deri makalah nyang dikasi unjuk di mari.</string>
+  <string name="revision_undo_reason" fuzzy="true">Bakal nerusin, tulung kasi alesan ngapa balikin ni permakan:</string>
   <string name="revision_undo_success">Perbaèkan udah dibalikin.</string>
   <string name="revision_rollback_dialog_title">Apa lu yakin pèngèn ngaterèt ni permakan?</string>
   <string name="revision_rollback_success">Permakan udah dibalikin.</string>
@@ -1446,7 +1445,7 @@
   <string name="talk_templates_edit_message_dialog_save">Simpen</string>
   <string name="talk_templates_edit_message_dialog_delete">Apus</string>
   <string name="talk_templates_edit_message_updated">Pesen udah diperbaruin</string>
-  <string name="talk_templates_edit_message_confirm_description">Apa lu yakin pèngèn ngapus ni pesen %s deri daptar?</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Apa lu yakin pèngèn ngapus ni pesen %s deri daptar?</string>
   <string name="talk_templates_message_deleted">Pesen udah diapus</string>
   <string name="patroller_tasks_edits_list_title">Daptar permakan</string>
   <string name="patroller_tasks_edits_list_search_hint">Cari atawa saring permakan</string>
