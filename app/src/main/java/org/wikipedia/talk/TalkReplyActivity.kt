@@ -36,6 +36,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.TalkAliasData
+import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -56,7 +57,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
     private var userMentionScrolled = false
     private var savedSuccess = false
-    private var fromRecentEdits = false
+    private var fromDiff = false
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
@@ -100,7 +101,15 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
 
-        fromRecentEdits = intent.getBooleanExtra(EXTRA_FROM_RECENT_EDITS, false)
+        fromDiff = intent.getBooleanExtra(EXTRA_FROM_DIFF, false)
+
+        if (fromDiff) {
+            binding.talkTemplateContainer.isVisible = true
+            binding.talkTemplateButton.setOnClickListener {
+                startActivity(TalkTemplatesActivity.newIntent(this))
+            }
+            FeedbackUtil.setButtonLongPressToast(binding.talkTemplateButton)
+        }
 
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
@@ -375,9 +384,10 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         const val EXTRA_TOPIC_ID = "topicId"
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
-        const val EXTRA_FROM_RECENT_EDITS = "fromRecentEdits"
+        const val EXTRA_FROM_DIFF = "fromDiff"
         const val RESULT_EDIT_SUCCESS = 1
         const val RESULT_BACK_FROM_TOPIC = 2
+        const val RESULT_SAVE_TEMPLATE = 3
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
         // TODO: persist in db. But for now, it's fine to store these for the lifetime of the app.
@@ -390,14 +400,14 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                       invokeSource: Constants.InvokeSource,
                       undoSubject: CharSequence? = null,
                       undoBody: CharSequence? = null,
-                      fromRecentEdits: Boolean = false): Intent {
+                      fromDiff: Boolean = false): Intent {
             return Intent(context, TalkReplyActivity::class.java)
                     .putExtra(Constants.ARG_TITLE, pageTitle)
                     .putExtra(EXTRA_PARENT_SUBJECT, parentSubject)
                     .putExtra(EXTRA_TOPIC, topic)
                     .putExtra(EXTRA_SUBJECT, undoSubject)
                     .putExtra(EXTRA_BODY, undoBody)
-                    .putExtra(EXTRA_FROM_RECENT_EDITS, fromRecentEdits)
+                    .putExtra(EXTRA_FROM_DIFF, fromDiff)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

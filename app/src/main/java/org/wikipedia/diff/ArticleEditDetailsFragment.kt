@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
@@ -44,6 +45,7 @@ import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.UserAliasData
+import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.ClipboardUtil
@@ -73,6 +75,19 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
+
+    private val requestWarn = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || it.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
+            viewModel.revisionTo?.let { revision ->
+                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
+                val message = if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) R.string.talk_warn_submitted else R.string.talk_warn_submitted_and_saved
+                val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
+                snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
+                    startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, InvokeSource.DIFF_ACTIVITY)) }
+                snackbar.show()
+            }
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -256,6 +271,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.thankButton.setOnClickListener {
             showThankDialog()
             editHistoryInteractionEvent?.logThankTry()
+        }
+
+        binding.warnButton.setOnClickListener {
+            viewModel.revisionTo?.let { revision ->
+                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
+                requestWarn.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = InvokeSource.DIFF_ACTIVITY, fromDiff = true))
+            }
         }
 
         binding.undoButton.setOnClickListener {
