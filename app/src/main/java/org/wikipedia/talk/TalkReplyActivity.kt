@@ -56,6 +56,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
     private var userMentionScrolled = false
     private var savedSuccess = false
+    private var fromRecentEdits = false
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
@@ -98,6 +99,8 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         setSupportActionBar(binding.replyToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
+
+        fromRecentEdits = intent.getBooleanExtra(EXTRA_FROM_RECENT_EDITS, false)
 
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
@@ -372,6 +375,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         const val EXTRA_TOPIC_ID = "topicId"
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
+        const val EXTRA_FROM_RECENT_EDITS = "fromRecentEdits"
         const val RESULT_EDIT_SUCCESS = 1
         const val RESULT_BACK_FROM_TOPIC = 2
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
@@ -385,13 +389,15 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                       topic: ThreadItem?,
                       invokeSource: Constants.InvokeSource,
                       undoSubject: CharSequence? = null,
-                      undoBody: CharSequence? = null): Intent {
+                      undoBody: CharSequence? = null,
+                      fromRecentEdits: Boolean = false): Intent {
             return Intent(context, TalkReplyActivity::class.java)
                     .putExtra(Constants.ARG_TITLE, pageTitle)
                     .putExtra(EXTRA_PARENT_SUBJECT, parentSubject)
                     .putExtra(EXTRA_TOPIC, topic)
                     .putExtra(EXTRA_SUBJECT, undoSubject)
                     .putExtra(EXTRA_BODY, undoBody)
+                    .putExtra(EXTRA_FROM_RECENT_EDITS, fromRecentEdits)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

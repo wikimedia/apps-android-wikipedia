@@ -21,6 +21,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <LinearLayout
+                android:id="@+id/talkTemplateContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/P.MaterialListTitle"
+                    android:id="@+id/talkTemplateMessage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_weight="1"
+                    android:text="@string/talk_templates_new_message_description"/>
+
+                <ImageView
+                    android:id="@+id/talkTemplateButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="@string/talk_templates_manage_title"
+                    android:padding="12dp"
+                    app:tint="?attr/primary_color"
+                    app:srcCompat="@drawable/ic_manage_template" />
+
+            </LinearLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/replySubjectLayout"
                 android:layout_width="match_parent"
