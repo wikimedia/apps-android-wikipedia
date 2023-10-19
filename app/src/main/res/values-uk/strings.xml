@@ -286,6 +286,7 @@
   <string name="edit_redo">Повторити</string>
   <string name="edit_rollback">Відкіт</string>
   <string name="edit_warn">Попередження</string>
+  <string name="edit_damage">Пошкоджено %s</string>
   <string name="edit_intent">Намір %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
@@ -1653,7 +1654,7 @@
   <string name="patroller_onboarding_three_title">Надсилання анонімних даних</string>
   <string name="patroller_onboarding_three_content">Допоможіть нам покращити функцію, повідомляючи, як ви її використовуєте. Зібрані дані анонімні. &lt;a href=\"#privacy\"&gt;Дізнатися більше&lt;/a&gt;</string>
   <string name="patroller_onboarding_three_switch">Надсилати звіти про використання</string>
-  <string name="patroller_diff_tooltip_one">«Шкода» передбачає, чи редагування завдає шкоди вікі.</string>
+  <string name="patroller_diff_tooltip_one">«Шкода» передбачає, що редагування завдає шкоди вікі.</string>
   <string name="patroller_diff_tooltip_two">«Намір» передбачає ймовірність добропорядних намірів при збереженні редагування.</string>
   <string name="patroller_diff_feedback_dialog_title">Допоможіть нам покращити цю функцію</string>
   <string name="patroller_diff_feedback_dialog_message">Ви задоволені цією функцією?</string>
