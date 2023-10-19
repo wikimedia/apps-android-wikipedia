@@ -286,6 +286,7 @@
   <string name="edit_redo">ביצוע חוזר</string>
   <string name="edit_rollback">שחזור</string>
   <string name="edit_warn">אזהרה</string>
+  <string name="edit_damage">נזק %s</string>
   <string name="edit_intent">כוונה %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">בית אחד</item>
@@ -1561,7 +1562,7 @@
   <string name="talk_templates_edit_message_dialog_save">שמירה</string>
   <string name="talk_templates_edit_message_dialog_delete">מחיקה</string>
   <string name="talk_templates_edit_message_updated">ההודעה עודכנה</string>
-  <string name="talk_templates_edit_message_delete_description" fuzzy="true">האם ברצונך באמת למחוק את ההודעה %s מהרשימה?</string>
+  <string name="talk_templates_edit_message_delete_description">האם ברצונך באמת למחוק את ההודעה \"%s\" מהרשימה?</string>
   <string name="talk_templates_message_deleted">ההודעה נמחקה</string>
   <string name="patroller_tasks_edits_list_title">רשימת עריכות</string>
   <string name="patroller_tasks_edits_list_search_hint">חיפוש או סינון של עריכות</string>

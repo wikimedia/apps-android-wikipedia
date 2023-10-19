@@ -1541,6 +1541,9 @@
   <string name="patroller_onboarding_two_warn_content">Мөхәррирҙең фекер алышыу битендә иҫкәртеү хәбәрҙәрен яҙығыҙ, ебәрегеҙ, һаҡлағыҙ.</string>
   <string name="patroller_onboarding_two_undo_title">Кире алырға</string>
   <string name="patroller_onboarding_two_undo_content">Зыянлы үҙгәртеүҙе кире алыу өсөн \"Кире алырға\" ғәмәлен һайлағыҙ.</string>
+  <string name="patroller_onboarding_three_title">Аноним мәғлүмәт ебәрергә</string>
+  <string name="patroller_onboarding_three_content">Ҡушымтаны нисек ҡулланыуығыҙ тураһында хәбәр ебәреп, уны яҡшыртырға ярҙам итегеҙ. Мәғлүмәттәр аноним рәүештә йыйыла. &lt; a href=\"#privacy\"&gt;Күберәк белергә&lt; / a&gt;</string>
+  <string name="patroller_onboarding_three_switch">Ҡулланыу тураһында отчет ебәрергә</string>
   <string name="patroller_diff_tooltip_one">Мөхәррирләү викиҙың боҙолоуына килтерәме икәнен күҙаллай.</string>
   <string name="patroller_diff_tooltip_two">Был алым мөхәррирләү изге ниәт менән һаҡланыу ихтималлығын күҙаллай.</string>
   <string name="patroller_diff_feedback_dialog_title">Был функцияны яҡшыртырға ярҙам итегеҙ</string>
@@ -1548,6 +1551,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Ҡәнәғәт</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Нейтраль</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Ҡәнәғәт түгел</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Был функцияны нисек яҡшырта алабыҙ?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Бәйләнеш</string>
   <string name="patroller_diff_feedback_dialog_submit">Тәҡдим итергә</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Фекер ебәрелде.</string>
@@ -1562,4 +1566,6 @@
   <string name="email_report_patroller_tasks_body">Тикшереү функцияһы проблемаһы менән осраштым:\n-[Аныҡ проблеманы күрһәтегеҙ]\nМин күрергә теләгән ғәмәл:\n-[Хәл итеү юлын тасуирлағыҙ]\n\n[Скриншоттар йәки һылтанмалар]</string>
   <string name="donation_campaign_maybe_later_snackbar">Иртәгә тағы ла иҫегеҙгә төшөрөрбөҙ.</string>
   <string name="donation_campaign_donated_snackbar">Рәхмәт! Йомартлығығыҙ Википедияның һәм уның туғандаш проекттарының үҫешеүенә булышлыҡ итә.</string>
+  <string name="donation_campaign_go_back_button">Кире ҡайтырға</string>
+  <string name="menu_single_webview_open_external">Система браузерында асырға</string>
 </resources>
