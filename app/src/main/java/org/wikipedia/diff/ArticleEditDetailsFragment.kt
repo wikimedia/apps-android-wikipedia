@@ -45,6 +45,7 @@ import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.UserAliasData
+import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
@@ -275,7 +276,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         binding.warnButton.setOnClickListener {
             viewModel.revisionTo?.let { revision ->
-                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
+                val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
                 requestWarn.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = InvokeSource.DIFF_ACTIVITY, fromDiff = true))
             }
         }

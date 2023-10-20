@@ -91,6 +91,15 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         binding.bodyTextInput.editText.addTextChangedListener(textWatcher)
     }
 
+    fun showTemplateCheckbox(show: Boolean) {
+        binding.dialogSaveAsNewCheckbox.isVisible = show
+    }
+
+    fun showTemplateRadios(show: Boolean) {
+        binding.dialogSaveAsNewRadio.isVisible = show
+        binding.dialogSaveExistingRadio.isVisible = show
+    }
+
     fun setDialogMessage(text: String) {
         binding.dialogMessage.text = text
     }

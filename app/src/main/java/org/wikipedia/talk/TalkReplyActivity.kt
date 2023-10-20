@@ -37,6 +37,7 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.talk.template.TalkTemplatesActivity
+import org.wikipedia.talk.template.TalkTemplatesTextInputDialog
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -144,6 +145,24 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             }
         }
 
+        viewModel.loadTemplateData.observe(this) {
+            if (it is Resource.Success) {
+                // TODO: handle this
+            } else if (it is Resource.Error) {
+                FeedbackUtil.showError(this, it.throwable)
+            }
+        }
+
+        viewModel.saveTemplateData.observe(this) {
+            if (it is Resource.Success) {
+                viewModel.talkTemplateSaved = true
+                binding.progressBar.isVisible = true
+                viewModel.postReply(it.data.subject, it.data.message)
+            } else if (it is Resource.Error) {
+                FeedbackUtil.showError(this, it.throwable)
+            }
+        }
+
         SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.replyInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
             Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
@@ -207,6 +226,10 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
+        if (fromDiff) {
+            supportActionBar?.title = getString(R.string.talk_warn)
+            return
+        }
         val title = StringUtil.fromHtml(
             if (viewModel.isNewTopic) pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>"
             else intent.getStringExtra(EXTRA_PARENT_SUBJECT).orEmpty()
@@ -258,6 +281,58 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.inactive_color))
     }
 
+    private fun showSaveDialog(subject: String, body: String) {
+        TalkTemplatesTextInputDialog(this, R.string.talk_warn_save_dialog_publish,
+            R.string.talk_warn_save_dialog_cancel).let { textInputDialog ->
+            textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
+                override fun onShow(dialog: TalkTemplatesTextInputDialog) {
+                    dialog.setTitleHint(R.string.talk_warn_save_dialog_hint)
+                    dialog.setPositiveButtonEnabled(false)
+                }
+
+                override fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog) {
+                    text.toString().trim().let {
+                        when {
+                            it.isEmpty() -> {
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(false)
+                            }
+
+                            viewModel.talkTemplatesList.any { item -> item.title == it } -> {
+                                dialog.setError(
+                                    dialog.context.getString(
+                                        R.string.talk_templates_new_message_dialog_exists,
+                                        it
+                                    )
+                                )
+                                dialog.setPositiveButtonEnabled(false)
+                            }
+
+                            else -> {
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(true)
+                            }
+                        }
+                    }
+                }
+
+                override fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence) {
+                    viewModel.saveTemplate(titleText.toString(), subject, body)
+                }
+
+                override fun onCancel() {
+                    setSaveButtonEnabled(true)
+                }
+
+                override fun onDismiss() {
+                    setSaveButtonEnabled(true)
+                }
+            }
+            textInputDialog.showTemplateCheckbox(true)
+            textInputDialog.setTitle(R.string.talk_warn_save_dialog_title)
+        }.show()
+    }
+
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
         val body = binding.replyInputView.editText.text.toString().trim()
@@ -278,10 +353,14 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             return
         }
 
-        binding.progressBar.visibility = View.VISIBLE
         setSaveButtonEnabled(false)
 
-        viewModel.postReply(subject, body)
+        if (fromDiff) {
+            showSaveDialog(subject, body)
+        } else {
+            binding.progressBar.visibility = View.VISIBLE
+            viewModel.postReply(subject, body)
+        }
     }
 
     private fun onSaveSuccess(newRevision: Long) {
@@ -290,6 +369,8 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.progressBar.visibility = View.GONE
         setSaveButtonEnabled(true)
         EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle)
+
+        // TODO: return to diff screen with different message vs save to template
 
         Intent().let {
             it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
