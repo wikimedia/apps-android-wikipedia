@@ -387,7 +387,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             if (viewModel.topic != null) {
                 it.putExtra(EXTRA_TOPIC_ID, viewModel.topic!!.id)
             }
-            setResult(RESULT_EDIT_SUCCESS, it)
+            setResult(if (viewModel.talkTemplateSaved) RESULT_SAVE_TEMPLATE else RESULT_EDIT_SUCCESS, it)
 
             if (viewModel.topic != null) {
                 draftReplies.remove(viewModel.topic?.id)
