@@ -287,15 +287,17 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {
                     dialog.setTitleHint(R.string.talk_warn_save_dialog_hint)
-                    dialog.setPositiveButtonEnabled(false)
+                    dialog.setPositiveButtonEnabled(true)
                 }
 
                 override fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog) {
                     text.toString().trim().let {
                         when {
                             it.isEmpty() -> {
-                                dialog.setError(null)
-                                dialog.setPositiveButtonEnabled(false)
+                                if (textInputDialog.isSaveAsNewChecked) {
+                                    dialog.setError(null)
+                                    dialog.setPositiveButtonEnabled(false)
+                                }
                             }
 
                             viewModel.talkTemplatesList.any { item -> item.title == it } -> {
@@ -317,7 +319,12 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 }
 
                 override fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence) {
-                    viewModel.saveTemplate(titleText.toString(), subject, body)
+                    if (textInputDialog.isSaveAsNewChecked || textInputDialog.isSaveExistingChecked) {
+                        viewModel.saveTemplate(titleText.toString(), subject, body)
+                    } else {
+                        binding.progressBar.isVisible = true
+                        viewModel.postReply(subject, body)
+                    }
                 }
 
                 override fun onCancel() {
@@ -328,6 +335,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                     setSaveButtonEnabled(true)
                 }
             }
+            textInputDialog.showDialogMessage(false)
             textInputDialog.showTemplateCheckbox(true)
             textInputDialog.setTitle(R.string.talk_warn_save_dialog_title)
         }.show()
