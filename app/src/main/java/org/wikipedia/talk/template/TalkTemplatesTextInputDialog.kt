@@ -26,6 +26,7 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
     private var dialog: AlertDialog? = null
     var callback: Callback? = null
     val isSaveAsNewChecked get() = binding.dialogSaveAsNewCheckbox.isChecked
+    val isSaveExistingChecked get() = binding.dialogSaveExistingRadio.isChecked
 
     init {
         setView(binding.root)
@@ -42,6 +43,14 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         }
         setOnDismissListener {
             callback?.onDismiss()
+        }
+        binding.dialogSaveAsNewRadio.setOnCheckedChangeListener { _, isChecked ->
+            binding.titleInput.isEnabled = isChecked
+            binding.dialogSaveExistingRadio.isChecked = !isChecked
+        }
+        binding.dialogSaveExistingRadio.setOnCheckedChangeListener { _, isChecked ->
+            binding.titleInput.isEnabled = !isChecked
+            binding.dialogSaveAsNewRadio.isChecked = !isChecked
         }
     }
 
