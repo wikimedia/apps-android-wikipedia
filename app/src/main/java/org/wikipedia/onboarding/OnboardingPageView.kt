@@ -21,7 +21,7 @@ import org.wikipedia.databinding.ViewOnboardingPageBinding
 import org.wikipedia.onboarding.OnboardingPageView.LanguageListAdapter.OptionsViewHolder
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.util.Locale
 
 class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
@@ -44,8 +44,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
     init {
         attrs?.let { attrSet ->
             context.withStyledAttributes(attrSet, R.styleable.OnboardingPageView) {
-                val centeredImage = AppCompatResources.getDrawable(context,
-                        getResourceId(R.styleable.OnboardingPageView_centeredImage, -1))
+                val imageResource = getResourceId(R.styleable.OnboardingPageView_centeredImage, -1)
                 val primaryText = getString(R.styleable.OnboardingPageView_primaryText)
                 val secondaryText = getString(R.styleable.OnboardingPageView_secondaryText)
                 val tertiaryText = getString(R.styleable.OnboardingPageView_tertiaryText)
@@ -54,18 +53,26 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 val showListView = getBoolean(R.styleable.OnboardingPageView_showListView, false)
                 val background = getDrawable(R.styleable.OnboardingPageView_background)
                 val imageSize = getDimension(R.styleable.OnboardingPageView_imageSize, 0f)
+                val showPatrollerTasksButtons = getBoolean(R.styleable.OnboardingPageView_patrollerTasksButtons, false)
                 background?.let { setBackground(it) }
-                binding.imageViewCentered.setImageDrawable(centeredImage)
-                if (imageSize > 0 && centeredImage != null && centeredImage.intrinsicHeight > 0) {
-                    val aspect = centeredImage.intrinsicWidth.toFloat() / centeredImage.intrinsicHeight
-                    binding.imageViewCentered.updateLayoutParams {
-                        width = imageSize.toInt()
-                        height = (imageSize / aspect).toInt()
+                binding.imageViewCentered.isVisible = imageResource != -1
+                if (imageSize > 0 && imageResource != -1) {
+                    val centeredImage = AppCompatResources.getDrawable(context, imageResource)
+                    if (centeredImage != null && centeredImage.intrinsicHeight > 0) {
+                        binding.imageViewCentered.setImageDrawable(centeredImage)
+                        val aspect =
+                            centeredImage.intrinsicWidth.toFloat() / centeredImage.intrinsicHeight
+                        binding.imageViewCentered.updateLayoutParams {
+                            width = imageSize.toInt()
+                            height = (imageSize / aspect).toInt()
+                        }
                     }
                 }
                 binding.primaryTextView.visibility = if (primaryText.isNullOrEmpty()) GONE else VISIBLE
                 binding.primaryTextView.text = primaryText
+                binding.secondaryTextView.visibility = if (secondaryText.isNullOrEmpty()) GONE else VISIBLE
                 binding.secondaryTextView.text = StringUtil.fromHtml(secondaryText)
+                binding.tertiaryTextView.visibility = if (tertiaryText.isNullOrEmpty()) GONE else VISIBLE
                 binding.tertiaryTextView.text = tertiaryText
                 binding.acceptRejectContainer.isVisible = acceptRejectButtons
                 setUpLanguageListContainer(showListView, listDataType)
@@ -77,6 +84,8 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 }
                 binding.acceptButton.setOnClickListener { callback?.onAcceptOrReject(this@OnboardingPageView, true) }
                 binding.rejectButton.setOnClickListener { callback?.onAcceptOrReject(this@OnboardingPageView, false) }
+
+                binding.patrollerTasksButtonsContainer?.root?.isVisible = showPatrollerTasksButtons
             }
         }
     }

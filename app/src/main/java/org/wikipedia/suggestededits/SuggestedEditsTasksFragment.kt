@@ -338,7 +338,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         imageRecommendationsTask.description = getString(R.string.suggested_edits_image_recommendations_task_detail)
         imageRecommendationsTask.imageDrawable = R.drawable.ic_add_image
         imageRecommendationsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
-        imageRecommendationsTask.new = !Prefs.suggestedEditsImageRecsOnboardingShown
 
         vandalismPatrolTask = SuggestedEditsTask()
         vandalismPatrolTask.title = getString(R.string.suggested_edits_edit_patrol)
@@ -346,6 +345,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         vandalismPatrolTask.primaryAction = getString(R.string.suggested_edits_edit_patrol_review)
         vandalismPatrolTask.imageDrawable = R.drawable.ic_patrol_24
         vandalismPatrolTask.primaryActionIcon = R.drawable.ic_check_black_24dp
+        vandalismPatrolTask.new = !Prefs.recentEditsOnboardingShown
 
         displayedTasks.add(vandalismPatrolTask)
 

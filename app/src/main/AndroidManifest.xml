@@ -263,6 +263,8 @@
 
         <activity android:name=".suggestededits.SuggestedEditsImageRecsOnboardingActivity" />
 
+        <activity android:name=".suggestededits.SuggestedEditsRecentEditsOnboardingActivity" />
+
         <activity
             android:name=".watchlist.WatchlistActivity"
             android:label="@string/watchlist_title"
