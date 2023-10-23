@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/empty"
+        android:id="@+id/more_options"
         android:icon="@drawable/ic_more_vert_white_24dp"
         android:orderInCategory="101"
         android:title="@string/abc_action_menu_overflow_description"
