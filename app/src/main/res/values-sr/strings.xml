@@ -274,6 +274,7 @@
   <string name="edit_redo">Понови</string>
   <string name="edit_rollback">Врати</string>
   <string name="edit_warn">Упозори</string>
+  <string name="edit_damage">Оштећено %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s бајт</item>
     <item quantity="other">%s бајтова</item>
@@ -1071,8 +1072,8 @@
   <string name="edit_summary_added_image_and_caption">Додата слика и натпис</string>
   <string name="edit_published_view">Прикажи</string>
   <string name="file_page_activity_title">Страница датотеке</string>
-  <string name="file_page_add_image_caption_button">Додат натпис слике</string>
-  <string name="file_page_add_image_tags_button">Додате ознаке за слику</string>
+  <string name="file_page_add_image_caption_button">Додај натпис слике</string>
+  <string name="file_page_add_image_tags_button">Додај ознаке за слику</string>
   <string name="file_page_edit_button_content_description">Уреди %s</string>
   <string name="description_edit_revert_subtitle">Хвала вам што уређујете Википедију.</string>
   <string name="description_edit_revert_intro">Знамо да сте дали све од себе, али један од патролера има примедбу. Могући разлози због чега је ваша измена поништена:</string>
@@ -1257,8 +1258,8 @@
     <item quantity="one">Сакриј одговор</item>
     <item quantity="other">Сакриј одговоре (%d)</item>
   </plurals>
-  <string name="talk_thread_subscribed_to">Пратите \"%s\"</string>
-  <string name="talk_thread_unsubscribed_from">Више не пратите \"%s\"</string>
+  <string name="talk_thread_subscribed_to">Пратите „%s”</string>
+  <string name="talk_thread_unsubscribed_from">Више не пратите „%s”</string>
   <string name="talk_list_item_overflow_subscribe">Прати</string>
   <string name="talk_list_item_overflow_subscribed">Пратите</string>
   <string name="talk_list_item_overflow_mark_as_read">Означи као прочитано</string>
