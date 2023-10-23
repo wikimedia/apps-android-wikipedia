@@ -498,7 +498,7 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Oscuro</string>
-  <string name="color_theme_black">Negro</string>
+  <string name="color_theme_black" fuzzy="true">Negro</string>
   <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Texto de muestra</string>
   <string name="color_theme_test_text">Arrastra el control deslizante para cambiar el tamaño del texto de los artículos. Para modificar el tamaño del texto en toda la aplicación, utiliza la configuración del sistema.</string>
