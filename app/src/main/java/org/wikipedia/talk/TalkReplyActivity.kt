@@ -336,8 +336,12 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 }
 
                 override fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence) {
-                    if (textInputDialog.isSaveAsNewChecked || textInputDialog.isSaveExistingChecked) {
+                    if (textInputDialog.isSaveAsNewChecked) {
                         viewModel.saveTemplate(titleText.toString(), subject, body)
+                    } else if (textInputDialog.isSaveExistingChecked) {
+                        viewModel.selectedTemplate?.let {
+                            viewModel.updateTemplate(titleText.toString(), subject, body, it)
+                        }
                     } else {
                         binding.progressBar.isVisible = true
                         viewModel.postReply(subject, body)
@@ -353,7 +357,11 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 }
             }
             textInputDialog.showDialogMessage(false)
-            textInputDialog.showTemplateCheckbox(true)
+            if (viewModel.selectedTemplate != null) {
+                textInputDialog.showTemplateRadios(true)
+            } else {
+                textInputDialog.showTemplateCheckbox(true)
+            }
             textInputDialog.setTitle(R.string.talk_warn_save_dialog_title)
         }.show()
     }

@@ -25,7 +25,7 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
     private var binding = DialogTalkTemplatesTextInputBinding.inflate(LayoutInflater.from(context))
     private var dialog: AlertDialog? = null
     var callback: Callback? = null
-    val isSaveAsNewChecked get() = binding.dialogSaveAsNewCheckbox.isChecked
+    val isSaveAsNewChecked get() = binding.dialogSaveAsNewCheckbox.isChecked || binding.dialogSaveAsNewRadio.isChecked
     val isSaveExistingChecked get() = binding.dialogSaveExistingRadio.isChecked
 
     init {

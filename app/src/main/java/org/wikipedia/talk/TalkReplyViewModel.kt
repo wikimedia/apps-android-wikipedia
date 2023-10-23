@@ -62,6 +62,27 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
+    fun updateTemplate(title: String, subject: String, body: String, talkTemplate: TalkTemplate) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            saveTemplateData.postValue(Resource.Error(throwable))
+        }) {
+            withContext(Dispatchers.IO) {
+                talkTemplate.apply {
+                    this.title = title
+                    this.subject = subject
+                    this.message = body
+                }
+                talkTemplatesRepository.updateTemplate(talkTemplate)
+                talkTemplatesList.find { it == talkTemplate }?.apply {
+                    this.title = title
+                    this.subject = subject
+                    this.message = body
+                }
+                saveTemplateData.postValue(Resource.Success(talkTemplate))
+            }
+        }
+    }
+
     fun loadTemplates() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             loadTemplateData.postValue(Resource.Error(throwable))
