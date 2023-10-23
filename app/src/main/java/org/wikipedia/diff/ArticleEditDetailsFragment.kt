@@ -289,13 +289,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             editHistoryInteractionEvent?.logThankTry()
         }
 
-        binding.warnButton.setOnClickListener {
-            viewModel.revisionTo?.let { revision ->
-                val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
-                requestWarn.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = InvokeSource.DIFF_ACTIVITY, fromDiff = true))
-            }
-        }
-
         binding.undoButton.setOnClickListener {
             val canUndo = viewModel.revisionFrom != null && AccountUtil.isLoggedIn
             val canRollback = AccountUtil.isLoggedIn && viewModel.hasRollbackRights && !viewModel.canGoForward
@@ -333,7 +326,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         updateWatchButton(isWatched, hasWatchlistExpiry)
 
         binding.warnButton.setOnClickListener {
-            // TODO: implement this
+            viewModel.revisionTo?.let { revision ->
+                val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
+                requestWarn.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = InvokeSource.DIFF_ACTIVITY, fromDiff = true))
+            }
         }
 
         binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
