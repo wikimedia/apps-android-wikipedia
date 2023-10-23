@@ -48,7 +48,6 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.UserMentionInputView
 import org.wikipedia.views.ViewUtil
 
@@ -60,7 +59,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     private val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
     private var userMentionScrolled = false
     private var savedSuccess = false
-    private var fromDiff = false
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
@@ -108,9 +106,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
 
-        fromDiff = intent.getBooleanExtra(EXTRA_FROM_DIFF, false)
-
-        if (fromDiff) {
+        if (viewModel.isFromDiff) {
             binding.talkTemplateContainer.isVisible = true
             binding.talkTemplateButton.setOnClickListener {
                 requestManageTalkTemplate.launch(TalkTemplatesActivity.newIntent(this))
@@ -232,7 +228,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
-        if (fromDiff) {
+        if (viewModel.isFromDiff) {
             supportActionBar?.title = getString(R.string.talk_warn)
             return
         }
@@ -257,8 +253,12 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         L10nUtil.setConditionalTextDirection(binding.talkTemplateSpinner, viewModel.pageTitle.wikiSite.languageCode)
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, viewModel.talkTemplatesList)
         binding.talkTemplateSpinner.setAdapter(adapter)
-        binding.talkTemplateSpinner.setOnItemClickListener { adapterView, view, i, l ->
-            L.d("setTalkTemplateSpinnerAdapter " + i)
+        binding.talkTemplateSpinner.setOnItemClickListener { _, _, position, _ ->
+            viewModel.selectedTemplate = viewModel.talkTemplatesList[position]
+            viewModel.selectedTemplate?.let { talkTemplate ->
+                binding.replySubjectText.setText(talkTemplate.subject)
+                binding.replyInputView.editText.setText(talkTemplate.message)
+            }
         }
     }
 
@@ -380,7 +380,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         setSaveButtonEnabled(false)
 
-        if (fromDiff) {
+        if (viewModel.isFromDiff) {
             showSaveDialog(subject, body)
         } else {
             binding.progressBar.visibility = View.VISIBLE

@@ -21,16 +21,20 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
 
     var talkTemplateSaved = false
     val talkTemplatesList = mutableListOf<TalkTemplate>()
+    var selectedTemplate: TalkTemplate? = null
 
     val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     val topic = bundle.parcelable<ThreadItem>(TalkReplyActivity.EXTRA_TOPIC)
+    val isFromDiff = bundle.getBoolean(TalkReplyActivity.EXTRA_FROM_DIFF, false)
     val isNewTopic = topic == null
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
     val loadTemplateData = SingleLiveData<Resource<Int>>()
 
     init {
-        loadTemplates()
+        if (isFromDiff) {
+            loadTemplates()
+        }
     }
 
     fun postReply(subject: String, body: String) {
