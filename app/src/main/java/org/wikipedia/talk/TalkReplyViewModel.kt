@@ -29,6 +29,10 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
     val loadTemplateData = SingleLiveData<Resource<Int>>()
 
+    init {
+        loadTemplates()
+    }
+
     fun postReply(subject: String, body: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             postReplyData.postValue(Resource.Error(throwable))
@@ -54,10 +58,11 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    private fun loadTemplates() {
+    fun loadTemplates() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             loadTemplateData.postValue(Resource.Error(throwable))
         }) {
+            talkTemplatesList.clear()
             talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
             loadTemplateData.postValue(Resource.Success(talkTemplatesList.size))
         }

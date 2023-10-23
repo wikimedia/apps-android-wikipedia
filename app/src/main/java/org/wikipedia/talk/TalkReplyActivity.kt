@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
 import android.view.View
+import android.widget.ArrayAdapter
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.util.lruCache
@@ -47,6 +48,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.UserMentionInputView
 import org.wikipedia.views.ViewUtil
 
@@ -69,6 +71,10 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             updateEditLicenseText()
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
         }
+    }
+
+    private val requestManageTalkTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        viewModel.loadTemplates()
     }
 
     private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -107,7 +113,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         if (fromDiff) {
             binding.talkTemplateContainer.isVisible = true
             binding.talkTemplateButton.setOnClickListener {
-                startActivity(TalkTemplatesActivity.newIntent(this))
+                requestManageTalkTemplate.launch(TalkTemplatesActivity.newIntent(this))
             }
             FeedbackUtil.setButtonLongPressToast(binding.talkTemplateButton)
         }
@@ -147,7 +153,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
         viewModel.loadTemplateData.observe(this) {
             if (it is Resource.Success) {
-                // TODO: handle this
+                setTalkTemplateSpinnerAdapter()
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(this, it.throwable)
             }
@@ -243,6 +249,17 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             FeedbackUtil.setButtonLongPressToast(it)
         }
         supportActionBar?.title = title
+    }
+
+    private fun setTalkTemplateSpinnerAdapter() {
+        binding.talkTemplateMessage.text = getString(R.string.talk_warn_saved_message)
+        binding.talkTemplateSpinnerLayout.isVisible = true
+        L10nUtil.setConditionalTextDirection(binding.talkTemplateSpinner, viewModel.pageTitle.wikiSite.languageCode)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, viewModel.talkTemplatesList)
+        binding.talkTemplateSpinner.setAdapter(adapter)
+        binding.talkTemplateSpinner.setOnItemClickListener { adapterView, view, i, l ->
+            L.d("setTalkTemplateSpinnerAdapter " + i)
+        }
     }
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {

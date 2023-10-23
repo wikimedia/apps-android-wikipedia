@@ -52,12 +52,30 @@
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/SpinnerTextInputLayoutStyle"
+                android:id="@+id/talkTemplateSpinnerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="@string/talk_warn_saved_message_dropdown"
+                android:visibility="gone">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/talkTemplateSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/replySubjectLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
                 android:hint="@string/talk_reply_subject">
 
                 <org.wikipedia.views.PlainPasteEditText
@@ -74,9 +92,8 @@
                 android:id="@+id/replyInputView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp" />
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp" />
 
             <TextView
                 android:id="@+id/licenseText"
