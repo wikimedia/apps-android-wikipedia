@@ -856,7 +856,7 @@
   <string name="description_edit_tutorial_machine_suggestions_title">Saranan mesin</string>
   <string name="description_edit_tutorial_machine_suggestions_description">Saran dibuat ama mesin, bukan ama sukarèlawan atawa Yayasan Wikimédia</string>
   <string name="customize_toolbar_title">Cèngliin palang peranti</string>
-  <string name="customize_toolbar_shortcut_description_text">Cèngliin palang peranti bawah paké 5 jalan pintas nyang lu kira paling ngebantu.</string>
+  <string name="customize_toolbar_shortcut_description_text">Cèngliin palang peranti bawah paké 5 tetenggelan nyang lu kira paling ngebantu.</string>
   <string name="customize_toolbar_category_toolbar">Palang peranti</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Sèrèt èn taroh barang lu punya demen di mari 👋</string>
@@ -1266,13 +1266,13 @@
   <string name="talk_list_item_overflow_mark_as_read">Tengerin udah dibaca</string>
   <string name="talk_list_item_overflow_mark_as_unread">Tengerin belon dibaca</string>
   <string name="talk_list_item_overflow_share">Dumanin</string>
-  <string name="talk_list_item_last_comment_date">Tanggepan paling baru: %s</string>
+  <string name="talk_list_item_last_comment_date">Sautan paling baru: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Jumblah dibaca</string>
   <string name="talk_list_item_user_icon_content_description">Lambang pemaké</string>
   <string name="talk_list_item_swipe_mark_as_read">Baca</string>
   <string name="talk_list_item_swipe_mark_as_unread">Belon dibaca</string>
   <string name="talk_login_to_subscribe_dialog_title">Masup bakal langganan ke topik</string>
-  <string name="talk_login_to_subscribe_dialog_content">Langganan topik bakal mungkinin lu nerima ma\'lumat pasal tanggepan baru di ni topik. Padol dah, keja rèkening atawa masup ke lu punya rèkening Wikipédi bakal langganan ke topik.</string>
+  <string name="talk_login_to_subscribe_dialog_content">Langganan topik bakal mungkinin lu nerima ma\'lumat pasal sautan baru di ni topik. Padol dah, keja rèkening atawa masup ke lu punya rèkening Wikipédi bakal langganan ke topik.</string>
   <string name="talk_archived_title">Arsip obrolan: %s</string>
   <string name="menu_option_share_talk_discussion">Dumanin perhadring</string>
   <string name="menu_option_share_talk_page">Dumanin halaman obrolan</string>
