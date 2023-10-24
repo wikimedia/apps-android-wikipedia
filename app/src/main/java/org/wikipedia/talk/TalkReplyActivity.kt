@@ -253,6 +253,9 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         L10nUtil.setConditionalTextDirection(binding.talkTemplateSpinner, viewModel.pageTitle.wikiSite.languageCode)
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, viewModel.talkTemplatesList)
         binding.talkTemplateSpinner.setAdapter(adapter)
+        binding.talkTemplateSpinner.setOnClickListener {
+            DeviceUtil.hideSoftKeyboard(this)
+        }
         binding.talkTemplateSpinner.setOnItemClickListener { _, _, position, _ ->
             viewModel.selectedTemplate = viewModel.talkTemplatesList[position]
             viewModel.selectedTemplate?.let { talkTemplate ->
@@ -390,6 +393,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         setSaveButtonEnabled(false)
 
         if (viewModel.isFromDiff) {
+            DeviceUtil.hideSoftKeyboard(this)
             showSaveDialog(subject, body)
         } else {
             binding.progressBar.visibility = View.VISIBLE

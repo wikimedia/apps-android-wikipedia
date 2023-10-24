@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:layout_marginHorizontal="-6dp"
         android:text="@string/talk_warn_save_dialog_message"
         android:visibility="gone" />
 
@@ -29,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:layout_marginHorizontal="-6dp"
         android:text="@string/talk_warn_save_dialog_existing_new_message"
         android:visibility="gone" />
 
@@ -51,8 +53,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:layout_marginHorizontal="-6dp"
         android:text="@string/talk_warn_save_dialog_existing_update_message"
-        android:visibility="gone" />
+        android:visibility="gone"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/subjectTextInputContainer"
