@@ -47,10 +47,13 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         binding.dialogSaveAsNewRadio.setOnCheckedChangeListener { _, isChecked ->
             binding.titleInput.isEnabled = isChecked
             binding.dialogSaveExistingRadio.isChecked = !isChecked
+            setPositiveButtonEnabled(binding.titleInput.text?.isNotBlank() ?: false)
         }
         binding.dialogSaveExistingRadio.setOnCheckedChangeListener { _, isChecked ->
             binding.titleInput.isEnabled = !isChecked
             binding.dialogSaveAsNewRadio.isChecked = !isChecked
+            setError(null)
+            setPositiveButtonEnabled(true)
         }
     }
 
@@ -89,6 +92,10 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         }
         binding.subjectTextInput.addTextChangedListener(textWatcher)
         binding.bodyTextInput.editText.addTextChangedListener(textWatcher)
+    }
+
+    fun requestFocus() {
+        binding.titleInput.requestFocus()
     }
 
     fun showTemplateCheckbox(show: Boolean) {

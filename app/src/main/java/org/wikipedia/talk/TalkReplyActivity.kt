@@ -311,10 +311,11 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                     text.toString().trim().let {
                         when {
                             it.isEmpty() -> {
-                                if (textInputDialog.isSaveAsNewChecked) {
-                                    dialog.setError(null)
-                                    dialog.setPositiveButtonEnabled(false)
+                                if (textInputDialog.isSaveExistingChecked) {
+                                    return
                                 }
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(false)
                             }
 
                             viewModel.talkTemplatesList.any { item -> item.title == it } -> {
@@ -340,7 +341,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                         viewModel.saveTemplate(titleText.toString(), subject, body)
                     } else if (textInputDialog.isSaveExistingChecked) {
                         viewModel.selectedTemplate?.let {
-                            viewModel.updateTemplate(titleText.toString(), subject, body, it)
+                            viewModel.updateTemplate(it.title, subject, body, it)
                         }
                     } else {
                         binding.progressBar.isVisible = true
