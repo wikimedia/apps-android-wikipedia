@@ -11,6 +11,7 @@
 * Glavkos
 * KATRINE1992
 * KATRINE1993
+* McDutchie
 * Michail Angelos Georgoulas
 * MuratTheTurkish
 * NikosLikomitros
@@ -46,7 +47,7 @@
   <string name="error_back">Επιστροφή</string>
   <string name="error_next">Επόμενο</string>
   <string name="menu_clear_all_history">Εκκαθάριση ιστορικού</string>
-  <string name="history_item_deleted">το %s έχει αφαιρεθεί από το ιστορικό</string>
+  <string name="history_item_deleted" fuzzy="true">το %s έχει αφαιρεθεί από το ιστορικό</string>
   <string name="history_items_deleted">Τα %d λήμματα έχουν αφαιρεθεί από το ιστορικό</string>
   <string name="history_item_delete_undo">Αναίρεση</string>
   <string name="notification_archive_undo">Αναίρεση</string>
@@ -681,8 +682,8 @@
     <item quantity="one">χτες</item>
     <item quantity="other">%d ημέρες πριν</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">σήμερα</string>
-  <string name="view_continue_reading_card_subtitle_read_date">Διαβάστε %s</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">σήμερα</string>
+  <string name="view_continue_reading_card_subtitle_read_date" fuzzy="true">Διαβάστε %s</string>
   <string name="view_announcement_card_negative_action">Όχι, ευχαριστώ</string>
   <string name="view_offline_card_text">Το περιεχόμενο δεν μπορεί να φορτωθεί όταν είστε εκτός σύνδεσης.</string>
   <string name="view_featured_article_card_title">Προβεβλημένο λήμμα</string>
@@ -902,10 +903,10 @@
   <string name="app_shortcuts_random">Τυχαία</string>
   <string name="app_shortcuts_continue_reading">Συνέχεια ανάγνωσης</string>
   <string name="app_shortcuts_search">Αναζήτηση</string>
-  <string name="on_this_day_card_title">Αυτήν την μέρα</string>
+  <string name="on_this_day_card_title" fuzzy="true">Αυτήν την μέρα</string>
   <string name="more_events_text">Περισσότερα αυτή την ημέρα</string>
   <string name="events_count_text">%1$s συμβάντα από %2$s–%3$d</string>
-  <string name="this_year">Φέτος</string>
+  <string name="this_year" fuzzy="true">Φέτος</string>
   <string name="on_this_day_dialog_next_month">Επόμενος μήνας</string>
   <string name="on_this_day_dialog_previous_month">Προηγούμενος μήνας</string>
   <string name="on_this_day_open_date_picker">Άνοιγμα επιλογής ημερομηνίας</string>

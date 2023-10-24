@@ -294,7 +294,7 @@
   <string name="edit_conflict_title">Szerkesztési ütközés</string>
   <string name="edit_conflict_message">Ezt a lapot egy másik felhasználó már módosította, és ez ütközik a szerkesztéseddel. Másold ki a szerkesztéseidet, menj vissza az előző oldalra és frissítsd az oldalt, majd próbálkozz újra a szerkesztéssel.</string>
   <string name="edit_notices">Szerkesztési megjegyzés</string>
-  <string name="edit_notices_please_read">Módosítás előtt elolvasni</string>
+  <string name="edit_notices_please_read">Kérjük, olvasd el szerkesztés előtt</string>
   <string name="edit_notices_show_auto">Szerkesztési megjegyzések megjelenése</string>
   <string name="edit_notices_tooltip">Érintsd meg ezt a gombot a szócikk szerkesztési megjegyzéseinek megjelenítéséhez.</string>
   <string name="find_next">Következő keresése</string>
