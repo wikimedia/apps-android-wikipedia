@@ -25,15 +25,15 @@
                 android:id="@+id/talkTemplateContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="gone">
+                android:orientation="horizontal">
 
                 <TextView
                     style="@style/P.MaterialListTitle"
                     android:id="@+id/talkTemplateMessage"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="12dp"
                     android:layout_weight="1"
                     android:text="@string/talk_templates_new_message_description"/>
 
@@ -46,7 +46,7 @@
                     android:focusable="true"
                     android:contentDescription="@string/talk_templates_manage_title"
                     android:padding="12dp"
-                    app:tint="?attr/primary_color"
+                    app:tint="?attr/secondary_color"
                     app:srcCompat="@drawable/ic_manage_template" />
 
             </LinearLayout>
