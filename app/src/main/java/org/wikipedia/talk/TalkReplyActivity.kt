@@ -404,8 +404,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         setSaveButtonEnabled(true)
         EditAttemptStepEvent.logSaveSuccess(viewModel.pageTitle)
 
-        // TODO: return to diff screen with different message vs save to template
-
         Intent().let {
             it.putExtra(RESULT_NEW_REVISION_ID, newRevision)
             it.putExtra(EXTRA_SUBJECT, binding.replySubjectText.text)
