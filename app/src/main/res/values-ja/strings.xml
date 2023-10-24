@@ -313,7 +313,6 @@
   <string name="edit_redo">やり直す</string>
   <string name="edit_rollback">巻き戻し</string>
   <string name="edit_warn">警告する</string>
-  <string name="edit_quality">品質%s</string>
   <string name="edit_intent">インテント%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="other">%sバイト</item>
@@ -1488,7 +1487,7 @@
   <string name="talk_templates_edit_message_dialog_save">保存</string>
   <string name="talk_templates_edit_message_dialog_delete">削除</string>
   <string name="talk_templates_edit_message_updated">メッセージが更新されました</string>
-  <string name="talk_templates_edit_message_confirm_description">本当にこの%sメッセージをリストから削除しますか？</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">本当にこの%sメッセージをリストから削除しますか？</string>
   <string name="talk_templates_message_deleted">メッセージが削除されました</string>
   <string name="patroller_tasks_edits_list_title">編集の一覧</string>
   <string name="patroller_tasks_edits_list_search_hint">編集を検索または絞り込む</string>

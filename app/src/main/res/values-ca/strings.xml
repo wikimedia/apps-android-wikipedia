@@ -283,7 +283,6 @@
   <string name="edit_redo">Refés</string>
   <string name="edit_rollback">Reverteix</string>
   <string name="edit_warn">Avís</string>
-  <string name="edit_quality">%s de qualitat</string>
   <string name="edit_intent">%s d\'intenció</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
@@ -1480,7 +1479,7 @@
   <string name="talk_templates_edit_message_dialog_save">Desa</string>
   <string name="talk_templates_edit_message_dialog_delete">Suprimeix</string>
   <string name="talk_templates_edit_message_updated">El missatge s\'ha actualitzat</string>
-  <string name="talk_templates_edit_message_confirm_description">Esteu segur que voleu suprimir aquest missatge %s de la llista?</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Esteu segur que voleu suprimir aquest missatge %s de la llista?</string>
   <string name="talk_templates_message_deleted">El missatge s\'ha suprimit</string>
   <string name="patroller_tasks_edits_list_title">Llista d\'edicions</string>
   <string name="patroller_tasks_edits_list_search_hint">Cerca o filtra edicions</string>

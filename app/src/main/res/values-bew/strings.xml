@@ -255,7 +255,6 @@
   <string name="edit_redo">Ulangin</string>
   <string name="edit_rollback">Aterèt</string>
   <string name="edit_warn">Wanti-wanti</string>
-  <string name="edit_quality">Kualitèt %s</string>
   <string name="edit_intent">Maksud %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bèt</item>
@@ -857,7 +856,7 @@
   <string name="description_edit_tutorial_machine_suggestions_title">Saranan mesin</string>
   <string name="description_edit_tutorial_machine_suggestions_description">Saran dibuat ama mesin, bukan ama sukarèlawan atawa Yayasan Wikimédia</string>
   <string name="customize_toolbar_title">Cèngliin palang peranti</string>
-  <string name="customize_toolbar_shortcut_description_text">Cèngliin palang peranti bawah paké 5 jalan pintas nyang lu kira paling ngebantu.</string>
+  <string name="customize_toolbar_shortcut_description_text">Cèngliin palang peranti bawah paké 5 tetenggelan nyang lu kira paling ngebantu.</string>
   <string name="customize_toolbar_category_toolbar">Palang peranti</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Sèrèt èn taroh barang lu punya demen di mari 👋</string>
@@ -1267,13 +1266,13 @@
   <string name="talk_list_item_overflow_mark_as_read">Tengerin udah dibaca</string>
   <string name="talk_list_item_overflow_mark_as_unread">Tengerin belon dibaca</string>
   <string name="talk_list_item_overflow_share">Dumanin</string>
-  <string name="talk_list_item_last_comment_date">Tanggepan paling baru: %s</string>
+  <string name="talk_list_item_last_comment_date">Sautan paling baru: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Jumblah dibaca</string>
   <string name="talk_list_item_user_icon_content_description">Lambang pemaké</string>
   <string name="talk_list_item_swipe_mark_as_read">Baca</string>
   <string name="talk_list_item_swipe_mark_as_unread">Belon dibaca</string>
   <string name="talk_login_to_subscribe_dialog_title">Masup bakal langganan ke topik</string>
-  <string name="talk_login_to_subscribe_dialog_content">Langganan topik bakal mungkinin lu nerima ma\'lumat pasal tanggepan baru di ni topik. Padol dah, keja rèkening atawa masup ke lu punya rèkening Wikipédi bakal langganan ke topik.</string>
+  <string name="talk_login_to_subscribe_dialog_content">Langganan topik bakal mungkinin lu nerima ma\'lumat pasal sautan baru di ni topik. Padol dah, keja rèkening atawa masup ke lu punya rèkening Wikipédi bakal langganan ke topik.</string>
   <string name="talk_archived_title">Arsip obrolan: %s</string>
   <string name="menu_option_share_talk_discussion">Dumanin perhadring</string>
   <string name="menu_option_share_talk_page">Dumanin halaman obrolan</string>
@@ -1446,7 +1445,7 @@
   <string name="talk_templates_edit_message_dialog_save">Simpen</string>
   <string name="talk_templates_edit_message_dialog_delete">Apus</string>
   <string name="talk_templates_edit_message_updated">Pesen udah diperbaruin</string>
-  <string name="talk_templates_edit_message_confirm_description">Apa lu yakin pèngèn ngapus ni pesen %s deri daptar?</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Apa lu yakin pèngèn ngapus ni pesen %s deri daptar?</string>
   <string name="talk_templates_message_deleted">Pesen udah diapus</string>
   <string name="patroller_tasks_edits_list_title">Daptar permakan</string>
   <string name="patroller_tasks_edits_list_search_hint">Cari atawa saring permakan</string>
