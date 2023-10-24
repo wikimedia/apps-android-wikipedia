@@ -299,13 +299,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (!ReleaseUtil.isPreBetaRelease) {
             binding.showIPBlockedMessage.visibility = GONE
             binding.showOnboardingMessage.visibility = GONE
-            binding.showManageTalkTemplates.visibility = GONE
         }
         binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
-        binding.showManageTalkTemplates.setOnClickListener {
-            startActivity(TalkTemplatesActivity.newIntent(requireContext()))
-        }
     }
 
     private fun setUpTasks() {
