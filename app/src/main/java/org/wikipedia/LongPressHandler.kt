@@ -15,7 +15,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.util.DeviceUtil.hideSoftKeyboard
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.UriUtil.isValidPageLink
 
 class LongPressHandler(
@@ -74,7 +74,7 @@ class LongPressHandler(
     private fun showPopupMenu(view: View, createAnchorView: Boolean) {
         title?.let {
             if (!it.isSpecial && view.isAttachedToWindow) {
-                hideSoftKeyboard(view)
+                DeviceUtil.hideSoftKeyboard(view)
                 HistoryEntry(it, historySource).let { entry ->
                     entry.referrer = referrer
                     var anchorView = view
