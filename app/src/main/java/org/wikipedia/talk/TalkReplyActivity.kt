@@ -248,8 +248,8 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun setTalkTemplateSpinnerAdapter() {
-        binding.talkTemplateMessage.text = getString(R.string.talk_warn_saved_message)
-        binding.talkTemplateSpinnerLayout.isVisible = true
+        binding.talkTemplateMessage.text = getString(if (viewModel.talkTemplatesList.isEmpty()) R.string.talk_templates_new_message_description else R.string.talk_warn_saved_message)
+        binding.talkTemplateSpinnerLayout.isVisible = viewModel.talkTemplatesList.isNotEmpty()
         L10nUtil.setConditionalTextDirection(binding.talkTemplateSpinner, viewModel.pageTitle.wikiSite.languageCode)
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, viewModel.talkTemplatesList)
         binding.talkTemplateSpinner.setAdapter(adapter)
