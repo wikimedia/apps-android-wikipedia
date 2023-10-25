@@ -278,7 +278,6 @@
   <string name="edit_redo">Gör om</string>
   <string name="edit_rollback">Rulla tillbaka</string>
   <string name="edit_warn">Varna</string>
-  <string name="edit_quality">Kvalitet %s</string>
   <string name="edit_intent">Avsikt %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
@@ -1339,9 +1338,10 @@
   <string name="revision_diff_paragraph_added">Paragrafen lades till</string>
   <string name="revision_diff_paragraph_removed">Paragrafen togs bort</string>
   <string name="revision_diff_protected">Ändringarna som gjordes i denna version är inte offentligt tillgängliga.</string>
-  <string name="revision_undo_title" fuzzy="true">Gör redigering ogjord</string>
-  <string name="revision_undo_message" fuzzy="true">Detta kommer att göra ändringarna som syns i revisionen/revisionerna av artikeln som visas här ogjorda.</string>
-  <string name="revision_undo_reason" fuzzy="true">För att fortsätta, vänligen ange en orsak för att göra den här redigeringen ogjord:</string>
+  <string name="revision_undo_title">Är du säker på att du vill göra denna redigering ogjord?</string>
+  <string name="revision_undo_message">Ångra innebär att återställa effekterna av en eller flera redigeringar.</string>
+  <string name="revision_undo_summary_hint">Sammanfattning (valfri)</string>
+  <string name="revision_undo_reason">Dela anledningen till återställningen</string>
   <string name="revision_undo_success">Versionen återställdes.</string>
   <string name="revision_rollback_dialog_title">Är du säker på att du vill rulla tillbaka redigeringarna?</string>
   <string name="revision_rollback_success">Redigeringar återställdes.</string>
@@ -1473,7 +1473,7 @@
   <string name="talk_templates_edit_message_dialog_save">Spara</string>
   <string name="talk_templates_edit_message_dialog_delete">Radera</string>
   <string name="talk_templates_edit_message_updated">Meddelandet har uppdaterats</string>
-  <string name="talk_templates_edit_message_confirm_description">Är du säker på att du vill radera meddelandet %s från listan?</string>
+  <string name="talk_templates_edit_message_delete_description">Är du säker på att du vill radera meddelandet \"%s\" från listan?</string>
   <string name="talk_templates_message_deleted">Meddelandet har raderats</string>
   <string name="patroller_tasks_edits_list_title">Lista över redigeringar</string>
   <string name="patroller_tasks_edits_list_search_hint">Sök eller filtrera redigeringar</string>
@@ -1548,6 +1548,32 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Visa</string>
   <string name="patroller_tasks_overflow_report">Problem med funktion</string>
   <string name="patroller_tasks_overflow_learn">Läs mer</string>
+  <string name="patroller_onboarding_one_title">Bidra till tillsynen och godkännandet av Wikipedia-redigeringar.</string>
+  <string name="patroller_onboarding_one_content">Förbättra kvaliteten på Wikipedias innehåll genom att aktivt granska ett flöde med senaste redigeringar och ge vägledning, kvalitetskontroll och uppmuntran till andra redigerare.</string>
+  <string name="patroller_onboarding_two_title">Ge återkoppling, övervaka redigeringar och vidta åtgärder på diff-menyn</string>
+  <string name="patroller_onboarding_two_thank_title">Tack</string>
+  <string name="patroller_onboarding_two_thank_content">Har du hittat en produktiv redigering? Tacka en användare för deras bidrag.</string>
+  <string name="patroller_onboarding_two_watch_title">Bevaka</string>
+  <string name="patroller_onboarding_two_watch_content">Vill du spåra artikelredigeringar? Lägg till i din bevakningslista. Se den under \"Mer\".</string>
+  <string name="patroller_onboarding_two_warn_title">Varna</string>
+  <string name="patroller_onboarding_two_warn_content">Skapa, skicka och lagra varningsmeddelanden på en redigerares diskussionssida.</string>
+  <string name="patroller_onboarding_two_undo_title">Gör ogjord/Rulla tillbaka</string>
+  <string name="patroller_onboarding_two_undo_content">Välj \"Gör ogjord\" för att återställa en potentiellt destruktiv redigering.</string>
+  <string name="patroller_onboarding_three_title">Skicka anonym data</string>
+  <string name="patroller_onboarding_three_content">Hjälp till att göra funktionen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#privacy\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="patroller_onboarding_three_switch">Skicka användningsrapporter</string>
+  <string name="patroller_diff_tooltip_one">Skada förutsäger om en redigering orsakar skada på en wiki.</string>
+  <string name="patroller_diff_tooltip_two">Avsikt förutsäger sannolikheten om en redigering sparas i god tro.</string>
+  <string name="patroller_diff_feedback_dialog_title">Hjälp oss att förbättra denna funktion</string>
+  <string name="patroller_diff_feedback_dialog_message">Är du nöjd med denna funktion?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Nöjd</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Inte nöjd</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Hur kan vi förbättra funktionen?</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Återkoppling</string>
+  <string name="patroller_diff_feedback_dialog_submit">Skicka</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Återkoppling har skickats.</string>
+  <string name="patroller_diff_feedback_tooltip">Tryck på överflödesmenyn för att skicka återkoppling när som helst under \"Problem med funktion\".</string>
   <string name="data_opt_in_accept">Acceptera</string>
   <string name="data_opt_in_reject">Avvisa</string>
   <string name="page_issues_title">Sidproblem</string>
@@ -1556,4 +1582,8 @@
   <string name="email_report_image_recommendations_body">Jag har stött på ett problem med funktionen \"Bildrekommendationer\":\n- [Beskriv det specifika problemet]\n\nBeteende jag skulle vilja ha:\n- [Beskriv ett lösningsförslag]</string>
   <string name="email_report_patroller_tasks_subject">Problemrapport - Funktion för redigeringspatrull</string>
   <string name="email_report_patroller_tasks_body">Jag har stött på ett problem med funktionen \"Redigeringspatrull\":\n- [Beskriv det specifika problemet]\n\nBeteende jag skulle vilja ha:\n- [Beskriv ett lösningsförslag]\n\n [Skärmdumpar eller länkar]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Vi påminner dig igen imorgon.</string>
+  <string name="donation_campaign_donated_snackbar">Tack, kära donator! Din generositet hjälper till att hålla Wikipedia och dess systerwebbplatser blomstrande.</string>
+  <string name="donation_campaign_go_back_button">Gå tillbaka</string>
+  <string name="menu_single_webview_open_external">Öppna i systemwebbläsaren</string>
 </resources>

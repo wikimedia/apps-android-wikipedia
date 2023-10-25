@@ -144,11 +144,11 @@ object StringUtil {
         textView.text = fromHtml(parentTextStr)
     }
 
-    fun setHighlightedAndBoldenedText(textView: TextView, input: CharSequence, query: String?) {
-        textView.text = if (query.isNullOrEmpty()) input else buildSpannedString {
-            append(input)
+    fun setHighlightedAndBoldenedText(textView: TextView, parentText: CharSequence, query: String?) {
+        textView.text = if (query.isNullOrEmpty()) parentText else buildSpannedString {
+            append(parentText)
 
-            query.toRegex(HIGHLIGHT_REGEX_OPTIONS).findAll(input)
+            query.toRegex(HIGHLIGHT_REGEX_OPTIONS).findAll(parentText)
                 .forEach {
                     val range = it.range
                     val (start, end) = range.first to range.last + 1

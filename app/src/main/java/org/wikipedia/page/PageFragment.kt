@@ -51,6 +51,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.analytics.metricsplatform.ArticleFindInPageInteraction
@@ -664,7 +665,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun maybeShowAnnouncement() {
-        title?.let {
+        title?.let { pageTitle ->
             // Check if the pause time is older than 1 day.
             val dateDiff = Duration.between(Instant.ofEpochMilli(Prefs.announcementPauseTime), Instant.now())
             if (Prefs.hasVisitedArticlePage && dateDiff.toDays() >= 1) {
@@ -673,6 +674,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     val availableCampaign = campaignList.find { campaign -> campaign.assets[app.appOrSystemLanguageCode] != null }
                     availableCampaign?.let {
                         if (!Prefs.announcementShownDialogs.contains(it.id)) {
+                            DonorExperienceEvent.logImpression("article_banner",
+                                it.id, pageTitle.wikiSite.languageCode)
                             val dialog = CampaignDialog(requireActivity(), it)
                             dialog.setCancelable(false)
                             dialog.show()

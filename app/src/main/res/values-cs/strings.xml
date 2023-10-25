@@ -362,7 +362,7 @@
   <string name="gallery_save_success">Soubor byl uložen.</string>
   <string name="gallery_error_video_failed">Nebylo možné přehrát video.</string>
   <string name="gallery_save_image_write_permission_rationale">Pro ukládání obrázků je nutné oprávnění zapisovat na úložiště vašeho zařízení.</string>
-  <string name="gallery_edit_button_content_description">Upravit popisek obrázku</string>
+  <string name="gallery_edit_button_content_description">Upravit titulek obrázku</string>
   <string name="gallery_add_image_caption_button">Přidat titulek obrázku</string>
   <string name="gallery_add_image_caption_in_language_button">Přidat titulek obrázku (%s)</string>
   <string name="err_cannot_save_file">Není možno uložit soubor</string>
@@ -868,13 +868,14 @@
   <string name="description_edit_helper_text_lowercase_warning">většinou začíná malým písmenem</string>
   <string name="description_edit_voice_input_description">Hlasový vstup</string>
   <string name="description_edit_learn_more">Další informace o popisech článků</string>
-  <string name="description_edit_image_caption_learn_more">Další informace o popiscích obrázků</string>
+  <string name="description_edit_image_caption_learn_more">Další informace o titulcích obrázků</string>
   <string name="description_too_short">Text je příliš krátký</string>
   <string name="description_ends_with_punctuation">Text nesmí končit interpunkcí</string>
   <string name="description_starts_with_article">Na začátku nepoužívejte členy (v angličtině \"a\" nebo \"the\").</string>
   <string name="description_starts_with_uppercase">Začněte s malým písmem, jestliže první slovo není vlastní jméno.</string>
   <string name="description_starts_with_lowercase">Vyhněte se tomu začít malým písmenem.</string>
   <string name="description_is_in_different_language">Text se zdá být v neočekávaném jazyce. Jazyk by měl být %s.</string>
+  <string name="description_verification_notice">Ověřte prosím, že je váš popis v %1$s. Toto varování můžete ignorovat, pokud je popis, který jste napsali, v %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Zobrazit navrhované popisy</string>
   <string name="description_edit_suggested_description_button_tooltip">Vyzkoušejte strojově navrhované popisy článků</string>
   <string name="description_edit_success_saved">Popis článku byl zveřejněn!</string>
@@ -902,15 +903,15 @@
   <string name="customize_toolbar_reset_to_default_button">Obnovit do základu</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Chcete-li položku přesunout, podržte ikonu přetažení</string>
   <string name="customize_toolbar_item_default_tooltip">Stisknutím a přetažením položky přemístěte</string>
-  <string name="suggested_edits_describe_articles">Popiš články</string>
-  <string name="suggested_edits_caption_images">Otitulkuj obrázky</string>
+  <string name="suggested_edits_describe_articles">Popište články</string>
+  <string name="suggested_edits_caption_images">Otitulkujte obrázky</string>
   <string name="suggested_edits_tag_images">Označit obrázky</string>
   <string name="suggested_edits_review_description">Náhled popisu článku</string>
   <string name="suggested_edits_add_description_button">Přidat popis</string>
   <string name="suggested_edits_edit_description_button">Editovat popis</string>
   <string name="suggested_edits_add_translation_button">Přidat překlad</string>
   <string name="suggested_edits_edit_translation_button">Editovat překlad</string>
-  <string name="suggested_edits_add_caption_button">Přidat popis</string>
+  <string name="suggested_edits_add_caption_button">Přidat titulek</string>
   <string name="suggested_edits_edit_caption_button">Editovat popis</string>
   <string name="suggested_edits_review_image_caption">Náhled titulku obrázku</string>
   <string name="suggested_edits_my_contributions">Moje příspěvky</string>
@@ -923,7 +924,7 @@
   <string name="suggested_edits_task_image_caption_title">Přidat titulky obrázků</string>
   <string name="suggested_edits_task_image_caption_description">Přidat chybějící krátké titulky k obrázkům</string>
   <string name="suggested_edits_task_translate_caption_title">Přeložit popisy obrázků</string>
-  <string name="suggested_edits_task_translate_caption_description">Přeložit popisy obrázků do jiných jazyků</string>
+  <string name="suggested_edits_task_translate_caption_description">Přeložit titulky do jiných jazyků</string>
   <string name="suggested_edits_task_multilingual_title">Více úkolů pro vícejazyčné editory</string>
   <string name="suggested_edits_task_multilingual_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Zamknuto, dokud needitujete %d titulky obrázků</string>
@@ -1063,6 +1064,21 @@
     <item quantity="many">%1$s znaků</item>
     <item quantity="other">%1$s znaků</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Obrázky článku</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Přidejte navrhované obrázky do článků Wikipedie a vylepšete tak jejich srozumitelnost.</string>
+  <string name="image_recommendation_task_instruction">Přidali byste tento obrázek do článku?</string>
+  <string name="image_recommendation_accept">Ano</string>
+  <string name="image_recommendation_reject">Ne</string>
+  <string name="image_recommendation_notsure">Nejsem si jistý</string>
+  <string name="image_recommendation_onboarding_1">Obrázky pomáhají lidem pochopit, ale mnoho článků je nemá.</string>
+  <string name="image_recommendation_onboarding_2">Vy rozhodnete, zda má být navrhovaný obrázek umístěn do článku na Wikipedii.</string>
+  <string name="image_recommendation_onboarding_3">Návrhy jsou generovány strojově a vy se podle svého úsudku rozhodnete, zda je přijmete, nebo odmítnete.</string>
+  <string name="image_recommendation_onboarding_4">Obrázky pochází z Wikimedia Commons, Wikipedií používané kolekce obrázků pod svobodnou licencí.</string>
+  <string name="image_recommendation_tooltip_1">Přečtěte si tento článek, abyste pochopili jeho téma</string>
+  <string name="image_recommendation_tooltip_2">Zkontrolujte obrázek a související informace</string>
+  <string name="image_recommendation_tooltip_3">Rozhodněte, zda obrázek pomůže čtenářům lépe porozumět tomuto tématu</string>
+  <string name="image_recommendation_tooltip_next">Další</string>
+  <string name="suggested_edits_report_feature">Problém s funkcí</string>
   <string name="file_page_activity_title">Stránka souboru</string>
   <string name="file_page_add_image_caption_button">Přidat titulek obrázku</string>
   <string name="file_page_add_image_tags_button">Přidejte značky obrázků</string>
@@ -1308,4 +1324,5 @@
   <string name="user_contrib_current">aktuální</string>
   <string name="user_contrib_menu_label">Příspěvky</string>
   <string name="user_contrib_filter_activity_title">Filtrovat příspěvky</string>
+  <string name="patroller_tasks_overflow_report">Problém s funkcí</string>
 </resources>

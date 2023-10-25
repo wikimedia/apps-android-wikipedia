@@ -285,7 +285,6 @@
   <string name="edit_redo">다시 실행</string>
   <string name="edit_rollback">일괄 되돌리기</string>
   <string name="edit_warn">경고</string>
-  <string name="edit_quality">품질 %s</string>
   <string name="edit_intent">의도 %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="other">%s바이트</item>
@@ -1422,7 +1421,7 @@
   <string name="talk_templates_edit_message_dialog_save">저장</string>
   <string name="talk_templates_edit_message_dialog_delete">삭제</string>
   <string name="talk_templates_edit_message_updated">메시지가 업데이트되었습니다</string>
-  <string name="talk_templates_edit_message_confirm_description">목록에서 이 %s 메시지를 삭제하시겠습니까?</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">목록에서 이 %s 메시지를 삭제하시겠습니까?</string>
   <string name="talk_templates_message_deleted">메시지가 삭제되었습니다</string>
   <string name="patroller_tasks_edits_list_title">편집 목록</string>
   <string name="patroller_tasks_edits_list_search_hint">편집 내용 검색 또는 필터링</string>

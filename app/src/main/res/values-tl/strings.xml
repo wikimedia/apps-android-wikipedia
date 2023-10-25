@@ -264,7 +264,6 @@
   <string name="edit_redo">I-redo</string>
   <string name="edit_rollback">Ipanumbalik</string>
   <string name="edit_warn">Babala</string>
-  <string name="edit_quality">Kalidad %s</string>
   <string name="edit_intent">Intensyon %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>

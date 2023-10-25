@@ -1443,4 +1443,5 @@
   <string name="data_opt_in_accept">स्वीकार करें</string>
   <string name="data_opt_in_reject">अस्वीकार करें</string>
   <string name="generic_release_notes">मामूली बग फिक्स और सुधार</string>
+  <string name="donation_campaign_go_back_button">वापस जाएँ</string>
 </resources>

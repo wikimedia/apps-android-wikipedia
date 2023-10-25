@@ -13,21 +13,21 @@ class DonorExperienceEvent(
     private val action_data: String,
     private val primary_language: String,
     private val wiki_id: String,
-    private val platform: String = "android"
+    private var platform: String
 ) : MobileAppsEvent(STREAM_NAME) {
 
     companion object {
         private const val STREAM_NAME = "app_donor_experience"
 
-        fun logImpression(activeInterface: String, actionData: String = "", wikiId: String = "") {
-            submitDonorExperienceEvent("impression", activeInterface, actionData, wikiId)
+        fun logImpression(activeInterface: String, campaignId: String? = null, wikiId: String = "") {
+            submitDonorExperienceEvent("impression", activeInterface, getActionDataString(campaignId), wikiId)
         }
 
         fun logAction(
             action: String,
             activeInterface: String,
             wikiId: String = "",
-            campaignId: Long? = null
+            campaignId: String? = null
         ) {
             submitDonorExperienceEvent(
                 action,
@@ -37,7 +37,7 @@ class DonorExperienceEvent(
             )
         }
 
-        fun getActionDataString(campaignId: Long? = null): String {
+        fun getActionDataString(campaignId: String? = null): String {
             return campaignId?.let { "campaign_id: $it, " }.orEmpty()
         }
 
@@ -53,7 +53,8 @@ class DonorExperienceEvent(
                     activeInterface,
                     actionData,
                     WikipediaApp.instance.languageState.appLanguageCode,
-                    wikiId
+                    wikiId,
+                    "android"
                 )
             )
         }
