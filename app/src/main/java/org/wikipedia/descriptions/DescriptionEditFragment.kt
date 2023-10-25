@@ -541,6 +541,8 @@ class DescriptionEditFragment : Fragment() {
         const val SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT = "#suggestededit-imgtag-auto $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT = "#suggestededit-imgtag-custom $SUGGESTED_EDITS_UI_VERSION"
+        const val SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK = "#suggestededit-patrol-rollback $SUGGESTED_EDITS_UI_VERSION"
+        const val SUGGESTED_EDITS_PATROLLER_TASKS_UNDO = "#suggestededit-patrol-undo $SUGGESTED_EDITS_UI_VERSION"
         private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
         // Don't remove the ending escaped `\\}`
         @Suppress("RegExpRedundantEscape")
