@@ -361,11 +361,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 }
             }
             textInputDialog.showDialogMessage(false)
-            if (viewModel.selectedTemplate != null) {
-                textInputDialog.showTemplateRadios(true)
-            } else {
-                textInputDialog.showTemplateCheckbox(true)
-            }
+            textInputDialog.showTemplateCheckboxes(viewModel.selectedTemplate != null)
             textInputDialog.setTitle(R.string.talk_warn_save_dialog_title)
         }.show()
     }

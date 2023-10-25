@@ -28,16 +28,6 @@
             android:text="@string/talk_warn_save_dialog_message"
             android:visibility="gone" />
 
-        <RadioButton
-            android:id="@+id/dialogSaveAsNewRadio"
-            style="@style/H3.MaterialListTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginHorizontal="-6dp"
-            android:text="@string/talk_warn_save_dialog_existing_new_message"
-            android:visibility="gone" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/titleInputContainer"
             android:layout_width="match_parent"
@@ -51,8 +41,8 @@
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <RadioButton
-            android:id="@+id/dialogSaveExistingRadio"
+        <CheckBox
+            android:id="@+id/dialogSaveExistingCheckbox"
             style="@style/H3.MaterialListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

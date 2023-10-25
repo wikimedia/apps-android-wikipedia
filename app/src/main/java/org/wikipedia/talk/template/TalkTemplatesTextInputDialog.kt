@@ -25,8 +25,8 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
     private var binding = DialogTalkTemplatesTextInputBinding.inflate(LayoutInflater.from(context))
     private var dialog: AlertDialog? = null
     var callback: Callback? = null
-    val isSaveAsNewChecked get() = binding.dialogSaveAsNewCheckbox.isChecked || binding.dialogSaveAsNewRadio.isChecked
-    val isSaveExistingChecked get() = binding.dialogSaveExistingRadio.isChecked
+    val isSaveAsNewChecked get() = binding.dialogSaveAsNewCheckbox.isChecked
+    val isSaveExistingChecked get() = binding.dialogSaveExistingCheckbox.isChecked
 
     init {
         setView(binding.root)
@@ -38,20 +38,27 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         setNegativeButton(negativeButtonText) { _, _ ->
             callback?.onCancel()
         }
-        binding.titleInput.doOnTextChanged { text, _, _, _ ->
-            callback?.onTextChanged(text ?: "", this)
-        }
         setOnDismissListener {
             callback?.onDismiss()
         }
-        binding.dialogSaveAsNewRadio.setOnCheckedChangeListener { _, isChecked ->
-            binding.titleInput.isEnabled = isChecked
-            binding.dialogSaveExistingRadio.isChecked = !isChecked
+        binding.titleInput.doOnTextChanged { text, _, _, _ ->
+            if (binding.dialogSaveAsNewCheckbox.isVisible && !binding.dialogSaveAsNewCheckbox.isChecked) {
+                binding.dialogSaveAsNewCheckbox.isChecked = true
+            }
+            callback?.onTextChanged(text ?: "", this)
+        }
+        binding.dialogSaveAsNewCheckbox.setOnClickListener {
+            if (binding.dialogSaveExistingCheckbox.isChecked) {
+                binding.dialogSaveAsNewCheckbox.isChecked = true
+                binding.dialogSaveExistingCheckbox.isChecked = false
+            }
             setPositiveButtonEnabled(binding.titleInput.text?.isNotBlank() ?: false)
         }
-        binding.dialogSaveExistingRadio.setOnCheckedChangeListener { _, isChecked ->
-            binding.titleInput.isEnabled = !isChecked
-            binding.dialogSaveAsNewRadio.isChecked = !isChecked
+        binding.dialogSaveExistingCheckbox.setOnClickListener {
+            if (binding.dialogSaveAsNewCheckbox.isChecked) {
+                binding.dialogSaveAsNewCheckbox.isChecked = false
+                binding.dialogSaveExistingCheckbox.isChecked = true
+            }
             setError(null)
             setPositiveButtonEnabled(true)
         }
@@ -98,13 +105,14 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         binding.titleInput.requestFocus()
     }
 
-    fun showTemplateCheckbox(show: Boolean) {
-        binding.dialogSaveAsNewCheckbox.isVisible = show
-    }
-
-    fun showTemplateRadios(show: Boolean) {
-        binding.dialogSaveAsNewRadio.isVisible = show
-        binding.dialogSaveExistingRadio.isVisible = show
+    fun showTemplateCheckboxes(hasTemplate: Boolean) {
+        binding.dialogSaveAsNewCheckbox.isVisible = true
+        if (!hasTemplate) {
+            binding.dialogSaveAsNewCheckbox.text = context.getString(R.string.talk_warn_save_dialog_message)
+        } else {
+            binding.dialogSaveAsNewCheckbox.text = context.getString(R.string.talk_warn_save_dialog_existing_new_message)
+            binding.dialogSaveExistingCheckbox.isVisible = true
+        }
     }
 
     fun setDialogMessage(text: String) {
