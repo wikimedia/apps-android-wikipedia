@@ -218,14 +218,12 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
     }
 
     private inner class SearchBarAdapter : RecyclerView.Adapter<SearchBarViewHolder>() {
-        var viewHolder: SearchBarViewHolder? = null
         override fun onBindViewHolder(holder: SearchBarViewHolder, position: Int) {
             holder.bindItem()
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchBarViewHolder {
-            viewHolder = SearchBarViewHolder(ViewEditHistorySearchBarBinding.inflate(layoutInflater, parent, false))
-            return viewHolder!!
+            return SearchBarViewHolder(ViewEditHistorySearchBarBinding.inflate(layoutInflater, parent, false))
         }
 
         override fun getItemCount(): Int { return 1 }
