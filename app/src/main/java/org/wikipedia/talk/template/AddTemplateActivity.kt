@@ -135,6 +135,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {
                     dialog.setTitleHint(R.string.talk_templates_new_message_dialog_hint)
                     dialog.setPositiveButtonEnabled(false)
+                    dialog.requestFocus()
                 }
 
                 override fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog) {

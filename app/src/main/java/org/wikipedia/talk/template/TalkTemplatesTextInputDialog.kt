@@ -25,6 +25,8 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
     private var binding = DialogTalkTemplatesTextInputBinding.inflate(LayoutInflater.from(context))
     private var dialog: AlertDialog? = null
     var callback: Callback? = null
+    val isSaveAsNewChecked get() = binding.dialogSaveAsNewCheckbox.isChecked
+    val isSaveExistingChecked get() = binding.dialogSaveExistingCheckbox.isChecked
 
     init {
         setView(binding.root)
@@ -36,11 +38,36 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         setNegativeButton(negativeButtonText) { _, _ ->
             callback?.onCancel()
         }
-        binding.titleInput.doOnTextChanged { text, _, _, _ ->
-            callback?.onTextChanged(text ?: "", this)
-        }
         setOnDismissListener {
             callback?.onDismiss()
+        }
+        binding.titleInput.doOnTextChanged { text, _, _, _ ->
+            if (binding.dialogSaveAsNewCheckbox.isVisible && !binding.dialogSaveAsNewCheckbox.isChecked) {
+                binding.dialogSaveAsNewCheckbox.isChecked = true
+                binding.dialogSaveExistingCheckbox.isChecked = false
+            }
+            callback?.onTextChanged(text ?: "", this)
+        }
+        binding.dialogSaveAsNewCheckbox.setOnClickListener {
+            if (binding.dialogSaveExistingCheckbox.isChecked) {
+                binding.dialogSaveAsNewCheckbox.isChecked = true
+                binding.dialogSaveExistingCheckbox.isChecked = false
+            }
+            setPositiveButtonEnabled(binding.titleInput.text?.isNotBlank() ?: false)
+        }
+        binding.dialogSaveExistingCheckbox.setOnClickListener {
+            if (binding.dialogSaveAsNewCheckbox.isChecked) {
+                binding.dialogSaveAsNewCheckbox.isChecked = false
+                binding.dialogSaveExistingCheckbox.isChecked = true
+            }
+            setError(null)
+            setPositiveButtonEnabled(true)
+        }
+        binding.dialogSaveAsNewCheckbox.setOnCheckedChangeListener { _, isChecked ->
+            if (!isChecked) {
+                setError(null)
+                binding.root.requestFocus()
+            }
         }
     }
 
@@ -79,6 +106,20 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         }
         binding.subjectTextInput.addTextChangedListener(textWatcher)
         binding.bodyTextInput.editText.addTextChangedListener(textWatcher)
+    }
+
+    fun requestFocus() {
+        binding.titleInput.requestFocus()
+    }
+
+    fun showTemplateCheckboxes(hasTemplate: Boolean) {
+        binding.dialogSaveAsNewCheckbox.isVisible = true
+        if (!hasTemplate) {
+            binding.dialogSaveAsNewCheckbox.text = context.getString(R.string.talk_warn_save_dialog_message)
+        } else {
+            binding.dialogSaveAsNewCheckbox.text = context.getString(R.string.talk_warn_save_dialog_existing_new_message)
+            binding.dialogSaveExistingCheckbox.isVisible = true
+        }
     }
 
     fun setDialogMessage(text: String) {
@@ -123,6 +164,7 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
 
     fun setError(text: CharSequence?) {
         binding.titleInput.error = text
+        binding.titleInputContainer.isErrorEnabled = !text.isNullOrEmpty()
     }
 
     fun setPositiveButtonEnabled(enabled: Boolean) {

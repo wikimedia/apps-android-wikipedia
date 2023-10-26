@@ -486,6 +486,19 @@
         <item name="strokeColor">@android:color/transparent</item>
     </style>
 
+    <style name="SpinnerTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="android:textColorHint">?attr/placeholder_color</item>
+        <item name="boxBackgroundColor">?attr/background_color</item>
+        <item name="boxStrokeColor">?attr/input_stroke_color_state</item>
+        <item name="hintTextColor">?attr/progressive_color</item>
+        <item name="helperTextTextColor">?attr/placeholder_color</item>
+        <item name="counterTextColor">?attr/placeholder_color</item>
+        <item name="errorTextColor">?attr/destructive_color</item>
+        <item name="boxStrokeErrorColor">?attr/destructive_color</item>
+        <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
+    </style>
+
     <style name="PagePopupMenu" parent="@style/Widget.Material3.PopupMenu.Overflow">
         <item name="android:dropDownHorizontalOffset">@dimen/popup_menu_drop_down_horizontal_offset</item>
         <item name="android:dropDownVerticalOffset">@dimen/popup_menu_drop_down_vertical_offset</item>

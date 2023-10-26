@@ -73,6 +73,7 @@ class TextInputDialog constructor(context: Context) : MaterialAlertDialogBuilder
 
     fun setError(text: CharSequence?) {
         binding.textInputContainer.error = text
+        binding.textInputContainer.isErrorEnabled = !text.isNullOrEmpty()
     }
 
     fun setPositiveButtonEnabled(enabled: Boolean) {

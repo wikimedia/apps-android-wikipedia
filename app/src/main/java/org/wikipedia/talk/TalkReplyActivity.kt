@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
 import android.view.View
+import android.widget.ArrayAdapter
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.util.lruCache
@@ -36,6 +37,8 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.staticdata.TalkAliasData
+import org.wikipedia.talk.template.TalkTemplatesActivity
+import org.wikipedia.talk.template.TalkTemplatesTextInputDialog
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -66,6 +69,10 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             updateEditLicenseText()
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
         }
+    }
+
+    private val requestManageTalkTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        viewModel.loadTemplates()
     }
 
     private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -99,6 +106,14 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
 
+        if (viewModel.isFromDiff) {
+            binding.talkTemplateContainer.isVisible = true
+            binding.talkTemplateButton.setOnClickListener {
+                requestManageTalkTemplate.launch(TalkTemplatesActivity.newIntent(this))
+            }
+            FeedbackUtil.setButtonLongPressToast(binding.talkTemplateButton)
+        }
+
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
@@ -129,6 +144,24 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 onSaveSuccess(it.data)
             } else if (it is Resource.Error) {
                 onSaveError(it.throwable)
+            }
+        }
+
+        viewModel.loadTemplateData.observe(this) {
+            if (it is Resource.Success) {
+                setTalkTemplateSpinnerAdapter()
+            } else if (it is Resource.Error) {
+                FeedbackUtil.showError(this, it.throwable)
+            }
+        }
+
+        viewModel.saveTemplateData.observe(this) {
+            if (it is Resource.Success) {
+                viewModel.talkTemplateSaved = true
+                binding.progressBar.isVisible = true
+                viewModel.postReply(it.data.subject, it.data.message)
+            } else if (it is Resource.Error) {
+                FeedbackUtil.showError(this, it.throwable)
             }
         }
 
@@ -195,6 +228,10 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
+        if (viewModel.isFromDiff) {
+            supportActionBar?.title = getString(R.string.talk_warn)
+            return
+        }
         val title = StringUtil.fromHtml(
             if (viewModel.isNewTopic) pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>"
             else intent.getStringExtra(EXTRA_PARENT_SUBJECT).orEmpty()
@@ -208,6 +245,24 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             FeedbackUtil.setButtonLongPressToast(it)
         }
         supportActionBar?.title = title
+    }
+
+    private fun setTalkTemplateSpinnerAdapter() {
+        binding.talkTemplateMessage.text = getString(if (viewModel.talkTemplatesList.isEmpty()) R.string.talk_templates_new_message_description else R.string.talk_warn_saved_message)
+        binding.talkTemplateSpinnerLayout.isVisible = viewModel.talkTemplatesList.isNotEmpty()
+        L10nUtil.setConditionalTextDirection(binding.talkTemplateSpinner, viewModel.pageTitle.wikiSite.languageCode)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, viewModel.talkTemplatesList)
+        binding.talkTemplateSpinner.setAdapter(adapter)
+        binding.talkTemplateSpinner.setOnClickListener {
+            DeviceUtil.hideSoftKeyboard(this)
+        }
+        binding.talkTemplateSpinner.setOnItemClickListener { _, _, position, _ ->
+            viewModel.selectedTemplate = viewModel.talkTemplatesList[position]
+            viewModel.selectedTemplate?.let { talkTemplate ->
+                binding.replySubjectText.setText(talkTemplate.subject)
+                binding.replyInputView.editText.setText(talkTemplate.message)
+            }
+        }
     }
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
@@ -246,6 +301,71 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.inactive_color))
     }
 
+    private fun showSaveDialog(subject: String, body: String) {
+        TalkTemplatesTextInputDialog(this, R.string.talk_warn_save_dialog_publish,
+            R.string.talk_warn_save_dialog_cancel).let { textInputDialog ->
+            textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
+                override fun onShow(dialog: TalkTemplatesTextInputDialog) {
+                    dialog.setTitleHint(R.string.talk_warn_save_dialog_hint)
+                    dialog.setPositiveButtonEnabled(true)
+                }
+
+                override fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog) {
+                    text.toString().trim().let {
+                        when {
+                            it.isEmpty() -> {
+                                if (textInputDialog.isSaveExistingChecked) {
+                                    return
+                                }
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(false)
+                            }
+
+                            viewModel.talkTemplatesList.any { item -> item.title == it } -> {
+                                dialog.setError(
+                                    dialog.context.getString(
+                                        R.string.talk_templates_new_message_dialog_exists,
+                                        it
+                                    )
+                                )
+                                dialog.setPositiveButtonEnabled(false)
+                            }
+
+                            else -> {
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(true)
+                            }
+                        }
+                    }
+                }
+
+                override fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence) {
+                    if (textInputDialog.isSaveAsNewChecked) {
+                        viewModel.saveTemplate(titleText.toString(), subject, body)
+                    } else if (textInputDialog.isSaveExistingChecked) {
+                        viewModel.selectedTemplate?.let {
+                            viewModel.updateTemplate(it.title, subject, body, it)
+                        }
+                    } else {
+                        binding.progressBar.isVisible = true
+                        viewModel.postReply(subject, body)
+                    }
+                }
+
+                override fun onCancel() {
+                    setSaveButtonEnabled(true)
+                }
+
+                override fun onDismiss() {
+                    setSaveButtonEnabled(true)
+                }
+            }
+            textInputDialog.showDialogMessage(false)
+            textInputDialog.showTemplateCheckboxes(viewModel.selectedTemplate != null)
+            textInputDialog.setTitle(R.string.talk_warn_save_dialog_title)
+        }.show()
+    }
+
     private fun onSaveClicked() {
         val subject = binding.replySubjectText.text.toString().trim()
         val body = binding.replyInputView.editText.text.toString().trim()
@@ -266,10 +386,15 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             return
         }
 
-        binding.progressBar.visibility = View.VISIBLE
         setSaveButtonEnabled(false)
 
-        viewModel.postReply(subject, body)
+        if (viewModel.isFromDiff) {
+            DeviceUtil.hideSoftKeyboard(this)
+            showSaveDialog(subject, body)
+        } else {
+            binding.progressBar.visibility = View.VISIBLE
+            viewModel.postReply(subject, body)
+        }
     }
 
     private fun onSaveSuccess(newRevision: Long) {
@@ -286,7 +411,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             if (viewModel.topic != null) {
                 it.putExtra(EXTRA_TOPIC_ID, viewModel.topic!!.id)
             }
-            setResult(RESULT_EDIT_SUCCESS, it)
+            setResult(if (viewModel.talkTemplateSaved) RESULT_SAVE_TEMPLATE else RESULT_EDIT_SUCCESS, it)
 
             if (viewModel.topic != null) {
                 draftReplies.remove(viewModel.topic?.id)
@@ -372,8 +497,10 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         const val EXTRA_TOPIC_ID = "topicId"
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
+        const val EXTRA_FROM_DIFF = "fromDiff"
         const val RESULT_EDIT_SUCCESS = 1
         const val RESULT_BACK_FROM_TOPIC = 2
+        const val RESULT_SAVE_TEMPLATE = 3
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
 
         // TODO: persist in db. But for now, it's fine to store these for the lifetime of the app.
@@ -385,13 +512,15 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                       topic: ThreadItem?,
                       invokeSource: Constants.InvokeSource,
                       undoSubject: CharSequence? = null,
-                      undoBody: CharSequence? = null): Intent {
+                      undoBody: CharSequence? = null,
+                      fromDiff: Boolean = false): Intent {
             return Intent(context, TalkReplyActivity::class.java)
                     .putExtra(Constants.ARG_TITLE, pageTitle)
                     .putExtra(EXTRA_PARENT_SUBJECT, parentSubject)
                     .putExtra(EXTRA_TOPIC, topic)
                     .putExtra(EXTRA_SUBJECT, undoSubject)
                     .putExtra(EXTRA_BODY, undoBody)
+                    .putExtra(EXTRA_FROM_DIFF, fromDiff)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }
