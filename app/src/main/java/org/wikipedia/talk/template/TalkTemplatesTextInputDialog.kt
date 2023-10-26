@@ -63,6 +63,11 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
             setError(null)
             setPositiveButtonEnabled(true)
         }
+        binding.dialogSaveAsNewCheckbox.setOnCheckedChangeListener { _, isChecked ->
+            if (!isChecked) {
+                setError(null)
+            }
+        }
     }
 
     override fun create(): AlertDialog {
