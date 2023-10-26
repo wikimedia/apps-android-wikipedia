@@ -66,6 +66,7 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         binding.dialogSaveAsNewCheckbox.setOnCheckedChangeListener { _, isChecked ->
             if (!isChecked) {
                 setError(null)
+                binding.root.requestFocus()
             }
         }
     }
@@ -163,6 +164,7 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
 
     fun setError(text: CharSequence?) {
         binding.titleInput.error = text
+        binding.titleInputContainer.isErrorEnabled = !text.isNullOrEmpty()
     }
 
     fun setPositiveButtonEnabled(enabled: Boolean) {
