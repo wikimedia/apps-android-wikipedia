@@ -261,6 +261,7 @@
   <string name="edit_redo">Кабатлау</string>
   <string name="edit_rollback">Кире кайтарырга</string>
   <string name="edit_warn">Кисәтү</string>
+  <string name="edit_damage">%s зарарларга</string>
   <string name="edit_intent">%s ният</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>

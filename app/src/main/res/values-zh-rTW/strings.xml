@@ -1566,6 +1566,8 @@
   <string name="patroller_onboarding_two_watch_content">想要追蹤條目的編輯嗎？添加到您的監視清單。在「更多」下方查看。</string>
   <string name="patroller_onboarding_two_warn_title">警告</string>
   <string name="patroller_onboarding_two_warn_content">在編輯者的討論頁面上建立、發送，和儲存警告訊息。</string>
+  <string name="patroller_onboarding_three_title">發送匿名資料</string>
+  <string name="patroller_onboarding_three_switch">發送使用報告</string>
   <string name="patroller_diff_feedback_dialog_title">幫助我們改善這個功能</string>
   <string name="patroller_diff_feedback_dialog_message">您滿意這個功能嗎？</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">滿意</string>
