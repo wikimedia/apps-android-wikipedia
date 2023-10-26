@@ -39,7 +39,6 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.DateUtil
@@ -300,13 +299,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (!ReleaseUtil.isPreBetaRelease) {
             binding.showIPBlockedMessage.visibility = GONE
             binding.showOnboardingMessage.visibility = GONE
-            binding.showManageTalkTemplates.visibility = GONE
         }
         binding.showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         binding.showOnboardingMessage.setOnClickListener { viewModel.totalContributions = 0; setFinalUIState() }
-        binding.showManageTalkTemplates.setOnClickListener {
-            startActivity(TalkTemplatesActivity.newIntent(requireContext()))
-        }
     }
 
     private fun setUpTasks() {

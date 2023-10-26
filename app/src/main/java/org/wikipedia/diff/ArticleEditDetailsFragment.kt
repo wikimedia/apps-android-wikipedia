@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
@@ -50,6 +51,8 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
+import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.ClipboardUtil
@@ -80,6 +83,20 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
+
+    private val requestWarn = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || it.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
+            viewModel.revisionTo?.let { revision ->
+                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
+                val message = if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) R.string.talk_warn_submitted else R.string.talk_warn_submitted_and_saved
+                val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
+                snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
+                    startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, InvokeSource.DIFF_ACTIVITY))
+                }
+                snackbar.show()
+            }
+        }
+    }
 
     private val sequentialTooltipRunnable = Runnable {
         if (!isAdded) {
@@ -316,8 +333,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         updateWatchButton(isWatched, hasWatchlistExpiry)
 
         binding.warnButton.setOnClickListener {
-            PatrollerExperienceEvent.logAction("warn_init", "pt_toolbar")
-            // TODO: implement this
+            viewModel.revisionTo?.let { revision ->
+                val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
+                requestWarn.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = InvokeSource.DIFF_ACTIVITY, fromDiff = true))
+            }
         }
 
         binding.errorView.backClickListener = View.OnClickListener { requireActivity().finish() }
@@ -443,10 +462,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
             if (it.ores != null) {
                 binding.oresDamagingButton.isVisible = true
-                binding.oresDamagingButton.text = getString(R.string.edit_damage, ((it.ores?.damagingProb ?: 0f) * 100f).toInt().toString())
+                binding.oresDamagingButton.text = getString(R.string.edit_damage, ((it.ores?.damagingProb ?: 0f) * 100f).toInt().toString().plus("%"))
                 binding.oresDamagingButton.setOnClickListener(openQualityAndIntentFiltersPage)
                 binding.oresGoodFaithButton.isVisible = true
-                binding.oresGoodFaithButton.text = getString(R.string.edit_intent, ((it.ores?.goodfaithProb ?: 0f) * 100f).toInt().toString())
+                binding.oresGoodFaithButton.text = getString(R.string.edit_intent, ((it.ores?.goodfaithProb ?: 0f) * 100f).toInt().toString().plus("%"))
                 binding.oresGoodFaithButton.setOnClickListener(openQualityAndIntentFiltersPage)
 
                 maybeShowOneTimeSequentialRecentEditsTooltips()
