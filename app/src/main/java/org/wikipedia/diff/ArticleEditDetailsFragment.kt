@@ -155,6 +155,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 binding.diffRecyclerView.adapter = DiffUtil.DiffLinesAdapter(DiffUtil.buildDiffLinesList(requireContext(), it.data))
                 updateAfterDiffFetchSuccess()
                 binding.progressBar.isVisible = false
+                binding.navTabContainer.isVisible = true
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
@@ -226,6 +227,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 updateAfterDiffFetchSuccess()
                 updateActionButtons()
                 binding.progressBar.isVisible = false
+                binding.navTabContainer.isVisible = true
             } else if (it is Resource.Error) {
                 if (it.throwable is HttpStatusException && it.throwable.code == 403) {
                     binding.progressBar.isVisible = false
