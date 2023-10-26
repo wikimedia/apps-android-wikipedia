@@ -151,6 +151,15 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         _binding = null
     }
 
+    override fun onResume() {
+        super.onResume()
+        actionMode?.let {
+            if (SearchActionModeCallback.`is`(it)) {
+                searchActionModeCallback.refreshProvider()
+            }
+        }
+    }
+
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_recent_edits, menu)
     }
@@ -363,6 +372,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         fun bindItem() {
+            binding.searchEmptyContainer.isVisible = SuggestedEditsRecentEditsViewModel.filtersCount() > 0
             val filtersStr = resources.getQuantityString(R.plurals.patroller_tasks_filters_number_of_filters,
                 SuggestedEditsRecentEditsViewModel.filtersCount(), SuggestedEditsRecentEditsViewModel.filtersCount())
             binding.emptySearchMessage.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_filters_empty_search_message, "<a href=\"#\">$filtersStr</a>"))
@@ -451,6 +461,10 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
 
         override fun getParentContext(): Context {
             return requireContext()
+        }
+
+        fun refreshProvider() {
+            searchAndFilterActionProvider?.updateFilterIconAndText()
         }
     }
 
