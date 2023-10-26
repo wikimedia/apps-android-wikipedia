@@ -15,6 +15,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.ActivitySuggestedEditsRecentEditsFiltersBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -34,6 +35,7 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         setResult(RESULT_OK)
         setUpRecyclerView()
         setContentView(binding.root)
+        PatrollerExperienceEvent.logAction("settings_impression", "pt_filters")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -52,6 +54,7 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_filter_reset -> {
+                PatrollerExperienceEvent.logAction("filters_reset", "pt_filters")
                 resetFilterSettings()
                 true
             }

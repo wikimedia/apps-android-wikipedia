@@ -24,6 +24,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
@@ -389,6 +390,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 ImageRecommendationsEvent.logAction("add_image_start", "suggested_edits_dialog")
                 startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS, Constants.InvokeSource.SUGGESTED_EDITS))
             } else if (task == vandalismPatrolTask) {
+                PatrollerExperienceEvent.logAction("pt_init", "suggested_edits_dialog")
                 startActivity(SuggestedEditsRecentEditsActivity.newIntent(requireContext()))
             }
         }

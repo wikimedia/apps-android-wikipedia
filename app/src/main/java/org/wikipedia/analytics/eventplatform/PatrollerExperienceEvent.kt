@@ -6,8 +6,8 @@ import org.wikipedia.WikipediaApp
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/mobile_apps/app_interaction1/1.0.0")
-class DonorExperienceEvent(
+@SerialName("/analytics/mobile_apps/app_interaction/1.0.0")
+class PatrollerExperienceEvent(
     private val action: String,
     private val active_interface: String,
     private val action_data: String,
@@ -17,38 +17,52 @@ class DonorExperienceEvent(
 ) : MobileAppsEvent(STREAM_NAME) {
 
     companion object {
-        private const val STREAM_NAME = "app_donor_experience"
+        private const val STREAM_NAME = "app_patroller_experience"
 
-        fun logImpression(activeInterface: String, campaignId: String? = null, wikiId: String = "") {
-            submitDonorExperienceEvent("impression", activeInterface, getActionDataString(campaignId), wikiId)
+        fun logImpression(
+            activeInterface: String,
+            wikiId: String = ""
+        ) {
+            submitPatrollerActivityEvent(
+                "impression",
+                activeInterface,
+                wikiId = wikiId
+            )
         }
 
         fun logAction(
             action: String,
             activeInterface: String,
+            actionData: String = "",
             wikiId: String = "",
-            campaignId: String? = null
         ) {
-            submitDonorExperienceEvent(
+            submitPatrollerActivityEvent(
                 action,
                 activeInterface,
-                getActionDataString(campaignId),
+                actionData,
                 wikiId
             )
         }
 
-        fun getActionDataString(campaignId: String? = null): String {
-            return campaignId?.let { "campaign_id: $it, " }.orEmpty()
+        fun getActionDataString(
+            revisionId: Long? = null,
+            feedbackOption: String? = null,
+            feedbackText: String? = null
+        ): String {
+            val revisionIdStr = revisionId?.let { "revision_id: $it, " }.orEmpty()
+            val feedbackStr = feedbackOption?.let { "feedback: $it, " }.orEmpty()
+            val feedbackTextStr = feedbackText?.let { "feedback_text: $it, " }.orEmpty()
+            return revisionIdStr + feedbackStr + feedbackTextStr
         }
 
-        private fun submitDonorExperienceEvent(
+        private fun submitPatrollerActivityEvent(
             action: String,
             activeInterface: String,
-            actionData: String,
+            actionData: String = "",
             wikiId: String
         ) {
             EventPlatformClient.submit(
-                DonorExperienceEvent(
+                PatrollerExperienceEvent(
                     action,
                     activeInterface,
                     actionData,

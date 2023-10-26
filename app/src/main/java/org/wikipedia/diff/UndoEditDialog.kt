@@ -7,6 +7,7 @@ import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.DialogUndoEditBinding
 import org.wikipedia.util.ResourceUtil
 
@@ -27,10 +28,12 @@ class UndoEditDialog constructor(
         setView(binding.root)
 
         setPositiveButton(R.string.edit_undo) { _, _ ->
+            PatrollerExperienceEvent.logAction("undo_confirm", "pt_edit")
             callback.onSuccess(binding.textInput.text.toString())
         }
 
         setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _, _ ->
+            PatrollerExperienceEvent.logAction("undo_cancel", "pt_edit")
             editHistoryInteractionEvent?.logUndoCancel()
         }
 
@@ -39,6 +42,7 @@ class UndoEditDialog constructor(
         }
 
         setPositiveButtonEnabled(false)
+        PatrollerExperienceEvent.logAction("undo_summary_impression", "pt_edit")
     }
 
     override fun show(): AlertDialog {

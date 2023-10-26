@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
@@ -114,20 +115,25 @@ object UserTalkPopupHelper {
             override fun onMenuItemSelected(menu: MenuBuilder, item: MenuItem): Boolean {
                 when (item.itemId) {
                     R.id.menu_user_profile_page -> {
+                        PatrollerExperienceEvent.logAction("menu_user_page_click", "pt_diff_view")
                         val entry = HistoryEntry(title, historySource)
                         activity.startActivity(PageActivity.newIntentForNewTab(activity, entry, title))
                     }
                     R.id.menu_user_talk_page -> {
+                        PatrollerExperienceEvent.logAction("menu_talk_page_click", "pt_diff_view")
                         val newTitle = PageTitle(UserTalkAliasData.valueFor(title.wikiSite.languageCode), title.text, title.wikiSite)
                         activity.startActivity(TalkTopicsActivity.newIntent(activity, newTitle, invokeSource))
                     }
                     R.id.menu_user_information -> {
+                        PatrollerExperienceEvent.logAction("menu_user_info_click", "pt_diff_view")
                         UserInformationDialog.newInstance(title.text).show((activity as AppCompatActivity).supportFragmentManager, null)
                     }
                     R.id.menu_user_contributions_page -> {
+                        PatrollerExperienceEvent.logAction("menu_user_contribs_click", "pt_diff_view")
                         activity.startActivity(UserContribListActivity.newIntent(activity, title.text))
                     }
                     R.id.menu_user_thank -> {
+                        PatrollerExperienceEvent.logAction("menu_thank_click", "pt_diff_view")
                         if (pageId != null && revisionId != null) {
                             showThankDialog(activity, title, revisionId, pageId)
                         }

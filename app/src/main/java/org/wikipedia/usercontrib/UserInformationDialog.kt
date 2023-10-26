@@ -13,6 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.DialogUserInformationBinding
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
@@ -72,6 +73,7 @@ class UserInformationDialog : DialogFragment() {
     }
 
     private fun onSuccess(editCount: String, registrationDate: Date) {
+        PatrollerExperienceEvent.logAction("user_info_impression", "pt_recent_changes")
         binding.userInformationContainer.isVisible = true
         binding.dialogProgressBar.isVisible = false
         binding.dialogErrorView.isVisible = false
