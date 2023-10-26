@@ -276,6 +276,7 @@
   <string name="edit_redo">Gentag</string>
   <string name="edit_rollback">Tilbagerulning</string>
   <string name="edit_warn">Advar</string>
+  <string name="edit_damage">Skade %s</string>
   <string name="edit_intent">Hensigt %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
@@ -456,6 +457,7 @@
   <string name="theme_category_editing">Redigering</string>
   <string name="reading_focus_mode">Læsefokustilstand</string>
   <string name="reading_focus_mode_detail">Skjuler redigeringsfunktioner og den nederste værktøjslinje når der scrolles</string>
+  <string name="editing_syntax_highlight_label">Syntaksfremhævelse</string>
   <string name="editing_line_numbers_label">Vis linjenumre</string>
   <string name="editing_monospace_font_label">Brug monospace skrifttype</string>
   <string name="editing_typing_suggestions">Vis skriveforslag</string>
@@ -479,6 +481,10 @@
     <item quantity="one">1 artikel, %2$.2f MB</item>
     <item quantity="other">%1$d artikler, %2$.2f MB</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d af 1 artikel tilgængelig offline</item>
+    <item quantity="other">%1$d of %2$d artikler tilgængeelig offline</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d af 1 artikel tilgængelig offline, %3$.2f MB</item>
     <item quantity="other">%1$d af %2$d artikler tilgængelige offline, %3$.2f MB</item>
@@ -495,6 +501,7 @@
   <string name="reading_list_menu_export">Eksporter liste</string>
   <string name="reading_list_menu_select">Vælg</string>
   <string name="reading_list_menu_unselect">Fravælg</string>
+  <string name="reading_list_export_write_permission_rationale">Tilladelse til at skrive til lager på din enhed er påkrævet for at eksportere din læseliste.</string>
   <string name="reading_list_menu_rename">Rediger navn/beskrivelse</string>
   <string name="reading_list_action_menu_remove_from_offline">Fjern lokal version</string>
   <string name="reading_list_action_menu_save_for_offline">Gem lokalt</string>
@@ -510,6 +517,14 @@
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d artikel fjernet fra listen</item>
     <item quantity="other">%d artikler fjernet fra listen</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d artikel fjernet fra %s</item>
+    <item quantity="other">%d artikler fjernet fra %s</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d liste slettet</item>
+    <item quantity="other">%d lister slettet</item>
   </plurals>
   <string name="reading_lists_default_list_delete_message">Standardlisten ( %s ) kan ikke slettes</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s slettet. Standardlisten ( %2$s ) kan ikke slettes.</string>
@@ -549,6 +564,10 @@
   <string name="reading_list_articles_moved_to_named">Flyttede %1$d artikler til %2$s</string>
   <string name="reading_list_delete_confirm">Er du sikker på, at du ønsker at slette %s?</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Vil du slette den eller de valgte lister?</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">Er du sikker på, at du vil slette %d liste?</item>
+    <item quantity="other">Er du sikker på, at du vil slette %d lister?</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log ind for at aktivere synkronsering</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log ind for at tillade at dine læselister gemmes på din konto.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annuller</string>
@@ -1102,11 +1121,57 @@
   <string name="talk_no_subject">(Intet emne)</string>
   <string name="talk_reply_subject">Emne</string>
   <string name="talk_snackbar_survey_action_text">Kom igang</string>
+  <string name="talk_search_hint">Søg i beskeder</string>
+  <string name="talk_search_topics_hint">Søg efter emner</string>
+  <string name="talk_search_find_in_talk_topics_hint">Find i diskussionsside-emne</string>
+  <string name="talk_overflow_sort_by">Sorter efter</string>
+  <string name="talk_overflow_sort_date_published">Dato offentliggjort</string>
+  <string name="talk_overflow_sort_date_updated">Dato opdateret</string>
+  <string name="talk_overflow_sort_topic_name">Emnenavn</string>
+  <string name="talk_new_topic_exit_dialog_title">Er du sikker på, at du vil afslutte?</string>
+  <string name="talk_new_topic_exit_dialog_message">Emnet og indholdsteksten vil ikke blive gemt.</string>
+  <plurals name="talk_show_replies_count">
+    <item quantity="one">Vis svar</item>
+    <item quantity="other">Vis svar (%d )</item>
+  </plurals>
+  <plurals name="talk_hide_replies_count">
+    <item quantity="one">Skjul svar</item>
+    <item quantity="other">Skjul svar (%d)</item>
+  </plurals>
+  <string name="talk_thread_subscribed_to">Abonnerede på \"%s \"</string>
+  <string name="talk_thread_unsubscribed_from">Afmeldt fra \"%s\"</string>
+  <string name="talk_list_item_overflow_subscribe">Abonnér</string>
+  <string name="talk_list_item_overflow_subscribed">Abbonerede</string>
+  <string name="talk_list_item_overflow_mark_as_read">Marker som læst</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Marker som ulæst</string>
+  <string name="talk_list_item_overflow_share">Del</string>
+  <string name="talk_list_item_last_comment_date">Sidste kommentar: %s</string>
+  <string name="talk_list_item_reply_icon_content_description">Antal svar</string>
+  <string name="talk_list_item_user_icon_content_description">Brugerikon</string>
   <string name="talk_list_item_swipe_mark_as_read">Læst</string>
   <string name="talk_list_item_swipe_mark_as_unread">Ulæst</string>
+  <string name="talk_login_to_subscribe_dialog_title">Log ind for at abonnere på emner</string>
+  <string name="menu_option_share_talk_discussion">Del diskussion</string>
+  <string name="menu_option_share_talk_page">Del diskussionsside</string>
   <string name="menu_option_share_edit">Del redigering</string>
+  <string name="menu_option_user_contributions">%s\'s bidrag</string>
+  <string name="menu_option_edit_source">Rediger kilde</string>
+  <string name="menu_option_user_page">%s brugerside</string>
+  <string name="menu_option_copy_link_to_clipboard">Kopier link til udklipsholder</string>
+  <string name="talk_menu_copy_text">Kopier tekst</string>
+  <string name="talk_menu_expand_threads">Udvid tråde</string>
+  <string name="talk_menu_collapse_threads">Minimer tråde</string>
+  <string name="watchlist_details_watching_label">Overvåger</string>
+  <string name="watchlist_details_watch_label">Overvåg</string>
+  <string name="watchlist_details_next_edit">Næste redigering</string>
+  <string name="watchlist_details_prev_edit">Forrige redigering</string>
   <string name="thank_label">Tak</string>
+  <string name="view_user_page">Vis brugerside</string>
+  <string name="thank_dialog_title_text">Send \"Tak\" offentligt</string>
+  <string name="thank_dialog_text">\"Tak\" er en nem måde at vise påskønnelse af andres arbejde på Wikipedia. \"Tak\" kan ikke fortrydes og er offentligt synlige.</string>
   <string name="thank_dialog_positive_button_text">Send tak</string>
+  <string name="thank_dialog_negative_button_text">Annullér</string>
+  <string name="thank_success_message">Din \'Tak\' blev sendt til %s 👍</string>
   <string name="revision_diff_from">Fra:</string>
   <string name="revision_diff_to">Til:</string>
   <string name="revision_diff_line_num">Linje %d</string>
@@ -1193,4 +1258,7 @@
   <string name="patroller_tasks_filters_user_status_header">Brugerregistrering og erfaring</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Uregistreret</string>
   <string name="patroller_tasks_filters_user_status_registered">Registreret</string>
+  <string name="patroller_onboarding_two_thank_title">Tak</string>
+  <string name="patroller_onboarding_two_thank_content">Ser du en produktiv redigering? Tak en bruger for bidraget.</string>
+  <string name="patroller_onboarding_two_watch_title">Overvåg</string>
 </resources>
