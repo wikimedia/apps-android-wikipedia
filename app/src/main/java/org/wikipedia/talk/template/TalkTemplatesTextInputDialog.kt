@@ -44,6 +44,7 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         binding.titleInput.doOnTextChanged { text, _, _, _ ->
             if (binding.dialogSaveAsNewCheckbox.isVisible && !binding.dialogSaveAsNewCheckbox.isChecked) {
                 binding.dialogSaveAsNewCheckbox.isChecked = true
+                binding.dialogSaveExistingCheckbox.isChecked = false
             }
             callback?.onTextChanged(text ?: "", this)
         }
