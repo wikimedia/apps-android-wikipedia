@@ -50,7 +50,6 @@ class UndoEditDialog constructor(
 
         dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.setTextColor(ResourceUtil.getThemedColor(context, R.attr.destructive_color))
 
-        setPositiveButtonEnabled(false)
         return dialog!!
     }
 

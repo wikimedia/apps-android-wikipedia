@@ -216,39 +216,35 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
     }
 
-    internal inner class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), TalkTemplatesItemView.Callback {
+    internal inner class RecyclerAdapter : RecyclerView.Adapter<TalkTemplatesItemViewHolder>(), TalkTemplatesItemView.Callback {
 
         override fun getItemCount(): Int {
             return viewModel.talkTemplatesList.size
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TalkTemplatesItemViewHolder {
             val view = TalkTemplatesItemView(requireContext())
             view.callback = this
             return TalkTemplatesItemViewHolder(view)
         }
 
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            (holder as TalkTemplatesItemViewHolder).bindItem(viewModel.talkTemplatesList[position])
+        override fun onBindViewHolder(holder: TalkTemplatesItemViewHolder, position: Int) {
+            holder.bindItem(viewModel.talkTemplatesList[position])
         }
 
-        override fun onViewAttachedToWindow(holder: RecyclerView.ViewHolder) {
+        override fun onViewAttachedToWindow(holder: TalkTemplatesItemViewHolder) {
             super.onViewAttachedToWindow(holder)
-            if (holder is TalkTemplatesItemViewHolder) {
-                holder.templatesItemView.setDragHandleTouchListener { v, event ->
-                    when (event.actionMasked) {
-                        MotionEvent.ACTION_DOWN -> itemTouchHelper.startDrag(holder)
-                        MotionEvent.ACTION_UP -> v.performClick()
-                    }
-                    false
+            holder.templatesItemView.setDragHandleTouchListener { v, event ->
+                when (event.actionMasked) {
+                    MotionEvent.ACTION_DOWN -> itemTouchHelper.startDrag(holder)
+                    MotionEvent.ACTION_UP -> v.performClick()
                 }
+                false
             }
         }
 
-        override fun onViewDetachedFromWindow(holder: RecyclerView.ViewHolder) {
-            if (holder is TalkTemplatesItemViewHolder) {
-                holder.templatesItemView.setDragHandleTouchListener(null)
-            }
+        override fun onViewDetachedFromWindow(holder: TalkTemplatesItemViewHolder) {
+            holder.templatesItemView.setDragHandleTouchListener(null)
             super.onViewDetachedFromWindow(holder)
         }
 

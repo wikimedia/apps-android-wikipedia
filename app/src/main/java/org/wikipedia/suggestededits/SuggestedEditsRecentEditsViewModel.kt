@@ -45,8 +45,9 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     private val cachedUserInfo = mutableListOf<UserInfo>()
     private val cachedRecentEdits = mutableListOf<MwQueryResult.RecentChange>()
     private var cachedContinueKey: String? = null
+    private val pageSize = 50
 
-    val recentEditsFlow = Pager(PagingConfig(pageSize = 50, initialLoadSize = 50), pagingSourceFactory = {
+    val recentEditsFlow = Pager(PagingConfig(pageSize = pageSize, initialLoadSize = pageSize), pagingSourceFactory = {
         recentEditsSource = RecentEditsPagingSource()
         recentEditsSource!!
     }).flow.map { pagingData ->

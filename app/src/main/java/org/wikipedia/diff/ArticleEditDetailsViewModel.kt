@@ -18,6 +18,7 @@ import org.wikipedia.dataclient.restbase.Revision
 import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
+import org.wikipedia.descriptions.DescriptionEditFragment
 import org.wikipedia.edit.Edit
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
@@ -220,13 +221,17 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
+    @Suppress("KotlinConstantConditions")
     fun undoEdit(title: PageTitle, user: String, comment: String, revisionId: Long, revisionIdAfter: Long) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             undoEditResponse.postValue(Resource.Error(throwable))
         }) {
             val msgResponse = ServiceFactory.get(title.wikiSite).getMessages("undo-summary", "$revisionId|$user")
             val undoMessage = msgResponse.query?.allmessages?.find { it.name == "undo-summary" }?.content
-            val summary = if (undoMessage != null) "$undoMessage $comment" else comment
+            var summary = if (undoMessage != null) "$undoMessage $comment" else comment
+            if (fromRecentEdits) {
+                summary += DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_UNDO
+            }
             val token = ServiceFactory.get(title.wikiSite).getToken().query!!.csrfToken()!!
             val undoResponse = ServiceFactory.get(title.wikiSite).postUndoEdit(title.prefixedText, summary,
                     null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null)
@@ -239,7 +244,11 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             rollbackResponse.postValue(Resource.Error(throwable))
         }) {
             val rollbackToken = ServiceFactory.get(title.wikiSite).getToken("rollback").query!!.rollbackToken()!!
-            val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, null, user, rollbackToken)
+            var summary: String? = null
+            if (fromRecentEdits) {
+                summary = DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK
+            }
+            val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, summary, user, rollbackToken)
             rollbackResponse.postValue(Resource.Success(rollbackPostResponse))
         }
     }
