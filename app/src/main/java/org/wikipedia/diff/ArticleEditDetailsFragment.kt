@@ -339,9 +339,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
-        if (menu.isNotEmpty()) {
-            return
-        }
         inflater.inflate(R.menu.menu_edit_details, menu)
     }
 

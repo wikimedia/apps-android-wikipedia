@@ -21,7 +21,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Arti
         val targetWikiLangCode = Prefs.recentEditsWikiCode
 
         childFragmentManager.beginTransaction()
-            .add(binding.suggestedEditsItemRootView.id, ArticleEditDetailsFragment
+            .replace(binding.suggestedEditsItemRootView.id, ArticleEditDetailsFragment
                 .newInstance(PageTitle("", WikiSite.forLanguageCode(targetWikiLangCode)), -1, -1, -1, fromRecentEdits = true))
             .commit()
 
