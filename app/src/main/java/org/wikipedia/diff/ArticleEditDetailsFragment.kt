@@ -18,7 +18,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
-import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
@@ -790,17 +789,5 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun callback(): Callback? {
         return FragmentUtil.getCallback(this, Callback::class.java)
-    }
-
-    companion object {
-        fun newInstance(title: PageTitle, pageId: Int, revisionFrom: Long, revisionTo: Long, fromRecentEdits: Boolean): ArticleEditDetailsFragment {
-            return ArticleEditDetailsFragment().apply {
-                arguments = bundleOf(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to title,
-                    ArticleEditDetailsActivity.EXTRA_PAGE_ID to pageId,
-                    ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM to revisionFrom,
-                    ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO to revisionTo,
-                    ArticleEditDetailsActivity.EXTRA_FROM_RECENT_EDITS to fromRecentEdits)
-            }
-        }
     }
 }

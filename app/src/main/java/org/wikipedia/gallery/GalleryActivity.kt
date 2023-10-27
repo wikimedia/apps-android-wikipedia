@@ -15,6 +15,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -151,15 +152,15 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
             // the initial Title from our intent.
             initialFilename = null
             val fm = supportFragmentManager
-            if (supportFragmentManager.backStackEntryCount > 0) {
-                val ft = supportFragmentManager.beginTransaction()
-                for (i in 0 until fm.backStackEntryCount) {
-                    val fragment = fm.findFragmentById(fm.getBackStackEntryAt(i).id)
-                    if (fragment is GalleryItemFragment) {
-                        ft.remove(fragment)
+            if (fm.backStackEntryCount > 0) {
+                fm.commit(allowStateLoss = true) {
+                    for (i in 0 until fm.backStackEntryCount) {
+                        val fragment = fm.findFragmentById(fm.getBackStackEntryAt(i).id)
+                        if (fragment is GalleryItemFragment) {
+                            remove(fragment)
+                        }
                     }
                 }
-                ft.commitAllowingStateLoss()
             }
         }
         binding.toolbarContainer.post {
