@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.FeedbackUtil
@@ -50,6 +51,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     private val requestNewTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
             viewModel.loadTalkTemplates()
+            PatrollerExperienceEvent.logAction("save_message_toast", "pt_templates")
             FeedbackUtil.showMessage(this, R.string.talk_templates_new_message_saved)
         }
     }
@@ -97,6 +99,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.menu_new_message -> {
+                PatrollerExperienceEvent.logAction("new_message_click", "pt_templates")
                 requestNewTemplate.launch(AddTemplateActivity.newIntent(requireContext()))
                 true
             }
@@ -126,6 +129,9 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesErrorView.visibility = View.GONE
         binding.talkTemplatesProgressBar.visibility = View.GONE
         binding.talkTemplatesRecyclerView.isVisible = viewModel.talkTemplatesList.isNotEmpty()
+        if (binding.talkTemplatesEmptyContainer.isVisible) {
+            PatrollerExperienceEvent.logAction("templates_empty_impression", "pt_templates")
+        }
     }
 
     private fun onSaved(position: Int) {
@@ -134,10 +140,14 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     private fun onDeleted(position: Int) {
+        PatrollerExperienceEvent.logAction("message_deleted_toast", "pt_templates")
         FeedbackUtil.showMessage(this, R.string.talk_templates_message_deleted)
         binding.talkTemplatesRecyclerView.adapter?.notifyItemRemoved(position)
         binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesRecyclerView.isVisible = viewModel.talkTemplatesList.isNotEmpty()
+        if (binding.talkTemplatesEmptyContainer.isVisible) {
+            PatrollerExperienceEvent.logAction("templates_empty_impression", "pt_templates")
+        }
     }
 
     private fun onActionError(t: Throwable) {
@@ -190,14 +200,20 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 }
 
                 override fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence) {
+                    PatrollerExperienceEvent.logAction("edit_message_save", "pt_templates")
                     viewModel.updateTalkTemplate(titleText.toString(), subjectText.toString(), bodyText.toString(), talkTemplate)
                 }
 
                 override fun onCancel() {
+                    PatrollerExperienceEvent.logAction("edit_message_delete", "pt_templates")
                     MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme_Delete)
                         .setMessage(getString(R.string.talk_templates_edit_message_delete_description, talkTemplate.title))
-                        .setPositiveButton(R.string.talk_templates_edit_message_dialog_delete) { _, _ -> viewModel.deleteTemplate(talkTemplate) }
-                        .setNegativeButton(R.string.talk_templates_new_message_dialog_cancel, null)
+                        .setPositiveButton(R.string.talk_templates_edit_message_dialog_delete) { _, _ ->
+                            PatrollerExperienceEvent.logAction("message_delete_click", "pt_templates")
+                            viewModel.deleteTemplate(talkTemplate) }
+                        .setNegativeButton(R.string.talk_templates_new_message_dialog_cancel) { _, _ ->
+                            PatrollerExperienceEvent.logAction("message_delete_cancel", "pt_templates")
+                        }
                         .show()
                 }
 

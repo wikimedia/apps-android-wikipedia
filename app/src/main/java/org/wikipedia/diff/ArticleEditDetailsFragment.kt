@@ -88,9 +88,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || it.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
             viewModel.revisionTo?.let { revision ->
                 val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
-                val message = if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) R.string.talk_warn_submitted else R.string.talk_warn_submitted_and_saved
+                val message = if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
+                    PatrollerExperienceEvent.logAction("publish_message_toast", "pt_warning_messages")
+                    R.string.talk_warn_submitted
+                } else {
+                    PatrollerExperienceEvent.logAction("publish_message_saved_toast", "pt_warning_messages")
+                    R.string.talk_warn_submitted_and_saved
+                }
                 val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
                 snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
+                    PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
                     startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, InvokeSource.DIFF_ACTIVITY))
                 }
                 snackbar.show()
@@ -102,10 +109,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         if (!isAdded) {
             return@Runnable
         }
+        PatrollerExperienceEvent.logAction("impression", "pt_tooltip")
         val balloon = FeedbackUtil.getTooltip(requireContext(), getString(R.string.patroller_diff_tooltip_one), autoDismiss = true, showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 1, countTotal = 2)
         balloon.showAlignBottom(binding.oresDamagingButton)
         balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), getString(R.string.patroller_diff_tooltip_two), autoDismiss = true, showDismissButton = true, countNum = 2, countTotal = 2), binding.oresGoodFaithButton)
-        // TODO: log tooltip?
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -685,7 +692,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.root.postDelayed({
             val anchorView = requireActivity().findViewById<View>(R.id.more_options)
             if (isAdded && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
-                PatrollerExperienceEvent.logAction("feedback_tooltip_advance", "pt_feedback")
+                PatrollerExperienceEvent.logAction("tooltip_impression", "pt_feedback")
                 FeedbackUtil.getTooltip(
                     requireActivity(),
                     getString(R.string.patroller_diff_feedback_tooltip),

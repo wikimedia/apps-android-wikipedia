@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.DialogTalkTemplatesTextInputBinding
 
 class TalkTemplatesTextInputDialog constructor(context: Context,
@@ -90,6 +91,7 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
             val subject = binding.subjectTextInput.text.toString().trim()
             val body = binding.bodyTextInput.editText.text.toString().trim()
             if (title.isEmpty()) {
+                PatrollerExperienceEvent.logAction("publish_error_title", "pt_warning_messages")
                 binding.titleInputContainer.error = context.getString(R.string.talk_templates_message_title_empty)
             }
             if (subject.isEmpty()) {

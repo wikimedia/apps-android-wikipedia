@@ -47,12 +47,14 @@ class PatrollerExperienceEvent(
         fun getActionDataString(
             revisionId: Long? = null,
             feedbackOption: String? = null,
-            feedbackText: String? = null
+            feedbackText: String? = null,
+            messageType: String? = null
         ): String {
             val revisionIdStr = revisionId?.let { "revision_id: $it, " }.orEmpty()
             val feedbackStr = feedbackOption?.let { "feedback: $it, " }.orEmpty()
             val feedbackTextStr = feedbackText?.let { "feedback_text: $it, " }.orEmpty()
-            return revisionIdStr + feedbackStr + feedbackTextStr
+            val savedMessageStr = messageType?.let { "saved_message: $it, " }.orEmpty()
+            return revisionIdStr + feedbackStr + feedbackTextStr + savedMessageStr
         }
 
         private fun submitPatrollerActivityEvent(

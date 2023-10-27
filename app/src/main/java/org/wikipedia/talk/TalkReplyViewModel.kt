@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
 import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
-import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
@@ -38,7 +37,7 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     }
 
     fun postReply(subject: String, body: String) {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+        /*viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             postReplyData.postValue(Resource.Error(throwable))
         }) {
             val token = ServiceFactory.get(pageTitle.wikiSite).getToken().query?.csrfToken()!!
@@ -48,7 +47,7 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
                 ServiceFactory.get(pageTitle.wikiSite).postTalkPageTopic(pageTitle.prefixedText, subject, body, token)
             }
             postReplyData.postValue(Resource.Success(response.result!!.newRevId))
-        }
+        }*/
     }
 
     fun saveTemplate(title: String, subject: String, body: String) {
