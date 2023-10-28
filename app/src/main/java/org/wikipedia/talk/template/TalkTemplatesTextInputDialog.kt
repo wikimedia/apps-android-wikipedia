@@ -91,13 +91,15 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
             val subject = binding.subjectTextInput.text.toString().trim()
             val body = binding.bodyTextInput.editText.text.toString().trim()
             if (title.isEmpty()) {
-                PatrollerExperienceEvent.logAction("publish_error_title", "pt_warning_messages")
+                PatrollerExperienceEvent.logAction("publish_error_title", "pt_templates")
                 binding.titleInputContainer.error = context.getString(R.string.talk_templates_message_title_empty)
             }
             if (subject.isEmpty()) {
+                PatrollerExperienceEvent.logAction("save_error_subject", "pt_templates")
                 binding.subjectTextInputContainer.error = context.getString(R.string.talk_subject_empty)
             }
             if (body.isEmpty()) {
+                PatrollerExperienceEvent.logAction("save_error_message", "pt_templates")
                 binding.bodyTextInput.textInputLayout.error = context.getString(R.string.talk_message_empty)
             }
             if (binding.subjectTextInputContainer.isVisible && binding.bodyTextInput.isVisible) {

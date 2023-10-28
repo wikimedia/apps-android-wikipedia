@@ -58,9 +58,8 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
             val view = inflater.inflate(pages[position], container, false) as OnboardingPageView
             view.tag = position
             view.callback = callback
-            // Data wiring
-            if (position == 0) PatrollerExperienceEvent.logAction("funnel_init", "pt_onboarding_funnel")
-            else PatrollerExperienceEvent.logAction("funnel_" + position + "_advance", "pt_onboarding_funnel")
+            val action = if (position == 0) "funnel_init" else "funnel_${position}_advance"
+            PatrollerExperienceEvent.logAction(action, "pt_onboarding_funnel")
             return view
         }
 

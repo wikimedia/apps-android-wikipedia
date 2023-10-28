@@ -198,10 +198,14 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             watchResponse.postValue(Resource.Error(throwable))
         }) {
             if (isWatched) {
-                PatrollerExperienceEvent.logAction("watch_init", "pt_toolbar")
+                if (fromRecentEdits) {
+                PatrollerExperienceEvent.logAction("watch_init", "pt_toolbar", wikiId = pageTitle.wikiSite.languageCode)
+                }
                 WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
             } else {
-                PatrollerExperienceEvent.logAction("unwatch_init", "pt_toolbar")
+                if (fromRecentEdits) {
+                    PatrollerExperienceEvent.logAction("unwatch_init", "pt_toolbar", wikiId = pageTitle.wikiSite.languageCode)
+                 }
                 WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
             }
             val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
