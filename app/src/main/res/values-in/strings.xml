@@ -1470,8 +1470,8 @@
   <string name="suggested_edits_edit_patrol_hint">Tinjau suntingan terkini dan tentukan apakah suntingan tersebut konstruktif atau tidak.</string>
   <string name="suggested_edits_edit_patrol_review">Tinjau</string>
   <string name="patroller_tasks_overflow_report">Masalah dengan fitur</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">Akun sejak</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">Jumlah suntingan</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text"><![CDATA[<b>Akun sejak: </b> %s]]></string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text"><![CDATA[<b>Jumlah suntingan: </b> %s]]></string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Penyunting yang sudah log masuk</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Penyunting terdaftar yang memiliki kurang dari 10 suntingan dalam 4 hari aktivitas</string>
   <string name="patroller_tasks_filters_user_status_learners">Pelajar</string>
@@ -1522,4 +1522,9 @@
   <string name="patroller_diff_feedback_dialog_submit">Kirim</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Umpan balik dikirimkan.</string>
   <string name="patroller_diff_feedback_tooltip">Ketuk menu luapan untuk mengirimkan masukan kapan saja di \'Masalah dengan fitur\'.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Coba menghapus %s untuk melihat suntingan lainnya</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d penyaring</item>
+    <item quantity="other">%d penyaring</item>
+  </plurals>
 </resources>
