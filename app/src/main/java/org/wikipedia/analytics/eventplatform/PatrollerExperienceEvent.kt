@@ -1,35 +1,19 @@
 package org.wikipedia.analytics.eventplatform
 
 import org.wikipedia.WikipediaApp
+import org.wikipedia.settings.Prefs
 
 class PatrollerExperienceEvent {
 
     companion object {
         private const val STREAM_NAME = "app_patroller_experience"
 
-        fun logImpression(
-            activeInterface: String,
-            wikiId: String = ""
-        ) {
-            submitPatrollerActivityEvent(
-                "impression",
-                activeInterface,
-                wikiId = wikiId
-            )
+        fun logImpression(activeInterface: String) {
+            submitPatrollerActivityEvent("impression", activeInterface)
         }
 
-        fun logAction(
-            action: String,
-            activeInterface: String,
-            actionData: String = "",
-            wikiId: String = "",
-        ) {
-            submitPatrollerActivityEvent(
-                action,
-                activeInterface,
-                actionData,
-                wikiId
-            )
+        fun logAction(action: String, activeInterface: String, actionData: String = "") {
+            submitPatrollerActivityEvent(action, activeInterface, actionData)
         }
 
         fun getActionDataString(
@@ -48,12 +32,7 @@ class PatrollerExperienceEvent {
             return revisionIdStr + feedbackStr + feedbackTextStr + savedMessageStr + summaryTextStr + wasSummaryAddedStr
         }
 
-        private fun submitPatrollerActivityEvent(
-            action: String,
-            activeInterface: String,
-            actionData: String = "",
-            wikiId: String
-        ) {
+        private fun submitPatrollerActivityEvent(action: String, activeInterface: String, actionData: String = "") {
             AppInteractionEvent.STREAM_NAME = STREAM_NAME
             EventPlatformClient.submit(
                 AppInteractionEvent(
@@ -61,7 +40,7 @@ class PatrollerExperienceEvent {
                     activeInterface,
                     actionData,
                     WikipediaApp.instance.languageState.appLanguageCode,
-                    wikiId,
+                    Prefs.recentEditsWikiCode,
                     "android"
                 )
             )

@@ -524,7 +524,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         actionData: String = ""
     ) {
         if (viewModel.isFromDiff) {
-            PatrollerExperienceEvent.logAction(action, activeInterface, actionData, viewModel.pageTitle.wikiSite.languageCode)
+            PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
         }
     }
 

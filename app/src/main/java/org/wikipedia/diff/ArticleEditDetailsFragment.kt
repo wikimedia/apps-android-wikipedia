@@ -110,7 +110,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         actionData: String = ""
     ) {
         if (viewModel.fromRecentEdits) {
-        PatrollerExperienceEvent.logAction(action, activeInterface, actionData, viewModel.pageTitle.wikiSite.languageCode)
+        PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
         }
     }
 

@@ -199,12 +199,12 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         }) {
             if (isWatched) {
                 if (fromRecentEdits) {
-                PatrollerExperienceEvent.logAction("watch_init", "pt_toolbar", wikiId = pageTitle.wikiSite.languageCode)
+                PatrollerExperienceEvent.logAction("watch_init", "pt_toolbar")
                 }
                 WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
             } else {
                 if (fromRecentEdits) {
-                    PatrollerExperienceEvent.logAction("unwatch_init", "pt_toolbar", wikiId = pageTitle.wikiSite.languageCode)
+                    PatrollerExperienceEvent.logAction("unwatch_init", "pt_toolbar")
                  }
                 WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
             }

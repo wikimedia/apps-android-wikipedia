@@ -231,11 +231,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
     }
 
     private fun sendPatrollerExperienceEvent(action: String, activeInterface: String) {
-        PatrollerExperienceEvent.logAction(
-            action,
-            activeInterface,
-            wikiId = viewModel.wikiSite.languageCode
-        )
+        PatrollerExperienceEvent.logAction(action, activeInterface)
     }
 
     private inner class SearchBarAdapter : RecyclerView.Adapter<SearchBarViewHolder>() {
