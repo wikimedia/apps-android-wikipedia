@@ -1,6 +1,8 @@
 package org.wikipedia.talk.template
 
+import android.app.Activity
 import android.content.Context
+import android.content.ContextWrapper
 import android.view.LayoutInflater
 import android.view.WindowManager
 import androidx.annotation.StringRes
@@ -11,6 +13,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.DialogTalkTemplatesTextInputBinding
+import org.wikipedia.talk.TalkReplyActivity
 
 class TalkTemplatesTextInputDialog constructor(context: Context,
                                                positiveButtonText: Int = R.string.text_input_dialog_ok_button_text,
@@ -91,15 +94,15 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
             val subject = binding.subjectTextInput.text.toString().trim()
             val body = binding.bodyTextInput.editText.text.toString().trim()
             if (title.isEmpty()) {
-                PatrollerExperienceEvent.logAction("publish_error_title", "pt_templates")
+                sendPatrollerExperienceEvent("publish_error_title")
                 binding.titleInputContainer.error = context.getString(R.string.talk_templates_message_title_empty)
             }
             if (subject.isEmpty()) {
-                PatrollerExperienceEvent.logAction("save_error_subject", "pt_templates")
+                sendPatrollerExperienceEvent("save_error_subject")
                 binding.subjectTextInputContainer.error = context.getString(R.string.talk_subject_empty)
             }
             if (body.isEmpty()) {
-                PatrollerExperienceEvent.logAction("save_error_message", "pt_templates")
+                sendPatrollerExperienceEvent("save_error_message")
                 binding.bodyTextInput.textInputLayout.error = context.getString(R.string.talk_message_empty)
             }
             if (binding.subjectTextInputContainer.isVisible && binding.bodyTextInput.isVisible) {
@@ -123,6 +126,17 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
         } else {
             binding.dialogSaveAsNewCheckbox.text = context.getString(R.string.talk_warn_save_dialog_existing_new_message)
             binding.dialogSaveExistingCheckbox.isVisible = true
+        }
+    }
+
+    private fun sendPatrollerExperienceEvent(action: String) {
+        var activity: Context? = context
+        while (activity !is Activity && activity is ContextWrapper) {
+            activity = activity.baseContext
+        }
+        activity?.let {
+            PatrollerExperienceEvent.logAction(action, if (it is TalkReplyActivity) "pt_warning_messages"
+            else "pt_templates")
         }
     }
 

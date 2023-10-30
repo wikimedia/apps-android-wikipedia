@@ -131,7 +131,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
 
     private fun showSaveDialog(subject: String, body: String) {
         PatrollerExperienceEvent.logAction("save_message_impression", "pt_templates")
-        TalkTemplatesTextInputDialog(this, R.string.talk_templates_new_message_dialog_save,
+        TalkTemplatesTextInputDialog(this@AddTemplateActivity, R.string.talk_templates_new_message_dialog_save,
             R.string.talk_templates_new_message_dialog_cancel).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {

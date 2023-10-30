@@ -36,13 +36,16 @@ class PatrollerExperienceEvent {
             revisionId: Long? = null,
             feedbackOption: String? = null,
             feedbackText: String? = null,
-            messageType: String? = null
+            messageType: String? = null,
+            summaryText: String? = null,
         ): String {
             val revisionIdStr = revisionId?.let { "revision_id: $it, " }.orEmpty()
             val feedbackStr = feedbackOption?.let { "feedback: $it, " }.orEmpty()
             val feedbackTextStr = feedbackText?.let { "feedback_text: $it, " }.orEmpty()
             val savedMessageStr = messageType?.let { "saved_message: $it, " }.orEmpty()
-            return revisionIdStr + feedbackStr + feedbackTextStr + savedMessageStr
+            val summaryTextStr = summaryText?.let { "summary_text: $it, " }.orEmpty()
+            val wasSummaryAddedStr = summaryText?.let { if (summaryText.isNotEmpty()) "true" else "false" }.orEmpty()
+            return revisionIdStr + feedbackStr + feedbackTextStr + savedMessageStr + summaryTextStr + wasSummaryAddedStr
         }
 
         private fun submitPatrollerActivityEvent(

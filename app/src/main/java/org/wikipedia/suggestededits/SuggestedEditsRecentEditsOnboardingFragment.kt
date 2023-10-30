@@ -36,6 +36,8 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
     }
 
     override fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean) {
+        PatrollerExperienceEvent.logAction("onboarding_3_" +
+                { if (accept) "accept" else "reject" }, "pt_onboarding")
         if ((view.tag as Int) == 2) {
             Prefs.isEventLoggingEnabled = accept
             requireActivity().finish()
@@ -58,8 +60,8 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
             val view = inflater.inflate(pages[position], container, false) as OnboardingPageView
             view.tag = position
             view.callback = callback
-            val action = if (position == 0) "funnel_init" else "funnel_${position}_advance"
-            PatrollerExperienceEvent.logAction(action, "pt_onboarding_funnel")
+            val action = if (position == 0) "onboarding_init" else "onboarding_${position}_advance"
+            PatrollerExperienceEvent.logAction(action, "pt_onboarding")
             return view
         }
 

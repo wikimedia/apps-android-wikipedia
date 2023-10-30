@@ -14,6 +14,7 @@ import org.wikipedia.util.ResourceUtil
 class UndoEditDialog constructor(
     private val editHistoryInteractionEvent: EditHistoryInteractionEvent?,
     context: Context,
+    source: String,
     callback: Callback
 ) : MaterialAlertDialogBuilder(context) {
 
@@ -28,7 +29,10 @@ class UndoEditDialog constructor(
         setView(binding.root)
 
         setPositiveButton(R.string.edit_undo) { _, _ ->
-            PatrollerExperienceEvent.logAction("undo_confirm", "pt_edit")
+            if (source == RECENT_EDITS_SOURCE) {
+                PatrollerExperienceEvent.logAction("undo_confirm", "pt_edit",
+                    PatrollerExperienceEvent.getActionDataString(summaryText = binding.textInput.text.toString()))
+            }
             callback.onSuccess(binding.textInput.text.toString())
         }
 
@@ -55,5 +59,9 @@ class UndoEditDialog constructor(
 
     private fun setPositiveButtonEnabled(enabled: Boolean) {
         dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = enabled
+    }
+
+    companion object {
+        const val RECENT_EDITS_SOURCE = "recentEdits"
     }
 }

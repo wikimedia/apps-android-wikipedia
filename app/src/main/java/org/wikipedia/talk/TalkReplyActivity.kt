@@ -314,7 +314,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun showSaveDialog(subject: String, body: String) {
-        TalkTemplatesTextInputDialog(this, R.string.talk_warn_save_dialog_publish,
+        TalkTemplatesTextInputDialog(this@TalkReplyActivity, R.string.talk_warn_save_dialog_publish,
             R.string.talk_warn_save_dialog_cancel).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {

@@ -161,7 +161,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     private fun showEditDialog(talkTemplate: TalkTemplate) {
-        TalkTemplatesTextInputDialog(requireContext(), R.string.talk_templates_new_message_dialog_save,
+        TalkTemplatesTextInputDialog(requireActivity(), R.string.talk_templates_new_message_dialog_save,
             R.string.talk_templates_edit_message_dialog_delete).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {

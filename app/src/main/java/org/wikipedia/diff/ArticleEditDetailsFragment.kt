@@ -602,7 +602,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showUndoDialog() {
-        val dialog = UndoEditDialog(editHistoryInteractionEvent, requireActivity()) { text ->
+        val dialog = UndoEditDialog(editHistoryInteractionEvent, requireActivity(),
+            if (viewModel.fromRecentEdits) UndoEditDialog.RECENT_EDITS_SOURCE else "") { text ->
 
             viewModel.revisionTo?.let {
                 binding.progressBar.isVisible = true
