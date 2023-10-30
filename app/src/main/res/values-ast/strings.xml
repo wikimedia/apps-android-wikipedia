@@ -349,8 +349,8 @@
   <string name="reading_list_create_new">Crear una nueva</string>
   <string name="reading_list_title_exists">La llista de llectura «%s» yá esiste.</string>
   <string name="reading_list_article_added_to_named">Añadióse %1$s a %2$s.</string>
-  <string name="reading_list_article_already_exists_message">¡Too correuto! %1$s yá contien %2$s.</string>
-  <string name="reading_list_articles_already_exist_message">¡Too correuto! %s yá contien tolos artículos.</string>
+  <string name="reading_list_article_already_exists_message">¡Too correuto! %1$s yá contién %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">¡Too correuto! %s yá contién tolos artículos.</string>
   <string name="reading_list_added_view_button">Ver llista</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_ellipsis">Ordenar por…</string>
