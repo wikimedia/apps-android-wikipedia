@@ -93,15 +93,13 @@ class UserInformationDialog : DialogFragment() {
         while (activity !is Activity && activity is ContextWrapper) {
             activity = activity.baseContext
         }
-        activity?.let {
-            PatrollerExperienceEvent.logAction("user_info_impression",
-                when (it) {
-                    is SuggestedEditsRecentEditsActivity -> "pt_recent_changes"
-                    is SuggestionsActivity -> "pt_edit"
-                    else -> ""
-                }
-            )
-        }
+        PatrollerExperienceEvent.logAction("user_info_impression",
+            when (requireActivity()) {
+                is SuggestedEditsRecentEditsActivity -> "pt_recent_changes"
+                is SuggestionsActivity -> "pt_edit"
+                else -> ""
+            }
+        )
     }
 
     private fun onError(t: Throwable) {

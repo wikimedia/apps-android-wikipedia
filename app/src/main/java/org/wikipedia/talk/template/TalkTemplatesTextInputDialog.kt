@@ -1,8 +1,6 @@
 package org.wikipedia.talk.template
 
 import android.app.Activity
-import android.content.Context
-import android.content.ContextWrapper
 import android.view.LayoutInflater
 import android.view.WindowManager
 import androidx.annotation.StringRes
@@ -15,9 +13,9 @@ import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.DialogTalkTemplatesTextInputBinding
 import org.wikipedia.talk.TalkReplyActivity
 
-class TalkTemplatesTextInputDialog constructor(context: Context,
+class TalkTemplatesTextInputDialog constructor(private val activity: Activity,
                                                positiveButtonText: Int = R.string.text_input_dialog_ok_button_text,
-                                               negativeButtonText: Int = R.string.text_input_dialog_cancel_button_text) : MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Input) {
+                                               negativeButtonText: Int = R.string.text_input_dialog_cancel_button_text) : MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_Input) {
     interface Callback {
         fun onShow(dialog: TalkTemplatesTextInputDialog)
         fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog)
@@ -130,14 +128,9 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
     }
 
     private fun sendPatrollerExperienceEvent(action: String) {
-        var activity: Context? = context
-        while (activity !is Activity && activity is ContextWrapper) {
-            activity = activity.baseContext
-        }
-        activity?.let {
-            PatrollerExperienceEvent.logAction(action, if (it is TalkReplyActivity) "pt_warning_messages"
-            else "pt_templates")
-        }
+        PatrollerExperienceEvent.logAction(
+            action, if (activity is TalkReplyActivity) "pt_warning_messages" else "pt_templates"
+        )
     }
 
     fun setDialogMessage(text: String) {

@@ -484,9 +484,6 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         }
         if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
                     binding.replyInputView.editText.text.isNotEmpty())) {
-            if (viewModel.isFromDiff) {
-                sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")
-            }
             MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.talk_new_topic_exit_dialog_title)

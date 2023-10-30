@@ -210,7 +210,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                         .setMessage(getString(R.string.talk_templates_edit_message_delete_description, talkTemplate.title))
                         .setPositiveButton(R.string.talk_templates_edit_message_dialog_delete) { _, _ ->
                             PatrollerExperienceEvent.logAction("message_delete_click", "pt_templates")
-                            viewModel.deleteTemplate(talkTemplate) }
+                            viewModel.deleteTemplate(talkTemplate)
+                        }
                         .setNegativeButton(R.string.talk_templates_new_message_dialog_cancel) { _, _ ->
                             PatrollerExperienceEvent.logAction("message_delete_cancel", "pt_templates")
                         }

@@ -37,7 +37,9 @@ class UndoEditDialog constructor(
         }
 
         setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _, _ ->
-            PatrollerExperienceEvent.logAction("undo_cancel", "pt_edit")
+            if (source == RECENT_EDITS_SOURCE) {
+                PatrollerExperienceEvent.logAction("undo_cancel", "pt_edit")
+            }
             editHistoryInteractionEvent?.logUndoCancel()
         }
 
@@ -46,7 +48,9 @@ class UndoEditDialog constructor(
         }
 
         setPositiveButtonEnabled(false)
-        PatrollerExperienceEvent.logAction("undo_summary_impression", "pt_edit")
+        if (source == RECENT_EDITS_SOURCE) {
+            PatrollerExperienceEvent.logAction("undo_summary_impression", "pt_edit")
+        }
     }
 
     override fun show(): AlertDialog {
