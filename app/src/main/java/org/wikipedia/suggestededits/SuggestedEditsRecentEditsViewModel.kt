@@ -231,10 +231,12 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                             val requiredMinLength = requiredLength.first().toLong()
                             val requiredMaxLength = requiredLength.last().toLong()
 
-                            qualifiedUser = if (requiredMaxEdits == -1 && requiredMaxLength == -1L) {
+                            qualifiedUser = if (requiredMaxEdits == -1 && requiredMaxLength == -1L) { // Experienced users
                                 editsCount >= requiredMinEdits && diffDays >= requiredMinLength
-                            } else {
+                            } else if (requiredMinEdits == 0 && requiredMinLength == 0L) { // New comers
                                 editsCount in requiredMinEdits..requiredMaxEdits && diffDays in requiredMinLength..requiredMaxLength
+                            } else { // Learners
+                                true
                             }
                             if (qualifiedUser) {
                                 return@filter qualifiedUser
