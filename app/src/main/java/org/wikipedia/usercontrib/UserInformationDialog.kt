@@ -1,9 +1,6 @@
 package org.wikipedia.usercontrib
 
-import android.app.Activity
 import android.app.Dialog
-import android.content.Context
-import android.content.ContextWrapper
 import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
@@ -14,6 +11,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.util.Date
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
@@ -22,9 +22,6 @@ import org.wikipedia.suggestededits.SuggestedEditsRecentEditsActivity
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.util.Date
 
 class UserInformationDialog : DialogFragment() {
 
@@ -89,10 +86,6 @@ class UserInformationDialog : DialogFragment() {
     }
 
     private fun sendPatrollerExperienceEvent() {
-        var activity: Context? = context
-        while (activity !is Activity && activity is ContextWrapper) {
-            activity = activity.baseContext
-        }
         PatrollerExperienceEvent.logAction("user_info_impression",
             when (requireActivity()) {
                 is SuggestedEditsRecentEditsActivity -> "pt_recent_changes"
