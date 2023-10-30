@@ -1,6 +1,9 @@
 package org.wikipedia.usercontrib
 
+import android.app.Activity
 import android.app.Dialog
+import android.content.Context
+import android.content.ContextWrapper
 import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
@@ -15,6 +18,8 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.DialogUserInformationBinding
+import org.wikipedia.suggestededits.SuggestedEditsRecentEditsActivity
+import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
 import java.time.LocalDateTime
@@ -73,7 +78,7 @@ class UserInformationDialog : DialogFragment() {
     }
 
     private fun onSuccess(editCount: String, registrationDate: Date) {
-        PatrollerExperienceEvent.logAction("user_info_impression", "pt_recent_changes")
+        sendPatrollerExperienceEvent()
         binding.userInformationContainer.isVisible = true
         binding.dialogProgressBar.isVisible = false
         binding.dialogErrorView.isVisible = false
@@ -81,6 +86,22 @@ class UserInformationDialog : DialogFragment() {
         val dateStr = DateUtil.getShortDateString(localDate)
         binding.userTenure.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_edits_list_user_information_dialog_joined_date_text, dateStr))
         binding.editCount.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_edits_list_user_information_dialog_edit_count_text, editCount))
+    }
+
+    private fun sendPatrollerExperienceEvent() {
+        var activity: Context? = context
+        while (activity !is Activity && activity is ContextWrapper) {
+            activity = activity.baseContext
+        }
+        activity?.let {
+            PatrollerExperienceEvent.logAction("user_info_impression",
+                when (it) {
+                    is SuggestedEditsRecentEditsActivity -> "pt_recent_changes"
+                    is SuggestionsActivity -> "pt_edit"
+                    else -> ""
+                }
+            )
+        }
     }
 
     private fun onError(t: Throwable) {
