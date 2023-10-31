@@ -36,8 +36,8 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
     }
 
     override fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean) {
-        PatrollerExperienceEvent.logAction("onboarding_3_" + { if (accept) "accept" else "reject" }, "pt_onboarding")
         if ((view.tag as Int) == 2) {
+            PatrollerExperienceEvent.logAction("onboarding_3_" + { if (accept) "accept" else "reject" }, "pt_onboarding")
             Prefs.isEventLoggingEnabled = accept
             requireActivity().finish()
         }
