@@ -33,7 +33,7 @@ class PatrollerExperienceEvent {
             val feedbackTextStr = feedbackText?.let { "feedback_text: $it, " }.orEmpty()
             val savedMessageStr = messageType?.let { "saved_message: $it, " }.orEmpty()
             val summaryTextStr = summaryText?.let { "summary_text: $it, " }.orEmpty()
-            val wasSummaryAddedStr = summaryText?.let { if (summaryText.isNotEmpty()) "true" else "false" }.orEmpty()
+            val wasSummaryAddedStr = summaryText?.let { summaryText.isNotEmpty().toString() }.orEmpty()
             val filterSelectedStr = filterSelected?.let { "filter_selected: $it, " }.orEmpty()
             val filterWikiStr = filterWiki?.let { "filter_wiki_selected: $it, " }.orEmpty()
             val filtersListStr = filtersList?.let { "filters_list: $it, " }.orEmpty()
