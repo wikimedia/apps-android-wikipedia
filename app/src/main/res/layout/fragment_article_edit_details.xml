@@ -454,13 +454,14 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:id="@+id/main_nav_tab_container"
+        android:id="@+id/navTabContainer"
         android:background="?attr/paper_color"
         android:layout_width="match_parent"
         android:layout_height="@dimen/nav_bar_height"
         android:layout_gravity="bottom"
         android:elevation="8dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <FrameLayout
             android:id="@+id/thankButton"

@@ -174,8 +174,7 @@ class TalkTemplatesTextInputDialog constructor(private val activity: Activity,
     }
 
     fun setError(text: CharSequence?) {
-        binding.titleInput.error = text
-        binding.titleInputContainer.isErrorEnabled = !text.isNullOrEmpty()
+        binding.titleInputContainer.error = text
     }
 
     fun setPositiveButtonEnabled(enabled: Boolean) {
