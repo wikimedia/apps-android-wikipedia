@@ -697,7 +697,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             .setCancelable(false)
             .setView(feedbackView)
             .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
-                viewModel.feedbackInput = feedbackInput
                 sendPatrollerExperienceEvent("feedback_submit", "pt_feedback",
                     PatrollerExperienceEvent.getActionDataString(feedbackText = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()))
                 showFeedbackSnackbarAndTooltip()
