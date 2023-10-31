@@ -11,9 +11,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.util.Date
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
@@ -22,6 +19,9 @@ import org.wikipedia.suggestededits.SuggestedEditsRecentEditsActivity
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.util.Date
 
 class UserInformationDialog : DialogFragment() {
 

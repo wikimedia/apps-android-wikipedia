@@ -12,6 +12,7 @@ class SuggestedEditsRecentEditsActivity : SingleFragmentActivity<SuggestedEditsR
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         maybeShowOnboarding()
+        PatrollerExperienceEvent.logImpression("pt_recent_changes")
     }
 
     public override fun createFragment(): SuggestedEditsRecentEditsFragment {

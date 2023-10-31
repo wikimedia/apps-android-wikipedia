@@ -137,7 +137,7 @@ object UserTalkPopupHelper {
                         activity.startActivity(UserContribListActivity.newIntent(activity, title.text))
                     }
                     R.id.menu_user_thank -> {
-                        sendPatrollerExperienceEvent(activity, "menu_thank_click")
+                        sendPatrollerExperienceEvent(activity, "menu_user_thank_click")
                         if (pageId != null && revisionId != null) {
                             showThankDialog(activity, title, revisionId, pageId)
                         }
