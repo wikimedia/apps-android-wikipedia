@@ -28,10 +28,9 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
     private val appLanguagesList get() = WikipediaApp.instance.languageState.appLanguageCodes
 
     private val languageChooserLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        val addedCode = appLanguagesList.asSequence().minus(appLanguagesPreFilterList.toSet()).map { it }.toList().toString()
         PatrollerExperienceEvent.logAction("filters_state_change", "pt_filters",
-            PatrollerExperienceEvent.getActionDataString(appLanguageCodeAdded = appLanguagesList.asSequence().minus(
-                appLanguagesPreFilterList.toSet()).map { it }.toList().toString(),
-                appLanguageCodes = appLanguagesList.toString()))
+            PatrollerExperienceEvent.getActionDataString(appLanguageCodeAdded = addedCode, appLanguageCodes = appLanguagesList.toString()))
         appLanguagesPreFilterList.clear()
         setUpRecyclerView()
     }

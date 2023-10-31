@@ -37,8 +37,8 @@ class PatrollerExperienceEvent {
             val filterSelectedStr = filterSelected?.let { "filter_selected: $it, " }.orEmpty()
             val filterWikiStr = filterWiki?.let { "filter_wiki_selected: $it, " }.orEmpty()
             val filtersListStr = filtersList?.let { "filters_list: $it, " }.orEmpty()
-            val appLanguageCodesStr = appLanguageCodes?.let { "app_language_codes: $it, " }.orEmpty()
             val appLanguageCodeAddedStr = appLanguageCodeAdded?.let { "app_language_code_added: $it, " }.orEmpty()
+            val appLanguageCodesStr = appLanguageCodes?.let { "app_language_codes: $it, " }.orEmpty()
             return revisionIdStr + feedbackStr + feedbackTextStr + savedMessageStr + summaryTextStr + wasSummaryAddedStr +
                     filterSelectedStr + filterWikiStr + filtersListStr + appLanguageCodeAddedStr + appLanguageCodesStr
         }
