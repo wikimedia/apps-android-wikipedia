@@ -31,19 +31,12 @@
             android:textColor="?attr/secondary_color"
             android:textSize="16sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:lineSpacingExtra="6sp"
-            android:text="@string/revision_undo_reason"
-            android:textColor="?attr/secondary_color"
-            android:textSize="16sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/revision_undo_summary_hint"
             android:layout_marginTop="16dp">
 
             <org.wikipedia.views.PlainPasteEditText
@@ -54,6 +47,17 @@
                 android:textSize="16sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="10dp"
+            android:lineSpacingExtra="6sp"
+            android:text="@string/revision_undo_reason"
+            android:textColor="?attr/secondary_color"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="12sp" />
 
     </LinearLayout>
 

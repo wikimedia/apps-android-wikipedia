@@ -1488,6 +1488,7 @@
   <string name="talk_templates_edit_message_updated">Snackbar message that show the message has been updated.</string>
   <string name="talk_templates_edit_message_delete_description">Message of confirming the action of deleting the message. %s will be replaced by the title of the saved message.</string>
   <string name="talk_templates_message_deleted">Snackbar message that show the message has been deleted.</string>
+  <string name="talk_templates_message_title_empty">Error message shown when the template title is empty.</string>
   <string name="patroller_tasks_edits_list_title">Title of the screen that shows a list of edits.</string>
   <string name="patroller_tasks_edits_list_search_hint">Hint text of in the search bar of searching or filtering edits.</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Text of showing added tags in this edit. %s will be replaced by the added tags.</string>
