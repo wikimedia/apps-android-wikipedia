@@ -234,8 +234,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ia</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ia</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliothecas usate</string>
@@ -244,7 +244,7 @@
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Iste app ha essite traducite per le traductores voluntari de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentia</string>
-  <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.ia\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
+  <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">A proposito</string>
   <string name="edit_abandon_confirm">Le pagina ha essite modificate. Es tu secur de voler exir sin salveguardar tu cambiamentos?</string>
@@ -261,7 +261,7 @@
   <string name="edit_redo">Refacer</string>
   <string name="edit_rollback">Revocar</string>
   <string name="edit_warn">Advertir</string>
-  <string name="edit_quality">Qualitate %s</string>
+  <string name="edit_damage">Damnos %s</string>
   <string name="edit_intent">Intention %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
@@ -1320,9 +1320,10 @@
   <string name="revision_diff_paragraph_added">Paragrapho addite</string>
   <string name="revision_diff_paragraph_removed">Paragrapho removite</string>
   <string name="revision_diff_protected">Le cambiamentos facite in iste version non es publicamente accessibile.</string>
-  <string name="revision_undo_title" fuzzy="true">Disfacer modification</string>
-  <string name="revision_undo_message" fuzzy="true">Isto disfacera tote le cambiamentos facite in le version(es) del articulo monstrate hic.</string>
-  <string name="revision_undo_reason" fuzzy="true">Pro continuar, per favor forni un motivo pro disfacer iste modification:</string>
+  <string name="revision_undo_title">Es tu secur de voler disfacer iste modification?</string>
+  <string name="revision_undo_message">Disfacer significa reverter le effectos de un o plus modificationes.</string>
+  <string name="revision_undo_summary_hint">Summario (optional)</string>
+  <string name="revision_undo_reason">Specifica le ration pro le reversion</string>
   <string name="revision_undo_success">Le version ha essite disfacite.</string>
   <string name="revision_rollback_dialog_title">Es tu secur de voler revocar le modificationes?</string>
   <string name="revision_rollback_success">Modificationes revertite.</string>
@@ -1454,7 +1455,7 @@
   <string name="talk_templates_edit_message_dialog_save">Salveguardar</string>
   <string name="talk_templates_edit_message_dialog_delete">Deler</string>
   <string name="talk_templates_edit_message_updated">Le message ha essite actualisate</string>
-  <string name="talk_templates_edit_message_confirm_description">Es tu secur de voler deler le message “%s” del lista?</string>
+  <string name="talk_templates_edit_message_delete_description">Es tu secur de voler deler le message “%s” del lista?</string>
   <string name="talk_templates_message_deleted">Le message ha essite delite</string>
   <string name="patroller_tasks_edits_list_title">Lista de modificationes</string>
   <string name="patroller_tasks_edits_list_search_hint">Cercar o filtrar modificationes</string>
@@ -1540,6 +1541,9 @@
   <string name="patroller_onboarding_two_warn_content">Crear, inviar e immagazinar messages de advertimento sur le pagina de discussion de un redactor.</string>
   <string name="patroller_onboarding_two_undo_title">Disfacer/Revocar</string>
   <string name="patroller_onboarding_two_undo_content">Elige ‘Disfacer’ pro disfacer o revocar un modification potentialmente destructive.</string>
+  <string name="patroller_onboarding_three_title">Inviar datos anonyme</string>
+  <string name="patroller_onboarding_three_content">Adjuta nos a meliorar iste function faciente nos saper como tu lo usa. Le datos colligite es anonyme. &lt;a href=\"#privacy\"&gt;Leger plus&lt;/a&gt;</string>
+  <string name="patroller_onboarding_three_switch">Inviar reportos de uso</string>
   <string name="patroller_diff_tooltip_one">‘Damnos’ previde si un modification causa damnos a un wiki.</string>
   <string name="patroller_diff_tooltip_two">‘Intention’ previde le probabilitate que un modification es facite in bon fide.</string>
   <string name="patroller_diff_feedback_dialog_title">Adjuta nos a meliorar iste function</string>
@@ -1547,6 +1551,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfacite</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Non satisfacite</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Como pote nos meliorar le function?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Commentario</string>
   <string name="patroller_diff_feedback_dialog_submit">Submitter</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Commentario submittite.</string>
@@ -1559,4 +1564,8 @@
   <string name="email_report_image_recommendations_body">Io ha incontrate un problema con le function Recommendationes de imagines:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]</string>
   <string name="email_report_patroller_tasks_subject">Reporto de problema: function Cargas de patruliator</string>
   <string name="email_report_patroller_tasks_body">Io ha incontrate un problema con le function Cargas de patruliator:\n- [Describe le problema specific]\n\nLe comportamento que io vole vider es:\n- [Describe le solution proponite]\n\n[Capturas de schermo o ligamines]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Nos te lo recordara de novo deman.</string>
+  <string name="donation_campaign_donated_snackbar">Gratias, car donator! Tu generositate adjuta Wikipedia e su sitos fratres a prosperar.</string>
+  <string name="donation_campaign_go_back_button">Retornar</string>
+  <string name="menu_single_webview_open_external">Aperir in le navigator del systema</string>
 </resources>

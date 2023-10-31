@@ -58,6 +58,7 @@
 * Teretalexev
 * Thothsum
 * ToJack
+* Ukhant Erdemt
 * UniCollab
 * VitalKanev
 * Vlad5250
@@ -330,7 +331,9 @@
   <string name="edit_undo">Отменить</string>
   <string name="edit_redo">Повтор действия</string>
   <string name="edit_rollback">Откатить</string>
-  <string name="edit_quality">Качество %s</string>
+  <string name="edit_warn">Предупреждение</string>
+  <string name="edit_damage">Урон %s</string>
+  <string name="edit_intent">Намерение %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
     <item quantity="few">%s байта</item>
@@ -1270,6 +1273,7 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Примечание</string>
   <string name="wikitext_preview_link">Предпросмотр ссылки</string>
+  <string name="wikitext_mention_user">Упомянуть участника_цу</string>
   <string name="insert_media_title">Вставить медиа-файл</string>
   <string name="insert_media_search_description">Выберите файл на Викискладе</string>
   <string name="insert_media_search_hint">Поиск медиафайлов</string>
@@ -1314,6 +1318,7 @@
   <string name="talk_user_title">Обсуждение: %s</string>
   <string name="talk_new_topic">Новая тема</string>
   <string name="talk_new_topic_submitted">Тема опубликована.</string>
+  <string name="talk_warn">Предупреждение</string>
   <string name="talk_warn_save_dialog_title">Сохранить изменения?</string>
   <string name="talk_warn_save_dialog_publish">Опубликовать</string>
   <string name="talk_warn_save_dialog_cancel">Отмена</string>
@@ -1550,4 +1555,8 @@
   <string name="data_opt_in_reject">Отклонить</string>
   <string name="page_issues_title">Проблемы страницы</string>
   <string name="generic_release_notes">Незначительные исправления ошибок и улучшения</string>
+  <string name="donation_campaign_maybe_later_snackbar">Мы напомним вам снова завтра.</string>
+  <string name="donation_campaign_donated_snackbar">Спасибо за ваше пожертвование! Ваша поддержка помогает Википедии и её родственным проектам процветать.</string>
+  <string name="donation_campaign_go_back_button">Назад</string>
+  <string name="menu_single_webview_open_external">Открыть в системном браузере</string>
 </resources>
