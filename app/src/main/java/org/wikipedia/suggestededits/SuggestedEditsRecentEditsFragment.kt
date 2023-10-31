@@ -35,6 +35,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsRecentEditsBinding
 import org.wikipedia.databinding.ViewEditHistoryEmptyMessagesBinding
@@ -127,6 +128,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                         loadFooter.loadState = it.append
                         val showEmpty = (it.append is LoadState.NotLoading && it.source.refresh is LoadState.NotLoading && recentEditsListAdapter.itemCount == 0)
                         if (showEmpty) {
+                            sendPatrollerExperienceEvent("filter_empty_impression", "pt_filters")
                             (binding.recyclerView.adapter as ConcatAdapter).addAdapter(recentEditsEmptyMessagesAdapter)
                         } else {
                             (binding.recyclerView.adapter as ConcatAdapter).removeAdapter(recentEditsEmptyMessagesAdapter)
@@ -167,10 +169,12 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.menu_learn_more -> {
+                sendPatrollerExperienceEvent("top_menu_learn_click", "pt_recent_changes")
                 FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                 true
             }
             R.id.menu_report_feature -> {
+                sendPatrollerExperienceEvent("top_menu_problem_click", "pt_recent_changes")
                 FeedbackUtil.composeFeedbackEmail(requireContext(),
                     getString(R.string.email_report_patroller_tasks_subject),
                     getString(R.string.email_report_patroller_tasks_body))
@@ -224,6 +228,10 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
 
     private fun startSearchActionMode() {
         actionMode = (requireActivity() as AppCompatActivity).startSupportActionMode(searchActionModeCallback)
+    }
+
+    private fun sendPatrollerExperienceEvent(action: String, activeInterface: String) {
+        PatrollerExperienceEvent.logAction(action, activeInterface)
     }
 
     private inner class SearchBarAdapter : RecyclerView.Adapter<SearchBarViewHolder>() {
@@ -343,10 +351,12 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             )
 
             itemView.setOnClickListener {
+                sendPatrollerExperienceEvent("search_click", "pt_recent_changes")
                 startSearchActionMode()
             }
 
             binding.filterByButton.setOnClickListener {
+                sendPatrollerExperienceEvent("filters_init", "pt_recent_changes")
                 launchFilterActivity.launch(SuggestedEditsRecentEditsFilterActivity.newIntent(requireContext()))
             }
 
@@ -367,6 +377,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
     private inner class EmptyMessagesViewHolder constructor(val binding: ViewEditHistoryEmptyMessagesBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.emptySearchMessage.movementMethod = LinkMovementMethodExt { _ ->
+                sendPatrollerExperienceEvent("modify_filters_click", "pt_filters")
                 launchFilterActivity.launch(SuggestedEditsRecentEditsFilterActivity.newIntent(requireContext()))
             }
         }
@@ -389,12 +400,14 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         }
 
         override fun onItemClick(item: MwQueryResult.RecentChange) {
+            sendPatrollerExperienceEvent("edit_item_click", "pt_recent_changes")
             viewModel.populateEditingSuggestionsProvider(item)
             startActivity(SuggestionsActivity.newIntent(requireActivity(),
                 DescriptionEditActivity.Action.VANDALISM_PATROL, Constants.InvokeSource.SUGGESTED_EDITS))
         }
 
         override fun onUserClick(item: MwQueryResult.RecentChange, view: View) {
+            sendPatrollerExperienceEvent("editor_menu_click", "pt_recent_changes")
             UserTalkPopupHelper.show(requireActivity() as AppCompatActivity,
                 PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), item.user, viewModel.wikiSite),
                 item.anon, view, Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS, HistoryEntry.SOURCE_SUGGESTED_EDITS_RECENT_EDITS,

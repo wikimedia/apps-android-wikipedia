@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.onboarding.OnboardingFragment
 import org.wikipedia.onboarding.OnboardingPageView
 import org.wikipedia.settings.Prefs
@@ -36,6 +37,7 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
 
     override fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean) {
         if ((view.tag as Int) == 2) {
+            PatrollerExperienceEvent.logAction("onboarding_3_" + { if (accept) "accept" else "reject" }, "pt_onboarding")
             Prefs.isEventLoggingEnabled = accept
             requireActivity().finish()
         }
@@ -57,6 +59,8 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
             val view = inflater.inflate(pages[position], container, false) as OnboardingPageView
             view.tag = position
             view.callback = callback
+            val action = if (position == 0) "onboarding_init" else "onboarding_${position}_advance"
+            PatrollerExperienceEvent.logAction(action, "pt_onboarding")
             return view
         }
 

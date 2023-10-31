@@ -17,6 +17,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.EditAttemptStepEvent
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkReplyBinding
@@ -109,6 +110,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         if (viewModel.isFromDiff) {
             binding.talkTemplateContainer.isVisible = true
             binding.talkTemplateButton.setOnClickListener {
+                sendPatrollerExperienceEvent("saved_message_edit_click", "pt_warning_messages")
                 requestManageTalkTemplate.launch(TalkTemplatesActivity.newIntent(this))
             }
             FeedbackUtil.setButtonLongPressToast(binding.talkTemplateButton)
@@ -248,7 +250,15 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun setTalkTemplateSpinnerAdapter() {
-        binding.talkTemplateMessage.text = getString(if (viewModel.talkTemplatesList.isEmpty()) R.string.talk_templates_new_message_description else R.string.talk_warn_saved_message)
+        val talkTemplateMsgStringId: Int
+        if (viewModel.talkTemplatesList.isEmpty()) {
+            talkTemplateMsgStringId = R.string.talk_templates_new_message_description
+            sendPatrollerExperienceEvent("first_message_init", "pt_warning_messages")
+        } else {
+            talkTemplateMsgStringId = R.string.talk_warn_saved_message
+            sendPatrollerExperienceEvent("message_init", "pt_warning_messages")
+        }
+        binding.talkTemplateMessage.text = getString(talkTemplateMsgStringId)
         binding.talkTemplateSpinnerLayout.isVisible = viewModel.talkTemplatesList.isNotEmpty()
         L10nUtil.setConditionalTextDirection(binding.talkTemplateSpinner, viewModel.pageTitle.wikiSite.languageCode)
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, viewModel.talkTemplatesList)
@@ -257,8 +267,10 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
             DeviceUtil.hideSoftKeyboard(this)
         }
         binding.talkTemplateSpinner.setOnItemClickListener { _, _, position, _ ->
+            sendPatrollerExperienceEvent("saved_message_select_click", "pt_warning_messages")
             viewModel.selectedTemplate = viewModel.talkTemplatesList[position]
             viewModel.selectedTemplate?.let { talkTemplate ->
+                sendPatrollerExperienceEvent("saved_message_impression", "pt_warning_messages")
                 binding.replySubjectText.setText(talkTemplate.subject)
                 binding.replyInputView.editText.setText(talkTemplate.message)
             }
@@ -302,7 +314,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     private fun showSaveDialog(subject: String, body: String) {
-        TalkTemplatesTextInputDialog(this, R.string.talk_warn_save_dialog_publish,
+        TalkTemplatesTextInputDialog(this@TalkReplyActivity, R.string.talk_warn_save_dialog_publish,
             R.string.talk_warn_save_dialog_cancel).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {
@@ -350,9 +362,12 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                         binding.progressBar.isVisible = true
                         viewModel.postReply(subject, body)
                     }
+                    val messageType = if (textInputDialog.isSaveAsNewChecked) "new" else if (textInputDialog.isSaveExistingChecked) "updated" else ""
+                    sendPatrollerExperienceEvent("publish_message_click", "pt_warning_messages", PatrollerExperienceEvent.getActionDataString(messageType = messageType))
                 }
 
                 override fun onCancel() {
+                    sendPatrollerExperienceEvent("publish_cancel", "pt_warning_messages")
                     setSaveButtonEnabled(true)
                 }
 
@@ -377,6 +392,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
 
         if (viewModel.isNewTopic && subject.isEmpty()) {
+            sendPatrollerExperienceEvent("publish_error_subject", "pt_warning_messages")
             binding.replySubjectLayout.error = getString(R.string.talk_subject_empty)
             binding.replySubjectLayout.requestFocus()
             return
@@ -389,6 +405,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         setSaveButtonEnabled(false)
 
         if (viewModel.isFromDiff) {
+            sendPatrollerExperienceEvent("publish_saved_message_click", "pt_warning_messages")
             DeviceUtil.hideSoftKeyboard(this)
             showSaveDialog(subject, body)
         } else {
@@ -462,14 +479,22 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     override fun onBackPressed() {
         setResult(RESULT_BACK_FROM_TOPIC)
+        if (viewModel.isFromDiff) {
+            sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")
+        }
         if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
                     binding.replyInputView.editText.text.isNotEmpty())) {
             MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.talk_new_topic_exit_dialog_title)
                 .setMessage(R.string.talk_new_topic_exit_dialog_message)
-                .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ -> super.onBackPressed() }
-                .setNegativeButton(R.string.edit_abandon_confirm_no, null)
+                .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ ->
+                    sendPatrollerExperienceEvent("publish_exit", "pt_warning_messages")
+                    super.onBackPressed()
+                }
+                .setNegativeButton(R.string.edit_abandon_confirm_no) { _, _ ->
+                    sendPatrollerExperienceEvent("publish_exit_cancel", "pt_warning_messages")
+                }
                 .show()
         } else {
             super.onBackPressed()
@@ -489,6 +514,15 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     override fun onUserMentionComplete() {
         userMentionScrolled = false
         binding.licenseText.isVisible = true
+    }
+
+    private fun sendPatrollerExperienceEvent(
+        action: String, activeInterface: String,
+        actionData: String = ""
+    ) {
+        if (viewModel.isFromDiff) {
+            PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
+        }
     }
 
     companion object {

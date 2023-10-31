@@ -17,6 +17,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.ActivityAddTemplateBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.edit.SyntaxHighlightViewAdapter
@@ -129,7 +130,8 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     }
 
     private fun showSaveDialog(subject: String, body: String) {
-        TalkTemplatesTextInputDialog(this, R.string.talk_templates_new_message_dialog_save,
+        PatrollerExperienceEvent.logAction("save_message_impression", "pt_templates")
+        TalkTemplatesTextInputDialog(this@AddTemplateActivity, R.string.talk_templates_new_message_dialog_save,
             R.string.talk_templates_new_message_dialog_cancel).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {
@@ -165,10 +167,12 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
                 }
 
                 override fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence) {
+                    PatrollerExperienceEvent.logAction("save_message_click", "pt_templates")
                     viewModel.saveTemplate(titleText.toString(), subject, body)
                 }
 
                 override fun onCancel() {
+                    PatrollerExperienceEvent.logAction("save_message_cancel", "pt_templates")
                     setSaveButtonEnabled(true)
                 }
 
@@ -187,10 +191,12 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         val body = binding.addTemplateInputView.editText.text.toString().trim()
 
         if (subject.isEmpty()) {
+            PatrollerExperienceEvent.logAction("save_error_subject", "pt_templates")
             binding.addTemplateSubjectLayout.error = getString(R.string.talk_subject_empty)
             binding.addTemplateSubjectLayout.requestFocus()
             return
         } else if (body.isEmpty()) {
+            PatrollerExperienceEvent.logAction("save_error_compose", "pt_templates")
             binding.addTemplateInputView.textInputLayout.error = getString(R.string.talk_message_empty)
             binding.addTemplateInputView.textInputLayout.requestFocus()
             return
@@ -231,13 +237,18 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     }
 
     override fun onBackPressed() {
+        PatrollerExperienceEvent.logAction("new_message_back", "pt_templates")
         if (!binding.addTemplateSubjectText.text.isNullOrEmpty() || binding.addTemplateInputView.editText.text.isNotEmpty()) {
             MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.talk_new_topic_exit_dialog_title)
                 .setMessage(R.string.talk_new_topic_exit_dialog_message)
-                .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ -> super.onBackPressed() }
-                .setNegativeButton(R.string.edit_abandon_confirm_no, null)
+                .setPositiveButton(R.string.edit_abandon_confirm_yes) { _, _ ->
+                    PatrollerExperienceEvent.logAction("save_message_exit", "pt_templates")
+                    super.onBackPressed() }
+                .setNegativeButton(R.string.edit_abandon_confirm_no) { _, _ ->
+                    PatrollerExperienceEvent.logAction("save_message_exit_cancel", "pt_templates")
+                }
                 .show()
         } else {
             super.onBackPressed()

@@ -1,6 +1,6 @@
 package org.wikipedia.talk.template
 
-import android.content.Context
+import android.app.Activity
 import android.view.LayoutInflater
 import android.view.WindowManager
 import androidx.annotation.StringRes
@@ -9,11 +9,13 @@ import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.DialogTalkTemplatesTextInputBinding
+import org.wikipedia.talk.TalkReplyActivity
 
-class TalkTemplatesTextInputDialog constructor(context: Context,
+class TalkTemplatesTextInputDialog constructor(private val activity: Activity,
                                                positiveButtonText: Int = R.string.text_input_dialog_ok_button_text,
-                                               negativeButtonText: Int = R.string.text_input_dialog_cancel_button_text) : MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme_Input) {
+                                               negativeButtonText: Int = R.string.text_input_dialog_cancel_button_text) : MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_Input) {
     interface Callback {
         fun onShow(dialog: TalkTemplatesTextInputDialog)
         fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog)
@@ -90,12 +92,15 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
             val subject = binding.subjectTextInput.text.toString().trim()
             val body = binding.bodyTextInput.editText.text.toString().trim()
             if (title.isEmpty()) {
+                sendPatrollerExperienceEvent("publish_error_title")
                 binding.titleInputContainer.error = context.getString(R.string.talk_templates_message_title_empty)
             }
             if (subject.isEmpty()) {
+                sendPatrollerExperienceEvent("save_error_subject")
                 binding.subjectTextInputContainer.error = context.getString(R.string.talk_subject_empty)
             }
             if (body.isEmpty()) {
+                sendPatrollerExperienceEvent("save_error_message")
                 binding.bodyTextInput.textInputLayout.error = context.getString(R.string.talk_message_empty)
             }
             if (binding.subjectTextInputContainer.isVisible && binding.bodyTextInput.isVisible) {
@@ -120,6 +125,12 @@ class TalkTemplatesTextInputDialog constructor(context: Context,
             binding.dialogSaveAsNewCheckbox.text = context.getString(R.string.talk_warn_save_dialog_existing_new_message)
             binding.dialogSaveExistingCheckbox.isVisible = true
         }
+    }
+
+    private fun sendPatrollerExperienceEvent(action: String) {
+        PatrollerExperienceEvent.logAction(
+            action, if (activity is TalkReplyActivity) "pt_warning_messages" else "pt_templates"
+        )
     }
 
     fun setDialogMessage(text: String) {

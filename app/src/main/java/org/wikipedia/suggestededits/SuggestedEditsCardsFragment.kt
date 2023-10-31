@@ -27,6 +27,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.FragmentSuggestedEditsCardsBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -423,6 +424,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
 
         override fun onPageSelected(position: Int) {
             if (action == IMAGE_RECOMMENDATIONS) {
+                PatrollerExperienceEvent.logAction(if (position < prevPosition) "edit_left_swipe" else "edit_right_swipe", "pt_edit")
                 ((binding.cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(position) as SuggestedEditsImageRecsFragment).logImpression()
             }
             updateBackButton(position)

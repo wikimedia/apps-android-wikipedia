@@ -17,6 +17,7 @@ import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
@@ -26,6 +27,8 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.suggestededits.SuggestedEditsRecentEditsActivity
+import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
 import org.wikipedia.usercontrib.UserInformationDialog
 import org.wikipedia.util.FeedbackUtil
@@ -79,9 +82,11 @@ object UserTalkPopupHelper {
             MaterialAlertDialogBuilder(activity)
                 .setView(parent)
                 .setPositiveButton(R.string.thank_dialog_positive_button_text) { _, _ ->
+                    sendPatrollerExperienceEvent(activity, "thank_confirm")
                     sendThanks(activity, title.wikiSite, revisionId, title, editHistoryInteractionEvent)
                 }
                 .setNegativeButton(R.string.thank_dialog_negative_button_text) { _, _ ->
+                    sendPatrollerExperienceEvent(activity, "thank_cancel")
                     editHistoryInteractionEvent.logThankCancel()
                 }
                 .create()
@@ -114,20 +119,25 @@ object UserTalkPopupHelper {
             override fun onMenuItemSelected(menu: MenuBuilder, item: MenuItem): Boolean {
                 when (item.itemId) {
                     R.id.menu_user_profile_page -> {
+                        sendPatrollerExperienceEvent(activity, "menu_user_page_click")
                         val entry = HistoryEntry(title, historySource)
                         activity.startActivity(PageActivity.newIntentForNewTab(activity, entry, title))
                     }
                     R.id.menu_user_talk_page -> {
+                        sendPatrollerExperienceEvent(activity, "menu_talk_page_click")
                         val newTitle = PageTitle(UserTalkAliasData.valueFor(title.wikiSite.languageCode), title.text, title.wikiSite)
                         activity.startActivity(TalkTopicsActivity.newIntent(activity, newTitle, invokeSource))
                     }
                     R.id.menu_user_information -> {
+                        sendPatrollerExperienceEvent(activity, "menu_user_info_click")
                         UserInformationDialog.newInstance(title.text).show((activity as AppCompatActivity).supportFragmentManager, null)
                     }
                     R.id.menu_user_contributions_page -> {
+                        sendPatrollerExperienceEvent(activity, "menu_user_contribs_click")
                         activity.startActivity(UserContribListActivity.newIntent(activity, title.text))
                     }
                     R.id.menu_user_thank -> {
+                        sendPatrollerExperienceEvent(activity, "menu_user_thank_click")
                         if (pageId != null && revisionId != null) {
                             showThankDialog(activity, title, revisionId, pageId)
                         }
@@ -146,5 +156,11 @@ object UserTalkPopupHelper {
         val helper = MenuPopupHelper(activity, builder, anchorView)
         helper.setForceShowIcon(true)
         return helper
+    }
+
+    private fun sendPatrollerExperienceEvent(activity: Activity, action: String) {
+        if (activity is SuggestedEditsRecentEditsActivity || activity is SuggestionsActivity) {
+            PatrollerExperienceEvent.logAction(action, if (activity is SuggestionsActivity) "pt_edit" else "pt_recent_changes")
+        }
     }
 }
