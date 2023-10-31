@@ -22,6 +22,11 @@ class PatrollerExperienceEvent {
             feedbackText: String? = null,
             messageType: String? = null,
             summaryText: String? = null,
+            filterSelected: String? = null,
+            filterWiki: String? = null,
+            filtersList: String? = null,
+            appLanguageCodeAdded: String? = null,
+            appLanguageCodes: String? = null,
         ): String {
             val revisionIdStr = revisionId?.let { "revision_id: $it, " }.orEmpty()
             val feedbackStr = feedbackOption?.let { "feedback: $it, " }.orEmpty()
@@ -29,7 +34,13 @@ class PatrollerExperienceEvent {
             val savedMessageStr = messageType?.let { "saved_message: $it, " }.orEmpty()
             val summaryTextStr = summaryText?.let { "summary_text: $it, " }.orEmpty()
             val wasSummaryAddedStr = summaryText?.let { if (summaryText.isNotEmpty()) "true" else "false" }.orEmpty()
-            return revisionIdStr + feedbackStr + feedbackTextStr + savedMessageStr + summaryTextStr + wasSummaryAddedStr
+            val filterSelectedStr = filterSelected?.let { "filter_selected: $it, " }.orEmpty()
+            val filterWikiStr = filterWiki?.let { "filter_wiki_selected: $it, " }.orEmpty()
+            val filtersListStr = filtersList?.let { "filters_list: $it, " }.orEmpty()
+            val appLanguageCodesStr = appLanguageCodes?.let { "app_language_codes: $it, " }.orEmpty()
+            val appLanguageCodeAddedStr = appLanguageCodeAdded?.let { "app_language_code_added: $it, " }.orEmpty()
+            return revisionIdStr + feedbackStr + feedbackTextStr + savedMessageStr + summaryTextStr + wasSummaryAddedStr +
+                    filterSelectedStr + filterWikiStr + filtersListStr + appLanguageCodeAddedStr + appLanguageCodesStr
         }
 
         private fun submitPatrollerActivityEvent(action: String, activeInterface: String, actionData: String = "") {
