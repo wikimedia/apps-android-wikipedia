@@ -642,13 +642,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun showFeedbackInputDialog() {
         val feedbackView = layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_input, null)
-        val feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
         MaterialAlertDialogBuilder(requireActivity())
             .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
             .setCancelable(false)
             .setView(feedbackView)
             .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
-                viewModel.feedbackInput = feedbackInput
+                viewModel.feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
                 // TODO: send to the event logging
                 showFeedbackSnackbarAndTooltip()
             }
