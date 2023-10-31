@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
@@ -14,7 +15,7 @@ import org.wikipedia.util.ResourceUtil
 class UndoEditDialog constructor(
     private val editHistoryInteractionEvent: EditHistoryInteractionEvent?,
     context: Context,
-    source: String,
+    source: Constants.InvokeSource?,
     callback: Callback
 ) : MaterialAlertDialogBuilder(context) {
 
@@ -29,7 +30,7 @@ class UndoEditDialog constructor(
         setView(binding.root)
 
         setPositiveButton(R.string.edit_undo) { _, _ ->
-            if (source == RECENT_EDITS_SOURCE) {
+            if (source == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
                 PatrollerExperienceEvent.logAction("undo_confirm", "pt_edit",
                     PatrollerExperienceEvent.getActionDataString(summaryText = binding.textInput.text.toString()))
             }
@@ -37,7 +38,7 @@ class UndoEditDialog constructor(
         }
 
         setNegativeButton(R.string.text_input_dialog_cancel_button_text) { _, _ ->
-            if (source == RECENT_EDITS_SOURCE) {
+            if (source == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
                 PatrollerExperienceEvent.logAction("undo_cancel", "pt_edit")
             }
             editHistoryInteractionEvent?.logUndoCancel()
@@ -48,7 +49,7 @@ class UndoEditDialog constructor(
         }
 
         setPositiveButtonEnabled(false)
-        if (source == RECENT_EDITS_SOURCE) {
+        if (source == Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS) {
             PatrollerExperienceEvent.logAction("undo_summary_impression", "pt_edit")
         }
     }
@@ -63,9 +64,5 @@ class UndoEditDialog constructor(
 
     private fun setPositiveButtonEnabled(enabled: Boolean) {
         dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = enabled
-    }
-
-    companion object {
-        const val RECENT_EDITS_SOURCE = "recentEdits"
     }
 }
