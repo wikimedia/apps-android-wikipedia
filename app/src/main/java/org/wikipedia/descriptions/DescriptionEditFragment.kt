@@ -538,10 +538,6 @@ class DescriptionEditFragment : Fragment() {
         private const val SUGGESTED_EDITS_UI_VERSION = "1.0"
         const val MACHINE_SUGGESTION = "#machine-suggestion"
         const val MACHINE_SUGGESTION_MODIFIED = "#machine-suggestion-modified"
-        const val SUGGESTED_EDITS_ADD_COMMENT = "#suggestededit-add $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT = "#suggestededit-imgtag-auto $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT = "#suggestededit-imgtag-custom $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK = "#suggestededit-patrol-rollback $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_PATROLLER_TASKS_UNDO = "#suggestededit-patrol-undo $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_ADD_DESC_COMMENT = "#suggestededit-add-desc $SUGGESTED_EDITS_UI_VERSION"
@@ -549,7 +545,6 @@ class DescriptionEditFragment : Fragment() {
         const val SUGGESTED_EDITS_TRANSLATE_DESC_COMMENT = "#suggestededit-translate-desc $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_ADD_CAPTION_COMMENT = "#suggestededit-add-caption $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT = "#suggestededit-translate-caption $SUGGESTED_EDITS_UI_VERSION"
-        const val SUGGESTED_EDITS_ADD_TAG_COMMENT = "#suggestededit-add-tag $SUGGESTED_EDITS_UI_VERSION"
 
         private val DESCRIPTION_TEMPLATES = arrayOf("Short description", "SHORTDESC")
         // Don't remove the ending escaped `\\}`
