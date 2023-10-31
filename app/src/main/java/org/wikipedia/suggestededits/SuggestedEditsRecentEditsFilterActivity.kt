@@ -24,8 +24,15 @@ import org.wikipedia.views.DefaultViewHolder
 class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
 
     private lateinit var binding: ActivitySuggestedEditsRecentEditsFiltersBinding
+    private var appLanguagesPreFilterList = mutableListOf<String>()
+    private val appLanguagesList get() = WikipediaApp.instance.languageState.appLanguageCodes
 
     private val languageChooserLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        PatrollerExperienceEvent.logAction("filters_state_change", "pt_filters",
+            PatrollerExperienceEvent.getActionDataString(appLanguageCodeAdded = appLanguagesList.asSequence().minus(
+                appLanguagesPreFilterList.toSet()).map { it }.toList().toString(),
+                appLanguageCodes = appLanguagesList.toString()))
+        appLanguagesPreFilterList.clear()
         setUpRecyclerView()
     }
 
@@ -78,7 +85,7 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
     private fun filterListWithHeaders(): List<Any> {
         val filterListWithHeaders = mutableListOf<Any>()
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_wiki_filter_header))
-        WikipediaApp.instance.languageState.appLanguageCodes.forEach {
+        appLanguagesList.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it))
         }
         filterListWithHeaders.add(getString(R.string.notifications_filter_update_app_languages))
@@ -136,6 +143,7 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         }
 
         override fun onCheckedChanged(filter: Filter?) {
+            appLanguagesPreFilterList.addAll(appLanguagesList)
             languageChooserLauncher.launch(WikipediaLanguagesActivity.newIntent(this@SuggestedEditsRecentEditsFilterActivity, Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS))
         }
     }
@@ -181,8 +189,12 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         override fun onCheckedChanged(filter: Filter?) {
             filter?.let {
                 if (it.type == FILTER_TYPE_WIKI) {
+                    PatrollerExperienceEvent.logAction("filters_state_change", "pt_filters",
+                        PatrollerExperienceEvent.getActionDataString(filterWiki = it.filterCode, appLanguageCodes = appLanguagesList.toString()))
                     Prefs.recentEditsWikiCode = it.filterCode
                 } else if (filter.type == FILTER_TYPE_CATEGORY) {
+                    PatrollerExperienceEvent.logAction("filters_state_change", "pt_filters",
+                        PatrollerExperienceEvent.getActionDataString(filterSelected = it.filterCode, filtersList = Prefs.recentEditsIncludedTypeCodes.toString()))
                     if (filter.isCheckBox) {
                         if (includedTypeCodes.contains(filter.filterCode)) includedTypeCodes.remove(filter.filterCode)
                         else includedTypeCodes.add(filter.filterCode)
