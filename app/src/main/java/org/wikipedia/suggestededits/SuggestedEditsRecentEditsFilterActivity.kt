@@ -32,6 +32,11 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
         PatrollerExperienceEvent.logAction("filters_state_change", "pt_filters",
             PatrollerExperienceEvent.getActionDataString(appLanguageCodeAdded = addedCode, appLanguageCodes = appLanguagesList.toString()))
         appLanguagesPreFilterList.clear()
+
+        if (!appLanguagesList.contains(Prefs.recentEditsWikiCode)) {
+            Prefs.recentEditsWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
+        }
+
         setUpRecyclerView()
     }
 
