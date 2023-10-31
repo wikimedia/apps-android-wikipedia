@@ -479,9 +479,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
 
     override fun onBackPressed() {
         setResult(RESULT_BACK_FROM_TOPIC)
-        if (viewModel.isFromDiff) {
-            sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")
-        }
+        sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")
         if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
                     binding.replyInputView.editText.text.isNotEmpty())) {
             MaterialAlertDialogBuilder(this)
@@ -516,10 +514,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
         binding.licenseText.isVisible = true
     }
 
-    private fun sendPatrollerExperienceEvent(
-        action: String, activeInterface: String,
-        actionData: String = ""
-    ) {
+    private fun sendPatrollerExperienceEvent(action: String, activeInterface: String, actionData: String = "") {
         if (viewModel.isFromDiff) {
             PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
         }

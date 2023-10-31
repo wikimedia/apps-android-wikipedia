@@ -28,7 +28,7 @@ class PatrollerExperienceEvent {
             val feedbackTextStr = feedbackText?.let { "feedback_text: $it, " }.orEmpty()
             val savedMessageStr = messageType?.let { "saved_message: $it, " }.orEmpty()
             val summaryTextStr = summaryText?.let { "summary_text: $it, " }.orEmpty()
-            val wasSummaryAddedStr = summaryText?.let { if (summaryText.isNotEmpty()) "true" else "false" }.orEmpty()
+            val wasSummaryAddedStr = summaryText?.let { summaryText.isNotEmpty().toString() }.orEmpty()
             return revisionIdStr + feedbackStr + feedbackTextStr + savedMessageStr + summaryTextStr + wasSummaryAddedStr
         }
 

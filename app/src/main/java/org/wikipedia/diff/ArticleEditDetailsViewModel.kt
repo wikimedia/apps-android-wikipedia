@@ -199,7 +199,7 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         }) {
             if (isWatched) {
                 if (fromRecentEdits) {
-                PatrollerExperienceEvent.logAction("watch_init", "pt_toolbar")
+                    PatrollerExperienceEvent.logAction("watch_init", "pt_toolbar")
                 }
                 WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
             } else {

@@ -424,8 +424,9 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
 
         override fun onPageSelected(position: Int) {
             if (action == IMAGE_RECOMMENDATIONS) {
-                PatrollerExperienceEvent.logAction(if (position < prevPosition) "edit_left_swipe" else "edit_right_swipe", "pt_edit")
                 ((binding.cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(position) as SuggestedEditsImageRecsFragment).logImpression()
+            } else if (action == VANDALISM_PATROL) {
+                PatrollerExperienceEvent.logAction(if (position < prevPosition) "edit_left_swipe" else "edit_right_swipe", "pt_edit")
             }
             updateBackButton(position)
             updateActionButton()
