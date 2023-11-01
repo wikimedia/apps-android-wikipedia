@@ -1536,4 +1536,12 @@
   <string name="patroller_tasks_filters_user_intent_header">Prediksi niat pengguna</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Kemungkinan berniat buruk</string>
   <string name="patroller_tasks_filters_user_intent_bad">Kemungkinan besar berniat buruk</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Menemukan sebagian besar suntingan yang bebas dari permasalahan dengan akurasi tinggi.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Menemukan sebagian besar suntingan yang bermasalah atau merusak, tetapi dengan akurasi rendah.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Menemukan titik tengah dari suntingan yang bermasalah dengan akurasi sedang.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Menemukan sebagian besar suntingan yang bermasalah atau merusak dengan akurasi tinggi.</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Menemukan sebagian besar suntingan yang berniat baik dengan akurasi tinggi.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Menemukan sebagian besar suntingan yang berniat butuk dengan akurasi rendah.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Menemukan titik tengah dari suntingan yang bermasalah dengan akurasi sedang.</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Menemukan suntingan berniat buruk dengan akurasi sangat tinggi.</string>
 </resources>
