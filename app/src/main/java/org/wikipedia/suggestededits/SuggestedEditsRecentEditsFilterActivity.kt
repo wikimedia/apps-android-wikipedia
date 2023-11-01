@@ -88,11 +88,12 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
 
     private fun filterListWithHeaders(): List<Any> {
         val filterListWithHeaders = mutableListOf<Any>()
-        filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_wiki_filter_header))
-        appLanguagesList.forEach {
-            filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it))
-        }
-        filterListWithHeaders.add(getString(R.string.notifications_filter_update_app_languages))
+        // TODO: limit to the primary language now.
+//        filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_wiki_filter_header))
+//        appLanguagesList.forEach {
+//            filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it))
+//        }
+//        filterListWithHeaders.add(getString(R.string.notifications_filter_update_app_languages))
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_user_status_header))
         SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, true))

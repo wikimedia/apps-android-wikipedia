@@ -343,7 +343,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         vandalismPatrolTask.primaryActionIcon = R.drawable.ic_check_black_24dp
         vandalismPatrolTask.new = !Prefs.recentEditsOnboardingShown
 
-        displayedTasks.add(vandalismPatrolTask)
+
+        // TODO: limit to the Indonesian and Test wiki now.
+        val availableWikiSitesForPatrollerTasks = listOf("id", "test")
+        if (viewModel.allowToPatrolEdits && viewModel.blockMessageWikipedia.isNullOrEmpty() &&
+            availableWikiSitesForPatrollerTasks.contains(WikipediaApp.instance.wikiSite.languageCode)) {
+            displayedTasks.add(vandalismPatrolTask)
+        }
 
         if (DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikipedia.isNullOrEmpty() ||
             !DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikidata.isNullOrEmpty()) {

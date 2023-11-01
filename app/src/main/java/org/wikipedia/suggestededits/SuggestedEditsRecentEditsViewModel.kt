@@ -11,8 +11,7 @@ import androidx.paging.filter
 import androidx.paging.insertSeparators
 import androidx.paging.map
 import kotlinx.coroutines.flow.map
-import org.wikipedia.Constants
-import org.wikipedia.dataclient.Service
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
@@ -29,15 +28,11 @@ import kotlin.math.max
 
 class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
-    var langCode = Prefs.recentEditsWikiCode
+    // TODO: limit to the primary language now.
+    // var langCode = Prefs.recentEditsWikiCode
+    var langCode = WikipediaApp.instance.appOrSystemLanguageCode
 
-    val wikiSite get(): WikiSite {
-        return when (langCode) {
-            Constants.WIKI_CODE_COMMONS -> WikiSite(Service.COMMONS_URL)
-            Constants.WIKI_CODE_WIKIDATA -> WikiSite(Service.WIKIDATA_URL)
-            else -> WikiSite.forLanguageCode(langCode)
-        }
-    }
+    val wikiSite get() = WikiSite.forLanguageCode(langCode)
     var currentQuery = ""
     var actionModeActive = false
     var recentEditsSource: RecentEditsPagingSource? = null
