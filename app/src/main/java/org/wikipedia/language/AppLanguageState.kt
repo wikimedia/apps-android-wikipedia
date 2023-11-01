@@ -56,7 +56,7 @@ class AppLanguageState(context: Context) {
                     ++insertIndex
                 }
             }
-            if (!Prefs.isShowDeveloperSettingsEnabled && !ReleaseUtil.isPreBetaRelease) {
+            if (!Prefs.isShowDeveloperSettingsEnabled && !ReleaseUtil.isPreProdRelease) {
                 codes.remove(AppLanguageLookUpTable.TEST_LANGUAGE_CODE)
             }
             return codes
