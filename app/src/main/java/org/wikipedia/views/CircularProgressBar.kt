@@ -24,6 +24,7 @@ class CircularProgressBar constructor(context: Context, attrs: AttributeSet? = n
         val (progressColor, progressBackgroundColor, progressStrokeWidth) = context
             .obtainStyledAttributes(attrs, R.styleable.CircularProgressBar)
             .use {
+                maxProgressValue = it.getInt(R.styleable.CircularProgressBar_maxProgress, MAX_PROGRESS).toDouble()
                 Triple(
                     it.getColor(R.styleable.CircularProgressBar_progressColor,
                         ResourceUtil.getThemedColor(context, R.attr.progressive_color)),
