@@ -347,6 +347,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         val availableWikiSitesForPatrollerTasks = listOf("id", "test")
         if (viewModel.allowToPatrolEdits && viewModel.blockMessageWikipedia.isNullOrEmpty() &&
             availableWikiSitesForPatrollerTasks.contains(WikipediaApp.instance.wikiSite.languageCode)) {
+            // TODO: limit to the primary language now.
+            Prefs.recentEditsWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
             displayedTasks.add(vandalismPatrolTask)
         }
 

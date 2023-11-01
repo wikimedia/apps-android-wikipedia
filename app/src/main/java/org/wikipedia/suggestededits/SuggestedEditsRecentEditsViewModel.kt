@@ -67,11 +67,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
         }
     }.cachedIn(viewModelScope)
 
-    // TODO: limit to the primary language now.
-    init {
-        Prefs.recentEditsWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
-    }
-
     fun clearCache() {
         cachedRecentEdits.clear()
         cachedUserInfo.clear()
