@@ -449,6 +449,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.diffUnavailableContainer.isVisible = false
         binding.thankButton.isVisible = false
         binding.undoButton.isVisible = false
+        binding.warnButton.isVisible = viewModel.fromRecentEdits
     }
 
     private fun updateAfterRevisionFetchSuccess() {
@@ -480,7 +481,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             binding.overlayRevisionToTimestamp.text = binding.revisionToTimestamp.text
             binding.revisionToEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
 
-            if (it.ores != null) {
+            if (it.ores != null && viewModel.fromRecentEdits) {
                 binding.oresDamagingButton.isVisible = true
                 binding.oresDamagingButton.text = getString(R.string.edit_damage, ((it.ores?.damagingProb ?: 0f) * 100f).toInt().toString().plus("%"))
                 binding.oresDamagingButton.setOnClickListener(openQualityAndIntentFiltersPage)
@@ -542,7 +543,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         updateWatchButton(isWatched, hasWatchlistExpiry)
         if (watch.unwatched) {
             sendPatrollerExperienceEvent("unwatch_success_toast", "pt_watchlist")
-            FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
+            val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
+            snackbar.addCallback(object : Snackbar.Callback() {
+                override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                    if (!isAdded) {
+                        return
+                    }
+                    showFeedbackOptionsDialog()
+                }
+            })
+            snackbar.show()
         } else if (watch.watched) {
             sendPatrollerExperienceEvent("watch_success_toast", "pt_watchlist")
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
@@ -604,11 +614,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     private fun showUndoDialog() {
         val dialog = UndoEditDialog(editHistoryInteractionEvent, requireActivity(),
             if (viewModel.fromRecentEdits) InvokeSource.SUGGESTED_EDITS_RECENT_EDITS else null) { text ->
-
-            viewModel.revisionTo?.let {
-                binding.progressBar.isVisible = true
-                viewModel.undoEdit(viewModel.pageTitle, it.user, text.toString(), viewModel.revisionToId, 0)
-            }
+                viewModel.revisionTo?.let {
+                    binding.progressBar.isVisible = true
+                    viewModel.undoEdit(viewModel.pageTitle, it.user, text.toString(), viewModel.revisionToId, 0)
+                }
         }
         dialog.show()
     }
@@ -656,7 +665,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showFeedbackOptionsDialog(skipPreference: Boolean = false) {
-        if (!skipPreference && !Prefs.showOneTimeRecentEditsFeedbackForm) {
+        if (!viewModel.fromRecentEdits || (!skipPreference && !Prefs.showOneTimeRecentEditsFeedbackForm)) {
             return
         }
 
@@ -687,6 +696,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showFeedbackInputDialog() {
+        if (!viewModel.fromRecentEdits) {
+            return
+        }
         val feedbackView = layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_input, null)
         sendPatrollerExperienceEvent("feedback_input_impression", "pt_feedback")
         MaterialAlertDialogBuilder(requireActivity())
@@ -703,6 +715,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     private fun showFeedbackSnackbarAndTooltip() {
+        if (!viewModel.fromRecentEdits) {
+            return
+        }
         FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, R.string.patroller_diff_feedback_submitted_snackbar)
         sendPatrollerExperienceEvent("feedback_submit_toast", "pt_feedback")
         binding.root.postDelayed({
