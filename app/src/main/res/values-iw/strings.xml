@@ -1564,6 +1564,7 @@
   <string name="talk_templates_edit_message_updated">ההודעה עודכנה</string>
   <string name="talk_templates_edit_message_delete_description">האם ברצונך באמת למחוק את ההודעה \"%s\" מהרשימה?</string>
   <string name="talk_templates_message_deleted">ההודעה נמחקה</string>
+  <string name="talk_templates_message_title_empty">הכותרת לא יכולה להיות ריקה.</string>
   <string name="patroller_tasks_edits_list_title">רשימת עריכות</string>
   <string name="patroller_tasks_edits_list_search_hint">חיפוש או סינון של עריכות</string>
   <string name="patroller_tasks_edits_list_card_tags_text">תגים: %s</string>

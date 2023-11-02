@@ -1462,6 +1462,7 @@
   <string name="talk_templates_edit_message_updated">Пораката е подновена</string>
   <string name="talk_templates_edit_message_delete_description">Дали сигурно сакате да ја избришете оваа порака „%s“ од списокот.</string>
   <string name="talk_templates_message_deleted">Пораката е избришана</string>
+  <string name="talk_templates_message_title_empty">Насловот не може да стои празен.</string>
   <string name="patroller_tasks_edits_list_title">Список на уредувања</string>
   <string name="patroller_tasks_edits_list_search_hint">Пребарај или филтрирај уредувања</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Ознаки: %s</string>
