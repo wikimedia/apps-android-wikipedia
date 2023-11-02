@@ -194,7 +194,7 @@
   <string name="preference_title_sync_reading_lists_from_account">Sijohijon sinxronizasijə karde bo hande</string>
   <string name="preference_title_download_reading_list_articles">Hande sijohiku məǧolon okyrnije</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sinxron kardə byə bo hande sijohijon «%s» mole?</string>
-  <string name="preferences_privacy_settings_heading">Məxfi</string>
+  <string name="preferences_privacy_settings_heading">Xysusijət</string>
   <string name="preference_title_eventlogging_opt_in">Oko doj hisobon vyǧande</string>
   <string name="preference_title_auto_upload_crash_reports">Xəto barədə hisobon vyǧande</string>
   <string name="history_filter_list_hint">Parzyni tarix</string>
@@ -686,7 +686,7 @@
   <string name="suggested_edits_task_translate_caption_title">Šikilon nom-nyšonon pegordynije</string>
   <string name="suggested_edits_task_multilingual_negative">Bomy ni</string>
   <string name="suggested_edits_task_multilingual_positive">Zyvonon əlovə kardej</string>
-  <string name="suggested_edits_image_caption_summary_title_image">Şəkl</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Šikil</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Myəllif</string>
   <string name="suggested_edits_image_caption_summary_title_author">Myəllif</string>
   <string name="suggested_edits_image_caption_summary_title_source">Səvon</string>
@@ -696,7 +696,7 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Məǧolon (%s) nom-nyšonon əlovə karde</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Bino kardej</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Šikili nom-nyšon (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_image">Şəkl</string>
+  <string name="suggested_edits_image_preview_dialog_image">Šikil</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">Fajl ce Vikiamboku</string>
   <string name="suggested_edits_image_preview_dialog_artist">Myəllif</string>
   <string name="suggested_edits_image_preview_dialog_tags">Tegon</string>
@@ -726,7 +726,7 @@
   <string name="suggested_edits_contribution_language_label">Zyvon</string>
   <string name="suggested_edits_contribution_date_time_label">Taryx / Zəmon</string>
   <string name="suggested_edits_contribution_type_label">Tohfə tispir</string>
-  <string name="suggested_edits_contribution_image_label">Şəkl</string>
+  <string name="suggested_edits_contribution_image_label">Šikil</string>
   <string name="suggested_edits_contribution_article_label">Məǧolon</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Zinə</string>

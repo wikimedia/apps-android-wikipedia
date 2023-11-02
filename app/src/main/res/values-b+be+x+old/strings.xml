@@ -37,6 +37,7 @@
   <string name="notification_archive_undo">Скасаваць</string>
   <string name="app_settings">Налады праграмы</string>
   <string name="search_tab_tooltip">Краніцеся іконкі яшчэ раз, каб пачаць увод шуканага тэрміну.</string>
+  <string name="history_list_title">Гісторыя</string>
   <string name="dialog_title_clear_history">Ачысьціць гісторыю прагляду</string>
   <string name="dialog_message_clear_history">Гэтае дзеяньне выдаліць усю гісторыю прагляду і зачыніць усе адкрытыя ўстаўкі. Вы ўпэўнены?</string>
   <string name="dialog_message_clear_history_yes">Так</string>

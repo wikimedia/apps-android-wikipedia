@@ -22,6 +22,7 @@
 * MagicAho
 * Makoto Asai
 * Marine-Blue
+* Mash1133
 * MathXplore
 * Mirinano
 * MirukuPC
@@ -313,6 +314,7 @@
   <string name="edit_redo">やり直す</string>
   <string name="edit_rollback">巻き戻し</string>
   <string name="edit_warn">警告する</string>
+  <string name="edit_damage">ダメージ %s</string>
   <string name="edit_intent">インテント%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="other">%sバイト</item>
@@ -1464,11 +1466,15 @@
   <string name="user_contrib_filter_activity_title">投稿を絞り込む</string>
   <string name="shareable_reading_lists_import_dialog_title">共有リーディングリストの読み込み</string>
   <string name="shareable_reading_lists_import_dialog_content">共有されたリストに名前をつけますか？</string>
+  <string name="shareable_reading_lists_new_indicator">*新規*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">リーディングリストが共有されました</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">わかりました</string>
   <string name="shareable_reading_lists_new_imported_snackbar">あとで読むリストをインポートしました</string>
   <string name="reading_list_share_menu_label">共有…</string>
   <string name="reading_list_share_menu_tooltip">このあとで読むリストを他の人と共有する</string>
+  <string name="reading_list_share_message_v2">こんにちは！私の閲覧リストを共有します。</string>
+  <string name="reading_list_share_survey_title">「閲覧リストの共有」機能の改善にご協力いただけませんか？</string>
+  <string name="reading_list_share_survey_body">「閲覧リストの共有」は実験的な機能であり、改善または棄却のためフィードバックを必要としています。</string>
   <string name="talk_templates_manage_title">テンプレートを管理</string>
   <string name="talk_templates_empty_message">警告メッセージが何も保存されていません。</string>
   <string name="talk_templates_new_message_title">新しいメッセージ</string>
@@ -1487,7 +1493,7 @@
   <string name="talk_templates_edit_message_dialog_save">保存</string>
   <string name="talk_templates_edit_message_dialog_delete">削除</string>
   <string name="talk_templates_edit_message_updated">メッセージが更新されました</string>
-  <string name="talk_templates_edit_message_delete_description" fuzzy="true">本当にこの%sメッセージをリストから削除しますか？</string>
+  <string name="talk_templates_edit_message_delete_description">本当にメッセージ \"%s\" をリストから削除しますか？</string>
   <string name="talk_templates_message_deleted">メッセージが削除されました</string>
   <string name="patroller_tasks_edits_list_title">編集の一覧</string>
   <string name="patroller_tasks_edits_list_search_hint">編集を検索または絞り込む</string>
@@ -1561,6 +1567,7 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">表示</string>
   <string name="patroller_tasks_overflow_report">機能の問題</string>
   <string name="patroller_tasks_overflow_learn">詳細</string>
+  <string name="patroller_onboarding_one_title">ウィキペディアの編集の管理と確認に貢献する。</string>
   <string name="patroller_onboarding_two_thank_title">感謝</string>
   <string name="patroller_onboarding_two_warn_title">警告</string>
   <string name="patroller_onboarding_two_undo_title">取り消し/巻き戻し</string>

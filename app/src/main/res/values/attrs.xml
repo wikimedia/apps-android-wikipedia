@@ -56,6 +56,7 @@
         <attr name="background" format="reference" />
         <attr name="showListView" format="boolean" />
         <attr name="dataType" format="string" />
+        <attr name="patrollerTasksButtons" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="DiscreteSeekBar">

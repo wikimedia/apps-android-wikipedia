@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_rollback"
+        android:title="@string/edit_rollback"
+        android:icon="@drawable/ic_rollback_24"
+        app:iconTint="?attr/secondary_color"/>
+    <item android:id="@+id/menu_undo"
+        android:title="@string/edit_undo"
+        android:icon="@drawable/ic_undo_themed_24dp"
+        app:iconTint="?attr/secondary_color"/>
+</menu>

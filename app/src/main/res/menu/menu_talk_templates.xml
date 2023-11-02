@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_new_message"
+        android:title="@string/talk_templates_new_message_title"
+        android:icon="@drawable/ic_add_gray_white_24dp"
+        app:iconTint="?attr/progressive_color"
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction" />
+</menu>

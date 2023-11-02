@@ -17,6 +17,7 @@ import org.wikipedia.databinding.FragmentOnboardingPagerBinding
 
 abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), BackPressedHandler {
     interface Callback {
+        fun onSkip()
         fun onComplete()
     }
 
@@ -46,6 +47,7 @@ abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), 
         }
 
         binding.fragmentOnboardingSkipButton.setOnClickListener {
+            callback()?.onSkip()
             finish()
         }
 

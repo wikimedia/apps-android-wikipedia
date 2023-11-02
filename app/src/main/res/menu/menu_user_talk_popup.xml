@@ -13,6 +13,11 @@
         app:iconTint="?attr/secondary_color"
         android:title="@string/menu_option_view_user_talk" />
     <item
+        android:id="@+id/menu_user_information"
+        android:icon="@drawable/ic_user_information"
+        app:iconTint="?attr/secondary_color"
+        android:title="@string/patroller_tasks_edits_list_card_overflow_user_information"/>
+    <item
         android:id="@+id/menu_user_contributions_page"
         android:icon="@drawable/ic_icon_user_contributions_ooui"
         app:iconTint="?attr/secondary_color"

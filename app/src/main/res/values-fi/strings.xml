@@ -395,6 +395,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikkelia ei voida ladata offline-tilassa.</string>
   <string name="page_offline_notice_add_to_reading_list">Vihje: lisää artikkeli lukulistaan, jolloin se ladataan laitteeseen verkkoyhteyden ollessa saatavilla.</string>
   <string name="page_offline_notice_last_date">Luet tämän artikkelin yhteydettömän tilan versiota, joka tallennettiin %s.</string>
+  <string name="redirected_from_snackbar">Ohjattu sivulta \"%s\"</string>
   <string name="button_get_directions">Hae reittiohjeet</string>
   <string name="error_no_maps_app">Yhtäkään reittiohjeita tarjoavaa sovellusta ei löytynyt</string>
   <string name="preference_title_customize_explore_feed">Tutki-syöte</string>
@@ -1190,6 +1191,7 @@
   <string name="wikitext_template">Malline</string>
   <string name="wikitext_reference">Lähde</string>
   <string name="wikitext_preview_link">Esikatsele linkki</string>
+  <string name="wikitext_mention_user">Mainitse käyttäjä</string>
   <string name="insert_media_title">Lisää media</string>
   <string name="insert_media_search_description">Valitse tiedosto Wikimedia Commonsista</string>
   <string name="insert_media_search_hint">Etsi mediaa</string>
@@ -1447,8 +1449,11 @@
   <string name="talk_templates_empty_message">Sinulla ei ole tallennettuja varoitusviestejä.</string>
   <string name="talk_templates_new_message_title">Uusi viesti</string>
   <string name="talk_templates_new_message_subject_hint">Aihe</string>
+  <string name="talk_templates_new_message_compose_hint">Kirjoita viesti</string>
   <string name="talk_templates_new_message_save">Tallenna</string>
   <string name="talk_templates_new_message_dialog_title">Tallenna muutokset</string>
+  <string name="talk_templates_new_message_dialog_description">Lisää otsikko ja tallenna viesti.</string>
+  <string name="talk_templates_new_message_dialog_hint">Viestin otsikko</string>
   <string name="talk_templates_new_message_dialog_save">Tallenna</string>
   <string name="talk_templates_new_message_dialog_cancel">Peruuta</string>
   <string name="talk_templates_new_message_dialog_exists">Malline \"%s\" on jo olemassa.</string>
@@ -1468,11 +1473,20 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Tarkastele käyttäjän muokkauksia</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Kiitä</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Käyttäjätiedot</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Muokkausmäärä: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Sulje</string>
   <string name="patroller_tasks_filters_title">Suodattimet</string>
+  <string name="patroller_tasks_filters_reset">Nollaa</string>
   <string name="patroller_tasks_filters_all_text">Kaikki</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Rekisteröitymätön</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Muokkaajat, jotka eivät ole kirjautuneet sisään.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Rekisteröitynyt</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Sisäänkirjautuneet muokkaajat.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Tulokkaat</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Rekisteröityneet muokkaajat, joilla on vähemmän kuin 10 muokkausta 4 aktiivisuuspäivän aikana.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Uusimmat versiot</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Uusin versio</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ei uusin versio</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Automatisoidut muutokset</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Botti</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Ihminen (ei botti)</string>
@@ -1493,16 +1507,21 @@
   <string name="patroller_onboarding_two_watch_content">Haluatko tarkkailla artikkelien muokkauksia? Lisää artikkeli tarkkailuluetteloosi. Löydät sen \"Lisää\"-valikosta.</string>
   <string name="patroller_onboarding_two_undo_title">Kumoa</string>
   <string name="patroller_onboarding_two_undo_content">Valitse \"Kumoa\" kumotaksesi mahdollisesti haitallisen muokkauksen.</string>
+  <string name="patroller_onboarding_three_title">Lähetä dataa nimettömästi</string>
+  <string name="patroller_onboarding_three_content">Auta parantamaan ominaisuutta kertomalla meille, kuinka käytät sitä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#privacy\"&gt;Lue lisää&lt;/a&gt;</string>
+  <string name="patroller_onboarding_three_switch">Lähetä käyttöraportteja</string>
   <string name="patroller_diff_feedback_dialog_title">Auta meitä parantamaan tätä ominaisuutta</string>
   <string name="patroller_diff_feedback_dialog_message">Oletko tyytyväinen tähän ominaisuuteen?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Tyytyväinen</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutraali</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Tyytymätön</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Kuinka voimme parantaa ominaisuutta?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Palaute</string>
   <string name="patroller_diff_feedback_dialog_submit">Lähetä</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Palaute lähetetty.</string>
   <string name="data_opt_in_accept">Hyväksy</string>
   <string name="data_opt_in_reject">Hylkää</string>
+  <string name="generic_release_notes">Pieniä virheenkorjauksia ja parannuksia</string>
   <string name="donation_campaign_go_back_button">Palaa takaisin</string>
   <string name="menu_single_webview_open_external">Avaa järjestelmäselaimessa</string>
 </resources>

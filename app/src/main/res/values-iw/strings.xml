@@ -406,7 +406,7 @@
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
   <string name="preference_title_collapse_tables">מזעור טבלאות</string>
   <string name="preference_summary_collapse_tables">מזעור אוטומטי של טבלאות בערכים, כגון תיבות מידע, מקורות, והערות שוליים.</string>
-  <string name="nav_item_donate">תרומה</string>
+  <string name="nav_item_donate">לתרום</string>
   <string name="error_voice_search_not_available">מצטערים, זיהוי קולי אינו זמין.</string>
   <string name="location_service_disabled">שירותי המיקום כבויים.</string>
   <string name="enable_location_service">הפעלה</string>

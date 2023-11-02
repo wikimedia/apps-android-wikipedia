@@ -269,6 +269,7 @@
   <string name="edit_redo">Uveljavi</string>
   <string name="edit_rollback">Vrni</string>
   <string name="edit_warn">Opozorilo</string>
+  <string name="edit_damage">Poškodba %s</string>
   <string name="edit_intent">%s namere</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s zlog</item>
