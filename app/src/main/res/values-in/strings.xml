@@ -1544,4 +1544,5 @@
   <string name="data_opt_in_reject">Tolak</string>
   <string name="page_issues_title">Masalah halaman</string>
   <string name="generic_release_notes">Perbaikan kekutu dan peningkatan kecil</string>
+  <string name="talk_templates_new_message_title">pesan baru</string>
 </resources>
