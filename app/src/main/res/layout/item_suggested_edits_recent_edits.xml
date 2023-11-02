@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/containerView"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/timeText"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="?attr/primary_color"
+            tools:text="Lorem ipsum"/>
+
+        <TextView
+            android:id="@+id/timeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="16sp"
+            android:textColor="?attr/secondary_color"
+            tools:text="12:00"/>
+
+        <org.wikipedia.views.GoneIfEmptyTextView
+            android:id="@+id/summaryText"
+            style="@style/P"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:maxLines="4"
+            android:ellipsize="end"
+            android:textColor="?attr/secondary_color"
+            android:textColorLink="?attr/secondary_color"
+            app:layout_constraintTop_toBottomOf="@id/titleText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"/>
+
+        <org.wikipedia.views.GoneIfEmptyTextView
+            android:id="@+id/tagsText"
+            style="@style/P"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="?attr/secondary_color"
+            android:textColorLink="?attr/secondary_color"
+            app:layout_constraintTop_toBottomOf="@id/summaryText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/userNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            style="@style/App.Button.Secondary"
+            android:textAlignment="viewStart"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/tagsText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_max="220dp"
+            app:icon="@drawable/ic_user_talk"
+            tools:text="Username"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/diffText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/App.Button.Secondary"
+            android:layout_marginStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="0dp"
+            android:textColor="@color/green600"
+            android:backgroundTint="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="@id/userNameText"
+            app:layout_constraintStart_toEndOf="@id/userNameText"
+            tools:text="+123"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</org.wikipedia.views.WikiCardView>

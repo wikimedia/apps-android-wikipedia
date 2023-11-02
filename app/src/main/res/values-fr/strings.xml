@@ -311,7 +311,6 @@
   <string name="edit_redo">Refaire</string>
   <string name="edit_rollback">Révoquer</string>
   <string name="edit_warn">Avertissement</string>
-  <string name="edit_quality">%s de qualité</string>
   <string name="edit_intent">%s d’intention</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s octet</item>
@@ -478,7 +477,7 @@
   <string name="color_theme_select">Thème</string>
   <string name="color_theme_light">Clair</string>
   <string name="color_theme_dark">Sombre</string>
-  <string name="color_theme_black">Noir</string>
+  <string name="color_theme_black" fuzzy="true">Noir</string>
   <string name="color_theme_sepia">Sépia</string>
   <string name="color_theme_test_title">Texte d’exemple</string>
   <string name="color_theme_test_text">Glissez le curseur pour modifier la taille du texte utilisée pour lire les articles. Pour définir la taille du texte dans tout le reste de l’application, changez la taille du texte dans vos paramètres Android.</string>
@@ -1507,7 +1506,7 @@
   <string name="talk_templates_edit_message_dialog_save">Enregistrer</string>
   <string name="talk_templates_edit_message_dialog_delete">Supprimer</string>
   <string name="talk_templates_edit_message_updated">Le message a été mis à jour</string>
-  <string name="talk_templates_edit_message_confirm_description">Êtes-vous sûr de vouloir supprimer ce message %s de la liste ?</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Êtes-vous sûr de vouloir supprimer ce message %s de la liste ?</string>
   <string name="talk_templates_message_deleted">Le message a été supprimé</string>
   <string name="patroller_tasks_edits_list_title">Liste des modifications</string>
   <string name="patroller_tasks_edits_list_search_hint">Rechercher ou filtrer les modifications</string>
@@ -1587,6 +1586,7 @@
   <string name="patroller_onboarding_two_thank_title">Remercier</string>
   <string name="patroller_onboarding_two_thank_content">Vous voyez une modification pertinente ? Remerciez un utilisateur pour sa contribution !</string>
   <string name="patroller_onboarding_two_watch_title">Suivre</string>
+  <string name="patroller_onboarding_three_title">Envoyer les données de manière anonyme</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfait</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutre</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfait</string>
