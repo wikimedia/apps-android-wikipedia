@@ -311,6 +311,7 @@
   <string name="edit_redo">Refaire</string>
   <string name="edit_rollback">Révoquer</string>
   <string name="edit_warn">Avertissement</string>
+  <string name="edit_damage" fuzzy="true">%s de dégâts</string>
   <string name="edit_intent">%s d’intention</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s octet</item>
@@ -477,7 +478,7 @@
   <string name="color_theme_select">Thème</string>
   <string name="color_theme_light">Clair</string>
   <string name="color_theme_dark">Sombre</string>
-  <string name="color_theme_black" fuzzy="true">Noir</string>
+  <string name="color_theme_black">Noir</string>
   <string name="color_theme_sepia">Sépia</string>
   <string name="color_theme_test_title">Texte d’exemple</string>
   <string name="color_theme_test_text">Glissez le curseur pour modifier la taille du texte utilisée pour lire les articles. Pour définir la taille du texte dans tout le reste de l’application, changez la taille du texte dans vos paramètres Android.</string>
