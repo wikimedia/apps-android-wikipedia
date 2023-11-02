@@ -25,7 +25,9 @@ class ArticleEditDetailsActivity : BaseActivity() {
             intent.getLongExtra(EXTRA_EDIT_REVISION_TO, -1),
             intent.getBooleanExtra(EXTRA_FROM_RECENT_EDITS, false))
 
-        supportFragmentManager.commit { add(binding.fragmentContainer.id, fragment) }
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit { add(binding.fragmentContainer.id, fragment) }
+        }
     }
 
     companion object {
