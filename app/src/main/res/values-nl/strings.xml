@@ -1497,6 +1497,7 @@
   <string name="talk_templates_edit_message_updated">Bericht is bijgewerkt</string>
   <string name="talk_templates_edit_message_delete_description">Weet u zeker dat u dit bericht “%s” uit de lijst wilt verwijderen?</string>
   <string name="talk_templates_message_deleted">Bericht is verwijderd</string>
+  <string name="talk_templates_message_title_empty">De titel mag niet leeg zijn.</string>
   <string name="patroller_tasks_edits_list_title">Lijst met bewerkingen</string>
   <string name="patroller_tasks_edits_list_search_hint">Bewerkingen zoeken of filteren</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Labels: %s</string>

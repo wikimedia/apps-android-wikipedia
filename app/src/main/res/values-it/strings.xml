@@ -1424,6 +1424,7 @@
   <string name="talk_templates_new_message_compose_hint">Scrivi un messaggio</string>
   <string name="talk_templates_new_message_dialog_cancel">Annulla</string>
   <string name="talk_templates_edit_message_dialog_title">Modifica messaggio</string>
+  <string name="talk_templates_message_title_empty">Il titolo non può essere vuoto.</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etichette: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Nessuno</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Informazioni utente</string>
