@@ -513,7 +513,7 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(6))
+        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(5))
 
         TestUtil.delay(3)
 
@@ -537,7 +537,7 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(7))
+        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(6))
 
         TestUtil.delay(2)
 
@@ -556,7 +556,7 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(8))
+        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(7))
 
         TestUtil.delay(2)
 
@@ -571,7 +571,7 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(9))
+        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(8))
 
         TestUtil.delay(5)
 
@@ -619,7 +619,7 @@ class SmokeTests {
         TestUtil.delay(2)
 
         onView(allOf(withContentDescription("More options"),
-            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.action_bar), 2), 0), isDisplayed()))
+            childAtPosition(childAtPosition(withId(R.id.toolbar), 2), 0), isDisplayed()))
             .perform(click())
 
         TestUtil.delay(2)
@@ -667,7 +667,7 @@ class SmokeTests {
         TestUtil.delay(2)
 
         onView(allOf(withContentDescription("More options"),
-            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.action_bar), 2), 0), isDisplayed()))
+            childAtPosition(childAtPosition(withId(R.id.toolbar), 2), 0), isDisplayed()))
             .perform(click())
 
         TestUtil.delay(2)
