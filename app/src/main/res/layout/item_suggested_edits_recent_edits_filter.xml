@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="@dimen/list_item_default_height"
+    tools:layout_width="match_parent"
+    tools:parentTag="android.widget.LinearLayout">
+
+    <TextView
+        android:id="@+id/recentEditsFilterLanguageCode"
+        style="@style/TextViewCentered"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="-10dp"
+        android:background="@drawable/lang_button_shape_border"
+        android:fontFamily="sans-serif-medium"
+        android:textAllCaps="true"
+        android:textColor="?attr/placeholder_color" />
+
+    <ImageView
+        android:id="@+id/recentEditsFilterWikiLogo"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="-10dp"
+        android:contentDescription="@null"
+        android:scaleType="center"
+        android:layout_gravity="center_vertical"
+        app:tint="?attr/placeholder_color" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingStart="24dp"
+        android:paddingEnd="8dp"
+        android:paddingVertical="12dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/recentEditsFilterTitle"
+            style="@style/P.MaterialListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Lorem ipsum" />
+
+        <TextView
+            android:id="@+id/recentEditsFilterDesc"
+            style="@style/List.MaterialListSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:text="Lorem ipsum Lorem ipsum Lorem ipsum" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/recentEditsFilterCheck"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="14dp"
+        android:contentDescription="@null"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_baseline_radio_button_checked_24"
+        app:tint="?attr/progressive_color" />
+
+</merge>

@@ -63,7 +63,7 @@
   <string name="title_captcha">CAPTCHA\'ны териңиз</string>
   <string name="edit_section_captcha_reload">CAPTCHA\'ны жаңылоо үчүн, аны басып коюңуз</string>
   <string name="nav_item_login">Википедияга кирүү</string>
-  <string name="login_username_hint">Колдонуучунун ысымы</string>
+  <string name="login_username_hint">Колдонуучунун аты</string>
   <string name="login_password_hint">Сырсөз</string>
   <string name="onboarding_card_login">Кирүү</string>
   <string name="page_editing_login">Кирүү</string>
@@ -82,7 +82,7 @@
   <string name="history_empty_title" fuzzy="true">Жакында каралган барактар жок!</string>
   <string name="history_empty_message" fuzzy="true">Кыязы, сиз алардын баарын өчүргөн окшойсуз. Кийинки жолу баракка киргенде, бул жактан кайрылсаңыз болот</string>
   <string name="wp_stylized">&lt;big&gt;У&lt;/big&gt;ИКИПЕДИ&lt;big&gt;Я&lt;/big&gt;</string>
-  <string name="create_account_username_hint">Колдонуучунун ысымы</string>
+  <string name="create_account_username_hint">Колдонуучунун аты</string>
   <string name="login_dont_have_account">Катталган жоксузбу ?</string>
   <string name="login_join_wikipedia">Википедияга кошулуу</string>
   <string name="login_forgot_password">Сыр сөзүңүздү унуттуңузбу ?</string>
