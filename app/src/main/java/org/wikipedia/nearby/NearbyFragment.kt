@@ -309,13 +309,10 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
 
     private fun queueImageForAnnotation(page: NearbyFragmentViewModel.NearbyPage) {
         val url = page.pageTitle.thumbUrl
-        if (url.isNullOrEmpty()) {
-            return
-        }
 
         Glide.with(requireContext())
             .asBitmap()
-            .load(url)
+            .load(url ?: R.drawable.ic_wikipedia_w)
             .into(object : CustomTarget<Bitmap>() {
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                     if (!isAdded) {
@@ -325,10 +322,10 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
                         val bmp = getMarkerBitmap(resource)
                         it.bitmap = bmp
 
-                        mapboxMap?.style?.addImage(url, BitmapDrawable(resources, bmp))
+                        mapboxMap?.style?.addImage(url ?: PLACEHOLDER_DRAWABLE, BitmapDrawable(resources, bmp))
 
                         it.annotation?.let { annotation ->
-                            annotation.iconImage = url
+                            annotation.iconImage = url ?: PLACEHOLDER_DRAWABLE
                             symbolManager?.update(annotation)
                         }
                     }
@@ -382,6 +379,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
 
     companion object {
         const val MARKER_DRAWABLE = "markerDrawable"
+        const val PLACEHOLDER_DRAWABLE = "R.drawable.ic_wikipedia_w"
         const val MAX_ANNOTATIONS = 64
         const val THUMB_SIZE = 160
         const val ITEMS_PER_REQUEST = 50
