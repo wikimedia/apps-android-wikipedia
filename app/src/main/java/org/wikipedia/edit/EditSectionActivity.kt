@@ -703,7 +703,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
         val addImageTitle = intent.parcelableExtra<PageTitle>(InsertMediaActivity.EXTRA_IMAGE_TITLE)
         val addImageSource = intent.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE)
         val addImageSourceProjects = intent.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE_PROJECTS)
@@ -759,6 +758,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         } else {
             finish()
         }
+        super.onBackPressed()
     }
 
     private fun startInsertImageFlow() {
