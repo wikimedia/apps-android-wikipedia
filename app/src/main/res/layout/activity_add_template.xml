@@ -76,7 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="?attr/paper_color"
-        android:elevation="12dp"/>
+        android:elevation="12dp"
+        app:headingsEnable="false"/>
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/addTemplateToolbar"
