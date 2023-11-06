@@ -1178,7 +1178,6 @@
     <item quantity="one">%d Filter</item>
     <item quantity="other">%d Filteren</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Sidd Dir sécher, datt Dir dës Ännerung réckgängeg maache wëllt?</string>
   <string name="patroller_onboarding_two_warn_title">Warnen</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Zefridden</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
