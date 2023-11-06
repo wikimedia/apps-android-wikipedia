@@ -110,6 +110,7 @@
   <string name="map_view_link_text">Картта ҫинче пӑх</string>
   <string name="other_languages_indication_text">Урӑх чӗлхепе вула</string>
   <string name="language_count_link_text">Ытти %d чӗлхепе пур</string>
+  <string name="edit_save_action_license_logged_in">Хӑвӑрӑн улшӑнусене янӑ май эсир &lt;a href=\"%1$s\"&gt;усӑ курмалли условисемпе&lt;/a&gt;, ҫавӑн пекех &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензипе яланлӑха вырнаҫтарассипе килӗшетӗр.</string>
   <string name="preference_title_language">Википеди чӗлхисем</string>
   <string name="langlinks_filter_hint">Шыра</string>
   <string name="langlinks_no_match">Чӗлхесем тупӑнмарӗҫ</string>
