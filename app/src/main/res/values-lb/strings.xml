@@ -242,6 +242,7 @@
   <string name="edit_redo">Widderhuelen</string>
   <string name="edit_rollback">Zrécksetzen</string>
   <string name="edit_warn">Warnen</string>
+  <string name="edit_damage">Schued %s</string>
   <string name="edit_zoom_in">Vergréisseren</string>
   <string name="edit_zoom_out">Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>
@@ -328,6 +329,7 @@
   <string name="button_add_to_reading_list">Op d\'Lieslëscht derbäisetzen</string>
   <string name="page_offline_notice_cannot_load_while_offline">Den Artikel kann net geluede gi wann Dir offline sidd.</string>
   <string name="page_offline_notice_last_date">Dir liest eng offline Versioun vun dësem Artikel gespäichert de(n) %s.</string>
+  <string name="redirected_from_snackbar">Virugeleet vu(n) „%s”</string>
   <string name="button_get_directions">Richtunge kréien</string>
   <string name="error_no_maps_app">Et konnte keng Appe fonnt ginn déi Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_show_link_previews">Weise wéi de Link ausgesi wäert</string>
@@ -412,6 +414,14 @@
     <item quantity="one">1 Artikel, %2$.2f MB</item>
     <item quantity="other">%1$d Artikelen, %2$.2f MB</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d vun 1 Artikel offline verfügbar</item>
+    <item quantity="other">%1$d vu(n) %2$d Artikelen offline verfügbar</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d vun 1 Artikel offline verfügbar, %3$.2f MB</item>
+    <item quantity="other">%1$d vu(n) %2$d Artikelen offline verfügbar, %3$.2f MB</item>
+  </plurals>
   <string name="reading_list_sort">Zortéieren</string>
   <string name="reading_list_sort_ellipsis">Zortéieren no...</string>
   <string name="reading_list_sort_by_name">Nom Numm zortéieren</string>
@@ -477,6 +487,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
   <string name="reading_list_article_save_in_progress">Den Artikel gëtt momentan erofgelueden a wäert offline verfügbar sinn, soubal den Download fäerdeg ass.</string>
   <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s derbäigesat</string>
+  <string name="reading_list_articles_moved_to_named">%1$d Artikelen op %2$s geréckelt</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher, datt Dir %s läsche wëllt?</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Ausgewielte Lëscht(e) läschen?</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
@@ -541,8 +552,10 @@
     <item quantity="one">Lieslëscht importéiert</item>
     <item quantity="other">Lieslëschten importéiert</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Gedeelte Lëscht</string>
   <string name="reading_lists_preview_save_button">Späicheren</string>
   <string name="reading_lists_preview_save_dialog_title">Lëscht späicheren</string>
+  <string name="reading_lists_preview_save_dialog_text">Lëscht benennen an Artikele fir ze späicheren eraussichen.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Titel</string>
   <string name="reading_lists_preview_save_dialog_cancel">Ofbriechen</string>
   <string name="reading_lists_preview_save_dialog_save">Späicheren</string>
@@ -630,6 +643,7 @@
   <string name="preference_title_notification_email_user">E-Mail kritt</string>
   <string name="preference_summary_notification_email_user">Et huet een Iech eng E-Mail iwwer d\'Wiki geschéckt</string>
   <string name="preference_title_notification_user_rights">Ännerunge vun de Benotzerrechter</string>
+  <string name="preference_title_notification_article_linked">Linken op Artikelen, déi Dir ugeluecht hutt</string>
   <string name="preference_title_hide_read_notifications">Notifikatioune verstoppen</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notifikatioune vu Wikipedia</string>
@@ -853,6 +867,8 @@
   <string name="image_recommendation_reject_subtitle">Är Äntwerte wäerten zukünfteg Virschléi besser maachen.</string>
   <string name="image_recommendation_reject_not_relevant">D\'Bild ass net relevant</string>
   <string name="image_recommendation_reject_no_info">Net genuch Informatioune fir ze decidéieren</string>
+  <string name="image_recommendation_reject_low_quality">Bild huet eng niddreg Qualitéit</string>
+  <string name="image_recommendation_reject_other">Anerer</string>
   <string name="image_recommendation_onboarding_1">Biller hëllefen de Leit beim Verstoen, mee vill Artikelen hunn der keng.</string>
   <string name="file_page_edit_button_content_description">%s änneren</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
@@ -1133,6 +1149,7 @@
   <string name="talk_templates_edit_message_updated">Message gouf aktualiséiert</string>
   <string name="talk_templates_edit_message_delete_description" fuzzy="true">Sidd Dir sécher, datt Dir dëse(n) %s-Message vun der Lëscht läsche wëllt?</string>
   <string name="talk_templates_message_deleted">Message gouf geläscht</string>
+  <string name="talk_templates_message_title_empty">Den Titel däerf net eidel sinn.</string>
   <string name="patroller_tasks_edits_list_title">Lëscht vun Ännerungen</string>
   <string name="patroller_tasks_edits_list_search_hint">Ännerungen duerchsichen oder filteren</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benotzersäit weisen</string>

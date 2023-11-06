@@ -286,6 +286,7 @@
   <string name="edit_redo">ביצוע חוזר</string>
   <string name="edit_rollback">שחזור</string>
   <string name="edit_warn">אזהרה</string>
+  <string name="edit_damage">נזק %s</string>
   <string name="edit_intent">כוונה %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">בית אחד</item>
@@ -405,7 +406,7 @@
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
   <string name="preference_title_collapse_tables">מזעור טבלאות</string>
   <string name="preference_summary_collapse_tables">מזעור אוטומטי של טבלאות בערכים, כגון תיבות מידע, מקורות, והערות שוליים.</string>
-  <string name="nav_item_donate">תרומה</string>
+  <string name="nav_item_donate">לתרום</string>
   <string name="error_voice_search_not_available">מצטערים, זיהוי קולי אינו זמין.</string>
   <string name="location_service_disabled">שירותי המיקום כבויים.</string>
   <string name="enable_location_service">הפעלה</string>
@@ -1561,8 +1562,9 @@
   <string name="talk_templates_edit_message_dialog_save">שמירה</string>
   <string name="talk_templates_edit_message_dialog_delete">מחיקה</string>
   <string name="talk_templates_edit_message_updated">ההודעה עודכנה</string>
-  <string name="talk_templates_edit_message_delete_description" fuzzy="true">האם ברצונך באמת למחוק את ההודעה %s מהרשימה?</string>
+  <string name="talk_templates_edit_message_delete_description">האם ברצונך באמת למחוק את ההודעה \"%s\" מהרשימה?</string>
   <string name="talk_templates_message_deleted">ההודעה נמחקה</string>
+  <string name="talk_templates_message_title_empty">הכותרת לא יכולה להיות ריקה.</string>
   <string name="patroller_tasks_edits_list_title">רשימת עריכות</string>
   <string name="patroller_tasks_edits_list_search_hint">חיפוש או סינון של עריכות</string>
   <string name="patroller_tasks_edits_list_card_tags_text">תגים: %s</string>

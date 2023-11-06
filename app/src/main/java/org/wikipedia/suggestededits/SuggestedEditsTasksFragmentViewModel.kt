@@ -37,6 +37,8 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
     var revertSeverity = 0
 
     var wikiSupportsImageRecommendations = false
+    // TODO: remove this limitation later.
+    var allowToPatrolEdits = false
 
     fun fetchData() {
         _uiState.value = UiState.Loading()
@@ -78,6 +80,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             wikiSupportsImageRecommendations = true
 
             homeSiteResponse.query?.userInfo?.let {
+                allowToPatrolEdits = it.rights.contains("rollback") || it.groups().contains("sysop")
                 if (it.isBlocked) {
                     blockMessageWikipedia = ThrowableUtil.getBlockMessageHtml(it, WikipediaApp.instance.wikiSite)
                 }

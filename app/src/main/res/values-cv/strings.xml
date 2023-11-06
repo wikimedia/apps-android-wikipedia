@@ -58,10 +58,10 @@
   <string name="page_edit_history_filter_by_bot">Ботсен тӳрлетӗвӗсем (%s)</string>
   <string name="page_edit_history_metrics_content_description">%1$s пуҫласа %2$s таран метрикӑсем</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="one">%2$s ҫултанпа тунӑ %1$d тӳрлетӳ}</item>
-    <item quantity="few">%2$s ҫултанпа тунӑ %1$d тӳрлетӳ}</item>
-    <item quantity="many">%2$s ҫултанпа тунӑ %1$d тӳрлетӳ}</item>
-    <item quantity="other">%2$s ҫултанпа тунӑ %1$d тӳрлетӳ}</item>
+    <item quantity="one">%2$s ҫултанпа тунӑ %1$d тӳрлетӳ</item>
+    <item quantity="few">%2$s ҫултанпа тунӑ %1$d тӳрлетӳ</item>
+    <item quantity="many">%2$s ҫултанпа тунӑ %1$d тӳрлетӳ</item>
+    <item quantity="other">%2$s ҫултанпа тунӑ %1$d тӳрлетӳ</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%2$s вӑхӑтранпа тунӑ %1$d тӳрлетӳ (%3$s)</item>

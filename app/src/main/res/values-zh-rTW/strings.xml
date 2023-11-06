@@ -289,6 +289,7 @@
   <string name="edit_redo">重做</string>
   <string name="edit_rollback">回退</string>
   <string name="edit_warn">警告</string>
+  <string name="edit_damage">破壞：%s</string>
   <string name="edit_intent">意圖：%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s 位元組</item>
@@ -1484,7 +1485,7 @@
   <string name="talk_templates_edit_message_dialog_save">儲存</string>
   <string name="talk_templates_edit_message_dialog_delete">刪除</string>
   <string name="talk_templates_edit_message_updated">訊息已更新</string>
-  <string name="talk_templates_edit_message_delete_description" fuzzy="true">您確定要從清單中刪除這則「%s」訊息嗎？</string>
+  <string name="talk_templates_edit_message_delete_description">您確定要從清單中刪除這則「%s」訊息嗎？</string>
   <string name="talk_templates_message_deleted">訊息已刪除</string>
   <string name="patroller_tasks_edits_list_title">編輯清單</string>
   <string name="patroller_tasks_edits_list_search_hint">搜尋或篩選編輯</string>
@@ -1560,17 +1561,27 @@
   <string name="patroller_tasks_overflow_report">功能問題</string>
   <string name="patroller_tasks_overflow_learn">了解更多</string>
   <string name="patroller_onboarding_one_title">為維基百科編輯的監督和核准做出貢獻。</string>
+  <string name="patroller_onboarding_one_content">透過積極審查最近編輯的提要，並對其他編輯內容提供指導、品質控制與鼓勵，來提高維基百科內容的品質。</string>
   <string name="patroller_onboarding_two_title">提供意見回饋、監控編輯，並在差異畫面上採取操作</string>
   <string name="patroller_onboarding_two_thank_title">感謝</string>
+  <string name="patroller_onboarding_two_thank_content">有看到優質內容的編輯嗎？來對使用者感謝他們的貢獻。</string>
   <string name="patroller_onboarding_two_watch_title">監視</string>
   <string name="patroller_onboarding_two_watch_content">想要追蹤條目的編輯嗎？添加到您的監視清單。在「更多」下方查看。</string>
   <string name="patroller_onboarding_two_warn_title">警告</string>
   <string name="patroller_onboarding_two_warn_content">在編輯者的討論頁面上建立、發送，和儲存警告訊息。</string>
+  <string name="patroller_onboarding_two_undo_title">撤銷/回退</string>
+  <string name="patroller_onboarding_two_undo_content">選擇「撤銷」以撤銷或回退可能帶有破壞性的編輯。</string>
+  <string name="patroller_onboarding_three_title">發送匿名資料</string>
+  <string name="patroller_onboarding_three_content">請讓我們了解您是如何使用它，以讓功能變得更好。另外資料的收集都是採用匿名方式。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="patroller_onboarding_three_switch">發送使用報告</string>
+  <string name="patroller_diff_tooltip_one">破壞預測編輯是否有對 wiki 造成破壞。</string>
+  <string name="patroller_diff_tooltip_two">意圖預測保存的編輯是出自善意的可能性。</string>
   <string name="patroller_diff_feedback_dialog_title">幫助我們改善這個功能</string>
   <string name="patroller_diff_feedback_dialog_message">您滿意這個功能嗎？</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">滿意</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">普通</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">不滿意</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">我們如何改進功能？</string>
   <string name="patroller_diff_feedback_dialog_input_hint">意見回饋</string>
   <string name="patroller_diff_feedback_dialog_submit">提交</string>
   <string name="patroller_diff_feedback_submitted_snackbar">意見回饋提交成功。</string>
