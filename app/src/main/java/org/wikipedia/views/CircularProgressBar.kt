@@ -7,7 +7,7 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.ColorInt
-import androidx.core.content.withStyledAttributes
+import androidx.core.content.res.use
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -21,17 +21,19 @@ class CircularProgressBar constructor(context: Context, attrs: AttributeSet? = n
     private var maxProgressValue = MAX_PROGRESS.toDouble()
 
     init {
-        var progressColor = ResourceUtil.getThemedColor(getContext(), R.attr.progressive_color)
-        var progressBackgroundColor = ResourceUtil.getThemedColor(getContext(), R.attr.placeholder_color)
-        var progressStrokeWidth = DimenUtil.dpToPx(DEFAULT_STROKE_WIDTH_DP.toFloat()).toInt()
-        if (attrs != null) {
-            context.withStyledAttributes(attrs, R.styleable.CircularProgressBar) {
-                progressColor = getColor(R.styleable.CircularProgressBar_progressColor, progressColor)
-                progressBackgroundColor = getColor(R.styleable.CircularProgressBar_progressBackgroundColor, progressBackgroundColor)
-                progressStrokeWidth = getDimensionPixelSize(R.styleable.CircularProgressBar_progressStrokeWidth, progressStrokeWidth)
-                maxProgressValue = getInt(R.styleable.CircularProgressBar_maxProgress, MAX_PROGRESS).toDouble()
+        val (progressColor, progressBackgroundColor, progressStrokeWidth) = context
+            .obtainStyledAttributes(attrs, R.styleable.CircularProgressBar)
+            .use {
+                maxProgressValue = it.getInt(R.styleable.CircularProgressBar_maxProgress, MAX_PROGRESS).toDouble()
+                Triple(
+                    it.getColor(R.styleable.CircularProgressBar_progressColor,
+                        ResourceUtil.getThemedColor(context, R.attr.progressive_color)),
+                    it.getColor(R.styleable.CircularProgressBar_progressBackgroundColor,
+                        ResourceUtil.getThemedColor(context, R.attr.placeholder_color)),
+                    it.getDimensionPixelSize(R.styleable.CircularProgressBar_progressStrokeWidth,
+                        DimenUtil.dpToPx(DEFAULT_STROKE_WIDTH_DP).toInt())
+                )
             }
-        }
         progressPaint.strokeWidth = progressStrokeWidth.toFloat()
         progressPaint.style = Paint.Style.FILL
         progressPaint.color = progressColor
@@ -128,7 +130,7 @@ class CircularProgressBar constructor(context: Context, attrs: AttributeSet? = n
         private const val PROGRESS_START_ANGLE = 270
         private const val PROGRESS_BACKGROUND_MIN_ANGLE = 0
         private const val PROGRESS_BACKGROUND_MAX_ANGLE = 360
-        private const val DEFAULT_STROKE_WIDTH_DP = 0
+        private const val DEFAULT_STROKE_WIDTH_DP = 0f
         const val MIN_PROGRESS = 5
         const val MAX_PROGRESS = 100
     }

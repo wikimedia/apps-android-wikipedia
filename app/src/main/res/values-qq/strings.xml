@@ -1551,11 +1551,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Title of the patrol edit screen.</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Menu text of the overflow menu that shows the article edit history.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Title of the undo dialog.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Title of the undo confirmation dialog.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Message of the undo dialog.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Hint text of the undo dialog.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Helper text of the undo dialog.</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Snackbar text that indicates the undo process has succeeded.</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Title of the rollback dialog</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Snackbar text that indicates the rollback process has succeeded.</string>
@@ -1573,9 +1568,6 @@
   <string name="patroller_onboarding_two_warn_content">Content of the warn section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_undo_title">Title of the undo/rollback section of the second patroller tasks onboarding screen.</string>
   <string name="patroller_onboarding_two_undo_content">Content of the undo/rollback section of the second patroller tasks onboarding screen.</string>
-  <string name="patroller_onboarding_three_title">Title of the third patroller tasks onboarding screen.</string>
-  <string name="patroller_onboarding_three_content">Content of the third patroller tasks onboarding screen.</string>
-  <string name="patroller_onboarding_three_switch">Text of the switch on the third patroller tasks on boarding screen</string>
   <string name="patroller_diff_tooltip_one">Text of the first tooltip for patrol edit diff screen.</string>
   <string name="patroller_diff_tooltip_two">Text of the second tooltip for patrol edit diff screen.</string>
   <string name="patroller_diff_feedback_dialog_title">Dialog title for the feedback form in the patrol edit screen.</string>

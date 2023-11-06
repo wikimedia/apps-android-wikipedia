@@ -114,6 +114,8 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
                 requestManageTalkTemplate.launch(TalkTemplatesActivity.newIntent(this))
             }
             FeedbackUtil.setButtonLongPressToast(binding.talkTemplateButton)
+        } else {
+            binding.talkTemplateContainer.isVisible = false
         }
 
         linkHandler = TalkLinkHandler(this)
