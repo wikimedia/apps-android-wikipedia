@@ -1547,11 +1547,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Kolluk değişikliği</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Madde düzenleme geçmişi</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Bu değişiklik geri alınsın mı?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Bu değişikliği geri almak istediğinizden emin misiniz?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Geri alma, bir ya da daha fazla değişikliğin etkilerinin geri alınması anlamına gelir.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Özet (isteğe bağlı)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Geri alma nedenini paylaşın</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Geri alma tamamlandı</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Geri dönmek istediğinizden emin misiniz?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Geri dönüm tamamlandı</string>

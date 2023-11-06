@@ -1587,7 +1587,6 @@
   <string name="patroller_tasks_filters_user_intent_bad">Скорее всего недобросовестные</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Максимально точен в поиске очевидно недобросовестных правок.</string>
   <string name="patroller_tasks_patrol_edit_title">Отпатрулировать правку</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Отменить эту правку?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Откат завершён</string>
   <string name="patroller_tasks_overflow_learn">Узнать больше</string>
   <string name="patroller_diff_feedback_dialog_message">Вы довольны этой функцией?</string>
