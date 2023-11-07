@@ -106,18 +106,29 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         wrapped?.skippedEntity(name)
     }
 
-    class CustomTagHandler(private val view: TextView?, private val hasMinImageSize: Boolean = true) : TagHandler {
+    class CustomTagHandler(private val view: TextView?, private val noSmallSizeImage: Boolean = true) : TagHandler {
         private var lastAClass = ""
 
         override fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean {
             if (tag == "img" && view == null) {
                 return true
             } else if (tag == "img" && opening && view != null) {
-                var imgWidth = DimenUtil.htmlPxToInt(getValue(attributes, "width").orEmpty())
-                var imgHeight = DimenUtil.htmlPxToInt(getValue(attributes, "height").orEmpty())
+                var imgWidthStr = getValue(attributes, "width").orEmpty()
+                var imgHeightStr = getValue(attributes, "height").orEmpty()
+                val styleStr = getValue(attributes, "style").orEmpty()
+                val widthRegex = "width:\\s*([\\d.]+)\\w{2}".toRegex()
+                if (imgWidthStr.isEmpty()) {
+                    imgWidthStr = widthRegex.find(styleStr)?.value.orEmpty().replace("width:", "")
+                }
+                val heightRegex = "height:\\s*([\\d.]+)\\w{2}".toRegex()
+                if (imgHeightStr.isEmpty()) {
+                    imgHeightStr = heightRegex.find(styleStr)?.value.orEmpty().replace("height:", "")
+                }
+                var imgWidth = DimenUtil.htmlUnitToPxInt(imgWidthStr)
+                var imgHeight = DimenUtil.htmlUnitToPxInt(imgHeightStr)
                 val imgSrc = getValue(attributes, "src").orEmpty()
 
-                if (hasMinImageSize && (imgWidth < MIN_IMAGE_SIZE || imgHeight < MIN_IMAGE_SIZE)) {
+                if (noSmallSizeImage && (imgWidth < MIN_IMAGE_SIZE || imgHeight < MIN_IMAGE_SIZE)) {
                     return true
                 }
 

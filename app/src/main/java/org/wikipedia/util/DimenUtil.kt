@@ -78,13 +78,17 @@ object DimenUtil {
     private val resources: Resources
         get() = WikipediaApp.instance.resources
 
-    fun htmlPxToInt(str: String): Int {
+    fun htmlUnitToPxInt(str: String): Int {
         try {
-            return if (str.contains("px")) {
-                str.replace("px", "").toInt()
-            } else {
-                str.toInt()
+            val unitRegex = "[A-Za-z]{2}".toRegex()
+            val unit = unitRegex.find(str)?.value.orEmpty()
+            var value = str.replace(unit, "").toFloat().toInt()
+            if (unit == "ex") {
+                value *= 6
+            } else if (unit == "em") {
+                value *= 10
             }
+            return value
         } catch (e: Exception) {
             L.e(e)
         }
