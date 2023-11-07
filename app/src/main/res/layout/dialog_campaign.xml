@@ -39,6 +39,12 @@
 
         </ScrollView>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="-20dp"
+            android:background="@drawable/gradient_white_background" />
+
         <LinearLayout
             android:id="@+id/buttonsContainer"
             android:layout_width="match_parent"
