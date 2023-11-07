@@ -23,7 +23,6 @@ import androidx.core.text.toSpanned
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import org.wikipedia.R
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.DimenUtil
@@ -107,7 +106,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         wrapped?.skippedEntity(name)
     }
 
-    class CustomTagHandler(private val view: TextView?) : TagHandler {
+    class CustomTagHandler(private val view: TextView?, private val hasMinImageSize: Boolean = true) : TagHandler {
         private var lastAClass = ""
 
         override fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean {
@@ -118,7 +117,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 var imgHeight = DimenUtil.htmlPxToInt(getValue(attributes, "height").orEmpty())
                 val imgSrc = getValue(attributes, "src").orEmpty()
 
-                if (imgWidth < MIN_IMAGE_SIZE || imgHeight < MIN_IMAGE_SIZE) {
+                if (hasMinImageSize && (imgWidth < MIN_IMAGE_SIZE || imgHeight < MIN_IMAGE_SIZE)) {
                     return true
                 }
 
@@ -147,6 +146,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                         Glide.with(view)
                             .asBitmap()
                             .load(uri)
+                            .transform(WhiteBackgroundTransformation())
                             .into(object : CustomTarget<Bitmap>() {
                                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                                     if (!drawable.bitmap.isRecycled) {
@@ -220,7 +220,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         private const val MIN_IMAGE_SIZE = 64
         private val contextBmpMap = mutableMapOf<Context, MutableMap<String, BitmapDrawable>>()
 
-        fun fromHtml(html: String?, view: TextView? = null): Spanned {
+        fun fromHtml(html: String?, view: TextView? = null, hasMinImageSize: Boolean = true): Spanned {
             var sourceStr = html.orEmpty()
 
             if ("<" !in sourceStr && "&" !in sourceStr) {
@@ -239,7 +239,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
             // This would become something like "<inject/>$sourceStr".parseAsHtml(...)
             return sourceStr.parseAsHtml(HtmlCompat.FROM_HTML_MODE_LEGACY,
                 if (view == null) null else CustomImageGetter(view.context),
-                CustomHtmlParser(CustomTagHandler(view)))
+                CustomHtmlParser(CustomTagHandler(view, hasMinImageSize)))
         }
 
         fun pruneBitmaps(context: Context) {
