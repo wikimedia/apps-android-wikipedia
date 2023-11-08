@@ -172,6 +172,11 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                                         view.postInvalidate()
                                     }
                                 }
+
+                                override fun onLoadFailed(errorDrawable: Drawable?) {
+                                    L.d("CustomTagHandler onLoadFailed")
+                                    super.onLoadFailed(errorDrawable)
+                                }
                                 override fun onLoadCleared(placeholder: Drawable?) { }
                             })
                     }
