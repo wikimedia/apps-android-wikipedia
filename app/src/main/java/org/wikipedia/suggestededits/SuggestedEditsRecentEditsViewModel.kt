@@ -21,9 +21,9 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
 import retrofit2.HttpException
 import java.io.IOException
-import java.time.Duration
-import java.util.Calendar
-import java.util.Date
+import java.time.Instant
+import java.time.LocalDate
+import java.time.temporal.ChronoUnit
 import kotlin.math.max
 
 class SuggestedEditsRecentEditsViewModel : ViewModel() {
@@ -52,13 +52,13 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                         it.title.contains(currentQuery, true) ||
                         it.user.contains(currentQuery, true) ||
                         it.joinedTags.contains(currentQuery, true) ||
-                        it.parsedDateTime.toString().contains(currentQuery, true)
+                        it.localDateTime.toString().contains(currentQuery, true)
             } else true
         }.map {
             RecentEditsItem(it)
         }.insertSeparators { before, after ->
-            val dateBefore = before?.item?.parsedDateTime?.toLocalDate()
-            val dateAfter = after?.item?.parsedDateTime?.toLocalDate()
+            val dateBefore = before?.item?.localDateTime?.toLocalDate()
+            val dateAfter = after?.item?.localDateTime?.toLocalDate()
             if (dateAfter != null && dateAfter != dateBefore) {
                 RecentEditsSeparator(DateUtil.getShortDateString(dateAfter))
             } else {
@@ -109,11 +109,9 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     class RecentEditsSeparator(val date: String) : RecentEditsItemModel()
 
     companion object {
-
         suspend fun getRecentEditsCall(wikiSite: WikiSite, count: Int, continueStr: String? = null, userInfoCache: MutableList<UserInfo>): Pair<List<MwQueryResult.RecentChange>, String?> {
-
             val response = ServiceFactory.get(wikiSite)
-                .getRecentEdits(count, Date().toInstant().toString(), latestRevisions(), showCriteriaString(), continueStr)
+                .getRecentEdits(count, Instant.now().toString(), latestRevisions(), showCriteriaString(), continueStr)
 
             // Filtering Ores damaging and goodfaith
             val recentChanges = filterOresScores(filterOresScores(response.query?.recentChanges.orEmpty(), true), false)
@@ -216,7 +214,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     var qualifiedUser = false
                     userInfo?.let {
                         val editsCount = userInfo.editCount
-                        val diffDays = diffDays(userInfo.registrationDate)
+                        val diffDays = userInfo.registrationDate.until(LocalDate.now(), ChronoUnit.DAYS)
                         findUserExperienceFilters.forEach { type ->
                             val userExperienceArray = type.value.split("|")
                             val requiredEdits = userExperienceArray.first().split(",")
@@ -289,12 +287,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 }
             }
             return recentChanges
-        }
-
-        private fun diffDays(date: Date): Long {
-            val nowDate = Calendar.getInstance().toInstant()
-            val beginDate = date.toInstant()
-            return Duration.between(beginDate, nowDate).toDays()
         }
     }
 }
