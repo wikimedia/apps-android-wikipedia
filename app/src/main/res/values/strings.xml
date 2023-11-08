@@ -268,6 +268,9 @@
     <string name="edit_undo">Undo</string>
     <string name="edit_redo">Redo</string>
     <string name="edit_rollback">Rollback</string>
+    <string name="edit_warn">Warn</string>
+    <string name="edit_damage">Damage %s</string>
+    <string name="edit_intent">Intent %s</string>
     <plurals name="edit_diff_bytes">
         <item quantity="one">%s byte</item>
         <item quantity="other">%s bytes</item>
@@ -922,6 +925,9 @@
     <string name="suggested_edits_describe_articles">Describe articles</string>
     <string name="suggested_edits_caption_images">Caption images</string>
     <string name="suggested_edits_tag_images">Tag images</string>
+    <string name="suggested_edits_edit_patrol">Edit patrol</string>
+    <string name="suggested_edits_edit_patrol_hint">Review recent edits and determine whether they are constructive or not.</string>
+    <string name="suggested_edits_edit_patrol_review">Review</string>
     <string name="suggested_edits_review_description">Review article description</string>
     <string name="suggested_edits_add_description_button">Add description</string>
     <string name="suggested_edits_edit_description_button">Edit description</string>
@@ -1041,7 +1047,7 @@
     <string name="suggested_edits_ip_blocked_title">IP blocked</string>
     <string name="suggested_edits_last_edited">Last edited</string>
     <string name="suggested_edits_last_edited_never">Never</string>
-    <string name="suggested_edits_task_new">new</string>
+    <string name="suggested_edits_task_new">New</string>
     <string name="suggested_edits_cc0_notice"><![CDATA[By publishing, you agree to the <a href="%1$s">terms of use</a> and to irrevocably release this contribution under the <a href="%2$s">CC0 license</a>.]]></string>
     <string name="suggested_edits_reactivation_notification_title">Suggested edits</string>
     <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue where you left off?</string>
@@ -1120,8 +1126,12 @@
     <string name="image_recommendation_tooltip_3">Decide if the image helps readers understand this topic better</string>
     <string name="image_recommendation_tooltip_next">Next</string>
     <string name="image_recommendation_tooltip_warning">Please review the article to understand its topic and inspect the image</string>
+    <string name="image_recommendation_depleted"><![CDATA[Sorry, there are no more suggested images available at this time. Please explore other <a href="#">suggested edits</a> or return later.]]></string>
+    <string name="suggested_edits_report_feature">Problem with feature</string>
+    <string name="suggested_edits_report_feature_subject">Problem with Suggested Edits</string>
     <string name="edit_summary_added_image">Added image</string>
     <string name="edit_summary_added_caption">Added caption</string>
+    <string name="edit_summary_added_image_and_caption">Added image and caption</string>
     <string name="edit_published_view">View</string>
     <!-- /Suggested edits -->
 
@@ -1247,6 +1257,7 @@
     <string name="wikitext_template">Template</string>
     <string name="wikitext_reference">Reference</string>
     <string name="wikitext_preview_link">Preview link</string>
+    <string name="wikitext_mention_user">Mention a user</string>
 
     <!-- Insert media -->
     <string name="insert_media_title">Insert media</string>
@@ -1296,6 +1307,18 @@
     <string name="talk_user_title">Talk: %s</string>
     <string name="talk_new_topic">New topic</string>
     <string name="talk_new_topic_submitted">Topic posted.</string>
+    <string name="talk_warn">Warn</string>
+    <string name="talk_warn_save_dialog_title">Save changes?</string>
+    <string name="talk_warn_save_dialog_message">Save as a new message</string>
+    <string name="talk_warn_save_dialog_existing_new_message">Save as a new message to the list</string>
+    <string name="talk_warn_save_dialog_existing_update_message">Update existing message</string>
+    <string name="talk_warn_save_dialog_hint">Message title</string>
+    <string name="talk_warn_save_dialog_publish">Publish</string>
+    <string name="talk_warn_save_dialog_cancel">Cancel</string>
+    <string name="talk_warn_submitted">Message published to editor\'s user talk page</string>
+    <string name="talk_warn_submitted_and_saved">Message saved and published to editor\'s user talk page</string>
+    <string name="talk_warn_saved_message">Select an existing warning message or compose a new message.</string>
+    <string name="talk_warn_saved_message_dropdown">Saved messages</string>
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_page_empty_title">The conversation starts here</string>
     <string name="talk_page_empty_content">Talk pages are where people discuss how to make Wikipedia content the best it can be. Start by adding a new discussion topic to connect and collaborate with a community of Wikipedians.</string>
@@ -1383,9 +1406,10 @@
     <string name="revision_diff_paragraph_added">Paragraph added</string>
     <string name="revision_diff_paragraph_removed">Paragraph removed</string>
     <string name="revision_diff_protected">The changes made in this revision are not publicly accessible.</string>
-    <string name="revision_undo_title">Undo edit</string>
-    <string name="revision_undo_message">This will undo the changes made by the revision(s) of the article shown here.</string>
-    <string name="revision_undo_reason">To continue, please provide a reason for undoing this edit:</string>
+    <string name="revision_undo_title">Are you sure you want to undo this edit?</string>
+    <string name="revision_undo_message">Undoing means reverting the effects of one or more edits.</string>
+    <string name="revision_undo_summary_hint">Summary (optional)</string>
+    <string name="revision_undo_reason">Share the reason for the revert</string>
     <string name="revision_undo_success">The revision was undone.</string>
     <string name="revision_rollback_dialog_title">Are you sure you want to rollback the edits?</string>
     <string name="revision_rollback_success">Edits reverted.</string>
@@ -1510,9 +1534,135 @@
     <string name="reading_list_share_survey_body">\"Share reading lists\" is a test feature and we need your feedback to improve or remove it.</string>
     <!-- /Shareable reading lists -->
 
+    <!-- Patroller task -->
+    <string name="talk_templates_manage_title">Manage templates</string>
+    <string name="talk_templates_empty_message">You do not have any warning messages saved.</string>
+    <string name="talk_templates_new_message_title">New message</string>
+    <string name="talk_templates_new_message_description">Compose warning message.</string>
+    <string name="talk_templates_new_message_subject_hint">Subject</string>
+    <string name="talk_templates_new_message_compose_hint">Compose message</string>
+    <string name="talk_templates_new_message_save">Save</string>
+    <string name="talk_templates_new_message_dialog_title">Save changes</string>
+    <string name="talk_templates_new_message_dialog_description">Add title and save message.</string>
+    <string name="talk_templates_new_message_dialog_hint">Message title</string>
+    <string name="talk_templates_new_message_dialog_save">Save</string>
+    <string name="talk_templates_new_message_dialog_cancel">Cancel</string>
+    <string name="talk_templates_new_message_dialog_exists">Template \"%s\" already exists.</string>
+    <string name="talk_templates_new_message_saved">Message has been saved</string>
+    <string name="talk_templates_edit_message_dialog_title">Edit message</string>
+    <string name="talk_templates_edit_message_dialog_save">Save</string>
+    <string name="talk_templates_edit_message_dialog_delete">Delete</string>
+    <string name="talk_templates_edit_message_updated">Message has been updated</string>
+    <string name="talk_templates_edit_message_delete_description">Are you sure you want to delete this \"%s\" message from the list?</string>
+    <string name="talk_templates_message_deleted">Message has been deleted</string>
+    <string name="talk_templates_message_title_empty">The title cannot be empty.</string>
+    <string name="patroller_tasks_edits_list_title">List of edits</string>
+    <string name="patroller_tasks_edits_list_search_hint">Search or filter edits</string>
+    <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
+    <string name="patroller_tasks_edits_list_card_tags_text_none">None</string>
+    <string name="patroller_tasks_edits_list_card_overflow_view_user_page">View user page</string>
+    <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">View talk page</string>
+    <string name="patroller_tasks_edits_list_card_overflow_user_information">User information</string>
+    <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">View user contributions</string>
+    <string name="patroller_tasks_edits_list_card_overflow_thank">Thank</string>
+    <string name="patroller_tasks_edits_list_user_information_dialog_title">User information</string>
+    <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text"><![CDATA[<b>Account from: </b> %s]]></string>
+    <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text"><![CDATA[<b>Edit count: </b> %s]]></string>
+    <string name="patroller_tasks_edits_list_user_information_dialog_close">Close</string>
+    <string name="patroller_tasks_filters_title">Filters</string>
+    <string name="patroller_tasks_filters_reset">Reset</string>
+    <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+    <string name="patroller_tasks_filters_all_text">All</string>
+    <string name="patroller_tasks_filters_user_status_header">User registration and experience</string>
+    <string name="patroller_tasks_filters_user_status_unregistered">Unregistered</string>
+    <string name="patroller_tasks_filters_user_status_unregistered_desc">Editors who aren\'t logged-in.</string>
+    <string name="patroller_tasks_filters_user_status_registered">Registered</string>
+    <string name="patroller_tasks_filters_user_status_registered_desc">Logged-in editors.</string>
+    <string name="patroller_tasks_filters_user_status_newcomers">Newcomers</string>
+    <string name="patroller_tasks_filters_user_status_newcomers_desc">Registered editors who have fewer than 10 edits of 4 days of activity.</string>
+    <string name="patroller_tasks_filters_user_status_learners">Learners</string>
+    <string name="patroller_tasks_filters_user_status_learners_desc">Registered editors whose experience falls between \"Newcomers\" and \"Experienced users\".</string>
+    <string name="patroller_tasks_filters_user_status_experienced">Experienced users</string>
+    <string name="patroller_tasks_filters_user_status_experienced_desc">Registered editors with more than 500 edits and 30 days of activity.</string>
+    <string name="patroller_tasks_filters_latest_revisions_header">Latest revisions</string>
+    <string name="patroller_tasks_filters_latest_revisions_latest_revision">Latest revision</string>
+    <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Not the latest revision</string>
+    <string name="patroller_tasks_filters_automated_contributions_header">Automated contributions</string>
+    <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+    <string name="patroller_tasks_filters_automated_contributions_human">Human (not bot)</string>
+    <string name="patroller_tasks_filters_significance_header">Significance</string>
+    <string name="patroller_tasks_filters_significance_minor">Minor edits</string>
+    <string name="patroller_tasks_filters_significance_edits">Non-minor edits</string>
+    <string name="patroller_tasks_filters_contribution_quality_header">Contribution quality predictions</string>
+    <string name="patroller_tasks_filters_contribution_quality_good">Very likely good</string>
+    <string name="patroller_tasks_filters_contribution_quality_good_desc">Highly accurate at finding almost all problem-free edits.</string>
+    <string name="patroller_tasks_filters_contribution_quality_may_problems">May have problems</string>
+    <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Finds most flawed or damaging edits but with lower accuracy.</string>
+    <string name="patroller_tasks_filters_contribution_quality_likely_problems">Likely have problems</string>
+    <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">With medium accuracy, finds as intermediate fraction of problem edits.</string>
+    <string name="patroller_tasks_filters_contribution_quality_bad">Very likely have problems</string>
+    <string name="patroller_tasks_filters_contribution_quality_bad_desc">Very highly accurate at finding the most obviously flawed or damaging edits.</string>
+    <string name="patroller_tasks_filters_user_intent_header">User intent predictions</string>
+    <string name="patroller_tasks_filters_user_intent_good">Very likely good faith</string>
+    <string name="patroller_tasks_filters_user_intent_good_desc">Highly accurate at finding almost all good-faith edits.</string>
+    <string name="patroller_tasks_filters_user_intent_may_problems">May be bad faith</string>
+    <string name="patroller_tasks_filters_user_intent_may_problems_desc">Finds most bad-faith edits but with a lower accuracy.</string>
+    <string name="patroller_tasks_filters_user_intent_likely_problems">Likely bad faith</string>
+    <string name="patroller_tasks_filters_user_intent_likely_problems_desc">With medium accuracy, finds an intermediate fraction of bad-faith edits.</string>
+    <string name="patroller_tasks_filters_user_intent_bad">Very likely bad faith</string>
+    <string name="patroller_tasks_filters_user_intent_bad_desc">Very highly accurate at finding the most obvious bad-faith edits.</string>
+    <string name="patroller_tasks_filters_empty_search_message">Try removing %s to see more edits</string>
+    <plurals name="patroller_tasks_filters_number_of_filters">
+        <item quantity="one">%d filter</item>
+        <item quantity="other">%d filters</item>
+    </plurals>
+    <string name="patroller_tasks_patrol_edit_title">Patrol edit</string>
+    <string name="patroller_tasks_patrol_edit_overflow_edit_history">Article edit history</string>
+    <string name="patroller_tasks_patrol_edit_undo_success">Revert complete</string>
+    <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Are you sure you want to rollback?</string>
+    <string name="patroller_tasks_patrol_edit_rollback_success">Rollback complete</string>
+    <string name="patroller_tasks_patrol_edit_snackbar_view">View</string>
+    <string name="patroller_tasks_overflow_report">Problem with feature</string>
+    <string name="patroller_tasks_overflow_learn">Learn more</string>
+    <string name="patroller_onboarding_one_title">Contribute to the oversight and approval of Wikipedia edits.</string>
+    <string name="patroller_onboarding_one_content">Enhance the quality of Wikipedia content by actively reviewing a feed of recent edits and providing guidance, quality control, and encouragement to other editors.</string>
+    <string name="patroller_onboarding_two_title">Offer feedback, monitor edits, and take actions on the diff screen</string>
+    <string name="patroller_onboarding_two_thank_title">Thank</string>
+    <string name="patroller_onboarding_two_thank_content">See a productive edit? Thank a user for their contribution.</string>
+    <string name="patroller_onboarding_two_watch_title">Watch</string>
+    <string name="patroller_onboarding_two_watch_content">Want to track article edits? Add to your Watchlist. View it under \'More\'.</string>
+    <string name="patroller_onboarding_two_warn_title">Warn</string>
+    <string name="patroller_onboarding_two_warn_content">Create, send, and store warning messages on an editor\'s talk page.</string>
+    <string name="patroller_onboarding_two_undo_title">Undo/Rollback</string>
+    <string name="patroller_onboarding_two_undo_content">Choose \'Undo\' to undo or rollback a potentially destructive edit.</string>
+    <string name="patroller_diff_tooltip_one">Damage predicts if an edit causes damage to a wiki.</string>
+    <string name="patroller_diff_tooltip_two">Intent predicts likelihood of an edit being saved in good-faith.</string>
+    <string name="patroller_diff_feedback_dialog_title">Help us improve this feature</string>
+    <string name="patroller_diff_feedback_dialog_message">Are you satisfied with this feature?</string>
+    <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfied</string>
+    <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
+    <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unsatisfied</string>
+    <string name="patroller_diff_feedback_dialog_feedback_title">How can we improve the feature?</string>
+    <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
+    <string name="patroller_diff_feedback_dialog_submit">Submit</string>
+    <string name="patroller_diff_feedback_submitted_snackbar">Feedback submitted.</string>
+    <string name="patroller_diff_feedback_tooltip">Tap on overflow menu to submit feedback anytime under \'Problem with feature\'.</string>
+
+    <!-- /Patroller task -->
+
     <string name="data_opt_in_accept">Accept</string>
     <string name="data_opt_in_reject">Reject</string>
     <string name="page_issues_title">Page issues</string>
     <string name="generic_release_notes">Minor bug fixes and enhancements</string>
+    <string name="email_report_image_recommendations_subject">Issue Report - Image Recommendations feature</string>
+    <string name="email_report_image_recommendations_body">I have encountered a problem with the Image Recommendations feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]</string>
+    <string name="email_report_patroller_tasks_subject">Issue Report- Edit Patrol Feature</string>
+    <string name="email_report_patroller_tasks_body">I have encountered a problem with the Edit Patrol Feature:\n- [Describe specific problem]\n\nThe behavior I would like to see is:\n- [Describe proposed solution]\n\n[Screenshots or Links]</string>
 
+    <!-- Donor experience -->
+    <string name="donation_campaign_maybe_later_snackbar">We will remind you again tomorrow.</string>
+    <string name="donation_campaign_donated_snackbar">Thank you, dear donor! Your generosity helps keep Wikipedia and its sister sites thriving.</string>
+    <string name="donation_campaign_go_back_button">Go back</string>
+    <string name="menu_single_webview_open_external">Open in system browser</string>
+    <!-- Donor experience -->
 </resources>

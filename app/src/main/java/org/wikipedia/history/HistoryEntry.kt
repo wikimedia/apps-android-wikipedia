@@ -13,14 +13,14 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.DateSerializer
 import org.wikipedia.page.PageTitle
 import org.wikipedia.parcel.DateParceler
-import java.util.*
+import java.util.Date
 
 @Serializable
 @Parcelize
 @TypeParceler<Date, DateParceler>()
 @Entity
-// TODO: change these properties back to val when HistoryEntry is no longer serializable. (i.e. when we update Tabs to be in the database instead of Prefs)
 class HistoryEntry(
+    // TODO: change these properties back to val when HistoryEntry is no longer serializable. (i.e. when we update Tabs to be in the database instead of Prefs)
     var authority: String = "",
     var lang: String = "",
     var apiTitle: String = "",
@@ -66,7 +66,6 @@ class HistoryEntry(
         const val SOURCE_MAIN_PAGE = 8
         const val SOURCE_DISAMBIG = 10
         const val SOURCE_READING_LIST = 11
-        const val SOURCE_FEED_CONTINUE_READING = 12
         const val SOURCE_FEED_BECAUSE_YOU_READ = 13
         const val SOURCE_FEED_MOST_READ = 14
         const val SOURCE_FEED_FEATURED = 15
@@ -81,7 +80,6 @@ class HistoryEntry(
         const val SOURCE_ON_THIS_DAY_ACTIVITY = 24
         const val SOURCE_NOTIFICATION = 25
         const val SOURCE_NOTIFICATION_SYSTEM = 26
-        const val SOURCE_FLOATING_QUEUE = 27
         const val SOURCE_EDIT_DESCRIPTION = 28
         const val SOURCE_WIDGET = 29
         const val SOURCE_SUGGESTED_EDITS = 30
@@ -94,5 +92,7 @@ class HistoryEntry(
         const val SOURCE_ARCHIVED_TALK = 37
         const val SOURCE_USER_CONTRIB = 38
         const val SOURCE_FILE_PAGE = 39
+        const val SOURCE_SINGLE_WEBVIEW = 40
+        const val SOURCE_SUGGESTED_EDITS_RECENT_EDITS = 41
     }
 }

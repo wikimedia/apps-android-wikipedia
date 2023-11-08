@@ -44,7 +44,6 @@
   <string name="edit_history_link_text">Talìa la crunuluggìa dî canciamenti</string>
   <string name="other_languages_indication_text">Leggi n n\'àutra lingua</string>
   <string name="language_count_link_text">Dispunìbbili n àutri %d lingui</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="preference_title_language">Lingui di Wikipedia</string>
   <string name="langlinks_filter_hint">Risciduta</string>
   <string name="langlinks_activity_title">Àutri lingui</string>
@@ -262,7 +261,7 @@
   </plurals>
   <string name="suggested_edits_learn_more">Àutri nfurmazzioni</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
-  <string name="suggested_edits_task_new">novu</string>
+  <string name="suggested_edits_task_new" fuzzy="true">novu</string>
   <string name="suggested_edits_contributions_screen_title">Cuntribbuti di %s</string>
   <string name="suggested_edits_contribution_language_label">Lingua</string>
   <string name="suggested_edits_contribution_type_label">Tipu di cuntribbutu</string>

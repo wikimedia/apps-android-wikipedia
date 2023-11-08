@@ -5,6 +5,7 @@
 * Fitoschido
 * Tokvo
 * Xuacu
+* YoaR
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -64,7 +65,6 @@
   <string name="map_view_link_text">Ver nun mapa</string>
   <string name="other_languages_indication_text">Lleer n\'otra llingua</string>
   <string name="language_count_link_text">Disponible\'n %d idiomes más</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les ediciones atribuiránse a la dirección IP del to preséu. Si &lt;a href=\"https://#login\"&gt;anicies sesión&lt;/a&gt;, tendrás más intimidá.</string>
   <string name="preference_title_language">Llingües de Wikipedia</string>
@@ -77,7 +77,7 @@
   <string name="edit_saved_successfully">Edición publicada</string>
   <string name="dialog_message_edit_failed">Falló la edición</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>
-  <string name="dialog_message_edit_failed_cancel">Encaboxar</string>
+  <string name="dialog_message_edit_failed_cancel">Zarrar</string>
   <string name="dialog_message_leaving_edit">Entá nun s\'espublizaron los cambeos. ¿De xuru que quies colar d\'esta páxina?</string>
   <string name="dialog_message_leaving_edit_leave">Colar</string>
   <string name="dialog_message_leaving_edit_stay">Quedar</string>
@@ -112,11 +112,11 @@
   <string name="preference_title_logout">Salir</string>
   <string name="toast_logout_complete">Desconeutáu</string>
   <string name="logout_prompt">Esto zarrará les sesiones en tolos preseos que la tengan aniciada. ¿Quies siguir?</string>
-  <string name="logout_dialog_cancel_button_text">Encaboxar</string>
+  <string name="logout_dialog_cancel_button_text">Zarrar</string>
   <string name="logged_out_in_background_title">Sesión acabada</string>
   <string name="logged_out_in_background_dialog">Finalizasti la sesión de Wikipedia. ¿Quiés volver a aniciar sesión nuevamente?</string>
   <string name="logged_out_in_background_login">Aniciar sesión</string>
-  <string name="logged_out_in_background_cancel">Encaboxar</string>
+  <string name="logged_out_in_background_cancel">Zarrar</string>
   <string name="history_empty_title">Nun hai artículos vistos recien</string>
   <string name="history_empty_message">Siguir lo que tuvisti lleyendo equí.</string>
   <string name="history_offline_articles_toast">Ye posible que dellos artículos del historial nun apaezan al tar ensin conexón.</string>
@@ -186,7 +186,6 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/ast</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bbiblioteques utilizaes</string>
@@ -350,8 +349,8 @@
   <string name="reading_list_create_new">Crear una nueva</string>
   <string name="reading_list_title_exists">La llista de llectura «%s» yá esiste.</string>
   <string name="reading_list_article_added_to_named">Añadióse %1$s a %2$s.</string>
-  <string name="reading_list_article_already_exists_message">¡Too correuto! %1$s yá contien %2$s.</string>
-  <string name="reading_list_articles_already_exist_message">¡Too correuto! %s yá contien tolos artículos.</string>
+  <string name="reading_list_article_already_exists_message">¡Too correuto! %1$s yá contién %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">¡Too correuto! %s yá contién tolos artículos.</string>
   <string name="reading_list_added_view_button">Ver llista</string>
   <string name="reading_list_sort">Ordenar</string>
   <string name="reading_list_sort_ellipsis">Ordenar por…</string>
@@ -402,7 +401,7 @@
   <string name="reading_list_delete_confirm">¿Tas seguru de que quies desaniciar %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Anicia sesión p\'activar la sincronización</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Anicia sesión pa permitir guardar les llistes de llectura na to cuenta.</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Encaboxar</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Zarrar</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aniciar sesión</string>
   <string name="reading_list_turned_sync_off_dialog_title">Ta desactivada la sincronización de la llista de llectura</string>
   <string name="reading_list_turned_sync_off_dialog_text">La sincronización de llistes de llectura ta desactivada na to cuenta, y los artículos guardaos n\'otros preseos yá nun tán guardándose. Activa la sincronización de llistes de llectura na Configuración.</string>
@@ -437,17 +436,17 @@
   <string name="reading_list_menu_last_sync">Última sincronización: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Aceutar</string>
   <string name="reading_list_delete_dialog_ok_button_text">Aceutar</string>
-  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Encaboxar</string>
-  <string name="reading_list_delete_dialog_cancel_button_text">Encaboxar</string>
-  <string name="reading_list_remove_from_offline_cancel_button_text">Encaboxar</string>
-  <string name="reading_list_download_using_mobile_data_cancel_button_text">Encaboxar</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Zarrar</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Zarrar</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Zarrar</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Zarrar</string>
   <string name="reading_list_split_dialog_ok_button_text">Aceutar</string>
   <string name="user_option_sync_label">Preferencies</string>
   <string name="notification_reverted_title">Edición revertida</string>
   <string name="notification_channel_description">Progresu de la descarga</string>
   <string name="notification_syncing_pause_button">Posar</string>
   <string name="notification_syncing_resume_button">Siguir</string>
-  <string name="notification_syncing_cancel_button">Encaboxar</string>
+  <string name="notification_syncing_cancel_button">Zarrar</string>
   <string name="notification_syncing_reading_list_channel_description">Progresu de sincronización de llistes de llectura</string>
   <string name="notification_many_unread">Tienes %d avisos ensin lleer</string>
   <plurals name="notification_channel_name">
@@ -553,10 +552,10 @@
   <string name="feed_empty_message">Nun hai nada na canal Esplorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Aceutar</string>
-  <string name="customize_lang_selection_dialog_cancel_button_text">Encaboxar</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Zarrar</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Personalizar la canal Esplorar&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Agora puedes esbillar lo que desees ver na to canal, y tamién dar prioridá a les tos tribes de conteníu favorites.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Aceutar</string>
-  <string name="feed_lang_selection_dialog_cancel_button_text">Encaboxar</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Zarrar</string>
   <string name="feed_accessibility_card_text">Llegasti a la fin de la canal.</string>
   <string name="feed_accessibility_card_load_more_button">Cargar más</string>
   <string name="description_edit_text_hint">Descripción del artículu</string>
@@ -575,7 +574,7 @@
   <string name="description_edit_add_image_caption">Añadir un pie d\'imaxe</string>
   <string name="description_edit_edit_image_caption">Editar un pie d\'imaxe</string>
   <string name="description_edit_translate_image_caption">Traducir un pie d\'imaxe</string>
-  <string name="description_edit_cancel_hint">Encaboxar</string>
+  <string name="description_edit_cancel_hint">Zarrar</string>
   <string name="description_edit_help_title">Información: descripciones d\'artículos</string>
   <string name="description_edit_help_about_wikidata">Tocante a Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Guía de Wikidata pa escribir descripciones</string>
@@ -707,7 +706,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">Última edición</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
-  <string name="suggested_edits_task_new">nueva</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nueva</string>
   <string name="suggested_edits_cc0_notice">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la &lt;a href=\"%2$s\"&gt;llicencia CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Ediciones suxeríes</string>
   <string name="suggested_edits_reactivation_notification_stage_one">¡Gracies por editar Wikipedia! ¿Cómo nun sigues onde lo dexasti?</string>
@@ -726,7 +725,7 @@
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">la to contribución paecía un esperimentu o vandalismu.</string>
   <string name="description_edit_revert_history">Si tas interesáu, consulta &lt;a href=\"%1$s\"&gt;l\'historial d\'ediciones&lt;/a&gt;.</string>
-  <string name="description_edit_login_cancel_button_text">Encaboxar</string>
+  <string name="description_edit_login_cancel_button_text">Zarrar</string>
   <string name="offline_read_permission_rationale">Ríquese permisu d\'accesu al almacenamientu del preséu pa restolar sin conexón.</string>
   <string name="offline_read_final_rationale">Ríquese permisu d\'accesu al almacenamientu del preséu pa usar la Biblioteca ensin conexón.</string>
   <string name="size_gb">%.2f GB</string>
@@ -781,14 +780,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Agora tienes definíos tanto\'l chinu tradicional como\'l simplificáu nos idiomes de l\'aplicación. ¿Anovar la configuración llingüística de la app?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Editar llingües</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Non, gracies</string>
-  <string name="remove_language_dialog_cancel_button_text">Encaboxar</string>
+  <string name="remove_language_dialog_cancel_button_text">Zarrar</string>
   <string name="remove_language_dialog_ok_button_text">Aceutar</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Aceutar</string>
   <string name="protected_page_warning_dialog_ok_button_text">Aceutar</string>
   <string name="account_editing_blocked_dialog_ok_button_text">Aceutar</string>
   <string name="edit_conflict_dialog_ok_button_text">Aceutar</string>
   <string name="reverted_edit_dialog_ok_button_text">Aceutar</string>
-  <string name="account_editing_blocked_dialog_cancel_button_text">Encaboxar</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Zarrar</string>
   <string name="content_description_for_page_indicator">Páxina %1$d de %2$d</string>
   <string name="wikitext_bold">Negrina</string>
   <string name="wikitext_italic">Cursiva</string>
@@ -804,10 +803,13 @@
   <string name="main_tooltip_action_button">Primeros pasos</string>
   <string name="custom_date_picker_dialog_ok_button_text">Aceutar</string>
   <string name="text_input_dialog_ok_button_text">Aceutar</string>
-  <string name="text_input_dialog_cancel_button_text">Encaboxar</string>
-  <string name="custom_date_picker_dialog_cancel_button_text">Encaboxar</string>
+  <string name="text_input_dialog_cancel_button_text">Zarrar</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Zarrar</string>
   <string name="talk_title">Alderique</string>
   <string name="watchlist_expiry_dialog_one_week">1 selmana</string>
   <string name="watchlist_filter_talk">Alderique</string>
   <string name="watchlist_filter_pages">Páxines</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Editores que nun tán coneutaos.</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Editores coneutaos.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Con precisión media, atopa un númberu intermediu d\'ediciones de mala fe.</string>
 </resources>

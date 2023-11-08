@@ -91,7 +91,7 @@
   <string name="map_view_link_text">ഭൂപടത്തിൽ കാണുക</string>
   <string name="other_languages_indication_text">മറ്റൊരു ഭാഷയിൽ വായിക്കുക</string>
   <string name="language_count_link_text">%d മറ്റ് ഭാഷകളിൽ ലഭ്യമാണ്</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">സി.സി. ബൈ-എസ്.എ. 3.0</string>
+  <string name="content_license_cc_by_sa">സി.സി. ബൈ-എസ്.എ. 4.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">പ്രസിദ്ധീകരിക്കുമ്പോൾ, \n&lt;a href=\"%1$s\"&gt;ഉപയോഗ നിബന്ധനകൾ&lt;/a&gt; പാലിക്കുമെന്നും, താങ്കൾ താങ്കളുടെ സംഭാവനകൾ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; പ്രകാരമാണ് പ്രസിദ്ധീകരിക്കുന്നതെന്നും സമ്മതിക്കുന്നുണ്ട്.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">പ്രസിദ്ധീകരിക്കുമ്പോൾ, &lt;a href=\"%1$s\"&gt;ഉപയോഗനിബന്ധനകളും&lt;/a&gt;, താങ്കളുടെ സംഭാവനകൾ പിന്നീട് മാറ്റം വരുത്താൻ പറ്റാത്ത വിധം &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; അനുമതിയിലാണ് ഉള്ളതെന്നും താങ്കൾ അംഗീകരിക്കുന്നുണ്ട്. തിരുത്തുകൾ താങ്കളുടെ ഉപകരണത്തിന്റെ ഐ.പി. വിലാസത്തിലേക്ക് ചേർക്കുന്നതാണ്. താങ്കൾ &lt;a href=\"https://#login\"&gt;പ്രവേശിക്കുകയാണെങ്കിൽ&lt;/a&gt;, താങ്കൾക്ക് കൂടുതൽ സ്വകാര്യത ലഭിക്കുന്നതാണ്.</string>
   <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷകൾ</string>

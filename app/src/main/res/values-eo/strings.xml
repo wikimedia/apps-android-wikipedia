@@ -95,7 +95,6 @@
   <string name="map_view_link_text">Montri sur mapo</string>
   <string name="other_languages_indication_text">Legi en alia lingvo</string>
   <string name="language_count_link_text">Disponebla en %d aliaj lingvoj</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Per publikigo vi akceptas la &lt;a href=\"%1$s\"&gt;uzokondiĉojn&lt;/a&gt; kaj definitive liberigas vian kontribuon laŭ la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Per publikigo de viaj ŝanĝoj vi konsentas kun la &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;, kaj konsentas nemalfareble liberigi viajn kontribuojn sub la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutos&lt;/a&gt;, vi havos pli da privateco.</string>
   <string name="preference_title_language">Vikipediaj lingvoj</string>
@@ -700,7 +699,7 @@
   </plurals>
   <string name="suggested_edits_learn_more">Ekscii pli</string>
   <string name="suggested_edits_last_edited_never">Neniam</string>
-  <string name="suggested_edits_task_new">nova</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nova</string>
   <string name="suggested_edits_contributions_screen_title">Kontribuoj de %s</string>
   <string name="suggested_edits_contribution_language_label">Lingvo</string>
   <string name="suggested_edits_contribution_image_label">Bildo</string>

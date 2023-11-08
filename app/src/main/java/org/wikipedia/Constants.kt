@@ -96,6 +96,7 @@ object Constants {
         TALK_TOPICS_ACTIVITY("talkTopicsActivity"),
         TALK_TOPIC_ACTIVITY("talkTopicActivity"),
         TALK_REPLY_ACTIVITY("talkReplyActivity"),
+        ADD_TEMPLATE_ACTIVITY("addTemplateActivity"),
         EDIT_ACTIVITY("editActivity"),
         TOOLBAR("toolbar"),
         VOICE("voice"),
@@ -103,6 +104,8 @@ object Constants {
         WATCHLIST_FILTER_ACTIVITY("watchlistFilter"),
         WIDGET("widget"),
         USER_CONTRIB_ACTIVITY("userContribActivity"),
+        EDIT_ADD_IMAGE("editAddImage"),
+        SUGGESTED_EDITS_RECENT_EDITS("suggestedEditsRecentEdits"),
     }
 
     enum class ImageEditType(name: String) {

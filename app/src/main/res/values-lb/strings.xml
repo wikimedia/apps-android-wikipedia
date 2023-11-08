@@ -107,7 +107,6 @@
   <string name="map_view_link_text">Op enger Kaart weisen</string>
   <string name="other_languages_indication_text">An enger anerer Sprooch liesen</string>
   <string name="language_count_link_text">Disponibel an %d anere Sproochen</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Mam Verëffentleche sidd Dir mat den &lt;a href=\"%1$s\"&gt;Notzungsbedingungen&lt;/a&gt; d\'accord an iwwerloosst Är Kontributioun onwiderruflech ënner der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;-Lizenz.</string>
   <string name="preference_title_language">Wikipedia-Sproochen</string>
   <string name="langlinks_filter_hint">Sichen</string>
@@ -220,7 +219,6 @@
   <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Benotzt Bibliothéiken</string>
   <string name="about_contributors_heading">Auteuren</string>
@@ -243,8 +241,10 @@
   <string name="edit_undo">Réckgängeg maachen</string>
   <string name="edit_redo">Widderhuelen</string>
   <string name="edit_rollback">Zrécksetzen</string>
+  <string name="edit_warn">Warnen</string>
+  <string name="edit_damage">Schued %s</string>
   <string name="edit_zoom_in">Vergréisseren</string>
-  <string name="edit_zoom_out"> Verklengeren</string>
+  <string name="edit_zoom_out">Verklengeren</string>
   <string name="edit_summary_tag_typo">Tippfeeler verbessert</string>
   <string name="edit_summary_tag_grammar">Grammaire verbessert</string>
   <string name="edit_summary_tag_links">Derbäigesat Linken</string>
@@ -329,6 +329,7 @@
   <string name="button_add_to_reading_list">Op d\'Lieslëscht derbäisetzen</string>
   <string name="page_offline_notice_cannot_load_while_offline">Den Artikel kann net geluede gi wann Dir offline sidd.</string>
   <string name="page_offline_notice_last_date">Dir liest eng offline Versioun vun dësem Artikel gespäichert de(n) %s.</string>
+  <string name="redirected_from_snackbar">Virugeleet vu(n) „%s”</string>
   <string name="button_get_directions">Richtunge kréien</string>
   <string name="error_no_maps_app">Et konnte keng Appe fonnt ginn déi Richtungen zur Verfügung stellen.</string>
   <string name="preference_title_show_link_previews">Weise wéi de Link ausgesi wäert</string>
@@ -413,6 +414,14 @@
     <item quantity="one">1 Artikel, %2$.2f MB</item>
     <item quantity="other">%1$d Artikelen, %2$.2f MB</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d vun 1 Artikel offline verfügbar</item>
+    <item quantity="other">%1$d vu(n) %2$d Artikelen offline verfügbar</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d vun 1 Artikel offline verfügbar, %3$.2f MB</item>
+    <item quantity="other">%1$d vu(n) %2$d Artikelen offline verfügbar, %3$.2f MB</item>
+  </plurals>
   <string name="reading_list_sort">Zortéieren</string>
   <string name="reading_list_sort_ellipsis">Zortéieren no...</string>
   <string name="reading_list_sort_by_name">Nom Numm zortéieren</string>
@@ -478,6 +487,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
   <string name="reading_list_article_save_in_progress">Den Artikel gëtt momentan erofgelueden a wäert offline verfügbar sinn, soubal den Download fäerdeg ass.</string>
   <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s derbäigesat</string>
+  <string name="reading_list_articles_moved_to_named">%1$d Artikelen op %2$s geréckelt</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher, datt Dir %s läsche wëllt?</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Ausgewielte Lëscht(e) läschen?</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
@@ -542,8 +552,10 @@
     <item quantity="one">Lieslëscht importéiert</item>
     <item quantity="other">Lieslëschten importéiert</item>
   </plurals>
+  <string name="reading_lists_preview_header_title">Gedeelte Lëscht</string>
   <string name="reading_lists_preview_save_button">Späicheren</string>
   <string name="reading_lists_preview_save_dialog_title">Lëscht späicheren</string>
+  <string name="reading_lists_preview_save_dialog_text">Lëscht benennen an Artikele fir ze späicheren eraussichen.</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Titel</string>
   <string name="reading_lists_preview_save_dialog_cancel">Ofbriechen</string>
   <string name="reading_lists_preview_save_dialog_save">Späicheren</string>
@@ -631,6 +643,7 @@
   <string name="preference_title_notification_email_user">E-Mail kritt</string>
   <string name="preference_summary_notification_email_user">Et huet een Iech eng E-Mail iwwer d\'Wiki geschéckt</string>
   <string name="preference_title_notification_user_rights">Ännerunge vun de Benotzerrechter</string>
+  <string name="preference_title_notification_article_linked">Linken op Artikelen, déi Dir ugeluecht hutt</string>
   <string name="preference_title_hide_read_notifications">Notifikatioune verstoppen</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Notifikatioune vu Wikipedia</string>
@@ -744,6 +757,7 @@
   <string name="customize_toolbar_reset_to_default_button">Op de Standard zrécksetzen</string>
   <string name="suggested_edits_describe_articles">Artikele beschreiwen</string>
   <string name="suggested_edits_caption_images">Ënnertitel fir Biller</string>
+  <string name="suggested_edits_edit_patrol_review">Nokucken</string>
   <string name="suggested_edits_review_description">Artikel-Beschreiwung iwwerliesen</string>
   <string name="suggested_edits_add_description_button">Beschreiwung derbäisetzen</string>
   <string name="suggested_edits_edit_description_button">Beschreiwung änneren</string>
@@ -814,7 +828,7 @@
   <string name="suggested_edits_ip_blocked_title">IP gespaart</string>
   <string name="suggested_edits_last_edited">Lescht Ännerung</string>
   <string name="suggested_edits_last_edited_never">Ni</string>
-  <string name="suggested_edits_task_new">nei</string>
+  <string name="suggested_edits_task_new">Nei</string>
   <string name="suggested_edits_reactivation_notification_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci fir Är Ännerungen op Wikipedia! Firwat net einfach do weidermaachen, wou Dir opgehalen hutt?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Hutt Dir eng Minutt Zäit fir d\'Wikipedia weider ze verbesseren? Kuckt Iech dës Virschléi, fir Ännerungen ze maachen, un.</string>
@@ -853,6 +867,8 @@
   <string name="image_recommendation_reject_subtitle">Är Äntwerte wäerten zukünfteg Virschléi besser maachen.</string>
   <string name="image_recommendation_reject_not_relevant">D\'Bild ass net relevant</string>
   <string name="image_recommendation_reject_no_info">Net genuch Informatioune fir ze decidéieren</string>
+  <string name="image_recommendation_reject_low_quality">Bild huet eng niddreg Qualitéit</string>
+  <string name="image_recommendation_reject_other">Anerer</string>
   <string name="image_recommendation_onboarding_1">Biller hëllefen de Leit beim Verstoen, mee vill Artikelen hunn der keng.</string>
   <string name="file_page_edit_button_content_description">%s änneren</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
@@ -933,6 +949,7 @@
   <string name="wikitext_numbered_list">Nummeréiert Lëscht</string>
   <string name="wikitext_template">Schabloun</string>
   <string name="wikitext_reference">Referenz</string>
+  <string name="wikitext_mention_user">E Benotzer ernimmen</string>
   <string name="insert_media_search_description">Wielt e Fichier vu Wikimedia Commons</string>
   <string name="insert_media_settings">Bilddetailer derbäisetzen</string>
   <string name="insert_media_settings_uploaded_image">Eropgeluedent Bild</string>
@@ -964,6 +981,13 @@
   <string name="talk_title">Diskussioun</string>
   <string name="talk_user_title">Diskussioun: %s</string>
   <string name="talk_new_topic">Neit Thema</string>
+  <string name="talk_warn">Warnen</string>
+  <string name="talk_warn_save_dialog_title">Ännerunge späicheren?</string>
+  <string name="talk_warn_save_dialog_message">Als neie Message späicheren</string>
+  <string name="talk_warn_save_dialog_hint">Titel vum Message</string>
+  <string name="talk_warn_save_dialog_publish">Verëffentlechen</string>
+  <string name="talk_warn_save_dialog_cancel">Ofbriechen</string>
+  <string name="talk_warn_saved_message_dropdown">Gespäichert Messagen</string>
   <string name="talk_page_empty">Dës Diskussiouns-Säit ass eidel.</string>
   <string name="talk_add_reply">Äntweren</string>
   <string name="talk_no_subject">(Kee Sujet)</string>
@@ -1030,8 +1054,8 @@
   <string name="revision_diff_line_removed">Zeil ewechgeholl</string>
   <string name="revision_diff_paragraph_added">Abschnitt derbäigesat</string>
   <string name="revision_diff_paragraph_removed">Abschnitt ewechgeholl</string>
-  <string name="revision_undo_title">Ännerung zrécksetzen</string>
-  <string name="revision_undo_reason">Fir weiderzefueren, gitt wgl. e Grond u fir dës Ännerung réckgängeg ze maachen.</string>
+  <string name="revision_undo_title">Sidd Dir sécher, datt Dir dës Ännerung réckgängeg maache wëllt?</string>
+  <string name="revision_undo_reason" fuzzy="true">Fir weiderzefueren, gitt wgl. e Grond u fir dës Ännerung réckgängeg ze maachen.</string>
   <string name="revision_undo_success">D\'Versioun gouf réckgängeg gemaach.</string>
   <string name="revision_rollback_dialog_title">Sidd Dir sécher datt Dir dës Ännerungen zrécksetze wëllt?</string>
   <string name="revision_rollback_success">Ännerung zréckgesat.</string>
@@ -1108,6 +1132,59 @@
   <string name="reading_list_share_message_v2">Moien! Ech géif gäre meng Wikipedia-Lieslëscht mat Iech deelen:</string>
   <string name="reading_list_share_survey_title">Kéint Dir eis hëllefe fir d\'Funktioun \"Lieslëscht deelen\" besser ze maachen?</string>
   <string name="reading_list_share_survey_body">\"Lieslëscht deelen\" ass eng Testfunktioun a mir sinn op Äre Feedback ugewise fir se ze verbesseren oder eventuell ewechzehuelen.</string>
+  <string name="talk_templates_new_message_title">Neie Message</string>
+  <string name="talk_templates_new_message_subject_hint">Sujet</string>
+  <string name="talk_templates_new_message_compose_hint">Message schreiwen</string>
+  <string name="talk_templates_new_message_save">Späicheren</string>
+  <string name="talk_templates_new_message_dialog_title">Ännerunge späicheren</string>
+  <string name="talk_templates_new_message_dialog_description">Titel derbäisetzen a Message späicheren.</string>
+  <string name="talk_templates_new_message_dialog_hint">Titel vum Message</string>
+  <string name="talk_templates_new_message_dialog_save">Späicheren</string>
+  <string name="talk_templates_new_message_dialog_cancel">Ofbriechen</string>
+  <string name="talk_templates_new_message_dialog_exists">D\'Schabloun „%s“ gëtt et schonn.</string>
+  <string name="talk_templates_new_message_saved">Message gouf gespäichert</string>
+  <string name="talk_templates_edit_message_dialog_title">Message änneren</string>
+  <string name="talk_templates_edit_message_dialog_save">Späicheren</string>
+  <string name="talk_templates_edit_message_dialog_delete">Läschen</string>
+  <string name="talk_templates_edit_message_updated">Message gouf aktualiséiert</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Sidd Dir sécher, datt Dir dëse(n) %s-Message vun der Lëscht läsche wëllt?</string>
+  <string name="talk_templates_message_deleted">Message gouf geläscht</string>
+  <string name="talk_templates_message_title_empty">Den Titel däerf net eidel sinn.</string>
+  <string name="patroller_tasks_edits_list_title">Lëscht vun Ännerungen</string>
+  <string name="patroller_tasks_edits_list_search_hint">Ännerungen duerchsichen oder filteren</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benotzersäit weisen</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Diskussiounssäit weisen</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Benotzerinformatiounen</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Benotzerkontributioune weisen</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Benotzerinformatiounen</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Zoumaachen</string>
+  <string name="patroller_tasks_filters_title">Filteren</string>
+  <string name="patroller_tasks_filters_reset">Zrécksetzen</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Lescht Versiounen</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Aktuell Versioun</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Net déi lescht Versioun</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Automatiséiert Kontributiounen</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Mënsch (kee Bot)</string>
+  <string name="patroller_tasks_filters_significance_minor">Kleng Ännerungen</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Héchstwarscheinlech gutt</string>
+  <string name="patroller_tasks_filters_user_intent_good">Héchstwarscheinlech gutt Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Vläicht schlecht Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Warscheinlech schlecht Absicht</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Héchstwarscheinlech schlecht Absicht</string>
+  <string name="patroller_tasks_filters_empty_search_message">Probéiert fir %s ewechzehuele fir méi Ännerungen ugewisen ze kréien</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d Filter</item>
+    <item quantity="other">%d Filteren</item>
+  </plurals>
+  <string name="patroller_onboarding_two_warn_title">Warnen</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Zefridden</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Onzefridden</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
   <string name="data_opt_in_accept">Akzeptéieren</string>
   <string name="data_opt_in_reject">Refuséieren</string>
+  <string name="donation_campaign_maybe_later_snackbar">Mir erënneren Iech muer nach eng Kéier.</string>
+  <string name="donation_campaign_go_back_button">Zréckgoen</string>
 </resources>

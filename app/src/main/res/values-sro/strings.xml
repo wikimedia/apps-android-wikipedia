@@ -100,7 +100,6 @@
   <string name="map_view_link_text">Biri in sa mapa</string>
   <string name="other_languages_indication_text">Ligi in d-un\'atra lìngua</string>
   <string name="language_count_link_text">Fasiu in %d atras lìnguas</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Pubrichendi, ses acetendi is &lt;a href=\"%1$s\"&gt;Cunditzionis de impreu&lt;/a&gt; nostras e ses acetendi de lassai po sempri s\'agiudu cosa tua segundu sa licèntzia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Pubrichendi, ses acetendi is &lt;a href=\"%1$s\"&gt;Cunditzionis de impreu&lt;/a&gt; nostras e ses acetendi de lassai po sempri s\'agiudu cosa tua segundu sa licèntzia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Is càmbius funt a essi arrelataus a s\'indiritzu IP de s\'aparìciu tuu. Chi &lt;a href=\"https://#login\"&gt;intras&lt;/a&gt;, as a tenni privacy prus manna.</string>
   <string name="edit_anon_warning">Is càmbius funt a essi arrelataus a s\'indiritzu IP de s\'aparìciu tuu. Chi &lt;a href=\"https://#login\"&gt;intras&lt;/a&gt;, as a tenni privacy prus manna.</string>
@@ -327,7 +326,7 @@
   <string name="suggested_edits_image_tags_published">Pùblica</string>
   <string name="suggested_edits_views_label_text">Càstia</string>
   <string name="suggested_edits_quality_okay_text">Ok</string>
-  <string name="suggested_edits_task_new">nou</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nou</string>
   <string name="suggested_edits_contribution_language_label">Lìngua</string>
   <string name="suggested_edits_contribution_date_time_label">Data/Ora</string>
   <string name="suggested_edits_contribution_image_label">Màgini</string>

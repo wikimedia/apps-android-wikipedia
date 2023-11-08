@@ -67,7 +67,7 @@
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/article_header_edit_description"
-                android:padding="16dp"
+                android:padding="12dp"
                 app:srcCompat="@drawable/ic_report_flag"
                 app:tint="?attr/primary_color" />
         </LinearLayout>
@@ -96,7 +96,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:padding="16dp"
+                android:padding="12dp"
                 app:srcCompat="@drawable/ic_report_flag"
                 app:tint="?attr/primary_color" />
         </LinearLayout>

@@ -147,7 +147,6 @@
   <string name="map_view_link_text">Auf einer Karte ansehen</string>
   <string name="other_languages_indication_text">In einer anderen Sprache lesen</string>
   <string name="language_count_link_text">In %d weiteren Sprachen verfügbar</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Mit dem Veröffentlichen stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; Lizenz zu.</string>
   <string name="edit_save_action_license_anon">Mit dem Veröffentlichen stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0-Lizenz&lt;/a&gt; zu. Bearbeitungen werden der IP-Adresse deines Gerätes zugeordnet. Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt;, verfügst du über mehr Datenschutz.</string>
   <string name="edit_anon_warning">Bearbeitungen werden der IP-Adresse deines Gerätes zugeordnet. Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt;, wirst du über mehr Datenschutz verfügen.</string>
@@ -301,6 +300,7 @@
   <string name="edit_undo">Rückgängig</string>
   <string name="edit_redo">Wiederherstellen</string>
   <string name="edit_rollback">Zurücksetzen</string>
+  <string name="edit_warn">Warnen</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s Byte</item>
     <item quantity="other">%s Bytes</item>
@@ -1033,7 +1033,7 @@
   <string name="suggested_edits_ip_blocked_title">IP gesperrt</string>
   <string name="suggested_edits_last_edited">Zuletzt bearbeitet</string>
   <string name="suggested_edits_last_edited_never">Nie</string>
-  <string name="suggested_edits_task_new">neu</string>
+  <string name="suggested_edits_task_new" fuzzy="true">neu</string>
   <string name="suggested_edits_cc0_notice">Durch die Veröffentlichung stimmen Sie den &lt;a href=\"%1$s\"&gt; Nutzungsbedingungen&lt;/a&gt; zu und geben diesen Beitrag unwiderruflich unter der &lt;a href=\"%2$s\"&gt; CC0-Lizenz &lt;/a&gt; frei.</string>
   <string name="suggested_edits_reactivation_notification_title">Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Danke für die Bearbeitung von Wikipedia! Warum machst du nicht dort weiter, wo du aufgehört hast?</string>
@@ -1254,6 +1254,14 @@
   <string name="talk_user_title">Gespräch: %s</string>
   <string name="talk_new_topic">Neues Thema</string>
   <string name="talk_new_topic_submitted">Thema übermittelt.</string>
+  <string name="talk_warn">Warnen</string>
+  <string name="talk_warn_save_dialog_title">Änderungen speichern?</string>
+  <string name="talk_warn_save_dialog_message">Als neue Nachricht speichern</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Als neue Nachricht in der Liste speichern</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Vorhandene Nachricht aktualisieren</string>
+  <string name="talk_warn_save_dialog_hint">Titel der Nachricht</string>
+  <string name="talk_warn_save_dialog_publish">Veröffentlichen</string>
+  <string name="talk_warn_save_dialog_cancel">Abbrechen</string>
   <string name="talk_page_empty">Diese Diskussionsseite ist leer.</string>
   <string name="talk_page_empty_title">Die Konversation beginnt hier</string>
   <string name="talk_page_empty_content">Auf den Diskussionsseiten wird darüber diskutiert, wie man Wikipedia-Inhalte am besten durchführen kann. Füge ein neues Diskussionsthema hinzu, um dich mit einer Gemeinschaft von Wikipedianern zu vernetzen und zusammenzuarbeiten.</string>
@@ -1340,9 +1348,9 @@
   <string name="revision_diff_line_removed">Zeile entfernt</string>
   <string name="revision_diff_paragraph_added">Abschnitt hinzugefügt</string>
   <string name="revision_diff_paragraph_removed">Abschnitt entfernt</string>
-  <string name="revision_undo_title">Bearbeitung rückgängig machen</string>
-  <string name="revision_undo_message">Damit werden die Änderungen, die durch die hier angezeigte(n) Version(en) des Artikels vorgenommen wurden, rückgängig gemacht.</string>
-  <string name="revision_undo_reason">Um fortzufahren, gib bitte einen Grund für die Rückgängigmachung dieser Bearbeitung an:</string>
+  <string name="revision_undo_title" fuzzy="true">Bearbeitung rückgängig machen</string>
+  <string name="revision_undo_message" fuzzy="true">Damit werden die Änderungen, die durch die hier angezeigte(n) Version(en) des Artikels vorgenommen wurden, rückgängig gemacht.</string>
+  <string name="revision_undo_reason" fuzzy="true">Um fortzufahren, gib bitte einen Grund für die Rückgängigmachung dieser Bearbeitung an:</string>
   <string name="revision_undo_success">Die Version wurde rückgängig gemacht.</string>
   <string name="revision_rollback_dialog_title">Bist du sicher, dass du die Bearbeitungen rückgängig machen willst?</string>
   <string name="revision_rollback_success">Bearbeitungen rückgängig gemacht.</string>
@@ -1456,6 +1464,46 @@
   <string name="reading_list_share_message_v2">Hallo! Ich möchte meine Wikipedia-Leseliste mit Ihnen teilen:</string>
   <string name="reading_list_share_survey_title">Kannst du uns helfen, \"Leselisten teilen\" zu verbessern?</string>
   <string name="reading_list_share_survey_body">\"Leselisten teilen\" ist eine Testfunktion und wir brauchen dein Feedback, um sie zu verbessern oder zu entfernen.</string>
+  <string name="talk_templates_new_message_title">Neue Nachricht</string>
+  <string name="talk_templates_new_message_description">Warnmeldung verfassen.</string>
+  <string name="talk_templates_new_message_subject_hint">Betreff</string>
+  <string name="talk_templates_new_message_compose_hint">Nachricht schreiben</string>
+  <string name="talk_templates_new_message_save">Speichern</string>
+  <string name="talk_templates_new_message_dialog_title">Änderungen speichern</string>
+  <string name="talk_templates_new_message_dialog_description">Titel hinzufügen und Nachricht speichern.</string>
+  <string name="talk_templates_new_message_dialog_hint">Titel der Nachricht</string>
+  <string name="talk_templates_new_message_dialog_save">Speichern</string>
+  <string name="talk_templates_new_message_dialog_cancel">Abbrechen</string>
+  <string name="talk_templates_new_message_dialog_exists">Vorlage „%s“ existiert bereits.</string>
+  <string name="talk_templates_new_message_saved">Nachricht wurde gespeichert</string>
+  <string name="talk_templates_edit_message_dialog_title">Nachricht bearbeiten</string>
+  <string name="talk_templates_edit_message_dialog_save">Speichern</string>
+  <string name="talk_templates_edit_message_dialog_delete">Löschen</string>
+  <string name="talk_templates_edit_message_updated">Die Nachricht wurde aktualisiert</string>
+  <string name="talk_templates_message_deleted">Nachricht wurde gelöscht</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Keine</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benutzerseite ansehen</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Diskussionsseite anzeigen</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Kontoinformationen</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Benutzerbeiträge anzeigen</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Dankeschön</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Kontoinformationen</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Schließen</string>
+  <string name="patroller_tasks_filters_title">Filter</string>
+  <string name="patroller_tasks_filters_reset">Zurücksetzen</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_all_text">Alle</string>
+  <string name="patroller_tasks_filters_user_status_header">Benutzeranmeldung und -erfahrung</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Unangemeldet</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Autoren, die nicht angemeldet sind.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Registriert</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Angemeldete Autoren.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Neulinge</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Sehr wahrscheinlich gut</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Sehr genau beim Auffinden fast aller problemfreien Bearbeitungen.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Könnte Probleme haben</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Findet die meisten fehlerhaften oder schädlichen Bearbeitungen, aber mit einer niedrigeren Genauigkeit.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Hat wahrscheinlich Probleme</string>
   <string name="data_opt_in_accept">Zulassen</string>
   <string name="data_opt_in_reject">Ablehnen</string>
   <string name="page_issues_title">Seitenprobleme</string>

@@ -11,6 +11,7 @@
 * Glavkos
 * KATRINE1992
 * KATRINE1993
+* McDutchie
 * Michail Angelos Georgoulas
 * MuratTheTurkish
 * NikosLikomitros
@@ -46,7 +47,7 @@
   <string name="error_back">Επιστροφή</string>
   <string name="error_next">Επόμενο</string>
   <string name="menu_clear_all_history">Εκκαθάριση ιστορικού</string>
-  <string name="history_item_deleted">το %s έχει αφαιρεθεί από το ιστορικό</string>
+  <string name="history_item_deleted" fuzzy="true">το %s έχει αφαιρεθεί από το ιστορικό</string>
   <string name="history_items_deleted">Τα %d λήμματα έχουν αφαιρεθεί από το ιστορικό</string>
   <string name="history_item_delete_undo">Αναίρεση</string>
   <string name="notification_archive_undo">Αναίρεση</string>
@@ -108,7 +109,6 @@
   <string name="map_view_link_text">Εμφάνιση σε χάρτη</string>
   <string name="other_languages_indication_text">Διαβάστε σε άλλη γλώσσα</string>
   <string name="language_count_link_text">Διαθέσιμο σε %d άλλες γλώσσες</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Με την δημοσίευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt; και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Με την δημοσίευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt; και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Οι επεξεργασίες σας θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε περισσότερη ιδιωτικότητα.</string>
   <string name="preference_title_language">Γλώσσες Βικιπαίδειας</string>
@@ -682,8 +682,8 @@
     <item quantity="one">χτες</item>
     <item quantity="other">%d ημέρες πριν</item>
   </plurals>
-  <string name="view_continue_reading_card_subtitle_today">σήμερα</string>
-  <string name="view_continue_reading_card_subtitle_read_date">Διαβάστε %s</string>
+  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">σήμερα</string>
+  <string name="view_continue_reading_card_subtitle_read_date" fuzzy="true">Διαβάστε %s</string>
   <string name="view_announcement_card_negative_action">Όχι, ευχαριστώ</string>
   <string name="view_offline_card_text">Το περιεχόμενο δεν μπορεί να φορτωθεί όταν είστε εκτός σύνδεσης.</string>
   <string name="view_featured_article_card_title">Προβεβλημένο λήμμα</string>
@@ -845,7 +845,7 @@
   <string name="suggested_edits_disabled_title">Απενεργοποιημένο</string>
   <string name="suggested_edits_last_edited">Τελευταία απεξεργασία</string>
   <string name="suggested_edits_last_edited_never">Ποτέ</string>
-  <string name="suggested_edits_task_new">νέα</string>
+  <string name="suggested_edits_task_new" fuzzy="true">νέα</string>
   <string name="suggested_edits_reactivation_notification_title">Προτεινόμενες τροποποιήσεις</string>
   <string name="suggested_edits_contributions_screen_title">Οι συνεισφορές του %s</string>
   <string name="suggested_edits_contribution_language_label">Γλώσσα</string>
@@ -903,10 +903,10 @@
   <string name="app_shortcuts_random">Τυχαία</string>
   <string name="app_shortcuts_continue_reading">Συνέχεια ανάγνωσης</string>
   <string name="app_shortcuts_search">Αναζήτηση</string>
-  <string name="on_this_day_card_title">Αυτήν την μέρα</string>
+  <string name="on_this_day_card_title" fuzzy="true">Αυτήν την μέρα</string>
   <string name="more_events_text">Περισσότερα αυτή την ημέρα</string>
   <string name="events_count_text">%1$s συμβάντα από %2$s–%3$d</string>
-  <string name="this_year">Φέτος</string>
+  <string name="this_year" fuzzy="true">Φέτος</string>
   <string name="on_this_day_dialog_next_month">Επόμενος μήνας</string>
   <string name="on_this_day_dialog_previous_month">Προηγούμενος μήνας</string>
   <string name="on_this_day_open_date_picker">Άνοιγμα επιλογής ημερομηνίας</string>

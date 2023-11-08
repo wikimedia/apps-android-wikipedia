@@ -4,10 +4,14 @@
     <string name="channel" />
 
     <!-- URLs -->
+    <string name="support_email">android-support@wikimedia.org</string>
     <string name="donate_url">https://donate.wikimedia.org/?utm_medium=WikipediaApp&amp;utm_campaign=Android&amp;utm_source=%1$s&amp;uselang=%2$s</string>
     <string name="suggested_edits_survey_url">@null</string>
     <string name="talk_pages_survey_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/Communication/UsertestingOctober2021</string>
     <string name="survey_privacy_policy_url">https://foundation.wikimedia.org/wiki/Legal:Wikipedia_Android_App_Onboarding_Survey_Privacy_Statement</string>
+    <string name="image_captions_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
+    <string name="image_alt_text_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
+    <string name="quality_and_intent_filters_url">https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Quality_and_Intent_Filters</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
@@ -49,6 +53,7 @@
     <!-- Miscellaneous -->
     <string name="text_size_percent">%d%%</string>
     <string name="onboarding_option_string">%1$s.\t\t%2$s</string>
+    <string name="x_of_y">%1$d/%2$d</string>
     <string name="language_data">multilingual</string>
     <string name="suggested_edits_image_file_page_commons_link">https://commons.wikimedia.org/wiki/%s</string>
     <string name="page_moved">move</string>

@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* -jem-
 * AVIADOR71
 * Agent
 * Agusbou2015
 * Amaia
 * Amire80
 * Anarhistička Maca
+* Angoca
 * AnupamM
 * Asierog
 * Athena in Wonderland
+* Atzerritik
 * Bruno44101
 * Canaan9801
 * Chopan050
@@ -71,6 +74,7 @@
 * Rodney Araujo
 * Ryo567
 * SRuizR
+* Samthony
 * SpikeShroom
 * Sporeunai
 * SrCerberus
@@ -182,9 +186,8 @@
   <string name="map_view_link_text">Ver en un mapa</string>
   <string name="other_languages_indication_text">Leer en otro idioma</string>
   <string name="language_count_link_text">Disponible en %d idiomas más</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Al guardar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Al publicar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Las ediciones se atribuirán a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt;, tendrás más privacidad.</string>
+  <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Al publicar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Las ediciones se atribuirán a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt;, tendrás más privacidad.</string>
   <string name="preference_title_language">Idiomas de Wikipedia</string>
   <string name="langlinks_filter_hint">Buscar</string>
   <string name="langlinks_empty">Esta página no está disponible en otros idiomas.</string>
@@ -319,7 +322,7 @@
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación fue traducida por traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
-  <string name="about_app_license" fuzzy="true">Código fuente disponible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; bajo la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licencia Apache 2.0&lt;/a&gt;. A menos que se especifique lo contrario, el contenido está disponible bajo la &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Licencia Atribución-CompartirIgual de Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license">Código fuente disponible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; bajo la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licencia Apache 2.0&lt;/a&gt;. A menos que se especifique lo contrario, el contenido está disponible bajo la &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_4.0_Unported_License\"&gt;Licencia Atribución-CompartirIgual de Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto de &lt;a href=\"https://wikimediafoundation.org/es/?noredirect=es_ES\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
   <string name="edit_abandon_confirm">Se ha modificado la página. ¿Quieres salir sin guardar los cambios?</string>
@@ -459,7 +462,7 @@
   <string name="error_message_generic">Ha habido un error</string>
   <string name="view_link_preview_error_button_dismiss">Descartar</string>
   <string name="error_page_does_not_exist">Esta página no existe</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">Wikipedia no tiene una &lt;a href=\"%1$s\"&gt;página de usario&lt;/a&gt; con este nombre exacto. En general, esta página debe ser creada y editada por &lt;b&gt;%2$s&lt;/b&gt;. En caso de duda, verifique que exista \"%3$s\".</string>
+  <string name="error_user_page_does_not_exist">Wikipedia no tiene una &lt;a href=\"%1$s\"&gt;página de usario&lt;/a&gt; con este nombre exacto. En general, esta página debe ser creada y editada por &lt;b&gt;%2$s&lt;/b&gt;. En caso de duda, verifique que exista \"%3$s\".</string>
   <string name="view_wiki_error_message_offline">No se pudo conectar a Internet.</string>
   <string name="view_wiki_error_message_timeout">No se puede conectar con Wikipedia. Comprueba la conexión de red o inténtalo de nuevo más tarde</string>
   <string name="reference_title">Referencia %s</string>
@@ -495,7 +498,7 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Oscuro</string>
-  <string name="color_theme_black">Negro</string>
+  <string name="color_theme_black" fuzzy="true">Negro</string>
   <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Texto de muestra</string>
   <string name="color_theme_test_text">Arrastra el control deslizante para cambiar el tamaño del texto de los artículos. Para modificar el tamaño del texto en toda la aplicación, utiliza la configuración del sistema.</string>
@@ -871,6 +874,9 @@
   <string name="description_edit_tutorial_promise">Al empezar, me comprometo a no hacer mal uso de esta funcionalidad.</string>
   <string name="description_edit_tutorial_machine_suggestions_title">Sugerencias automáticas</string>
   <string name="description_edit_tutorial_machine_suggestions_description">Las sugerencias son generadas automáticamente, no por voluntarios ni por la Fundación Wikimedia</string>
+  <string name="customize_toolbar_title">Personalizar barra</string>
+  <string name="customize_toolbar_shortcut_description_text">Personaliza la barra de herramientas inferior con las 5 funciones que te resulten más útiles.</string>
+  <string name="customize_toolbar_category_toolbar">Barra de herramientas</string>
   <string name="customize_toolbar_category_menu">Menú</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Pulse el icono de arrastre para mover el elemento</string>
   <string name="customize_toolbar_item_default_tooltip">Pulse y arrastre un elemento para reubicarlo</string>
@@ -995,7 +1001,7 @@
   <string name="suggested_edits_ip_blocked_title">Dirección IP bloqueada</string>
   <string name="suggested_edits_last_edited">Última edición</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
-  <string name="suggested_edits_task_new">nuevo</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nuevo</string>
   <string name="suggested_edits_cc0_notice">Al publicar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la &lt;a href=\"%2$s\"&gt;licencia&lt;/a&gt;</string>
   <string name="suggested_edits_reactivation_notification_title">Ediciones sugeridas</string>
   <string name="suggested_edits_reactivation_notification_stage_one">¡Gracias por editar Wikipedia! ¿Por qué no continúas donde lo dejaste?</string>
@@ -1045,8 +1051,32 @@
     <item quantity="one">Añadiste %d carácter</item>
     <item quantity="other">Añadiste %d caracteres</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Imágenes del artículo</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Agrega las imágenes sugeridas a los artículos de la Wikipedia para mejorar la comprensión</string>
+  <string name="image_recommendation_task_instruction">¿Agregarías esta imagen al artículo?</string>
+  <string name="image_recommendation_tutorial">Tutorial</string>
+  <string name="image_recommendation_accept">Sí</string>
   <string name="image_recommendation_reject_title">¿Por qué no?</string>
+  <string name="image_recommendation_reject_subtitle">Tu respuesta puede mejorar futuras sugerencias.</string>
   <string name="image_recommendation_reject_not_relevant">La imagen no es relevante</string>
+  <string name="image_recommendation_reject_no_info">No hay información suficiente para decidir</string>
+  <string name="image_recommendation_reject_offensive">La imagen es ofensiva</string>
+  <string name="image_recommendation_reject_low_quality">La imagen es de baja calidad</string>
+  <string name="image_recommendation_reject_dont_know">No tengo conocimiento sobre este tema</string>
+  <string name="image_recommendation_reject_other">Otra</string>
+  <string name="image_recommendation_reject_submit">Enviar</string>
+  <string name="image_recommendation_onboarding_1">Las imágenes permiten que las personas entiendan mejor, pero muchos artículos carecen de ellas</string>
+  <string name="image_recommendation_onboarding_2">Tú decidirás si una imagen sugerida debe incluirse en un artículo de la Wikipedia.</string>
+  <string name="image_recommendation_onboarding_3">Las sugerencias son generadas de forma automática y deberás usar tu criterio para decidir si las aceptas o las rechazas.</string>
+  <string name="image_recommendation_onboarding_4">Las imágenes proceden de Wikimedia Commons, una colección de imágenes con licencia libre utilizadas por la Wikipedia.</string>
+  <string name="image_recommendation_tooltip_1">Revisa este artículo para comprender su tema</string>
+  <string name="image_recommendation_tooltip_2">Inspecciona la imagen y su información asociada</string>
+  <string name="image_recommendation_tooltip_3">Decide si la imagen ayuda a los lectores a comprender mejor este tema.</string>
+  <string name="image_recommendation_tooltip_next">Siguiente</string>
+  <string name="image_recommendation_tooltip_warning">Por favor, revisa el artículo para comprender su contenido e inspecciona la imagen.</string>
+  <string name="edit_summary_added_image">Imagen agregada</string>
+  <string name="edit_summary_added_caption">Leyenda agregada</string>
+  <string name="edit_published_view">Ver</string>
   <string name="file_page_activity_title">Página de archivo</string>
   <string name="file_page_add_image_caption_button">Añadir leyenda de imagen</string>
   <string name="file_page_add_image_tags_button">Añadir etiquetas de imagen</string>
@@ -1138,10 +1168,10 @@
   <string name="insert_media_search_hint">Busce media</string>
   <string name="insert_media_settings">Agregar detalles de la imagen</string>
   <string name="insert_media_settings_uploaded_image">Imagen cargada</string>
-  <string name="insert_media_settings_caption" fuzzy="true">Leyenda</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Etiqueta que se muestra junto al elemento para todos los lectores</string>
+  <string name="insert_media_settings_caption">Leyenda</string>
+  <string name="insert_media_settings_caption_description">Etiqueta que se muestra junto al elemento para todos los lectores</string>
   <string name="insert_media_settings_alternative_text">Texto alternativo</string>
-  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Descripción de texto para lectores quiénes no pueden ver la imagen</string>
+  <string name="insert_media_settings_alternative_text_description">Descripción de texto para lectores quiénes no pueden ver la imagen</string>
   <string name="insert_media_advanced_settings">Configuraciones avanzadas</string>
   <string name="insert_media_advanced_settings_wrap_image">Envolver el texto alrededor de la imagen</string>
   <string name="insert_media_advanced_settings_image_position">Posición de imagen</string>
@@ -1223,9 +1253,9 @@
   <string name="revision_diff_line_removed">Línea eliminada</string>
   <string name="revision_diff_paragraph_added">Párrafo añadido</string>
   <string name="revision_diff_paragraph_removed">Párrafo eliminado</string>
-  <string name="revision_undo_title">Deshacer la edición</string>
-  <string name="revision_undo_message">Esto deshará los cambios realizados por la(s) revisión(es) del artículo mostrado aquí.</string>
-  <string name="revision_undo_reason">Para continuar, proporcione un motivo para deshacer esta edición:</string>
+  <string name="revision_undo_title" fuzzy="true">Deshacer la edición</string>
+  <string name="revision_undo_message" fuzzy="true">Esto deshará los cambios realizados por la(s) revisión(es) del artículo mostrado aquí.</string>
+  <string name="revision_undo_reason" fuzzy="true">Para continuar, proporcione un motivo para deshacer esta edición:</string>
   <string name="revision_undo_success">La revisión se deshizo.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s y su página de discusión han sido añadidos a tu lista de seguimiento %2$s.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Cambiar</string>
@@ -1292,6 +1322,13 @@
   <string name="reading_list_share_message_v2">¡Hola! Me gustaría compartir mi lista de lectura de Wikipedia contigo:</string>
   <string name="reading_list_share_survey_title">¿Podrías ayudarnos a mejorar \"Compartir listas de lectura\"?</string>
   <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
+  <string name="talk_templates_edit_message_dialog_delete">Eliminar</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">¿Estás seguro de que deseas eliminar este %s mensaje de la lista?</string>
+  <string name="talk_templates_message_deleted">El mensaje se ha eliminado</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cuenta de: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Editar recuento: &lt;/b&gt; %s</string>
   <string name="data_opt_in_accept">Aceptar</string>
   <string name="data_opt_in_reject">Rechazar</string>
+  <string name="email_report_image_recommendations_subject">Informe de problema: función de recomendaciones de imágenes</string>
+  <string name="email_report_image_recommendations_body">He tenido un problema con la función de recomendación de imagen:\n- [Describe el problema en concreto]\n\nEl resultado que me gustaría ver es:\n- [Describe la solución propuesta]</string>
 </resources>

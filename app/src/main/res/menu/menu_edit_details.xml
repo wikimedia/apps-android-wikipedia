@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/empty"
+        android:id="@+id/more_options"
         android:icon="@drawable/ic_more_vert_white_24dp"
         android:orderInCategory="101"
         android:title="@string/abc_action_menu_overflow_description"
@@ -12,18 +12,28 @@
             <item
                 android:id="@+id/menu_share_edit"
                 android:icon="@drawable/ic_share"
-                app:iconTint="?attr/primary_color"
+                app:iconTint="?attr/secondary_color"
                 android:title="@string/menu_option_share_edit" />
             <item
                 android:id="@+id/menu_copy_link_to_clipboard"
                 android:icon="@drawable/ic_content_copy_24"
-                app:iconTint="?attr/primary_color"
+                app:iconTint="?attr/secondary_color"
                 android:title="@string/menu_option_copy_link_to_clipboard" />
             <item
-                android:id="@+id/menu_add_watchlist"
-                android:icon="@drawable/ic_star_24"
-                app:iconTint="?attr/primary_color"
-                android:title="@string/menu_page_watch" />
+                android:id="@+id/menu_view_edit_history"
+                android:icon="@drawable/ic_icon_revision_history_apps"
+                app:iconTint="?attr/secondary_color"
+                android:title="@string/menu_page_edit_history" />
+            <item
+                android:id="@+id/menu_report_feature"
+                android:icon="@drawable/ic_report_flag"
+                app:iconTint="?attr/secondary_color"
+                android:title="@string/patroller_tasks_overflow_report" />
+            <item
+                android:id="@+id/menu_learn_more"
+                android:icon="@drawable/ic_info_outline_black_24dp"
+                app:iconTint="?attr/secondary_color"
+                android:title="@string/suggested_edits_learn_more" />
         </menu>
     </item>
 </menu>

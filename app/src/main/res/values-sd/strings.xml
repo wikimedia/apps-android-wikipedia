@@ -110,7 +110,7 @@
   <string name="map_view_link_text">نقشي تي ڏسو</string>
   <string name="other_languages_indication_text">ٻي ٻوليءَ ۾ پڙھو</string>
   <string name="language_count_link_text">%d ٻولين ۾ موجود</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">ڪڪ بو-سا 3.0</string>
+  <string name="content_license_cc_by_sa">ڪڪ بو-سا 4.0</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;سيسي بي.واءِ-ايس.اي 3.0&lt;/a&gt; اجازتنامي جاري ڪرڻ لاءِ راضي آھيو.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;سيسي بي.واءِ-ايس.اي 3.0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيو. سنوارون توھان جي آئِپي پتي سان منتسب ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ نويڪلائي هوندي.</string>
   <string name="edit_anon_warning">سنوارون توهان جي ڊوائيس جي آئپي پتي ڏانھن منسوب ڪيون وينديون. جيڪڏھن توھان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ اوھان کي وڌيڪ نويڪلائي ملندي.</string>
@@ -232,7 +232,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sd</string>
   <string name="android_app_request_an_account_url">https://sd.wikipedia.org/wiki/وڪيپيڊيا:کاتي_جي_لاءِ_درخواست_ڏيو</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">مستعمل لائبريريون</string>
@@ -901,7 +900,7 @@
   <string name="suggested_edits_ip_blocked_title">آئپي تي بندش وڌل آھي</string>
   <string name="suggested_edits_last_edited">آخري دفعو سنواريل</string>
   <string name="suggested_edits_last_edited_never">ڪڏهن بہ نہ</string>
-  <string name="suggested_edits_task_new">نوان</string>
+  <string name="suggested_edits_task_new" fuzzy="true">نوان</string>
   <string name="suggested_edits_reactivation_notification_title">ڏسيل سنوارون</string>
   <string name="suggested_edits_reactivation_notification_stage_one">وڪيپيڊيا کي سنوارڻ لاءِ مھرباني! ڇو نہ اتان شروع ڪجي جتان ڇڏيوسين؟</string>
   <string name="suggested_edits_contributions_screen_title">%s جون ڀاڱيداريون</string>
@@ -1155,7 +1154,7 @@
   <string name="revision_diff_line_removed">ڪڍيل سِٽ</string>
   <string name="revision_diff_paragraph_added">وڌل پيراگراف</string>
   <string name="revision_diff_paragraph_removed">ڪڍيل پيراگراف</string>
-  <string name="revision_undo_title">سنوار اڻڪريو</string>
+  <string name="revision_undo_title" fuzzy="true">سنوار اڻڪريو</string>
   <string name="revision_undo_success">ورجاء کي ختم ڪيو ويو.</string>
   <string name="revision_rollback_dialog_title">ڇا توھان کي پڪ آھي تہ توھان سنوارن کي واپس ورائڻ چاھيو ٿا؟</string>
   <string name="revision_rollback_success">سنوارون موٽايون ويون</string>

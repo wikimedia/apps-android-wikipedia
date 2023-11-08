@@ -7,6 +7,7 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.Window
 import androidx.annotation.DimenRes
+import androidx.core.content.res.use
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.log.L
@@ -100,12 +101,10 @@ object DimenUtil {
     }
 
     fun getToolbarHeightPx(context: Context): Int {
-        val styledAttributes = context.theme.obtainStyledAttributes(intArrayOf(
-                androidx.appcompat.R.attr.actionBarSize
-        ))
-        val size = styledAttributes.getDimensionPixelSize(0, 0)
-        styledAttributes.recycle()
-        return size
+        val attrs = intArrayOf(androidx.appcompat.R.attr.actionBarSize)
+        return context.theme.obtainStyledAttributes(attrs).use {
+            it.getDimensionPixelSize(0, 0)
+        }
     }
 
     @DimenRes

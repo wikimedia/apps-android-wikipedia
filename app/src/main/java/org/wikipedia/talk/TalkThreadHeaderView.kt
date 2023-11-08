@@ -1,7 +1,6 @@
 package org.wikipedia.talk
 
 import android.content.Context
-import android.graphics.Color
 import android.text.method.MovementMethod
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -36,15 +35,14 @@ class TalkThreadHeaderView constructor(context: Context, attrs: AttributeSet? = 
     fun bind(pageTitle: PageTitle, item: ThreadItem?, subscribed: Boolean, movementMethod: MovementMethod, searchQuery: String? = null) {
         binding.pageTitleText.movementMethod = movementMethod
         val baseTitle = TalkTopicsActivity.getNonTalkPageTitle(pageTitle)
-        binding.pageTitleText.text = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } +
+        val pageTitleText = StringUtil.fromHtml(pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } +
                 ": " + "<a href='" + baseTitle.uri + "'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>")
-        StringUtil.highlightAndBoldenText(binding.pageTitleText, searchQuery, true, Color.YELLOW)
+        StringUtil.setHighlightedAndBoldenedText(binding.pageTitleText, pageTitleText, searchQuery)
 
         binding.threadTitleText.isVisible = !TalkTopicActivity.isHeaderTemplate(item)
         binding.threadTitleText.movementMethod = movementMethod
-        val titleStr = StringUtil.fromHtml(item?.html).trim()
-        binding.threadTitleText.text = titleStr.ifEmpty { context.getString(R.string.talk_no_subject) }
-        StringUtil.highlightAndBoldenText(binding.threadTitleText, searchQuery, true, Color.YELLOW)
+        val threadTitle = StringUtil.fromHtml(item?.html).ifBlank { context.getString(R.string.talk_no_subject) }
+        StringUtil.setHighlightedAndBoldenedText(binding.threadTitleText, threadTitle, searchQuery)
 
         if (TalkTopicActivity.isSubscribable(item)) {
             binding.subscribeButton.text = context.getString(if (subscribed) R.string.talk_list_item_overflow_subscribed else R.string.talk_list_item_overflow_subscribe)

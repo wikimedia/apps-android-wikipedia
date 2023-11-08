@@ -60,7 +60,6 @@
   <string name="edit_history_link_text">Čuäʹjet muʹttemhistoria.</string>
   <string name="map_view_link_text">Čuäʹjet kaartâst</string>
   <string name="other_languages_indication_text">Looǥǥ jeeʹres ǩiõʹlle</string>
-  <string name="content_license_cc_by_sa" fuzzy="true">CC BY-SA 3.0</string>
   <string name="preference_title_language">Wikipedia ǩiõl</string>
   <string name="langlinks_filter_hint">Ooccmõš</string>
   <string name="langlinks_activity_title">Jeeʹres ǩiõl</string>
@@ -283,7 +282,7 @@
   <string name="suggested_edits_label">Eʹtǩǩuum muttâz</string>
   <string name="suggested_edits_learn_more">Lââʹssteâđ</string>
   <string name="suggested_edits_last_edited">Mââimõssân muttum</string>
-  <string name="suggested_edits_task_new">ođđ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ođđ</string>
   <string name="suggested_edits_reactivation_notification_title">Eʹtǩǩuum muttâz</string>
   <string name="suggested_edits_contribution_language_label">Ǩiõll</string>
   <string name="suggested_edits_contribution_image_label">Snimldõk</string>
@@ -346,7 +345,7 @@
   <string name="menu_option_view_user_talk">Čuäʹjet saǥstõõllâmseeid</string>
   <string name="revision_diff_compare">Verddõõl versioid</string>
   <string name="revision_diff_compare_title">Verddõõl versioid: %s</string>
-  <string name="revision_undo_title">Kååʹmet muttâz</string>
+  <string name="revision_undo_title" fuzzy="true">Kååʹmet muttâz</string>
   <string name="revision_undo_success">Versio kååʹmteš.</string>
   <string name="revision_rollback_success">Muttâz lie kååʹmtum.</string>
   <string name="revision_compare_button">Verddõõl</string>

@@ -4,6 +4,7 @@
 * Alno
 * Amire80
 * Bbernrd
+* BlueCamille
 * Blurby
 * C13m3n7
 * Cigaryno
@@ -40,6 +41,7 @@
 * NemesisIII
 * Niridya
 * Noé
+* Obscaeris
 * Oupsa
 * Seb35
 * SleaY
@@ -155,7 +157,6 @@
   <string name="map_view_link_text">Afficher sur une carte</string>
   <string name="other_languages_indication_text">Lire dans une autre langue</string>
   <string name="language_count_link_text">Disponible dans %d autres langues</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et placez de manière irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;Conditions d’utilisation&lt;/a&gt; et placez de manière irrévocable vos contributions sous la licence &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Les modifications seront attribuées à l’adresse IP de votre équipement. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
   <string name="edit_anon_warning">Les modifications seront attribuées à l’adresse IP de votre appareil. Si vous &lt;a href=\"https://#login\"&gt;vous connectez&lt;/a&gt;, vous aurez davantage de confidentialité.</string>
@@ -309,6 +310,9 @@
   <string name="edit_undo">Annuler</string>
   <string name="edit_redo">Refaire</string>
   <string name="edit_rollback">Révoquer</string>
+  <string name="edit_warn">Avertissement</string>
+  <string name="edit_damage" fuzzy="true">%s de dégâts</string>
+  <string name="edit_intent">%s d’intention</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s octet</item>
     <item quantity="other">%s octets</item>
@@ -417,9 +421,9 @@
   <string name="redirected_from_snackbar">Redirigé de « %s »</string>
   <string name="button_get_directions">Obtenir les directions</string>
   <string name="error_no_maps_app">Impossible de trouver une application fournissant des itinéraires.</string>
-  <string name="preference_title_customize_explore_feed">Explorer le fil</string>
+  <string name="preference_title_customize_explore_feed">Flux d\'exploration</string>
   <string name="preference_title_show_link_previews">Afficher les aperçus de liens</string>
-  <string name="preference_summary_customize_explore_feed">Personnaliser le fil d’exploration</string>
+  <string name="preference_summary_customize_explore_feed">Personnaliser le flux d\'exploration</string>
   <string name="preference_summary_show_link_previews">Afficher un rapide aperçu des articles en tapant sur les liens.</string>
   <string name="preference_title_collapse_tables">Replier les tableaux</string>
   <string name="preference_summary_collapse_tables">Replier automatiquement les tableaux dans les articles, comme les boîtes d’information, les références et les notes.</string>
@@ -829,7 +833,7 @@
   <string name="view_offline_card_text">Le contenu ne peut être chargé hors connexion.</string>
   <string name="view_featured_article_card_title">Article vedette</string>
   <string name="view_static_card_save_button_label">Enregistrer</string>
-  <string name="feed_configure_activity_title">Configurer le fil</string>
+  <string name="feed_configure_activity_title">Configurer le flux</string>
   <string name="feed_configure_menu_reset">Rétablir la vue par défaut</string>
   <string name="feed_configure_menu_select_all">Afficher tout</string>
   <string name="feed_configure_menu_deselect_all">Cacher tout</string>
@@ -843,11 +847,11 @@
   <string name="feed_item_type_main_page">Page d’accueil de Wikipédia avec le contenu vedette du jour</string>
   <string name="feed_item_type_randomizer">Générer des articles aléatoires à lire</string>
   <string name="feed_item_type_suggested_edits">Suggestions pour ajouter du contenu à Wikipédia</string>
-  <string name="feed_empty_message">Il n’y a rien dans votre flux à Explorer</string>
+  <string name="feed_empty_message">Il n’y a rien dans votre flux d\'exploration</string>
   <string name="feed_configure_onboarding_action">Personnaliser</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Annuler</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre flux à Explorer&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Vous pouvez maintenant choisir ce que vous voulez montrer sur votre fil et aussi prioriser vos types de contenu favoris.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Personnaliser votre flux d\'exploration&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Vous pouvez maintenant choisir ce que vous voulez montrer sur votre flux et aussi prioriser vos types de contenu favoris.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Annuler</string>
   <string name="feed_accessibility_card_text">Vous avez atteint la fin du flux.</string>
@@ -922,6 +926,9 @@
   <string name="suggested_edits_describe_articles">Décrire les articles</string>
   <string name="suggested_edits_caption_images">Légende d’images</string>
   <string name="suggested_edits_tag_images">Marquer les images</string>
+  <string name="suggested_edits_edit_patrol">Patrouille de modification</string>
+  <string name="suggested_edits_edit_patrol_hint">Relire les modifications récentes et déterminer si elles sont ou non constructives.</string>
+  <string name="suggested_edits_edit_patrol_review">Relire</string>
   <string name="suggested_edits_review_description">Relire la description de l’article</string>
   <string name="suggested_edits_add_description_button">Ajouter une description</string>
   <string name="suggested_edits_edit_description_button">Modifier la description</string>
@@ -1041,7 +1048,7 @@
   <string name="suggested_edits_ip_blocked_title">IP bloquée</string>
   <string name="suggested_edits_last_edited">Dernière modification</string>
   <string name="suggested_edits_last_edited_never">Jamais</string>
-  <string name="suggested_edits_task_new">nouveau</string>
+  <string name="suggested_edits_task_new">Nouveau</string>
   <string name="suggested_edits_cc0_notice">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;conditions d’utilisation&lt;/a&gt; et de mettre de façon irrévocable cette contribution sous la &lt;a href=\"%2$s\"&gt;licence CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modifications suggérées</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci d’avoir modifié Wikipédia ! Pourquoi ne pas reprendre là où vous en étiez ?</string>
@@ -1120,8 +1127,12 @@
   <string name="image_recommendation_tooltip_3">Décider si l’image aide les lecteurs à comprendre mieux ce sujet</string>
   <string name="image_recommendation_tooltip_next">Suivant</string>
   <string name="image_recommendation_tooltip_warning">Veuillez relire l’article pour comprendre son sujet et inspecter l’image</string>
+  <string name="image_recommendation_depleted">Désolé, il n’y a plus d’images suggérées disponibles en ce moment. Veuillez explorer d’autres &lt;a href=\"#\"&gt;modifications suggérées&lt;/a&gt; ou revenir ultérieurement.</string>
+  <string name="suggested_edits_report_feature">Problème avec la fonctionnalité</string>
+  <string name="suggested_edits_report_feature_subject">Problème avec les modifications suggérées</string>
   <string name="edit_summary_added_image">Image ajoutée</string>
   <string name="edit_summary_added_caption">Légende ajoutée</string>
+  <string name="edit_summary_added_image_and_caption">Image et légende ajoutées</string>
   <string name="edit_published_view">Afficher</string>
   <string name="file_page_activity_title">Page du fichier</string>
   <string name="file_page_add_image_caption_button">Ajouter une légende d’image</string>
@@ -1142,7 +1153,7 @@
   <string name="onboarding_get_started">C’est parti</string>
   <string name="onboarding_maybe_later">Peut-être plus tard</string>
   <string name="onboarding_explore_title">Nouvelles façons d’explorer</string>
-  <string name="onboarding_explore_text">Plongez dans le terrier de Wikipédia avec un flux Explorer continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos intérêts — si s’agit d’apprendre les événements historiques &lt;b&gt;Sur cette journée&lt;/b&gt; ou de choisir aléatoirement avec &lt;b&gt;Aléatoire&lt;/b&gt;.</string>
+  <string name="onboarding_explore_text">Plongez dans le terrier de Wikipédia avec un flux d\'exploration continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos intérêts — s\'il s’agit d’apprendre des événements historiques &lt;b&gt;Sur cette journée&lt;/b&gt; ou de choisir aléatoirement avec &lt;b&gt;Aléatoire&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listes de lecture avec synchronisation</string>
   <string name="onboarding_reading_list_sync_text_v2">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même lorsque vous êtes hors connexion.&lt;br /&gt;\nConnectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Envoyer les données de manière anonyme</string>
@@ -1218,6 +1229,7 @@
   <string name="wikitext_template">Modèle</string>
   <string name="wikitext_reference">Référence</string>
   <string name="wikitext_preview_link">Lien vers l’aperçu</string>
+  <string name="wikitext_mention_user">Mentionner un utilisateur</string>
   <string name="insert_media_title">Insérer un média</string>
   <string name="insert_media_search_description">Sélectionner un fichier de Wikimedia Commons</string>
   <string name="insert_media_search_hint">Rechercher un média</string>
@@ -1262,6 +1274,18 @@
   <string name="talk_user_title">Discussion : %s</string>
   <string name="talk_new_topic">Nouveau sujet</string>
   <string name="talk_new_topic_submitted">Sujet posté.</string>
+  <string name="talk_warn">Avertissement</string>
+  <string name="talk_warn_save_dialog_title">Enregistrer les modifications ?</string>
+  <string name="talk_warn_save_dialog_message">Enregistrer comme un nouveau message</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Enregistrer comme un nouveau message dans la liste</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Mettre à jour le message existant</string>
+  <string name="talk_warn_save_dialog_hint">Titre du message</string>
+  <string name="talk_warn_save_dialog_publish">Publier</string>
+  <string name="talk_warn_save_dialog_cancel">Annuler</string>
+  <string name="talk_warn_submitted">Message publié sur la page de discussion utilisateur de l’éditeur</string>
+  <string name="talk_warn_submitted_and_saved">Message enregistré et publié sur la page de discussion utilisateur de l’éditeur</string>
+  <string name="talk_warn_saved_message">Sélectionner un message d’avertissement existant ou composer un nouveau message.</string>
+  <string name="talk_warn_saved_message_dropdown">Messages enregistrés</string>
   <string name="talk_page_empty">Cette page de discussion est vide.</string>
   <string name="talk_page_empty_title">La conversation commence ici</string>
   <string name="talk_page_empty_content">Les pages de discussion sont des endroits pour discuter de la façon de rendre le contenu de Wikipédia le meilleur possible. Commencez par ajouter un nouveau sujet de discussion pour vous connecter et collaborer avec une communauté de Wikipédiens.</string>
@@ -1349,9 +1373,9 @@
   <string name="revision_diff_paragraph_added">Paragraphe ajouté</string>
   <string name="revision_diff_paragraph_removed">Paragraphe supprimé</string>
   <string name="revision_diff_protected">Les modifications faites dans cette révision ne sont pas accessibles publiquement.</string>
-  <string name="revision_undo_title">Annuler la modification</string>
-  <string name="revision_undo_message">Cela annulera les modifications réalisées dans les révisions de l’article affichées ici.</string>
-  <string name="revision_undo_reason">Pour poursuivre, veuillez fournir un motif pour annuler cette modification :</string>
+  <string name="revision_undo_title">Êtes-vous sûr d\'annuler cette modification ?</string>
+  <string name="revision_undo_message" fuzzy="true">Cela annulera les modifications réalisées dans les révisions de l’article affichées ici.</string>
+  <string name="revision_undo_reason" fuzzy="true">Pour poursuivre, veuillez fournir un motif pour annuler cette modification :</string>
   <string name="revision_undo_success">La révision a été annulée.</string>
   <string name="revision_rollback_dialog_title">Voulez-vous vraiment révoquer les modifications ?</string>
   <string name="revision_rollback_success">Modifications révoquées.</string>
@@ -1465,8 +1489,112 @@
   <string name="reading_list_share_message_v2">Bonjour ! J’aimerais partager ma liste de lecture Wikipédia avec vous :</string>
   <string name="reading_list_share_survey_title">Pourriez-vous nous aider à améliorer la fonctionnalité « Partager des listes de lecture » ?</string>
   <string name="reading_list_share_survey_body">Le « Partage de listes de lecture » est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
+  <string name="talk_templates_manage_title">Gérer les modèles</string>
+  <string name="talk_templates_empty_message">Vous n’avez pas de message d’avertissement enregistré.</string>
+  <string name="talk_templates_new_message_title">Nouveau message</string>
+  <string name="talk_templates_new_message_description">Composer un message d’avertissement.</string>
+  <string name="talk_templates_new_message_subject_hint">Sujet</string>
+  <string name="talk_templates_new_message_compose_hint">Composer le message</string>
+  <string name="talk_templates_new_message_save">Enregistrer</string>
+  <string name="talk_templates_new_message_dialog_title">Enregistrer les modifications</string>
+  <string name="talk_templates_new_message_dialog_description">Ajouter un titre et enregistrer le message.</string>
+  <string name="talk_templates_new_message_dialog_hint">Titre du message</string>
+  <string name="talk_templates_new_message_dialog_save">Enregistrer</string>
+  <string name="talk_templates_new_message_dialog_cancel">Annuler</string>
+  <string name="talk_templates_new_message_dialog_exists">Le modèle « %s » existe déjà.</string>
+  <string name="talk_templates_new_message_saved">Le message a été enregistré</string>
+  <string name="talk_templates_edit_message_dialog_title">Modifier le message</string>
+  <string name="talk_templates_edit_message_dialog_save">Enregistrer</string>
+  <string name="talk_templates_edit_message_dialog_delete">Supprimer</string>
+  <string name="talk_templates_edit_message_updated">Le message a été mis à jour</string>
+  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Êtes-vous sûr de vouloir supprimer ce message %s de la liste ?</string>
+  <string name="talk_templates_message_deleted">Le message a été supprimé</string>
+  <string name="patroller_tasks_edits_list_title">Liste des modifications</string>
+  <string name="patroller_tasks_edits_list_search_hint">Rechercher ou filtrer les modifications</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Balises : %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Aucune</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Afficher la page utilisateur</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Afficher la page de discussion</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Information sur l’utilisateur</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Afficher les contributions de l’utilisateur</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Remercier</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Informations sur l’utilisateur</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Compte depuis : &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Nombre de modifications : &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Fermer</string>
+  <string name="patroller_tasks_filters_title">Filtres</string>
+  <string name="patroller_tasks_filters_reset">Réinitialiser</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_all_text">Tous</string>
+  <string name="patroller_tasks_filters_user_status_header">Inscription et expérience de l’utilisateur</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Non inscrit</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Éditeurs qui ne sont pas connectés</string>
+  <string name="patroller_tasks_filters_user_status_registered">Inscrit</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Éditeurs connectés.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Nouveaux arrivants</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Éditeurs inscrits qui ont moins de 10 modifications sur 4 jours d’activité.</string>
+  <string name="patroller_tasks_filters_user_status_learners">Apprenants</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Éditeurs inscrits dont l’expérience est entre « Nouveaux arrivants » et « Utilisateurs expérimentés ».</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Utilisateurs expérimentés</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Éditeurs inscrits avec plus de 500 modifications et 30 jours d’activité</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Dernières révisions</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Dernière révision</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Pas la dernière révision</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Contributions automatisées</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Robot</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Humain (non robot)</string>
+  <string name="patroller_tasks_filters_significance_header">Importance</string>
+  <string name="patroller_tasks_filters_significance_minor">Modifications mineures</string>
+  <string name="patroller_tasks_filters_significance_edits">Modifications non mineures</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Prédictions de qualité de la contribution</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Très vraisemblablement bonne</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Très précis pour trouver presque toutes les modifications sans problème.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Peut avoir des problèmes</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Trouve la plupart des modifications incorrectes ou fautives mais avec une précision moindre.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">A probablement des problèmes</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Avec une précision moyenne, trouve une fraction intermédiaire des modifications à problème.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Très susceptible d’avoir des problèmes</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Très précis pour trouver les modifications incorrectes ou fautives les plus évidentes.</string>
+  <string name="patroller_tasks_filters_user_intent_header">Prédictions d’intention de l’utilisateur</string>
+  <string name="patroller_tasks_filters_user_intent_good">Très vraisemblablement de bonne foi</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Très précis pour trouver presque toutes les modifications de bonne foi.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Peut être de mauvaise foi</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Trouve la plupart des modifications de mauvaise foi, mais avec une faible précision.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Probablement de mauvaise foi</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Avec une précision moyenne, trouve une fraction intermédiaire des modifications de mauvaise foi.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Très probablement de mauvaise foi</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Très précis pour trouver les modifications de mauvaise foi les plus évidentes.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Essayez de supprimer %s pour voir plus de modifications</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d filtre</item>
+    <item quantity="other">%d filtres</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_title">Patrouiller la modification</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historique des modifications de l’article</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Annulation terminée</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Êtes-vous sûr de vouloir revenir en arrière ?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Retour en arrière terminé</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Afficher</string>
+  <string name="patroller_tasks_overflow_report">Problème avec la fonctionnalité</string>
+  <string name="patroller_tasks_overflow_learn">En savoir plus</string>
+  <string name="patroller_onboarding_one_title">Contribuer à la surveillance et à l’approbation des modifications de Wikipédia.</string>
+  <string name="patroller_onboarding_one_content">Améliore la qualité du contenu de Wikipédia en relisant activement un flux de nouvelles modifications et en fournissant des conseils, un contrôle de qualité et des encouragements à d’autres éditeurs.</string>
+  <string name="patroller_onboarding_two_thank_title">Remercier</string>
+  <string name="patroller_onboarding_two_thank_content">Vous voyez une modification pertinente ? Remerciez un utilisateur pour sa contribution !</string>
+  <string name="patroller_onboarding_two_watch_title">Suivre</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfait</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutre</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfait</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Commentaire</string>
+  <string name="patroller_diff_feedback_dialog_submit">Soumettre</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Commentaire envoyé.</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Rejeter</string>
   <string name="page_issues_title">Problèmes de la page</string>
   <string name="generic_release_notes">Corrections de bogues mineurs et améliorations</string>
+  <string name="email_report_image_recommendations_subject">Rapport de problème — Fonctionnalité de recommandations d’image</string>
+  <string name="email_report_image_recommendations_body">J’ai rencontré un problème avec la fonctionnalité de recommandation d’image :\n- [Décrire le problème spécifique]\n\nLe comportement que je m’attendrais à voir est :\n- [Décrire la solution proposée]</string>
+  <string name="email_report_patroller_tasks_subject">Rapport de problème — Fonctionnalité de patrouille de modifications</string>
+  <string name="email_report_patroller_tasks_body">J’ai rencontré un problème en rapport avec la fonctionnalité d\'édition du patrouillage :\n- [Décrire le problème spécifique]\n\nLe comportement que je souhaite voir est :\n- [Décrire la solution proposée]\n\n[Captures d\'écrans ou liens]\n\n\n\n\n\n[]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Nous vous le rappellerons demain.</string>
 </resources>
