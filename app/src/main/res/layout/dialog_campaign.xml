@@ -20,7 +20,10 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:fadingEdge="vertical"
+            android:fadingEdgeLength="20dp"
+            android:requiresFadingEdge="vertical">
 
             <TextView
                 android:id="@+id/contentText"
@@ -38,12 +41,6 @@
                 tools:text="Lorem ipsum" />
 
         </ScrollView>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="-20dp"
-            android:background="@drawable/gradient_white_background" />
 
         <LinearLayout
             android:id="@+id/buttonsContainer"
