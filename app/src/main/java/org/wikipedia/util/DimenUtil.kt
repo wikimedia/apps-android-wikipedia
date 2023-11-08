@@ -78,7 +78,7 @@ object DimenUtil {
     private val resources: Resources
         get() = WikipediaApp.instance.resources
 
-    fun htmlUnitToPxInt(str: String): Int {
+    fun htmlUnitToPxInt(str: String): Int? {
         try {
             val unitRegex = "[A-Za-z]{2}".toRegex()
             val unit = unitRegex.find(str)?.value.orEmpty()
@@ -92,7 +92,7 @@ object DimenUtil {
         } catch (e: Exception) {
             L.e(e)
         }
-        return 0
+        return null
     }
 
     fun getNavigationBarHeight(context: Context): Float {

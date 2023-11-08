@@ -74,7 +74,7 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             val timestamp = DateUtil.getTimeAndDateString(context, it)
             StringUtil.setHighlightedAndBoldenedText(binding.timeStampText, timestamp, searchQuery)
         }
-        val body = CustomHtmlParser.fromHtml(StringUtil.removeStyleTags(item.html), binding.bodyText, false).trim()
+        val body = CustomHtmlParser.fromHtml(StringUtil.removeStyleTags(item.html), binding.bodyText).trim()
         StringUtil.setHighlightedAndBoldenedText(binding.bodyText, body, searchQuery)
         binding.bodyText.movementMethod = movementMethod
 

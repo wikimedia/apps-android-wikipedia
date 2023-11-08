@@ -23,10 +23,12 @@ import androidx.core.text.toSpanned
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.WhiteBackgroundTransformation
 import org.wikipedia.util.log.L
 import org.xml.sax.Attributes
@@ -106,7 +108,8 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         wrapped?.skippedEntity(name)
     }
 
-    class CustomTagHandler(private val view: TextView?, private val noSmallSizeImage: Boolean = true) : TagHandler {
+    class CustomTagHandler(private val view: TextView?,
+                           private val noSmallSizeImage: Boolean = true) : TagHandler {
         private var lastAClass = ""
 
         override fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean {
@@ -124,8 +127,8 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 if (imgHeightStr.isEmpty()) {
                     imgHeightStr = heightRegex.find(styleStr)?.value.orEmpty().replace("height:", "")
                 }
-                var imgWidth = DimenUtil.htmlUnitToPxInt(imgWidthStr)
-                var imgHeight = DimenUtil.htmlUnitToPxInt(imgHeightStr)
+                var imgWidth = DimenUtil.htmlUnitToPxInt(imgWidthStr) ?: MIN_IMAGE_SIZE
+                var imgHeight = DimenUtil.htmlUnitToPxInt(imgHeightStr) ?: MIN_IMAGE_SIZE
                 val imgSrc = getValue(attributes, "src").orEmpty()
 
                 if (noSmallSizeImage && (imgWidth < MIN_IMAGE_SIZE || imgHeight < MIN_IMAGE_SIZE)) {
@@ -147,11 +150,12 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
 
                         drawable.setBounds(0, 0, imgWidth, imgHeight)
 
-                        var uri = imgSrc
-                        if (uri.startsWith("//")) {
-                            uri = WikiSite.DEFAULT_SCHEME + ":" + uri
-                        } else if (uri.startsWith("./")) {
-                            uri = Service.COMMONS_URL + uri.replace("./", "")
+                        val uri = if (imgSrc.startsWith("//")) {
+                            WikiSite.DEFAULT_SCHEME + ":" + imgSrc
+                        } else if (imgSrc.startsWith("./")) {
+                            Service.COMMONS_URL + imgSrc.replace("./", "")
+                        } else {
+                            UriUtil.resolveProtocolRelativeUrl(WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode), imgSrc)
                         }
 
                         Glide.with(view)
