@@ -24,6 +24,22 @@
                 android:layout_marginHorizontal="16dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/addTemplateTitleLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="16dp"
+                android:hint="@string/talk_templates_new_message_dialog_hint">
+
+                <org.wikipedia.views.PlainPasteEditText
+                    android:id="@+id/addTemplateTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/addTemplateSubjectLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

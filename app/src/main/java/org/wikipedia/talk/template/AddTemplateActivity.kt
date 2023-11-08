@@ -76,14 +76,10 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         setContentView(binding.root)
         setSupportActionBar(binding.addTemplateToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        title = getString(R.string.talk_templates_new_message_title)
+        title = if (viewModel.talkTemplateId != -1) getString(R.string.talk_templates_edit_message_dialog_title) else
+            getString(R.string.talk_templates_new_message_title)
 
-        textWatcher = binding.addTemplateSubjectText.doOnTextChanged { _, _, _, _ ->
-            binding.addTemplateSubjectLayout.error = null
-            binding.addTemplateInputView.textInputLayout.error = null
-            setSaveButtonEnabled(binding.addTemplateInputView.editText.text.isNotBlank())
-        }
-        binding.addTemplateInputView.editText.addTextChangedListener(textWatcher)
+        addTextWatcher()
 
         binding.addTemplateSaveButton.setOnClickListener {
             onSaveClicked()
@@ -110,6 +106,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     }
 
     public override fun onDestroy() {
+        binding.addTemplateTitleText.removeTextChangedListener(textWatcher)
         binding.addTemplateSubjectText.removeTextChangedListener(textWatcher)
         binding.addTemplateInputView.editText.removeTextChangedListener(textWatcher)
         super.onDestroy()
@@ -186,11 +183,48 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         }.show()
     }
 
+    private fun addTextWatcher() {
+        textWatcher = binding.addTemplateTitleText.doOnTextChanged { it, _, _, _ ->
+            binding.addTemplateTitleLayout.error = null
+            binding.addTemplateSubjectLayout.error = null
+            binding.addTemplateInputView.textInputLayout.error = null
+            val title = binding.addTemplateTitleText.text.toString().trim()
+            val subject = binding.addTemplateSubjectText.text.toString().trim()
+            val body = binding.addTemplateInputView.editText.text.toString().trim()
+            if (title.isEmpty()) {
+                PatrollerExperienceEvent.logAction("publish_error_title", "pt_templates")
+                binding.addTemplateTitleLayout.error = getString(R.string.talk_templates_message_title_empty)
+            }
+            if (subject.isEmpty()) {
+                PatrollerExperienceEvent.logAction("save_error_subject", "pt_templates")
+                binding.addTemplateSubjectLayout.error = getString(R.string.talk_subject_empty)
+            }
+            if (body.isEmpty()) {
+                PatrollerExperienceEvent.logAction("save_error_compose", "pt_templates")
+                binding.addTemplateInputView.textInputLayout.error = getString(R.string.talk_message_empty)
+            }
+            if (viewModel.talkTemplatesList.any { item -> item.title == it }) {
+                binding.addTemplateTitleLayout.error = getString(R.string.talk_templates_new_message_dialog_exists, it)
+            }
+
+            setSaveButtonEnabled(title.isNotBlank() && subject.isNotBlank() && body.isNotBlank())
+        }
+        binding.addTemplateSubjectText.addTextChangedListener(textWatcher)
+        binding.addTemplateInputView.editText.addTextChangedListener(textWatcher)
+    }
+
     private fun onSaveClicked() {
+        val title = binding.addTemplateTitleText.text.toString().trim()
         val subject = binding.addTemplateSubjectText.text.toString().trim()
         val body = binding.addTemplateInputView.editText.text.toString().trim()
 
-        if (subject.isEmpty()) {
+        if (title.isEmpty()) {
+            // TODO: add eventlogging
+            PatrollerExperienceEvent.logAction("publish_error_title", "pt_templates")
+            binding.addTemplateTitleLayout.error = getString(R.string.talk_templates_message_title_empty)
+            binding.addTemplateTitleLayout.requestFocus()
+            return
+        } else if (subject.isEmpty()) {
             PatrollerExperienceEvent.logAction("save_error_subject", "pt_templates")
             binding.addTemplateSubjectLayout.error = getString(R.string.talk_subject_empty)
             binding.addTemplateSubjectLayout.requestFocus()
@@ -203,7 +237,9 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         }
 
         setSaveButtonEnabled(false)
-        showSaveDialog(subject, body)
+        // TODO: add eventlogging
+        PatrollerExperienceEvent.logAction("save_message_click", "pt_templates")
+        viewModel.saveTemplate(title, subject, body)
     }
 
     private fun onSaveSuccess() {
@@ -269,8 +305,12 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     }
 
     companion object {
-        fun newIntent(context: Context): Intent {
+        const val EXTRA_TEMPLATE_ID = "templateId"
+
+        fun newIntent(context: Context,
+                      templateId: Int = -1): Intent {
             return Intent(context, AddTemplateActivity::class.java)
+                .putExtra(EXTRA_TEMPLATE_ID, templateId)
         }
     }
 }

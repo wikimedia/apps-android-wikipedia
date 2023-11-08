@@ -9,4 +9,16 @@
         app:iconTint="?attr/progressive_color"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
+    <item
+        android:id="@+id/empty"
+        android:icon="@drawable/ic_more_vert_white_24dp"
+        android:title="@string/nav_item_more"
+        app:iconTint="?attr/primary_color"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menu_remove_message"
+                android:title="@string/talk_templates_menu_remove_message"/>
+        </menu>
+    </item>
 </menu>
