@@ -316,6 +316,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                         PatrollerExperienceEvent.logAction("message_delete_cancel", "pt_templates")
                     }
                     .show()
+            } else {
+                actionMode?.finish()
             }
         }
 
