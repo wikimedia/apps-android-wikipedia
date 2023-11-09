@@ -45,8 +45,6 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     private var actionMode: ActionMode? = null
     private val multiSelectCallback = MultiSelectCallback()
 
-    private var deleteMode = false
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentTalkTemplatesBinding.inflate(inflater, container, false)
@@ -113,12 +111,6 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         inflater.inflate(R.menu.menu_talk_templates, menu)
     }
 
-    override fun onPrepareMenu(menu: Menu) {
-        super.onPrepareMenu(menu)
-        menu.findItem(R.id.menu_remove_messages).isVisible = deleteMode
-        menu.findItem(R.id.menu_overflow).isVisible = !deleteMode
-    }
-
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.menu_new_message -> {
@@ -128,12 +120,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             }
             R.id.menu_enter_remove_message_mode -> {
                 // TODO: add eventlogging
-                requireActivity().invalidateOptionsMenu()
-                true
-            }
-            R.id.menu_remove_messages -> {
-                // TODO: add eventlogging
-                // TODO: remove selected items
+                beginRemoveItemsMode()
                 true
             }
             else -> false
@@ -195,8 +182,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     internal inner class TalkTemplatesItemViewHolder(val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) {
-        fun bindItem(item: TalkTemplate) {
-            templatesItemView.setContents(item)
+        fun bindItem(item: TalkTemplate, position: Int) {
+            templatesItemView.setContents(item, position)
         }
     }
 
@@ -209,14 +196,12 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TalkTemplatesItemViewHolder {
-            val view = TalkTemplatesItemView(requireContext())
-            view.callback = this
-            return TalkTemplatesItemViewHolder(view)
+            return TalkTemplatesItemViewHolder(TalkTemplatesItemView(requireContext()))
         }
 
         override fun onBindViewHolder(holder: TalkTemplatesItemViewHolder, position: Int) {
             val talkTemplate = viewModel.talkTemplatesList[position]
-            holder.bindItem(talkTemplate)
+            holder.bindItem(talkTemplate, position)
             holder.templatesItemView.setCheckBoxEnabled(checkboxEnabled)
             holder.templatesItemView.setCheckBoxChecked(selectedItems.contains(talkTemplate))
             holder.templatesItemView.setDragHandleEnabled(!checkboxEnabled)
@@ -228,24 +213,26 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 when (event.actionMasked) {
                     MotionEvent.ACTION_DOWN -> itemTouchHelper.startDrag(holder)
                     MotionEvent.ACTION_UP -> v.performClick()
+                    else -> { }
                 }
                 false
             }
+            holder.templatesItemView.callback = this
         }
 
         override fun onViewDetachedFromWindow(holder: TalkTemplatesItemViewHolder) {
             holder.templatesItemView.setDragHandleTouchListener(null)
+            holder.templatesItemView.callback = null
             super.onViewDetachedFromWindow(holder)
         }
 
-        override fun onClick(talkTemplate: TalkTemplate) {
+        override fun onClick(position: Int) {
             // TODO: add eventlogging?
-            requestEditTemplate.launch(AddTemplateActivity.newIntent(requireContext(), talkTemplate.id))
             if (actionMode != null) {
-                toggleSelectedItem(talkTemplate)
-                adapter.notifyItemRangeChanged(0, viewModel.talkTemplatesList.size)
+                toggleSelectedItem(viewModel.talkTemplatesList[position])
+                adapter.notifyItemChanged(position)
             } else {
-                requestEditTemplate.launch(AddTemplateActivity.newIntent(requireContext(), talkTemplate.id))
+                requestEditTemplate.launch(AddTemplateActivity.newIntent(requireContext(), viewModel.talkTemplatesList[position].id))
             }
         }
 
@@ -255,7 +242,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
         override fun onLongPress(position: Int) {
             if (actionMode == null) {
-                beginRemoveLanguageMode()
+                beginRemoveItemsMode()
             }
             toggleSelectedItem(viewModel.talkTemplatesList[position])
             adapter.notifyItemChanged(position)
@@ -278,7 +265,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         requireActivity().invalidateOptionsMenu()
     }
 
-    private fun beginRemoveLanguageMode() {
+    private fun beginRemoveItemsMode() {
         (requireActivity() as AppCompatActivity).startSupportActionMode(multiSelectCallback)
         setMultiSelectEnabled(true)
     }
@@ -305,7 +292,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
             super.onCreateActionMode(mode, menu)
             mode.setTitle(R.string.talk_templates_menu_remove_message)
-            mode.menuInflater.inflate(R.menu.menu_action_mode_wikipedia_languages, menu)
+            mode.menuInflater.inflate(R.menu.menu_action_mode_talk_templates, menu)
             actionMode = mode
             selectedItems.clear()
             return super.onCreateActionMode(mode, menu)
@@ -336,7 +323,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     private inner class RearrangeableItemTouchHelperCallback constructor(private val adapter: RecyclerAdapter) : ItemTouchHelper.Callback() {
         override fun isLongPressDragEnabled(): Boolean {
-            return true
+            return false
         }
 
         override fun isItemViewSwipeEnabled(): Boolean {

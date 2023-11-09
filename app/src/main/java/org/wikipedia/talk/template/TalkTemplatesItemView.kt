@@ -17,7 +17,7 @@ import org.wikipedia.util.ResourceUtil
 class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     interface Callback {
-        fun onClick(talkTemplate: TalkTemplate)
+        fun onClick(position: Int)
         fun onCheckedChanged(position: Int)
         fun onLongPress(position: Int)
     }
@@ -41,17 +41,17 @@ class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? =
         else ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 
-    fun setContents(talkTemplate: TalkTemplate) {
+    fun setContents(talkTemplate: TalkTemplate, position: Int) {
         binding.listItem.text = talkTemplate.title
         binding.listItem.setOnClickListener {
-            callback?.onClick(talkTemplate)
+            callback?.onClick(position)
         }
         binding.listItem.setOnLongClickListener {
-            callback?.onLongPress(talkTemplate.order - 1)
+            callback?.onLongPress(position)
             true
         }
         binding.checkbox.setOnCheckedChangeListener { _, _ ->
-            callback?.onCheckedChanged(talkTemplate.order - 1)
+            callback?.onCheckedChanged(position)
             updateBackgroundColor()
         }
     }

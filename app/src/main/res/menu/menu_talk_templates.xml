@@ -9,13 +9,6 @@
         app:iconTint="?attr/progressive_color"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
-    <item android:id="@+id/menu_remove_messages"
-        android:title="@string/talk_templates_menu_remove_message"
-        android:icon="@drawable/ic_delete_white_24dp"
-        android:visible="false"
-        app:iconTint="?attr/primary_color"
-        app:showAsAction="always"
-        tools:ignore="AlwaysShowAction" />
     <item
         android:id="@+id/menu_overflow"
         android:icon="@drawable/ic_more_vert_white_24dp"
