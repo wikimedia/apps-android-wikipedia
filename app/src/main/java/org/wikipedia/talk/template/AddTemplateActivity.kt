@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.text.TextWatcher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -116,8 +115,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         setSaveButtonEnabled(false)
         L10nUtil.setConditionalLayoutDirection(binding.addTemplateScrollContainer, wikiSite.languageCode)
         binding.addTemplateInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
-        binding.addTemplateSubjectLayout.isVisible = true
-        binding.addTemplateSubjectLayout.requestFocus()
+        binding.addTemplateTitleLayout.requestFocus()
     }
 
     private fun setSaveButtonEnabled(enabled: Boolean) {
