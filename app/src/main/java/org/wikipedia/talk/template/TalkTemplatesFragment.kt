@@ -28,7 +28,6 @@ import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
-import org.wikipedia.suggestededits.SuggestedEditsRecentEditsViewModel
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.DrawableItemDecoration
@@ -182,7 +181,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         if (binding.talkTemplatesEmptyContainer.isVisible) {
             PatrollerExperienceEvent.logAction("templates_empty_impression", "pt_templates")
         }
-        binding.talkTemplatesRecyclerView.adapter?.notifyDataSetChanged()
+        adapter.notifyItemRangeChanged(0, viewModel.talkTemplatesList.size)
     }
 
     private fun onActionError(t: Throwable) {
@@ -244,22 +243,22 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             requestEditTemplate.launch(AddTemplateActivity.newIntent(requireContext(), talkTemplate.id))
             if (actionMode != null) {
                 toggleSelectedItem(talkTemplate)
-                adapter.notifyDataSetChanged()
+                adapter.notifyItemRangeChanged(0, viewModel.talkTemplatesList.size)
             } else {
                 requestEditTemplate.launch(AddTemplateActivity.newIntent(requireContext(), talkTemplate.id))
             }
         }
 
         override fun onCheckedChanged(position: Int) {
-            toggleSelectedItem(wikipediaLanguages[position])
+            toggleSelectedItem(viewModel.talkTemplatesList[position])
         }
 
         override fun onLongPress(position: Int) {
             if (actionMode == null) {
                 beginRemoveLanguageMode()
             }
-            toggleSelectedItem(wikipediaLanguages[position])
-            adapter.notifyDataSetChanged()
+            toggleSelectedItem(viewModel.talkTemplatesList[position])
+            adapter.notifyItemChanged(position)
         }
 
         fun onMoveItem(oldPosition: Int, newPosition: Int) {
@@ -275,7 +274,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     private fun setMultiSelectEnabled(enabled: Boolean) {
         adapter.onCheckboxEnabled(enabled)
-        adapter.notifyDataSetChanged()
+        adapter.notifyItemRangeChanged(0, viewModel.talkTemplatesList.size)
         requireActivity().invalidateOptionsMenu()
     }
 
@@ -294,7 +293,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     private fun unselectAllTalkTemplates() {
         selectedItems.clear()
-        adapter.notifyDataSetChanged()
+        adapter.notifyItemRangeChanged(0, viewModel.talkTemplatesList.size)
     }
 
     private fun deleteSelectedTalkTemplates() {
