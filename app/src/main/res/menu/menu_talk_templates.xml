@@ -6,7 +6,7 @@
     <item android:id="@+id/menu_new_message"
         android:title="@string/talk_templates_new_message_title"
         android:icon="@drawable/ic_add_gray_white_24dp"
-        app:iconTint="?attr/progressive_color"
+        app:iconTint="?attr/primary_color"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
     <item

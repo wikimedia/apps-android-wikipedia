@@ -24,6 +24,6 @@ class TalkTemplatesRepository constructor(private val talkTemplateDao: TalkTempl
     }
 
     suspend fun deleteTemplates(talkTemplates: List<TalkTemplate>) {
-        talkTemplateDao.deleteTemplates(talkTemplates)
+        talkTemplateDao.deleteTemplates(talkTemplates.map { it.id })
     }
 }

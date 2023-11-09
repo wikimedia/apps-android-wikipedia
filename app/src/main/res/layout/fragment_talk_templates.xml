@@ -1,57 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/paper_color">
+    android:background="?attr/paper_color"
+    android:orientation="vertical">
 
-    <ProgressBar
-        android:id="@+id/talkTemplatesProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/talkTemplatesRecyclerView"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"/>
+        android:layout_height="?attr/actionBarSize"
+        style="@style/ToolbarStyle.Small"
+        app:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp" />
 
-    <LinearLayout
-        android:id="@+id/talkTemplatesEmptyContainer"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/talkTemplatesProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
 
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_empty_state_illustration"/>
-
-        <TextView
-            style="@style/P"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/talkTemplatesRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/talk_templates_empty_message"
-            android:textAlignment="center" />
+            android:scrollbars="vertical"/>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/talkTemplatesEmptyContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
 
-    <org.wikipedia.views.WikiErrorView
-        android:id="@+id/talkTemplatesErrorView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone" />
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_empty_state_illustration"/>
 
-</FrameLayout>
+            <TextView
+                style="@style/P"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/talk_templates_empty_message"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <org.wikipedia.views.WikiErrorView
+            android:id="@+id/talkTemplatesErrorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>

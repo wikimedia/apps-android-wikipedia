@@ -63,25 +63,6 @@ class TalkTemplatesViewModel : ViewModel() {
         }
     }
 
-    fun updateTalkTemplate(title: String, subject: String, body: String, talkTemplate: TalkTemplate) {
-        viewModelScope.launch(actionHandler) {
-            withContext(Dispatchers.IO) {
-                talkTemplate.apply {
-                    this.title = title
-                    this.subject = subject
-                    this.message = body
-                }
-                talkTemplatesRepository.updateTemplate(talkTemplate)
-                talkTemplatesList.find { it == talkTemplate }?.apply {
-                    this.title = title
-                    this.subject = subject
-                    this.message = body
-                }
-                _actionState.value = ActionState.Saved(talkTemplate.order - 1)
-            }
-        }
-    }
-
     fun deleteTemplates(talkTemplates: List<TalkTemplate>) {
         viewModelScope.launch(actionHandler) {
             withContext(Dispatchers.IO) {
@@ -101,7 +82,6 @@ class TalkTemplatesViewModel : ViewModel() {
     }
 
     open class ActionState {
-        class Saved(val position: Int) : ActionState()
         class Deleted(val size: Int) : ActionState()
         class Error(val throwable: Throwable) : ActionState()
     }

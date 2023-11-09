@@ -22,6 +22,6 @@ interface TalkTemplateDao {
     @Query("SELECT `order` FROM TalkTemplate WHERE `order` ORDER BY `order` DESC LIMIT 1")
     suspend fun getLastOrderNumber(): Int?
 
-    @Delete
-    suspend fun deleteTemplates(talkTemplates: List<TalkTemplate>)
+    @Query("DELETE FROM TalkTemplate WHERE `id` IN (:ids)")
+    suspend fun deleteTemplates(ids: List<Int>)
 }

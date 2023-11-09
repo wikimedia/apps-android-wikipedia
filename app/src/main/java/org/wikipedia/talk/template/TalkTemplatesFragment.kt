@@ -49,7 +49,9 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentTalkTemplatesBinding.inflate(inflater, container, false)
 
-        (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.talk_templates_manage_title)
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.talk_templates_manage_title)
 
         return binding.root
     }
@@ -92,7 +94,6 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 launch {
                     viewModel.actionState.collect {
                         when (it) {
-                            is TalkTemplatesViewModel.ActionState.Saved -> onSaved(it.position)
                             is TalkTemplatesViewModel.ActionState.Deleted -> onDeleted(it.size)
                             is TalkTemplatesViewModel.ActionState.Error -> onActionError(it.throwable)
                         }
@@ -168,7 +169,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         if (binding.talkTemplatesEmptyContainer.isVisible) {
             PatrollerExperienceEvent.logAction("templates_empty_impression", "pt_templates")
         }
-        adapter.notifyItemRangeChanged(0, viewModel.talkTemplatesList.size)
+        actionMode?.finish()
+        unselectAllTalkTemplates()
     }
 
     private fun onActionError(t: Throwable) {
@@ -280,12 +282,11 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     private fun unselectAllTalkTemplates() {
         selectedItems.clear()
-        adapter.notifyItemRangeChanged(0, viewModel.talkTemplatesList.size)
+        adapter.notifyDataSetChanged()
     }
 
     private fun deleteSelectedTalkTemplates() {
         viewModel.deleteTemplates(selectedItems)
-        unselectAllTalkTemplates()
     }
 
     private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
