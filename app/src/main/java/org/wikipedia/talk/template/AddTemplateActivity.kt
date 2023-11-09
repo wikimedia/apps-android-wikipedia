@@ -162,7 +162,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
                 binding.addTemplateInputView.textInputLayout.error = getString(R.string.talk_message_empty)
             }
             var enableSaveButton = title.isNotBlank() && subject.isNotBlank() && body.isNotBlank()
-            if (viewModel.talkTemplatesList.any { item -> item.title == title && item.id != viewModel.talkTemplateId}) {
+            if (viewModel.talkTemplatesList.any { item -> item.title == title && item.id != viewModel.talkTemplateId }) {
                 binding.addTemplateTitleLayout.isErrorEnabled = true
                 binding.addTemplateTitleLayout.error = getString(R.string.talk_templates_new_message_dialog_exists, title)
                 enableSaveButton = false
