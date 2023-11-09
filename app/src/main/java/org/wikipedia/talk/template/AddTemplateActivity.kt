@@ -126,63 +126,6 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
             .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.inactive_color))
     }
 
-    private fun showSaveDialog(subject: String, body: String) {
-        PatrollerExperienceEvent.logAction("save_message_impression", "pt_templates")
-        TalkTemplatesTextInputDialog(this@AddTemplateActivity, R.string.talk_templates_new_message_dialog_save,
-            R.string.talk_templates_new_message_dialog_cancel).let { textInputDialog ->
-            textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
-                override fun onShow(dialog: TalkTemplatesTextInputDialog) {
-                    dialog.setTitleHint(R.string.talk_templates_new_message_dialog_hint)
-                    dialog.setPositiveButtonEnabled(false)
-                    dialog.requestFocus()
-                }
-
-                override fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog) {
-                    text.toString().trim().let {
-                        when {
-                            it.isEmpty() -> {
-                                dialog.setError(null)
-                                dialog.setPositiveButtonEnabled(false)
-                            }
-
-                            viewModel.talkTemplatesList.any { item -> item.title == it } -> {
-                                dialog.setError(
-                                    dialog.context.getString(
-                                        R.string.talk_templates_new_message_dialog_exists,
-                                        it
-                                    )
-                                )
-                                dialog.setPositiveButtonEnabled(false)
-                            }
-
-                            else -> {
-                                dialog.setError(null)
-                                dialog.setPositiveButtonEnabled(true)
-                            }
-                        }
-                    }
-                }
-
-                override fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence) {
-                    PatrollerExperienceEvent.logAction("save_message_click", "pt_templates")
-                    viewModel.saveTemplate(titleText.toString(), subject, body)
-                }
-
-                override fun onCancel() {
-                    PatrollerExperienceEvent.logAction("save_message_cancel", "pt_templates")
-                    setSaveButtonEnabled(true)
-                }
-
-                override fun onDismiss() {
-                    setSaveButtonEnabled(true)
-                }
-            }
-            textInputDialog.setDialogMessage(getString(R.string.talk_templates_new_message_dialog_description))
-            textInputDialog.showDialogMessage(true)
-            textInputDialog.setTitle(R.string.talk_templates_new_message_dialog_title)
-        }.show()
-    }
-
     private fun addTextWatcher() {
         textWatcher = binding.addTemplateTitleText.doOnTextChanged { it, _, _, _ ->
             binding.addTemplateTitleLayout.error = null
@@ -237,9 +180,17 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         }
 
         setSaveButtonEnabled(false)
-        // TODO: add eventlogging
-        PatrollerExperienceEvent.logAction("save_message_click", "pt_templates")
-        viewModel.saveTemplate(title, subject, body)
+
+        // TODO: verify eventlogging
+        if (viewModel.talkTemplateId != -1) {
+            viewModel.talkTemplate?.let {
+                PatrollerExperienceEvent.logAction("edit_message_save", "pt_templates")
+                viewModel.updateTalkTemplate(title, subject, body, it)
+            }
+        } else {
+            PatrollerExperienceEvent.logAction("save_message_click", "pt_templates")
+            viewModel.saveTemplate(title, subject, body)
+        }
     }
 
     private fun onSaveSuccess() {

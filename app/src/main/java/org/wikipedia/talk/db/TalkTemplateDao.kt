@@ -23,5 +23,5 @@ interface TalkTemplateDao {
     suspend fun getLastOrderNumber(): Int?
 
     @Delete
-    suspend fun deleteTemplate(talkTemplate: TalkTemplate)
+    suspend fun deleteTemplates(talkTemplates: List<TalkTemplate>)
 }
