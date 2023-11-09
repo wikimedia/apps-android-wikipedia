@@ -41,7 +41,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     private lateinit var binding: ActivityAddTemplateBinding
     private lateinit var textWatcher: TextWatcher
 
-    private val viewModel: AddTemplateViewModel by viewModels()
+    private val viewModel: AddTemplateViewModel by viewModels { AddTemplateViewModel.Factory(intent.extras!!) }
     private var userMentionScrolled = false
 
     private val wikiSite = WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode)
@@ -127,30 +127,31 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
     }
 
     private fun addTextWatcher() {
-        textWatcher = binding.addTemplateTitleText.doOnTextChanged { it, _, _, _ ->
+        textWatcher = binding.addTemplateTitleText.doOnTextChanged { _, _, _, _ ->
             binding.addTemplateTitleLayout.error = null
             binding.addTemplateSubjectLayout.error = null
             binding.addTemplateInputView.textInputLayout.error = null
             val title = binding.addTemplateTitleText.text.toString().trim()
             val subject = binding.addTemplateSubjectText.text.toString().trim()
             val body = binding.addTemplateInputView.editText.text.toString().trim()
-            if (title.isEmpty()) {
+            if (title.isEmpty() && binding.addTemplateTitleText.isFocused) {
                 PatrollerExperienceEvent.logAction("publish_error_title", "pt_templates")
                 binding.addTemplateTitleLayout.error = getString(R.string.talk_templates_message_title_empty)
             }
-            if (subject.isEmpty()) {
+            if (subject.isEmpty() && binding.addTemplateSubjectText.isFocused) {
                 PatrollerExperienceEvent.logAction("save_error_subject", "pt_templates")
                 binding.addTemplateSubjectLayout.error = getString(R.string.talk_subject_empty)
             }
-            if (body.isEmpty()) {
+            if (body.isEmpty() && binding.addTemplateInputView.editText.isFocused) {
                 PatrollerExperienceEvent.logAction("save_error_compose", "pt_templates")
                 binding.addTemplateInputView.textInputLayout.error = getString(R.string.talk_message_empty)
             }
-            if (viewModel.talkTemplatesList.any { item -> item.title == it }) {
-                binding.addTemplateTitleLayout.error = getString(R.string.talk_templates_new_message_dialog_exists, it)
+            var enableSaveButton = title.isNotBlank() && subject.isNotBlank() && body.isNotBlank()
+            if (viewModel.talkTemplatesList.any { item -> item.title == title }) {
+                binding.addTemplateTitleLayout.error = getString(R.string.talk_templates_new_message_dialog_exists, title)
+                enableSaveButton = false
             }
-
-            setSaveButtonEnabled(title.isNotBlank() && subject.isNotBlank() && body.isNotBlank())
+            setSaveButtonEnabled(enableSaveButton)
         }
         binding.addTemplateSubjectText.addTextChangedListener(textWatcher)
         binding.addTemplateInputView.editText.addTextChangedListener(textWatcher)
