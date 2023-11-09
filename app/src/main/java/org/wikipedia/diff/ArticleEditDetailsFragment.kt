@@ -346,7 +346,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
 
         binding.watchButton.setOnClickListener {
-            PatrollerExperienceEvent.logAction(if (isWatched) "unwatch_init" else "watch_init", "pt_toolbar")
+            sendPatrollerExperienceEvent(if (isWatched) "unwatch_init" else "watch_init", "pt_toolbar")
             viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
             if (isWatched) editHistoryInteractionEvent?.logUnwatchClick() else editHistoryInteractionEvent?.logWatchClick()
         }
