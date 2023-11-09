@@ -346,6 +346,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
 
         binding.watchButton.setOnClickListener {
+            PatrollerExperienceEvent.logAction(if (isWatched) "unwatch_init" else "watch_init", "pt_toolbar")
             viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
             if (isWatched) editHistoryInteractionEvent?.logUnwatchClick() else editHistoryInteractionEvent?.logWatchClick()
         }
@@ -397,7 +398,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 true
             }
             R.id.menu_report_feature -> {
-                sendPatrollerExperienceEvent("top_menu_problem_click", "pt_edit")
+                sendPatrollerExperienceEvent("top_menu_feedback_click", "pt_edit")
                 showFeedbackOptionsDialog(true)
                 true
             }
@@ -668,7 +669,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         if (!viewModel.fromRecentEdits || (!skipPreference && !Prefs.showOneTimeRecentEditsFeedbackForm)) {
             return
         }
-
+        if (Prefs.showOneTimeRecentEditsFeedbackForm) {
+            sendPatrollerExperienceEvent("toolbar_first_feedback", "pt_feedback")
+        }
         var dialog: AlertDialog? = null
         val feedbackView = layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_options, null)
 
@@ -687,7 +690,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
         feedbackView.findViewById<TextView>(R.id.optionNeutral).setOnClickListener(clickListener)
         feedbackView.findViewById<TextView>(R.id.optionUnsatisfied).setOnClickListener(clickListener)
-
+        PatrollerExperienceEvent.logImpression("pt_feedback")
         dialog = MaterialAlertDialogBuilder(requireActivity())
             .setTitle(R.string.patroller_diff_feedback_dialog_title)
             .setCancelable(false)
