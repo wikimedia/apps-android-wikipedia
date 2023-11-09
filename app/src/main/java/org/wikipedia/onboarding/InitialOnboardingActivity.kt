@@ -20,6 +20,7 @@ class InitialOnboardingActivity : SingleFragmentActivity<InitialOnboardingFragme
         }
         setResult(RESULT_OK)
         finish()
+        super.onBackPressed()
     }
 
     override fun createFragment(): InitialOnboardingFragment {

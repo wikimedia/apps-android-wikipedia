@@ -1519,11 +1519,6 @@
   <string name="patroller_tasks_filters_number_of_filters">{{PLURAL\n|one=%d фильтр|%d фильтрҙар}}</string>
   <string name="patroller_tasks_patrol_edit_title">Үҙгәртеүҙәрҙе тикшерергә</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Мәҡәләне мөхәррирләү тарихы</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Был үҙгәртеүҙе кире алырғамы?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Был үҙгәртеүҙе кире алырға теләйһегеҙме?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Кире алыу бер йәки бер нисә үҙгәртеүҙең эҙемтәһен кире ҡайтарыуҙы аңлата.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Һығымта (мотлаҡ түгел)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Кире ҡайтарыуҙың сәбәбен аңлатығыҙ</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Кире ҡайтарылды</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Һеҙ ысынлап та кире ҡайтарырға теләйһегеҙме?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Кире ҡайтарылды</string>
@@ -1541,9 +1536,6 @@
   <string name="patroller_onboarding_two_warn_content">Мөхәррирҙең фекер алышыу битендә иҫкәртеү хәбәрҙәрен яҙығыҙ, ебәрегеҙ, һаҡлағыҙ.</string>
   <string name="patroller_onboarding_two_undo_title">Кире алырға</string>
   <string name="patroller_onboarding_two_undo_content">Зыянлы үҙгәртеүҙе кире алыу өсөн \"Кире алырға\" ғәмәлен һайлағыҙ.</string>
-  <string name="patroller_onboarding_three_title">Аноним мәғлүмәт ебәрергә</string>
-  <string name="patroller_onboarding_three_content">Ҡушымтаны нисек ҡулланыуығыҙ тураһында хәбәр ебәреп, уны яҡшыртырға ярҙам итегеҙ. Мәғлүмәттәр аноним рәүештә йыйыла. &lt; a href=\"#privacy\"&gt;Күберәк белергә&lt; / a&gt;</string>
-  <string name="patroller_onboarding_three_switch">Ҡулланыу тураһында отчет ебәрергә</string>
   <string name="patroller_diff_tooltip_one">Мөхәррирләү викиҙың боҙолоуына килтерәме икәнен күҙаллай.</string>
   <string name="patroller_diff_tooltip_two">Был алым мөхәррирләү изге ниәт менән һаҡланыу ихтималлығын күҙаллай.</string>
   <string name="patroller_diff_feedback_dialog_title">Был функцияны яҡшыртырға ярҙам итегеҙ</string>

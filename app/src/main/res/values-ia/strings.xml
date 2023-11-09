@@ -1520,11 +1520,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Patruliar modification</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historia de modificationes del articulo</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Disfacer iste modification?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Es tu secur de voler disfacer iste modification?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Disfacer significa reverter le effectos de un o plus modificationes.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Summario (optional)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Specifica le ration pro le reversion</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Reversion succedite</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Es tu secur de voler revocar?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Revocation succedite</string>
@@ -1542,9 +1537,6 @@
   <string name="patroller_onboarding_two_warn_content">Crear, inviar e immagazinar messages de advertimento sur le pagina de discussion de un redactor.</string>
   <string name="patroller_onboarding_two_undo_title">Disfacer/Revocar</string>
   <string name="patroller_onboarding_two_undo_content">Elige ‘Disfacer’ pro disfacer o revocar un modification potentialmente destructive.</string>
-  <string name="patroller_onboarding_three_title">Inviar datos anonyme</string>
-  <string name="patroller_onboarding_three_content">Adjuta nos a meliorar iste function faciente nos saper como tu lo usa. Le datos colligite es anonyme. &lt;a href=\"#privacy\"&gt;Leger plus&lt;/a&gt;</string>
-  <string name="patroller_onboarding_three_switch">Inviar reportos de uso</string>
   <string name="patroller_diff_tooltip_one">‘Damnos’ previde si un modification causa damnos a un wiki.</string>
   <string name="patroller_diff_tooltip_two">‘Intention’ previde le probabilitate que un modification es facite in bon fide.</string>
   <string name="patroller_diff_feedback_dialog_title">Adjuta nos a meliorar iste function</string>

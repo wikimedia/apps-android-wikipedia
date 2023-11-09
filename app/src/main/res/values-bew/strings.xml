@@ -1501,11 +1501,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Rondain permakan</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Riwayat permakan makalah</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Balikin ni permakan?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Apa lu yakin pèngèn ngebalikin ni permakan?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Ngebalikin artinya ngombaliin kesudahan deri atu atawa lebi permakan.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Rangkuman (sunah)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Dumanin alasan pembalikan</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Pengombalian rampung</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Apa lu yakin pèngèn ngaterèt?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Aterèt rampung</string>
@@ -1516,7 +1511,6 @@
   <string name="patroller_onboarding_two_watch_title">Pantengin</string>
   <string name="patroller_onboarding_two_warn_title">Wanti-wanti</string>
   <string name="patroller_onboarding_two_undo_title">Balikin/Aterèt</string>
-  <string name="patroller_onboarding_three_title">Kirim data sondernama</string>
   <string name="data_opt_in_accept">Terima</string>
   <string name="data_opt_in_reject">Tolak</string>
   <string name="page_issues_title">Masalah halaman</string>

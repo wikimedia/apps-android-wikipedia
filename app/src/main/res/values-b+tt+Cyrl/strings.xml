@@ -1514,11 +1514,6 @@
     <item quantity="other">%d фильтр</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Мәкаләне үзгәртү тарихы</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Бу үзгәрешне кире кагарга?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Сез бу үзгәрешләрне кире кагарга телисезме?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Кире кагу бер яисә берничә үзгәрешнең нәтиҗәләрен кире кагуны аңлата.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Резюме (мәҗбүри түгел)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Кире кайтару сәбәбе белән бүлешегез</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Кире кайтару тәмамланды</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Карау</string>
   <string name="patroller_tasks_overflow_report">Функция белән проблема</string>

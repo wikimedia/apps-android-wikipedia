@@ -1496,20 +1496,12 @@
     <item quantity="other">%d suodatinta</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikkelin muokkaushistoria</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Kumoa tämä muutos?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Haluatko varmasti kumota tämän muokkauksen?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Kumoamisella tarkoitetaan yhden tai useamman muutoksen kumoamista.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Yhteenveto (vapaaehtoinen)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Jaa syy kumoamiselle</string>
   <string name="patroller_onboarding_two_thank_title">Kiitä</string>
   <string name="patroller_onboarding_two_thank_content">Näetkö hyvän muokkauksen? Kiitä käyttäjää.</string>
   <string name="patroller_onboarding_two_watch_title">Tarkkaile</string>
   <string name="patroller_onboarding_two_watch_content">Haluatko tarkkailla artikkelien muokkauksia? Lisää artikkeli tarkkailuluetteloosi. Löydät sen \"Lisää\"-valikosta.</string>
   <string name="patroller_onboarding_two_undo_title">Kumoa</string>
   <string name="patroller_onboarding_two_undo_content">Valitse \"Kumoa\" kumotaksesi mahdollisesti haitallisen muokkauksen.</string>
-  <string name="patroller_onboarding_three_title">Lähetä dataa nimettömästi</string>
-  <string name="patroller_onboarding_three_content">Auta parantamaan ominaisuutta kertomalla meille, kuinka käytät sitä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#privacy\"&gt;Lue lisää&lt;/a&gt;</string>
-  <string name="patroller_onboarding_three_switch">Lähetä käyttöraportteja</string>
   <string name="patroller_diff_feedback_dialog_title">Auta meitä parantamaan tätä ominaisuutta</string>
   <string name="patroller_diff_feedback_dialog_message">Oletko tyytyväinen tähän ominaisuuteen?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Tyytyväinen</string>

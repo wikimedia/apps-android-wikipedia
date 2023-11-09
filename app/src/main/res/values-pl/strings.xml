@@ -1319,8 +1319,6 @@
   <string name="patroller_tasks_filters_reset">Zresetuj</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Wszystkie</string>
-  <string name="patroller_onboarding_three_title">Wyślij anonimowe dane</string>
-  <string name="patroller_onboarding_three_switch">Wysyłaj raporty użytkowania</string>
   <string name="patroller_diff_feedback_dialog_message">Czy jesteś zadowolony z tej funkcji?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Zadowolony</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutralny</string>

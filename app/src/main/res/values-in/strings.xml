@@ -1428,6 +1428,7 @@
   <string name="reading_list_share_survey_body">\"Bagikan daftar bacaan\" adalah fitur pengujian dan kami membutuhkan umpan balik Anda untuk meningkatkan atau menghapusnya.</string>
   <string name="talk_templates_manage_title">Kelola templat</string>
   <string name="talk_templates_empty_message">Anda tidak memiliki pesan peringatan yang disimpan.</string>
+  <string name="talk_templates_new_message_title">pesan baru</string>
   <string name="talk_templates_new_message_description">Tulis pesan peringatan.</string>
   <string name="talk_templates_new_message_subject_hint">Subyek</string>
   <string name="talk_templates_new_message_compose_hint">Tulis pesan</string>
@@ -1508,9 +1509,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Patroli suntingan</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Riwayat suntingan artikel</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Urungkan suntingan ini?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Ringkasan (opsional)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Bagikan alasan pembalikan tersebut</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Pembalikan selesai</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Anda yakin ingin mengembalikan?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Pengembalian selesai</string>
@@ -1544,5 +1542,4 @@
   <string name="data_opt_in_reject">Tolak</string>
   <string name="page_issues_title">Masalah halaman</string>
   <string name="generic_release_notes">Perbaikan kekutu dan peningkatan kecil</string>
-  <string name="talk_templates_new_message_title">pesan baru</string>
 </resources>
