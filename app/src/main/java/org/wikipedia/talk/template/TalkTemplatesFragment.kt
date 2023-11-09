@@ -300,18 +300,23 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
 
         override fun onDeleteSelected() {
-            PatrollerExperienceEvent.logAction("edit_message_delete", "pt_templates")
-            val messageStr = resources.getQuantityString(R.plurals.talk_templates_message_delete_description, selectedItems.size)
-            MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme_Delete)
-                .setMessage(messageStr)
-                .setPositiveButton(R.string.talk_templates_edit_message_dialog_delete) { _, _ ->
-                    PatrollerExperienceEvent.logAction("message_delete_click", "pt_templates")
-                    deleteSelectedTalkTemplates()
-                }
-                .setNegativeButton(R.string.talk_templates_new_message_dialog_cancel) { _, _ ->
-                    PatrollerExperienceEvent.logAction("message_delete_cancel", "pt_templates")
-                }
-                .show()
+            if (selectedItems.size > 0) {
+                PatrollerExperienceEvent.logAction("edit_message_delete", "pt_templates")
+                val messageStr = resources.getQuantityString(
+                    R.plurals.talk_templates_message_delete_description,
+                    selectedItems.size
+                )
+                MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme_Delete)
+                    .setMessage(messageStr)
+                    .setPositiveButton(R.string.talk_templates_edit_message_dialog_delete) { _, _ ->
+                        PatrollerExperienceEvent.logAction("message_delete_click", "pt_templates")
+                        deleteSelectedTalkTemplates()
+                    }
+                    .setNegativeButton(R.string.talk_templates_new_message_dialog_cancel) { _, _ ->
+                        PatrollerExperienceEvent.logAction("message_delete_cancel", "pt_templates")
+                    }
+                    .show()
+            }
         }
 
         override fun onDestroyActionMode(mode: ActionMode) {

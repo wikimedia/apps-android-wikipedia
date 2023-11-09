@@ -31,6 +31,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
@@ -121,7 +122,6 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         setSaveButtonEnabled(false)
         L10nUtil.setConditionalLayoutDirection(binding.addTemplateScrollContainer, wikiSite.languageCode)
         binding.addTemplateInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
-        binding.addTemplateTitleLayout.requestFocus()
 
         if (viewModel.talkTemplateId != -1) {
             viewModel.talkTemplate?.let {
@@ -130,6 +130,15 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
                 binding.addTemplateInputView.editText.setText(it.message)
             }
         }
+
+        binding.addTemplateTitleLayout.postDelayed({
+            if (!isDestroyed) {
+                binding.addTemplateTitleLayout.requestFocus()
+                val position = binding.addTemplateTitleText.text?.length ?: 0
+                binding.addTemplateTitleText.setSelection(position)
+                DeviceUtil.showSoftKeyboard(binding.addTemplateTitleText)
+            }
+        }, 500)
     }
 
     private fun setSaveButtonEnabled(enabled: Boolean) {
@@ -171,6 +180,21 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         }
         binding.addTemplateSubjectText.addTextChangedListener(textWatcher)
         binding.addTemplateInputView.editText.addTextChangedListener(textWatcher)
+    }
+
+    private fun shouldShowExitDialog(): Boolean {
+        val title = binding.addTemplateTitleText.text.toString().trim()
+        val subject = binding.addTemplateSubjectText.text.toString().trim()
+        val body = binding.addTemplateInputView.editText.text.toString().trim()
+        var shouldShow = !binding.addTemplateTitleText.text.isNullOrEmpty() ||
+                !binding.addTemplateSubjectText.text.isNullOrEmpty() ||
+                binding.addTemplateInputView.editText.text.isNotEmpty()
+
+        viewModel.talkTemplate?.let {
+            shouldShow = it.title != title || it.subject != subject || it.message != body
+        }
+
+        return shouldShow
     }
 
     private fun onSaveClicked() {
@@ -245,7 +269,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
 
     override fun onBackPressed() {
         PatrollerExperienceEvent.logAction("new_message_back", "pt_templates")
-        if (!binding.addTemplateSubjectText.text.isNullOrEmpty() || binding.addTemplateInputView.editText.text.isNotEmpty()) {
+        if (shouldShowExitDialog()) {
             MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
                 .setTitle(R.string.talk_new_topic_exit_dialog_title)
