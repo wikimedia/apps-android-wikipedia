@@ -46,7 +46,7 @@
   <string name="image_content_description">Skeudenn: %s</string>
   <string name="page_content_description">Pajenn : %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
-  <string name="wikidata">Wikiroadennoù</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Diverkañ istor ar merdeiñ ?</string>
   <string name="dialog_message_clear_history">An dra-se a zilamo istor ar merdeiñ hag a serro an holl ivinelloù zo digor bremañ. Ha suc\'h oc\'h ?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>

@@ -280,6 +280,7 @@
   <string name="edit_redo">Gjør om</string>
   <string name="edit_rollback">Tilbakestill</string>
   <string name="edit_warn">Advar</string>
+  <string name="edit_damage">Skade %s</string>
   <string name="edit_intent">Hensikt %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
@@ -1475,8 +1476,9 @@
   <string name="talk_templates_edit_message_dialog_save">Lagre</string>
   <string name="talk_templates_edit_message_dialog_delete">Slett</string>
   <string name="talk_templates_edit_message_updated">Meldingen har blitt oppdatert</string>
-  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Er du sikker på at du vil slette meldingen %s fra listen?</string>
+  <string name="talk_templates_edit_message_delete_description">Er du sikker på at du vil slette meldingen «%s» fra lista?</string>
   <string name="talk_templates_message_deleted">Meldingen har blitt slettet</string>
+  <string name="talk_templates_message_title_empty">Tittelen kan ikke være tom.</string>
   <string name="patroller_tasks_edits_list_title">Liste over redigeringer</string>
   <string name="patroller_tasks_edits_list_search_hint">Søk i eller filtrer redigeringer</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tagger: %s</string>
