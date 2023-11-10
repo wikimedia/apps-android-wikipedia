@@ -288,13 +288,13 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_last_anon_user_with_messages, "")
         set(value) = PrefsIoUtil.setString(R.string.preference_key_last_anon_user_with_messages, value)
 
-    var lastAnonEditTime
-        get() = PrefsIoUtil.getLong(R.string.preference_key_last_anon_edit_time, 0)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_last_anon_edit_time, value)
+    var lastAnonEditTime: Instant
+        get() = Instant.ofEpochMilli(PrefsIoUtil.getLong(R.string.preference_key_last_anon_edit_time, 0))
+        set(instant) = PrefsIoUtil.setLong(R.string.preference_key_last_anon_edit_time, instant.toEpochMilli())
 
-    var lastAnonNotificationTime
-        get() = PrefsIoUtil.getLong(R.string.preference_key_last_anon_notification_time, 0)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_last_anon_notification_time, value)
+    var lastAnonNotificationTime: Instant
+        get() = Instant.ofEpochMilli(PrefsIoUtil.getLong(R.string.preference_key_last_anon_notification_time, 0))
+        set(instant) = PrefsIoUtil.setLong(R.string.preference_key_last_anon_notification_time, instant.toEpochMilli())
 
     var lastAnonNotificationLang
         get() = PrefsIoUtil.getString(R.string.preference_key_last_anon_notification_lang, "")
