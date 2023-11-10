@@ -50,6 +50,7 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import java.io.IOException
 import java.lang.Runnable
+import java.time.Instant
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -103,7 +104,7 @@ class DescriptionEditFragment : Fragment() {
         if (invokeSource == InvokeSource.SUGGESTED_EDITS) {
             SuggestedEditsSurvey.onEditSuccess()
         }
-        Prefs.lastDescriptionEditTime = Date().time
+        Prefs.lastDescriptionEditTime = Instant.now()
         Prefs.isSuggestedEditsReactivationPassStageOne = false
         binding.fragmentDescriptionEditView.setSaveState(false)
         if (Prefs.showDescriptionEditSuccessPrompt && invokeSource != InvokeSource.SUGGESTED_EDITS) {

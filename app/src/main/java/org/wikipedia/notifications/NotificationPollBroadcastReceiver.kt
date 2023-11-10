@@ -30,6 +30,8 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.talk.NotificationDirectReplyHelper
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
+import java.time.Instant
+import java.time.temporal.ChronoUnit
 import java.util.concurrent.TimeUnit
 
 class NotificationPollBroadcastReceiver : BroadcastReceiver() {
@@ -167,17 +169,16 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         private fun maybeShowLocalNotificationForEditorReactivation(context: Context) {
-            if (Prefs.lastDescriptionEditTime == 0L || WikipediaApp.instance.isAnyActivityResumed) {
+            val lastDescriptionEditTime = Prefs.lastDescriptionEditTime
+            if (lastDescriptionEditTime == Instant.EPOCH || WikipediaApp.instance.isAnyActivityResumed) {
                 return
             }
-            var days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.lastDescriptionEditTime)
-            if (Prefs.isSuggestedEditsReactivationTestEnabled) {
-                days = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - Prefs.lastDescriptionEditTime)
-            }
-            if (days in FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY until SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && !Prefs.isSuggestedEditsReactivationPassStageOne) {
+            val diff = lastDescriptionEditTime.until(Instant.now(),
+                if (Prefs.isSuggestedEditsReactivationTestEnabled) ChronoUnit.MINUTES else ChronoUnit.DAYS)
+            if (diff in FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY until SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && !Prefs.isSuggestedEditsReactivationPassStageOne) {
                 Prefs.isSuggestedEditsReactivationPassStageOne = true
                 showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one)
-            } else if (days >= SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne) {
+            } else if (diff >= SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne) {
                 Prefs.isSuggestedEditsReactivationPassStageOne = false
                 showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two)
             }

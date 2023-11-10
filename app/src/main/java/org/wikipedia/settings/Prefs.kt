@@ -229,9 +229,9 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_description_edit_tutorial_enabled, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_description_edit_tutorial_enabled, enabled)
 
-    var lastDescriptionEditTime
-        get() = PrefsIoUtil.getLong(R.string.preference_key_last_description_edit_time, 0)
-        set(time) = PrefsIoUtil.setLong(R.string.preference_key_last_description_edit_time, time)
+    var lastDescriptionEditTime: Instant
+        get() = Instant.ofEpochMilli(PrefsIoUtil.getLong(R.string.preference_key_last_description_edit_time, 0))
+        set(instant) = PrefsIoUtil.setLong(R.string.preference_key_last_description_edit_time, instant.toEpochMilli())
 
     val totalAnonDescriptionsEdited
         get() = PrefsIoUtil.getInt(R.string.preference_key_total_anon_descriptions_edited, 0)
