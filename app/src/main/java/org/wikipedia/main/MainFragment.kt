@@ -77,7 +77,8 @@ import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.watchlist.WatchlistActivity
 import java.io.File
-import java.util.concurrent.TimeUnit
+import java.time.Instant
+import java.time.temporal.ChronoUnit
 
 class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
     interface Callback {
@@ -163,7 +164,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         super.onResume()
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
-        Prefs.pageLastShown = 0
+        Prefs.pageLastShown = Instant.EPOCH
         maybeShowWatchlistTooltip()
     }
 
@@ -304,7 +305,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())))
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_PREVIEW_SAVED_READING_LISTS)) {
             goToTab(NavTab.READING_LISTS)
-        } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
+        } else if (Prefs.pageLastShown.until(Instant.now(), ChronoUnit.DAYS) < 1 &&
+                    !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.instance.tabCount > 0) {
             startActivity(PageActivity.newIntent(requireContext()))
         }
     }
@@ -510,11 +512,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     private fun copyLink(url: String) {
         ClipboardUtil.setPlainText(requireContext(), text = url)
         FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
-    @Suppress("SameParameterValue")
-    private fun lastPageViewedWithin(days: Int): Boolean {
-        return TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.pageLastShown) < days
     }
 
     private fun download(image: FeaturedImage) {

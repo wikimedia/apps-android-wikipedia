@@ -183,9 +183,9 @@ object Prefs {
         return PrefsIoUtil.getKey(R.string.preference_key_last_run_time_format, task)
     }
 
-    var pageLastShown
-        get() = PrefsIoUtil.getLong(R.string.preference_key_page_last_shown, 0)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_page_last_shown, value)
+    var pageLastShown: Instant
+        get() = Instant.ofEpochMilli(PrefsIoUtil.getLong(R.string.preference_key_page_last_shown, 0))
+        set(instant) = PrefsIoUtil.setLong(R.string.preference_key_page_last_shown, instant.toEpochMilli())
 
     val isImageDownloadEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_images, true)

@@ -283,8 +283,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         addTimeSpentReading(activeTimer.elapsedSec)
         pageFragmentLoadState.updateCurrentBackStackItem()
         app.commitTabState()
-        val time = if (app.tabList.size >= 1 && !pageFragmentLoadState.backStackEmpty()) System.currentTimeMillis() else 0
-        Prefs.pageLastShown = time
+        Prefs.pageLastShown = if (app.tabList.size >= 1 && !pageFragmentLoadState.backStackEmpty()) Instant.now() else Instant.EPOCH
         articleInteractionEvent?.pause()
         metricsPlatformArticleEventToolbarInteraction.pause()
     }
