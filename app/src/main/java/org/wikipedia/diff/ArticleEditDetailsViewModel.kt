@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.*
-import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -198,14 +197,8 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             watchResponse.postValue(Resource.Error(throwable))
         }) {
             if (isWatched) {
-                if (fromRecentEdits) {
-                    PatrollerExperienceEvent.logAction("watch_init", "pt_toolbar")
-                }
                 WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
             } else {
-                if (fromRecentEdits) {
-                    PatrollerExperienceEvent.logAction("unwatch_init", "pt_toolbar")
-                 }
                 WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
             }
             val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
