@@ -1084,7 +1084,7 @@
   <string name="suggested_edits_ip_blocked_title">IP заблокирован</string>
   <string name="suggested_edits_last_edited">Последнее изменение</string>
   <string name="suggested_edits_last_edited_never">Никогда</string>
-  <string name="suggested_edits_task_new" fuzzy="true">новая</string>
+  <string name="suggested_edits_task_new">Новая</string>
   <string name="suggested_edits_cc0_notice">Публикуя, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt; и безвозвратно выпускаете этот вклад в соответствии с &lt;a href=\"%2$s\"&gt;лицензией CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложенные правки</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Спасибо за редактирование Википедии! Почему бы не продолжить с того места, на котором вы остановились?</string>
@@ -1412,9 +1412,9 @@
   <string name="revision_diff_line_removed">Строка удалена</string>
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>
   <string name="revision_diff_paragraph_removed">Абзац удалён</string>
-  <string name="revision_undo_title" fuzzy="true">Отменить правку</string>
-  <string name="revision_undo_message" fuzzy="true">Это отменит изменения, сделанные в рамках показанной здесь версии (редакции) статьи.</string>
-  <string name="revision_undo_reason" fuzzy="true">Чтобы продолжить, укажите, пожалуйста, причину для отмены этой правки:</string>
+  <string name="revision_undo_title">Вы уверены, что хотите отменить эту правку?</string>
+  <string name="revision_undo_message">Отмена означает отмену последствий одной или нескольких правок.</string>
+  <string name="revision_undo_reason">Поделитесь причиной отката</string>
   <string name="revision_undo_success">Версия была отменена.</string>
   <string name="revision_rollback_dialog_title">Вы уверены, что хотите откатить правки?</string>
   <string name="revision_rollback_success">Совершён откат правок.</string>

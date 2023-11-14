@@ -86,13 +86,11 @@ class UserInformationDialog : DialogFragment() {
     }
 
     private fun sendPatrollerExperienceEvent() {
-        PatrollerExperienceEvent.logAction("user_info_impression",
-            when (requireActivity()) {
-                is SuggestedEditsRecentEditsActivity -> "pt_recent_changes"
-                is SuggestionsActivity -> "pt_edit"
-                else -> ""
-            }
-        )
+        if (requireActivity() is SuggestionsActivity ||
+            requireActivity() is SuggestedEditsRecentEditsActivity) {
+            PatrollerExperienceEvent.logAction("user_info_impression",
+                if (requireActivity() is SuggestedEditsRecentEditsActivity) "pt_recent_changes" else "pt_edit")
+        }
     }
 
     private fun onError(t: Throwable) {
