@@ -14,6 +14,7 @@ import android.text.Spannable
 import android.text.Spanned
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
+import android.webkit.MimeTypeMap
 import android.widget.TextView
 import androidx.core.graphics.applyCanvas
 import androidx.core.text.HtmlCompat
@@ -139,6 +140,19 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 imgHeight = DimenUtil.roundedDpToPx(imgHeight.toFloat())
 
                 if (imgWidth > 0 && imgHeight > 0 && imgSrc.isNotEmpty()) {
+                    val uri = if (imgSrc.startsWith("//")) {
+                        WikiSite.DEFAULT_SCHEME + ":" + imgSrc
+                    } else if (imgSrc.startsWith("./")) {
+                        Service.COMMONS_URL + imgSrc.replace("./", "")
+                    } else {
+                        UriUtil.resolveProtocolRelativeUrl(WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode), imgSrc)
+                    }
+
+                    val extension = MimeTypeMap.getFileExtensionFromUrl(uri)
+                    if (!MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension).orEmpty().contains("image", true)) {
+                        return true
+                    }
+
                     val bmpMap = contextBmpMap.getOrPut(view.context) { mutableMapOf() }
                     var drawable = bmpMap[imgSrc]
 
@@ -149,14 +163,6 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                         bmpMap[imgSrc] = drawable
 
                         drawable.setBounds(0, 0, imgWidth, imgHeight)
-
-                        val uri = if (imgSrc.startsWith("//")) {
-                            WikiSite.DEFAULT_SCHEME + ":" + imgSrc
-                        } else if (imgSrc.startsWith("./")) {
-                            Service.COMMONS_URL + imgSrc.replace("./", "")
-                        } else {
-                            UriUtil.resolveProtocolRelativeUrl(WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode), imgSrc)
-                        }
 
                         Glide.with(view)
                             .asBitmap()
@@ -171,11 +177,6 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                                         WhiteBackgroundTransformation.maybeDimImage(drawable.bitmap)
                                         view.postInvalidate()
                                     }
-                                }
-
-                                override fun onLoadFailed(errorDrawable: Drawable?) {
-                                    L.d("CustomTagHandler onLoadFailed")
-                                    super.onLoadFailed(errorDrawable)
                                 }
                                 override fun onLoadCleared(placeholder: Drawable?) { }
                             })
