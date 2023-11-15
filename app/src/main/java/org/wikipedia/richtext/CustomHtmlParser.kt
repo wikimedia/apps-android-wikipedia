@@ -231,7 +231,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         private fun handleListTag(output: Editable) {
             if (listParents.last() == "ol") {
                 listItemCount++
-                val split = output.toString().split("\n").filter { it.isNotEmpty() }
+                val split = output.split("\n").filter { it.isNotEmpty() }
                 val start = output.length - split.last().length - 1
                 val replaceStr = "$listItemCount. ${split.last()}"
                 output.replace(start - 1, output.length - 1, replaceStr)
