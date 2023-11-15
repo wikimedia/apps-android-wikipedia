@@ -37,7 +37,6 @@ import org.xml.sax.Attributes
 import org.xml.sax.ContentHandler
 import org.xml.sax.Locator
 import org.xml.sax.XMLReader
-import java.util.Vector
 
 class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler, ContentHandler {
     interface TagHandler {
@@ -115,7 +114,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                            private val noSmallSizeImage: Boolean = true) : TagHandler {
         private var lastAClass = ""
         private var listItemCount = 0
-        private val listParents = Vector<String>()
+        private val listParents = mutableListOf<String>()
 
         override fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean {
             if (tag == "img" && view == null) {
@@ -212,14 +211,14 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                         output.setSpan(TypefaceSpan("monospace"), start, output.length, 0)
                     }
                 }
-            } else if (tag.equals("ol")) {
+            } else if (tag == "ol") {
                 if (opening) {
                     listParents.add(tag)
                 } else {
                     listParents.remove(tag)
                 }
                 listItemCount = 0
-            } else if (tag.equals("li") && !opening && output != null) {
+            } else if (tag == "li" && listParents.isNotEmpty() && !opening && output != null) {
                 try {
                     handleListTag(output)
                 } catch (e: Exception) {
@@ -230,7 +229,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         }
 
         private fun handleListTag(output: Editable) {
-            if (listParents.lastElement().equals("ol")) {
+            if (listParents.last() == "ol") {
                 listItemCount++
                 val split = output.toString().split("\n")
                 val lastIndex = split.size - 1
