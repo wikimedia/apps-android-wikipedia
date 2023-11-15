@@ -12,7 +12,6 @@ import android.text.Html.ImageGetter
 import android.text.Html.TagHandler
 import android.text.Spannable
 import android.text.Spanned
-import android.text.style.LeadingMarginSpan
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
 import android.webkit.MimeTypeMap
@@ -231,11 +230,11 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         private fun handleListTag(output: Editable) {
             if (listParents.last() == "ol") {
                 listItemCount++
-                val split = output.toString().split("\n")
-                val lastIndex = split.size - 1
-                val start = output.length - split[lastIndex].length - 1
-                output.insert(start, "$listItemCount. ")
-                output.setSpan(LeadingMarginSpan.Standard(15 * listParents.size), start, output.length, 0)
+                val split = output.toString().split("\n").filter { it.isNotEmpty() }
+                val start = output.length - split.last().length - 1
+                val replaceStr = "$listItemCount. ${split.last()}"
+                output.replace(start - 1, output.length - 1, replaceStr)
+                // output.setSpan(LeadingMarginSpan.Standard(15 * listParents.size), start, output.length, 0)
             }
         }
     }
