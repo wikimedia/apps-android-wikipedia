@@ -26,10 +26,10 @@ class ArticleFindInPageInteraction(private val fragment: PageFragment) : TimedMe
             getInteractionData(
                 "find_in_page_interaction",
                 "find_text.$findText",
-                "find_next_clicks_count.${numFindNext.toString()}",
-                "find_prev_clicks_count.${numFindPrev.toString()}",
+                "find_next_clicks_count.$numFindNext",
+                "find_prev_clicks_count.$numFindPrev",
                 "page_height.$pageHeight",
-                "time_spent_ms.${timer.elapsedMillis.toString()}",
+                "time_spent_ms.$timer.elapsedMillis",
                 null,
                 null
             ),
@@ -146,7 +146,7 @@ class ArticleToolbarInteraction(private val fragment: PageFragment) : TimedMetri
             "article_toolbar_interaction",
             getInteractionData(
                 "article_toolbar_interaction.$action",
-                "time_spent_ms.${timer.elapsedMillis.toString()}",
+                "time_spent_ms.$timer.elapsedMillis",
                 null, null, null, null, null, null
             ),
             getPageData(fragment)
@@ -186,10 +186,10 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
             "article_toc_interaction",
             getInteractionData(
                 "article_toc_interaction",
-                "num_opens.${numOpens.toString()}",
-                "num_section_clicks.${numSectionClicks.toString()}",
-                "total_open_sec.${totalOpenedSec.toString()}",
-                "num_sections.${numSections.toString()}",
+                "num_opens.$numOpens",
+                "num_section_clicks.$numSectionClicks",
+                "total_open_sec.$totalOpenedSec",
+                "num_sections.$numSections",
                 null,
                 null,
                 null
@@ -232,7 +232,7 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
                 "article_toc_interaction",
                 action,
                 source.toString(),
-                "time_spent_ms.${timer.elapsedMillis.toString()}",
+                "time_spent_ms.$timer.elapsedMillis",
                 null,
                 null,
                 null,

@@ -18,60 +18,60 @@ open class MetricsEvent {
     protected fun submitEvent(eventName: String, interactionData: InteractionData?, pageData: PageData? = null) {
         if (ReleaseUtil.isPreProdRelease && Prefs.isEventLoggingEnabled) {
             MetricsPlatform.client.submitInteraction(
-                /* eventName = */ EVENT_NAME_BASE + eventName,
-                /* clientData = */ getClientData(pageData),
-                /* interactionData = */ interactionData)
+                EVENT_NAME_BASE + eventName,
+                getClientData(pageData),
+                interactionData)
         }
     }
 
     protected fun getClientData(pageData: PageData?): ClientData {
         return ClientData(
-            /* agentData = */ MetricsPlatform.agentData,
-            /* pageData = */ pageData,
-            /* mediawikiData = */ MetricsPlatform.mediawikiData,
-            /* performerData = */ getPerformerData(),
-            /* domain = */ MetricsPlatform.domain
+            MetricsPlatform.agentData,
+            pageData,
+            MetricsPlatform.mediawikiData,
+            getPerformerData(),
+            MetricsPlatform.domain
         )
     }
 
     protected fun getPageData(fragment: PageFragment?): PageData? {
         val pageProperties = fragment?.page?.pageProperties ?: return null
         return PageData(
-            /* id = */ pageProperties.pageId,
-            /* title = */ fragment.model.title?.prefixedText.orEmpty(),
-            /* namespaceId = */ pageProperties.namespace.code(),
-            /* namespaceName = */ Namespace.of(pageProperties.namespace.code()).toString(),
-            /* revisionId = */ pageProperties.revisionId,
-            /* wikidataItemQid = */ pageProperties.wikiBaseItem.orEmpty(),
-            /* contentLanguage = */ fragment.model.title?.wikiSite?.languageCode.orEmpty()
+            pageProperties.pageId,
+            fragment.model.title?.prefixedText.orEmpty(),
+            pageProperties.namespace.code(),
+            Namespace.of(pageProperties.namespace.code()).toString(),
+            pageProperties.revisionId,
+            pageProperties.wikiBaseItem.orEmpty(),
+            fragment.model.title?.wikiSite?.languageCode.orEmpty()
         )
     }
 
     protected fun getPageData(pageTitle: PageTitle?, pageId: Int = 0, revisionId: Long = 0): PageData? {
         if (pageTitle == null) return null
         return PageData(
-            /* id = */ pageId,
-            /* title = */ pageTitle.prefixedText,
-            /* namespaceId = */ pageTitle.namespace().code(),
-            /* namespaceName = */ Namespace.of(pageTitle.namespace().code()).toString(),
-            /* revisionId = */ revisionId,
-            /* wikidataItemQid = */ null,
-            /* contentLanguage = */ pageTitle.wikiSite.languageCode
+            pageId,
+            pageTitle.prefixedText,
+            pageTitle.namespace().code(),
+            Namespace.of(pageTitle.namespace().code()).toString(),
+            revisionId,
+            null,
+            pageTitle.wikiSite.languageCode
         )
     }
 
     private fun getPerformerData(): PerformerData {
         return PerformerData(
-            /* id = */ AccountUtil.hashCode(),
-            /* name = */ AccountUtil.userName,
-            /* isLoggedIn = */ AccountUtil.isLoggedIn,
-            /* isTemp = */ null,
-            /* sessionId = */ EventPlatformClient.AssociationController.sessionId,
-            /* pageviewId = */ EventPlatformClient.AssociationController.pageViewId,
-            /* groups = */ AccountUtil.groups,
-            /* languageGroups = */ WikipediaApp.instance.languageState.appLanguageCodes.toString(),
-            /* languagePrimary = */ WikipediaApp.instance.languageState.appLanguageCode,
-            /* registrationDt = */ null
+            AccountUtil.hashCode(),
+            AccountUtil.userName,
+            AccountUtil.isLoggedIn,
+            null,
+            EventPlatformClient.AssociationController.sessionId,
+            EventPlatformClient.AssociationController.pageViewId,
+            AccountUtil.groups,
+            WikipediaApp.instance.languageState.appLanguageCodes.toString(),
+            WikipediaApp.instance.languageState.appLanguageCode,
+            null
         )
     }
 

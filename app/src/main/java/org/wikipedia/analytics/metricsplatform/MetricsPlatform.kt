@@ -12,18 +12,18 @@ import java.time.Duration
 
 object MetricsPlatform {
     val agentData = AgentData(
-        /* appFlavor = */ BuildConfig.FLAVOR + BuildConfig.BUILD_TYPE,
-        /* appInstallId = */ WikipediaApp.instance.appInstallID,
-        /* appTheme = */ WikipediaApp.instance.currentTheme.toString(),
-        /* appVersion = */ WikipediaApp.instance.versionCode.toString(),
-        /* clientPlatform = */ "android",
-        /* clientPlatformFamily = */ "app",
-        /* deviceLanguage = */ WikipediaApp.instance.languageState.systemLanguageCode,
-        /* releaseStatus = */ if (ReleaseUtil.isProdRelease) "prod" else "dev"
+        BuildConfig.FLAVOR + BuildConfig.BUILD_TYPE,
+        WikipediaApp.instance.appInstallID,
+        WikipediaApp.instance.currentTheme.toString(),
+        WikipediaApp.instance.versionCode.toString(),
+        "android",
+        "app",
+        WikipediaApp.instance.languageState.systemLanguageCode,
+        if (ReleaseUtil.isProdRelease) "prod" else "dev"
     )
 
     val mediawikiData = MediawikiData(
-        /* database = */ WikipediaApp.instance.wikiSite.dbName(),
+        WikipediaApp.instance.wikiSite.dbName(),
     )
 
     val domain = WikipediaApp.instance.wikiSite.authority()
