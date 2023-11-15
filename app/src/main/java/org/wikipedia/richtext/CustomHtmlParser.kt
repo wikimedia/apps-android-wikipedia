@@ -12,6 +12,8 @@ import android.text.Html.ImageGetter
 import android.text.Html.TagHandler
 import android.text.Spannable
 import android.text.Spanned
+import android.text.style.BulletSpan
+import android.text.style.LeadingMarginSpan
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
 import android.webkit.MimeTypeMap
@@ -36,6 +38,11 @@ import org.xml.sax.Attributes
 import org.xml.sax.ContentHandler
 import org.xml.sax.Locator
 import org.xml.sax.XMLReader
+import java.util.Vector
+
+
+
+
 
 class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler, ContentHandler {
     interface TagHandler {
@@ -112,6 +119,8 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
     class CustomTagHandler(private val view: TextView?,
                            private val noSmallSizeImage: Boolean = true) : TagHandler {
         private var lastAClass = ""
+        private var listItemCount = 0
+        private val listParents = Vector<String>()
 
         override fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean {
             if (tag == "img" && view == null) {
@@ -208,8 +217,35 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                         output.setSpan(TypefaceSpan("monospace"), start, output.length, 0)
                     }
                 }
+            } else if (tag.equals("ul") || tag.equals("ol") || tag.equals("dd")) {
+                if (opening) {
+                    listParents.add(tag)
+                } else {
+                    listParents.remove(tag)
+                }
+                listItemCount = 0
+            } else if (tag.equals("li") && !opening && output != null) {
+                handleListTag(output)
             }
             return false
+        }
+
+        private fun handleListTag(output: Editable) {
+            if (listParents.lastElement().equals("ul")) {
+                output.append("\n")
+                val split = output.toString().split("\n")
+                val lastIndex = split.size - 1
+                val start = output.length - split[lastIndex].length - 1
+                output.setSpan(BulletSpan(15 * listParents.size), start, output.length, 0)
+            } else if (listParents.lastElement().equals("ol")) {
+                listItemCount++
+                output.append("\n")
+                val split = output.toString().split("\n")
+                val lastIndex = split.size - 1
+                val start = output.length - split[lastIndex].length - 1
+                output.insert(start, "$listItemCount. ")
+                output.setSpan(LeadingMarginSpan.Standard(15 * listParents.size), start, output.length, 0)
+            }
         }
     }
 
