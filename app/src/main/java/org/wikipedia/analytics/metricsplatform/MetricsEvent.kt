@@ -15,12 +15,50 @@ import org.wikipedia.util.ReleaseUtil
 
 open class MetricsEvent {
 
-    protected fun submitEvent(eventName: String, interactionData: InteractionData?, pageData: PageData? = null) {
+    /**
+     * Submit an event to the Metrics Platform using a base interaction schema
+     *
+     * @param eventName the name of the event
+     * @param interactionData a data object that conforms to core interactions
+     * @param pageData dynamic page data that should be added to the ClientData object
+     */
+    protected fun submitEvent(
+        eventName: String,
+        interactionData: InteractionData?,
+        pageData: PageData? = null
+    ) {
         if (ReleaseUtil.isPreProdRelease && Prefs.isEventLoggingEnabled) {
             MetricsPlatform.client.submitInteraction(
                 EVENT_NAME_BASE + eventName,
                 getClientData(pageData),
                 interactionData)
+        }
+    }
+
+    /**
+     * Submit an event to the Metrics Platform using a custom schema
+     *
+     * @param schemaId the custom schema ID
+     * @param eventName the name of the event
+     * @param customData the custom data key-value pairs that are top-level properties
+     * @param interactionData a data object that conforms to core interactions
+     * @param pageData dynamic page data that should be added to the ClientData object
+     */
+    protected fun submitEvent(
+        schemaId: String,
+        eventName: String,
+        customData: Map<String, Any>,
+        interactionData: InteractionData?,
+        pageData: PageData? = null
+    ) {
+        if (ReleaseUtil.isPreProdRelease && Prefs.isEventLoggingEnabled) {
+            MetricsPlatform.client.submitInteraction(
+                schemaId,
+                EVENT_NAME_BASE + eventName,
+                getClientData(pageData),
+                interactionData,
+                customData
+            )
         }
     }
 
@@ -94,6 +132,19 @@ open class MetricsEvent {
             elementFriendlyName,
             funnelEntryToken,
             funnelEventSequencePosition
+        )
+    }
+
+    protected fun getInteractionDataMinimal(action: String): InteractionData {
+        return InteractionData(
+            action,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         )
     }
 

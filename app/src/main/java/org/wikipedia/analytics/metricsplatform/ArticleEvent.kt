@@ -22,17 +22,16 @@ class ArticleFindInPageInteraction(private val fragment: PageFragment) : TimedMe
 
     fun logDone() {
         submitEvent(
+            "/analytics/mobile_apps/android_metrics_platform_find_in_page_interaction/1.0.0",
             "find_in_page_interaction",
-            getInteractionData(
-                "find_in_page_interaction",
-                "find_text.$findText",
-                "find_next_clicks_count.$numFindNext",
-                "find_prev_clicks_count.$numFindPrev",
-                "page_height.$pageHeight",
-                "time_spent_ms.$timer.elapsedMillis",
-                null,
-                null
+            mapOf(
+                "find_text" to findText,
+                "find_next_clicks_count" to numFindNext,
+                "find_prev_clicks_count" to numFindPrev,
+                "page_height" to pageHeight,
+                "time_spent_ms" to timer.elapsedMillis,
             ),
+            getInteractionDataMinimal("find_in_page_interaction"),
             getPageData(fragment)
         )
     }
@@ -145,9 +144,11 @@ class ArticleToolbarInteraction(private val fragment: PageFragment) : TimedMetri
         submitEvent(
             "article_toolbar_interaction",
             getInteractionData(
-                "article_toolbar_interaction.$action",
+                "article_toolbar_interaction",
+                action,
+                null,
                 "time_spent_ms.$timer.elapsedMillis",
-                null, null, null, null, null, null
+                null, null, null, null
             ),
             getPageData(fragment)
         )
@@ -183,17 +184,15 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
             return
         }
         submitEvent(
+            "/analytics/mobile_apps/android_metrics_platform_article_toc_interaction/1.0.0",
             "article_toc_interaction",
-            getInteractionData(
-                "article_toc_interaction",
-                "num_opens.$numOpens",
-                "num_section_clicks.$numSectionClicks",
-                "total_open_sec.$totalOpenedSec",
-                "num_sections.$numSections",
-                null,
-                null,
-                null
+            mapOf(
+                "num_opens" to numOpens,
+                "num_section_clicks" to numSectionClicks,
+                "total_open_sec" to totalOpenedSec,
+                "num_sections" to numSections
             ),
+            getInteractionDataMinimal("article_toc_interaction"),
             getPageData(fragment)
         )
     }
@@ -229,7 +228,7 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
         submitEvent(
             "article_link_preview_interaction",
             getInteractionData(
-                "article_toc_interaction",
+                "article_link_preview_interaction",
                 action,
                 source.toString(),
                 "time_spent_ms.$timer.elapsedMillis",
