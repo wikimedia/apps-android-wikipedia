@@ -4,6 +4,7 @@ import org.wikimedia.metrics_platform.MetricsClient
 import org.wikimedia.metrics_platform.context.AgentData
 import org.wikimedia.metrics_platform.context.ClientData
 import org.wikimedia.metrics_platform.context.MediawikiData
+import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
@@ -11,19 +12,18 @@ import java.time.Duration
 
 object MetricsPlatform {
     val agentData = AgentData(
-        WikipediaApp.instance.appInstallID,
-        "android",
-        "app"
+        /* appFlavor = */ BuildConfig.FLAVOR + BuildConfig.BUILD_TYPE,
+        /* appInstallId = */ WikipediaApp.instance.appInstallID,
+        /* appTheme = */ WikipediaApp.instance.currentTheme.toString(),
+        /* appVersion = */ WikipediaApp.instance.versionCode.toString(),
+        /* clientPlatform = */ "android",
+        /* clientPlatformFamily = */ "app",
+        /* deviceLanguage = */ WikipediaApp.instance.languageState.systemLanguageCode,
+        /* releaseStatus = */ if (ReleaseUtil.isProdRelease) "prod" else "dev"
     )
 
     val mediawikiData = MediawikiData(
-        WikipediaApp.instance.currentTheme.toString(),
-        WikipediaApp.instance.versionCode.toString(),
-        ReleaseUtil.isProdRelease,
-        ReleaseUtil.isDevRelease,
-        WikipediaApp.instance.wikiSite.dbName(),
-        WikipediaApp.instance.languageState.systemLanguageCode,
-        null
+        /* database = */ WikipediaApp.instance.wikiSite.dbName(),
     )
 
     val domain = WikipediaApp.instance.wikiSite.authority()

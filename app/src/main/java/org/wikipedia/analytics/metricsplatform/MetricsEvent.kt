@@ -1,9 +1,9 @@
 package org.wikipedia.analytics.metricsplatform
 
 import org.wikimedia.metrics_platform.context.ClientData
+import org.wikimedia.metrics_platform.context.InteractionData
 import org.wikimedia.metrics_platform.context.PageData
 import org.wikimedia.metrics_platform.context.PerformerData
-import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
@@ -15,81 +15,85 @@ import org.wikipedia.util.ReleaseUtil
 
 open class MetricsEvent {
 
-    private val applicationData get() = mapOf(
-        "agent_flavor" to BuildConfig.FLAVOR + BuildConfig.BUILD_TYPE,
-        "app_theme" to WikipediaApp.instance.currentTheme,
-        "app_version" to WikipediaApp.instance.versionCode.toString(),
-        "database" to WikipediaApp.instance.wikiSite.dbName(),
-        "device_language" to WikipediaApp.instance.languageState.systemLanguageCode,
-        "is_prod" to ReleaseUtil.isProdRelease,
-        "is_dev" to ReleaseUtil.isDevRelease,
-        "language_groups" to WikipediaApp.instance.languageState.appLanguageCodes.toString(),
-        "language_primary" to WikipediaApp.instance.languageState.appLanguageCode,
-    )
-
-    protected fun submitEvent(eventName: String, customData: Map<String, Any>, pageData: PageData? = null) {
+    protected fun submitEvent(eventName: String, interactionData: InteractionData?, pageData: PageData? = null) {
         if (ReleaseUtil.isPreProdRelease && Prefs.isEventLoggingEnabled) {
-            MetricsPlatform.client.submitMetricsEvent(
-                EVENT_NAME_BASE + eventName,
-                getClientData(pageData),
-                customData + applicationData)
+            MetricsPlatform.client.submitInteraction(
+                /* eventName = */ EVENT_NAME_BASE + eventName,
+                /* clientData = */ getClientData(pageData),
+                /* interactionData = */ interactionData)
         }
     }
 
-    private fun getClientData(pageData: PageData?): ClientData {
+    protected fun getClientData(pageData: PageData?): ClientData {
         return ClientData(
-            MetricsPlatform.agentData,
-            pageData,
-            MetricsPlatform.mediawikiData,
-            getPerformerData(),
-            MetricsPlatform.domain
+            /* agentData = */ MetricsPlatform.agentData,
+            /* pageData = */ pageData,
+            /* mediawikiData = */ MetricsPlatform.mediawikiData,
+            /* performerData = */ getPerformerData(),
+            /* domain = */ MetricsPlatform.domain
         )
     }
 
     protected fun getPageData(fragment: PageFragment?): PageData? {
         val pageProperties = fragment?.page?.pageProperties ?: return null
         return PageData(
-            pageProperties.pageId,
-            fragment.model.title?.prefixedText.orEmpty(),
-            pageProperties.namespace.code(),
-            Namespace.of(pageProperties.namespace.code()).toString(),
-            pageProperties.revisionId,
-            pageProperties.wikiBaseItem.orEmpty(),
-            fragment.model.title?.wikiSite?.languageCode.orEmpty(),
-            null,
-            null,
-            null
+            /* id = */ pageProperties.pageId,
+            /* title = */ fragment.model.title?.prefixedText.orEmpty(),
+            /* namespaceId = */ pageProperties.namespace.code(),
+            /* namespaceName = */ Namespace.of(pageProperties.namespace.code()).toString(),
+            /* revisionId = */ pageProperties.revisionId,
+            /* wikidataItemQid = */ pageProperties.wikiBaseItem.orEmpty(),
+            /* contentLanguage = */ fragment.model.title?.wikiSite?.languageCode.orEmpty()
         )
     }
 
     protected fun getPageData(pageTitle: PageTitle?, pageId: Int = 0, revisionId: Long = 0): PageData? {
         if (pageTitle == null) return null
         return PageData(
-            pageId,
-            pageTitle.prefixedText,
-            pageTitle.namespace().code(),
-            Namespace.of(pageTitle.namespace().code()).toString(),
-            revisionId,
-            "",
-            pageTitle.wikiSite.languageCode,
-            null, null, null)
+            /* id = */ pageId,
+            /* title = */ pageTitle.prefixedText,
+            /* namespaceId = */ pageTitle.namespace().code(),
+            /* namespaceName = */ Namespace.of(pageTitle.namespace().code()).toString(),
+            /* revisionId = */ revisionId,
+            /* wikidataItemQid = */ null,
+            /* contentLanguage = */ pageTitle.wikiSite.languageCode
+        )
     }
 
     private fun getPerformerData(): PerformerData {
         return PerformerData(
-            AccountUtil.userName,
-            AccountUtil.isLoggedIn,
-            AccountUtil.hashCode(),
-            EventPlatformClient.AssociationController.sessionId,
-            EventPlatformClient.AssociationController.pageViewId,
-            AccountUtil.groups,
-            null,
-            WikipediaApp.instance.languageState.appLanguageCode,
-            WikipediaApp.instance.languageState.appLanguageCodes.toString(),
-            null,
-            null,
-            null,
-            null
+            /* id = */ AccountUtil.hashCode(),
+            /* name = */ AccountUtil.userName,
+            /* isLoggedIn = */ AccountUtil.isLoggedIn,
+            /* isTemp = */ null,
+            /* sessionId = */ EventPlatformClient.AssociationController.sessionId,
+            /* pageviewId = */ EventPlatformClient.AssociationController.pageViewId,
+            /* groups = */ AccountUtil.groups,
+            /* languageGroups = */ WikipediaApp.instance.languageState.appLanguageCodes.toString(),
+            /* languagePrimary = */ WikipediaApp.instance.languageState.appLanguageCode,
+            /* registrationDt = */ null
+        )
+    }
+
+    protected fun getInteractionData(
+        action: String,
+        actionSubtype: String?,
+        actionSource: String?,
+        actionContext: String?,
+        elementId: String?,
+        elementFriendlyName: String?,
+        funnelEntryToken: String?,
+        funnelEventSequencePosition: Int?
+    ): InteractionData {
+        return InteractionData(
+            action,
+            actionSubtype,
+            actionSource,
+            actionContext,
+            elementId,
+            elementFriendlyName,
+            funnelEntryToken,
+            funnelEventSequencePosition
         )
     }
 

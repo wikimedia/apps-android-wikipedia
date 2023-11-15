@@ -23,12 +23,15 @@ class ArticleFindInPageInteraction(private val fragment: PageFragment) : TimedMe
     fun logDone() {
         submitEvent(
             "find_in_page_interaction",
-            mapOf(
-                "find_text" to findText,
-                "find_next_clicks_count" to numFindNext,
-                "find_prev_clicks_count" to numFindPrev,
-                "page_height" to pageHeight,
-                "time_spent_ms" to timer.elapsedMillis,
+            getInteractionData(
+                "find_in_page_interaction",
+                "find_text.$findText",
+                "find_next_clicks_count.${numFindNext.toString()}",
+                "find_prev_clicks_count.${numFindPrev.toString()}",
+                "page_height.$pageHeight",
+                "time_spent_ms.${timer.elapsedMillis.toString()}",
+                null,
+                null
             ),
             getPageData(fragment)
         )
@@ -138,11 +141,13 @@ class ArticleToolbarInteraction(private val fragment: PageFragment) : TimedMetri
     fun reset() { timer.reset() }
 
     private fun submitEvent(action: String) {
+
         submitEvent(
             "article_toolbar_interaction",
-            mapOf(
-                "action" to action,
-                "time_spent_ms" to timer.elapsedMillis
+            getInteractionData(
+                "article_toolbar_interaction.$action",
+                "time_spent_ms.${timer.elapsedMillis.toString()}",
+                null, null, null, null, null, null
             ),
             getPageData(fragment)
         )
@@ -179,11 +184,15 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
         }
         submitEvent(
             "article_toc_interaction",
-            mapOf(
-                "num_opens" to numOpens,
-                "num_section_clicks" to numSectionClicks,
-                "total_open_sec" to totalOpenedSec,
-                "num_sections" to numSections
+            getInteractionData(
+                "article_toc_interaction",
+                "num_opens.${numOpens.toString()}",
+                "num_section_clicks.${numSectionClicks.toString()}",
+                "total_open_sec.${totalOpenedSec.toString()}",
+                "num_sections.${numSections.toString()}",
+                null,
+                null,
+                null
             ),
             getPageData(fragment)
         )
@@ -219,10 +228,15 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
     private fun submitEvent(action: String) {
         submitEvent(
             "article_link_preview_interaction",
-            mapOf(
-                "action" to action,
-                "source" to source,
-                "time_spent_ms" to timer.elapsedMillis,
+            getInteractionData(
+                "article_toc_interaction",
+                action,
+                source.toString(),
+                "time_spent_ms.${timer.elapsedMillis.toString()}",
+                null,
+                null,
+                null,
+                null
             ),
             pageData
         )
