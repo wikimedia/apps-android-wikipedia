@@ -12,6 +12,7 @@ import android.text.Html.ImageGetter
 import android.text.Html.TagHandler
 import android.text.Spannable
 import android.text.Spanned
+import android.text.style.LeadingMarginSpan
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
 import android.webkit.MimeTypeMap
@@ -221,7 +222,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 try {
                     handleListTag(output)
                 } catch (e: Exception) {
-                    L.d("Error on parsing list item: $e")
+                    L.d("Error on handling list item: $e")
                 }
             }
             return false
@@ -234,7 +235,14 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 val start = output.length - split.last().length - 1
                 val replaceStr = "$listItemCount. ${split.last()}"
                 output.replace(start - 1, output.length - 1, replaceStr)
-                // output.setSpan(LeadingMarginSpan.Standard(15 * listParents.size), start, output.length, 0)
+
+                val spans = output.getSpans<LeadingMarginSpan>(output.length)
+                if (spans.isNotEmpty()) {
+                    val span = spans.last()
+                    val startSpan = output.getSpanStart(span)
+                    output.removeSpan(span)
+                    output.setSpan(LeadingMarginSpan.Standard(50 * listParents.size), startSpan, output.length, 0)
+                }
             }
         }
     }
