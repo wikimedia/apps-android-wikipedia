@@ -22,7 +22,7 @@ class ArticleFindInPageInteraction(private val fragment: PageFragment) : TimedMe
 
     fun logDone() {
         submitEvent(
-            "/analytics/mobile_apps/android_metrics_platform_find_in_page_interaction/1.0.0",
+            "/analytics/product_metrics/app/android/find_in_page_interaction/1.0.0",
             "find_in_page_interaction",
             mapOf(
                 "find_text" to findText,
@@ -184,7 +184,7 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
             return
         }
         submitEvent(
-            "/analytics/mobile_apps/android_metrics_platform_article_toc_interaction/1.0.0",
+            "/analytics/product_metrics/app/android/article_toc_interaction/1.0.0",
             "article_toc_interaction",
             mapOf(
                 "num_opens" to numOpens,
