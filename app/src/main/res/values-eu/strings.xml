@@ -496,7 +496,7 @@
     <item quantity="other">%1$d artikulu deskargatzen...</item>
   </plurals>
   <plurals name="notification_syncing_description">
-    <item quantity="one">Artikulu %1$d geratzen da</item>
+    <item quantity="one">Artikulu bat geratzen da</item>
     <item quantity="other">%1$d artikulu geratzen dira</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
