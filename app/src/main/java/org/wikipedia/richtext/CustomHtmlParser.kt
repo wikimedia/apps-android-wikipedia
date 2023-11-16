@@ -224,6 +224,12 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 } catch (e: Exception) {
                     L.d("Error on handling list item: $e")
                 }
+            } else if ((tag == "dd" || tag == "dl") && output != null) {
+                try {
+                    handleIndentTag(tag, output, opening)
+                } catch (e: Exception) {
+                    L.d("Error on handling indent item: $e")
+                }
             }
             return false
         }
@@ -242,6 +248,16 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                     val startSpan = output.getSpanStart(span)
                     output.removeSpan(span)
                     output.setSpan(LeadingMarginSpan.Standard(50 * listParents.size), startSpan, output.length, 0)
+                }
+            }
+        }
+
+        private fun handleIndentTag(tag: String, output: Editable, opening: Boolean) {
+            if (tag == "dd") {
+                if (opening) {
+                    output.insert(output.length, "     ")
+                } else {
+                    output.insert(output.length, "\n")
                 }
             }
         }
