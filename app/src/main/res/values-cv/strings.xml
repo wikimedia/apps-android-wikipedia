@@ -111,8 +111,11 @@
   <string name="other_languages_indication_text">Урӑх чӗлхепе вула</string>
   <string name="language_count_link_text">Ытти %d чӗлхепе пур</string>
   <string name="edit_save_action_license_logged_in">Хӑвӑрӑн улшӑнусене янӑ май эсир &lt;a href=\"%1$s\"&gt;усӑ курмалли условисемпе&lt;/a&gt;, ҫавӑн пекех &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензипе яланлӑха вырнаҫтарассипе килӗшетӗр.</string>
+  <string name="edit_save_action_license_anon">Тӳрлетӳсене вырнаҫтарнӑ май эсир &lt;a href=\"%1$s\"&gt;усӑ курмалли условисемпе&lt;/a&gt;, ҫаван пекех &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензипе кӗртнине каялла илмесӗр вырнаҫтарма килӗшетӗр. Тӳрлетӳсем сирӗн хатӗрӗн IP адресӗпе ҫыхӑнӗҫ. &lt;a href=\"https://#login\"&gt;Системӑна кӗрсен&lt;/a&gt; хӑвӑрӑн ҫинчен пӗлтерекен информаци ыттисене сахалтарах курӑнӗ.</string>
+  <string name="edit_anon_warning">Тӳрлетӳсене тӑваканӗ пек сирӗн хатӗрӗн IP адресӗ кӑтартӑнӗ. &lt;a href=\"https://#login\"&gt;Системӑна кӗрсен&lt;/a&gt; ыттисем куракан информаци сахалрах пулӗ, ун чухне эсир усӑ куракан IP адрес курӑнмӗ.</string>
   <string name="preference_title_language">Википеди чӗлхисем</string>
   <string name="langlinks_filter_hint">Шыра</string>
+  <string name="langlinks_empty">Ку страницӑпа ытти чӗлхепе паллашма май ҫук.</string>
   <string name="langlinks_no_match">Чӗлхесем тупӑнмарӗҫ</string>
   <string name="langlinks_activity_title">Ытти чӗлхесем</string>
   <string name="langlinks_your_wikipedia_languages">Википедири сирӗн чӗлхесем</string>
@@ -129,6 +132,7 @@
   <string name="search_reading_list_no_results">\"%s\"-ра нимӗн те тупӑнмарӗ</string>
   <string name="search_reading_lists_no_results">Вуламалли списокра нимӗн те тупӑнмарӗ</string>
   <string name="search_history_no_results">Историре нимӗн те тупӑнмарӗ</string>
+  <string name="edit_section_captcha_message">Пире спамран хӳтӗленме пулӑшмашкӑн аяларах кӑтартнӑ сӑмахсене ҫырса кӗртӗр.</string>
   <string name="title_captcha">CAPTCHA кӗртӗр</string>
   <string name="edit_section_captcha_reload">CAPTCHA ҫӗнетме ӑна тӗкӗнӗр</string>
   <string name="nav_item_login">Википедине кӗрӗр</string>
