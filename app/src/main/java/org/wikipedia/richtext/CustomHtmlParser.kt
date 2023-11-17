@@ -10,8 +10,10 @@ import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.Html.ImageGetter
 import android.text.Html.TagHandler
+import android.text.Layout
 import android.text.Spannable
 import android.text.Spanned
+import android.text.style.AlignmentSpan
 import android.text.style.LeadingMarginSpan
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
@@ -113,6 +115,9 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
     class CustomTagHandler(private val view: TextView?,
                            private val noSmallSizeImage: Boolean = true) : TagHandler {
         private var lastAClass = ""
+        private var lastDivClass = ""
+        private var lastDivStyle = ""
+        private var lastSpannedDivString = ""
         private var listItemCount = 0
         private val listParents = mutableListOf<String>()
 
@@ -223,6 +228,29 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                     handleListTag(output)
                 } catch (e: Exception) {
                     L.d("Error on handling list item: $e")
+                }
+            } else if (tag == "div" && output != null) {
+                try {
+                    if (opening) {
+                        lastDivStyle = getValue(attributes, "style").orEmpty()
+                        lastDivClass = getValue(attributes, "class").orEmpty()
+                        lastSpannedDivString = output.toString()
+                    } else {
+                        val alignmentSpan = if (lastDivClass == "center" || lastDivStyle.contains("margin-left: auto", true) && lastDivStyle.contains("margin-right: auto", true)) {
+                            Layout.Alignment.ALIGN_CENTER
+                        } else if (lastDivClass == "floatright" || lastDivStyle.contains("text-align: right", true)) {
+                            Layout.Alignment.ALIGN_OPPOSITE
+                        } else {
+                            Layout.Alignment.ALIGN_NORMAL
+                        }
+                        val start = lastSpannedDivString.length
+                        val end = output.length
+                        if (start < end) {
+                            output.setSpan(AlignmentSpan.Standard(alignmentSpan), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        }
+                    }
+                } catch (e: Exception) {
+                    L.d("Error on parsing <div>: $e")
                 }
             }
             return false
