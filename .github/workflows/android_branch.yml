@@ -30,7 +30,7 @@ jobs:
         alias: ${{ secrets.KEY_STORE_ALIAS }}
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
         keyPassword: ${{ secrets.KEY_PASSWORD }}
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       name: Upload APK artifact
       with:
         name: app_alpha_release
