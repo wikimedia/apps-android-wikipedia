@@ -20,6 +20,7 @@ import org.wikipedia.databinding.ItemTalkThreadItemBinding
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.richtext.CustomHtmlParser
 import org.wikipedia.util.*
+import org.wikipedia.util.log.L
 
 @SuppressLint("RestrictedApi")
 class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
@@ -74,8 +75,13 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
             val timestamp = DateUtil.getTimeAndDateString(context, it)
             StringUtil.setHighlightedAndBoldenedText(binding.timeStampText, timestamp, searchQuery)
         }
-        val body = CustomHtmlParser.fromHtml(StringUtil.removeStyleTags(item.html), binding.bodyText, hasMinImageSize = false).trim()
-        StringUtil.setHighlightedAndBoldenedText(binding.bodyText, body, searchQuery)
+
+        try {
+            StringUtil.setHighlightedAndBoldenedText(binding.bodyText, CustomHtmlParser.fromHtml(StringUtil.removeStyleTags(item.html), binding.bodyText, hasMinImageSize = false).trim(), searchQuery)
+        } catch (e: Exception) {
+            L.e("Error on parsing HTML tags $e")
+            StringUtil.setHighlightedAndBoldenedText(binding.bodyText, StringUtil.fromHtml(item.html).trim(), searchQuery)
+        }
         binding.bodyText.movementMethod = movementMethod
 
         if (replying) {

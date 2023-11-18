@@ -224,35 +224,27 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 }
                 listItemCount = 0
             } else if (tag == "li" && listParents.isNotEmpty() && !opening && output != null) {
-                try {
-                    handleListTag(output)
-                } catch (e: Exception) {
-                    L.d("Error on handling list item: $e")
-                }
+                handleListTag(output)
             } else if (tag == "div" && output != null) {
-                try {
-                    if (opening) {
-                        lastDivStyle = getValue(attributes, "style").orEmpty()
-                        lastDivClass = getValue(attributes, "class").orEmpty()
-                        lastSpannedDivString = output.toString()
+                if (opening) {
+                    lastDivStyle = getValue(attributes, "style").orEmpty()
+                    lastDivClass = getValue(attributes, "class").orEmpty()
+                    lastSpannedDivString = output.toString()
+                } else {
+                    val alignmentSpan = if (lastDivClass == "center" || lastDivStyle.contains("margin-left: auto", true) && lastDivStyle.contains("margin-right: auto", true)) {
+                        Layout.Alignment.ALIGN_CENTER
+                    } else if (lastDivClass == "floatright" || lastDivStyle.contains("text-align: right", true)) {
+                        Layout.Alignment.ALIGN_OPPOSITE
                     } else {
-                        val alignmentSpan = if (lastDivClass == "center" || lastDivStyle.contains("margin-left: auto", true) && lastDivStyle.contains("margin-right: auto", true)) {
-                            Layout.Alignment.ALIGN_CENTER
-                        } else if (lastDivClass == "floatright" || lastDivStyle.contains("text-align: right", true)) {
-                            Layout.Alignment.ALIGN_OPPOSITE
-                        } else {
-                            Layout.Alignment.ALIGN_NORMAL
-                        }
-                        val start = lastSpannedDivString.length
-                        val end = output.length
-                        val spans = output.getSpans<AlignmentSpan>(end)
-                        if (start < end && spans.isEmpty()) {
-                            // TODO: fix unexpected error that cannot be escaped.
-                            // output.setSpan(AlignmentSpan.Standard(alignmentSpan), start, end, 0)
-                        }
+                        Layout.Alignment.ALIGN_NORMAL
                     }
-                } catch (e: Exception) {
-                    L.d("Error on parsing <div>: $e")
+                    val start = lastSpannedDivString.length
+                    val end = output.length
+                    val spans = output.getSpans<AlignmentSpan>(end)
+                    if (start < end && spans.isEmpty()) {
+                        // TODO: fix unexpected error that cannot be escaped.
+                        output.setSpan(AlignmentSpan.Standard(alignmentSpan), start, end, 0)
+                    }
                 }
             }
             return false
