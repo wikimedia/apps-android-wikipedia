@@ -245,8 +245,10 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                         }
                         val start = lastSpannedDivString.length
                         val end = output.length
-                        if (start < end) {
-                            output.setSpan(AlignmentSpan.Standard(alignmentSpan), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        val spans = output.getSpans<AlignmentSpan>(end)
+                        if (start < end && spans.isEmpty()) {
+                            // TODO: fix unexpected error that cannot be escaped.
+                            // output.setSpan(AlignmentSpan.Standard(alignmentSpan), start, end, 0)
                         }
                     }
                 } catch (e: Exception) {
