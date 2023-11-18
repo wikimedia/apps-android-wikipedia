@@ -1,7 +1,8 @@
 package org.wikipedia.richtext
 
 import android.widget.TextView
+import org.wikipedia.util.StringUtil
 
 fun TextView.setHtml(source: String?) {
-    this.text = CustomHtmlParser.fromHtml(source, this).trim()
+    this.text = StringUtil.fromHtml(source).trim()
 }
