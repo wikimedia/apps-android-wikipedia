@@ -82,6 +82,10 @@ interface HistoryEntryWithImageDao {
             entryWithImage.displayTitle, 0, entryWithImage.namespace, entryWithImage.timestamp,
             entryWithImage.source, entryWithImage.timeSpentSec)
         entry.title.thumbUrl = entryWithImage.imageName
+        
+        val hasDescription = entryWithImage.description?.isNotEmpty() ?: false
+        entry.title.description = if (hasDescription) entryWithImage.description else null
+        
         return entry
     }
 
