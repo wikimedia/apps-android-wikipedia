@@ -179,7 +179,7 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("CREATE TABLE IF NOT EXISTS `TalkTemplate` (`id` INTEGER NOT NULL, `type` INTEGER NOT NULL, `order` INTEGER NOT NULL, `title` TEXT NOT NULL, `subject` TEXT NOT NULL, `message` TEXT NOT NULL, PRIMARY KEY(`id`))")
             }
         }
-        private val MIGRATION_25_26 = object : Migration(19, 20) {
+        private val MIGRATION_25_26 = object : Migration(25, 26) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 // add description to HistoryEntry
             }
