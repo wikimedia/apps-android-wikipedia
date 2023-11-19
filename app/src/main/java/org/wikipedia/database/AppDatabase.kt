@@ -181,7 +181,7 @@ abstract class AppDatabase : RoomDatabase() {
         }
         private val MIGRATION_25_26 = object : Migration(25, 26) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                // add description to HistoryEntry
+                database.execSQL("ALTER TABLE HistoryEntry ADD COLUMN description TEXT NOT NULL DEFAULT ''")
             }
         }
 
