@@ -231,7 +231,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 toggleSelectedItem(viewModel.talkTemplatesList[position])
                 adapter.notifyItemChanged(position)
             } else {
-                PatrollerExperienceEvent.logAction("edit_template", "pt_templates")
+                PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
                 requestEditTemplate.launch(AddTemplateActivity.newIntent(requireContext(), viewModel.talkTemplatesList[position].id))
             }
         }
