@@ -35,6 +35,7 @@
 * Léon973
 * MSClaudiu
 * Macofe
+* Mazighafalkun
 * McDutchie
 * MuratTheTurkish
 * Naheulf
@@ -56,10 +57,10 @@
 * Zarisi
 -->
 <resources>
-  <string name="app_name_prod">Wikipédia</string>
-  <string name="app_name_beta">Wikipédia Bêta</string>
-  <string name="app_name_alpha">Wikipédia Alpha</string>
-  <string name="wikimedia">Wikimedia</string>
+  <string name="app_name_prod">Wikipidya</string>
+  <string name="app_name_beta">Wikipidya Biṭa</string>
+  <string name="app_name_alpha">Wikipidya Alfa</string>
+  <string name="wikimedia">Wikimidya</string>
   <string name="nav_item_back">Retour</string>
   <string name="page_tabs_back">Retour</string>
   <string name="nav_item_forward">Suivant</string>
