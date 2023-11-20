@@ -203,7 +203,6 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
         val body = binding.addTemplateInputView.editText.text.toString().trim()
 
         if (title.isEmpty()) {
-            // TODO: add eventlogging
             PatrollerExperienceEvent.logAction("publish_error_title", "pt_templates")
             binding.addTemplateTitleLayout.isErrorEnabled = true
             binding.addTemplateTitleLayout.error = getString(R.string.talk_templates_message_title_empty)
@@ -225,7 +224,6 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
 
         setSaveButtonEnabled(false)
 
-        // TODO: verify eventlogging
         if (viewModel.talkTemplateId != -1) {
             viewModel.talkTemplate?.let {
                 PatrollerExperienceEvent.logAction("edit_message_save", "pt_templates")

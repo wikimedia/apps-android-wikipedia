@@ -67,8 +67,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     private val requestEditTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
             viewModel.loadTalkTemplates()
-            // TODO: add eventlogging
-            PatrollerExperienceEvent.logAction("save_message_toast", "pt_templates")
+            PatrollerExperienceEvent.logAction("update_message_toast", "pt_templates")
             FeedbackUtil.showMessage(this, R.string.talk_templates_edit_message_updated)
         }
     }
@@ -119,13 +118,17 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
+            R.id.menu_overflow -> {
+                PatrollerExperienceEvent.logAction("more_menu_click", "pt_templates")
+                true
+            }
             R.id.menu_new_message -> {
                 PatrollerExperienceEvent.logAction("new_message_click", "pt_templates")
                 requestNewTemplate.launch(AddTemplateActivity.newIntent(requireContext()))
                 true
             }
             R.id.menu_enter_remove_message_mode -> {
-                // TODO: add eventlogging
+                PatrollerExperienceEvent.logAction("more_menu_remove_click", "pt_templates")
                 beginRemoveItemsMode()
                 true
             }
@@ -159,11 +162,6 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         if (binding.talkTemplatesEmptyContainer.isVisible) {
             PatrollerExperienceEvent.logAction("templates_empty_impression", "pt_templates")
         }
-    }
-
-    private fun onSaved(position: Int) {
-        FeedbackUtil.showMessage(this, R.string.talk_templates_edit_message_updated)
-        binding.talkTemplatesRecyclerView.adapter?.notifyItemChanged(position)
     }
 
     private fun onDeleted(size: Int) {
@@ -235,11 +233,11 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
 
         override fun onClick(position: Int) {
-            // TODO: add eventlogging?
             if (actionMode != null) {
                 toggleSelectedItem(viewModel.talkTemplatesList[position])
                 adapter.notifyItemChanged(position)
             } else {
+                PatrollerExperienceEvent.logAction("edit_template", "pt_templates")
                 requestEditTemplate.launch(AddTemplateActivity.newIntent(requireContext(), viewModel.talkTemplatesList[position].id))
             }
         }
@@ -307,7 +305,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
         override fun onDeleteSelected() {
             if (selectedItems.size > 0) {
-                PatrollerExperienceEvent.logAction("edit_message_delete", "pt_templates")
+                PatrollerExperienceEvent.logAction("more_menu_remove_confirm", "pt_templates")
                 val messageStr = resources.getQuantityString(
                     R.plurals.talk_templates_message_delete_description,
                     selectedItems.size
