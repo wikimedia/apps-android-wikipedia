@@ -133,6 +133,8 @@
   <string name="search_reading_lists_no_results">Вуламалли списокра нимӗн те тупӑнмарӗ</string>
   <string name="search_history_no_results">Историре нимӗн те тупӑнмарӗ</string>
   <string name="edit_section_captcha_message">Пире спамран хӳтӗленме пулӑшмашкӑн аяларах кӑтартнӑ сӑмахсене ҫырса кӗртӗр.</string>
+  <string name="edit_section_captcha_request_an_account_message">Капча ӳкерчӗкне курмастӑр-и? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Аккаунт хатӗрлесе пама ыйтӑр&lt;/a&gt;</string>
+  <string name="edit_section_captcha_hint">Ҫӳлерех кӑтартнӑ сӑмахсене ҫырӑр</string>
   <string name="title_captcha">CAPTCHA кӗртӗр</string>
   <string name="edit_section_captcha_reload">CAPTCHA ҫӗнетме ӑна тӗкӗнӗр</string>
   <string name="nav_item_login">Википедине кӗрӗр</string>
@@ -306,6 +308,11 @@
   <string name="theme_category_reading">Вулав</string>
   <string name="theme_category_editing">Тӳрлетӳ</string>
   <string name="reading_focus_mode">Вулав режимӗ</string>
+  <string name="nav_item_saved">Ҫырса хутӑмӑр</string>
+  <string name="reading_list_save_to">Вуламалли списока хуш</string>
+  <string name="reading_list_move_to">Вуламалли списока куҫар</string>
+  <string name="reading_list_create_new">Ҫӗннине ту</string>
+  <string name="reading_list_title_exists">«%s» ятлӑ вуламалли списока унччен хушнӑ пулнӑ.</string>
   <string name="reading_list_article_already_exists_message">Пит аван! %1$s ӑшӗнче %2$s пур та ӗнтӗ.</string>
   <string name="reading_list_articles_already_exist_message">Пит аван! %s пӗтӗм статьясем пур та ӗнтӗ.</string>
   <string name="reading_list_added_view_button">Списока пӑх</string>
@@ -329,6 +336,19 @@
   <string name="reading_list_menu_export">Списока экспортла</string>
   <string name="reading_list_menu_select">Суйла</string>
   <string name="reading_list_menu_unselect">Суйланине пӗтер</string>
+  <string name="reading_list_menu_rename">Ятне/Ӑнлантарӑвне тӳрлет</string>
+  <string name="reading_list_action_menu_remove_from_offline">Офлайнран кӑларса пӑрах</string>
+  <string name="reading_list_action_menu_save_for_offline">Автономлӑ режимра упраса хӑвар</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Офлайнран пӗтӗмпех кӑларса пӑрах</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Оффлайн валли пӗтӗмпех упраса хӑвар</string>
+  <string name="reading_list_action_menu_add_to_another_list">Урӑх списока хуш</string>
+  <string name="reading_list_action_menu_move_to_another_list">Урӑх списока куҫар</string>
+  <string name="reading_list_name_sample">Манӑн вулав списокӗ</string>
+  <string name="reading_list_name_hint">Ку списокӑн ячӗ</string>
+  <string name="reading_list_description_hint">Ӑнлантару (кирлех мар)</string>
+  <string name="reading_list_item_deleted">%s списокран хуратнӑ</string>
+  <string name="reading_list_item_delete_undo">Пӑрахӑҫла</string>
+  <string name="reading_list_remove_from_list">%s списокран хурат</string>
   <string name="reading_list_select_item">Суйла</string>
   <string name="reading_list_confirm_remove_article_from_offline">Офлайнран кӑларса пӑрах</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">статья чылай списока кӗрӗ</string>
