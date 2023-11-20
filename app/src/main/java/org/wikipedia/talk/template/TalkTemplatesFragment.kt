@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.ActionMode
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -30,6 +31,7 @@ import org.wikipedia.databinding.FragmentTalkTemplatesBinding
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.MultiSelectActionModeCallback
 
 class TalkTemplatesFragment : Fragment(), MenuProvider {
     private var _binding: FragmentTalkTemplatesBinding? = null
@@ -38,12 +40,18 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     private val binding get() = _binding!!
 
     private lateinit var itemTouchHelper: ItemTouchHelper
+    private lateinit var adapter: RecyclerAdapter
+    private val selectedItems = mutableListOf<TalkTemplate>()
+    private var actionMode: ActionMode? = null
+    private val multiSelectCallback = MultiSelectCallback()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentTalkTemplatesBinding.inflate(inflater, container, false)
 
-        (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.talk_templates_manage_title)
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.talk_templates_manage_title)
 
         return binding.root
     }
@@ -53,6 +61,14 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             viewModel.loadTalkTemplates()
             PatrollerExperienceEvent.logAction("save_message_toast", "pt_templates")
             FeedbackUtil.showMessage(this, R.string.talk_templates_new_message_saved)
+        }
+    }
+
+    private val requestEditTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            viewModel.loadTalkTemplates()
+            PatrollerExperienceEvent.logAction("update_message_toast", "pt_templates")
+            FeedbackUtil.showMessage(this, R.string.talk_templates_edit_message_updated)
         }
     }
 
@@ -77,8 +93,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 launch {
                     viewModel.actionState.collect {
                         when (it) {
-                            is TalkTemplatesViewModel.ActionState.Saved -> onSaved(it.position)
-                            is TalkTemplatesViewModel.ActionState.Deleted -> onDeleted(it.position)
+                            is TalkTemplatesViewModel.ActionState.Deleted -> onDeleted(it.size)
                             is TalkTemplatesViewModel.ActionState.Error -> onActionError(it.throwable)
                         }
                     }
@@ -96,11 +111,25 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         inflater.inflate(R.menu.menu_talk_templates, menu)
     }
 
+    override fun onPrepareMenu(menu: Menu) {
+        super.onPrepareMenu(menu)
+        menu.findItem(R.id.menu_overflow).isVisible = viewModel.talkTemplatesList.isNotEmpty()
+    }
+
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
+            R.id.menu_overflow -> {
+                PatrollerExperienceEvent.logAction("more_menu_click", "pt_templates")
+                true
+            }
             R.id.menu_new_message -> {
                 PatrollerExperienceEvent.logAction("new_message_click", "pt_templates")
                 requestNewTemplate.launch(AddTemplateActivity.newIntent(requireContext()))
+                true
+            }
+            R.id.menu_enter_remove_message_mode -> {
+                PatrollerExperienceEvent.logAction("more_menu_remove_click", "pt_templates")
+                beginRemoveItemsMode()
                 true
             }
             else -> false
@@ -109,7 +138,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     private fun setRecyclerView() {
         binding.talkTemplatesRecyclerView.setHasFixedSize(true)
-        val adapter = RecyclerAdapter()
+        adapter = RecyclerAdapter()
         binding.talkTemplatesRecyclerView.adapter = adapter
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.talkTemplatesRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
@@ -125,6 +154,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     private fun onSuccess() {
         setRecyclerView()
+        requireActivity().invalidateOptionsMenu()
         binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesErrorView.visibility = View.GONE
         binding.talkTemplatesProgressBar.visibility = View.GONE
@@ -134,20 +164,17 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
     }
 
-    private fun onSaved(position: Int) {
-        FeedbackUtil.showMessage(this, R.string.talk_templates_edit_message_updated)
-        binding.talkTemplatesRecyclerView.adapter?.notifyItemChanged(position)
-    }
-
-    private fun onDeleted(position: Int) {
+    private fun onDeleted(size: Int) {
         PatrollerExperienceEvent.logAction("message_deleted_toast", "pt_templates")
-        FeedbackUtil.showMessage(this, R.string.talk_templates_message_deleted)
-        binding.talkTemplatesRecyclerView.adapter?.notifyItemRemoved(position)
+        val messageStr = resources.getQuantityString(R.plurals.talk_templates_message_deleted, size)
+        FeedbackUtil.showMessage(this, messageStr)
         binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesRecyclerView.isVisible = viewModel.talkTemplatesList.isNotEmpty()
         if (binding.talkTemplatesEmptyContainer.isVisible) {
             PatrollerExperienceEvent.logAction("templates_empty_impression", "pt_templates")
         }
+        actionMode?.finish()
+        unselectAllTalkTemplates()
     }
 
     private fun onActionError(t: Throwable) {
@@ -160,93 +187,30 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesErrorView.visibility = View.VISIBLE
     }
 
-    private fun showEditDialog(talkTemplate: TalkTemplate) {
-        TalkTemplatesTextInputDialog(requireActivity(), R.string.talk_templates_new_message_dialog_save,
-            R.string.talk_templates_edit_message_dialog_delete).let { textInputDialog ->
-            textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
-                override fun onShow(dialog: TalkTemplatesTextInputDialog) {
-                    dialog.setTitleHint(R.string.talk_templates_new_message_dialog_hint)
-                    dialog.setTitleText(talkTemplate.title)
-                    dialog.setSubjectHint(R.string.talk_templates_new_message_subject_hint)
-                    dialog.setSubjectText(talkTemplate.subject)
-                    dialog.setBodyHint(R.string.talk_templates_new_message_compose_hint)
-                    dialog.setBodyText(talkTemplate.message)
-                }
-
-                override fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog) {
-                    text.toString().trim().let {
-                        when {
-                            it.isEmpty() -> {
-                                dialog.setError(null)
-                                dialog.setPositiveButtonEnabled(false)
-                            }
-
-                            viewModel.talkTemplatesList.any { item -> item.title == it && item.id != talkTemplate.id } -> {
-                                dialog.setError(
-                                    dialog.context.getString(
-                                        R.string.talk_templates_new_message_dialog_exists,
-                                        it
-                                    )
-                                )
-                                dialog.setPositiveButtonEnabled(false)
-                            }
-
-                            else -> {
-                                dialog.setError(null)
-                                dialog.setPositiveButtonEnabled(true)
-                            }
-                        }
-                    }
-                }
-
-                override fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence) {
-                    PatrollerExperienceEvent.logAction("edit_message_save", "pt_templates")
-                    viewModel.updateTalkTemplate(titleText.toString(), subjectText.toString(), bodyText.toString(), talkTemplate)
-                }
-
-                override fun onCancel() {
-                    PatrollerExperienceEvent.logAction("edit_message_delete", "pt_templates")
-                    MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme_Delete)
-                        .setMessage(getString(R.string.talk_templates_edit_message_delete_description, talkTemplate.title))
-                        .setPositiveButton(R.string.talk_templates_edit_message_dialog_delete) { _, _ ->
-                            PatrollerExperienceEvent.logAction("message_delete_click", "pt_templates")
-                            viewModel.deleteTemplate(talkTemplate)
-                        }
-                        .setNegativeButton(R.string.talk_templates_new_message_dialog_cancel) { _, _ ->
-                            PatrollerExperienceEvent.logAction("message_delete_cancel", "pt_templates")
-                        }
-                        .show()
-                }
-
-                override fun onDismiss() { }
-            }
-            textInputDialog.showDialogMessage(false)
-            textInputDialog.showSubjectText(true)
-            textInputDialog.showBodyText(true)
-            textInputDialog.setTitle(R.string.talk_templates_edit_message_dialog_title)
-        }.show()
-    }
-
     internal inner class TalkTemplatesItemViewHolder(val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) {
-        fun bindItem(item: TalkTemplate) {
-            templatesItemView.setContents(item)
+        fun bindItem(item: TalkTemplate, position: Int) {
+            templatesItemView.setContents(item, position)
         }
     }
 
     internal inner class RecyclerAdapter : RecyclerView.Adapter<TalkTemplatesItemViewHolder>(), TalkTemplatesItemView.Callback {
+
+        private var checkboxEnabled = false
 
         override fun getItemCount(): Int {
             return viewModel.talkTemplatesList.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TalkTemplatesItemViewHolder {
-            val view = TalkTemplatesItemView(requireContext())
-            view.callback = this
-            return TalkTemplatesItemViewHolder(view)
+            return TalkTemplatesItemViewHolder(TalkTemplatesItemView(requireContext()))
         }
 
         override fun onBindViewHolder(holder: TalkTemplatesItemViewHolder, position: Int) {
-            holder.bindItem(viewModel.talkTemplatesList[position])
+            val talkTemplate = viewModel.talkTemplatesList[position]
+            holder.bindItem(talkTemplate, position)
+            holder.templatesItemView.setCheckBoxEnabled(checkboxEnabled)
+            holder.templatesItemView.setCheckBoxChecked(selectedItems.contains(talkTemplate))
+            holder.templatesItemView.setDragHandleEnabled(!checkboxEnabled)
         }
 
         override fun onViewAttachedToWindow(holder: TalkTemplatesItemViewHolder) {
@@ -255,14 +219,39 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 when (event.actionMasked) {
                     MotionEvent.ACTION_DOWN -> itemTouchHelper.startDrag(holder)
                     MotionEvent.ACTION_UP -> v.performClick()
+                    else -> { }
                 }
                 false
             }
+            holder.templatesItemView.callback = this
         }
 
         override fun onViewDetachedFromWindow(holder: TalkTemplatesItemViewHolder) {
             holder.templatesItemView.setDragHandleTouchListener(null)
+            holder.templatesItemView.callback = null
             super.onViewDetachedFromWindow(holder)
+        }
+
+        override fun onClick(position: Int) {
+            if (actionMode != null) {
+                toggleSelectedItem(viewModel.talkTemplatesList[position])
+                adapter.notifyItemChanged(position)
+            } else {
+                PatrollerExperienceEvent.logAction("edit_template", "pt_templates")
+                requestEditTemplate.launch(AddTemplateActivity.newIntent(requireContext(), viewModel.talkTemplatesList[position].id))
+            }
+        }
+
+        override fun onCheckedChanged(position: Int) {
+            toggleSelectedItem(viewModel.talkTemplatesList[position])
+        }
+
+        override fun onLongPress(position: Int) {
+            if (actionMode == null) {
+                beginRemoveItemsMode()
+            }
+            toggleSelectedItem(viewModel.talkTemplatesList[position])
+            adapter.notifyItemChanged(position)
         }
 
         fun onMoveItem(oldPosition: Int, newPosition: Int) {
@@ -271,14 +260,82 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             notifyItemMoved(oldPosition, newPosition)
         }
 
-        override fun onClick(talkTemplate: TalkTemplate) {
-            showEditDialog(talkTemplate)
+        fun onCheckboxEnabled(enabled: Boolean) {
+            checkboxEnabled = enabled
+        }
+    }
+
+    private fun setMultiSelectEnabled(enabled: Boolean) {
+        adapter.onCheckboxEnabled(enabled)
+        adapter.notifyItemRangeChanged(0, viewModel.talkTemplatesList.size)
+        requireActivity().invalidateOptionsMenu()
+    }
+
+    private fun beginRemoveItemsMode() {
+        (requireActivity() as AppCompatActivity).startSupportActionMode(multiSelectCallback)
+        setMultiSelectEnabled(true)
+    }
+
+    private fun toggleSelectedItem(talkTemplate: TalkTemplate) {
+        if (selectedItems.contains(talkTemplate)) {
+            selectedItems.remove(talkTemplate)
+        } else {
+            selectedItems.add(talkTemplate)
+        }
+    }
+
+    private fun unselectAllTalkTemplates() {
+        selectedItems.clear()
+        adapter.notifyDataSetChanged()
+    }
+
+    private fun deleteSelectedTalkTemplates() {
+        viewModel.deleteTemplates(selectedItems)
+    }
+
+    private inner class MultiSelectCallback : MultiSelectActionModeCallback() {
+        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
+            super.onCreateActionMode(mode, menu)
+            mode.setTitle(R.string.talk_templates_menu_remove_message)
+            mode.menuInflater.inflate(R.menu.menu_action_mode_talk_templates, menu)
+            actionMode = mode
+            selectedItems.clear()
+            return super.onCreateActionMode(mode, menu)
+        }
+
+        override fun onDeleteSelected() {
+            if (selectedItems.size > 0) {
+                PatrollerExperienceEvent.logAction("more_menu_remove_confirm", "pt_templates")
+                val messageStr = resources.getQuantityString(
+                    R.plurals.talk_templates_message_delete_description,
+                    selectedItems.size
+                )
+                MaterialAlertDialogBuilder(requireContext(), R.style.AlertDialogTheme_Delete)
+                    .setMessage(messageStr)
+                    .setPositiveButton(R.string.talk_templates_edit_message_dialog_delete) { _, _ ->
+                        PatrollerExperienceEvent.logAction("message_delete_click", "pt_templates")
+                        deleteSelectedTalkTemplates()
+                    }
+                    .setNegativeButton(R.string.talk_templates_new_message_dialog_cancel) { _, _ ->
+                        PatrollerExperienceEvent.logAction("message_delete_cancel", "pt_templates")
+                    }
+                    .show()
+            } else {
+                actionMode?.finish()
+            }
+        }
+
+        override fun onDestroyActionMode(mode: ActionMode) {
+            unselectAllTalkTemplates()
+            setMultiSelectEnabled(false)
+            actionMode = null
+            super.onDestroyActionMode(mode)
         }
     }
 
     private inner class RearrangeableItemTouchHelperCallback constructor(private val adapter: RecyclerAdapter) : ItemTouchHelper.Callback() {
         override fun isLongPressDragEnabled(): Boolean {
-            return true
+            return false
         }
 
         override fun isItemViewSwipeEnabled(): Boolean {
