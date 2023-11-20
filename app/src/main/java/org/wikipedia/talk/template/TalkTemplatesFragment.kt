@@ -112,6 +112,11 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         inflater.inflate(R.menu.menu_talk_templates, menu)
     }
 
+    override fun onPrepareMenu(menu: Menu) {
+        super.onPrepareMenu(menu)
+        menu.findItem(R.id.menu_overflow).isVisible = viewModel.talkTemplatesList.isNotEmpty()
+    }
+
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.menu_new_message -> {
@@ -146,6 +151,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     private fun onSuccess() {
         setRecyclerView()
+        requireActivity().invalidateOptionsMenu()
         binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesErrorView.visibility = View.GONE
         binding.talkTemplatesProgressBar.visibility = View.GONE
