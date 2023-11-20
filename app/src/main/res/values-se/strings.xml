@@ -417,6 +417,8 @@
   <string name="talk_list_item_overflow_subscribe">Diŋgo</string>
   <string name="menu_option_edit_source">Rievdat wikiteavsttain</string>
   <string name="menu_option_user_page">Geavaheaddji %s geavaheaddjisiidu</string>
+  <string name="talk_menu_expand_threads">Viiddit buot gođđosiid</string>
+  <string name="talk_menu_collapse_threads">Čiega buot gođđosiid</string>
   <string name="thank_label">Giitte</string>
   <string name="view_user_page">Čájet geavaheaddjisiiddu</string>
   <string name="thank_dialog_negative_button_text">Gaskkalduhte</string>
@@ -424,6 +426,7 @@
   <string name="menu_option_view_user_contributions">Čájet geavaheaddji rievdadusaid</string>
   <string name="watchlist_page_deleted">Sihkkojuvvon</string>
   <string name="watchlist_filter_user_status_header">Geavaheaddji registreren ja hárjánusdássi</string>
+  <string name="watchlist_filter_user_status_registered">Registrerejuvvon</string>
   <string name="watchlist_filter_automated_contributions_header">Automatiserejuvvon rievdadusat</string>
   <string name="watchlist_filter_significance_minor">Unna rievdadusažat</string>
   <string name="watchlist_filter_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
@@ -434,6 +437,10 @@
   <string name="shareable_reading_lists_new_indicator">*ođđa*</string>
   <string name="talk_templates_new_message_dialog_cancel">Gaskkalduhte</string>
   <string name="patroller_tasks_filters_user_status_header">Geavaheaddji registreren ja hárjánusdássi</string>
+  <string name="patroller_tasks_filters_user_status_registered">Registrerejuvvon</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrerejuvvon geavaheaddjit geain leat unnit go 10 rievdadusa dahkan dahje 4 aktiiva beaivvi.</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Registrerejuvvon geavaheaddjit, geain lea eanet hárjáneapmi go \"Ođđa geavaheddjiin\", muhto ii leat nu olu hárjáneapmi go \"Hárjánan geavaheddjiin\".</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Registrerejuvvon geavaheaddjit geain leat eambbo go 500 rievdadusa dahkan ja 30 aktiiva beaivvi.</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Automatiserejuvvon rievdadusat</string>
   <string name="patroller_tasks_filters_significance_minor">Unna rievdadusažat</string>
   <string name="patroller_tasks_filters_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
