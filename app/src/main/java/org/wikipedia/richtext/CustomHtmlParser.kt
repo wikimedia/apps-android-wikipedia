@@ -5,6 +5,7 @@ import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Rect
+import android.graphics.Typeface
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.text.Editable
@@ -15,6 +16,7 @@ import android.text.Spannable
 import android.text.Spanned
 import android.text.style.AlignmentSpan
 import android.text.style.LeadingMarginSpan
+import android.text.style.StyleSpan
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
 import android.webkit.MimeTypeMap
@@ -244,6 +246,24 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                     if (start < end && spans.isEmpty()) {
                         // TODO: fix unexpected error that cannot be escaped.
                         output.setSpan(AlignmentSpan.Standard(alignmentSpan), start, end, 0)
+                    }
+                }
+            } else if ((tag == "dd" || tag == "dl") && output != null) {
+                if (opening) {
+                    // TODO: maybe replace with LeadingMarginSpan
+                    output.append("\n")
+                    output.append("     ")
+                }
+            } else if (tag == "dt" && output != null) {
+                if (opening) {
+                    output.setSpan(StyleSpan(Typeface.BOLD), output.length, output.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                } else {
+                    val spans = output.getSpans<StyleSpan>(output.length)
+                    if (spans.isNotEmpty()) {
+                        val span = spans.last()
+                        val start = output.getSpanStart(span)
+                        output.removeSpan(span)
+                        output.setSpan(StyleSpan(Typeface.BOLD), start, output.length, 0)
                     }
                 }
             }
