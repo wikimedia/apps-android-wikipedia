@@ -37,7 +37,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk 21
         targetSdk 34
-        versionCode 50458
+        versionCode 50459
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -211,7 +211,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
-    implementation "io.reactivex.rxjava3:rxjava:3.1.6"
+    implementation "io.reactivex.rxjava3:rxjava:3.1.8"
     implementation "io.reactivex.rxjava3:rxandroid:3.0.2"
     implementation 'org.apache.commons:commons-lang3:3.13.0'
     implementation 'org.jsoup:jsoup:1.16.1'
@@ -244,7 +244,7 @@ dependencies {
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation "org.mockito:mockito-inline:$mockitoVersion"
-    testImplementation 'org.robolectric:robolectric:4.10.3'
+    testImplementation 'org.robolectric:robolectric:4.11.1'
     testImplementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
     testImplementation 'org.hamcrest:hamcrest:2.2'

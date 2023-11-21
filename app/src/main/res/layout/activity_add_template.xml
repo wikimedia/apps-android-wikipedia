@@ -8,7 +8,7 @@
     <ScrollView
         android:id="@+id/addTemplateScrollContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize">
 
         <LinearLayout
@@ -17,17 +17,36 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/addTemplateDescription"
                 style="@style/P.MaterialListTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/talk_templates_new_message_description"
-                android:layout_marginHorizontal="16dp"/>
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/addTemplateTitleLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginHorizontal="16dp"
+                android:hint="@string/talk_templates_new_message_dialog_hint">
+
+                <org.wikipedia.views.PlainPasteEditText
+                    android:id="@+id/addTemplateTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="flagNoExtractUi|actionNext"
+                    android:inputType="textCapSentences"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/addTemplateSubjectLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:layout_marginHorizontal="16dp"
                 android:hint="@string/talk_templates_new_message_subject_hint">
 
@@ -45,7 +64,6 @@
                 android:id="@+id/addTemplateInputView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginHorizontal="16dp" />
 
         </LinearLayout>
