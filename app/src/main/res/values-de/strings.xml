@@ -1499,6 +1499,11 @@
   <string name="patroller_tasks_filters_user_status_registered">Registriert</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Angemeldete Autoren.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Neulinge</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Sehr wahrscheinlich gut</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Sehr genau beim Auffinden fast aller problemfreien Bearbeitungen.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Könnte Probleme haben</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Findet die meisten fehlerhaften oder schädlichen Bearbeitungen, aber mit einer niedrigeren Genauigkeit.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Hat wahrscheinlich Probleme</string>
   <string name="data_opt_in_accept">Zulassen</string>
   <string name="data_opt_in_reject">Ablehnen</string>
   <string name="page_issues_title">Seitenprobleme</string>

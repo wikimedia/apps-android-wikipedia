@@ -43,6 +43,7 @@
 * Ommmmid
 * Pirehelokan
 * Reza1615
+* Rulebased
 * Saadat
 * Sahehco
 * Sunfyre
@@ -1490,9 +1491,6 @@
   <string name="patroller_tasks_filters_user_intent_bad_desc">در پیداکردن تقریباً تمام ویرایش‌های فاقد حسن نیت، دقت بسیار بالایی دارد.</string>
   <string name="patroller_tasks_patrol_edit_title">گشت‌زدن ویرایش</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">تاریخچه ویرایش مقاله</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">این ویرایش خنثی شود؟</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">آیا از خنثی‌سازی این ویرایش اطمینان دارید؟</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">خلاصه ویرایش (اختیاری)</string>
   <string name="patroller_tasks_patrol_edit_undo_success">بازگردانی کامل شد</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">آیا از واگردانی اطمینان دارید؟</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">واگردانی کامل شد</string>
@@ -1505,12 +1503,11 @@
   <string name="patroller_onboarding_two_watch_title">پیگیری</string>
   <string name="patroller_onboarding_two_warn_title">هشدار</string>
   <string name="patroller_onboarding_two_undo_title">خنثی‌سازی/واگردانی</string>
-  <string name="patroller_onboarding_three_switch">ارسال گزارش‌های استفاده</string>
   <string name="patroller_diff_feedback_dialog_message">آیا از این ویژگی راضی هستید؟</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">راضی</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">خنثی</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">ناراضی</string>
-  <string name="patroller_diff_feedback_dialog_feedback_title">چگونه می توانیم ویژگی را بهبود ببخشیم؟</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">چگونه می‌توانیم ویژگی را بهبود ببخشیم؟</string>
   <string name="patroller_diff_feedback_dialog_input_hint">بازخورد</string>
   <string name="patroller_diff_feedback_dialog_submit">ارسال</string>
   <string name="patroller_diff_feedback_submitted_snackbar">بازخورد ارسال شد.</string>

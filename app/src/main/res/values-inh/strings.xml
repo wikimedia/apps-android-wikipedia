@@ -3,6 +3,7 @@
 * Adam-Yourist
 * ElizaMag
 * MuratTheTurkish
+* SHaran (WMF)
 * Умар
 -->
 <resources>
@@ -248,7 +249,7 @@
   <string name="about_app_license" fuzzy="true">Юххьанцарча кóдá тӀакхача аьттув ба укхаза → &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt;, укх лицензеца &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Нагахьа санна кхыдар белгалдаьдеце, чударá тӀакхача аьттув ба укх лицензе бокъонашца: &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонд Викимедиан продукт&lt;/a&gt;</string>
   <string name="about_activity_title">Приложенех лаьца</string>
-  <string name="edit_abandon_confirm">ОагӀона тӀа хувцам баьб. Боккъонца лой хьона хувцам дӀа ца язбеш аравала?</string>
+  <string name="edit_abandon_confirm">ОагӀона тӀа хувцам баьб. Боккъонца лов хьона хувцам дӀа ца язбеш аравала?</string>
   <string name="edit_abandon_confirm_yes">ХӀаъа</string>
   <string name="edit_abandon_confirm_no">A</string>
   <string name="user_blocked_from_editing_title">Блок техай</string>
@@ -400,7 +401,7 @@
   <string name="reference_list_title">Белгалдаккхар</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Сурташ баьддерзадар</string>
   <string name="preference_title_prefer_offline_content">Офлайн-хоам тол</string>
-  <string name="preference_summary_prefer_offline_content">ОагӀона чу эггара тӀехьагӀа (керда) Ӏочудаьккхачун когаметта хьалхагӀа офлайн дӀаяздаьр хьа а хьувкхаш трафик кхóю</string>
+  <string name="preference_summary_prefer_offline_content">Трафик кхóю статьяй офлайн-эрш гойташ, цун когаметта массаза а тӀехьагӀа (кердагӀа) дола хувцар гойтачул</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Ража тéманна нийсса я</string>
   <string name="page_footer_license_text">Чулоацамá тIакхоачилга $1 яхача лицензе бокъоношца да, нагахьа санна кхыдар белгалдаь деце.</string>
   <string name="empty_tab_title">Керда вкладка</string>

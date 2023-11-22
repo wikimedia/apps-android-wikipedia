@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
+
+        <ImageView
+            android:id="@+id/thankImage"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_heart_24"
+            android:padding="8dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="?attr/addition_color"
+            android:contentDescription="@null"
+            app:tint="?attr/progressive_color"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/thankTitle"
+            style="@style/H3.MaterialListTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/patroller_onboarding_two_thank_title"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/thankImage"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/thankContent"
+            style="@style/P"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/patroller_onboarding_two_thank_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintTop_toBottomOf="@id/thankTitle"
+            app:layout_constraintStart_toStartOf="@id/thankTitle"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
+
+        <ImageView
+            android:id="@+id/watchImage"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_star_24"
+            android:padding="8dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="?attr/addition_color"
+            android:contentDescription="@null"
+            app:tint="?attr/progressive_color"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/watchTitle"
+            style="@style/H3.MaterialListTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/patroller_onboarding_two_watch_title"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/watchImage"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/watchContent"
+            style="@style/P"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/patroller_onboarding_two_watch_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintTop_toBottomOf="@id/watchTitle"
+            app:layout_constraintStart_toStartOf="@id/watchTitle"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
+
+        <ImageView
+            android:id="@+id/warnImage"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_warning_24"
+            android:padding="8dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="?attr/addition_color"
+            android:contentDescription="@null"
+            app:tint="?attr/progressive_color"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/warnTitle"
+            style="@style/H3.MaterialListTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/patroller_onboarding_two_warn_title"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/warnImage"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/warnContent"
+            style="@style/P"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/patroller_onboarding_two_warn_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintTop_toBottomOf="@id/warnTitle"
+            app:layout_constraintStart_toStartOf="@id/warnTitle"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
+
+        <ImageView
+            android:id="@+id/undoImage"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_undo_themed_24dp"
+            android:padding="8dp"
+            android:background="@drawable/shape_circle"
+            android:backgroundTint="?attr/addition_color"
+            android:contentDescription="@null"
+            app:tint="?attr/progressive_color"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/undoTitle"
+            style="@style/H3.MaterialListTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/patroller_onboarding_two_undo_title"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/undoImage"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/undoContent"
+            style="@style/P"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/patroller_onboarding_two_undo_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintTop_toBottomOf="@id/undoTitle"
+            app:layout_constraintStart_toStartOf="@id/undoTitle"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

@@ -1506,8 +1506,6 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems">Valószínűleg rosszhiszemű</string>
   <string name="patroller_tasks_filters_user_intent_bad">Szinte biztosan rosszhiszemű</string>
   <string name="patroller_tasks_patrol_edit_title">Járőr szerkesztése</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Visszavonod ezt a szerkesztést?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Összefoglaló (nem kötelező)</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Visszaállítás kész</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Megtekintés</string>
   <string name="patroller_tasks_overflow_report">Probléma a funkcióval</string>

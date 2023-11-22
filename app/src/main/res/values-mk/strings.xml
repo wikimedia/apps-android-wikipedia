@@ -1462,6 +1462,7 @@
   <string name="talk_templates_edit_message_updated">Пораката е подновена</string>
   <string name="talk_templates_edit_message_delete_description">Дали сигурно сакате да ја избришете оваа порака „%s“ од списокот.</string>
   <string name="talk_templates_message_deleted">Пораката е избришана</string>
+  <string name="talk_templates_message_title_empty">Насловот не може да стои празен.</string>
   <string name="patroller_tasks_edits_list_title">Список на уредувања</string>
   <string name="patroller_tasks_edits_list_search_hint">Пребарај или филтрирај уредувања</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Ознаки: %s</string>
@@ -1524,11 +1525,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Патролирај уредување</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Историја на уредување на статијата</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Да го вратам ова уредување?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Дали сигурно дакате да го вратите ова уредување?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Враќањето значи отповикување на дејствата од едно или повеќе уредувања.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Опис (незадолж.)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Наведете причина за враќањето</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Враќањето е завршено</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Дали сигурно сакате да отповикате?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Отповикувањето е завршено</string>
@@ -1546,9 +1542,6 @@
   <string name="patroller_onboarding_two_warn_content">Создавајте, испраќајте и складирајте предупредителни пораки на корисничка разговорна страница.</string>
   <string name="patroller_onboarding_two_undo_title">Враќање/Поништување</string>
   <string name="patroller_onboarding_two_undo_content">Изберете „Врати“ за да поништите или отповикате потенцијално штетно уредување.</string>
-  <string name="patroller_onboarding_three_title">Испраќај анонимни податоци</string>
-  <string name="patroller_onboarding_three_content">Помогнете ни да ја подобриме функцијата со тоа што ќе добиваме информации како ја користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#privacy\"&gt;Дознајте повеќе&lt;/a&gt;</string>
-  <string name="patroller_onboarding_three_switch">Испраќај извештаи за употребата</string>
   <string name="patroller_diff_tooltip_one">Штетата предвидува дали едно уредување ќе причини штета на едно вики.</string>
   <string name="patroller_diff_tooltip_two">Намерата ја предвидува веројатноста едно уредување да биде зачувано како добронамерно.</string>
   <string name="patroller_diff_feedback_dialog_title">Помогнете ни да ја подобриме оваа функција</string>

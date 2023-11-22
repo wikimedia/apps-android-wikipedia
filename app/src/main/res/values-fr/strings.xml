@@ -35,6 +35,7 @@
 * Léon973
 * MSClaudiu
 * Macofe
+* Mazighafalkun
 * McDutchie
 * MuratTheTurkish
 * Naheulf
@@ -56,10 +57,10 @@
 * Zarisi
 -->
 <resources>
-  <string name="app_name_prod">Wikipédia</string>
-  <string name="app_name_beta">Wikipédia Bêta</string>
-  <string name="app_name_alpha">Wikipédia Alpha</string>
-  <string name="wikimedia">Wikimedia</string>
+  <string name="app_name_prod">Wikipidya</string>
+  <string name="app_name_beta">Wikipidya Biṭa</string>
+  <string name="app_name_alpha">Wikipidya Alfa</string>
+  <string name="wikimedia">Wikimidya</string>
   <string name="nav_item_back">Retour</string>
   <string name="page_tabs_back">Retour</string>
   <string name="nav_item_forward">Suivant</string>
@@ -311,6 +312,7 @@
   <string name="edit_redo">Refaire</string>
   <string name="edit_rollback">Révoquer</string>
   <string name="edit_warn">Avertissement</string>
+  <string name="edit_damage" fuzzy="true">%s de dégâts</string>
   <string name="edit_intent">%s d’intention</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s octet</item>
@@ -477,7 +479,7 @@
   <string name="color_theme_select">Thème</string>
   <string name="color_theme_light">Clair</string>
   <string name="color_theme_dark">Sombre</string>
-  <string name="color_theme_black" fuzzy="true">Noir</string>
+  <string name="color_theme_black">Noir</string>
   <string name="color_theme_sepia">Sépia</string>
   <string name="color_theme_test_title">Texte d’exemple</string>
   <string name="color_theme_test_text">Glissez le curseur pour modifier la taille du texte utilisée pour lire les articles. Pour définir la taille du texte dans tout le reste de l’application, changez la taille du texte dans vos paramètres Android.</string>
@@ -1570,11 +1572,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Patrouiller la modification</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historique des modifications de l’article</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Annuler cette modification ?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Êtes-vous certain de vouloir annuler cette modification ?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Annuler signifie revenir sur les effets d’une ou plusieurs modifications.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Résumé (facultatif)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Partager le motif d’annulation</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Annulation terminée</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Êtes-vous sûr de vouloir revenir en arrière ?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Retour en arrière terminé</string>

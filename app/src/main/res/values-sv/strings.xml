@@ -278,6 +278,7 @@
   <string name="edit_redo">Gör om</string>
   <string name="edit_rollback">Rulla tillbaka</string>
   <string name="edit_warn">Varna</string>
+  <string name="edit_damage">Skada %s</string>
   <string name="edit_intent">Avsikt %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
@@ -1475,6 +1476,7 @@
   <string name="talk_templates_edit_message_updated">Meddelandet har uppdaterats</string>
   <string name="talk_templates_edit_message_delete_description">Är du säker på att du vill radera meddelandet \"%s\" från listan?</string>
   <string name="talk_templates_message_deleted">Meddelandet har raderats</string>
+  <string name="talk_templates_message_title_empty">Titeln kan inte vara tom.</string>
   <string name="patroller_tasks_edits_list_title">Lista över redigeringar</string>
   <string name="patroller_tasks_edits_list_search_hint">Sök eller filtrera redigeringar</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Taggar: %s</string>
@@ -1537,11 +1539,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Patrullredigering</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikelns redigeringshistorik</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Ska denna redigering göras ogjord?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Är du säker på att du vill göra denna redigering ogjord?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Ångra innebär att återställa effekterna av en eller flera redigeringar.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Sammanfattning (valfri)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Dela anledningen till återställningen</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Återställdes</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Är du säker på att du vill rulla tillbaka?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Tillbakarullning slutförd</string>
@@ -1559,9 +1556,6 @@
   <string name="patroller_onboarding_two_warn_content">Skapa, skicka och lagra varningsmeddelanden på en redigerares diskussionssida.</string>
   <string name="patroller_onboarding_two_undo_title">Gör ogjord/Rulla tillbaka</string>
   <string name="patroller_onboarding_two_undo_content">Välj \"Gör ogjord\" för att återställa en potentiellt destruktiv redigering.</string>
-  <string name="patroller_onboarding_three_title">Skicka anonym data</string>
-  <string name="patroller_onboarding_three_content">Hjälp till att göra funktionen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#privacy\"&gt;Läs mer&lt;/a&gt;</string>
-  <string name="patroller_onboarding_three_switch">Skicka användningsrapporter</string>
   <string name="patroller_diff_tooltip_one">Skada förutsäger om en redigering orsakar skada på en wiki.</string>
   <string name="patroller_diff_tooltip_two">Avsikt förutsäger sannolikheten om en redigering sparas i god tro.</string>
   <string name="patroller_diff_feedback_dialog_title">Hjälp oss att förbättra denna funktion</string>

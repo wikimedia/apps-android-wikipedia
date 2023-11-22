@@ -6,6 +6,8 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.onboarding.OnboardingFragment
 
 class DescriptionEditTutorialActivity : SingleFragmentActivity<DescriptionEditTutorialFragment>(), OnboardingFragment.Callback {
+    override fun onSkip() {}
+
     override fun onComplete() {
         setResult(RESULT_OK, intent)
         finish()

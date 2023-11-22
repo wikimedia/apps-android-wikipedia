@@ -1481,6 +1481,7 @@
   <string name="talk_templates_edit_message_updated">El missatge s\'ha actualitzat</string>
   <string name="talk_templates_edit_message_delete_description" fuzzy="true">Esteu segur que voleu suprimir aquest missatge %s de la llista?</string>
   <string name="talk_templates_message_deleted">El missatge s\'ha suprimit</string>
+  <string name="talk_templates_message_title_empty">El títol no pot ser en blanc.</string>
   <string name="patroller_tasks_edits_list_title">Llista d\'edicions</string>
   <string name="patroller_tasks_edits_list_search_hint">Cerca o filtra edicions</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etiquetes: %s</string>
@@ -1543,11 +1544,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Patrulla l\'edició</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historial d\'edició de l\'article</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Voleu desfer aquesta edició?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Esteu segur que voleu desfer aquesta edició?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Desfer significa revertir els efectes d\'una o més edicions.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Resum (opcional)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Comparteix el motiu de la reversió</string>
   <string name="patroller_tasks_patrol_edit_undo_success">S\'ha completat la reversió</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Esteu segur que voleu revertir enrere?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">S\'ha completat la reversió enrere</string>
@@ -1558,9 +1554,12 @@
   <string name="patroller_onboarding_two_thank_title">Agraeix</string>
   <string name="patroller_onboarding_two_watch_title">Vigila</string>
   <string name="patroller_onboarding_two_warn_title">Avisa</string>
+  <string name="patroller_diff_feedback_dialog_title">Ajudeu-nos a millorar aquesta funcionalitat</string>
+  <string name="patroller_diff_feedback_dialog_message">Esteu satisfet amb aquesta funcionalitat?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfet</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfet</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Com podem millorar la funcionalitat?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Comentaris</string>
   <string name="patroller_diff_feedback_dialog_submit">Tramet</string>
   <string name="patroller_diff_feedback_submitted_snackbar">S\'han tramès els comentaris.</string>

@@ -24,6 +24,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.analytics.eventplatform.UserContributionEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.FragmentSuggestedEditsTasksBinding
@@ -59,6 +60,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addImageCaptionsTask: SuggestedEditsTask
     private lateinit var addImageTagsTask: SuggestedEditsTask
     private lateinit var imageRecommendationsTask: SuggestedEditsTask
+    private lateinit var vandalismPatrolTask: SuggestedEditsTask
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
@@ -308,12 +310,14 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageTagsTask = SuggestedEditsTask()
         addImageTagsTask.title = getString(R.string.suggested_edits_image_tags)
         addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
+        addImageTagsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
         addImageTagsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
 
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
+        addImageCaptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
         addImageCaptionsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
         addImageCaptionsTask.secondaryAction = getString(R.string.suggested_edits_task_action_text_translate)
@@ -330,16 +334,33 @@ class SuggestedEditsTasksFragment : Fragment() {
         imageRecommendationsTask.description = getString(R.string.suggested_edits_image_recommendations_task_detail)
         imageRecommendationsTask.imageDrawable = R.drawable.ic_add_image
         imageRecommendationsTask.primaryAction = getString(R.string.suggested_edits_task_action_text_add)
-        imageRecommendationsTask.new = !Prefs.suggestedEditsImageRecsOnboardingShown
+
+        vandalismPatrolTask = SuggestedEditsTask()
+        vandalismPatrolTask.title = getString(R.string.suggested_edits_edit_patrol)
+        vandalismPatrolTask.description = getString(R.string.suggested_edits_edit_patrol_hint)
+        vandalismPatrolTask.primaryAction = getString(R.string.suggested_edits_edit_patrol_review)
+        vandalismPatrolTask.imageDrawable = R.drawable.ic_patrol_24
+        vandalismPatrolTask.primaryActionIcon = R.drawable.ic_check_black_24dp
+        vandalismPatrolTask.new = !Prefs.recentEditsOnboardingShown
+
+        // TODO: limit to the Indonesian and Test wiki now.
+        val availableWikiSitesForPatrollerTasks = listOf("id", "test")
+        if (viewModel.allowToPatrolEdits && viewModel.blockMessageWikipedia.isNullOrEmpty() &&
+            availableWikiSitesForPatrollerTasks.contains(WikipediaApp.instance.wikiSite.languageCode)) {
+            // TODO: limit to the primary language now.
+            Prefs.recentEditsWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
+            displayedTasks.add(vandalismPatrolTask)
+        }
 
         if (DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikipedia.isNullOrEmpty() ||
             !DescriptionEditUtil.wikiUsesLocalDescriptions(WikipediaApp.instance.wikiSite.languageCode) && viewModel.blockMessageWikidata.isNullOrEmpty()) {
             displayedTasks.add(addDescriptionsTask)
         }
 
-        if (viewModel.totalContributions > 50 &&
-            viewModel.wikiSupportsImageRecommendations &&
-            viewModel.blockMessageWikipedia.isNullOrEmpty()) {
+        // If app language is `de`, the local edits need to be > 50 edits. See https://phabricator.wikimedia.org/T351275
+        if (((WikipediaApp.instance.wikiSite.languageCode == "de" && viewModel.homeContributions > 50) ||
+            (WikipediaApp.instance.wikiSite.languageCode != "de" && viewModel.totalContributions > 50)) &&
+            viewModel.wikiSupportsImageRecommendations && viewModel.blockMessageWikipedia.isNullOrEmpty()) {
             displayedTasks.add(imageRecommendationsTask)
         }
 
@@ -371,6 +392,9 @@ class SuggestedEditsTasksFragment : Fragment() {
             } else if (task == imageRecommendationsTask) {
                 ImageRecommendationsEvent.logAction("add_image_start", "suggested_edits_dialog")
                 startActivity(SuggestionsActivity.newIntent(requireActivity(), IMAGE_RECOMMENDATIONS, Constants.InvokeSource.SUGGESTED_EDITS))
+            } else if (task == vandalismPatrolTask) {
+                PatrollerExperienceEvent.logAction("pt_init", "suggested_edits_dialog")
+                startActivity(SuggestedEditsRecentEditsActivity.newIntent(requireContext()))
             }
         }
     }
