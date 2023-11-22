@@ -16,7 +16,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.nearby.NearbyActivity
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -153,10 +152,6 @@ internal class DeveloperSettingsPreferenceLoader(fragment: PreferenceFragmentCom
         }
         findPreference(R.string.preference_key_send_event_platform_test_event).onPreferenceClickListener = Preference.OnPreferenceClickListener {
             UserContributionEvent.logOpen()
-            true
-        }
-        findPreference(R.string.preference_developer_nearby).setOnPreferenceClickListener {
-            activity.startActivity(NearbyActivity.newIntent(activity, WikipediaApp.instance.wikiSite))
             true
         }
     }

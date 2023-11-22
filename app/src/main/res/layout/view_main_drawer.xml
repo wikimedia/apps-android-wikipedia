@@ -106,7 +106,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_star_24"
+                    app:srcCompat="@drawable/watchlist"
                     app:tint="?attr/secondary_color" />
 
                 <TextView
@@ -116,6 +116,26 @@
                     android:layout_marginStart="24dp"
                     android:layout_weight="1"
                     android:text="@string/watchlist_title" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main_drawer_nearby_container"
+                style="@style/SideDrawerMenuItem">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/baseline_location_on_24"
+                    app:tint="?attr/secondary_color" />
+
+                <TextView
+                    style="@android:style/TextAppearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    android:text="@string/nearby_title" />
             </LinearLayout>
 
             <LinearLayout
