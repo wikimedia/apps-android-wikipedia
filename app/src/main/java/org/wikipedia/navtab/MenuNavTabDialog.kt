@@ -1,24 +1,21 @@
 package org.wikipedia.navtab
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.ImageViewCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import org.wikipedia.BuildConfig
+import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
-import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
+import org.wikipedia.descriptions.DescriptionEditSuccessActivity
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
-import org.wikipedia.util.UriUtil.visitInExternalBrowser
 
 class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
@@ -71,12 +68,14 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerDonateContainer.setOnClickListener {
-            DonorExperienceEvent.logAction("donate_start_click", "more_menu")
-            BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
-            visitInExternalBrowser(requireContext(),
-                    Uri.parse(getString(R.string.donate_url,
-                            BuildConfig.VERSION_NAME, WikipediaApp.instance.languageState.systemLanguageCode)))
-            dismiss()
+            requireActivity().startActivity(DescriptionEditSuccessActivity.newIntent(requireContext(), Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS))
+//
+//            DonorExperienceEvent.logAction("donate_start_click", "more_menu")
+//            BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
+//            visitInExternalBrowser(requireContext(),
+//                    Uri.parse(getString(R.string.donate_url,
+//                            BuildConfig.VERSION_NAME, WikipediaApp.instance.languageState.systemLanguageCode)))
+//            dismiss()
         }
 
         updateState()
