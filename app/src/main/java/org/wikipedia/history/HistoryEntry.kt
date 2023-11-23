@@ -35,7 +35,7 @@ class HistoryEntry(
     constructor(title: PageTitle, source: Int, timestamp: Date = Date(), timeSpentSec: Int = 0) : this(title.wikiSite.authority(),
         title.wikiSite.languageCode, title.text, title.displayText, namespace = title.namespace,
         timestamp = timestamp, source = source, timeSpentSec = timeSpentSec,
-        description = title.description ?: "") {
+        description = title.description.orEmpty()) {
         pageTitle = title
     }
 
