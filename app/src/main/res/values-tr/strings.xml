@@ -1497,8 +1497,11 @@
   <string name="talk_templates_edit_message_dialog_save">Sakla</string>
   <string name="talk_templates_edit_message_dialog_delete">Sil</string>
   <string name="talk_templates_edit_message_updated">İleti güncellendi</string>
-  <string name="talk_templates_edit_message_delete_description">Bu \"%s\" iletisini listeden silmek istediğinize emin misiniz?</string>
-  <string name="talk_templates_message_deleted">İleti silindi</string>
+  <string name="talk_templates_menu_remove_message">İletiyi kaldır</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">İleti silindi</item>
+    <item quantity="other">İletiler silindi</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Başlık boş olamaz.</string>
   <string name="patroller_tasks_edits_list_title">Değişiklik listesi</string>
   <string name="patroller_tasks_edits_list_search_hint">Değişiklikleri ara ya da filtrele</string>
@@ -1523,8 +1526,11 @@
   <string name="patroller_tasks_filters_user_status_registered">Kayıtlı</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Oturum açmış düzenleyiciler.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Yeni başlayanlar</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">4 günlük etkinlikte 10\'dan az düzenlemesi olan kayıtlı düzenleyiciler.</string>
   <string name="patroller_tasks_filters_user_status_learners">Öğrenenler</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Deneyimi \"Yeni başlayanlar\" ve \"Deneyimli kullanıcılar\" arasındaki kayıtlı düzenleyiciler.</string>
   <string name="patroller_tasks_filters_user_status_experienced">Deneyimli kullanıcılar</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">30 günden fazla etkinliğe ve 500\'den fazla düzenlemeye sahip kayıtlı düzenleyiciler.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Güncel sürümler</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Güncel sürüm</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Güncel olmayan sürüm</string>
