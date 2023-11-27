@@ -62,7 +62,7 @@
     <item quantity="other">yinne=%1$d dɛmisnɛ hali %2$s</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
-    <item quantity="other">yinne=%1$d dɛmisnɛ hali %2$s (%3$s)%1$d dɛmisnɛ hali %2$s (%3$s)</item>
+    <item quantity="other">yinne=%1$d dɛmisnɛ hali %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Mɔɔm ye fʋ tiak &lt;a href=\"#\"&gt;filters&lt;/a&gt; ka nyɛ dɛmisa bɛdegʋ</string>
   <string name="menu_page_show_tabs">Pa\'alim tabisnam</string>
@@ -279,7 +279,7 @@
   <string name="search_recent_header">Banɛ ia nananna:</string>
   <string name="search_results_count_zero">Si\'el kae</string>
   <plurals name="search_results_count">
-    <item quantity="other">yinne=1 lɛbisʋg</item>
+    <item quantity="other">yinne=%d lɛbisʋg</item>
   </plurals>
   <string name="button_clear_all_recent_searches">ɛɛnsim dinɛ ka ba ia nananna</string>
   <string name="clear_recent_searches_confirm">Fʋ siak ye fʋ bɔɔd ye fʋ ɛɛnsi fʋ ieeb labakʋdaa?</string>

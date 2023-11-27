@@ -280,7 +280,7 @@
   <string name="reading_list_name_hint">Listtu namma</string>
   <string name="reading_list_add_to_other_list">Lasit nuppi lohkanlistui</string>
   <string name="reading_list_select_item">Vállje</string>
-  <string name="reading_list_articles_added_to_named" fuzzy="true">Artihkkalat %1$s lasihuvvojedje lohkanlistui %2$s</string>
+  <string name="reading_list_articles_added_to_named" fuzzy="true">Artihkkalat %1$d lasihuvvojedje lohkanlistui %2$s</string>
   <string name="reading_list_delete_confirm">Áiggutgo don duođaid %s sihkkut?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Gaskkalduhte</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Čálit sisa</string>
