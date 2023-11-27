@@ -1455,8 +1455,11 @@
   <string name="talk_templates_edit_message_dialog_save">Salveguardar</string>
   <string name="talk_templates_edit_message_dialog_delete">Deler</string>
   <string name="talk_templates_edit_message_updated">Le message ha essite actualisate</string>
-  <string name="talk_templates_edit_message_delete_description">Es tu secur de voler deler le message “%s” del lista?</string>
-  <string name="talk_templates_message_deleted">Le message ha essite delite</string>
+  <string name="talk_templates_menu_remove_message">Remover message</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Le message ha essite delite</item>
+    <item quantity="other">Le messages ha essite delite</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Le titulo non pote esser vacue.</string>
   <string name="patroller_tasks_edits_list_title">Lista de modificationes</string>
   <string name="patroller_tasks_edits_list_search_hint">Cercar o filtrar modificationes</string>
