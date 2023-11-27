@@ -314,6 +314,7 @@
   <string name="insert_media_settings_caption" fuzzy="true">Kovetekstâ</string>
   <string name="insert_media_advanced_settings">Laseasâttâsah</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Miniatyyrkove</string>
+  <string name="insert_media_insert_button">Lasseet</string>
   <string name="main_drawer_help">Iše</string>
   <string name="main_drawer_login">Čáládât siisâ / seervâ Wikipedian</string>
   <string name="main_tooltip_watchlist_title">Tarkkumlisto</string>

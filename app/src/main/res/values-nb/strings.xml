@@ -1476,8 +1476,7 @@
   <string name="talk_templates_edit_message_dialog_save">Lagre</string>
   <string name="talk_templates_edit_message_dialog_delete">Slett</string>
   <string name="talk_templates_edit_message_updated">Meldingen har blitt oppdatert</string>
-  <string name="talk_templates_edit_message_delete_description">Er du sikker på at du vil slette meldingen «%s» fra lista?</string>
-  <string name="talk_templates_message_deleted">Meldingen har blitt slettet</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Meldingen har blitt slettet</string>
   <string name="talk_templates_message_title_empty">Tittelen kan ikke være tom.</string>
   <string name="patroller_tasks_edits_list_title">Liste over redigeringer</string>
   <string name="patroller_tasks_edits_list_search_hint">Søk i eller filtrer redigeringer</string>

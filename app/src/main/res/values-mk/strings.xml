@@ -1460,8 +1460,15 @@
   <string name="talk_templates_edit_message_dialog_save">Зачувај</string>
   <string name="talk_templates_edit_message_dialog_delete">Избриши</string>
   <string name="talk_templates_edit_message_updated">Пораката е подновена</string>
-  <string name="talk_templates_edit_message_delete_description">Дали сигурно сакате да ја избришете оваа порака „%s“ од списокот.</string>
-  <string name="talk_templates_message_deleted">Пораката е избришана</string>
+  <string name="talk_templates_menu_remove_message">Отстрани порака</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Дали сигурно сакате да ја избришете пораката од списокот?</item>
+    <item quantity="other">Дали сигурно сакате да ги избришете пораките од списокот?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Пораката е избришана</item>
+    <item quantity="other">Пораките се избришани</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Насловот не може да стои празен.</string>
   <string name="patroller_tasks_edits_list_title">Список на уредувања</string>
   <string name="patroller_tasks_edits_list_search_hint">Пребарај или филтрирај уредувања</string>

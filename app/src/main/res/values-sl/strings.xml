@@ -1546,8 +1546,19 @@
   <string name="talk_templates_edit_message_dialog_save">Shrani</string>
   <string name="talk_templates_edit_message_dialog_delete">Izbriši</string>
   <string name="talk_templates_edit_message_updated">Sporočilo je posodobljeno</string>
-  <string name="talk_templates_edit_message_delete_description">Ste prepričani, da želite sporočilo »%s« izbrisati s seznama?</string>
-  <string name="talk_templates_message_deleted">Sporočilo je izbrisano</string>
+  <string name="talk_templates_menu_remove_message">Odstrani sporočilo</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Ali res želite to sporočilo odstraniti s seznama?</item>
+    <item quantity="two">Ali res želite ti sporočili odstraniti s seznama</item>
+    <item quantity="few">Ali res želite ta sporočila odstraniti s seznama</item>
+    <item quantity="other">Ali res želite ta sporočila odstraniti s seznama?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Sporočilo je izbrisano</item>
+    <item quantity="two">Sporočila so izbrisana</item>
+    <item quantity="few">Sporočila so izbrisana</item>
+    <item quantity="other">Sporočila so izbrisana</item>
+  </plurals>
   <string name="patroller_tasks_edits_list_title">Seznam urejanj</string>
   <string name="patroller_tasks_edits_list_search_hint">Iskanje ali filtriranje urejanj</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Oznake: %s</string>
