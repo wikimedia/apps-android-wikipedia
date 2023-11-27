@@ -425,7 +425,7 @@
   <string name="error_blocked_start">Start af blokering: %s</string>
   <string name="error_blocked_expiry">Udløb af blokering: %s</string>
   <string name="error_blocked_id">Blokerings-id: %s</string>
-  <string name="error_blocked_footer">Du kan kontakte &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s\"&gt;%1$s&lt;/a&gt; eller en anden &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; for at diskutere blokeringen.</string>
+  <string name="error_blocked_footer">Du kan kontakte &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; eller en anden &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; for at diskutere blokeringen.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Tilpas din værktøjslinje</string>
   <string name="error_blocked_footer_no_blocker">Du kan kontakte en &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; for at diskutere blokeringen.</string>
   <string name="crash_report_activity_title">Applikationsfejl</string>
@@ -615,8 +615,12 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">Slet</string>
   <string name="reading_list_activity_title">Læseliste: %s</string>
   <string name="reading_list_notification_title">Læseliste(r) eksporteret</string>
+  <string name="reading_list_notification_text">læselisterne %d er blevet eksporteret som \'reading_lists export.json\' til din download-mappe</string>
+  <string name="reading_list_notification_detailed_text">Læselisterne er blevet eksporteret til \'reading_lists_export.json\'</string>
   <string name="reading_lists_action_menu_export_lists">Eksportér</string>
   <string name="reading_lists_import_file_picker_title">Vælg den fil, der skal importeres</string>
+  <string name="reading_lists_import_failure_message">Import af læselister mislykkedes</string>
+  <string name="reading_lists_export_select_lists_message">Vælg den eller de lister, der skal eksporteres</string>
   <string name="reading_lists_preview_save_button">Gem</string>
   <string name="reading_lists_preview_save_dialog_title">Gem liste</string>
   <string name="reading_lists_preview_save_dialog_text">Navngiv listen, og vælg artikler, der skal gemmes.</string>
@@ -946,12 +950,27 @@
   <string name="suggested_edits_contribution_date_time_label">Dato / Tid</string>
   <string name="suggested_edits_contribution_image_label">Billede</string>
   <string name="suggested_edits_contribution_article_label">Artikel</string>
+  <string name="suggested_edits_contribution_views">%s visninger</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Set en gang inden for de seneste 30 dage.</item>
+    <item quantity="other">Set %s gange de seneste 30 dage.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Set %s gange de sidste 30 dage.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Du tilføjede %d tag</item>
+    <item quantity="other">Du tilføjede %d tags</item>
+  </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
   <string name="suggested_edits_encourage_account_creation_title">Vidste du at gud og hver mand kan redigere Wikipedia?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Foreslåede redigeringer er en ny måde at redigere Wikipedia på Android. Det hjælper til at give små, men vitale bidrag til Wikipedia.\nVores mål er at gøre redigering lettere og mere tilgængelig for alle! Log ind eller tilmeld dig Wikipedia for at komme i gang.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Log på / registrer dig på Wikipedia</string>
+  <string name="suggested_edits_contribution_type_image_tag">Billedtag</string>
   <string name="suggested_edits_contribution_current_revision_text">Din redigering findes nu på Wikipedia</string>
+  <string name="suggested_card_more_edits">Flere foreslåede redigeringer</string>
+  <string name="suggested_edits_article_descriptions_dialog_title">Foreslåede beskrivelser</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Hvad vil du rapportere?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Ikke nok information</string>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">Du tilføjede %d tegn</item>
     <item quantity="other">Du tilføjede %d tegn</item>
@@ -1237,8 +1256,10 @@
   <string name="talk_templates_edit_message_dialog_save">Gem</string>
   <string name="talk_templates_edit_message_dialog_delete">Slet</string>
   <string name="talk_templates_edit_message_updated">Beskeden er blevet opdateret</string>
-  <string name="talk_templates_edit_message_delete_description">Er du sikker på, at du vil slette denne \"%s\" besked fra listen?</string>
-  <string name="talk_templates_message_deleted">Beskeden er blevet slettet</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Beskeden er slettet</item>
+    <item quantity="other">Beskederne er slettet</item>
+  </plurals>
   <string name="patroller_tasks_edits_list_title">Liste over redigeringer</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Ingen</string>

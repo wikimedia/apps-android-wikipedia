@@ -1493,8 +1493,7 @@
   <string name="talk_templates_edit_message_dialog_save">保存</string>
   <string name="talk_templates_edit_message_dialog_delete">削除</string>
   <string name="talk_templates_edit_message_updated">メッセージが更新されました</string>
-  <string name="talk_templates_edit_message_delete_description">本当にメッセージ \"%s\" をリストから削除しますか？</string>
-  <string name="talk_templates_message_deleted">メッセージが削除されました</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">メッセージが削除されました</string>
   <string name="talk_templates_message_title_empty">タイトルを空にすることはできません。</string>
   <string name="patroller_tasks_edits_list_title">編集の一覧</string>
   <string name="patroller_tasks_edits_list_search_hint">編集を検索または絞り込む</string>

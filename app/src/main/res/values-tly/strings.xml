@@ -263,7 +263,7 @@
   <string name="clear_recent_searches_confirm_no">Ne</string>
   <string name="error_browser_not_found">Səhifə onybe (brauzeri čynəvə pəjdo nybe).</string>
   <string name="table_infobox">Kyrtə fakton</string>
-  <string name="table_other">Zijodə məlumot</string>
+  <string name="table_other">Vej məlumot</string>
   <string name="table_close">Žəj</string>
   <string name="widget_name_featured_page">Ce Vikipedia vyžnijə byə səhifə</string>
   <string name="widget_title_featured_page">Ruži vyžnijə byə məǧolə:</string>
@@ -609,7 +609,7 @@
   <string name="menu_feed_card_edit_card_languages">Zyvonon kərti sərost karde</string>
   <string name="menu_feed_overflow_label">Hənijən səbəro</string>
   <string name="feed_featured_image_share_subject">Ce Vikimənbə ən cokə šikilon</string>
-  <string name="home">Əsosə səhifə</string>
+  <string name="home">Sarloha</string>
   <string name="view_static_card_icon_content_description">Kərti nyšonə</string>
   <string name="view_card_news_title">Xəbonədə</string>
   <string name="view_continue_reading_card_subtitle_today">ımruj</string>
@@ -973,7 +973,7 @@
   <string name="user_contrib_filter_all">Həmmə nomonməkon</string>
   <string name="user_contrib_filter_ns_header">Nomonməkon parzyn</string>
   <string name="namespace_article">Məǧolə</string>
-  <string name="user_contrib_current">ysətnə</string>
+  <string name="user_contrib_current">ysət</string>
   <string name="user_contrib_menu_label">Tohfə</string>
   <string name="shareable_reading_lists_new_indicator">*tojə*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Dərəsəjm</string>
