@@ -1445,11 +1445,11 @@
   <string name="talk_templates_edit_message_dialog_delete">Hapus</string>
   <string name="talk_templates_edit_message_updated">Pesan telah diperbarui</string>
   <string name="talk_templates_menu_remove_message">Hapus pesan</string>
-  <plurals name="talk_templates_message_delete_description">
+  <plurals name="talk_templates_message_delete_description" fuzzy="true">
     <item quantity="one">Anda yakin ingin menghapus pesan dari daftar?</item>
     <item quantity="other">Anda yakin ingin menghapus pesan dari daftar?</item>
   </plurals>
-  <plurals name="talk_templates_message_deleted">
+  <plurals name="talk_templates_message_deleted" fuzzy="true">
     <item quantity="one">Pesan telah dihapus</item>
     <item quantity="other">Pesan telah dihapus</item>
   </plurals>

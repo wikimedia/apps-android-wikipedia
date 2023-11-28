@@ -1506,8 +1506,9 @@
   <string name="talk_templates_edit_message_dialog_save">保存</string>
   <string name="talk_templates_edit_message_dialog_delete">删除</string>
   <string name="talk_templates_edit_message_updated">消息已更新</string>
-  <string name="talk_templates_edit_message_delete_description">您确定要从列表中删除“%s”这个消息吗？</string>
-  <string name="talk_templates_message_deleted">消息已删除</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="other">消息已删除</item>
+  </plurals>
   <string name="patroller_tasks_edits_list_title">编辑列表</string>
   <string name="patroller_tasks_edits_list_search_hint">搜索或过滤编辑</string>
   <string name="patroller_tasks_edits_list_card_tags_text">标签： %s</string>
