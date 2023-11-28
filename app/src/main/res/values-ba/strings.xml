@@ -269,6 +269,7 @@
   <string name="edit_redo">Ҡабатларға</string>
   <string name="edit_rollback">Кире ҡайтарырға</string>
   <string name="edit_warn">Иҫкәртергә</string>
+  <string name="edit_damage">Зыян %s</string>
   <string name="edit_intent">Маҡсат %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
@@ -1458,8 +1459,8 @@
   <string name="talk_templates_edit_message_dialog_save">Һаҡларға</string>
   <string name="talk_templates_edit_message_dialog_delete">Юйырға</string>
   <string name="talk_templates_edit_message_updated">Хәбәр яңыртылған</string>
-  <string name="talk_templates_edit_message_delete_description" fuzzy="true">%s хәбәрен исемлектән юйырға теләйһегеҙме?</string>
-  <string name="talk_templates_message_deleted">Хәбәр юйылған</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Хәбәр юйылған</string>
+  <string name="talk_templates_message_title_empty">Атама буш була алмай.</string>
   <string name="patroller_tasks_edits_list_title">Үҙгәртеүҙәр исемлеге</string>
   <string name="patroller_tasks_edits_list_search_hint">Төҙәтеүҙәрҙе табырға йәки фильтрларға</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Тамғалар: %s</string>
