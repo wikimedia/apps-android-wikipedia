@@ -82,6 +82,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.media.AvPlayer
 import org.wikipedia.navtab.NavTab
+import org.wikipedia.nearby.NearbyActivity
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.campaign.CampaignDialog
@@ -1495,6 +1496,16 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             editHandler.startEditingArticle()
             articleInteractionEvent?.logEditArticleClick()
             metricsPlatformArticleEventToolbarInteraction.logEditArticleClick()
+        }
+
+        override fun onViewOnMapSelected() {
+            title?.let {
+                if (page?.pageProperties?.geo != null) {
+                    requireActivity().startActivity(NearbyActivity.newIntent(requireContext(), it.wikiSite))
+                } else {
+                    FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
+                }
+            }
         }
 
         override fun forwardClick() {
