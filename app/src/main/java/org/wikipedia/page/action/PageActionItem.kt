@@ -58,6 +58,11 @@ enum class PageActionItem constructor(val id: Int,
             cb.onViewEditHistorySelected()
         }
     },
+    VIEW_ON_MAP(13, R.id.page_view_on_map, R.string.action_item_view_on_map, R.drawable.baseline_location_on_24, true) {
+        override fun select(cb: Callback) {
+            cb.onViewOnMapSelected()
+        }
+    },
     NEW_TAB(9, R.id.page_new_tab, R.string.menu_new_tab, R.drawable.ic_add_gray_white_24dp) {
         override fun select(cb: Callback) {
             cb.onNewTabSelected()
@@ -101,11 +106,12 @@ enum class PageActionItem constructor(val id: Int,
         fun onExploreSelected()
         fun onCategoriesSelected()
         fun onEditArticleSelected()
+        fun onViewOnMapSelected()
         fun forwardClick()
     }
 
     companion object {
-        val MAP = EnumCodeMap(PageActionItem::class.java)
+        private val MAP = EnumCodeMap(PageActionItem::class.java)
 
         fun size(): Int {
             return MAP.size()
