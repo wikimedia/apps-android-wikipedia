@@ -1,0 +1,4514 @@
+{
+    "pitch": 0,
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "paint": {
+                "background-color": "#272727"
+            },
+            "layout": {
+                "visibility": "visible"
+            }
+        },
+        {
+            "id": "landuse-cemetery",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "landuse",
+            "filter": [
+                "==",
+                "class",
+                "cemetery"
+            ],
+            "paint": {
+                "fill-color": "#6b6e6a"
+            },
+            "layout": {
+                "visibility": "visible"
+            }
+        },
+        {
+            "id": "landuse-hospital",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "landuse",
+            "filter": [
+                "==",
+                "class",
+                "hospital"
+            ],
+            "paint": {
+                "fill-color": "#b0a2b7"
+            }
+        },
+        {
+            "id": "landuse-school",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "landuse",
+            "filter": [
+                "==",
+                "class",
+                "school"
+            ],
+            "paint": {
+                "fill-color": "#b0a2b7"
+            },
+            "layout": {
+                "visibility": "visible"
+            }
+        },
+        {
+            "id": "landuse-park",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "landuse",
+            "filter": [
+                "==",
+                "class",
+                "park"
+            ],
+            "paint": {
+                "fill-color": "#537953",
+                "fill-opacity": 1
+            }
+        },
+        {
+            "id": "landuse-wood",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "landuse",
+            "filter": [
+                "==",
+                "class",
+                "wood"
+            ],
+            "paint": {
+                "fill-antialias": {
+                    "base": 1,
+                    "stops": [
+                        [0, false],
+                        [9, true]
+                    ]
+                },
+                "fill-color": "#362804",
+                "fill-opacity": 0.1,
+                "fill-outline-color": "hsla(0, 0%, 0%, 0.03)"
+            },
+            "layout": {
+                "visibility": "visible"
+            }
+        },
+        {
+            "id": "waterway_tunnel",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "waterway",
+            "minzoom": 14,
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "class",
+                    "river",
+                    "stream",
+                    "canal"
+                ],
+                [
+                    "==",
+                    "is",
+                    "tunnel"
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#5c7a9e",
+                "line-dasharray": [2, 4],
+                "line-width": {
+                    "base": 1.3,
+                    "stops": [
+                        [13, 0.5],
+                        [20, 6]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "waterway-other",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "waterway",
+            "filter": [
+                "all",
+                [
+                    "!in",
+                    "class",
+                    "canal",
+                    "river",
+                    "stream"
+                ],
+                [
+                    "==",
+                    "intermittent",
+                    0
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#5c7a9e",
+                "line-width": {
+                    "base": 1.3,
+                    "stops": [
+                        [13, 0.5],
+                        [20, 2]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "waterway-other-intermittent",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "waterway",
+            "filter": [
+                "all",
+                [
+                    "!in",
+                    "class",
+                    "canal",
+                    "river",
+                    "stream"
+                ],
+                [
+                    "==",
+                    "intermittent",
+                    1
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#5c7a9e",
+                "line-dasharray": [4, 3],
+                "line-width": {
+                    "base": 1.3,
+                    "stops": [
+                        [13, 0.5],
+                        [20, 2]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "waterway-stream-canal",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "waterway",
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "class",
+                    "canal",
+                    "stream"
+                ],
+                [
+                    "!=",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "==",
+                    "intermittent",
+                    0
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#5c7a9e",
+                "line-width": {
+                    "base": 1.3,
+                    "stops": [
+                        [13, 0.5],
+                        [20, 6]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "waterway-stream-canal-intermittent",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "waterway",
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "class",
+                    "canal",
+                    "stream"
+                ],
+                [
+                    "!=",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "==",
+                    "intermittent",
+                    1
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#5c7a9e",
+                "line-dasharray": [4, 3],
+                "line-width": {
+                    "base": 1.3,
+                    "stops": [
+                        [13, 0.5],
+                        [20, 6]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "waterway-river",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "waterway",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "class",
+                    "river"
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#5c7a9e",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [10, 1],
+                        [20, 6]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "waterway-river-intermittent",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "waterway",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "class",
+                    "river"
+                ],
+                [
+                    "!=",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "==",
+                    "intermittent",
+                    1
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#5c7a9e",
+                "line-dasharray": [3, 2.5],
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [10, 1],
+                        [20, 6]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "water-offset",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "water",
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "fill-color": "#5c7a9e",
+                "fill-opacity": 1,
+                "fill-translate": {
+                    "stops": [
+                        [0, [0, -1.5]],
+                        [12, [0, -2]]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "water-area",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "water",
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "fill-color": "#7a98b9"
+            }
+        },
+        {
+            "id": "water-pattern",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "water",
+            "filter": [
+                "all"
+            ],
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "fill-pattern": "wave",
+                "fill-translate": [0, 2.5],
+                "fill-opacity": 0.4
+            }
+        },
+        {
+            "id": "aeroway",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "aeroway",
+            "minzoom": 4,
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "type",
+                    "runway",
+                    "taxiway",
+                    "apron"
+                ]
+            ],
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "fill-color": "#cbc6c1"
+            }
+        },
+        {
+            "id": "building-shadow",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "building",
+            "layout": {
+                "visibility": "visible"
+            },
+            "minzoom": 17,
+            "paint": {
+                "fill-color": "#b7b3af",
+                "fill-translate": [
+                    1,
+                    2
+                ]
+            }
+        },
+        {
+            "id": "building",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "building",
+            "paint": {
+                "fill-color": "#a25c59",
+                "fill-opacity": 0.1
+            },
+            "layout": {
+                "visibility": "visible"
+            }
+        },
+        {
+            "id": "building_outline",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "building",
+            "paint": {
+                "line-color": "#b7b3af",
+                "line-width": 0.5
+            },
+            "minzoom": 17,
+            "layout": {
+                "visibility": "visible"
+            }
+        },
+        {
+            "id": "tunnel-service-track-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "service",
+                    "track"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#aaa8a5",
+                "line-dasharray": [
+                    0.5,
+                    0.25
+                ],
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            15,
+                            1
+                        ],
+                        [
+                            16,
+                            4
+                        ],
+                        [
+                            20,
+                            11
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "tunnel-minor-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "==",
+                    "class",
+                    "minor"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#aaa8a5",
+                "line-opacity": {
+                    "stops": [
+                        [
+                            12,
+                            0
+                        ],
+                        [
+                            12.5,
+                            1
+                        ]
+                    ]
+                },
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12,
+                            0.5
+                        ],
+                        [
+                            13,
+                            1
+                        ],
+                        [
+                            14,
+                            4
+                        ],
+                        [
+                            20,
+                            15
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "tunnel-secondary-tertiary-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "secondary",
+                    "tertiary"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-opacity": 1,
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            8,
+                            1.5
+                        ],
+                        [
+                            20,
+                            17
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "tunnel-trunk-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "trunk",
+                    "main"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            5,
+                            0.4
+                        ],
+                        [
+                            6,
+                            0.6
+                        ],
+                        [
+                            7,
+                            1.5
+                        ],
+                        [
+                            20,
+                            22
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "tunnel-motorway-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "==",
+                    "class",
+                    "motorway"
+                ]
+            ],
+            "layout": {
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-dasharray": [
+                    0.5,
+                    0.25
+                ],
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            5,
+                            0.4
+                        ],
+                        [
+                            6,
+                            0.6
+                        ],
+                        [
+                            7,
+                            1.5
+                        ],
+                        [
+                            20,
+                            22
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "tunnel-path",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "==",
+                        "is",
+                        "tunnel"
+                    ],
+                    [
+                        "==",
+                        "class",
+                        "path"
+                    ]
+                ]
+            ],
+            "paint": {
+                "line-color": "#876",
+                "line-dasharray": [
+                    1.5,
+                    0.75
+                ],
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            15,
+                            1.2
+                        ],
+                        [
+                            20,
+                            4
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "tunnel-service-track",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "service",
+                    "track"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#666",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            15.5,
+                            0
+                        ],
+                        [
+                            16,
+                            2
+                        ],
+                        [
+                            20,
+                            7.5
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "tunnel-minor",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "==",
+                    "class",
+                    "minor_road"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#666",
+                "line-opacity": 1,
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            13.5,
+                            0
+                        ],
+                        [
+                            14,
+                            2.5
+                        ],
+                        [
+                            20,
+                            11.5
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "tunnel-secondary-tertiary",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "secondary",
+                    "tertiary"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#ede8b6",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            6.5,
+                            0
+                        ],
+                        [
+                            7,
+                            0.5
+                        ],
+                        [
+                            20,
+                            10
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "tunnel-trunk",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "trunk",
+                    "main"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#ede8b6",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            6.5,
+                            0
+                        ],
+                        [
+                            7,
+                            0.5
+                        ],
+                        [
+                            20,
+                            18
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "tunnel-motorway",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "==",
+                    "class",
+                    "motorway"
+                ]
+            ],
+            "layout": {
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#f9be8e",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            6.5,
+                            0
+                        ],
+                        [
+                            7,
+                            0.5
+                        ],
+                        [
+                            20,
+                            18
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "tunnel-railway",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "rail",
+                    "major_rail"
+                ]
+            ],
+            "paint": {
+                "line-color": "#888",
+                "line-dasharray": [
+                    2,
+                    2
+                ],
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        [
+                            14,
+                            0.4
+                        ],
+                        [
+                            15,
+                            0.75
+                        ],
+                        [
+                            20,
+                            2
+                        ]
+                    ]
+                }
+            },
+            "layout": {
+                "visibility": "visible"
+            }
+        },
+        {
+            "id": "aeroway-taxiway",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "aeroway",
+            "minzoom": 4,
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "type",
+                    "taxiway"
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#999693",
+                "line-width": {
+                    "base": 1.5,
+                    "stops": [
+                        [
+                            11,
+                            1
+                        ],
+                        [
+                            15,
+                            2
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "aeroway-runway",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "aeroway",
+            "minzoom": 4,
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "type",
+                    "runway"
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#999693",
+                "line-width": 5
+            }
+        },
+        {
+            "id": "road-pier",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "class",
+                    "pier"
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#272727",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            15,
+                            1
+                        ],
+                        [
+                            17,
+                            4
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-motorway-link-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "minzoom": 12,
+            "filter": [
+                "all",
+                [
+                    "!in",
+                    "is",
+                    "bridge",
+                    "tunnel"
+                ],
+                [
+                    "==",
+                    "class",
+                    "motorway_link"
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-opacity": 1,
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12,
+                            1
+                        ],
+                        [
+                            13,
+                            3
+                        ],
+                        [
+                            14,
+                            4
+                        ],
+                        [
+                            20,
+                            15
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-link-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "minzoom": 13,
+            "filter": [
+                "all",
+                [
+                    "!in",
+                    "is",
+                    "bridge",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "primary_link",
+                    "secondary_link",
+                    "tertiary_link",
+                    "trunk_link"
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-opacity": 1,
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12,
+                            1
+                        ],
+                        [
+                            13,
+                            3
+                        ],
+                        [
+                            14,
+                            4
+                        ],
+                        [
+                            20,
+                            15
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-minor-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "!=",
+                        "is",
+                        "tunnel"
+                    ],
+                    [
+                        "in",
+                        "class",
+                        "minor",
+                        "service",
+                        "track"
+                    ]
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#aaa8a5",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            13,
+                            1
+                        ],
+                        [
+                            14.9,
+                            1
+                        ],
+                        [
+                            15,
+                            4
+                        ],
+                        [
+                            16,
+                            4
+                        ],
+                        [
+                            20,
+                            15
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-street_limited-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "!=",
+                        "is",
+                        "tunnel"
+                    ],
+                    [
+                        "in",
+                        "class",
+                        "street_limited"
+                    ]
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#aaa8a5",
+                "line-opacity": {
+                    "stops": [
+                        [
+                            12,
+                            0
+                        ],
+                        [
+                            12.5,
+                            1
+                        ]
+                    ]
+                },
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12,
+                            0.5
+                        ],
+                        [
+                            13,
+                            1
+                        ],
+                        [
+                            14,
+                            4
+                        ],
+                        [
+                            20,
+                            15
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-street-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "!=",
+                        "is",
+                        "tunnel"
+                    ],
+                    [
+                        "in",
+                        "class",
+                        "street"
+                    ]
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#aaa8a5",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12,
+                            0.5
+                        ],
+                        [
+                            13,
+                            1.3
+                        ],
+                        [
+                            13.99,
+                            4
+                        ],
+                        [
+                            14,
+                            4.5
+                        ],
+                        [
+                            20,
+                            15
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-secondary-tertiary-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "!in",
+                    "is",
+                    "bridge",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "secondary",
+                    "tertiary"
+                ]
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-opacity": 1,
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            8,
+                            1.5
+                        ],
+                        [
+                            20,
+                            17
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-main-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "minzoom": 5,
+            "filter": [
+                "all",
+                [
+                    "!in",
+                    "is",
+                    "bridge",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "main"
+                ]
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-width": {
+                    "stops": [
+                        [
+                            5,
+                            0.2
+                        ],
+                        [
+                            6,
+                            0.4
+                        ],
+                        [
+                            7,
+                            1.5
+                        ],
+                        [
+                            9,
+                            2.4
+                        ],
+                        [
+                            12,
+                            2.5
+                        ],
+                        [
+                            13,
+                            4
+                        ],
+                        [
+                            14,
+                            5
+                        ],
+                        [
+                            15,
+                            8
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-trunk-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "minzoom": 5,
+            "filter": [
+                "all",
+                [
+                    "!in",
+                    "is",
+                    "bridge",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "trunk"
+                ]
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-opacity": {
+                    "stops": [
+                        [
+                            5,
+                            0
+                        ],
+                        [
+                            6,
+                            1
+                        ]
+                    ]
+                },
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            5,
+                            0
+                        ],
+                        [
+                            6,
+                            0.6
+                        ],
+                        [
+                            7,
+                            1.5
+                        ],
+                        [
+                            20,
+                            22
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-motorway-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "minzoom": 4,
+            "filter": [
+                "all",
+                [
+                    "!in",
+                    "is",
+                    "bridge",
+                    "tunnel"
+                ],
+                [
+                    "==",
+                    "class",
+                    "motorway"
+                ]
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-opacity": {
+                    "stops": [
+                        [
+                            4,
+                            0
+                        ],
+                        [
+                            5,
+                            1
+                        ]
+                    ]
+                },
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            4,
+                            0
+                        ],
+                        [
+                            5,
+                            0.4
+                        ],
+                        [
+                            6,
+                            0.6
+                        ],
+                        [
+                            7,
+                            1.5
+                        ],
+                        [
+                            20,
+                            22
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-path",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "!in",
+                        "is",
+                        "bridge",
+                        "tunnel"
+                    ],
+                    [
+                        "==",
+                        "class",
+                        "path"
+                    ]
+                ]
+            ],
+            "paint": {
+                "line-color": "#876",
+                "line-dasharray": [
+                    1.5,
+                    0.75
+                ],
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            15,
+                            1.2
+                        ],
+                        [
+                            20,
+                            4
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-motorway-link",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "minzoom": 12,
+            "filter": [
+                "all",
+                [
+                    "!in",
+                    "is",
+                    "bridge",
+                    "tunnel"
+                ],
+                [
+                    "==",
+                    "class",
+                    "motorway_link"
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#f96",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12.5,
+                            0
+                        ],
+                        [
+                            13,
+                            1.5
+                        ],
+                        [
+                            14,
+                            2.5
+                        ],
+                        [
+                            20,
+                            11.5
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-link",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "minzoom": 13,
+            "filter": [
+                "all",
+                [
+                    "!in",
+                    "is",
+                    "bridge",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "primary_link",
+                    "secondary_link",
+                    "tertiary_link",
+                    "trunk_link"
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#fd8",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12.5,
+                            0
+                        ],
+                        [
+                            13,
+                            1.5
+                        ],
+                        [
+                            14,
+                            2.5
+                        ],
+                        [
+                            20,
+                            11.5
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-minor",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "!=",
+                        "is",
+                        "tunnel"
+                    ],
+                    [
+                        "in",
+                        "class",
+                        "minor",
+                        "service",
+                        "track"
+                    ]
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#666",
+                "line-opacity": 1,
+                "line-width": {
+                    "stops": [
+                        [
+                            14.99,
+                            0
+                        ],
+                        [
+                            15,
+                            2.5
+                        ],
+                        [
+                            17,
+                            3
+                        ],
+                        [
+                            20,
+                            11.5
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-street_limited",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "!=",
+                        "is",
+                        "tunnel"
+                    ],
+                    [
+                        "in",
+                        "class",
+                        "street_limited"
+                    ]
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#99998e",
+                "line-opacity": 1,
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            13.5,
+                            0
+                        ],
+                        [
+                            14,
+                            2.5
+                        ],
+                        [
+                            20,
+                            11.5
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-street",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "!=",
+                        "is",
+                        "tunnel"
+                    ],
+                    [
+                        "in",
+                        "class",
+                        "street"
+                    ]
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#666",
+                "line-opacity": 1,
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12,
+                            0
+                        ],
+                        [
+                            13,
+                            0
+                        ],
+                        [
+                            13.99,
+                            2.5
+                        ],
+                        [
+                            14,
+                            3
+                        ],
+                        [
+                            20,
+                            11.5
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-secondary-tertiary",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "!in",
+                    "is",
+                    "bridge",
+                    "tunnel"
+                ],
+                [
+                    "in",
+                    "class",
+                    "secondary",
+                    "tertiary"
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#fd8",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            6.5,
+                            0
+                        ],
+                        [
+                            8,
+                            0.5
+                        ],
+                        [
+                            20,
+                            13
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-main",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "minzoom": 7,
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "!in",
+                        "is",
+                        "bridge",
+                        "tunnel"
+                    ],
+                    [
+                        "in",
+                        "class",
+                        "main"
+                    ]
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#fd8",
+                "line-width": {
+                    "stops": [
+                        [
+                            7,
+                            0.5
+                        ],
+                        [
+                            9,
+                            1
+                        ],
+                        [
+                            12,
+                            1.5
+                        ],
+                        [
+                            13,
+                            2.5
+                        ],
+                        [
+                            14,
+                            3.5
+                        ],
+                        [
+                            15,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-trunk",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "!in",
+                        "is",
+                        "bridge",
+                        "tunnel"
+                    ],
+                    [
+                        "in",
+                        "class",
+                        "trunk"
+                    ]
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#fd8",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            6.5,
+                            0
+                        ],
+                        [
+                            7,
+                            0.5
+                        ],
+                        [
+                            20,
+                            18
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "highway-motorway",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "minzoom": 5,
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "!in",
+                        "is",
+                        "bridge",
+                        "tunnel"
+                    ],
+                    [
+                        "==",
+                        "class",
+                        "motorway"
+                    ]
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#f96",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            6.5,
+                            0
+                        ],
+                        [
+                            7,
+                            0.5
+                        ],
+                        [
+                            20,
+                            18
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "railway-transit",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "==",
+                        "class",
+                        "transit"
+                    ],
+                    [
+                        "!in",
+                        "is",
+                        "tunnel"
+                    ]
+                ]
+            ],
+            "layout": {
+                "visibility": "none"
+            },
+            "paint": {
+                "line-color": "hsla(0, 0%, 27%, 0.77)",
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        [
+                            14,
+                            0.4
+                        ],
+                        [
+                            20,
+                            1
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "railway-transit-hatch",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "==",
+                        "class",
+                        "transit"
+                    ],
+                    [
+                        "!in",
+                        "is",
+                        "tunnel"
+                    ]
+                ]
+            ],
+            "layout": {
+                "visibility": "none"
+            },
+            "paint": {
+                "line-color": "hsla(0, 0%, 27%, 0.68)",
+                "line-dasharray": [
+                    0.2,
+                    8
+                ],
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        [
+                            14.5,
+                            0
+                        ],
+                        [
+                            15,
+                            2
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "railway-service",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "==",
+                        "class",
+                        "major_rail"
+                    ],
+                    [
+                        "has",
+                        "service"
+                    ]
+                ]
+            ],
+            "paint": {
+                "line-color": "hsla(0, 0%, 27%, 0.77)",
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        [
+                            14,
+                            0.4
+                        ],
+                        [
+                            20,
+                            1
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "railway-service-hatching",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "==",
+                        "class",
+                        "major_rail"
+                    ],
+                    [
+                        "has",
+                        "service"
+                    ]
+                ]
+            ],
+            "layout": {
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "hsla(0, 0%, 27%, 0.68)",
+                "line-dasharray": [
+                    0.2,
+                    8
+                ],
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        [
+                            14.5,
+                            0
+                        ],
+                        [
+                            15,
+                            2
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "railway",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "!has",
+                        "service"
+                    ],
+                    [
+                        "!in",
+                        "is",
+                        "bridge",
+                        "tunnel"
+                    ],
+                    [
+                        "==",
+                        "class",
+                        "major_rail"
+                    ]
+                ]
+            ],
+            "paint": {
+                "line-color": "#888",
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        [
+                            14,
+                            0.4
+                        ],
+                        [
+                            15,
+                            0.75
+                        ],
+                        [
+                            20,
+                            2
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "railway-hatch",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "!has",
+                        "service"
+                    ],
+                    [
+                        "!in",
+                        "is",
+                        "bridge",
+                        "tunnel"
+                    ],
+                    [
+                        "==",
+                        "class",
+                        "major_rail"
+                    ]
+                ]
+            ],
+            "paint": {
+                "line-color": "#888",
+                "line-dasharray": [
+                    0.2,
+                    8
+                ],
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        [
+                            14.5,
+                            0
+                        ],
+                        [
+                            15,
+                            3
+                        ],
+                        [
+                            20,
+                            8
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-motorway-link-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "bridge"
+                ],
+                [
+                    "==",
+                    "class",
+                    "motorway_link"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-opacity": 1,
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12,
+                            1
+                        ],
+                        [
+                            13,
+                            3
+                        ],
+                        [
+                            14,
+                            4
+                        ],
+                        [
+                            20,
+                            15
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-link-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "bridge"
+                ],
+                [
+                    "in",
+                    "class",
+                    "primary_link",
+                    "secondary_link",
+                    "tertiary_link",
+                    "trunk_link"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-opacity": 1,
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12,
+                            1
+                        ],
+                        [
+                            13,
+                            3
+                        ],
+                        [
+                            14,
+                            4
+                        ],
+                        [
+                            20,
+                            15
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-secondary-tertiary-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "bridge"
+                ],
+                [
+                    "in",
+                    "class",
+                    "secondary",
+                    "tertiary"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-opacity": 1,
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            8,
+                            1.5
+                        ],
+                        [
+                            20,
+                            28
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-trunk-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "bridge"
+                ],
+                [
+                    "in",
+                    "class",
+                    "trunk",
+                    "main"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-opacity": {
+                    "stops": [
+                        [
+                            7,
+                            0
+                        ],
+                        [
+                            8,
+                            1
+                        ]
+                    ]
+                },
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            7,
+                            0
+                        ],
+                        [
+                            8,
+                            0.6
+                        ],
+                        [
+                            9,
+                            1.5
+                        ],
+                        [
+                            20,
+                            22
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-motorway-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "bridge"
+                ],
+                [
+                    "==",
+                    "class",
+                    "motorway"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            5,
+                            0.4
+                        ],
+                        [
+                            6,
+                            0.6
+                        ],
+                        [
+                            7,
+                            1.5
+                        ],
+                        [
+                            20,
+                            22
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-path-casing",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "==",
+                        "is",
+                        "bridge"
+                    ],
+                    [
+                        "==",
+                        "class",
+                        "path"
+                    ]
+                ]
+            ],
+            "paint": {
+                "line-color": "#272727",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            15,
+                            1.2
+                        ],
+                        [
+                            20,
+                            18
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-path",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "all",
+                    [
+                        "==",
+                        "is",
+                        "bridge"
+                    ],
+                    [
+                        "==",
+                        "class",
+                        "path"
+                    ]
+                ]
+            ],
+            "paint": {
+                "line-color": "#876",
+                "line-dasharray": [
+                    1.5,
+                    0.75
+                ],
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            15,
+                            1.2
+                        ],
+                        [
+                            20,
+                            4
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-motorway-link",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "bridge"
+                ],
+                [
+                    "==",
+                    "class",
+                    "motorway_link"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#f96",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12.5,
+                            0
+                        ],
+                        [
+                            13,
+                            1.5
+                        ],
+                        [
+                            14,
+                            2.5
+                        ],
+                        [
+                            20,
+                            11.5
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-link",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "bridge"
+                ],
+                [
+                    "in",
+                    "class",
+                    "primary_link",
+                    "secondary_link",
+                    "tertiary_link",
+                    "trunk_link"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#fd8",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12.5,
+                            0
+                        ],
+                        [
+                            13,
+                            1.5
+                        ],
+                        [
+                            14,
+                            2.5
+                        ],
+                        [
+                            20,
+                            11.5
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-secondary-tertiary",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "bridge"
+                ],
+                [
+                    "in",
+                    "class",
+                    "secondary",
+                    "tertiary"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#fd8",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            6.5,
+                            0
+                        ],
+                        [
+                            7,
+                            0.5
+                        ],
+                        [
+                            20,
+                            20
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-trunk",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "bridge"
+                ],
+                [
+                    "in",
+                    "class",
+                    "trunk",
+                    "main"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#fd8",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            6.5,
+                            0
+                        ],
+                        [
+                            7,
+                            0.5
+                        ],
+                        [
+                            20,
+                            18
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-motorway",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "bridge"
+                ],
+                [
+                    "==",
+                    "class",
+                    "motorway"
+                ]
+            ],
+            "layout": {
+                "line-join": "round"
+            },
+            "paint": {
+                "line-color": "#f96",
+                "line-width": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            6.5,
+                            0
+                        ],
+                        [
+                            7,
+                            0.5
+                        ],
+                        [
+                            20,
+                            18
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-railway",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "bridge"
+                ],
+                [
+                    "==",
+                    "class",
+                    "rail"
+                ]
+            ],
+            "paint": {
+                "line-color": "#888",
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        [
+                            14,
+                            0.4
+                        ],
+                        [
+                            15,
+                            0.75
+                        ],
+                        [
+                            20,
+                            2
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "bridge-railway-hatching",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "is",
+                    "bridge"
+                ],
+                [
+                    "==",
+                    "class",
+                    "rail"
+                ]
+            ],
+            "paint": {
+                "line-color": "#888",
+                "line-dasharray": [
+                    0.2,
+                    8
+                ],
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        [
+                            14.5,
+                            0
+                        ],
+                        [
+                            15,
+                            3
+                        ],
+                        [
+                            20,
+                            8
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "admin-land-level-4",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "admin",
+            "filter": [
+                "all",
+                [
+                    ">=",
+                    "admin_level",
+                    4
+                ],
+                [
+                    "<=",
+                    "admin_level",
+                    8
+                ],
+                [
+                    "!=",
+                    "maritime",
+                    1
+                ]
+            ],
+            "layout": {
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#6e7084",
+                "line-dasharray": [
+                    3,
+                    1,
+                    1,
+                    1
+                ],
+                "line-width": {
+                    "base": 1.4,
+                    "stops": [
+                        [
+                            4,
+                            0.4
+                        ],
+                        [
+                            5,
+                            1
+                        ],
+                        [
+                            12,
+                            3
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "admin-land-level-2",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "admin",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "admin_level",
+                    2
+                ],
+                [
+                    "!=",
+                    "maritime",
+                    1
+                ],
+                [
+                    "!=",
+                    "disputed",
+                    1
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "hsl(248, 7%, 40%)",
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            0,
+                            0.6
+                        ],
+                        [
+                            4,
+                            1.4
+                        ],
+                        [
+                            5,
+                            2
+                        ],
+                        [
+                            12,
+                            8
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "admin-land-disputed",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "admin",
+            "filter": [
+                "all",
+                [
+                    "!=",
+                    "maritime",
+                    1
+                ],
+                [
+                    "==",
+                    "disputed",
+                    1
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "hsl(248, 7%, 45%)",
+                "line-dasharray": [
+                    1,
+                    3
+                ],
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            0,
+                            0.6
+                        ],
+                        [
+                            4,
+                            1.4
+                        ],
+                        [
+                            5,
+                            2
+                        ],
+                        [
+                            12,
+                            8
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "admin-water",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "admin",
+            "minzoom": 4,
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "admin_level",
+                    2,
+                    4
+                ],
+                [
+                    "==",
+                    "maritime",
+                    1
+                ]
+            ],
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "visible"
+            },
+            "paint": {
+                "line-color": "#5c7a9e",
+                "line-opacity": {
+                    "stops": [
+                        [
+                            6,
+                            0.6
+                        ],
+                        [
+                            10,
+                            1
+                        ]
+                    ]
+                },
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            0,
+                            0.6
+                        ],
+                        [
+                            4,
+                            1.4
+                        ],
+                        [
+                            5,
+                            2
+                        ],
+                        [
+                            12,
+                            8
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "waterway-name",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "waterway",
+            "minzoom": 13,
+            "filter": [
+                "all",
+                [
+                    "has",
+                    "name"
+                ]
+            ],
+            "layout": {
+                "text-size": 14,
+                "symbol-spacing": 350,
+                "text-font": [
+                    "Open Sans Italic"
+                ],
+                "symbol-placement": "line",
+                "visibility": "none",
+                "text-rotation-alignment": "map",
+                "text-field": "{name:latin} {name:nonlatin}",
+                "text-letter-spacing": 0.2,
+                "text-max-width": 5
+            },
+            "paint": {
+                "text-color": "#4b6b90",
+                "text-halo-color": "rgba(255,255,255,0.7)",
+                "text-halo-width": 1.5
+            }
+        },
+        {
+            "id": "poi-level-3",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "poi_label",
+            "minzoom": 15,
+            "filter": [
+                "all",
+                [
+                    ">=",
+                    "scalerank",
+                    3
+                ],
+                [
+                    "any",
+                    [
+                        "!has",
+                        "level"
+                    ],
+                    [
+                        "==",
+                        "level",
+                        0
+                    ]
+                ]
+            ],
+            "layout": {
+                "icon-image": {
+                    "stops": [
+                        [
+                            15,
+                            "{maki}-12"
+                        ],
+                        [
+                            16,
+                            "{maki}-18"
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            }
+        },
+        {
+            "id": "poi-level-2",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "poi_label",
+            "minzoom": 14,
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "scalerank",
+                    2
+                ],
+                [
+                    "any",
+                    [
+                        "!has",
+                        "level"
+                    ],
+                    [
+                        "==",
+                        "level",
+                        0
+                    ]
+                ]
+            ],
+            "layout": {
+                "icon-image": "{maki}-18",
+                "visibility": "visible"
+            }
+        },
+        {
+            "id": "poi-level-1",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "poi_label",
+            "minzoom": 13,
+            "filter": [
+                "all",
+                [
+                    "<=",
+                    "scalerank",
+                    1
+                ],
+                [
+                    "has",
+                    "name"
+                ],
+                [
+                    "has",
+                    "maki"
+                ],
+                [
+                    "any",
+                    [
+                        "!has",
+                        "level"
+                    ],
+                    [
+                        "==",
+                        "level",
+                        0
+                    ]
+                ]
+            ],
+            "layout": {
+                "icon-image": "{maki}-18",
+                "visibility": "visible"
+            }
+        },
+        {
+            "id": "poi-label",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "poi_label",
+            "minzoom": 13,
+            "filter": [
+                "all",
+                [
+                    "<=",
+                    "scalerank",
+                    1
+                ],
+                [
+                    "has",
+                    "name"
+                ],
+                [
+                    "any",
+                    [
+                        "!has",
+                        "level"
+                    ],
+                    [
+                        "==",
+                        "level",
+                        0
+                    ]
+                ]
+            ],
+            "layout": {
+                "text-size": 12,
+                "icon-image": "{maki}-12",
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "text-padding": 2,
+                "visibility": "none",
+                "text-offset": [
+                    0,
+                    0.6
+                ],
+                "text-anchor": "top",
+                "text-field": "{name:latin}\n{name:nonlatin}",
+                "text-max-width": 9
+            },
+            "paint": {
+                "text-color": "#bbb",
+                "text-halo-blur": 0.5,
+                "text-halo-color": "#272727",
+                "text-halo-width": 1
+            }
+        },
+        {
+            "id": "poi-railway",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "poi_label",
+            "minzoom": 13,
+            "filter": [
+                "all",
+                [
+                    "has",
+                    "name"
+                ],
+                [
+                    "==",
+                    "class",
+                    "railway"
+                ],
+                [
+                    "==",
+                    "subclass",
+                    "station"
+                ]
+            ],
+            "layout": {
+                "text-optional": true,
+                "text-size": 12,
+                "text-allow-overlap": false,
+                "icon-image": "{class}_11",
+                "text-ignore-placement": false,
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "icon-allow-overlap": false,
+                "text-padding": 2,
+                "visibility": "none",
+                "text-offset": [
+                    0,
+                    0.6
+                ],
+                "icon-optional": false,
+                "text-anchor": "top",
+                "text-field": "{name:latin}\n{name:nonlatin}",
+                "text-max-width": 9,
+                "icon-ignore-placement": false
+            },
+            "paint": {
+                "text-color": "#bbb",
+                "text-halo-blur": 0.5,
+                "text-halo-color": "#272727",
+                "text-halo-width": 1
+            }
+        },
+        {
+            "id": "road-oneway",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "minzoom": 15,
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "oneway",
+                    1
+                ],
+                [
+                    "in",
+                    "class",
+                    "motorway",
+                    "trunk",
+                    "secondary",
+                    "tertiary",
+                    "minor",
+                    "service"
+                ]
+            ],
+            "layout": {
+                "icon-image": "oneway",
+                "icon-padding": 2,
+                "icon-rotate": 90,
+                "icon-rotation-alignment": "map",
+                "icon-size": {
+                    "stops": [
+                        [
+                            15,
+                            0.5
+                        ],
+                        [
+                            19,
+                            1
+                        ]
+                    ]
+                },
+                "symbol-placement": "line",
+                "symbol-spacing": 75,
+                "visibility": "none"
+            },
+            "paint": {
+                "icon-opacity": 0.5
+            }
+        },
+        {
+            "id": "road-oneway-opposite",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "minzoom": 15,
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "oneway",
+                    -1
+                ],
+                [
+                    "in",
+                    "class",
+                    "motorway",
+                    "trunk",
+                    "secondary",
+                    "tertiary",
+                    "minor",
+                    "service"
+                ]
+            ],
+            "layout": {
+                "icon-image": "oneway",
+                "icon-padding": 2,
+                "icon-rotate": -90,
+                "icon-rotation-alignment": "map",
+                "icon-size": {
+                    "stops": [
+                        [
+                            15,
+                            0.5
+                        ],
+                        [
+                            19,
+                            1
+                        ]
+                    ]
+                },
+                "symbol-placement": "line",
+                "symbol-spacing": 75,
+                "visibility": "none"
+            },
+            "paint": {
+                "icon-opacity": 0.5
+            }
+        },
+        {
+            "id": "highway-name-path",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "road_label",
+            "minzoom": 15.5,
+            "filter": [
+                "==",
+                "class",
+                "path"
+            ],
+            "layout": {
+                "symbol-placement": "line",
+                "text-field": "{name:latin} {name:nonlatin}",
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "text-rotation-alignment": "map",
+                "text-size": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            13,
+                            12
+                        ],
+                        [
+                            14,
+                            13
+                        ]
+                    ]
+                },
+                "visibility": "none"
+            },
+            "paint": {
+                "text-color": "hsl(30, 23%, 32%)",
+                "text-halo-color": "#272727",
+                "text-halo-width": 0.5
+            }
+        },
+        {
+            "id": "highway-name-minor",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "road_label",
+            "minzoom": 15,
+            "filter": [
+                "in",
+                "class",
+                "minor",
+                "service",
+                "track",
+                "street"
+            ],
+            "layout": {
+                "symbol-placement": "line",
+                "text-field": "{name}",
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "text-rotation-alignment": "map",
+                "text-size": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            13,
+                            12
+                        ],
+                        [
+                            14,
+                            13
+                        ]
+                    ]
+                },
+                "visibility": "none"
+            },
+            "paint": {
+                "text-color": "#765",
+                "text-halo-blur": 0.5,
+                "text-halo-width": 1
+            }
+        },
+        {
+            "id": "highway-name-major",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "road_label",
+            "minzoom": 12.2,
+            "filter": [
+                "in",
+                "class",
+                "main",
+                "secondary",
+                "tertiary",
+                "trunk"
+            ],
+            "layout": {
+                "symbol-placement": "line",
+                "text-field": "{name:latin} {name:nonlatin}",
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "text-rotation-alignment": "map",
+                "text-size": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            13,
+                            12
+                        ],
+                        [
+                            14,
+                            13
+                        ]
+                    ]
+                },
+                "visibility": "none"
+            },
+            "paint": {
+                "text-color": "#765",
+                "text-halo-blur": 0.5,
+                "text-halo-width": 1
+            }
+        },
+        {
+            "id": "road-name-generic",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "road_label",
+            "minzoom": 12.2,
+            "layout": {
+                "symbol-placement": "line",
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "text-field": "{name}",
+                "text-rotation-alignment": "map",
+                "text-size": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            13,
+                            12
+                        ],
+                        [
+                            14,
+                            13
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            },
+            "paint": {
+                "text-color": "#765",
+                "text-halo-blur": 0.5,
+                "text-halo-width": 1
+            }
+        },
+        {
+            "id": "highway-shield",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "road_label",
+            "minzoom": 8,
+            "filter": [
+                "all",
+                [
+                    "<=",
+                    "reflen",
+                    6
+                ]
+            ],
+            "layout": {
+                "text-size": 10,
+                "icon-image": "{shield}-{reflen}",
+                "icon-rotation-alignment": "viewport",
+                "symbol-spacing": 200,
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "symbol-placement": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            10,
+                            "point"
+                        ],
+                        [
+                            11,
+                            "line"
+                        ]
+                    ]
+                },
+                "visibility": "visible",
+                "text-rotation-alignment": "viewport",
+                "icon-size": {
+                    "stops": [
+                        [
+                            11,
+                            1
+                        ],
+                        [
+                            14,
+                            1.23
+                        ],
+                        [
+                            16,
+                            1.23
+                        ]
+                    ]
+                },
+                "text-field": "{ref}"
+            },
+            "paint": {}
+        },
+        {
+            "id": "place-other",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "place_label",
+            "filter": [
+                "!in",
+                "type",
+                "city",
+                "town",
+                "village",
+                "country",
+                "continent"
+            ],
+            "layout": {
+                "text-field": "{name}",
+                "text-font": [
+                    "Open Sans Bold"
+                ],
+                "text-letter-spacing": 0.1,
+                "text-max-width": 9,
+                "text-size": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            12,
+                            10
+                        ],
+                        [
+                            15,
+                            14
+                        ]
+                    ]
+                },
+                "text-transform": "uppercase",
+                "visibility": "visible"
+            },
+            "paint": {
+                "text-color": "#9c7",
+                "text-halo-color": "rgba(255,255,255,0.8)",
+                "text-halo-width": 1.2
+            }
+        },
+        {
+            "id": "place-village",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "place_label",
+            "filter": [
+                "==",
+                "type",
+                "village"
+            ],
+            "layout": {
+                "text-field": "{name}",
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "text-max-width": 8,
+                "text-size": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            10,
+                            12
+                        ],
+                        [
+                            15,
+                            22
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            },
+            "paint": {
+                "text-color": "#bbb",
+                "text-halo-color": "rgba(255,255,255,0.8)",
+                "text-halo-width": 1.2
+            }
+        },
+        {
+            "id": "place-town",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "place_label",
+            "filter": [
+                "==",
+                "type",
+                "town"
+            ],
+            "layout": {
+                "text-field": "{name}",
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "text-max-width": 8,
+                "text-size": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            10,
+                            14
+                        ],
+                        [
+                            15,
+                            24
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            },
+            "paint": {
+                "text-color": "#bbb",
+                "text-halo-color": "rgba(255,255,255,0.8)",
+                "text-halo-width": 1.2
+            }
+        },
+        {
+            "id": "place-city",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "place_label",
+            "filter": [
+                "==",
+                "type",
+                "city"
+            ],
+            "layout": {
+                "text-field": "{name}",
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "text-max-width": 8,
+                "text-size": {
+                    "base": 1.2,
+                    "stops": [
+                        [
+                            7,
+                            14
+                        ],
+                        [
+                            11,
+                            24
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            },
+            "paint": {
+                "text-color": "#bbb",
+                "text-halo-color": "rgba(255,255,255,0.8)",
+                "text-halo-width": 1.2,
+                "text-translate": [
+                    20,
+                    10
+                ]
+            }
+        },
+        {
+            "minzoom": 3,
+            "layout": {
+                "visibility": "visible"
+            },
+            "maxzoom": 7,
+            "filter": [
+                "==",
+                "type",
+                "city"
+            ],
+            "type": "circle",
+            "source": "wikimaptiles",
+            "id": "place-city-circle",
+            "paint": {
+                "circle-color": "#272727",
+                "circle-radius": 1.5,
+                "circle-stroke-color": "#bbb",
+                "circle-stroke-width": 1,
+                "circle-opacity": 0
+            },
+            "source-layer": "place_label"
+        },
+        {
+            "id": "place-country-1",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "country_label",
+            "filter": [
+                "==",
+                "scalerank",
+                1
+            ],
+            "layout": {
+                "text-field": "{name}",
+                "text-font": [
+                    "Open Sans Bold"
+                ],
+                "text-max-width": 6.25,
+                "text-size": {
+                    "stops": [
+                        [
+                            1,
+                            9
+                        ],
+                        [
+                            2,
+                            12
+                        ],
+                        [
+                            3,
+                            14
+                        ],
+                        [
+                            4,
+                            20
+                        ],
+                        [
+                            5,
+                            20
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            },
+            "paint": {
+                "text-color": "#8a8a8a",
+                "text-halo-blur": 1,
+                "text-halo-color": "rgba(255,255,255,0.8)",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "place-country-2",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "country_label",
+            "filter": [
+                "==",
+                "scalerank",
+                2
+            ],
+            "layout": {
+                "text-field": "{name}",
+                "text-font": [
+                    "Open Sans Bold"
+                ],
+                "text-max-width": 6.25,
+                "text-size": {
+                    "stops": [
+                        [
+                            1,
+                            10
+                        ],
+                        [
+                            2,
+                            11
+                        ],
+                        [
+                            3,
+                            13
+                        ],
+                        [
+                            4,
+                            17
+                        ],
+                        [
+                            5,
+                            20
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            },
+            "paint": {
+                "text-color": "#8a8a8a",
+                "text-halo-blur": 1,
+                "text-halo-color": "rgba(255,255,255,0.8)",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "place-country-3",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "country_label",
+            "filter": [
+                "==",
+                "scalerank",
+                3
+            ],
+            "layout": {
+                "text-field": "{name}",
+                "text-font": [
+                    "Open Sans Bold"
+                ],
+                "text-max-width": 6.25,
+                "text-size": {
+                    "stops": [
+                        [
+                            2,
+                            9
+                        ],
+                        [
+                            3,
+                            11
+                        ],
+                        [
+                            4,
+                            15
+                        ],
+                        [
+                            5,
+                            17
+                        ],
+                        [
+                            6,
+                            18
+                        ],
+                        [
+                            7,
+                            20
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            },
+            "paint": {
+                "text-color": "#8a8a8a",
+                "text-halo-blur": 1,
+                "text-halo-color": "rgba(255,255,255,0.8)",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "place-country-4",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "country_label",
+            "filter": [
+                "==",
+                "scalerank",
+                4
+            ],
+            "layout": {
+                "text-field": "{name}",
+                "text-font": [
+                    "Open Sans Bold"
+                ],
+                "text-max-width": 6.25,
+                "text-size": {
+                    "stops": [
+                        [
+                            1,
+                            9
+                        ],
+                        [
+                            3,
+                            9
+                        ],
+                        [
+                            4,
+                            13
+                        ],
+                        [
+                            5,
+                            15
+                        ],
+                        [
+                            6,
+                            16
+                        ],
+                        [
+                            7,
+                            18
+                        ],
+                        [
+                            8,
+                            20
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            },
+            "paint": {
+                "text-color": "#8a8a8a",
+                "text-halo-blur": 1,
+                "text-halo-color": "rgba(255,255,255,0.8)",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "place-country-5",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "country_label",
+            "filter": [
+                "==",
+                "scalerank",
+                5
+            ],
+            "layout": {
+                "text-field": "{name}",
+                "text-font": [
+                    "Open Sans Bold"
+                ],
+                "text-max-width": 6.25,
+                "text-size": {
+                    "stops": [
+                        [
+                            1,
+                            9
+                        ],
+                        [
+                            3,
+                            9
+                        ],
+                        [
+                            4,
+                            11
+                        ],
+                        [
+                            5,
+                            13
+                        ],
+                        [
+                            6,
+                            14
+                        ],
+                        [
+                            7,
+                            16
+                        ],
+                        [
+                            8,
+                            18
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            },
+            "paint": {
+                "text-color": "#8a8a8a",
+                "text-halo-blur": 1,
+                "text-halo-color": "rgba(255,255,255,0.8)",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "place-country-6",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "country_label",
+            "filter": [
+                ">=",
+                "scalerank",
+                6
+            ],
+            "layout": {
+                "text-field": {
+                    "stops": [
+                        [
+                            1,
+                            "{code}"
+                        ],
+                        [
+                            3,
+                            "{name}"
+                        ]
+                    ]
+                },
+                "text-font": [
+                    "Open Sans Bold"
+                ],
+                "text-max-width": 6.25,
+                "text-size": {
+                    "stops": [
+                        [
+                            1,
+                            9
+                        ],
+                        [
+                            5,
+                            9
+                        ],
+                        [
+                            6,
+                            12
+                        ],
+                        [
+                            7,
+                            14
+                        ],
+                        [
+                            8,
+                            16
+                        ]
+                    ]
+                },
+                "visibility": "visible"
+            },
+            "paint": {
+                "text-color": "#8a8a8a",
+                "text-halo-blur": 1,
+                "text-halo-color": "rgba(255,255,255,0.8)",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "landuse-generic",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "landuse",
+            "paint": {
+                "fill-color": "#362804"
+            },
+            "layout": {
+                "visibility": "none"
+            }
+        },
+        {
+            "id": "highway-generic",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "road",
+            "minzoom": 0,
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "none"
+            },
+            "paint": {
+                "line-color": "#c3894d",
+                "line-opacity": 1,
+                "line-width": 4
+            }
+        },
+        {
+            "id": "water",
+            "type": "fill",
+            "source": "wikimaptiles",
+            "source-layer": "water",
+            "filter": [
+                "all",
+                [
+                    "!=",
+                    "intermittent",
+                    1
+                ],
+                [
+                    "!=",
+                    "is",
+                    "tunnel"
+                ]
+            ],
+            "layout": {
+                "visibility": "none"
+            },
+            "paint": {
+                "fill-color": "#7a98b9"
+            }
+        },
+        {
+            "id": "road-label-point",
+            "source": "wikimaptiles",
+            "type": "circle",
+            "source-layer": "road_label",
+            "layout": {
+                "visibility": "none"
+            }
+        },
+        {
+            "id": "admin-generic",
+            "type": "line",
+            "source": "wikimaptiles",
+            "source-layer": "admin",
+            "minzoom": 0,
+            "layout": {
+                "line-cap": "round",
+                "line-join": "round",
+                "visibility": "none"
+            },
+            "filter": [
+                "has",
+                "maritime"
+            ],
+            "paint": {
+                "line-color": "#bbb",
+                "line-width": {
+                    "base": 1,
+                    "stops": [
+                        [
+                            0,
+                            1
+                        ],
+                        [
+                            4,
+                            1.4
+                        ],
+                        [
+                            5,
+                            2
+                        ],
+                        [
+                            12,
+                            8
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "place-generic",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "place_label",
+            "layout": {
+                "text-field": "{name}",
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "text-max-width": 8,
+                "text-size": 10,
+                "visibility": "none"
+            },
+            "paint": {
+                "text-color": "#bbb",
+                "text-halo-color": "rgba(255,255,255,0.8)",
+                "text-halo-width": 1.2
+            }
+        },
+        {
+            "id": "country-generic",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "country_label",
+            "layout": {
+                "text-field": "{name}",
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "text-max-width": 8,
+                "text-size": 10,
+                "visibility": "none"
+            },
+            "paint": {
+                "text-color": "#bbb",
+                "text-halo-color": "rgba(255,255,255,0.8)",
+                "text-halo-width": 1.2
+            }
+        },
+        {
+            "id": "poi-level-generic",
+            "type": "symbol",
+            "source": "wikimaptiles",
+            "source-layer": "poi_label",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "scalerank",
+                    1
+                ]
+            ],
+            "layout": {
+                "text-size": 12,
+                "icon-image": "aerialway-12",
+                "text-font": [
+                    "Open Sans Regular"
+                ],
+                "text-padding": 2,
+                "visibility": "none",
+                "text-offset": [
+                    0,
+                    0.6
+                ],
+                "text-anchor": "top",
+                "text-field": "{name}",
+                "text-max-width": 9
+            },
+            "paint": {
+                "text-color": "#bbb",
+                "text-halo-blur": 0.5,
+                "text-halo-color": "#272727",
+                "text-halo-width": 1
+            }
+        }
+    ],
+    "sprite": "https://maps.wikimedia.org/static/webgl/wikisprites",
+    "glyphs": "https://maps.wikimedia.org/static/webgl/font/{fontstack}/{range}.pbf",
+    "name": "wikimedia-bright7",
+    "bearing": 0,
+    "zoom": 1,
+    "center": [
+        0,
+        0
+    ],
+    "version": 8,
+    "sources": {
+        "wikimaptiles": {
+            "type": "vector",
+            "url": "https://maps.wikimedia.org/osm-pbf/info.json"
+        }
+    },
+    "id": "97c64ffb-2e86-4baf-845b-2b9b0980d364"
+}
