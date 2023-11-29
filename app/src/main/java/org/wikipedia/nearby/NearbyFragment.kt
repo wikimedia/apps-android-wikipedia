@@ -12,11 +12,9 @@ import android.graphics.Rect
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
@@ -31,7 +29,6 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.mapbox.geojson.Feature
 import com.mapbox.mapboxsdk.Mapbox
-import com.mapbox.mapboxsdk.annotations.Marker
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
 import com.mapbox.mapboxsdk.geometry.LatLng
 import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
@@ -48,7 +45,6 @@ import com.mapbox.mapboxsdk.style.expressions.Expression
 import com.mapbox.mapboxsdk.style.expressions.Expression.get
 import com.mapbox.mapboxsdk.style.expressions.Expression.literal
 import com.mapbox.mapboxsdk.style.expressions.Expression.toNumber
-import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleColor
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeColor
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeWidth
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textAllowOverlap
@@ -57,8 +53,6 @@ import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textField
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textFont
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textIgnorePlacement
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textSize
-import com.mapbox.mapboxsdk.style.sources.GeoJsonSource
-import kotlin.math.abs
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentNearbyBinding
@@ -76,6 +70,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
+import kotlin.math.abs
 
 class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
 
@@ -163,7 +158,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
                 map.addOnCameraIdleListener {
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
                 }
-                val colorLayers =arrayOf(
+                val colorLayers = arrayOf(
                    androidx.core.util.Pair(
                         0, ContextCompat.getColor(requireActivity(), R.color.green600)
                     )
@@ -172,7 +167,6 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
                     .withTextSize(literal(12f)).withTextField(toNumber(get(POINT_COUNT))).withTextColor(
                         Expression.color(Color.WHITE))
                 symbolManager = SymbolManager(binding.mapView, map, style, "", clusterOptions)
-                circleManager = CircleManager(binding.mapView, map, style, "")
                 symbolManager?.iconAllowOverlap = true
                 symbolManager?.textAllowOverlap = true
                 symbolManager?.addClickListener { symbol ->
@@ -183,7 +177,6 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
                     }
                     true
                 }
-
 
                 style.getLayer("mapbox-android-cluster-text")?.apply {
                     this.setProperties(
