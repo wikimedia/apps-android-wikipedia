@@ -441,10 +441,6 @@
 
     <PreferenceCategory android:title="Tests and surveys">
 
-        <Preference
-            android:key="@string/preference_developer_nearby"
-            android:title="@string/nearby_title"/>
-
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
             android:key="ab_test_notificationIcons"
