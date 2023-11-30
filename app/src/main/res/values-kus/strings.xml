@@ -62,7 +62,7 @@
     <item quantity="other">yinne=%1$d dɛmisnɛ hali %2$s</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
-    <item quantity="other">yinne=%1$d dɛmisnɛ hali %2$s (%3$s)%1$d dɛmisnɛ hali %2$s (%3$s)</item>
+    <item quantity="other">yinne=%1$d dɛmisnɛ hali %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Mɔɔm ye fʋ tiak &lt;a href=\"#\"&gt;filters&lt;/a&gt; ka nyɛ dɛmisa bɛdegʋ</string>
   <string name="menu_page_show_tabs">Pa\'alim tabisnam</string>
@@ -279,7 +279,7 @@
   <string name="search_recent_header">Banɛ ia nananna:</string>
   <string name="search_results_count_zero">Si\'el kae</string>
   <plurals name="search_results_count">
-    <item quantity="other">yinne=1 lɛbisʋg</item>
+    <item quantity="other">yinne=%d lɛbisʋg</item>
   </plurals>
   <string name="button_clear_all_recent_searches">ɛɛnsim dinɛ ka ba ia nananna</string>
   <string name="clear_recent_searches_confirm">Fʋ siak ye fʋ bɔɔd ye fʋ ɛɛnsi fʋ ieeb labakʋdaa?</string>
@@ -370,7 +370,7 @@
   <string name="reading_list_name_sample">M karʋŋ la\'ad</string>
   <string name="reading_list_name_hint">La\'abama la\'asʋg yʋ\'ʋr</string>
   <string name="reading_list_description_hint">Pa\'alʋg(ka\' tilasɛ)</string>
-  <string name="reading_list_item_deleted" fuzzy="true">$s yi la\'ad la ni</string>
+  <string name="reading_list_item_deleted" fuzzy="true">%s yi la\'ad la ni</string>
   <string name="reading_list_item_deleted_from_list">%1$s yisi yi %2$s</string>
   <string name="single_list_json_file_name">%s (Wikipedia karʋŋ la\'ad). json</string>
   <string name="multiple_lists_json_file_name">Wikipedia karʋŋ la\'ad nam (%s nɛ bɛdegʋ).json</string>
@@ -507,7 +507,7 @@
   <string name="view_static_card_icon_content_description">Gbaʋŋ footo zanbin</string>
   <string name="view_card_news_title">Labaya la ni</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="other">yinne=su\'os</item>
+    <item quantity="other">yinne=%d su\'os</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Zina</string>
   <string name="view_continue_reading_card_subtitle_read_date">Karimya %s</string>

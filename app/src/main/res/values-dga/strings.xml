@@ -271,7 +271,7 @@
   <string name="search_recent_header">Pampana boɔbo:</string>
   <string name="search_results_count_zero">Yɛlɛ zaa kyɛbe</string>
   <plurals name="search_results_count">
-    <item quantity="other">bonyeni=1 result</item>
+    <item quantity="other">bonyeni=%d result</item>
   </plurals>
   <string name="button_clear_all_recent_searches">Meele a pampana boɔbo</string>
   <string name="clear_recent_searches_confirm">fo boɔra ka fo meele a fo bombɔ dabaŋkroŋ na?</string>
@@ -407,10 +407,10 @@
   <string name="reading_list_added_view_button">kaabo yoe</string>
   <string name="reading_list_add_to_list_button">Eŋ o a yoe poɔ</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
-    <item quantity="other">bonyeni=1 aatekel</item>
+    <item quantity="other">bonyeni=%d aatekel</item>
   </plurals>
   <plurals name="format_reading_list_statistical_summary">
-    <item quantity="other">bonyeni=1 aatekel, %2$.2f MB\n</item>
+    <item quantity="other">bonyeni=%1$d aatekel, %2$.2f MB\n</item>
   </plurals>
   <string name="reading_list_menu_select">Iri</string>
   <string name="reading_list_menu_unselect">ta iri</string>

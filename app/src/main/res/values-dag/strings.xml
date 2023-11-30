@@ -287,7 +287,7 @@
   <string name="search_recent_header">punpɔŋɔ na vihigu</string>
   <string name="search_results_count_zero">Shɛli kani</string>
   <plurals name="search_results_count">
-    <item quantity="other">tuuli=1 labisibu</item>
+    <item quantity="other">tuuli=%d labisibu</item>
   </plurals>
   <string name="button_clear_all_recent_searches">Nyahimi punpɔŋɔ na vihigu zaa</string>
   <string name="clear_recent_searches_confirm">A dihi tabili ni a bori ni a nyahi a vihigu dinpungari lahabaya zaa?</string>
@@ -449,16 +449,16 @@
   <string name="reading_list_added_view_button">yu lihira</string>
   <string name="reading_list_add_to_list_button">zaŋpahi yuya zuɣu</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
-    <item quantity="other">yini=1 lahabali</item>
+    <item quantity="other">yini=%d lahabali</item>
   </plurals>
   <plurals name="format_reading_list_statistical_summary">
-    <item quantity="other">yini=1 lahabali, %2$.2f MB</item>
+    <item quantity="other">yini=%1$d lahabali, %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail_without_size">
-    <item quantity="other">yini=%1$d zaŋti lahabali yini nyɛla dimbeni a yi bi du pɔhim zuɣu</item>
+    <item quantity="other">yini=%1$d zaŋti lahabali yini=%2$d nyɛla dimbeni a yi bi du pɔhim zuɣu</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="other">yini=%1$d zaŋti lahabali yini nyɛla dimbeni a yi bi du pɔhim zuɣu, %3$.2f MB</item>
+    <item quantity="other">yini=%1$d zaŋti lahabali yini=%2$d nyɛla dimbeni a yi bi du pɔhim zuɣu, %3$.2f MB</item>
   </plurals>
   <string name="reading_list_sort">jɛhibu</string>
   <string name="reading_list_sort_ellipsis">jɛhima n-doli</string>
@@ -639,7 +639,7 @@
   <string name="notifications_prefs">Suhuyurilim tikuma</string>
   <string name="notifications_archive">Maakim dinpunkarim n-soɣi</string>
   <plurals name="notification_archive_message">
-    <item quantity="other">yini=Tikum zaŋsɔɣi</item>
+    <item quantity="other">yini=%d Tikum zaŋsɔɣi</item>
   </plurals>
   <string name="notifications_poll_enable_title">saɣiti tikum lahabaya</string>
   <string name="notifications_poll_enable_positive">nyomi li</string>
@@ -656,10 +656,10 @@
   <string name="notifications_mark_all_as_read_message">%d maakiya kamani dipunkarim</string>
   <string name="notifications_mark_all_as_unread_message">%d maakiya kamani dinnabikarim</string>
   <plurals name="notifications_mark_as_read_plural">
-    <item quantity="other">yini=1 maakiya kamani di punkarim</item>
+    <item quantity="other">yini=%d maakiya kamani di punkarim</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
-    <item quantity="other">yini=1 maakiya kamani di na bi karim</item>
+    <item quantity="other">yini=%d maakiya kamani di na bi karim</item>
   </plurals>
   <string name="watchlist_title">Anilihiri shɛli</string>
   <string name="preference_title_notification_poll">tikum lahabali teerili</string>
@@ -741,7 +741,7 @@
   <string name="view_static_card_icon_content_description">gbaŋ anfooni bia</string>
   <string name="view_card_news_title">Dinbe lahabaya puuni</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="other">yini=sohala</item>
+    <item quantity="other">yini=%d sohala</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">zuŋɔ</string>
   <string name="view_continue_reading_card_subtitle_read_date">Karimya %s</string>
