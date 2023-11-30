@@ -31,7 +31,7 @@ class ArticleFindInPageInteraction(private val fragment: PageFragment) : TimedMe
                 "page_height" to pageHeight,
                 "time_spent_ms" to timer.elapsedMillis,
             ),
-            getInteractionDataMinimal("find_in_page_interaction"),
+            getInteractionData("find_in_page_interaction"),
             getPageData(fragment)
         )
     }
@@ -192,7 +192,7 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
                 "total_open_sec" to totalOpenedSec,
                 "num_sections" to numSections
             ),
-            getInteractionDataMinimal("article_toc_interaction"),
+            getInteractionData("article_toc_interaction"),
             getPageData(fragment)
         )
     }

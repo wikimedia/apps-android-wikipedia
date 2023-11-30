@@ -115,13 +115,13 @@ open class MetricsEvent {
 
     protected fun getInteractionData(
         action: String,
-        actionSubtype: String?,
-        actionSource: String?,
-        actionContext: String?,
-        elementId: String?,
-        elementFriendlyName: String?,
-        funnelEntryToken: String?,
-        funnelEventSequencePosition: Int?
+        actionSubtype: String? = null,
+        actionSource: String? = null,
+        actionContext: String? = null,
+        elementId: String? = null,
+        elementFriendlyName: String? = null,
+        funnelEntryToken: String? = null,
+        funnelEventSequencePosition: Int? = null
     ): InteractionData {
         return InteractionData(
             action,
@@ -132,19 +132,6 @@ open class MetricsEvent {
             elementFriendlyName,
             funnelEntryToken,
             funnelEventSequencePosition
-        )
-    }
-
-    protected fun getInteractionDataMinimal(action: String): InteractionData {
-        return InteractionData(
-            action,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
         )
     }
 
