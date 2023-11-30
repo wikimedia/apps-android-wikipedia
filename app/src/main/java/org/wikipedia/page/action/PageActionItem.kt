@@ -13,6 +13,7 @@ enum class PageActionItem constructor(val id: Int,
                                       @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
                                       val isAvailableOnMobileWeb: Boolean = true,
                                       val isExternalLink: Boolean = false) : EnumCode {
+    // TODO: Need to add the newly added item to the defaultList in Prefs.customizeToolbarMenuOrder
     SAVE(0, R.id.page_save, R.string.article_menu_bar_save_button, R.drawable.ic_bookmark_border_white_24dp, false) {
         override fun select(cb: Callback) {
             cb.onSaveSelected()
@@ -58,7 +59,7 @@ enum class PageActionItem constructor(val id: Int,
             cb.onViewEditHistorySelected()
         }
     },
-    VIEW_ON_MAP(13, R.id.page_view_on_map, R.string.action_item_view_on_map, R.drawable.baseline_location_on_24, true) {
+    VIEW_ON_MAP(13, R.id.page_view_on_map, R.string.action_item_view_on_map, R.drawable.baseline_location_on_24, false) {
         override fun select(cb: Callback) {
             cb.onViewOnMapSelected()
         }

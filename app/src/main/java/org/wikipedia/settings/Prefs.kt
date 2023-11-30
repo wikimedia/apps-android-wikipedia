@@ -19,6 +19,7 @@ import org.wikipedia.util.DateUtil.dbDateFormat
 import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import java.util.Date
 
@@ -567,6 +568,7 @@ object Prefs {
 
     var customizeToolbarMenuOrder: List<Int>
         get() {
+            // TODO: use manually added order instead
             val notInToolbarList = PageActionItem.entries.map { it.code() }.subtract(customizeToolbarOrder.toSet())
             val currentList = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_menu_order, null))
                     ?: notInToolbarList
