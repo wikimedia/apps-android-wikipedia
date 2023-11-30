@@ -27,7 +27,6 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import com.mapbox.geojson.Feature
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
 import com.mapbox.mapboxsdk.geometry.LatLng
@@ -37,7 +36,6 @@ import com.mapbox.mapboxsdk.location.modes.RenderMode
 import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
-import com.mapbox.mapboxsdk.plugins.annotation.CircleManager
 import com.mapbox.mapboxsdk.plugins.annotation.ClusterOptions
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
@@ -81,11 +79,9 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
 
     private var mapboxMap: MapboxMap? = null
     private var symbolManager: SymbolManager? = null
-    private var circleManager: CircleManager? = null
 
     private val annotationCache = ArrayDeque<NearbyFragmentViewModel.NearbyPage>()
     private var lastLocationUpdated: LatLng? = null
-    private var features = mutableListOf<Feature>()
 
     private lateinit var markerBitmapBase: Bitmap
     private lateinit var markerBitmapBaseRect: Rect
@@ -158,15 +154,9 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
                 map.addOnCameraIdleListener {
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
                 }
-                val colorLayers = arrayOf(
-                   androidx.core.util.Pair(
-                        0, ContextCompat.getColor(requireActivity(), R.color.green600)
-                    )
-                )
-                val clusterOptions = ClusterOptions().withClusterRadius(150).withClusterMaxZoom(16).withColorLevels(colorLayers)
-                    .withTextSize(literal(12f)).withTextField(toNumber(get(POINT_COUNT))).withTextColor(
-                        Expression.color(Color.WHITE))
-                symbolManager = SymbolManager(binding.mapView, map, style, "", clusterOptions)
+
+                setUpSymbolManagerWithClustering(map, style)
+
                 symbolManager?.iconAllowOverlap = true
                 symbolManager?.textAllowOverlap = true
                 symbolManager?.addClickListener { symbol ->
@@ -210,6 +200,41 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
+        }
+    }
+
+    private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {
+        val clusterColorLayers = arrayOf(
+            androidx.core.util.Pair(
+                0, ContextCompat.getColor(requireActivity(), R.color.green600)
+            )
+        )
+        val clusterOptions = ClusterOptions()
+            .withClusterRadius(60)
+            .withColorLevels(clusterColorLayers)
+            .withTextSize(literal(12f))
+            .withTextField(toNumber(get(POINT_COUNT)))
+            .withTextColor(Expression.color(Color.WHITE))
+        symbolManager = SymbolManager(binding.mapView, mapboxMap, style, null, null, clusterOptions)
+
+        // Clustering with SymbolManager doesn't expose a few style specifications we need.
+        // Accessing the styles in a fail-safe manner
+        try {
+            style.getLayer(CLUSTER_TEXT_LAYER_ID)?.apply {
+                this.setProperties(
+                    textFont(MARKER_FONT_STACK),
+                    textIgnorePlacement(true),
+                    textAllowOverlap(true)
+                )
+            }
+            style.getLayer(CLUSTER_CIRCLE_LAYER_ID)?.apply {
+                this.setProperties(
+                    circleStrokeColor(Color.WHITE),
+                    circleStrokeWidth(2.0f),
+                )
+            }
+        } catch (e: Exception) {
+            L.e(e)
         }
     }
 
@@ -425,6 +450,8 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
         const val MAX_ANNOTATIONS = 64
         const val THUMB_SIZE = 160
         const val ITEMS_PER_REQUEST = 50
+        const val CLUSTER_TEXT_LAYER_ID = "mapbox-android-cluster-text"
+        const val CLUSTER_CIRCLE_LAYER_ID = "mapbox-android-cluster-circle0"
         val MARKER_FONT_STACK = arrayOf("Open Sans Regular")
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
