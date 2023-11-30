@@ -19,7 +19,6 @@ import org.wikipedia.util.DateUtil.dbDateFormat
 import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistFilterTypes
 import java.util.Date
 
@@ -563,16 +562,14 @@ object Prefs {
 
     var customizeToolbarOrder
         get() = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_order, null))
-            ?: listOf(0, 1, 2, 3, 4)
+            ?: PageActionItem.DEFAULT_TOOLBAR_LIST
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_order, JsonUtil.encodeToString(orderList))
 
     var customizeToolbarMenuOrder: List<Int>
         get() {
-            // TODO: use manually added order instead
-            val notInToolbarList = PageActionItem.entries.map { it.code() }.subtract(customizeToolbarOrder.toSet())
             val currentList = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_menu_order, null))
-                    ?: notInToolbarList
-            return currentList.union(notInToolbarList).toList()
+                    ?: PageActionItem.DEFAULT_OVERFLOW_MENU_LIST
+            return currentList.union(PageActionItem.DEFAULT_OVERFLOW_MENU_LIST).toList()
         }
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_menu_order, JsonUtil.encodeToString(orderList))
 
