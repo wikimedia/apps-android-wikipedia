@@ -46,16 +46,25 @@ class ImageInfo {
     val width = 0
     val height = 0
 
-    val bestDerivative get() = derivatives.lastOrNull()
+    fun getBestDerivativeForSize(widthDp: Int): Derivative? {
+        var derivative: Derivative? = null
+        derivatives.forEach {
+            if (it.width > 0 && it.width < widthDp) {
+                if (derivative == null || it.width > derivative!!.width) {
+                    derivative = it
+                }
+            }
+        }
+        return derivative
+    }
 
-    // TODO: make this smarter.
     @Serializable
     class Derivative {
         val src = ""
         private val type: String? = null
         private val title: String? = null
         private val shorttitle: String? = null
-        private val width = 0
+        val width = 0
         private val height = 0
         private val bandwidth: Long = 0
     }
