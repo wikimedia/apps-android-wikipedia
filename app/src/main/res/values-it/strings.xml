@@ -1424,6 +1424,8 @@
   <string name="talk_templates_new_message_compose_hint">Scrivi un messaggio</string>
   <string name="talk_templates_new_message_dialog_cancel">Annulla</string>
   <string name="talk_templates_edit_message_dialog_title">Modifica messaggio</string>
+  <string name="talk_templates_menu_remove_message">Rimuovi messaggio</string>
+  <string name="talk_templates_message_title_empty">Il titolo non può essere vuoto.</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etichette: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Nessuno</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Informazioni utente</string>
@@ -1447,7 +1449,12 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Soddisfatto</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutrale</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Non soddisfatto</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Come possiamo migliorare la funzionalità?</string>
   <string name="patroller_diff_feedback_dialog_submit">Invia</string>
   <string name="data_opt_in_accept">Accetta</string>
   <string name="data_opt_in_reject">Rifiuta</string>
+  <string name="donation_campaign_maybe_later_snackbar">Te lo ricorderemo di nuovo domani.</string>
+  <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità aiuta a far crescere Wikipedia e i suoi siti correlati.</string>
+  <string name="donation_campaign_go_back_button">Torna indietro</string>
+  <string name="menu_single_webview_open_external">Apri nel browser di sistema</string>
 </resources>

@@ -301,7 +301,6 @@
   <string name="edit_redo">Wiederherstellen</string>
   <string name="edit_rollback">Zurücksetzen</string>
   <string name="edit_warn">Warnen</string>
-  <string name="edit_quality">Qualität %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s Byte</item>
     <item quantity="other">%s Bytes</item>
@@ -1481,7 +1480,7 @@
   <string name="talk_templates_edit_message_dialog_save">Speichern</string>
   <string name="talk_templates_edit_message_dialog_delete">Löschen</string>
   <string name="talk_templates_edit_message_updated">Die Nachricht wurde aktualisiert</string>
-  <string name="talk_templates_message_deleted">Nachricht wurde gelöscht</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Nachricht wurde gelöscht</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Keine</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benutzerseite ansehen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Diskussionsseite anzeigen</string>
@@ -1500,6 +1499,11 @@
   <string name="patroller_tasks_filters_user_status_registered">Registriert</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Angemeldete Autoren.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Neulinge</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Sehr wahrscheinlich gut</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Sehr genau beim Auffinden fast aller problemfreien Bearbeitungen.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Könnte Probleme haben</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Findet die meisten fehlerhaften oder schädlichen Bearbeitungen, aber mit einer niedrigeren Genauigkeit.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Hat wahrscheinlich Probleme</string>
   <string name="data_opt_in_accept">Zulassen</string>
   <string name="data_opt_in_reject">Ablehnen</string>
   <string name="page_issues_title">Seitenprobleme</string>

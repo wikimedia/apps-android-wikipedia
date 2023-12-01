@@ -103,9 +103,8 @@ object DiffUtil {
 
                 for (highlightRange in diff.highlightRanges) {
                     val indices = StringUtil.utf8Indices(diff.text)
-                    val highlightRangeStart = indices[highlightRange.start]
-                    val highlightRangeEnd =
-                        indices.getOrElse(highlightRange.start + highlightRange.length) { indices.last() }
+                    val highlightRangeStart = indices[highlightRange.start].coerceIn(0, diff.text.length)
+                    val highlightRangeEnd = (indices.getOrElse(highlightRange.start + highlightRange.length) { indices.last() + 1 }).coerceIn(0, diff.text.length)
                     val isAddition = highlightRange.type == DiffResponse.HIGHLIGHT_TYPE_ADD
 
                     updateDiffTextDecor(context, isAddition, highlightRangeStart, highlightRangeEnd)

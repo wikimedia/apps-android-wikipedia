@@ -161,11 +161,13 @@ interface Service {
     val randomWithImageInfo: Observable<MwQueryResponse>
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&list=recentchanges&rcprop=title|timestamp|ids|oresscores|sizes|tags|user|parsedcomment|comment|flags&rcnamespace=0&rctoponly=1&rctype=edit|new")
+    @GET(MW_API_PREFIX + "action=query&list=recentchanges&rcprop=title|timestamp|ids|oresscores|sizes|tags|user|parsedcomment|comment|flags&rcnamespace=0&rctype=edit|new")
     suspend fun getRecentEdits(
         @Query("rclimit") count: Int,
         @Query("rcstart") startTimeStamp: String,
-        @Query("rcshow") filters: String?
+        @Query("rctoponly") latestRevisions: String?,
+        @Query("rcshow") filters: String?,
+        @Query("rccontinue") continueStr: String?
     ): MwQueryResponse
 
     @FormUrlEncoded
@@ -367,7 +369,7 @@ interface Service {
         @Field("data-ge-task-image-recommendation") imageRecommendationJson: String? = null,
     ): Edit
 
-    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib|rights")
     suspend fun getUserContributions(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
@@ -506,7 +508,7 @@ interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=revisions&rvslots=main&rvprop=timestamp|user|ids|comment|tags")
     suspend fun getLastModified(@Query("titles") titles: String): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user&rvdir=newer")
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user|oresscores&rvdir=newer")
     suspend fun getRevisionDetailsAscending(
         @Query("titles") titles: String?,
         @Query("pageids") pageIds: String?,
@@ -514,7 +516,7 @@ interface Service {
         @Query("rvstartid") revisionStartId: Long?
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user&rvdir=older")
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user|oresscores&rvdir=older")
     suspend fun getRevisionDetailsDescending(
         @Query("titles") titles: String,
         @Query("rvlimit") count: Int,
@@ -522,11 +524,18 @@ interface Service {
         @Query("rvcontinue") continueStr: String?,
     ): MwQueryResponse
 
-    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user&rvdir=older")
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user|oresscores&rvdir=older")
     suspend fun getRevisionDetailsWithInfo(
             @Query("pageids") pageIds: String,
             @Query("rvlimit") count: Int,
             @Query("rvstartid") revisionStartId: Long
+    ): MwQueryResponse
+
+    @GET(MW_API_PREFIX + "action=query&prop=info|revisions&rvslots=main&rvprop=ids|timestamp|size|flags|comment|parsedcomment|user|oresscores&rvdir=older&inprop=watched&meta=userinfo&uiprop=rights")
+    suspend fun getRevisionDetailsWithUserInfo(
+        @Query("pageids") pageIds: String,
+        @Query("rvlimit") count: Int,
+        @Query("rvstartid") revisionStartId: Long
     ): MwQueryResponse
 
     @POST(MW_API_PREFIX + "action=thank")

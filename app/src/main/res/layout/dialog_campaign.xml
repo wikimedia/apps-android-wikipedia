@@ -20,18 +20,20 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:fadingEdge="vertical"
+            android:fadingEdgeLength="20dp"
+            android:requiresFadingEdge="vertical">
 
             <TextView
                 android:id="@+id/contentText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="12dp"
                 android:lineSpacingMultiplier="1.21"
                 android:fontFamily="sans-serif"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="24dp"
                 android:textColor="?attr/primary_color"
                 android:textSize="16sp"
                 android:clipChildren="false"

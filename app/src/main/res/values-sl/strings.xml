@@ -269,7 +269,7 @@
   <string name="edit_redo">Uveljavi</string>
   <string name="edit_rollback">Vrni</string>
   <string name="edit_warn">Opozorilo</string>
-  <string name="edit_quality">%s kakovosti</string>
+  <string name="edit_damage">Poškodba %s</string>
   <string name="edit_intent">%s namere</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s zlog</item>
@@ -1546,8 +1546,19 @@
   <string name="talk_templates_edit_message_dialog_save">Shrani</string>
   <string name="talk_templates_edit_message_dialog_delete">Izbriši</string>
   <string name="talk_templates_edit_message_updated">Sporočilo je posodobljeno</string>
-  <string name="talk_templates_edit_message_confirm_description">Ste prepričani, da želite izbrisati to sporočilo %s s seznama?</string>
-  <string name="talk_templates_message_deleted">Sporočilo je izbrisano</string>
+  <string name="talk_templates_menu_remove_message">Odstrani sporočilo</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Ali res želite to sporočilo odstraniti s seznama?</item>
+    <item quantity="two">Ali res želite ti sporočili odstraniti s seznama</item>
+    <item quantity="few">Ali res želite ta sporočila odstraniti s seznama</item>
+    <item quantity="other">Ali res želite ta sporočila odstraniti s seznama?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Sporočilo je izbrisano</item>
+    <item quantity="two">Sporočila so izbrisana</item>
+    <item quantity="few">Sporočila so izbrisana</item>
+    <item quantity="other">Sporočila so izbrisana</item>
+  </plurals>
   <string name="patroller_tasks_edits_list_title">Seznam urejanj</string>
   <string name="patroller_tasks_edits_list_search_hint">Iskanje ali filtriranje urejanj</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Oznake: %s</string>
@@ -1612,11 +1623,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Pregled urejanja</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Zgodovina urejanja članka</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Želite razveljaviti to urejanje?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Ste prepričani, da želite razveljaviti to urejanje?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Razveljavitev pomeni izničenje učinkov enega ali več urejanj.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Povzetek (izbirno)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Navedite razlog za vrnitev</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Vračanje opravljeno</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Ste prepričani, da želite vrniti?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Vrnitev opravljena</string>
@@ -1641,6 +1647,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Možnost je ustrezna</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Nevtralno</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Ne ustreza mi</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Kako lahko izboljšamo to možnost?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Povratne informacije</string>
   <string name="patroller_diff_feedback_dialog_submit">Pošlji</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Povratne informacije so poslane.</string>
@@ -1655,4 +1662,6 @@
   <string name="email_report_patroller_tasks_body">Naletel_a sem na težavo z možnostjo Pregledovanje urejanj:\n– [Opišite specifično težavo]\n\nVedenje, ki bi ga rad_a videl_a, je:\n– [Opišite predlagano rešitev]\n\n[]</string>
   <string name="donation_campaign_maybe_later_snackbar">Znova vas bomo opomnili jutri.</string>
   <string name="donation_campaign_donated_snackbar">Hvala vam, spoštovani darovalec! Vaša velikodušnost pomaga ohranjati uspeh Wikipedije in njenih sestrskih spletnih mest.</string>
+  <string name="donation_campaign_go_back_button">Nazaj</string>
+  <string name="menu_single_webview_open_external">Odprtje v sistemskem brskalniku</string>
 </resources>

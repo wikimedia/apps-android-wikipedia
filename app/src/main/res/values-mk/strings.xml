@@ -263,7 +263,7 @@
   <string name="edit_redo">Повтори</string>
   <string name="edit_rollback">Отповикај</string>
   <string name="edit_warn">Предупреди</string>
-  <string name="edit_quality">Квалитет %s</string>
+  <string name="edit_damage">Оштетување %s</string>
   <string name="edit_intent">Намера %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s бајт</item>
@@ -1460,8 +1460,16 @@
   <string name="talk_templates_edit_message_dialog_save">Зачувај</string>
   <string name="talk_templates_edit_message_dialog_delete">Избриши</string>
   <string name="talk_templates_edit_message_updated">Пораката е подновена</string>
-  <string name="talk_templates_edit_message_confirm_description">Дали сигурно сакате да ја избришете оваа порака %s од списокот.</string>
-  <string name="talk_templates_message_deleted">Пораката е избришана</string>
+  <string name="talk_templates_menu_remove_message">Отстрани порака</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Дали сигурно сакате да ја избришете пораката од списокот?</item>
+    <item quantity="other">Дали сигурно сакате да ги избришете пораките од списокот?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Пораката е избришана</item>
+    <item quantity="other">Пораките се избришани</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Насловот не може да стои празен.</string>
   <string name="patroller_tasks_edits_list_title">Список на уредувања</string>
   <string name="patroller_tasks_edits_list_search_hint">Пребарај или филтрирај уредувања</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Ознаки: %s</string>
@@ -1524,11 +1532,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Патролирај уредување</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Историја на уредување на статијата</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Да го вратам ова уредување?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Дали сигурно дакате да го вратите ова уредување?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Враќањето значи отповикување на дејствата од едно или повеќе уредувања.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Опис (незадолж.)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Наведете причина за враќањето</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Враќањето е завршено</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Дали сигурно сакате да отповикате?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Отповикувањето е завршено</string>
@@ -1553,6 +1556,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволителна е</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Неутрално</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволителна е</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Како можеме да ја подобриме функцијата?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Мислење</string>
   <string name="patroller_diff_feedback_dialog_submit">Поднеси</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Мислењето е поднесено.</string>
@@ -1567,4 +1571,6 @@
   <string name="email_report_patroller_tasks_body">Наидов на проблем со функцијата „Патрола на уредувања“:\n— [Опишете го конкретниот проблем]\n\nШто сакате да се поправи:\n— [Опишете го предложеното решение]\n\n[Екрански снимки или врски]</string>
   <string name="donation_campaign_maybe_later_snackbar">Утре пак ќе ве потсетиме.</string>
   <string name="donation_campaign_donated_snackbar">Ви благодариме, драг дарителу! Википедија и нејзините збратимени проекти напредуваат благодарение на вашата великодушност.</string>
+  <string name="donation_campaign_go_back_button">Назад</string>
+  <string name="menu_single_webview_open_external">Отвори во системскиот прелистувач</string>
 </resources>

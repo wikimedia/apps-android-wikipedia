@@ -758,6 +758,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         } else {
             finish()
         }
+        super.onBackPressed()
     }
 
     private fun startInsertImageFlow() {

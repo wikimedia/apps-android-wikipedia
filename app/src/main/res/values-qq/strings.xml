@@ -11,6 +11,7 @@
 * Jeeputer
 * Joao Xavier
 * Kaganer
+* Kimberli Mäkäräinen (WMNO)
 * Kizule
 * KuboF
 * Liuxinyu970226
@@ -295,7 +296,7 @@
   <string name="edit_redo">Button label to redo the previous text that was typed.</string>
   <string name="edit_rollback">Button label to rollback the article to the previous revision.</string>
   <string name="edit_warn">Title of the screen of publishing a warn message to a user talk page.</string>
-  <string name="edit_quality">Label of the edit quality in the article edit detail page. %s will be replaced by the percentage of edit quality.</string>
+  <string name="edit_damage">Label of the edit damage in the article edit detail page. %s will be replaced by the percentage of edit damage.</string>
   <string name="edit_intent">Label of the edit intent in the article edit detail page. %s will be replaced by the percentage of edit intent.</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">Text for the revisions difference in bytes. %s will be replaced by the positive one or negative one.</item>
@@ -485,7 +486,7 @@
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
   <string name="reading_list_title_exists">Error text shown when a user attempts to create a new list with the same title as an existing list. The \"%s\" symbol is replaced with the title of the existing list.</string>
-  <string name="reading_list_article_added_to_named">Message shown to user when an article gets suffessfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_article_added_to_named">Message shown to user when an article is successfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_article_added_to_default_list">Message shown to user when an article gets successfully added to a default readingList.\n\nThe %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_article_moved_to_named">Message shown to user when an article gets suffessfully moved to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_article_already_exists_message">Message shown to users when they try to add an already existing article to a reading list.The first %1$s symbol is replaced with the name of the reading list and the second %2$s symbol is replaced with the name of the article.</string>
@@ -1053,7 +1054,7 @@
     <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
     <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">Dropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
+  <string name="suggested_edits_contribution_type_title">{{optional}}\nDropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday\n\n{{Identical|Yesterday}}</string>
   <string name="suggested_edits_encourage_account_creation_title">Title text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
@@ -1486,8 +1487,16 @@
   <string name="talk_templates_edit_message_dialog_save">Button label of the dialog of editing the selected message that save the changes.</string>
   <string name="talk_templates_edit_message_dialog_delete">Button label of the dialog of editing the selected message that delete the message.</string>
   <string name="talk_templates_edit_message_updated">Snackbar message that show the message has been updated.</string>
-  <string name="talk_templates_edit_message_confirm_description">Message of confirming the action of deleting the message. %s will be replaced by the title of the saved message.</string>
-  <string name="talk_templates_message_deleted">Snackbar message that show the message has been deleted.</string>
+  <string name="talk_templates_menu_remove_message">Menu label that can start the remove message mode.</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Message of confirming the action of deleting the message.</item>
+    <item quantity="other">Message of confirming the action of deleting the messages.</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Snackbar message that show the message has been deleted.</item>
+    <item quantity="other">Snackbar message that show the messages have been deleted.</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Error message shown when the template title is empty.</string>
   <string name="patroller_tasks_edits_list_title">Title of the screen that shows a list of edits.</string>
   <string name="patroller_tasks_edits_list_search_hint">Hint text of in the search bar of searching or filtering edits.</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Text of showing added tags in this edit. %s will be replaced by the added tags.</string>
@@ -1550,11 +1559,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Title of the patrol edit screen.</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Menu text of the overflow menu that shows the article edit history.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Title of the undo dialog.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Title of the undo confirmation dialog.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Message of the undo dialog.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Hint text of the undo dialog.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Helper text of the undo dialog.</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Snackbar text that indicates the undo process has succeeded.</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Title of the rollback dialog</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Snackbar text that indicates the rollback process has succeeded.</string>
@@ -1579,6 +1583,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Option for the feedback form in the patrol edit screen that indicates satisfied.</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Option for the feedback form in the patrol edit screen that indicates neutral.</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Option for the feedback form in the patrol edit screen that indicates unsatisfied.</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Dialog title for the feedback input in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Hint text for input field for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_dialog_submit">Button label for input field for the feedback form in the patrol edit screen.</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Text for the snackbar message the feedback form in the patrol edit screen that indicates the feedback has been submitted.</string>

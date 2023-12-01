@@ -269,7 +269,7 @@
     <string name="edit_redo">Redo</string>
     <string name="edit_rollback">Rollback</string>
     <string name="edit_warn">Warn</string>
-    <string name="edit_quality">Quality %s</string>
+    <string name="edit_damage">Damage %s</string>
     <string name="edit_intent">Intent %s</string>
     <plurals name="edit_diff_bytes">
         <item quantity="one">%s byte</item>
@@ -1553,8 +1553,16 @@
     <string name="talk_templates_edit_message_dialog_save">Save</string>
     <string name="talk_templates_edit_message_dialog_delete">Delete</string>
     <string name="talk_templates_edit_message_updated">Message has been updated</string>
-    <string name="talk_templates_edit_message_confirm_description">Are you sure you want to delete this %s message from the list?</string>
-    <string name="talk_templates_message_deleted">Message has been deleted</string>
+    <string name="talk_templates_menu_remove_message">Remove message</string>
+    <plurals name="talk_templates_message_delete_description">
+        <item quantity="one">Are you sure you want to delete the message from the list?</item>
+        <item quantity="other">Are you sure you want to delete the messages from the list?</item>
+    </plurals>
+    <plurals name="talk_templates_message_deleted">
+        <item quantity="one">Message has been deleted</item>
+        <item quantity="other">Messages have been deleted</item>
+    </plurals>
+    <string name="talk_templates_message_title_empty">The title cannot be empty.</string>
     <string name="patroller_tasks_edits_list_title">List of edits</string>
     <string name="patroller_tasks_edits_list_search_hint">Search or filter edits</string>
     <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
@@ -1617,11 +1625,6 @@
     </plurals>
     <string name="patroller_tasks_patrol_edit_title">Patrol edit</string>
     <string name="patroller_tasks_patrol_edit_overflow_edit_history">Article edit history</string>
-    <string name="patroller_tasks_patrol_edit_undo_dialog_title">Undo this edit?</string>
-    <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Are you sure you want to undo this edit?</string>
-    <string name="patroller_tasks_patrol_edit_undo_dialog_message">Undoing means reverting the effects of one or more edits.</string>
-    <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Summary (optional)</string>
-    <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Share the reason for the revert</string>
     <string name="patroller_tasks_patrol_edit_undo_success">Revert complete</string>
     <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Are you sure you want to rollback?</string>
     <string name="patroller_tasks_patrol_edit_rollback_success">Rollback complete</string>
@@ -1646,6 +1649,7 @@
     <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfied</string>
     <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
     <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unsatisfied</string>
+    <string name="patroller_diff_feedback_dialog_feedback_title">How can we improve the feature?</string>
     <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
     <string name="patroller_diff_feedback_dialog_submit">Submit</string>
     <string name="patroller_diff_feedback_submitted_snackbar">Feedback submitted.</string>
