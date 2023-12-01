@@ -147,8 +147,7 @@ class ArticleToolbarInteraction(private val fragment: PageFragment) : TimedMetri
                 "article_toolbar_interaction",
                 action,
                 null,
-                "time_spent_ms.$timer.elapsedMillis",
-                null, null, null, null
+                "time_spent_ms.${timer.elapsedMillis}"
             ),
             getPageData(fragment)
         )
@@ -231,11 +230,7 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
                 "article_link_preview_interaction",
                 action,
                 source.toString(),
-                "time_spent_ms.$timer.elapsedMillis",
-                null,
-                null,
-                null,
-                null
+                "time_spent_ms.${timer.elapsedMillis}",
             ),
             pageData
         )
