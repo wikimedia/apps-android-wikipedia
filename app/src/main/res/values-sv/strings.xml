@@ -324,7 +324,7 @@
   <string name="table_close">Stäng</string>
   <string name="widget_name_featured_page">Utmärkt Wikipedia-artikel</string>
   <string name="widget_title_featured_page">Dagens utmärkta artikel:</string>
-  <string name="widget_name_search">Wikipedia-sök</string>
+  <string name="widget_name_search">Wikipedia-sökning</string>
   <string name="wiktionary_no_definitions_found">Inga definitioner hittades.</string>
   <string name="alpha_update_notification_title">Ny alpha-uppdatering tillgänglig</string>
   <string name="alpha_update_notification_text">Tryck för att ladda ner</string>
@@ -1474,8 +1474,15 @@
   <string name="talk_templates_edit_message_dialog_save">Spara</string>
   <string name="talk_templates_edit_message_dialog_delete">Radera</string>
   <string name="talk_templates_edit_message_updated">Meddelandet har uppdaterats</string>
-  <string name="talk_templates_edit_message_delete_description">Är du säker på att du vill radera meddelandet \"%s\" från listan?</string>
-  <string name="talk_templates_message_deleted">Meddelandet har raderats</string>
+  <string name="talk_templates_menu_remove_message">Ta bort meddelande</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Är du säker på att du vill radera meddelandet från listan?</item>
+    <item quantity="other">Är du säker på att du vill radera meddelanden från listan?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Meddelandet har raderats</item>
+    <item quantity="other">Meddelanden har raderats</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Titeln kan inte vara tom.</string>
   <string name="patroller_tasks_edits_list_title">Lista över redigeringar</string>
   <string name="patroller_tasks_edits_list_search_hint">Sök eller filtrera redigeringar</string>
