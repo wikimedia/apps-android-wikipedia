@@ -1273,7 +1273,7 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Примечание</string>
   <string name="wikitext_preview_link">Предпросмотр ссылки</string>
-  <string name="wikitext_mention_user">Упомянуть участника_цу</string>
+  <string name="wikitext_mention_user">Упомянуть участника</string>
   <string name="insert_media_title">Вставить медиа-файл</string>
   <string name="insert_media_search_description">Выберите файл на Викискладе</string>
   <string name="insert_media_search_hint">Поиск медиафайлов</string>
