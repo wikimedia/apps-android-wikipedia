@@ -103,8 +103,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        markerBitmapBase = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.map_marker_outline,
-            null) // ResourceUtil.getThemedAttributeId(requireContext(), R.attr.secondary_color)
+        markerBitmapBase = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.map_marker_outline, null)
         markerBitmapBaseRect = Rect(0, 0, markerBitmapBase.width, markerBitmapBase.height)
 
         Mapbox.getInstance(requireActivity().applicationContext)
@@ -198,7 +197,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             .withColorLevels(clusterColorLayers)
             .withTextSize(literal(12f))
             .withTextField(Expression.toString(get(POINT_COUNT)))
-            .withTextColor(Expression.color(Color.WHITE))
+            .withTextColor(Expression.color(fetchAttributeId(R.attr.paper_color)))
         symbolManager = SymbolManager(binding.mapView, mapboxMap, style, null, null, clusterOptions)
 
         // Clustering with SymbolManager doesn't expose a few style specifications we need.
@@ -213,7 +212,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             }
             style.getLayer(CLUSTER_CIRCLE_LAYER_ID)?.apply {
                 this.setProperties(
-                    circleStrokeColor(Color.WHITE),
+                    circleStrokeColor(fetchAttributeId(R.attr.paper_color)),
                     circleStrokeWidth(2.0f),
                 )
             }
@@ -444,6 +443,10 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             return true
         }
         return false
+    }
+
+    private fun fetchAttributeId(attribute: Int): Int {
+        return ResourceUtil.getThemedAttributeId(requireContext(), attribute)
     }
 
     companion object {
