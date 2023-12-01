@@ -1501,8 +1501,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
         override fun onViewOnMapSelected() {
             title?.let {
-                if (page?.pageProperties?.geo != null) {
-                    requireActivity().startActivity(NearbyActivity.newIntent(requireContext(), it.wikiSite))
+                val location = page?.pageProperties?.geo
+                if (location != null) {
+                    requireActivity().startActivity(NearbyActivity.newIntent(requireContext(), it.wikiSite, location))
                 } else {
                     FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
                 }

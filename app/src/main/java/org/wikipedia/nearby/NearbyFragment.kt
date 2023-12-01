@@ -11,6 +11,7 @@ import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -389,9 +390,9 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
 
-        fun newInstance(wiki: WikiSite): NearbyFragment {
+        fun newInstance(wiki: WikiSite, location: Location?): NearbyFragment {
             return NearbyFragment().apply {
-                arguments = bundleOf(NearbyActivity.EXTRA_WIKI to wiki)
+                arguments = bundleOf(NearbyActivity.EXTRA_WIKI to wiki, NearbyActivity.EXTRA_LOCATION to location)
             }
         }
 
