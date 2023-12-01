@@ -81,7 +81,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 startLocationTracking()
-                goToLastKnownLocation(1000)
+                goToLastKnownLocation(1000, viewModel.location)
             }
             else -> {
                 FeedbackUtil.showMessage(requireActivity(), R.string.nearby_permissions_denied)
@@ -158,8 +158,10 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
-                        goToLastKnownLocation(1000)
+                        goToLastKnownLocation(1000, viewModel.location)
                     }
+                } else {
+                    locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
                 }
             }
         }
@@ -294,11 +296,11 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
         }
     }
 
-    private fun goToLastKnownLocation(delayMillis: Long) {
+    private fun goToLastKnownLocation(delayMillis: Long, targetLocation: Location? = null) {
         binding.mapView.postDelayed({
             if (isAdded) {
                 mapboxMap?.let {
-                    val location = it.locationComponent.lastKnownLocation
+                    val location = targetLocation ?: it.locationComponent.lastKnownLocation
                     if (location != null) {
                         val latLng = LatLng(location.latitude, location.longitude)
                         it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.0))
