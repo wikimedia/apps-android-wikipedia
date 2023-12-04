@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Cooltey
 * Domo John
 * Linus Konkor
 * Zakaria Tunsung
@@ -58,7 +59,8 @@
   <string name="page_edit_history_filter_by_bot">Bot Maale emmo (%s)</string>
   <string name="page_edit_history_metrics_content_description">Metrics a yi %1$s wa tɔ %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="other">bonyeni=%1$d maale eŋ a yi %2$s</item>
+    <item quantity="one">%1$d maale eŋ a yi %2$s</item>
+    <item quantity="other">%1$d maale eŋ a yi %2$s</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d maale eŋ a yi %2$s (%3$s)</item>
@@ -249,7 +251,8 @@
   <string name="edit_damage">Sããɛŋ %s</string>
   <string name="edit_intent">Entɛnɛte %s</string>
   <plurals name="edit_diff_bytes">
-    <item quantity="other">yini=%s byte</item>
+    <item quantity="one">%s byte</item>
+    <item quantity="other">%s bytes</item>
   </plurals>
   <string name="edit_zoom_in">E ka o e kpoŋ kaaboŋ</string>
   <string name="edit_zoom_out">E ka o e bile kaaboŋ</string>
@@ -271,7 +274,8 @@
   <string name="search_recent_header">Pampana boɔbo:</string>
   <string name="search_results_count_zero">Yɛlɛ zaa kyɛbe</string>
   <plurals name="search_results_count">
-    <item quantity="other">bonyeni=%d result</item>
+    <item quantity="one">1 result</item>
+    <item quantity="other">%d results</item>
   </plurals>
   <string name="button_clear_all_recent_searches">Meele a pampana boɔbo</string>
   <string name="clear_recent_searches_confirm">fo boɔra ka fo meele a fo bombɔ dabaŋkroŋ na?</string>
@@ -343,7 +347,8 @@
   <string name="enable_location_service">E koo e</string>
   <string name="location_permissions_enable_action">Nyege</string>
   <plurals name="multi_items_selected">
-    <item quantity="other">bonyeni=%d ireeŋ</item>
+    <item quantity="one">%d ireeŋ</item>
+    <item quantity="other">%d ireeŋ</item>
   </plurals>
   <string name="multi_select_items_selected">%d ireeŋ</string>
   <string name="error_message_generic">gbɛ-ŋme kaŋa eeɛ la</string>
@@ -397,43 +402,98 @@
   <string name="reading_focus_mode">kannoo kyaabo waabo</string>
   <string name="editing_line_numbers_label">Wulo a laaiŋ nambare</string>
   <string name="editing_monospace_font_label">de a monospace waaloŋ</string>
+  <string name="editing_typing_suggestions">Wulo sɛgebo teɛbo</string>
   <string name="nav_item_saved">Biŋ soŋ</string>
   <string name="reading_list_save_to">De paahi kannoo yoe poɔ</string>
   <string name="reading_list_move_to">de gaa neŋ a kannoo gama poɔ</string>
   <string name="reading_list_create_new">maale bompaalaa</string>
   <string name="reading_list_title_exists">kannoo yoe \"%s\" daŋ biebe.</string>
   <string name="reading_list_article_added_to_named">de %1$s paahi ne %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">Biŋ %s soŋ. Fo boɔra ka fo de paahi gane yoe poɔ be?</string>
   <string name="reading_list_article_moved_to_named">de %1$s gaa neŋ %2$s.</string>
+  <string name="reading_list_article_already_exists_message">A zaa soma! %1$s daŋ taa la %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">A zaa soma! %s daŋ taa la aatekelehi zaa.</string>
   <string name="reading_list_added_view_button">kaabo yoe</string>
   <string name="reading_list_add_to_list_button">Eŋ o a yoe poɔ</string>
   <plurals name="format_reading_list_statistical_summary_without_size">
-    <item quantity="other">bonyeni=%d aatekel</item>
+    <item quantity="one">1 aatekel</item>
+    <item quantity="other">%d aatekelehi</item>
   </plurals>
   <plurals name="format_reading_list_statistical_summary">
-    <item quantity="other">bonyeni=%1$d aatekel, %2$.2f MB\n</item>
+    <item quantity="one">1 aatekel, %2$.2f MB\n</item>
+    <item quantity="other">%1$d aatekelehi, %2$.2f MB</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d ŋa yi 1 aatekele ba be saseɛ poɔ </item>
+    <item quantity="other">%1$d ŋa yi %2$d aatekele ba be saseɛ poɔ</item>
+  </plurals>
+  <string name="format_reading_list_statistical_detail">PLURAL|one=%1$d of 1 aatekele ba be saseɛ poɔ, %3$.2f MB|%1$d of %2$d aatekelehi ba be saseɛ poɔ, %3$.2f MB}}</string>
+  <string name="reading_list_sort">Ŋmaa</string>
+  <string name="reading_list_sort_ellipsis">ŋmaa ne...</string>
+  <string name="reading_list_sort_by_name">ŋmaa ne yuori</string>
+  <string name="reading_list_sort_by_name_desc">ŋmaa ne yuori (leɛ puori)</string>
+  <string name="reading_list_sort_by_recent">ŋmaa ne bebiri o naŋ paahi  (Paalaa)</string>
+  <string name="reading_list_sort_by_recent_desc">ŋmaa ne bebiri o naŋ da paahi (koroo)</string>
+  <string name="reading_list_sort_by_created">ŋmaa ne bebiri o naŋ da maale (paalaa)</string>
+  <string name="reading_list_sort_by_created_desc">ŋmaa ne bebiri o naŋ da maale (paalaa)</string>
+  <string name="reading_list_menu_delete">Sãã yoe bare</string>
+  <string name="reading_list_menu_export">de yoe yiniŋ</string>
   <string name="reading_list_menu_select">Iri</string>
   <string name="reading_list_menu_unselect">ta iri</string>
   <string name="reading_list_menu_rename">Maale yuori bee mannoo eŋ</string>
+  <string name="reading_list_action_menu_remove_from_offline">Iri yi saseɛ poɔ</string>
+  <string name="reading_list_action_menu_save_for_offline">de biŋ soŋ a yi a sɛseɛ poɔ</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">iri a zaa eŋ a sɛseɛ poɔ</string>
+  <string name="reading_list_action_menu_save_all_for_offline">de a zaa biŋ soŋ a yi a sɛseɛ poɔ</string>
+  <string name="reading_list_action_menu_add_to_another_list">de paahi yoe mine poɔ</string>
+  <string name="reading_list_action_menu_move_to_another_list">de gaa neŋ yoe mine poɔ</string>
   <string name="reading_list_name_sample">n kannoo boma yoe</string>
   <string name="reading_list_name_hint">a boma ŋa yoe</string>
+  <string name="reading_list_description_hint">Wuloo (fo boɔbo poɔŋ)</string>
   <string name="reading_list_item_deleted">%s iri yi a yoe poɔ</string>
   <string name="reading_list_item_deleted_from_list">iri %1$s yi %2$s</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d ba iri la aatekele a yi a yoe poɔ</item>
+    <item quantity="other">%d ba iri la aatekelehi yi a yoe poɔ</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d ba iri la aatekele a yi %s</item>
+    <item quantity="other">%d ba iri la aatekelehi a yi %s</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d ba sãâ la gane yoe bare</item>
+    <item quantity="other">%d ba bãã la a gama yoe bare</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">A yo piiloŋ (%s) koŋ baŋ sããbarɛɛŋ</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s sããbarɛɛŋ. A yo piiloŋ (%2$s) koŋ baŋ sããbare.</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">gama yo sããbarɛɛŋ. A yo piiloŋ (%s) koŋ baŋ sããbare.</string>
+  <string name="single_list_json_file_name">%s ( Wikipiideɛ kannoo yoe). json</string>
+  <string name="multiple_lists_json_file_name">%s Wikipiideɛ kannoo yoe (%s aneŋ a mine). json</string>
   <string name="reading_list_items_deleted">%d aketelehi naŋ iri yi yoe poɔ</string>
   <string name="reading_lists_item_deleted">%s iri yi a yoe poɔ</string>
   <string name="reading_list_item_delete_undo">Leɛ iri a toma na bare</string>
   <string name="reading_list_deleted">%s iri barɛɛŋ</string>
   <string name="saved_list_empty_title">Gampɛle zaa ba biŋ soŋ sɛre</string>
+  <string name="reading_list_move_to_other_list">Tage gaa kannoo pɛll yuo</string>
+  <string name="reading_list_move_from_to_other_list">Tage yi %s gaa kannoo pɛll yuo</string>
+  <string name="reading_list_remove_from_list">Iri yi %s</string>
   <string name="reading_list_select_item">Iri</string>
   <string name="reading_lists_login_button">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
   <string name="reading_lists_ignore_button">pampana naane</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ɔɔ</string>
   <string name="reading_lists_confirm_remote_delete_no">Aayi</string>
   <string name="reading_list_delete_lists_confirm_dialog_title">Sãã la boma yoe ŋa bare?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Sãã</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Kpɛ</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">Tɔɔ</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Sɛɛtoore</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Bareka kyebe</string>
   <string name="default_reading_list_name">Biŋ soŋ</string>
+  <string name="reading_list_saved_list_rename">%1$s (tontona maalɛɛŋ)</string>
+  <string name="reading_lists_menu_create_list">maale yo paane</string>
+  <string name="reading_lists_menu_import_list">de yoe yiniŋ</string>
+  <string name="reading_lists_menu_sort_by">ŋmaa ne...</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kpɛ/maale kyɛ kpɛ</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Tɔɔ</string>
   <string name="reading_list_delete_dialog_ok_button_text">Tɔɔ</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Ŋmaa o</string>
@@ -444,7 +504,10 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">Sãã</string>
   <string name="reading_list_activity_title">kannoo yoe tutaa: %s</string>
   <string name="reading_lists_action_menu_export_lists">de yineŋ</string>
+  <string name="reading_lists_preview_header_title">Po yoe</string>
   <string name="reading_lists_preview_save_button">Biŋ soŋ</string>
+  <string name="reading_lists_preview_save_dialog_title">biŋ yoe soŋ</string>
+  <string name="reading_lists_preview_save_dialog_title_hint">yelizu</string>
   <string name="reading_lists_preview_save_dialog_cancel">Ŋmaa o</string>
   <string name="reading_lists_preview_save_dialog_save">Biŋ soŋ</string>
   <string name="reading_lists_preview_saved_snackbar_action">Yuo kaa</string>
@@ -454,12 +517,264 @@
   <string name="notification_syncing_pause_button">Are a be</string>
   <string name="notification_syncing_resume_button">la gɛrɛ</string>
   <string name="notification_syncing_cancel_button">Ŋmaa o</string>
+  <string name="notification_echo_channel_description">Wikipiideɛ teɛre ma</string>
+  <string name="notifications_activity_title">teɛre ma</string>
+  <string name="notifications_activity_title_archived">teɛre ma mine (nyɛ boɔbo)</string>
+  <string name="notifications_search">bɔ teɛre ma mine</string>
+  <string name="notifications_view_unread">kaa naŋ ba kanne boma</string>
+  <string name="notifications_prefs">Teɛre ma boɔbo mine</string>
+  <string name="notifications_archive">toɔ kannoo aneŋ akyiivi</string>
+  <plurals name="notification_archive_message">
+    <item quantity="other">\nbonyeni=Teɛre ma akyiivieŋ</item>
+  </plurals>
+  <string name="notifications_poll_enable_title">E teɛre ma mine</string>
   <string name="notifications_poll_enable_positive">E koo e</string>
   <string name="notifications_poll_enable_negative">pampana naane</string>
+  <string name="notification_preferences_title">Teɛre ma boɔbo mine</string>
+  <string name="notifications_mark_unread">Tɔ la aŋa ba naŋ ba kanne</string>
   <string name="notifications_mark_all_as_read">Tɔ a zaa aŋa fo kanne la</string>
   <string name="notifications_direct_reply_action">Leɛ sagbo</string>
+  <string name="notifications_mark_all_as_read_message">%d Tɔ la aŋa ba naŋ ba kanne</string>
+  <string name="notifications_mark_all_as_unread_message">%d Tɔ la aŋa ba naŋ ba kanne</string>
   <string name="watchlist_title">Yelmuuli-gampɛle</string>
   <string name="preference_title_notification_system">Sistɛm</string>
+  <string name="preference_title_notification_thanks">Bareka mine</string>
+  <string name="preference_title_notification_revert">Leɛre o</string>
+  <string name="preference_title_notification_login_fail">kpɛ</string>
+  <string name="preference_title_notification_mention">pore</string>
+  <string name="preference_title_notification_user_talk">Yel-yaga gampɛle</string>
+  <string name="preference_title_notification_email_user">fo nyɛ la email</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">Wikipiideɛ</string>
+  <string name="notifications_channel_group_other_title">Mine</string>
+  <string name="notifications_tab_filter_all">A zaa</string>
+  <string name="notifications_tab_filter_mentions">pore</string>
+  <string name="notifications_menu_mark_as_read">Tɔ aŋa Kanne</string>
+  <string name="notifications_menu_mark_as_unread">Tɔ aŋa ba kanne</string>
+  <string name="notifications_swipe_action_read">Kanne</string>
+  <string name="notifications_swipe_action_unread">Ta leɛ kanne</string>
+  <string name="notifications_all_wikis_text">\"wiki\" zaa</string>
+  <string name="notifications_all_types_text">\"Parԑԑ\" zaa</string>
+  <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
+  <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_main_page_card_title">Wikipiideɛ poɔ beebo zine</string>
+  <string name="view_featured_image_card_title">Zine enfuoni soŋ</string>
+  <string name="view_featured_image_card_download">Daŋloodi</string>
+  <string name="view_featured_image_card_share">De ko</string>
+  <string name="menu_feed_card_dismiss">Sɔgle a gambie</string>
+  <string name="menu_feed_card_dismissed">Boma mine sɔglɛɛ</string>
+  <string name="menu_feed_overflow_label">Mine naŋ Bibe la</string>
+  <string name="home">Yiri</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">zaameŋ</item>
+    <item quantity="other">%d beri naŋ pare</item>
+  </plurals>
+  <string name="view_continue_reading_card_subtitle_today">zine</string>
+  <string name="view_continue_reading_card_subtitle_read_date">kanne %s</string>
+  <string name="view_announcement_card_negative_action">Bareka kyɛbe</string>
+  <string name="view_static_card_save_button_label">Biŋ soŋ</string>
+  <string name="feed_configure_menu_select_all">Wuli a zaa</string>
+  <string name="feed_configure_menu_deselect_all">Sɔgele a zaa</string>
+  <string name="feed_configure_onboarding_action">Mɛ ka o kpɛ</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">Tɔɔ</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Ŋmaa o</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">Tɔɔ</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Ŋmaa o</string>
+  <string name="feed_accessibility_card_load_more_button">Loodi yaga</string>
+  <string name="tabs_activity_title">Tabs</string>
+  <string name="description_edit_text_hint">Aatekele mannoo sommo</string>
+  <string name="description_edit_article_description_label">Ganlee</string>
+  <string name="description_edit_translate_article_description_label_per_language">Ganlee mannoo ko (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Ganlee mannoo ko (%s)</string>
+  <string name="description_edit_add_caption_label">Enfuo mannoo</string>
+  <string name="description_edit_add_caption_hint">Enfuo Caption</string>
+  <string name="description_edit_translate_caption_label_per_language">Enfuo Caption (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Enfuo Caption (%s)</string>
+  <string name="description_edit_save">De yineŋ gbamgbale</string>
+  <string name="description_edit_read">Kanne</string>
+  <string name="description_edit_add_description">Eŋ Aatekel mannoo</string>
+  <string name="description_edit_edit_description">Maale eŋ aatekel mannoo</string>
+  <string name="description_edit_add_image_caption">paahi enfuo caption</string>
+  <string name="description_edit_edit_image_caption">maale enfou caption eŋ</string>
+  <string name="description_edit_translate_image_caption">Leɛre enfuo caption</string>
+  <string name="description_edit_cancel_hint">Ŋmaa o</string>
+  <string name="description_edit_help_title">Info: Ganlee mannoo sommo</string>
+  <string name="description_edit_help_about_wikidata">Wikidata yɛlɛ</string>
+  <string name="description_edit_help_wikidata_guide">Wikidata yԑlԑ guubu a ko sԑgebo mannoo</string>
+  <string name="description_edit_helper_text_lowercase_warning">maŋ piili neŋ sɛgebi bile</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_too_short">A sɛgre e la fẽẽ yaga.</string>
+  <string name="description_starts_with_uppercase">Piili neŋ sɛgebi bile see ka o waa yo-meŋa.</string>
+  <string name="description_starts_with_lowercase">Ta piile neŋ sɛgebi bile.</string>
+  <string name="description_edit_success_saved">Aatekele ŋa mannoo yi gbamgbale!</string>
+  <string name="description_edit_success_saved_snackbar">Aatekele ŋa mannoo yi gbamgbale!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Aatekele ŋa mannoo yi gbamgbale! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Enfuo Caption yi la gbamgbale!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Enfuo Caption yi la gbamgbale! (%s)</string>
+  <string name="description_edit_success_done">Baarɛɛ</string>
+  <string name="description_edit_success_did_you_know">Fo baŋɛɛ?</string>
+  <string name="description_edit_tutorial_title_descriptions">Aatekele mannoo sommo</string>
+  <string name="description_edit_tutorial_keep_it_short">Taa o ŋmaa</string>
+  <string name="description_edit_tutorial_keep_it_short_instructions">Duuli yeni maŋ la, a yi duulo ayi ane pie ne ayi yelbie sogaŋ</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Piili gampɛle maaloo</string>
+  <string name="customize_toolbar_category_toolbar">Tuulbaa</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="suggested_edits_edit_patrol_review">Leɛkaa</string>
+  <string name="suggested_edits_review_description">Leɛkaa aatekel mannoo</string>
+  <string name="suggested_edits_add_description_button">Paahi mannoo</string>
+  <string name="suggested_edits_edit_description_button">Maale eŋ mannoo</string>
+  <string name="suggested_edits_add_translation_button">paahi leɛroo</string>
+  <string name="suggested_edits_edit_translation_button">Maale e leɛroo</string>
+  <string name="suggested_edits_add_caption_button">paahi Caption</string>
+  <string name="suggested_edits_edit_caption_button">Maale e Caption</string>
+  <string name="suggested_edits_review_image_caption">maale enfou caption eŋ</string>
+  <string name="suggested_edits_my_contributions">N sommo toma</string>
+  <string name="suggested_edits_license_notice">Ka fooŋ paahi a mannoo, lɛ wulo ka fo sagɛɛ a &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; aneŋ meŋ n na bare la n sommo toma ka a yi a   &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; license.</string>
+  <string name="suggested_edits_image_caption_license_notice">Ka fooŋ paahi a enfuo caption, lɛ wulo ka fo sagɛɛ a &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; aneŋ meŋ n na bare la n sommo toma ka a yi a   &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; license.</string>
+  <string name="suggested_edits_menu_info">Duoro</string>
+  <string name="suggested_edits_task_add_description_title">Eŋ Aatekel mannoo</string>
+  <string name="suggested_edits_task_image_caption_title">paahi enfuo caption</string>
+  <string name="suggested_edits_task_translate_caption_title">Leɛre enfuo caption</string>
+  <string name="suggested_edits_task_multilingual_positive">Poɔ kɔkɔɛ</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Enfuoni</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Gansɛgera</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Yizie</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Sori terebo</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Bebiri</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="other">bonyeni=1 sommo toma</item>
+  </plurals>
+  <string name="suggested_edits_feed_card_add_description_button">Paahi Aatekel mannoo</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Paahi Aatekel mannoo (%s)</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">De piiloŋ</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Enfuo Caption (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_image">Enfuoni</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">A yi wikipiideɛ commons</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Tags</string>
+  <string name="suggested_edits_image_preview_dialog_date">Bebiri</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Sori teroo</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">boŋ pegi naŋ wikipiideɛ commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">boŋ pegi naŋ wikipiideɛ commons</string>
+  <string name="suggested_edits_article_cta_image_tags">paahi enfuo tags</string>
+  <string name="suggested_edits_article_cta_image_caption">paahi enfuo caption</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">paahi enfuo caption (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Yuo kaa</string>
+  <string name="suggested_edits_feed_card_add_image_caption">paahi enfuo caption</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">paahi enfuo caption (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">paahi enfuo tags</string>
+  <string name="suggested_edits_snackbar_survey_action_text">De peɛhibo</string>
+  <string name="suggested_edits_task_action_text_add">Paahi</string>
+  <string name="suggested_edits_task_action_text_translate">Leɛre</string>
+  <string name="suggested_edits_image_captions">Enfuo Caption</string>
+  <string name="suggested_edits_image_tags">Enfuo tags</string>
+  <string name="suggested_edits_image_tags_publishing">Pͻbeleseŋ</string>
+  <string name="suggested_edits_image_tags_published">Pɔbelesɛŋ</string>
+  <string name="suggested_edits_image_tags_published_list">pɔbelesɛŋ tags</string>
+  <string name="suggested_edits_image_tags_search">Bɔ tags</string>
+  <string name="suggested_edits_image_tags_add_tag">paahi tag</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Kyoͻre a ganlee a soŋ kanneba ka ba baŋe a yelnyͻgeraa dayeni kannoo</string>
+  <string name="suggested_edits_views_label_text">Yuo kaa</string>
+  <string name="suggested_edits_quality_excellent_text">Garebanyɛ</string>
+  <string name="suggested_edits_quality_very_good_text">fo mɔɔ yɛ la yaga</string>
+  <string name="suggested_edits_quality_good_text">fo mɔɔ yɛ la</string>
+  <string name="suggested_edits_quality_bad_text">Ba soma</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="other">bonyeni=1 sommo toma</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="other">bonyeni=%d bebiri</item>
+  </plurals>
+  <string name="suggested_edits_learn_more">Zanne yaga</string>
+  <string name="suggested_edits_paused_title">Are a be</string>
+  <string name="suggested_edits_disabled_title">ŋmaa bare</string>
+  <string name="suggested_edits_ip_blocked_title">IP pɔgebo</string>
+  <string name="suggested_edits_last_edited">Puori maale eŋ</string>
+  <string name="suggested_edits_last_edited_never">Aayi</string>
+  <string name="suggested_edits_task_new">paalaa</string>
+  <string name="suggested_edits_contributions_screen_title">%s Tontona toma</string>
+  <string name="suggested_edits_contribution_language_label">Kɔkɔre</string>
+  <string name="suggested_edits_contribution_date_time_label">Bebiri/Wɔgre</string>
+  <string name="suggested_edits_contribution_image_label">Enfuoni</string>
+  <string name="suggested_edits_contribution_article_label">Aketele</string>
+  <string name="suggested_edits_contribution_views">%s yuo kaabo</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Zaameŋ</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
+  <string name="suggested_edits_contribution_type_image_tag">Enfuo tag</string>
+  <string name="image_recommendation_accept">Ɔɔ</string>
+  <string name="image_recommendation_reject">Aayi</string>
+  <string name="description_edit_login_cancel_button_text">Ŋmaa o</string>
+  <string name="size_mb">%.2f MB</string>
+  <string name="onboarding_skip">gaŋ bare</string>
+  <string name="onboarding_continue">Naŋ gɛrɛ</string>
+  <string name="onboarding_get_started">De piiloŋ</string>
+  <string name="onboarding_maybe_later">Abeyaga wɔgre kaŋa</string>
+  <string name="app_shortcuts_continue_reading">Kyoge kanna gɛrɛ</string>
+  <string name="app_shortcuts_search">Bɔ</string>
+  <string name="on_this_day_card_title">Zinɛ bebiri</string>
+  <string name="events_count_text">%1$s yɛlɛ a yi %2$s–%3$d</string>
+  <string name="this_year">a yuoni ŋa</string>
+  <plurals name="diff_years">
+    <item quantity="one">yuoni naŋ pare</item>
+    <item quantity="other">%d yuomo naŋ pare</item>
+  </plurals>
+  <string name="on_this_day_end_of_scroll_message">Fo kyeŋ la sɔre a wɔgre 🚀</string>
+  <string name="languages_list_activity_title">Paahi kɔkɔre</string>
+  <string name="languages_list_suggested_text">Teɔroo</string>
+  <string name="languages_list_all_text">Kɔkɔɛ zaa</string>
+  <string name="wikipedia_languages_title">Wikipiideɛ kɔkɔɛ</string>
+  <string name="wikipedia_languages_your_languages_text">Fo Kɔkɔɛ</string>
+  <string name="wikipedia_languages_add_language_text">Paahi kɔkɔre</string>
+  <string name="wikipedia_languages_remove_text">Iri Kɔkɔre bare</string>
+  <string name="wikipedia_languages_remove_action_mode_title">Iri Kɔkɔre bare</string>
+  <string name="more_language_options">Yaga</string>
+  <string name="add_wikipedia_languages_text">Paahi Wikipiideɛ kɔkɔɛ</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Poɔ kɔkɔɛ</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Bareka kyebe</string>
+  <string name="remove_language_dialog_cancel_button_text">Ŋmaa o</string>
+  <string name="remove_language_dialog_ok_button_text">Tɔɔ</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">Tɔɔ</string>
+  <string name="protected_page_warning_dialog_ok_button_text">Tɔɔ</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">Tɔɔ</string>
+  <string name="edit_conflict_dialog_ok_button_text">Tɔɔ</string>
+  <string name="reverted_edit_dialog_ok_button_text">Tɔɔ</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Ŋmaa o</string>
+  <string name="edit_type_all">sommo toma zaa</string>
+  <string name="content_description_for_page_indicator">pegi %1$d yi %2$d</string>
+  <string name="wikitext_bold">E ka o e kpoŋ</string>
+  <string name="wikitext_italic">Kaa kyiili fēē</string>
+  <string name="wikitext_underline">Toɔ soɔmaa</string>
+  <string name="wikitext_strikethrough">Kpɛ kyaare yi</string>
+  <string name="wikitext_sup">Sage sommo</string>
+  <string name="wikitext_sub">Sage sommo</string>
+  <string name="wikitext_large">Sɛgre kpoŋ</string>
+  <string name="wikitext_small">Sɛgre-bilee ŋmaaroŋ</string>
+  <string name="wikitext_code">Code</string>
+  <string name="wikitext_link">Tage lammo</string>
+  <string name="wikitext_formatting">Gɔɔloŋ</string>
+  <string name="wikitext_headings">Yelzuri</string>
+  <string name="wikitext_insert_media">Eŋ mediá</string>
+  <string name="wikitext_bulleted_list">Tombie</string>
+  <string name="wikitext_numbered_list">Nambare ŋmaaroŋ</string>
+  <string name="wikitext_template">Tɛmplet</string>
+  <string name="wikitext_reference">Sommo yizie</string>
+  <string name="insert_media_title">Eŋ mediá</string>
+  <string name="insert_media_search_description">Iri gampɛle a wikimedia commons poɔ</string>
+  <string name="insert_media_search_hint">Bɔ medeɛ</string>
+  <string name="insert_media_settings_uploaded_image">Aploodi enfuoni</string>
+  <string name="insert_media_settings_caption">Enfuo Caption</string>
+  <string name="main_drawer_login">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
+  <string name="main_tooltip_action_button">De piiloŋ</string>
+  <string name="main_tooltip_watchlist_title">Kaa gama</string>
+  <string name="custom_date_picker_dialog_ok_button_text">Tɔɔ</string>
+  <string name="text_input_dialog_ok_button_text">Tɔɔ</string>
+  <string name="text_input_dialog_cancel_button_text">Ŋmaa o</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Ŋmaa o</string>
+  <string name="talk_title">Yeli</string>
+  <string name="talk_user_title">Yeli: %s</string>
+  <string name="talk_new_topic">yelzu paalaa</string>
+  <string name="talk_warn">Kpaaŋ</string>
   <string name="watchlist_filter_title">Kaanyaabo yeltontutaa bonkyoɔraa</string>
   <string name="watchlist_filter_watchlist_activity_header">Kaanyaabo yeltontutaa yel-erre</string>
   <string name="watchlist_filter_contribution_quality_may_problems">Na baŋ taa la yelwonni</string>
@@ -479,12 +794,14 @@
   <string name="watchlist_filter_type_of_change_category_changes">Zage leɛrɛŋ</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikiyelpeɛre binni sɛgeroo</string>
   <string name="watchlist_search_bar_filter_hint">Kaanyaabo yeltontutaa bonkyoɔraa</string>
-  <string name="watchlist_number_of_filters">{{YAGEROŊ|bonyeni=%d kyoɔraa|%d kyoɔre}}</string>
+  <string name="watchlist_number_of_filters">{{YAGEROŊ|one=%d kyoɔraa|%d kyoɔre}}</string>
   <string name="talk_templates_menu_remove_message">Iri mɛsɛgye</string>
   <plurals name="talk_templates_message_delete_description">
-    <item quantity="other">boŋyeni=Are you sure you want to delete the message from the list?</item>
+    <item quantity="one">Are you sure you want to delete the message from the list?</item>
+    <item quantity="other">Fo e la siri ka fo boɔrɔ la ka fo sãã a mɛsɛgye yi a pɛll?</item>
   </plurals>
   <plurals name="talk_templates_message_deleted">
-    <item quantity="other">boŋyeni=Message has been deleted</item>
+    <item quantity="one">Message has been deleted</item>
+    <item quantity="other">Mɛsɛgyere sãã yɛ la</item>
   </plurals>
 </resources>

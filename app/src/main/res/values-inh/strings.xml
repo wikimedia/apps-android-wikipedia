@@ -870,7 +870,7 @@
   <string name="customize_toolbar_category_menu">Меню</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Хьадехьаяха укхазахьа хьайна дукхагӀа еза элементаш</string>
   <string name="customize_toolbar_reset_to_default_button">Оттамаш юххьанца мо де</string>
-  <string name="customize_toolbar_item_drag_handle_default_tooltip">ДӀа-хьа къахьара хьарак тоӀадаь лоаттаде, элемент дехьайоаккхаргйолаш</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">ДӀа-хьа кхахьара хьарак тоӀадаь лоаттаде, элемент дехьайоаккхаргйолаш</string>
   <string name="customize_toolbar_item_default_tooltip">ӀотӀатоӀа а яь дехьаяккха элемент, цун моттиг хувцаргйолаш</string>
   <string name="suggested_edits_describe_articles">Сатьях лаьца язде</string>
   <string name="suggested_edits_caption_images">Суртех лаьцар</string>
