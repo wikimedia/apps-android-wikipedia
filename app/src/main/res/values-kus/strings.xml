@@ -64,8 +64,8 @@
     <item quantity="other">%1$d dɛmisnɛ hali %2$s</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
-    <item quantity="one">%1$d dɛmisnɛ hali %2$s (%3$s)%1$d dɛmisnɛ hali %2$s (%3$s)</item>
-    <item quantity="other">%1$d dɛmisnɛ hali %2$s (%3$s)%1$d dɛmisnɛ hali %2$s (%3$s)</item>
+    <item quantity="one">%1$d dɛmisnɛ hali %2$s (%3$s)</item>
+    <item quantity="other">%1$d dɛmisnɛ hali %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Mɔɔm ye fʋ tiak &lt;a href=\"#\"&gt;filters&lt;/a&gt; ka nyɛ dɛmisa bɛdegʋ</string>
   <string name="menu_page_show_tabs">Pa\'alim tabisnam</string>
@@ -698,7 +698,7 @@
     <item quantity="other">%d contributions</item>
   </plurals>
   <string name="suggested_edits_feed_card_add_description_button">Paasim atikil pa\'alʋg</string>
-  <string name="suggested_edits_feed_card_add_translation_in_language_button">Paasim atikil pa\'alʋg (%s%ss)</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Paasim atikil pa\'alʋg (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Pin\'ilim</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Footo pian\'azug (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Footo</string>

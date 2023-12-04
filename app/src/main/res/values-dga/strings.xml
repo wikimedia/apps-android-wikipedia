@@ -467,8 +467,8 @@
   <string name="reading_lists_default_list_delete_message">A yo piiloŋ (%s) koŋ baŋ sããbarɛɛŋ</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s sããbarɛɛŋ. A yo piiloŋ (%2$s) koŋ baŋ sããbare.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">gama yo sããbarɛɛŋ. A yo piiloŋ (%s) koŋ baŋ sããbare.</string>
-  <string name="single_list_json_file_name">%s ( Wikipiideɛ kannoo yoe). json</string>
-  <string name="multiple_lists_json_file_name">%s Wikipiideɛ kannoo yoe (%s aneŋ a mine). json</string>
+  <string name="single_list_json_file_name">%s (Wikipiideɛ kannoo yoe).json</string>
+  <string name="multiple_lists_json_file_name">Wikipiideɛ kannoo yoe (%s aneŋ a mine).json</string>
   <string name="reading_list_items_deleted">%d aketelehi naŋ iri yi yoe poɔ</string>
   <string name="reading_lists_item_deleted">%s iri yi a yoe poɔ</string>
   <string name="reading_list_item_delete_undo">Leɛ iri a toma na bare</string>
@@ -525,7 +525,8 @@
   <string name="notifications_prefs">Teɛre ma boɔbo mine</string>
   <string name="notifications_archive">toɔ kannoo aneŋ akyiivi</string>
   <plurals name="notification_archive_message">
-    <item quantity="other">\nbonyeni=Teɛre ma akyiivieŋ</item>
+    <item quantity="one">Teɛre ma akyiivieŋ</item>
+    <item quantity="other">%d Teɛre ma akyiivieŋ</item>
   </plurals>
   <string name="notifications_poll_enable_title">E teɛre ma mine</string>
   <string name="notifications_poll_enable_positive">E koo e</string>
@@ -642,7 +643,8 @@
   <string name="suggested_edits_image_caption_summary_title_license">Sori terebo</string>
   <string name="suggested_edits_image_caption_summary_title_date">Bebiri</string>
   <plurals name="suggested_edits_contribution_count">
-    <item quantity="other">bonyeni=1 sommo toma</item>
+    <item quantity="one">1 sommo toma</item>
+    <item quantity="other">%d sommo tomahi</item>
   </plurals>
   <string name="suggested_edits_feed_card_add_description_button">Paahi Aatekel mannoo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Paahi Aatekel mannoo (%s)</string>

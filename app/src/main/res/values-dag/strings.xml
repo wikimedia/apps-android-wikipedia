@@ -546,7 +546,7 @@
   <string name="reading_list_delete_lists_confirm_dialog_title">nyahimi ani dihi lahabali shɛŋa maa zaa?</string>
   <plurals name="reading_list_delete_lists_confirm_dialog_message">
     <item quantity="one">A dihitabili ni a bori ni a nyahi %d yuya ŋɔ?</item>
-    <item quantity="other">A dihitabili ni a bori ni a nyahi %d yuya ŋɔ %d yuya ŋɔ?</item>
+    <item quantity="other">A dihitabili ni a bori ni a nyahi %d yuya ŋɔ?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kpɛma n-ti saɣiti a nɛma zaŋ n-gohi taba</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kpɛma n-ti saɣiti ka a yu-karinda gu n-niŋ a daa kawnti ni</string>
@@ -684,7 +684,8 @@
     <item quantity="other">%d maakiya kamani di punkarim</item>
   </plurals>
   <plurals name="notifications_mark_as_unread_plural">
-    <item quantity="other">yini=1 maakiya kamani di na bi karim</item>
+    <item quantity="one">1 maakiya kamani di na bi karim</item>
+    <item quantity="other">%d maakiya kamani di na bi karim</item>
   </plurals>
   <string name="watchlist_title">Anilihiri shɛli</string>
   <string name="preference_title_notification_poll">tikum lahabali teerili</string>
@@ -899,7 +900,8 @@
   <string name="suggested_edits_image_caption_summary_title_license">Shɛhira gbaŋ din dihi nua</string>
   <string name="suggested_edits_image_caption_summary_title_date">Dabisili kalinli</string>
   <plurals name="suggested_edits_contribution_count">
-    <item quantity="other">yini=1 tohibu</item>
+    <item quantity="one">1 tohibu</item>
+    <item quantity="other">%d tohibunima</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Maliniŋ sɔŋsim lahabaya</string>
   <string name="suggested_edits_feed_card_add_description_button">Pahimi atikili maa buɣisibu</string>
@@ -994,7 +996,8 @@
   <string name="suggested_edits_contribution_article_label">Lahabali</string>
   <string name="suggested_edits_contribution_views">%s yulibu kalinli</string>
   <plurals name="suggested_edits_contribution_seen_times">
-    <item quantity="other">yini=di yulila yim zuɣu biɛɣupihita dingari maa.</item>
+    <item quantity="one">di yulila yim zuɣu biɛɣupihita dingari maa.</item>
+    <item quantity="other">di yulila %s biɛɣupihita dingari maa.</item>
   </plurals>
   <string name="suggested_edits_contribution_seen_text">di yulila kalinli %s biɛɣupihita dingari maa</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
@@ -1097,7 +1100,8 @@
   <string name="on_this_day_dialog_previous_month">chirishɛli din gari</string>
   <string name="on_this_day_open_date_picker">Yoomi din kpuɣiri dabisili kalinli</string>
   <plurals name="diff_years">
-    <item quantity="other">yini=yuuni din gari</item>
+    <item quantity="one">yuuni din gari</item>
+    <item quantity="other">%d yuma din gari</item>
   </plurals>
   <string name="on_this_day_end_of_scroll_message">A gɔyagili saha puuni 🚀</string>
   <string name="on_this_day_back_to_future">Labimi tooni polo</string>
@@ -1178,7 +1182,7 @@
   <string name="insert_media_insert_button">Zaŋ kpɛhi</string>
   <string name="main_drawer_help">Bɔmi sɔŋsim</string>
   <string name="main_drawer_login">kpɛmi Wikipedia puuni/pahimi Wikipedia nim\' zuɣu</string>
-  <string name="main_tooltip_text" fuzzy="true">N-zo! Amii ami ni sokam ni too niŋ maliniŋ Wikipedia zuɣu bee?</string>
+  <string name="main_tooltip_text">N-zo %s! Amii ami ni sokam ni too niŋ maliniŋ Wikipedia zuɣu bee?</string>
   <string name="main_tooltip_text_v2">Amii ami ni sokam ni too niŋ maliniŋ Wikipedia zuɣu?</string>
   <string name="main_tooltip_action_button">Piligima</string>
   <string name="main_tooltip_watchlist_title">Anilihiri shɛli</string>
@@ -1231,10 +1235,12 @@
   <string name="talk_new_topic_exit_dialog_title">A dihitabili ni a bori ni a yi?</string>
   <string name="talk_new_topic_exit_dialog_message">Di yɛlkpani mini din be di puuni bi yɛn gu n-zali.</string>
   <plurals name="talk_show_replies_count">
-    <item quantity="other">yini=wuhimi labisigu</item>
+    <item quantity="one">wuhimi labisigu</item>
+    <item quantity="other">wuhimi labisigunima (%d)</item>
   </plurals>
   <plurals name="talk_hide_replies_count">
-    <item quantity="other">yini=sɔɣimi labisigu</item>
+    <item quantity="one">sɔɣimi labisigu</item>
+    <item quantity="other">sɔɣimi labisigunima (%d)</item>
   </plurals>
   <string name="talk_thread_subscribed_to">Dihimi a nuu ti \"%s\"</string>
   <string name="talk_thread_unsubscribed_from">Dihimi yihi a nuu ti \"%s\"</string>
