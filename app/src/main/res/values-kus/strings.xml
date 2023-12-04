@@ -4,6 +4,7 @@
 * Akudugu
 * Amire80
 * Awinimi
+* Cooltey
 -->
 <resources>
   <string name="app_name_prod">Wikipiidia</string>
@@ -59,10 +60,12 @@
   <string name="page_edit_history_filter_by_bot">Bot dɛmisa (%s)</string>
   <string name="page_edit_history_metrics_content_description">Makim yi %1$s paae %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
-    <item quantity="other">yinne=%1$d dɛmisnɛ hali %2$s</item>
+    <item quantity="one">%1$d dɛmisnɛ hali %2$s</item>
+    <item quantity="other">%1$d dɛmisnɛ hali %2$s</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
-    <item quantity="other">yinne=%1$d dɛmisnɛ hali %2$s (%3$s)</item>
+    <item quantity="one">%1$d dɛmisnɛ hali %2$s (%3$s)</item>
+    <item quantity="other">%1$d dɛmisnɛ hali %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Mɔɔm ye fʋ tiak &lt;a href=\"#\"&gt;filters&lt;/a&gt; ka nyɛ dɛmisa bɛdegʋ</string>
   <string name="menu_page_show_tabs">Pa\'alim tabisnam</string>
@@ -253,7 +256,8 @@
   <string name="edit_damage">San\'am %s</string>
   <string name="edit_intent">Gban\'ar %s</string>
   <plurals name="edit_diff_bytes">
-    <item quantity="other">yinne=%s byte</item>
+    <item quantity="one">%s byte</item>
+    <item quantity="other">%s bytes</item>
   </plurals>
   <string name="edit_zoom_in">Yaligimi li</string>
   <string name="edit_zoom_out">Ku\'olimi di</string>
@@ -279,7 +283,8 @@
   <string name="search_recent_header">Banɛ ia nananna:</string>
   <string name="search_results_count_zero">Si\'el kae</string>
   <plurals name="search_results_count">
-    <item quantity="other">yinne=%d lɛbisʋg</item>
+    <item quantity="one">1 lɛbisʋg</item>
+    <item quantity="other">%d lɛbisʋg</item>
   </plurals>
   <string name="button_clear_all_recent_searches">ɛɛnsim dinɛ ka ba ia nananna</string>
   <string name="clear_recent_searches_confirm">Fʋ siak ye fʋ bɔɔd ye fʋ ɛɛnsi fʋ ieeb labakʋdaa?</string>
@@ -352,6 +357,28 @@
   <string name="text_size_decrease">Siem sɔb bɛdim</string>
   <string name="theme_category_reading">Karʋŋ</string>
   <string name="theme_category_editing">Dɛmisid</string>
+  <string name="reading_list_create_new">Yɔ\'ɔgim paal</string>
+  <string name="reading_list_title_exists">Karʋŋ laʋk \"%s\" pʋm bɛ sa.</string>
+  <string name="reading_list_article_added_to_named">Zaŋŋɛ %1$s paas %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">Kpɛn\'ɛsim %s. Fʋ bɔɔd ye fʋ zaŋi di paas la\'ad nii?</string>
+  <string name="reading_list_article_moved_to_named">Vurigim %1$s paas %2$s</string>
+  <string name="reading_list_article_already_exists_message">Di wʋsa an sʋm! %1$s pʋm dɛŋim mɔr %2$s</string>
+  <string name="reading_list_articles_already_exist_message">Di wʋsa an sʋm! %s pʋm mɔr atikilnam wʋsa</string>
+  <string name="reading_list_added_view_button">Gɔsim la\'ad</string>
+  <string name="reading_list_add_to_list_button">Zaŋim paas la\'ad la ni</string>
+  <string name="format_reading_list_statistical_summary_without_size">{{PLURAL\n|one=1 article|%d articles}}</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 article, %2$.2f MB</item>
+    <item quantity="other">%1$d articles, %2$.2f MB\n</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d of 1 atikil bɛ dinɛ ka internetɛ</item>
+    <item quantity="other">%1$d of %2$d atikilnam bɛ zin\'ikanɛ ka internet kae</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d of 1 atikil bɛ offline, %3$.2f MB</item>
+    <item quantity="other">%1$d of %2$d atikil bɛ offline, %3$.2f MB</item>
+  </plurals>
   <string name="reading_list_sort">Gaansim</string>
   <string name="reading_list_sort_ellipsis">Gaansim dɔlis...</string>
   <string name="reading_list_sort_by_name">Gaasim dɔlis yʋda</string>
@@ -372,6 +399,18 @@
   <string name="reading_list_description_hint">Pa\'alʋg(ka\' tilasɛ)</string>
   <string name="reading_list_item_deleted" fuzzy="true">%s yi la\'ad la ni</string>
   <string name="reading_list_item_deleted_from_list">%1$s yisi yi %2$s</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d yis atikil la\'adin</item>
+    <item quantity="other">%d yis atikilnam la\'adin</item>
+  </plurals>
+  <plurals name="reading_list_articles_deleted_from_list">
+    <item quantity="one">%d ba yis atikili yi %s</item>
+    <item quantity="other">%d ba yis atikilnami yi %s</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d list deleted</item>
+    <item quantity="other">%d lists deleted\n</item>
+  </plurals>
   <string name="single_list_json_file_name">%s (Wikipedia karʋŋ la\'ad). json</string>
   <string name="multiple_lists_json_file_name">Wikipedia karʋŋ la\'ad nam (%s nɛ bɛdegʋ).json</string>
   <string name="reading_list_items_deleted">Ba yis %d atikil nam yi la\'ad la ni</string>
@@ -435,6 +474,30 @@
   <string name="notification_syncing_pause_button">Zi\'enim</string>
   <string name="notification_syncing_resume_button">Lɛm pin\'il ya\'as</string>
   <string name="notification_syncing_cancel_button">Basim</string>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Downloading article</item>
+    <item quantity="other">Downloading articles\n</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">Downloading %1$d article…</item>
+    <item quantity="other">Downloading %1$d articles…</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">%1$d article left</item>
+    <item quantity="other">%1$d articles left</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_channel_name">
+    <item quantity="one">Syncing Reading List</item>
+    <item quantity="other">Syncing Reading Lists</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Syncing %1$d list…</item>
+    <item quantity="other">Syncing %1$d lists…</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">%1$d list left</item>
+    <item quantity="other">%1$d lists left</item>
+  </plurals>
   <string name="notification_echo_channel_description">Wikipedia labaya</string>
   <string name="notifications_activity_title">Labaya</string>
   <string name="notifications_activity_title_archived">Labaya(su\'a nɛ)</string>
@@ -443,11 +506,28 @@
   <string name="notifications_view_archived">Gɔsim dinɛ sua</string>
   <string name="notifications_prefs">Labaya gaansʋg</string>
   <string name="notifications_archive">Zanbilim dinɛ ka fʋ Karim la nɛ dinɛ sua la</string>
+  <plurals name="notification_archive_message">
+    <item quantity="one">Notification archived</item>
+    <item quantity="other">%d notifications archived</item>
+  </plurals>
   <string name="notifications_poll_enable_title">Basin suor ka labaya kena</string>
   <string name="notifications_poll_enable_positive">Basim suor</string>
   <string name="notifications_poll_enable_negative">Ka\' nananna</string>
   <string name="notifications_view_archived_button_text">Gɔsim labaya banɛ sua</string>
   <string name="notification_preferences_title">Labaya gaansʋg</string>
+  <string name="notifications_mark_unread">Zanbilim ka di pa\'al ye fʋ pʋ karimm</string>
+  <string name="notifications_mark_all_as_read">Zanbilim wʋsa ka di pa\'al ye fʋ karimya</string>
+  <string name="notifications_direct_reply_action">Lɛbisim</string>
+  <string name="notifications_mark_all_as_read_message">Zanbilim %d ka di pa\'al ye fʋ karimya</string>
+  <string name="notifications_mark_all_as_unread_message">Zanbilim %d ka di pa\'al ye fʋ pʋ karim</string>
+  <plurals name="notifications_mark_as_read_plural">
+    <item quantity="one">1 marked as read</item>
+    <item quantity="other">%d marked as read</item>
+  </plurals>
+  <plurals name="notifications_mark_as_unread_plural">
+    <item quantity="one">1 marked as unread</item>
+    <item quantity="other">%d marked as unread</item>
+  </plurals>
   <string name="watchlist_title">Fʋn gɔsid si\'el</string>
   <string name="preference_title_notification_poll">Vɔɔtug labaya kenna</string>
   <string name="preference_title_notification_system">Sistɛm</string>
@@ -475,6 +555,10 @@
   <string name="notifications_channel_group_other_description">Labaya sieba banɛ yi app la ni</string>
   <string name="notifications_filter_label">Gaansʋg labaya</string>
   <string name="notifications_filter_icon_content_description">Gaansʋg labaya</string>
+  <plurals name="notifications_number_of_filters">
+    <item quantity="one">%d filter</item>
+    <item quantity="other">%d filters</item>
+  </plurals>
   <string name="notifications_tab_filter_all">Wʋsa</string>
   <string name="notifications_tab_filter_mentions">Buolʋg</string>
   <string name="notifications_menu_mark_as_read">Zanbilim ka di pa\'al ye fʋ karimya</string>
@@ -507,7 +591,8 @@
   <string name="view_static_card_icon_content_description">Gbaʋŋ footo zanbin</string>
   <string name="view_card_news_title">Labaya la ni</string>
   <plurals name="view_continue_reading_card_subtitle">
-    <item quantity="other">yinne=%d su\'os</item>
+    <item quantity="one">su\'os</item>
+    <item quantity="other">%d dabisa banɛ gaad</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">Zina</string>
   <string name="view_continue_reading_card_subtitle_read_date">Karimya %s</string>
@@ -517,6 +602,230 @@
   <string name="feed_configure_menu_select_all">Pa\'alim wʋsa</string>
   <string name="feed_configure_menu_deselect_all">Si\'am wʋsa</string>
   <string name="feed_item_type_news">Atikil banɛ pian\'ad yɛlbanɛ naamid nananna</string>
+  <string name="customize_lang_selection_dialog_ok_button_text">Awɔɔ</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">Basim</string>
+  <string name="feed_lang_selection_dialog_ok_button_text">Awɔɔ</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">Basim</string>
+  <string name="feed_accessibility_card_text">Fʋ paae dinɛ ka fʋ ied la gbinin.</string>
+  <string name="top_read_activity_title">Karimim %s agɔl</string>
+  <string name="tabs_activity_title">Taabnam</string>
+  <string name="description_edit_text_hint">Atikil pa\'alʋg</string>
+  <string name="description_edit_article_description_label">Atikil</string>
+  <string name="description_edit_translate_article_description_label_per_language">Atikil pa\'alʋg(%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Atikil pa\'alʋg (%s)</string>
+  <string name="description_edit_add_caption_label">Footo pa\'alʋg</string>
+  <string name="description_edit_add_caption_hint">Footo pian\'azug</string>
+  <string name="description_edit_translate_caption_label_per_language">Footo pian\'azug (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">Footo pian\'azug (%s)</string>
+  <string name="description_edit_save">Yadigim</string>
+  <string name="description_edit_read">Karim</string>
+  <string name="description_edit_add_description">Paasim atikil pa\'alʋg</string>
+  <string name="description_edit_translate_description">Lɛbigim atikil pa\'alʋg</string>
+  <string name="description_edit_edit_description">Dɛmisim atikil pa\'alʋg</string>
+  <string name="description_edit_add_image_caption">Paasim footo pian\'azug</string>
+  <string name="description_edit_edit_image_caption">Dɛmisim footo pian\'azug</string>
+  <string name="description_edit_translate_image_caption">Lɛbigim footo pian\'azug</string>
+  <string name="description_edit_cancel_hint">Basim</string>
+  <string name="description_edit_help_title">Labaar: Atikil pa\'alʋg nam</string>
+  <string name="description_edit_help_about_wikidata">Wikidata yɛla</string>
+  <string name="description_edit_help_wikidata_guide">Wikidata suobanɛ mɔri sɔbid atikil pa\'ala</string>
+  <string name="description_edit_helper_text_lowercase_warning">Ɛɛnti pin\'ilnɛ nɛ sɔb biel baanlʋg</string>
+  <string name="description_edit_voice_input_description">Pian\'a nɛ kʋkɔri kpɛn\'ɛs</string>
+  <string name="description_edit_learn_more">Zamis atikil pa\'ala bɛdegɔ</string>
+  <string name="description_edit_image_caption_learn_more">Zamisim footo pian\'azut yɛla bɛdegʋ</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_too_short">Sɔbʋg la gimnɛ galis.</string>
+  <string name="description_starts_with_uppercase">Pin\'ilim nɛ sɔb Biel baanlim asɛɛ yiiga pian\'uk la na an yʋ\'ʋmɛŋir</string>
+  <string name="description_starts_with_lowercase">Da pin\'in nɛ sɔb biel baanlʋgɔ.</string>
+  <string name="description_edit_suggested_description_button_text">Niem banɛ ka fʋ bɔɔd ye fʋ pa\'al</string>
+  <string name="description_edit_suggested_description_button_tooltip">Dɔlisim masini tis atikil pa\'alsieba gɔs</string>
+  <string name="description_edit_success_saved">Atikil pa\'alʋg widigya</string>
+  <string name="description_edit_success_saved_snackbar">Atikil pa\'alʋg widigya!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Atikil pa\'alʋg widigya (%s)</string>
+  <string name="description_edit_success_saved_image_caption_snackbar">Footo pian\'azug widigya</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Footo pian\'azug widigya (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Footo tɔɔŋir(nam) widigya!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Fʋ sung ma\'ae nɛ di? Sʋŋimi ti na ti paas bɛdegʋ.</string>
+  <string name="description_edit_success_encouragement">Fʋ kɛya ka Wikipedia niŋ sʋ\'ʋŋa tis sɔ\' wʋsa</string>
+  <string name="description_edit_success_done">Naaeya</string>
+  <string name="description_edit_success_did_you_know">Fʋ mi\'i?</string>
+  <string name="description_edit_success_article_edit_hint">Fʋ mɛ na nyaŋi dɛmis atikil banɛ bɛ app kaŋa ni. Mɔɔm ka duos sɔb gbɛlima nɛ pian\'atɔŋbaanlʋg dɔlisid fun na din\'^1 nya\'aŋ</string>
+  <string name="description_edit_tutorial_title_descriptions">Atikil pa\'ala</string>
+  <string name="description_edit_tutorial_keep_it_short">Maalimi li giŋa</string>
+  <string name="description_edit_tutorial_button_label_start_editing">Pin\'ilim dɛmisʋg</string>
+  <string name="description_edit_tutorial_promise">Mam pin\'il la, m zi\'el nɔɔr ye m kʋ nɔk bʋnkaŋa tʋm dinɛ pʋ Nara.</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">Madin pʋtɔnda</string>
+  <string name="customize_toolbar_title">Tiakimb toolbar la</string>
+  <string name="customize_toolbar_category_toolbar">Tuulbaa</string>
+  <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Tɛɛgimbniŋ zin\'ikanɛ ka fʋ nɔŋ hali</string>
+  <string name="customize_toolbar_reset_to_default_button">Lɛbisim maal din ɛɛnti an si\'em</string>
+  <string name="customize_toolbar_item_drag_handle_default_tooltip">Gban\'am tɛɛgir ikoon la ka vurig laʋk la tɔɔm</string>
+  <string name="suggested_edits_describe_articles">Pa\'alim atikil nam gbin</string>
+  <string name="suggested_edits_caption_images">Niŋim footonam pian\'azut</string>
+  <string name="suggested_edits_tag_images">Tɔ\'ɔŋim footonam</string>
+  <string name="suggested_edits_edit_patrol">Dɛmisʋg giligir</string>
+  <string name="suggested_edits_edit_patrol_review">Maligim gɔs</string>
+  <string name="suggested_edits_review_description">Maligim gɔs atikil pa\'alʋg</string>
+  <string name="suggested_edits_add_description_button">Paasim pa\'alʋg</string>
+  <string name="suggested_edits_edit_description_button">Dɛmisim pa\'alʋg</string>
+  <string name="suggested_edits_add_translation_button">Paasim lɛbigir</string>
+  <string name="suggested_edits_edit_translation_button">Dɛmisim lɛbigir</string>
+  <string name="suggested_edits_add_caption_button">Paasim pian\'azug</string>
+  <string name="suggested_edits_edit_caption_button">Dɛmisim pian\'azug</string>
+  <string name="suggested_edits_review_image_caption">Maligim gɔs footo pian\'azug</string>
+  <string name="suggested_edits_my_contributions">Mam tʋʋmanam</string>
+  <string name="suggested_edits_no_description">Faal kaŋa pʋ mɔr pa\'alʋgɔ</string>
+  <string name="suggested_edits_menu_info">Labaar</string>
+  <string name="suggested_edits_task_add_description_title">Paasim atikil pa\'ala</string>
+  <string name="suggested_edits_task_add_description_description">Sʋŋim tʋm atikil kanɛ pʋ mɔr pa\'ala ni</string>
+  <string name="suggested_edits_task_image_caption_title">Paasim footo pian\'azut</string>
+  <string name="suggested_edits_task_image_caption_description">Paasim pian\'agima banɛ bɔdig footonam la ni la</string>
+  <string name="suggested_edits_task_translate_caption_title">Lɛbigim footo pian\'azut</string>
+  <string name="suggested_edits_task_translate_caption_description">Lɛbigim pian\'azut la keŋ buudsieba ni</string>
+  <string name="suggested_edits_task_multilingual_title">Tʋʋma bɛdigʋ bɛ tis banɛ tʋm pian\'adnam bɛdigʋ la</string>
+  <string name="suggested_edits_task_multilingual_negative">Ka\' mam dinnɛ</string>
+  <string name="suggested_edits_task_multilingual_positive">Paasim buudi pian\'adnam</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Footo</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Di\'em di\'em</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Gbaʋŋ sɔbid</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Din yi zin\'isia</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Kasɛta gbaʋŋ</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Dabisir kal</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 contribution</item>
+    <item quantity="other">%d contributions</item>
+  </plurals>
+  <string name="suggested_edits_feed_card_add_description_button">Paasim atikil pa\'alʋg</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Paasim atikil pa\'alʋg (%s)</string>
+  <string name="suggested_edits_tasks_onboarding_get_started">Pin\'ilim</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Footo pian\'azug (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_image">Footo</string>
+  <string name="suggested_edits_image_preview_dialog_file_commons">Faal kanɛ yi Wikipedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Di\'em Di\'em</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Tɔ\'ɔŋir nam</string>
+  <string name="suggested_edits_image_preview_dialog_date">Dabisir kal</string>
+  <string name="suggested_edits_image_preview_dialog_source">Din yi zin\'isia/ onɛ nwaad footonam</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Tʋʋma gbaʋŋ maalʋg</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Paasim labaya bɛdegʋ</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Faal lakiri bɛ Wikipedia Commons ni</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Faal lakir bɛ Wikipedia ni</string>
+  <string name="suggested_edits_article_cta_image_tags">Paasim footo Tɔ\'ɔŋirnam</string>
+  <string name="suggested_edits_article_cta_image_caption">Paasim footo pian\'azug</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Paasim footo pian\'azug (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Gɔsim</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Paasim footo pian\'azug</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Paasim footo pian\'azug (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Paasim footo Tɔ\'ɔŋirnam</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Lɛbisi vɛɛnsʋg bu\'osa</string>
+  <string name="suggested_edits_task_action_text_add">Paasim</string>
+  <string name="suggested_edits_task_action_text_translate">Lɛbigim</string>
+  <string name="suggested_edits_image_captions">Footo pian\'azut</string>
+  <string name="suggested_edits_image_tags">Footo Tɔ\'ɔŋirnam</string>
+  <string name="suggested_edits_image_tags_publishing">Widigid</string>
+  <string name="suggested_edits_image_tags_published">Widigya</string>
+  <string name="suggested_edits_contributions_screen_title">%s tʋʋmanam</string>
+  <string name="suggested_edits_contribution_language_label">Buudi pian\'ad</string>
+  <string name="suggested_edits_contribution_date_time_label">Dabisir kal/ saŋa</string>
+  <string name="suggested_edits_contribution_type_label">Tʋʋma buudi</string>
+  <string name="suggested_edits_contribution_image_label">Footo</string>
+  <string name="suggested_edits_contribution_article_label">Atikil</string>
+  <string name="suggested_edits_contribution_views">%s gɔs</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Su\'os</string>
+  <string name="suggested_edits_encourage_account_creation_title">Fʋ mi\'i ye sɔ\' wʋsa tʋn\'e dɛmisim Wikipedia?</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Kpɛn\'ɛm/ paasim Wikipedia ni</string>
+  <string name="suggested_edits_contribution_type_image_tag">Footo Tɔ\'ɔŋir</string>
+  <string name="suggested_edits_contribution_current_revision_text">Fʋ dɛmisa la yʋ\'ʋn nice nyain Wikipedia ni</string>
+  <string name="suggested_edits_descriptions_report_dialog_title">Bɔ\' ka fʋ bɔɔd ye fʋ pɔɔtim?</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Labaar la pʋ zu\'oe</string>
+  <string name="suggested_edits_do_not_understand_suggestion">Pʋ gban\'e tʋʋma gbinnɛ</string>
+  <string name="suggested_edits_report_suggestion">Pɔɔtim</string>
+  <string name="suggested_edits_suggestion_report_submitted">Pɔɔtimʋg gaadya</string>
+  <string name="suggested_edits_image_recommendations_task_title">Atikil footonam</string>
+  <string name="image_recommendation_task_instruction">Fʋ na nɔk footo kaŋa niŋ atikil la ni?</string>
+  <string name="image_recommendation_tutorial">Pa\'alʋg</string>
+  <string name="image_recommendation_accept">Ɛɛn</string>
+  <string name="image_recommendation_reject">Ayei</string>
+  <string name="image_recommendation_notsure">Pʋ tis sidaa</string>
+  <string name="image_recommendation_reject_title">Bɔ\' ka di kʋ nyaŋɛ?</string>
+  <string name="image_recommendation_reject_subtitle">Fʋ gandigi la na sʋŋ bɛog sa pʋtɛnda.</string>
+  <string name="image_recommendation_reject_not_relevant">Footo la pʋ mɔr sʋŋirɛ</string>
+  <string name="image_recommendation_reject_no_info">Labaar la pʋ zu\'oe ka m na gban\'e gban\'arɛ</string>
+  <string name="image_recommendation_reject_offensive">Footo la mɔr daʋŋ</string>
+  <string name="image_recommendation_reject_low_quality">Footo nindaa kae nyainɛ</string>
+  <string name="image_recommendation_reject_dont_know">Mam zi\' bʋnkaŋa</string>
+  <string name="image_recommendation_reject_other">Sieba</string>
+  <string name="image_recommendation_reject_submit">Tisim</string>
+  <string name="image_recommendation_tooltip_1">Lɛn gɔs atikil kaŋa ka gban\'e pian\'azug la gbin</string>
+  <string name="image_recommendation_tooltip_next">Kem tuon</string>
+  <string name="edit_summary_added_image">Footo paasya</string>
+  <string name="edit_summary_added_caption">Pian\'azug paasya</string>
+  <string name="edit_summary_added_image_and_caption">Footo nɛ pian\'azug paasya</string>
+  <string name="edit_published_view">Gɔsim</string>
+  <string name="file_page_activity_title">Faal lakir</string>
+  <string name="file_page_add_image_caption_button">Paasim footo pian\'azug</string>
+  <string name="file_page_add_image_tags_button">Paasim footo Tɔ\'ɔŋirnam</string>
+  <string name="file_page_edit_button_content_description">Dɛmisim %s</string>
+  <string name="description_edit_revert_subtitle">M pʋ\'ʋsya nɛ fun dɛmisim Wikipedia la</string>
+  <string name="description_edit_login_cancel_button_text">Basim</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
+  <string name="onboarding_skip">Iakim gaŋ</string>
+  <string name="onboarding_continue">Kem tuon</string>
+  <string name="onboarding_get_started">Pin\'ilim</string>
+  <string name="onboarding_maybe_later">Daasierɛ nya\'aŋ</string>
+  <string name="onboarding_got_it">M paami li</string>
+  <string name="onboarding_multilingual_add_language_text">Paas bɛɛ dɛmis buudinam</string>
+  <string name="onboarding_welcome_title_v2">Zaalim Encyclopedia\n\n...bɛ buudi pian\'adnam 300 ni</string>
+  <string name="app_shortcuts_random">Gaansʋg</string>
+  <string name="app_shortcuts_continue_reading">Karim keŋ tuon</string>
+  <string name="app_shortcuts_search">Iem</string>
+  <string name="on_this_day_card_title">Zina dabisir nwa</string>
+  <string name="more_events_text">Bɛdegʋ zina dabisir</string>
+  <string name="events_count_text">%1$s tʋʋmbanɛ yi %2$s-%3$d</string>
+  <string name="this_year">Yʋʋm kaŋa</string>
+  <string name="on_this_day_dialog_next_month">Nwadig kanɛ bɛ tuon la</string>
+  <string name="on_this_day_dialog_previous_month">Nwadig kanɛ gaad la</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Dɛmisim buudi pian\'adnam</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ayei m pʋ\'ʋsya</string>
+  <string name="remove_language_dialog_cancel_button_text">Basim</string>
+  <string name="remove_language_dialog_ok_button_text">Awɔɔ</string>
+  <string name="remove_all_language_warning_dialog_ok_button_text">Awɔɔ</string>
+  <string name="protected_page_warning_dialog_ok_button_text">Awɔɔ</string>
+  <string name="account_editing_blocked_dialog_ok_button_text">Awɔɔ</string>
+  <string name="edit_conflict_dialog_ok_button_text">Awɔɔ</string>
+  <string name="reverted_edit_dialog_ok_button_text">Awɔɔ</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Basim</string>
+  <string name="edit_type_all">Tʋʋma wʋsa</string>
+  <string name="content_description_for_page_indicator">Lakir%1$d yi %2$d</string>
+  <string name="wikitext_bold">Sɔbʋgʋm</string>
+  <string name="wikitext_italic">Gbɛligim sɔbʋg la</string>
+  <string name="wikitext_underline">Buom sɔbʋg la gbinnin</string>
+  <string name="wikitext_strikethrough">Buom sɔbʋg la zug</string>
+  <string name="wikitext_sup">Sɔm sɔbʋg la zugin</string>
+  <string name="wikitext_sub">Sɔb sɔbʋg la teŋir</string>
+  <string name="wikitext_large">Yaligim sɔbʋg la</string>
+  <string name="wikitext_small">Siem sɔbʋg la</string>
+  <string name="wikitext_code">Koodi</string>
+  <string name="wikitext_link">Linki</string>
+  <string name="wikitext_heading_n">Pian\'azug bil kaŋa %d</string>
+  <string name="wikitext_headings">Pian\'azut</string>
+  <string name="wikitext_reference">Gbanvɛɛnsa</string>
+  <string name="wikitext_preview_link">Linki kanɛ ka fʋ dɛŋim gɔs</string>
+  <string name="wikitext_mention_user">Buolim tʋmtʋm</string>
+  <string name="insert_media_search_description">Gaŋim faali yi Wikipedia Commons</string>
+  <string name="insert_media_settings">Paasim footo wiesʋg</string>
+  <string name="insert_media_settings_uploaded_image">Kpɛn\'ɛsim footo</string>
+  <string name="insert_media_settings_caption">Footo pian\'azug</string>
+  <string name="insert_media_settings_alternative_text">Sɔbʋg kanɛ tiakid</string>
+  <string name="insert_media_settings_alternative_text_description">Pa\'alʋgʋ tis banɛ pʋ nyɛta ka karim</string>
+  <string name="insert_media_advanced_settings">Tuon ken maalʋgnam</string>
+  <string name="insert_media_advanced_settings_wrap_image">Nɔkim sɔbʋg la gilig footo la</string>
+  <string name="insert_media_advanced_settings_image_position">Footo zin\'ig</string>
+  <string name="insert_media_advanced_settings_image_position_right">Datiʋŋ</string>
+  <string name="insert_media_advanced_settings_image_position_left">Dagɔbug</string>
   <string name="shareable_reading_lists_new_indicator" fuzzy="true">*paal*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Paami li</string>
   <string name="reading_list_share_menu_label" fuzzy="true">Pʋdigim...</string>
