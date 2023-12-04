@@ -1480,7 +1480,7 @@
   <string name="talk_templates_edit_message_dialog_save">Speichern</string>
   <string name="talk_templates_edit_message_dialog_delete">Löschen</string>
   <string name="talk_templates_edit_message_updated">Die Nachricht wurde aktualisiert</string>
-  <string name="talk_templates_message_deleted">Nachricht wurde gelöscht</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Nachricht wurde gelöscht</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Keine</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benutzerseite ansehen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Diskussionsseite anzeigen</string>

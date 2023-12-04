@@ -120,6 +120,7 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
 
     private fun onInitialLoad() {
         setSaveButtonEnabled(false)
+        binding.addTemplateScrollContainer.isSmoothScrollingEnabled = true
         L10nUtil.setConditionalLayoutDirection(binding.addTemplateScrollContainer, wikiSite.languageCode)
         binding.addTemplateInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
 

@@ -1448,8 +1448,7 @@
   <string name="talk_templates_edit_message_dialog_save">Simpen</string>
   <string name="talk_templates_edit_message_dialog_delete">Apus</string>
   <string name="talk_templates_edit_message_updated">Pesen udah diperbaruin</string>
-  <string name="talk_templates_edit_message_delete_description">Apa lu yakin pèngèn ngapus ni pesen \"%s\" deri daptar?</string>
-  <string name="talk_templates_message_deleted">Pesen udah diapus</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Pesen udah diapus</string>
   <string name="patroller_tasks_edits_list_title">Daptar permakan</string>
   <string name="patroller_tasks_edits_list_search_hint">Cari atawa saring permakan</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tenger: %s</string>

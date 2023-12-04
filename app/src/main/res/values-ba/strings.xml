@@ -335,7 +335,7 @@
   <string name="license_title">%s өсөн лицензия</string>
   <string name="gallery_menu_share">Уртаҡлашырға</string>
   <string name="gallery_share_error">%s һүрәте менән  уртаҡлашып булманы</string>
-  <string name="gallery_save_progress">Файл күсереү...</string>
+  <string name="gallery_save_progress">Файлды йөкләү...</string>
   <string name="gallery_save_success">Файл һаҡланды.</string>
   <string name="gallery_error_video_failed">Видеоны уйнатып булмай</string>
   <string name="gallery_save_image_write_permission_rationale">Һүрәттәрҙе һаҡлау өсөн ҡорамалығыҙҙың һаҡлағысына яҙҙырырға рөхсәт талап ителә.</string>
@@ -1459,8 +1459,11 @@
   <string name="talk_templates_edit_message_dialog_save">Һаҡларға</string>
   <string name="talk_templates_edit_message_dialog_delete">Юйырға</string>
   <string name="talk_templates_edit_message_updated">Хәбәр яңыртылған</string>
-  <string name="talk_templates_edit_message_delete_description">\"%s\" хәбәрен исемлектән юйырға теләйһегеҙме?</string>
-  <string name="talk_templates_message_deleted">Хәбәр юйылған</string>
+  <string name="talk_templates_menu_remove_message">Хәбәрҙе юйырға</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Хәбәр юйылған</item>
+    <item quantity="other">Хәбәрҙәр юйылған</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Атама буш була алмай.</string>
   <string name="patroller_tasks_edits_list_title">Үҙгәртеүҙәр исемлеге</string>
   <string name="patroller_tasks_edits_list_search_hint">Төҙәтеүҙәрҙе табырға йәки фильтрларға</string>

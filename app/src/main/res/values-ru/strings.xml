@@ -1273,7 +1273,7 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Примечание</string>
   <string name="wikitext_preview_link">Предпросмотр ссылки</string>
-  <string name="wikitext_mention_user">Упомянуть участника_цу</string>
+  <string name="wikitext_mention_user">Упомянуть участника</string>
   <string name="insert_media_title">Вставить медиа-файл</string>
   <string name="insert_media_search_description">Выберите файл на Викискладе</string>
   <string name="insert_media_search_hint">Поиск медиафайлов</string>
@@ -1537,7 +1537,7 @@
   <string name="talk_templates_edit_message_dialog_save">Сохранить</string>
   <string name="talk_templates_edit_message_dialog_delete">Удалить</string>
   <string name="talk_templates_edit_message_updated">Сообщение обновлено</string>
-  <string name="talk_templates_message_deleted">Сообщение удалено</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Сообщение удалено</string>
   <string name="patroller_tasks_edits_list_title">Список правок</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Смотреть страницу участника</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Смотреть страницу обсуждения</string>

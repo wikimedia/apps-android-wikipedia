@@ -5,98 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:id="@+id/addTemplateScrollContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/addTemplateDescription"
-                style="@style/P.MaterialListTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/talk_templates_new_message_description"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="16dp"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/addTemplateTitleLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginHorizontal="16dp"
-                android:hint="@string/talk_templates_new_message_dialog_hint">
-
-                <org.wikipedia.views.PlainPasteEditText
-                    android:id="@+id/addTemplateTitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="flagNoExtractUi|actionNext"
-                    android:inputType="textCapSentences"
-                    android:textSize="16sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/addTemplateSubjectLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginHorizontal="16dp"
-                android:hint="@string/talk_templates_new_message_subject_hint">
-
-                <org.wikipedia.views.PlainPasteEditText
-                    android:id="@+id/addTemplateSubjectText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="flagNoExtractUi|actionNext"
-                    android:inputType="textEmailSubject"
-                    android:lineSpacingExtra="6sp"
-                    android:textSize="16sp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <org.wikipedia.views.UserMentionInputView
-                android:id="@+id/addTemplateInputView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp" />
-
-        </LinearLayout>
-
-    </ScrollView>
-
-    <org.wikipedia.edit.WikiTextKeyboardHeadingsView
-        android:id="@+id/edit_keyboard_overlay_headings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="48dp"
-        android:background="?attr/paper_color"
-        android:elevation="12dp" />
-
-    <org.wikipedia.edit.WikiTextKeyboardFormattingView
-        android:id="@+id/edit_keyboard_overlay_formatting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="48dp"
-        android:background="?attr/paper_color"
-        android:elevation="12dp"/>
-
-    <org.wikipedia.edit.WikiTextKeyboardView
-        android:id="@+id/edit_keyboard_overlay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="?attr/paper_color"
-        android:elevation="12dp"
-        app:headingsEnable="false"/>
-
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/addTemplateToolbar"
         android:layout_width="match_parent"
@@ -114,5 +22,100 @@
             android:text="@string/talk_templates_new_message_save"/>
 
     </com.google.android.material.appbar.MaterialToolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/addTemplateScrollContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/addTemplateDescription"
+                    style="@style/P.MaterialListTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/talk_templates_new_message_description"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/addTemplateTitleLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:hint="@string/talk_templates_new_message_dialog_hint">
+
+                    <org.wikipedia.views.PlainPasteEditText
+                        android:id="@+id/addTemplateTitleText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="flagNoExtractUi|actionNext"
+                        android:inputType="textCapSentences"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/addTemplateSubjectLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:hint="@string/talk_templates_new_message_subject_hint">
+
+                    <org.wikipedia.views.PlainPasteEditText
+                        android:id="@+id/addTemplateSubjectText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="flagNoExtractUi|actionNext"
+                        android:inputType="textEmailSubject"
+                        android:lineSpacingExtra="6sp"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <org.wikipedia.views.UserMentionInputView
+                    android:id="@+id/addTemplateInputView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <org.wikipedia.edit.WikiTextKeyboardHeadingsView
+            android:id="@+id/edit_keyboard_overlay_headings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/paper_color"
+            android:elevation="12dp" />
+
+        <org.wikipedia.edit.WikiTextKeyboardFormattingView
+            android:id="@+id/edit_keyboard_overlay_formatting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/paper_color"
+            android:elevation="12dp"/>
+
+        <org.wikipedia.edit.WikiTextKeyboardView
+            android:id="@+id/edit_keyboard_overlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/paper_color"
+            android:elevation="12dp"
+            app:headingsEnable="false"/>
+    </LinearLayout>
 
 </FrameLayout>

@@ -1147,8 +1147,8 @@
   <string name="talk_templates_edit_message_dialog_save">Späicheren</string>
   <string name="talk_templates_edit_message_dialog_delete">Läschen</string>
   <string name="talk_templates_edit_message_updated">Message gouf aktualiséiert</string>
-  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Sidd Dir sécher, datt Dir dëse(n) %s-Message vun der Lëscht läsche wëllt?</string>
-  <string name="talk_templates_message_deleted">Message gouf geläscht</string>
+  <string name="talk_templates_menu_remove_message">Message ewechhuelen</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Message gouf geläscht</string>
   <string name="talk_templates_message_title_empty">Den Titel däerf net eidel sinn.</string>
   <string name="patroller_tasks_edits_list_title">Lëscht vun Ännerungen</string>
   <string name="patroller_tasks_edits_list_search_hint">Ännerungen duerchsichen oder filteren</string>
