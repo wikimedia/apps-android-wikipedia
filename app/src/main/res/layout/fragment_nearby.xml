@@ -5,18 +5,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="@string/nearby_title" />
+
 
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"/>
-
+        android:layout_height="match_parent"/>
+    <include
+        android:id="@+id/search_card"
+        layout="@layout/view_nearby_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:visibility="visible" />
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/myLocationButton"
         android:layout_width="wrap_content"
