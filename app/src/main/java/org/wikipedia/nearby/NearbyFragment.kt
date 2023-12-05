@@ -20,6 +20,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.graphics.applyCanvas
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
@@ -38,6 +39,7 @@ import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentNearbyBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
@@ -46,6 +48,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -102,6 +105,14 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentNearbyBinding.inflate(inflater, container, false)
 
+        binding.searchCard.tabsCountContainer.setOnClickListener {
+            if (WikipediaApp.instance.tabCount == 1) {
+                startActivity(PageActivity.newIntent(requireActivity()))
+            } else {
+                startActivity(TabActivity.newIntent(requireActivity()))
+            }
+        }
+
         binding.myLocationButton.setOnClickListener {
             if (haveLocationPermissions()) {
                 goToLastKnownLocation(0)
@@ -111,6 +122,12 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
         }
 
         return binding.root
+    }
+
+    private fun updateTabsView() {
+        val tabsCount = WikipediaApp.instance.tabCount
+        binding.searchCard.searchTabsCountView.isVisible = tabsCount != 0
+        binding.searchCard.searchTabsCountView.text = WikipediaApp.instance.tabCount.toString()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -183,6 +200,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
     override fun onResume() {
         super.onResume()
         binding.mapView.onResume()
+        updateTabsView()
     }
 
     override fun onStop() {
