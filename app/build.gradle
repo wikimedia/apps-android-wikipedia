@@ -37,7 +37,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk 21
         targetSdk 34
-        versionCode 50461
+        versionCode 50463
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -219,8 +219,8 @@ dependencies {
     implementation 'com.github.skydoves:balloon:1.5.4'
     implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
 
-    implementation 'org.maplibre.gl:android-sdk:9.6.0'
-    implementation 'org.maplibre.gl:android-plugin-annotation-v9:1.0.0'
+    implementation 'org.maplibre.gl:android-sdk:10.2.0'
+    implementation 'org.maplibre.gl:android-plugin-annotation-v9:2.0.2'
 
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor "androidx.room:room-compiler:$roomVersion"
