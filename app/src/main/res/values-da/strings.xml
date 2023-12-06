@@ -621,6 +621,8 @@
   <string name="reading_lists_import_file_picker_title">Vælg den fil, der skal importeres</string>
   <string name="reading_lists_import_failure_message">Import af læselister mislykkedes</string>
   <string name="reading_lists_export_select_lists_message">Vælg den eller de lister, der skal eksporteres</string>
+  <string name="reading_lists_export_completed_message">Læseliste(r) er eksporteret</string>
+  <string name="reading_lists_preview_header_title">Delt liste</string>
   <string name="reading_lists_preview_save_button">Gem</string>
   <string name="reading_lists_preview_save_dialog_title">Gem liste</string>
   <string name="reading_lists_preview_save_dialog_text">Navngiv listen, og vælg artikler, der skal gemmes.</string>
@@ -718,6 +720,11 @@
   <string name="preference_title_notification_email_user">E-mail modtaget</string>
   <string name="preference_summary_notification_email_user">Nogen sendte dig en e-mail via wikien</string>
   <string name="preference_title_notification_user_rights">Ændringer af brugerrettigheder</string>
+  <string name="preference_summary_notification_user_rights">Modtages, når dine brugerrettigheder ændres</string>
+  <string name="preference_title_notification_article_linked">Link til artikler som du har oprettet</string>
+  <string name="preference_category_push_notifications">Push-notifikationer</string>
+  <string name="preference_title_customize_push_notifications">Tilpas push-notifikationer</string>
+  <string name="preference_category_display_settings">Visningsindstillinger</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipedia</string>
   <string name="notifications_channel_group_other_title">Andet</string>
   <string name="notifications_channel_group_other_description">Andre meddelelser fra appen</string>
@@ -923,6 +930,7 @@
   <string name="suggested_edits_image_tags_publishing">Offentliggører</string>
   <string name="suggested_edits_image_tags_published">Offentliggjort</string>
   <string name="suggested_edits_image_tags_onboarding_title">Tagning af billeder gør dem lettere at finde.</string>
+  <string name="suggested_edits_image_tags_add_tag">Tilføj tag</string>
   <string name="suggested_edits_views_label_text">Visninger</string>
   <string name="suggested_edits_quality_label_text">Redigeringskvalitet</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
@@ -971,6 +979,16 @@
   <string name="suggested_edits_article_descriptions_dialog_title">Foreslåede beskrivelser</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Hvad vil du rapportere?</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">Ikke nok information</string>
+  <string name="suggested_edits_report_suggestion">Rapporter</string>
+  <string name="suggested_edits_suggestion_report_submitted">Rapport indsendt</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s tag</item>
+    <item quantity="other">%1$s tags</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s tegn</item>
+    <item quantity="other">%1$s tegn</item>
+  </plurals>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">Du tilføjede %d tegn</item>
     <item quantity="other">Du tilføjede %d tegn</item>
@@ -1240,6 +1258,10 @@
   <string name="revision_initial_none">Ingen (dette er den første revision)</string>
   <string name="user_contrib_activity_title">Bidrag af %s</string>
   <string name="archive_empty">Ingen arkiverede sider fundet.</string>
+  <string name="namespace_article">Artikel</string>
+  <string name="user_contrib_current">nuværende</string>
+  <string name="media_playback_error">Fejl ved afspilning af medie.</string>
+  <string name="user_contrib_menu_label">Bidrag</string>
   <string name="talk_templates_new_message_title">Ny besked</string>
   <string name="talk_templates_new_message_description">Skriv en advarselsmeddelelse.</string>
   <string name="talk_templates_new_message_subject_hint">Emne</string>
