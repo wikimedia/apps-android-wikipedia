@@ -79,6 +79,7 @@
             android:name=".main.MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.Splash"
+            android:relinquishTaskIdentity="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
