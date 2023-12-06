@@ -51,7 +51,7 @@ class ImageInfo {
         var derivative: Derivative? = null
         derivatives.forEach {
             if (it.width in 1..<widthDp) {
-                if (derivative == null || it.width > derivative!!.width) {
+                if ((derivative == null || it.width > derivative!!.width) && !it.type.contains("ogg") && !it.type.contains("ogv")) {
                     derivative = it
                 }
             }
@@ -62,7 +62,7 @@ class ImageInfo {
     @Serializable
     class Derivative {
         val src = ""
-        private val type: String? = null
+        val type = ""
         private val title: String? = null
         private val shorttitle: String? = null
         val width = 0
