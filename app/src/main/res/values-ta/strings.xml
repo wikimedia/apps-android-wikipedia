@@ -8,6 +8,7 @@
 * Dbrant
 * Dineshkumar Ponnusamy
 * ElangoRamanujam
+* Fahimrazick
 * Hareesh Sivasubramanian
 * Jayarathina
 * Kaartic
@@ -24,37 +25,39 @@
 <resources>
   <string name="app_name_prod">விக்கிப்பீடியா</string>
   <string name="app_name_beta">விக்கிப்பீடியா பீட்டா</string>
-  <string name="app_name_alpha">விக்கிப்பீடியா ஆல்பா</string>
+  <string name="app_name_alpha">விக்கிப்பீடியா அல்பா</string>
   <string name="wikimedia">விக்கிமீடியா</string>
-  <string name="nav_item_back">பின்செல்</string>
-  <string name="page_tabs_back">பின் செல்</string>
-  <string name="nav_item_forward">முன்செல்</string>
-  <string name="search_hint">விக்கிப்பீடியாவில் தேடவும்</string>
-  <string name="search_hint_search_languages">ஓர் மொழியை தேடுக</string>
+  <string name="nav_item_back">பின்னே</string>
+  <string name="page_tabs_back">பின்னே</string>
+  <string name="nav_item_forward">முன்னே</string>
+  <string name="search_hint">விக்கிப்பீடியாவில் தேடு</string>
+  <string name="search_hint_voice_search">குரல் உள்ளீட்டுத் தேடல்</string>
+  <string name="search_hint_search_languages">ஒரு மொழியைத் தேடு</string>
+  <string name="filter_hint_filter_my_lists_and_articles">எனது பட்டியல்களை வடிகட்டு</string>
   <string name="nav_item_suggested_edits">தொகுப்புகள்</string>
   <string name="nav_item_more">மேலும்</string>
-  <string name="nav_item_search">தேடல்</string>
-  <string name="error_network_error">இணைய இணைப்பு இல்லை.</string>
-  <string name="page_error_retry">மறு முயற்சி செய்</string>
-  <string name="card_offline_error_retry">மறு முயற்சி செய்</string>
-  <string name="storage_access_error_retry">மறு முயற்சி செய்</string>
-  <string name="article_load_error_retry">மறு முயற்சி செய்</string>
-  <string name="offline_load_error_retry">மறு முயற்சி செய்</string>
-  <string name="page_error_back_to_main">பின் செல்</string>
-  <string name="error_back">பின் செல்லவும்</string>
+  <string name="nav_item_search">தேடு</string>
+  <string name="error_network_error">இணையத்தை இணைக்க முடியாது.</string>
+  <string name="page_error_retry">மீண்டும் முயல்க</string>
+  <string name="card_offline_error_retry">மீண்டும் முயல்க</string>
+  <string name="storage_access_error_retry">மீண்டும் முயல்க</string>
+  <string name="article_load_error_retry">மீண்டும் முயல்க</string>
+  <string name="offline_load_error_retry">மீண்டும் முயல்க</string>
+  <string name="page_error_back_to_main">பின்னே</string>
+  <string name="error_back">பின்னே</string>
   <string name="error_next">அடுத்து</string>
-  <string name="menu_clear_all_history">வரலாற்றை நீக்கவும்</string>
-  <string name="history_item_deleted">%s வரலாற்றில் இருந்து நீக்கப்பட்டது</string>
-  <string name="history_items_deleted">%d கட்டுரைகள் வரலாற்றில் இருந்து நீக்கப்பட்டது</string>
+  <string name="menu_clear_all_history">வரலாற்றை நீக்கு</string>
+  <string name="history_item_deleted">%s வரலாற்றிலிருந்து நீக்கப்பட்டது</string>
+  <string name="history_items_deleted">%d கட்டுரைகள் வரலாற்றிலிருந்து நீக்கப்பட்டன</string>
   <string name="history_item_delete_undo">மீளமை</string>
   <string name="notification_archive_undo">மீளமை</string>
-  <string name="app_settings">இச்செயலியின் அமைப்புகள்</string>
+  <string name="app_settings">செயலி அமைப்புகள்</string>
   <string name="history_list_title">வரலாறு</string>
   <string name="image_content_description">படம்: %s</string>
   <string name="page_content_description">பக்கம்: %s</string>
   <string name="wikimedia_commons">விக்கிமீடியா பொதுவகம்</string>
   <string name="wikidata">விக்கித்தரவு</string>
-  <string name="dialog_title_clear_history">உலவல் வரலாற்றை நீக்கு</string>
+  <string name="dialog_title_clear_history">உலாவல் வரலாற்றை நீக்கு</string>
   <string name="dialog_message_clear_history">இது உங்கள் உலவல் வரலாற்றை மொத்தமாக அழித்து விடும், மேலும் திரந்திருக்கும் எல்லா தத்தல்களையும் மூடிவிடும். நீங்கள் உறுதியாக இருக்கிறீர்க்ளா?</string>
   <string name="dialog_message_clear_history_yes">ஆம்</string>
   <string name="dialog_message_clear_history_no">இல்லை</string>
@@ -101,7 +104,7 @@
   <string name="edit_save_action_license_logged_in" fuzzy="true">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள்.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">பதிப்பிடுவதன் மூலம், நீங்கள் &lt;a href=\"%1$s\"&gt;பயன்பாட்டு விதிமுறைகளை&lt;/a&gt; ஒப்புகொள்கிறீர்கள். மேலும் உங்கள் பங்களிப்புகளை &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; உரிமத்தின் கீழ் திரும்ப பெர இயலாதபடி வெளியிட ஒப்புகொள்கிறீர்கள். தொகுப்புகள் தங்களது கருவியின் IP முகவரிக்கு உடைமையாக்கபடும். நீங்கள் &lt;a href=\"https://#login\"&gt;புகுபதிகை செய்தால்&lt;/a&gt;, உங்களுக்கு மேலும் தனியுரிமை இருக்கும்.</string>
   <string name="preference_title_language">விக்கிபீடியா மொழிகள்</string>
-  <string name="langlinks_filter_hint">தேடுக</string>
+  <string name="langlinks_filter_hint">தேடு</string>
   <string name="langlinks_empty">பிற மொழிகளில் இந்த கட்டுரை இல்லை.</string>
   <string name="langlinks_no_match">எந்த மொழிகளும் காணப்படவில்லை</string>
   <string name="langlinks_activity_title">மற்ற மொழிகளில்</string>
@@ -258,7 +261,7 @@
   <string name="page_similar_titles">ஒத்த பக்கங்கள்</string>
   <string name="search_did_you_mean">தாங்கள் குறிப்பது \"%s\"?</string>
   <string name="search_recent_header">அண்மைய தேடல்கள்</string>
-  <string name="button_clear_all_recent_searches">அண்மைய தேடல்களை அழிக்கவும்</string>
+  <string name="button_clear_all_recent_searches">அண்மைய தேடல்களை அழி</string>
   <string name="clear_recent_searches_confirm">வரலாற்றை அழிக்க சம்மதமா?</string>
   <string name="clear_recent_searches_confirm_yes">ஆம்</string>
   <string name="clear_recent_searches_confirm_no">இல்லை</string>
@@ -510,7 +513,7 @@
   <string name="onboarding_welcome_title_v2">இலவச கலைக்களஞ்சியம்\n… 300 மொழிகளுக்கும் மேலாக</string>
   <string name="app_shortcuts_random">ஏதோ ஒன்று</string>
   <string name="app_shortcuts_continue_reading">தொடர்ந்து படிக்கவும்</string>
-  <string name="app_shortcuts_search">தேடுக</string>
+  <string name="app_shortcuts_search">தேடு</string>
   <string name="on_this_day_card_title">இந்த நாளில்</string>
   <string name="more_events_text">இந்நாளில் மேலும்</string>
   <string name="this_year">இந்த வருடம்</string>
