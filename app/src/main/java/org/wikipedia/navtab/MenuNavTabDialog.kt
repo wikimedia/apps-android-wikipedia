@@ -15,8 +15,8 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
-import org.wikipedia.places.PlacesActivity
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
