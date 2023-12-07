@@ -343,7 +343,7 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity
-            android:name=".nearby.NearbyActivity" />
+            android:name=".places.PlacesActivity" />
  
         <activity
             android:name=".talk.template.TalkTemplatesActivity"

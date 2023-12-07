@@ -1,4 +1,4 @@
-package org.wikipedia.nearby
+package org.wikipedia.places
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -39,7 +39,7 @@ import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.databinding.FragmentNearbyBinding
+import org.wikipedia.databinding.FragmentPlacesBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.history.HistoryEntry
@@ -56,17 +56,17 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import kotlin.math.abs
 
-class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
+class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
 
-    private var _binding: FragmentNearbyBinding? = null
+    private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: NearbyFragmentViewModel by viewModels { NearbyFragmentViewModel.Factory(requireArguments()) }
+    private val viewModel: PlacesFragmentViewModel by viewModels { PlacesFragmentViewModel.Factory(requireArguments()) }
 
     private var mapboxMap: MapboxMap? = null
     private var symbolManager: SymbolManager? = null
 
-    private val annotationCache = ArrayDeque<NearbyFragmentViewModel.NearbyPage>()
+    private val annotationCache = ArrayDeque<PlacesFragmentViewModel.NearbyPage>()
     private var lastLocationUpdated: LatLng? = null
 
     private lateinit var markerBitmapBase: Bitmap
@@ -83,7 +83,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
                 goToLastKnownLocation(1000)
             }
             else -> {
-                FeedbackUtil.showMessage(requireActivity(), R.string.nearby_permissions_denied)
+                FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
             }
         }
     }
@@ -101,7 +101,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        _binding = FragmentNearbyBinding.inflate(inflater, container, false)
+        _binding = FragmentPlacesBinding.inflate(inflater, container, false)
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
 
         binding.myLocationButton.setOnClickListener {
@@ -244,7 +244,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
         viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude, searchRadius, ITEMS_PER_REQUEST)
     }
 
-    private fun updateMapMarkers(pages: List<NearbyFragmentViewModel.NearbyPage>) {
+    private fun updateMapMarkers(pages: List<PlacesFragmentViewModel.NearbyPage>) {
         symbolManager?.let { manager ->
 
             pages.filter {
@@ -307,7 +307,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
         }, delayMillis)
     }
 
-    private fun queueImageForAnnotation(page: NearbyFragmentViewModel.NearbyPage) {
+    private fun queueImageForAnnotation(page: PlacesFragmentViewModel.NearbyPage) {
         val url = page.pageTitle.thumbUrl
         if (url.isNullOrEmpty()) {
             return
@@ -389,9 +389,9 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
 
-        fun newInstance(wiki: WikiSite): NearbyFragment {
-            return NearbyFragment().apply {
-                arguments = bundleOf(NearbyActivity.EXTRA_WIKI to wiki)
+        fun newInstance(wiki: WikiSite): PlacesFragment {
+            return PlacesFragment().apply {
+                arguments = bundleOf(PlacesActivity.EXTRA_WIKI to wiki)
             }
         }
 
