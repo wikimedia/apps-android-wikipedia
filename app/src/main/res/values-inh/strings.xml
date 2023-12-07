@@ -787,7 +787,7 @@
   <string name="feed_configure_activity_title">Лентай оттамаш хувца</string>
   <string name="feed_configure_menu_reset">Юхаметтаоттае фильтраш юххьанца мо</string>
   <string name="feed_configure_menu_select_all">Дерригаш хьагойта</string>
-  <string name="feed_configure_menu_deselect_all">Дерригаш дӀакъайладаха</string>
+  <string name="feed_configure_menu_deselect_all">Шеддар къайладаккха</string>
   <string name="feed_configure_language_warning">Лентай деррига карточкаш дац хьахьувкхаш массадолча меттала. Оттамашка дӀаоттаде йиш я малагӀча метта Википеден разделашкара карточкаш хьагойта деза.</string>
   <string name="feed_item_type_news">Карарча хана хулаш латтача хӀамаех лаьца статьяш</string>
   <string name="feed_item_type_on_this_day">Укх дийнахьа тархьаре хинна хӀамаш</string>
