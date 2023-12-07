@@ -823,7 +823,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
         ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-            AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_REPLY_ACTIVITY))
+            AddToReadingListDialog.newInstance(title, Constants.InvokeSource.EDIT_ACTIVITY))
     }
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
