@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Cooltey
+* Dbrant
 * Domo John
 * Linus Konkor
 * Zakaria Tunsung
@@ -517,6 +518,16 @@
   <string name="notification_syncing_pause_button">Are a be</string>
   <string name="notification_syncing_resume_button">la gɛrɛ</string>
   <string name="notification_syncing_cancel_button">Ŋmaa o</string>
+  <string name="notification_many_unread">Fo taa %d ba kanne teɛreteɛrɛ</string>
+  <plurals name="notification_channel_name">
+    <item quantity="other">bonyeni=Daaloodiŋ atekele</item>
+  </plurals>
+  <plurals name="notification_syncing_title">
+    <item quantity="other">bonyeni=Daaloodiŋ %1$d atekele...</item>
+  </plurals>
+  <plurals name="notification_syncing_description">
+    <item quantity="other">bonyeni=%1$d atekele kyɛre</item>
+  </plurals>
   <string name="notification_echo_channel_description">Wikipiideɛ teɛre ma</string>
   <string name="notifications_activity_title">teɛre ma</string>
   <string name="notifications_activity_title_archived">teɛre ma mine (nyɛ boɔbo)</string>
@@ -620,6 +631,9 @@
   <string name="description_edit_tutorial_button_label_start_editing">Piili gampɛle maaloo</string>
   <string name="customize_toolbar_category_toolbar">Tuulbaa</string>
   <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="suggested_edits_describe_articles">Manne atekelehi</string>
+  <string name="suggested_edits_caption_images">Caption enfuomo</string>
+  <string name="suggested_edits_tag_images">Tag enfuomo</string>
   <string name="suggested_edits_edit_patrol_review">Leɛkaa</string>
   <string name="suggested_edits_review_description">Leɛkaa aatekel mannoo</string>
   <string name="suggested_edits_add_description_button">Paahi mannoo</string>
@@ -636,8 +650,10 @@
   <string name="suggested_edits_task_add_description_title">Eŋ Aatekel mannoo</string>
   <string name="suggested_edits_task_image_caption_title">paahi enfuo caption</string>
   <string name="suggested_edits_task_translate_caption_title">Leɛre enfuo caption</string>
+  <string name="suggested_edits_task_multilingual_negative">n boŋ naane</string>
   <string name="suggested_edits_task_multilingual_positive">Poɔ kɔkɔɛ</string>
   <string name="suggested_edits_image_caption_summary_title_image">Enfuoni</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Artist</string>
   <string name="suggested_edits_image_caption_summary_title_author">Gansɛgera</string>
   <string name="suggested_edits_image_caption_summary_title_source">Yizie</string>
   <string name="suggested_edits_image_caption_summary_title_license">Sori terebo</string>
@@ -655,7 +671,9 @@
   <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
   <string name="suggested_edits_image_preview_dialog_tags">Tags</string>
   <string name="suggested_edits_image_preview_dialog_date">Bebiri</string>
+  <string name="suggested_edits_image_preview_dialog_source">Yizie/fotoŋmaara</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Sori teroo</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">duori yaga</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">boŋ pegi naŋ wikipiideɛ commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">boŋ pegi naŋ wikipiideɛ commons</string>
   <string name="suggested_edits_article_cta_image_tags">paahi enfuo tags</string>
@@ -680,6 +698,8 @@
   <string name="suggested_edits_quality_excellent_text">Garebanyɛ</string>
   <string name="suggested_edits_quality_very_good_text">fo mɔɔ yɛ la yaga</string>
   <string name="suggested_edits_quality_good_text">fo mɔɔ yɛ la</string>
+  <string name="suggested_edits_quality_okay_text">Tɔɔ</string>
+  <string name="suggested_edits_quality_sufficient_text">a sigeɛɛŋ</string>
   <string name="suggested_edits_quality_bad_text">Ba soma</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="other">bonyeni=1 sommo toma</item>
@@ -704,19 +724,54 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Zaameŋ</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
   <string name="suggested_edits_contribution_type_image_tag">Enfuo tag</string>
+  <string name="suggested_edits_report_suggestion">Tere duoro</string>
+  <string name="suggested_edits_suggestion_report_submitted">Duoro terɛɛ la</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="other">boŋyeni=%1$s mage bone</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="other">boŋyeni=%1$s character</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">You removed %d character</item>
+    <item quantity="other">Fo iri la %d sɛgere bie</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">You added %d character</item>
+    <item quantity="other">Fo paale la %d sɛgere bie</item>
+  </plurals>
+  <string name="suggested_edits_image_recommendations_task_title">Atekele enfuomo</string>
   <string name="image_recommendation_accept">Ɔɔ</string>
   <string name="image_recommendation_reject">Aayi</string>
+  <string name="image_recommendation_notsure">Ba sage di baare</string>
+  <string name="image_recommendation_reject_title">Boŋ zuiŋ?</string>
+  <string name="image_recommendation_tooltip_next">Gaŋene</string>
+  <string name="edit_summary_added_image">enfuo paahɛɛŋ</string>
+  <string name="edit_summary_added_caption">paahi Caption</string>
+  <string name="edit_published_view">Yuo kaa</string>
+  <string name="file_page_activity_title">Gampɛle yuori</string>
+  <string name="file_page_add_image_caption_button">paahi enfuo caption</string>
+  <string name="file_page_add_image_tags_button">paahi enfuo tags</string>
+  <string name="file_page_edit_button_content_description">Maale %s eŋ</string>
+  <string name="description_edit_revert_subtitle">Bareka ne fo maale emmo ne Wikipiideɛ!</string>
   <string name="description_edit_login_cancel_button_text">Ŋmaa o</string>
+  <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">gaŋ bare</string>
   <string name="onboarding_continue">Naŋ gɛrɛ</string>
   <string name="onboarding_get_started">De piiloŋ</string>
   <string name="onboarding_maybe_later">Abeyaga wɔgre kaŋa</string>
+  <string name="onboarding_got_it">Nyɔge la</string>
+  <string name="onboarding_multilingual_secondary_text">Te nyɛ la a ama a fo taŋgaraa zu:</string>
+  <string name="onboarding_multilingual_add_language_text">Paahi bee maale e kɔkɔɛ</string>
+  <string name="app_shortcuts_random">Bonne iri</string>
   <string name="app_shortcuts_continue_reading">Kyoge kanna gɛrɛ</string>
   <string name="app_shortcuts_search">Bɔ</string>
   <string name="on_this_day_card_title">Zinɛ bebiri</string>
   <string name="events_count_text">%1$s yɛlɛ a yi %2$s–%3$d</string>
   <string name="this_year">a yuoni ŋa</string>
+  <string name="on_this_day_dialog_next_month">Kyuu na naŋ waana</string>
+  <string name="on_this_day_dialog_previous_month">Kyuu na naŋ pare</string>
   <plurals name="diff_years">
     <item quantity="one">yuoni naŋ pare</item>
     <item quantity="other">%d yuomo naŋ pare</item>
@@ -730,6 +785,7 @@
   <string name="wikipedia_languages_add_language_text">Paahi kɔkɔre</string>
   <string name="wikipedia_languages_remove_text">Iri Kɔkɔre bare</string>
   <string name="wikipedia_languages_remove_action_mode_title">Iri Kɔkɔre bare</string>
+  <string name="wikipedia_languages_remove_warning_dialog_title">Koŋ baŋ iri a kɔkɔɛ zaa</string>
   <string name="more_language_options">Yaga</string>
   <string name="add_wikipedia_languages_text">Paahi Wikipiideɛ kɔkɔɛ</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Poɔ kɔkɔɛ</string>
@@ -766,7 +822,25 @@
   <string name="insert_media_search_hint">Bɔ medeɛ</string>
   <string name="insert_media_settings_uploaded_image">Aploodi enfuoni</string>
   <string name="insert_media_settings_caption">Enfuo Caption</string>
+  <string name="insert_media_advanced_settings_image_position_right">Duloŋ</string>
+  <string name="insert_media_advanced_settings_image_position_left">Gɔɔ</string>
+  <string name="insert_media_advanced_settings_image_position_center">Soga</string>
+  <string name="insert_media_advanced_settings_image_position_none">Ka zaa naane</string>
+  <string name="insert_media_advanced_settings_image_type">Enfuo pare</string>
+  <string name="insert_media_advanced_settings_image_type_thumbnail">Bondemanna</string>
+  <string name="insert_media_advanced_settings_image_type_frameless">Bon-yaga</string>
+  <string name="insert_media_advanced_settings_image_type_frame">Maaloo</string>
+  <string name="insert_media_advanced_settings_image_type_basic">Piiloŋ</string>
+  <string name="insert_media_advanced_settings_image_size">Enfuomo semmo</string>
+  <string name="insert_media_advanced_settings_image_size_default">Meŋɛ leɛbu</string>
+  <string name="insert_media_advanced_settings_image_size_custom">Yipɔge</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">Fɔɔlaa yaloŋ</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">Wogiroŋ</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
+  <string name="insert_media_insert_button">De eŋ</string>
+  <string name="main_drawer_help">Soŋ</string>
   <string name="main_drawer_login">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
+  <string name="main_tooltip_text">Hi %s, fo baŋ ka neɛzaa na baŋ maale la Wikipiideɛ eŋ?</string>
   <string name="main_tooltip_action_button">De piiloŋ</string>
   <string name="main_tooltip_watchlist_title">Kaa gama</string>
   <string name="custom_date_picker_dialog_ok_button_text">Tɔɔ</string>
@@ -777,7 +851,59 @@
   <string name="talk_user_title">Yeli: %s</string>
   <string name="talk_new_topic">yelzu paalaa</string>
   <string name="talk_warn">Kpaaŋ</string>
+  <string name="talk_warn_save_dialog_publish">De yineŋ gbamgbale</string>
+  <string name="talk_warn_save_dialog_cancel">Ŋmaa o</string>
+  <string name="talk_add_reply">Leɛ sagbo</string>
+  <string name="talk_reply_subject">Yelzu</string>
+  <string name="talk_message_hint">Sɛge duoro</string>
+  <string name="talk_snackbar_undo">Leɛ iri a toma na bare</string>
+  <string name="talk_last_modified">&lt;b&gt;Maale e naŋ pare %1$s&lt;/b&gt; by %2$s</string>
+  <string name="talk_snackbar_survey_action_text">De piiloŋ</string>
+  <string name="talk_list_item_overflow_subscribe">Sage la</string>
+  <string name="talk_list_item_overflow_subscribed">Sagɛɛ la</string>
+  <string name="talk_list_item_overflow_mark_as_read">Tɔ aŋa ba naŋ kanne</string>
+  <string name="talk_list_item_overflow_mark_as_unread">Tɔ la aŋa ba naŋ ba kanne</string>
+  <string name="talk_list_item_overflow_share">De ko</string>
+  <string name="talk_list_item_swipe_mark_as_read">Kanne</string>
+  <string name="talk_list_item_swipe_mark_as_unread">Ba kanne</string>
+  <string name="menu_option_share_talk_discussion">po dɛmmo diibo ko</string>
+  <string name="menu_option_user_contributions">%s Tontona toma</string>
+  <string name="menu_option_edit_source">Maaleŋ e ayizie</string>
+  <string name="menu_option_user_page">%s tontona gampɛle</string>
+  <string name="watchlist_details_watching_label">Kaara</string>
+  <string name="watchlist_details_watch_label">Kaa</string>
+  <string name="watchlist_details_prev_edit">Ama naŋ daŋ maale eŋ</string>
+  <string name="thank_label">Bareka</string>
+  <string name="thank_dialog_title_text">Gbaŋgbale toͻlebo \'Bareka\'</string>
+  <string name="thank_dialog_positive_button_text">toɔle Bareka</string>
+  <string name="thank_dialog_negative_button_text">Ŋmaa o</string>
+  <string name="thank_success_message">Fo \'bareka\' da toͻle  gaa %s👍</string>
+  <string name="menu_option_view_user_talk">Kaa yeki gampɛle</string>
+  <string name="revision_diff_compare">Manne taa leԑkaabo</string>
+  <string name="revision_diff_compare_title">Manne taa leԑkaabo: %s</string>
+  <string name="revision_diff_from">A yi:</string>
+  <string name="revision_diff_to">ko:</string>
+  <string name="revision_compare_button">Tag-lantaa kaa nyɛ</string>
+  <string name="revision_compare_two_only">Boma ayi yoŋ la baŋ baŋ iri</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_action">kyili</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">a ko dagbuli yeni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">a ko kyuu yeni</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">a ko kyuuri ata</string>
+  <string name="watchlist_page_add_to_watchlist_snackbar_period_for_six_months">a ko kyuuri ayɔɔbo</string>
+  <string name="watchlist_expiry_dialog_permanent">Kpi maroo</string>
+  <string name="watchlist_expiry_dialog_one_week">daagbuli yeni</string>
+  <string name="watchlist_expiry_dialog_one_month">Kyu yeni</string>
+  <string name="watchlist_expiry_dialog_three_months">Kyuuri ata</string>
+  <string name="watchlist_expiry_dialog_six_months">Kyuuri ayoɔbo</string>
+  <string name="watchlist_filter_all">Zaa</string>
+  <string name="watchlist_filter_talk">Yeli</string>
+  <string name="watchlist_filter_pages">Gampɛlɛ</string>
+  <string name="watchlist_filter_other">Mine</string>
+  <string name="watchlist_page_moved">Sɛre</string>
+  <string name="watchlist_page_deleted">Sãã bare</string>
   <string name="watchlist_filter_title">Kaanyaabo yeltontutaa bonkyoɔraa</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
+  <string name="watchlist_filter_all_text">Zaa</string>
   <string name="watchlist_filter_watchlist_activity_header">Kaanyaabo yeltontutaa yel-erre</string>
   <string name="watchlist_filter_contribution_quality_may_problems">Na baŋ taa la yelwonni</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">Na baŋ taa la yelwonni</string>
@@ -797,6 +923,22 @@
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikiyelpeɛre binni sɛgeroo</string>
   <string name="watchlist_search_bar_filter_hint">Kaanyaabo yeltontutaa bonkyoɔraa</string>
   <string name="watchlist_number_of_filters">{{YAGEROŊ|one=%d kyoɔraa|%d kyoɔre}}</string>
+  <string name="talk_templates_new_message_title">Masɛgye paalaa</string>
+  <string name="talk_templates_new_message_description">Maale kpaannoo masɛgye.</string>
+  <string name="talk_templates_new_message_subject_hint">Bɔgere</string>
+  <string name="talk_templates_new_message_compose_hint">Kuri masɛgye</string>
+  <string name="talk_templates_new_message_save">Biŋ</string>
+  <string name="talk_templates_new_message_dialog_title">Biŋ tɛgere</string>
+  <string name="talk_templates_new_message_dialog_description">Paale yelzu kyɛ biŋ a masɛgye.</string>
+  <string name="talk_templates_new_message_dialog_hint">Masɛgye yelzu</string>
+  <string name="talk_templates_new_message_dialog_save">Biŋ</string>
+  <string name="talk_templates_new_message_dialog_cancel">Leɛ bare</string>
+  <string name="talk_templates_new_message_dialog_exists">Tɛmplat \"%s\" daŋ bebe la.</string>
+  <string name="talk_templates_new_message_saved">A masɛgye biŋɛɛ la</string>
+  <string name="talk_templates_edit_message_dialog_title">Maale masɛgye eŋ</string>
+  <string name="talk_templates_edit_message_dialog_save">Biŋ</string>
+  <string name="talk_templates_edit_message_dialog_delete">Sãã bare</string>
+  <string name="talk_templates_edit_message_updated">Masɛgye apdeeti la</string>
   <string name="talk_templates_menu_remove_message">Iri mɛsɛgye</string>
   <plurals name="talk_templates_message_delete_description">
     <item quantity="one">Are you sure you want to delete the message from the list?</item>
@@ -806,4 +948,6 @@
     <item quantity="one">Message has been deleted</item>
     <item quantity="other">Mɛsɛgyere sãã yɛ la</item>
   </plurals>
+  <string name="talk_templates_message_title_empty">A yelzu koŋ baŋ e kpale.</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Bareka</string>
 </resources>
