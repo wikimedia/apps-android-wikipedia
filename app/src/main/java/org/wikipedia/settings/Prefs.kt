@@ -567,9 +567,9 @@ object Prefs {
 
     var customizeToolbarMenuOrder: List<Int>
         get() {
-            val currentList = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_menu_order, null))
-                    ?: PageActionItem.DEFAULT_OVERFLOW_MENU_LIST
-            return currentList.union(PageActionItem.DEFAULT_OVERFLOW_MENU_LIST).toList()
+            val notInToolbarList = PageActionItem.DEFAULT_OVERFLOW_MENU_LIST.subtract(customizeToolbarOrder.toSet())
+            val currentList = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_menu_order, null)) ?: notInToolbarList
+            return currentList.union(notInToolbarList).toList()
         }
         set(orderList) = PrefsIoUtil.setString(R.string.preference_key_customize_toolbar_menu_order, JsonUtil.encodeToString(orderList))
 
