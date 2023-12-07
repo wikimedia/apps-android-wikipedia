@@ -3,6 +3,7 @@
 * AFAIBRAHIM
 * Alhassan Peter
 * Cooltey
+* Dbrant
 * IBS-Gh
 -->
 <resources>
@@ -312,6 +313,7 @@
   <string name="preference_summary_show_images">Nyɔma bee di nyɔ zaŋ n-ti yaɣili ŋɔ anfooni nima yihibu na. Dihi yihili di yi niŋ ka a internet dii bi valima bee a yi ŋmaai a data dibu ka di mali tariga</string>
   <string name="preference_title_download_only_over_wifi">Vooma n-yi gɔhi Wi-Fi ko</string>
   <string name="dialog_title_download_only_over_wifi">Saɣiti ka di zaŋ a nuchɛbaŋa da n yaai li</string>
+  <string name="dialog_text_download_only_over_wifi">A kpatuɣa malizali ni a dihi mi nyo ka dama a ku \"vooi binshɛli naɣila a ti gbubla Wi-Fi pɔhim zaɣu\". A bori ni a zaŋ a nuchɛbaŋ dɛɛta vooi ŋɔ ko?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Saɣima</string>
   <string name="read_more_section">Karim pahi</string>
   <string name="about_article_section">Zaŋ kpa lahabali ŋɔ polo</string>
@@ -431,7 +433,7 @@
   <string name="preference_summary_color_theme">dihi taɣi ko\'shɛli din zimsa n-ti a app maa puuni kom maa</string>
   <string name="text_size_increase">pahimi sabbu barilim</string>
   <string name="text_size_decrease">filimmi sabbu barilim</string>
-  <string name="text_size_percent_default">%s (maŋ gahim piigi)</string>
+  <string name="text_size_percent_default">%s (Maŋmaŋ biɛhigu)</string>
   <string name="text_style_title">Bachikoba barilim</string>
   <string name="theme_category_reading">karimbu</string>
   <string name="theme_category_editing">Mali niŋda</string>
@@ -583,7 +585,7 @@
     <item quantity="one">Lahabali ŋɔ nyɛla din bi lahi yɛn beni a yi bi du pɔhim zuɣu.</item>
     <item quantity="other">Lahabaya ŋɔ nyɛla din bi lahi yɛn beni a yi bi du pɔhim zuɣu.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Yu-karinda zaŋkpehi tabi ni</string>
+  <string name="reading_list_toast_last_sync">Yu-karinda zaŋya goli taba</string>
   <string name="reading_list_menu_last_sync">Bahigu zaŋkpehi tabi ni: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Tɔ</string>
   <string name="reading_list_delete_dialog_ok_button_text">Tɔ</string>
@@ -724,8 +726,7 @@
   <string name="notifications_filter_update_app_languages">Pahimi app zuɣu zuliyanima</string>
   <string name="notifications_empty_search_message">Mɔmi yihi %s ka nya tikuma lahabaya din pahi</string>
   <plurals name="notifications_number_of_filters">
-    <item quantity="one">%d jɛhima</item>
-    <item quantity="other">%d jɛhima</item>
+    <item quantity="other">yini=%d jɛhima</item>
   </plurals>
   <string name="notifications_select_all_filters">Dihi piigi n-jɛhi di zaa</string>
   <string name="notifications_tab_filter_all">Zaa</string>
@@ -739,7 +740,7 @@
   <string name="notifications_menu_check_all">Dihimi biyɛra maa zaa zuɣu</string>
   <string name="notifications_menu_uncheck_all">Dihi yihi binshɛlikam zuɣu</string>
   <string name="notifications_wiki_filter_header">Wiki jɛhibu</string>
-  <string name="notifications_type_filter_header">A ni bori jɛhiri shɛli</string>
+  <string name="notifications_type_filter_header">jɛhibu pubu</string>
   <string name="notifications_all_wikis_text">\"Wiki\" zaa</string>
   <string name="notifications_all_types_text">\"Balli kaa\" zaa</string>
   <string name="notifications_menu_user_talk_page">%s\'s yɛltɔɣa yaɣili</string>
@@ -828,6 +829,8 @@
   <string name="description_edit_voice_input_description">Kukɔli lahabali kpɛhibu</string>
   <string name="description_edit_learn_more">Bohimmi pahi zaŋkpa atikil buɣisibu lahabalinima polo</string>
   <string name="description_edit_image_caption_learn_more">Bohammi baŋsim zaŋkpa anfooni yuli tibu m-pahi</string>
+  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Sabbu maa ji n-yaɣi.</string>
   <string name="description_ends_with_punctuation">Sabbu maa bi tu ni di naai ni maliniŋ bia.</string>
   <string name="description_starts_with_uppercase">piligimli ni bachikobbila naɣila di tuuli bachi maa nyɛla yuli bachinamdimaŋli.</string>
@@ -858,6 +861,7 @@
   <string name="customize_toolbar_title">Malimi a tuulbaa zali a ni borili shɛm</string>
   <string name="customize_toolbar_shortcut_description_text">Malimi tuulbaa shɛli din do gbunni maa niŋ a ni borili shɛm ni soŋmahi anu a ni nya ka shɛli mali sɔŋsim pam</string>
   <string name="customize_toolbar_category_toolbar">Tuulbaa</string>
+  <string name="customize_toolbar_category_menu">Mɛnu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Vuumi a suhu ni yu binshɛli n-kpɛhi kpɛ 👋</string>
   <string name="customize_toolbar_reset_to_default_button">Labisimli di ni pun be shɛm</string>
   <string name="customize_toolbar_item_drag_handle_default_tooltip">Dihimi vuubu bii maa zuɣu n-tooi kpuɣili</string>
@@ -868,7 +872,7 @@
   <string name="suggested_edits_edit_patrol">Maliniŋnima lihibu</string>
   <string name="suggested_edits_edit_patrol_hint">Labilihi maliniŋnima din na yoli niŋ ka zahim nya di chaŋya nyam bee di bi chaŋ</string>
   <string name="suggested_edits_edit_patrol_review">Labilihi</string>
-  <string name="suggested_edits_review_description">Labilihi atikil buɣisibu lahabali</string>
+  <string name="suggested_edits_review_description">Labi lihi atikil buɣisibu lahabali</string>
   <string name="suggested_edits_add_description_button">Pahami buɣisibu lahabali</string>
   <string name="suggested_edits_edit_description_button">Malimi buɣisibu lahabali n-niŋ</string>
   <string name="suggested_edits_add_translation_button">Zaŋmi lɛbigibu pahi</string>
@@ -944,6 +948,7 @@
   <string name="suggested_edits_image_tags_select_text">Lahabalilora shɛŋa a ni piigi ko n-yɛn zaŋpahi anfooninima zuɣu. Lahabalilora shɛŋa a ni bi piigi nyɛla din yɛn deei maakibu din wuhiri zaɣisibu. A dihitabili ni a bori ni a ti di zaa maakibu din wuhiri zaɣisibu?</string>
   <string name="suggested_edits_image_tags_add_tag">Pahami anfooni lobu lahabali</string>
   <string name="suggested_edits_image_tags_exit_dialog_message">Anfooni lobu lahabali shɛŋa a ni bi zaŋ wuhi salo pala din yɛn gu n-zali</string>
+  <string name="suggested_edits_image_zoom_tooltip">Mirisim anfooni ŋɔ zuɣu ka di yɛligi</string>
   <string name="suggested_edits_encouragement_message">%s, Mbo nfaan ni a maliniŋ. Sɔya pam n-do gbunni ŋɔ anni tooi doli shɛli tohi n-niŋ Wikipedia puuni.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Mma bia! %s&lt;/b&gt;, yulimi gbunni ŋɔ a ni nya soya dinnye kaliŋ ni asama ka a ni tooi doli n-sɔŋ kpaŋsi Wikipedia. A ni nya kpaŋmaŋa shɛli a ni niŋdi maa nyindee yi piligi. A suhupiɛlli m-bɔŋɔ maliniŋ puuni!</string>
   <string name="suggested_edits_image_captions_task_detail">Buɣisim anfooni ka di sɔŋ lahabali karindiba ka bɛ tooi gbaai anfooni maa daliri ni din tiri lahabali shɛli.</string>
@@ -956,6 +961,7 @@
   <string name="suggested_edits_disabled_message">Malinin sɔŋsim lahabaya kpihimya. Dimsuɣulo %s, a ni yoli tohi shɛŋa maa pam nyɛla bɛ ni labisi shɛli.</string>
   <string name="suggested_edits_ip_blocked_message">Di ŋmanila a IP adrɛɛs maa (bee dipahila IP adrɛɛsinima laasabu) din na kpari ka ku tooi niŋ maliniŋ Wikipedia zuɣu.</string>
   <string name="suggested_edits_gate_message">Dimsuɣulo, %s, di kpala talahi ni a niŋ maliniŋ kamani dibaata zuɣu pɔi ka ni tooi nya soli zaŋ ŋɔ n-tum tuma</string>
+  <string name="suggested_edits_editing_tips_link_text">Maliniŋ so\'ŋmahi ni di yɛmgɔlinsi</string>
   <string name="suggested_edits_help_page_link_text">Maliniŋ sɔŋsim lahabaya yaɣili</string>
   <string name="suggested_edits_edit_streak_label_text">Maliniŋ din doli taba</string>
   <string name="suggested_edits_views_label_text">Niriba nyabu</string>
@@ -1003,6 +1009,7 @@
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="other">yini=a pahila %d anfooni lobu lahabaya</item>
   </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Sohila</string>
   <string name="suggested_edits_encourage_account_creation_title">Amii ami ni sokam ni too niŋ maliniŋ Wikipedia zuɣu?</string>
   <string name="suggested_edits_encourage_account_creation_message">Maliniŋ sɔŋsim lahabaya yibuna nyɛla Wikipedia maliniŋ so\'palli Android nuchɛ\'baŋ puuni. Di sɔŋdi ka a tooi tohira n-niŋdi maliniŋnima dim bi galisi ka lee mali anfaani zaŋti Wikipedia.\n\nTi niya nyɛla ti chɛ ka maliniŋ niŋ asama ka sokam ni tooi paaili niŋ! Kpɛma n-pahi Wikipedia nim\' zuɣu n-piligi.</string>
@@ -1075,12 +1082,15 @@
   <string name="description_edit_login_cancel_button_text">Nyahima</string>
   <string name="offline_read_permission_rationale">Di kpala talahi ni a ti soli zaŋchaŋ a ni sɔŋdi a lahabaya luɣishɛli poi ka ni tooi karim lahabaya ka ka pɔhim zuɣu.</string>
   <string name="offline_read_final_rationale">Di kpala talahi ni a ti soli zaŋchaŋ a ni sɔŋdi a lahabaya luɣishɛli poi ka ni tooi karim lahabaya din be kundinima duu ŋɔ ni ka pa pɔhim zuɣu.</string>
+  <string name="size_gb">%.2f GB</string>
+  <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">Yaɣima</string>
   <string name="onboarding_continue">Tuɣima</string>
   <string name="onboarding_get_started">Piligima</string>
   <string name="onboarding_maybe_later">Dii pa shɛli saha shɛli yaha</string>
   <string name="onboarding_explore_title">So\'pala shɛŋa anni tooi doli yuli</string>
-  <string name="onboarding_reading_list_sync_title">Yu-karinda din gohi taba</string>
+  <string name="onboarding_explore_text">Sirigim n-kpɛ Wikipedia sooŋa laasabu vali ŋɔ ni n-nya anfooni lahabaya din doli taba. &lt;br/&gt; &lt;b&gt;taɣi doli a suhuyurilim&lt;/b&gt; anfooninima lahabaya a ni borili shɛm - di lee nyɛla bohambu zaŋ chaŋ kurumbuna ni niŋsim &lt;b&gt;din jɛndi dabisili ŋɔ&lt;/b&gt;, bee ka a biligi ludu bia laasabu maa buyi &lt;b&gt;Sahasaha&lt;/b&gt;.</string>
+  <string name="onboarding_reading_list_sync_title">Yu-karinda din goli taba</string>
   <string name="onboarding_reading_list_sync_text_v2">A ni tooi mɛ yu-karinda n-ti hali atikil shɛna a ni yɛn karim saha sheli ha, hali a yi na ka pɔhim zuɣu gba. &lt;br/&gt;Kpɛmi a Wikipedia akawnti ni n-ti zaŋ a yu-karinda gohi taba. &lt;a href=\"#login\"&gt;Pahami Wikipedia nim\' zuɣu&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Zaŋmi lahabali n-ti ashiloni</string>
   <string name="onboarding_analytics_offline_text">Chɛ ka ti baŋ a ni mali app maa tumdi tuma shɛm din ni sɔŋ viɛligi app maa. Ti ni dee lahabali shɛli yɛn nyɛla ashiloni. &lt;a href=\"#privacy\"&gt;bohammi pahi&lt;/a&gt;</string>
@@ -1107,7 +1117,7 @@
   <string name="on_this_day_back_to_future">Labimi tooni polo</string>
   <string name="languages_list_activity_title">Pahimi balli</string>
   <string name="languages_list_suggested_text">Buɣisi ti</string>
-  <string name="languages_list_all_text">Zuliya yɛltɔɣa zaa</string>
+  <string name="languages_list_all_text">Bala zaa</string>
   <string name="wikipedia_languages_title">Wikipedia zuɣu bala</string>
   <string name="wikipedia_languages_your_languages_text">A bala</string>
   <string name="wikipedia_languages_add_language_text">Pahimi balli</string>
@@ -1120,7 +1130,9 @@
   <string name="wikipedia_languages_remove_warning_dialog_title">A ku tooi yihi bala maa zaa</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">Chɛli kamani zuliya yini ani tooi mali shɛli vihiri karindi lahabaya Wikipedia zuɣu</string>
   <string name="more_language_options">Pahima</string>
-  <string name="add_wikipedia_languages_text">Pahami Wikipedia zuɣu zuliyanima</string>
+  <string name="add_wikipedia_languages_text">Pahami Wikipedia zuɣu bala</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Yihimi Chaanasili niŋsim a app maa bala puuni?</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Saha ŋɔ a na malila bini dingbaai Chaanasili kali niŋsim ni din ŋmani li a app maa bala puuni. Maalini a app bala malizali kpatuɣa yaɣili niŋ?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Malimi bala niŋ</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Aayi, mbo</string>
   <string name="remove_language_dialog_cancel_button_text">Nyahima</string>
@@ -1141,6 +1153,7 @@
   <string name="wikitext_sub">Bia din do gbunni</string>
   <string name="wikitext_large">Sab\'karili</string>
   <string name="wikitext_small">Sabbu dinpora</string>
+  <string name="wikitext_code">Cɔɔdima</string>
   <string name="wikitext_link">Linki</string>
   <string name="wikitext_heading_n">Lahabali zuɣu din paya %d</string>
   <string name="wikitext_formatting">Nachiinsi dihibu</string>
@@ -1179,6 +1192,7 @@
   <string name="insert_media_advanced_settings_image_size_custom">Kali</string>
   <string name="insert_media_advanced_settings_image_size_custom_width">yɛliŋ</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">Waɣilim</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Zaŋ kpɛhi</string>
   <string name="main_drawer_help">Bɔmi sɔŋsim</string>
   <string name="main_drawer_login">kpɛmi Wikipedia puuni/pahimi Wikipedia nim\' zuɣu</string>
@@ -1254,7 +1268,7 @@
   <string name="talk_list_item_user_icon_content_description">ŋun su yaɣili bia</string>
   <string name="talk_list_item_swipe_mark_as_read">Karimma</string>
   <string name="talk_list_item_swipe_mark_as_unread">Dina bi karim</string>
-  <string name="talk_login_to_subscribe_dialog_title">Kpɛma n-zaŋ amaŋa m-pahi a ni bori yɛtɔɣikpana shɛŋa lahabali puuni</string>
+  <string name="talk_login_to_subscribe_dialog_title">Kpɛma n-zaŋ amaŋa m-pahi a ni bori yɛtɔɣikpana shɛŋa lahabaya puuni</string>
   <string name="talk_login_to_subscribe_dialog_content">Yɛltɔɣikpana piigi zaŋ amaŋa m-pahi nyɛla din ni ti a soli ka a nya tɔɣinonima zaŋkpa di polo. Dimsuɣulo yoomi akawnti bee ka a kpɛ a Wikipedia akawnti ni n-ti piigi zaŋ a maŋa pahi lahabalikpani shɛli a ni bora.</string>
   <string name="talk_archived_title">Yɛltɔɣa gun n-sɔɣi: %s</string>
   <string name="menu_option_share_talk_discussion">Tarimi saawara gbaabu</string>
@@ -1293,7 +1307,7 @@
   <string name="revision_diff_line_removed">Kuligi yihiya</string>
   <string name="revision_diff_paragraph_added">Sabbu jilli pahiya</string>
   <string name="revision_diff_paragraph_removed">Sabbu jilli yihiya</string>
-  <string name="revision_diff_protected">Taɣiri shɛli dinniŋ teebu ŋɔ puuni nyɛla sala ni ku tooi nya shɛli</string>
+  <string name="revision_diff_protected">Taɣiri shɛli dinniŋ teebu ŋɔ puuni nyɛla salo ni ku tooi nya shɛli</string>
   <string name="revision_undo_title">A dihitabili ni a bori ni a bi lan niŋ maliniŋ ŋɔ?</string>
   <string name="revision_undo_message">A bilanniŋ malinin wuhirimi ni a maliniŋ zaɣyini bee dingari laa nyɛla din yɛn labisi?</string>
   <string name="revision_undo_summary_hint">Lahabali kɔlivaai jia (Di pa talahi)</string>
@@ -1313,6 +1327,7 @@
   <string name="watchlist_page_removed_from_watchlist_snackbar">%s mini di yɛltɔɣa yaɣili nyɛla din yihi a ni yuuni yu-shɛŋa ni.</string>
   <string name="watchlist_expiry_dialog_title">Dihi piigi yu-lihira saha tariga</string>
   <string name="watchlist_expiry_dialog_permanent">kpalinkpaa</string>
+  <string name="watchlist_expiry_dialog_one_week">bakɔi yini</string>
   <string name="watchlist_expiry_dialog_one_month">chiri yini</string>
   <string name="watchlist_expiry_dialog_three_months">chirili dibaa ata</string>
   <string name="watchlist_expiry_dialog_six_months">chirili dibaa ayɔbu</string>
@@ -1326,6 +1341,7 @@
   <string name="watchlist_page_protected">Di gumi</string>
   <string name="watchlist_page_deleted">Nyahiya</string>
   <string name="watchlist_filter_title">Din jehiri a ni lihiri yu-shɛli</string>
+  <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">Di zaa</string>
   <string name="watchlist_filter_watchlist_activity_header">a ni lihiri yu-shɛli niŋsimnima</string>
   <string name="watchlist_filter_watchlist_activity_unseen">Taɣibu din bi nya</string>
@@ -1427,4 +1443,113 @@
   <string name="talk_templates_edit_message_dialog_delete">Nyahima</string>
   <string name="talk_templates_edit_message_updated">Lahabali maa malizali</string>
   <string name="talk_templates_menu_remove_message">Yihimi lahabali</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="other">yini=A dihitabili ni a bori ni a nyahi lala lahabali maa yuya maa puuni?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="other">yini=lahabali nyahiya</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Di yuli maa shɛɛ ku tooi ka binshɛɣu.</string>
+  <string name="patroller_tasks_edits_list_title">Maliniŋ nima pɛ n-doli taba</string>
+  <string name="patroller_tasks_edits_list_search_hint">vihima bee jɛhimi mali niŋ nima</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Lobu lahabaya: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Kadi shɛli</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Lihimi zaŋ jɛndi ŋun su yaɣili</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">lihimi yɛltɔɣa yaɣili</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Lahabali din jɛndi ŋun su yuli</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Yulimi ŋun su yaɣili tohibunima</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Mbo</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Lahabali din jɛndi ŋun su yuli</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Akawnti din gbaai: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Maliniŋ kainli: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Kparima</string>
+  <string name="patroller_tasks_filters_title">Jɛhima</string>
+  <string name="patroller_tasks_filters_reset">N nyehi ŋili ŋili</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_all_text">Di zaa</string>
+  <string name="patroller_tasks_filters_user_status_header">ŋun su yagili zaŋ kpɛhi ni o milinsi</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">O bi kpɛ</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Maliniŋlaanima ban bɛ kpɛ.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Bi zaŋ o kpɛhi</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Maliniŋlaanima ban kpɛ.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Bannayoli kpɛ</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Ban kpɛ maliniŋ puuni ka bɛ maliniŋ kalinli bɛ yaɣi pia din gbaai dabisa anahi tumbu</string>
+  <string name="patroller_tasks_filters_user_status_learners">bannabohinda</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Ban kpɛ maliniŋ puuni ka bɛ maliniŋ milinsi do kamani \"banyolikpɛ\" mini \"ban milinsi ziligi\" sunsuuni</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Ban milinsi ziligi</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Ban kpɛ maliniŋ puuni ka bɛ maliniŋ kalinli yaɣi 500 din gbaai biɛɣu-pihita tumbu</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Mali sabi din ku yoli niŋ</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Mali sabi din yoli niŋ</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ka mali sabi din yoli niŋ</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Maʒini tohibunima</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Niŋdi n-toli maʒini</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Ninsala (ka maʒini)</string>
+  <string name="patroller_tasks_filters_significance_header">Di daanfaani</string>
+  <string name="patroller_tasks_filters_significance_minor">Maliniŋ din bi galisi</string>
+  <string name="patroller_tasks_filters_significance_edits">Din pa maliniŋ din bi galisi</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Tohibu dariza buɣisi ti</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Dini tooi nyɛla din viɛla</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Din nyɛ dede ni achiika ka too vihiri baŋdi maliniŋ nima din lan ka yɛlmugisirili</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Dini tooi nyɛla din mali yɛlmuɣisira</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Di too vihiri baŋdi maliniŋ nima din ka nini bee din wurindi lahabali ka lee dii bi tuhi dede</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Dini tooi mali zilisigu zaŋ chaŋ yɛlmuɣisira</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Di dede baŋbu bela sunsuuni, ka too vihiri baŋdi maliniŋ nima din mali yɛlmuɣisira din saɣisi</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Dini tooi mali zilisigu pam zaŋ chaŋ di yɛlmuɣisira polo</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Din nyɛ dede ni achiika ka too vihiri baŋdi maliniŋ nima din kpɛ yɔɣu bee din wurindi lahabali.</string>
+  <string name="patroller_tasks_filters_user_intent_header">ŋun su yaɣili zaɣa buɣisi ti</string>
+  <string name="patroller_tasks_filters_user_intent_good">Di ni tooi nyɛ zaɣisuŋ paa</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Din nyɛ dede ni achiika ka too vihiri baŋdi maliniŋ nima din zaɣisuntali ka zaŋ buɣisi</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Di yi pa shɛli zaɣibiɛɣu</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Di too vihiri baŋdi maliniŋ nima din nyɛ saɣingu dini di dede lee pɔra.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Di ni tooi dii pa zaɣibiɛɣu</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Di dede baŋbu bela sunsuuni, ka too vihiri baŋdi maliniŋ nima din mali yɛlmuɣisira din saɣisi.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Di ni tooi nyɛ zaɣibiɛɣu pam</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Di nyɛla dede ni achiika ka too vihiri baŋdi maliniŋ nima din yi polo ni saɣingu.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Mɔmi yihi %s a ni nya maliniŋ din pahi</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="other">yini=%d jɛhima</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_title">Maliniŋ go n-kaai</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Atikil maliniŋ din pun gari lahabali</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Di labisili din pun be shɛm naai</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">A dihitabili ni a bori ni a labisi niŋ maliniŋ ŋɔ?</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Maliniŋ maa labisiya naai</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Yulima</string>
+  <string name="patroller_tasks_overflow_report">Bini maa malila yɛlmuɣisirili</string>
+  <string name="patroller_tasks_overflow_learn">Bɔhim pahi</string>
+  <string name="patroller_onboarding_one_title">Tohi pahi yuli yaɣi ni Wikipedia maliniŋ nima dihitabili.</string>
+  <string name="patroller_onboarding_one_content">Kpaŋsim din be Wikipedia zuɣu dariza n-labiri vihiri ni nimmɔhi maliniŋnima dinyoli niŋ ka kpaŋsiri niŋvuɣ\'pala dinni sɔŋ ka sahakam bi niŋ nyamda ni lahabali gahinda zaŋkpɛhi</string>
+  <string name="patroller_onboarding_two_title">Timi labisigu, ka a nini pa maliniŋnima zuɣu ka tumdi tuunshɛŋa din yina</string>
+  <string name="patroller_onboarding_two_thank_title">Mbo</string>
+  <string name="patroller_onboarding_two_thank_content">Nyam maliniŋ din nyɛ chirichi? Puhimi ka paɣi ba ni bɛ tohibu maa</string>
+  <string name="patroller_onboarding_two_watch_title">Lihima</string>
+  <string name="patroller_onboarding_two_watch_content">A bori ni a tooi doli lahabali maliniŋnima? dinŋuna zaŋmili pahi a nini ni pa shɛŋa zuɣu. A ni tooi yulli \'din pahi\' yaɣili</string>
+  <string name="patroller_onboarding_two_warn_title">zuɣuni kpahibu lahabali</string>
+  <string name="patroller_onboarding_two_warn_content">Namma, zaŋ n-ti ha, ka gu zuɣu kpahibu lahabaya niŋ ŋun su maliniŋ yɛltɔɣa paagi ni</string>
+  <string name="patroller_onboarding_two_undo_title">yihimi niŋsim/labisim nyaanga</string>
+  <string name="patroller_onboarding_two_undo_content">Piimi \'m bi lanniŋ\' n yihi niŋsim bee n labisi yihi maliniŋ din ni tooi ti lahabali barina.</string>
+  <string name="patroller_diff_tooltip_one">Barina buɣisi ti lahabali di yi niŋ ka maliniŋ ni too tahi barina na Wiki puuni.</string>
+  <string name="patroller_diff_tooltip_two">Buɣisi ti lahabali shɛli din wuhiri ni maliniŋ niŋmi ni zaɣisuŋtali</string>
+  <string name="patroller_diff_feedback_dialog_title">Sɔŋmi ka ti mali lala yaɣili ŋɔ niŋ</string>
+  <string name="patroller_diff_feedback_dialog_message">A nini tiɣi li?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">N-nini tiɣiya</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">M bi piigi yaɣili</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">N-nini bi tiɣi</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Wula ka ti tooi bo bɛrisuŋ n-tili?</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Labisigu</string>
+  <string name="patroller_diff_feedback_dialog_submit">Zaŋ ti</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Labisigi zaŋya ti</string>
+  <string name="patroller_diff_feedback_tooltip">Dihimi ovafuloo mɛnu maa zuɣu n-zaŋ alabisigu ti sahakam luɣuli din nyɛ \'A yɛlmuɣi ni dina\'.</string>
+  <string name="data_opt_in_accept">Saɣima</string>
+  <string name="data_opt_in_reject">Zaɣisima</string>
+  <string name="page_issues_title">Paaji yɛlimuɣisira</string>
+  <string name="generic_release_notes">Yɛlmuɣisiri bihi din ni sɔŋ malizali</string>
+  <string name="email_report_image_recommendations_subject">Yɛlmuɣisiri Lahabali - Anfooni din mali di sɔŋsim lahabali</string>
+  <string name="email_report_image_recommendations_body">N tɔla gbirili ni anfooni maa sɔŋsim lahabali:\n- [Buɣisim lala yɛlmuɣisirili maa]\n\nNi bori ni n-nya biɛhi shɛli n-nyɛ:\n- [Buɣisim a ni tɛhi di maligu shɛm]</string>
+  <string name="email_report_patroller_tasks_subject">Yɛlmuɣisirili lahabali - Malimi maliniŋ kaabu yaɣili niŋ</string>
+  <string name="email_report_patroller_tasks_body">N tɔla gbirili ni maliniŋ kaabu yaɣili:\n- [Buɣisim lala yɛlmuɣisirili maa]\n\nNi bori ni n-nya biɛhi shɛli n-nyɛ:\n- [Buɣisim a ni tɛhi di maligu shɛm] \n\n\n[dihi ŋmaa di daanfooni bee linkinima]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Ti sa ni teegi a biɛɣu ni yaha</string>
+  <string name="donation_campaign_donated_snackbar">M-bo n-faan, nyin ŋun tabi sɔŋ! A nirilim maa sɔŋsiya ka Wikipedia mini di boba ni yaɣa tooi kuli tiri tooi.</string>
+  <string name="donation_campaign_go_back_button">Labimi nyaaŋa</string>
+  <string name="menu_single_webview_open_external">Yoomi li sistɛm browza puuni</string>
 </resources>
