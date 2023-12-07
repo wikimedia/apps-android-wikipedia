@@ -2,6 +2,7 @@ package org.wikipedia.nearby
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.ActivityOptions
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
@@ -20,7 +21,6 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.graphics.applyCanvas
 import androidx.core.os.bundleOf
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
@@ -49,6 +49,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.search.SearchActivity
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -113,6 +114,18 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
             }
         }
 
+        binding.searchCard.searchTextView.let { textView ->
+            textView.setOnClickListener { openSearchActivity(textView.text.toString()) }
+        }
+
+        binding.searchCard.searchBack.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
+
+        binding.searchCard.searchCloseBtn.setOnClickListener {
+            binding.searchCard.searchTextView.text = ""
+        }
+
         binding.myLocationButton.setOnClickListener {
             if (haveLocationPermissions()) {
                 goToLastKnownLocation(0)
@@ -124,9 +137,17 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
         return binding.root
     }
 
+    private fun openSearchActivity(query: String?) {
+        val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.NAV_MENU, query)
+        val options = binding.searchCard.searchContainer.let {
+            ActivityOptions.makeSceneTransitionAnimation(requireActivity(), binding.searchCard.searchContainer, getString(R.string.transition_search_bar))
+        }
+        startActivityForResult(intent, Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY, options?.toBundle())
+    }
+
     private fun updateTabsView() {
         val tabsCount = WikipediaApp.instance.tabCount
-        binding.searchCard.searchTabsCountView.isVisible = tabsCount != 0
+        binding.searchCard.searchTabsCountView.visibility = if (tabsCount != 0) View.VISIBLE else View.GONE
         binding.searchCard.searchTabsCountView.text = WikipediaApp.instance.tabCount.toString()
     }
 
@@ -163,6 +184,7 @@ class NearbyFragment : Fragment(), LinkPreviewDialog.Callback {
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
+                        binding.searchCard.searchTextView.text = it.pageTitle.displayText
                         val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_NEARBY)
                         ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
                     }

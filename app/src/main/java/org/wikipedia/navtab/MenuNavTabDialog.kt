@@ -61,6 +61,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
 
         binding.mainDrawerNearbyContainer.setOnClickListener {
             requireActivity().startActivity(NearbyActivity.newIntent(requireActivity(), WikipediaApp.instance.wikiSite))
+            dismiss()
         }
 
         binding.mainDrawerSettingsContainer.setOnClickListener {

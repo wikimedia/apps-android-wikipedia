@@ -1676,5 +1676,6 @@
     <!-- Nearby -->
     <string name="nearby_title">Nearby</string>
     <string name="nearby_permissions_denied">Location permission is required to see your location on the map. Please try again.</string>
+    <string name="places_search_hint">Search nearby</string>
     <!-- /Nearby -->
 </resources>

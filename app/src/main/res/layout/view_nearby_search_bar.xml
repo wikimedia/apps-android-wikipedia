@@ -23,11 +23,11 @@
             android:id="@+id/searchBack"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:background="?attr/selectableItemBackground"
             android:contentDescription="@string/search_hint"
             android:scaleType="center"
-            android:background="?attr/selectableItemBackground"
             app:srcCompat="@drawable/ic_arrow_back_black_24dp"
-            app:tint="?attr/placeholder_color" />
+            app:tint="?attr/primary_color" />
 
         <TextView
             android:id="@+id/searchTextView"
@@ -45,16 +45,17 @@
             android:id="@+id/searchCloseBtn"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:background="?attr/selectableItemBackground"
             android:backgroundTint="?attr/primary_color"
             android:contentDescription="@string/search_hint"
             android:scaleType="center"
-            android:background="?attr/selectableItemBackground"
             app:srcCompat="@drawable/ic_close_black_24dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/languageContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
             android:minWidth="48dp">
 
             <ImageView
@@ -91,20 +92,19 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackground"
-            android:gravity="center">
+            android:gravity="center"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/searchTabsCountView"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:background="@drawable/tab_counts_shape_border"
                 android:backgroundTint="?attr/primary_color"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
-                android:text="3"
                 android:textAlignment="center"
                 android:textColor="?attr/primary_color"
                 android:textSize="12sp"
