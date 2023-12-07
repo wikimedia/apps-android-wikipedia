@@ -83,7 +83,6 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.media.AvPlayer
 import org.wikipedia.navtab.NavTab
-import org.wikipedia.nearby.NearbyActivity
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.campaign.CampaignDialog
@@ -94,6 +93,7 @@ import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -845,7 +845,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         model.page?.let { page ->
                             val location = page.pageProperties.geo
                             if (location != null) {
-                                requireActivity().startActivity(NearbyActivity.newIntent(requireContext(), page.title.wikiSite, location))
+                                requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title.wikiSite, location))
                             } else {
                                 FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
                             }
@@ -1518,7 +1518,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             title?.let {
                 val location = page?.pageProperties?.geo
                 if (location != null) {
-                    requireActivity().startActivity(NearbyActivity.newIntent(requireContext(), it.wikiSite, location))
+                    requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it.wikiSite, location))
                 } else {
                     FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
                 }
