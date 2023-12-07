@@ -19,7 +19,7 @@
 
             <LinearLayout
                 android:id="@+id/overflowList"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/paper_color"
                 android:orientation="vertical">
