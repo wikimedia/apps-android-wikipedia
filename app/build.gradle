@@ -171,10 +171,10 @@ dependencies {
     String kotlinCoroutinesVersion = '1.7.3'
     String firebaseMessagingVersion = '23.3.1'
     String mlKitVersion = '17.0.4'
-    String roomVersion = "2.6.0"
+    String roomVersion = "2.6.1"
     String espressoVersion = '3.5.1'
     String serialization_version = '1.5.1'
-    String metricsVersion = '1.12'
+    String metricsVersion = '2.0'
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 
@@ -186,7 +186,7 @@ dependencies {
     implementation "com.google.android.material:material:1.10.0"
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation "androidx.core:core-ktx:1.12.0"
-    implementation "androidx.browser:browser:1.6.0"
+    implementation "androidx.browser:browser:1.7.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation "androidx.fragment:fragment-ktx:1.6.2"
     implementation "androidx.paging:paging-runtime-ktx:3.2.1"
@@ -197,7 +197,7 @@ dependencies {
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
     implementation 'com.android.installreferrer:installreferrer:2.2'
     implementation 'androidx.drawerlayout:drawerlayout:1.2.0'
-    implementation 'androidx.work:work-runtime-ktx:2.8.1'
+    implementation 'androidx.work:work-runtime-ktx:2.9.0'
     implementation "org.wikimedia.metrics:metrics-platform:$metricsVersion"
 
     implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.4.6') {
@@ -213,10 +213,10 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
     implementation "io.reactivex.rxjava3:rxjava:3.1.8"
     implementation "io.reactivex.rxjava3:rxandroid:3.0.2"
-    implementation 'org.apache.commons:commons-lang3:3.13.0'
-    implementation 'org.jsoup:jsoup:1.16.1'
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
+    implementation 'org.jsoup:jsoup:1.17.1'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
-    implementation 'com.github.skydoves:balloon:1.5.4'
+    implementation 'com.github.skydoves:balloon:1.6.3'
     implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
 
     implementation("androidx.room:room-runtime:$roomVersion")
