@@ -1592,10 +1592,10 @@
   <string name="patroller_diff_feedback_tooltip">Text of the tooltip for the patrol edit screen indicates how to submit feedback for the feature.\n\n\"Problem with feature\" is {{msg-wm|Wikipedia-android-strings-suggested edits report feature}}</string>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
-  <string name="nearby_title">Title for the Nearby screen.</string>
+  <string name="places_title">Title for the Places screen.</string>
   <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
   <string name="generic_release_notes">Release notes message that will be used on app stores for minor releases and maintenance updates.</string>
-  <string name="nearby_permissions_denied">Message shown when a required permission was denied by the user.</string>
+  <string name="places_permissions_denied">Message shown when a required permission was denied by the user.</string>
   <string name="email_report_image_recommendations_subject">Subject heading for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>

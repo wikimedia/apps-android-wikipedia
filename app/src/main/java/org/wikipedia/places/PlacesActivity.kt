@@ -1,4 +1,4 @@
-package org.wikipedia.nearby
+package org.wikipedia.places
 
 import android.content.Context
 import android.content.Intent
@@ -7,17 +7,17 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.parcelableExtra
 
-class NearbyActivity : SingleFragmentActivity<NearbyFragment>() {
+class PlacesActivity : SingleFragmentActivity<PlacesFragment>() {
 
-    public override fun createFragment(): NearbyFragment {
-        return NearbyFragment.newInstance(intent.parcelableExtra(EXTRA_WIKI)!!, intent.parcelableExtra(EXTRA_LOCATION))
+    public override fun createFragment(): PlacesFragment {
+        return PlacesFragment.newInstance(intent.parcelableExtra(EXTRA_WIKI)!!, intent.parcelableExtra(EXTRA_LOCATION))
     }
 
     companion object {
         const val EXTRA_WIKI = "wiki"
         const val EXTRA_LOCATION = "location"
         fun newIntent(context: Context, wiki: WikiSite, location: Location? = null): Intent {
-            return Intent(context, NearbyActivity::class.java)
+            return Intent(context, PlacesActivity::class.java)
                 .putExtra(EXTRA_WIKI, wiki)
                 .putExtra(EXTRA_LOCATION, location)
         }
