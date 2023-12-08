@@ -743,6 +743,7 @@
   <string name="notifications_swipe_action_read">Прочитано</string>
   <string name="notifications_swipe_action_unread">Непрочитано</string>
   <string name="notifications_menu_check_all">Изабери све</string>
+  <string name="notifications_menu_uncheck_all">Поништи све</string>
   <string name="notifications_wiki_filter_header">Филтер викија</string>
   <string name="notifications_type_filter_header">Тип филтера</string>
   <string name="notifications_all_wikis_text">Сви \"викији\"</string>
