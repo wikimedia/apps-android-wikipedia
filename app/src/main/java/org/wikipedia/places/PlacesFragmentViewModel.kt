@@ -1,4 +1,4 @@
-package org.wikipedia.nearby
+package org.wikipedia.places
 
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -15,9 +15,9 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.Resource
 
-class NearbyFragmentViewModel(bundle: Bundle) : ViewModel() {
+class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
 
-    var wikiSite: WikiSite = bundle.getParcelable(NearbyActivity.EXTRA_WIKI)!!
+    var wikiSite: WikiSite = bundle.getParcelable(PlacesActivity.EXTRA_WIKI)!!
 
     val nearbyPages = MutableLiveData<Resource<List<NearbyPage>>>()
 
@@ -30,7 +30,7 @@ class NearbyFragmentViewModel(bundle: Bundle) : ViewModel() {
                 .filter { it.coordinates != null }
                 .map {
                     NearbyPage(it.pageId, PageTitle(it.title, wikiSite,
-                        if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, NearbyFragment.THUMB_SIZE),
+                        if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
                         it.description,
                         it.displayTitle(wikiSite.languageCode)),
                         it.coordinates!![0].lat, it.coordinates[0].lon)
@@ -52,7 +52,7 @@ class NearbyFragmentViewModel(bundle: Bundle) : ViewModel() {
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return NearbyFragmentViewModel(bundle) as T
+            return PlacesFragmentViewModel(bundle) as T
         }
     }
 }

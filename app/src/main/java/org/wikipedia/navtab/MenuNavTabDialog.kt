@@ -15,8 +15,8 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
-import org.wikipedia.nearby.NearbyActivity
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
@@ -59,9 +59,8 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             dismiss()
         }
 
-        binding.mainDrawerNearbyContainer.setOnClickListener {
-            requireActivity().startActivity(NearbyActivity.newIntent(requireActivity(), WikipediaApp.instance.wikiSite))
-            dismiss()
+        binding.mainDrawerPlacesContainer.setOnClickListener {
+            requireActivity().startActivity(PlacesActivity.newIntent(requireActivity(), WikipediaApp.instance.wikiSite))
         }
 
         binding.mainDrawerSettingsContainer.setOnClickListener {

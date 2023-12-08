@@ -595,7 +595,7 @@
     <item quantity="one">nach %1$d Lëscht</item>
     <item quantity="other">nach %1$d Lëschten</item>
   </plurals>
-  <string name="notification_echo_channel_description">Wikipedia Notifikatiounen</string>
+  <string name="notification_echo_channel_description">Wikipedia-Notifikatiounen</string>
   <string name="notifications_activity_title">Notifikatiounen</string>
   <string name="notifications_activity_title_archived">Notifikatiounen (archivéiert)</string>
   <string name="notifications_search">An den Notifikatioune sichen</string>
@@ -1147,6 +1147,7 @@
   <string name="talk_templates_edit_message_dialog_save">Späicheren</string>
   <string name="talk_templates_edit_message_dialog_delete">Läschen</string>
   <string name="talk_templates_edit_message_updated">Message gouf aktualiséiert</string>
+  <string name="talk_templates_menu_remove_message">Message ewechhuelen</string>
   <string name="talk_templates_message_deleted" fuzzy="true">Message gouf geläscht</string>
   <string name="talk_templates_message_title_empty">Den Titel däerf net eidel sinn.</string>
   <string name="patroller_tasks_edits_list_title">Lëscht vun Ännerungen</string>
