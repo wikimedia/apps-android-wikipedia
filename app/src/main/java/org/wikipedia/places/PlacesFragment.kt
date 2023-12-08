@@ -28,7 +28,6 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import com.mapbox.geojson.Feature
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
@@ -301,10 +300,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             }.forEach {
                 it.annotation = manager.create(
                     SymbolOptions()
-                    .withLatLng(LatLng(it.latitude, it.longitude))
-                    .withTextFont(MARKER_FONT_STACK)
-                    .withIconImage(MARKER_DRAWABLE)
-                    .withIconOffset(arrayOf(0f, -32f)))
+                        .withLatLng(LatLng(it.latitude, it.longitude))
+                        .withTextFont(MARKER_FONT_STACK)
+                        .withIconImage(MARKER_DRAWABLE)
+                        .withIconOffset(arrayOf(0f, -32f)))
 
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
@@ -428,19 +427,20 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
     }
 
     override fun onMapClick(point: LatLng): Boolean {
-        val screenPoint = mapboxMap!!.projection.toScreenLocation(point)
-        val rect = RectF(screenPoint.x - 10, screenPoint.y - 10, screenPoint.x + 10, screenPoint.y + 10)
+        mapboxMap?.let {
+            val screenPoint = it.projection.toScreenLocation(point)
+            val rect = RectF(screenPoint.x - 10, screenPoint.y - 10, screenPoint.x + 10, screenPoint.y + 10)
 
-        // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
-        val featureList: List<Feature> = mapboxMap?.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)!!
-        if (featureList.isNotEmpty()) {
-            mapboxMap?.cameraPosition?.zoom?.let {
-                mapboxMap!!.cameraPosition = CameraPosition.Builder()
+            // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
+            val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
+            if (featureList.isNotEmpty()) {
+                it.cameraPosition = CameraPosition.Builder()
                     .target(point)
-                    .zoom(it + 2)
                     .build()
+                val cameraUpdateAnimation = CameraUpdateFactory.zoomTo(it.cameraPosition.zoom + 2)
+                it.animateCamera(cameraUpdateAnimation, ZOOM_IN_ANIMATION_DURATION)
+                return true
             }
-            return true
         }
         return false
     }
@@ -453,6 +453,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         const val ITEMS_PER_REQUEST = 50
         const val CLUSTER_TEXT_LAYER_ID = "mapbox-android-cluster-text"
         const val CLUSTER_CIRCLE_LAYER_ID = "mapbox-android-cluster-circle0"
+        const val ZOOM_IN_ANIMATION_DURATION = 1000
         val MARKER_FONT_STACK = arrayOf("Open Sans Regular")
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
