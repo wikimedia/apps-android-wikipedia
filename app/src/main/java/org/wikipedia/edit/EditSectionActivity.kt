@@ -229,6 +229,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
                 // update the actionbar menu, which will enable the Next button.
                 invalidateOptionsMenu()
             }
+            sectionWikitext = it.toString()
         }
 
         SyntaxHighlightViewAdapter(this, pageTitle, binding.root, binding.editSectionText,
