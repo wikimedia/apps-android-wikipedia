@@ -13,7 +13,6 @@ import android.graphics.Rect
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -123,12 +122,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
             requireActivity().onBackPressed()
         }
 
+        binding.searchCard.languageContainer.setOnClickListener {
+            startActivity(PlacesFilterActivity.newIntent(requireActivity()))
+        }
+
         binding.searchCard.searchCloseBtn.setOnClickListener {
             binding.searchCard.searchTextView.text = ""
         }
 
         binding.myLocationButton.setOnClickListener {
-            Log.e("####", "here")
             if (haveLocationPermissions()) {
                 goToLastKnownLocation(0)
             } else {

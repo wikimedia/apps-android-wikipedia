@@ -709,4 +709,8 @@ object Prefs {
     var showOneTimeRecentEditsFeedbackForm
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_recent_edits_feedback_form, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_recent_edits_feedback_form, value)
+
+    var placesWikiCode
+        get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
 }
