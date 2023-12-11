@@ -100,6 +100,7 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.ThemeChooserDialog
 import org.wikipedia.util.ActiveTimer
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
@@ -235,6 +236,14 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         bottomBarHideHandler = ViewHideHandler(binding.pageActionsTabContainer, null, Gravity.BOTTOM, updateElevation = false) { false }
         bottomBarHideHandler.setScrollView(webView)
         bottomBarHideHandler.enabled = Prefs.readingFocusModeEnabled
+
+        webView.addOnScrollChangeListener { _, scrollY, _ ->
+            if (scrollY > (DimenUtil.roundedDpToPx(webView.contentHeight.toFloat()) - (DimenUtil.displayHeightPx * 2)) &&
+                !model.isReadMoreLoaded) {
+                bridge.execute(JavaScriptActionHandler.appendReadMode(model))
+                model.isReadMoreLoaded = true
+            }
+        }
 
         editHandler = EditHandler(this, bridge)
         sidePanelHandler = SidePanelHandler(this, bridge)
@@ -1003,6 +1012,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         model.curEntry = entry
         model.page = null
         model.readingListPage = null
+        model.isReadMoreLoaded = false
         model.forceNetwork = isRefresh
         webView.visibility = View.VISIBLE
         binding.pageActionsTabLayout.visibility = View.VISIBLE

@@ -155,6 +155,23 @@ object JavaScriptActionHandler {
                 "   readMore: { " +
                 "       itemCount: 3," +
                 "       baseURL: \"$baseURL\"," +
+                "       readMoreLazy: true," +
+                "       fragment: \"pcs-read-more\"" +
+                "   }" +
+                "})"
+    }
+
+    fun appendReadMode(model: PageViewModel): String {
+        if (model.page == null) {
+            return ""
+        }
+        val baseURL = model.title?.wikiSite!!.scheme() + "://" + model.title?.wikiSite!!.uri.authority!!.trimEnd('/')
+        return "pcs.c1.Footer.appendReadMore({" +
+                "   platform: \"android\"," +
+                "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
+                "   readMore: { " +
+                "       itemCount: 3," +
+                "       baseURL: \"$baseURL\"," +
                 "       fragment: \"pcs-read-more\"" +
                 "   }" +
                 "})"
