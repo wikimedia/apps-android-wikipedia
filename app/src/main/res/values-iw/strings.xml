@@ -318,7 +318,7 @@
   <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך לכאן.</string>
   <string name="page_similar_titles">דפים דומים</string>
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
-  <string name="search_recent_header">חיפוש אחרונים:</string>
+  <string name="search_recent_header">חיפושים אחרונים:</string>
   <string name="search_results_count_zero">אין תוצאות</string>
   <plurals name="search_results_count">
     <item quantity="one">תוצאה אחת</item>
