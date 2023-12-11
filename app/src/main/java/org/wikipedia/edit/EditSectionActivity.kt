@@ -229,7 +229,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
                 // update the actionbar menu, which will enable the Next button.
                 invalidateOptionsMenu()
             }
-            sectionWikitext = it.toString()
         }
 
         SyntaxHighlightViewAdapter(this, pageTitle, binding.root, binding.editSectionText,
@@ -260,6 +259,11 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
         binding.editSectionText.removeTextChangedListener(textWatcher)
         syntaxHighlighter.cleanup()
         super.onDestroy()
+    }
+
+    public override fun onPause() {
+        super.onPause()
+        sectionWikitext = binding.editSectionText.text.toString()
     }
 
     private fun updateEditLicenseText() {
