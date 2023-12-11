@@ -41,7 +41,7 @@ class AppShortcuts {
                     .setIcon(IconCompat.createWithResource(app, R.drawable.appshortcut_ic_search))
                     .setIntent(
                             Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra(APP_SHORTCUT_ID, APP_SHORTCUT_ID_SEARCH)
                                     .putExtra(Constants.INTENT_APP_SHORTCUT_SEARCH, true))
                     .build()
@@ -54,7 +54,7 @@ class AppShortcuts {
                     .setIcon(IconCompat.createWithResource(app, R.drawable.appshortcut_ic_random))
                     .setIntent(
                             Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra(APP_SHORTCUT_ID, APP_SHORTCUT_ID_RANDOM)
                                     .putExtra(Constants.INTENT_APP_SHORTCUT_RANDOMIZER, true))
                     .build()
@@ -67,7 +67,7 @@ class AppShortcuts {
                     .setIcon(IconCompat.createWithResource(app, R.drawable.appshortcut_ic_continue_reading))
                     .setIntent(
                             Intent(ACTION_APP_SHORTCUT, Uri.EMPTY, app, MainActivity::class.java)
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                     .putExtra(APP_SHORTCUT_ID, APP_SHORTCUT_ID_CONTINUE_READING)
                                     .putExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING, true))
                     .build()
