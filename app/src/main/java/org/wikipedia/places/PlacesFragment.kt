@@ -191,12 +191,14 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
                 0, ContextCompat.getColor(requireActivity(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.success_color))
             )
         )
+
         val clusterOptions = ClusterOptions()
             .withClusterRadius(60)
             .withColorLevels(clusterColorLayers)
             .withTextSize(literal(12f))
             .withTextField(Expression.toString(get(POINT_COUNT)))
             .withTextColor(Expression.color(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)))
+
         symbolManager = SymbolManager(binding.mapView, mapboxMap, style, null, null, clusterOptions)
 
         // Clustering with SymbolManager doesn't expose a few style specifications we need.
@@ -434,11 +436,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
             val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
             if (featureList.isNotEmpty()) {
-                it.cameraPosition = CameraPosition.Builder()
+                val cameraPosition = CameraPosition.Builder()
                     .target(point)
+                    .zoom(it.cameraPosition.zoom + 2)
                     .build()
-                val cameraUpdateAnimation = CameraUpdateFactory.zoomTo(it.cameraPosition.zoom + 2)
-                it.animateCamera(cameraUpdateAnimation, ZOOM_IN_ANIMATION_DURATION)
+                it.easeCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), 1000)
                 return true
             }
         }
