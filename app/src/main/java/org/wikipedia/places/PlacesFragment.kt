@@ -150,7 +150,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
-                        val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_NEARBY)
+                        val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_PLACES)
                         ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
                     }
                     true
