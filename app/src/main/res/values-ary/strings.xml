@@ -65,7 +65,7 @@
   <string name="menu_page_watch">حضي</string>
   <string name="menu_page_view_talk">شوف صفحة ديال لهضرة</string>
   <string name="menu_page_view_edit_history">شوف ليسطوريك ديال تبدال</string>
-  <string name="menu_page_remove_from_watchlist">حيد من ليستة د لمراقبة</string>
+  <string name="menu_page_remove_from_watchlist">حيد من الليستة د لحضيان</string>
   <string name="edit_section_find_in_page">قلّب فالصفحة</string>
   <string name="menu_page_font_and_theme">لخط والشكل</string>
   <string name="menu_page_add_to_list">زيد ل ليستة ديال لقراية</string>
@@ -316,6 +316,10 @@
   <string name="notifications_channel_group_wikipedia_notifications_title">ويكيپيديا</string>
   <string name="view_because_you_read_card_title">حيت قريتي</string>
   <string name="view_random_article_card_title">مقالة كيما كانت</string>
+  <string name="view_top_read_card_title">مقالات كيتشافو</string>
+  <string name="view_top_read_card_action">زيد قرا</string>
+  <string name="view_main_page_card_title">ليوما ف ويكيپيديا</string>
+  <string name="view_main_page_card_action">شوف الصفحة اللولة</string>
   <string name="view_featured_image_card_title">تصويرة ديال نهار</string>
   <string name="view_featured_image_card_share">پارطاجي</string>
   <string name="view_card_news_title">ف لخبار</string>
@@ -327,6 +331,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">لغي</string>
   <string name="feed_lang_selection_dialog_ok_button_text">واخا</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">لغي</string>
+  <string name="top_read_activity_title">أكتر مقالات تشافو ف %s</string>
   <string name="description_edit_read">قرا</string>
   <string name="description_edit_add_description">زيد وصف لمقال</string>
   <string name="description_edit_cancel_hint">لغي</string>
@@ -367,6 +372,7 @@
   <string name="languages_list_activity_title">زيد لوغة</string>
   <string name="wikipedia_languages_add_language_text">زيد لوغة</string>
   <string name="more_language_options">كتر</string>
+  <string name="add_wikipedia_languages_text">زيد لوغات د ويكيپيديا</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">لا شكرا</string>
   <string name="remove_language_dialog_cancel_button_text">لغي</string>
   <string name="remove_language_dialog_ok_button_text">واخا</string>

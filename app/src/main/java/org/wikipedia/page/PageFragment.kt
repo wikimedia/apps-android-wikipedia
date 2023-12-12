@@ -51,6 +51,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.analytics.metricsplatform.ArticleFindInPageInteraction
@@ -67,6 +68,7 @@ import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
@@ -74,8 +76,6 @@ import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
-import org.wikipedia.feed.announcement.Announcement
-import org.wikipedia.feed.announcement.AnnouncementClient
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
@@ -85,6 +85,7 @@ import org.wikipedia.media.AvPlayer
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.PollNotificationWorker
 import org.wikipedia.page.action.PageActionItem
+import org.wikipedia.page.campaign.CampaignDialog
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.issues.PageIssuesDialog
 import org.wikipedia.page.leadimages.LeadImagesHandler
@@ -108,6 +109,7 @@ import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -117,10 +119,10 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
+import java.time.Duration
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
-import java.util.Date
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
@@ -707,25 +709,23 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     private fun maybeShowAnnouncement() {
-        title?.let {
-            if (Prefs.hasVisitedArticlePage) {
-                disposables.add(ServiceFactory.getRest(it.wikiSite).announcements
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ list ->
-                        val country = GeoUtil.geoIPCountry
-                        val now = Date()
-                        for (announcement in list.items) {
-                            if (AnnouncementClient.shouldShow(announcement, country, now) &&
-                                announcement.placement == Announcement.PLACEMENT_ARTICLE &&
-                                !Prefs.announcementShownDialogs.contains(announcement.id)) {
-                                val dialog = AnnouncementDialog(requireActivity(), announcement)
-                                dialog.setCancelable(false)
-                                dialog.show()
-                                break
-                            }
+        title?.let { pageTitle ->
+            // Check if the pause time is older than 1 day.
+            val dateDiff = Duration.between(Instant.ofEpochMilli(Prefs.announcementPauseTime), Instant.now())
+            if (Prefs.hasVisitedArticlePage && dateDiff.toDays() >= 1) {
+                lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+                    val campaignList = CampaignCollection.getActiveCampaigns()
+                    val availableCampaign = campaignList.find { campaign -> campaign.assets[app.appOrSystemLanguageCode] != null }
+                    availableCampaign?.let {
+                        if (!Prefs.announcementShownDialogs.contains(it.id)) {
+                            DonorExperienceEvent.logImpression("article_banner",
+                                it.id, pageTitle.wikiSite.languageCode)
+                            val dialog = CampaignDialog(requireActivity(), it)
+                            dialog.setCancelable(false)
+                            dialog.show()
                         }
-                    }) { caught -> L.d(caught) })
+                    }
+                }
             }
         }
     }
@@ -889,7 +889,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     "coordinate" -> {
                         model.page?.let { page ->
                             page.pageProperties.geo?.let { geo ->
-                                GeoUtil.sendGeoIntent(requireActivity(), geo, page.displayTitle)
+                                GeoUtil.sendGeoIntent(requireActivity(), geo, StringUtil.fromHtml(page.displayTitle).toString())
                             }
                         }
                     }

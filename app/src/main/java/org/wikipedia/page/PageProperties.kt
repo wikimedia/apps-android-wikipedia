@@ -13,7 +13,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.UriUtil
-import java.util.*
+import java.util.Date
 
 @Parcelize
 @TypeParceler<Date, DateParceler>()
@@ -60,7 +60,7 @@ data class PageProperties constructor(
         leadImageName = UriUtil.decodeURL(pageSummary.leadImageName.orEmpty()),
         leadImageWidth = pageSummary.thumbnailWidth,
         leadImageHeight = pageSummary.thumbnailHeight,
-        geo = pageSummary.geo,
+        geo = pageSummary.coordinates,
         wikiBaseItem = pageSummary.wikiBaseItem,
         descriptionSource = pageSummary.descriptionSource
     )

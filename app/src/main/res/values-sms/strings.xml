@@ -316,6 +316,7 @@
   <string name="insert_media_settings_caption" fuzzy="true">Kartt- leʹbe snimldõkteʹkstt</string>
   <string name="insert_media_advanced_settings">Lââʹssasetõõzz</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Snimldõõǥǥâž</string>
+  <string name="insert_media_insert_button">Lââʹzzet</string>
   <string name="main_tooltip_text">Tiõrv %s! Tiõʹđžiǩ-a ton, što puk vuäiʹtte Wikipedia muʹtted?</string>
   <string name="main_tooltip_text_v2">Tiõʹđžiǩ-a ton, što puk vuäiʹtte Wikipedia muʹtted?</string>
   <string name="main_tooltip_watchlist_title">Valvvâmlistt</string>
@@ -345,7 +346,7 @@
   <string name="menu_option_view_user_talk">Čuäʹjet saǥstõõllâmseeid</string>
   <string name="revision_diff_compare">Verddõõl versioid</string>
   <string name="revision_diff_compare_title">Verddõõl versioid: %s</string>
-  <string name="revision_undo_title">Kååʹmet muttâz</string>
+  <string name="revision_undo_title" fuzzy="true">Kååʹmet muttâz</string>
   <string name="revision_undo_success">Versio kååʹmteš.</string>
   <string name="revision_rollback_success">Muttâz lie kååʹmtum.</string>
   <string name="revision_compare_button">Verddõõl</string>

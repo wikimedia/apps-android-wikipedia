@@ -87,6 +87,7 @@
   <string name="page_edit_history_filter_by_user">Käyttäjät (%s)</string>
   <string name="page_edit_history_filter_by_anon">Anonyymit (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botit (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Mittarit välillä %1$s %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d muokkaus vuodesta %2$s lähtien</item>
     <item quantity="other">%1$d muokkausta vuodesta %2$s lähtien</item>
@@ -289,6 +290,7 @@
   <string name="edit_undo">Kumoa</string>
   <string name="edit_redo">Tee uudelleen</string>
   <string name="edit_rollback">Palauta</string>
+  <string name="edit_warn">Varoita</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s tavu</item>
     <item quantity="other">%s tavua</item>
@@ -394,6 +396,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">Artikkelia ei voida ladata offline-tilassa.</string>
   <string name="page_offline_notice_add_to_reading_list">Vihje: lisää artikkeli lukulistaan, jolloin se ladataan laitteeseen verkkoyhteyden ollessa saatavilla.</string>
   <string name="page_offline_notice_last_date">Luet tämän artikkelin yhteydettömän tilan versiota, joka tallennettiin %s.</string>
+  <string name="redirected_from_snackbar">Ohjattu sivulta \"%s\"</string>
   <string name="button_get_directions">Hae reittiohjeet</string>
   <string name="error_no_maps_app">Yhtäkään reittiohjeita tarjoavaa sovellusta ei löytynyt</string>
   <string name="preference_title_customize_explore_feed">Tutki-syöte</string>
@@ -897,6 +900,9 @@
   <string name="suggested_edits_describe_articles">Kuvaile artikkeleita</string>
   <string name="suggested_edits_caption_images">Kuvatekstit</string>
   <string name="suggested_edits_tag_images">Merkitse kuvia</string>
+  <string name="suggested_edits_edit_patrol">Muokkausten tarkistaminen</string>
+  <string name="suggested_edits_edit_patrol_hint">Tarkista tuoreita muutoksia ja arvioi, ovatko ne rakentavia vaiko eivät.</string>
+  <string name="suggested_edits_edit_patrol_review">Arvioi</string>
   <string name="suggested_edits_review_description">Esikatsele artikkelin kuvausta</string>
   <string name="suggested_edits_add_description_button">Lisää kuvaus</string>
   <string name="suggested_edits_edit_description_button">Muokkaa kuvausta</string>
@@ -972,6 +978,7 @@
   <string name="suggested_edits_image_tags_select_title">Et ole valinnut tälle kuvalle merkintöjä</string>
   <string name="suggested_edits_image_tags_select_text">Vain valitsemasi tunnisteet lisätään kuviin.  Tunnisteet, joita ei ole valittu, merkitään hylätyksi.  Haluatko varmasti merkitä kaikki tunnisteet hylätyiksi?</string>
   <string name="suggested_edits_image_tags_add_tag">Lisää merkintä</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">Julkaisemattomia tunnisteita ei tallenneta</string>
   <string name="suggested_edits_image_zoom_tooltip">Lähennä tätä kuvaa nipistämällä.</string>
   <string name="suggested_edits_encouragement_message">%s, kiitos muokkauksistasi. Alempaa löydät lisää tapoja parantaa Wikipediaa.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hei %s&lt;/b&gt;, alempaa löydät nopeita ja helppoja tapoja parantaa Wikipediaa? Näet tekemäsi eron heti, kun aloitat. Hyviä muokkaushetkiä!</string>
@@ -1015,7 +1022,7 @@
   <string name="suggested_edits_ip_blocked_title">IP-osoite estetty</string>
   <string name="suggested_edits_last_edited">Viimeksi muokattu</string>
   <string name="suggested_edits_last_edited_never">Ei koskaan</string>
-  <string name="suggested_edits_task_new" fuzzy="true">uusi</string>
+  <string name="suggested_edits_task_new">Uusi</string>
   <string name="suggested_edits_cc0_notice">Julkaisemalla hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_reactivation_notification_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Kiitos Wikipedian muokkaamisesta! Miksi et jatkaisi siitä mihin jäit?</string>
@@ -1069,14 +1076,33 @@
     <item quantity="other">Lisäsit %d merkkiä</item>
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Artikkelin kuvat</string>
-  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Päätä, jos ehdotettu kuva parantaisi artikkelia.</string>
+  <string name="suggested_edits_image_recommendations_task_detail">Lisää ehdotettuja kuvia Wikipedian artikkeleihin parantaaksesi ymmärrettävyyttä.</string>
+  <string name="image_recommendation_task_instruction">Lisäisitkö tämän kuvan artikkeliin?</string>
+  <string name="image_recommendation_tutorial">Opas</string>
   <string name="image_recommendation_accept">Kyllä</string>
   <string name="image_recommendation_reject">Ei</string>
   <string name="image_recommendation_notsure">Epävarma</string>
+  <string name="image_recommendation_reject_title">Miksi ei?</string>
+  <string name="image_recommendation_reject_subtitle">Vastauksesi parantavat tulevia ehdotuksia.</string>
+  <string name="image_recommendation_reject_not_relevant">Kuva ei liity aiheeseen</string>
+  <string name="image_recommendation_reject_no_info">Ei riittävästi tietoa päätöksentekoon</string>
   <string name="image_recommendation_reject_offensive">Kuva on loukkaava</string>
   <string name="image_recommendation_reject_low_quality">Kuva on heikkolaatuinen</string>
+  <string name="image_recommendation_reject_dont_know">En tiedä aihetta</string>
+  <string name="image_recommendation_reject_other">Muu</string>
+  <string name="image_recommendation_reject_submit">Lähetä</string>
+  <string name="image_recommendation_onboarding_1">Kuvat auttavat ihmisiä ymmärtämään, mutta monissa artikkeleissa ei ole niitä.</string>
+  <string name="image_recommendation_onboarding_2">Päätät, pitäisikö ehdotettu kuva sijoittaa Wikipedia-artikkeliin.</string>
+  <string name="image_recommendation_onboarding_3">Ehdotukset ovat koneellisesti luotuja ja sinä käytät harkintavaltaasi päättääksesi hyväksyäkö vaiko hylätä ne.</string>
+  <string name="image_recommendation_onboarding_4">Kuvat ovat Wikimedia Commonsista, joka on kokoelma vapaasti lisensoituja kuvia, joita käytetään Wikipediassa.</string>
+  <string name="image_recommendation_tooltip_1">Tarkista tämä artikkeli ymmärtääksesi sen aiheen</string>
+  <string name="image_recommendation_tooltip_2">Tarkista kuva ja siihen liittyvät tiedot</string>
+  <string name="image_recommendation_tooltip_3">Päätä, auttaako kuva lukijoita ymmärtämään tätä aihetta paremmin</string>
   <string name="image_recommendation_tooltip_next">Seuraava</string>
+  <string name="image_recommendation_depleted">Valitettavasti tällä hetkellä ei ole enempää ehdotettuja kuvia saatavilla. Tutustu muihin &lt;a href=\"#\"&gt;ehdotettuihin muokkauksiin&lt;/a&gt; tai palaa myöhemmin.</string>
   <string name="edit_summary_added_image">Lisätty kuva</string>
+  <string name="edit_summary_added_caption">Lisätty kuvateksti</string>
+  <string name="edit_summary_added_image_and_caption">Lisätty kuva ja kuvateksti</string>
   <string name="edit_published_view">Näytä</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
@@ -1173,15 +1199,16 @@
   <string name="wikitext_template">Malline</string>
   <string name="wikitext_reference">Lähde</string>
   <string name="wikitext_preview_link">Esikatsele linkki</string>
+  <string name="wikitext_mention_user">Mainitse käyttäjä</string>
   <string name="insert_media_title">Lisää media</string>
   <string name="insert_media_search_description">Valitse tiedosto Wikimedia Commonsista</string>
   <string name="insert_media_search_hint">Etsi mediaa</string>
-  <string name="insert_media_settings" fuzzy="true">Media-asetukset</string>
+  <string name="insert_media_settings">Lisää kuvan tiedot</string>
   <string name="insert_media_settings_uploaded_image">Tallennettu kuva</string>
   <string name="insert_media_settings_caption">Kuvateksti</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Tunniste, joka näkyy kohteen vieressä kaikille lukijoille</string>
+  <string name="insert_media_settings_caption_description">Kuvan artikkelissa näkyvä tunniste</string>
   <string name="insert_media_settings_alternative_text">Vaihtoehtoinen teksti</string>
-  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Tekstimuotoinen kuvaus lukijoille, jotka eivät voi nähdä kuvaa</string>
+  <string name="insert_media_settings_alternative_text_description">Kuvaus näkövammaisille lukijoille</string>
   <string name="insert_media_advanced_settings">Lisäasetukset</string>
   <string name="insert_media_advanced_settings_wrap_image">Kiedo teksti kuvan ympärille</string>
   <string name="insert_media_advanced_settings_image_position">Kuvan sijainti</string>
@@ -1217,6 +1244,17 @@
   <string name="talk_user_title">Keskustelu käyttäjästä: %s</string>
   <string name="talk_new_topic">Uusi aihe</string>
   <string name="talk_new_topic_submitted">Aihe julkaistu.</string>
+  <string name="talk_warn">Varoita</string>
+  <string name="talk_warn_save_dialog_title">Tallenna muutokset?</string>
+  <string name="talk_warn_save_dialog_message">Tallenna uutena viestinä</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Tallenna uutena viestinä luetteloon</string>
+  <string name="talk_warn_save_dialog_hint">Viestin otsikko</string>
+  <string name="talk_warn_save_dialog_publish">Julkaise</string>
+  <string name="talk_warn_save_dialog_cancel">Peruuta</string>
+  <string name="talk_warn_submitted">Viesti julkaistu muokkaajan keskustelusivulla</string>
+  <string name="talk_warn_submitted_and_saved">Viesti tallennettu ja julkaistu muokkaajan keskustelusivulla</string>
+  <string name="talk_warn_saved_message">Valitse olemassa oleva varoitusviesti tai kirjoita uusi viesti.</string>
+  <string name="talk_warn_saved_message_dropdown">Tallennetut viestit</string>
   <string name="talk_page_empty">Tämä keskustelusivu on tyhjä.</string>
   <string name="talk_page_empty_title">Keskustelu alkaa tästä</string>
   <string name="talk_page_empty_content">Parhaat Wikipedia-artikkelit syntyvät yhteistyöllä. Näillä sivuilla käyttäjät keskustella artikkelin sisällöstä ja kehittämisestä.</string>
@@ -1303,9 +1341,11 @@
   <string name="revision_diff_line_removed">Rivi poistettu</string>
   <string name="revision_diff_paragraph_added">Kappale lisätty</string>
   <string name="revision_diff_paragraph_removed">Kappale poistettu</string>
-  <string name="revision_undo_title">Kumoa muokkaus</string>
-  <string name="revision_undo_message">Tämä kumoaa tässä näkyvään artikkeliin mainitu(i)ssa versio(i)ssa tehdyt muutokset.</string>
-  <string name="revision_undo_reason">Anna syy tämän muokkauksen kumoamiselle jatkaaksesi:</string>
+  <string name="revision_diff_protected">Tässä versiossa tehdyt muutokset eivät ole julkisesti saatavilla.</string>
+  <string name="revision_undo_title">Haluatko varmasti kumota tämän muokkauksen?</string>
+  <string name="revision_undo_message">Kumoamisella tarkoitetaan yhden tai useamman muokkauksen vaikutusten kumoamista.</string>
+  <string name="revision_undo_summary_hint">Yhteenveto (vapaaehtoinen)</string>
+  <string name="revision_undo_reason">Jaa syy kumoamiselle</string>
   <string name="revision_undo_success">Versio kumottiin.</string>
   <string name="revision_rollback_dialog_title">Haluatko varmasti kumota muokkaukset?</string>
   <string name="revision_rollback_success">Muokkaukset palautettu.</string>
@@ -1419,6 +1459,87 @@
   <string name="reading_list_share_message_v2">Hei! Haluan jakaa Wikipedian lukulistani kanssasi:</string>
   <string name="reading_list_share_survey_title">Voisitko auttaa meitä parantamaan lukulistojen jakamista?</string>
   <string name="reading_list_share_survey_body">Lukulistojen jakaminen on testiominaisuus, jonka kehittämiseen tarvitsemme palautettasi.</string>
+  <string name="talk_templates_manage_title">Hallinnoi mallineita</string>
+  <string name="talk_templates_empty_message">Sinulla ei ole tallennettuja varoitusviestejä.</string>
+  <string name="talk_templates_new_message_title">Uusi viesti</string>
+  <string name="talk_templates_new_message_description">Kirjoita varoitusviesti.</string>
+  <string name="talk_templates_new_message_subject_hint">Aihe</string>
+  <string name="talk_templates_new_message_compose_hint">Kirjoita viesti</string>
+  <string name="talk_templates_new_message_save">Tallenna</string>
+  <string name="talk_templates_new_message_dialog_title">Tallenna muutokset</string>
+  <string name="talk_templates_new_message_dialog_description">Lisää otsikko ja tallenna viesti.</string>
+  <string name="talk_templates_new_message_dialog_hint">Viestin otsikko</string>
+  <string name="talk_templates_new_message_dialog_save">Tallenna</string>
+  <string name="talk_templates_new_message_dialog_cancel">Peruuta</string>
+  <string name="talk_templates_new_message_dialog_exists">Malline \"%s\" on jo olemassa.</string>
+  <string name="talk_templates_new_message_saved">Viesti tallennettu</string>
+  <string name="talk_templates_edit_message_dialog_title">Muokkaa viestiä</string>
+  <string name="talk_templates_edit_message_dialog_save">Tallenna</string>
+  <string name="talk_templates_edit_message_dialog_delete">Poista</string>
+  <string name="talk_templates_edit_message_updated">Viesti on päivitetty</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Haluatko varmasti poistaa viestin luettelosta?</item>
+    <item quantity="other">Haluatko varmasti poistaa viestit luettelosta?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Viesti on poistettu</item>
+    <item quantity="other">Viestit on poistettu</item>
+  </plurals>
+  <string name="patroller_tasks_edits_list_title">Muokkausluettelo</string>
+  <string name="patroller_tasks_edits_list_search_hint">Etsi tai suodata muokkauksia</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Merkinnät: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Ei mitään</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Näytä käyttäjäsivu</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Näytä keskustelusivu</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Käyttäjätiedot</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Tarkastele käyttäjän muokkauksia</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Kiitä</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Käyttäjätiedot</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Muokkausmäärä: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Sulje</string>
+  <string name="patroller_tasks_filters_title">Suodattimet</string>
+  <string name="patroller_tasks_filters_reset">Nollaa</string>
+  <string name="patroller_tasks_filters_all_text">Kaikki</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Rekisteröitymätön</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Muokkaajat, jotka eivät ole kirjautuneet sisään.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Rekisteröitynyt</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Sisäänkirjautuneet muokkaajat.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Tulokkaat</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Rekisteröityneet muokkaajat, joilla on vähemmän kuin 10 muokkausta 4 aktiivisuuspäivän aikana.</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Kokeneet käyttäjät</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Rekisteröityneet muokkaajat, joilla enemmän kuin 500 muokkausta ja 30 päivää aktiivisuutta.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Uusimmat versiot</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Uusin versio</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ei uusin versio</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Automatisoidut muutokset</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Botti</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Ihminen (ei botti)</string>
+  <string name="patroller_tasks_filters_significance_minor">Pienet muutokset</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d suodatin</item>
+    <item quantity="other">%d suodatinta</item>
+  </plurals>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikkelin muokkaushistoria</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Näytä</string>
+  <string name="patroller_onboarding_two_thank_title">Kiitä</string>
+  <string name="patroller_onboarding_two_thank_content">Näetkö hyvän muokkauksen? Kiitä käyttäjää.</string>
+  <string name="patroller_onboarding_two_watch_title">Tarkkaile</string>
+  <string name="patroller_onboarding_two_watch_content">Haluatko tarkkailla artikkelien muokkauksia? Lisää artikkeli tarkkailuluetteloosi. Löydät sen \"Lisää\"-valikosta.</string>
+  <string name="patroller_onboarding_two_warn_title">Varoita</string>
+  <string name="patroller_onboarding_two_undo_title">Kumoa</string>
+  <string name="patroller_onboarding_two_undo_content">Valitse \"Kumoa\" kumotaksesi mahdollisesti haitallisen muokkauksen.</string>
+  <string name="patroller_diff_feedback_dialog_title">Auta meitä parantamaan tätä ominaisuutta</string>
+  <string name="patroller_diff_feedback_dialog_message">Oletko tyytyväinen tähän ominaisuuteen?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Tyytyväinen</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutraali</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Tyytymätön</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Kuinka voimme parantaa ominaisuutta?</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Palaute</string>
+  <string name="patroller_diff_feedback_dialog_submit">Lähetä</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Palaute lähetetty.</string>
   <string name="data_opt_in_accept">Hyväksy</string>
   <string name="data_opt_in_reject">Hylkää</string>
+  <string name="generic_release_notes">Pieniä virheenkorjauksia ja parannuksia</string>
+  <string name="donation_campaign_go_back_button">Palaa takaisin</string>
+  <string name="menu_single_webview_open_external">Avaa järjestelmäselaimessa</string>
 </resources>

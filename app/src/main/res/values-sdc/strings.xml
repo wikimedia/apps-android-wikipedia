@@ -57,8 +57,15 @@
   <string name="edit_section_find_in_page">Acciappà in pàgina</string>
   <string name="menu_page_add_to_default_list">Saivva</string>
   <string name="feed_card_add_to_default_list">Saivva</string>
+  <string name="menu_page_archive">Archíbiu</string>
+  <string name="menu_long_press_open_page">Abrì</string>
+  <string name="on_this_day_page_share">Cundibidì</string>
+  <string name="reading_list_page_share">Cundibidì</string>
+  <string name="menu_edit_article">Mudifiggà l\'arthìcuru</string>
   <string name="last_updated_text">Attuarizaddu l\'ùlthima voltha %s</string>
   <string name="talk_page_link_text">Visuarizza la pàgina di cuntierra</string>
+  <string name="other_languages_indication_text">Liggì in un\'althra linga</string>
+  <string name="language_count_link_text">Si pó liggì in %d althri linghi</string>
   <string name="preference_title_language">Li to\' linghi di Vichipedìa</string>
   <string name="langlinks_filter_hint">Zercha</string>
   <string name="langlinks_activity_title">Althri linghi</string>
@@ -289,7 +296,7 @@
   <string name="revision_diff_line_nums">Righi %d–%d</string>
   <string name="revision_diff_line_added">Riga aggiùnta</string>
   <string name="revision_diff_line_removed">riga rimossa</string>
-  <string name="revision_undo_title">annulla mudifiga</string>
+  <string name="revision_undo_title">Sei sigura/u ki vói annullà kistha mudìfigga?</string>
   <string name="revision_compare_button">Cunfrònta</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">Ciamba</string>
   <string name="watchlist_expiry_dialog_one_week">1 chedda</string>

@@ -131,6 +131,7 @@
   <string name="map_view_link_text">Переглянути на мапі</string>
   <string name="other_languages_indication_text">Читати іншою мовою</string>
   <string name="language_count_link_text">Доступно %d іншими мовами</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та остаточно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та невідклично публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете до системи&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="edit_anon_warning">Редагування будуть приписані ІР-адресі вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, ваші дії будуть більш конфіденційними.</string>
@@ -285,7 +286,7 @@
   <string name="edit_redo">Повторити</string>
   <string name="edit_rollback">Відкіт</string>
   <string name="edit_warn">Попередження</string>
-  <string name="edit_quality">Якість %s</string>
+  <string name="edit_damage">Пошкоджено %s</string>
   <string name="edit_intent">Намір %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
@@ -1080,7 +1081,7 @@
   <string name="suggested_edits_ip_blocked_title">IP заблоковано</string>
   <string name="suggested_edits_last_edited">Останнє редагування</string>
   <string name="suggested_edits_last_edited_never">Ніколи</string>
-  <string name="suggested_edits_task_new" fuzzy="true">нове</string>
+  <string name="suggested_edits_task_new">Нове</string>
   <string name="suggested_edits_cc0_notice">Публікуючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, а також даєте невідкличну згоду на публікацію цього внеску на умовах &lt;a href=\"%2$s\"&gt;ліцензії CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Пропоновані редагування</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Дякуємо за редагування Вікіпедії! Продовжимо з того моменту, як вийшли?</string>
@@ -1171,6 +1172,7 @@
   <string name="image_recommendation_tooltip_3">Вирішіть, чи допоможе зображення краще зрозуміти читачам цю тему</string>
   <string name="image_recommendation_tooltip_next">Далі</string>
   <string name="image_recommendation_tooltip_warning">Перегляньте статтю, щоб зрозуміти її тему, і перегляньте зображення</string>
+  <string name="image_recommendation_depleted">На жаль, наразі більше немає запропонованих зображень. Перегляньте інші &lt;a href=\"#\"&gt;пропоновані редагування&lt;/a&gt; або поверніться пізніше.</string>
   <string name="suggested_edits_report_feature">Проблема з функцією</string>
   <string name="suggested_edits_report_feature_subject">Проблема із запропонованими редагуваннями</string>
   <string name="edit_summary_added_image">Додати зображення</string>
@@ -1276,6 +1278,7 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Примітка</string>
   <string name="wikitext_preview_link">Попередній перегляд посилання</string>
+  <string name="wikitext_mention_user">Згадати користувача</string>
   <string name="insert_media_title">Вставити медіа</string>
   <string name="insert_media_search_description">Обрати файл з Вікісховища</string>
   <string name="insert_media_search_hint">Пошук медіа</string>
@@ -1423,9 +1426,10 @@
   <string name="revision_diff_paragraph_added">Абзац додано</string>
   <string name="revision_diff_paragraph_removed">Абзац вилучено</string>
   <string name="revision_diff_protected">Ця версія сторінки не є загальнодоступною.</string>
-  <string name="revision_undo_title">Скасувати редагування</string>
-  <string name="revision_undo_message">Це прибере зміни, внесені версією(-ями) статті, що показано тут.</string>
-  <string name="revision_undo_reason">Щоб продовжити, вкажіть, будь ласка, причину скасування цього редагування:</string>
+  <string name="revision_undo_title">Ви дійсно хочете скасувати це редагування?</string>
+  <string name="revision_undo_message">Скасування означає прибирання змін, внесених одним чи більше редагуваннями.</string>
+  <string name="revision_undo_summary_hint">Опис (необов\'язково)</string>
+  <string name="revision_undo_reason">Вкажіть причину скасування цього редагування</string>
   <string name="revision_undo_success">Версію скасовано.</string>
   <string name="revision_rollback_dialog_title">Ви впевнені, що хочете відкотити редагування?</string>
   <string name="revision_rollback_success">Редагування відкочено.</string>
@@ -1559,8 +1563,7 @@
   <string name="talk_templates_edit_message_dialog_save">Зберегти</string>
   <string name="talk_templates_edit_message_dialog_delete">Вилучити</string>
   <string name="talk_templates_edit_message_updated">Повідомлення оновлено</string>
-  <string name="talk_templates_edit_message_confirm_description">Ви впевнені, що хочете вилучити повідомлення «%s» зі списку?</string>
-  <string name="talk_templates_message_deleted">Повідомлення вилучено</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Повідомлення вилучено</string>
   <string name="patroller_tasks_edits_list_title">Список редагувань</string>
   <string name="patroller_tasks_edits_list_search_hint">Шукати або фільтрувати редагування</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Мітки: %s</string>
@@ -1571,6 +1574,8 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Переглянути внесок користувача</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Подякувати</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Інформація про користувача</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Обліковий запис з:&lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Кількість редагувань:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Закрити</string>
   <string name="patroller_tasks_filters_title">Фільтри</string>
   <string name="patroller_tasks_filters_reset">Скинути</string>
@@ -1578,10 +1583,15 @@
   <string name="patroller_tasks_filters_all_text">Усі</string>
   <string name="patroller_tasks_filters_user_status_header">Реєстрація користувача і його досвід</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Незареєстровані</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Користувачі, які не ввійшли в систему.</string>
   <string name="patroller_tasks_filters_user_status_registered">Зареєстровані</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Користувачі, що увійшли в систему.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Новачки</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Зареєстровані редактори, які мають менш ніж 10 редагувань або менш ніж 4 дні активності.</string>
   <string name="patroller_tasks_filters_user_status_learners">Учні</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Зареєстровані редактори, рівень досвіду яких перебуває між «новачками» та «досвідченими користувачами».</string>
   <string name="patroller_tasks_filters_user_status_experienced">Досвідчені користувачі</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Зареєстровані редактори, які мають понад 500 редагувань і 30 днів активності.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Останні версії</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Поточна версія</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Не остання версія</string>
@@ -1593,14 +1603,22 @@
   <string name="patroller_tasks_filters_significance_edits">Звичайні редагування</string>
   <string name="patroller_tasks_filters_contribution_quality_header">Передбачення якості внеску</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Найімовірніше добрі</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Надзвичайно точний у пошуку більшості непроблематичних редагувань.</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Можуть бути проблематичними</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Знаходить більшість редагувань, які мають недоліки або є шкідливими, але з меншою точністю.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Схоже, мають проблеми</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Із середньою точністю знаходить середню частку проблемних редагувань.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Найімовірніше, мають проблеми</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Дуже точний у пошуку найочевидніших некоректних чи шкідливих редагувань.</string>
   <string name="patroller_tasks_filters_user_intent_header">Передбачення намірів користувачів</string>
   <string name="patroller_tasks_filters_user_intent_good">Найімовірніше, добрі наміри</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Надзвичайно точний у виявленні майже всіх редагувань, зроблених з добрими намірами.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Можливо, погані наміри</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Знаходить більшість редагувань, зроблених зі злими намірами, але з меншою точністю.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Схоже, погані наміри</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Із середньою точністю знаходить середню частку редагувань, зроблених зі злими намірами.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Найімовірніше, погані наміри</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Дуже точний у пошуку редагувань, найбільш очевидно зроблених зі злими намірами.</string>
   <string name="patroller_tasks_filters_empty_search_message">Спробуйте прибрати %s, щоб побачити більше редагувань</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d фільтр</item>
@@ -1610,23 +1628,45 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Відпатрулювати редагування</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Історія редагування статті</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Скасувати цю зміну?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Ви дійсно хочете скасувати це редагування?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Скасування повністю відхилить дію одного чи кількох редагувань.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Опис (необов\'язково)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Вкажіть причину скасування</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Скасування виконано</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Ви дійсно хочете відкинути?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Відкіт виконано</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Переглянути</string>
   <string name="patroller_tasks_overflow_report">Проблема з функцією</string>
   <string name="patroller_tasks_overflow_learn">Дізнатися більше</string>
+  <string name="patroller_onboarding_one_title">Зробіть внесок у нагляд і затвердження редагувань у Вікіпедії.</string>
+  <string name="patroller_onboarding_one_content">Підвищуйте якість вмісту Вікіпедії, активно переглядаючи стрічку нових редагувань і даючи вказівки, контроль якості та заохочення іншим редакторам.</string>
+  <string name="patroller_onboarding_two_title">Пропонуйте відгуки, відстежуйте зміни та виконуйте дії на сторінках порівняння версій</string>
+  <string name="patroller_onboarding_two_thank_title">Вдячність</string>
+  <string name="patroller_onboarding_two_thank_content">Бачите продуктивне редагування? Подякуйте користувачу за їхній внесок.</string>
+  <string name="patroller_onboarding_two_watch_title">Спостереження</string>
+  <string name="patroller_onboarding_two_watch_content">Хочете відстежувати редагування статті? Додайте її до свого списку спостереження. Перегляньте його в розділі «Більше».</string>
+  <string name="patroller_onboarding_two_warn_title">Попередження</string>
+  <string name="patroller_onboarding_two_warn_content">Створюйте, надсилайте та зберігайте попереджувальні повідомлення на сторінці обговорення редактора.</string>
+  <string name="patroller_onboarding_two_undo_title">Скасування / відкіт</string>
+  <string name="patroller_onboarding_two_undo_content">Виберіть «Скасувати», щоб скасувати або повернути потенційно деструктивні зміни.</string>
+  <string name="patroller_diff_tooltip_one">«Шкода» передбачає, що редагування завдає шкоди вікі.</string>
+  <string name="patroller_diff_tooltip_two">«Намір» передбачає ймовірність добропорядних намірів при збереженні редагування.</string>
+  <string name="patroller_diff_feedback_dialog_title">Допоможіть нам покращити цю функцію</string>
+  <string name="patroller_diff_feedback_dialog_message">Ви задоволені цією функцією?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволений/а</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Нейтрально</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволений/а</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Як ми можемо покращити функцію?</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Зворотний зв\'язок</string>
+  <string name="patroller_diff_feedback_dialog_submit">Надіслати</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Відгук надіслано.</string>
+  <string name="patroller_diff_feedback_tooltip">Торкніться додаткового меню, щоб надіслати відгук будь-коли у розділі «Проблема з функцією».</string>
   <string name="data_opt_in_accept">Прийняти</string>
   <string name="data_opt_in_reject">Відхилити</string>
   <string name="page_issues_title">Проблеми сторінки</string>
   <string name="generic_release_notes">Незначні виправлення помилок і вдосконалення</string>
-  <string name="email_report_image_recommendations_subject" fuzzy="true">Звіт про проблему – функція рекомендацій зображень</string>
-  <string name="email_report_image_recommendations_body" fuzzy="true">У мене виникла проблема з функцією рекомендацій зображень:\n- [Опишіть конкретну проблему]\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
-  <string name="email_report_patroller_tasks_subject" fuzzy="true">Звіт про проблему – функція завдань патрулювання</string>
-  <string name="email_report_patroller_tasks_body" fuzzy="true">У мене виникла проблема з функцією завдань патрулювання:\n- [Опишіть конкретну проблему]\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]\n\n[]</string>
+  <string name="email_report_image_recommendations_subject">Звіт про проблему — функція рекомендацій зображень</string>
+  <string name="email_report_image_recommendations_body">У мене виникла проблема з функцією рекомендацій зображень:\n- [Опишіть конкретну проблему]\n\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]</string>
+  <string name="email_report_patroller_tasks_subject">Звіт про проблему – функція патрулювання редагувань</string>
+  <string name="email_report_patroller_tasks_body">У мене виникла проблема з функцією патрулювання редагувань:\n- [Опишіть конкретну проблему]\n\nОчікувана мною поведінка функції:\n- [Опишіть запропоноване рішення]\n\n[Скріншоти чи посилання]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Завтра ми ще раз нагадаємо.</string>
+  <string name="donation_campaign_donated_snackbar">Дякуємо, шановний доноре! Ваша щедрість допомагає Вікіпедії та її сестринським сайтам процвітати.</string>
+  <string name="donation_campaign_go_back_button">Назад</string>
+  <string name="menu_single_webview_open_external">Відкрити в системному браузері</string>
 </resources>

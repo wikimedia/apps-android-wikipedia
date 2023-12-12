@@ -22,6 +22,7 @@
 * MagicAho
 * Makoto Asai
 * Marine-Blue
+* Mash1133
 * MathXplore
 * Mirinano
 * MirukuPC
@@ -313,7 +314,7 @@
   <string name="edit_redo">やり直す</string>
   <string name="edit_rollback">巻き戻し</string>
   <string name="edit_warn">警告する</string>
-  <string name="edit_quality">品質%s</string>
+  <string name="edit_damage">ダメージ %s</string>
   <string name="edit_intent">インテント%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="other">%sバイト</item>
@@ -1016,7 +1017,7 @@
   <string name="suggested_edits_quality_very_good_text">とてもよい</string>
   <string name="suggested_edits_quality_good_text">よい</string>
   <string name="suggested_edits_quality_okay_text">まあまあ</string>
-  <string name="suggested_edits_quality_sufficient_text">最低限</string>
+  <string name="suggested_edits_quality_sufficient_text">十分</string>
   <string name="suggested_edits_quality_poor_text">よくない</string>
   <string name="suggested_edits_quality_bad_text">悪い</string>
   <string name="suggested_edits_label">編集提案</string>
@@ -1036,7 +1037,7 @@
   <string name="suggested_edits_ip_blocked_title">IPブロック済み</string>
   <string name="suggested_edits_last_edited">最終編集:</string>
   <string name="suggested_edits_last_edited_never">なし</string>
-  <string name="suggested_edits_task_new" fuzzy="true">新規</string>
+  <string name="suggested_edits_task_new">新規</string>
   <string name="suggested_edits_cc0_notice">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0ライセンス&lt;/a&gt;の下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="suggested_edits_reactivation_notification_title">編集提案</string>
   <string name="suggested_edits_reactivation_notification_stage_one">ウィキペディアを編集していただきありがとうございます! このまま編集を続けてみてはどうでしょうか?</string>
@@ -1115,6 +1116,7 @@
   <string name="image_recommendation_tooltip_3">この画像が、読者にとってこのトピックをよりよく理解するのに役立つかどうかを判断します</string>
   <string name="image_recommendation_tooltip_next">次へ</string>
   <string name="image_recommendation_tooltip_warning">記事を読んでトピックを理解し、画像を確認してください。</string>
+  <string name="image_recommendation_depleted">残念ながら、現時点で利用可能なおすすめ画像の最後に達しました。別の&lt;a href=\"#\"&gt;おすすめ編集&lt;/a&gt;を試してみるか、しばらく時間が経ってから、またここを開いてください。</string>
   <string name="suggested_edits_report_feature">機能の問題</string>
   <string name="suggested_edits_report_feature_subject">提案された編集に関する問題</string>
   <string name="edit_summary_added_image">新しく画像を追加</string>
@@ -1216,6 +1218,7 @@
   <string name="wikitext_template">テンプレート</string>
   <string name="wikitext_reference">脚注</string>
   <string name="wikitext_preview_link">リンクをプレビュー</string>
+  <string name="wikitext_mention_user">利用者に言及</string>
   <string name="insert_media_title">メディアを挿入</string>
   <string name="insert_media_search_description">ウィキメディアコモンズからファイルを選択</string>
   <string name="insert_media_search_hint">メディアを検索</string>
@@ -1356,9 +1359,11 @@
   <string name="revision_diff_line_removed">行を除去</string>
   <string name="revision_diff_paragraph_added">段落を追加</string>
   <string name="revision_diff_paragraph_removed">段落を除去</string>
-  <string name="revision_undo_title">編集を取り消す</string>
-  <string name="revision_undo_message">これにより、ここに表示されている記事の版で行われた変更が取り消されます。</string>
-  <string name="revision_undo_reason">操作を続ける場合、編集を取り消す理由を記入してください。</string>
+  <string name="revision_diff_protected">この版で行われた変更は一般に公開されていません。</string>
+  <string name="revision_undo_title">本当にこの編集を取り消しますか？</string>
+  <string name="revision_undo_message">取り消しはひとつ以上の編集の効果を差し戻すことを意味します。</string>
+  <string name="revision_undo_summary_hint">要約（オプション）</string>
+  <string name="revision_undo_reason">差し戻しの理由を共有する</string>
   <string name="revision_undo_success">この版は取り消されました。</string>
   <string name="revision_rollback_dialog_title">本当に編集を巻き戻しますか？</string>
   <string name="revision_rollback_success">編集が差し戻されました</string>
@@ -1461,11 +1466,15 @@
   <string name="user_contrib_filter_activity_title">投稿を絞り込む</string>
   <string name="shareable_reading_lists_import_dialog_title">共有リーディングリストの読み込み</string>
   <string name="shareable_reading_lists_import_dialog_content">共有されたリストに名前をつけますか？</string>
+  <string name="shareable_reading_lists_new_indicator">*新規*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">リーディングリストが共有されました</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">わかりました</string>
   <string name="shareable_reading_lists_new_imported_snackbar">あとで読むリストをインポートしました</string>
   <string name="reading_list_share_menu_label">共有…</string>
   <string name="reading_list_share_menu_tooltip">このあとで読むリストを他の人と共有する</string>
+  <string name="reading_list_share_message_v2">こんにちは！私の閲覧リストを共有します。</string>
+  <string name="reading_list_share_survey_title">「閲覧リストの共有」機能の改善にご協力いただけませんか？</string>
+  <string name="reading_list_share_survey_body">「閲覧リストの共有」は実験的な機能であり、改善または棄却のためフィードバックを必要としています。</string>
   <string name="talk_templates_manage_title">テンプレートを管理</string>
   <string name="talk_templates_empty_message">警告メッセージが何も保存されていません。</string>
   <string name="talk_templates_new_message_title">新しいメッセージ</string>
@@ -1484,8 +1493,8 @@
   <string name="talk_templates_edit_message_dialog_save">保存</string>
   <string name="talk_templates_edit_message_dialog_delete">削除</string>
   <string name="talk_templates_edit_message_updated">メッセージが更新されました</string>
-  <string name="talk_templates_edit_message_confirm_description">本当にこの%sメッセージをリストから削除しますか？</string>
-  <string name="talk_templates_message_deleted">メッセージが削除されました</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">メッセージが削除されました</string>
+  <string name="talk_templates_message_title_empty">タイトルを空にすることはできません。</string>
   <string name="patroller_tasks_edits_list_title">編集の一覧</string>
   <string name="patroller_tasks_edits_list_search_hint">編集を検索または絞り込む</string>
   <string name="patroller_tasks_edits_list_card_tags_text">タグ: %s</string>
@@ -1509,8 +1518,11 @@
   <string name="patroller_tasks_filters_user_status_registered">登録済み</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">ログイン済みの編集者。</string>
   <string name="patroller_tasks_filters_user_status_newcomers">新規利用者</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">活動が4日、編集が10回以下の登録済み編集者。</string>
   <string name="patroller_tasks_filters_user_status_learners">初学者</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">編集経験が「新規利用者」と「経験者」の中間の登録済み編集者。</string>
   <string name="patroller_tasks_filters_user_status_experienced">経験者</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">500編集以上かつ30日以上の活動がある登録済み編集者。</string>
   <string name="patroller_tasks_filters_latest_revisions_header">最新版</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">最新版</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">最新版以外</string>
@@ -1522,31 +1534,42 @@
   <string name="patroller_tasks_filters_significance_edits">細部でない編集</string>
   <string name="patroller_tasks_filters_contribution_quality_header">投稿品質の推定</string>
   <string name="patroller_tasks_filters_contribution_quality_good">良好である可能性が高い</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">高い精度で、ほとんどすべての問題のない編集を見つけます。</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems">問題があるかもしれない</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">不備または害がある編集のほとんどを見つけますが、精度は低くなります。</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">問題がある可能性</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">中程度の精度で、問題のある編集の中程度の分量を見つけます。</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">問題がある可能性が高い</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">非常に高い精度で、明らかな欠陥や害がある編集を見つけます。</string>
   <string name="patroller_tasks_filters_user_intent_header">利用者の意図の推定</string>
   <string name="patroller_tasks_filters_user_intent_good">善意である可能性が高い</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">高い精度で、ほとんどすべての善意による編集を見つけます。</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">悪意であるかもしれない</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">ほとんどの悪意のある編集を見つけますが、精度は低くなります。</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">悪意である可能性</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">中程度の精度で、悪意のある編集の中程度の分量を見つけます。</string>
   <string name="patroller_tasks_filters_user_intent_bad">悪意である可能性が高い</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">非常に高い精度で明らかに悪意のある編集を見つけます。</string>
   <string name="patroller_tasks_filters_empty_search_message">さらに編集を表示するには、%sを除去してみてください</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="other">%d件のフィルター</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">編集を巡回</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">記事の編集履歴</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">この編集を取り消しますか？</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">本当にこの編集を取り消しますか？</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">取り消しはひとつ以上の編集の効果を差し戻すことを意味します。</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">要約（オプション）</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">差し戻しの理由を共有する</string>
   <string name="patroller_tasks_patrol_edit_undo_success">差し戻し完了</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">本当に巻き戻しますか？</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">巻き戻し完了</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">表示</string>
   <string name="patroller_tasks_overflow_report">機能の問題</string>
   <string name="patroller_tasks_overflow_learn">詳細</string>
+  <string name="patroller_onboarding_one_title">ウィキペディアの編集の管理と確認に貢献する。</string>
+  <string name="patroller_onboarding_two_thank_title">感謝</string>
+  <string name="patroller_onboarding_two_warn_title">警告</string>
+  <string name="patroller_onboarding_two_undo_title">取り消し/巻き戻し</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">中立</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">フィードバック</string>
+  <string name="patroller_diff_feedback_dialog_submit">送信</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">フィードバックが送信されました。</string>
   <string name="data_opt_in_accept">承認</string>
   <string name="data_opt_in_reject">却下</string>
   <string name="page_issues_title">ページの問題点</string>
@@ -1555,4 +1578,6 @@
   <string name="email_report_image_recommendations_body">画像お勧め機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]</string>
   <string name="email_report_patroller_tasks_subject">問題報告 - 編集巡回機能</string>
   <string name="email_report_patroller_tasks_body">編集巡回機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]\n\n[スクリーンショットまたはリンク]</string>
+  <string name="donation_campaign_go_back_button">戻る</string>
+  <string name="menu_single_webview_open_external">システムブラウザで開く</string>
 </resources>
