@@ -78,9 +78,8 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         binding.mainDrawerDonateContainer.setOnClickListener {
             DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
-            visitInExternalBrowser(requireContext(),
-                    Uri.parse(getString(R.string.donate_url,
-                            BuildConfig.VERSION_NAME, WikipediaApp.instance.languageState.systemLanguageCode)))
+            visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.donate_url,
+                WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME)))
             dismiss()
         }
 

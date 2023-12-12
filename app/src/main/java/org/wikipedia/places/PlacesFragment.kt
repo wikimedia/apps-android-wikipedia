@@ -40,6 +40,7 @@ import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentPlacesBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
@@ -126,7 +127,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         binding.mapView.onCreate(savedInstanceState)
 
         binding.mapView.getMapAsync { map ->
-            map.setStyle(Style.Builder().fromUri("asset://mapstyle.json")) { style ->
+            val assetForTheme = if (WikipediaApp.instance.currentTheme.isDark) "asset://mapstyle-dark.json" else "asset://mapstyle.json"
+            map.setStyle(Style.Builder().fromUri(assetForTheme)) { style ->
                 mapboxMap = map
 
                 style.addImage(MARKER_DRAWABLE, AppCompatResources.getDrawable(requireActivity(), R.drawable.map_marker)!!)
@@ -149,7 +151,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
-                        val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_NEARBY)
+                        val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_PLACES)
                         ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
                     }
                     true
