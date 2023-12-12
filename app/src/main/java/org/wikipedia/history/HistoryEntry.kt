@@ -92,8 +92,8 @@ class HistoryEntry(
         const val SOURCE_ARCHIVED_TALK = 37
         const val SOURCE_USER_CONTRIB = 38
         const val SOURCE_FILE_PAGE = 39
-        const val SOURCE_NEARBY = 40
         const val SOURCE_SINGLE_WEBVIEW = 40
         const val SOURCE_SUGGESTED_EDITS_RECENT_EDITS = 41
+        const val SOURCE_NEARBY = 42
     }
 }
