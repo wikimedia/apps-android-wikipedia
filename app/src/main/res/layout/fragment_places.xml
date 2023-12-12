@@ -12,7 +12,7 @@
 
     <include
         android:id="@+id/search_card"
-        layout="@layout/view_nearby_search_bar"
+        layout="@layout/view_places_search_bar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"

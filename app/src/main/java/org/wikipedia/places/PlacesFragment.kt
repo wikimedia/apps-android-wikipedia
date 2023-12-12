@@ -21,6 +21,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.graphics.applyCanvas
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
@@ -58,6 +59,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import kotlin.math.abs
+import org.wikipedia.settings.Prefs
 
 class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
 
@@ -114,8 +116,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
             }
         }
 
+        binding.searchCard.searchContainer.setOnClickListener {
+            openSearchActivity(null)
+        }
+
         binding.searchCard.searchTextView.let { textView ->
-            textView.setOnClickListener { openSearchActivity(textView.text.toString()) }
+            textView.setOnClickListener {
+                openSearchActivity(if (textView.text.toString() == getString(R.string.places_search_hint)) null
+                else textView.text.toString())
+            }
         }
 
         binding.searchCard.searchBack.setOnClickListener {
@@ -127,7 +136,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         }
 
         binding.searchCard.searchCloseBtn.setOnClickListener {
-            binding.searchCard.searchTextView.text = ""
+            binding.searchCard.searchTextView.text = getString(R.string.places_search_hint)
+            it.visibility = View.GONE
         }
 
         binding.myLocationButton.setOnClickListener {
@@ -151,8 +161,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
 
     private fun updateTabsView() {
         val tabsCount = WikipediaApp.instance.tabCount
-        binding.searchCard.searchTabsCountView.visibility = if (tabsCount != 0) View.VISIBLE else View.GONE
-        binding.searchCard.searchTabsCountView.text = WikipediaApp.instance.tabCount.toString()
+        binding.searchCard.searchTabsCountView.isVisible = tabsCount != 0
+        binding.searchCard.searchTabsCountView.text = tabsCount.toString()
+        binding.searchCard.searchLangCode.text = Prefs.placesWikiCode
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -189,6 +200,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
                         binding.searchCard.searchTextView.text = it.pageTitle.displayText
+                        binding.searchCard.searchCloseBtn.isVisible = true
                         val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_NEARBY)
                         ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
                     }

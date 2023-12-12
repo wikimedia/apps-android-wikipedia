@@ -4,11 +4,15 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.speech.RecognizerIntent
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
+import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
@@ -23,10 +27,24 @@ import org.wikipedia.views.DefaultViewHolder
 
 class PlacesFilterActivity : BaseActivity() {
     private lateinit var binding: ActivityPlacesFiltersBinding
+    val filtersList: List<String>
+        get() {
+            val list = mutableListOf<String>()
+            list.add(HEADER)
+            list.addAll(appLanguageCodes)
+            list.add(FOOTER)
+            return list
+        }
+
     val appLanguageCodes: List<String>
         get() {
             return WikipediaApp.instance.languageState.appLanguageCodes
         }
+
+    val addLanguageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        runOnUiThread { binding.placesFiltersRecyclerView.adapter?.notifyDataSetChanged() }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPlacesFiltersBinding.inflate(layoutInflater)
@@ -41,10 +59,10 @@ class PlacesFilterActivity : BaseActivity() {
         list.addAll(appLanguageCodes)
         list.add(FOOTER)
         binding.placesFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.placesFiltersRecyclerView.adapter = PlacesLangListFilterAdapter(this, list)
+        binding.placesFiltersRecyclerView.adapter = PlacesLangListFilterAdapter(this)
     }
 
-    private inner class PlacesLangListFilterAdapter(val context: Context, val filtersList: List<String>) :
+    private inner class PlacesLangListFilterAdapter(val context: Context) :
         RecyclerView.Adapter<DefaultViewHolder<*>>(), PlacesFilterItemViewHolder.Callback {
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
@@ -116,9 +134,8 @@ class PlacesFilterActivity : BaseActivity() {
 
         fun bindItem(activity: Activity) {
             itemView.setOnClickListener {
-                activity.startActivity(WikipediaLanguagesActivity.newIntent(itemView.context,
-                    Constants.InvokeSource.CONTEXT_MENU)
-                )
+                (activity as PlacesFilterActivity).addLanguageLauncher.launch(WikipediaLanguagesActivity.newIntent(itemView.context,
+                    Constants.InvokeSource.PLACES))
             }
         }
     }
