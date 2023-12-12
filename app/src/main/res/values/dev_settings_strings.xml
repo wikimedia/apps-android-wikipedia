@@ -16,6 +16,8 @@
     <string name="preferences_developer_announcement_version_code_hint">Set to 0 to reset.</string>
     <string name="preferences_developer_announcement_reset_shown_dialogs_title">Reset shown dialogs</string>
     <string name="preferences_developer_announcement_reset_shown_dialogs_summary">%d shown dialog(s).</string>
+    <string name="preferences_developer_announcement_debug_url">Use the test.wikipedia debug URL.</string>
+    <string name="preferences_developer_announcement_pause_time">The time when you click on "Maybe later"</string>
 
     <string name="preferences_developer_restbase_heading">RESTBase access</string>
     <string name="preferences_developer_logging_heading">Logging</string>
@@ -41,5 +43,4 @@
     <string name="preference_developer_send_event_platform_test_event_summary">Send a test event to the configured Event Platform intake endpoint</string>
     <string name="preference_developer_clear_all_talk_topics">clearAllTalkTopics</string>
 
-    <string name="preference_developer_nearby">preferenceDeveloperNearby</string>
 </resources>

@@ -266,6 +266,8 @@
 
         <activity android:name=".suggestededits.SuggestedEditsImageRecsOnboardingActivity" />
 
+        <activity android:name=".suggestededits.SuggestedEditsRecentEditsOnboardingActivity" />
+
         <activity
             android:name=".watchlist.WatchlistActivity"
             android:label="@string/watchlist_title"
@@ -279,6 +281,14 @@
         <activity
             android:name=".suggestededits.SuggestedEditsImageTagEditActivity"
             android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
+            android:name=".suggestededits.SuggestedEditsRecentEditsActivity"/>
+
+        <activity
+            android:name=".suggestededits.SuggestedEditsRecentEditsFilterActivity"
+            android:label="@string/patroller_tasks_filters_title"
+            android:theme="@style/AppTheme.ActionBar"/>
 
         <activity
             android:name=".commons.FilePageActivity"
@@ -303,7 +313,7 @@
 
         <activity
             android:name=".activity.SingleWebViewActivity"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:theme="@style/AppTheme" />
 
         <activity
             android:name=".page.customize.CustomizeToolbarActivity"
@@ -333,7 +343,16 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity
-            android:name=".nearby.NearbyActivity" />
+            android:name=".places.PlacesActivity" />
+ 
+        <activity
+            android:name=".talk.template.TalkTemplatesActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".talk.template.AddTemplateActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
 
         <provider
             android:name=".WikipediaFileProvider"

@@ -278,7 +278,8 @@
   <string name="edit_redo">Gör om</string>
   <string name="edit_rollback">Rulla tillbaka</string>
   <string name="edit_warn">Varna</string>
-  <string name="edit_quality">Kvalitet %s</string>
+  <string name="edit_damage">Skada %s</string>
+  <string name="edit_intent">Avsikt %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
     <item quantity="other">%s byte</item>
@@ -323,7 +324,7 @@
   <string name="table_close">Stäng</string>
   <string name="widget_name_featured_page">Utmärkt Wikipedia-artikel</string>
   <string name="widget_title_featured_page">Dagens utmärkta artikel:</string>
-  <string name="widget_name_search">Wikipedia-sök</string>
+  <string name="widget_name_search">Wikipedia-sökning</string>
   <string name="wiktionary_no_definitions_found">Inga definitioner hittades.</string>
   <string name="alpha_update_notification_title">Ny alpha-uppdatering tillgänglig</string>
   <string name="alpha_update_notification_text">Tryck för att ladda ner</string>
@@ -641,7 +642,7 @@
   <string name="reading_lists_preview_saved_snackbar">Läslista sparades</string>
   <string name="reading_lists_preview_saved_snackbar_action">Visa</string>
   <string name="user_option_sync_label">Inställningar</string>
-  <string name="notification_reverted_title">Ogjord redigering</string>
+  <string name="notification_reverted_title">Återställd redigering</string>
   <string name="notification_channel_title">Laddar ned artiklar</string>
   <string name="notification_channel_description">Nedladdningsförlopp</string>
   <string name="notification_syncing_pause_button">Pausa</string>
@@ -891,6 +892,8 @@
   <string name="suggested_edits_describe_articles">Beskriv artiklar</string>
   <string name="suggested_edits_caption_images">Skriv bildtexter</string>
   <string name="suggested_edits_tag_images">Tagga bilder</string>
+  <string name="suggested_edits_edit_patrol">Redigeringspatrull</string>
+  <string name="suggested_edits_edit_patrol_hint">Granska de senaste redigeringarna och avgör om de är konstruktiva eller inte.</string>
   <string name="suggested_edits_edit_patrol_review">Granska</string>
   <string name="suggested_edits_review_description">Granska artikelbeskrivning</string>
   <string name="suggested_edits_add_description_button">Lägg till beskrivning</string>
@@ -1011,7 +1014,7 @@
   <string name="suggested_edits_ip_blocked_title">Blockerad IP-adress</string>
   <string name="suggested_edits_last_edited">Redigerade senast</string>
   <string name="suggested_edits_last_edited_never">Aldrig</string>
-  <string name="suggested_edits_task_new">ny</string>
+  <string name="suggested_edits_task_new">Ny</string>
   <string name="suggested_edits_cc0_notice">Genom att publicera samtycker du till &lt;a href=\"%1$s\"&gt;användningsvillkoren&lt;/a&gt; och att oåterkalleligen släppa detta bidrag under licensen &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Redigeringsförslag</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Tack för att du redigerar på Wikipedia! Varför inte fortsätta där du slutade sist?</string>
@@ -1090,6 +1093,7 @@
   <string name="image_recommendation_tooltip_3">Bestäm om bilden hjälper läsarna att förstå detta ämne bättre</string>
   <string name="image_recommendation_tooltip_next">Nästa</string>
   <string name="image_recommendation_tooltip_warning">Granska artikeln för att förstå ämnet och inspektera bilden</string>
+  <string name="image_recommendation_depleted">Tyvärr finns det inga fler tillgängliga föreslagna bilder just nu. Var god utforska andra &lt;a href=\"#\"&gt;föreslagna redigeringar&lt;/a&gt; eller återvänd senare.</string>
   <string name="suggested_edits_report_feature">Problem med funktion</string>
   <string name="suggested_edits_report_feature_subject">Problem med Föreslagna redigeringar</string>
   <string name="edit_summary_added_image">Lade till ny bild</string>
@@ -1101,7 +1105,7 @@
   <string name="file_page_add_image_tags_button">Lägg till bildtaggar</string>
   <string name="file_page_edit_button_content_description">Redigera %s</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
-  <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
+  <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering återställdes inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte en av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ditt bidrag såg ut som ett experiment eller vandalism</string>
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
@@ -1191,13 +1195,14 @@
   <string name="wikitext_template">Mall</string>
   <string name="wikitext_reference">Referens</string>
   <string name="wikitext_preview_link">Förhandsvisa länk</string>
+  <string name="wikitext_mention_user">Nämn en användare</string>
   <string name="insert_media_title">Infoga media</string>
   <string name="insert_media_search_description">Välj en fil från Wikimedia Commons</string>
   <string name="insert_media_search_hint">Sök efter media</string>
   <string name="insert_media_settings">Lägg till mediadetaljer</string>
   <string name="insert_media_settings_uploaded_image">Uppladdad bild</string>
   <string name="insert_media_settings_caption">Bildtext</string>
-  <string name="insert_media_settings_caption_description" fuzzy="true">Etikett som visas intill objektet för alla läsare</string>
+  <string name="insert_media_settings_caption_description">Synlig bildetikett inuti artikeln</string>
   <string name="insert_media_settings_alternative_text">Alternativ text</string>
   <string name="insert_media_settings_alternative_text_description">Beskrivning för synskadade läsare</string>
   <string name="insert_media_advanced_settings">Avancerade inställningar</string>
@@ -1243,6 +1248,9 @@
   <string name="talk_warn_save_dialog_hint">Meddelandetitel</string>
   <string name="talk_warn_save_dialog_publish">Publicera</string>
   <string name="talk_warn_save_dialog_cancel">Avbryt</string>
+  <string name="talk_warn_submitted">Meddelandet publicerades på redigerarens användardiskussionssida</string>
+  <string name="talk_warn_submitted_and_saved">Meddelandet sparades och publicerades på redigerarens användardiskussionssida</string>
+  <string name="talk_warn_saved_message">Välj ett befintligt varningsmeddelande eller skriv ett nytt.</string>
   <string name="talk_warn_saved_message_dropdown">Sparade meddelanden</string>
   <string name="talk_page_empty">Den här diskussionssidan är tom.</string>
   <string name="talk_page_empty_title">Konversationen börjar här</string>
@@ -1330,12 +1338,14 @@
   <string name="revision_diff_line_removed">Raden togs bort</string>
   <string name="revision_diff_paragraph_added">Paragrafen lades till</string>
   <string name="revision_diff_paragraph_removed">Paragrafen togs bort</string>
-  <string name="revision_undo_title">Återställ redigering</string>
-  <string name="revision_undo_message">Detta kommer att göra ändringarna som syns i revisionen/revisionerna av artikeln som visas här ogjorda.</string>
-  <string name="revision_undo_reason">För att fortsätta, vänligen ange en orsak för att återställa den här redigeringen:</string>
+  <string name="revision_diff_protected">Ändringarna som gjordes i denna version är inte offentligt tillgängliga.</string>
+  <string name="revision_undo_title">Är du säker på att du vill göra denna redigering ogjord?</string>
+  <string name="revision_undo_message">Ångra innebär att återställa effekterna av en eller flera redigeringar.</string>
+  <string name="revision_undo_summary_hint">Sammanfattning (valfri)</string>
+  <string name="revision_undo_reason">Dela anledningen till återställningen</string>
   <string name="revision_undo_success">Versionen återställdes.</string>
   <string name="revision_rollback_dialog_title">Är du säker på att du vill rulla tillbaka redigeringarna?</string>
-  <string name="revision_rollback_success">Redigeringar rullades tillbaka.</string>
+  <string name="revision_rollback_success">Redigeringar återställdes.</string>
   <string name="revision_compare_button">Jämför</string>
   <string name="revision_compare_two_only">Endast två versioner kan markeras.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s och dess diskussionssida har lagts till i din bevakningslista %2$s.</string>
@@ -1447,6 +1457,7 @@
   <string name="reading_list_share_survey_title">Kan du hjälpa oss att förbättra \"Dela läslistor\"?</string>
   <string name="reading_list_share_survey_body">\"Dela läslistor\" är en testfunktion och vi behöver din återkoppling för att förbättra eller ta bort den.</string>
   <string name="talk_templates_manage_title">Hantera mallar</string>
+  <string name="talk_templates_empty_message">Du har inga varningsmeddelanden sparade.</string>
   <string name="talk_templates_new_message_title">Nytt meddelande</string>
   <string name="talk_templates_new_message_description">Skriv varningsmeddelande.</string>
   <string name="talk_templates_new_message_subject_hint">Ämne</string>
@@ -1463,7 +1474,16 @@
   <string name="talk_templates_edit_message_dialog_save">Spara</string>
   <string name="talk_templates_edit_message_dialog_delete">Radera</string>
   <string name="talk_templates_edit_message_updated">Meddelandet har uppdaterats</string>
-  <string name="talk_templates_message_deleted">Meddelandet har raderats</string>
+  <string name="talk_templates_menu_remove_message">Ta bort meddelande</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Är du säker på att du vill radera meddelandet från listan?</item>
+    <item quantity="other">Är du säker på att du vill radera meddelanden från listan?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Meddelandet har raderats</item>
+    <item quantity="other">Meddelanden har raderats</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Titeln kan inte vara tom.</string>
   <string name="patroller_tasks_edits_list_title">Lista över redigeringar</string>
   <string name="patroller_tasks_edits_list_search_hint">Sök eller filtrera redigeringar</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Taggar: %s</string>
@@ -1487,7 +1507,11 @@
   <string name="patroller_tasks_filters_user_status_registered">Registrerade</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Inloggade redigerare.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Nykomlingar</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrerade redigerare som har färre än 10 redigeringar eller 4 dagars aktivitet.</string>
+  <string name="patroller_tasks_filters_user_status_learners">Nybörjare</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Registrerade redigerare vars erfarenhet hamnar mellan \"Nya användare\" och \"Erfarna användare\".</string>
   <string name="patroller_tasks_filters_user_status_experienced">Erfarna användare</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Registrerade redigerare med fler än 500 redigeringar och 30 dagars aktivitet.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Senaste versioner</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Senaste version</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Inte den senaste versionen</string>
@@ -1520,16 +1544,47 @@
     <item quantity="one">%d filter</item>
     <item quantity="other">%d filter</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Ångra denna redigering?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Är du säker på att du vill ångra denna redigering?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Sammanfattning (valfri)</string>
+  <string name="patroller_tasks_patrol_edit_title">Patrullredigering</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikelns redigeringshistorik</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Återställdes</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Är du säker på att du vill rulla tillbaka?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Tillbakarullning slutförd</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Visa</string>
   <string name="patroller_tasks_overflow_report">Problem med funktion</string>
   <string name="patroller_tasks_overflow_learn">Läs mer</string>
+  <string name="patroller_onboarding_one_title">Bidra till tillsynen och godkännandet av Wikipedia-redigeringar.</string>
+  <string name="patroller_onboarding_one_content">Förbättra kvaliteten på Wikipedias innehåll genom att aktivt granska ett flöde med senaste redigeringar och ge vägledning, kvalitetskontroll och uppmuntran till andra redigerare.</string>
+  <string name="patroller_onboarding_two_title">Ge återkoppling, övervaka redigeringar och vidta åtgärder på diff-menyn</string>
+  <string name="patroller_onboarding_two_thank_title">Tack</string>
+  <string name="patroller_onboarding_two_thank_content">Har du hittat en produktiv redigering? Tacka en användare för deras bidrag.</string>
+  <string name="patroller_onboarding_two_watch_title">Bevaka</string>
+  <string name="patroller_onboarding_two_watch_content">Vill du spåra artikelredigeringar? Lägg till i din bevakningslista. Se den under \"Mer\".</string>
+  <string name="patroller_onboarding_two_warn_title">Varna</string>
+  <string name="patroller_onboarding_two_warn_content">Skapa, skicka och lagra varningsmeddelanden på en redigerares diskussionssida.</string>
+  <string name="patroller_onboarding_two_undo_title">Gör ogjord/Rulla tillbaka</string>
+  <string name="patroller_onboarding_two_undo_content">Välj \"Gör ogjord\" för att återställa en potentiellt destruktiv redigering.</string>
+  <string name="patroller_diff_tooltip_one">Skada förutsäger om en redigering orsakar skada på en wiki.</string>
+  <string name="patroller_diff_tooltip_two">Avsikt förutsäger sannolikheten om en redigering sparas i god tro.</string>
+  <string name="patroller_diff_feedback_dialog_title">Hjälp oss att förbättra denna funktion</string>
+  <string name="patroller_diff_feedback_dialog_message">Är du nöjd med denna funktion?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Nöjd</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Inte nöjd</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Hur kan vi förbättra funktionen?</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Återkoppling</string>
+  <string name="patroller_diff_feedback_dialog_submit">Skicka</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Återkoppling har skickats.</string>
+  <string name="patroller_diff_feedback_tooltip">Tryck på överflödesmenyn för att skicka återkoppling när som helst under \"Problem med funktion\".</string>
   <string name="data_opt_in_accept">Acceptera</string>
   <string name="data_opt_in_reject">Avvisa</string>
   <string name="page_issues_title">Sidproblem</string>
   <string name="generic_release_notes">Smärre buggfixar och förbättringar</string>
+  <string name="email_report_image_recommendations_subject">Problemrapport - Funktion för bildrekommendationer</string>
+  <string name="email_report_image_recommendations_body">Jag har stött på ett problem med funktionen \"Bildrekommendationer\":\n- [Beskriv det specifika problemet]\n\nBeteende jag skulle vilja ha:\n- [Beskriv ett lösningsförslag]</string>
+  <string name="email_report_patroller_tasks_subject">Problemrapport - Funktion för redigeringspatrull</string>
+  <string name="email_report_patroller_tasks_body">Jag har stött på ett problem med funktionen \"Redigeringspatrull\":\n- [Beskriv det specifika problemet]\n\nBeteende jag skulle vilja ha:\n- [Beskriv ett lösningsförslag]\n\n [Skärmdumpar eller länkar]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Vi påminner dig igen imorgon.</string>
+  <string name="donation_campaign_donated_snackbar">Tack, kära donator! Din generositet hjälper till att hålla Wikipedia och dess systerwebbplatser blomstrande.</string>
+  <string name="donation_campaign_go_back_button">Gå tillbaka</string>
+  <string name="menu_single_webview_open_external">Öppna i systemwebbläsaren</string>
 </resources>

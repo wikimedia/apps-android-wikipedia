@@ -2,6 +2,8 @@ package org.wikipedia.util
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.graphics.Color
 import android.net.ConnectivityManager
 import android.os.Build
@@ -35,6 +37,12 @@ object DeviceUtil {
 
     fun hideSoftKeyboard(view: View) {
         ViewCompat.getWindowInsetsController(view)?.hide(WindowInsetsCompat.Type.ime())
+    }
+
+    fun isHardKeyboardAttached(resources: Resources): Boolean {
+        return (resources.configuration.hardKeyboardHidden == Configuration.KEYBOARDHIDDEN_NO &&
+                resources.configuration.keyboard != Configuration.KEYBOARD_UNDEFINED &&
+                resources.configuration.keyboard != Configuration.KEYBOARD_NOKEYS)
     }
 
     fun setLightSystemUiVisibility(activity: Activity) {

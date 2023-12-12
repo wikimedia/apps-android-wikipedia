@@ -294,7 +294,6 @@
   <string name="gallery_add_image_caption_in_language_button">تصویٖر مُکالمہٕ کٕریٚو درٕج (%s)</string>
   <string name="err_cannot_save_file">فیِل ہیکہِ نہٕ مَحفوٗظ روٗزِتھ</string>
   <string name="expand_refs">وَہراونہٕ کھٲترٕ کٕریٚو ٹُھک</string>
-  <string name="cc_logo">Creative Commons license</string>
   <string name="captcha_image">کیپچا ہٕچ تصویٖر</string>
   <string name="gallery_fair_use_license">مُنصفانہٕ استعمال</string>
   <string name="gallery_uploader_unknown">نامعلوم اَپلوڈَر</string>
@@ -552,7 +551,7 @@
   <string name="suggested_edits_quality_very_good_text">واریاہ اَصٕل</string>
   <string name="suggested_edits_quality_okay_text">تھیٖک چھُ</string>
   <string name="suggested_edits_last_edited_never">زانٛہہ نہٕ</string>
-  <string name="suggested_edits_task_new">نٔو</string>
+  <string name="suggested_edits_task_new" fuzzy="true">نٔو</string>
   <string name="suggested_edits_contribution_language_label">زَبان</string>
   <string name="suggested_edits_contribution_date_time_label">تٲریٖخ/وَقت</string>
   <string name="suggested_edits_contribution_type_label">شَرکٲژٕ قٕسم:</string>
@@ -727,7 +726,7 @@
   <string name="revision_diff_line_removed">سٕتٕر مِٹٲوٕکھ</string>
   <string name="revision_diff_paragraph_added">پَرےگرٛاف آو جَمع کَرنہٕ</string>
   <string name="revision_diff_paragraph_removed">پَرےگرٛاف آو ہَٹاونہٕ</string>
-  <string name="revision_undo_title">ایڑِٹ أنِیٚو واپس</string>
+  <string name="revision_undo_title" fuzzy="true">ایڑِٹ أنِیٚو واپس</string>
   <string name="revision_undo_success">دہراونہٕ آومُت آو واپس نِنہٕ.</string>
   <string name="revision_rollback_dialog_title">تُہہ چھوا یژھان زِ تُہہ گژھیوٚ ایڑِٹٕز واپس (رول بیک) نِنی؟</string>
   <string name="revision_rollback_success">ایڑِٹ آیہِ واپس کرنہٕ</string>

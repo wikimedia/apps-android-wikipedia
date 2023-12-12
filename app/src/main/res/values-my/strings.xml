@@ -813,7 +813,7 @@
   <string name="suggested_edits_ip_blocked_title">အိုင်ပီ ပိတ်ဆို့ထားသည်</string>
   <string name="suggested_edits_last_edited">နောက်ဆုံး တည်းဖြတ်ခဲ့သည်</string>
   <string name="suggested_edits_last_edited_never">ဘယ်သောအခါမျှ</string>
-  <string name="suggested_edits_task_new">အသစ်</string>
+  <string name="suggested_edits_task_new" fuzzy="true">အသစ်</string>
   <string name="suggested_edits_cc0_notice">ထုတ်ဝေလိုက်ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား &lt;a href=\"%2$s\"&gt;CC0 လိုင်စင်&lt;/a&gt;ဖြင့် ဖြန့်ချိမည်ဖြစ်ကြောင်း သဘောတူပြီးဖြစ်ရမည်။</string>
   <string name="suggested_edits_reactivation_notification_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="suggested_edits_reactivation_notification_stage_one">ဝီကီပီးဒီယားမှာ တည်းဖြတ်ပေးလို့ ကျေးဇူးတင်ပါတယ်၊ သင် ချန်ထားတဲ့နေရာကနေ ဘာဖြစ်လို့ ပြန်မစရမှာလဲ?</string>

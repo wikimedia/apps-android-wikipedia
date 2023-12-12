@@ -12,9 +12,11 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
@@ -57,6 +59,10 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
             dismiss()
         }
 
+        binding.mainDrawerPlacesContainer.setOnClickListener {
+            requireActivity().startActivity(PlacesActivity.newIntent(requireActivity(), WikipediaApp.instance.wikiSite))
+        }
+
         binding.mainDrawerSettingsContainer.setOnClickListener {
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerSettingsContainer)
             callback()?.settingsClick()
@@ -70,6 +76,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerDonateContainer.setOnClickListener {
+            DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
             visitInExternalBrowser(requireContext(),
                     Uri.parse(getString(R.string.donate_url,

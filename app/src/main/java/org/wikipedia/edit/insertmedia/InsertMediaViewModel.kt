@@ -4,7 +4,11 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -49,7 +53,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                     .fullTextSearchCommons(searchQuery, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
 
                 return response.query?.pages?.let { list ->
-                    val results = list.sortedBy { it.index }.map {
+                    val results = list.sortedBy { it.index }.filter { it.imageInfo() != null }.map {
                         val pageTitle = PageTitle(it.title, wikiSite, it.thumbUrl())
                         // since this is an imageinfo query, the thumb URL and description will
                         // come from image metadata.
@@ -164,7 +168,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
 
         fun insertImageIntoWikiText(langCode: String, oldWikiText: String, imageTitle: String, imageCaption: String,
                                     imageAltText: String, imageSize: String, imageType: String, imagePos: String,
-                                    cursorPos: Int = 0, autoInsert: Boolean = false, attemptInfobox: Boolean = false): Pair<String, Boolean> {
+                                    cursorPos: Int = 0, autoInsert: Boolean = false, attemptInfobox: Boolean = false): Triple<String, Boolean, Pair<Int, Int>> {
             var wikiText = oldWikiText
             val namespaceName = FileAliasData.valueFor(langCode)
 
@@ -190,6 +194,8 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             // the article has an infobox, and if so, see if we can inject the image right in there.
 
             var insertedIntoInfobox = false
+            var insertLocation = 0
+            var insertLength = 0
 
             val infoboxVars = infoboxVarsByLang[langCode] ?: infoboxVarsByLang["en"]!!
 
@@ -306,7 +312,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                 // that might be hatnotes, etc.
 
                 var braceLevel = 0
-                var insertIndex = cursorPos
+                insertLocation = cursorPos
 
                 if (autoInsert) {
                     for (i in wikiText.indices) {
@@ -316,18 +322,20 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                             braceLevel--
                         } else if (braceLevel == 0) {
                             if (!wikiText[i].isWhitespace()) {
-                                insertIndex = i
+                                insertLocation = i
                                 break
                             }
                         }
                     }
                 }
 
-                insertIndex = insertIndex.coerceIn(0, wikiText.length)
-                wikiText = wikiText.substring(0, insertIndex) + template + "\n" + wikiText.substring(insertIndex)
+                insertLocation = insertLocation.coerceIn(0, wikiText.length)
+                val insertText = template + "\n"
+                insertLength = insertText.length
+                wikiText = wikiText.substring(0, insertLocation) + insertText + wikiText.substring(insertLocation)
             }
 
-            return Pair(wikiText, insertedIntoInfobox)
+            return Triple(wikiText, insertedIntoInfobox, Pair(insertLocation, insertLength))
         }
 
         private fun findNameParamInTemplate(possibleNameParamNames: Array<String>, wikiText: String, startIndex: Int, endIndex: Int): Pair<Int, String> {

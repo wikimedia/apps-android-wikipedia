@@ -51,10 +51,21 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.*
-import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.*
+import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.MultiSelectActionModeCallback
+import org.wikipedia.views.NotificationActionsOverflowView
+import org.wikipedia.views.SearchAndFilterActionProvider
+import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.views.ViewUtil
+import org.wikipedia.views.WikiCardView
 
 class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
@@ -345,7 +356,7 @@ class NotificationActivity : BaseActivity() {
         init {
             itemView.setOnClickListener(this)
             itemView.setOnLongClickListener(this)
-            setContextClickAsLongClick(itemView)
+            DeviceUtil.setContextClickAsLongClick(itemView)
         }
 
         fun bindItem(container: NotificationListItemContainer, pos: Int) {
@@ -362,18 +373,19 @@ class NotificationActivity : BaseActivity() {
             ImageViewCompat.setImageTintList(binding.notificationItemImage, if (n.isUnread) notificationColor else
                 ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.placeholder_color))
             n.contents?.let {
-                binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
-                StringUtil.highlightAndBoldenText(binding.notificationSubtitle, viewModel.currentSearchQuery, true, Color.YELLOW)
-                if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
-                    binding.notificationDescription.text = RichTextUtil.stripHtml(it.body)
-                    StringUtil.highlightAndBoldenText(binding.notificationDescription, viewModel.currentSearchQuery, true, Color.YELLOW)
-                    binding.notificationDescription.visibility = View.VISIBLE
-                } else {
-                    binding.notificationDescription.visibility = View.GONE
+                StringUtil.setHighlightedAndBoldenedText(binding.notificationSubtitle,
+                    RichTextUtil.stripHtml(it.header), viewModel.currentSearchQuery)
+
+                val showDescription = it.body.isNotBlank()
+                binding.notificationDescription.isVisible = showDescription
+                if (showDescription) {
+                    StringUtil.setHighlightedAndBoldenedText(binding.notificationDescription,
+                        RichTextUtil.stripHtml(it.body), viewModel.currentSearchQuery)
                 }
+
                 it.links?.secondary?.firstOrNull()?.let { link ->
-                    binding.notificationTitle.text = link.label
-                    StringUtil.highlightAndBoldenText(binding.notificationTitle, viewModel.currentSearchQuery, true, Color.YELLOW)
+                    StringUtil.setHighlightedAndBoldenedText(binding.notificationTitle, link.label,
+                        viewModel.currentSearchQuery)
                 } ?: run {
                     binding.notificationTitle.text = getString(notificationCategory.title)
                 }
@@ -391,8 +403,8 @@ class NotificationActivity : BaseActivity() {
             L10nUtil.setConditionalLayoutDirection(itemView, langCode)
 
             n.title?.let { title ->
-                binding.notificationSource.text = title.full
-                StringUtil.highlightAndBoldenText(binding.notificationSource, viewModel.currentSearchQuery, true, Color.YELLOW)
+                StringUtil.setHighlightedAndBoldenedText(binding.notificationSource, title.full,
+                    viewModel.currentSearchQuery)
                 n.contents?.links?.getPrimary()?.url?.let {
                     binding.notificationSource.setCompoundDrawablesRelative(null, null,
                             if (UriUtil.isAppSupportedLink(Uri.parse(it))) null else externalLinkIcon, null)
@@ -530,15 +542,12 @@ class NotificationActivity : BaseActivity() {
         }
 
         fun updateFilterIconAndCount() {
-            val excludedFilters = viewModel.excludedFiltersCount()
-            if (excludedFilters == 0) {
-                notificationFilterCountView.visibility = View.GONE
-                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.primary_color))
-            } else {
-                notificationFilterCountView.visibility = View.VISIBLE
-                notificationFilterCountView.text = excludedFilters.toString()
-                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.progressive_color))
-            }
+            val showFilterCount = viewModel.excludedFiltersCount() != 0
+            val filterButtonColor = if (showFilterCount) R.attr.progressive_color else R.attr.primary_color
+            notificationFilterCountView.isVisible = showFilterCount
+            notificationFilterCountView.text = viewModel.excludedFiltersCount().toString()
+            ImageViewCompat.setImageTintList(notificationFilterButton,
+                ResourceUtil.getThemedColorStateList(this@NotificationActivity, filterButtonColor))
         }
     }
 

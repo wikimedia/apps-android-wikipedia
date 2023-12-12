@@ -684,7 +684,7 @@
   <string name="suggested_edits_quality_poor_text">Go holc</string>
   <string name="suggested_edits_quality_bad_text">Go dona</string>
   <string name="suggested_edits_last_edited">Ionchur is deireanaí</string>
-  <string name="suggested_edits_task_new">nua</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nua</string>
   <string name="suggested_edits_contributions_screen_title">Dréachtaí le %s</string>
   <string name="suggested_edits_contribution_language_label">Teanga</string>
   <string name="suggested_edits_contribution_date_time_label">Dáta / Am</string>

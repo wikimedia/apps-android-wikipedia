@@ -9,7 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="@string/nearby_title" />
+        app:title="@string/places_title" />
 
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mapView"

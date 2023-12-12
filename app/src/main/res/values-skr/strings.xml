@@ -599,6 +599,7 @@
   <string name="revision_diff_to">تائیں:</string>
   <string name="revision_diff_paragraph_added">پیرا شامل تھیا</string>
   <string name="revision_diff_paragraph_removed">پیرا ہٹ ڳیا</string>
+  <string name="revision_undo_summary_hint">خلاصہ (اختیاری)</string>
   <string name="revision_rollback_success">تبدیلیاں واپس تھی ڳیاں۔</string>
   <string name="revision_compare_button">موازنہ کرو</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">وٹاؤ</string>
@@ -665,6 +666,7 @@
   <string name="talk_templates_new_message_dialog_cancel">منسوخ</string>
   <string name="talk_templates_edit_message_dialog_save">بچاؤ</string>
   <string name="talk_templates_edit_message_dialog_delete">مٹاؤ</string>
+  <string name="talk_templates_menu_remove_message">سنیہا ہٹاؤ</string>
   <string name="patroller_tasks_edits_list_card_tags_text">ٹیگاں: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">کوئی وی کائنی</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">ورتݨ آلے دا ورقہ ݙیکھو</string>
@@ -675,7 +677,10 @@
   <string name="patroller_tasks_filters_automated_contributions_bot">ٻوٹ</string>
   <string name="patroller_tasks_filters_significance_minor">معمولی تبدیلیاں</string>
   <string name="patroller_tasks_overflow_learn">ٻیا سِکھو</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">فیڈ بیک</string>
+  <string name="patroller_diff_feedback_dialog_submit">جمع کرواؤ</string>
   <string name="data_opt_in_accept">قبول کرو</string>
   <string name="data_opt_in_reject">مسترد کرو</string>
   <string name="page_issues_title">ورقہ معاملے</string>
+  <string name="donation_campaign_go_back_button">واپس ڄُلو</string>
 </resources>

@@ -914,7 +914,7 @@
   <string name="suggested_edits_ip_blocked_title">IP адресът е блокиран</string>
   <string name="suggested_edits_last_edited">Последна редакция</string>
   <string name="suggested_edits_last_edited_never">Никога</string>
-  <string name="suggested_edits_task_new">нова</string>
+  <string name="suggested_edits_task_new">Нова</string>
   <string name="suggested_edits_cc0_notice">Публикувайки, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC0 лиценз&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложения за редактиране</string>
   <string name="suggested_edits_contributions_screen_title">Приносите на %s</string>
@@ -1193,9 +1193,9 @@
   <string name="revision_diff_paragraph_added">Добавен е абзац</string>
   <string name="revision_diff_paragraph_removed">Премахнат е абзац</string>
   <string name="revision_diff_protected">Промените, направени в тази редакция, не са публично достъпни.</string>
-  <string name="revision_undo_title">Отмяна на редакцията</string>
-  <string name="revision_undo_message">Това ще отмени промените, направени от редакциите на статията, показани тук.</string>
-  <string name="revision_undo_reason">За да продължите, моля, посочете причина за отмяна на тази редакция:</string>
+  <string name="revision_undo_title">Сигурни ли сте, че искате да отмените редакцията?</string>
+  <string name="revision_undo_message">Отмяна означава връщане на промените, направени с една или повече редакции.</string>
+  <string name="revision_undo_reason">Споделете причината за отмяната</string>
   <string name="revision_undo_success">Редакцията е върната.</string>
   <string name="revision_rollback_dialog_title">Сигурни ли сте, че искате отмените редакциите?</string>
   <string name="revision_rollback_success">Редакциите са отменени.</string>
@@ -1288,7 +1288,22 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Списъкът за четене е внесен</string>
   <string name="reading_list_share_menu_label">Споделяне...</string>
   <string name="reading_list_share_menu_tooltip">Споделяне на списъка за четене с други</string>
+  <string name="patroller_tasks_patrol_edit_title">Патрулиране на редакция</string>
+  <string name="patroller_onboarding_two_thank_title">Благодарност</string>
+  <string name="patroller_onboarding_two_watch_title">Наблюдение</string>
+  <string name="patroller_onboarding_two_warn_title">Предупреждение</string>
+  <string name="patroller_diff_feedback_dialog_title">Помогнете ни да подобрим тази възможност</string>
+  <string name="patroller_diff_feedback_dialog_message">Доволни ли сте от тази възможност?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Задоволителна</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Неутрална</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволителна</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Как можем да подобрим тази възможност?</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Обратна връзка</string>
+  <string name="patroller_diff_feedback_dialog_submit">Изпращане</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Обратната връзка е изпратена.</string>
   <string name="data_opt_in_accept">Приемане</string>
   <string name="data_opt_in_reject">Отхвърляне</string>
   <string name="page_issues_title">Проблеми със страницата</string>
+  <string name="donation_campaign_go_back_button">Назад</string>
+  <string name="menu_single_webview_open_external">Отваряне в системния браузър</string>
 </resources>

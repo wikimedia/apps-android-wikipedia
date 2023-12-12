@@ -995,7 +995,7 @@
   <string name="suggested_edits_ip_blocked_title">IP-vistfang bannað</string>
   <string name="suggested_edits_last_edited">Síðast breytt</string>
   <string name="suggested_edits_last_edited_never">Aldrei</string>
-  <string name="suggested_edits_task_new">nýtt</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nýtt</string>
   <string name="suggested_edits_cc0_notice">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að þú gefir framlag þitt ævinlega út með &lt;a href=\"%2$s\"&gt;CC0 notkunarleyfinu&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Tillögur að breytingum</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Takk fyrir framlag þitt til Wikipedia! Því ekki að halda áfram þar sem þú skildir við síðast?</string>
@@ -1305,9 +1305,9 @@
   <string name="revision_diff_paragraph_added">Málsgrein bætt við</string>
   <string name="revision_diff_paragraph_removed">Málsgrein fjarlægð</string>
   <string name="revision_diff_protected">Breytingarnar sem gerðar eru í þessari endurskoðun eru ekki aðgengilegar almenningi.</string>
-  <string name="revision_undo_title">Afturkalla breytingu</string>
-  <string name="revision_undo_message">Þetta mun afturkalla þær breytingar sem gerðar hafa verið við yfirferð(ir) á greininni sem birtist hér.</string>
-  <string name="revision_undo_reason">Til að halda áfram skaltu gefa upp ástæðu fyrir afturköllun þessarar breytingar:</string>
+  <string name="revision_undo_title" fuzzy="true">Afturkalla breytingu</string>
+  <string name="revision_undo_message" fuzzy="true">Þetta mun afturkalla þær breytingar sem gerðar hafa verið við yfirferð(ir) á greininni sem birtist hér.</string>
+  <string name="revision_undo_reason" fuzzy="true">Til að halda áfram skaltu gefa upp ástæðu fyrir afturköllun þessarar breytingar:</string>
   <string name="revision_undo_success">útgáfan var afturkölluð.</string>
   <string name="revision_rollback_dialog_title">Ertu viss um að þú viljir afturkalla breytingarnar?</string>
   <string name="revision_rollback_success">Breytingar afturkallaðar.</string>

@@ -46,7 +46,7 @@
   <string name="image_content_description">Skeudenn: %s</string>
   <string name="page_content_description">Pajenn : %s</string>
   <string name="wikimedia_commons">Wikimedia Commons</string>
-  <string name="wikidata">Wikiroadennoù</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Diverkañ istor ar merdeiñ ?</string>
   <string name="dialog_message_clear_history">An dra-se a zilamo istor ar merdeiñ hag a serro an holl ivinelloù zo digor bremañ. Ha suc\'h oc\'h ?</string>
   <string name="dialog_message_clear_history_yes">Ya</string>
@@ -853,7 +853,7 @@
   <string name="suggested_edits_ip_blocked_title">IP stanket</string>
   <string name="suggested_edits_last_edited">Kemmet da ziwezhañ</string>
   <string name="suggested_edits_last_edited_never">Morse</string>
-  <string name="suggested_edits_task_new">nevez</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nevez</string>
   <string name="suggested_edits_reactivation_notification_title">Kemmoù kinniget</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Trugare vras deoc\'h da gemer perzh e Wikipedia ! Perak ne gendalc\'hfec\'h ket el lec\'h m\'emaoc\'h chomet a-sav ?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Pemp munud zo ganeoc\'h evit reiñ dorn da wellaat Wikipedia ? Taolit ur sell ouzh ar c\'hinnig kemmoù-mañ.</string>

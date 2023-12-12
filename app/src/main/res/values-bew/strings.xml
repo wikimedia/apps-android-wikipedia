@@ -255,7 +255,7 @@
   <string name="edit_redo">Ulangin</string>
   <string name="edit_rollback">Aterèt</string>
   <string name="edit_warn">Wanti-wanti</string>
-  <string name="edit_quality">Kualitèt %s</string>
+  <string name="edit_damage">Kebejadan %s</string>
   <string name="edit_intent">Maksud %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bèt</item>
@@ -857,7 +857,7 @@
   <string name="description_edit_tutorial_machine_suggestions_title">Saranan mesin</string>
   <string name="description_edit_tutorial_machine_suggestions_description">Saran dibuat ama mesin, bukan ama sukarèlawan atawa Yayasan Wikimédia</string>
   <string name="customize_toolbar_title">Cèngliin palang peranti</string>
-  <string name="customize_toolbar_shortcut_description_text">Cèngliin palang peranti bawah paké 5 jalan pintas nyang lu kira paling ngebantu.</string>
+  <string name="customize_toolbar_shortcut_description_text">Cèngliin palang peranti bawah paké 5 tetenggelan nyang lu kira paling ngebantu.</string>
   <string name="customize_toolbar_category_toolbar">Palang peranti</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Sèrèt èn taroh barang lu punya demen di mari 👋</string>
@@ -989,7 +989,7 @@
   <string name="suggested_edits_ip_blocked_title">IP diblokir</string>
   <string name="suggested_edits_last_edited">Paling akir dipermak</string>
   <string name="suggested_edits_last_edited_never">Kaga\' perna</string>
-  <string name="suggested_edits_task_new">baru</string>
+  <string name="suggested_edits_task_new">Baru</string>
   <string name="suggested_edits_cc0_notice">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;ketentuan pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah &lt;a href=\"%2$s\"&gt;ongji CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Permakan nyang disaranin</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Makasi ya udah mermak Wikipédi! Ngapa kaga\' lanjutin nyang belakangan?</string>
@@ -1096,7 +1096,7 @@
   <string name="onboarding_explore_text">Selemin liang kelinci Wikipédi paké empan Jelajahin nyang terus diperbaruin. &lt;br/&gt; &lt;b&gt;Cèngliin&lt;/b&gt; empan bakal lu punya minat – mau entu belajar pasal peristiwa sejarah &lt;b&gt;Di ni ari&lt;/b&gt; kè\', mau nglèmpar dadu paké &lt;b&gt;Sembarang&lt;/b&gt; kè\'.</string>
   <string name="onboarding_reading_list_sync_title">Daptar bacaan dengen penjuntrungan</string>
   <string name="onboarding_reading_list_sync_text_v2">Lu bisa ngeja daptar bacaan deri makalah nyang lu pèngèn baca entarnya, hata pas lu lagi di luar-jala. &lt;br/&gt;Masup ke lu punya rèkening Wikipédi bakal ngejuntrungin lu punya daptar bacaan. &lt;a href=\"#login\"&gt;Nimbrung ama Wikipédi&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Kirin data sonder-nama</string>
+  <string name="onboarding_analytics_title">Kirim data sondernama</string>
   <string name="onboarding_analytics_offline_text">Bantu ngeja aplikasi jadi lebi baè\' dengen ngasi kita tau gimana lu makénya. Data nyang kekumpul – sonder-nama. &lt;a href=\"#privacy\"&gt;Belajarin lebi lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kirim data pemakéan</string>
   <string name="onboarding_got_it">Ngarti dah</string>
@@ -1169,6 +1169,7 @@
   <string name="wikitext_template">Sablonan</string>
   <string name="wikitext_reference">Ruju\'an</string>
   <string name="wikitext_preview_link">Sènggètan pradeleng</string>
+  <string name="wikitext_mention_user">Sebut pemaké</string>
   <string name="insert_media_title">Selesepin média</string>
   <string name="insert_media_search_description">Pilih berekas deri Wikimedia Commons</string>
   <string name="insert_media_search_hint">Cari média</string>
@@ -1267,13 +1268,13 @@
   <string name="talk_list_item_overflow_mark_as_read">Tengerin udah dibaca</string>
   <string name="talk_list_item_overflow_mark_as_unread">Tengerin belon dibaca</string>
   <string name="talk_list_item_overflow_share">Dumanin</string>
-  <string name="talk_list_item_last_comment_date">Tanggepan paling baru: %s</string>
+  <string name="talk_list_item_last_comment_date">Sautan paling baru: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Jumblah dibaca</string>
   <string name="talk_list_item_user_icon_content_description">Lambang pemaké</string>
   <string name="talk_list_item_swipe_mark_as_read">Baca</string>
   <string name="talk_list_item_swipe_mark_as_unread">Belon dibaca</string>
   <string name="talk_login_to_subscribe_dialog_title">Masup bakal langganan ke topik</string>
-  <string name="talk_login_to_subscribe_dialog_content">Langganan topik bakal mungkinin lu nerima ma\'lumat pasal tanggepan baru di ni topik. Padol dah, keja rèkening atawa masup ke lu punya rèkening Wikipédi bakal langganan ke topik.</string>
+  <string name="talk_login_to_subscribe_dialog_content">Langganan topik bakal mungkinin lu nerima ma\'lumat pasal sautan baru di ni topik. Padol dah, keja rèkening atawa masup ke lu punya rèkening Wikipédi bakal langganan ke topik.</string>
   <string name="talk_archived_title">Arsip obrolan: %s</string>
   <string name="menu_option_share_talk_discussion">Dumanin perhadring</string>
   <string name="menu_option_share_talk_page">Dumanin halaman obrolan</string>
@@ -1312,9 +1313,10 @@
   <string name="revision_diff_paragraph_added">Paragrap ditambahin</string>
   <string name="revision_diff_paragraph_removed">Paragrap dibuang</string>
   <string name="revision_diff_protected">Perobahan nyang dikeja di ni perbaèkan kaga\' kena dibuka halayak umum.</string>
-  <string name="revision_undo_title">Balikin permakan</string>
-  <string name="revision_undo_message">Ni bakal mbalikin perobahan nyang dikeja ama perbaèkan deri makalah nyang dikasi unjuk di mari.</string>
-  <string name="revision_undo_reason">Bakal nerusin, tulung kasi alesan ngapa balikin ni permakan:</string>
+  <string name="revision_undo_title">Apa lu yakin pèngèn ngebalikin ni permakan?</string>
+  <string name="revision_undo_message">Ngebalikin artinya ngombaliin kesudahan deri atu atawa lebi permakan.</string>
+  <string name="revision_undo_summary_hint">Rangkuman (sunah)</string>
+  <string name="revision_undo_reason">Dumanin alasan pembalikan</string>
   <string name="revision_undo_success">Perbaèkan udah dibalikin.</string>
   <string name="revision_rollback_dialog_title">Apa lu yakin pèngèn ngaterèt ni permakan?</string>
   <string name="revision_rollback_success">Permakan udah dibalikin.</string>
@@ -1446,8 +1448,7 @@
   <string name="talk_templates_edit_message_dialog_save">Simpen</string>
   <string name="talk_templates_edit_message_dialog_delete">Apus</string>
   <string name="talk_templates_edit_message_updated">Pesen udah diperbaruin</string>
-  <string name="talk_templates_edit_message_confirm_description">Apa lu yakin pèngèn ngapus ni pesen %s deri daptar?</string>
-  <string name="talk_templates_message_deleted">Pesen udah diapus</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Pesen udah diapus</string>
   <string name="patroller_tasks_edits_list_title">Daptar permakan</string>
   <string name="patroller_tasks_edits_list_search_hint">Cari atawa saring permakan</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tenger: %s</string>
@@ -1458,6 +1459,8 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Deleng sumbangsih pemaké</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Makasi</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Inpormasi pemaké</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Rèkening deri: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Jumblah permakan: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Tutup</string>
   <string name="patroller_tasks_filters_title">Saringan</string>
   <string name="patroller_tasks_filters_reset">Setèl ulang</string>
@@ -1465,7 +1468,9 @@
   <string name="patroller_tasks_filters_all_text">Semua</string>
   <string name="patroller_tasks_filters_user_status_header">Pendaptaran èn pengalaman pemaké</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Kaga\' kedaptar</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Pemermak nyang kaga\' masup.</string>
   <string name="patroller_tasks_filters_user_status_registered">Kedaptar</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Pemermak nyang masup.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Pendateng</string>
   <string name="patroller_tasks_filters_user_status_learners">Orang belajar</string>
   <string name="patroller_tasks_filters_user_status_experienced">Pemaké kawakan</string>
@@ -1495,17 +1500,16 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Rondain permakan</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Riwayat permakan makalah</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Balikin ni permakan?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Apa lu yakin pèngèn ngebalikin ni permakan?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Ngebalikin artinya ngombaliin kesudahan deri atu atawa lebi permakan.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Rangkuman (sunah)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Dumanin alasan pembalikan</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Pengombalian rampung</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Apa lu yakin pèngèn ngaterèt?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Aterèt rampung</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Deleng</string>
   <string name="patroller_tasks_overflow_report">Masalah ama keboléan</string>
   <string name="patroller_tasks_overflow_learn">Belajarin lebi lanjut</string>
+  <string name="patroller_onboarding_two_thank_title">Makasi</string>
+  <string name="patroller_onboarding_two_watch_title">Pantengin</string>
+  <string name="patroller_onboarding_two_warn_title">Wanti-wanti</string>
+  <string name="patroller_onboarding_two_undo_title">Balikin/Aterèt</string>
   <string name="data_opt_in_accept">Terima</string>
   <string name="data_opt_in_reject">Tolak</string>
   <string name="page_issues_title">Masalah halaman</string>

@@ -55,6 +55,7 @@
 * XinuGod
 * Xiplus
 * Xxoopiggy
+* Xyb
 * Xzonn
 * Yfdyh000
 * Ywang
@@ -323,6 +324,8 @@
   <string name="edit_undo">撤销</string>
   <string name="edit_redo">重做</string>
   <string name="edit_rollback">回退</string>
+  <string name="edit_warn">警告</string>
+  <string name="edit_intent">意图%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s 字节</item>
     <item quantity="other">%s 字节</item>
@@ -428,6 +431,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">条目不能在离线时加载。</string>
   <string name="page_offline_notice_add_to_reading_list">提示：添加条目至阅读列表，这样当您恢复在线时它将自动被下载。</string>
   <string name="page_offline_notice_last_date">您正在阅读该条目的离线版本，其保存于%s。</string>
+  <string name="redirected_from_snackbar">重定向自 “%s”</string>
   <string name="button_get_directions">路线导航</string>
   <string name="error_no_maps_app">找不到任何提供导航的应用。</string>
   <string name="preference_title_customize_explore_feed">探索订阅源</string>
@@ -517,9 +521,17 @@
   <string name="reading_list_articles_already_exist_message">太好了！%s中已经有全部条目了。</string>
   <string name="reading_list_added_view_button">查看列表</string>
   <string name="reading_list_add_to_list_button">添加到列表</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 篇文章</item>
+    <item quantity="other">%d 篇文章</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1篇条目，%2$.2f MB</item>
     <item quantity="other">%1$d篇条目，%2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d 篇文章中的 1 篇可离线查看</item>
+    <item quantity="other">%2$d 篇文章中的 %1$d 篇可离线查看</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="other">%1$d 篇（共 %2$d 篇）文章可供离线使用，%3$.2f MB</item>
@@ -533,6 +545,10 @@
   <string name="reading_list_sort_by_created">按创建日期排序（最近优先）</string>
   <string name="reading_list_sort_by_created_desc">按创建日期排序（最早优先）</string>
   <string name="reading_list_menu_delete">删除列表</string>
+  <string name="reading_list_menu_export">导出列表</string>
+  <string name="reading_list_menu_select">选择</string>
+  <string name="reading_list_menu_unselect">取消选择</string>
+  <string name="reading_list_export_write_permission_rationale">导出阅读列表需要写入设备存储的权限。</string>
   <string name="reading_list_menu_rename">编辑名称/描述</string>
   <string name="reading_list_action_menu_remove_from_offline">从离线内容中移除</string>
   <string name="reading_list_action_menu_save_for_offline">保存供离线使用</string>
@@ -553,6 +569,15 @@
     <item quantity="one">从%s中移除了%d个条目</item>
     <item quantity="other">从%s中移除了%d个条目</item>
   </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d 个列表已删除</item>
+    <item quantity="other">%d 个列表已删除</item>
+  </plurals>
+  <string name="reading_lists_default_list_delete_message">无法删除默认列表（%s）</string>
+  <string name="reading_lists_default_plus_one_list_delete_message">%1$s 已删除。无法删除默认列表 (%2$s)。</string>
+  <string name="reading_lists_default_plus_many_lists_delete_message">列表已删除。无法删除默认列表 (%s)。</string>
+  <string name="single_list_json_file_name">%s（维基百科阅读列表）.json</string>
+  <string name="multiple_lists_json_file_name">维基百科阅读列表（%s及更多）.json</string>
   <string name="reading_list_items_deleted">%d个条目已从列表中移除</string>
   <string name="reading_lists_item_deleted">%s已从列表中移除</string>
   <string name="reading_list_item_delete_undo">撤销</string>
@@ -585,6 +610,11 @@
   <string name="reading_list_articles_added_to_named">已添加%1$d个条目至%2$s</string>
   <string name="reading_list_articles_moved_to_named">已移动%1$d个条目至%2$s</string>
   <string name="reading_list_delete_confirm">您确定要删除%s么？</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">删除选定的列表？</string>
+  <plurals name="reading_list_delete_lists_confirm_dialog_message">
+    <item quantity="one">您确定要删除%d个列表吗？</item>
+    <item quantity="other">您确定要删除%d个列表吗？</item>
+  </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">登录以启用同步</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">登录以将您的阅读列表保存到您的账号中。</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">取消</string>
@@ -608,6 +638,7 @@
   <string name="reading_list_article_limit_message">不能添加到此列表。“%1$s”已达到每个列表%2$d个条目的限制。</string>
   <string name="reading_lists_limit_message">不能创建另一个列表。您已达到每个账号100个阅读列表的限制。</string>
   <string name="reading_lists_menu_create_list">新建列表</string>
+  <string name="reading_lists_menu_import_list">导入列表</string>
   <string name="reading_lists_menu_sort_by">排序方式</string>
   <string name="reading_lists_refresh_sync_option">刷新同步</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">登录/注册</string>
@@ -628,9 +659,28 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">取消</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">取消</string>
   <string name="reading_list_split_dialog_ok_button_text">确定</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">删除</string>
   <string name="reading_list_activity_title">阅读列表：%s</string>
+  <string name="reading_list_notification_title">已导出的阅读列表</string>
+  <string name="reading_list_notification_text">%d个阅读列表已作为“阅读列表导出.json”导出到您的下载文件夹</string>
+  <string name="reading_list_notification_detailed_text">阅读列表已导出到“阅读列表导出.json”</string>
+  <string name="reading_lists_action_menu_export_lists">导出</string>
+  <string name="reading_lists_import_file_picker_title">选择要导入的文件</string>
+  <string name="reading_lists_import_failure_message">阅读列表导入失败</string>
+  <string name="reading_lists_export_select_lists_message">选择要导出的列表</string>
+  <string name="reading_lists_export_completed_message">导出的阅读列表</string>
+  <plurals name="reading_list_export_failed_message">
+    <item quantity="one">阅读列表导出失败</item>
+    <item quantity="other">阅读列表导出失败</item>
+  </plurals>
+  <plurals name="reading_list_import_success_message">
+    <item quantity="one">导入的阅读列表</item>
+    <item quantity="other">导入的阅读列表</item>
+  </plurals>
   <string name="reading_lists_preview_header_title">分享清单</string>
   <string name="reading_lists_preview_save_button">储存</string>
+  <string name="reading_lists_preview_save_dialog_title">保存列表</string>
+  <string name="reading_lists_preview_save_dialog_text">列出名称并选择要保存的条目。</string>
   <string name="reading_lists_preview_save_dialog_title_hint">标题</string>
   <string name="reading_lists_preview_save_dialog_cancel">取消</string>
   <string name="reading_lists_preview_save_dialog_save">储存</string>
@@ -851,7 +901,7 @@
   <string name="description_starts_with_uppercase">除非第一个单词是专有名词，否则请以小写字母开头。</string>
   <string name="description_starts_with_lowercase">避免以小写字母开头。</string>
   <string name="description_is_in_different_language">文本似乎不是用预期的语言写的，语言应该是%s。</string>
-  <string name="description_verification_notice" fuzzy="true">请确认您的描述在%1$s中。如果您编写的描述在%2$s中，请忽略此通知。</string>
+  <string name="description_verification_notice">请确认您的描述在%1$s中。如果您编写的描述已在%2$s中，请忽略此通知。</string>
   <string name="description_edit_suggested_description_button_text">显示建议的描述</string>
   <string name="description_edit_suggested_description_button_tooltip">尝试机器建议的条目描述</string>
   <string name="description_edit_success_saved">条目描述已发布！</string>
@@ -884,6 +934,9 @@
   <string name="suggested_edits_describe_articles">描述条目</string>
   <string name="suggested_edits_caption_images">说明图像</string>
   <string name="suggested_edits_tag_images">标记图像</string>
+  <string name="suggested_edits_edit_patrol">编辑巡查</string>
+  <string name="suggested_edits_edit_patrol_hint">查看最近的编辑并确定它们是否具有建设性。</string>
+  <string name="suggested_edits_edit_patrol_review">审核</string>
   <string name="suggested_edits_review_description">审核条目描述</string>
   <string name="suggested_edits_add_description_button">添加描述</string>
   <string name="suggested_edits_edit_description_button">编辑描述</string>
@@ -959,6 +1012,7 @@
   <string name="suggested_edits_image_tags_select_title">您还没有为该图像选择任何标签</string>
   <string name="suggested_edits_image_tags_select_text">只有您选择的标签才会添加到图像中。未选中的标签将被标记为拒绝。您确定要将所有标签标记为拒绝吗？</string>
   <string name="suggested_edits_image_tags_add_tag">添加标签</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">未发布的标签不会被保存</string>
   <string name="suggested_edits_image_zoom_tooltip">缩放此图像。</string>
   <string name="suggested_edits_encouragement_message">%s，感谢您的编辑。下面您可以找到更多的方法来为维基百科做贡献。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;您好 %s&lt;/b&gt;，下面，您可以找到一些简捷的方法来帮助改进维基百科。你一开始就会看到你做出的更改。祝您编辑愉快!</string>
@@ -1058,6 +1112,8 @@
   <string name="image_recommendation_task_instruction">您会将该图片添加到文章中吗？</string>
   <string name="image_recommendation_tutorial">教程</string>
   <string name="image_recommendation_accept">会</string>
+  <string name="image_recommendation_reject">否</string>
+  <string name="image_recommendation_notsure">不确定</string>
   <string name="image_recommendation_reject_title">为什么不会呢？</string>
   <string name="image_recommendation_reject_subtitle">您的回答有助于改进今后关于图片的建议。</string>
   <string name="image_recommendation_reject_not_relevant">图片与文章无关</string>
@@ -1067,6 +1123,7 @@
   <string name="image_recommendation_reject_dont_know">我不了解这个主题</string>
   <string name="image_recommendation_reject_other">其他</string>
   <string name="image_recommendation_reject_submit">提交</string>
+  <string name="image_recommendation_tooltip_main">将缺失的图像添加到“建议编辑”中的文章中</string>
   <string name="image_recommendation_onboarding_1">图片有助于人们理解，但许多文章没有图片。</string>
   <string name="image_recommendation_onboarding_2">您将决定是否应该在维基百科文章中添加建议的图片。</string>
   <string name="image_recommendation_onboarding_3"> 关于图片的建议为机器生成，您需要根据自己的判断决定接受还是拒绝建议。</string>
@@ -1076,8 +1133,12 @@
   <string name="image_recommendation_tooltip_3">确定该图片是否能帮助读者更好地理解文章的主题。</string>
   <string name="image_recommendation_tooltip_next">下一步</string>
   <string name="image_recommendation_tooltip_warning">请查看文章以了解其主题，并检查图片</string>
+  <string name="image_recommendation_depleted">抱歉，目前没有更多可用的建议图像。请探索其他&lt;a href=\"#\"&gt;建议的编辑&lt;/a&gt;或稍后返回。</string>
+  <string name="suggested_edits_report_feature">功能问题反馈</string>
+  <string name="suggested_edits_report_feature_subject">建议编辑出现的问题</string>
   <string name="edit_summary_added_image">已添加图片</string>
   <string name="edit_summary_added_caption">已添加说明</string>
+  <string name="edit_summary_added_image_and_caption">添加了图像和标题</string>
   <string name="edit_published_view">查看</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="file_page_add_image_caption_button">添加图像说明</string>
@@ -1174,6 +1235,7 @@
   <string name="wikitext_template">模板</string>
   <string name="wikitext_reference">参考文献</string>
   <string name="wikitext_preview_link">预览链接</string>
+  <string name="wikitext_mention_user">提及一位用户</string>
   <string name="insert_media_title">插入媒体</string>
   <string name="insert_media_search_description">从维基共享资源中选择一个文件</string>
   <string name="insert_media_search_hint">搜索媒体</string>
@@ -1218,6 +1280,18 @@
   <string name="talk_user_title">讨论：%s</string>
   <string name="talk_new_topic">新话题</string>
   <string name="talk_new_topic_submitted">话题已发布。</string>
+  <string name="talk_warn">警告</string>
+  <string name="talk_warn_save_dialog_title">保存更改？</string>
+  <string name="talk_warn_save_dialog_message">另存为新消息</string>
+  <string name="talk_warn_save_dialog_existing_new_message">另存新消息到列表中</string>
+  <string name="talk_warn_save_dialog_existing_update_message">更新现有消息</string>
+  <string name="talk_warn_save_dialog_hint">消息标题</string>
+  <string name="talk_warn_save_dialog_publish">发布</string>
+  <string name="talk_warn_save_dialog_cancel">取消</string>
+  <string name="talk_warn_submitted">消息发布到编辑的用户的讨论页面</string>
+  <string name="talk_warn_submitted_and_saved">消息已保存并发布到编辑的用户的讨论页面</string>
+  <string name="talk_warn_saved_message">选择已有的警告消息或撰写新消息。</string>
+  <string name="talk_warn_saved_message_dropdown">已保存的消息</string>
   <string name="talk_page_empty">此讨论页为空。</string>
   <string name="talk_page_empty_title">对话从这里开始</string>
   <string name="talk_page_empty_content">讨论页是让人们讨论如何将维基百科内容做到最好的地方。请先发起一个新的讨论主题，以便和维基人社群联系和协作。</string>
@@ -1304,9 +1378,11 @@
   <string name="revision_diff_line_removed">已移除行</string>
   <string name="revision_diff_paragraph_added">已添加段落</string>
   <string name="revision_diff_paragraph_removed">已移除段落</string>
-  <string name="revision_undo_title">撤销编辑</string>
-  <string name="revision_undo_message">这将会撤销此处展示的条目修订所做出的更改。</string>
-  <string name="revision_undo_reason">若要继续，请提供撤销此编辑的原因：</string>
+  <string name="revision_diff_protected">此修订版中所做的更改不公开。</string>
+  <string name="revision_undo_title">您确定要撤消此编辑吗？</string>
+  <string name="revision_undo_message">撤消意味着恢复一笔或多笔编辑产生的效果。</string>
+  <string name="revision_undo_summary_hint">摘要（可选）</string>
+  <string name="revision_undo_reason">请说明做出此恢复的原因</string>
   <string name="revision_undo_success">已撤消修订。</string>
   <string name="revision_rollback_dialog_title">确定要回退这些编辑吗？</string>
   <string name="revision_rollback_success">已回退编辑。</string>
@@ -1327,6 +1403,7 @@
   <string name="watchlist_expiry_dialog_three_months">3个月</string>
   <string name="watchlist_expiry_dialog_six_months">6个月</string>
   <string name="watchlist_empty">您的监视列表中没有任何条目。</string>
+  <string name="watchlist_search">搜索监视列表</string>
   <string name="watchlist_filter_all">全部</string>
   <string name="watchlist_filter_talk">讨论</string>
   <string name="watchlist_filter_pages">页面</string>
@@ -1334,6 +1411,47 @@
   <string name="watchlist_page_moved">已移动</string>
   <string name="watchlist_page_protected">受保护</string>
   <string name="watchlist_page_deleted">已删除</string>
+  <string name="watchlist_filter_title">监视列表过滤器</string>
+  <string name="watchlist_filter_wiki_filter_header">维基</string>
+  <string name="watchlist_filter_all_text">全部</string>
+  <string name="watchlist_filter_watchlist_activity_header">监视列表活动</string>
+  <string name="watchlist_filter_contribution_quality_good">非常可能是好的</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">也许有问题</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">可能有问题</string>
+  <string name="watchlist_filter_contribution_quality_bad">非常可能有问题</string>
+  <string name="watchlist_filter_user_intent_header">用户意图预测</string>
+  <string name="watchlist_filter_user_intent_good">非常可能是善意的</string>
+  <string name="watchlist_filter_user_intent_may_problems">也许是恶意的</string>
+  <string name="watchlist_filter_user_intent_bad">非常可能是恶意的</string>
+  <string name="watchlist_filter_user_status_header">用户注册及体验</string>
+  <string name="watchlist_filter_user_status_unregistered">未注册</string>
+  <string name="watchlist_filter_user_status_registered">已注册</string>
+  <string name="watchlist_filter_user_status_newcomers">新人</string>
+  <string name="watchlist_filter_user_status_learners">学习者</string>
+  <string name="watchlist_filter_user_status_experienced">经验丰富的用户</string>
+  <string name="watchlist_filter_contribution_authorship_header">贡献作者身份</string>
+  <string name="watchlist_filter_contribution_authorship_own">由您作出的变更</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">由他人作出的变更</string>
+  <string name="watchlist_filter_automated_contributions_header">自动贡献</string>
+  <string name="watchlist_filter_automated_contributions_bot">机器人</string>
+  <string name="watchlist_filter_automated_contributions_human">人类（非机器人）</string>
+  <string name="watchlist_filter_significance_minor">小编辑</string>
+  <string name="watchlist_filter_significance_edits">非小编辑</string>
+  <string name="watchlist_filter_latest_revisions_header">最新修订版本</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">最新修订版本</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">不是最新修订版本</string>
+  <string name="watchlist_filter_type_of_change_header">更改类型</string>
+  <string name="watchlist_filter_type_of_change_page_edits">页面编辑</string>
+  <string name="watchlist_filter_type_of_change_page_creations">页面创建</string>
+  <string name="watchlist_filter_type_of_change_category_changes">分类更改</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">维基数据编辑</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">已记录的操作</string>
+  <string name="watchlist_filter_type_of_change_new_users">新用户</string>
+  <string name="watchlist_filter_reset_button">重置</string>
+  <string name="watchlist_search_bar_hint">搜索或过滤监视列表</string>
+  <string name="watchlist_search_bar_filter_hint">监视列表过滤器</string>
+  <string name="watchlist_empty_search_message">没有结果，请尝试删除%s以查看更多结果。</string>
+  <string name="watchlist_number_of_filters">{{复数|one=%d 个过滤器|%d 个过滤器}}</string>
   <string name="preview_edit_title">预览编辑</string>
   <string name="preview_edit_summarize_edit_title">编辑摘要</string>
   <string name="preview_edit_summarize_edit_hint">您是如何改进此页面的？</string>
@@ -1370,4 +1488,89 @@
   <string name="reading_list_share_message_v2">你好！我想给你分享我的维基百科阅读清单：</string>
   <string name="reading_list_share_survey_title">您能帮助我们改进“分享阅读清单”吗？</string>
   <string name="reading_list_share_survey_body">“分享阅读清单”是一项测试功能，我们需要您的反馈来改进或删除它。</string>
+  <string name="talk_templates_manage_title">管理模板</string>
+  <string name="talk_templates_empty_message">您没有保存任何警告消息。</string>
+  <string name="talk_templates_new_message_title">新留言</string>
+  <string name="talk_templates_new_message_description">撰写警告留言。</string>
+  <string name="talk_templates_new_message_subject_hint">主题</string>
+  <string name="talk_templates_new_message_compose_hint">撰写消息</string>
+  <string name="talk_templates_new_message_save">保存</string>
+  <string name="talk_templates_new_message_dialog_title">保存变更</string>
+  <string name="talk_templates_new_message_dialog_description">添加标题并保存消息。</string>
+  <string name="talk_templates_new_message_dialog_hint">消息标题</string>
+  <string name="talk_templates_new_message_dialog_save">保存</string>
+  <string name="talk_templates_new_message_dialog_cancel">取消</string>
+  <string name="talk_templates_new_message_dialog_exists">模板“%s”已存在。</string>
+  <string name="talk_templates_new_message_saved">消息已保存</string>
+  <string name="talk_templates_edit_message_dialog_title">编辑消息</string>
+  <string name="talk_templates_edit_message_dialog_save">保存</string>
+  <string name="talk_templates_edit_message_dialog_delete">删除</string>
+  <string name="talk_templates_edit_message_updated">消息已更新</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="other">消息已删除</item>
+  </plurals>
+  <string name="patroller_tasks_edits_list_title">编辑列表</string>
+  <string name="patroller_tasks_edits_list_search_hint">搜索或过滤编辑</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">标签： %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">无</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">查看用户页面</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">查看讨论页</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">用户信息</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">查看用户贡献</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">感谢</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">用户信息</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;注册日期：&lt;/b&gt;%s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;编辑数：&lt;/b&gt;%s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">关闭</string>
+  <string name="patroller_tasks_filters_title">过滤器</string>
+  <string name="patroller_tasks_filters_reset">重置</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">维基</string>
+  <string name="patroller_tasks_filters_all_text">全部</string>
+  <string name="patroller_tasks_filters_user_status_header">用户注册及体验</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">未注册</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">未登录的编辑者。</string>
+  <string name="patroller_tasks_filters_user_status_registered">注册</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">已登录的编者。</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">新人</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">少于10次编辑或4天活动的注册编辑者。</string>
+  <string name="patroller_tasks_filters_user_status_learners">学习者</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">经验介于“新人”和“经验丰富的用户”之间的注册编辑者。</string>
+  <string name="patroller_tasks_filters_user_status_experienced">经验丰富的用户</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">超过500次编辑和30天活动的注册编辑者。</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">最新修订版本</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">最新修订版本</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">不是最新修订版本</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">自动贡献</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">机器人</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">人类（非机器人）</string>
+  <string name="patroller_tasks_filters_significance_minor">小编辑</string>
+  <string name="patroller_tasks_filters_significance_edits">非小编辑</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">贡献质量预测</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">非常可能是好的</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">高度准确地找到几乎所有无问题的编辑。</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">也许有问题</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">找到最有缺陷或最具破坏性的编辑，但准确性较低。</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">可能有问题</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">以中等精度查找到中等概率的有问题的编辑。</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">非常可能有问题</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">以极高精度找出最明显有缺陷或破坏性的编辑。</string>
+  <string name="patroller_tasks_filters_user_intent_header">用户意图预测</string>
+  <string name="patroller_tasks_filters_user_intent_good">非常可能是善意的</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">高度准确地查找几乎所有善意的编辑。</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">也许是恶意的</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">以低精度查找到大多数有恶意的编辑。</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">可能是恶意的</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">以中等精度查找到中等概率的有恶意的编辑。</string>
+  <string name="patroller_tasks_filters_user_intent_bad">非常可能是恶意的</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">以极高精度查找出大多数明显存在恶意的编辑。</string>
+  <string name="patroller_diff_feedback_dialog_message">您对该功能满意吗？</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">满意</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">中立</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">不满意</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">反馈</string>
+  <string name="patroller_diff_feedback_dialog_submit">提交</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">已提交反馈。</string>
+  <string name="data_opt_in_accept">接受</string>
+  <string name="data_opt_in_reject">拒绝</string>
+  <string name="donation_campaign_maybe_later_snackbar">明天我们会再次提醒您。</string>
 </resources>

@@ -1031,7 +1031,7 @@
   <string name="suggested_edits_ip_blocked_title">IP bloqueado</string>
   <string name="suggested_edits_last_edited">Última edição</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
-  <string name="suggested_edits_task_new">novo</string>
+  <string name="suggested_edits_task_new" fuzzy="true">novo</string>
   <string name="suggested_edits_cc0_notice">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Edições sugeridas</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Obrigado por editar a Wikipédia! Por que não continuar de onde parou?</string>
@@ -1325,9 +1325,9 @@
   <string name="revision_diff_line_removed">Linha removida</string>
   <string name="revision_diff_paragraph_added">Parágrafo adicionado</string>
   <string name="revision_diff_paragraph_removed">Parágrafo removido</string>
-  <string name="revision_undo_title">Desfazer edição</string>
-  <string name="revision_undo_message">Esta operação irá desfazer as mudanças realizadas pelas revisões do artigo que são mostradas aqui.</string>
-  <string name="revision_undo_reason">Para continuar, por favor forneça um motivo para desfazer esta edição:</string>
+  <string name="revision_undo_title" fuzzy="true">Desfazer edição</string>
+  <string name="revision_undo_message" fuzzy="true">Esta operação irá desfazer as mudanças realizadas pelas revisões do artigo que são mostradas aqui.</string>
+  <string name="revision_undo_reason" fuzzy="true">Para continuar, por favor forneça um motivo para desfazer esta edição:</string>
   <string name="revision_undo_success">A revisão foi desfeita.</string>
   <string name="revision_rollback_dialog_title">Tem certeza de que deseja reverter as edições?</string>
   <string name="revision_rollback_success">Edições revertidas.</string>

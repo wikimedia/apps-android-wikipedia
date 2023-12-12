@@ -433,10 +433,6 @@ class ReadingListSyncAdapter : JobIntentService() {
             }
         }
         localPage.remoteId = remotePage.id
-        if (remotePage.summary != null) {
-            localPage.description = remotePage.summary.description
-            localPage.thumbUrl = remotePage.summary.thumbnailUrl
-        }
         if (updateOnly) {
             L.d("Updating local page " + localPage.apiTitle)
             AppDatabase.instance.readingListPageDao().updateReadingListPage(localPage)

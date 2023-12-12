@@ -1040,7 +1040,7 @@
   <string name="suggested_edits_ip_blocked_title">عنوان بروتوكول إنترنت محجوب</string>
   <string name="suggested_edits_last_edited">آخر تعديل</string>
   <string name="suggested_edits_last_edited_never">أبدا</string>
-  <string name="suggested_edits_task_new">جديد</string>
+  <string name="suggested_edits_task_new" fuzzy="true">جديد</string>
   <string name="suggested_edits_cc0_notice">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">التعديلات المقترحة</string>
   <string name="suggested_edits_reactivation_notification_stage_one">شكرًا لتعديلك ويكيبيديا! لماذا لا تُكمل من حيث توقفت؟</string>
@@ -1301,9 +1301,9 @@
   <string name="revision_diff_line_removed">سطر مُزال</string>
   <string name="revision_diff_paragraph_added">فقرة مُضافة</string>
   <string name="revision_diff_paragraph_removed">فقرة مُزالة</string>
-  <string name="revision_undo_title">تراجع عن التعديل</string>
-  <string name="revision_undo_message">سيؤدي هذا إلى التراجع عن التغييرات التي تم إجراؤها بواسطة مراجعة (مراجعات) المقالة المعروضة هنا.</string>
-  <string name="revision_undo_reason">للمتابعة ، يرجى تقديم سبب للتراجع عن هذا التعديل:</string>
+  <string name="revision_undo_title" fuzzy="true">تراجع عن التعديل</string>
+  <string name="revision_undo_message" fuzzy="true">سيؤدي هذا إلى التراجع عن التغييرات التي تم إجراؤها بواسطة مراجعة (مراجعات) المقالة المعروضة هنا.</string>
+  <string name="revision_undo_reason" fuzzy="true">للمتابعة ، يرجى تقديم سبب للتراجع عن هذا التعديل:</string>
   <string name="revision_undo_success">تم التراجع عن المراجعة.</string>
   <string name="revision_rollback_dialog_title">هل أنت متأكد أنك تريد التراجع عن التعديلات؟</string>
   <string name="revision_rollback_success">تم إرجاع التعديلات.</string>

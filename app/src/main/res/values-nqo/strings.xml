@@ -866,7 +866,7 @@
   <string name="suggested_edits_ip_blocked_title">IP ߓߊ߬ߟߌ߬ߣߍ߲</string>
   <string name="suggested_edits_last_edited">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߟߊߓߊ߲</string>
   <string name="suggested_edits_last_edited_never">ߡߎ߰ߡߍ߫</string>
-  <string name="suggested_edits_task_new">ߞߎߘߊ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ߞߎߘߊ</string>
   <string name="suggested_edits_cc0_notice">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, ߊ߬ ߣߴߌ ߣߡߌߛߓߊߟߌߦߊ߫ ߘߌߢߍߣߍ߲߫ ߦߴߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲߫ ߠߊߓߌ߬ߟߊ ߡߊ߬ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license ߟߊߓߌ߬ߟߊ ߘߐ߫.</string>
   <string name="suggested_edits_reactivation_notification_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ</string>
   <string name="suggested_edits_reactivation_notification_stage_one">ߌ ߣߌ߫ ߗߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊߦߟߍ߬ߡߊ߲ ߠߊ߫߹ ߡߎ߬ ߠߊ߫ ߌ ߡߴߊ߬ ߘߊߓߊ߲߫ ߌ ߣߵߊ߬ ߓߌ߬ߟߊ߬ ߟߊ߫ ߘߊߞߎ߲ ߡߍ߲ ߘߐ߫؟</string>
@@ -1120,9 +1120,9 @@
   <string name="revision_diff_line_removed">ߛߌ߬ߕߊߙߌ ߓߘߊ߫ ߖߏ߰ߛߌ߫</string>
   <string name="revision_diff_paragraph_added">ߛߌ߬ߘߊ߬ߙߋ߲ ߓߘߊ߫ ߝߙߊ߬</string>
   <string name="revision_diff_paragraph_removed">ߛߌ߬ߘߊ߬ߙߋ߲ ߓߘߊ߫ ߛߋ߲߬ߓߐ߫</string>
-  <string name="revision_undo_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐߛߊ߬</string>
-  <string name="revision_undo_message">ߏ߬ ߘߌ߫ ߡߝߊ߬ߟߋ߲߬ߠߌ߲߫ ߠߎ߫ ߖߏ߬ߛߌ߫ ߡߍ߲ ߠߎ߬ ߛߌ߲ߘߌ߫ ߘߊ߫ ߟߢߊ߬ߟߌ(ߟߎ߫) ߘߐ߫ ߞߎߡߘߊ߫ ߘߐ߫ ߡߍ߲ ߦߌ߬ߘߊ߬ߣߍ߲߫ ߦߋ߫ ߦߊ߲߬ ߣߌ߲߬.</string>
-  <string name="revision_undo_reason">ߖߐ߲߬ߛߊ߫ ߞߵߊ߬ ߘߊߓߊ߲߫߸ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߣߌ߲߬ ߘߐߛߊ߬ߟߌ ߕߎ߬ߙߎ ߡߊߛߐ߫ ߦߊ߲߬ ߖߊ߰ߣߌ߲߫:</string>
+  <string name="revision_undo_title" fuzzy="true">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐߛߊ߬</string>
+  <string name="revision_undo_message" fuzzy="true">ߏ߬ ߘߌ߫ ߡߝߊ߬ߟߋ߲߬ߠߌ߲߫ ߠߎ߫ ߖߏ߬ߛߌ߫ ߡߍ߲ ߠߎ߬ ߛߌ߲ߘߌ߫ ߘߊ߫ ߟߢߊ߬ߟߌ(ߟߎ߫) ߘߐ߫ ߞߎߡߘߊ߫ ߘߐ߫ ߡߍ߲ ߦߌ߬ߘߊ߬ߣߍ߲߫ ߦߋ߫ ߦߊ߲߬ ߣߌ߲߬.</string>
+  <string name="revision_undo_reason" fuzzy="true">ߖߐ߲߬ߛߊ߫ ߞߵߊ߬ ߘߊߓߊ߲߫߸ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߣߌ߲߬ ߘߐߛߊ߬ߟߌ ߕߎ߬ߙߎ ߡߊߛߐ߫ ߦߊ߲߬ ߖߊ߰ߣߌ߲߫:</string>
   <string name="revision_undo_success">ߟߢߊ߬ߟߌ ߓߘߊ߫ ߘߐߛߊ߬.</string>
   <string name="revision_rollback_dialog_title">ߌ ߘߍ߲߬ߞߣߍ߬ߦߊ߬ߣߍ߲߫ ߦߋ߫ ߞߴߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߟߊߕߊ߲߬ߞߌ߫؟</string>
   <string name="revision_rollback_success">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߠߊߕߊ߲߬ߞߌ߬ߣߍ߲ ߠߎ߬</string>

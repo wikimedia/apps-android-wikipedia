@@ -6,6 +6,7 @@
 * Ankan
 * Bellayet
 * Bodhisattwa
+* Borhan
 * Cooltey
 * Dbrant
 * Elias Ahmmad
@@ -997,6 +998,7 @@
   <string name="wikitext_numbered_list">সংখ্যায়িত তালিকা</string>
   <string name="wikitext_template">টেমপ্লেট</string>
   <string name="wikitext_reference">তথ্যসূত্র</string>
+  <string name="wikitext_mention_user">একজন ব্যবহারকারীকে উল্লেখ করুন</string>
   <string name="insert_media_search_description">উইকিমিডিয়া কমন্স থেকে একটি ফাইল নির্বাচন করুন</string>
   <string name="insert_media_search_hint">মিডিয়া অনুসন্ধান</string>
   <string name="insert_media_settings" fuzzy="true">মিডিয়া সেটিং</string>
@@ -1094,8 +1096,9 @@
   <string name="revision_diff_line_removed">লাইন সরানো হয়েছে</string>
   <string name="revision_diff_paragraph_added">অনুচ্ছেদ যোগ করা হয়েছে</string>
   <string name="revision_diff_paragraph_removed">অনুচ্ছেদ সরানো হয়েছে</string>
-  <string name="revision_undo_title">সম্পাদনা বাতিল করুন</string>
-  <string name="revision_undo_reason">চালিয়ে যেতে, অনুগ্রহ করে এই সম্পাদনাটি পূর্বাবস্থায় ফেরত নেয়ার একটি কারণ প্রদান করুন:</string>
+  <string name="revision_undo_title">আপনি কি নিশ্চিত যে আপনি এই সম্পাদনাটি পূর্বাবস্থায় ফেরাতে চান?</string>
+  <string name="revision_undo_summary_hint">সারাংশ (ঐচ্ছিক)</string>
+  <string name="revision_undo_reason">সম্পাদনাটি পূর্বাবস্থায় ফেরত নেয়ার একটি কারণ প্রদান করুন</string>
   <string name="revision_rollback_success">সম্পাদনা পুনর্বহাল করা হয়েছে।</string>
   <string name="revision_compare_button">তুলনা করুন</string>
   <string name="revision_compare_two_only">শুধুমাত্র দুটি সংশোধন নির্বাচন করা যাবে।</string>
@@ -1156,15 +1159,18 @@
   <string name="reading_list_share_survey_title">আপনি কি আমাদের \"পড়ার তালিকা শেয়ার\" উন্নত করতে সহায়তা করতে পারবেন?</string>
   <string name="reading_list_share_survey_body">\"পড়ার তালিকা শেয়ার\" একটি পরীক্ষামূলক ফিচার এবং এটি উন্নত বা অপসারণ করতে আমাদের আপনার প্রতিক্রিয়া প্রয়োজন।</string>
   <string name="talk_templates_new_message_save">সংরক্ষণ</string>
+  <string name="talk_templates_menu_remove_message">বার্তা সরান</string>
   <string name="patroller_tasks_edits_list_card_tags_text">ট্যাগ: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">কোনোটি নয়</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">ব্যবহারকারীর পাতা দেখুন</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">ধন্যবাদ</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">বন্ধ</string>
   <string name="patroller_tasks_filters_wiki_filter_header">উইকি</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">সারাংশ (ঐচ্ছিক)</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">দেখুন</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">আমরা কীভাবে এই বৈশিষ্ট্যটি উন্নত করতে পারি?</string>
   <string name="data_opt_in_accept">গ্রহণ করুন</string>
   <string name="data_opt_in_reject">প্রত্যাখ্যান করুন</string>
   <string name="page_issues_title">পাতার সমস্যা</string>
+  <string name="donation_campaign_go_back_button">ফিরে যান</string>
+  <string name="menu_single_webview_open_external">সিস্টেম ব্রাউজারে খুলুন</string>
 </resources>

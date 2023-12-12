@@ -11,6 +11,22 @@
             android:dialogMessage="@string/preferences_developer_announcement_country_override_hint" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_announcement_debug_url"
+            android:title="@string/preferences_developer_announcement_debug_url" />
+
+        <org.wikipedia.settings.EditTextAutoSummarizePreference
+            style="@style/DataStringPreference"
+            android:key="@string/preference_key_announcement_custom_tab_test_url"
+            android:title="@string/preference_key_announcement_custom_tab_test_url"
+            android:dialogMessage="Overrides the URL from the `Donate now` button in CustomTab. \n https://etherpad.wikimedia.org/p/DeepLinkForTests"/>
+
+        <org.wikipedia.settings.LongPreference
+            style="@style/LongPreference"
+            android:key="@string/preference_key_announcement_pause_time"
+            android:title="@string/preference_key_announcement_pause_time"
+            android:dialogMessage="@string/preferences_developer_announcement_pause_time"/>
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_announcement_ignore_date"
             android:title="@string/preferences_developer_announcement_ignore_date" />
 
@@ -301,6 +317,11 @@
             android:key="@string/preference_key_push_notification_options_set"
             android:title="@string/preference_key_push_notification_options_set" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_show_sequential_recent_edits_diff_tooltip"
+            android:title="@string/preference_key_show_sequential_recent_edits_diff_tooltip" />
+
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/preferences_developer_reading_list_category">
@@ -408,13 +429,17 @@
             android:key="@string/preference_key_se_image_recs_onboarding_shown"
             android:title="@string/preference_key_se_image_recs_onboarding_shown" />
 
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_recent_edits_onboarding_shown"
+            android:title="@string/preference_key_recent_edits_onboarding_shown" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_show_recent_edits_feedback_form"
+            android:title="@string/preference_key_show_recent_edits_feedback_form" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="Tests and surveys">
-
-        <Preference
-            android:key="@string/preference_developer_nearby"
-            android:title="@string/nearby_title"/>
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"

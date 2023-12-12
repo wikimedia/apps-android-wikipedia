@@ -58,6 +58,7 @@
 * Teretalexev
 * Thothsum
 * ToJack
+* Ukhant Erdemt
 * UniCollab
 * VitalKanev
 * Vlad5250
@@ -330,6 +331,9 @@
   <string name="edit_undo">Отменить</string>
   <string name="edit_redo">Повтор действия</string>
   <string name="edit_rollback">Откатить</string>
+  <string name="edit_warn">Предупреждение</string>
+  <string name="edit_damage">Урон %s</string>
+  <string name="edit_intent">Намерение %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
     <item quantity="few">%s байта</item>
@@ -1080,7 +1084,7 @@
   <string name="suggested_edits_ip_blocked_title">IP заблокирован</string>
   <string name="suggested_edits_last_edited">Последнее изменение</string>
   <string name="suggested_edits_last_edited_never">Никогда</string>
-  <string name="suggested_edits_task_new">новая</string>
+  <string name="suggested_edits_task_new">Новая</string>
   <string name="suggested_edits_cc0_notice">Публикуя, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;условиями использования&lt;/a&gt; и безвозвратно выпускаете этот вклад в соответствии с &lt;a href=\"%2$s\"&gt;лицензией CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложенные правки</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Спасибо за редактирование Википедии! Почему бы не продолжить с того места, на котором вы остановились?</string>
@@ -1269,6 +1273,7 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Примечание</string>
   <string name="wikitext_preview_link">Предпросмотр ссылки</string>
+  <string name="wikitext_mention_user">Упомянуть участника</string>
   <string name="insert_media_title">Вставить медиа-файл</string>
   <string name="insert_media_search_description">Выберите файл на Викискладе</string>
   <string name="insert_media_search_hint">Поиск медиафайлов</string>
@@ -1313,6 +1318,12 @@
   <string name="talk_user_title">Обсуждение: %s</string>
   <string name="talk_new_topic">Новая тема</string>
   <string name="talk_new_topic_submitted">Тема опубликована.</string>
+  <string name="talk_warn">Предупреждение</string>
+  <string name="talk_warn_save_dialog_title">Сохранить изменения?</string>
+  <string name="talk_warn_save_dialog_hint">Заголовок сообщения</string>
+  <string name="talk_warn_save_dialog_publish">Опубликовать</string>
+  <string name="talk_warn_save_dialog_cancel">Отмена</string>
+  <string name="talk_warn_saved_message_dropdown">Сохранённые сообщения</string>
   <string name="talk_page_empty">Эта страница обсуждения пустая.</string>
   <string name="talk_page_empty_title">Обсуждение начинается здесь</string>
   <string name="talk_add_reply">Ответить</string>
@@ -1401,9 +1412,9 @@
   <string name="revision_diff_line_removed">Строка удалена</string>
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>
   <string name="revision_diff_paragraph_removed">Абзац удалён</string>
-  <string name="revision_undo_title">Отменить правку</string>
-  <string name="revision_undo_message">Это отменит изменения, сделанные в рамках показанной здесь версии (редакции) статьи.</string>
-  <string name="revision_undo_reason">Чтобы продолжить, укажите, пожалуйста, причину для отмены этой правки:</string>
+  <string name="revision_undo_title">Вы уверены, что хотите отменить эту правку?</string>
+  <string name="revision_undo_message">Отмена означает отмену последствий одной или нескольких правок.</string>
+  <string name="revision_undo_reason">Поделитесь причиной отката</string>
   <string name="revision_undo_success">Версия была отменена.</string>
   <string name="revision_rollback_dialog_title">Вы уверены, что хотите откатить правки?</string>
   <string name="revision_rollback_success">Совершён откат правок.</string>
@@ -1516,8 +1527,82 @@
   <string name="reading_list_share_message_v2">Привет! Я хотел бы поделиться с тобой своим списком для чтения из Википедии:</string>
   <string name="reading_list_share_survey_title">Могли бы вы помочь нам улучшить «Поделиться списком для чтения»?</string>
   <string name="reading_list_share_survey_body">«Поделиться списком для чтения» — тестовый функционал, и нам была бы полезная ваша обратная связь, чтобы в дальнейшем улучшить или удалить этот функционал.</string>
+  <string name="talk_templates_new_message_title">Новое сообщение</string>
+  <string name="talk_templates_new_message_subject_hint">Тема</string>
+  <string name="talk_templates_new_message_save">Сохранить</string>
+  <string name="talk_templates_new_message_dialog_title">Сохранить изменения</string>
+  <string name="talk_templates_new_message_dialog_save">Сохранить</string>
+  <string name="talk_templates_new_message_dialog_cancel">Отмена</string>
+  <string name="talk_templates_edit_message_dialog_title">Редактировать сообщение</string>
+  <string name="talk_templates_edit_message_dialog_save">Сохранить</string>
+  <string name="talk_templates_edit_message_dialog_delete">Удалить</string>
+  <string name="talk_templates_edit_message_updated">Сообщение обновлено</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Сообщение удалено</string>
+  <string name="patroller_tasks_edits_list_title">Список правок</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Смотреть страницу участника</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Смотреть страницу обсуждения</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Информация об участнике</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Информация об участнике</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Закрыть</string>
+  <string name="patroller_tasks_filters_title">Фильтры</string>
+  <string name="patroller_tasks_filters_reset">Сбросить</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Вики</string>
+  <string name="patroller_tasks_filters_all_text">Все</string>
+  <string name="patroller_tasks_filters_user_status_header">Регистрация участника и его опыт</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">Незарегистрированные</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Редакторы, которые не вошли в систему.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Зарегистрированные</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Вошедшие редакторы.</string>
+  <string name="patroller_tasks_filters_user_status_newcomers">Новички</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Зарегистрированные редакторы, у которых менее 10 правок или 4 дней работы.</string>
+  <string name="patroller_tasks_filters_user_status_learners">Учащиеся</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Зарегистрированные редакторы, чей опыт находится где-то между уровнями «Новичок» и «Опытные пользователи».</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Опытные участники</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Зарегистрированные редакторы с более чем 500 правок и 30 днями активности.</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Последние версии</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Текущая версия</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Не последняя версия</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Автоматизированные вклады</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Бот</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Человек (не бот)</string>
+  <string name="patroller_tasks_filters_significance_header">Значение</string>
+  <string name="patroller_tasks_filters_significance_minor">Малые правки</string>
+  <string name="patroller_tasks_filters_significance_edits">Обычные правки</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Предсказание качества вклада</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Скорее всего хорошие</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Очень точный способ найти практически все непроблемные правки.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Возможно проблемные</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Находит большинство ошибочных или вредных правок с более низкой точностью.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Вероятно проблемные</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Со средней точностью находит промежуточную часть недобросовестных изменений.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Скорее всего проблемные</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Максимально точен в поиске очевидно ошибочных или вредных правок.</string>
+  <string name="patroller_tasks_filters_user_intent_header">Предсказания намерений пользователя</string>
+  <string name="patroller_tasks_filters_user_intent_good">Скорее всего добросовестные</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Очень точный способ найти практически все добросовестные правки.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Возможно недобросовестные</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Ищет большинство недобросовестных правок с низкой точностью.</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Вероятно недобросовестные</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Со средней точностью находит промежуточную часть недобросовестных изменений.</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Скорее всего недобросовестные</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Максимально точен в поиске очевидно недобросовестных правок.</string>
+  <string name="patroller_tasks_patrol_edit_title">Отпатрулировать правку</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Откат завершён</string>
+  <string name="patroller_tasks_overflow_learn">Узнать больше</string>
+  <string name="patroller_diff_feedback_dialog_message">Вы довольны этой функцией?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Доволен</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Воздержусь</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Недоволен</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Как мы можем улучшить эту функцию?</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Обратная связь</string>
+  <string name="patroller_diff_feedback_dialog_submit">Отправить</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Обратная связь отправлена.</string>
   <string name="data_opt_in_accept">Принять</string>
   <string name="data_opt_in_reject">Отклонить</string>
   <string name="page_issues_title">Проблемы страницы</string>
   <string name="generic_release_notes">Незначительные исправления ошибок и улучшения</string>
+  <string name="donation_campaign_maybe_later_snackbar">Мы напомним вам снова завтра.</string>
+  <string name="donation_campaign_donated_snackbar">Спасибо за ваше пожертвование! Ваша поддержка помогает Википедии и её родственным проектам процветать.</string>
+  <string name="donation_campaign_go_back_button">Назад</string>
+  <string name="menu_single_webview_open_external">Открыть в системном браузере</string>
 </resources>

@@ -142,7 +142,7 @@
   <string name="login_password_hint">Pasovorto</string>
   <string name="account_creation_password_hint">pasovorto</string>
   <string name="login_2fa_hint">Two-Factor Authentication Code</string>
-  <string name="login_2fa_other_workflow_error_msg">Bezonas informar tua uzantonomo e pasovorto! Voluntez rikomencar vua agado, uzez la uzantonomo e pasovorto de tua \'token, e probez avanirar.</string>
+  <string name="login_2fa_other_workflow_error_msg">Bezonesas informar tua uzantonomo e pasovorto! Voluntez rikomencar vua agado, uzez la uzantonomo e pasovorto de tua \'token\', e probez avanirar.</string>
   <string name="onboarding_card_login">Enirar</string>
   <string name="page_editing_login">Enirar</string>
   <string name="reading_lists_sync_login">Enirar</string>
@@ -793,7 +793,7 @@
   <string name="description_edit_success_encouragement">Vu plubonigis Wikipedia por omni</string>
   <string name="description_edit_success_done">Facita</string>
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
-  <string name="description_edit_success_article_edit_hint">Vu anke povas redaktar artikli uzanta ca \'\'app\'\'. En altra okaziono, probez korektigar ortografial erori e kurta frazi uzanta ikono ^1</string>
+  <string name="description_edit_success_article_edit_hint">Vu anke povas redaktar artikli uzanta ca \'\'app\'\'. En altra okaziono, probez korektigar ortografial erori e kurta frazi uzante ikono ^1</string>
   <string name="description_edit_tutorial_title_descriptions">Deskripti dil artilko</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Rezumar artiklo por helpar lekteri rapide savar pri quo ol esas</string>
   <string name="description_edit_tutorial_keep_it_short">Mantenez ol kurta</string>
@@ -922,7 +922,7 @@
   <string name="suggested_edits_ip_blocked_title">IP blokusita</string>
   <string name="suggested_edits_last_edited">Lasta redakturo</string>
   <string name="suggested_edits_last_edited_never">Nultempe</string>
-  <string name="suggested_edits_task_new">nova</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nova</string>
   <string name="suggested_edits_cc0_notice">Publikiganta l\'artiklo, vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub permiso &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Redakturi sugestita</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Danko por redaktar che Wikipedio! Pro quo ne durigar de ube vu cesis?</string>
@@ -1141,9 +1141,9 @@
   <string name="revision_diff_line_removed">Lineo efacita</string>
   <string name="revision_diff_paragraph_added">Paragrafo adjuntita</string>
   <string name="revision_diff_paragraph_removed">Paragrafo efacita</string>
-  <string name="revision_undo_title">Desfacez redakturo</string>
-  <string name="revision_undo_message">To desfacos la modifikuri facita dal revizero o revizeri dil artiklo montrata hike.</string>
-  <string name="revision_undo_reason">Por durar, informez motivo por desfacar ca redakturo:</string>
+  <string name="revision_undo_title" fuzzy="true">Desfacez redakturo</string>
+  <string name="revision_undo_message" fuzzy="true">To desfacos la modifikuri facita dal revizero o revizeri dil artiklo montrata hike.</string>
+  <string name="revision_undo_reason" fuzzy="true">Por durar, informez motivo por desfacar ca redakturo:</string>
   <string name="revision_undo_success">La revizo desfacesis.</string>
   <string name="revision_compare_button">Komparez</string>
   <string name="revision_compare_two_only">Nur du revizi povas selektesar.</string>

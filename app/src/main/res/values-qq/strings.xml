@@ -11,6 +11,7 @@
 * Jeeputer
 * Joao Xavier
 * Kaganer
+* Kimberli Mäkäräinen (WMNO)
 * Kizule
 * KuboF
 * Liuxinyu970226
@@ -262,7 +263,7 @@
   <string name="about_description">Summary of the preference item to show the About screen.</string>
   <string name="privacy_policy_description">Summary of the preference item to show the terms of use.\n{{Identical|Privacy policy}}</string>
   <string name="terms_of_use_description">Summary of the preference item to show the terms of use.\n{{Identical|Terms of use}}</string>
-  <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for Czech (lang code \"cs\"): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
+  <string name="about_wikipedia_url">URL leading to the About Wikipedia page. If you can find the appropriate language specific URL, please do so. If not, feel free to keep the English one. Example for Czech (lang code ‘cs’): https://cs.wikipedia.org/wiki/Nápověda:Úvod\nPlease test the URL to make sure it works.</string>
   <string name="privacy_policy_url">URL leading to the Wikimedia Foundation privacy policy. If you can find the appropriate language specific URL of the mobile site please do so. If not feel free to keep the English one. Example for German (lang code \"de\"): https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/de\nPlease test the URL to make sure it works.</string>
   <string name="offline_reading_and_data_url">{{optional}}\nURL leading to the Offline reading and data section of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site please do so.</string>
   <string name="android_app_faq_url">{{optional}}\nURL leading to the page of Wikimedia Android app FAQ. If you can find the appropriate language specific URL of the mobile site, please do so.</string>
@@ -295,7 +296,7 @@
   <string name="edit_redo">Button label to redo the previous text that was typed.</string>
   <string name="edit_rollback">Button label to rollback the article to the previous revision.</string>
   <string name="edit_warn">Title of the screen of publishing a warn message to a user talk page.</string>
-  <string name="edit_quality">Label of the edit quality in the article edit detail page. %s will be replaced by the percentage of edit quality.</string>
+  <string name="edit_damage">Label of the edit damage in the article edit detail page. %s will be replaced by the percentage of edit damage.</string>
   <string name="edit_intent">Label of the edit intent in the article edit detail page. %s will be replaced by the percentage of edit intent.</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">Text for the revisions difference in bytes. %s will be replaced by the positive one or negative one.</item>
@@ -485,7 +486,7 @@
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
   <string name="reading_list_title_exists">Error text shown when a user attempts to create a new list with the same title as an existing list. The \"%s\" symbol is replaced with the title of the existing list.</string>
-  <string name="reading_list_article_added_to_named">Message shown to user when an article gets suffessfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_article_added_to_named">Message shown to user when an article is successfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_article_added_to_default_list">Message shown to user when an article gets successfully added to a default readingList.\n\nThe %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_article_moved_to_named">Message shown to user when an article gets suffessfully moved to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_article_already_exists_message">Message shown to users when they try to add an already existing article to a reading list.The first %1$s symbol is replaced with the name of the reading list and the second %2$s symbol is replaced with the name of the article.</string>
@@ -1032,7 +1033,7 @@
   <string name="suggested_edits_ip_blocked_title">Title for card that explains that the IP address of the user is blocked.</string>
   <string name="suggested_edits_last_edited">This refers to the date when the user made their last edit.</string>
   <string name="suggested_edits_last_edited_never">Displayed when the user has never made an edit.\n\n{{Identical|Never}}</string>
-  <string name="suggested_edits_task_new">Quick label shown for tasks that are newly introduced (should be lowercase in languages that support it).\n\nShould be translated as a kind of advertising, referring to somthing like a \"new (feature)\" or a \"new (thing)\".\n\n{{Identical|New}}</string>
+  <string name="suggested_edits_task_new">Quick label shown for tasks that are newly introduced (should be lowercase in languages that support it).\n\nShould be translated as a kind of advertising, referring to something like a \"new (feature)\" or a \"new (thing)\".\n\n{{Identical|New}}</string>
   <string name="suggested_edits_cc0_notice">Disclaimer that specifies the Terms of Use and CC license that applies to publishing these types of edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_reactivation_notification_title">Title of notification when the user has not edited for days.</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Text of notification when the user has not edited for days (first stage).</string>
@@ -1053,7 +1054,7 @@
     <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
     <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">Dropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
+  <string name="suggested_edits_contribution_type_title">{{optional}}\nDropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday\n\n{{Identical|Yesterday}}</string>
   <string name="suggested_edits_encourage_account_creation_title">Title text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
@@ -1207,6 +1208,7 @@
   <string name="wikitext_template">Button label for making the selected text into a template.\n{{Identical|Template}}</string>
   <string name="wikitext_reference">Button label for adding a reference at the current cursor position.\n{{Identical|Reference}}</string>
   <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
+  <string name="wikitext_mention_user">Button label for mentioning a user in a message.</string>
   <string name="insert_media_title">Title of the insert media screen.</string>
   <string name="insert_media_search_description">Message saying that the user can select a file from Wikimedia Commons.</string>
   <string name="insert_media_search_hint">Hint label for the insert media search field.</string>
@@ -1352,6 +1354,7 @@
   <string name="revision_diff_protected">Error message explaining that the diff of this revision cannot be viewed publicly.</string>
   <string name="revision_undo_title">Dialog title for undoing an edit.</string>
   <string name="revision_undo_message">Dialog message explaining that the selected revision will be undone.</string>
+  <string name="revision_undo_summary_hint">Hint for adding an edit summary.</string>
   <string name="revision_undo_reason">Dialog message requesting a reason for undoing the selected revision.</string>
   <string name="revision_undo_success">Message shown when an edit was undone successfully.</string>
   <string name="revision_rollback_dialog_title">Title of the rollback dialog.</string>
@@ -1484,8 +1487,16 @@
   <string name="talk_templates_edit_message_dialog_save">Button label of the dialog of editing the selected message that save the changes.</string>
   <string name="talk_templates_edit_message_dialog_delete">Button label of the dialog of editing the selected message that delete the message.</string>
   <string name="talk_templates_edit_message_updated">Snackbar message that show the message has been updated.</string>
-  <string name="talk_templates_edit_message_confirm_description">Message of confirming the action of deleting the message. %s will be replaced by the title of the saved message.</string>
-  <string name="talk_templates_message_deleted">Snackbar message that show the message has been deleted.</string>
+  <string name="talk_templates_menu_remove_message">Menu label that can start the remove message mode.</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Message of confirming the action of deleting the message.</item>
+    <item quantity="other">Message of confirming the action of deleting the messages.</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Snackbar message that show the message has been deleted.</item>
+    <item quantity="other">Snackbar message that show the messages have been deleted.</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Error message shown when the template title is empty.</string>
   <string name="patroller_tasks_edits_list_title">Title of the screen that shows a list of edits.</string>
   <string name="patroller_tasks_edits_list_search_hint">Hint text of in the search bar of searching or filtering edits.</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Text of showing added tags in this edit. %s will be replaced by the added tags.</string>
@@ -1548,25 +1559,47 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Title of the patrol edit screen.</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Menu text of the overflow menu that shows the article edit history.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Title of the undo dialog.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Title of the undo confirmation dialog.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Message of the undo dialog.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Hint text of the undo dialog.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Helper text of the undo dialog.</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Snackbar text that indicates the undo process has succeeded.</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Title of the rollback dialog</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Snackbar text that indicates the rollback process has succeeded.</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Label text of the action in the snackbar to view the result of the action.</string>
   <string name="patroller_tasks_overflow_report">Menu text in the overflow menu to submit feedback for the feature.</string>
   <string name="patroller_tasks_overflow_learn">Menu text in the overflow menu to view the detail of the feature.</string>
+  <string name="patroller_onboarding_one_title">Title of the first patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_one_content">Content of the first patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_title">Title of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_thank_title">Title of the thank section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_thank_content">Content of the thank section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_watch_title">Title of the watch section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_watch_content">Content of the watch section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_warn_title">Title of the warn section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_warn_content">Content of the warn section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_undo_title">Title of the undo/rollback section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_onboarding_two_undo_content">Content of the undo/rollback section of the second patroller tasks onboarding screen.</string>
+  <string name="patroller_diff_tooltip_one">Text of the first tooltip for patrol edit diff screen.</string>
+  <string name="patroller_diff_tooltip_two">Text of the second tooltip for patrol edit diff screen.</string>
+  <string name="patroller_diff_feedback_dialog_title">Dialog title for the feedback form in the patrol edit screen.</string>
+  <string name="patroller_diff_feedback_dialog_message">Dialog message for the feedback form in the patrol edit screen.</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Option for the feedback form in the patrol edit screen that indicates satisfied.</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Option for the feedback form in the patrol edit screen that indicates neutral.</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Option for the feedback form in the patrol edit screen that indicates unsatisfied.</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Dialog title for the feedback input in the patrol edit screen.</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Hint text for input field for the feedback form in the patrol edit screen.</string>
+  <string name="patroller_diff_feedback_dialog_submit">Button label for input field for the feedback form in the patrol edit screen.</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Text for the snackbar message the feedback form in the patrol edit screen that indicates the feedback has been submitted.</string>
+  <string name="patroller_diff_feedback_tooltip">Text of the tooltip for the patrol edit screen indicates how to submit feedback for the feature.\n\n\"Problem with feature\" is {{msg-wm|Wikipedia-android-strings-suggested edits report feature}}</string>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
-  <string name="nearby_title">Title for the Nearby screen.</string>
+  <string name="places_title">Title for the Places screen.</string>
   <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
   <string name="generic_release_notes">Release notes message that will be used on app stores for minor releases and maintenance updates.</string>
-  <string name="nearby_permissions_denied">Message shown when a required permission was denied by the user.</string>
+  <string name="places_permissions_denied">Message shown when a required permission was denied by the user.</string>
   <string name="email_report_image_recommendations_subject">Subject heading for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>
   <string name="email_report_patroller_tasks_body">Body of email for sending a report about a problem with the Patroller Tasks feature.</string>
+  <string name="donation_campaign_maybe_later_snackbar">Text for the snackbar message when user hits the \"maybe later\" option.</string>
+  <string name="donation_campaign_donated_snackbar">Text for the snackbar message when user hits the \"I already donated\" option.</string>
+  <string name="donation_campaign_go_back_button">Button label for the webview that can go back to the previous screen.</string>
+  <string name="menu_single_webview_open_external">Menu option that indicates the web page can be opened in a system browser.</string>
 </resources>
