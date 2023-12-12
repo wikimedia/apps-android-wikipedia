@@ -28,7 +28,6 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import com.mapbox.geojson.Feature
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
@@ -192,12 +191,14 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
                 0, ContextCompat.getColor(requireActivity(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.success_color))
             )
         )
+
         val clusterOptions = ClusterOptions()
             .withClusterRadius(60)
             .withColorLevels(clusterColorLayers)
             .withTextSize(literal(12f))
             .withTextField(Expression.toString(get(POINT_COUNT)))
             .withTextColor(Expression.color(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)))
+
         symbolManager = SymbolManager(binding.mapView, mapboxMap, style, null, null, clusterOptions)
 
         // Clustering with SymbolManager doesn't expose a few style specifications we need.
@@ -205,7 +206,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         try {
             style.getLayer(CLUSTER_TEXT_LAYER_ID)?.apply {
                 this.setProperties(
-                    textFont(MARKER_FONT_STACK),
+                    textFont(CLUSTER_FONT_STACK),
                     textIgnorePlacement(true),
                     textAllowOverlap(true)
                 )
@@ -301,10 +302,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             }.forEach {
                 it.annotation = manager.create(
                     SymbolOptions()
-                    .withLatLng(LatLng(it.latitude, it.longitude))
-                    .withTextFont(MARKER_FONT_STACK)
-                    .withIconImage(MARKER_DRAWABLE)
-                    .withIconOffset(arrayOf(0f, -32f)))
+                        .withLatLng(LatLng(it.latitude, it.longitude))
+                        .withTextFont(MARKER_FONT_STACK)
+                        .withIconImage(MARKER_DRAWABLE)
+                        .withIconOffset(arrayOf(0f, -32f)))
 
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
@@ -428,19 +429,20 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
     }
 
     override fun onMapClick(point: LatLng): Boolean {
-        val screenPoint = mapboxMap!!.projection.toScreenLocation(point)
-        val rect = RectF(screenPoint.x - 10, screenPoint.y - 10, screenPoint.x + 10, screenPoint.y + 10)
+        mapboxMap?.let {
+            val screenPoint = it.projection.toScreenLocation(point)
+            val rect = RectF(screenPoint.x - 10, screenPoint.y - 10, screenPoint.x + 10, screenPoint.y + 10)
 
-        // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
-        val featureList: List<Feature> = mapboxMap?.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)!!
-        if (featureList.isNotEmpty()) {
-            mapboxMap?.cameraPosition?.zoom?.let {
-                mapboxMap!!.cameraPosition = CameraPosition.Builder()
+            // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
+            val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
+            if (featureList.isNotEmpty()) {
+                val cameraPosition = CameraPosition.Builder()
                     .target(point)
-                    .zoom(it + 2)
+                    .zoom(it.cameraPosition.zoom + 2)
                     .build()
+                it.easeCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), ZOOM_IN_ANIMATION_DURATION)
+                return true
             }
-            return true
         }
         return false
     }
@@ -453,6 +455,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         const val ITEMS_PER_REQUEST = 50
         const val CLUSTER_TEXT_LAYER_ID = "mapbox-android-cluster-text"
         const val CLUSTER_CIRCLE_LAYER_ID = "mapbox-android-cluster-circle0"
+        const val ZOOM_IN_ANIMATION_DURATION = 1000
+        val CLUSTER_FONT_STACK = arrayOf("Open Sans Semibold")
         val MARKER_FONT_STACK = arrayOf("Open Sans Regular")
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
