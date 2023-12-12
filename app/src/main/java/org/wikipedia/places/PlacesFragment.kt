@@ -315,7 +315,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                                     ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
                                 }
                             }
-
                         })
                     }
                 }
