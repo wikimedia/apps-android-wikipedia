@@ -21,6 +21,7 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
 
     var wikiSite: WikiSite = bundle.parcelable(PlacesActivity.EXTRA_WIKI)!!
     var location: Location? = bundle.parcelable(PlacesActivity.EXTRA_LOCATION)
+    var pageTitle: PageTitle? = bundle.parcelable(PlacesActivity.EXTRA_TITLE)
 
     val nearbyPages = MutableLiveData<Resource<List<NearbyPage>>>()
 

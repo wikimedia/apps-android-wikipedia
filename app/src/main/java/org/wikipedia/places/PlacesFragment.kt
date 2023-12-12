@@ -34,6 +34,7 @@ import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
 import com.mapbox.mapboxsdk.location.modes.CameraMode
 import com.mapbox.mapboxsdk.location.modes.RenderMode
 import com.mapbox.mapboxsdk.maps.MapboxMap
+import com.mapbox.mapboxsdk.maps.MapboxMap.CancelableCallback
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
@@ -82,7 +83,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 startLocationTracking()
-                goToLastKnownLocation(1000, viewModel.location)
+                goToLastKnownLocation(1000, viewModel.location, viewModel.pageTitle)
             }
             else -> {
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
@@ -160,7 +161,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
-                        goToLastKnownLocation(1000, viewModel.location)
+                        goToLastKnownLocation(1000, viewModel.location, viewModel.pageTitle)
                     }
                 } else {
                     locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -298,14 +299,24 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         }
     }
 
-    private fun goToLastKnownLocation(delayMillis: Long, targetLocation: Location? = null) {
+    private fun goToLastKnownLocation(delayMillis: Long, targetLocation: Location? = null, pageTitle: PageTitle? = null) {
         binding.mapView.postDelayed({
             if (isAdded) {
                 mapboxMap?.let {
                     val location = targetLocation ?: it.locationComponent.lastKnownLocation
                     if (location != null) {
                         val latLng = LatLng(location.latitude, location.longitude)
-                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.0))
+                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.0), object : CancelableCallback {
+                            override fun onCancel() { }
+
+                            override fun onFinish() {
+                                pageTitle?.let { title ->
+                                    val entry = HistoryEntry(title, HistoryEntry.SOURCE_PLACES)
+                                    ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+                                }
+                            }
+
+                        })
                     }
                 }
             }
@@ -394,9 +405,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
 
-        fun newInstance(wiki: WikiSite, location: Location?): PlacesFragment {
+        fun newInstance(wiki: WikiSite, pageTitle: PageTitle?, location: Location?): PlacesFragment {
             return PlacesFragment().apply {
-                arguments = bundleOf(PlacesActivity.EXTRA_WIKI to wiki, PlacesActivity.EXTRA_LOCATION to location)
+                arguments = bundleOf(
+                    PlacesActivity.EXTRA_WIKI to wiki,
+                    PlacesActivity.EXTRA_TITLE to pageTitle,
+                    PlacesActivity.EXTRA_LOCATION to location
+                )
             }
         }
 
