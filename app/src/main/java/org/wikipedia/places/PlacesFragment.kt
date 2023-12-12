@@ -2,7 +2,7 @@ package org.wikipedia.places
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.ActivityOptions
+import android.app.Activity.RESULT_OK
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
@@ -19,6 +19,7 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.applyCanvas
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
@@ -79,6 +80,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
     private val markerRect = Rect(0, 0, MARKER_WIDTH, MARKER_HEIGHT)
     private val markerPaintSrc = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC) }
     private val markerPaintSrcIn = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC_IN) }
+    private var searchRadius: Int = 50
+    private var filterMode = false
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         when {
@@ -91,6 +94,16 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
             }
         }
+    }
+
+    private val placesSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+          if (it.resultCode == RESULT_OK) {
+              val location = it.data?.getParcelableExtra<LatLng>(SearchActivity.EXTRA_LOCATION)!!
+              Prefs.placesWikiCode = it.data?.getStringExtra(SearchActivity.EXTRA_LANG_CODE)
+                  ?: WikipediaApp.instance.appOrSystemLanguageCode
+              goToLocation(1000, location)
+              viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
+          }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -132,6 +145,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         }
 
         binding.searchCard.languageContainer.setOnClickListener {
+            filterMode = true
             startActivity(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
@@ -152,11 +166,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
     }
 
     private fun openSearchActivity(query: String?) {
-        val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.NAV_MENU, query)
+        val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES, query)
         val options = binding.searchCard.searchContainer.let {
-            ActivityOptions.makeSceneTransitionAnimation(requireActivity(), binding.searchCard.searchContainer, getString(R.string.transition_search_bar))
+            ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), binding.searchCard.searchContainer, getString(R.string.transition_search_bar))
         }
-        startActivityForResult(intent, Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY, options?.toBundle())
+        placesSearchLauncher.launch(intent, options)
     }
 
     private fun updateTabsView() {
@@ -178,6 +192,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         binding.mapView.getMapAsync { map ->
             map.setStyle(Style.Builder().fromUri("asset://mapstyle.json")) { style ->
                 mapboxMap = map
+                searchRadius = latitudeDiffToMeters(mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) / 2
 
                 style.addImage(MARKER_DRAWABLE, AppCompatResources.getDrawable(requireActivity(), R.drawable.map_marker)!!)
 
@@ -239,6 +254,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         super.onResume()
         binding.mapView.onResume()
         updateTabsView()
+        if (filterMode) {
+            filterMode = false
+            symbolManager?.deleteAll()
+            goToLastKnownLocation(1000)
+        }
     }
 
     override fun onStop() {
@@ -291,8 +311,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         }
 
         lastLocationUpdated = LatLng(latLng.latitude, latLng.longitude)
-
-        val searchRadius = latitudeDiffToMeters(mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) / 2
 
         L.d(">>> requesting update: " + latLng.latitude + ", " + latLng.longitude + ", " + mapboxMap?.cameraPosition?.zoom)
         viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude, searchRadius, ITEMS_PER_REQUEST)
@@ -355,6 +373,19 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                     if (location != null) {
                         val latLng = LatLng(location.latitude, location.longitude)
                         it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.0))
+                    }
+                }
+            }
+        }, delayMillis)
+    }
+
+    private fun goToLocation(delayMillis: Long, location: LatLng?) {
+        binding.mapView.postDelayed({
+            if (isAdded) {
+                mapboxMap?.let {
+                    location?.let { loc ->
+                        val latLng = LatLng(loc.latitude, loc.longitude)
+                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12.0))
                     }
                 }
             }

@@ -91,7 +91,7 @@
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackground"
             android:gravity="center"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/searchTabsCountView"

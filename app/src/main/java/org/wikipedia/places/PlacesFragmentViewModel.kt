@@ -12,12 +12,13 @@ import kotlinx.coroutines.launch
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.Resource
 
 class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
 
-    var wikiSite: WikiSite = bundle.getParcelable(PlacesActivity.EXTRA_WIKI)!!
+    val wikiSite: WikiSite get() = WikiSite.forLanguageCode(Prefs.placesWikiCode)
 
     val nearbyPages = MutableLiveData<Resource<List<NearbyPage>>>()
 

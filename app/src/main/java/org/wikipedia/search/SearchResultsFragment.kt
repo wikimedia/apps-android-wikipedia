@@ -1,5 +1,7 @@
 package org.wikipedia.search
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,8 +18,10 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mapbox.mapboxsdk.geometry.LatLng
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -238,7 +242,17 @@ class SearchResultsFragment : Fragment() {
 
             view.isLongClickable = true
             view.setOnClickListener {
-                callback()?.navigateToTitle(searchResult.pageTitle, false, position)
+                if (viewModel.invokeSource == Constants.InvokeSource.PLACES) {
+                    val resultIntent = Intent()
+                    searchResult.coordinates?.let { coordinates ->
+                        resultIntent.putExtra(SearchActivity.EXTRA_LOCATION, LatLng(coordinates[0].lat, coordinates[0].lon))
+                        resultIntent.putExtra(SearchActivity.EXTRA_LANG_CODE, searchResult.pageTitle.wikiSite.languageCode)
+                        requireActivity().setResult(RESULT_OK, resultIntent)
+                    }
+                    requireActivity().finish()
+                } else {
+                    callback()?.navigateToTitle(searchResult.pageTitle, false, position)
+                }
             }
             view.setOnCreateContextMenuListener(LongPressHandler(view,
                     HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))
@@ -247,6 +261,10 @@ class SearchResultsFragment : Fragment() {
 
     private fun callback(): Callback? {
         return getCallback(this, Callback::class.java)
+    }
+
+    fun setInvokeSource(invokeSource: Constants.InvokeSource) {
+        viewModel.invokeSource = invokeSource
     }
 
     private val searchLanguageCode get() =
