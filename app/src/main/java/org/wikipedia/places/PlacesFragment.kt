@@ -51,6 +51,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -59,7 +60,6 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import kotlin.math.abs
-import org.wikipedia.settings.Prefs
 
 class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
 

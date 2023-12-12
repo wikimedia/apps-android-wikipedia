@@ -4,15 +4,12 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.speech.RecognizerIntent
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
-import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
@@ -20,10 +17,12 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityPlacesFiltersBinding
+import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.ViewUtil
 
 class PlacesFilterActivity : BaseActivity() {
     private lateinit var binding: ActivityPlacesFiltersBinding
@@ -151,6 +150,8 @@ class PlacesFilterActivity : BaseActivity() {
             titleText.text = WikipediaApp.instance.languageState.getAppLanguageCanonicalName(languageCode)
             langCodeText.text = languageCode
             radio.isVisible = languageCode == Prefs.placesWikiCode
+            ViewUtil.formatLangButton(langCodeText, languageCode,
+                SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
             itemView.setOnClickListener {
                 Prefs.placesWikiCode = languageCode
                 callback.onLangSelected()
