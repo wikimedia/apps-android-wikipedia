@@ -206,7 +206,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         try {
             style.getLayer(CLUSTER_TEXT_LAYER_ID)?.apply {
                 this.setProperties(
-                    textFont(MARKER_FONT_STACK),
+                    textFont(CLUSTER_FONT_STACK),
                     textIgnorePlacement(true),
                     textAllowOverlap(true)
                 )
@@ -440,7 +440,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
                     .target(point)
                     .zoom(it.cameraPosition.zoom + 2)
                     .build()
-                it.easeCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), 1000)
+                it.easeCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), ZOOM_IN_ANIMATION_DURATION)
                 return true
             }
         }
@@ -456,6 +456,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         const val CLUSTER_TEXT_LAYER_ID = "mapbox-android-cluster-text"
         const val CLUSTER_CIRCLE_LAYER_ID = "mapbox-android-cluster-circle0"
         const val ZOOM_IN_ANIMATION_DURATION = 1000
+        val CLUSTER_FONT_STACK = arrayOf("Open Sans Semibold")
         val MARKER_FONT_STACK = arrayOf("Open Sans Regular")
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
