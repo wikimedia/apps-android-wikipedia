@@ -34,7 +34,6 @@ import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
 import com.mapbox.mapboxsdk.location.modes.CameraMode
 import com.mapbox.mapboxsdk.location.modes.RenderMode
 import com.mapbox.mapboxsdk.maps.MapboxMap
-import com.mapbox.mapboxsdk.maps.MapboxMap.CancelableCallback
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
@@ -83,7 +82,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 startLocationTracking()
-                goToLastKnownLocation(1000, viewModel.location, viewModel.pageTitle)
+                goToLastKnownLocation(1000, viewModel.location, viewModel.pageTitle != null)
             }
             else -> {
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
@@ -161,7 +160,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
-                        goToLastKnownLocation(1000, viewModel.location, viewModel.pageTitle)
+                        goToLastKnownLocation(1000, viewModel.location, viewModel.pageTitle != null)
                     }
                 } else {
                     locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -299,23 +298,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         }
     }
 
-    private fun goToLastKnownLocation(delayMillis: Long, targetLocation: Location? = null, pageTitle: PageTitle? = null) {
+    private fun goToLastKnownLocation(delayMillis: Long, targetLocation: Location? = null, shouldZoomToMax: Boolean = false) {
         binding.mapView.postDelayed({
             if (isAdded) {
                 mapboxMap?.let {
                     val location = targetLocation ?: it.locationComponent.lastKnownLocation
                     if (location != null) {
                         val latLng = LatLng(location.latitude, location.longitude)
-                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.0), object : CancelableCallback {
-                            override fun onCancel() { }
-
-                            override fun onFinish() {
-                                pageTitle?.let { title ->
-                                    val entry = HistoryEntry(title, HistoryEntry.SOURCE_PLACES)
-                                    ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
-                                }
-                            }
-                        })
+                        val zoomLevel = if (shouldZoomToMax) 15.999 else 15.0
+                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel))
                     }
                 }
             }
