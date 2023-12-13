@@ -44,6 +44,7 @@ import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
 import com.mapbox.mapboxsdk.style.expressions.Expression
 import com.mapbox.mapboxsdk.style.expressions.Expression.get
 import com.mapbox.mapboxsdk.style.expressions.Expression.literal
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleColor
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeColor
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeWidth
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textAllowOverlap
@@ -186,16 +187,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
     }
 
     private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {
-        val clusterColorLayers = arrayOf(
-            androidx.core.util.Pair(
-                0, ContextCompat.getColor(requireActivity(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.success_color))
-            )
-        )
-
         val clusterOptions = ClusterOptions()
             .withClusterRadius(60)
-            .withColorLevels(clusterColorLayers)
-            .withTextSize(literal(12f))
+            .withTextSize(literal(16f))
             .withTextField(Expression.toString(get(POINT_COUNT)))
             .withTextColor(Expression.color(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)))
 
@@ -213,6 +207,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             }
             style.getLayer(CLUSTER_CIRCLE_LAYER_ID)?.apply {
                 this.setProperties(
+                    circleColor(ContextCompat.getColor(requireActivity(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.success_color))),
                     circleStrokeColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)),
                     circleStrokeWidth(2.0f),
                 )
