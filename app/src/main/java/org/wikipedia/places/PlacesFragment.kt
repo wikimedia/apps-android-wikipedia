@@ -43,7 +43,6 @@ import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
 import com.mapbox.mapboxsdk.style.expressions.Expression
 import com.mapbox.mapboxsdk.style.expressions.Expression.get
-import com.mapbox.mapboxsdk.style.expressions.Expression.literal
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleColor
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeColor
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeWidth
@@ -189,7 +188,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
     private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {
         val clusterOptions = ClusterOptions()
             .withClusterRadius(60)
-            .withTextSize(literal(16f))
+            .withTextSize(Expression.literal(16f))
             .withTextField(Expression.toString(get(POINT_COUNT)))
             .withTextColor(Expression.color(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)))
 
