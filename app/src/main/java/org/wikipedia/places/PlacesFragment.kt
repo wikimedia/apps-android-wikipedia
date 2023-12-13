@@ -9,6 +9,7 @@ import android.graphics.Paint
 import android.graphics.PorterDuff.Mode
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
+import android.graphics.RectF
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -19,6 +20,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.applyCanvas
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -27,6 +29,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.mapbox.mapboxsdk.Mapbox
+import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
 import com.mapbox.mapboxsdk.geometry.LatLng
 import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
@@ -35,8 +38,17 @@ import com.mapbox.mapboxsdk.location.modes.RenderMode
 import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
+import com.mapbox.mapboxsdk.plugins.annotation.ClusterOptions
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
+import com.mapbox.mapboxsdk.style.expressions.Expression
+import com.mapbox.mapboxsdk.style.expressions.Expression.get
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleColor
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeColor
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeWidth
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textAllowOverlap
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textFont
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textIgnorePlacement
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -57,7 +69,7 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import kotlin.math.abs
 
-class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
+class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -91,8 +103,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        markerBitmapBase = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.map_marker_outline,
-            null) // ResourceUtil.getThemedAttributeId(requireContext(), R.attr.secondary_color)
+        markerBitmapBase = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.map_marker_outline, null)
         markerBitmapBaseRect = Rect(0, 0, markerBitmapBase.width, markerBitmapBase.height)
 
         Mapbox.getInstance(requireActivity().applicationContext)
@@ -143,7 +154,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
                 }
 
-                symbolManager = SymbolManager(binding.mapView, map, style)
+                map.addOnMapClickListener(this)
+
+                setUpSymbolManagerWithClustering(map, style)
 
                 symbolManager?.iconAllowOverlap = true
                 symbolManager?.textAllowOverlap = true
@@ -171,6 +184,37 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
+        }
+    }
+
+    private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {
+        val clusterOptions = ClusterOptions()
+            .withClusterRadius(60)
+            .withTextSize(Expression.literal(16f))
+            .withTextField(Expression.toString(get(POINT_COUNT)))
+            .withTextColor(Expression.color(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)))
+
+        symbolManager = SymbolManager(binding.mapView, mapboxMap, style, null, null, clusterOptions)
+
+        // Clustering with SymbolManager doesn't expose a few style specifications we need.
+        // Accessing the styles in a fail-safe manner
+        try {
+            style.getLayer(CLUSTER_TEXT_LAYER_ID)?.apply {
+                this.setProperties(
+                    textFont(CLUSTER_FONT_STACK),
+                    textIgnorePlacement(true),
+                    textAllowOverlap(true)
+                )
+            }
+            style.getLayer(CLUSTER_CIRCLE_LAYER_ID)?.apply {
+                this.setProperties(
+                    circleColor(ContextCompat.getColor(requireActivity(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.success_color))),
+                    circleStrokeColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)),
+                    circleStrokeWidth(2.0f),
+                )
+            }
+        } catch (e: Exception) {
+            L.e(e)
         }
     }
 
@@ -252,14 +296,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
             pages.filter {
                 annotationCache.find { item -> item.pageId == it.pageId } == null
             }.forEach {
-                it.annotation = manager.create(SymbolOptions()
-                    .withLatLng(LatLng(it.latitude, it.longitude))
-                    .withTextFont(MARKER_FONT_STACK)
-                    .withTextField(it.pageTitle.displayText)
-                    .withTextSize(10f)
-                    .withTextOffset(arrayOf(0f, 1f))
-                    .withIconImage(MARKER_DRAWABLE)
-                    .withIconOffset(arrayOf(0f, -32f)))
+                it.annotation = manager.create(
+                    SymbolOptions()
+                        .withLatLng(LatLng(it.latitude, it.longitude))
+                        .withTextFont(MARKER_FONT_STACK)
+                        .withIconImage(MARKER_DRAWABLE)
+                        .withIconOffset(arrayOf(0f, -32f)))
 
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
@@ -382,11 +424,35 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         ShareUtil.shareText(requireContext(), title)
     }
 
+    override fun onMapClick(point: LatLng): Boolean {
+        mapboxMap?.let {
+            val screenPoint = it.projection.toScreenLocation(point)
+            val rect = RectF(screenPoint.x - 10, screenPoint.y - 10, screenPoint.x + 10, screenPoint.y + 10)
+
+            // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
+            val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
+            if (featureList.isNotEmpty()) {
+                val cameraPosition = CameraPosition.Builder()
+                    .target(point)
+                    .zoom(it.cameraPosition.zoom + 2)
+                    .build()
+                it.easeCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), ZOOM_IN_ANIMATION_DURATION)
+                return true
+            }
+        }
+        return false
+    }
+
     companion object {
         const val MARKER_DRAWABLE = "markerDrawable"
+        const val POINT_COUNT = "point_count"
         const val MAX_ANNOTATIONS = 64
         const val THUMB_SIZE = 160
         const val ITEMS_PER_REQUEST = 50
+        const val CLUSTER_TEXT_LAYER_ID = "mapbox-android-cluster-text"
+        const val CLUSTER_CIRCLE_LAYER_ID = "mapbox-android-cluster-circle0"
+        const val ZOOM_IN_ANIMATION_DURATION = 1000
+        val CLUSTER_FONT_STACK = arrayOf("Open Sans Semibold")
         val MARKER_FONT_STACK = arrayOf("Open Sans Regular")
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
