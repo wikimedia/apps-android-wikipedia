@@ -13,6 +13,7 @@ import android.graphics.Rect
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,6 +53,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.search.SearchActivity
+import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DimenUtil
@@ -60,6 +62,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
 class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
@@ -129,10 +132,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
             }
         }
 
-        binding.searchCard.searchContainer.setOnClickListener {
-            openSearchActivity(null)
-        }
-
         binding.searchCard.searchTextView.let { textView ->
             textView.setOnClickListener {
                 openSearchActivity(if (textView.text.toString() == getString(R.string.places_search_hint)) null
@@ -144,7 +143,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
             requireActivity().onBackPressed()
         }
 
-        binding.searchCard.languageContainer.setOnClickListener {
+        binding.searchCard.searchLangCode.setOnClickListener {
             filterMode = true
             startActivity(PlacesFilterActivity.newIntent(requireActivity()))
         }
@@ -168,7 +167,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
     private fun openSearchActivity(query: String?) {
         val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES, query)
         val options = binding.searchCard.searchContainer.let {
-            ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(), binding.searchCard.searchContainer, getString(R.string.transition_search_bar))
+            ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+                binding.searchCard.searchContainer, getString(R.string.transition_search_bar))
         }
         placesSearchLauncher.launch(intent, options)
     }
@@ -178,6 +178,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         binding.searchCard.searchTabsCountView.isVisible = tabsCount != 0
         binding.searchCard.searchTabsCountView.text = tabsCount.toString()
         binding.searchCard.searchLangCode.text = Prefs.placesWikiCode
+        ViewUtil.formatLangButton(binding.searchCard.searchLangCode, Prefs.placesWikiCode,
+            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -202,6 +204,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                 map.uiSettings.isLogoEnabled = false
                 val attribMargin = DimenUtil.roundedDpToPx(16f)
                 map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin, attribMargin)
+                map.uiSettings.compassGravity = Gravity.START or Gravity.BOTTOM
+                val compassMargin = DimenUtil.roundedDpToPx(36f)
+                map.uiSettings.setCompassMargins(attribMargin, 0, 0, compassMargin)
 
                 map.addOnCameraIdleListener {
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)

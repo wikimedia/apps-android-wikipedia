@@ -33,11 +33,11 @@
             android:id="@+id/searchTextView"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:theme="@style/P"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:text="@string/places_search_hint"
-            android:textColor="?attr/secondary_color" />
+            android:textColor="?attr/secondary_color"
+            android:theme="@style/P" />
 
         <ImageView
             android:id="@+id/searchCloseBtn"
@@ -50,40 +50,24 @@
             android:visibility="gone"
             app:srcCompat="@drawable/ic_close_black_24dp" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/languageContainer"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackground"
-            android:minWidth="48dp">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="24dp"
-                android:minWidth="24dp"
-                android:contentDescription="@null"
-                app:layout_constraintBottom_toBottomOf="@+id/searchLangCode"
-                app:layout_constraintEnd_toEndOf="@+id/searchLangCode"
-                app:layout_constraintStart_toStartOf="@+id/searchLangCode"
-                app:layout_constraintTop_toTopOf="@+id/searchLangCode"
-                app:srcCompat="@drawable/lang_button_shape_border"
-                app:tint="?attr/primary_color" />
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/searchLangCode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:theme="@style/H5"
-                android:lineSpacingExtra="2sp"
-                android:padding="3dp"
+                style="@style/H5"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/lang_button_shape_border"
+                android:backgroundTint="?attr/primary_color"
+                android:gravity="center"
+                android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textColor="?attr/primary_color"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="en" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textColor="?attr/primary_color" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/tabsCountContainer"
@@ -95,7 +79,7 @@
 
             <TextView
                 android:id="@+id/searchTabsCountView"
-                android:theme="@style/H5"
+                style="@style/H5"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
