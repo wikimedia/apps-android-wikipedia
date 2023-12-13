@@ -40,21 +40,38 @@
                     android:contentDescription="@null"
                     android:visibility="gone" />
 
-                <TextView
-                    android:id="@+id/link_preview_title"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:fontFamily="serif"
-                    android:lineSpacingMultiplier="0.9"
-                    android:maxLines="3"
-                    android:paddingBottom="4dp"
-                    android:textColor="?attr/primary_color"
-                    android:textSize="20sp"
-                    tools:text="Lorem ipsum" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/link_preview_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="serif"
+                        android:lineSpacingMultiplier="0.9"
+                        android:maxLines="3"
+                        android:paddingBottom="4dp"
+                        android:textColor="?attr/primary_color"
+                        android:textSize="20sp"
+                        tools:text="Lorem ipsum" />
+
+                    <TextView
+                        style="@style/H4"
+                        android:id="@+id/link_preview_distance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/success_color"
+                        app:drawableStartCompat="@drawable/baseline_location_on_24"
+                        app:drawableTint="?attr/success_color"
+                        tools:text="Lorem ipsum" />
+
+                </LinearLayout>
 
                 <ImageView
                     android:id="@+id/link_preview_overflow_button"
