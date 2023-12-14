@@ -12,6 +12,7 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -93,7 +94,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 startLocationTracking()
-                goToLastKnownLocation(1000)
+                goToLastKnownLocation(1000, viewModel.location, viewModel.pageTitle != null)
             }
             else -> {
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
@@ -172,8 +173,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
-                        goToLastKnownLocation(1000)
+                        goToLastKnownLocation(1000, viewModel.location, viewModel.pageTitle != null)
                     }
+                } else {
+                    locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
                 }
             }
         }
@@ -337,14 +340,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         }
     }
 
-    private fun goToLastKnownLocation(delayMillis: Long) {
+    private fun goToLastKnownLocation(delayMillis: Long, targetLocation: Location? = null, shouldZoomToMax: Boolean = false) {
         binding.mapView.postDelayed({
             if (isAdded) {
                 mapboxMap?.let {
-                    val location = it.locationComponent.lastKnownLocation
+                    val location = targetLocation ?: it.locationComponent.lastKnownLocation
                     if (location != null) {
                         val latLng = LatLng(location.latitude, location.longitude)
-                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.0))
+                        val zoomLevel = if (shouldZoomToMax) 15.999 else 15.0
+                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel))
                     }
                 }
             }
@@ -457,9 +461,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
 
-        fun newInstance(wiki: WikiSite): PlacesFragment {
+        fun newInstance(wiki: WikiSite, pageTitle: PageTitle?, location: Location?): PlacesFragment {
             return PlacesFragment().apply {
-                arguments = bundleOf(PlacesActivity.EXTRA_WIKI to wiki)
+                arguments = bundleOf(
+                    PlacesActivity.EXTRA_WIKI to wiki,
+                    PlacesActivity.EXTRA_TITLE to pageTitle,
+                    PlacesActivity.EXTRA_LOCATION to location
+                )
             }
         }
 
