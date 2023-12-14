@@ -1518,6 +1518,8 @@
     <string name="media_playback_error">Error playing media.</string>
     <string name="user_contrib_menu_label">Contributions</string>
     <string name="user_contrib_filter_activity_title">Filter contributions</string>
+    <string name="action_item_view_on_map">View on map</string>
+    <string name="action_item_view_on_map_unavailable">Geographical coordinates are not available for this page</string>
 
     <!-- Shareable reading lists -->
     <string name="shareable_reading_lists_import_dialog_title">Import shared reading list</string>

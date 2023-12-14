@@ -71,6 +71,17 @@ interface Service {
         @Query("continue") cont: String?
     ): MwQueryResponse
 
+    @GET(
+        MW_API_PREFIX + "action=query&generator=search&gsrnamespace=0&gsrqiprofile=classic_noboostlinks" +
+                "&origin=*&piprop=thumbnail&prop=pageimages|description|info|pageprops" +
+                "&inprop=varianttitles&smaxage=86400&maxage=86400&pithumbsize=" + PREFERRED_THUMB_SIZE
+    )
+    fun searchMoreLike(
+        @Query("gsrsearch") searchTerm: String?,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("pilimit") piLimit: Int,
+    ): Observable<MwQueryResponse>
+
     // ------- Miscellaneous -------
 
     @get:GET(MW_API_PREFIX + "action=fancycaptchareload")

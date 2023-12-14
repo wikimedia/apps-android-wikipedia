@@ -152,7 +152,7 @@ class CustomizeToolbarFragment : Fragment() {
         }
     }
 
-    private inner class RearrangeableItemTouchHelperCallback constructor(private val adapter: RecyclerItemAdapter) : ItemTouchHelper.Callback() {
+    private inner class RearrangeableItemTouchHelperCallback(private val adapter: RecyclerItemAdapter) : ItemTouchHelper.Callback() {
         override fun isLongPressDragEnabled(): Boolean {
             return true
         }
@@ -189,21 +189,21 @@ class CustomizeToolbarFragment : Fragment() {
         }
     }
 
-    private inner class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
+    private inner class HeaderViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
         fun bindItem(@StringRes stringRes: Int) {
             itemView.findViewById<TextView>(R.id.headerTitle).setText(stringRes)
         }
     }
 
-    private inner class ItemHolder constructor(itemView: CustomizeToolbarItemView) : DefaultViewHolder<CustomizeToolbarItemView>(itemView) {
+    private inner class ItemHolder(itemView: CustomizeToolbarItemView) : DefaultViewHolder<CustomizeToolbarItemView>(itemView) {
         fun bindItem(pageActionItem: PageActionItem, position: Int) {
             view.setContents(pageActionItem, position)
         }
     }
 
-    private inner class DescriptionViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView)
+    private inner class DescriptionViewHolder(itemView: View) : DefaultViewHolder<View>(itemView)
 
-    private inner class SetToDefaultViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
+    private inner class SetToDefaultViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
         init {
             itemView.findViewById<TextView>(R.id.resetToDefaultButton).setOnClickListener {
                 viewModel.resetToDefault()

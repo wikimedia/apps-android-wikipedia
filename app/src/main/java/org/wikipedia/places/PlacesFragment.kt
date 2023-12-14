@@ -10,8 +10,10 @@ import android.graphics.Paint
 import android.graphics.PorterDuff.Mode
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
+import android.graphics.RectF
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.location.Location
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -21,6 +23,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.applyCanvas
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
@@ -30,6 +33,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.mapbox.mapboxsdk.Mapbox
+import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
 import com.mapbox.mapboxsdk.geometry.LatLng
 import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
@@ -38,8 +42,17 @@ import com.mapbox.mapboxsdk.location.modes.RenderMode
 import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
+import com.mapbox.mapboxsdk.plugins.annotation.ClusterOptions
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
+import com.mapbox.mapboxsdk.style.expressions.Expression
+import com.mapbox.mapboxsdk.style.expressions.Expression.get
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleColor
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeColor
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeWidth
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textAllowOverlap
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textFont
+import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textIgnorePlacement
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -64,7 +77,7 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 
-class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
+class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -91,7 +104,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 startLocationTracking()
-                goToLocation(1000)
+                goToLocation(1000, viewModel.location, if (viewModel.pageTitle != null) 15.99 else 15.0)
             }
             else -> {
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
@@ -112,8 +125,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        markerBitmapBase = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.map_marker_outline,
-            null) // ResourceUtil.getThemedAttributeId(requireContext(), R.attr.secondary_color)
+        markerBitmapBase = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.map_marker_outline, null)
         markerBitmapBaseRect = Rect(0, 0, markerBitmapBase.width, markerBitmapBase.height)
 
         Mapbox.getInstance(requireActivity().applicationContext)
@@ -198,7 +210,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         binding.mapView.onCreate(savedInstanceState)
 
         binding.mapView.getMapAsync { map ->
-            map.setStyle(Style.Builder().fromUri("asset://mapstyle.json")) { style ->
+            val assetForTheme = if (WikipediaApp.instance.currentTheme.isDark) "asset://mapstyle-dark.json" else "asset://mapstyle.json"
+            map.setStyle(Style.Builder().fromUri(assetForTheme)) { style ->
                 mapboxMap = map
                 searchRadius = latitudeDiffToMeters(mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) / 2
 
@@ -218,7 +231,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
                 }
 
-                symbolManager = SymbolManager(binding.mapView, map, style)
+                map.addOnMapClickListener(this)
+
+                setUpSymbolManagerWithClustering(map, style)
 
                 symbolManager?.iconAllowOverlap = true
                 symbolManager?.textAllowOverlap = true
@@ -226,7 +241,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
                         updateSearchText(it.pageTitle.displayText)
-                        val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_NEARBY)
+                        val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_PLACES)
                         ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
                     }
                     true
@@ -235,8 +250,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
-                        goToLocation(1000)
+                        goToLocation(1000, viewModel.location, if (viewModel.pageTitle != null) 15.99 else 15.0)
                     }
+                } else {
+                    locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
                 }
             }
         }
@@ -247,6 +264,37 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
+        }
+    }
+
+    private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {
+        val clusterOptions = ClusterOptions()
+            .withClusterRadius(60)
+            .withTextSize(Expression.literal(16f))
+            .withTextField(Expression.toString(get(POINT_COUNT)))
+            .withTextColor(Expression.color(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)))
+
+        symbolManager = SymbolManager(binding.mapView, mapboxMap, style, null, null, clusterOptions)
+
+        // Clustering with SymbolManager doesn't expose a few style specifications we need.
+        // Accessing the styles in a fail-safe manner
+        try {
+            style.getLayer(CLUSTER_TEXT_LAYER_ID)?.apply {
+                this.setProperties(
+                    textFont(CLUSTER_FONT_STACK),
+                    textIgnorePlacement(true),
+                    textAllowOverlap(true)
+                )
+            }
+            style.getLayer(CLUSTER_CIRCLE_LAYER_ID)?.apply {
+                this.setProperties(
+                    circleColor(ContextCompat.getColor(requireActivity(), ResourceUtil.getThemedAttributeId(requireContext(), R.attr.success_color))),
+                    circleStrokeColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)),
+                    circleStrokeWidth(2.0f),
+                )
+            }
+        } catch (e: Exception) {
+            L.e(e)
         }
     }
 
@@ -323,14 +371,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
             pages.filter {
                 annotationCache.find { item -> item.pageId == it.pageId } == null
             }.forEach {
-                it.annotation = manager.create(SymbolOptions()
-                    .withLatLng(LatLng(it.latitude, it.longitude))
-                    .withTextFont(MARKER_FONT_STACK)
-                    .withTextField(it.pageTitle.displayText)
-                    .withTextSize(10f)
-                    .withTextOffset(arrayOf(0f, 1f))
-                    .withIconImage(MARKER_DRAWABLE)
-                    .withIconOffset(arrayOf(0f, -32f)))
+                it.annotation = manager.create(
+                    SymbolOptions()
+                        .withLatLng(LatLng(it.latitude, it.longitude))
+                        .withTextFont(MARKER_FONT_STACK)
+                        .withIconImage(MARKER_DRAWABLE)
+                        .withIconOffset(arrayOf(0f, -32f)))
 
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
@@ -453,18 +499,46 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         ShareUtil.shareText(requireContext(), title)
     }
 
+    override fun onMapClick(point: LatLng): Boolean {
+        mapboxMap?.let {
+            val screenPoint = it.projection.toScreenLocation(point)
+            val rect = RectF(screenPoint.x - 10, screenPoint.y - 10, screenPoint.x + 10, screenPoint.y + 10)
+
+            // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
+            val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
+            if (featureList.isNotEmpty()) {
+                val cameraPosition = CameraPosition.Builder()
+                    .target(point)
+                    .zoom(it.cameraPosition.zoom + 2)
+                    .build()
+                it.easeCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), ZOOM_IN_ANIMATION_DURATION)
+                return true
+            }
+        }
+        return false
+    }
+
     companion object {
         const val MARKER_DRAWABLE = "markerDrawable"
+        const val POINT_COUNT = "point_count"
         const val MAX_ANNOTATIONS = 64
         const val THUMB_SIZE = 160
         const val ITEMS_PER_REQUEST = 50
+        const val CLUSTER_TEXT_LAYER_ID = "mapbox-android-cluster-text"
+        const val CLUSTER_CIRCLE_LAYER_ID = "mapbox-android-cluster-circle0"
+        const val ZOOM_IN_ANIMATION_DURATION = 1000
+        val CLUSTER_FONT_STACK = arrayOf("Open Sans Semibold")
         val MARKER_FONT_STACK = arrayOf("Open Sans Regular")
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
 
-        fun newInstance(wiki: WikiSite): PlacesFragment {
+        fun newInstance(wiki: WikiSite, pageTitle: PageTitle?, location: Location?): PlacesFragment {
             return PlacesFragment().apply {
-                arguments = bundleOf(PlacesActivity.EXTRA_WIKI to wiki)
+                arguments = bundleOf(
+                    PlacesActivity.EXTRA_WIKI to wiki,
+                    PlacesActivity.EXTRA_TITLE to pageTitle,
+                    PlacesActivity.EXTRA_LOCATION to location
+                )
             }
         }
 
