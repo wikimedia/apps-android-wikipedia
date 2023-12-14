@@ -6,7 +6,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.dataclient.restbase.RbDefinition
-import org.wikipedia.dataclient.restbase.RbRelatedPages
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.announcement.AnnouncementList
 import org.wikipedia.feed.configure.FeedAvailability
