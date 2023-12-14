@@ -223,6 +223,7 @@
   <string name="page_protected_can_not_edit_anon">Gaafera, a pegi ŋa koŋ baŋ sɛge pulompulom lɛ a wɔgre ŋa.</string>
   <string name="page_protected_can_not_edit_title">A pegi ŋa guwieŋ</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">De paahi a Wɔɔkyelisi eŋa</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">Nyɔge yɛlɛ kyaare bone naŋ erɛ atekele fo ennoɔŋ naŋ be. Tɔ a ovafuloo menu a kaairi &lt;b&gt;De poɔ bɛllpɛll&lt;/b&gt; na nyɛ tɛgere atekele eŋɛ.</string>
   <string name="settings_item_preferences">Sɛɛtoore</string>
   <string name="settings_activity_title">Sɛɛtoore</string>
   <string name="about_description">A Wikipiideɛ app yɛlɛ</string>
@@ -243,6 +244,7 @@
   <string name="about_app_license">A yiibuzie koodi be la &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">A booree ŋa naŋ yi a &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">A kyaare</string>
+  <string name="edit_abandon_confirm">Ba maale la a peegyi eŋ kaama. Fo sage la ka fo boɔrɔ la ka fo yi kyɛ ba biŋ a fo yel-leɛre?</string>
   <string name="edit_abandon_confirm_yes">Ɔɔ</string>
   <string name="edit_abandon_confirm_no">Aayi</string>
   <string name="user_blocked_from_editing_title">Sereɛŋ</string>
@@ -351,6 +353,7 @@
   <string name="button_add_to_reading_list">De paahi kannoo yoe poɔ</string>
   <string name="redirected_from_snackbar">Leɛwuli yi \"%s\"</string>
   <string name="button_get_directions">bɔ sori</string>
+  <string name="preference_title_customize_explore_feed">Weɛre bɔ duoro</string>
   <string name="preference_title_show_link_previews">wulo linki kaabo</string>
   <string name="preference_summary_customize_explore_feed">Mɛ ka o kpɛ yi gaa</string>
   <string name="preference_summary_show_link_previews">wulo a aatekelehi kaabo wieoŋ ka fooŋ tɔ a linkiri ŋa.</string>
@@ -441,7 +444,10 @@
     <item quantity="one">%1$d ŋa yi 1 aatekele ba be saseɛ poɔ </item>
     <item quantity="other">%1$d ŋa yi %2$d aatekele ba be saseɛ poɔ</item>
   </plurals>
-  <string name="format_reading_list_statistical_detail">PLURAL|one=%1$d of 1 aatekele ba be saseɛ poɔ, %3$.2f MB|%1$d of %2$d aatekelehi ba be saseɛ poɔ, %3$.2f MB}}</string>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d of 1 aatekele ba be saseɛ poɔ, %3$.2f MB</item>
+    <item quantity="other">%1$d of %2$d aatekelehi ba be saseɛ poɔ, %3$.2f MB</item>
+  </plurals>
   <string name="reading_list_sort">Ŋmaa</string>
   <string name="reading_list_sort_ellipsis">ŋmaa ne...</string>
   <string name="reading_list_sort_by_name">ŋmaa ne yuori</string>
@@ -622,9 +628,17 @@
   <string name="preference_title_notification_revert">Leɛre o</string>
   <string name="preference_summary_notification_revert">A fo kyeɛroo kaŋa leɛ la puori</string>
   <string name="preference_title_notification_login_fail">kpɛ</string>
+  <string name="preference_summary_notification_login_fail">Fo die kpeɛbo tontonne</string>
   <string name="preference_title_notification_mention">pore</string>
+  <string name="preference_summary_notification_mention">Neɛ kaŋa pore la fo yuori peegyi poɔ</string>
   <string name="preference_title_notification_user_talk">Yel-yaga gampɛle</string>
+  <string name="preference_summary_notification_user_talk">Masɛgyere ane leɛsagere yi yelyaga peegyiri</string>
   <string name="preference_title_notification_email_user">fo nyɛ la email</string>
+  <string name="preference_summary_notification_email_user">Neɛ kaŋa toɔle fo la eemail tuuro wiki eŋɛ</string>
+  <string name="preference_title_notification_article_linked">Liŋkere ko atekele fo naŋ kuri</string>
+  <string name="preference_summary_notification_article_linked">Naŋ de la ka liŋk paalaa wa maale ko peegyi fo naŋ kuri</string>
+  <string name="preference_category_push_notifications">Daa teɛre ma</string>
+  <string name="preference_title_customize_push_notifications">Maale sɛgere teɛre ma daare eŋ fo boɔbo</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Wikipiideɛ</string>
   <string name="notifications_channel_group_other_title">Mine</string>
   <string name="notifications_channel_group_other_description">Teɛre ma mine yi a app</string>
@@ -652,8 +666,12 @@
   <string name="notifications_all_wikis_text">\"wiki\" zaa</string>
   <string name="notifications_all_types_text">\"Parԑԑ\" zaa</string>
   <string name="notifications_menu_user_talk_page">%s\'s yelyaga peegyi</string>
+  <string name="view_because_you_read_card_title">Bonso fo kanne la</string>
+  <string name="view_top_read_card_title">Kannoo naŋ de zu</string>
+  <string name="view_top_read_card_action">Kannoo naŋ de zu yaga</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d k</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d M</string>
+  <string name="view_next_random_article">Loodi bonne iri atekele la</string>
   <string name="view_main_page_card_title">Wikipiideɛ poɔ beebo zine</string>
   <string name="view_main_page_card_action">Kaa peegyi zu meŋɛ</string>
   <string name="view_featured_image_card_title">Zine enfuoni soŋ</string>
@@ -682,12 +700,16 @@
   <string name="feed_configure_menu_deselect_all">Sɔgele a zaa</string>
   <string name="feed_item_type_news">Atekele kyaare pampana yel-erre</string>
   <string name="feed_item_type_on_this_day">Yel-erre yelkorɔ poɔ a bebiri ŋa eŋɛ</string>
+  <string name="feed_item_type_randomizer">Yine bonne iri atekele na kanne</string>
+  <string name="feed_item_type_suggested_edits">Yelteɛre na poɔ yelbulo wikipiideɛ poɔ</string>
+  <string name="feed_empty_message">Bone zaa kye a fo weɛre bɔ duoro eŋɛ</string>
   <string name="feed_configure_onboarding_action">Mɛ ka o kpɛ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Tɔɔ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Ŋmaa o</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Tɔɔ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Ŋmaa o</string>
   <string name="feed_accessibility_card_load_more_button">Loodi yaga</string>
+  <string name="top_read_activity_title">Kannoo naŋ de zu %s eŋɛ</string>
   <string name="tabs_activity_title">Tabs</string>
   <string name="description_edit_text_hint">Aatekele mannoo sommo</string>
   <string name="description_edit_article_description_label">Ganlee</string>
@@ -700,6 +722,7 @@
   <string name="description_edit_save">De yineŋ gbamgbale</string>
   <string name="description_edit_read">Kanne</string>
   <string name="description_edit_add_description">Eŋ Aatekel mannoo</string>
+  <string name="description_edit_translate_description">Leɛre a atekele bigruu</string>
   <string name="description_edit_edit_description">Maale eŋ aatekel mannoo</string>
   <string name="description_edit_add_image_caption">paahi enfuo caption</string>
   <string name="description_edit_edit_image_caption">maale enfou caption eŋ</string>
@@ -708,17 +731,26 @@
   <string name="description_edit_help_title">Info: Ganlee mannoo sommo</string>
   <string name="description_edit_help_about_wikidata">Wikidata yɛlɛ</string>
   <string name="description_edit_help_wikidata_guide">Wikidata yԑlԑ guubu a ko sԑgebo mannoo</string>
+  <string name="description_edit_anon_limit">Bareka ne fo naŋ kyoɔge taa ennoɔŋ kyaare atekele bigruu maale eŋ! Ka fõõ na e a maale eŋ mine paale, sɔroo yuo fo Wikipiideɛ die daga kpɛ.</string>
+  <string name="description_edit_license_notice">Ka fõõ na leɛre a atekele bigruu, N sage la ne a &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; ane n na bare la n kyeɛroo a ko la leɛ wa o zie a puliŋ kyɛ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; license.</string>
   <string name="description_edit_helper_text_lowercase_warning">maŋ piili neŋ sɛgebi bile</string>
+  <string name="description_edit_voice_input_description">Yelyaga de emmbo</string>
+  <string name="description_edit_learn_more">Zanne yɛlɛ yaga kyaare atekele bigruu</string>
+  <string name="description_edit_image_caption_learn_more">Zanne yɛlɛ yaga kyaare enfuoni yelzu ŋmaa</string>
   <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
   <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">A sɛgre e la fẽẽ yaga.</string>
+  <string name="description_ends_with_punctuation">A sɛgere ba seŋ ka o baare ne tannoo tombiri.</string>
   <string name="description_starts_with_uppercase">Piili neŋ sɛgebi bile see ka o waa yo-meŋa.</string>
   <string name="description_starts_with_lowercase">Ta piile neŋ sɛgebi bile.</string>
+  <string name="description_is_in_different_language">A sɛgere yine ŋa a ba be a kɔkɔ boɔraa poɔ. A kɔkɔre seŋ ka o e %s.</string>
+  <string name="description_edit_suggested_description_button_text">Wuli teɛrɛ bigruu</string>
   <string name="description_edit_success_saved">Aatekele ŋa mannoo yi gbamgbale!</string>
   <string name="description_edit_success_saved_snackbar">Aatekele ŋa mannoo yi gbamgbale!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Aatekele ŋa mannoo yi gbamgbale! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Enfuo Caption yi la gbamgbale!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Enfuo Caption yi la gbamgbale! (%s)</string>
+  <string name="description_edit_success_encouragement">Fo aŋ eɛ la ka Wikipiideɛ e soŋ ko neɛzaa</string>
   <string name="description_edit_success_done">Baarɛɛ</string>
   <string name="description_edit_success_did_you_know">Fo baŋɛɛ?</string>
   <string name="description_edit_tutorial_title_descriptions">Aatekele mannoo sommo</string>
@@ -727,6 +759,8 @@
   <string name="description_edit_tutorial_button_label_start_editing">Piili gampɛle maaloo</string>
   <string name="customize_toolbar_category_toolbar">Tuulbaa</string>
   <string name="customize_toolbar_category_menu">Menu</string>
+  <string name="customize_toolbar_drag_and_drop_placeholder">Tage a biŋ fo bomboɔre kyɛ 👋</string>
+  <string name="customize_toolbar_reset_to_default_button">Leɛsɛte gaa difiliti</string>
   <string name="suggested_edits_describe_articles">Manne atekelehi</string>
   <string name="suggested_edits_caption_images">Caption enfuomo</string>
   <string name="suggested_edits_tag_images">Tag enfuomo</string>
@@ -890,6 +924,10 @@
   <string name="wikipedia_languages_add_language_text">Paahi kɔkɔre</string>
   <string name="wikipedia_languages_remove_text">Iri Kɔkɔre bare</string>
   <string name="wikipedia_languages_remove_action_mode_title">Iri Kɔkɔre bare</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">Remove selected language?</item>
+    <item quantity="other">iri kɔkɔ kaa iraa bare?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">Koŋ baŋ iri a kɔkɔɛ zaa</string>
   <string name="more_language_options">Yaga</string>
   <string name="add_wikipedia_languages_text">Paahi Wikipiideɛ kɔkɔɛ</string>
@@ -915,6 +953,7 @@
   <string name="wikitext_small">Sɛgre-bilee ŋmaaroŋ</string>
   <string name="wikitext_code">Code</string>
   <string name="wikitext_link">Tage lammo</string>
+  <string name="wikitext_heading_n">Yelzu kpɛglɛ %d</string>
   <string name="wikitext_formatting">Gɔɔloŋ</string>
   <string name="wikitext_headings">Yelzuri</string>
   <string name="wikitext_insert_media">Eŋ mediá</string>
@@ -922,6 +961,7 @@
   <string name="wikitext_numbered_list">Nambare ŋmaaroŋ</string>
   <string name="wikitext_template">Tɛmplet</string>
   <string name="wikitext_reference">Sommo yizie</string>
+  <string name="wikitext_preview_link">Daŋ kaa liŋk</string>
   <string name="wikitext_mention_user">Pore tontona</string>
   <string name="insert_media_title">Eŋ mediá</string>
   <string name="insert_media_search_description">Iri gampɛle a wikimedia commons poɔ</string>
@@ -929,6 +969,12 @@
   <string name="insert_media_settings">Poɔ enfuoni yɛlɛ</string>
   <string name="insert_media_settings_uploaded_image">Aploodi enfuoni</string>
   <string name="insert_media_settings_caption">Enfuo Caption</string>
+  <string name="insert_media_settings_caption_description">Enfuonnyɛraa wulaa a atekele poɔ</string>
+  <string name="insert_media_settings_alternative_text">Boɔbo sɛgere</string>
+  <string name="insert_media_settings_alternative_text_description">Bigruu ko noba naŋ ba nyɛrɛ kanneba</string>
+  <string name="insert_media_advanced_settings">Tɔnnoo sɛgeroo</string>
+  <string name="insert_media_advanced_settings_wrap_image">Vile sɛgere gyeere enfuoni</string>
+  <string name="insert_media_advanced_settings_image_position">Enfuoni voaraa</string>
   <string name="insert_media_advanced_settings_image_position_right">Duloŋ</string>
   <string name="insert_media_advanced_settings_image_position_left">Gɔɔ</string>
   <string name="insert_media_advanced_settings_image_position_center">Soga</string>
@@ -938,6 +984,7 @@
   <string name="insert_media_advanced_settings_image_type_frameless">Bon-yaga</string>
   <string name="insert_media_advanced_settings_image_type_frame">Maaloo</string>
   <string name="insert_media_advanced_settings_image_type_basic">Piiloŋ</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Fo na baŋ sɛte la lɛ na a midia boma naŋ sãã a peegyi eŋɛ. ŋa seŋ ka o e a nubidaa meɛroŋ na bebe wagere la wagere ne peegyi yobo vori yaga poɔ.</string>
   <string name="insert_media_advanced_settings_image_size">Enfuomo semmo</string>
   <string name="insert_media_advanced_settings_image_size_default">Meŋɛ leɛbu</string>
   <string name="insert_media_advanced_settings_image_size_custom">Yipɔge</string>
@@ -948,8 +995,10 @@
   <string name="main_drawer_help">Soŋ</string>
   <string name="main_drawer_login">Kpɛ/paahi a Wikipiideɛ poɔŋ</string>
   <string name="main_tooltip_text">Hi %s, fo baŋ ka neɛzaa na baŋ maale la Wikipiideɛ eŋ?</string>
+  <string name="main_tooltip_text_v2">Fo baŋ ka neɛzaa na baŋ maale la wikipiideɛ eŋ?</string>
   <string name="main_tooltip_action_button">De piiloŋ</string>
   <string name="main_tooltip_watchlist_title">Kaa gama</string>
+  <string name="main_tooltip_watchlist_text">Bɔ atekele ane peegyiri fo naŋ paale a fo kaabo pɛllɛ ka a ba kɔɔre a yaga menu poɔ a puli kyɛ &lt;b&gt;watchlist&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Tɔɔ</string>
   <string name="text_input_dialog_ok_button_text">Tɔɔ</string>
   <string name="text_input_dialog_cancel_button_text">Ŋmaa o</string>
@@ -957,9 +1006,21 @@
   <string name="talk_title">Yeli</string>
   <string name="talk_user_title">Yeli: %s</string>
   <string name="talk_new_topic">yelzu paalaa</string>
+  <string name="talk_new_topic_submitted">Yelzu toɔle la.</string>
   <string name="talk_warn">Kpaaŋ</string>
+  <string name="talk_warn_save_dialog_title">Biŋ tɛgere?</string>
+  <string name="talk_warn_save_dialog_message">Biŋ ka o e masɛgye paalaa</string>
+  <string name="talk_warn_save_dialog_existing_new_message">Biŋ ka o e masɛgye paalaa a pɛll poɔ</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Apdeeti masɛgyere naŋ daŋ bebe</string>
+  <string name="talk_warn_save_dialog_hint">Masɛgye yelzu</string>
   <string name="talk_warn_save_dialog_publish">De yineŋ gbamgbale</string>
   <string name="talk_warn_save_dialog_cancel">Ŋmaa o</string>
+  <string name="talk_warn_submitted">Masɛgye toɔle gaa la a maale enna tontoŋ yelyaga peegyi</string>
+  <string name="talk_warn_submitted_and_saved">A masɛgye biŋ la kyɛ toɔle gaa a maale enna tontoŋ yelyaga peegyi</string>
+  <string name="talk_warn_saved_message">Kaa iri kpaambo masɛgye naŋ daŋ bebe bee kuri masɛgye paalaa.</string>
+  <string name="talk_warn_saved_message_dropdown">Biŋ masɛgyere</string>
+  <string name="talk_page_empty">A yelyaga peegyi ŋa e la kpale.</string>
+  <string name="talk_page_empty_title">A dɛmɛ diibo piili la kyɛ</string>
   <string name="talk_add_reply">Leɛ sagbo</string>
   <string name="talk_reply_subject">Yelzu</string>
   <string name="talk_message_hint">Sɛge duoro</string>
@@ -1027,6 +1088,7 @@
   <string name="thank_success_message">Fo \'bareka\' da toͻle  gaa %s👍</string>
   <string name="menu_option_view_user_profile">Kaa tontona peegyi</string>
   <string name="menu_option_view_user_talk">Kaa yeki gampɛle</string>
+  <string name="menu_option_view_user_contributions">Kaa tontona kyeɛroo</string>
   <string name="revision_diff_compare">Manne taa leԑkaabo</string>
   <string name="revision_diff_compare_title">Manne taa leԑkaabo: %s</string>
   <string name="revision_diff_from">A yi:</string>
@@ -1036,6 +1098,10 @@
   <string name="revision_diff_lines_from_to">Soɔmie %1$d-%2$d</string>
   <string name="revision_diff_line_added">Soɔmaa paale la</string>
   <string name="revision_diff_line_removed">Soɔmaa ire la</string>
+  <string name="revision_diff_paragraph_added">Dabegɛ paale la</string>
+  <string name="revision_diff_paragraph_removed">Dabegɛ iri bare la</string>
+  <string name="revision_diff_protected">A tɛgere naŋ e a leɛkaabo ŋa poɔ, sɔgloŋ koŋ baŋ nyɛ a.</string>
+  <string name="revision_undo_title">Fo sage di la ka fo boɔrɔ la ka fo leɛ a maale eŋ ŋa puori?</string>
   <string name="revision_undo_summary_hint">Kyoɔroo (ba e feroo)</string>
   <string name="revision_compare_button">Tag-lantaa kaa nyɛ</string>
   <string name="revision_compare_two_only">Boma ayi yoŋ la baŋ baŋ iri</string>
@@ -1069,15 +1135,34 @@
   <string name="watchlist_filter_user_status_learners">Zanzanema</string>
   <string name="watchlist_filter_user_status_experienced">Yelbaŋ solo detonema</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Noba mine naŋ leɛre</string>
+  <string name="watchlist_filter_automated_contributions_bot">Bot</string>
   <string name="watchlist_filter_automated_contributions_human">Nensaala (Ba e mansini)</string>
+  <string name="watchlist_filter_significance_header">Tɔna</string>
+  <string name="watchlist_filter_significance_minor">Maale eŋ bile</string>
+  <string name="watchlist_filter_significance_edits">Ba e maale eŋ bile</string>
   <string name="watchlist_filter_latest_revisions_header">Leɛ peɛre paaba</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">Leɛkaa paala</string>
   <string name="watchlist_filter_latest_revisions_not_latest_revision">Ba e leɛ peɛre paaba</string>
   <string name="watchlist_filter_type_of_change_header">Leɛroo iruŋ</string>
+  <string name="watchlist_filter_type_of_change_page_edits">Peegyi maale eŋ</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Peegyi kuribo</string>
   <string name="watchlist_filter_type_of_change_category_changes">Zage leɛrɛŋ</string>
   <string name="watchlist_filter_type_of_change_wikidata_edits">Wikiyelpeɛre binni sɛgeroo</string>
+  <string name="watchlist_filter_type_of_change_new_users">Tontoŋ paalba</string>
+  <string name="watchlist_filter_reset_button">Leɛsɛte</string>
+  <string name="watchlist_search_bar_hint">Weɛre bee kyoɔre pɛll kaare</string>
   <string name="watchlist_search_bar_filter_hint">Kaanyaabo yeltontutaa bonkyoɔraa</string>
-  <string name="watchlist_number_of_filters">{{YAGEROŊ|one=%d kyoɔraa|%d kyoɔre}}</string>
+  <string name="watchlist_empty_search_message">Duoro kyebe, moɔra na iri %s na nyɛ yɛlɛ yaga.</string>
+  <plurals name="watchlist_number_of_filters">
+    <item quantity="one">%d kyoɔraa</item>
+    <item quantity="other">%d kyoɔre</item>
+  </plurals>
+  <string name="preview_edit_title">Daŋ kaa maale eŋ</string>
   <string name="preview_edit_summarize_edit_title">Kyoɔre maale eŋ</string>
+  <string name="preview_edit_summarize_edit_hint">Wola foŋe e baa peegyi ŋa?</string>
+  <string name="preview_edit_minor_edit">ŋa e la maale eŋ fĩĩ</string>
+  <string name="preview_edit_watch_this_page">Bɛlle peegyi ŋa</string>
+  <string name="preview_edit_learn_more">Zanne yɛlɛ yaga kyaare maale eŋ kyoɔroo</string>
   <string name="action_item_categories">Gbulo</string>
   <string name="page_no_categories">A peegyi ŋa ba be a gbulo kaŋa zaa poɔ.</string>
   <string name="category_tab_articles">Atekele</string>
@@ -1085,6 +1170,8 @@
   <string name="category_empty">Atekele zaa kye a gbuli ŋa poɔ.</string>
   <string name="subcategory_empty">Gbuli bilii kye a gbuli ŋa poɔ.</string>
   <string name="search_namespaces">Yoe vori</string>
+  <string name="revision_initial_none">Ba e kaŋa zaa (ŋa la a fɔrɔ leɛkaabo)</string>
+  <string name="user_contrib_activity_title">%s kyeɛroo</string>
   <string name="user_contrib_filter_all">Yoe vori zaa</string>
   <string name="user_contrib_filter_ns_header">Yoe vori boŋkyoɔraa</string>
   <string name="namespace_article">Atekele</string>

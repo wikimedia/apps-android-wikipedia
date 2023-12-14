@@ -261,6 +261,11 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
         super.onDestroy()
     }
 
+    public override fun onPause() {
+        super.onPause()
+        sectionWikitext = binding.editSectionText.text.toString()
+    }
+
     private fun updateEditLicenseText() {
         val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.licenseText)
         editLicenseText.text = StringUtil.fromHtml(getString(if (isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
