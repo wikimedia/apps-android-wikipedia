@@ -787,7 +787,7 @@
   <string name="feed_configure_activity_title">Лентай оттамаш хувца</string>
   <string name="feed_configure_menu_reset">Юхаметтаоттае фильтраш юххьанца мо</string>
   <string name="feed_configure_menu_select_all">Дерригаш хьагойта</string>
-  <string name="feed_configure_menu_deselect_all">Дерригаш дӀакъайладаха</string>
+  <string name="feed_configure_menu_deselect_all">Шеддар къайладаккха</string>
   <string name="feed_configure_language_warning">Лентай деррига карточкаш дац хьахьувкхаш массадолча меттала. Оттамашка дӀаоттаде йиш я малагӀча метта Википеден разделашкара карточкаш хьагойта деза.</string>
   <string name="feed_item_type_news">Карарча хана хулаш латтача хӀамаех лаьца статьяш</string>
   <string name="feed_item_type_on_this_day">Укх дийнахьа тархьаре хинна хӀамаш</string>
@@ -999,7 +999,7 @@
   <string name="suggested_edits_ip_blocked_title">IP блок теха да</string>
   <string name="suggested_edits_last_edited">ТӀехьара хувцам</string>
   <string name="suggested_edits_last_edited_never">ЦIаккха</string>
-  <string name="suggested_edits_task_new" fuzzy="true">керда</string>
+  <string name="suggested_edits_task_new">Керда</string>
   <string name="suggested_edits_cc0_notice">Iайха даь хувцамаш дIаяздарца хьо раьза хул &lt;a href=\"%1$s\" &gt;пайда эцара бехкамашта&lt;/a&gt;, цул совгIа раьза хул хьо &lt;a href=\"%2$s\"&gt;CCO яхача лицензех&lt;/a&gt; а дола юхадаккха вIаштIехьа хургдоацача кепатохарá.</string>
   <string name="suggested_edits_reactivation_notification_title">Тоаде мегаш дар</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Баркал хьона Википеди тоаярах! Хьалха хье сецачара дӀа хӀана волалац/йолалац хьо?</string>
@@ -1052,7 +1052,7 @@
     <item quantity="one">%d фискал тӀатехай Ӏа</item>
     <item quantity="other">%d фискал тӀатехай Ӏа</item>
   </plurals>
-  <string name="suggested_edits_image_recommendations_task_title" fuzzy="true">Сурташ гойтара алгоритм</string>
+  <string name="suggested_edits_image_recommendations_task_title">ОагӀон сурт</string>
   <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">Жоп ле хьайга, цу сурто дикагӀа хулийтаргья е яц статья.</string>
   <string name="file_page_activity_title">Файла оагӀув</string>
   <string name="file_page_add_image_caption_button">Суртах лаьцар тӀатоха</string>
@@ -1312,7 +1312,7 @@
   <string name="category_tab_subcategories">КӀалъоагӀаташ</string>
   <string name="category_empty">Укх оагӀата чу статьяш кораяьяц.</string>
   <string name="subcategory_empty">Укх оагӀата чу кӀалъоагӀаташ кораяьяц.</string>
-  <string name="search_namespaces">ЦӀерий моттигаш</string>
+  <string name="search_namespaces">ЦӀерий аренаш</string>
   <string name="revision_initial_none">А (ер статьяй хьалхара кеп я)</string>
   <string name="archive_empty">Архиве йола оагӀонаш кораяьяц.</string>
   <string name="media_playback_error">Мультимедиа хьаоттаеча хана гӀалат нийсделар.</string>
