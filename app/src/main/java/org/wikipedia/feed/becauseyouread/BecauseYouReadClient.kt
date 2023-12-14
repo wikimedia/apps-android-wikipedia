@@ -46,7 +46,7 @@ class BecauseYouReadClient : FeedClient {
         val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(entry.title.wikiSite.languageCode).isNullOrEmpty()
         val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
         disposables.add(ServiceFactory.get(entry.title.wikiSite)
-            .searchMoreLike(searchTerm,
+            .searchMoreLike("morelike:$searchTerm",
                 Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
