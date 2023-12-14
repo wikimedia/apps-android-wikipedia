@@ -1385,4 +1385,6 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Tilfreds</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Utilfreds</string>
+  <string name="donation_campaign_go_back_button">Gå tilbage</string>
+  <string name="menu_single_webview_open_external">Åbn i systembrowser</string>
 </resources>
