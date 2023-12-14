@@ -245,6 +245,7 @@ class SearchResultsFragment : Fragment() {
                 if (viewModel.invokeSource == Constants.InvokeSource.PLACES) {
                     val resultIntent = Intent()
                     searchResult.coordinates?.let { coordinates ->
+                        resultIntent.putExtra(SearchActivity.EXTRA_DISPLAY_TITLE, searchResult.pageTitle.displayText)
                         resultIntent.putExtra(SearchActivity.EXTRA_LOCATION, LatLng(coordinates[0].lat, coordinates[0].lon))
                         resultIntent.putExtra(SearchActivity.EXTRA_LANG_CODE, searchResult.pageTitle.wikiSite.languageCode)
                         requireActivity().setResult(RESULT_OK, resultIntent)

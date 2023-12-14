@@ -63,7 +63,6 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
-import kotlin.math.abs
 
 class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
 
@@ -85,13 +84,14 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
     private val markerPaintSrcIn = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC_IN) }
     private var searchRadius: Int = 50
     private var filterMode = false
+    private var zoom: Double = 15.0
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         when {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 startLocationTracking()
-                goToLastKnownLocation(1000)
+                goToLocation(1000)
             }
             else -> {
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
@@ -104,7 +104,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
               val location = it.data?.getParcelableExtra<LatLng>(SearchActivity.EXTRA_LOCATION)!!
               Prefs.placesWikiCode = it.data?.getStringExtra(SearchActivity.EXTRA_LANG_CODE)
                   ?: WikipediaApp.instance.appOrSystemLanguageCode
-              goToLocation(1000, location)
+              updateSearchText(it.data?.getStringExtra(SearchActivity.EXTRA_DISPLAY_TITLE).orEmpty())
+              goToLocation(1000, location, 12.0)
               viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
           }
     }
@@ -145,17 +146,17 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
 
         binding.searchCard.searchLangCode.setOnClickListener {
             filterMode = true
+            zoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
             startActivity(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
         binding.searchCard.searchCloseBtn.setOnClickListener {
-            binding.searchCard.searchTextView.text = getString(R.string.places_search_hint)
-            it.visibility = View.GONE
+            updateSearchText(getString(R.string.places_search_hint))
         }
 
         binding.myLocationButton.setOnClickListener {
             if (haveLocationPermissions()) {
-                goToLastKnownLocation(0)
+                goToLocation(0)
             } else {
                 locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
             }
@@ -175,11 +176,16 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
 
     private fun updateTabsView() {
         val tabsCount = WikipediaApp.instance.tabCount
-        binding.searchCard.searchTabsCountView.isVisible = tabsCount != 0
+        binding.searchCard.tabsCountContainer.isVisible = tabsCount != 0
         binding.searchCard.searchTabsCountView.text = tabsCount.toString()
         binding.searchCard.searchLangCode.text = Prefs.placesWikiCode
         ViewUtil.formatLangButton(binding.searchCard.searchLangCode, Prefs.placesWikiCode,
             SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+    }
+
+    private fun updateSearchText(searchText: String) {
+        binding.searchCard.searchTextView.text = searchText
+        binding.searchCard.searchCloseBtn.isVisible = searchText != getString(R.string.places_search_hint) && searchText.isNotEmpty()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -219,8 +225,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
-                        binding.searchCard.searchTextView.text = it.pageTitle.displayText
-                        binding.searchCard.searchCloseBtn.isVisible = true
+                        updateSearchText(it.pageTitle.displayText)
                         val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_NEARBY)
                         ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
                     }
@@ -230,7 +235,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
-                        goToLastKnownLocation(1000)
+                        goToLocation(1000)
                     }
                 }
             }
@@ -262,7 +267,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         if (filterMode) {
             filterMode = false
             symbolManager?.deleteAll()
-            goToLastKnownLocation(1000)
+            viewModel.fetchNearbyPages(lastLocationUpdated?.latitude ?: 0.0, lastLocationUpdated?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
+            goToLocation(1000, lastLocationUpdated, zoom)
         }
     }
 
@@ -300,22 +306,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
             return
         }
 
+        lastLocationUpdated = LatLng(latLng.latitude, latLng.longitude)
+
         if ((mapboxMap?.cameraPosition?.zoom ?: 0.0) < 3.0) {
             // Don't fetch pages if the map is zoomed out too far.
             return
         }
-
-        // Fetch new pages within the current viewport, but only if the map has moved a significant distance.
-        val latEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) * 0.1
-        val lngEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.longitudeSpan ?: 0.0) * 0.1
-
-        if (lastLocationUpdated != null &&
-            abs(latLng.latitude - (lastLocationUpdated?.latitude ?: 0.0)) < latEpsilon &&
-            abs(latLng.longitude - (lastLocationUpdated?.longitude ?: 0.0)) < lngEpsilon) {
-            return
-        }
-
-        lastLocationUpdated = LatLng(latLng.latitude, latLng.longitude)
 
         L.d(">>> requesting update: " + latLng.latitude + ", " + latLng.longitude + ", " + mapboxMap?.cameraPosition?.zoom)
         viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude, searchRadius, ITEMS_PER_REQUEST)
@@ -370,28 +366,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback {
         }
     }
 
-    private fun goToLastKnownLocation(delayMillis: Long) {
+    private fun goToLocation(delayMillis: Long, location: LatLng? = null, zoom: Double = 15.0) {
         binding.mapView.postDelayed({
-            if (isAdded) {
+            if (isAdded && haveLocationPermissions()) {
                 mapboxMap?.let {
-                    val location = it.locationComponent.lastKnownLocation
-                    if (location != null) {
-                        val latLng = LatLng(location.latitude, location.longitude)
-                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15.0))
-                    }
-                }
-            }
-        }, delayMillis)
-    }
-
-    private fun goToLocation(delayMillis: Long, location: LatLng?) {
-        binding.mapView.postDelayed({
-            if (isAdded) {
-                mapboxMap?.let {
-                    location?.let { loc ->
-                        val latLng = LatLng(loc.latitude, loc.longitude)
-                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12.0))
-                    }
+                    val targetLocation: LatLng = location
+                        ?: it.locationComponent.lastKnownLocation?.let { loc ->
+                            LatLng(loc.latitude, loc.longitude) }!!
+                        val latLng = LatLng(targetLocation.latitude, targetLocation.longitude)
+                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom))
                 }
             }
         }, delayMillis)
