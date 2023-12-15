@@ -2,6 +2,7 @@ package org.wikipedia.descriptions
 
 import android.content.Context
 import android.content.Intent
+import android.location.Location
 import android.os.Bundle
 import androidx.annotation.ColorInt
 import org.wikipedia.Constants
@@ -17,6 +18,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
@@ -108,6 +110,10 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
         ShareUtil.shareText(this, title)
+    }
+
+    override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
+        startActivity(PlacesActivity.newIntent(this, title.wikiSite, title, location))
     }
 
     fun updateStatusBarColor(@ColorInt color: Int) {

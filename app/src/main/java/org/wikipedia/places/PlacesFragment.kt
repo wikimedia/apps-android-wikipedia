@@ -428,6 +428,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         ShareUtil.shareText(requireContext(), title)
     }
 
+    override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
+        // TODO: go to the marker
+    }
+
     override fun onMapClick(point: LatLng): Boolean {
         mapboxMap?.let {
             val screenPoint = it.projection.toScreenLocation(point)
