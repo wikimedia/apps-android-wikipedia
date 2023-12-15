@@ -51,6 +51,7 @@
             app:srcCompat="@drawable/ic_close_black_24dp" />
 
         <LinearLayout
+            android:id="@+id/searchLangContainer"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="?attr/selectableItemBackground"

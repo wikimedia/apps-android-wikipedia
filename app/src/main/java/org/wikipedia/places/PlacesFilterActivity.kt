@@ -25,7 +25,9 @@ import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.ViewUtil
 
 class PlacesFilterActivity : BaseActivity() {
+
     private lateinit var binding: ActivityPlacesFiltersBinding
+    private var initLanguage: String = Prefs.placesWikiCode
     val filtersList: List<String>
         get() {
             val list = mutableListOf<String>()
@@ -41,22 +43,23 @@ class PlacesFilterActivity : BaseActivity() {
         }
 
     val addLanguageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        runOnUiThread { binding.placesFiltersRecyclerView.adapter?.notifyDataSetChanged() }
+        binding.placesFiltersRecyclerView.adapter?.notifyDataSetChanged()
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPlacesFiltersBinding.inflate(layoutInflater)
-        setResult(RESULT_OK)
         setUpRecyclerView()
         setContentView(binding.root)
     }
 
+    override fun finish() {
+        setResult(RESULT_OK, Intent()
+            .putExtra(EXTRA_LANG_CHANGED, initLanguage != Prefs.placesWikiCode))
+        super.finish()
+    }
+
     private fun setUpRecyclerView() {
-        val list = mutableListOf<String>()
-        list.add(HEADER)
-        list.addAll(appLanguageCodes)
-        list.add(FOOTER)
         binding.placesFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.placesFiltersRecyclerView.adapter = PlacesLangListFilterAdapter(this)
     }
@@ -130,7 +133,6 @@ class PlacesFilterActivity : BaseActivity() {
         }
     }
     class PlacesFilterFooterViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
-
         fun bindItem(activity: Activity) {
             itemView.setOnClickListener {
                 (activity as PlacesFilterActivity).addLanguageLauncher.launch(WikipediaLanguagesActivity.newIntent(itemView.context,
@@ -164,6 +166,7 @@ class PlacesFilterActivity : BaseActivity() {
         private const val VIEW_TYPE_ITEM = 2
         private const val HEADER = "header"
         private const val FOOTER = "footer"
+        const val EXTRA_LANG_CHANGED = "langChanged"
         fun newIntent(context: Context): Intent {
             return Intent(context, PlacesFilterActivity::class.java)
         }

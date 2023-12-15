@@ -97,7 +97,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
     private val markerPaintSrc = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC) }
     private val markerPaintSrcIn = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC_IN) }
     private var searchRadius: Int = 50
-    private var filterMode = false
     private var zoom: Double = 15.0
     private var magnifiedMarker: Symbol? = null
 
@@ -123,6 +122,20 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
               updateSearchText(viewModel.pageTitle?.displayText.orEmpty())
               goToLocation(1000, location)
               viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
+          }
+    }
+
+    private val filterLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+
+        if (it.resultCode == RESULT_OK) {
+              val languageChanged = it.data?.getBooleanExtra(PlacesFilterActivity.EXTRA_LANG_CHANGED, false)!!
+            if (languageChanged) {
+                annotationCache.clear()
+                symbolManager?.deleteAll()
+                  viewModel.fetchNearbyPages(lastLocationUpdated?.latitude ?: 0.0,
+                      lastLocationUpdated?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
+                  goToLocation(1000, lastLocationUpdated, zoom)
+              }
           }
     }
 
@@ -159,10 +172,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             requireActivity().onBackPressed()
         }
 
-        binding.searchCard.searchLangCode.setOnClickListener {
-            filterMode = true
+        binding.searchCard.searchLangContainer.setOnClickListener {
             zoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
-            startActivity(PlacesFilterActivity.newIntent(requireActivity()))
+            filterLauncher.launch(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
         binding.searchCard.searchCloseBtn.setOnClickListener {
@@ -327,12 +339,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         super.onResume()
         binding.mapView.onResume()
         updateTabsView()
-        if (filterMode) {
-            filterMode = false
-            symbolManager?.deleteAll()
-            viewModel.fetchNearbyPages(lastLocationUpdated?.latitude ?: 0.0, lastLocationUpdated?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
-            goToLocation(1000, lastLocationUpdated, zoom)
-        }
     }
 
     override fun onStop() {
@@ -551,7 +557,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         const val POINT_COUNT = "point_count"
         const val MAX_ANNOTATIONS = 64
         const val THUMB_SIZE = 160
-        const val ITEMS_PER_REQUEST = 50
+        const val ITEMS_PER_REQUEST = 75
         const val CLUSTER_TEXT_LAYER_ID = "mapbox-android-cluster-text"
         const val CLUSTER_CIRCLE_LAYER_ID = "mapbox-android-cluster-circle0"
         const val ZOOM_IN_ANIMATION_DURATION = 1000
