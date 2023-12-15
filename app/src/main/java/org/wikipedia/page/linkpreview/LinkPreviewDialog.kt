@@ -44,6 +44,15 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?)
     }
 
+    interface PlacesCallback {
+        fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean)
+        fun onLinkPreviewCopyLink(title: PageTitle)
+        fun onLinkPreviewAddToList(title: PageTitle)
+        fun onLinkPreviewShareLink(title: PageTitle)
+        fun onLinkPreviewWatch(title: PageTitle)
+        fun onLinkPreviewGetDirections(title: PageTitle, location: Location?)
+    }
+
     private var _binding: DialogLinkPreviewBinding? = null
     private val binding get() = _binding!!
 
@@ -58,20 +67,35 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         return@OnMenuItemClickListener when (item.itemId) {
             R.id.menu_link_preview_add_to_list -> {
                 callback()?.onLinkPreviewAddToList(viewModel.pageTitle)
+                placesCallback()?.onLinkPreviewAddToList(viewModel.pageTitle)
                 true
             }
             R.id.menu_link_preview_share_page -> {
                 callback()?.onLinkPreviewShareLink(viewModel.pageTitle)
+                placesCallback()?.onLinkPreviewShareLink(viewModel.pageTitle)
+                true
+            }
+            R.id.menu_link_preview_watch -> {
+                placesCallback()?.onLinkPreviewWatch(viewModel.pageTitle)
+                true
+            }
+            R.id.menu_link_preview_open_in_new_tab -> {
+                goToLinkedPage(true)
                 true
             }
             R.id.menu_link_preview_copy_link -> {
                 callback()?.onLinkPreviewCopyLink(viewModel.pageTitle)
+                placesCallback()?.onLinkPreviewCopyLink(viewModel.pageTitle)
                 dismiss()
                 true
             }
             R.id.menu_link_preview_view_on_map -> {
                 callback()?.onLinkPreviewViewOnMap(viewModel.pageTitle, viewModel.location)
                 dismiss()
+                true
+            }
+            R.id.menu_link_preview_get_directions -> {
+                placesCallback()?.onLinkPreviewGetDirections(viewModel.pageTitle, viewModel.location)
                 true
             }
             else -> false
@@ -133,7 +157,13 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private fun setupOverflowMenu() {
         val popupMenu = PopupMenu(requireActivity(), binding.linkPreviewOverflowButton)
         popupMenu.inflate(R.menu.menu_link_preview)
-        popupMenu.menu.findItem(R.id.menu_link_preview_view_on_map).isVisible = viewModel.location != null
+        popupMenu.menu.findItem(R.id.menu_link_preview_add_to_list).isVisible = !viewModel.fromPlaces
+        popupMenu.menu.findItem(R.id.menu_link_preview_share_page).isVisible = !viewModel.fromPlaces
+        popupMenu.menu.findItem(R.id.menu_link_preview_watch).isVisible = viewModel.fromPlaces
+        // TODO: check watch status
+        popupMenu.menu.findItem(R.id.menu_link_preview_open_in_new_tab).isVisible = viewModel.fromPlaces
+        popupMenu.menu.findItem(R.id.menu_link_preview_view_on_map).isVisible = !viewModel.fromPlaces && viewModel.location != null
+        popupMenu.menu.findItem(R.id.menu_link_preview_get_directions).isVisible = viewModel.fromPlaces
         popupMenu.setOnMenuItemClickListener(menuListener)
         popupMenu.show()
     }
@@ -331,6 +361,10 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private fun callback(): Callback? {
         return getCallback(this, Callback::class.java)
+    }
+
+    private fun placesCallback(): PlacesCallback? {
+        return getCallback(this, PlacesCallback::class.java)
     }
 
     companion object {

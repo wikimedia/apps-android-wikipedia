@@ -64,13 +64,15 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import kotlin.math.abs
 
-class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapClickListener {
+class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -428,8 +430,14 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         ShareUtil.shareText(requireContext(), title)
     }
 
-    override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
-        // TODO: go to the marker
+    override fun onLinkPreviewWatch(title: PageTitle) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onLinkPreviewGetDirections(title: PageTitle, location: Location?) {
+        location?.let {
+            GeoUtil.sendGeoIntent(requireActivity(), it, StringUtil.fromHtml(title.displayText).toString())
+        }
     }
 
     override fun onMapClick(point: LatLng): Boolean {
