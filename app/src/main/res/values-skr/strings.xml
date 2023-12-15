@@ -666,6 +666,7 @@
   <string name="talk_templates_new_message_dialog_cancel">منسوخ</string>
   <string name="talk_templates_edit_message_dialog_save">بچاؤ</string>
   <string name="talk_templates_edit_message_dialog_delete">مٹاؤ</string>
+  <string name="talk_templates_menu_remove_message">سنیہا ہٹاؤ</string>
   <string name="patroller_tasks_edits_list_card_tags_text">ٹیگاں: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">کوئی وی کائنی</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">ورتݨ آلے دا ورقہ ݙیکھو</string>

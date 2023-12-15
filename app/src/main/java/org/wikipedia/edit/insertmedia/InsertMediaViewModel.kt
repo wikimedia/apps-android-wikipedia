@@ -4,7 +4,11 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -49,7 +53,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                     .fullTextSearchCommons(searchQuery, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
 
                 return response.query?.pages?.let { list ->
-                    val results = list.sortedBy { it.index }.map {
+                    val results = list.sortedBy { it.index }.filter { it.imageInfo() != null }.map {
                         val pageTitle = PageTitle(it.title, wikiSite, it.thumbUrl())
                         // since this is an imageinfo query, the thumb URL and description will
                         // come from image metadata.

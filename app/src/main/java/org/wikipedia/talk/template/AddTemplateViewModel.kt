@@ -1,6 +1,8 @@
 package org.wikipedia.talk.template
 
+import android.os.Bundle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -9,13 +11,15 @@ import kotlinx.coroutines.launch
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.talk.db.TalkTemplate
 
-class AddTemplateViewModel() : ViewModel() {
+class AddTemplateViewModel(bundle: Bundle) : ViewModel() {
     private val talkTemplatesRepository = TalkTemplatesRepository(AppDatabase.instance.talkTemplateDao())
     private val handler = CoroutineExceptionHandler { _, throwable ->
         _uiState.value = UiState.Error(throwable)
     }
 
+    val talkTemplateId = bundle.getInt(AddTemplateActivity.EXTRA_TEMPLATE_ID)
     val talkTemplatesList = mutableListOf<TalkTemplate>()
+    val talkTemplate get() = talkTemplatesList.find { it.id == talkTemplateId }
 
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
@@ -33,6 +37,18 @@ class AddTemplateViewModel() : ViewModel() {
         }
     }
 
+    fun updateTalkTemplate(title: String, subject: String, body: String, talkTemplate: TalkTemplate) {
+        viewModelScope.launch(handler) {
+                talkTemplate.apply {
+                    this.title = title
+                    this.subject = subject
+                    this.message = body
+                }
+                talkTemplatesRepository.updateTemplate(talkTemplate)
+            _uiState.value = UiState.Saved()
+        }
+    }
+
     private fun loadTemplates() {
         viewModelScope.launch(handler) {
             talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
@@ -44,5 +60,12 @@ class AddTemplateViewModel() : ViewModel() {
         class Success : UiState()
         class Saved : UiState()
         class Error(val throwable: Throwable) : UiState()
+    }
+
+    class Factory(val bundle: Bundle) : ViewModelProvider.Factory {
+        @Suppress("unchecked_cast")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return AddTemplateViewModel(bundle) as T
+        }
     }
 }

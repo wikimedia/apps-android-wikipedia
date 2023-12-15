@@ -308,7 +308,7 @@ class InsertMediaActivity : BaseActivity() {
         }
     }
 
-    private inner class InsertMediaItemHolder constructor(val binding: ItemInsertMediaBinding) : RecyclerView.ViewHolder(binding.root) {
+    private inner class InsertMediaItemHolder(val binding: ItemInsertMediaBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(pageTitle: PageTitle) {
             ViewUtil.loadImageWithRoundedCorners(binding.imageView, pageTitle.thumbUrl)
             binding.imageDescription.text = StringUtil.removeHTMLTags(pageTitle.description.orEmpty().ifEmpty { pageTitle.displayText })

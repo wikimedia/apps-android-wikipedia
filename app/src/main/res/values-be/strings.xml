@@ -1554,8 +1554,7 @@
   <string name="talk_templates_edit_message_dialog_save">Захаваць</string>
   <string name="talk_templates_edit_message_dialog_delete">Выдаліць</string>
   <string name="talk_templates_edit_message_updated">Паведамленне захавана</string>
-  <string name="talk_templates_edit_message_delete_description">Вы ўпэўнены, што хочаце выдаліць гэтае паведамленне \"%s\" са спісу?</string>
-  <string name="talk_templates_message_deleted">Паведамленне выдалена</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Паведамленне выдалена</string>
   <string name="talk_templates_message_title_empty">Тэма не можа быць пустой.</string>
   <string name="patroller_tasks_edits_list_title">Спіс правак</string>
   <string name="patroller_tasks_edits_list_search_hint">Пошук або фільтр правак</string>

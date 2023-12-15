@@ -227,7 +227,7 @@
   <string name="edit_abandon_confirm_yes">ಅಂದ್</string>
   <string name="edit_abandon_confirm_no">ಅತ್ತ್</string>
   <string name="user_blocked_from_editing_title">ಇರೆನ್ ಉಲಯಿ ಪೋಯೆರಾ ಬುಡ್ಪುಜೆರ್</string>
-  <string name="edit_how_page_improved">ವಾ ನಮೂಡೆಡ್ ಈ ಲೇಖನೊನ್ ಎಡ್ಡೆ ಮಾಲ್ತಾರ್?</string>
+  <string name="edit_how_page_improved">ಈರ್ ಪುಟೊನ್ ವಾ ನಮೂಡೆಡ್ ಎಡ್ಡೆ ಮಲ್ತರ್?</string>
   <string name="edit_next">ನನತಾ</string>
   <string name="edit_done">ಪ್ರಕಟ ಮಾನ್ಪುಲೆ</string>
   <string name="edit_preview">ದುಂಬುತಾ</string>
@@ -380,4 +380,5 @@
   <string name="add_wikipedia_languages_text">ವಿಕಿಪೀಡಿಯಾ ಬಾಸೆಲೇನ್ ಸೇರಲೇ</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ಬಾಸೆನ್ ಸೇರಾಲೆ</string>
   <string name="edit_type_all">ಮಾತ ಕಾನಿಕೆಲು</string>
+  <string name="preview_edit_summarize_edit_hint">ಈರ್ ಇ ಪುಟೊನ್ ವಾ ನಮೂಡೆಡ್ ಎಡ್ಡೆ ಮಲ್ತರ್?</string>
 </resources>

@@ -2,6 +2,7 @@
 <!-- Authors:
 * Amire80
 * Athena in Wonderland
+* Caiofernandes
 * CaiusSPQR
 * Dbrant
 * Eduardo Addad de Oliveira
@@ -1317,4 +1318,13 @@
   <string name="reading_list_share_message_v2">Olá! Gostaria de partilhar a minha lista de leitura da Wikipédia consigo:</string>
   <string name="reading_list_share_survey_title">Podia ajudar-nos a melhorar \"Partilhar listas de leitura\"?</string>
   <string name="reading_list_share_survey_body">Partilhar listas de leitura é uma funcionalidade em testes e precisamos dos seus comentários para melhorá-la ou removê-la.</string>
+  <string name="talk_templates_menu_remove_message">Apagar mensagem</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Tem certeza de que deseja excluir a mensagem da lista?</item>
+    <item quantity="other">Tem certeza de que deseja excluir as mensagens da lista?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">A mensagem foi excluída</item>
+    <item quantity="other">As mensagens foram excluídas</item>
+  </plurals>
 </resources>

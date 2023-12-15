@@ -209,10 +209,11 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     private val videoThumbnailClickListener: View.OnClickListener = object : View.OnClickListener {
         private var loading = false
         override fun onClick(v: View) {
-            if (loading || mediaInfo?.bestDerivative == null) {
+            val derivative = mediaInfo?.getBestDerivativeForSize(Constants.PREFERRED_GALLERY_IMAGE_SIZE)
+            if (loading || derivative == null) {
                 return
             }
-            val bestDerivative = mediaInfo!!.bestDerivative!!.src
+            val bestDerivative = derivative.src
             loading = true
             L.d("Loading video from url: $bestDerivative")
             binding.videoView.visibility = View.VISIBLE

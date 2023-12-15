@@ -1471,7 +1471,7 @@
   <string name="talk_templates_edit_message_dialog_save">Mentés</string>
   <string name="talk_templates_edit_message_dialog_delete">Törlés</string>
   <string name="talk_templates_edit_message_updated">Az üzenet frissítve</string>
-  <string name="talk_templates_message_deleted">Az üzenet törölve</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Az üzenet törölve</string>
   <string name="patroller_tasks_edits_list_title">Szerkesztések listája</string>
   <string name="patroller_tasks_edits_list_search_hint">Szerkesztések keresése vagy szűrése</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Címkék: %s</string>

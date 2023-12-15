@@ -23,7 +23,7 @@ class TalkTemplatesRepository constructor(private val talkTemplateDao: TalkTempl
         talkTemplateDao.updateTemplates(talkTemplates)
     }
 
-    suspend fun deleteTemplate(talkTemplate: TalkTemplate) {
-        talkTemplateDao.deleteTemplate(talkTemplate)
+    suspend fun deleteTemplates(talkTemplates: List<TalkTemplate>) {
+        talkTemplateDao.deleteTemplates(talkTemplates.map { it.id })
     }
 }

@@ -743,6 +743,7 @@
   <string name="notifications_swipe_action_read">Прочитано</string>
   <string name="notifications_swipe_action_unread">Непрочитано</string>
   <string name="notifications_menu_check_all">Изабери све</string>
+  <string name="notifications_menu_uncheck_all">Поништи све</string>
   <string name="notifications_wiki_filter_header">Филтер викија</string>
   <string name="notifications_type_filter_header">Тип филтера</string>
   <string name="notifications_all_wikis_text">Сви \"викији\"</string>
@@ -1445,8 +1446,15 @@
   <string name="talk_templates_edit_message_dialog_save">Сачувај</string>
   <string name="talk_templates_edit_message_dialog_delete">Обриши</string>
   <string name="talk_templates_edit_message_updated">Порука је измењена</string>
-  <string name="talk_templates_edit_message_delete_description">Да ли сте сигурни да желите да обришете ову \"%s\" поруку са листе?</string>
-  <string name="talk_templates_message_deleted">Порука је обрисана</string>
+  <string name="talk_templates_menu_remove_message">Уклони поруку</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Да ли сигурно желите да обриште поруку са списка?</item>
+    <item quantity="other">Да ли сигурно желите да обриште поруке са списка?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Порука је обрисана</item>
+    <item quantity="other">Поруке су обрисане</item>
+  </plurals>
   <string name="patroller_tasks_edits_list_title">Списак измена</string>
   <string name="patroller_tasks_edits_list_search_hint">Претрага или филтрирање измена</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Ознаке: %s</string>

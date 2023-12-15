@@ -64,6 +64,12 @@
                 android:title="@string/menu_page_archive"
                 app:iconTint="?attr/secondary_color"
                 app:showAsAction="never" />
+            <item
+                android:id="@+id/menu_edit_source"
+                android:icon="@drawable/ic_mode_edit_white_24dp"
+                android:title="@string/menu_option_edit_source"
+                app:iconTint="?attr/secondary_color"
+                app:showAsAction="never" />
         </menu>
     </item>
 </menu>

@@ -87,6 +87,7 @@
   <string name="page_edit_history_filter_by_user">Käyttäjät (%s)</string>
   <string name="page_edit_history_filter_by_anon">Anonyymit (%s)</string>
   <string name="page_edit_history_filter_by_bot">Botit (%s)</string>
+  <string name="page_edit_history_metrics_content_description">Mittarit välillä %1$s %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d muokkaus vuodesta %2$s lähtien</item>
     <item quantity="other">%1$d muokkausta vuodesta %2$s lähtien</item>
@@ -1077,6 +1078,7 @@
   <string name="suggested_edits_image_recommendations_task_title">Artikkelin kuvat</string>
   <string name="suggested_edits_image_recommendations_task_detail">Lisää ehdotettuja kuvia Wikipedian artikkeleihin parantaaksesi ymmärrettävyyttä.</string>
   <string name="image_recommendation_task_instruction">Lisäisitkö tämän kuvan artikkeliin?</string>
+  <string name="image_recommendation_tutorial">Opas</string>
   <string name="image_recommendation_accept">Kyllä</string>
   <string name="image_recommendation_reject">Ei</string>
   <string name="image_recommendation_notsure">Epävarma</string>
@@ -1093,8 +1095,14 @@
   <string name="image_recommendation_onboarding_2">Päätät, pitäisikö ehdotettu kuva sijoittaa Wikipedia-artikkeliin.</string>
   <string name="image_recommendation_onboarding_3">Ehdotukset ovat koneellisesti luotuja ja sinä käytät harkintavaltaasi päättääksesi hyväksyäkö vaiko hylätä ne.</string>
   <string name="image_recommendation_onboarding_4">Kuvat ovat Wikimedia Commonsista, joka on kokoelma vapaasti lisensoituja kuvia, joita käytetään Wikipediassa.</string>
+  <string name="image_recommendation_tooltip_1">Tarkista tämä artikkeli ymmärtääksesi sen aiheen</string>
+  <string name="image_recommendation_tooltip_2">Tarkista kuva ja siihen liittyvät tiedot</string>
+  <string name="image_recommendation_tooltip_3">Päätä, auttaako kuva lukijoita ymmärtämään tätä aihetta paremmin</string>
   <string name="image_recommendation_tooltip_next">Seuraava</string>
+  <string name="image_recommendation_depleted">Valitettavasti tällä hetkellä ei ole enempää ehdotettuja kuvia saatavilla. Tutustu muihin &lt;a href=\"#\"&gt;ehdotettuihin muokkauksiin&lt;/a&gt; tai palaa myöhemmin.</string>
   <string name="edit_summary_added_image">Lisätty kuva</string>
+  <string name="edit_summary_added_caption">Lisätty kuvateksti</string>
+  <string name="edit_summary_added_image_and_caption">Lisätty kuva ja kuvateksti</string>
   <string name="edit_published_view">Näytä</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
@@ -1236,11 +1244,16 @@
   <string name="talk_user_title">Keskustelu käyttäjästä: %s</string>
   <string name="talk_new_topic">Uusi aihe</string>
   <string name="talk_new_topic_submitted">Aihe julkaistu.</string>
+  <string name="talk_warn">Varoita</string>
   <string name="talk_warn_save_dialog_title">Tallenna muutokset?</string>
   <string name="talk_warn_save_dialog_message">Tallenna uutena viestinä</string>
   <string name="talk_warn_save_dialog_existing_new_message">Tallenna uutena viestinä luetteloon</string>
+  <string name="talk_warn_save_dialog_hint">Viestin otsikko</string>
   <string name="talk_warn_save_dialog_publish">Julkaise</string>
   <string name="talk_warn_save_dialog_cancel">Peruuta</string>
+  <string name="talk_warn_submitted">Viesti julkaistu muokkaajan keskustelusivulla</string>
+  <string name="talk_warn_submitted_and_saved">Viesti tallennettu ja julkaistu muokkaajan keskustelusivulla</string>
+  <string name="talk_warn_saved_message">Valitse olemassa oleva varoitusviesti tai kirjoita uusi viesti.</string>
   <string name="talk_warn_saved_message_dropdown">Tallennetut viestit</string>
   <string name="talk_page_empty">Tämä keskustelusivu on tyhjä.</string>
   <string name="talk_page_empty_title">Keskustelu alkaa tästä</string>
@@ -1328,6 +1341,7 @@
   <string name="revision_diff_line_removed">Rivi poistettu</string>
   <string name="revision_diff_paragraph_added">Kappale lisätty</string>
   <string name="revision_diff_paragraph_removed">Kappale poistettu</string>
+  <string name="revision_diff_protected">Tässä versiossa tehdyt muutokset eivät ole julkisesti saatavilla.</string>
   <string name="revision_undo_title">Haluatko varmasti kumota tämän muokkauksen?</string>
   <string name="revision_undo_message">Kumoamisella tarkoitetaan yhden tai useamman muokkauksen vaikutusten kumoamista.</string>
   <string name="revision_undo_summary_hint">Yhteenveto (vapaaehtoinen)</string>
@@ -1448,6 +1462,7 @@
   <string name="talk_templates_manage_title">Hallinnoi mallineita</string>
   <string name="talk_templates_empty_message">Sinulla ei ole tallennettuja varoitusviestejä.</string>
   <string name="talk_templates_new_message_title">Uusi viesti</string>
+  <string name="talk_templates_new_message_description">Kirjoita varoitusviesti.</string>
   <string name="talk_templates_new_message_subject_hint">Aihe</string>
   <string name="talk_templates_new_message_compose_hint">Kirjoita viesti</string>
   <string name="talk_templates_new_message_save">Tallenna</string>
@@ -1462,7 +1477,14 @@
   <string name="talk_templates_edit_message_dialog_save">Tallenna</string>
   <string name="talk_templates_edit_message_dialog_delete">Poista</string>
   <string name="talk_templates_edit_message_updated">Viesti on päivitetty</string>
-  <string name="talk_templates_message_deleted">Viesti on poistettu</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Haluatko varmasti poistaa viestin luettelosta?</item>
+    <item quantity="other">Haluatko varmasti poistaa viestit luettelosta?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Viesti on poistettu</item>
+    <item quantity="other">Viestit on poistettu</item>
+  </plurals>
   <string name="patroller_tasks_edits_list_title">Muokkausluettelo</string>
   <string name="patroller_tasks_edits_list_search_hint">Etsi tai suodata muokkauksia</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Merkinnät: %s</string>
@@ -1484,6 +1506,8 @@
   <string name="patroller_tasks_filters_user_status_registered_desc">Sisäänkirjautuneet muokkaajat.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Tulokkaat</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Rekisteröityneet muokkaajat, joilla on vähemmän kuin 10 muokkausta 4 aktiivisuuspäivän aikana.</string>
+  <string name="patroller_tasks_filters_user_status_experienced">Kokeneet käyttäjät</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Rekisteröityneet muokkaajat, joilla enemmän kuin 500 muokkausta ja 30 päivää aktiivisuutta.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Uusimmat versiot</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Uusin versio</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ei uusin versio</string>
@@ -1496,10 +1520,12 @@
     <item quantity="other">%d suodatinta</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikkelin muokkaushistoria</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Näytä</string>
   <string name="patroller_onboarding_two_thank_title">Kiitä</string>
   <string name="patroller_onboarding_two_thank_content">Näetkö hyvän muokkauksen? Kiitä käyttäjää.</string>
   <string name="patroller_onboarding_two_watch_title">Tarkkaile</string>
   <string name="patroller_onboarding_two_watch_content">Haluatko tarkkailla artikkelien muokkauksia? Lisää artikkeli tarkkailuluetteloosi. Löydät sen \"Lisää\"-valikosta.</string>
+  <string name="patroller_onboarding_two_warn_title">Varoita</string>
   <string name="patroller_onboarding_two_undo_title">Kumoa</string>
   <string name="patroller_onboarding_two_undo_content">Valitse \"Kumoa\" kumotaksesi mahdollisesti haitallisen muokkauksen.</string>
   <string name="patroller_diff_feedback_dialog_title">Auta meitä parantamaan tätä ominaisuutta</string>

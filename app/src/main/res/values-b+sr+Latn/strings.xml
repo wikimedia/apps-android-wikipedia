@@ -1429,8 +1429,7 @@
   <string name="talk_templates_edit_message_dialog_save">Sačuvaj</string>
   <string name="talk_templates_edit_message_dialog_delete">Obriši</string>
   <string name="talk_templates_edit_message_updated">Poruka je izmenjena</string>
-  <string name="talk_templates_edit_message_delete_description">Da li ste sigurni da želite da obrišete ovu \"%s\" poruku sa liste?</string>
-  <string name="talk_templates_message_deleted">Poruka je obrisana</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Poruka je obrisana</string>
   <string name="patroller_tasks_edits_list_title">Spisak izmena</string>
   <string name="patroller_tasks_edits_list_search_hint">Pretraga ili filtriranje izmena</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Oznake: %s</string>

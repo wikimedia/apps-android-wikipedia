@@ -15,6 +15,16 @@
         app:srcCompat="@drawable/ic_draggable"
         app:tint="?android:attr/textColorTertiary" />
 
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="8dp"
+        android:gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
     <TextView
         style="@style/P.MaterialListTitle"
         android:id="@+id/listItem"

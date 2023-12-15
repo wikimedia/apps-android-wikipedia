@@ -1563,8 +1563,7 @@
   <string name="talk_templates_edit_message_dialog_save">Зберегти</string>
   <string name="talk_templates_edit_message_dialog_delete">Вилучити</string>
   <string name="talk_templates_edit_message_updated">Повідомлення оновлено</string>
-  <string name="talk_templates_edit_message_delete_description">Ви впевнені, що хочете вилучити повідомлення «%s» зі списку?</string>
-  <string name="talk_templates_message_deleted">Повідомлення вилучено</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Повідомлення вилучено</string>
   <string name="patroller_tasks_edits_list_title">Список редагувань</string>
   <string name="patroller_tasks_edits_list_search_hint">Шукати або фільтрувати редагування</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Мітки: %s</string>

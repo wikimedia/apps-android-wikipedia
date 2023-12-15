@@ -15,6 +15,7 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.util.StringUtil
 
 class BecauseYouReadClient : FeedClient {
 
@@ -43,15 +44,24 @@ class BecauseYouReadClient : FeedClient {
         // If the language code has a parent language code, it means set "Accept-Language" will slow down the loading time of /page/related
         // TODO: remove when https://phabricator.wikimedia.org/T271145 is resolved.
         val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(entry.title.wikiSite.languageCode).isNullOrEmpty()
-        disposables.add(ServiceFactory.getRest(entry.title.wikiSite)
-            .getRelatedPages(entry.title.prefixedText)
+        val searchTerm = StringUtil.removeUnderscores(entry.title.prefixedText)
+        disposables.add(ServiceFactory.get(entry.title.wikiSite)
+            .searchMoreLike("morelike:$searchTerm",
+                Constants.SUGGESTION_REQUEST_ITEMS, Constants.SUGGESTION_REQUEST_ITEMS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .flatMap { relatedPages ->
-                val list = relatedPages.getPages(Constants.SUGGESTION_REQUEST_ITEMS)
-                list.add(0, PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
-                        entry.title.extract, entry.title.thumbUrl, entry.title.wikiSite.languageCode))
-                Observable.fromIterable(list)
+            .flatMap { response ->
+                val relatedPages = mutableListOf<PageSummary>()
+                val langCode = entry.title.wikiSite.languageCode
+                relatedPages.add(PageSummary(entry.title.displayText, entry.title.prefixedText, entry.title.description,
+                    entry.title.extract, entry.title.thumbUrl, langCode))
+                response.query?.pages?.forEach {
+                    if (it.title != searchTerm) {
+                        relatedPages.add(PageSummary(it.displayTitle(langCode), it.title, it.description,
+                            it.extract, it.thumbUrl(), langCode))
+                    }
+                }
+                Observable.fromIterable(relatedPages)
             }
             .concatMap { pageSummary ->
                 if (hasParentLanguageCode) ServiceFactory.getRest(entry.title.wikiSite).getSummary(entry.referrer, pageSummary.apiTitle)

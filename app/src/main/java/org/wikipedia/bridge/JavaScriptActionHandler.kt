@@ -16,7 +16,8 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.DimenUtil.densityScalar
 import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
-import java.util.*
+import java.util.Date
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 import kotlin.math.roundToInt
 
@@ -130,7 +131,7 @@ object JavaScriptActionHandler {
         if (model.page == null) {
             return ""
         }
-        val showTalkLink = !(model.page!!.title.namespace() === Namespace.TALK)
+        val showTalkLink = model.page!!.title.namespace() !== Namespace.TALK
         val showMapLink = model.page!!.pageProperties.geo != null
         val editedDaysAgo = TimeUnit.MILLISECONDS.toDays(Date().time - model.page!!.pageProperties.lastModified.time)
 
