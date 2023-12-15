@@ -1,5 +1,6 @@
 package org.wikipedia.random
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
@@ -15,6 +16,7 @@ class BottomViewBehavior(
         private const val ANIMATION_DURATION_MILLISECONDS = 100L
     }
 
+    @SuppressLint("RestrictedApi")
     override fun layoutDependsOn(parent: CoordinatorLayout, child: ViewGroup, dependency: View): Boolean {
         return dependency is SnackbarLayout
     }

@@ -7,12 +7,14 @@ import android.view.LayoutInflater
 import android.view.inputmethod.InputConnection
 import android.widget.EditText
 import android.widget.FrameLayout
+import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
+import org.wikipedia.R
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 
-class WikiTextKeyboardView : FrameLayout {
+class WikiTextKeyboardView constructor(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
     interface Callback {
         fun onPreviewLink(title: String)
         fun onRequestInsertMedia()
@@ -30,11 +32,14 @@ class WikiTextKeyboardView : FrameLayout {
         get() { return binding.wikitextButtonUserMention.isVisible }
         set(value) { binding.wikitextButtonUserMention.isVisible = value }
 
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
-
     init {
+        attrs?.let {
+            context.withStyledAttributes(it, R.styleable.WikitextKeyboardView) {
+                val headingsEnable = getBoolean(R.styleable.WikitextKeyboardView_headingsEnable, true)
+                binding.wikitextButtonHeading.isVisible = headingsEnable
+            }
+        }
+
         binding.wikitextButtonUndo.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
         binding.wikitextButtonRedo.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
         binding.wikitextButtonTextFormat.setExpandable(true)
