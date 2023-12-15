@@ -56,7 +56,7 @@ data class PageProperties constructor(
         leadImageName = UriUtil.decodeURL(pageSummary.leadImageName.orEmpty()),
         leadImageWidth = pageSummary.thumbnailWidth,
         leadImageHeight = pageSummary.thumbnailHeight,
-        geo = pageSummary.geo,
+        geo = pageSummary.coordinates,
         wikiBaseItem = pageSummary.wikiBaseItem,
         descriptionSource = pageSummary.descriptionSource
     )

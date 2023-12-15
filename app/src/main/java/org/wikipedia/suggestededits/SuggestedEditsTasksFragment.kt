@@ -363,9 +363,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             displayedTasks.add(addDescriptionsTask)
         }
 
-        if (viewModel.totalContributions > 50 &&
-            viewModel.wikiSupportsImageRecommendations &&
-            viewModel.blockMessageWikipedia.isNullOrEmpty()) {
+        // If app language is `de`, the local edits need to be > 50 edits. See https://phabricator.wikimedia.org/T351275
+        if (((WikipediaApp.instance.wikiSite.languageCode == "de" && viewModel.homeContributions > 50) ||
+            (WikipediaApp.instance.wikiSite.languageCode != "de" && viewModel.totalContributions > 50)) &&
+            viewModel.wikiSupportsImageRecommendations && viewModel.blockMessageWikipedia.isNullOrEmpty()) {
             displayedTasks.add(imageRecommendationsTask)
         }
 

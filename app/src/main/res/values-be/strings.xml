@@ -128,7 +128,7 @@
   <string name="map_view_link_text">Гл. на карце</string>
   <string name="other_languages_indication_text">Чытаць на іншай мове</string>
   <string name="language_count_link_text">Даступна на %d іншых мовах</string>
-  <string name="edit_save_action_license_logged_in">Публікуючы, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt; і неадклічна перадаяце свае матэрыялы ў адпаведнасці з ліцэнзіяй &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_logged_in">Публікуючы, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt; і неадклікальна перадаяце свае матэрыялы на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Публікуючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Умовамі выкарыстання&lt;/a&gt; і неадклічна перадаяце свае матэрыялы ў адпаведнасці з ліцэнзіяй &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;. Змены будуць прывязаны да IP-адраса вашай прылады. Калі вы, &lt;a href=\"https://#login\"&gt;&lt;/a&gt;, увойдзеце ў сістэму, то будзеце больш канфідэнцыяльным.</string>
   <string name="edit_anon_warning">Праўкі будуць звязаны з IP-адрасам вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце&lt;/a&gt;, у вас будзе больш прыватнасці.</string>
   <string name="preference_title_language">Мовы Вікіпедыі</string>
@@ -911,7 +911,7 @@
   <string name="description_starts_with_uppercase">Пачынайце з маленькай літары, калі толькі першае слова не з’яўляецца імем уласным.</string>
   <string name="description_starts_with_lowercase">Пазбягайце маленькай літары ў пачатку.</string>
   <string name="description_is_in_different_language">Здаецца, тэкст напісаны на нечаканай мове. Мова павінна быць %s .</string>
-  <string name="description_verification_notice">Калі ласка, пераканайцеся, што ваша апісанне знаходзіцца ў %1$s. Не саромцеся не зважаць на гэтае апавяшчэнне, калі апісанне, якое вы напісалі, змяшчае %2$s.</string>
+  <string name="description_verification_notice">Калі ласка, пераканайцеся, што ваша апісанне знаходзіцца ў %1$s. Не саромейцеся не зважаць на гэта апавяшчэнне, калі ваша апісанне змяшчае %2$s.</string>
   <string name="description_edit_suggested_description_button_text">Паказаць прапанаваныя апісанні</string>
   <string name="description_edit_suggested_description_button_tooltip">Паспрабуйце прапанаваныя машынай апісанні артыкулаў</string>
   <string name="description_edit_success_saved">Апісаннне артыкула апублікавана!</string>
@@ -1554,8 +1554,7 @@
   <string name="talk_templates_edit_message_dialog_save">Захаваць</string>
   <string name="talk_templates_edit_message_dialog_delete">Выдаліць</string>
   <string name="talk_templates_edit_message_updated">Паведамленне захавана</string>
-  <string name="talk_templates_edit_message_delete_description">Вы ўпэўнены, што хочаце выдаліць гэтае паведамленне \"%s\" са спісу?</string>
-  <string name="talk_templates_message_deleted">Паведамленне выдалена</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Паведамленне выдалена</string>
   <string name="talk_templates_message_title_empty">Тэма не можа быць пустой.</string>
   <string name="patroller_tasks_edits_list_title">Спіс правак</string>
   <string name="patroller_tasks_edits_list_search_hint">Пошук або фільтр правак</string>
@@ -1621,11 +1620,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Патруляваць праўку</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Гісторыя рэдагавання артыкула</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Адкаціць праўку?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Ці вы ўпэўнены, што хочаце адкаціць праўку?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Адмена азначае прыбранне зменаў, унесеных адным або некальнікімі рэдагаваннямі.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Апісанне (неабавязкова)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Падзяліцеся прычынай адкату</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Вяртанне завершана</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Вы ўпэўнены, што хочаце адкаціць?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Адкат завершаны</string>
@@ -1643,9 +1637,6 @@
   <string name="patroller_onboarding_two_warn_content">Стварыць, адправіць і захаваць папярэджанні на старонцы абмеркавання карыстальніка.</string>
   <string name="patroller_onboarding_two_undo_title">Адмена/Адкат</string>
   <string name="patroller_onboarding_two_undo_content">Выберыце \"Адкаціць\" для скасавання або адкату патэнцыйна разбуральнай праўкі.</string>
-  <string name="patroller_onboarding_three_title">Адпраўляць ананімныя даныя</string>
-  <string name="patroller_onboarding_three_content">Дапамажыце зрабіць дадатак лепш, паведаміце нам, як вы ім карыстаецеся. Сабраныя даныя будуць ананімнымі. &lt;a href=\"#privacy\"&gt;Даведацца больш&lt;/a&gt;</string>
-  <string name="patroller_onboarding_three_switch">Адпраўляць звесткі пра выкарыстанне</string>
   <string name="patroller_diff_tooltip_one">\"Пашкоджанне\" прадказвае, калі праўка прычыняе шкоду ў вікі.</string>
   <string name="patroller_diff_tooltip_two">Намер прадказвае верагоднасць добрасумленнага захавання праўкі.</string>
   <string name="patroller_diff_feedback_dialog_title">Дапамажыце нам палепшыць гэту функцыю</string>

@@ -27,7 +27,7 @@ open class PageSummary(
     @SerialName("wikibase_item") val wikiBaseItem: String? = null,
     @SerialName("extract_html") val extractHtml: String? = null,
     @SerialName("description_source") val descriptionSource: String = "",
-    @Serializable(with = LocationSerializer::class) val geo: Location? = null,
+    @Serializable(with = LocationSerializer::class) var coordinates: Location? = null,
     val type: String = TYPE_STANDARD,
     @SerialName("pageid") val pageId: Int = 0,
     val revision: Long = 0L,

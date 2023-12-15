@@ -10,6 +10,7 @@ import org.wikipedia.feed.announcement.GeoIPCookieUnmarshaller
 import org.wikipedia.settings.Prefs
 
 object GeoUtil {
+    @Suppress("UnsafeImplicitIntentLaunch")
     fun sendGeoIntent(activity: Activity,
                       location: Location,
                       placeName: String?) {

@@ -1461,8 +1461,8 @@
   <string name="talk_templates_edit_message_dialog_save">Saqlash</string>
   <string name="talk_templates_edit_message_dialog_delete">Oʻchirish</string>
   <string name="talk_templates_edit_message_updated">Xabar yangilandi</string>
-  <string name="talk_templates_edit_message_delete_description">Haqiqatan ham %s xabarini roʻyxatdan oʻchirib tashlamoqchimisiz?</string>
-  <string name="talk_templates_message_deleted">Xabar oʻchirildi</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Xabar oʻchirildi</string>
+  <string name="talk_templates_message_title_empty">Sarlavha boʻsh qolmasligi kerak.</string>
   <string name="patroller_tasks_edits_list_title">Tahrirlar roʻyxati</string>
   <string name="patroller_tasks_edits_list_search_hint">Tahrirlarni qidirish yoki filtrlash</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Teglar: %s</string>
@@ -1506,9 +1506,22 @@
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Muammolari boʻlishi mumkin</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Koʻp nuqsonli yoki zararli tahrirlarni topadi, lekin pastroq aniqlik bilan.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Ehtimol, muammolar bordir</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Oʻrtacha aniqlikda, muammoli tahrirlarning oraliq qismi sifatida topiladi.</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Katta ehtimol bilan muammolar bor</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Juda aniqlik bilan nuqsonli yoki zararli tahrirlarni topadi.</string>
+  <string name="patroller_tasks_filters_user_intent_header">Foydalanuvchi istaklarini tahlil qilish</string>
+  <string name="patroller_tasks_filters_user_intent_good">Yaxshi ishonch</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Deyarli barcha muammosiz tahrirlarni topish.</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Yomon niyat boʻlishi mumkin</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Aksariyat notoʻgʻri tahrirlarni pastroq aniqlik bilan topadi.</string>
+  <string name="patroller_tasks_patrol_edit_title">Tahrir kuzatuvchisi</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">Maqolani tahrirlash tarixi</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Koʻrish</string>
   <string name="patroller_tasks_overflow_report">Xususiyat bilan bogʻliq muammo</string>
   <string name="patroller_tasks_overflow_learn">Batafsil</string>
+  <string name="patroller_onboarding_two_thank_title">Tashakkur</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Funksiyani qanday yaxshilashimiz mumkin?</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Fikr-mulohaza</string>
   <string name="patroller_diff_feedback_dialog_submit">Joʻnatish</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Fikr-mulohaza yuborildi.</string>
   <string name="data_opt_in_accept">Qabul qilish</string>
@@ -1518,5 +1531,9 @@
   <string name="email_report_image_recommendations_subject" fuzzy="true">Muammo hisoboti - Rasm tavsiyalari xususiyati</string>
   <string name="email_report_image_recommendations_body" fuzzy="true">Tasvir tavsiyalari funksiyasi bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]</string>
   <string name="email_report_patroller_tasks_subject" fuzzy="true">Muammo hisoboti - Kuzatuvchi vazifalari xususiyati</string>
-  <string name="email_report_patroller_tasks_body" fuzzy="true">Men Kuzatuvchi vazifalari xususiyati bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tavsiflang]\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]\n\n[]</string>
+  <string name="email_report_patroller_tasks_body">Men tahrirlash kuzatuvchisi funksiyasi bilan bog‘liq muammoga duch keldim:\n- [Muayyan muammoni tasvirlab bering]\n\nMen ko‘rmoqchi bo‘lgan xatti-harakat:\n- [Taklif etilgan yechimni tavsiflang]\n\n [Skrinshotlar yoki havolalar]</string>
+  <string name="donation_campaign_maybe_later_snackbar">Ertaga yana eslatib oʻtamiz.</string>
+  <string name="donation_campaign_donated_snackbar">Rahmat, hurmatli hissachi! Sizning saxiyligingiz Vikipediya va unga bogʻliq saytlarini rivojiga yordam beradi.</string>
+  <string name="donation_campaign_go_back_button">Ortga</string>
+  <string name="menu_single_webview_open_external">Tizim brauzerida ochish</string>
 </resources>

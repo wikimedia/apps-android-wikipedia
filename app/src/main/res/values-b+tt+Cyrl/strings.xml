@@ -1455,8 +1455,7 @@
   <string name="talk_templates_edit_message_dialog_save">Сакларга</string>
   <string name="talk_templates_edit_message_dialog_delete">Бетерергә</string>
   <string name="talk_templates_edit_message_updated">Хәбәр яңартылды</string>
-  <string name="talk_templates_edit_message_delete_description">Сез чыннан да \"%s\" хәбәрен исемлектән бетерергә телисезме?</string>
-  <string name="talk_templates_message_deleted">Хәбәр бетерелде</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Хәбәр бетерелде</string>
   <string name="patroller_tasks_edits_list_title">Төзәтмәләр исемлеге</string>
   <string name="patroller_tasks_edits_list_search_hint">Үзгәрешләрне эзләү яки фильтрлау</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Теглар: %s</string>
@@ -1514,11 +1513,6 @@
     <item quantity="other">%d фильтр</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Мәкаләне үзгәртү тарихы</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Бу үзгәрешне кире кагарга?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Сез бу үзгәрешләрне кире кагарга телисезме?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Кире кагу бер яисә берничә үзгәрешнең нәтиҗәләрен кире кагуны аңлата.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Резюме (мәҗбүри түгел)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Кире кайтару сәбәбе белән бүлешегез</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Кире кайтару тәмамланды</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Карау</string>
   <string name="patroller_tasks_overflow_report">Функция белән проблема</string>

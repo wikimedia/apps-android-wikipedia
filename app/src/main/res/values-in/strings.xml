@@ -1428,6 +1428,7 @@
   <string name="reading_list_share_survey_body">\"Bagikan daftar bacaan\" adalah fitur pengujian dan kami membutuhkan umpan balik Anda untuk meningkatkan atau menghapusnya.</string>
   <string name="talk_templates_manage_title">Kelola templat</string>
   <string name="talk_templates_empty_message">Anda tidak memiliki pesan peringatan yang disimpan.</string>
+  <string name="talk_templates_new_message_title">pesan baru</string>
   <string name="talk_templates_new_message_description">Tulis pesan peringatan.</string>
   <string name="talk_templates_new_message_subject_hint">Subyek</string>
   <string name="talk_templates_new_message_compose_hint">Tulis pesan</string>
@@ -1443,8 +1444,15 @@
   <string name="talk_templates_edit_message_dialog_save">Simpan</string>
   <string name="talk_templates_edit_message_dialog_delete">Hapus</string>
   <string name="talk_templates_edit_message_updated">Pesan telah diperbarui</string>
-  <string name="talk_templates_edit_message_delete_description">Anda yakin ingin menghapus pesan \"%s\" ini dari daftar?</string>
-  <string name="talk_templates_message_deleted">Pesan telah dihapus</string>
+  <string name="talk_templates_menu_remove_message">Hapus pesan</string>
+  <plurals name="talk_templates_message_delete_description" fuzzy="true">
+    <item quantity="one">Anda yakin ingin menghapus pesan dari daftar?</item>
+    <item quantity="other">Anda yakin ingin menghapus pesan dari daftar?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted" fuzzy="true">
+    <item quantity="one">Pesan telah dihapus</item>
+    <item quantity="other">Pesan telah dihapus</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Judul pesan tidak boleh kosong</string>
   <string name="patroller_tasks_edits_list_title">Daftar suntingan</string>
   <string name="patroller_tasks_edits_list_search_hint">Cari atau saring suntingan</string>
@@ -1508,9 +1516,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Patroli suntingan</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Riwayat suntingan artikel</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Urungkan suntingan ini?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Ringkasan (opsional)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Bagikan alasan pembalikan tersebut</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Pembalikan selesai</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Anda yakin ingin mengembalikan?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Pengembalian selesai</string>
@@ -1544,5 +1549,4 @@
   <string name="data_opt_in_reject">Tolak</string>
   <string name="page_issues_title">Masalah halaman</string>
   <string name="generic_release_notes">Perbaikan kekutu dan peningkatan kecil</string>
-  <string name="talk_templates_new_message_title">pesan baru</string>
 </resources>

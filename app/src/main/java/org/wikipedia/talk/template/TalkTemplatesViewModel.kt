@@ -63,33 +63,14 @@ class TalkTemplatesViewModel : ViewModel() {
         }
     }
 
-    fun updateTalkTemplate(title: String, subject: String, body: String, talkTemplate: TalkTemplate) {
+    fun deleteTemplates(talkTemplates: List<TalkTemplate>) {
         viewModelScope.launch(actionHandler) {
             withContext(Dispatchers.IO) {
-                talkTemplate.apply {
-                    this.title = title
-                    this.subject = subject
-                    this.message = body
-                }
-                talkTemplatesRepository.updateTemplate(talkTemplate)
-                talkTemplatesList.find { it == talkTemplate }?.apply {
-                    this.title = title
-                    this.subject = subject
-                    this.message = body
-                }
-                _actionState.value = ActionState.Saved(talkTemplate.order - 1)
-            }
-        }
-    }
-
-    fun deleteTemplate(talkTemplate: TalkTemplate) {
-        viewModelScope.launch(actionHandler) {
-            withContext(Dispatchers.IO) {
-                talkTemplatesRepository.deleteTemplate(talkTemplate)
-                talkTemplatesList.remove(talkTemplate)
+                talkTemplatesRepository.deleteTemplates(talkTemplates)
+                talkTemplatesList.removeAll(talkTemplates)
                 resetOrder()
                 talkTemplatesRepository.updateTemplates(talkTemplatesList)
-                _actionState.value = ActionState.Deleted(talkTemplate.order - 1)
+                _actionState.value = ActionState.Deleted(talkTemplates.size)
             }
         }
     }
@@ -101,8 +82,7 @@ class TalkTemplatesViewModel : ViewModel() {
     }
 
     open class ActionState {
-        class Saved(val position: Int) : ActionState()
-        class Deleted(val position: Int) : ActionState()
+        class Deleted(val size: Int) : ActionState()
         class Error(val throwable: Throwable) : ActionState()
     }
 }

@@ -32,6 +32,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
     var totalPageviews = 0L
     var totalContributions = 0
+    var homeContributions = 0
     var latestEditDate: LocalDate = LocalDate.now()
     var latestEditStreak = 0
     var revertSeverity = 0
@@ -99,6 +100,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             totalContributions += wikidataResponse.query?.userInfo!!.editCount
             totalContributions += commonsResponse.query?.userInfo!!.editCount
             totalContributions += homeSiteResponse.query?.userInfo!!.editCount
+            homeContributions = homeSiteResponse.query?.userInfo!!.editCount
 
             latestEditDate = maxOf(
                 wikidataResponse.query?.userInfo!!.latestContrib,

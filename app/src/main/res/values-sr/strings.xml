@@ -743,6 +743,7 @@
   <string name="notifications_swipe_action_read">Прочитано</string>
   <string name="notifications_swipe_action_unread">Непрочитано</string>
   <string name="notifications_menu_check_all">Изабери све</string>
+  <string name="notifications_menu_uncheck_all">Поништи све</string>
   <string name="notifications_wiki_filter_header">Филтер викија</string>
   <string name="notifications_type_filter_header">Тип филтера</string>
   <string name="notifications_all_wikis_text">Сви \"викији\"</string>
@@ -1445,8 +1446,15 @@
   <string name="talk_templates_edit_message_dialog_save">Сачувај</string>
   <string name="talk_templates_edit_message_dialog_delete">Обриши</string>
   <string name="talk_templates_edit_message_updated">Порука је измењена</string>
-  <string name="talk_templates_edit_message_delete_description">Да ли сте сигурни да желите да обришете ову \"%s\" поруку са листе?</string>
-  <string name="talk_templates_message_deleted">Порука је обрисана</string>
+  <string name="talk_templates_menu_remove_message">Уклони поруку</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Да ли сигурно желите да обриште поруку са списка?</item>
+    <item quantity="other">Да ли сигурно желите да обриште поруке са списка?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Порука је обрисана</item>
+    <item quantity="other">Поруке су обрисане</item>
+  </plurals>
   <string name="patroller_tasks_edits_list_title">Списак измена</string>
   <string name="patroller_tasks_edits_list_search_hint">Претрага или филтрирање измена</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Ознаке: %s</string>
@@ -1509,11 +1517,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Патролирај измену</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Историја</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Поништи ову измену?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Сигурно поништи измену?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Поништавање значи враћање ефеката једне или више измена.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Опис (необавезно)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Поделите разлог за враћање</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Враћање је завршено</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Сигурно врати измене?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Враћање извршено</string>
@@ -1531,9 +1534,6 @@
   <string name="patroller_onboarding_two_warn_content">Правите, шаљите, и чувајте поруке упозорења на уредничкој страници за разговор</string>
   <string name="patroller_onboarding_two_undo_title">Поништи/врати</string>
   <string name="patroller_onboarding_two_undo_content">Одаберите \'Поништи\' да би сте поништили или вратили потенционалну деструктивну измену.</string>
-  <string name="patroller_onboarding_three_title">Слање анонимних података</string>
-  <string name="patroller_onboarding_three_content">Помозите нам да побољшамо могућност слањем информација о употреби. Прикупљени подаци су анонимни. &lt;a href=\"#privacy\"&gt;Сазнајте више&lt;/a&gt;.</string>
-  <string name="patroller_onboarding_three_switch">Шаљи извештаје о употреби</string>
   <string name="patroller_diff_feedback_dialog_title">Помозите нам да унапредимо ову могућност</string>
   <string name="patroller_diff_feedback_dialog_message">Да ли сте задовољни са овом могућношћу?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Задовољавајуће</string>

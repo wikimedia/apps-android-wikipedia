@@ -1563,8 +1563,7 @@
   <string name="talk_templates_edit_message_dialog_save">Зберегти</string>
   <string name="talk_templates_edit_message_dialog_delete">Вилучити</string>
   <string name="talk_templates_edit_message_updated">Повідомлення оновлено</string>
-  <string name="talk_templates_edit_message_delete_description">Ви впевнені, що хочете вилучити повідомлення «%s» зі списку?</string>
-  <string name="talk_templates_message_deleted">Повідомлення вилучено</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Повідомлення вилучено</string>
   <string name="patroller_tasks_edits_list_title">Список редагувань</string>
   <string name="patroller_tasks_edits_list_search_hint">Шукати або фільтрувати редагування</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Мітки: %s</string>
@@ -1629,11 +1628,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Відпатрулювати редагування</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Історія редагування статті</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Скасувати це редагування?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Ви дійсно хочете скасувати це редагування?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Скасування повністю відхилить дію одного чи кількох редагувань.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Опис (необов\'язково)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Вкажіть причину скасування</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Скасування виконано</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Ви дійсно хочете відкинути?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Відкіт виконано</string>
@@ -1651,9 +1645,6 @@
   <string name="patroller_onboarding_two_warn_content">Створюйте, надсилайте та зберігайте попереджувальні повідомлення на сторінці обговорення редактора.</string>
   <string name="patroller_onboarding_two_undo_title">Скасування / відкіт</string>
   <string name="patroller_onboarding_two_undo_content">Виберіть «Скасувати», щоб скасувати або повернути потенційно деструктивні зміни.</string>
-  <string name="patroller_onboarding_three_title">Надсилання анонімних даних</string>
-  <string name="patroller_onboarding_three_content">Допоможіть нам покращити функцію, повідомляючи, як ви її використовуєте. Зібрані дані анонімні. &lt;a href=\"#privacy\"&gt;Дізнатися більше&lt;/a&gt;</string>
-  <string name="patroller_onboarding_three_switch">Надсилати звіти про використання</string>
   <string name="patroller_diff_tooltip_one">«Шкода» передбачає, що редагування завдає шкоди вікі.</string>
   <string name="patroller_diff_tooltip_two">«Намір» передбачає ймовірність добропорядних намірів при збереженні редагування.</string>
   <string name="patroller_diff_feedback_dialog_title">Допоможіть нам покращити цю функцію</string>

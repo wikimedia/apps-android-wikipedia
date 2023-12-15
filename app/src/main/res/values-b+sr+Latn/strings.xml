@@ -1429,8 +1429,7 @@
   <string name="talk_templates_edit_message_dialog_save">Sačuvaj</string>
   <string name="talk_templates_edit_message_dialog_delete">Obriši</string>
   <string name="talk_templates_edit_message_updated">Poruka je izmenjena</string>
-  <string name="talk_templates_edit_message_delete_description">Da li ste sigurni da želite da obrišete ovu \"%s\" poruku sa liste?</string>
-  <string name="talk_templates_message_deleted">Poruka je obrisana</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Poruka je obrisana</string>
   <string name="patroller_tasks_edits_list_title">Spisak izmena</string>
   <string name="patroller_tasks_edits_list_search_hint">Pretraga ili filtriranje izmena</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Oznake: %s</string>
@@ -1493,11 +1492,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Patroliraj izmenu</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Istorija</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Poništi ovu izmenu?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Sigurno poništi izmenu?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Poništavanje znači vraćanje efekata jedne ili više izmena.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Opis (neobavezno)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Podelite razlog za vraćanje</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Vraćanje je završeno</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Sigurno vrati izmene?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Vraćanje izvršeno</string>
@@ -1515,9 +1509,6 @@
   <string name="patroller_onboarding_two_warn_content">Pravite, šaljite, i čuvajte poruke upozorenja na uredničkoj stranici za razgovor</string>
   <string name="patroller_onboarding_two_undo_title">Poništi/vrati</string>
   <string name="patroller_onboarding_two_undo_content">Odaberite \'Poništi\' da bi ste poništili ili vratili potencionalnu destruktivnu izmenu.</string>
-  <string name="patroller_onboarding_three_title">Slanje anonimnih podataka</string>
-  <string name="patroller_onboarding_three_content">Pomozite nam da poboljšamo mogućnost slanjem informacija o upotrebi. Prikupljeni podaci su anonimni. &lt;a href=\"#privacy\"&gt;Saznajte više&lt;/a&gt;.</string>
-  <string name="patroller_onboarding_three_switch">Šalji izveštaje o upotrebi</string>
   <string name="patroller_diff_feedback_dialog_title">Pomozite nam da unapredimo ovu mogućnost</string>
   <string name="patroller_diff_feedback_dialog_message">Da li ste zadovoljni sa ovom mogućnošću?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Zadovoljavajuće</string>
