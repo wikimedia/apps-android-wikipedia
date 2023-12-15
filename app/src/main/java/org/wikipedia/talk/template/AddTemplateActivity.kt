@@ -2,6 +2,7 @@ package org.wikipedia.talk.template
 
 import android.content.Context
 import android.content.Intent
+import android.location.Location
 import android.os.Bundle
 import android.text.TextWatcher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -29,6 +30,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DeviceUtil
@@ -264,6 +266,10 @@ class AddTemplateActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMent
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
         ShareUtil.shareText(this, title)
+    }
+
+    override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
+        startActivity(PlacesActivity.newIntent(this, title.wikiSite, title, location))
     }
 
     override fun onBackPressed() {
