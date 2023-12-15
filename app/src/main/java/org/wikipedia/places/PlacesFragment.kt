@@ -42,6 +42,7 @@ import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
 import com.mapbox.mapboxsdk.plugins.annotation.ClusterOptions
+import com.mapbox.mapboxsdk.plugins.annotation.Symbol
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
 import com.mapbox.mapboxsdk.style.expressions.Expression
@@ -73,6 +74,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 
@@ -97,13 +99,14 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
     private var searchRadius: Int = 50
     private var filterMode = false
     private var zoom: Double = 15.0
+    private var magnifiedMarker: Symbol? = null
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         when {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 startLocationTracking()
-                goToLocation(1000, viewModel.location, if (viewModel.pageTitle != null) 15.99 else 15.0)
+                goToLocation(1000, viewModel.location)
             }
             else -> {
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
@@ -118,7 +121,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
               Prefs.placesWikiCode = it.data?.getParcelableExtra<WikiSite>(PlacesActivity.EXTRA_WIKI)?.languageCode
                   ?: WikipediaApp.instance.appOrSystemLanguageCode
               updateSearchText(viewModel.pageTitle?.displayText.orEmpty())
-              goToLocation(1000, location, 12.0)
+              goToLocation(1000, location)
               viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
           }
     }
@@ -242,6 +245,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
                     annotationCache.find { it.annotation == symbol }?.let {
                         updateSearchText(it.pageTitle.displayText)
                         val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_PLACES)
+                        resetMagnifiedSymbol()
+                        magnifiedMarker = it.annotation
+                        magnifiedMarker?.iconSize = 1.75f
+                        symbolManager?.update(magnifiedMarker)
                         ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
                     }
                     true
@@ -250,7 +257,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
-                        goToLocation(1000, viewModel.location, if (viewModel.pageTitle != null) 15.99 else 15.0)
+                        goToLocation(1000, viewModel.location)
                     }
                 } else {
                     locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -264,6 +271,14 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
+        }
+    }
+
+    private fun resetMagnifiedSymbol() {
+        // Reset the magnified marker to regular size
+        magnifiedMarker?.let {
+            it.iconSize = 1.0f
+            symbolManager?.update(it)
         }
     }
 
@@ -376,8 +391,16 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
                         .withLatLng(LatLng(it.latitude, it.longitude))
                         .withTextFont(MARKER_FONT_STACK)
                         .withIconImage(MARKER_DRAWABLE)
-                        .withIconOffset(arrayOf(0f, -32f)))
-
+                        .withIconOffset(arrayOf(0f, -32f))
+                )
+                if (StringUtil.removeUnderscores(viewModel.pageTitle?.text.orEmpty()) ==
+                    StringUtil.removeUnderscores(it.pageTitle.text)
+                ) {
+                    magnifiedMarker = it.annotation
+                    magnifiedMarker?.iconSize = 1.75f
+                    // Reset the page title so that the marker doesn't get magnified again
+                    viewModel.pageTitle = null
+                }
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
 
@@ -505,6 +528,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         mapboxMap?.let {
             val screenPoint = it.projection.toScreenLocation(point)
             val rect = RectF(screenPoint.x - 10, screenPoint.y - 10, screenPoint.x + 10, screenPoint.y + 10)
+
+            // Reset any enhanced markers to regular size
+            resetMagnifiedSymbol()
 
             // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
             val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
