@@ -1604,4 +1604,7 @@
   <string name="donation_campaign_donated_snackbar">Text for the snackbar message when user hits the \"I already donated\" option.</string>
   <string name="donation_campaign_go_back_button">Button label for the webview that can go back to the previous screen.</string>
   <string name="menu_single_webview_open_external">Menu option that indicates the web page can be opened in a system browser.</string>
+  <string name="places_link_preview_dialog_read_button">Button label for reading the article in the link preview bottom sheet.</string>
+  <string name="places_link_preview_dialog_save_button">Button label for saving the article to a reading list in the link preview bottom sheet.</string>
+  <string name="places_link_preview_dialog_share_button">Button label for sharing the article in the link preview bottom sheet.</string>
 </resources>
