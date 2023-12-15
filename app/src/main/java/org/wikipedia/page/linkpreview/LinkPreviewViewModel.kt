@@ -6,7 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.extensions.parcelable
@@ -27,7 +28,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
         loadContent()
     }
 
-    fun loadContent() {
+    private fun loadContent() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _uiState.value = LinkPreviewViewState.Error(throwable)
         }) {

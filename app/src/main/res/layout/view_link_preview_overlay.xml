@@ -17,14 +17,14 @@
 
         <Button
             android:id="@+id/link_preview_tertiary_button"
-            style="@style/App.Button.Text.Secondary"
+            style="@style/App.Button.Text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:text="@string/button_get_directions" />
+            android:text="@string/action_item_view_on_map" />
 
         <Button
             android:id="@+id/link_preview_secondary_button"

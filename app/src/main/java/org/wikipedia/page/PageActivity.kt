@@ -386,7 +386,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageShowLinkPreview(entry: HistoryEntry) {
-        ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, pageFragment.model.page?.pageProperties?.geo))
     }
 
     override fun onPageLoadMainPageInForegroundTab() {

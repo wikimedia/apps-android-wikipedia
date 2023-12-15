@@ -29,7 +29,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.GeoUtil
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -276,13 +276,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
     }
 
-    private fun goToExternalMapsApp() {
-        viewModel.location?.let {
-            dismiss()
-            GeoUtil.sendGeoIntent(requireActivity(), it, viewModel.pageTitle.displayText)
-        }
-    }
-
     private fun goToLinkedPage(inNewTab: Boolean) {
         navigateSuccess = true
         articleLinkPreviewInteractionEvent?.logNavigate()
@@ -305,7 +298,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
 
         override fun onTertiaryClick() {
-            goToExternalMapsApp()
+            requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), viewModel.pageTitle.wikiSite, viewModel.pageTitle, viewModel.location))
         }
     }
 
@@ -317,7 +310,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         const val ARG_ENTRY = "entry"
         const val ARG_LOCATION = "location"
 
-        fun newInstance(entry: HistoryEntry, location: Location?): LinkPreviewDialog {
+        fun newInstance(entry: HistoryEntry, location: Location?, fromPlaces: Boolean = false): LinkPreviewDialog {
             return LinkPreviewDialog().apply {
                 arguments = bundleOf(ARG_ENTRY to entry, ARG_LOCATION to location)
             }
