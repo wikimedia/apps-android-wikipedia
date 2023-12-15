@@ -1,6 +1,7 @@
 package org.wikipedia.diff
 
 import android.graphics.Rect
+import android.location.Location
 import android.net.Uri
 import android.os.Bundle
 import android.view.Gravity
@@ -48,6 +49,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
@@ -781,6 +783,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
         ShareUtil.shareText(requireContext(), title)
+    }
+
+    override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
+        startActivity(PlacesActivity.newIntent(requireContext(), title.wikiSite, title, location))
     }
 
     private fun copyLink(uri: String?) {

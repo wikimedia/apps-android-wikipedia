@@ -29,7 +29,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
-import org.wikipedia.places.PlacesActivity
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -101,11 +100,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         _binding = DialogLinkPreviewBinding.inflate(inflater, container, false)
         binding.linkPreviewToolbar.setOnClickListener { goToLinkedPage(false) }
         binding.linkPreviewOverflowButton.setOnClickListener {
-            PopupMenu(requireActivity(), binding.linkPreviewOverflowButton).run {
-                inflate(R.menu.menu_link_preview)
-                setOnMenuItemClickListener(menuListener)
-                show()
-            }
+            setupOverflowMenu()
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
 
@@ -133,6 +128,14 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             }
         }
         return binding.root
+    }
+
+    private fun setupOverflowMenu() {
+        val popupMenu = PopupMenu(requireActivity(), binding.linkPreviewOverflowButton)
+        popupMenu.inflate(R.menu.menu_link_preview)
+        popupMenu.menu.findItem(R.id.menu_link_preview_view_on_map).isVisible = viewModel.location != null
+        popupMenu.setOnMenuItemClickListener(menuListener)
+        popupMenu.show()
     }
 
     private fun renderGalleryState(it: LinkPreviewViewState.Gallery) {
@@ -172,22 +175,40 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         super.onResume()
         val containerView = requireDialog().findViewById<ViewGroup>(R.id.container)
         if (overlayView == null && containerView != null) {
+
             LinkPreviewOverlayView(requireContext()).let {
                 overlayView = it
-                it.callback = OverlayViewCallback()
-                it.setPrimaryButtonText(
+                if (viewModel.fromPlaces) {
+                    it.callback = OverlayViewCallback()
+                    it.setPrimaryButtonText(
                         L10nUtil.getStringForArticleLanguage(
-                                viewModel.pageTitle,
-                                if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page else R.string.button_continue_to_article
+                            viewModel.pageTitle,
+                            if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page else R.string.button_continue_to_article
                         )
-                )
-                it.setSecondaryButtonText(
+                    )
+                    it.setSecondaryButtonText(
                         L10nUtil.getStringForArticleLanguage(
-                                viewModel.pageTitle,
-                                R.string.menu_long_press_open_in_new_tab
+                            viewModel.pageTitle,
+                            R.string.menu_long_press_open_in_new_tab
                         )
-                )
-                it.showTertiaryButton(viewModel.location != null)
+                    )
+                    it.showTertiaryButton(viewModel.location != null)
+                } else {
+                    it.callback = OverlayViewCallback()
+                    it.setPrimaryButtonText(
+                        L10nUtil.getStringForArticleLanguage(
+                            viewModel.pageTitle,
+                            if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page else R.string.button_continue_to_article
+                        )
+                    )
+                    it.setSecondaryButtonText(
+                        L10nUtil.getStringForArticleLanguage(
+                            viewModel.pageTitle,
+                            R.string.menu_long_press_open_in_new_tab
+                        )
+                    )
+                    it.showTertiaryButton(false)
+                }
                 containerView.addView(it)
             }
         }
@@ -304,7 +325,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
 
         override fun onTertiaryClick() {
-            requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), viewModel.pageTitle.wikiSite, viewModel.pageTitle, viewModel.location))
+            // ignore
         }
     }
 
@@ -315,10 +336,15 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     companion object {
         const val ARG_ENTRY = "entry"
         const val ARG_LOCATION = "location"
+        const val ARG_FROM_PLACES = "fromPlaces"
 
         fun newInstance(entry: HistoryEntry, location: Location?, fromPlaces: Boolean = false): LinkPreviewDialog {
             return LinkPreviewDialog().apply {
-                arguments = bundleOf(ARG_ENTRY to entry, ARG_LOCATION to location)
+                arguments = bundleOf(
+                    ARG_ENTRY to entry,
+                    ARG_LOCATION to location,
+                    ARG_FROM_PLACES to fromPlaces
+                )
             }
         }
     }

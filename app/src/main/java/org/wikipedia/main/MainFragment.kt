@@ -7,6 +7,7 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.location.Location
 import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
@@ -57,6 +58,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.readinglist.MoveToReadingListDialog
@@ -431,6 +433,10 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
         ShareUtil.shareText(requireContext(), title)
+    }
+
+    override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
+        startActivity(PlacesActivity.newIntent(requireContext(), title.wikiSite, title, location))
     }
 
     override fun onBackPressed(): Boolean {

@@ -13,7 +13,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.linkpreview.LinkPreviewDialog.Companion.ARG_LOCATION
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
@@ -22,7 +21,8 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     val uiState = _uiState.asStateFlow()
     val historyEntry = bundle.parcelable<HistoryEntry>(LinkPreviewDialog.ARG_ENTRY)!!
     var pageTitle = historyEntry.title
-    val location = bundle.parcelable<Location>(ARG_LOCATION)
+    val location = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LOCATION)
+    val fromPlaces = bundle.getBoolean(LinkPreviewDialog.ARG_FROM_PLACES, false)
 
     init {
         loadContent()
