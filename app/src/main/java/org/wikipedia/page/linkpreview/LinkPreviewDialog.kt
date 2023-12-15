@@ -42,6 +42,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         fun onLinkPreviewCopyLink(title: PageTitle)
         fun onLinkPreviewAddToList(title: PageTitle)
         fun onLinkPreviewShareLink(title: PageTitle)
+        fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?)
     }
 
     private var _binding: DialogLinkPreviewBinding? = null
@@ -66,6 +67,11 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             }
             R.id.menu_link_preview_copy_link -> {
                 callback()?.onLinkPreviewCopyLink(viewModel.pageTitle)
+                dismiss()
+                true
+            }
+            R.id.menu_link_preview_view_on_map -> {
+                callback()?.onLinkPreviewViewOnMap(viewModel.pageTitle, viewModel.location)
                 dismiss()
                 true
             }

@@ -10,4 +10,7 @@
     <item android:id="@+id/menu_link_preview_copy_link"
         android:title="@string/menu_long_press_copy_page"
         />
+    <item android:id="@+id/menu_link_preview_view_on_map"
+        android:title="@string/action_item_view_on_map"
+        />
 </menu>
