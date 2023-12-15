@@ -32,6 +32,7 @@ import org.wikipedia.databinding.ItemSearchResultBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
@@ -245,9 +246,9 @@ class SearchResultsFragment : Fragment() {
                 if (viewModel.invokeSource == Constants.InvokeSource.PLACES) {
                     val resultIntent = Intent()
                     searchResult.coordinates?.let { coordinates ->
-                        resultIntent.putExtra(SearchActivity.EXTRA_DISPLAY_TITLE, searchResult.pageTitle.displayText)
-                        resultIntent.putExtra(SearchActivity.EXTRA_LOCATION, LatLng(coordinates[0].lat, coordinates[0].lon))
-                        resultIntent.putExtra(SearchActivity.EXTRA_LANG_CODE, searchResult.pageTitle.wikiSite.languageCode)
+                        resultIntent.putExtra(PlacesActivity.EXTRA_TITLE, searchResult.pageTitle)
+                        resultIntent.putExtra(PlacesActivity.EXTRA_LOCATION, LatLng(coordinates[0].lat, coordinates[0].lon))
+                        resultIntent.putExtra(PlacesActivity.EXTRA_WIKI, searchResult.pageTitle.wikiSite)
                         requireActivity().setResult(RESULT_OK, resultIntent)
                     }
                     requireActivity().finish()

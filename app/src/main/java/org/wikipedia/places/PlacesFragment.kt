@@ -13,7 +13,6 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
-import android.location.Location
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -114,10 +113,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
 
     private val placesSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
           if (it.resultCode == RESULT_OK) {
-              val location = it.data?.getParcelableExtra<LatLng>(SearchActivity.EXTRA_LOCATION)!!
-              Prefs.placesWikiCode = it.data?.getStringExtra(SearchActivity.EXTRA_LANG_CODE)
+              val location = it.data?.getParcelableExtra<LatLng>(PlacesActivity.EXTRA_LOCATION)!!
+              viewModel.pageTitle = it.data?.getParcelableExtra(PlacesActivity.EXTRA_TITLE)!!
+              Prefs.placesWikiCode = it.data?.getParcelableExtra<WikiSite>(PlacesActivity.EXTRA_WIKI)?.languageCode
                   ?: WikipediaApp.instance.appOrSystemLanguageCode
-              updateSearchText(it.data?.getStringExtra(SearchActivity.EXTRA_DISPLAY_TITLE).orEmpty())
+              updateSearchText(viewModel.pageTitle?.displayText.orEmpty())
               goToLocation(1000, location, 12.0)
               viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
           }
@@ -416,11 +416,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         binding.mapView.postDelayed({
             if (isAdded && haveLocationPermissions()) {
                 mapboxMap?.let {
-                    val targetLocation: LatLng = location
-                        ?: it.locationComponent.lastKnownLocation?.let { loc ->
-                            LatLng(loc.latitude, loc.longitude) }!!
-                        val latLng = LatLng(targetLocation.latitude, targetLocation.longitude)
-                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom))
+                    val currentLocation = it.locationComponent.lastKnownLocation
+                    var currentLatLngLoc: LatLng? = null
+                    currentLocation?.let { loc ->
+                        currentLatLngLoc = LatLng(loc.latitude, loc.longitude)
+                    }
+                    val targetLocation = location ?: currentLatLngLoc
+                    targetLocation?.let { target -> it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom)) }
                 }
             }
         }, delayMillis)
@@ -532,10 +534,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
 
-        fun newInstance(wiki: WikiSite, pageTitle: PageTitle?, location: Location?): PlacesFragment {
+        fun newInstance(pageTitle: PageTitle?, location: LatLng?): PlacesFragment {
             return PlacesFragment().apply {
                 arguments = bundleOf(
-                    PlacesActivity.EXTRA_WIKI to wiki,
                     PlacesActivity.EXTRA_TITLE to pageTitle,
                     PlacesActivity.EXTRA_LOCATION to location
                 )

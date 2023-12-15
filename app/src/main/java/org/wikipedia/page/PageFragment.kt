@@ -33,6 +33,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
+import com.mapbox.mapboxsdk.geometry.LatLng
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -844,8 +845,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     "coordinate" -> {
                         model.page?.let { page ->
                             val location = page.pageProperties.geo
+                            val latLng = LatLng(page.pageProperties.geo?.latitude!!, page.pageProperties.geo?.longitude!!)
                             if (location != null) {
-                                requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title.wikiSite, page.title, location))
+                                requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title.wikiSite, page.title, latLng))
                             } else {
                                 FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
                             }
@@ -1517,8 +1519,9 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         override fun onViewOnMapSelected() {
             title?.let {
                 val location = page?.pageProperties?.geo
+                val latLng = LatLng(page?.pageProperties?.geo?.latitude!!, page?.pageProperties?.geo?.longitude!!)
                 if (location != null) {
-                    requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it.wikiSite, it, location))
+                    requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it.wikiSite, it, latLng))
                 } else {
                     FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
                 }
