@@ -845,8 +845,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     "coordinate" -> {
                         model.page?.let { page ->
                             val location = page.pageProperties.geo
-                            val latLng = LatLng(page.pageProperties.geo?.latitude!!, page.pageProperties.geo?.longitude!!)
                             if (location != null) {
+                                val latLng = LatLng(location.latitude, location.longitude)
                                 requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title, latLng))
                             } else {
                                 FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
@@ -1519,8 +1519,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         override fun onViewOnMapSelected() {
             title?.let {
                 val location = page?.pageProperties?.geo
-                val latLng = LatLng(page?.pageProperties?.geo?.latitude!!, page?.pageProperties?.geo?.longitude!!)
                 if (location != null) {
+                    val latLng = LatLng(location.latitude, location.longitude)
                     requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it, latLng))
                 } else {
                     FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))

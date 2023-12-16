@@ -31,13 +31,13 @@
 
         <TextView
             android:id="@+id/searchTextView"
+            style="@style/P"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="@string/places_search_hint"
-            android:textColor="?attr/secondary_color"
-            android:theme="@style/P" />
+            android:textColor="?attr/secondary_color" />
 
         <ImageView
             android:id="@+id/searchCloseBtn"
