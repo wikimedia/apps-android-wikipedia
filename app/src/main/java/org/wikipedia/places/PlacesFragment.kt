@@ -167,7 +167,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, MapboxMap.O
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
                         val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_PLACES)
-                        ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null, true))
+                        val location = Location("").apply {
+                            latitude = symbol.latLng.latitude
+                            longitude = symbol.latLng.longitude
+                        }
+                        ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, location, true))
                     }
                     true
                 }

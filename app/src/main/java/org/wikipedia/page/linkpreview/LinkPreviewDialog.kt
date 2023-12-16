@@ -205,37 +205,28 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         super.onResume()
         val containerView = requireDialog().findViewById<ViewGroup>(R.id.container)
         if (overlayView == null && containerView != null) {
-
             LinkPreviewOverlayView(requireContext()).let {
                 overlayView = it
                 if (viewModel.fromPlaces) {
-                    it.callback = OverlayViewCallback()
+                    it.callback = OverlayViewPlacesCallback()
                     it.setPrimaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(
-                            viewModel.pageTitle,
-                            if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page else R.string.button_continue_to_article
-                        )
+                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.places_link_preview_dialog_share_button)
                     )
                     it.setSecondaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(
-                            viewModel.pageTitle,
-                            R.string.menu_long_press_open_in_new_tab
-                        )
+                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.places_link_preview_dialog_save_button)
                     )
-                    it.showTertiaryButton(viewModel.location != null)
+                    it.setTertiaryButtonText(
+                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.places_link_preview_dialog_read_button)
+                    )
                 } else {
                     it.callback = OverlayViewCallback()
                     it.setPrimaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(
-                            viewModel.pageTitle,
+                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle,
                             if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page else R.string.button_continue_to_article
                         )
                     )
                     it.setSecondaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(
-                            viewModel.pageTitle,
-                            R.string.menu_long_press_open_in_new_tab
-                        )
+                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.menu_long_press_open_in_new_tab)
                     )
                     it.showTertiaryButton(false)
                 }
@@ -322,14 +313,16 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             ViewUtil.loadImage(binding.linkPreviewThumbnail, it)
         }
         overlayView?.run {
-            setPrimaryButtonText(
+            if (!viewModel.fromPlaces) {
+                setPrimaryButtonText(
                     L10nUtil.getStringForArticleLanguage(
-                            viewModel.pageTitle,
-                            if (contents.isDisambiguation) R.string.button_continue_to_disambiguation
-                            else if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page
-                            else R.string.button_continue_to_article
+                        viewModel.pageTitle,
+                        if (contents.isDisambiguation) R.string.button_continue_to_disambiguation
+                        else if (viewModel.pageTitle.namespace() === Namespace.TALK || viewModel.pageTitle.namespace() === Namespace.USER_TALK) R.string.button_continue_to_talk_page
+                        else R.string.button_continue_to_article
                     )
-            )
+                )
+            }
         }
     }
 
@@ -343,6 +336,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private fun loadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         callback()?.onLinkPreviewLoadPage(title, entry, inNewTab)
+        placesCallback()?.onLinkPreviewLoadPage(title, entry, inNewTab)
     }
 
     private inner class OverlayViewCallback : LinkPreviewOverlayView.Callback {
@@ -356,6 +350,20 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
         override fun onTertiaryClick() {
             // ignore
+        }
+    }
+
+    private inner class OverlayViewPlacesCallback : LinkPreviewOverlayView.Callback {
+        override fun onPrimaryClick() {
+            placesCallback()?.onLinkPreviewShareLink(viewModel.pageTitle)
+        }
+
+        override fun onSecondaryClick() {
+            placesCallback()?.onLinkPreviewAddToList(viewModel.pageTitle)
+        }
+
+        override fun onTertiaryClick() {
+            goToLinkedPage(false)
         }
     }
 

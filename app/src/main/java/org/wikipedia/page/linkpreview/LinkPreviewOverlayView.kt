@@ -47,4 +47,8 @@ class LinkPreviewOverlayView : FrameLayout {
     fun showTertiaryButton(show: Boolean) {
         binding.linkPreviewTertiaryButton.visibility = if (show) VISIBLE else GONE
     }
+
+    fun setTertiaryButtonText(text: CharSequence?) {
+        binding.linkPreviewTertiaryButton.text = text
+    }
 }
