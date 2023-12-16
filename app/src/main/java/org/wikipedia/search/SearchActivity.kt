@@ -27,9 +27,6 @@ class SearchActivity : SingleFragmentActivity<SearchFragment>() {
         const val QUERY_EXTRA = "query"
         const val EXTRA_RETURN_LINK = "returnLink"
         const val EXTRA_RETURN_LINK_TITLE = "returnLinkTitle"
-        const val EXTRA_DISPLAY_TITLE = "searchDisplayTitle"
-        const val EXTRA_LOCATION = "searchResultLocation"
-        const val EXTRA_LANG_CODE = "searchResultLangCode"
         const val RESULT_LINK_SUCCESS = 1
 
         fun newIntent(context: Context, source: InvokeSource, query: String?, returnLink: Boolean = false): Intent {
