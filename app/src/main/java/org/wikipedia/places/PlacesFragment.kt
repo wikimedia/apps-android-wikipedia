@@ -146,7 +146,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         Mapbox.getInstance(requireActivity().applicationContext)
 
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
-        (savedInstanceState?.getParcelable<PageTitle>(PlacesActivity.EXTRA_TITLE))?.let {
+
+        requireArguments().getParcelable<PageTitle>(PlacesActivity.EXTRA_TITLE)?.let {
             Prefs.placesWikiCode = it.wikiSite.languageCode
         }
     }
@@ -207,6 +208,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         val tabsCount = WikipediaApp.instance.tabCount
         binding.searchCard.tabsCountContainer.isVisible = tabsCount != 0
         binding.searchCard.searchTabsCountView.text = tabsCount.toString()
+        if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(Prefs.placesWikiCode)) {
+            Prefs.placesWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
+        }
         binding.searchCard.searchLangCode.text = Prefs.placesWikiCode
         ViewUtil.formatLangButton(binding.searchCard.searchLangCode, Prefs.placesWikiCode,
             SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)

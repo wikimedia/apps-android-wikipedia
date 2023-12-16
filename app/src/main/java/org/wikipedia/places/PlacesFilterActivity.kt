@@ -43,6 +43,10 @@ class PlacesFilterActivity : BaseActivity() {
         }
 
     val addLanguageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        // Check if places wiki language code was deleted
+        if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(Prefs.placesWikiCode)) {
+            Prefs.placesWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
+        }
         binding.placesFiltersRecyclerView.adapter?.notifyDataSetChanged()
         }
 
