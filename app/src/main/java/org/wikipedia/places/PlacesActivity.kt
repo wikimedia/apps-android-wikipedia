@@ -6,12 +6,9 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.WindowManager
 import com.mapbox.mapboxsdk.geometry.LatLng
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleFragmentActivity
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 
 class PlacesActivity : SingleFragmentActivity<PlacesFragment>() {
 
@@ -23,8 +20,6 @@ class PlacesActivity : SingleFragmentActivity<PlacesFragment>() {
         )
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.TRANSPARENT
-        Prefs.placesWikiCode = intent.parcelableExtra<WikiSite>(EXTRA_WIKI)?.languageCode
-            ?: WikipediaApp.instance.appOrSystemLanguageCode
     }
 
     public override fun createFragment(): PlacesFragment {
@@ -32,12 +27,10 @@ class PlacesActivity : SingleFragmentActivity<PlacesFragment>() {
     }
 
     companion object {
-        const val EXTRA_WIKI = "wiki"
         const val EXTRA_TITLE = "pageTitle"
         const val EXTRA_LOCATION = "location"
-        fun newIntent(context: Context, wiki: WikiSite, pageTitle: PageTitle? = null, location: LatLng? = null): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle? = null, location: LatLng? = null): Intent {
             return Intent(context, PlacesActivity::class.java)
-                .putExtra(EXTRA_WIKI, wiki)
                 .putExtra(EXTRA_TITLE, pageTitle)
                 .putExtra(EXTRA_LOCATION, location)
         }

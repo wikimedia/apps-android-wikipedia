@@ -57,7 +57,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentPlacesBinding
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -117,7 +116,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
           if (it.resultCode == RESULT_OK) {
               val location = it.data?.getParcelableExtra<LatLng>(PlacesActivity.EXTRA_LOCATION)!!
               viewModel.pageTitle = it.data?.getParcelableExtra(PlacesActivity.EXTRA_TITLE)!!
-              Prefs.placesWikiCode = it.data?.getParcelableExtra<WikiSite>(PlacesActivity.EXTRA_WIKI)?.languageCode
+              Prefs.placesWikiCode = viewModel.pageTitle?.wikiSite?.languageCode
                   ?: WikipediaApp.instance.appOrSystemLanguageCode
               updateSearchText(viewModel.pageTitle?.displayText.orEmpty())
               goToLocation(1000, location)
@@ -147,6 +146,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         Mapbox.getInstance(requireActivity().applicationContext)
 
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
+        (savedInstanceState?.getParcelable<PageTitle>(PlacesActivity.EXTRA_TITLE))?.let {
+            Prefs.placesWikiCode = it.wikiSite.languageCode
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

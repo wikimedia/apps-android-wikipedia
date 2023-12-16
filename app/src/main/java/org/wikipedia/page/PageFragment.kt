@@ -847,7 +847,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                             val location = page.pageProperties.geo
                             val latLng = LatLng(page.pageProperties.geo?.latitude!!, page.pageProperties.geo?.longitude!!)
                             if (location != null) {
-                                requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title.wikiSite, page.title, latLng))
+                                requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title, latLng))
                             } else {
                                 FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
                             }
@@ -1521,7 +1521,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 val location = page?.pageProperties?.geo
                 val latLng = LatLng(page?.pageProperties?.geo?.latitude!!, page?.pageProperties?.geo?.longitude!!)
                 if (location != null) {
-                    requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it.wikiSite, it, latLng))
+                    requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it, latLng))
                 } else {
                     FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
                 }

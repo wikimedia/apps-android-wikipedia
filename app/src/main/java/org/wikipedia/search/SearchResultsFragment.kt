@@ -248,7 +248,6 @@ class SearchResultsFragment : Fragment() {
                     searchResult.coordinates?.let { coordinates ->
                         resultIntent.putExtra(PlacesActivity.EXTRA_TITLE, searchResult.pageTitle)
                         resultIntent.putExtra(PlacesActivity.EXTRA_LOCATION, LatLng(coordinates[0].lat, coordinates[0].lon))
-                        resultIntent.putExtra(PlacesActivity.EXTRA_WIKI, searchResult.pageTitle.wikiSite)
                         requireActivity().setResult(RESULT_OK, resultIntent)
                     }
                     requireActivity().finish()
