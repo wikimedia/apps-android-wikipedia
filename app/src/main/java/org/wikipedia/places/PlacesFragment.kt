@@ -125,7 +125,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
     }
 
     private val filterLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-
         if (it.resultCode == RESULT_OK) {
               val languageChanged = it.data?.getBooleanExtra(PlacesFilterActivity.EXTRA_LANG_CHANGED, false)!!
             if (languageChanged) {
@@ -204,7 +203,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         placesSearchLauncher.launch(intent, options)
     }
 
-    private fun updateTabsView() {
+    private fun updateSearchCardViews() {
         val tabsCount = WikipediaApp.instance.tabCount
         binding.searchCard.tabsCountContainer.isVisible = tabsCount != 0
         binding.searchCard.searchTabsCountView.text = tabsCount.toString()
@@ -344,7 +343,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
     override fun onResume() {
         super.onResume()
         binding.mapView.onResume()
-        updateTabsView()
+        updateSearchCardViews()
     }
 
     override fun onStop() {
