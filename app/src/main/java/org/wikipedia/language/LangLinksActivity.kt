@@ -2,7 +2,11 @@ package org.wikipedia.language
 
 import android.content.Context
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.view.ActionMode
@@ -20,7 +24,6 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewAnimations
-import java.util.*
 
 class LangLinksActivity : BaseActivity() {
     private lateinit var binding: ActivityLanglinksBinding
@@ -203,13 +206,11 @@ class LangLinksActivity : BaseActivity() {
         fun setFilterText(filterText: String) {
             isSearching = true
             languageEntries.clear()
-            val filter = filterText.lowercase(Locale.getDefault())
             for (entry in originalLanguageEntries) {
                 val languageCode = entry.wikiSite.languageCode
                 val canonicalName = app.languageState.getAppLanguageCanonicalName(languageCode).orEmpty()
                 val localizedName = app.languageState.getAppLanguageLocalizedName(languageCode).orEmpty()
-                if (canonicalName.lowercase(Locale.getDefault()).contains(filter) ||
-                        localizedName.lowercase(Locale.getDefault()).contains(filter)) {
+                if (canonicalName.contains(filterText, true) || localizedName.contains(filterText, true)) {
                     languageEntries.add(entry)
                 }
             }
