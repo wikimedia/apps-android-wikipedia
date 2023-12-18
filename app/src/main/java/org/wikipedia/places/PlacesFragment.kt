@@ -69,6 +69,7 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.TabUtil
 import org.wikipedia.util.log.L
 import kotlin.math.abs
 
@@ -418,7 +419,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, MapboxMap.O
     }
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
-        startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title) else PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
+        if (inNewTab) {
+            TabUtil.openInNewBackgroundTab(entry)
+            // TODO: run animation
+            requireActivity().invalidateOptionsMenu()
+        } else {
+            startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
+        }
     }
 
     override fun onLinkPreviewCopyLink(title: PageTitle) {
