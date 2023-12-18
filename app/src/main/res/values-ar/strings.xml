@@ -46,6 +46,7 @@
 * بدارين
 * ديفيد
 * عبد الإله صديقي
+* علاء
 * محمد أحمد عبد الفتاح
 * مصعب
 -->
@@ -652,7 +653,7 @@
   <string name="notification_syncing_cancel_button">ألغ</string>
   <string name="notification_syncing_reading_list_channel_title">مزامنة قوائم القراءة</string>
   <string name="notification_syncing_reading_list_channel_description">جارٍ تقدم مزامنة قوائم القراءة</string>
-  <string name="notification_many_unread">ليست لديك  %d إشعار غير مقروء</string>
+  <string name="notification_many_unread">لديك  %d إشعارات غير مقروءة</string>
   <plurals name="notification_channel_name">
     <item quantity="zero">جارٍ تنزيل ...</item>
     <item quantity="one">جارٍ تنزيل مقالة واحدة</item>
