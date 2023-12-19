@@ -302,7 +302,7 @@
   <string name="abusefilter_text_disallow">Samodejni filter je to urejanje zaznal kot morda nekonstruktivno ali morebitni vandalizem.&lt;br /&gt;&lt;br /&gt;Wikipedija je enciklopedija, zato spada vanjo samo nepristranska in pomembna vsebina.</string>
   <string name="page_similar_titles">Podobne strani</string>
   <string name="search_did_you_mean">Ali ste mislili \"%s\"?</string>
-  <string name="search_recent_header">Zadnja iskanja</string>
+  <string name="search_recent_header">Nedavna iskanja</string>
   <string name="search_results_count_zero">Ni zadetkov</string>
   <plurals name="search_results_count">
     <item quantity="one">1 zadetek</item>
@@ -310,7 +310,7 @@
     <item quantity="few">%d zadetki</item>
     <item quantity="other">%d zadetkov</item>
   </plurals>
-  <string name="button_clear_all_recent_searches">Počisti zadnja iskanja</string>
+  <string name="button_clear_all_recent_searches">Počisti nedavna iskanja</string>
   <string name="clear_recent_searches_confirm">Ali res želite počistiti svojo zgodovino iskanja?</string>
   <string name="clear_recent_searches_confirm_yes">Da</string>
   <string name="clear_recent_searches_confirm_no">Ne</string>
