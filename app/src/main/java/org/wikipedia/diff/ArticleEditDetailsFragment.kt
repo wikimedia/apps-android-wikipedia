@@ -452,6 +452,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.diffUnavailableContainer.isVisible = false
         binding.thankButton.isVisible = false
         binding.undoButton.isVisible = false
+        binding.olderIdButton.isVisible = false
+        binding.newerIdButton.isVisible = false
         binding.warnButton.isVisible = viewModel.fromRecentEdits
     }
 
@@ -496,6 +498,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
 
+        binding.olderIdButton.isVisible = true
+        binding.newerIdButton.isVisible = true
         setEnableDisableTint(binding.newerIdButton, !viewModel.canGoForward)
         setEnableDisableTint(binding.olderIdButton, viewModel.revisionFromId == 0L)
         binding.newerIdButton.isEnabled = viewModel.canGoForward
