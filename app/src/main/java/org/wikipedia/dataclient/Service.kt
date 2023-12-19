@@ -165,6 +165,7 @@ interface Service {
     suspend fun getRecentEdits(
         @Query("rclimit") count: Int,
         @Query("rcstart") startTimeStamp: String,
+        @Query("rcdir") direction: String?,
         @Query("rctoponly") latestRevisions: String?,
         @Query("rcshow") filters: String?,
         @Query("rccontinue") continueStr: String?
