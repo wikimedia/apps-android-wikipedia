@@ -377,15 +377,16 @@ object EditingSuggestionsProvider {
                 }
 
                 if (cachedItem == null) {
+                    val wikiSite = WikiSite.forLanguageCode(lang)
                     while (this.coroutineContext.isActive) {
                         try {
                             // If we have been reset, then fetch a few *older* changes, so that the user
                             // has a few changes to flip through. Otherwise, start fetching *newer* changes,
                             // starting from the last recorded timestamp.
                             val triple = if (revertCandidateLastRevId == 0L)
-                                SuggestedEditsRecentEditsViewModel.getRecentEditsCall(WikiSite.forLanguageCode(lang),
-                                10, "now", "older", null, mutableListOf())
-                            else SuggestedEditsRecentEditsViewModel.getRecentEditsCall(WikiSite.forLanguageCode(lang),
+                                SuggestedEditsRecentEditsViewModel.getRecentEditsCall(wikiSite,
+                                10, Date().toInstant().toString(), "older", null, mutableListOf())
+                            else SuggestedEditsRecentEditsViewModel.getRecentEditsCall(wikiSite,
                                 10, revertCandidateLastTimeStamp, "newer", null, mutableListOf())
 
                             // Retrieve the list of filtered changes from our filter, but *also* get
