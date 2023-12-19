@@ -471,6 +471,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistEx
     }
 
     override fun onLinkPreviewWatch(title: PageTitle, lastWatchExpiry: WatchlistExpiry, isWatched: Boolean) {
+        viewModel.watchlistExpiryChanged = false
         viewModel.watchOrUnwatch(lastWatchExpiry, isWatched)
         ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
     }
