@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -193,6 +194,15 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         revision = summary.revision
 
         binding.linkPreviewTitle.text = StringUtil.fromHtml(summary.displayTitle)
+        if (viewModel.fromPlaces) {
+            viewModel.location?.let { startLocation ->
+                viewModel.lastKnownLocation?.let { endLocation ->
+                    binding.linkPreviewDistance.isVisible = true
+                    // TODO: get distance unit
+                    binding.linkPreviewDistance.text = startLocation.distanceTo(endLocation).toString()
+                }
+            }
+        }
         showPreview(LinkPreviewContents(summary, viewModel.pageTitle.wikiSite))
     }
 
@@ -379,13 +389,15 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     companion object {
         const val ARG_ENTRY = "entry"
         const val ARG_LOCATION = "location"
+        const val ARG_LAST_KNOWN_LOCATION = "lastKnownLocation"
         const val ARG_FROM_PLACES = "fromPlaces"
 
-        fun newInstance(entry: HistoryEntry, location: Location?, fromPlaces: Boolean = false): LinkPreviewDialog {
+        fun newInstance(entry: HistoryEntry, location: Location?, lastKnownLocation: Location? = null, fromPlaces: Boolean = false): LinkPreviewDialog {
             return LinkPreviewDialog().apply {
                 arguments = bundleOf(
                     ARG_ENTRY to entry,
                     ARG_LOCATION to location,
+                    ARG_LAST_KNOWN_LOCATION to lastKnownLocation,
                     ARG_FROM_PLACES to fromPlaces
                 )
             }

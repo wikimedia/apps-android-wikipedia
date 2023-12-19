@@ -23,6 +23,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     var pageTitle = historyEntry.title
     val location = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LOCATION)
     val fromPlaces = bundle.getBoolean(LinkPreviewDialog.ARG_FROM_PLACES, false)
+    val lastKnownLocation = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LAST_KNOWN_LOCATION)
     var isWatched = false
 
     init {

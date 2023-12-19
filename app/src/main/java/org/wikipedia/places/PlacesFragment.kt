@@ -175,7 +175,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistEx
                             longitude = symbol.latLng.longitude
                         }
                         viewModel.currentMarkerPageTitle = entry.title
-                        ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, location, true))
+                        ExclusiveBottomSheetPresenter.show(childFragmentManager,
+                            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
                     }
                     true
                 }
