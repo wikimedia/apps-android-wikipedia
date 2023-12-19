@@ -706,7 +706,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         sendPatrollerExperienceEvent("feedback_input_impression", "pt_feedback")
         MaterialAlertDialogBuilder(requireActivity())
             .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
-            .setCancelable(false)
             .setView(feedbackView)
             .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
                 viewModel.feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
@@ -723,9 +722,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
         FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, R.string.patroller_diff_feedback_submitted_snackbar)
         sendPatrollerExperienceEvent("feedback_submit_toast", "pt_feedback")
-        binding.root.postDelayed({
+        requireActivity().window.decorView.postDelayed({
             val anchorView = requireActivity().findViewById<View>(R.id.more_options)
-            if (isAdded && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
+            if (!requireActivity().isDestroyed && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
                 sendPatrollerExperienceEvent("tooltip_impression", "pt_feedback")
                 FeedbackUtil.getTooltip(
                     requireActivity(),
