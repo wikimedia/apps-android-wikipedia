@@ -15,7 +15,6 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
-import java.util.Date
 
 class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     private val _uiState = MutableStateFlow<LinkPreviewViewState>(LinkPreviewViewState.Loading)
@@ -53,17 +52,12 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
                 pageTitle.fragment = oldFragment
             }
 
-            _uiState.value = LinkPreviewViewState.Content(summary)
-        }
-    }
+            if (fromPlaces) {
+                val watchStatus = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText).query?.firstPage()
+                isWatched = watchStatus?.watched ?: false
+            }
 
-    fun loadWatchStatus() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            _uiState.value = LinkPreviewViewState.Error(throwable)
-        }) {
-            val watchStatus = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText).query?.firstPage()
-            isWatched = watchStatus?.watched ?: false
-            _uiState.value = LinkPreviewViewState.Watch(isWatched, Date().time)
+            _uiState.value = LinkPreviewViewState.Content(summary)
         }
     }
 

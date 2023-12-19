@@ -125,11 +125,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         _binding = DialogLinkPreviewBinding.inflate(inflater, container, false)
         binding.linkPreviewToolbar.setOnClickListener { goToLinkedPage(false) }
         binding.linkPreviewOverflowButton.setOnClickListener {
-            if (viewModel.fromPlaces) {
-                viewModel.loadWatchStatus()
-            } else {
-                setupOverflowMenu()
-            }
+            setupOverflowMenu()
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
 
@@ -151,9 +147,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                         }
                         is LinkPreviewViewState.Completed -> {
                             binding.linkPreviewProgress.visibility = View.GONE
-                        }
-                        is LinkPreviewViewState.Watch -> {
-                            setupOverflowMenu()
                         }
                     }
                 }
