@@ -56,12 +56,17 @@
         <attr name="background" format="reference" />
         <attr name="showListView" format="boolean" />
         <attr name="dataType" format="string" />
+        <attr name="patrollerTasksButtons" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="DiscreteSeekBar">
         <attr name="min" format="integer" />
         <attr name="tickDrawable" format="reference" />
         <attr name="centerDrawable" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="WikitextKeyboardView">
+        <attr name="headingsEnable" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="WikitextKeyboardButtonView">

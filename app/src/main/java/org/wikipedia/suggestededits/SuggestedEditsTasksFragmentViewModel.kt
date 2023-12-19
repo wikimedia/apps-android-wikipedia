@@ -32,12 +32,18 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
     var totalPageviews = 0L
     var totalContributions = 0
+    var homeContributions = 0
     var latestEditDate = Date()
     var latestEditStreak = 0
     var revertSeverity = 0
 
+    var wikiSupportsImageRecommendations = false
+    // TODO: remove this limitation later.
+    var allowToPatrolEdits = false
+
     fun fetchData() {
         _uiState.value = UiState.Loading()
+        wikiSupportsImageRecommendations = false
 
         if (!AccountUtil.isLoggedIn) {
             _uiState.value = UiState.RequireLogin()
@@ -53,6 +59,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             revertSeverity = 0
 
             val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName, 10, null) }
+            // val homeSiteParamCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getParamInfo("query+growthtasks") }
             val commonsCall = async { ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName, 10, null) }
             val wikidataCall = async { ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName, 10, null) }
             val editCountsCall = async { UserContribStats.verifyEditCountsAndPauseState() }
@@ -62,7 +69,19 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             val wikidataResponse = wikidataCall.await()
             editCountsCall.await()
 
+            // Logic for checking whether the wiki has image recommendations enabled
+            // (in case we need to rely on it in the future)
+            /*
+            homeSiteParamCall.await().paraminfo?.modules?.let {
+                if (it.isNotEmpty() && it[0].parameters.isNotEmpty()) {
+                    imageRecommendationsEnabled = it[0].parameters[0].typeAsEnum.contains("image-recommendation")
+                }
+            }
+             */
+            wikiSupportsImageRecommendations = true
+
             homeSiteResponse.query?.userInfo?.let {
+                allowToPatrolEdits = it.rights.contains("rollback") || it.groups().contains("sysop")
                 if (it.isBlocked) {
                     blockMessageWikipedia = ThrowableUtil.getBlockMessageHtml(it, WikipediaApp.instance.wikiSite)
                 }
@@ -81,6 +100,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             totalContributions += wikidataResponse.query?.userInfo!!.editCount
             totalContributions += commonsResponse.query?.userInfo!!.editCount
             totalContributions += homeSiteResponse.query?.userInfo!!.editCount
+            homeContributions = homeSiteResponse.query?.userInfo!!.editCount
 
             latestEditDate = wikidataResponse.query?.userInfo!!.latestContribDate
 

@@ -25,6 +25,7 @@ import org.wikipedia.databinding.ViewEventsLayoutBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -53,7 +54,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
 
         val topDecorationDp = 24
         val age = requireArguments().getInt(OnThisDayActivity.EXTRA_AGE, 0)
-        wiki = requireArguments().getParcelable(OnThisDayActivity.EXTRA_WIKISITE)!!
+        wiki = requireArguments().parcelable(Constants.ARG_WIKISITE)!!
         invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         date = DateUtil.getDefaultDateFor(age)
         yearOnCardView = requireArguments().getInt(OnThisDayActivity.EXTRA_YEAR, -1)
@@ -294,7 +295,7 @@ class OnThisDayFragment : Fragment(), CustomDatePicker.Callback {
         fun newInstance(age: Int, wikiSite: WikiSite, year: Int, invokeSource: InvokeSource): OnThisDayFragment {
             return OnThisDayFragment().apply {
                 arguments = bundleOf(OnThisDayActivity.EXTRA_AGE to age,
-                    OnThisDayActivity.EXTRA_WIKISITE to wikiSite,
+                    Constants.ARG_WIKISITE to wikiSite,
                     OnThisDayActivity.EXTRA_YEAR to year,
                     Constants.INTENT_EXTRA_INVOKE_SOURCE to invokeSource)
             }

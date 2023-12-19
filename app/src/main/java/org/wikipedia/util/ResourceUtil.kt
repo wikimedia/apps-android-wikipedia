@@ -8,13 +8,11 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
 import android.util.TypedValue
-import android.view.MenuItem
 import androidx.annotation.*
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
 import androidx.core.graphics.drawable.toBitmap
-import androidx.core.view.MenuItemCompat
 
 object ResourceUtil {
     fun bitmapFromVectorDrawable(context: Context, @DrawableRes id: Int, @ColorRes tintColor: Int?): Bitmap {
@@ -59,10 +57,6 @@ object ResourceUtil {
                 .appendPath(res.getResourceTypeName(id))
                 .appendPath(res.getResourceEntryName(id))
                 .build()
-    }
-
-    fun setMenuItemTint(context: Context, item: MenuItem, @AttrRes colorAttr: Int) {
-        MenuItemCompat.setIconTintList(item, getThemedColorStateList(context, colorAttr))
     }
 
     fun colorToCssString(@ColorInt color: Int): String {

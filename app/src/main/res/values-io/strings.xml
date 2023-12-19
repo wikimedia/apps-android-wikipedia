@@ -110,9 +110,8 @@
   <string name="map_view_link_text">Vidar an mapo</string>
   <string name="other_languages_indication_text">Lektar en altra linguo.</string>
   <string name="language_count_link_text">Disponebla per %d altra lingui</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri Uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la legala permiso &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Nur la IP-adreso de vua komputero aparos, ne vua nomo. Se vu facos &lt;a href=\"https://#login\"&gt;\'log in\'&lt;/a&gt;, vu havos plusa privateso.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri Uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la legala permiso &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Nur la IP-adreso de vua komputero aparos, ne vua nomo. Se vu facos &lt;a href=\"https://#login\"&gt;\'log in\'&lt;/a&gt;, vu havos plusa privateso.</string>
   <string name="edit_anon_warning">Vua IP-adreso mencionesos en vua redakturi. Se vu &lt;a href=\"https://#login\"&gt;facos \'\'log in\'\'&lt;/a&gt; vu havos plusa privateso.</string>
   <string name="preference_title_language">Lingui de la Wikipedio</string>
   <string name="langlinks_filter_hint">Serchar</string>
@@ -143,7 +142,7 @@
   <string name="login_password_hint">Pasovorto</string>
   <string name="account_creation_password_hint">pasovorto</string>
   <string name="login_2fa_hint">Two-Factor Authentication Code</string>
-  <string name="login_2fa_other_workflow_error_msg">Bezonas informar tua uzantonomo e pasovorto! Voluntez rikomencar vua agado, uzez la uzantonomo e pasovorto de tua \'token, e probez avanirar.</string>
+  <string name="login_2fa_other_workflow_error_msg">Bezonesas informar tua uzantonomo e pasovorto! Voluntez rikomencar vua agado, uzez la uzantonomo e pasovorto de tua \'token\', e probez avanirar.</string>
   <string name="onboarding_card_login">Enirar</string>
   <string name="page_editing_login">Enirar</string>
   <string name="reading_lists_sync_login">Enirar</string>
@@ -236,8 +235,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Biblioteki uzita</string>
@@ -246,7 +243,7 @@
   <string name="about_translators_heading">Tradukeri</string>
   <string name="about_translators_translatewiki">Ica \'app\' tradukesis da voluntara tradukeri en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenco</string>
-  <string name="about_app_license">Fonto-kodexo disponebla che &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub la Licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ecepte kande kontree mencionata, la kontenajo esas disponebla sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Fonto-kodexo disponebla che &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub la Licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ecepte kande kontree mencionata, la kontenajo esas disponebla sub &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Produkturo del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Pri</string>
   <string name="edit_abandon_confirm">Ca pagino modifikesis. Ka tu fakte deziras ekirar sen salvar tua modifikuri?</string>
@@ -796,7 +793,7 @@
   <string name="description_edit_success_encouragement">Vu plubonigis Wikipedia por omni</string>
   <string name="description_edit_success_done">Facita</string>
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
-  <string name="description_edit_success_article_edit_hint">Vu anke povas redaktar artikli uzanta ca \'\'app\'\'. En altra okaziono, probez korektigar ortografial erori e kurta frazi uzanta ikono ^1</string>
+  <string name="description_edit_success_article_edit_hint">Vu anke povas redaktar artikli uzanta ca \'\'app\'\'. En altra okaziono, probez korektigar ortografial erori e kurta frazi uzante ikono ^1</string>
   <string name="description_edit_tutorial_title_descriptions">Deskripti dil artilko</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Rezumar artiklo por helpar lekteri rapide savar pri quo ol esas</string>
   <string name="description_edit_tutorial_keep_it_short">Mantenez ol kurta</string>
@@ -925,7 +922,7 @@
   <string name="suggested_edits_ip_blocked_title">IP blokusita</string>
   <string name="suggested_edits_last_edited">Lasta redakturo</string>
   <string name="suggested_edits_last_edited_never">Nultempe</string>
-  <string name="suggested_edits_task_new">nova</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nova</string>
   <string name="suggested_edits_cc0_notice">Publikiganta l\'artiklo, vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termo pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub permiso &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Redakturi sugestita</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Danko por redaktar che Wikipedio! Pro quo ne durigar de ube vu cesis?</string>
@@ -984,7 +981,7 @@
   <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">Saltar</string>
   <string name="onboarding_continue">Durar</string>
-  <string name="onboarding_get_started">Por komencar</string>
+  <string name="onboarding_get_started">Komencanta</string>
   <string name="onboarding_maybe_later">Posible pose</string>
   <string name="onboarding_explore_title">Nova formi por explorar</string>
   <string name="onboarding_reading_list_sync_title">Lektar listi uzanta sinkronigo</string>
@@ -1144,9 +1141,9 @@
   <string name="revision_diff_line_removed">Lineo efacita</string>
   <string name="revision_diff_paragraph_added">Paragrafo adjuntita</string>
   <string name="revision_diff_paragraph_removed">Paragrafo efacita</string>
-  <string name="revision_undo_title">Desfacez redakturo</string>
-  <string name="revision_undo_message">To desfacos la modifikuri facita dal revizero o revizeri dil artiklo montrata hike.</string>
-  <string name="revision_undo_reason">Por durar, informez motivo por desfacar ca redakturo:</string>
+  <string name="revision_undo_title" fuzzy="true">Desfacez redakturo</string>
+  <string name="revision_undo_message" fuzzy="true">To desfacos la modifikuri facita dal revizero o revizeri dil artiklo montrata hike.</string>
+  <string name="revision_undo_reason" fuzzy="true">Por durar, informez motivo por desfacar ca redakturo:</string>
   <string name="revision_undo_success">La revizo desfacesis.</string>
   <string name="revision_compare_button">Komparez</string>
   <string name="revision_compare_two_only">Nur du revizi povas selektesar.</string>

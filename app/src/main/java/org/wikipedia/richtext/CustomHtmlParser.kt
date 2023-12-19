@@ -10,7 +10,10 @@ import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.Html.ImageGetter
 import android.text.Html.TagHandler
+import android.text.Spannable
 import android.text.Spanned
+import android.text.style.LeadingMarginSpan
+import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
 import android.widget.TextView
 import androidx.core.graphics.applyCanvas
@@ -21,7 +24,6 @@ import androidx.core.text.toSpanned
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import org.wikipedia.R
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.DimenUtil
@@ -107,6 +109,9 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
 
     class CustomTagHandler(private val view: TextView?) : TagHandler {
         private var lastAClass = ""
+        private var listItemCount = 0
+        private val listParents = mutableListOf<String>()
+        private val leadingMarginSize = DimenUtil.dpToPx(16f).toInt()
 
         override fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean {
             if (tag == "img" && view == null) {
@@ -162,7 +167,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
             } else if (tag == "a") {
                 if (opening) {
                     lastAClass = getValue(attributes, "class").orEmpty()
-                } else if (output != null && output.isNotEmpty()) {
+                } else if (!output.isNullOrEmpty()) {
                     val spans = output.getSpans<URLSpan>(output.length - 1)
                     if (spans.isNotEmpty()) {
                         val span = spans.last()
@@ -173,8 +178,47 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                         output.setSpan(URLSpanNoUnderline(span.url, color), start, end, 0)
                     }
                 }
+            } else if (tag == "code" && output != null) {
+                if (opening) {
+                    output.setSpan(TypefaceSpan("monospace"), output.length, output.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                } else {
+                    val spans = output.getSpans<TypefaceSpan>(output.length)
+                    if (spans.isNotEmpty()) {
+                        val span = spans.last()
+                        val start = output.getSpanStart(span)
+                        output.removeSpan(span)
+                        output.setSpan(TypefaceSpan("monospace"), start, output.length, 0)
+                    }
+                }
+            } else if (tag == "ol") {
+                if (opening) {
+                    listParents.add(tag)
+                } else {
+                    listParents.remove(tag)
+                }
+                listItemCount = 0
+            } else if (tag == "li" && listParents.isNotEmpty() && !opening && output != null) {
+                handleListTag(output)
             }
             return false
+        }
+
+        private fun handleListTag(output: Editable) {
+            if (listParents.last() == "ol") {
+                listItemCount++
+                val split = output.split("\n").filter { it.isNotEmpty() }
+                val start = output.length - split.last().length - 1
+                val replaceStr = "$listItemCount. ${split.last()}"
+                output.replace(start - 1, output.length - 1, replaceStr)
+
+                val spans = output.getSpans<LeadingMarginSpan>(output.length)
+                if (spans.isNotEmpty()) {
+                    val span = spans.last()
+                    val startSpan = output.getSpanStart(span)
+                    output.removeSpan(span)
+                    output.setSpan(LeadingMarginSpan.Standard(leadingMarginSize * listParents.size), startSpan, output.length, 0)
+                }
+            }
         }
     }
 

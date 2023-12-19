@@ -103,9 +103,8 @@
   <string name="map_view_link_text">Varda in su \'na mappa</string>
   <string name="other_languages_indication_text">Lensg in d\'un\'altra lengua</string>
   <string name="language_count_link_text">Disponibil in alter %d lengue</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Cont el publicà, te acetet i noster &lt;a href=\"%1$s\"&gt;condizzion d\'utilizzazion&lt;/a&gt; e te acetet de dà la toa contribuzzion a la definitiva sota la licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">A publicà, te acetet i noster &lt;a href=\"%1$s\"&gt;condizzion d\'utilizzazion&lt;/a&gt; e te acetet de da la toa contribuzzion a la definitiva sota la &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. I modifiche i ghe sarann atribuid a l\'adress IP del to dispositif. Se &lt;a href=\"https://#login\"&gt;te se autentichet&lt;/a&gt; te gh\'avaret pussée de riservatezza.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Cont el publicà, te acetet i noster &lt;a href=\"%1$s\"&gt;condizzion d\'utilizzazion&lt;/a&gt; e te acetet de dà la toa contribuzzion a la definitiva sota la licenza &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">A publicà, te acetet i noster &lt;a href=\"%1$s\"&gt;condizzion d\'utilizzazion&lt;/a&gt; e te acetet de da la toa contribuzzion a la definitiva sota la &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. I modifiche i ghe sarann atribuid a l\'adress IP del to dispositif. Se &lt;a href=\"https://#login\"&gt;te se autentichet&lt;/a&gt; te gh\'avaret pussée de riservatezza.</string>
   <string name="edit_anon_warning">I  modifeghe a ghe sarann atribuide a l\'adree IP del tò dispositiv. Se &lt;a href=\"https://#login\"&gt;te veet denter&lt;/a&gt;, te gh\'havareet pussee de riservatezza.</string>
   <string name="preference_title_language">Lengov de la Wikipedia</string>
   <string name="langlinks_filter_hint">Cerca</string>
@@ -229,8 +228,6 @@
   <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/lmo</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Jut:Come_registràss</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Librerie doprade</string>
@@ -239,7 +236,7 @@
   <string name="about_translators_heading">Tradutor</string>
   <string name="about_translators_translatewiki">Questa applicazzion chì l\'è stada tradotta de tradutor volontari in su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license">Codes sorgent disponibil in su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se l\'è minga diversament specificad, el contegnud l\'è disponibil sota la licenza &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Atribuzzion-Spartiss a l\'istessa manera&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Codes sorgent disponibil in su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sota la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se l\'è minga diversament specificad, el contegnud l\'è disponibil sota la licenza &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Atribuzzion-Spartiss a l\'istessa manera&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodot de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazzion</string>
   <string name="edit_abandon_confirm">La pagina l\'è stada modificada. Te see sicur che te voeuret sortì senza salvà i cambiament?</string>

@@ -5,13 +5,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
+import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 
 class ArchivedTalkPagesViewModel(bundle: Bundle) : ViewModel() {
-
-    val pageTitle = bundle.getParcelable<PageTitle>(ArchivedTalkPagesActivity.EXTRA_TITLE)!!
+    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     val archivedTalkPagesFlow = Pager(PagingConfig(pageSize = 10)) {
         ArchivedTalkPagesPagingSource(pageTitle)
     }.flow.cachedIn(viewModelScope)

@@ -23,46 +23,52 @@
                 android:icon="@drawable/ic_translate_white_24dp"
                 android:title="@string/langlinks_activity_title"
                 android:visible="false"
-                app:iconTint="?attr/primary_color"
+                app:iconTint="?attr/secondary_color"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_view_user_page"
                 android:icon="@drawable/ic_user_avatar"
                 android:title="@string/menu_option_user_page"
                 android:visible="false"
-                app:iconTint="?attr/primary_color"
+                app:iconTint="?attr/secondary_color"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_view_edit_history"
                 android:icon="@drawable/ic_icon_revision_history_apps"
                 android:title="@string/menu_page_edit_history"
-                app:iconTint="?attr/primary_color"
+                app:iconTint="?attr/secondary_color"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_read_article"
                 android:icon="@drawable/ic_article_ltr_ooui"
                 android:title="@string/button_continue_to_article"
                 android:visible="false"
-                app:iconTint="?attr/primary_color"
+                app:iconTint="?attr/secondary_color"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_watch"
                 android:icon="@drawable/ic_star_24"
                 android:title="@string/menu_page_watch"
                 android:visible="false"
-                app:iconTint="?attr/primary_color"
+                app:iconTint="?attr/secondary_color"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_talk_topic_share"
                 android:icon="@drawable/ic_share"
                 android:title="@string/menu_page_article_share"
-                app:iconTint="?attr/primary_color"
+                app:iconTint="?attr/secondary_color"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/menu_archive"
                 android:icon="@drawable/ic_baseline_archive_24"
                 android:title="@string/menu_page_archive"
-                app:iconTint="?attr/primary_color"
+                app:iconTint="?attr/secondary_color"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/menu_edit_source"
+                android:icon="@drawable/ic_mode_edit_white_24dp"
+                android:title="@string/menu_option_edit_source"
+                app:iconTint="?attr/secondary_color"
                 app:showAsAction="never" />
         </menu>
     </item>

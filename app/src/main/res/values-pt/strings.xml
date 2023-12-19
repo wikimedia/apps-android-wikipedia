@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Athena in Wonderland
+* Caiofernandes
 * CaiusSPQR
 * Dbrant
 * Eduardo Addad de Oliveira
@@ -126,9 +128,8 @@
   <string name="map_view_link_text">Ver num mapa</string>
   <string name="other_languages_indication_text">Ler noutra língua</string>
   <string name="language_count_link_text">Disponível noutras %d línguas</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de Utilização&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de Utilização&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar uma sessão&lt;/a&gt; terá mais privacidade.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de Utilização&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Condições de Utilização&lt;/a&gt;, e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. As edições serão atribuídas ao endereço IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar uma sessão&lt;/a&gt; terá mais privacidade.</string>
   <string name="edit_anon_warning">As suas edições serão atribuídas ao endereço IP do seu dispositivo. Se &lt;a href=\"https://#login\"&gt;iniciar uma sessão&lt;/a&gt; terá mais privacidade.</string>
   <string name="preference_title_language">Línguas da Wikipédia</string>
   <string name="langlinks_filter_hint">Pesquisar</string>
@@ -254,7 +255,7 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt</string>
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -264,7 +265,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicação foi traduzida pelos tradutores voluntários da &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licença Creative Commons - Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Código fonte disponível no &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e no &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; nos termos da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licença Apache 2.0&lt;/a&gt;. Salvo indicação em contrário, o conteúdo está disponível nos termos da &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;licença Creative Commons - Atribuição-CompartilhaIgual&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem gravar as suas alterações?</string>
@@ -956,7 +957,7 @@
   <string name="suggested_edits_ip_blocked_title">IP bloqueado</string>
   <string name="suggested_edits_last_edited">Última edição</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
-  <string name="suggested_edits_task_new">nova</string>
+  <string name="suggested_edits_task_new" fuzzy="true">nova</string>
   <string name="suggested_edits_cc0_notice">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;condições de utilização&lt;/a&gt; e em publicar irrevogavelmente esta contribuição ao abrigo da &lt;a href=\"%2$s\"&gt;licença CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Edições sugeridas</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Obrigado por editar a Wikipédia! Porque não continuar de onde parou?</string>
@@ -1001,6 +1002,31 @@
     <item quantity="one">Adicionou %d carácter</item>
     <item quantity="other">Adicionou %d caracteres</item>
   </plurals>
+  <string name="suggested_edits_image_recommendations_task_detail">Adicione imagens sugeridas a artigos da Wikipédia para melhorar a compreensão</string>
+  <string name="image_recommendation_task_instruction">Você adicionaria esta imagem ao artigo?</string>
+  <string name="image_recommendation_tutorial">Tutorial</string>
+  <string name="image_recommendation_accept">Sim</string>
+  <string name="image_recommendation_reject_title">Por que não?</string>
+  <string name="image_recommendation_reject_subtitle">Sua resposta pode melhorar sugestões futuras.</string>
+  <string name="image_recommendation_reject_not_relevant">A imagem não é relevante</string>
+  <string name="image_recommendation_reject_no_info">Não há informações suficientes para decidir</string>
+  <string name="image_recommendation_reject_offensive">A imagem é ofensiva</string>
+  <string name="image_recommendation_reject_low_quality">A imagem tem baixa qualidade</string>
+  <string name="image_recommendation_reject_dont_know">Não entendo desse assunto</string>
+  <string name="image_recommendation_reject_other">Outra opção</string>
+  <string name="image_recommendation_reject_submit">Enviar</string>
+  <string name="image_recommendation_onboarding_1">As imagens ajudam as pessoas a entender melhor, mas muitos artigos não as têm.</string>
+  <string name="image_recommendation_onboarding_2">Você decidirá se uma imagem sugerida deve ser colocada em um artigo da Wikipédia.</string>
+  <string name="image_recommendation_onboarding_3">As sugestões são geradas por inteligência artificial, e você usará seu critério para decidir aceitá-las ou rejeitá-las.</string>
+  <string name="image_recommendation_onboarding_4">Examine este artigo para entender melhor o assunto</string>
+  <string name="image_recommendation_tooltip_1">Examine este artigo para entender melhor o assunto</string>
+  <string name="image_recommendation_tooltip_2">Analise a imagem e as informações associadas</string>
+  <string name="image_recommendation_tooltip_3">Decida se a imagem ajuda os leitores a entender melhor o assunto.</string>
+  <string name="image_recommendation_tooltip_next">Avançar</string>
+  <string name="image_recommendation_tooltip_warning">Examine o artigo para entender melhor o assunto e analise a imagem</string>
+  <string name="edit_summary_added_image">Imagem adicionada</string>
+  <string name="edit_summary_added_caption">Legenda adicionada</string>
+  <string name="edit_published_view">Visualizar</string>
   <string name="file_page_activity_title">Página do ficheiro</string>
   <string name="file_page_add_image_caption_button">Adicionar legenda à imagem</string>
   <string name="file_page_add_image_tags_button">Adicionar etiquetas de imagens</string>
@@ -1099,12 +1125,12 @@
   <string name="insert_media_title">Inserir multimédia</string>
   <string name="insert_media_search_description">Selecionar um ficheiro da wiki Wikimedia Commons</string>
   <string name="insert_media_search_hint">Procurar multimédia</string>
-  <string name="insert_media_settings">Configurações multimédia</string>
+  <string name="insert_media_settings" fuzzy="true">Configurações multimédia</string>
   <string name="insert_media_settings_uploaded_image">Imagem carregada</string>
-  <string name="insert_media_settings_caption">Legenda</string>
-  <string name="insert_media_settings_caption_description">Descrição que aparece ao lado do elemento para todos os leitores</string>
+  <string name="insert_media_settings_caption" fuzzy="true">Legenda</string>
+  <string name="insert_media_settings_caption_description" fuzzy="true">Descrição que aparece ao lado do elemento para todos os leitores</string>
   <string name="insert_media_settings_alternative_text">Texto alternativo</string>
-  <string name="insert_media_settings_alternative_text_description">Descrição em texto para leitores que não podem ver a imagem</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">Descrição em texto para leitores que não podem ver a imagem</string>
   <string name="insert_media_advanced_settings">Configurações avançadas</string>
   <string name="insert_media_advanced_settings_wrap_image">Dispor o texto em torno da imagem</string>
   <string name="insert_media_advanced_settings_image_position">Posição da imagem</string>
@@ -1226,9 +1252,9 @@
   <string name="revision_diff_line_removed">Linha removida</string>
   <string name="revision_diff_paragraph_added">Parágrafo acrescentado</string>
   <string name="revision_diff_paragraph_removed">Parágrafo removido</string>
-  <string name="revision_undo_title">Desfazer edição</string>
-  <string name="revision_undo_message">Esta operação irá desfazer as mudanças realizadas pelas revisões do artigo que são mostradas aqui.</string>
-  <string name="revision_undo_reason">Para continuar, por favor forneça um motivo para desfazer esta edição:</string>
+  <string name="revision_undo_title" fuzzy="true">Desfazer edição</string>
+  <string name="revision_undo_message" fuzzy="true">Esta operação irá desfazer as mudanças realizadas pelas revisões do artigo que são mostradas aqui.</string>
+  <string name="revision_undo_reason" fuzzy="true">Para continuar, por favor forneça um motivo para desfazer esta edição:</string>
   <string name="revision_undo_success">A revisão foi desfeita.</string>
   <string name="revision_rollback_dialog_title">Tem a certeza de que deseja reverter as edições?</string>
   <string name="revision_rollback_success">Edições revertidas.</string>
@@ -1292,4 +1318,13 @@
   <string name="reading_list_share_message_v2">Olá! Gostaria de partilhar a minha lista de leitura da Wikipédia consigo:</string>
   <string name="reading_list_share_survey_title">Podia ajudar-nos a melhorar \"Partilhar listas de leitura\"?</string>
   <string name="reading_list_share_survey_body">Partilhar listas de leitura é uma funcionalidade em testes e precisamos dos seus comentários para melhorá-la ou removê-la.</string>
+  <string name="talk_templates_menu_remove_message">Apagar mensagem</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Tem certeza de que deseja excluir a mensagem da lista?</item>
+    <item quantity="other">Tem certeza de que deseja excluir as mensagens da lista?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">A mensagem foi excluída</item>
+    <item quantity="other">As mensagens foram excluídas</item>
+  </plurals>
 </resources>

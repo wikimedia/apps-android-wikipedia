@@ -96,7 +96,6 @@
             android:name=".page.PageActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme"
             android:launchMode="singleTask"
             android:parentActivityName=".main.MainActivity"
             android:exported="true">
@@ -138,8 +137,7 @@
             android:label="@string/about_activity_title"
             android:theme="@style/AppTheme.ActionBar" />
         <activity android:name=".settings.languages.WikipediaLanguagesActivity"
-            android:label="@string/wikipedia_languages_title"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:label="@string/wikipedia_languages_title"/>
         <activity
             android:name=".language.LangLinksActivity"
             android:label="@string/langlinks_activity_title"
@@ -153,11 +151,9 @@
         <activity
             android:name=".suggestededits.SuggestionsActivity"
             android:launchMode="singleTask"
-            android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".edit.EditSectionActivity"
-            android:theme="@style/AppTheme.ActionBar"
             android:windowSoftInputMode="adjustResize|stateVisible"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
@@ -241,8 +237,7 @@
             android:configChanges="orientation|screenSize"/>
 
         <activity android:name=".feed.configure.ConfigureActivity"
-            android:label="@string/feed_configure_activity_title"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:label="@string/feed_configure_activity_title"/>
 
         <activity android:name=".random.RandomActivity"
             android:label="@string/view_random_card_title"
@@ -255,19 +250,20 @@
         <activity
             android:name=".notifications.NotificationActivity"
             android:label="@string/notifications_activity_title"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
-            android:theme="@style/AppTheme" />
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity
             android:name=".page.tabs.TabActivity"
-            android:label="@string/tabs_activity_title"
-            android:theme="@style/AppTheme" />
+            android:label="@string/tabs_activity_title" />
 
         <activity
-            android:name=".categories.CategoryActivity"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:name=".categories.CategoryActivity" />
 
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
+
+        <activity android:name=".suggestededits.SuggestedEditsImageRecsOnboardingActivity" />
+
+        <activity android:name=".suggestededits.SuggestedEditsRecentEditsOnboardingActivity" />
 
         <activity
             android:name=".watchlist.WatchlistActivity"
@@ -284,14 +280,21 @@
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
+            android:name=".suggestededits.SuggestedEditsRecentEditsActivity"/>
+
+        <activity
+            android:name=".suggestededits.SuggestedEditsRecentEditsFilterActivity"
+            android:label="@string/patroller_tasks_filters_title"
+            android:theme="@style/AppTheme.ActionBar"/>
+
+        <activity
             android:name=".commons.FilePageActivity"
             android:label=""
             android:theme="@style/AppTheme.ActionBar"/>
 
         <activity
             android:name=".talk.TalkTopicsActivity"
-            android:label=""
-            android:theme="@style/AppTheme" />
+            android:label="" />
 
         <activity
             android:name=".talk.TalkTopicActivity" />
@@ -306,6 +309,10 @@
             android:name=".diff.ArticleEditDetailsActivity" />
 
         <activity
+            android:name=".activity.SingleWebViewActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
             android:name=".page.customize.CustomizeToolbarActivity"
             android:label="@string/customize_toolbar_title"
             android:theme="@style/AppTheme.ActionBar"/>
@@ -317,12 +324,10 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity
-            android:name=".page.edithistory.EditHistoryListActivity"
-            android:theme="@style/AppTheme" />
+            android:name=".page.edithistory.EditHistoryListActivity" />
 
         <activity
-            android:name=".usercontrib.UserContribListActivity"
-            android:theme="@style/AppTheme" />
+            android:name=".usercontrib.UserContribListActivity" />
 
         <activity
             android:name=".usercontrib.UserContribFilterActivity"
@@ -331,7 +336,17 @@
             
         <activity
             android:name=".edit.insertmedia.InsertMediaActivity"
-            android:label="@string/insert_media_title"/>
+            android:label="@string/insert_media_title"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+
+        <activity
+            android:name=".talk.template.TalkTemplatesActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".talk.template.AddTemplateActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
 
         <provider
             android:name=".WikipediaFileProvider"

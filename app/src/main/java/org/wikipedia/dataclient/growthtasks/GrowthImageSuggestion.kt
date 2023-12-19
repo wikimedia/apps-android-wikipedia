@@ -1,5 +1,7 @@
 package org.wikipedia.dataclient.growthtasks
 
+import kotlinx.serialization.EncodeDefault
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
 
 @Suppress("unused")
@@ -8,7 +10,7 @@ class GrowthImageSuggestion(
     val titleNamespace: Int = 0,
     val titleText: String = "",
     val datasetId: String = "",
-    val images: List<ImageItem> = emptyList(),
+    val images: List<ImageItem> = emptyList()
 ) {
     @Serializable
     class ImageItem(
@@ -16,7 +18,7 @@ class GrowthImageSuggestion(
         val displayFilename: String = "",
         val source: String = "",
         val projects: List<String> = emptyList(),
-        val metadata: ImageMetadata? = null,
+        val metadata: ImageMetadata? = null
     )
 
     @Serializable
@@ -34,6 +36,19 @@ class GrowthImageSuggestion(
         val caption: String = "",
         val categories: List<String> = emptyList(),
         val reason: String = "",
-        val contentLanguageName: String = "",
+        val contentLanguageName: String = ""
+    )
+
+    @Serializable
+    @OptIn(ExperimentalSerializationApi::class)
+    class AddImageFeedbackBody constructor(
+        val token: String = "",
+        val editRevId: Long = 0,
+        val filename: String = "",
+        @EncodeDefault(EncodeDefault.Mode.ALWAYS) val accepted: Boolean = false,
+        @EncodeDefault(EncodeDefault.Mode.ALWAYS) val reasons: List<String> = emptyList(),
+        @EncodeDefault(EncodeDefault.Mode.ALWAYS) val caption: String? = null,
+        @EncodeDefault(EncodeDefault.Mode.ALWAYS) val sectionTitle: String? = null,
+        @EncodeDefault(EncodeDefault.Mode.ALWAYS) val sectionNumber: Int? = null
     )
 }

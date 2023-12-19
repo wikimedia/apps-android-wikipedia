@@ -19,6 +19,9 @@
     <string name="preference_key_announcement_ignore_date">announcementIgnoreDate</string>
     <string name="preference_key_announcement_version_code">announcementVersionCode</string>
     <string name="preference_key_announcement_shown_dialogs">announcementShownDialogs</string>
+    <string name="preference_key_announcement_pause_time">announcementPauseTime</string>
+    <string name="preference_key_announcement_debug_url">announcementDebugUrl</string>
+    <string name="preference_key_announcement_custom_tab_test_url">announcementCustomTabTestUrl</string>
     <string name="preference_key_restbase_uri_format">RESTBaseUriFormat</string>
     <string name="preference_key_mediawiki_base_uri">mediaWikiBaseUri</string>
     <string name="preference_key_mediawiki_base_uri_supports_lang_code">mediaWikiBaseUriSupportsLangCode</string>
@@ -86,7 +89,6 @@
     <string name="preference_key_show_remove_chinese_variant_prompt">showRemoveChineseVariantPrompt</string>
     <string name="preference_key_download_only_over_wifi">downloadOnlyOverWiFi</string>
     <string name="preference_key_download_reading_list_articles">downloadReadingListArticles</string>
-    <string name="preference_key_locally_known_notifications">locallyKnownNotifications</string>
     <string name="preference_key_remote_notifications_seen_time">remoteNotificationsSeenTime</string>
     <string name="preference_key_save_count_reading_lists">saveCountReadingLists</string>
     <string name="preference_key_history_offline_articles_toast">historyOfflineArticlesToast</string>
@@ -159,7 +161,13 @@
     <string name="preference_key_reading_lists_recent_receive_id">readingListRecentReceiveId</string>
     <string name="preference_key_se_machine_generated_descriptions_tooltip_shown">seMachineGeneratedDescriptionsTooltipShown</string>
     <string name="preference_key_se_machine_generated_descriptions_is_experienced">seMachineGeneratedDescriptionsIsExperienced</string>
+    <string name="preference_key_se_image_recs_onboarding_shown">seImageRecsOnboardingShown</string>
     <string name="preference_key_excluded_wiki_codes_watchlist">filterWatchlistExcludedWikiCodes</string>
     <string name="preference_key_included_type_codes_watchlist">filterWatchlistIncludedTypeCodesV2</string>
     <string name="preference_key_event_platform_queue_size">eventPlatformQueueSize</string>
+    <string name="preference_key_recent_edits_wiki_code">filterRecentEditsWikiCode</string>
+    <string name="preference_key_recent_edits_included_type_codes">filterRecentEditsIncludedTypeCodes</string>
+    <string name="preference_key_recent_edits_onboarding_shown">recentEditsOnboardingShown</string>
+    <string name="preference_key_show_sequential_recent_edits_diff_tooltip">showSequentialRecentEditsDiffTooltip</string>
+    <string name="preference_key_show_recent_edits_feedback_form">showRecentEditsFeedbackForm</string>
 </resources>

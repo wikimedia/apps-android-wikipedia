@@ -180,7 +180,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 true
             }
             R.id.menu_edit_source -> {
-                requestEditSource.launch(EditSectionActivity.newIntent(this, viewModel.sectionId, null, viewModel.pageTitle))
+                requestEditSource.launch(EditSectionActivity.newIntent(this, viewModel.sectionId, null,
+                    viewModel.pageTitle, Constants.InvokeSource.TALK_TOPIC_ACTIVITY))
                 true
             }
             R.id.menu_talk_topic_expand -> {
@@ -448,7 +449,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     companion object {
-        const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_TOPIC_NAME = "topicName"
         const val EXTRA_TOPIC_ID = "topicId"
         const val EXTRA_REPLY_ID = "replyId"
@@ -462,7 +462,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                       searchQuery: String?,
                       invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TalkTopicActivity::class.java)
-                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                    .putExtra(Constants.ARG_TITLE, pageTitle)
                     .putExtra(EXTRA_TOPIC_NAME, topicName)
                     .putExtra(EXTRA_TOPIC_ID, topicId)
                     .putExtra(EXTRA_REPLY_ID, replyId)

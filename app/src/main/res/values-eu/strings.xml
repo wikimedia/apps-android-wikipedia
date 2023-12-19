@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Alexgabi
 * Amaia
+* Amire80
 * An13sa
 * Asierog
+* Atzerritik
 * EukeneFL
 * Fitoschido
 * Gorkaazk
+* Izendegi
 * Iñaki LL
 * Joseba
 * Mikel Ibaiba
@@ -46,7 +50,12 @@
   <string name="history_item_delete_undo">Desegin</string>
   <string name="notification_archive_undo">Desegin</string>
   <string name="app_settings">App ezarpenak</string>
+  <string name="search_tab_tooltip">Sakatu berriro ikonoa bilaketa-termino bat idazten hasteko.</string>
   <string name="history_list_title">Historia</string>
+  <string name="image_content_description">Irudia: %s</string>
+  <string name="page_content_description">Orria: %s</string>
+  <string name="wikimedia_commons">Wikimedia Commons</string>
+  <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Garbitu nabigatze-historia</string>
   <string name="dialog_message_clear_history">Honek zure arakatze-historia guztia ezabatuko du eta uneko irekitako fitxak itxi egingo dira. Ziur zaude?</string>
   <string name="dialog_message_clear_history_yes">Bai</string>
@@ -54,14 +63,20 @@
   <string name="share_via">Partekatu honela</string>
   <string name="image_share_via">Partekatu honela</string>
   <string name="search_redirect_from">%s horretatik birzuzenduta</string>
+  <string name="page_edit_history_activity_title">Berrikuspenen historia: %s</string>
+  <string name="page_edit_history_comment_placeholder">Hutsik editatu laburpena</string>
   <string name="menu_page_show_tabs">Fitxak erakutsi</string>
   <string name="menu_page_other_languages">Hizkuntza aldatu</string>
   <string name="menu_page_find_in_page">Aurkitu artikuluan</string>
   <string name="menu_page_add_to_watchlist">Jarraipen zerrendara gehitu</string>
+  <string name="menu_page_watch">Ikusi</string>
+  <string name="menu_page_unwatch">Ezikusi</string>
   <string name="menu_page_view_talk">Eztabaida orria ikusi</string>
+  <string name="menu_page_talk_page">Eztabaida-orria</string>
   <string name="menu_page_view_edit_history">Aldaketen historia ikusi</string>
   <string name="menu_page_edit_history">Aldaketen historia</string>
   <string name="menu_page_remove_from_watchlist">Jarraipen zerrendatik kendu</string>
+  <string name="menu_page_watched">Ikusita</string>
   <string name="edit_section_find_in_page">Orrialdean bilatu</string>
   <string name="menu_page_font_and_theme">Letra eta gaia</string>
   <string name="menu_page_add_to_list">Gehitu irakurketa zerrendara</string>
@@ -69,6 +84,7 @@
   <string name="feed_card_add_to_list">Gehitu irakurketa zerrendara</string>
   <string name="feed_card_add_to_default_list">Gorde</string>
   <string name="menu_page_share">Partekatu esteka</string>
+  <string name="menu_page_article_share">Partekatu</string>
   <string name="menu_page_open_a_new_tab">Ireki leiho berria</string>
   <string name="menu_page_new_tab">Fitxa berria</string>
   <string name="menu_page_reading_lists">Irakurketa zerrendak</string>
@@ -80,15 +96,15 @@
   <string name="on_this_day_page_share">Partekatu</string>
   <string name="reading_list_page_share">Partekatu</string>
   <string name="menu_text_select_edit_here">Editatu hementxe</string>
+  <string name="menu_edit_article">Editatu artikulua</string>
   <string name="last_updated_text">Azken eguneratzea %s</string>
   <string name="talk_page_link_text">Eztabaida orria ikusi</string>
   <string name="edit_history_link_text">Aldaketen historia ikusi</string>
   <string name="map_view_link_text">Ikusi mapan</string>
   <string name="other_languages_indication_text">Irakurri beste hizkuntza batean</string>
   <string name="language_count_link_text">Irakurgarri beste %d hizkuntzatan</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Gordetzen baduzu &lt;a href=\"%1$s\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
-  <string name="edit_save_action_license_anon">Aurreztuz, &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; onartuko duzu, eta ezinbestez zure ekarpenak askatu beharko dituzu &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; lizentziaren babespean. Aldaketak zure gailuaren IP helbideari egotziko zaizkio. Zu &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt; ba zara, pribautasun gehiago edukiko duzu.</string>
+  <string name="edit_save_action_license_logged_in">Gordetzen baduzu &lt;a href=\"%1$s\"&gt;Erabilera Baldintzak&lt;/a&gt; onartzen dituzu, eta zure ekarpen guztiak atzera bueltarik gabe &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; lizentziapean jartzen dituzu.</string>
+  <string name="edit_save_action_license_anon">Aurreztuz, &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; onartuko duzu, eta ezinbestez zure ekarpenak askatu beharko dituzu &lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; lizentziaren babespean. Aldaketak zure gailuaren IP helbideari egotziko zaizkio. Zu &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt; ba zara, pribautasun gehiago edukiko duzu.</string>
   <string name="preference_title_language">Wikipediako hizkuntzak</string>
   <string name="langlinks_filter_hint">Bilatu</string>
   <string name="langlinks_empty">Orrialde hau ez dago eskuragarri beste hizkuntzetan.</string>
@@ -158,7 +174,7 @@
   <string name="create_account_passwords_mismatch_error">Pasahitzak ez datoz bat</string>
   <string name="create_account_email_error">E-posta helbide okerra</string>
   <string name="create_account_username_error">Karaktere ez baliagarriak erabiltzaile izenean</string>
-  <string name="create_account_password_error" fuzzy="true">Pasahitza ez du balio</string>
+  <string name="create_account_password_error">Pasahitzak 8 karaktere izan behar ditu gutxienez</string>
   <string name="create_account_generic_error">Ezin izan da kontua sortu</string>
   <string name="create_account_next">Hurrengoa</string>
   <string name="email_recommendation_dialog_title">Kontua sortu email helbiderik gabe?</string>
@@ -172,6 +188,7 @@
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Xehetasunak</string>
   <string name="preferences_general_heading">Orokorra</string>
+  <string name="preferences_account_heading">Kontua</string>
   <string name="wikipedia_app_faq">Wikipedia App FAQ</string>
   <string name="send_feedback">Aplikazioari buruzko feedbacka eman</string>
   <string name="create_account_account_created_toast">Kontua sortua!</string>
@@ -208,7 +225,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.eu</string>
+  <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.eu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.eu</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
@@ -217,7 +234,7 @@
   <string name="about_translators_heading">Itzultzaileak</string>
   <string name="about_translators_translatewiki">Aplikazio hau boluntarioek itzuli dute hementxe &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lizentzia</string>
-  <string name="about_app_license" fuzzy="true">Iturri kodea eskuragarri hemen &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license">Iturburu kodea eskuragarri &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;-en eta &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;-en &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 Lizentziapean&lt;/a&gt;. Bestela zehazten ez bada, edukia &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_4.0_Unported_License\"&gt;Creative Commons Aitortu-PartekatuBerdin Lizentziapean&lt;/a&gt; dago eskuragarri.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Fundazioaren&lt;/a&gt; produktua</string>
   <string name="about_activity_title">Honi buruz</string>
   <string name="edit_abandon_confirm">Orrialde honek aldaketak jasan ditu. Ziur zaude zure aldaketak gorde gabe irten nahi duzula?</string>
@@ -484,7 +501,7 @@
     <item quantity="other">%1$d artikulu deskargatzen...</item>
   </plurals>
   <plurals name="notification_syncing_description">
-    <item quantity="one">Artikulu %1$d geratzen da</item>
+    <item quantity="one">Artikulu bat geratzen da</item>
     <item quantity="other">%1$d artikulu geratzen dira</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">

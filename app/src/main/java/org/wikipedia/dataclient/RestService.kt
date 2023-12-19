@@ -6,7 +6,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.dataclient.restbase.RbDefinition
-import org.wikipedia.dataclient.restbase.RbRelatedPages
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.announcement.AnnouncementList
 import org.wikipedia.feed.configure.FeedAvailability
@@ -58,8 +57,8 @@ interface RestService {
     @Headers("x-analytics: preview=1", "Accept: $ACCEPT_HEADER_SUMMARY")
     @GET("page/summary/{title}")
     suspend fun getPageSummary(
-            @Header("Referer") referrerUrl: String?,
-            @Path("title") title: String
+        @Header("Referer") referrerUrl: String?,
+        @Path("title") title: String
     ): PageSummary
 
     // todo: this Content Service-only endpoint is under page/ but that implementation detail should
@@ -76,10 +75,6 @@ interface RestService {
     @get:GET("page/random/summary")
     @get:Headers("Accept: $ACCEPT_HEADER_SUMMARY")
     val randomSummary: Observable<PageSummary>
-
-    @Headers("Accept: $ACCEPT_HEADER_SUMMARY")
-    @GET("page/related/{title}")
-    fun getRelatedPages(@Path("title") title: String?): Observable<RbRelatedPages>
 
     @GET("page/media-list/{title}/{revision}")
     fun getMediaList(
@@ -106,6 +101,7 @@ interface RestService {
     @GET("feed/onthisday/events/{mm}/{dd}")
     fun getOnThisDay(@Path("mm") month: Int, @Path("dd") day: Int): Observable<OnThisDay>
 
+    // TODO: Remove this before next fundraising campaign in 2024
     @get:GET("feed/announcements")
     @get:Headers("Accept: " + ACCEPT_HEADER_PREFIX + "announcements/0.1.0\"")
     val announcements: Observable<AnnouncementList>

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="@android:color/white"
     tools:orientation="vertical"
     tools:parentTag="android.widget.LinearLayout">
 
@@ -70,153 +69,168 @@
 
     </FrameLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <org.wikipedia.descriptions.DescriptionEditReviewView
-            android:id="@+id/view_description_edit_review_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/view_description_edit_container"
+            android:id="@+id/view_description_editing"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ScrollView
-                android:id="@+id/view_description_edit_scrollview"
+            <org.wikipedia.descriptions.DescriptionEditReviewView
+                android:id="@+id/view_description_edit_review_container"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="match_parent"
+                android:visibility="gone" />
 
-                <LinearLayout
+            <LinearLayout
+                android:id="@+id/view_description_edit_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ScrollView
+                    android:id="@+id/view_description_edit_scrollview"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
 
                     <LinearLayout
-                        android:id="@+id/view_description_edit_page_summary_container"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="?attr/selectableItemBackground"
-                        android:orientation="vertical"
-                        android:paddingStart="28dp"
-                        android:paddingTop="15dp"
-                        android:paddingEnd="28dp"
-                        android:visibility="gone"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:visibility="visible">
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/view_description_edit_page_summary_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-medium"
-                            android:textColor="?attr/placeholder_color"
-                            android:textSize="12sp"
-                            tools:text="Article" />
-
-                        <TextView
-                            android:id="@+id/view_description_edit_page_summary"
+                        <LinearLayout
+                            android:id="@+id/view_description_edit_page_summary_container"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:layout_marginBottom="8dp"
-                            android:ellipsize="end"
-                            android:gravity="start"
-                            android:lineSpacingExtra="6sp"
-                            android:maxLines="4"
-                            android:textColor="?attr/primary_color"
-                            android:textSize="16sp"
-                            tools:text="Lorem ipsum" />
+                            android:background="?attr/selectableItemBackground"
+                            android:orientation="vertical"
+                            android:paddingStart="28dp"
+                            android:paddingTop="15dp"
+                            android:paddingEnd="28dp"
+                            android:visibility="gone"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:visibility="visible">
 
-                    </LinearLayout>
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="7dp"
-                        android:paddingBottom="7dp"
-                        android:clipChildren="false"
-                        android:clipToPadding="false">
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/view_description_edit_text_layout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="16dp"
-                            android:gravity="start"
-                            android:textAlignment="viewStart"
-                            android:hint="@string/description_edit_text_hint"
-                            app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance"
-                            app:endIconDrawable="@drawable/ic_mic_black_24dp"
-                            app:endIconTint="?attr/placeholder_color"
-                            app:endIconContentDescription="@string/description_edit_voice_input_description"
-                            app:endIconMode="custom"
-                            app:counterEnabled="true"
-                            app:counterMaxLength="@integer/description_max_chars"
-                            app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
-
-                            <com.google.android.material.chip.Chip
-                                android:id="@+id/suggestedDescButton"
-                                style="@style/Chip.Accessible.Icon"
+                            <TextView
+                                android:id="@+id/view_description_edit_page_summary_label"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="-20dp"
-                                android:text="@string/description_edit_suggested_description_button_text"
-                                android:visibility="gone"
-                                app:chipIcon="@drawable/ic_robot_24"
-                                tools:visibility="visible"/>
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="?attr/placeholder_color"
+                                android:textSize="12sp"
+                                tools:text="Article" />
 
-                            <org.wikipedia.views.PlainPasteEditText
-                                android:id="@+id/view_description_edit_text"
+                            <TextView
+                                android:id="@+id/view_description_edit_page_summary"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:imeOptions="flagNoExtractUi|actionDone"
-                                android:inputType="textMultiLine"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="8dp"
+                                android:ellipsize="end"
+                                android:gravity="start"
                                 android:lineSpacingExtra="6sp"
-                                android:maxLength="@integer/description_max_chars"
-                                android:textSize="16sp">
+                                android:maxLines="4"
+                                android:textColor="?attr/primary_color"
+                                android:textSize="16sp"
+                                tools:text="Lorem ipsum" />
 
-                                <requestFocus />
-                            </org.wikipedia.views.PlainPasteEditText>
+                        </LinearLayout>
 
-                        </com.google.android.material.textfield.TextInputLayout>
-                    </FrameLayout>
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:paddingTop="7dp"
+                            android:paddingBottom="7dp">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/learnMoreButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/App.Button.Text"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
-                        android:fontFamily="sans-serif"
-                        android:layout_marginTop="48dp"
-                        android:text="@string/description_edit_learn_more"
-                        android:textAlignment="viewStart"
-                        app:icon="@drawable/ic_open_in_new_black_24px"
-                        app:iconGravity="end" />
-                </LinearLayout>
-            </ScrollView>
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/view_description_edit_text_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="16dp"
+                                android:gravity="start"
+                                android:hint="@string/description_edit_text_hint"
+                                android:textAlignment="viewStart"
+                                app:counterEnabled="true"
+                                app:counterMaxLength="@integer/description_max_chars"
+                                app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance"
+                                app:endIconContentDescription="@string/description_edit_voice_input_description"
+                                app:endIconDrawable="@drawable/ic_mic_black_24dp"
+                                app:endIconMode="custom"
+                                app:endIconTint="?attr/placeholder_color"
+                                app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
 
-            <org.wikipedia.descriptions.DescriptionEditBottomBarView
-                android:id="@+id/view_description_edit_read_article_bar_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true" />
+                                <com.google.android.material.chip.Chip
+                                    android:id="@+id/suggestedDescButton"
+                                    style="@style/Chip.Accessible.Icon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="-20dp"
+                                    android:text="@string/description_edit_suggested_description_button_text"
+                                    android:visibility="gone"
+                                    app:chipIcon="@drawable/ic_robot_24"
+                                    app:chipIconSize="20dp"
+                                    tools:visibility="visible" />
+
+                                <org.wikipedia.views.PlainPasteEditText
+                                    android:id="@+id/view_description_edit_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:imeOptions="flagNoExtractUi|actionDone"
+                                    android:inputType="textMultiLine"
+                                    android:lineSpacingExtra="6sp"
+                                    android:maxLength="@integer/description_max_chars"
+                                    android:textSize="16sp">
+
+                                    <requestFocus />
+                                </org.wikipedia.views.PlainPasteEditText>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </FrameLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/learnMoreButton"
+                            style="@style/App.Button.Text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="48dp"
+                            android:layout_marginEnd="12dp"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/description_edit_learn_more"
+                            android:textAlignment="viewStart"
+                            app:icon="@drawable/ic_open_in_new_black_24px"
+                            app:iconGravity="end" />
+                    </LinearLayout>
+                </ScrollView>
+
+                <org.wikipedia.descriptions.DescriptionEditBottomBarView
+                    android:id="@+id/view_description_edit_read_article_bar_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include
+                android:id="@+id/captcha_container"
+                android:visibility="gone"
+                layout="@layout/group_captcha"/>
+        </ScrollView>
+
+    </FrameLayout>
 
 </merge>

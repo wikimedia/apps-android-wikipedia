@@ -95,9 +95,8 @@
   <string name="map_view_link_text">Gweld ar fap</string>
   <string name="other_languages_indication_text">Darllen mewn iaith arall</string>
   <string name="language_count_link_text">Ar gael mewn %d ieithoedd eraill</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">Drwy arbed, rydych yn cytuno i &lt;a href=\"%1$s\"&gt;Dermau\'r Defnydd&lt;/a&gt;, ac i ryddhau eich cyfraniad mewn modd di-droi\'n-ôl ar drwydded &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Drwy arbed, rydych yn cytuno i &lt;a href=\"%1$s\"&gt;Dermau Defnyddio&lt;/a&gt;, ac yn rhyddhau, yn ddi-droi\'n ol, eich cyfraniadau dan drwydded &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Bydd y golygiadau\'n cael eu tadogi i gyfeiriad IP eich dyfais. Ond os ydych yn &lt;a href=\"https://#login\"&gt;mewngofnodi&lt;/a&gt;, bydd eich golygiadau\'n breifat.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">Drwy arbed, rydych yn cytuno i &lt;a href=\"%1$s\"&gt;Dermau\'r Defnydd&lt;/a&gt;, ac i ryddhau eich cyfraniad mewn modd di-droi\'n-ôl ar drwydded &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">Drwy arbed, rydych yn cytuno i &lt;a href=\"%1$s\"&gt;Dermau Defnyddio&lt;/a&gt;, ac yn rhyddhau, yn ddi-droi\'n ol, eich cyfraniadau dan drwydded &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Bydd y golygiadau\'n cael eu tadogi i gyfeiriad IP eich dyfais. Ond os ydych yn &lt;a href=\"https://#login\"&gt;mewngofnodi&lt;/a&gt;, bydd eich golygiadau\'n breifat.</string>
   <string name="preference_title_language">Ieithoedd Wicipedia</string>
   <string name="langlinks_filter_hint">Chwilier</string>
   <string name="langlinks_empty">Nid yw\'r erthygl hon ar gael mewn ieithoedd eraill.</string>
@@ -201,8 +200,6 @@
   <string name="privacy_policy_description">Polisi preifatrwydd</string>
   <string name="terms_of_use_description">Termau Defnyddiwr</string>
   <string name="about_wikipedia_url">https://cy.wikipedia.org/wiki/Wicipedia:Ynglŷn_â_Wicipedia</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="about_libraries_heading">Y llyfrgelloedd a ddefnyddir</string>
   <string name="about_contributors_heading">Cyfrannwyr</string>
   <string name="about_translators_heading">Cyfieithwyr</string>
@@ -368,10 +365,25 @@
   <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Heddiw</string>
   <string name="view_announcement_card_negative_action">Dim diolch</string>
   <string name="description_edit_help_about_wikidata">Ynglŷn â Wicidata</string>
+  <string name="image_recommendation_accept">Ie</string>
+  <string name="image_recommendation_reject">Na</string>
+  <string name="image_recommendation_reject_title">Pam?</string>
+  <string name="image_recommendation_reject_submit">Cyflwyno</string>
+  <string name="edit_summary_added_image">Ychwanegu delwedd</string>
+  <string name="insert_media_settings_caption">Pennawd y ddelwedd</string>
+  <string name="talk_warn_save_dialog_message">Cadw fel neges newydd</string>
   <string name="search_namespaces">Parthau</string>
   <string name="user_contrib_current">cyfredol</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Iawn</string>
   <string name="reading_list_share_menu_label">Rhannu…</string>
+  <string name="talk_templates_new_message_compose_hint">Ysgrifennu neges</string>
+  <string name="talk_templates_new_message_dialog_cancel">Canslo</string>
+  <string name="talk_templates_edit_message_dialog_title">Golygu neges</string>
+  <string name="patroller_tasks_edits_list_card_tags_text">Tagiau: %s</string>
+  <string name="patroller_tasks_edits_list_card_tags_text_none">Dim</string>
+  <string name="patroller_tasks_filters_reset">Ailosod</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">Wici</string>
+  <string name="patroller_tasks_filters_all_text">Popeth</string>
   <string name="data_opt_in_accept">Cytuno</string>
   <string name="data_opt_in_reject">Gwrthod</string>
 </resources>

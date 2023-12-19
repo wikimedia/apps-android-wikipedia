@@ -13,13 +13,14 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.suggestededits.SuggestedEditsRecentEditsFilterTypes
 import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
 import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
-import java.util.*
+import java.util.Date
 
 /** Shared preferences utility for convenient POJO access.  */
 object Prefs {
@@ -129,6 +130,16 @@ object Prefs {
 
     val ignoreDateForAnnouncements
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_announcement_ignore_date, false)
+
+    var announcementPauseTime
+        get() = PrefsIoUtil.getLong(R.string.preference_key_announcement_pause_time, 0)
+        set(time) = PrefsIoUtil.setLong(R.string.preference_key_announcement_pause_time, time)
+
+    val announcementDebugUrl
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_announcement_debug_url, false)
+
+    val announcementCustomTabTestUrl
+        get() = PrefsIoUtil.getString(R.string.preference_key_announcement_custom_tab_test_url, null)
 
     val announcementsVersionCode
         get() = PrefsIoUtil.getInt(R.string.preference_key_announcement_version_code, 0)
@@ -367,11 +378,6 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, enabled)
 
-    var locallyKnownNotifications
-        get() = JsonUtil.decodeFromString<List<Long>>(PrefsIoUtil.getString(R.string.preference_key_locally_known_notifications, null))
-            ?: emptyList()
-        set(list) = PrefsIoUtil.setString(R.string.preference_key_locally_known_notifications, JsonUtil.encodeToString(list))
-
     var remoteNotificationsSeenTime
         get() = PrefsIoUtil.getString(R.string.preference_key_remote_notifications_seen_time, "").orEmpty()
         set(seenTime) = PrefsIoUtil.setString(R.string.preference_key_remote_notifications_seen_time, seenTime)
@@ -561,7 +567,7 @@ object Prefs {
 
     var customizeToolbarMenuOrder: List<Int>
         get() {
-            val notInToolbarList = PageActionItem.values().map { it.code() }.subtract(customizeToolbarOrder)
+            val notInToolbarList = PageActionItem.entries.map { it.code() }.subtract(customizeToolbarOrder)
             val currentList = JsonUtil.decodeFromString<List<Int>>(PrefsIoUtil.getString(R.string.preference_key_customize_toolbar_menu_order, null))
                     ?: notInToolbarList
             return currentList.union(notInToolbarList).toList()
@@ -661,6 +667,10 @@ object Prefs {
         get() = PrefsIoUtil.getLong(R.string.preference_key_reading_lists_recent_receive_id, -1)
         set(value) = PrefsIoUtil.setLong(R.string.preference_key_reading_lists_recent_receive_id, value)
 
+    var suggestedEditsImageRecsOnboardingShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_se_image_recs_onboarding_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_se_image_recs_onboarding_shown, value)
+
     var suggestedEditsMachineGeneratedDescriptionTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_se_machine_generated_descriptions_tooltip_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_se_machine_generated_descriptions_tooltip_shown, value)
@@ -682,4 +692,25 @@ object Prefs {
     var analyticsQueueSize
         get() = PrefsIoUtil.getInt(R.string.preference_key_event_platform_queue_size, 128)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_event_platform_queue_size, value)
+
+    var recentEditsWikiCode
+        get() = PrefsIoUtil.getString(R.string.preference_key_recent_edits_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_recent_edits_wiki_code, value)
+
+    var recentEditsIncludedTypeCodes
+        get() = JsonUtil.decodeFromString<Set<String>>(PrefsIoUtil.getString(R.string.preference_key_recent_edits_included_type_codes, null))
+            ?: SuggestedEditsRecentEditsFilterTypes.DEFAULT_FILTER_TYPE_SET.map { it.id }
+        set(types) = PrefsIoUtil.setString(R.string.preference_key_recent_edits_included_type_codes, JsonUtil.encodeToString(types))
+
+    var recentEditsOnboardingShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_recent_edits_onboarding_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_recent_edits_onboarding_shown, value)
+
+    var showOneTimeSequentialRecentEditsDiffTooltip
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_sequential_recent_edits_diff_tooltip, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_sequential_recent_edits_diff_tooltip, value)
+
+    var showOneTimeRecentEditsFeedbackForm
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_recent_edits_feedback_form, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_recent_edits_feedback_form, value)
 }

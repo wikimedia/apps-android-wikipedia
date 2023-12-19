@@ -46,6 +46,7 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentWikipediaLanguagesBinding.inflate(inflater, container, false)
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         invokeSource = requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)

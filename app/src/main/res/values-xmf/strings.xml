@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Dbrant
 * MuratTheTurkish
 * Narazeni
@@ -78,9 +79,8 @@
   <string name="map_view_link_text">რუკას ძირაფა</string>
   <string name="other_languages_indication_text">შხვა ნინაშა კითხირი</string>
   <string name="language_count_link_text">ხემიოლი რე %d შხვა ნიმაშა</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">ხასჷლაშ გობჟინაფათ, თქვა დჷთმოჸუნთჷ&lt;a href=\"%1$s\"&gt;გჷმორინაფაშ პიჯალეფს&lt;/a&gt; დო თქვანიშით ჭარილი ტექსტიშ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიათ გოტებას.</string>
-  <string name="edit_save_action_license_anon">ხასჷლაშ გობჟინაფათ, თქვა დთმოჸუნთ &lt;a href=\"%1$s\"&gt;გჷმორინაფაშ პიჯალეფს&lt;/a&gt; დო თქვანიშით ჭარილი ტექსტიშ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიათ გოტებას. რედაქტირაფაშ ავტორო დეფიქსირებუ თქვანი მონწყილობაშ IP-მიოწურაფუ. რეკომენდებული რე &lt;a href=\"https://#login\"&gt;ავტორიზაციაშ&lt;/a&gt; მუკულა უმოსი თხილუანობაშო.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">ხასჷლაშ გობჟინაფათ, თქვა დჷთმოჸუნთჷ&lt;a href=\"%1$s\"&gt;გჷმორინაფაშ პიჯალეფს&lt;/a&gt; დო თქვანიშით ჭარილი ტექსტიშ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიათ გოტებას.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">ხასჷლაშ გობჟინაფათ, თქვა დთმოჸუნთ &lt;a href=\"%1$s\"&gt;გჷმორინაფაშ პიჯალეფს&lt;/a&gt; დო თქვანიშით ჭარილი ტექსტიშ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიათ გოტებას. რედაქტირაფაშ ავტორო დეფიქსირებუ თქვანი მონწყილობაშ IP-მიოწურაფუ. რეკომენდებული რე &lt;a href=\"https://#login\"&gt;ავტორიზაციაშ&lt;/a&gt; მუკულა უმოსი თხილუანობაშო.</string>
   <string name="preference_title_language">ვიკიპედიაშ ნინეფი</string>
   <string name="langlinks_filter_hint">გორუა</string>
   <string name="langlinks_empty">თე ხასჷლა შხვა ნინაშა ვარე მიოჭირინაფუს.</string>
@@ -193,8 +193,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/xmf#ოფლაინს_კითხირი_დო_მუნაჩემეფი</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/xmf</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.xmf</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.xmf</string>
   <string name="about_libraries_heading">გჷმორინაფილი ბიბლიოთეკეფი</string>
   <string name="about_contributors_heading">ავტორეფი</string>
   <string name="about_translators_heading">მათანგალეფი</string>
@@ -449,9 +447,28 @@
   <string name="suggested_edits_contribution_seen_text">ეკონია 30 დრას %s-შა რე ნაძირებუ.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">გოღა</string>
   <string name="suggested_edits_encourage_account_creation_title">გიჩქუდესო ნამჷ-და, ვიკიპედიაშ რედაქტირაფა მიდგად შეულებუნ?</string>
+  <string name="suggested_edits_image_recommendations_task_title">სტატიაშ სურათეფი</string>
+  <string name="image_recommendation_task_instruction">გონებჷნანო ათე სურათიშ გეძინა სტატიაშა?</string>
+  <string name="image_recommendation_tutorial">გიოგურაფალი</string>
+  <string name="image_recommendation_accept">ქო</string>
+  <string name="image_recommendation_reject">ვარი</string>
+  <string name="image_recommendation_notsure">ვამაფუ გინოჭყვადილჷ</string>
+  <string name="image_recommendation_reject_title">მუშენ ვარ?</string>
+  <string name="image_recommendation_reject_no_info">ვა რე დასაბაღუ ინფორმაცია გინაჭყვიდირალო</string>
+  <string name="image_recommendation_reject_offensive">სურათი კუჩხიშ გემადგჷმუ რე</string>
+  <string name="image_recommendation_reject_low_quality">სურათი დაბალი ხარისხიშ რე</string>
+  <string name="image_recommendation_reject_dont_know">ვამიჩქჷ ათე თემა</string>
+  <string name="image_recommendation_reject_other">შხვა</string>
+  <string name="image_recommendation_reject_submit">ჯღონუა</string>
+  <string name="image_recommendation_tooltip_next">უკული</string>
+  <string name="edit_summary_added_image">გეძინელი სურათი</string>
+  <string name="edit_summary_added_caption">გეძინელი ეჭარუა</string>
+  <string name="edit_published_view">ძირაფა</string>
   <string name="size_gb">%.2f გბ</string>
   <string name="onboarding_get_started">დოჭყაფა</string>
   <string name="onboarding_maybe_later">მოგვიანაფათ შილებე</string>
+  <string name="insert_media_settings">ქეგუძინით სურათიშ დეტალეფი</string>
+  <string name="insert_media_settings_caption">სურათიშ ეჭარუა</string>
   <string name="main_tooltip_watchlist_title">კონტროლიშ ერკებული</string>
   <string name="talk_snackbar_survey_action_text">დოჭყაფა</string>
   <string name="menu_option_user_contributions">მახვარებუშ: %s მიშნაღელი თია</string>
@@ -472,4 +489,5 @@
   <string name="watchlist_filter_all">არძა</string>
   <string name="watchlist_filter_talk">სხუნუა</string>
   <string name="watchlist_filter_other">შხვა</string>
+  <string name="page_issues_title">ხასჷლაშ ოკითხირეეფი</string>
 </resources>

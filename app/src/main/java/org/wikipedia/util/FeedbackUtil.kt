@@ -2,6 +2,7 @@ package org.wikipedia.util
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -29,6 +30,7 @@ import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.ReadingListActivity
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.util.log.L
 
 object FeedbackUtil {
     private const val LENGTH_SHORT = 3000
@@ -106,6 +108,17 @@ object FeedbackUtil {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)))
     }
 
+    fun composeFeedbackEmail(context: Context, subject: String, body: String = "") {
+        val intent = Intent()
+            .setAction(Intent.ACTION_SENDTO)
+            .setData(Uri.parse("mailto:${context.getString(R.string.support_email)}?subject=${Uri.encode(subject)}&body=${Uri.encode(body)}"))
+        try {
+            context.startActivity(intent)
+        } catch (e: Exception) {
+            L.e(e)
+        }
+    }
+
     fun setButtonLongPressToast(vararg views: View) {
         views.forEach { it.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER) }
     }
@@ -120,8 +133,6 @@ object FeedbackUtil {
         val textView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
         textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
-        val actionView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_action)
-        actionView.setTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         return snackbar
     }
 
@@ -163,10 +174,17 @@ object FeedbackUtil {
     }
 
     fun getTooltip(context: Context, text: CharSequence, autoDismiss: Boolean, arrowAnchorPadding: Int = 0,
-                   topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false): Balloon {
+                   topOrBottomMargin: Int = 0, aboveOrBelow: Boolean = false, showDismissButton: Boolean = false,
+                   @StringRes dismissButtonText: Int = R.string.onboarding_got_it, countNum: Int = 0, countTotal: Int = 0): Balloon {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
         binding.buttonView.isVisible = showDismissButton
+        binding.buttonView.setText(dismissButtonText)
+
+        if (countTotal > 0) {
+            binding.countView.isVisible = true
+            binding.countView.text = context.getString(R.string.x_of_y, countNum, countTotal)
+        }
 
         val balloon = createBalloon(context) {
             setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)

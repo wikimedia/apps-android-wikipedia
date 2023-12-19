@@ -9,22 +9,22 @@
 * ߒߓߋ߫ ߝߏߝߣߊ߫
 -->
 <resources>
-  <string name="app_name_prod">ߥߞߌߔߘߋߞߎ</string>
-  <string name="app_name_beta">ߥߞߌ-ߔߘߋߞߎ ߓߋߕߊ߫</string>
-  <string name="app_name_alpha">ߥߞߌ-ߔߘߋߞߎ ߊߟߑߝߊ߫</string>
+  <string name="app_name_prod">ߥߞߌߔߔߋߘߌߦߊ</string>
+  <string name="app_name_beta">ߥߞߌߔߋߘߌߦߊ߫ ߓߋߕߊ߫</string>
+  <string name="app_name_alpha">ߧߞߌߔߋߘߌߦߊ߫ ߊߟߌߝߊ</string>
   <string name="wikimedia">ߥߞߌߡߋߘߌߦߊ߫</string>
   <string name="nav_item_back">ߟߊߞߐߛߊ߬ߦߌ</string>
   <string name="page_tabs_back">ߟߊߞߐߛߊ߬ߦߌ߬</string>
   <string name="nav_item_forward">ߟߊߕߊ߯ߢߍ߫</string>
-  <string name="search_hint">ߢߌߣߌ߲ߠߌ߲ ߞߍ߫ ߥߞߌߔߘߋߞߎ ߘߐ߫</string>
+  <string name="search_hint">ߢߌߣߌ߲ߠߌ߲ ߞߍ߫ ߥߞߌߔߋߘߌߦߊ ߞߣߐ߫</string>
   <string name="search_hint_voice_search">ߡߍ߲ߞߊ߲ߠߊ߫ ߢߌߣߌ߲ߠߌ߲</string>
   <string name="search_hint_search_languages">ߞߊ߲ ߘߏ߫ ߢߌߣߌ߲߫</string>
   <string name="filter_hint_filter_my_lists_and_articles">ߒ ߠߊ߫ ߛߙߍߘߍ ߟߎ߬ ߛߍ߲ߛߍ߲߫</string>
-  <string name="nav_item_suggested_edits">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲</string>
+  <string name="nav_item_suggested_edits">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬</string>
   <string name="nav_item_more">ߡߊߞߊ߬ߝߏ߬ ߜߘߍ ߟߎ߬</string>
   <string name="nav_item_search">ߢߌߣߌ߲ߣߌ߲</string>
   <string name="error_network_error">ߊ߬ ߕߴߛߋ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߓߟߐߟߐ ߟߊ߫</string>
-  <string name="page_error_retry">ߌ ߡߊߝߍߣߍ߲߫ ߞߎߘߊߞߍ߫</string>
+  <string name="page_error_retry">ߌ ߡߊߝߍߣߍ߲߫ ߞߎߘߊ߫ ߘߌ߫</string>
   <string name="card_offline_error_retry">ߊ߬ ߡߊߝߍߣߍ߲߫ ߕߎ߲߯</string>
   <string name="storage_access_error_retry">ߊ߬ ߡߊߝߍߣߍ߲߫ ߕߎ߲߯</string>
   <string name="article_load_error_retry">ߊ߬ ߡߊߝߍߣߍ߲߫ ߕߎ߲߯</string>
@@ -34,10 +34,10 @@
   <string name="error_next">ߢߍߕߊ</string>
   <string name="menu_clear_all_history">ߘߐ߬ߝߐ ߖߏ߬ߛߌ߬</string>
   <string name="history_item_deleted">%s ߛߋ߲߬ߓߐ߫ ߘߐ߬ߝߐ ߘߐ߫</string>
-  <string name="history_items_deleted">%d ߦߌߟߡߊ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߝߐ ߘߐ߫</string>
+  <string name="history_items_deleted">ߞߎߡߘߊ %d ߟߎ߬ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߝߐ</string>
   <string name="history_item_delete_undo">ߊ߬ ߘߐߛߊ߬</string>
   <string name="notification_archive_undo">ߊ߬ ߘߐߛߊ߬</string>
-  <string name="app_settings">ߛߎ߲ߝߘߍ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߊ</string>
+  <string name="app_settings">ߟߥߊ߬ߟߌ߬ߟߊ߲ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߊ</string>
   <string name="search_tab_tooltip">ߛߌ߲ߞߐ߲ ߛߐ߲߬ߞߌ߲߬ ߕߎ߲߯ ߞߵߌ ߟߊߞߎ߲߬ߛߌ߲߫ ߢߌߣߌ߲ߠߌ߲ ߘߊߡߌ߬ߣߊ ߛߙߊߕߌ ߡߊ߬</string>
   <string name="history_list_title">ߘߐ߬ߝߐ</string>
   <string name="image_content_description">ߖߌ߬ߦߊ߬ߓߍ: %s</string>
@@ -101,9 +101,8 @@
   <string name="map_view_link_text">ߊ߬ ߦߋ߫ ߔߊ߬ߔߘߊ ߞߊ߲߬</string>
   <string name="other_languages_indication_text">ߊ߬ ߞߊ߬ߙߊ߲߬ ߞߊ߲߫ ߜߘߍ߫ ߘߐ߫</string>
   <string name="language_count_link_text">ߊ߬ ߦߋ߫ %d ߞߊ߲߫ ߜߘߍ ߟߎ߬ ߘߐ߫</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license ߡߊ߬.</string>
-  <string name="edit_save_action_license_anon">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߛߙߊߕߌ ߡߊ߬&lt;/a&gt;߸ ߊ߬ ߣߴߌ ߓߘߴߌ ߟߊ߫ ߓߟߏߡߊߜߍ߲ ߟߊߓߌ߬ߟߊ߬ ߣߡߌߛߊ߫ ߓߊߟߌߦߊ߫ ߓߟߏ ߡߊ߬&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; ߟߊ߫ ߓߌ߬ߟߊ ߣߴߊ߬ ߕߌ߰ߦߊ ߟߊ߫. ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߌߣߊ߬ ߟߊߘߏ߲߬ ߌ ߟߊ߫ ߞߍߟߊ߲ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ ߟߊ߫. ߣߴߌ ߞߊ߬  &lt;a href=\"https://#login\"&gt;ߜߊ߲߬ߞߎ߲߬ߠߌ߲&lt;/a&gt; ߞߍ߫߸ ߌ ߘߌ߫ ߜߎ߲߬ߘߎ߬ ߛߌߦߊߡߊ߲߫ ߛߐ߬ߘߐ߲߬.</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license ߡߊ߬.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߛߙߊߕߌ ߡߊ߬&lt;/a&gt;߸ ߊ߬ ߣߴߌ ߓߘߴߌ ߟߊ߫ ߓߟߏߡߊߜߍ߲ ߟߊߓߌ߬ߟߊ߬ ߣߡߌߛߊ߫ ߓߊߟߌߦߊ߫ ߓߟߏ ߡߊ߬&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; ߟߊ߫ ߓߌ߬ߟߊ ߣߴߊ߬ ߕߌ߰ߦߊ ߟߊ߫. ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߌߣߊ߬ ߟߊߘߏ߲߬ ߌ ߟߊ߫ ߞߍߟߊ߲ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ ߟߊ߫. ߣߴߌ ߞߊ߬  &lt;a href=\"https://#login\"&gt;ߜߊ߲߬ߞߎ߲߬ߠߌ߲&lt;/a&gt; ߞߍ߫߸ ߌ ߘߌ߫ ߜߎ߲߬ߘߎ߬ ߛߌߦߊߡߊ߲߫ ߛߐ߬ߘߐ߲߬.</string>
   <string name="edit_anon_warning">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߘߌߣߊ߬ ߟߊߘߏ߲߬ ߌ.ߔ ߛߊ߲߬ߓߊ߬ߕߐ߮ ߟߊ߫ ߥߟߊ߫ ߌ ߟߊ߫ ߞߍߟߊ߲. ߣߴߌ ߞߵߌ &lt;a href=\"https://#login\"&gt;ߜߊ߲߬ߞߎ߲߫&lt;/a&gt;߸ ߌ ߘߌ߫ ߜߎ߲߬ߘߎ߬ߘߐ߬ߞߏ߫ ߜߘߍ߫ ߟߎ߫ ߛߐ߬ߘߐ߲߫.</string>
   <string name="preference_title_language">ߥߞߌ-ߔߘߋߞߎ ߞߊ߲ ߠߎ߬</string>
   <string name="langlinks_filter_hint">ߢߌߣߌ߲ߠߌ߲</string>
@@ -222,8 +221,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/ߥߞߌߡߋߘߌߦߊ߫_ߟߥߊ߬ߟߌ߬ߟߊ߲/ߊ߲ߘߙߏߦߌߘ_ߢߡߢ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/ߝߘߏ߬ߓߊ߬ߡߊߘߎ/ߘߐ߬ߞߏߟߏ߲/߁.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ߛߓߍߘߊ߮ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ</string>
@@ -232,7 +229,7 @@
   <string name="about_translators_heading">ߘߟߊߡߌߘߊߟߊ߲</string>
   <string name="about_translators_translatewiki">ߟߥߊ߬ߟߌ߬ߟߊ߲ ߣߌ߲߬ ߘߟߊߡߌ߬ߘߊ߬ߣߍ߲߫ ߦߋ߫ ߓߐߒߖߘߍߘߐ߫ ߘߟߊߡߌߘߟߊ ߟߎ߬ ߟߋ߬ ߓߟߏ߫ ߦߊ߲߬ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">ߕߌ߰ߦߊ</string>
-  <string name="about_app_license">ߘߏߝߙߍߕߍ ߛߎ߲ ߦߋ߫ ߦߊ߲߬ ߠߋ߬  &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ߊ߬ ߣߌ߫  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ߊ߬ ߣߌ߫ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ߟߋ߬ ߟߊ߫ ߖߊ߬ߡߊߙߌ ߞߣߐ߫. ߝߏ߫ ߊ߬ ߛߌ߬ߣߦߊ߬ ߛߌߝߊߟߌ߫ ߘߋ߬߸ ߞߣߐߘߐ ߦߋ߫ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ߟߊ߫ ߖߊ߬ߡߊߙߌ ߟߋ߬ ߞߣߐ߫.</string>
+  <string name="about_app_license" fuzzy="true">ߘߏߝߙߍߕߍ ߛߎ߲ ߦߋ߫ ߦߊ߲߬ ߠߋ߬  &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ߊ߬ ߣߌ߫  &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ߊ߬ ߣߌ߫ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ߟߋ߬ ߟߊ߫ ߖߊ߬ߡߊߙߌ ߞߣߐ߫. ߝߏ߫ ߊ߬ ߛߌ߬ߣߦߊ߬ ߛߌߝߊߟߌ߫ ߘߋ߬߸ ߞߣߐߘߐ ߦߋ߫ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ߟߊ߫ ߖߊ߬ߡߊߙߌ ߟߋ߬ ߞߣߐ߫.</string>
   <string name="about_wmf"> ߥߟߏߒߘߐ ߣߌ߲߬ ߦߋ߫ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt; ߕߊ ߟߋ߬ ߘߌ߫</string>
   <string name="about_activity_title">ߡߊ߬ߘߎ߮</string>
   <string name="edit_abandon_confirm">ߞߐߜߍ ߓߘߊ߫ ߓߊ߲߫ ߡߊߦߟߍ߬ߡߊ߲߬ ߠߊ߫. ߌ ߟߊ߫ ߣߴߊ߬ ߟߊ߫ ߞߴߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߓߐ߫ ߞߵߊ߬ ߕߘߍ߬ ߌ ߡߴߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊߞߎ߲߬ߘߎ߫؟</string>
@@ -345,6 +342,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">ߦߌߟߡߊ ߕߴߛߋ߫ ߟߊߦߟߍ߬ ߟߊ߫ ߞߵߌ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌ ߕߏ߫.</string>
   <string name="page_offline_notice_add_to_reading_list">ߟߊ߬ߟߌ߬ߟߌ: ߦߌߟߡߊ ߟߊߘߏ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫߸ ߏ߬ ߓߊ߯ ߞߍ߫ ߌ ߓߴߌ ߜߊ߲߬ߞߎ߲߫ ߕߎ߬ߡߊ ߡߍ߲ ߊ߬ ߘߌ߫ ߥߎߟߊߟߊߖߛߐ߫.</string>
   <string name="page_offline_notice_last_date">ߌ ߦߋ߫ ߜߊ߲߬ߞߎ߲߬ ߓߊ߬ߟߌ߬ߦߊ߬ ߦߌߟߡߊ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲ ߠߋ߬ ߘߐߞߊ߬ߙߊ߲ ߞߊ߲߬ ߣߌ߲߬ %s</string>
+  <string name="redirected_from_snackbar">ߌ ߟߊߞߎ߲߬ߛߌ߲߬ߣߍ߲߬ ߦߋ߫ ߞߊ߬ ߝߘߊ߫ %s</string>
   <string name="button_get_directions">ߞߎ߲߬ߕߋߟߋ߲ ߡߊߛߐ߬ߘߐ߲߬</string>
   <string name="error_no_maps_app">ߊ߬ ߕߍ߫ ߣߊ߬ ߟߊ߬ߥߊ߬ߟߌ߬ߟߊ߲߬ ߛߌ߫ ߛߐ߬ߘߐ߲߬ ߠߊ߫ ߡߍ߲ ߦߋ߫ ߞߎ߲߬ߕߋߟߋ߲ ߡߊߛߐ߫ ߟߊ߫.</string>
   <string name="preference_title_customize_explore_feed">ߞߊߙߌ ߓߍ߬ߙߍ߲߬ߓߍߙߍ߲߫</string>
@@ -364,6 +362,7 @@
   <string name="error_message_generic">ߝߎ߬ߕߎ߲߬ߕߌ ߘߏ߫ ߓߘߊ߫ ߓߌ߬ߟߵߊ߬ ߘߐ߫</string>
   <string name="view_link_preview_error_button_dismiss">ߟߊ߬ߛߊ߬ߦߌ߬ߟߌ</string>
   <string name="error_page_does_not_exist">ߞߐߜߍ ߣߌ߲߬ ߕߴߦߋ߲߬</string>
+  <string name="error_user_page_does_not_exist">ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ߫ ߞߐߜߍ ߝߋ߫ ߕߍ߫ ߧߘߌߔߋߘߌߦߊ ߘߐ߫ &lt;a href=\"%1$s\"&gt;&lt;/a&gt; ߕߐ߮ ߣߌ߲߬ ߖߍ߬ߘߍ ߘߌ߫. ߊ߬ ߝߊ߲߬ߓߊ ߘߐ߫، ߞߐߜߍ ߣߌ߲߬ ߛߌ߲ߘߌߣߍ߲߫ ߦߋ߫ ߞߍ߫ ߟߊ߫ ߞߊ߬ ߓߊ߲߫ ߞߵߊ߬ ߡߊߦߟߍ߬ߡߊ߲߫ &lt;b&gt;%2$s&lt;/b&gt; ߟߋ߬ ߓߟߏ߫. ߣߴߌ ߛߌߞߊߣߍ߲߫ ߞߍ߫ ߘߊ߫، %3$s ߓߍߓߊ߮ ߝߛߍ߬ߝߛߍ߫ ߖߊ߰ߣߌ߲߫.</string>
   <string name="view_wiki_error_message_offline">ߊ߬ ߕߴߛߋ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߓߟߐߟߐ ߟߊ߫</string>
   <string name="view_wiki_error_message_timeout">ߊ߬ ߕߍߣߊ߬ ߛߐ߲߬ ߠߊ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߥߞߌߔߋߘߌߦߊ ߟߊ߫. ߌ ߟߊ߫ ߞߙߏ߬ߝߏ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߡߊߝߟߍ߫߸ ߥߟߊ߫ ߌ ߦߴߊ߬ ߡߊߝߍߣߍ߲߫ ߌߞߐߕߎ߲߯ ߞߐߟߊ߫</string>
   <string name="reference_title">ߦߟߌߡߊߛߙߋ %s</string>
@@ -867,7 +866,7 @@
   <string name="suggested_edits_ip_blocked_title">IP ߓߊ߬ߟߌ߬ߣߍ߲</string>
   <string name="suggested_edits_last_edited">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߟߊߓߊ߲</string>
   <string name="suggested_edits_last_edited_never">ߡߎ߰ߡߍ߫</string>
-  <string name="suggested_edits_task_new">ߞߎߘߊ</string>
+  <string name="suggested_edits_task_new" fuzzy="true">ߞߎߘߊ</string>
   <string name="suggested_edits_cc0_notice">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, ߊ߬ ߣߴߌ ߣߡߌߛߓߊߟߌߦߊ߫ ߘߌߢߍߣߍ߲߫ ߦߴߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲߫ ߠߊߓߌ߬ߟߊ ߡߊ߬ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license ߟߊߓߌ߬ߟߊ ߘߐ߫.</string>
   <string name="suggested_edits_reactivation_notification_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ</string>
   <string name="suggested_edits_reactivation_notification_stage_one">ߌ ߣߌ߫ ߗߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊߦߟߍ߬ߡߊ߲ ߠߊ߫߹ ߡߎ߬ ߠߊ߫ ߌ ߡߴߊ߬ ߘߊߓߊ߲߫ ߌ ߣߵߊ߬ ߓߌ߬ߟߊ߬ ߟߊ߫ ߘߊߞߎ߲ ߡߍ߲ ߘߐ߫؟</string>
@@ -895,6 +894,30 @@
   <string name="suggested_edits_inappropriate_suggestion">ߘߐ߬ߘߎ߬ߟߌ߫ ߓߍ߲߬ߒ߬ߡߊ߬ߓߊߟߌ</string>
   <string name="suggested_edits_do_not_understand_suggestion">ߌ ߡߊ߫ ߘߊߞߎ߲ ߣߌ߲߬ ߢߊߦߋ߫؟</string>
   <string name="suggested_edits_report_suggestion">ߢߊߦߌߘߊߟߌ</string>
+  <string name="suggested_edits_image_recommendations_task_title">ߞߎߡߘߊ ߖߌ߬ߦߊ߬ߓߍ ߟߎ߬</string>
+  <string name="suggested_edits_image_recommendations_task_detail" fuzzy="true">ߊ߬ ߘߐߞߕߌ߫ ߓߊ߫ ߣߌ߫ ߖߌ߬ߦߊ߬ߓߍ߫ ߢߊߦߌ߬ߘߊ߬ߣߍ߲ ߘߌ߫ ߞߎߡߘߊ ߟߊߢߊ߬.</string>
+  <string name="image_recommendation_tutorial">ߡߞߊ߬ߙߊ߲߬ߠߌ߲</string>
+  <string name="image_recommendation_accept">ߐ߲߬ߐ߲߬ߐ߲߫</string>
+  <string name="image_recommendation_reject">ߊ߬ߦߌ߫</string>
+  <string name="image_recommendation_notsure">ߒ ߡߊ߫ ߟߴߊ߬ ߟߊ߫</string>
+  <string name="image_recommendation_reject_title">ߡߎ߲߬ߠߊ߫ ߍ߲߬ߍ߲߫؟</string>
+  <string name="image_recommendation_reject_subtitle"> ߌ ߟߊ߫ ߖߋ߬ߓߌ߬ߟߌ ߦߋ߫ ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ ߣߊ߬ߕߐ ߟߊߢߊ߬ ߟߊ߫ ߟߋ߬.</string>
+  <string name="image_recommendation_reject_not_relevant">ߖߌ߬ߦߊ߬ߓߍ ߕߍ߫ ߢߊ߬ߕߣߐ߬ߡߊ߬ ߘߌ߫</string>
+  <string name="image_recommendation_reject_no_info">ߞߌ߬ߓߊ߬ߙߏ߬ߦߊ߫ ߞߟߊ߬ߟߊ߬ߡߊ߫ ߕߴߦߋ߲߬ ߡߍ߲ ߘߌ߫ ߡߐ߰ ߟߊߝߊ߲ߞߊ߲߫</string>
+  <string name="image_recommendation_reject_offensive">ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߡߛߊ߬ߡߊ߲߬ߠߌ߲ ߠߋ߬ ߘߌ߫</string>
+  <string name="image_recommendation_reject_low_quality">ߖߌ߬ߦߊ߬ߓߍ ߛߎ߯ߦߊ ߡߊߖߌ߰ߣߍ߲߫ ߠߋ߬</string>
+  <string name="image_recommendation_reject_dont_know">ߒߠߋ ߡߊ߫ ߢߌߣߌ߲ߝߋ߲ ߣߌ߲߬ ߟߐ߲߫</string>
+  <string name="image_recommendation_reject_other">ߘߏ߫ ߜߘߍ߫</string>
+  <string name="image_recommendation_reject_submit">ߊ߬ ߞߙߊߓߊ߫</string>
+  <string name="image_recommendation_tooltip_main">ߖߌ߬ߦߊ߬ߓߍ߬ ߞߐߢߌ߬ߣߊ߬ߣߍ߲ ߠߎ߬ ߝߙߊ߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐ߬ߛߎ߬ߟߌ ߟߎ߬ ߟߊ߫.</string>
+  <string name="image_recommendation_onboarding_1">ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߡߐ߱ ߟߎ߬ ߘߍ߬ߡߍ߲߬ ߠߊ߫ ߘߐ߬ߞߣߍ߬ߟߌ ߟߋ߬ ߟߊ߫، ߞߏ߬ߣߌ߲߬ ߝߋ߲߫ ߕߍ߫ ߞߎߡߘߊ ߝߊ߲߬ߓߊ ߟߎ߬ ߟߊ߫.</string>
+  <string name="image_recommendation_onboarding_2">ߌ ߘߌ߫ ߛߴߊ߬ ߘߐߞߕߌ߫ ߟߊ߫ ߣߌ߫ ߖߌ߬ߦߊ߬ߓߍ߬ ߘߐߛߎߣߍ߲ ߘߌ߫ ߝߙߊ߬ ߥߞߌߔߋߘߌߦߊ߫ ߞߎߡߘߊ ߟߊ߫.</string>
+  <string name="image_recommendation_onboarding_4">ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߣߊ߬ ߟߊ߫ ߞߊ߬ ߝߘߊ߫ ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ߛ ߟߋ߬ ߟߊ߫، ߖߌ߬ߦߊ߬ߓߍ߫ ߛߙߊ߬ߓߊߟߌ ߘߌ߬ߢߍ߬ߒ߬ߡߊ߬ߟߌ ߟߎ߬ ߦߋ߫ ߡߊߕߐ߬ߡߐ߲߬ ߠߊ߫ ߞߵߊ߬ߟߎ߫ ߟߊߓߊ߯ߙߊ߫ ߥߞߌߔߋߘߌߦߊ ߓߟߏ߫.</string>
+  <string name="image_recommendation_tooltip_1">ߞߎߡߘߊ ߣߌ߲߬ ߡߊߛߊ߬ߦߌ߫ ߞߵߊ߬ ߞߣߐߘߐ ߢߌߣߌ߲ߞߏ ߟߎ߬ ߢߊߦߋ߫</string>
+  <string name="image_recommendation_tooltip_next">ߢߍߕߊ</string>
+  <string name="edit_summary_added_image">ߖߌ߬ߦߊ߬ߓߍ ߓߘߊ߫ ߝߊ߬ߙߊ߫</string>
+  <string name="edit_summary_added_caption">ߝߍ߬ߛߓߍߟߌ ߓߘߊ߫ ߝߊ߬ߙߊ߫</string>
+  <string name="edit_published_view">ߦߌ߬ߘߊ߬ߟߌ</string>
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="file_page_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߊ߬ߙߊ߫</string>
   <string name="file_page_add_image_tags_button">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߟߎ߬ ߝߙߊ߬</string>
@@ -984,10 +1007,10 @@
   <string name="insert_media_title">ߞߟߋߞߟߋ ߟߊߘߏ߲߬</string>
   <string name="insert_media_search_description">ߞߐߕߐ߮ ߘߏ߫ ߓߊߕߐ߬ߡߐ߲߬ ߞߊ߬ ߝߘߊ߫ ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ߛ ߟߊ߫</string>
   <string name="insert_media_search_hint">ߞߟߋߞߟߋ ߢߌߣߌ߲߫</string>
-  <string name="insert_media_settings">ߞߟߋߞߟߋ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߟߎ߬</string>
+  <string name="insert_media_settings">ߖߌ߬ߦߊ߬ߓߍ ߝߊߙߊ߲ߝߊ߯ߛߌ ߟߎ߬ ߝߊ߬ߙߊ߯</string>
   <string name="insert_media_settings_uploaded_image">ߖߌ߬ߦߊ߬ߓߍ߫ ߟߊߦߟߍ߬ߣߍ߲</string>
-  <string name="insert_media_settings_caption">ߝߍ߬ߛߓߍߟߌ</string>
-  <string name="insert_media_settings_alternative_text_description">ߛߓߍߘߋ߲߫ ߠߊ߫ ߞߊ߲߬ߛߓߍߟߌ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ߠߊ߫ ߟߎ߫ ߦߋ߫ ߡߍ߲ ߠߎ߬ ߕߍߣߊ߬ ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߟߊ߫</string>
+  <string name="insert_media_settings_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ</string>
+  <string name="insert_media_settings_alternative_text_description" fuzzy="true">ߛߓߍߘߋ߲߫ ߠߊ߫ ߞߊ߲߬ߛߓߍߟߌ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ߠߊ߫ ߟߎ߫ ߦߋ߫ ߡߍ߲ ߠߎ߬ ߕߍߣߊ߬ ߖߌ߬ߦߊ߬ߓߍ ߦߋ߫ ߟߊ߫</string>
   <string name="insert_media_advanced_settings">ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߖߊ߲߬ߝߊ߬ߣߍ߲ ߠߎ߬</string>
   <string name="insert_media_advanced_settings_wrap_image">ߛߓߍߟߌ ߟߎ߫ ߓߌ߬ߟߊ߬ ߖߌ߬ߦߊ߬ߓߍ ߟߊߡߌߣߌ߲ ߘߐ߫</string>
   <string name="insert_media_advanced_settings_image_position">ߖߌ߬ߦߊ߬ߓߍ ߘߌ߲߬ߞߌߙߊ</string>
@@ -1097,9 +1120,9 @@
   <string name="revision_diff_line_removed">ߛߌ߬ߕߊߙߌ ߓߘߊ߫ ߖߏ߰ߛߌ߫</string>
   <string name="revision_diff_paragraph_added">ߛߌ߬ߘߊ߬ߙߋ߲ ߓߘߊ߫ ߝߙߊ߬</string>
   <string name="revision_diff_paragraph_removed">ߛߌ߬ߘߊ߬ߙߋ߲ ߓߘߊ߫ ߛߋ߲߬ߓߐ߫</string>
-  <string name="revision_undo_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐߛߊ߬</string>
-  <string name="revision_undo_message">ߏ߬ ߘߌ߫ ߡߝߊ߬ߟߋ߲߬ߠߌ߲߫ ߠߎ߫ ߖߏ߬ߛߌ߫ ߡߍ߲ ߠߎ߬ ߛߌ߲ߘߌ߫ ߘߊ߫ ߟߢߊ߬ߟߌ(ߟߎ߫) ߘߐ߫ ߞߎߡߘߊ߫ ߘߐ߫ ߡߍ߲ ߦߌ߬ߘߊ߬ߣߍ߲߫ ߦߋ߫ ߦߊ߲߬ ߣߌ߲߬.</string>
-  <string name="revision_undo_reason">ߖߐ߲߬ߛߊ߫ ߞߵߊ߬ ߘߊߓߊ߲߫߸ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߣߌ߲߬ ߘߐߛߊ߬ߟߌ ߕߎ߬ߙߎ ߡߊߛߐ߫ ߦߊ߲߬ ߖߊ߰ߣߌ߲߫:</string>
+  <string name="revision_undo_title" fuzzy="true">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߐߛߊ߬</string>
+  <string name="revision_undo_message" fuzzy="true">ߏ߬ ߘߌ߫ ߡߝߊ߬ߟߋ߲߬ߠߌ߲߫ ߠߎ߫ ߖߏ߬ߛߌ߫ ߡߍ߲ ߠߎ߬ ߛߌ߲ߘߌ߫ ߘߊ߫ ߟߢߊ߬ߟߌ(ߟߎ߫) ߘߐ߫ ߞߎߡߘߊ߫ ߘߐ߫ ߡߍ߲ ߦߌ߬ߘߊ߬ߣߍ߲߫ ߦߋ߫ ߦߊ߲߬ ߣߌ߲߬.</string>
+  <string name="revision_undo_reason" fuzzy="true">ߖߐ߲߬ߛߊ߫ ߞߵߊ߬ ߘߊߓߊ߲߫߸ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߣߌ߲߬ ߘߐߛߊ߬ߟߌ ߕߎ߬ߙߎ ߡߊߛߐ߫ ߦߊ߲߬ ߖߊ߰ߣߌ߲߫:</string>
   <string name="revision_undo_success">ߟߢߊ߬ߟߌ ߓߘߊ߫ ߘߐߛߊ߬.</string>
   <string name="revision_rollback_dialog_title">ߌ ߘߍ߲߬ߞߣߍ߬ߦߊ߬ߣߍ߲߫ ߦߋ߫ ߞߴߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߟߊߕߊ߲߬ߞߌ߫؟</string>
   <string name="revision_rollback_success">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲߫ ߠߊߕߊ߲߬ߞߌ߬ߣߍ߲ ߠߎ߬</string>
@@ -1211,4 +1234,6 @@
   <string name="reading_list_share_survey_body">\"ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߫ ߛߙߍߘߍ߫ ߟߊ߬ߖߍ߲ߛߍ߲\" ߦߋ߫ ߗߋߘߊ߫ ߡߊߝߍߣߍ߲ߕߊ ߟߋ߬ ߘߌ߫߸ ߊ߲ ߡߊߞߏ ߦߴߌ ߟߊ߫ ߞߊ߲߬ߞߎߡߊ ߟߴߏ߬ ߟߋ ߘߐ߫ ߜߘߋߜߘߋ߫߸ ߊ߬ ߟߊߢߊ߬ߟߌ ߘߐ߫ ߥߟߴߊ߬ ߘߐߛߊ߬ߟߌ ߘߐ߫.</string>
   <string name="data_opt_in_accept">ߊ߬ ߟߊߡߌ߬ߣߊ߫</string>
   <string name="data_opt_in_reject">ߊ߬ ߟߊߕߊ߲߬ߞߌ߫</string>
+  <string name="page_issues_title">ߞߐߜߍ ߝߙߋߞߋ ߟߎ߬</string>
+  <string name="generic_release_notes">ߝߎ߬ߕߎ߲߬ߕߌ߬ ߓߘߎߓߘߎ ߟߎ߬ ߘߐߓߍ߲߭ ߣߌ߫ ߡߞߊ߬ߝߏ߬ߟߌ ߟߎ߫</string>
 </resources>

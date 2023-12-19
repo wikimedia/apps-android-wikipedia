@@ -1,21 +1,17 @@
 package org.wikipedia.settings
 
 import android.app.Activity
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.text.method.LinkMovementMethod
 import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.view.forEach
+import androidx.core.text.method.LinkMovementMethodCompat
+import androidx.core.view.descendants
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityAboutBinding
 import org.wikipedia.richtext.setHtml
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.log.L
 
 class AboutActivity : BaseActivity() {
 
@@ -32,27 +28,11 @@ class AboutActivity : BaseActivity() {
         binding.activityAboutLibraries.setHtml(getString(R.string.libraries_list))
         binding.aboutVersionText.text = BuildConfig.VERSION_NAME
         binding.aboutLogoImage.setOnClickListener(AboutLogoClickListener())
-        makeEverythingClickable(binding.aboutContainer)
-
-        binding.sendFeedbackText.setOnClickListener {
-            val intent = Intent()
-                    .setAction(Intent.ACTION_SENDTO)
-                    .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=Android App ${BuildConfig.VERSION_NAME} Feedback"))
-            try {
-                startActivity(intent)
-            } catch (e: Exception) {
-                L.e(e)
-            }
+        binding.aboutContainer.descendants.filterIsInstance<TextView>().forEach {
+            it.movementMethod = LinkMovementMethodCompat.getInstance()
         }
-    }
-
-    private fun makeEverythingClickable(vg: ViewGroup) {
-        vg.forEach {
-            if (it is ViewGroup) {
-                makeEverythingClickable(it)
-            } else if (it is TextView) {
-                it.movementMethod = LinkMovementMethod.getInstance()
-            }
+        binding.sendFeedbackText.setOnClickListener {
+            FeedbackUtil.composeFeedbackEmail(this, "Android App ${BuildConfig.VERSION_NAME} Feedback")
         }
     }
 

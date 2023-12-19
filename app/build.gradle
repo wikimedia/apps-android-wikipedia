@@ -1,8 +1,8 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.devtools.ksp'
     id 'com.google.gms.google-services'
     id 'kotlin-android'
-    id 'kotlin-kapt'
     id 'kotlin-parcelize'
     id 'kotlinx-serialization'
 }
@@ -20,7 +20,7 @@ static def computeVersionName(versionCode, label) {
 final JavaVersion JAVA_VERSION = JavaVersion.VERSION_17
 
 android {
-    compileSdkVersion 33
+    compileSdk 34
 
     compileOptions {
         coreLibraryDesugaringEnabled true
@@ -35,20 +35,14 @@ android {
 
     defaultConfig {
         applicationId 'org.wikipedia'
-        minSdkVersion 21
-        targetSdkVersion 33
-        versionCode 50447
+        minSdk 21
+        targetSdk 34
+        versionCode 50464
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
         vectorDrawables.useSupportLibrary = true
-
-        kapt {
-            arguments {
-                arg("room.schemaLocation", "$projectDir/schemas".toString())
-            }
-        }
 
         signingConfig signingConfigs.debug
 
@@ -105,7 +99,7 @@ android {
         }
     }
 
-    flavorDimensions 'default'
+    flavorDimensions = ['default']
 
     productFlavors {
         dev {
@@ -173,37 +167,37 @@ dependencies {
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.15.1'
     String mockitoVersion = '5.2.0'
-    String leakCanaryVersion = '2.11'
-    String kotlinCoroutinesVersion = '1.7.1'
-    String firebaseMessagingVersion = '23.1.2'
+    String leakCanaryVersion = '2.12'
+    String kotlinCoroutinesVersion = '1.7.3'
+    String firebaseMessagingVersion = '23.3.1'
     String mlKitVersion = '17.0.4'
-    String roomVersion = "2.5.1"
+    String roomVersion = "2.6.1"
     String espressoVersion = '3.5.1'
     String serialization_version = '1.5.1'
-    String metricsVersion = '1.9'
+    String metricsVersion = '2.0'
 
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version"
 
-    implementation "com.google.android.material:material:1.9.0"
+    implementation "com.google.android.material:material:1.10.0"
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation "androidx.core:core-ktx:1.10.1"
-    implementation "androidx.browser:browser:1.5.0"
+    implementation "androidx.core:core-ktx:1.12.0"
+    implementation "androidx.browser:browser:1.7.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation "androidx.fragment:fragment-ktx:1.5.7"
-    implementation "androidx.paging:paging-runtime-ktx:3.1.1"
+    implementation "androidx.fragment:fragment-ktx:1.6.2"
+    implementation "androidx.paging:paging-runtime-ktx:3.2.1"
     implementation "androidx.palette:palette-ktx:1.0.0"
-    implementation "androidx.preference:preference-ktx:1.2.0"
-    implementation "androidx.recyclerview:recyclerview:1.3.0"
+    implementation "androidx.preference:preference-ktx:1.2.1"
+    implementation "androidx.recyclerview:recyclerview:1.3.2"
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
     implementation 'com.android.installreferrer:installreferrer:2.2'
     implementation 'androidx.drawerlayout:drawerlayout:1.2.0'
-    implementation 'androidx.work:work-runtime-ktx:2.8.1'
+    implementation 'androidx.work:work-runtime-ktx:2.9.0'
     implementation "org.wikimedia.metrics:metrics-platform:$metricsVersion"
 
     implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.4.6') {
@@ -212,22 +206,22 @@ dependencies {
 
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     implementation "com.github.bumptech.glide:okhttp3-integration:$glideVersion"
-    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+    ksp "com.github.bumptech.glide:ksp:$glideVersion"
 
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
-    implementation "io.reactivex.rxjava3:rxjava:3.1.6"
+    implementation "io.reactivex.rxjava3:rxjava:3.1.8"
     implementation "io.reactivex.rxjava3:rxandroid:3.0.2"
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
-    implementation 'org.jsoup:jsoup:1.16.1'
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
+    implementation 'org.jsoup:jsoup:1.17.1'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
-    implementation "com.github.skydoves:balloon:1.5.3"
+    implementation 'com.github.skydoves:balloon:1.6.3'
     implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
 
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor "androidx.room:room-compiler:$roomVersion"
-    kapt "androidx.room:room-compiler:$roomVersion"
+    ksp "androidx.room:room-compiler:$roomVersion"
     implementation("androidx.room:room-ktx:$roomVersion")
     implementation "androidx.room:room-rxjava3:$roomVersion"
 
@@ -250,7 +244,7 @@ dependencies {
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation "org.mockito:mockito-inline:$mockitoVersion"
-    testImplementation 'org.robolectric:robolectric:4.10.3'
+    testImplementation 'org.robolectric:robolectric:4.11.1'
     testImplementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
     testImplementation 'org.hamcrest:hamcrest:2.2'

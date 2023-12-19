@@ -1,7 +1,9 @@
 package org.wikipedia.analytics.metricsplatform
 
+import org.wikimedia.metrics_platform.context.ClientData
+import org.wikimedia.metrics_platform.context.InteractionData
 import org.wikimedia.metrics_platform.context.PageData
-import org.wikipedia.BuildConfig
+import org.wikimedia.metrics_platform.context.PerformerData
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
@@ -13,28 +15,61 @@ import org.wikipedia.util.ReleaseUtil
 
 open class MetricsEvent {
 
-    private val applicationData get() = mapOf(
-        "agent_flavor" to BuildConfig.FLAVOR + BuildConfig.BUILD_TYPE,
-        "app_theme" to WikipediaApp.instance.currentTheme,
-        "app_version" to WikipediaApp.instance.versionCode.toString(),
-        "database" to WikipediaApp.instance.wikiSite.dbName(),
-        "device_language" to WikipediaApp.instance.languageState.systemLanguageCode,
-        "is_prod" to ReleaseUtil.isProdRelease,
-        "is_dev" to ReleaseUtil.isDevRelease,
-        "language_groups" to WikipediaApp.instance.languageState.appLanguageCodes.toString(),
-        "language_primary" to WikipediaApp.instance.languageState.appLanguageCode,
-        "performer_id" to AccountUtil.hashCode().toString(),
-        "performer_isloggedin" to AccountUtil.isLoggedIn,
-        "performer_groups" to AccountUtil.groups,
-        "performer_pageviewid" to EventPlatformClient.AssociationController.pageViewId,
-        "performer_sessionid" to EventPlatformClient.AssociationController.sessionId,
-        "performer_username" to AccountUtil.userName,
-    )
-
-    protected fun submitEvent(eventName: String, customData: Map<String, Any>, pageData: PageData? = null) {
-        if (ReleaseUtil.isPreBetaRelease && Prefs.isEventLoggingEnabled) {
-            MetricsPlatform.client.submitMetricsEvent(EVENT_NAME_BASE + eventName, pageData, customData + applicationData)
+    /**
+     * Submit an event to the Metrics Platform using a base interaction schema
+     *
+     * @param eventName the name of the event
+     * @param interactionData a data object that conforms to core interactions
+     * @param pageData dynamic page data that should be added to the ClientData object
+     */
+    protected fun submitEvent(
+        eventName: String,
+        interactionData: InteractionData?,
+        pageData: PageData? = null
+    ) {
+        if (ReleaseUtil.isPreProdRelease && Prefs.isEventLoggingEnabled) {
+            MetricsPlatform.client.submitInteraction(
+                EVENT_NAME_BASE + eventName,
+                getClientData(pageData),
+                interactionData)
         }
+    }
+
+    /**
+     * Submit an event to the Metrics Platform using a custom schema
+     *
+     * @param schemaId the custom schema ID
+     * @param eventName the name of the event
+     * @param customData the custom data key-value pairs that are top-level properties
+     * @param interactionData a data object that conforms to core interactions
+     * @param pageData dynamic page data that should be added to the ClientData object
+     */
+    protected fun submitEvent(
+        schemaId: String,
+        eventName: String,
+        customData: Map<String, Any>,
+        interactionData: InteractionData?,
+        pageData: PageData? = null
+    ) {
+        if (ReleaseUtil.isPreProdRelease && Prefs.isEventLoggingEnabled) {
+            MetricsPlatform.client.submitInteraction(
+                schemaId,
+                EVENT_NAME_BASE + eventName,
+                getClientData(pageData),
+                interactionData,
+                customData
+            )
+        }
+    }
+
+    protected fun getClientData(pageData: PageData?): ClientData {
+        return ClientData(
+            MetricsPlatform.agentData,
+            pageData,
+            MetricsPlatform.mediawikiData,
+            getPerformerData(),
+            MetricsPlatform.domain
+        )
     }
 
     protected fun getPageData(fragment: PageFragment?): PageData? {
@@ -46,10 +81,7 @@ open class MetricsEvent {
             Namespace.of(pageProperties.namespace.code()).toString(),
             pageProperties.revisionId,
             pageProperties.wikiBaseItem.orEmpty(),
-            fragment.model.title?.wikiSite?.languageCode.orEmpty(),
-            null,
-            null,
-            null
+            fragment.model.title?.wikiSite?.languageCode.orEmpty()
         )
     }
 
@@ -61,9 +93,46 @@ open class MetricsEvent {
             pageTitle.namespace().code(),
             Namespace.of(pageTitle.namespace().code()).toString(),
             revisionId,
-            "",
-            pageTitle.wikiSite.languageCode,
-            null, null, null)
+            null,
+            pageTitle.wikiSite.languageCode
+        )
+    }
+
+    private fun getPerformerData(): PerformerData {
+        return PerformerData(
+            AccountUtil.hashCode(),
+            AccountUtil.userName,
+            AccountUtil.isLoggedIn,
+            null,
+            EventPlatformClient.AssociationController.sessionId,
+            EventPlatformClient.AssociationController.pageViewId,
+            AccountUtil.groups,
+            WikipediaApp.instance.languageState.appLanguageCodes.toString(),
+            WikipediaApp.instance.languageState.appLanguageCode,
+            null
+        )
+    }
+
+    protected fun getInteractionData(
+        action: String,
+        actionSubtype: String? = null,
+        actionSource: String? = null,
+        actionContext: String? = null,
+        elementId: String? = null,
+        elementFriendlyName: String? = null,
+        funnelEntryToken: String? = null,
+        funnelEventSequencePosition: Int? = null
+    ): InteractionData {
+        return InteractionData(
+            action,
+            actionSubtype,
+            actionSource,
+            actionContext,
+            elementId,
+            elementFriendlyName,
+            funnelEntryToken,
+            funnelEventSequencePosition
+        )
     }
 
     companion object {

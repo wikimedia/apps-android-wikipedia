@@ -51,10 +51,21 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.*
-import org.wikipedia.util.DeviceUtil.setContextClickAsLongClick
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.*
+import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.MultiSelectActionModeCallback
+import org.wikipedia.views.NotificationActionsOverflowView
+import org.wikipedia.views.SearchAndFilterActionProvider
+import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.views.ViewUtil
+import org.wikipedia.views.WikiCardView
 
 class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
@@ -72,7 +83,7 @@ class NotificationActivity : BaseActivity() {
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == NotificationFilterActivity.ACTIVITY_RESULT_LANGUAGES_CHANGED) {
-            beginUpdateList()
+            viewModel.fetchAndSave(true)
         } else {
             viewModel.updateTabSelection(binding.notificationTabLayout.selectedTabPosition)
         }
@@ -85,7 +96,7 @@ class NotificationActivity : BaseActivity() {
         setSupportActionBar(binding.notificationsToolbar)
         supportActionBar?.title = getString(R.string.notifications_activity_title)
 
-        binding.notificationsErrorView.retryClickListener = View.OnClickListener { beginUpdateList() }
+        binding.notificationsErrorView.retryClickListener = View.OnClickListener { viewModel.fetchAndSave() }
         binding.notificationsErrorView.backClickListener = View.OnClickListener { onBackPressed() }
         binding.notificationsRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.notificationsRecyclerView.adapter = NotificationItemAdapter()
@@ -105,9 +116,8 @@ class NotificationActivity : BaseActivity() {
         itemTouchHelper.attachToRecyclerView(binding.notificationsRecyclerView)
 
         binding.notificationsRefreshView.setOnRefreshListener {
-            binding.notificationsRefreshView.isRefreshing = false
             finishActionMode()
-            beginUpdateList()
+            viewModel.fetchAndSave(true)
         }
 
         binding.notificationTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -124,8 +134,7 @@ class NotificationActivity : BaseActivity() {
         })
 
         Prefs.notificationUnreadCount = 0
-
-        beginUpdateList()
+        setLoadingState()
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -183,7 +192,7 @@ class NotificationActivity : BaseActivity() {
         }
     }
 
-    private fun beginUpdateList() {
+    private fun setLoadingState() {
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
@@ -191,10 +200,10 @@ class NotificationActivity : BaseActivity() {
         binding.notificationsProgressBar.visibility = View.VISIBLE
         binding.notificationTabLayout.visibility = View.GONE
         supportActionBar?.setTitle(R.string.notifications_activity_title)
-        viewModel.fetchAndSave()
     }
 
     private fun setSuccessState() {
+        binding.notificationsRefreshView.isRefreshing = false
         binding.notificationsProgressBar.visibility = View.GONE
         binding.notificationsErrorView.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.VISIBLE
@@ -203,6 +212,7 @@ class NotificationActivity : BaseActivity() {
 
     private fun setErrorState(throwable: Throwable) {
         L.e(throwable)
+        binding.notificationsRefreshView.isRefreshing = false
         binding.notificationsProgressBar.visibility = View.GONE
         binding.notificationsRecyclerView.visibility = View.GONE
         binding.notificationsEmptyContainer.visibility = View.GONE
@@ -346,7 +356,7 @@ class NotificationActivity : BaseActivity() {
         init {
             itemView.setOnClickListener(this)
             itemView.setOnLongClickListener(this)
-            setContextClickAsLongClick(itemView)
+            DeviceUtil.setContextClickAsLongClick(itemView)
         }
 
         fun bindItem(container: NotificationListItemContainer, pos: Int) {
@@ -363,18 +373,19 @@ class NotificationActivity : BaseActivity() {
             ImageViewCompat.setImageTintList(binding.notificationItemImage, if (n.isUnread) notificationColor else
                 ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.placeholder_color))
             n.contents?.let {
-                binding.notificationSubtitle.text = RichTextUtil.stripHtml(it.header)
-                StringUtil.highlightAndBoldenText(binding.notificationSubtitle, viewModel.currentSearchQuery, true, Color.YELLOW)
-                if (it.body.trim().isNotEmpty() && it.body.trim().isNotBlank()) {
-                    binding.notificationDescription.text = RichTextUtil.stripHtml(it.body)
-                    StringUtil.highlightAndBoldenText(binding.notificationDescription, viewModel.currentSearchQuery, true, Color.YELLOW)
-                    binding.notificationDescription.visibility = View.VISIBLE
-                } else {
-                    binding.notificationDescription.visibility = View.GONE
+                StringUtil.setHighlightedAndBoldenedText(binding.notificationSubtitle,
+                    RichTextUtil.stripHtml(it.header), viewModel.currentSearchQuery)
+
+                val showDescription = it.body.isNotBlank()
+                binding.notificationDescription.isVisible = showDescription
+                if (showDescription) {
+                    StringUtil.setHighlightedAndBoldenedText(binding.notificationDescription,
+                        RichTextUtil.stripHtml(it.body), viewModel.currentSearchQuery)
                 }
+
                 it.links?.secondary?.firstOrNull()?.let { link ->
-                    binding.notificationTitle.text = link.label
-                    StringUtil.highlightAndBoldenText(binding.notificationTitle, viewModel.currentSearchQuery, true, Color.YELLOW)
+                    StringUtil.setHighlightedAndBoldenedText(binding.notificationTitle, link.label,
+                        viewModel.currentSearchQuery)
                 } ?: run {
                     binding.notificationTitle.text = getString(notificationCategory.title)
                 }
@@ -392,8 +403,8 @@ class NotificationActivity : BaseActivity() {
             L10nUtil.setConditionalLayoutDirection(itemView, langCode)
 
             n.title?.let { title ->
-                binding.notificationSource.text = title.full
-                StringUtil.highlightAndBoldenText(binding.notificationSource, viewModel.currentSearchQuery, true, Color.YELLOW)
+                StringUtil.setHighlightedAndBoldenedText(binding.notificationSource, title.full,
+                    viewModel.currentSearchQuery)
                 n.contents?.links?.getPrimary()?.url?.let {
                     binding.notificationSource.setCompoundDrawablesRelative(null, null,
                             if (UriUtil.isAppSupportedLink(Uri.parse(it))) null else externalLinkIcon, null)
@@ -531,15 +542,12 @@ class NotificationActivity : BaseActivity() {
         }
 
         fun updateFilterIconAndCount() {
-            val excludedFilters = viewModel.excludedFiltersCount()
-            if (excludedFilters == 0) {
-                notificationFilterCountView.visibility = View.GONE
-                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.primary_color))
-            } else {
-                notificationFilterCountView.visibility = View.VISIBLE
-                notificationFilterCountView.text = excludedFilters.toString()
-                ImageViewCompat.setImageTintList(notificationFilterButton, ResourceUtil.getThemedColorStateList(this@NotificationActivity, R.attr.progressive_color))
-            }
+            val showFilterCount = viewModel.excludedFiltersCount() != 0
+            val filterButtonColor = if (showFilterCount) R.attr.progressive_color else R.attr.primary_color
+            notificationFilterCountView.isVisible = showFilterCount
+            notificationFilterCountView.text = viewModel.excludedFiltersCount().toString()
+            ImageViewCompat.setImageTintList(notificationFilterButton,
+                ResourceUtil.getThemedColorStateList(this@NotificationActivity, filterButtonColor))
         }
     }
 

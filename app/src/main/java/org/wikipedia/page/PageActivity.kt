@@ -6,12 +6,21 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.view.*
+import android.view.ActionMode
+import android.view.Gravity
+import android.view.KeyEvent
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.view.*
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.children
+import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -21,8 +30,10 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -36,6 +47,7 @@ import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.events.ChangeTextSizeEvent
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LangLinksActivity
@@ -53,13 +65,21 @@ import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
-import org.wikipedia.util.*
+import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.ThrowableUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer
 import org.wikipedia.views.ObservableWebView
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
-import java.util.*
+import java.util.Locale
 
 class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Callback, FrameLayoutNavMenuTriggerer.Callback {
 
@@ -116,7 +136,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             loadMainPage(TabPosition.NEW_TAB_FOREGROUND)
             animateTabsButton()
         } else if (it.resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
-            pageFragment.reloadFromBackstack()
+            pageFragment.reloadFromBackstack(false)
         }
     }
 
@@ -419,14 +439,14 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageRequestEditSection(sectionId: Int, sectionAnchor: String?, title: PageTitle, highlightText: String?) {
-        requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, highlightText))
+        requestEditSectionLauncher.launch(EditSectionActivity.newIntent(this, sectionId, sectionAnchor, title, InvokeSource.PAGE_ACTIVITY, highlightText))
     }
 
     override fun onPageRequestLangLinks(title: PageTitle) {
         val langIntent = Intent()
         langIntent.setClass(this, LangLinksActivity::class.java)
         langIntent.action = LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE
-        langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, title)
+        langIntent.putExtra(Constants.ARG_TITLE, title)
         requestHandleIntentLauncher.launch(langIntent)
     }
 
@@ -496,6 +516,16 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 val language = wiki.languageCode.lowercase(Locale.getDefault())
                 val isDonationRelated = language == "donate" || language == "thankyou"
                 if (isDonationRelated || (title.isSpecial && !title.isContributions)) {
+                    // Stop bouncing out if the URL is from the Android app customTab.
+                    val utmCampaign = uri.getQueryParameter("utm_campaign")
+                    if (utmCampaign != null && utmCampaign == "Android") {
+                        // TODO: need to verify if the page can be displayed and logged properly.
+                        DonorExperienceEvent.logImpression("webpay_processed")
+                        startActivity(SingleWebViewActivity.newIntent(this@PageActivity, uri.toString(),
+                            true, pageFragment.title, SingleWebViewActivity.PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE))
+                        finish()
+                        return
+                    }
                     UriUtil.visitInExternalBrowser(this, it)
                     finish()
                     return
@@ -504,8 +534,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             }
         } else if ((ACTION_LOAD_IN_NEW_TAB == intent.action || ACTION_LOAD_IN_CURRENT_TAB == intent.action ||
                     ACTION_LOAD_IN_CURRENT_TAB_SQUASH == intent.action) && intent.hasExtra(EXTRA_HISTORYENTRY)) {
-            val title = intent.getParcelableExtra<PageTitle>(EXTRA_PAGETITLE)
-            val historyEntry = intent.getParcelableExtra<HistoryEntry>(EXTRA_HISTORYENTRY)
+            val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
+            val historyEntry = intent.parcelableExtra<HistoryEntry>(EXTRA_HISTORYENTRY)
             when (intent.action) {
                 ACTION_LOAD_IN_NEW_TAB -> loadPage(title, historyEntry, TabPosition.NEW_TAB_FOREGROUND)
                 ACTION_LOAD_IN_CURRENT_TAB -> loadPage(title, historyEntry, TabPosition.CURRENT_TAB)
@@ -515,8 +545,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
                 showDescriptionEditRevertDialog(intent.getStringExtra(Constants.INTENT_EXTRA_REVERT_QNUMBER)!!)
             }
         } else if (ACTION_LOAD_FROM_EXISTING_TAB == intent.action && intent.hasExtra(EXTRA_HISTORYENTRY)) {
-            val title = intent.getParcelableExtra<PageTitle>(EXTRA_PAGETITLE)
-            val historyEntry = intent.getParcelableExtra<HistoryEntry>(EXTRA_HISTORYENTRY)
+            val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)
+            val historyEntry = intent.parcelableExtra<HistoryEntry>(EXTRA_HISTORYENTRY)
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB)
         } else if (ACTION_RESUME_READING == intent.action || intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
             loadFilePageFromBackStackIfNeeded()
@@ -526,8 +556,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_SEARCH)
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB)
         } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
-            val title = intent.getParcelableExtra<PageTitle>(EXTRA_PAGETITLE)
-            title?.let {
+            intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)?.let {
                 val historyEntry = HistoryEntry(it, HistoryEntry.SOURCE_WIDGET)
                 loadPage(it, historyEntry, TabPosition.EXISTING_TAB)
             }
@@ -817,7 +846,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         const val ACTION_LOAD_FROM_EXISTING_TAB = "org.wikipedia.load_from_existing_tab"
         const val ACTION_CREATE_NEW_TAB = "org.wikipedia.create_new_tab"
         const val ACTION_RESUME_READING = "org.wikipedia.resume_reading"
-        const val EXTRA_PAGETITLE = "org.wikipedia.pagetitle"
         const val EXTRA_HISTORYENTRY = "org.wikipedia.history.historyentry"
 
         fun newIntent(context: Context): Intent {
@@ -832,21 +860,21 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             return Intent(ACTION_LOAD_IN_NEW_TAB)
                 .setClass(context, PageActivity::class.java)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, title)
+                .putExtra(Constants.ARG_TITLE, title)
         }
 
         fun newIntentForCurrentTab(context: Context, entry: HistoryEntry, title: PageTitle, squashBackstack: Boolean = true): Intent {
             return Intent(if (squashBackstack) ACTION_LOAD_IN_CURRENT_TAB_SQUASH else ACTION_LOAD_IN_CURRENT_TAB)
                 .setClass(context, PageActivity::class.java)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, title)
+                .putExtra(Constants.ARG_TITLE, title)
         }
 
         fun newIntentForExistingTab(context: Context, entry: HistoryEntry, title: PageTitle): Intent {
             return Intent(ACTION_LOAD_FROM_EXISTING_TAB)
                 .setClass(context, PageActivity::class.java)
                 .putExtra(EXTRA_HISTORYENTRY, entry)
-                .putExtra(EXTRA_PAGETITLE, title)
+                .putExtra(Constants.ARG_TITLE, title)
         }
     }
 }

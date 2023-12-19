@@ -79,7 +79,7 @@ object ReadingListsShareHelper {
         pageIdMap.keys.forEach { key -> projectUrlMap[key] = pageIdMap[key]!!.values.map { JsonPrimitive(it) } }
 
         // TODO: for now we're not transmitting the free-form Name and Description of a reading list.
-        val exportedReadingLists = ExportedReadingLists(projectUrlMap /*, readingList.title, readingList.description */)
+        val exportedReadingLists = ExportedReadingLists(projectUrlMap) // , readingList.title, readingList.description)
         return Base64.encodeToString(JsonUtil.encodeToString(exportedReadingLists)!!.toByteArray(), Base64.NO_WRAP)
     }
 

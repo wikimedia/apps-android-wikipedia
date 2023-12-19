@@ -19,20 +19,15 @@ open class PlainPasteEditText : TextInputEditText {
     constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
     init {
-        // The MIME type(s) need to be set for onReceiveContent() to be called.
-        ViewCompat.setOnReceiveContentListener(rootView, arrayOf("text/*"), null)
-        // applyCustomCursorDrawable()
-    }
-
-    override fun onReceiveContent(payload: ContentInfoCompat): ContentInfoCompat? {
-        // Do not allow pasting of formatted text! We do this by replacing the contents of the clip
-        // with plain text.
-        val clip = payload.clip
-        val lastClipText = clip.getItemAt(clip.itemCount - 1).coerceToText(context).toString()
-        val updatedPayload = ContentInfoCompat.Builder(payload)
-            .setClip(ClipData.newPlainText(null, lastClipText))
-            .build()
-        return super.onReceiveContent(updatedPayload)
+        ViewCompat.setOnReceiveContentListener(this, arrayOf("text/*")) { _, payload ->
+            // Do not allow pasting of formatted text! We do this by replacing the contents of the clip
+            // with plain text.
+            val clip = payload.clip
+            val lastClipText = clip.getItemAt(clip.itemCount - 1).coerceToText(context).toString()
+            ContentInfoCompat.Builder(payload)
+                .setClip(ClipData.newPlainText(null, lastClipText))
+                .build()
+        }
     }
 
     override fun onCreateInputConnection(outAttrs: EditorInfo): InputConnection? {

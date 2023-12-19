@@ -11,6 +11,7 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ABTest.Companion.GROUP_1
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -29,13 +30,13 @@ import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 
 class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(), DescriptionEditFragment.Callback, LinkPreviewDialog.Callback {
     enum class Action {
-        ADD_DESCRIPTION, TRANSLATE_DESCRIPTION, ADD_CAPTION, TRANSLATE_CAPTION, ADD_IMAGE_TAGS
+        ADD_DESCRIPTION, TRANSLATE_DESCRIPTION, ADD_CAPTION, TRANSLATE_CAPTION, ADD_IMAGE_TAGS, IMAGE_RECOMMENDATIONS, VANDALISM_PATROL
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
-        val pageTitle = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
+        val pageTitle = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
 
         MachineGeneratedArticleDescriptionsAnalyticsHelper.isUserInExperiment = (ReleaseUtil.isPreBetaRelease && AccountUtil.isLoggedIn &&
                 action == Action.ADD_DESCRIPTION && pageTitle.description.isNullOrEmpty() &&
@@ -53,11 +54,11 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     public override fun createFragment(): DescriptionEditFragment {
         val invokeSource = intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
         val action = intent.getSerializableExtra(Constants.INTENT_EXTRA_ACTION) as Action
-        val title = intent.getParcelableExtra<PageTitle>(EXTRA_TITLE)!!
+        val title = intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
         return DescriptionEditFragment.newInstance(title,
                 intent.getStringExtra(EXTRA_HIGHLIGHT_TEXT),
-                intent.getParcelableExtra(EXTRA_SOURCE_SUMMARY),
-                intent.getParcelableExtra(EXTRA_TARGET_SUMMARY),
+                intent.parcelableExtra(EXTRA_SOURCE_SUMMARY),
+                intent.parcelableExtra(EXTRA_TARGET_SUMMARY),
                 action,
                 invokeSource)
     }
@@ -77,11 +78,8 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     override fun onBottomBarContainerClicked(action: Action) {
-        val summary: PageSummaryForEdit = if (action == Action.TRANSLATE_DESCRIPTION) {
-            intent.getParcelableExtra(EXTRA_TARGET_SUMMARY)!!
-        } else {
-            intent.getParcelableExtra(EXTRA_SOURCE_SUMMARY)!!
-        }
+        val key = if (action == Action.TRANSLATE_DESCRIPTION) EXTRA_TARGET_SUMMARY else EXTRA_SOURCE_SUMMARY
+        val summary = intent.parcelableExtra<PageSummaryForEdit>(key)!!
         if (action == Action.ADD_CAPTION || action == Action.TRANSLATE_CAPTION) {
             ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                     ImagePreviewDialog.newInstance(summary, action))
@@ -121,7 +119,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     companion object {
-        private const val EXTRA_TITLE = "title"
         private const val EXTRA_HIGHLIGHT_TEXT = "highlightText"
         private const val EXTRA_SOURCE_SUMMARY = "sourceSummary"
         private const val EXTRA_TARGET_SUMMARY = "targetSummary"
@@ -134,7 +131,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
                       action: Action,
                       invokeSource: InvokeSource): Intent {
             return Intent(context, DescriptionEditActivity::class.java)
-                    .putExtra(EXTRA_TITLE, title)
+                    .putExtra(Constants.ARG_TITLE, title)
                     .putExtra(EXTRA_HIGHLIGHT_TEXT, highlightText)
                     .putExtra(EXTRA_SOURCE_SUMMARY, sourceSummary)
                     .putExtra(EXTRA_TARGET_SUMMARY, targetSummary)

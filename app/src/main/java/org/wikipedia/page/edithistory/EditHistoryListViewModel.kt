@@ -8,11 +8,13 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.map
+import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.restbase.EditCount
 import org.wikipedia.dataclient.restbase.Metrics
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -23,10 +25,9 @@ import java.io.IOException
 import java.util.*
 
 class EditHistoryListViewModel(bundle: Bundle) : ViewModel() {
-
     val editHistoryStatsData = MutableLiveData<Resource<EditHistoryStats>>()
 
-    var pageTitle: PageTitle = bundle.getParcelable(EditHistoryListActivity.INTENT_EXTRA_PAGE_TITLE)!!
+    var pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     var pageId = -1
         private set
     var comparing = false

@@ -7,7 +7,12 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.MediaController
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -32,8 +37,14 @@ import org.wikipedia.databinding.FragmentGalleryItemBinding
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.FileUtil
+import org.wikipedia.util.ImageUrlUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
@@ -42,6 +53,7 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     interface Callback {
         fun onDownload(item: GalleryItemFragment)
         fun onShare(item: GalleryItemFragment, bitmap: Bitmap?, subject: String, title: PageTitle)
+        fun onError(throwable: Throwable)
     }
 
     private var _binding: FragmentGalleryItemBinding? = null
@@ -65,11 +77,9 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mediaListItem = requireArguments().getParcelable(ARG_GALLERY_ITEM)!!
-        pageTitle = requireArguments().getParcelable(ARG_PAGETITLE)
-        if (pageTitle == null) {
-            pageTitle = PageTitle(mediaListItem.title, Constants.commonsWikiSite)
-        }
+        mediaListItem = requireArguments().parcelable(ARG_GALLERY_ITEM)!!
+        pageTitle = requireArguments().parcelable(Constants.ARG_TITLE)
+            ?: PageTitle(mediaListItem.title, Constants.commonsWikiSite)
         imageTitle = PageTitle("File:${StringUtil.removeNamespace(mediaListItem.title)}", pageTitle!!.wikiSite)
     }
 
@@ -77,15 +87,15 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         _binding = FragmentGalleryItemBinding.inflate(inflater, container, false)
         requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-        binding.image.setOnClickListener {
+        binding.imageView.setOnClickListener {
             if (!isAdded) {
                 return@setOnClickListener
             }
             (requireActivity() as GalleryActivity).toggleControls()
         }
-        binding.image.setOnMatrixChangeListener {
+        binding.imageView.setOnMatrixChangeListener {
             if (isAdded) {
-                binding.image.setAllowParentInterceptOnEdge(abs(binding.image.scale - 1f) < 0.01f)
+                binding.imageView.setAllowParentInterceptOnEdge(abs(binding.imageView.scale - 1f) < 0.01f)
             }
         }
         loadMedia()
@@ -94,8 +104,8 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
 
     override fun onDestroyView() {
         disposables.clear()
-        binding.image.setOnMatrixChangeListener(null)
-        binding.image.setOnClickListener(null)
+        binding.imageView.setOnMatrixChangeListener(null)
+        binding.imageView.setOnClickListener(null)
         binding.videoThumbnail.setOnClickListener(null)
         _binding = null
         super.onDestroyView()
@@ -125,9 +135,9 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         }
         menu.findItem(R.id.menu_gallery_visit_image_page).isEnabled = mediaInfo != null
         menu.findItem(R.id.menu_gallery_share).isEnabled = mediaInfo != null &&
-                mediaInfo!!.thumbUrl.isNotEmpty() && binding.image.drawable != null
+                mediaInfo!!.thumbUrl.isNotEmpty() && binding.imageView.drawable != null
         menu.findItem(R.id.menu_gallery_save).isEnabled = mediaInfo != null &&
-                mediaInfo!!.thumbUrl.isNotEmpty() && binding.image.drawable != null
+                mediaInfo!!.thumbUrl.isNotEmpty() && binding.imageView.drawable != null
     }
 
     override fun onMenuItemSelected(item: MenuItem): Boolean {
@@ -199,10 +209,11 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     private val videoThumbnailClickListener: View.OnClickListener = object : View.OnClickListener {
         private var loading = false
         override fun onClick(v: View) {
-            if (loading || mediaInfo?.bestDerivative == null) {
+            val derivative = mediaInfo?.getBestDerivativeForSize(Constants.PREFERRED_GALLERY_IMAGE_SIZE)
+            if (loading || derivative == null) {
                 return
             }
-            val bestDerivative = mediaInfo!!.bestDerivative!!.src
+            val bestDerivative = derivative.src
             loading = true
             L.d("Loading video from url: $bestDerivative")
             binding.videoView.visibility = View.VISIBLE
@@ -252,21 +263,19 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     }
 
     private fun loadImage(url: String) {
-        binding.image.visibility = View.INVISIBLE
-        L.v("Loading image from url: $url")
+        binding.imageView.visibility = View.INVISIBLE
         updateProgressBar(true)
-        ViewUtil.loadImage(binding.image, url, roundedCorners = false, largeRoundedSize = false, force = true, listener = this)
-        // TODO: show error if loading failed.
+        ViewUtil.loadImage(binding.imageView, url, roundedCorners = false, largeRoundedSize = false, force = true, listener = this)
     }
 
     override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-        (requireActivity() as GalleryActivity).onMediaLoaded()
+        callback()?.onError(e?.fillInStackTrace() ?: Throwable(getString(R.string.error_message_generic)))
         return false
     }
 
     override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource,
         isFirstResource: Boolean): Boolean {
-        binding.image.visibility = View.VISIBLE
+        binding.imageView.visibility = View.VISIBLE
         (requireActivity() as GalleryActivity).onMediaLoaded()
         return false
     }
@@ -279,10 +288,8 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
                     if (!isAdded) {
                         return
                     }
-                    shareSubject?.let { subject ->
-                        imageTitle?.let { title ->
-                            callback()?.onShare(this@GalleryItemFragment, bitmap, subject, title)
-                        }
+                    imageTitle?.let { title ->
+                        callback()?.onShare(this@GalleryItemFragment, bitmap, shareSubject, title)
                     }
                 }
             }[requireContext()]
@@ -300,12 +307,11 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
     }
 
     companion object {
-        private const val ARG_PAGETITLE = "pageTitle"
         private const val ARG_GALLERY_ITEM = "galleryItem"
 
         fun newInstance(pageTitle: PageTitle?, item: MediaListItem): GalleryItemFragment {
             return GalleryItemFragment().apply {
-                arguments = bundleOf(ARG_PAGETITLE to pageTitle, ARG_GALLERY_ITEM to item)
+                arguments = bundleOf(Constants.ARG_TITLE to pageTitle, ARG_GALLERY_ITEM to item)
             }
         }
     }

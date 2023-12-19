@@ -65,7 +65,7 @@
   <string name="menu_page_watch">حضي</string>
   <string name="menu_page_view_talk">شوف صفحة ديال لهضرة</string>
   <string name="menu_page_view_edit_history">شوف ليسطوريك ديال تبدال</string>
-  <string name="menu_page_remove_from_watchlist">حيد من ليستة د لمراقبة</string>
+  <string name="menu_page_remove_from_watchlist">حيد من الليستة د لحضيان</string>
   <string name="edit_section_find_in_page">قلّب فالصفحة</string>
   <string name="menu_page_font_and_theme">لخط والشكل</string>
   <string name="menu_page_add_to_list">زيد ل ليستة ديال لقراية</string>
@@ -92,8 +92,7 @@
   <string name="map_view_link_text">شوف ف خريطة</string>
   <string name="other_languages_indication_text">قرا بلغة خرى</string>
   <string name="language_count_link_text">موجود ف %d لغة خرى</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
-  <string name="edit_save_action_license_logged_in">بالنشير، راك قابل على &lt;a href=\"%1$s\"&gt;شروط لإستخدام&lt;/a&gt;، وباللي مغاديش يتنادم معاك لحال الى تنشرات لمساهمة ديالك تحت ليصونص &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">بالنشير، راك قابل على &lt;a href=\"%1$s\"&gt;شروط لإستخدام&lt;/a&gt;، وباللي مغاديش يتنادم معاك لحال الى تنشرات لمساهمة ديالك تحت ليصونص &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="preference_title_language">لوغات د ويكيپيديا</string>
   <string name="langlinks_filter_hint">قلّب</string>
   <string name="langlinks_empty">هاد الصفحة ماكايناش ف لوغات خرين</string>
@@ -197,6 +196,7 @@
   <string name="edit_done">تنشر</string>
   <string name="edit_undo">ماتليتش</string>
   <string name="edit_redo">عاود</string>
+  <string name="edit_rollback">ترجاع</string>
   <string name="edit_zoom_in">زومي</string>
   <string name="edit_zoom_out">صغّر</string>
   <string name="edit_summary_tag_links">روابط تزادت</string>
@@ -316,6 +316,10 @@
   <string name="notifications_channel_group_wikipedia_notifications_title">ويكيپيديا</string>
   <string name="view_because_you_read_card_title">حيت قريتي</string>
   <string name="view_random_article_card_title">مقالة كيما كانت</string>
+  <string name="view_top_read_card_title">مقالات كيتشافو</string>
+  <string name="view_top_read_card_action">زيد قرا</string>
+  <string name="view_main_page_card_title">ليوما ف ويكيپيديا</string>
+  <string name="view_main_page_card_action">شوف الصفحة اللولة</string>
   <string name="view_featured_image_card_title">تصويرة ديال نهار</string>
   <string name="view_featured_image_card_share">پارطاجي</string>
   <string name="view_card_news_title">ف لخبار</string>
@@ -327,6 +331,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">لغي</string>
   <string name="feed_lang_selection_dialog_ok_button_text">واخا</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">لغي</string>
+  <string name="top_read_activity_title">أكتر مقالات تشافو ف %s</string>
   <string name="description_edit_read">قرا</string>
   <string name="description_edit_add_description">زيد وصف لمقال</string>
   <string name="description_edit_cancel_hint">لغي</string>
@@ -348,13 +353,13 @@
   <string name="suggested_edits_contributions_stat_tooltip">لمجموع د تبديلات ديالك حتال دابا.</string>
   <string name="suggested_edits_disabled_message">التبديلات لمقتارحة مامفعلاش. سمح لينا %s، راه ترجّعو بزاف د لمساهمات اللخرة ديالك.</string>
   <string name="suggested_edits_quality_okay_text">واخا</string>
-  <string name="suggested_edits_task_new">جديد</string>
+  <string name="suggested_edits_task_new" fuzzy="true">جديد</string>
   <string name="suggested_edits_contribution_language_label">لوغة</string>
   <string name="suggested_edits_contribution_date_time_label">تاريخ / وقت</string>
   <string name="suggested_edits_contribution_image_label">تصويرة</string>
   <string name="suggested_edits_contribution_date_yesterday_text">لبارح</string>
   <string name="suggested_edits_encourage_account_creation_title">واش ف خبارك بلي أي واحد يمكنلو يكتب ف ويكيپيديا؟</string>
-  <string name="file_page_add_image_caption_button">زيد تعليق علا تصويرة</string>
+  <string name="file_page_add_image_caption_button">زيد تعليق على تصويرة</string>
   <string name="description_edit_login_cancel_button_text">لغي</string>
   <string name="onboarding_continue">كمل</string>
   <string name="onboarding_multilingual_add_language_text">زيد ولا بدل لوغات</string>
@@ -367,6 +372,7 @@
   <string name="languages_list_activity_title">زيد لوغة</string>
   <string name="wikipedia_languages_add_language_text">زيد لوغة</string>
   <string name="more_language_options">كتر</string>
+  <string name="add_wikipedia_languages_text">زيد لوغات د ويكيپيديا</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">لا شكرا</string>
   <string name="remove_language_dialog_cancel_button_text">لغي</string>
   <string name="remove_language_dialog_ok_button_text">واخا</string>

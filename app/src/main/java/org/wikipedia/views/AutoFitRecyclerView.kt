@@ -2,7 +2,7 @@ package org.wikipedia.views
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.core.content.withStyledAttributes
+import androidx.core.content.res.use
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.R
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
@@ -16,18 +16,12 @@ open class AutoFitRecyclerView constructor(context: Context, attrs: AttributeSet
         fun onColumns(columns: Int)
     }
 
-    private var minColumnWidth = 0
+    private val minColumnWidth = context.obtainStyledAttributes(attrs, R.styleable.AutoFitRecyclerView, defStyleAttr, 0).use {
+        it.getDimensionPixelSize(R.styleable.AutoFitRecyclerView_minColumnWidth, 0)
+    }
     @AndroidIntRange(from = MIN_COLUMNS.toLong())
     var columns = MIN_COLUMNS
     var callback: Callback = DefaultCallback()
-
-    init {
-        if (attrs != null) {
-            context.withStyledAttributes(attrs, R.styleable.AutoFitRecyclerView, defStyleAttr) {
-                minColumnWidth = getDimensionPixelSize(R.styleable.AutoFitRecyclerView_minColumnWidth, 0)
-            }
-        }
-    }
 
     override fun onMeasure(widthSpec: Int, heightSpec: Int) {
         super.onMeasure(widthSpec, heightSpec)
@@ -40,7 +34,7 @@ open class AutoFitRecyclerView constructor(context: Context, attrs: AttributeSet
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         // https://issuetracker.google.com/issues/37034096
-        // TODO: check again in Sep 2021
+        // TODO: check again in August 2024
         try {
             super.onLayout(changed, l, t, r, b)
         } catch (e: Exception) {

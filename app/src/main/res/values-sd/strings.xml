@@ -110,9 +110,9 @@
   <string name="map_view_link_text">نقشي تي ڏسو</string>
   <string name="other_languages_indication_text">ٻي ٻوليءَ ۾ پڙھو</string>
   <string name="language_count_link_text">%d ٻولين ۾ موجود</string>
-  <string name="content_license_cc_by_sa">ڪڪ بو-سا 3.0</string>
-  <string name="edit_save_action_license_logged_in">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;سيسي بي.واءِ-ايس.اي 3.0&lt;/a&gt; اجازتنامي جاري ڪرڻ لاءِ راضي آھيو.</string>
-  <string name="edit_save_action_license_anon">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;سيسي بي.واءِ-ايس.اي 3.0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيو. سنوارون توھان جي آئِپي پتي سان منتسب ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ نويڪلائي هوندي.</string>
+  <string name="content_license_cc_by_sa">ڪڪ بو-سا 4.0</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;سيسي بي.واءِ-ايس.اي 3.0&lt;/a&gt; اجازتنامي جاري ڪرڻ لاءِ راضي آھيو.</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;سيسي بي.واءِ-ايس.اي 3.0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيو. سنوارون توھان جي آئِپي پتي سان منتسب ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ نويڪلائي هوندي.</string>
   <string name="edit_anon_warning">سنوارون توهان جي ڊوائيس جي آئپي پتي ڏانھن منسوب ڪيون وينديون. جيڪڏھن توھان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ اوھان کي وڌيڪ نويڪلائي ملندي.</string>
   <string name="preference_title_language">وڪيپيڊيا ٻوليون</string>
   <string name="langlinks_filter_hint">ڳوليو</string>
@@ -232,8 +232,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sd</string>
   <string name="android_app_request_an_account_url">https://sd.wikipedia.org/wiki/وڪيپيڊيا:کاتي_جي_لاءِ_درخواست_ڏيو</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">مستعمل لائبريريون</string>
@@ -242,7 +240,7 @@
   <string name="about_translators_heading">ترجميڪارَ</string>
   <string name="about_translators_translatewiki">هيءَ ايپ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; تي موجود رضاڪار ترجميڪارن ترجمو ڪري ڏني.</string>
   <string name="about_app_license_heading">اجازتنامو</string>
-  <string name="about_app_license">ذريعي جو ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;جَيرٽ&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;جِٽ-ھب&lt;/a&gt; &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;اپاچي 2.0 اجازتنامي ھيٺ موجود آھي&lt;/a&gt;. جيسيتائين ٻي صورت واضع نہ ڪئي وڃي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز ھڪجھڙي-ونڊ-انتساب اجازتنامي ھيٺ موجود آھي&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">ذريعي جو ڪوڊ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;جَيرٽ&lt;/a&gt; ۽ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;جِٽ-ھب&lt;/a&gt; &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;اپاچي 2.0 اجازتنامي ھيٺ موجود آھي&lt;/a&gt;. جيسيتائين ٻي صورت واضع نہ ڪئي وڃي، مواد &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ڪريئيٽو ڪامنز ھڪجھڙي-ونڊ-انتساب اجازتنامي ھيٺ موجود آھي&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;وڪيميڊيا فائونڊيشن&lt;/a&gt; جي مصنوع</string>
   <string name="about_activity_title">بابت</string>
   <string name="edit_abandon_confirm">هيءُ صفحو بدلائجي چڪو آهي. توهان کي پڪ آهي تہ توهان تبديليون سانڍڻ کان سواءِ ڇڏي وڃڻ چاهيو ٿا؟</string>
@@ -902,7 +900,7 @@
   <string name="suggested_edits_ip_blocked_title">آئپي تي بندش وڌل آھي</string>
   <string name="suggested_edits_last_edited">آخري دفعو سنواريل</string>
   <string name="suggested_edits_last_edited_never">ڪڏهن بہ نہ</string>
-  <string name="suggested_edits_task_new">نوان</string>
+  <string name="suggested_edits_task_new" fuzzy="true">نوان</string>
   <string name="suggested_edits_reactivation_notification_title">ڏسيل سنوارون</string>
   <string name="suggested_edits_reactivation_notification_stage_one">وڪيپيڊيا کي سنوارڻ لاءِ مھرباني! ڇو نہ اتان شروع ڪجي جتان ڇڏيوسين؟</string>
   <string name="suggested_edits_contributions_screen_title">%s جون ڀاڱيداريون</string>
@@ -1037,9 +1035,9 @@
   <string name="insert_media_title">ميڊيا وجهو</string>
   <string name="insert_media_search_description">وڪيميڊيا ڪامنز مان ڪو فائيل چونڊيو</string>
   <string name="insert_media_search_hint">ميڊيا ڳوليو</string>
-  <string name="insert_media_settings">ميڊيا ترتيبون</string>
+  <string name="insert_media_settings" fuzzy="true">ميڊيا ترتيبون</string>
   <string name="insert_media_settings_uploaded_image">چڙھيل عڪس</string>
-  <string name="insert_media_settings_caption">عنوان</string>
+  <string name="insert_media_settings_caption" fuzzy="true">عنوان</string>
   <string name="insert_media_settings_alternative_text">متبادل متن</string>
   <string name="insert_media_advanced_settings">اعليٰ ترتيبون</string>
   <string name="insert_media_advanced_settings_wrap_image">متن کي عڪس جي چوڌاري ويڙھيو</string>
@@ -1156,7 +1154,7 @@
   <string name="revision_diff_line_removed">ڪڍيل سِٽ</string>
   <string name="revision_diff_paragraph_added">وڌل پيراگراف</string>
   <string name="revision_diff_paragraph_removed">ڪڍيل پيراگراف</string>
-  <string name="revision_undo_title">سنوار اڻڪريو</string>
+  <string name="revision_undo_title" fuzzy="true">سنوار اڻڪريو</string>
   <string name="revision_undo_success">ورجاء کي ختم ڪيو ويو.</string>
   <string name="revision_rollback_dialog_title">ڇا توھان کي پڪ آھي تہ توھان سنوارن کي واپس ورائڻ چاھيو ٿا؟</string>
   <string name="revision_rollback_success">سنوارون موٽايون ويون</string>

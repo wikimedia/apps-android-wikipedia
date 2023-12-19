@@ -60,8 +60,8 @@
   <string name="map_view_link_text">တူၺ်းၼိူဝ် ႁၢင်ႈတမ်း</string>
   <string name="other_languages_indication_text">လူႇၼင်ႇ ၽႃႇသႃႇၵႂၢမ်းတၢင်ႇၶိူဝ်း</string>
   <string name="language_count_link_text">ၸႂ့်လႆႈ ၽႃႇသႃႇတၢင်ႇၸိူဝ်း တႃႇ %d မဵဝ်း</string>
-  <string name="edit_save_action_license_logged_in">ပေႃးဝႃႈပိုၼ်ႇဢွၵ်ႇၼႆ ပွင်ႇဝႃႈၸဝ်ႈၵဝ်ႇၽွမ်ႉၸႂ်တင်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၽွမ်ႉၸႂ် လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt;, တႃႇတေပိုၼ်ဢွၵ်ႇ လွင်ႈႁူမ်ႈသၢင်ႈၸဝ်ႈၵဝ်ႇ ဢမ်ႇလႅၵ်ႈဢမ်ႇလၢႆႈ ၸွမ်းၼင်ႇ ဝႂ်ၶႂၢင်း &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="edit_save_action_license_anon">ၸွမ်းၼင်ႇ လွင်ႈပိုၼ်ဢွၵ်ႇသေ၊ ၸဝ်ႈၵဝ်ႇလႆႈၽွမ်ႉၸႂ်ဝႆႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၽွမ်ႉၸႂ် လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt;, လႄႈ ၵမ်းလိုၼ်းမႃး တေပိုၼ်ၽႄ လွင်ႈၶဝ်ႈႁူမ်ႈသၢင်ႈ ၸဝ်ႈၵဝ်ႇ ၸွမ်းၼင်ႇ ဝႂ်လူတ်းပွႆႇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ၼႆႉယူႇ။ လွင်ႈမႄးထတ်းၸိူဝ်းၼႆႉ မၼ်းတေမၢႆတွင်းဝႆႉ ႁဵင်းလိၵ်ႈ ဢၢႆႇၽီႇ ၶွင်ၶိူင်ႈၸၢၵ်ႈၸဝ်ႈၵဝ်ႇဢေႃႈ။ သင်ၸိူဝ်ႉဝႃႈ ၸဝ်ႈၵဝ်ႇ ၶဝ်ႈ &lt;a href=\"https://#login\"&gt;လွၵ်ႉဢိၼ်ႇ&lt;/a&gt;ဝႆႉၼႆတႄႉ ၸဝ်ႈၵဝ်ႇ တေတိူဝ်းမီး လွင်ႈႁူမ်ႇလူမ်ႈလီဢေႃႈ။</string>
+  <string name="edit_save_action_license_logged_in" fuzzy="true">ပေႃးဝႃႈပိုၼ်ႇဢွၵ်ႇၼႆ ပွင်ႇဝႃႈၸဝ်ႈၵဝ်ႇၽွမ်ႉၸႂ်တင်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၽွမ်ႉၸႂ် လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt;, တႃႇတေပိုၼ်ဢွၵ်ႇ လွင်ႈႁူမ်ႈသၢင်ႈၸဝ်ႈၵဝ်ႇ ဢမ်ႇလႅၵ်ႈဢမ်ႇလၢႆႈ ၸွမ်းၼင်ႇ ဝႂ်ၶႂၢင်း &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+  <string name="edit_save_action_license_anon" fuzzy="true">ၸွမ်းၼင်ႇ လွင်ႈပိုၼ်ဢွၵ်ႇသေ၊ ၸဝ်ႈၵဝ်ႇလႆႈၽွမ်ႉၸႂ်ဝႆႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၽွမ်ႉၸႂ် လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt;, လႄႈ ၵမ်းလိုၼ်းမႃး တေပိုၼ်ၽႄ လွင်ႈၶဝ်ႈႁူမ်ႈသၢင်ႈ ၸဝ်ႈၵဝ်ႇ ၸွမ်းၼင်ႇ ဝႂ်လူတ်းပွႆႇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ၼႆႉယူႇ။ လွင်ႈမႄးထတ်းၸိူဝ်းၼႆႉ မၼ်းတေမၢႆတွင်းဝႆႉ ႁဵင်းလိၵ်ႈ ဢၢႆႇၽီႇ ၶွင်ၶိူင်ႈၸၢၵ်ႈၸဝ်ႈၵဝ်ႇဢေႃႈ။ သင်ၸိူဝ်ႉဝႃႈ ၸဝ်ႈၵဝ်ႇ ၶဝ်ႈ &lt;a href=\"https://#login\"&gt;လွၵ်ႉဢိၼ်ႇ&lt;/a&gt;ဝႆႉၼႆတႄႉ ၸဝ်ႈၵဝ်ႇ တေတိူဝ်းမီး လွင်ႈႁူမ်ႇလူမ်ႈလီဢေႃႈ။</string>
   <string name="preference_title_language">ၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="langlinks_filter_hint">ၶူၼ်ႉႁႃ</string>
   <string name="langlinks_empty">ၼႃႈလိၵ်ႈဢၼ်ၼႆႉ မၼ်းဢမ်ႇၸၢင်ႈၸႂ်ႉၸွမ်း ၽႃႇသႃႇၶေႃႈၵႂၢမ်းတၢင်ႇဢၼ်။</string>
@@ -72,7 +72,7 @@
   <string name="edit_saved_successfully">လွင်ႈမႄးထတ်း ပိုၼ်ဢွၵ်ႇယဝ်ႉယဝ်ႈ!</string>
   <string name="dialog_message_edit_failed">လွင်ႈမႄးထတ်း ဢမ်ႇၶႅမ်ႉလႅပ်ႈ!</string>
   <string name="dialog_message_edit_failed_retry">ၶိုၼ်းၶတ်းၸႂ်တူၺ်း</string>
-  <string name="dialog_message_edit_failed_cancel">ဢမ်ႇႁဵတ်း</string>
+  <string name="dialog_message_edit_failed_cancel">ယုၵ်ႉလိူၵ်ႈ</string>
   <string name="dialog_message_leaving_edit">လွင်ႈလႅၵ်ႈလၢႆႈၸဝ်ႈၵဝ်ႇၼၼ်ႉ ဢမ်ႇပႆႇလႆႈပိုၼ်ႇဢွၵ်ႇၵွၼ်ႇ။ လွင်ႈဝႃႈၸဝ်ႈၵဝ်ႇတေ ဢွၵ်ႇၵႂႃႇတီႈ ၼႃႈလိၵ်ႈၼႆႉ လပ်ႉလွင်းယဝ်ႉႁႃႉ?</string>
   <string name="dialog_message_leaving_edit_leave">ဢွၵ်ႇၵႂႃႇ</string>
   <string name="dialog_message_leaving_edit_stay">ယူႇဝႆႉ</string>
@@ -107,11 +107,11 @@
   <string name="preference_title_logout">လွၵ်ႉဢွၵ်ႉ</string>
   <string name="toast_logout_complete">လွၵ်ႉဢွၵ်ႉယဝ်ႉယဝ်ႈ</string>
   <string name="logout_prompt">တေဢဝ်ၸဝ်ႈၵဝ်ႇ လွၵ်ႉဢွၵ်ႉ ၵႃႈတီႈၼိူဝ်ၶိူင်ႈ ဢၼ်ၸဝ်ႈၵဝ်ႇ ၶဝ်ႈလွၵ်ႉဢိၼ်ႇဝႆႉၼၼ်ႉ။ ၸဝ်ႈၵဝ်ႇတေၶႂ်ႈ သိုပ်ႇႁဵတ်းၵႂႃႇယဝ်ႉၼႄႇ?</string>
-  <string name="logout_dialog_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
+  <string name="logout_dialog_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
   <string name="logged_out_in_background_title">လွၵ်ႉဢွၵ်ႉယဝ်ႉယဝ်ႈ</string>
   <string name="logged_out_in_background_dialog">ၸဝ်ႈၵဝ်ႇ လွၵ်ႉဢွၵ်ႉၵႃႈတီႈ ဝီႇၶီႇၽီးတီးယႃးယဝ်ႉ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၶႂ်ႈ လွၵ်ႉဢိၼ်ႇထႅင်ႈႁိုဝ်?</string>
   <string name="logged_out_in_background_login">လွၵ်ႉဢိၼ်ႇ</string>
-  <string name="logged_out_in_background_cancel">ဢမ်ႇႁဵတ်း</string>
+  <string name="logged_out_in_background_cancel">ယုၵ်ႉလိူၵ်ႈ</string>
   <string name="history_empty_title">ဢမ်ႇမီး ပွင်ႈလိၵ်ႈဢၼ်တိုၵ်ႉႁႃ တူၺ်းၵႂႃႇၼၼ်ႉ</string>
   <string name="history_empty_message">ၸွပ်ႇတူၺ်းဝႃႈ ၸဝ်ႈၵဝ်ႇလူသင်ၵႂႃႇ ၵႃႈတီႈၼႆႈ</string>
   <string name="history_offline_articles_toast">ပွင်ႈၵႂၢမ်းမၢင်ၸိူဝ်း ဢၼ်မီးယူႇတီႈၼႂ်းပိုၼ်းၼၼ်ႉ တေဢမ်ႇၸၢင်ႈတူၺ်းလႆႈ ၽွင်းပဵၼ် ဢွပ်ႉၾ်လၢႆးဝႆႉ။</string>
@@ -179,7 +179,6 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://shn.wikipedia.org/wiki/ဝီႇၶီႇၽီးတီးယႃး:Request_an_account</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">ၸႂ်ႉဝႆႉ ​ႁူင်းၶေႃႈမုၼ်း</string>
@@ -380,7 +379,7 @@
   <string name="reading_list_delete_confirm">ၸဝ်ႈၵဝ်ႇ တေမွတ်ႇပႅတ်ႈ %s ဢၼ်ဝႃႈၼၼ်ႉ ၼႄႉၼွၼ်းယဝ်ႉႁႃႉ?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">လွၵ်ႉဢိၼ်ႇ တွၼ်ႈတႃႇ ၶူၼ်းၽဵင်ႇ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">လွၵ်ႉဢိၼ်ႇတွၼ်ႈတႃႇ ၶႂၢင်းပၼ်သဵၼ်ႈမၢႆလူၸဝ်ႈၵဝ်ႇ တႃႇသိမ်းပၼ်ဝႆႉ တီႈၼႂ်း ဢၶွင်ႉၸဝ်ႈၵဝ်ႇ။</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">ဢမ်ႇႁဵတ်း</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">ယုၵ်ႉလိူၵ်ႈ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">လွၵ်ႉဢိၼ်ႇ</string>
   <string name="reading_list_turned_sync_off_dialog_title">ၶူၼ်းၽဵင်ႇသဵၼ်ႈမၢႆလူ ဢိုတ်းဝႆႉ</string>
   <string name="reading_list_turned_sync_off_dialog_text">ၶူၼ်းၽဵင်ႇသဵၼ်ႈမၢႆလူၼႆႉ ဢိုတ်းဝႆႉ တွၼ်ႈတႃႇ ဢၶွင်ႉၸဝ်ႈၵဝ်ႇ၊ လႄႈ ပွင်ႈၵႂၢမ်းၸိူဝ်းသိမ်းဝႆႉ တီႈၼိူဝ် ၶိူင်ႈၸဝ်ႈၵဝ်ႇ ဢၼ်ၶဝ်ႈလွၵ်ႉဢိၼ်ႇဝႆႉၼၼ်ႉ တေဢမ်ႇႁဵတ်းၵဵမ်လင်ဝႆႉ။ ပိုတ်ႇပၼ် ၶူၼ်းၽဵၼ်ႇသဵၼ်ႈမၢႆလူ တီႈၼႂ်းၵၢၼ်တင်ႈ။</string>
@@ -415,17 +414,17 @@
   <string name="reading_list_menu_last_sync">ၶူၼ်းၽဵင်ႇလိုၼ်းသုတ်း : %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
   <string name="reading_list_delete_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
-  <string name="reading_list_remove_from_list_dialog_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
-  <string name="reading_list_delete_dialog_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
-  <string name="reading_list_remove_from_offline_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
-  <string name="reading_list_download_using_mobile_data_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
   <string name="reading_list_split_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
   <string name="user_option_sync_label">ငဝ်ႈၵုမ်းပိူင်</string>
   <string name="notification_reverted_title">လွင်ႈမႄးထတ်း ဢၼ်ပိၼ်ႈဝႆႉ</string>
   <string name="notification_channel_description">ယၢင်ႈၵၢၼ်လူတ်ႇလူင်း</string>
   <string name="notification_syncing_pause_button">ယင်ႉ</string>
   <string name="notification_syncing_resume_button">သိုပ်ႇၵႂႃႇ</string>
-  <string name="notification_syncing_cancel_button">ဢမ်ႇႁဵတ်း</string>
+  <string name="notification_syncing_cancel_button">ယုၵ်ႉလိူၵ်ႈ</string>
   <string name="notification_syncing_reading_list_channel_description">ယၢင်ႈၵၢၼ် လွင်ႈၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူ</string>
   <plurals name="notification_channel_name">
     <item quantity="one">လွင်ႈလူတ်ႇလူင်း ပွင်ႈၵႂၢမ်း</item>
@@ -479,8 +478,10 @@
   <string name="preference_summary_notification_thanks">သေၵေႃႉၵေႃႉ ၶွပ်ႈၸႂ်ထိုင် ၸဝ်ႈၵဝ်ႇ တွၼ်ႈတႃႇ လွင်ႈမႄးထတ်း</string>
   <string name="preference_title_notification_revert">ပိၼ်ႈၶိုၼ်း</string>
   <string name="preference_summary_notification_revert">ၼႂ်းၵႃႈ လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇၼၼ်ႉ တႃႇဢၼ်ၼိုင်ႈ ထုၵ်ႇပိၼ်ႈၶိုၼ်းဝႆႉ</string>
+  <string name="notifications_channel_group_wikipedia_notifications_title">ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="view_because_you_read_card_title">ယွၼ်ႉပိူဝ်ႈၸဝ်ႈၵဝ်ႇ လူ</string>
   <string name="view_random_card_title">တူဝ်တႅဝ်ႇ</string>
+  <string name="view_top_read_card_title">လူလိူဝ်သုတ်း</string>
   <string name="view_next_random_article">ပိုတ်ႇပွင်ႈလိၵ်ႈၵမ်ႉမၢၼ် တၢင်ႇဢၼ်</string>
   <string name="view_main_page_card_title">မိူဝ်ႈၼႆႉ တီႈၼိူဝ် ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="view_main_page_card_action">တူၺ်းၼႃးလိၵ်ႈႁူဝ်ႁႅၵ်ႈ</string>
@@ -520,10 +521,11 @@
   <string name="feed_empty_message">တီႈပိုတ်ႇႁႃတႃႇလူၸဝ်ႈၵဝ်ႇၼၼ်ႉ ဢမ်ႇမီးသင်ဝႆႉ</string>
   <string name="feed_configure_onboarding_action">မႄးၵမ်ႉၸႂ်</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
-  <string name="customize_lang_selection_dialog_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
+  <string name="customize_lang_selection_dialog_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;မႄးၵမ်ႉၸႂ် တီႈပိုတ်ႇလူၸဝ်ႈၵဝ်ႇ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;ယၢမ်းလဵဝ် ၸဝ်ႈၵဝ်ႇၸၢင်ႈလိူၵ်ႈပၼ်ဝႃႈ တေလႆႈၼႄပၼ်သင် တွၼ်ႈတႃႇလူ၊ လႄႈ ၸၢင်ႈပၼ်ပႃႇၸႃး လမ်းၼႂ်း မဵဝ်းဢၼ်ၸဝ်ႈၵဝ်ႇတိူဝ်းလႆႈၸႂ်။</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
-  <string name="feed_lang_selection_dialog_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
+  <string name="feed_lang_selection_dialog_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
+  <string name="top_read_activity_title">လူလိူဝ်သုတ်း တီႈ %s</string>
   <string name="description_edit_text_hint">ၶေႃႈသပ်းလႅင်း ႁူဝ်ၶေႃႈ</string>
   <string name="description_edit_translate_caption_hint_per_language">ႁူဝ်ၶေႃႈ ၶႅပ်းႁၢင်ႈ (%s)</string>
   <string name="description_edit_save">ပိုၼ်ဢွၵ်ႇ</string>
@@ -534,7 +536,7 @@
   <string name="description_edit_add_image_caption">ထႅမ်သႂ်ႇ ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>
   <string name="description_edit_edit_image_caption">မႄးထတ်း ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>
   <string name="description_edit_translate_image_caption">ပိၼ်ႇၽႃႇသႃႇ ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>
-  <string name="description_edit_cancel_hint">ဢမ်ႇႁဵတ်း</string>
+  <string name="description_edit_cancel_hint">ယုၵ်ႉလိူၵ်ႈ</string>
   <string name="description_edit_help_title">လွၼ်ႉၶၢဝ်ႇ: ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း</string>
   <string name="description_edit_help_about_wikidata">လွင်ႈ ဝီႇၶီႇတေႇတႃႇ</string>
   <string name="description_edit_help_wikidata_guide">ဝီႇၶီႇတေႇတႃႇ ၼႄပၼ် တွၼ်ႈတႃႇ လွင်ႈတႅမ်ႈၶေႃႈသပ်းလႅင်း</string>
@@ -603,7 +605,7 @@
   <string name="description_edit_revert_reason1">လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇ ဢမ်ႇၸွမ်းဝႆႉၼင်ႇ &lt;a href=\"%1$s\"&gt;ၽိုၼ်ၸုင်&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇ လႅပ်ႈမိူၼ် ၵၢၼ်ၸၢမ်းမိုဝ်း ဢမ်ႇၼၼ် လွင်ႈယႃႉၵဝ်းလဵၼ်ႈ။</string>
   <string name="description_edit_revert_history">သင်ၸိူဝ်ႉဝႃႈၸဝ်ႈၵဝ်ႇ သူင်ၸႂ်၊ တူၺ်းတီႈ  &lt;a href=\"%1$s\"&gt;ပိုၼ်းမႄးထတ်း&lt;/a&gt;.</string>
-  <string name="description_edit_login_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
+  <string name="description_edit_login_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
   <string name="offline_read_permission_rationale">တွၼ်ႈတႃႇပိုတ်ႇႁႃ ဢွပ်ႉၾ်လၢႆးၼၼ်ႉ တေလူဝ်ႇလွင်ႈပူတ်းပွႆႇ တႃႇၶဝ်ႈၸႂ်ႉၶိူင်ႈသိမ်း တီႈၼိူဝ် ၶိူင်ႈၸႂ်ႉၸဝ်ႈၵဝ်ႇ။</string>
   <string name="offline_read_final_rationale">တွၼ်ႈတႃႇယွၼ်သိမ်း ဢွပ်ႉၾ်လၢႆးၼၼ်ႉ တေလူဝ်ႇလွင်ႈပူတ်းပွႆႇ တႃႇၶဝ်ႈၸႂ်ႉၶိူင်ႈသိမ်း တီႈၼိူဝ် ၶိူင်ႈၸႂ်ႉၸဝ်ႈၵဝ်ႇ။</string>
   <string name="size_gb">%.2f GB</string>
@@ -634,12 +636,12 @@
     <item quantity="one">ပီႈၵၢႆ</item>
     <item quantity="other">ပူၼ်ႉမႃး %d ပီ</item>
   </plurals>
-  <string name="languages_list_activity_title">ထႅမ်သႂ်ႇ ၽႃႇသႃႇၵႂၢမ်း</string>
+  <string name="languages_list_activity_title">ထႅမ်သႂ်ႇ ၽႃႇသႃႇ</string>
   <string name="languages_list_suggested_text">ဢၼ်ၶႆႈၸႂ်ဝႆႉ</string>
   <string name="languages_list_all_text">ၽႃႇသႃႇၵႂၢမ်း တင်းသဵင်ႈ</string>
   <string name="wikipedia_languages_title">ၽႃႇသႃႇၵႂၢမ်း ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="wikipedia_languages_your_languages_text">ၽႃႇသႃႇၵႂၢမ်းၸဝ်ႈၵဝ်ႇ</string>
-  <string name="wikipedia_languages_add_language_text">ထႅမ်သႂ်ႇ ၽႃႇသႃႇၵႂၢမ်း</string>
+  <string name="wikipedia_languages_add_language_text">ထႅမ်သႂ်ႇ ၽႃႇသႃႇ</string>
   <string name="wikipedia_languages_remove_text">ထွၼ်ပႅတ်ႈ ၽႃႇသႃႇၵႂၢမ်း</string>
   <string name="wikipedia_languages_remove_action_mode_title">ထွၼ်ပႅတ်ႈ ၽႃႇသႃႇၵႂၢမ်း</string>
   <plurals name="wikipedia_languages_remove_dialog_title">
@@ -655,14 +657,14 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">ယၢမ်းလဵဝ် တီႈၽႃႇသႃႇၵႂၢမ်းဢႅပ်ႉၸဝ်ႈၵဝ်ႇၼၼ်ႉ မီးဝႆႉ ပိူင်ပႅၵ်ႇၽႃႇသႃႇၶႄႇၽိင်ႈ လႄႈ မိူင်ႈလူင် တင်းသွင်ဢၼ်။ တေဢၢပ်ႉတဵတ်ႉ ၵၢၼ်တင်ႈ ၽႃႇသႃႇၵႂၢမ်းဢႅပ်ႉ ၸဝ်ႈၵဝ်ႇၼႄႇ?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">မႄးထတ်း ၽႃႇသႃႇၵႂၢမ်း</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ပႆႇၵွၼ်ႇ</string>
-  <string name="remove_language_dialog_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
+  <string name="remove_language_dialog_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
   <string name="remove_language_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
   <string name="protected_page_warning_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
   <string name="account_editing_blocked_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
   <string name="edit_conflict_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
   <string name="reverted_edit_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
-  <string name="account_editing_blocked_dialog_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
   <string name="wikitext_bold">ၼႃ</string>
   <string name="wikitext_italic">ၵိူင်း</string>
   <string name="wikitext_link">ႁဵင်းၵွင်ႉ</string>
@@ -675,6 +677,6 @@
   <string name="main_drawer_login">လွၵ်ႉဢိၼ်ႇ / သိုပ်ႇၵၢႆႇ ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="custom_date_picker_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
   <string name="text_input_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>
-  <string name="text_input_dialog_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
-  <string name="custom_date_picker_dialog_cancel_button_text">ဢမ်ႇႁဵတ်း</string>
+  <string name="text_input_dialog_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">ယုၵ်ႉလိူၵ်ႈ</string>
 </resources>

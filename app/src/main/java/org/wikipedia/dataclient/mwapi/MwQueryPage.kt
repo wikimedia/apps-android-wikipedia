@@ -2,6 +2,7 @@ package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.decodeFromJsonElement
@@ -27,7 +28,7 @@ class MwQueryPage {
     private val ns = 0
     val coordinates: List<Coordinates>? = null
     private val thumbnail: Thumbnail? = null
-    private val varianttitles: Map<String, String>? = null
+    val varianttitles: Map<String, String>? = null
     private val actions: Map<String, List<MwServiceError>>? = null
     private val editintro: JsonElement? = null
 
@@ -97,6 +98,12 @@ class MwQueryPage {
         val user: String = ""
         val comment: String = ""
         val parsedcomment: String = ""
+
+        private val oresscores: JsonElement? = null
+        val ores: MwQueryResult.OresResult?
+            get() = if (oresscores != null && oresscores !is JsonArray) {
+                JsonUtil.json.decodeFromJsonElement<MwQueryResult.OresResult>(oresscores)
+            } else null
 
         val contentMain get() = getContentFromSlot("main")
 

@@ -17,6 +17,7 @@ import de.mrapp.android.view.drawable.CircularProgressDrawable
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.MachineGeneratedArticleDescriptionsAnalyticsHelper
+import org.wikipedia.databinding.GroupCaptchaBinding
 import org.wikipedia.databinding.ViewDescriptionEditBinding
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.mlkit.MlKitLanguageDetector
@@ -402,6 +403,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         }
     }
 
+    fun getDescriptionEditTextView(): LinearLayout {
+        return binding.viewDescriptionEditTextLayout
+    }
+
     fun updateInfoText() {
         binding.learnMoreButton.text =
             if (action == DescriptionEditActivity.Action.ADD_DESCRIPTION ||
@@ -453,6 +458,10 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                 Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown = true
             }, 500)
         }
+    }
+
+    fun getCaptchaContainer(): GroupCaptchaBinding {
+        return binding.captchaContainer
     }
 
     companion object {
