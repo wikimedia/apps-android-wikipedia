@@ -75,7 +75,7 @@ import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import kotlin.math.abs
 
-class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, MapboxMap.OnMapClickListener {
+class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistExpiryDialog.Callback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -199,9 +199,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, MapboxMap.O
         }
 
         viewModel.watchStatus.observe(viewLifecycleOwner) {
+            L.d("watchOrUnwatch receive " + it)
             if (it is Resource.Success) {
+                L.d("watchOrUnwatch receive Success " + it)
                 showWatchlistSnackbar()
             } else if (it is Resource.Error) {
+                L.d("watchOrUnwatch receive Error " + it)
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
         }
@@ -429,12 +432,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, MapboxMap.O
     }
 
     private fun showWatchlistSnackbar() {
-        viewModel.pageTitle?.let { title ->
+        viewModel.currentMarkerPageTitle?.let {
             if (!viewModel.isWatched) {
-                FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, title.displayText))
+                FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayText))
             } else if (viewModel.isWatched) {
                 val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
-                    getString(R.string.watchlist_page_add_to_watchlist_snackbar, title.displayText, getString(viewModel.lastWatchExpiry.stringId)))
+                    getString(R.string.watchlist_page_add_to_watchlist_snackbar, it.displayText, getString(viewModel.lastWatchExpiry.stringId)))
                 if (!viewModel.watchlistExpiryChanged) {
                     snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
                         viewModel.watchlistExpiryChanged = true
@@ -469,7 +472,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, MapboxMap.O
         ShareUtil.shareText(requireContext(), title)
     }
 
-    override fun onLinkPreviewWatch(lastWatchExpiry: WatchlistExpiry, isWatched: Boolean) {
+    override fun onLinkPreviewWatch(title: PageTitle, lastWatchExpiry: WatchlistExpiry, isWatched: Boolean) {
+        // TODO: make this to when marker updated
+        viewModel.currentMarkerPageTitle = title
         viewModel.watchOrUnwatch(lastWatchExpiry, isWatched)
     }
 
@@ -477,6 +482,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, MapboxMap.O
         location?.let {
             GeoUtil.sendGeoIntent(requireActivity(), it, StringUtil.fromHtml(title.displayText).toString())
         }
+    }
+
+    override fun onExpirySelect(expiry: WatchlistExpiry) {
+        viewModel.watchOrUnwatch(expiry, false)
+        ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
     }
 
     override fun onMapClick(point: LatLng): Boolean {

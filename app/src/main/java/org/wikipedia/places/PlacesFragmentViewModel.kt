@@ -30,6 +30,7 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
     var isWatched = false
     var hasWatchlistExpiry = false
     var lastWatchExpiry = WatchlistExpiry.NEVER
+    var currentMarkerPageTitle: PageTitle? = null
 
     val watchStatus = MutableLiveData<Resource<Boolean>>()
     val nearbyPages = MutableLiveData<Resource<List<NearbyPage>>>()
@@ -54,7 +55,7 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
     }
 
     fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
-        pageTitle?.let { title ->
+        currentMarkerPageTitle?.let { title ->
             if (isWatched) {
                 WatchlistAnalyticsHelper.logRemovedFromWatchlist(title)
             } else {

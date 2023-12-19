@@ -50,7 +50,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         fun onLinkPreviewCopyLink(title: PageTitle)
         fun onLinkPreviewAddToList(title: PageTitle)
         fun onLinkPreviewShareLink(title: PageTitle)
-        fun onLinkPreviewWatch(lastWatchExpiry: WatchlistExpiry, isWatched: Boolean)
+        fun onLinkPreviewWatch(title: PageTitle, lastWatchExpiry: WatchlistExpiry, isWatched: Boolean)
         fun onLinkPreviewGetDirections(title: PageTitle, location: Location?)
     }
 
@@ -77,7 +77,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 true
             }
             R.id.menu_link_preview_watch -> {
-                placesCallback()?.onLinkPreviewWatch(WatchlistExpiry.NEVER, viewModel.isWatched)
+                placesCallback()?.onLinkPreviewWatch(viewModel.pageTitle, WatchlistExpiry.NEVER, viewModel.isWatched)
                 true
             }
             R.id.menu_link_preview_open_in_new_tab -> {
