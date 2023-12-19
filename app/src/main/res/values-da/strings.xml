@@ -965,7 +965,13 @@
   <string name="suggested_edits_image_tags_published_list">Udgivne tags</string>
   <string name="suggested_edits_image_tags_search">Søg tags</string>
   <string name="suggested_edits_image_tags_select_title">Du har ikke valgt nogen tags til dette billede</string>
+  <string name="suggested_edits_image_tags_select_text">Kun tags, som du vælger, føjes til billeder. Tags, der ikke er valgt, vil blive markeret som afviste. Er du sikker på, at du vil markere alle tags som afviste?</string>
   <string name="suggested_edits_image_tags_add_tag">Tilføj tag</string>
+  <string name="suggested_edits_image_tags_exit_dialog_message">De ikke-publicerede tags vil ikke blive gemt</string>
+  <string name="suggested_edits_image_zoom_tooltip">Knib for at zoome på dette billede.</string>
+  <string name="suggested_edits_encouragement_message">%s , tak for dine redigeringer. Nedenfor kan du finde flere måder at bidrage til Wikipedia.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hej %s&lt;/b&gt; , herunder kan du finde nogle hurtige og nemme måder at hjælpe med at forbedre Wikipedia. Du vil se den forskel, du gør, så snart du går i gang. God redigering!</string>
+  <string name="suggested_edits_image_captions_task_detail">Beskriv et billede for at hjælpe læsere med at forstå dets betydning og kontekst.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Dit samlede antal bidrag indtil videre.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips og tricks til redigering</string>
   <string name="suggested_edits_views_label_text">Visninger</string>
@@ -1199,7 +1205,9 @@
   <string name="text_input_dialog_cancel_button_text">Annullér</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Annullér</string>
   <string name="talk_title">Diskussion</string>
+  <string name="talk_user_title">Diskussion: %s</string>
   <string name="talk_new_topic">Nyt emne</string>
+  <string name="talk_new_topic_submitted">Emne sendt.</string>
   <string name="talk_warn">Advar</string>
   <string name="talk_warn_save_dialog_title">Gem ændringer?</string>
   <string name="talk_warn_save_dialog_message">Gem som en ny besked</string>
@@ -1214,6 +1222,11 @@
   <string name="talk_add_reply">Svar</string>
   <string name="talk_no_subject">(Intet emne)</string>
   <string name="talk_reply_subject">Emne</string>
+  <string name="talk_reply_hint">Skriv svar</string>
+  <string name="talk_message_hint">Skriv besked</string>
+  <string name="talk_message_empty">Beskeden må ikke være tom.</string>
+  <string name="talk_subject_empty">Emnet må ikke være tomt.</string>
+  <string name="talk_response_submitted">Svaret er sendt.</string>
   <string name="talk_snackbar_undo">Fortryd</string>
   <string name="talk_last_modified">&lt;b&gt;Redigerede sidst %1$s&lt;/b&gt; af %2$s</string>
   <string name="talk_snackbar_survey_action_text">Kom igang</string>
@@ -1312,6 +1325,12 @@
   <string name="watchlist_filter_watchlist_activity_header">Aktivitet for overvågningsliste</string>
   <string name="watchlist_filter_watchlist_activity_unseen">Ulæste ændringer</string>
   <string name="watchlist_filter_watchlist_activity_seen">Sete ændringer</string>
+  <string name="watchlist_filter_user_status_registered">Registreret</string>
+  <string name="watchlist_filter_user_status_newcomers">Nybegyndere</string>
+  <string name="watchlist_filter_user_status_learners">Let øvede</string>
+  <string name="watchlist_filter_user_status_experienced">Erfarne brugere</string>
+  <string name="watchlist_filter_contribution_authorship_own">Ændringer foretaget af dig</string>
+  <string name="watchlist_filter_contribution_authorship_except_own">Ændringer foretaget af andre</string>
   <string name="watchlist_filter_automated_contributions_bot">Bot</string>
   <string name="watchlist_filter_automated_contributions_human">Menneske (ikke bot)</string>
   <string name="watchlist_filter_significance_header">Betydning</string>
@@ -1334,6 +1353,7 @@
   <string name="user_contrib_current">nuværende</string>
   <string name="media_playback_error">Fejl ved afspilning af medie.</string>
   <string name="user_contrib_menu_label">Bidrag</string>
+  <string name="shareable_reading_lists_new_indicator">*ny*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Forstået</string>
   <string name="shareable_reading_lists_new_imported_snackbar">Læseliste importeret</string>
   <string name="reading_list_share_menu_label">Del...</string>
@@ -1355,6 +1375,7 @@
   <string name="talk_templates_edit_message_dialog_save">Gem</string>
   <string name="talk_templates_edit_message_dialog_delete">Slet</string>
   <string name="talk_templates_edit_message_updated">Beskeden er blevet opdateret</string>
+  <string name="talk_templates_menu_remove_message">Fjern besked</string>
   <plurals name="talk_templates_message_deleted">
     <item quantity="one">Beskeden er slettet</item>
     <item quantity="other">Beskederne er slettet</item>
@@ -1379,10 +1400,19 @@
   <string name="patroller_tasks_filters_user_status_unregistered">Uregistreret</string>
   <string name="patroller_tasks_filters_user_status_registered">Registreret</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Vis</string>
+  <string name="patroller_tasks_overflow_report">Problem med funktionen</string>
+  <string name="patroller_tasks_overflow_learn">Lær mere</string>
   <string name="patroller_onboarding_two_thank_title">Tak</string>
   <string name="patroller_onboarding_two_thank_content">Ser du en produktiv redigering? Tak en bruger for bidraget.</string>
   <string name="patroller_onboarding_two_watch_title">Overvåg</string>
+  <string name="patroller_onboarding_two_warn_title">Advar</string>
+  <string name="patroller_onboarding_two_warn_content">Opret, send og gem advarselsmeddelelser på en bidragyders diskussionsside.</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Tilfreds</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Utilfreds</string>
+  <string name="data_opt_in_accept">Accepter</string>
+  <string name="data_opt_in_reject">Afvis</string>
+  <string name="donation_campaign_go_back_button">Gå tilbage</string>
+  <string name="menu_single_webview_open_external">Åbn i systembrowser</string>
 </resources>
