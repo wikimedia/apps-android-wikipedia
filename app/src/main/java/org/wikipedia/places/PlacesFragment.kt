@@ -174,6 +174,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistEx
                             latitude = symbol.latLng.latitude
                             longitude = symbol.latLng.longitude
                         }
+                        viewModel.currentMarkerPageTitle = entry.title
                         ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, location, true))
                     }
                     true
@@ -199,12 +200,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistEx
         }
 
         viewModel.watchStatus.observe(viewLifecycleOwner) {
-            L.d("watchOrUnwatch receive " + it)
             if (it is Resource.Success) {
-                L.d("watchOrUnwatch receive Success " + it)
                 showWatchlistSnackbar()
             } else if (it is Resource.Error) {
-                L.d("watchOrUnwatch receive Error " + it)
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
         }
@@ -473,9 +471,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistEx
     }
 
     override fun onLinkPreviewWatch(title: PageTitle, lastWatchExpiry: WatchlistExpiry, isWatched: Boolean) {
-        // TODO: make this to when marker updated
-        viewModel.currentMarkerPageTitle = title
         viewModel.watchOrUnwatch(lastWatchExpiry, isWatched)
+        ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
     }
 
     override fun onLinkPreviewGetDirections(title: PageTitle, location: Location?) {
