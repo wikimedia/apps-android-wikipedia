@@ -34,6 +34,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
+import org.wikipedia.watchlist.WatchlistExpiry
 
 class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
     interface Callback {
@@ -49,7 +50,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         fun onLinkPreviewCopyLink(title: PageTitle)
         fun onLinkPreviewAddToList(title: PageTitle)
         fun onLinkPreviewShareLink(title: PageTitle)
-        fun onLinkPreviewWatch(title: PageTitle)
+        fun onLinkPreviewWatch(lastWatchExpiry: WatchlistExpiry, isWatched: Boolean)
         fun onLinkPreviewGetDirections(title: PageTitle, location: Location?)
     }
 
@@ -76,7 +77,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 true
             }
             R.id.menu_link_preview_watch -> {
-                placesCallback()?.onLinkPreviewWatch(viewModel.pageTitle)
+                placesCallback()?.onLinkPreviewWatch(WatchlistExpiry.NEVER, viewModel.isWatched)
                 true
             }
             R.id.menu_link_preview_open_in_new_tab -> {
@@ -124,7 +125,11 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         _binding = DialogLinkPreviewBinding.inflate(inflater, container, false)
         binding.linkPreviewToolbar.setOnClickListener { goToLinkedPage(false) }
         binding.linkPreviewOverflowButton.setOnClickListener {
-            setupOverflowMenu()
+            if (viewModel.fromPlaces) {
+                viewModel.loadWatchStatus()
+            } else {
+                setupOverflowMenu()
+            }
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
 
@@ -147,6 +152,9 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                         is LinkPreviewViewState.Completed -> {
                             binding.linkPreviewProgress.visibility = View.GONE
                         }
+                        is LinkPreviewViewState.Watch -> {
+                            setupOverflowMenu()
+                        }
                     }
                 }
             }
@@ -160,7 +168,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         popupMenu.menu.findItem(R.id.menu_link_preview_add_to_list).isVisible = !viewModel.fromPlaces
         popupMenu.menu.findItem(R.id.menu_link_preview_share_page).isVisible = !viewModel.fromPlaces
         popupMenu.menu.findItem(R.id.menu_link_preview_watch).isVisible = viewModel.fromPlaces
-        // TODO: check watch status
+        popupMenu.menu.findItem(R.id.menu_link_preview_watch).title = getString(if (viewModel.isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         popupMenu.menu.findItem(R.id.menu_link_preview_open_in_new_tab).isVisible = viewModel.fromPlaces
         popupMenu.menu.findItem(R.id.menu_link_preview_view_on_map).isVisible = !viewModel.fromPlaces && viewModel.location != null
         popupMenu.menu.findItem(R.id.menu_link_preview_get_directions).isVisible = viewModel.fromPlaces

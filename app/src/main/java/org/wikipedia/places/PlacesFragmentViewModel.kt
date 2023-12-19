@@ -10,12 +10,15 @@ import androidx.lifecycle.viewModelScope
 import com.mapbox.mapboxsdk.plugins.annotation.Symbol
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.Resource
+import org.wikipedia.util.log.L
+import org.wikipedia.watchlist.WatchlistExpiry
 
 class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
 
@@ -23,6 +26,12 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
     var location: Location? = bundle.parcelable(PlacesActivity.EXTRA_LOCATION)
     var pageTitle: PageTitle? = bundle.parcelable(PlacesActivity.EXTRA_TITLE)
 
+    var watchlistExpiryChanged = false
+    var isWatched = false
+    var hasWatchlistExpiry = false
+    var lastWatchExpiry = WatchlistExpiry.NEVER
+
+    val watchStatus = MutableLiveData<Resource<Boolean>>()
     val nearbyPages = MutableLiveData<Resource<List<NearbyPage>>>()
 
     fun fetchNearbyPages(latitude: Double, longitude: Double, radius: Int, maxResults: Int) {
@@ -41,6 +50,38 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
                 }
 
             nearbyPages.postValue(Resource.Success(pages))
+        }
+    }
+
+    fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
+        pageTitle?.let { title ->
+            if (isWatched) {
+                WatchlistAnalyticsHelper.logRemovedFromWatchlist(title)
+            } else {
+                WatchlistAnalyticsHelper.logAddedToWatchlist(title)
+            }
+            viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+                L.w("Failed to fetch watch status.", throwable)
+            }) {
+                val token = ServiceFactory.get(title.wikiSite).getWatchToken().query?.watchToken()
+                val response = ServiceFactory.get(title.wikiSite)
+                    .watch(if (unwatch) 1 else null, null, title.prefixedText, expiry.expiry, token!!)
+
+                lastWatchExpiry = expiry
+                if (watchlistExpiryChanged && unwatch) {
+                    watchlistExpiryChanged = false
+                }
+                if (unwatch) {
+                    WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(title)
+                } else {
+                    WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(title)
+                }
+                response.getFirst()?.let {
+                    isWatched = it.watched
+                    hasWatchlistExpiry = lastWatchExpiry != WatchlistExpiry.NEVER
+                    watchStatus.postValue(Resource.Success(isWatched))
+                }
+            }
         }
     }
 

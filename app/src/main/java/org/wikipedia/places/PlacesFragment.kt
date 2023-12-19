@@ -71,6 +71,8 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TabUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.watchlist.WatchlistExpiryDialog
 import kotlin.math.abs
 
 class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, MapboxMap.OnMapClickListener {
@@ -191,6 +193,14 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, MapboxMap.O
         viewModel.nearbyPages.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 updateMapMarkers(it.data)
+            } else if (it is Resource.Error) {
+                FeedbackUtil.showError(requireActivity(), it.throwable)
+            }
+        }
+
+        viewModel.watchStatus.observe(viewLifecycleOwner) {
+            if (it is Resource.Success) {
+                showWatchlistSnackbar()
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
@@ -418,6 +428,24 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, MapboxMap.O
         return result
     }
 
+    private fun showWatchlistSnackbar() {
+        viewModel.pageTitle?.let { title ->
+            if (!viewModel.isWatched) {
+                FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, title.displayText))
+            } else if (viewModel.isWatched) {
+                val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
+                    getString(R.string.watchlist_page_add_to_watchlist_snackbar, title.displayText, getString(viewModel.lastWatchExpiry.stringId)))
+                if (!viewModel.watchlistExpiryChanged) {
+                    snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
+                        viewModel.watchlistExpiryChanged = true
+                        ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.lastWatchExpiry))
+                    }
+                }
+                snackbar.show()
+            }
+        }
+    }
+
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         if (inNewTab) {
             TabUtil.openInNewBackgroundTab(entry)
@@ -441,8 +469,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, MapboxMap.O
         ShareUtil.shareText(requireContext(), title)
     }
 
-    override fun onLinkPreviewWatch(title: PageTitle) {
-        TODO("Not yet implemented")
+    override fun onLinkPreviewWatch(lastWatchExpiry: WatchlistExpiry, isWatched: Boolean) {
+        viewModel.watchOrUnwatch(lastWatchExpiry, isWatched)
     }
 
     override fun onLinkPreviewGetDirections(title: PageTitle, location: Location?) {

@@ -23,6 +23,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     var pageTitle = historyEntry.title
     val location = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LOCATION)
     val fromPlaces = bundle.getBoolean(LinkPreviewDialog.ARG_FROM_PLACES, false)
+    var isWatched = false
 
     init {
         loadContent()
@@ -50,7 +51,18 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
             } else if (!oldFragment.isNullOrEmpty()) {
                 pageTitle.fragment = oldFragment
             }
+
             _uiState.value = LinkPreviewViewState.Content(summary)
+        }
+    }
+
+    fun loadWatchStatus() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            _uiState.value = LinkPreviewViewState.Error(throwable)
+        }) {
+            val watchStatus = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText).query?.firstPage()
+            isWatched = watchStatus?.watched ?: false
+            _uiState.value = LinkPreviewViewState.Watch(isWatched)
         }
     }
 
