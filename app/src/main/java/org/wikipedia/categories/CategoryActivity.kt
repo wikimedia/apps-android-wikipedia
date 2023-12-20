@@ -168,7 +168,7 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
-        startActivity(PlacesActivity.newIntent(this, title.wikiSite, title, location))
+        startActivity(PlacesActivity.newIntent(this, title, location))
     }
 
     private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {

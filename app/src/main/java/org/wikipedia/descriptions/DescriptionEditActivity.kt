@@ -113,7 +113,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     }
 
     override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
-        startActivity(PlacesActivity.newIntent(this, title.wikiSite, title, location))
+        startActivity(PlacesActivity.newIntent(this, title, location))
     }
 
     fun updateStatusBarColor(@ColorInt color: Int) {

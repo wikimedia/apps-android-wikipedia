@@ -482,7 +482,7 @@ class TalkReplyActivity : BaseActivity(), LinkPreviewDialog.Callback, UserMentio
     }
 
     override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
-        startActivity(PlacesActivity.newIntent(this, title.wikiSite, title, location))
+        startActivity(PlacesActivity.newIntent(this, title, location))
     }
 
     override fun onBackPressed() {

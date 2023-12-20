@@ -487,7 +487,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
-        startActivity(PlacesActivity.newIntent(this, title.wikiSite, title, location))
+        startActivity(PlacesActivity.newIntent(this, title, location))
     }
 
     private fun handleIntent(intent: Intent) {

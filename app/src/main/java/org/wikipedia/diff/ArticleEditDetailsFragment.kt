@@ -791,7 +791,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
     }
 
     override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
-        startActivity(PlacesActivity.newIntent(requireContext(), title.wikiSite, title, location))
+        startActivity(PlacesActivity.newIntent(requireContext(), title, location))
     }
 
     private fun copyLink(uri: String?) {
