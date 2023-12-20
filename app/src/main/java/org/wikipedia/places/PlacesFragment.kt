@@ -579,7 +579,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         fun newInstance(pageTitle: PageTitle?, location: Location?): PlacesFragment {
             return PlacesFragment().apply {
                 arguments = bundleOf(
-                    PlacesActivity.EXTRA_TITLE to pageTitle,
+                    Constants.ARG_TITLE to pageTitle,
                     PlacesActivity.EXTRA_LOCATION to location
                 )
             }
