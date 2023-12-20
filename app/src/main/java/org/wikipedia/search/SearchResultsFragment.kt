@@ -2,6 +2,7 @@ package org.wikipedia.search
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +19,6 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mapbox.mapboxsdk.geometry.LatLng
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
@@ -246,8 +246,9 @@ class SearchResultsFragment : Fragment() {
                 if (viewModel.invokeSource == Constants.InvokeSource.PLACES) {
                     val resultIntent = Intent()
                     searchResult.coordinates?.let { coordinates ->
-                        resultIntent.putExtra(PlacesActivity.EXTRA_TITLE, searchResult.pageTitle)
-                        resultIntent.putExtra(PlacesActivity.EXTRA_LOCATION, LatLng(coordinates[0].lat, coordinates[0].lon))
+                        resultIntent.putExtra(Constants.ARG_TITLE, searchResult.pageTitle)
+                        val location = Location("").also { it.latitude = coordinates[0].lat; it.longitude = coordinates[0].lon }
+                        resultIntent.putExtra(PlacesActivity.EXTRA_LOCATION, location)
                         requireActivity().setResult(RESULT_OK, resultIntent)
                     }
                     requireActivity().finish()

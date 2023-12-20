@@ -116,7 +116,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
     private val placesSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
           if (it.resultCode == RESULT_OK) {
               val location = it.data?.getParcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
-              viewModel.pageTitle = it.data?.getParcelableExtra(PlacesActivity.EXTRA_TITLE)!!
+              viewModel.pageTitle = it.data?.getParcelableExtra(Constants.ARG_TITLE)!!
               Prefs.placesWikiCode = viewModel.pageTitle?.wikiSite?.languageCode
                   ?: WikipediaApp.instance.appOrSystemLanguageCode
               updateSearchText(viewModel.pageTitle?.displayText.orEmpty())
@@ -147,7 +147,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
 
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
 
-        requireArguments().getParcelable<PageTitle>(PlacesActivity.EXTRA_TITLE)?.let {
+        requireArguments().getParcelable<PageTitle>(Constants.ARG_TITLE)?.let {
             Prefs.placesWikiCode = it.wikiSite.languageCode
         }
     }
