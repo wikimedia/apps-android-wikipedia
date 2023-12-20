@@ -10,8 +10,8 @@ import androidx.lifecycle.viewModelScope
 import com.mapbox.mapboxsdk.plugins.annotation.Symbol
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
-import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.Constants
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.parcelable
