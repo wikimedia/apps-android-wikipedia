@@ -11,10 +11,12 @@ import com.mapbox.mapboxsdk.plugins.annotation.Symbol
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
+import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
@@ -22,9 +24,9 @@ import org.wikipedia.watchlist.WatchlistExpiry
 
 class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
 
-    var wikiSite: WikiSite = bundle.parcelable(PlacesActivity.EXTRA_WIKI)!!
+    val wikiSite: WikiSite get() = WikiSite.forLanguageCode(Prefs.placesWikiCode)
     var location: Location? = bundle.parcelable(PlacesActivity.EXTRA_LOCATION)
-    var pageTitle: PageTitle? = bundle.parcelable(PlacesActivity.EXTRA_TITLE)
+    var pageTitle: PageTitle? = bundle.parcelable(Constants.ARG_TITLE)
 
     var watchlistExpiryChanged = false
     var isWatched = false

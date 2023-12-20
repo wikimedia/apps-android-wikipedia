@@ -54,7 +54,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentPlacesBinding
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -521,11 +520,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistEx
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
         val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
 
-        fun newInstance(wiki: WikiSite, pageTitle: PageTitle?, location: Location?): PlacesFragment {
+        fun newInstance(pageTitle: PageTitle?, location: Location?): PlacesFragment {
             return PlacesFragment().apply {
                 arguments = bundleOf(
-                    PlacesActivity.EXTRA_WIKI to wiki,
-                    PlacesActivity.EXTRA_TITLE to pageTitle,
+                    Constants.ARG_TITLE to pageTitle,
                     PlacesActivity.EXTRA_LOCATION to location
                 )
             }
