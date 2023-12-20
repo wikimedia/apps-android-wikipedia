@@ -18,12 +18,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.Insets
 import androidx.core.graphics.applyCanvas
 import androidx.core.os.bundleOf
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
@@ -60,6 +63,9 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.search.SearchFragment
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -67,12 +73,14 @@ import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
 class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
+    private var navBarInsets: Insets? = null
 
     private val viewModel: PlacesFragmentViewModel by viewModels { PlacesFragmentViewModel.Factory(requireArguments()) }
 
@@ -109,12 +117,57 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         Mapbox.getInstance(requireActivity().applicationContext)
 
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
+
+        activity?.window?.let { window ->
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+            window.statusBarColor = Color.TRANSPARENT
+            window.navigationBarColor = Color.TRANSPARENT
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentPlacesBinding.inflate(inflater, container, false)
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+
+        binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
+            val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
+            val statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            var params = binding.searchContainer.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = statusBarInsets.top + DimenUtil.roundedDpToPx(4f)
+
+            navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+            params = binding.myLocationButton.layoutParams as ViewGroup.MarginLayoutParams
+            params.bottomMargin = navBarInsets!!.bottom + DimenUtil.roundedDpToPx(16f)
+            binding.myLocationButton.layoutParams = params
+
+            WindowInsetsCompat.Builder()
+                .setInsets(WindowInsetsCompat.Type.navigationBars(), navBarInsets!!)
+                .build().toWindowInsets() ?: windowInsets
+        }
+
+        binding.tabsButton.setOnClickListener {
+            if (WikipediaApp.instance.tabCount == 1) {
+                startActivity(PageActivity.newIntent(requireActivity()))
+            } else {
+                startActivity(TabActivity.newIntent(requireActivity()))
+            }
+        }
+
+        binding.searchTextView.setOnClickListener {
+            // TODO: search
+        }
+
+        binding.backButton.setOnClickListener {
+            requireActivity().finish()
+        }
+
+        binding.searchLangContainer.setOnClickListener {
+            // TODO: change language
+        }
+
+        binding.searchCloseBtn.setOnClickListener {
+            // TODO: clear search
+        }
 
         binding.myLocationButton.setOnClickListener {
             if (haveLocationPermissions()) {
@@ -148,7 +201,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
 
                 map.uiSettings.isLogoEnabled = false
                 val attribMargin = DimenUtil.roundedDpToPx(16f)
-                map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin, attribMargin)
+
+                map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin,
+                    (if (navBarInsets != null) navBarInsets!!.bottom else 0) + attribMargin)
 
                 map.addOnCameraIdleListener {
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
@@ -187,6 +242,19 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
         }
+    }
+
+    private fun updateSearchCardViews() {
+        val tabsCount = WikipediaApp.instance.tabCount
+        binding.tabsButton.isVisible = tabsCount != 0
+        binding.tabsButton.updateTabCount(false)
+
+        if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(Prefs.placesWikiCode)) {
+            Prefs.placesWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
+        }
+        binding.searchLangCode.text = Prefs.placesWikiCode
+        ViewUtil.formatLangButton(binding.searchLangCode, Prefs.placesWikiCode,
+            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
     }
 
     private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {
@@ -233,6 +301,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
     override fun onResume() {
         super.onResume()
         binding.mapView.onResume()
+        updateSearchCardViews()
     }
 
     override fun onStop() {
