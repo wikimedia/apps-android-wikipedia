@@ -1,12 +1,12 @@
 package org.wikipedia.places
 
 import android.graphics.Bitmap
+import android.location.Location
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.mapbox.mapboxsdk.geometry.LatLng
 import com.mapbox.mapboxsdk.plugins.annotation.Symbol
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
@@ -21,7 +21,7 @@ import org.wikipedia.util.Resource
 class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
 
     val wikiSite: WikiSite get() = WikiSite.forLanguageCode(Prefs.placesWikiCode)
-    var location: LatLng? = bundle.parcelable(PlacesActivity.EXTRA_LOCATION)
+    var location: Location? = bundle.parcelable(PlacesActivity.EXTRA_LOCATION)
     var pageTitle: PageTitle? = bundle.parcelable(PlacesActivity.EXTRA_TITLE)
     val nearbyPages = MutableLiveData<Resource<List<NearbyPage>>>()
 

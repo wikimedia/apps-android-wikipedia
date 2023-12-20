@@ -3,9 +3,9 @@ package org.wikipedia.places
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.location.Location
 import android.os.Bundle
 import android.view.WindowManager
-import com.mapbox.mapboxsdk.geometry.LatLng
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.page.PageTitle
@@ -29,7 +29,7 @@ class PlacesActivity : SingleFragmentActivity<PlacesFragment>() {
     companion object {
         const val EXTRA_TITLE = "pageTitle"
         const val EXTRA_LOCATION = "location"
-        fun newIntent(context: Context, pageTitle: PageTitle? = null, location: LatLng? = null): Intent {
+        fun newIntent(context: Context, pageTitle: PageTitle? = null, location: Location? = null): Intent {
             return Intent(context, PlacesActivity::class.java)
                 .putExtra(EXTRA_TITLE, pageTitle)
                 .putExtra(EXTRA_LOCATION, location)

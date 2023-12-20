@@ -33,7 +33,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textview.MaterialTextView
-import com.mapbox.mapboxsdk.geometry.LatLng
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -846,8 +845,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         model.page?.let { page ->
                             val location = page.pageProperties.geo
                             if (location != null) {
-                                val latLng = LatLng(location.latitude, location.longitude)
-                                requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title, latLng))
+                                requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title, location))
                             } else {
                                 FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
                             }
@@ -1520,8 +1518,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             title?.let {
                 val location = page?.pageProperties?.geo
                 if (location != null) {
-                    val latLng = LatLng(location.latitude, location.longitude)
-                    requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it, latLng))
+                    requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it, location))
                 } else {
                     FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
                 }
