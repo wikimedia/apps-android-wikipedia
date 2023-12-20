@@ -59,7 +59,7 @@ class SuggestedEditsRecentEditsItemView constructor(context: Context, attrs: Att
         binding.tagsText.setTypeface(Typeface.SANS_SERIF, if (isTagsEmpty) Typeface.ITALIC else Typeface.NORMAL)
         binding.tagsText.setTextColor(ResourceUtil.getThemedColor(context,
             if (isTagsEmpty) R.attr.secondary_color else R.attr.primary_color))
-        StringUtil.setHighlightedAndBoldenedText(binding.timeText, DateUtil.getTimeString(context, item.localDateTime), currentQuery)
+        StringUtil.setHighlightedAndBoldenedText(binding.timeText, DateUtil.getTimeString(context, item.timestamp), currentQuery)
         binding.userNameText.text = item.user
         StringUtil.setHighlightedAndBoldenedText(binding.userNameText, item.user, currentQuery)
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)

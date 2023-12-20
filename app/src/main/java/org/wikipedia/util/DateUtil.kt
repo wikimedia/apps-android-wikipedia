@@ -66,6 +66,10 @@ object DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMM d")
     }
 
+    fun getTimeString(context: Context, instant: Instant): String {
+        return getTimeString(context, LocalDateTime.ofInstant(instant, ZoneId.systemDefault()))
+    }
+
     fun getTimeString(context: Context, localDateTime: LocalDateTime): String {
         val datePattern = if (DateFormat.is24HourFormat(context)) "HH:mm" else "hh:mm a"
         return getDateStringWithSkeletonPattern(localDateTime, datePattern)

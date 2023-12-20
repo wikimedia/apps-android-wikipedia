@@ -6,6 +6,7 @@ import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.decodeFromJsonElement
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.InstantAsString
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.json.LocalDateTimeAsTimestamp
 import org.wikipedia.notifications.db.Notification
@@ -202,7 +203,7 @@ class MwQueryResult {
         private val minor: Boolean = false,
         val oldlen: Int = 0,
         val newlen: Int = 0,
-        @SerialName("timestamp") val localDateTime: LocalDateTimeAsTimestamp,
+        val timestamp: InstantAsString,
 
         @SerialName("parsedcomment") val parsedComment: String = "",
         private val tags: List<String>? = null,
