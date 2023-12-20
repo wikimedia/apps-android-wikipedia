@@ -30,12 +30,14 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
+import java.util.Locale
 
 class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
     interface Callback {
@@ -198,8 +200,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             viewModel.location?.let { startLocation ->
                 viewModel.lastKnownLocation?.let { endLocation ->
                     binding.linkPreviewDistance.isVisible = true
-                    // TODO: get distance unit
-                    binding.linkPreviewDistance.text = startLocation.distanceTo(endLocation).toString()
+                    binding.linkPreviewDistance.text = GeoUtil.getDistanceWithUnit(startLocation, endLocation, Locale.getDefault())
                 }
             }
         }
