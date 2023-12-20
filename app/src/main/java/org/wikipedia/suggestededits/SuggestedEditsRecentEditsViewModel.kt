@@ -86,12 +86,12 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     return LoadResult.Page(cachedRecentEdits, null, cachedContinueKey)
                 }
 
-                val pair = getRecentEditsCall(wikiSite, params.loadSize, params.key, cachedUserInfo)
+                val triple = getRecentEditsCall(wikiSite, params.loadSize, Date().toInstant().toString(), "older", params.key, cachedUserInfo)
 
-                cachedContinueKey = pair.second
-                cachedRecentEdits.addAll(pair.first)
+                cachedContinueKey = triple.third
+                cachedRecentEdits.addAll(triple.first)
 
-                LoadResult.Page(pair.first, null, pair.second)
+                LoadResult.Page(triple.first, null, triple.third)
             } catch (e: IOException) {
                 LoadResult.Error(e)
             } catch (e: HttpException) {
@@ -109,12 +109,16 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     class RecentEditsSeparator(val date: String) : RecentEditsItemModel()
 
     companion object {
-        suspend fun getRecentEditsCall(wikiSite: WikiSite, count: Int, continueStr: String? = null, userInfoCache: MutableList<UserInfo>): Pair<List<MwQueryResult.RecentChange>, String?> {
+        suspend fun getRecentEditsCall(wikiSite: WikiSite, count: Int, startTimeStamp: String, direction: String,
+            continueStr: String? = null, userInfoCache: MutableList<UserInfo>): Triple<List<MwQueryResult.RecentChange>, List<MwQueryResult.RecentChange>, String?> {
+
             val response = ServiceFactory.get(wikiSite)
-                .getRecentEdits(count, Instant.now().toString(), latestRevisions(), showCriteriaString(), continueStr)
+                .getRecentEdits(count, startTimeStamp, direction, latestRevisions(), showCriteriaString(), continueStr)
+
+            val allRecentChanges = response.query?.recentChanges.orEmpty()
 
             // Filtering Ores damaging and goodfaith
-            val recentChanges = filterOresScores(filterOresScores(response.query?.recentChanges.orEmpty(), true), false)
+            val recentChanges = filterOresScores(filterOresScores(allRecentChanges, true), false)
 
             // Get usernames
             val usernames = recentChanges.filter { !it.anon }.map { it.user }.distinct().filter {
@@ -129,7 +133,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             // Filtering User experiences and registration.
             val finalRecentChanges = filterUserRegistration(filterUserExperience(recentChanges, userInfoCache))
 
-            return Pair(finalRecentChanges, response.continuation?.rcContinuation)
+            return Triple(finalRecentChanges, allRecentChanges, response.continuation?.rcContinuation)
         }
 
         fun filtersCount(): Int {

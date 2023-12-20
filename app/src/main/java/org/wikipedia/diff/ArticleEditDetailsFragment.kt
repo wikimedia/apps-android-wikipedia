@@ -52,6 +52,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.suggestededits.SuggestedEditsCardsFragment
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
@@ -418,7 +419,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun maybeShowOneTimeSequentialRecentEditsTooltips() {
         if (Prefs.showOneTimeSequentialRecentEditsDiffTooltip && viewModel.fromRecentEdits &&
-            binding.oresDamagingButton.isVisible && binding.oresGoodFaithButton.isVisible) {
+            binding.oresDamagingButton.isVisible && binding.oresGoodFaithButton.isVisible &&
+            parentFragment == FragmentUtil.getAncestor(this, SuggestedEditsCardsFragment::class.java)?.topBaseChild()) {
             Prefs.showOneTimeSequentialRecentEditsDiffTooltip = false
             binding.scrollContainer.removeCallbacks(sequentialTooltipRunnable)
             binding.scrollContainer.postDelayed(sequentialTooltipRunnable, 500)
@@ -450,6 +452,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.diffUnavailableContainer.isVisible = false
         binding.thankButton.isVisible = false
         binding.undoButton.isVisible = false
+        binding.olderIdButton.isVisible = false
+        binding.newerIdButton.isVisible = false
         binding.warnButton.isVisible = viewModel.fromRecentEdits
     }
 
@@ -494,6 +498,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
 
+        binding.olderIdButton.isVisible = true
+        binding.newerIdButton.isVisible = true
         setEnableDisableTint(binding.newerIdButton, !viewModel.canGoForward)
         setEnableDisableTint(binding.olderIdButton, viewModel.revisionFromId == 0L)
         binding.newerIdButton.isEnabled = viewModel.canGoForward
@@ -706,7 +712,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         sendPatrollerExperienceEvent("feedback_input_impression", "pt_feedback")
         MaterialAlertDialogBuilder(requireActivity())
             .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
-            .setCancelable(false)
             .setView(feedbackView)
             .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
                 viewModel.feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
@@ -723,9 +728,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
         FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, R.string.patroller_diff_feedback_submitted_snackbar)
         sendPatrollerExperienceEvent("feedback_submit_toast", "pt_feedback")
-        binding.root.postDelayed({
+        requireActivity().window.decorView.postDelayed({
             val anchorView = requireActivity().findViewById<View>(R.id.more_options)
-            if (isAdded && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
+            if (!requireActivity().isDestroyed && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
                 sendPatrollerExperienceEvent("tooltip_impression", "pt_feedback")
                 FeedbackUtil.getTooltip(
                     requireActivity(),
