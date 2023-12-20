@@ -845,7 +845,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                         model.page?.let { page ->
                             val location = page.pageProperties.geo
                             if (location != null) {
-                                requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title.wikiSite, page.title, location))
+                                requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title, location))
                             } else {
                                 FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
                             }
@@ -1518,7 +1518,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             title?.let {
                 val location = page?.pageProperties?.geo
                 if (location != null) {
-                    requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it.wikiSite, it, location))
+                    requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it, location))
                 } else {
                     FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
                 }
