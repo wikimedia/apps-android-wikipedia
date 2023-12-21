@@ -64,7 +64,7 @@ import org.wikipedia.views.ViewAnimations
 import org.wikipedia.views.ViewUtil
 import java.io.File
 
-class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemFragment.Callback {
+class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, GalleryItemFragment.Callback {
 
     private lateinit var binding: ActivityGalleryBinding
     private lateinit var sourceWiki: WikiSite
@@ -439,10 +439,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         finishWithPageResult(title, entry)
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        ExclusiveBottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, InvokeSource.LINK_PREVIEW_MENU)
     }
 
     fun showError(caught: Throwable?) {
