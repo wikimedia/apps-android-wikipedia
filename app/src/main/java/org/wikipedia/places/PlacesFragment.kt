@@ -24,8 +24,11 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.Insets
 import androidx.core.graphics.applyCanvas
 import androidx.core.os.bundleOf
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -71,17 +74,21 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
+import kotlin.math.abs
 
 class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
+    private var statusBarInsets: Insets? = null
+    private var navBarInsets: Insets? = null
 
     private val viewModel: PlacesFragmentViewModel by viewModels { PlacesFragmentViewModel.Factory(requireArguments()) }
 
@@ -150,13 +157,35 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         requireArguments().getParcelable<PageTitle>(Constants.ARG_TITLE)?.let {
             Prefs.placesWikiCode = it.wikiSite.languageCode
         }
+
+        activity?.window?.let { window ->
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+            window.statusBarColor = Color.TRANSPARENT
+            window.navigationBarColor = Color.TRANSPARENT
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentPlacesBinding.inflate(inflater, container, false)
 
-        binding.searchCard.tabsCountContainer.setOnClickListener {
+        binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
+            val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
+            statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            var params = binding.searchContainer.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = statusBarInsets!!.top + DimenUtil.roundedDpToPx(4f)
+
+            navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+            params = binding.myLocationButton.layoutParams as ViewGroup.MarginLayoutParams
+            params.bottomMargin = navBarInsets!!.bottom + DimenUtil.roundedDpToPx(16f)
+            binding.myLocationButton.layoutParams = params
+
+            WindowInsetsCompat.Builder()
+                .setInsets(WindowInsetsCompat.Type.navigationBars(), navBarInsets!!)
+                .build().toWindowInsets() ?: windowInsets
+        }
+
+        binding.tabsButton.setOnClickListener {
             if (WikipediaApp.instance.tabCount == 1) {
                 startActivity(PageActivity.newIntent(requireActivity()))
             } else {
@@ -164,23 +193,21 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             }
         }
 
-        binding.searchCard.searchTextView.let { textView ->
-            textView.setOnClickListener {
-                openSearchActivity(if (textView.text.toString() == getString(R.string.places_search_hint)) null
-                else textView.text.toString())
-            }
+        binding.searchTextView.setOnClickListener {
+            openSearchActivity(if (binding.searchTextView.text.toString() == getString(R.string.places_search_hint)) null
+            else binding.searchTextView.text.toString())
         }
 
-        binding.searchCard.searchBack.setOnClickListener {
-            requireActivity().onBackPressed()
+        binding.backButton.setOnClickListener {
+            requireActivity().finish()
         }
 
-        binding.searchCard.searchLangContainer.setOnClickListener {
+        binding.searchLangContainer.setOnClickListener {
             zoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
             filterLauncher.launch(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
-        binding.searchCard.searchCloseBtn.setOnClickListener {
+        binding.searchCloseBtn.setOnClickListener {
             updateSearchText(getString(R.string.places_search_hint))
         }
 
@@ -197,28 +224,16 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
 
     private fun openSearchActivity(query: String?) {
         val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES, query)
-        val options = binding.searchCard.searchContainer.let {
+        val options = binding.searchContainer.let {
             ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                binding.searchCard.searchContainer, getString(R.string.transition_search_bar))
+                binding.searchContainer, getString(R.string.transition_search_bar))
         }
         placesSearchLauncher.launch(intent, options)
     }
 
-    private fun updateSearchCardViews() {
-        val tabsCount = WikipediaApp.instance.tabCount
-        binding.searchCard.tabsCountContainer.isVisible = tabsCount != 0
-        binding.searchCard.searchTabsCountView.text = tabsCount.toString()
-        if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(Prefs.placesWikiCode)) {
-            Prefs.placesWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
-        }
-        binding.searchCard.searchLangCode.text = Prefs.placesWikiCode
-        ViewUtil.formatLangButton(binding.searchCard.searchLangCode, Prefs.placesWikiCode,
-            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
-    }
-
     private fun updateSearchText(searchText: String) {
-        binding.searchCard.searchTextView.text = searchText
-        binding.searchCard.searchCloseBtn.isVisible = searchText != getString(R.string.places_search_hint) && searchText.isNotEmpty()
+        binding.searchTextView.text = searchText
+        binding.searchCloseBtn.isVisible = searchText != getString(R.string.places_search_hint) && searchText.isNotEmpty()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -242,11 +257,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
                 map.setMaxZoomPreference(15.999)
 
                 map.uiSettings.isLogoEnabled = false
-                val attribMargin = DimenUtil.roundedDpToPx(16f)
-                map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin, attribMargin)
-                map.uiSettings.compassGravity = Gravity.START or Gravity.BOTTOM
-                val compassMargin = DimenUtil.roundedDpToPx(36f)
-                map.uiSettings.setCompassMargins(attribMargin, 0, 0, compassMargin)
+                val defMargin = DimenUtil.roundedDpToPx(16f)
+                val navBarMargin = if (navBarInsets != null) navBarInsets!!.bottom else 0
+
+                map.uiSettings.compassGravity = Gravity.BOTTOM or Gravity.START
+                map.uiSettings.setCompassMargins(defMargin, 0, defMargin, navBarMargin + defMargin)
+
+                map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.END
+                map.uiSettings.setAttributionMargins(defMargin * 2 + (if (L10nUtil.isDeviceRTL) binding.myLocationButton.width else 0),
+                    0, defMargin * 2 + (if (L10nUtil.isDeviceRTL) 0 else binding.myLocationButton.width), navBarMargin + defMargin)
 
                 map.addOnCameraIdleListener {
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
@@ -298,6 +317,19 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             it.iconSize = 1.0f
             symbolManager?.update(it)
         }
+    }
+
+    private fun updateSearchCardViews() {
+        val tabsCount = WikipediaApp.instance.tabCount
+        binding.tabsButton.isVisible = tabsCount != 0
+        binding.tabsButton.updateTabCount(false)
+
+        if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(Prefs.placesWikiCode)) {
+            Prefs.placesWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
+        }
+        binding.searchLangCode.text = Prefs.placesWikiCode
+        ViewUtil.formatLangButton(binding.searchLangCode, Prefs.placesWikiCode,
+            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
     }
 
     private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {

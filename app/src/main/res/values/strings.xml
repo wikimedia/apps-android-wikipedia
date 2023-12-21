@@ -1675,12 +1675,10 @@
     <string name="menu_single_webview_open_external">Open in system browser</string>
     <!-- Donor experience -->
 
-    <!-- Places -->
     <string name="places_title">Places</string>
     <string name="places_permissions_denied">Location permission is required to see your location on the map. Please try again.</string>
     <string name="places_search_hint">Search places</string>
     <string name="places_filter_title">Filter language</string>
     <string name="places_filter_header">Wiki</string>
     <string name="places_filter_update_app_languages">Update app languages</string>
-    <!-- /Places -->
 </resources>
