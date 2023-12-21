@@ -421,16 +421,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        copyLink(title.uri)
-    }
-
     override fun onLinkPreviewAddToList(title: PageTitle) {
         ExclusiveBottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(requireContext(), title)
     }
 
     override fun onBackPressed(): Boolean {
@@ -505,11 +497,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         } else {
             notificationButtonView.setUnreadCount(0)
         }
-    }
-
-    private fun copyLink(url: String) {
-        ClipboardUtil.setPlainText(requireContext(), text = url)
-        FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
     @Suppress("SameParameterValue")
