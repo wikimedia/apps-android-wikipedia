@@ -18,7 +18,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.Insets
@@ -91,10 +90,23 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
     private var lastLocationUpdated: LatLng? = null
 
     private lateinit var markerBitmapBase: Bitmap
-    private lateinit var markerBitmapBaseRect: Rect
     private val markerRect = Rect(0, 0, MARKER_WIDTH, MARKER_HEIGHT)
-    private val markerPaintSrc = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC) }
-    private val markerPaintSrcIn = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC_IN) }
+    private val markerPaintSrc = Paint().apply {
+        isAntiAlias = true
+        xfermode = PorterDuffXfermode(Mode.SRC)
+    }
+    private val markerPaintSrcIn = Paint().apply {
+        isAntiAlias = true
+        xfermode = PorterDuffXfermode(Mode.SRC_IN)
+    }
+    private val markerBorderPaint by lazy {
+        Paint().apply {
+            style = Paint.Style.STROKE
+            strokeWidth = MARKER_BORDER_SIZE
+            color = ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)
+            isAntiAlias = true
+        }
+    }
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         when {
@@ -111,8 +123,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        markerBitmapBase = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.map_marker_outline, null)
-        markerBitmapBaseRect = Rect(0, 0, markerBitmapBase.width, markerBitmapBase.height)
+        markerBitmapBase = circularBitmapWithBorder(ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.baseline_circle_24,
+            ResourceUtil.getThemedAttributeId(requireContext(), R.attr.placeholder_color))).applyCanvas {
+        }
 
         Mapbox.getInstance(requireActivity().applicationContext)
 
@@ -194,7 +207,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
             map.setStyle(Style.Builder().fromUri(assetForTheme)) { style ->
                 mapboxMap = map
 
-                style.addImage(MARKER_DRAWABLE, AppCompatResources.getDrawable(requireActivity(), R.drawable.map_marker)!!)
+                style.addImage(MARKER_DRAWABLE, markerBitmapBase)
 
                 // TODO: Currently the style seems to break when zooming beyond 16.0. See if we can fix this.
                 map.setMaxZoomPreference(15.999)
@@ -464,20 +477,28 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         result.eraseColor(Color.TRANSPARENT)
 
         result.applyCanvas {
-            val srcRect = Rect(0, 0, thumbnailBitmap.width, thumbnailBitmap.height)
-
-            // Draw a filled circle that will serve as a mask for the thumbnail image.
-            drawCircle((MARKER_WIDTH / 2).toFloat(), (MARKER_WIDTH / 2).toFloat(),
-                ((MARKER_WIDTH / 2) - (MARKER_WIDTH / 16)).toFloat(), markerPaintSrc)
-
-            // Draw the thumbnail, which will be clipped by the circle mask above.
-            drawBitmap(thumbnailBitmap, srcRect, markerRect, markerPaintSrcIn)
-
-            // Draw the marker frame on top of the clipped thumbnail.
-            drawBitmap(markerBitmapBase, markerBitmapBaseRect, markerRect, null)
+            drawBitmap(circularBitmapWithBorder(thumbnailBitmap), null, markerRect, null)
         }
         return result
     }
+
+    private fun circularBitmapWithBorder(thumbnailBitmap: Bitmap): Bitmap {
+        val bitmapSize = thumbnailBitmap.width.coerceAtMost(thumbnailBitmap.height)
+        val radius = bitmapSize / 2f
+        val thumbnailRect = Rect(0, 0, thumbnailBitmap.width, thumbnailBitmap.height)
+        val destRect = RectF(0f, 0f, bitmapSize.toFloat(), bitmapSize.toFloat())
+
+        val newThumbnailBitmap = Bitmap.createBitmap(bitmapSize, bitmapSize, Bitmap.Config.ARGB_8888)
+
+        newThumbnailBitmap.applyCanvas {
+            drawCircle(radius, radius, radius, markerPaintSrc)
+            drawBitmap(thumbnailBitmap, thumbnailRect, destRect, markerPaintSrcIn)
+            drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
+        }
+        return newThumbnailBitmap
+    }
+
+
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title) else PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
@@ -527,7 +548,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
         val CLUSTER_FONT_STACK = arrayOf("Open Sans Semibold")
         val MARKER_FONT_STACK = arrayOf("Open Sans Regular")
         val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
-        val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
+        val MARKER_HEIGHT = DimenUtil.roundedDpToPx(48f)
+        val MARKER_BORDER_SIZE = DimenUtil.dpToPx(2f)
 
         fun newInstance(pageTitle: PageTitle?, location: Location?): PlacesFragment {
             return PlacesFragment().apply {
