@@ -391,7 +391,7 @@
   <string name="error_blocked_start">Kparib pin\'ilʋg: %s</string>
   <string name="error_blocked_expiry">Fʋ kparib la naad nɛ: %s</string>
   <string name="error_blocked_id">Kparib la zanbin: %s</string>
-  <string name="error_blocked_footer">Fʋ na tʋn\'e paae &lt;a href=\"%2$s\"&gt;%2$s&lt;/a&gt;%1$s bɛɛ sɔ\' ya\'as &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;kpɛɛm&lt;/a&gt; ka ya sɔns kparib la yɛla.</string>
+  <string name="error_blocked_footer">Fʋ na tʋn\'e paae &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bɛɛ sɔ\' ya\'as &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;kpɛɛm&lt;/a&gt; ka ya sɔns kparib la yɛla.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Tiakimb toolbar la</string>
   <string name="error_blocked_footer_no_blocker">Fʋ tʋn\'e paae &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; ka ya sɔns kparib la yɛla.</string>
   <string name="crash_report_activity_title">Fʋ buosʋg la paam gbɛlʋŋ</string>
