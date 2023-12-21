@@ -91,14 +91,19 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
     private var lastLocationUpdated: LatLng? = null
 
     private lateinit var markerBitmapBase: Bitmap
-    private val markerRect = Rect(0, 0, MARKER_WIDTH, MARKER_HEIGHT)
-    private val markerPaintSrc = Paint().apply {
-        isAntiAlias = true
-        xfermode = PorterDuffXfermode(Mode.SRC)
+    private val markerRect = Rect(0, 0, MARKER_SIZE, MARKER_SIZE)
+    private val markerPaintSrc by lazy {
+        Paint().apply {
+            isAntiAlias = true
+            color = ResourceUtil.getThemedColor(requireContext(), R.attr.success_color)
+            xfermode = PorterDuffXfermode(Mode.SRC)
+        }
     }
-    private val markerPaintSrcIn = Paint().apply {
-        isAntiAlias = true
-        xfermode = PorterDuffXfermode(Mode.SRC_IN)
+    private val markerPaintSrcIn by lazy {
+        Paint().apply {
+            isAntiAlias = true
+            xfermode = PorterDuffXfermode(Mode.SRC_IN)
+        }
     }
     private val markerBorderPaint by lazy {
         Paint().apply {
@@ -124,9 +129,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        markerBitmapBase = circularBitmapWithBorder(ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.baseline_circle_24,
-            ResourceUtil.getThemedAttributeId(requireContext(), R.attr.placeholder_color))).applyCanvas {
-        }
+        markerBitmapBase = circularBitmapWithBorder()
 
         Mapbox.getInstance(requireActivity().applicationContext)
 
@@ -477,7 +480,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
         // Retrieve an unused bitmap from the pool
         val result = Glide.get(requireContext()).bitmapPool
-            .getDirty(MARKER_WIDTH, MARKER_HEIGHT, Bitmap.Config.ARGB_8888)
+            .getDirty(MARKER_SIZE, MARKER_SIZE, Bitmap.Config.ARGB_8888)
 
         // Make the background fully transparent.
         result.eraseColor(Color.TRANSPARENT)
@@ -488,20 +491,18 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         return result
     }
 
-    private fun circularBitmapWithBorder(thumbnailBitmap: Bitmap): Bitmap {
-        val bitmapSize = thumbnailBitmap.width.coerceAtMost(thumbnailBitmap.height)
-        val radius = bitmapSize / 2f
-        val thumbnailRect = Rect(0, 0, thumbnailBitmap.width, thumbnailBitmap.height)
-        val destRect = RectF(0f, 0f, bitmapSize.toFloat(), bitmapSize.toFloat())
-
-        val newThumbnailBitmap = Bitmap.createBitmap(bitmapSize, bitmapSize, Bitmap.Config.ARGB_8888)
-
-        newThumbnailBitmap.applyCanvas {
+    private fun circularBitmapWithBorder(thumbnailBitmap: Bitmap? = null): Bitmap {
+        val radius = MARKER_SIZE / 2f
+        val outputBitmap = Bitmap.createBitmap(MARKER_SIZE, MARKER_SIZE, Bitmap.Config.ARGB_8888)
+        outputBitmap.applyCanvas {
             drawCircle(radius, radius, radius, markerPaintSrc)
-            drawBitmap(thumbnailBitmap, thumbnailRect, destRect, markerPaintSrcIn)
+            thumbnailBitmap?.let {
+                val thumbnailRect = Rect(0, 0, it.width, it.height)
+                drawBitmap(it, thumbnailRect, markerRect, markerPaintSrcIn)
+            }
             drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
         }
-        return newThumbnailBitmap
+        return outputBitmap
     }
 
     override fun onMapClick(point: LatLng): Boolean {
@@ -534,8 +535,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         const val ZOOM_IN_ANIMATION_DURATION = 1000
         val CLUSTER_FONT_STACK = arrayOf("Open Sans Semibold")
         val MARKER_FONT_STACK = arrayOf("Open Sans Regular")
-        val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
-        val MARKER_HEIGHT = DimenUtil.roundedDpToPx(48f)
+        val MARKER_SIZE = DimenUtil.roundedDpToPx(48f)
         val MARKER_BORDER_SIZE = DimenUtil.dpToPx(2f)
 
         fun newInstance(pageTitle: PageTitle?, location: Location?): PlacesFragment {
