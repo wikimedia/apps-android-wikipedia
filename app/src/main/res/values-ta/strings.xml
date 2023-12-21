@@ -165,7 +165,7 @@
   <string name="login_join_wikipedia">விக்கிப்பீடியாவிற் சேர்</string>
   <string name="login_forgot_password">உமது கடவுச்சொல் மறந்ததா?</string>
   <string name="create_account_already_have">ஏற்கனவே ஒரு பயனர் கணக்கு உள்ளதா?</string>
-  <string name="create_account_activity_title">கணக்கு ஒன்றை உருவாக்கவும்</string>
+  <string name="create_account_activity_title">ஒரு கணக்கை உருவாக்கு</string>
   <string name="dialog_create_account_checking_progress">சரிபார்க்கிறது</string>
   <string name="create_account_email_hint">மின்னஞ்சல் (விரும்பினால்)</string>
   <string name="create_account_password_repeat_hint">கடவுச்சொல்லை மீண்டும் தா</string>
