@@ -59,7 +59,6 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
-import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestedEditsImageRecsFragment
 import org.wikipedia.theme.ThemeChooserDialog
@@ -76,7 +75,7 @@ import org.wikipedia.views.ViewUtil
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPreviewDialog.Callback {
+class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPreviewDialog.LoadPageCallback {
     private lateinit var binding: ActivityEditSectionBinding
     private lateinit var textWatcher: TextWatcher
     private lateinit var captchaHandler: CaptchaHandler
@@ -817,11 +816,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
             startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
                 PageActivity.newIntentForCurrentTab(this, entry, title, false))
         }
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-            AddToReadingListDialog.newInstance(title, Constants.InvokeSource.EDIT_ACTIVITY))
     }
 
     companion object {
