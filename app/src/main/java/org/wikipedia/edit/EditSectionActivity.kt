@@ -63,7 +63,6 @@ import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestedEditsImageRecsFragment
 import org.wikipedia.theme.ThemeChooserDialog
-import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -818,11 +817,6 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
             startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
                 PageActivity.newIntentForCurrentTab(this, entry, title, false))
         }
-    }
-
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, text = title.uri)
-        FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {

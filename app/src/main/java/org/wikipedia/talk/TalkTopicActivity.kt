@@ -434,11 +434,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
             PageActivity.newIntentForCurrentTab(this, entry, title, false))
     }
 
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, text = title.uri)
-        FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
     override fun onLinkPreviewAddToList(title: PageTitle) {
         ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                 AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_TOPIC_ACTIVITY))
