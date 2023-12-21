@@ -14,6 +14,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.location.Location
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -68,6 +69,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
@@ -79,6 +81,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
+    private var statusBarInsets: Insets? = null
     private var navBarInsets: Insets? = null
 
     private val viewModel: PlacesFragmentViewModel by viewModels { PlacesFragmentViewModel.Factory(requireArguments()) }
@@ -144,9 +147,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
 
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
-            val statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
             var params = binding.searchContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = statusBarInsets.top + DimenUtil.roundedDpToPx(4f)
+            params.topMargin = statusBarInsets!!.top + DimenUtil.roundedDpToPx(4f)
 
             navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
             params = binding.myLocationButton.layoutParams as ViewGroup.MarginLayoutParams
@@ -213,10 +216,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.Callback, MapboxMap.OnMapCl
                 map.setMaxZoomPreference(15.999)
 
                 map.uiSettings.isLogoEnabled = false
-                val attribMargin = DimenUtil.roundedDpToPx(16f)
+                val defMargin = DimenUtil.roundedDpToPx(16f)
+                val navBarMargin = if (navBarInsets != null) navBarInsets!!.bottom else 0
 
-                map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin,
-                    (if (navBarInsets != null) navBarInsets!!.bottom else 0) + attribMargin)
+                map.uiSettings.compassGravity = Gravity.BOTTOM or Gravity.START
+                map.uiSettings.setCompassMargins(defMargin, 0, defMargin, navBarMargin + defMargin)
+
+                map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.END
+                map.uiSettings.setAttributionMargins(defMargin * 2 + (if (L10nUtil.isDeviceRTL) binding.myLocationButton.width else 0),
+                    0, defMargin * 2 + (if (L10nUtil.isDeviceRTL) 0 else binding.myLocationButton.width), navBarMargin + defMargin)
 
                 map.addOnCameraIdleListener {
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
