@@ -429,10 +429,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         ExclusiveBottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
     }
 
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(requireContext(), title)
-    }
-
     override fun onBackPressed(): Boolean {
         val fragment = currentFragment
         return fragment is BackPressedHandler && (fragment as BackPressedHandler).onBackPressed()

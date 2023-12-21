@@ -32,6 +32,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
@@ -41,7 +42,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean)
         fun onLinkPreviewCopyLink(title: PageTitle)
         fun onLinkPreviewAddToList(title: PageTitle)
-        fun onLinkPreviewShareLink(title: PageTitle)
     }
 
     private var _binding: DialogLinkPreviewBinding? = null
@@ -61,7 +61,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 true
             }
             R.id.menu_link_preview_share_page -> {
-                callback()?.onLinkPreviewShareLink(viewModel.pageTitle)
+                ShareUtil.shareText(requireContext(), viewModel.pageTitle)
                 true
             }
             R.id.menu_link_preview_copy_link -> {

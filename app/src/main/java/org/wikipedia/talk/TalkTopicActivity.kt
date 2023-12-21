@@ -444,10 +444,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_TOPIC_ACTIVITY))
     }
 
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
-    }
-
     companion object {
         const val EXTRA_TOPIC_NAME = "topicName"
         const val EXTRA_TOPIC_ID = "topicId"

@@ -157,10 +157,6 @@ class CategoryActivity : BaseActivity(), LinkPreviewDialog.Callback {
         ExclusiveBottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, InvokeSource.LINK_PREVIEW_MENU)
     }
 
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
-    }
-
     private inner class LoadingItemAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadingViewHolder>() {
         override fun onBindViewHolder(holder: LoadingViewHolder, loadState: LoadState) {
             holder.bindItem(loadState, retry)

@@ -451,10 +451,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
         ExclusiveBottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, InvokeSource.LINK_PREVIEW_MENU)
     }
 
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
-    }
-
     fun showError(caught: Throwable?) {
         binding.errorView.setError(caught)
         binding.errorView.visibility = View.VISIBLE

@@ -24,7 +24,6 @@ import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.util.ShareUtil
 import org.wikipedia.views.ImagePreviewDialog
 import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 
@@ -104,10 +103,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
     override fun onLinkPreviewAddToList(title: PageTitle) {
         ExclusiveBottomSheetPresenter.show(supportFragmentManager,
                 AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
     }
 
     fun updateStatusBarColor(@ColorInt color: Int) {

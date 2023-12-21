@@ -784,10 +784,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
                 AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
     }
 
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(requireContext(), title)
-    }
-
     private fun copyLink(uri: String?) {
         ClipboardUtil.setPlainText(requireContext(), text = uri)
         FeedbackUtil.showMessage(this, R.string.address_copied)

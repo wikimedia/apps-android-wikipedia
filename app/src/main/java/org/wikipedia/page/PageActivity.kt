@@ -70,7 +70,6 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UriUtil
@@ -478,10 +477,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
         showAddToListDialog(title, InvokeSource.LINK_PREVIEW_MENU)
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
     }
 
     private fun handleIntent(intent: Intent) {
