@@ -100,9 +100,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        style="@style/ThemeOverlay.Material3.FloatingActionButton.Primary"
+        app:shapeAppearanceOverlay="@style/FloatingActionButtonRounded"
         app:icon="@drawable/my_location_24"
-        app:iconTint="@color/white"
-        app:backgroundTint="?attr/progressive_color"
+        app:iconTint="?attr/progressive_color"
+        app:backgroundTint="?attr/paper_color"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:contentDescription="@null" />
