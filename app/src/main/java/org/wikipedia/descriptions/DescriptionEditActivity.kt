@@ -13,10 +13,8 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
-import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DeviceUtil
@@ -24,7 +22,7 @@ import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.views.ImagePreviewDialog
 import org.wikipedia.views.SuggestedArticleDescriptionsDialog
 
-class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(), DescriptionEditFragment.Callback, LinkPreviewDialog.Callback {
+class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(), DescriptionEditFragment.Callback {
     enum class Action {
         ADD_DESCRIPTION, TRANSLATE_DESCRIPTION, ADD_CAPTION, TRANSLATE_CAPTION, ADD_IMAGE_TAGS, IMAGE_RECOMMENDATIONS, VANDALISM_PATROL
     }
@@ -86,15 +84,6 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
                                     (Constants.INTENT_EXTRA_INVOKE_SOURCE) === InvokeSource.PAGE_ACTIVITY)
                                 HistoryEntry.SOURCE_EDIT_DESCRIPTION else HistoryEntry.SOURCE_SUGGESTED_EDITS), null))
         }
-    }
-
-    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
-        startActivity(PageActivity.newIntentForCurrentTab(this, entry, entry.title))
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
     }
 
     fun updateStatusBarColor(@ColorInt color: Int) {

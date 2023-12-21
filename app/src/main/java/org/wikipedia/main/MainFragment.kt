@@ -55,7 +55,6 @@ import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.random.RandomActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
@@ -79,7 +78,7 @@ import org.wikipedia.watchlist.WatchlistActivity
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
+class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, MenuNavTabDialog.Callback {
     interface Callback {
         fun onTabChanged(tab: NavTab)
         fun updateToolbarElevation(elevate: Boolean)
@@ -411,18 +410,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onLoadPage(entry: HistoryEntry) {
         startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
-    }
-
-    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
-        if (inNewTab) {
-            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
-        } else {
-            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
-        }
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        ExclusiveBottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
     }
 
     override fun onBackPressed(): Boolean {
