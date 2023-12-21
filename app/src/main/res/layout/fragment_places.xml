@@ -104,7 +104,7 @@
         app:iconTint="@color/white"
         app:backgroundTint="?attr/progressive_color"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="16dp"
         android:contentDescription="@null" />
 
 </FrameLayout>
