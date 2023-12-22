@@ -16,6 +16,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -35,6 +36,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.L10nUtil
@@ -140,6 +142,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
 
+        binding.linkPreviewTopHandle.isVisible = viewModel.fromPlaces
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
@@ -219,6 +223,13 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         L.e(throwable)
         binding.linkPreviewTitle.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
         showError(throwable)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (viewModel.fromPlaces) {
+            BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil.displayHeightPx
+        }
     }
 
     override fun onResume() {

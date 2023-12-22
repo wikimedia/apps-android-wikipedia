@@ -140,4 +140,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
 
+    <View
+        android:id="@+id/link_preview_top_handle"
+        android:layout_width="32dp"
+        android:layout_height="4dp"
+        android:layout_marginVertical="8dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_2dp_fill"
+        android:visibility="gone"/>
+
 </FrameLayout>
