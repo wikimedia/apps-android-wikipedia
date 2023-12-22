@@ -30,6 +30,7 @@ import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.login.LoginActivity
+<<<<<<< HEAD
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.LinkMovementMethodExt
@@ -38,6 +39,9 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.AddToReadingListDialog
+=======
+import org.wikipedia.page.*
+>>>>>>> nearby_design
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.util.ClipboardUtil
@@ -52,7 +56,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.views.SearchActionProvider
 import org.wikipedia.views.ViewUtil
 
-class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
+class TalkTopicActivity : BaseActivity() {
     private lateinit var binding: ActivityTalkTopicBinding
     private lateinit var linkHandler: TalkLinkHandler
 
@@ -443,6 +447,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                 .show()
     }
 
+<<<<<<< HEAD
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
             PageActivity.newIntentForCurrentTab(this, entry, title, false))
@@ -466,6 +471,8 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         startActivity(PlacesActivity.newIntent(this, title, location))
     }
 
+=======
+>>>>>>> nearby_design
     companion object {
         const val EXTRA_TOPIC_NAME = "topicName"
         const val EXTRA_TOPIC_ID = "topicId"

@@ -14,16 +14,20 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.location.Location
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.Insets
 import androidx.core.graphics.applyCanvas
 import androidx.core.os.bundleOf
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
@@ -60,9 +64,12 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
-import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.search.SearchFragment
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+<<<<<<< HEAD
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
@@ -75,9 +82,21 @@ import org.wikipedia.watchlist.WatchlistExpiryDialog
 import kotlin.math.abs
 
 class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistExpiryDialog.Callback, MapboxMap.OnMapClickListener {
+=======
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.log.L
+import org.wikipedia.views.ViewUtil
+import kotlin.math.abs
+
+class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
+>>>>>>> nearby_design
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
+    private var statusBarInsets: Insets? = null
+    private var navBarInsets: Insets? = null
 
     private val viewModel: PlacesFragmentViewModel by viewModels { PlacesFragmentViewModel.Factory(requireArguments()) }
 
@@ -114,12 +133,57 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistEx
         Mapbox.getInstance(requireActivity().applicationContext)
 
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
+
+        activity?.window?.let { window ->
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+            window.statusBarColor = Color.TRANSPARENT
+            window.navigationBarColor = Color.TRANSPARENT
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentPlacesBinding.inflate(inflater, container, false)
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+
+        binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
+            val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
+            statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            var params = binding.searchContainer.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = statusBarInsets!!.top + DimenUtil.roundedDpToPx(4f)
+
+            navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+            params = binding.myLocationButton.layoutParams as ViewGroup.MarginLayoutParams
+            params.bottomMargin = navBarInsets!!.bottom + DimenUtil.roundedDpToPx(16f)
+            binding.myLocationButton.layoutParams = params
+
+            WindowInsetsCompat.Builder()
+                .setInsets(WindowInsetsCompat.Type.navigationBars(), navBarInsets!!)
+                .build().toWindowInsets() ?: windowInsets
+        }
+
+        binding.tabsButton.setOnClickListener {
+            if (WikipediaApp.instance.tabCount == 1) {
+                startActivity(PageActivity.newIntent(requireActivity()))
+            } else {
+                startActivity(TabActivity.newIntent(requireActivity()))
+            }
+        }
+
+        binding.searchTextView.setOnClickListener {
+            // TODO: search
+        }
+
+        binding.backButton.setOnClickListener {
+            requireActivity().finish()
+        }
+
+        binding.searchLangContainer.setOnClickListener {
+            // TODO: change language
+        }
+
+        binding.searchCloseBtn.setOnClickListener {
+            // TODO: clear search
+        }
 
         binding.myLocationButton.setOnClickListener {
             if (haveLocationPermissions()) {
@@ -152,8 +216,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistEx
                 map.setMaxZoomPreference(15.999)
 
                 map.uiSettings.isLogoEnabled = false
-                val attribMargin = DimenUtil.roundedDpToPx(16f)
-                map.uiSettings.setAttributionMargins(attribMargin, 0, attribMargin, attribMargin)
+                val defMargin = DimenUtil.roundedDpToPx(16f)
+                val navBarMargin = if (navBarInsets != null) navBarInsets!!.bottom else 0
+
+                map.uiSettings.compassGravity = Gravity.BOTTOM or Gravity.START
+                map.uiSettings.setCompassMargins(defMargin, 0, defMargin, navBarMargin + defMargin)
+
+                map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.END
+                map.uiSettings.setAttributionMargins(defMargin * 2 + (if (L10nUtil.isDeviceRTL) binding.myLocationButton.width else 0),
+                    0, defMargin * 2 + (if (L10nUtil.isDeviceRTL) 0 else binding.myLocationButton.width), navBarMargin + defMargin)
 
                 map.addOnCameraIdleListener {
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
@@ -208,6 +279,19 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistEx
         }
     }
 
+    private fun updateSearchCardViews() {
+        val tabsCount = WikipediaApp.instance.tabCount
+        binding.tabsButton.isVisible = tabsCount != 0
+        binding.tabsButton.updateTabCount(false)
+
+        if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(Prefs.placesWikiCode)) {
+            Prefs.placesWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
+        }
+        binding.searchLangCode.text = Prefs.placesWikiCode
+        ViewUtil.formatLangButton(binding.searchLangCode, Prefs.placesWikiCode,
+            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+    }
+
     private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {
         val clusterOptions = ClusterOptions()
             .withClusterRadius(60)
@@ -252,6 +336,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistEx
     override fun onResume() {
         super.onResume()
         binding.mapView.onResume()
+        updateSearchCardViews()
     }
 
     override fun onStop() {
@@ -429,6 +514,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistEx
         return result
     }
 
+<<<<<<< HEAD
     private fun showWatchlistSnackbar() {
         viewModel.currentMarkerPageTitle?.let {
             if (!viewModel.isWatched) {
@@ -487,6 +573,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistEx
         ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
     }
 
+=======
+>>>>>>> nearby_design
     override fun onMapClick(point: LatLng): Boolean {
         mapboxMap?.let {
             val screenPoint = it.projection.toScreenLocation(point)

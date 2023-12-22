@@ -5,26 +5,106 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="@string/places_title" />
-
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"/>
+        android:layout_height="match_parent"/>
+
+    <org.wikipedia.views.WikiCardView
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/searchContainer"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:transitionName="@string/transition_search_bar"
+        app:elevation="0dp"
+        app:radius="22dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/search_hint"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ic_arrow_back_black_24dp"
+                app:tint="?attr/primary_color" />
+
+            <TextView
+                android:id="@+id/searchTextView"
+                style="@style/P"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:text="@string/places_search_hint"
+                android:textColor="?attr/secondary_color" />
+
+            <ImageView
+                android:id="@+id/searchCloseBtn"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:padding="12dp"
+                android:background="?attr/selectableItemBackground"
+                android:backgroundTint="?attr/primary_color"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_close_black_24dp"
+                app:tint="?attr/primary_color" />
+
+            <LinearLayout
+                android:id="@+id/searchLangContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="10dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/searchLangCode"
+                    style="@style/H5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:paddingHorizontal="5dp"
+                    android:background="@drawable/tab_counts_shape_border"
+                    android:backgroundTint="?attr/primary_color"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="?attr/primary_color"
+                    android:text="EN"
+                    tools:text="EN"/>
+            </LinearLayout>
+
+            <org.wikipedia.views.TabCountsView
+                android:id="@+id/tabsButton"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/menu_page_show_tabs" />
+
+        </LinearLayout>
+
+    </org.wikipedia.views.WikiCardView>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/myLocationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        style="@style/ThemeOverlay.Material3.FloatingActionButton.Primary"
+        app:shapeAppearanceOverlay="@style/FloatingActionButtonRounded"
         app:icon="@drawable/my_location_24"
-        app:iconTint="@color/white"
-        app:backgroundTint="?attr/progressive_color"
+        app:iconTint="?attr/progressive_color"
+        app:backgroundTint="?attr/paper_color"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:contentDescription="@null" />

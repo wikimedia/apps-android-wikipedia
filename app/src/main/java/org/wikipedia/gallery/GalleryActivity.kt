@@ -51,7 +51,6 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -67,7 +66,7 @@ import org.wikipedia.views.ViewAnimations
 import org.wikipedia.views.ViewUtil
 import java.io.File
 
-class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemFragment.Callback {
+class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, GalleryItemFragment.Callback {
 
     private lateinit var binding: ActivityGalleryBinding
     private lateinit var sourceWiki: WikiSite
@@ -442,23 +441,6 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.Callback, GalleryItemF
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         finishWithPageResult(title, entry)
-    }
-
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, text = title.uri)
-        FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        ExclusiveBottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, InvokeSource.LINK_PREVIEW_MENU)
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
-    }
-
-    override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
-        startActivity(PlacesActivity.newIntent(this, title, location))
     }
 
     fun showError(caught: Throwable?) {
