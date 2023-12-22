@@ -1675,14 +1675,12 @@
     <string name="menu_single_webview_open_external">Open in system browser</string>
     <!-- Donor experience -->
 
+    <!-- Places -->
     <string name="places_title">Places</string>
     <string name="places_permissions_denied">Location permission is required to see your location on the map. Please try again.</string>
-<<<<<<< HEAD
     <string name="places_link_preview_dialog_read_button">Read</string>
     <string name="places_link_preview_dialog_save_button">Save</string>
     <string name="places_link_preview_dialog_share_button">Share</string>
-    <!-- /Places -->
-=======
     <string name="places_search_hint">Search places</string>
->>>>>>> nearby_design
+    <!-- /Places -->
 </resources>
