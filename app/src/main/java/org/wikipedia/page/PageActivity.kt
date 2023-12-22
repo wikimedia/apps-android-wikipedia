@@ -469,7 +469,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         loadPage(title, entry, if (inNewTab) TabPosition.NEW_TAB_BACKGROUND else TabPosition.CURRENT_TAB)
     }
 
-    override fun onLinkPreviewAddToList(title: PageTitle) {
+    override fun onLinkPreviewAddToList(title: PageTitle, isInReadingList: Boolean, anchor: View?) {
         showAddToListDialog(title, InvokeSource.LINK_PREVIEW_MENU)
     }
 

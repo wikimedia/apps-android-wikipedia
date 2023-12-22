@@ -30,6 +30,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
@@ -54,10 +55,13 @@ import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeWidth
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textAllowOverlap
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textFont
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textIgnorePlacement
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentPlacesBinding
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -65,6 +69,9 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -79,7 +86,7 @@ import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import kotlin.math.abs
 
-class PlacesFragment : Fragment(), LinkPreviewDialog.WatchCallback, LinkPreviewDialog.LoadPageCallback, WatchlistExpiryDialog.Callback, MapboxMap.OnMapClickListener {
+class PlacesFragment : Fragment(), LinkPreviewDialog.WatchCallback, LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.AddToListCallback, WatchlistExpiryDialog.Callback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -520,6 +527,56 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.WatchCallback, LinkPreviewD
         }
     }
 
+    private fun onAddToReadingListClick(pageTitle: PageTitle, isInReadingList: Boolean, anchor: View) {
+        if (isInReadingList) {
+            LongPressMenu(anchor, object : LongPressMenu.Callback {
+                override fun onOpenLink(entry: HistoryEntry) { }
+
+                override fun onOpenInNewTab(entry: HistoryEntry) { }
+
+                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                    addToReadingList(pageTitle, addToDefault)
+                }
+
+                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+                    page?.let { readingListPage ->
+                        moveToReadingList(readingListPage.listId, pageTitle, true)
+                    }
+                }
+
+                override fun onRemoveRequest() {
+                    ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
+                }
+            }).show(HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES))
+        } else {
+            addToReadingList(pageTitle, true)
+        }
+    }
+
+    private fun addToReadingList(title: PageTitle, addToDefault: Boolean) {
+        if (addToDefault) {
+            // If the title is a redirect, resolve it before saving to the reading list.
+            lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+                var finalPageTitle = title
+                try {
+                    ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
+                        .query?.firstPage()?.let {
+                            finalPageTitle = PageTitle(it.title, title.wikiSite, it.thumbUrl(), it.description, it.displayTitle(title.wikiSite.languageCode), null)
+                        }
+                } finally {
+                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), finalPageTitle, Constants.InvokeSource.PLACES) { readingListId ->
+                        moveToReadingList(readingListId, finalPageTitle, false) }
+                }
+            }
+        } else {
+            ExclusiveBottomSheetPresenter.showAddToListDialog(childFragmentManager, title, Constants.InvokeSource.PLACES) { }
+        }
+    }
+
+    private fun moveToReadingList(sourceReadingListId: Long, title: PageTitle, showDefaultList: Boolean) {
+        ExclusiveBottomSheetPresenter.showMoveToListDialog(childFragmentManager, sourceReadingListId, title, Constants.InvokeSource.PLACES, showDefaultList) { }
+    }
+
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         if (inNewTab) {
             TabUtil.openInNewBackgroundTab(entry)
@@ -536,6 +593,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.WatchCallback, LinkPreviewD
         ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
     }
 
+    override fun onLinkPreviewAddToList(title: PageTitle, isInReadingList: Boolean, anchor: View?) {
+        anchor?.let {
+            onAddToReadingListClick(title, isInReadingList, it)
+        }
+    }
     override fun onExpirySelect(expiry: WatchlistExpiry) {
         viewModel.watchOrUnwatch(expiry, false)
         ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)

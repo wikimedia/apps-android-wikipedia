@@ -19,6 +19,7 @@ class LinkPreviewOverlayView : FrameLayout {
 
     private val binding = ViewLinkPreviewOverlayBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
+    val secondaryButtonView get() = binding.linkPreviewSecondaryButton
 
     init {
         binding.linkPreviewPrimaryButton.setOnClickListener {

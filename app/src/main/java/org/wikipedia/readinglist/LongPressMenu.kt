@@ -28,6 +28,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
         fun onOpenInNewTab(entry: HistoryEntry)
         fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean)
         fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry)
+        fun onRemoveRequest() { /* ignore by default */ }
     }
 
     @MenuRes
@@ -139,6 +140,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                 }
                 R.id.menu_long_press_remove_from_lists -> {
                     deleteOrShowDialog()
+                    callback?.onRemoveRequest()
                     true
                 }
                 R.id.menu_long_press_share_page -> {

@@ -54,7 +54,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     interface AddToListCallback {
-        fun onLinkPreviewAddToList(title: PageTitle)
+        fun onLinkPreviewAddToList(title: PageTitle, isInReadingList: Boolean, anchor: View? = null)
     }
 
     interface WatchCallback {
@@ -294,10 +294,10 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         dismiss()
     }
 
-    private fun doAddToList() {
+    private fun doAddToList(anchor: View? = null) {
         addToListCallback.let {
             if (it != null) {
-                it.onLinkPreviewAddToList(viewModel.pageTitle)
+                it.onLinkPreviewAddToList(viewModel.pageTitle, viewModel.isInReadingList, anchor)
             } else {
                 ExclusiveBottomSheetPresenter.showAddToListDialog(requireActivity().supportFragmentManager,
                     viewModel.pageTitle, Constants.InvokeSource.LINK_PREVIEW_MENU)
@@ -413,7 +413,10 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
 
         override fun onSecondaryClick() {
-            doAddToList()
+            doAddToList(overlayView?.secondaryButtonView)
+            if (!viewModel.isInReadingList) {
+                dismiss()
+            }
         }
 
         override fun onTertiaryClick() {
