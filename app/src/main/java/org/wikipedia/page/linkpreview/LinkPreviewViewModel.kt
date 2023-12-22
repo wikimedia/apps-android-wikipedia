@@ -9,6 +9,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
@@ -25,6 +26,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     val fromPlaces = bundle.getBoolean(LinkPreviewDialog.ARG_FROM_PLACES, false)
     val lastKnownLocation = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LAST_KNOWN_LOCATION)
     var isWatched = false
+    var isInReadingList = false
 
     init {
         loadContent()
@@ -56,6 +58,11 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
             if (fromPlaces) {
                 val watchStatus = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText).query?.firstPage()
                 isWatched = watchStatus?.watched ?: false
+
+                val readingList = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageTitle)
+                L.d("readingList $readingList")
+                isInReadingList = readingList != null
+                L.d("readingList  isInReadingList $isInReadingList")
             }
 
             _uiState.value = LinkPreviewViewState.Content(summary)

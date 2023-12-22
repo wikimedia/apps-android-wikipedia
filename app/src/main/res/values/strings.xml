@@ -1680,6 +1680,7 @@
     <string name="places_permissions_denied">Location permission is required to see your location on the map. Please try again.</string>
     <string name="places_link_preview_dialog_read_button">Read</string>
     <string name="places_link_preview_dialog_save_button">Save</string>
+    <string name="places_link_preview_dialog_saved_button">Saved</string>
     <string name="places_link_preview_dialog_share_button">Share</string>
     <string name="places_search_hint">Search places</string>
     <!-- /Places -->

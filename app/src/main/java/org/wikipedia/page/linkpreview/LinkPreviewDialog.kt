@@ -364,6 +364,10 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                         else R.string.button_continue_to_article
                     )
                 )
+            } else if (viewModel.fromPlaces) {
+                // TODO: needs to be optimized
+                setSecondaryButtonText(L10nUtil.getStringForArticleLanguage(viewModel.pageTitle,
+                    if (viewModel.isInReadingList) R.string.places_link_preview_dialog_saved_button else R.string.places_link_preview_dialog_save_button))
             }
         }
     }
