@@ -2,7 +2,6 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
-import android.location.Location
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -30,21 +29,11 @@ import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.login.LoginActivity
-<<<<<<< HEAD
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.linkpreview.LinkPreviewDialog
-import org.wikipedia.places.PlacesActivity
-import org.wikipedia.readinglist.AddToReadingListDialog
-=======
-import org.wikipedia.page.*
->>>>>>> nearby_design
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
-import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
@@ -447,32 +436,6 @@ class TalkTopicActivity : BaseActivity() {
                 .show()
     }
 
-<<<<<<< HEAD
-    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
-        startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
-            PageActivity.newIntentForCurrentTab(this, entry, title, false))
-    }
-
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, text = title.uri)
-        FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_TOPIC_ACTIVITY))
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
-    }
-
-    override fun onLinkPreviewViewOnMap(title: PageTitle, location: Location?) {
-        startActivity(PlacesActivity.newIntent(this, title, location))
-    }
-
-=======
->>>>>>> nearby_design
     companion object {
         const val EXTRA_TOPIC_NAME = "topicName"
         const val EXTRA_TOPIC_ID = "topicId"

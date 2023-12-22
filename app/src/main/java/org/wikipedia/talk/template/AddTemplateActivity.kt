@@ -2,7 +2,6 @@ package org.wikipedia.talk.template
 
 import android.content.Context
 import android.content.Intent
-import android.location.Location
 import android.os.Bundle
 import android.text.TextWatcher
 import androidx.activity.result.contract.ActivityResultContracts

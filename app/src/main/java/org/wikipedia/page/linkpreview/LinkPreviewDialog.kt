@@ -55,11 +55,16 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         fun onLinkPreviewAddToList(title: PageTitle)
     }
 
+    interface WatchCallback {
+        fun onLinkPreviewWatch(title: PageTitle, lastWatchExpiry: WatchlistExpiry, isWatched: Boolean)
+    }
+
     private var _binding: DialogLinkPreviewBinding? = null
     private val binding get() = _binding!!
 
     private val loadPageCallback get() = getCallback(this, LoadPageCallback::class.java)
     private val addToListCallback get() = getCallback(this, AddToListCallback::class.java)
+    private val watchCallback get() = getCallback(this, WatchCallback::class.java)
 
     private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
     private var linkPreviewInteraction: ArticleLinkPreviewInteraction? = null
@@ -79,8 +84,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 true
             }
             R.id.menu_link_preview_watch -> {
-                // TODO: watch
-//                placesCallback()?.onLinkPreviewWatch(viewModel.pageTitle, WatchlistExpiry.NEVER, viewModel.isWatched)
+                watchCallback?.onLinkPreviewWatch(viewModel.pageTitle, WatchlistExpiry.NEVER, viewModel.isWatched)
                 true
             }
             R.id.menu_link_preview_open_in_new_tab -> {

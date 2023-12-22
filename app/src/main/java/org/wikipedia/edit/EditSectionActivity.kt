@@ -3,7 +3,6 @@ package org.wikipedia.edit
 import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
-import android.location.Location
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler

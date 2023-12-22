@@ -69,29 +69,17 @@ import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-<<<<<<< HEAD
-import org.wikipedia.util.GeoUtil
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TabUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import kotlin.math.abs
 
-class PlacesFragment : Fragment(), LinkPreviewDialog.PlacesCallback, WatchlistExpiryDialog.Callback, MapboxMap.OnMapClickListener {
-=======
-import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.Resource
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.log.L
-import org.wikipedia.views.ViewUtil
-import kotlin.math.abs
-
-class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
->>>>>>> nearby_design
+class PlacesFragment : Fragment(), LinkPreviewDialog.WatchCallback, LinkPreviewDialog.LoadPageCallback, WatchlistExpiryDialog.Callback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -514,7 +502,6 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         return result
     }
 
-<<<<<<< HEAD
     private fun showWatchlistSnackbar() {
         viewModel.currentMarkerPageTitle?.let {
             if (!viewModel.isWatched) {
@@ -543,29 +530,10 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
     }
 
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(requireContext(), text = title.uri)
-        FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        ExclusiveBottomSheetPresenter.showAddToListDialog(childFragmentManager, title, Constants.InvokeSource.LINK_PREVIEW_MENU)
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(requireContext(), title)
-    }
-
     override fun onLinkPreviewWatch(title: PageTitle, lastWatchExpiry: WatchlistExpiry, isWatched: Boolean) {
         viewModel.watchlistExpiryChanged = false
         viewModel.watchOrUnwatch(lastWatchExpiry, isWatched)
         ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
-    }
-
-    override fun onLinkPreviewGetDirections(title: PageTitle, location: Location?) {
-        location?.let {
-            GeoUtil.sendGeoIntent(requireActivity(), it, StringUtil.fromHtml(title.displayText).toString())
-        }
     }
 
     override fun onExpirySelect(expiry: WatchlistExpiry) {
@@ -573,8 +541,6 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
     }
 
-=======
->>>>>>> nearby_design
     override fun onMapClick(point: LatLng): Boolean {
         mapboxMap?.let {
             val screenPoint = it.projection.toScreenLocation(point)

@@ -2,7 +2,6 @@ package org.wikipedia.descriptions
 
 import android.content.Context
 import android.content.Intent
-import android.location.Location
 import android.os.Bundle
 import androidx.annotation.ColorInt
 import org.wikipedia.Constants

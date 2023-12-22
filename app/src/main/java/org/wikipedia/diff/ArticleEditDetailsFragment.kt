@@ -1,7 +1,6 @@
 package org.wikipedia.diff
 
 import android.graphics.Rect
-import android.location.Location
 import android.net.Uri
 import android.os.Bundle
 import android.view.Gravity
