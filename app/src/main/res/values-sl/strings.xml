@@ -8,6 +8,7 @@
 * Pickle12
 * P̲̳l̳eo
 * SHaran (WMF)
+* Upwinxp
 -->
 <resources>
   <string name="app_name_prod">Wikipedija</string>
@@ -301,7 +302,7 @@
   <string name="abusefilter_text_disallow">Samodejni filter je to urejanje zaznal kot morda nekonstruktivno ali morebitni vandalizem.&lt;br /&gt;&lt;br /&gt;Wikipedija je enciklopedija, zato spada vanjo samo nepristranska in pomembna vsebina.</string>
   <string name="page_similar_titles">Podobne strani</string>
   <string name="search_did_you_mean">Ali ste mislili \"%s\"?</string>
-  <string name="search_recent_header">Zadnja iskanja</string>
+  <string name="search_recent_header">Nedavna iskanja</string>
   <string name="search_results_count_zero">Ni zadetkov</string>
   <plurals name="search_results_count">
     <item quantity="one">1 zadetek</item>
@@ -309,7 +310,7 @@
     <item quantity="few">%d zadetki</item>
     <item quantity="other">%d zadetkov</item>
   </plurals>
-  <string name="button_clear_all_recent_searches">Počisti zadnja iskanja</string>
+  <string name="button_clear_all_recent_searches">Počisti nedavna iskanja</string>
   <string name="clear_recent_searches_confirm">Ali res želite počistiti svojo zgodovino iskanja?</string>
   <string name="clear_recent_searches_confirm_yes">Da</string>
   <string name="clear_recent_searches_confirm_no">Ne</string>
@@ -1330,7 +1331,7 @@
   <string name="talk_subject_empty">Predmet ne sme biti prazen.</string>
   <string name="talk_response_submitted">Odgovor objavljen.</string>
   <string name="talk_snackbar_undo">Razveljavi</string>
-  <string name="talk_last_modified">&lt;b&gt;Zadnji_a spremenil_a %1$s&lt;/b&gt; uporabnik_ca %2$s</string>
+  <string name="talk_last_modified">&lt;b&gt;Nazadnje spremenil/a %1$s&lt;/b&gt; uporabnik/ca %2$s</string>
   <string name="talk_snackbar_survey_text">Hvala za uporabo pogovornih strani. Ali ste nam pripravljeni izboljšati aplikacijo s sodelovanjem v anketi?</string>
   <string name="talk_snackbar_survey_action_text">Začnimo</string>
   <string name="talk_share_discussion_subject">Wikipedija – razprava o temi pogovorne strani »%s«</string>
@@ -1546,8 +1547,20 @@
   <string name="talk_templates_edit_message_dialog_save">Shrani</string>
   <string name="talk_templates_edit_message_dialog_delete">Izbriši</string>
   <string name="talk_templates_edit_message_updated">Sporočilo je posodobljeno</string>
-  <string name="talk_templates_edit_message_delete_description">Ste prepričani, da želite sporočilo »%s« izbrisati s seznama?</string>
-  <string name="talk_templates_message_deleted">Sporočilo je izbrisano</string>
+  <string name="talk_templates_menu_remove_message">Odstrani sporočilo</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Ali res želite to sporočilo odstraniti s seznama?</item>
+    <item quantity="two">Ali res želite ti sporočili odstraniti s seznama</item>
+    <item quantity="few">Ali res želite ta sporočila odstraniti s seznama</item>
+    <item quantity="other">Ali res želite ta sporočila odstraniti s seznama?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Sporočilo je izbrisano</item>
+    <item quantity="two">Sporočila so izbrisana</item>
+    <item quantity="few">Sporočila so izbrisana</item>
+    <item quantity="other">Sporočila so izbrisana</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Naslov ne sme biti prazen.</string>
   <string name="patroller_tasks_edits_list_title">Seznam urejanj</string>
   <string name="patroller_tasks_edits_list_search_hint">Iskanje ali filtriranje urejanj</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Oznake: %s</string>
