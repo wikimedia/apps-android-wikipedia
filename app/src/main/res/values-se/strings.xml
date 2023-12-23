@@ -431,6 +431,7 @@
   <string name="insert_media_settings">Lasit dieđuid gova birra</string>
   <string name="insert_media_settings_caption" fuzzy="true">Govvateaksta</string>
   <string name="insert_media_settings_alternative_text">Molssaevttolaš teaksta</string>
+  <string name="insert_media_advanced_settings">Lasseásahusat</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Govaš</string>
   <string name="insert_media_advanced_settings_image_size">Govvasturrodat</string>
   <string name="insert_media_insert_button">Lasit</string>

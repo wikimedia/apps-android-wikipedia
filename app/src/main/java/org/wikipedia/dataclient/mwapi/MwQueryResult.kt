@@ -206,7 +206,7 @@ class MwQueryResult {
         private val minor = false
         val oldlen = 0
         val newlen = 0
-        private val timestamp: String = ""
+        val timestamp: String = ""
 
         @SerialName("parsedcomment") val parsedComment: String = ""
         private val tags: List<String>? = null

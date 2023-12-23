@@ -1188,7 +1188,7 @@
   <string name="main_tooltip_text_v2">Хой шоана, хӀара саго Википеди тоае мегаш йолга?</string>
   <string name="main_tooltip_action_button">ДIадоладе</string>
   <string name="main_tooltip_watchlist_title">Зем-мугӀам</string>
-  <string name="main_tooltip_watchlist_text">ХьалхагӀа хьай зем-мугӀама чуяьха йола статьяши оагӀонаши хьалаха &lt;b&gt;Зем-мугӀам&lt;/b&gt; яхача раздела чу (меню Кхы а).</string>
+  <string name="main_tooltip_watchlist_text">ХьалхагӀа хьай зем-мугӀама тӀатеха йола статьяши оагӀонаши хьалаха &lt;b&gt;Зем-мугӀам&lt;/b&gt; яхача раздела чу (меню чу Кхы а яхача).</string>
   <string name="custom_date_picker_dialog_ok_button_text">ХIау</string>
   <string name="text_input_dialog_ok_button_text">ХIаа</string>
   <string name="text_input_dialog_cancel_button_text">Эшац</string>

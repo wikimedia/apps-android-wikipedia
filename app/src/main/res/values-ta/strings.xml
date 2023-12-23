@@ -12,11 +12,13 @@
 * Hareesh Sivasubramanian
 * Jayarathina
 * Kaartic
+* Kanags
 * Maathavan
 * Rakeshonwiki
 * Rakshika
 * Sharanrajindia
 * Shriheeran
+* Sridhar G
 * Sriveenkat
 * Timbaaa
 * தமிழ்த்தம்பி
@@ -163,7 +165,7 @@
   <string name="login_join_wikipedia">விக்கிப்பீடியாவிற் சேர்</string>
   <string name="login_forgot_password">உமது கடவுச்சொல் மறந்ததா?</string>
   <string name="create_account_already_have">ஏற்கனவே ஒரு பயனர் கணக்கு உள்ளதா?</string>
-  <string name="create_account_activity_title">ஒரு கணக்கை ஆக்கு</string>
+  <string name="create_account_activity_title">ஒரு கணக்கை உருவாக்கு</string>
   <string name="dialog_create_account_checking_progress">சரிபார்க்கிறது</string>
   <string name="create_account_email_hint">மின்னஞ்சல் (விரும்பினால்)</string>
   <string name="create_account_password_repeat_hint">கடவுச்சொல்லை மீண்டும் தா</string>
@@ -176,11 +178,11 @@
   <string name="email_recommendation_dialog_title">மின்னஞ்சல் முகவரியற்ற கணக்கு உருவாக்குவதா?</string>
   <string name="email_recommendation_dialog_message">மின்னஞ்சல் முகவரியை கொடுப்பது தங்களது விருப்பப்படியே என்றாலும் &lt;b&gt;மிகவும் பரிந்துரைக்கப்பட்டது&lt;/b&gt;, ஏனெனில் தங்கள் கடவுச்சொல்லினை மறந்துவிட்டால் கணக்கினை மீட்க மின்னஞ்சல் முகவரி அவசியம்.</string>
   <string name="email_recommendation_message">பரிந்துரைக்கப்படுகிறது ஏனெனில் கணக்கை மீட்க பயன்படும்</string>
-  <string name="email_recommendation_dialog_create_without_email_action">மின்னஞ்சலின்றித் தொடர்</string>
-  <string name="email_recommendation_dialog_create_with_email_action">ஒரு மின்னஞ்சல் முகவரியைச் சேர்</string>
-  <string name="create_account_button">கணக்கை ஆக்கு</string>
+  <string name="email_recommendation_dialog_create_without_email_action">மின்னஞ்சலின்றித் தொடரவும்</string>
+  <string name="email_recommendation_dialog_create_with_email_action">ஒரு மின்னஞ்சல் முகவரியைச் சேர்க்கவும்</string>
+  <string name="create_account_button">கணக்கை உருவாக்குக</string>
   <string name="create_account_name_unavailable">பயனர் பெயர் \"%s\" ஏற்கனவே பயன்பாட்டில் உள்ளது. வேறொரு பெயரைத் தெரிவு செய்க.</string>
-  <string name="create_account_ip_block_message">வருந்துகிறோம், புதிய கணக்குகளை உருவாக்குவதை விட்டும் உமது ஐ.பீ. முகவரி தற்போது தடை செய்யப்பட்டுள்ளது.</string>
+  <string name="create_account_ip_block_message">வருந்துகிறோம், உமது ஐ.பி. முகவரி மூலம் புதிய கணக்குகளை உருவாக்குவது தற்போது தடை செய்யப்பட்டுள்ளது.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">விவரங்கள்</string>
   <string name="preferences_general_heading">பொதுவான</string>

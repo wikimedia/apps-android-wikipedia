@@ -302,7 +302,7 @@
   <string name="abusefilter_text_disallow">Samodejni filter je to urejanje zaznal kot morda nekonstruktivno ali morebitni vandalizem.&lt;br /&gt;&lt;br /&gt;Wikipedija je enciklopedija, zato spada vanjo samo nepristranska in pomembna vsebina.</string>
   <string name="page_similar_titles">Podobne strani</string>
   <string name="search_did_you_mean">Ali ste mislili \"%s\"?</string>
-  <string name="search_recent_header">Zadnja iskanja</string>
+  <string name="search_recent_header">Nedavna iskanja</string>
   <string name="search_results_count_zero">Ni zadetkov</string>
   <plurals name="search_results_count">
     <item quantity="one">1 zadetek</item>
@@ -310,7 +310,7 @@
     <item quantity="few">%d zadetki</item>
     <item quantity="other">%d zadetkov</item>
   </plurals>
-  <string name="button_clear_all_recent_searches">Počisti zadnja iskanja</string>
+  <string name="button_clear_all_recent_searches">Počisti nedavna iskanja</string>
   <string name="clear_recent_searches_confirm">Ali res želite počistiti svojo zgodovino iskanja?</string>
   <string name="clear_recent_searches_confirm_yes">Da</string>
   <string name="clear_recent_searches_confirm_no">Ne</string>
@@ -1070,7 +1070,7 @@
   <string name="suggested_edits_reactivation_notification_title">Predlagana urejanja</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Hvala za urejanje Wikipedije! Zakaj ne bi nadaljevali, kjer ste končali?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Imate trenutek za nadaljnje izboljševanje Wikipedije? Oglejte si te predloge za urejanje.</string>
-  <string name="suggested_edits_contributions_screen_title">Prispevki uporabnika/ce %s</string>
+  <string name="suggested_edits_contributions_screen_title">Prispevki uporabnika_ce %s</string>
   <string name="suggested_edits_contribution_language_label">Jezik</string>
   <string name="suggested_edits_contribution_date_time_label">Datum/čas</string>
   <string name="suggested_edits_contribution_type_label">Vrsta prispevka</string>
@@ -1376,9 +1376,9 @@
   <string name="menu_option_share_talk_discussion">Deli razpravo</string>
   <string name="menu_option_share_talk_page">Deli pogovorno stran</string>
   <string name="menu_option_share_edit">Deli urejanje</string>
-  <string name="menu_option_user_contributions">Prispevki uporabnika/ce %s</string>
+  <string name="menu_option_user_contributions">Prispevki uporabnika_ce %s</string>
   <string name="menu_option_edit_source">Uredi vir</string>
-  <string name="menu_option_user_page">Uporabniška stran uporabnika/ce %s</string>
+  <string name="menu_option_user_page">Uporabniška stran uporabnika_ce %s</string>
   <string name="menu_option_find_in_talk_page_topic">Poišči v temi pogovorne strani</string>
   <string name="menu_option_copy_link_to_clipboard">Kopiraj povezavo v odložišče</string>
   <string name="talk_menu_copy_text">Kopiraj besedilo</string>
@@ -1394,7 +1394,7 @@
   <string name="thank_dialog_text">Zahvale so preprost način za izražanje priznanja za delo urejevalca v Wikipediji. Zahval ni mogoče razveljaviti in so javno razvidne.</string>
   <string name="thank_dialog_positive_button_text">Pošlji zahvalo</string>
   <string name="thank_dialog_negative_button_text">Prekliči</string>
-  <string name="thank_success_message">Uporabniku/ci %s ste poslali zahvalo 👍</string>
+  <string name="thank_success_message">Uporabniku_ci %s ste poslali zahvalo 👍</string>
   <string name="menu_option_view_user_profile">Ogled uporabnikove strani</string>
   <string name="menu_option_view_user_talk">Ogled pogovorne strani</string>
   <string name="menu_option_view_user_contributions">Ogled uporabnikovih prispevkov</string>
@@ -1507,7 +1507,7 @@
   <string name="subcategory_empty">V tej kategoriji ni najdenih podkategorij.</string>
   <string name="search_namespaces">Imenski prostori</string>
   <string name="revision_initial_none">Brez (to je prva redakcija)</string>
-  <string name="user_contrib_activity_title">Prispevki uporabnika/ce %s</string>
+  <string name="user_contrib_activity_title">Prispevki uporabnika_ce %s</string>
   <string name="archive_empty">Ni najdenih arhivskih strani.</string>
   <string name="user_contrib_filter_ns">Filtriraj po imenskem prostoru</string>
   <string name="user_contrib_filter_all">Vsi imenski prostori</string>

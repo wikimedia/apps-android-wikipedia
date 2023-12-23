@@ -13,7 +13,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsViewModel
-import org.wikipedia.util.log.L
+import java.util.Date
 import java.util.Stack
 import java.util.concurrent.Semaphore
 import kotlin.math.abs
@@ -41,8 +41,9 @@ object EditingSuggestionsProvider {
     private var articlesWithImageRecommendationsLastMillis: Long = 0
 
     private var revertCandidateLang: String = ""
-    private val revertCandidateCache: Stack<MwQueryResult.RecentChange> = Stack()
+    private val revertCandidateCache: ArrayDeque<MwQueryResult.RecentChange> = ArrayDeque()
     private var revertCandidateLastRevId = 0L
+    private var revertCandidateLastTimeStamp = Date().toInstant().toString()
 
     private const val MAX_RETRY_LIMIT: Long = 50
 
@@ -349,8 +350,13 @@ object EditingSuggestionsProvider {
     fun populateRevertCandidateCache(lang: String, recentChanges: List<MwQueryResult.RecentChange>) {
         revertCandidateLang = lang
         revertCandidateCache.clear()
+        revertCandidateLastRevId = 0L
         recentChanges.forEach {
-            revertCandidateCache.push(it)
+            revertCandidateCache.addFirst(it)
+            if (it.curRev > revertCandidateLastRevId) {
+                revertCandidateLastRevId = it.curRev
+                revertCandidateLastTimeStamp = it.timestamp
+            }
         }
     }
 
@@ -366,33 +372,48 @@ object EditingSuggestionsProvider {
                     revertCandidateLastRevId = 0L
                 }
                 revertCandidateLang = lang
-                if (!revertCandidateCache.empty()) {
-                    L.d(revertCandidateCache.toString())
-                    cachedItem = revertCandidateCache.pop()
+                if (!revertCandidateCache.isEmpty()) {
+                    cachedItem = revertCandidateCache.removeFirst()
                 }
 
                 if (cachedItem == null) {
+                    val wikiSite = WikiSite.forLanguageCode(lang)
                     while (this.coroutineContext.isActive) {
                         try {
-                            val recentChanges = SuggestedEditsRecentEditsViewModel.getRecentEditsCall(WikiSite.forLanguageCode(lang), 10, null, mutableListOf())
-                                .first.sortedByDescending { it.curRev }
-                            var maxRevId = 0L
+                            // If we have been reset, then fetch a few *older* changes, so that the user
+                            // has a few changes to flip through. Otherwise, start fetching *newer* changes,
+                            // starting from the last recorded timestamp.
+                            val triple = if (revertCandidateLastRevId == 0L)
+                                SuggestedEditsRecentEditsViewModel.getRecentEditsCall(wikiSite,
+                                10, Date().toInstant().toString(), "older", null, mutableListOf())
+                            else SuggestedEditsRecentEditsViewModel.getRecentEditsCall(wikiSite,
+                                10, revertCandidateLastTimeStamp, "newer", null, mutableListOf())
 
-                            for (candidate in recentChanges) {
+                            // Retrieve the list of filtered changes from our filter, but *also* get
+                            // the list of total changes so that we can update our maxRevId and latest
+                            // timestamp, to ensure that our next call will start at the correct point.
+                            val filteredChanges = triple.first.sortedBy { it.curRev }
+                            val allChanges = triple.second
+
+                            var maxRevId = 0L
+                            for (candidate in allChanges) {
                                 if (candidate.curRev > maxRevId) {
                                     maxRevId = candidate.curRev
                                 }
-                                if (candidate.curRev <= revertCandidateLastRevId) {
-                                    continue
+                                if (candidate.timestamp > revertCandidateLastTimeStamp) {
+                                    revertCandidateLastTimeStamp = candidate.timestamp
                                 }
-
-                                revertCandidateCache.push(candidate)
+                            }
+                            for (candidate in filteredChanges) {
+                                if (candidate.curRev > revertCandidateLastRevId) {
+                                    revertCandidateCache.addLast(candidate)
+                                }
                             }
                             if (maxRevId > revertCandidateLastRevId) {
                                 revertCandidateLastRevId = maxRevId
                             }
-                            if (!revertCandidateCache.empty()) {
-                                cachedItem = revertCandidateCache.pop()
+                            if (!revertCandidateCache.isEmpty()) {
+                                cachedItem = revertCandidateCache.removeFirst()
                             }
                             if (cachedItem == null) {
                                 throw ListEmptyException()
@@ -400,7 +421,7 @@ object EditingSuggestionsProvider {
                             break
                         } catch (e: ListEmptyException) {
                             // continue indefinitely until new data comes in.
-                            Thread.sleep(5000)
+                            Thread.sleep(3000)
                         }
                     }
                 }
