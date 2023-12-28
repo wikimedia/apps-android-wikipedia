@@ -170,8 +170,7 @@ class SavedPageSyncService : JobIntentService() {
 
                         // download css and javascript assets
                         mobileHTMLRsp.body?.let {
-                            fileUrls.addAll(PageComponentsUrlParser.parse(it.string(),
-                                    pageTitle.wikiSite).filter { url -> url.isNotEmpty() })
+                            fileUrls.addAll(PageComponentsUrlParser.parse(it.string(), pageTitle.wikiSite))
                         }
                         if (Prefs.isImageDownloadEnabled) {
                             // download thumbnail and lead image

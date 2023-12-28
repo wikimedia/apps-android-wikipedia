@@ -11,6 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayoutMediator
 import org.jsoup.Jsoup
+import org.jsoup.select.QueryParser
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.databinding.FragmentReferencesPagerBinding
@@ -22,6 +23,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import java.util.Locale
+import kotlin.streams.asSequence
 
 class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
@@ -100,11 +102,11 @@ class ReferenceDialog : ExtendedBottomSheetDialogFragment() {
                     val contents = StringUtil.fromHtml(StringUtil.removeCiteMarkup(StringUtil.removeStyleTags(reference.html)))
                     if (contents.isEmpty()) {
                         // Inspect html for links without anchor text
-                        val links = Jsoup.parse(reference.html).select("a[href]").map { it.attr("href") }
-                        var tags = ""
-                        for (i in links.indices) {
-                            tags = tags.plus("<a href='${links[i]}'>[${i + 1}]</a>")
-                        }
+                        val anchor = QueryParser.parse("a")
+                        val tags = Jsoup.parse(reference.html).stream().asSequence()
+                            .filter { it.`is`(anchor) && it.hasAttr("href") }
+                            .mapIndexed { i, element -> "<a href='${element.attr("href")}'>[${i + 1}]</a>" }
+                            .joinToString("")
                         binding.referenceText.text = StringUtil.fromHtml(tags)
                         binding.referenceExtLink.isVisible = tags.isNotEmpty()
                         return@post
