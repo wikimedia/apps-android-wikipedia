@@ -472,5 +472,6 @@
   <string name="patroller_tasks_filters_automated_contributions_header">Automatiserejuvvon rievdadusat</string>
   <string name="patroller_tasks_filters_significance_minor">Unna rievdadusažat</string>
   <string name="patroller_tasks_filters_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
+  <string name="patroller_tasks_overflow_learn">Lassedieđut</string>
   <string name="data_opt_in_accept">Dohkket</string>
 </resources>
