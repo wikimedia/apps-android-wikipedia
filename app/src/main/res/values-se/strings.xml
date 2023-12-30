@@ -431,6 +431,7 @@
   <string name="insert_media_settings">Lasit dieđuid gova birra</string>
   <string name="insert_media_settings_caption" fuzzy="true">Govvateaksta</string>
   <string name="insert_media_settings_alternative_text">Molssaevttolaš teaksta</string>
+  <string name="insert_media_advanced_settings">Lasseásahusat</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Govaš</string>
   <string name="insert_media_advanced_settings_image_size">Govvasturrodat</string>
   <string name="insert_media_insert_button">Lasit</string>
@@ -471,5 +472,6 @@
   <string name="patroller_tasks_filters_automated_contributions_header">Automatiserejuvvon rievdadusat</string>
   <string name="patroller_tasks_filters_significance_minor">Unna rievdadusažat</string>
   <string name="patroller_tasks_filters_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
+  <string name="patroller_tasks_overflow_learn">Lassedieđut</string>
   <string name="data_opt_in_accept">Dohkket</string>
 </resources>
