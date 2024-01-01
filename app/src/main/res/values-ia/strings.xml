@@ -1456,6 +1456,10 @@
   <string name="talk_templates_edit_message_dialog_delete">Deler</string>
   <string name="talk_templates_edit_message_updated">Le message ha essite actualisate</string>
   <string name="talk_templates_menu_remove_message">Remover message</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Es tu secur de voler deler le message del lista?</item>
+    <item quantity="other">Es tu secur de voler deler le messages del lista?</item>
+  </plurals>
   <plurals name="talk_templates_message_deleted">
     <item quantity="one">Le message ha essite delite</item>
     <item quantity="other">Le messages ha essite delite</item>

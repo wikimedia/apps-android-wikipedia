@@ -6,7 +6,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.dataclient.restbase.Metrics
 import org.wikipedia.dataclient.restbase.RbDefinition
-import org.wikipedia.dataclient.restbase.RbRelatedPages
 import org.wikipedia.feed.aggregated.AggregatedFeedContent
 import org.wikipedia.feed.announcement.AnnouncementList
 import org.wikipedia.feed.configure.FeedAvailability
@@ -76,10 +75,6 @@ interface RestService {
     @get:GET("page/random/summary")
     @get:Headers("Accept: $ACCEPT_HEADER_SUMMARY")
     val randomSummary: Observable<PageSummary>
-
-    @Headers("Accept: $ACCEPT_HEADER_SUMMARY")
-    @GET("page/related/{title}")
-    fun getRelatedPages(@Path("title") title: String?): Observable<RbRelatedPages>
 
     @GET("page/media-list/{title}/{revision}")
     fun getMediaList(

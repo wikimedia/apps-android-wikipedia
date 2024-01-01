@@ -254,6 +254,7 @@
   <string name="button_add_to_reading_list">Lasit lohkanlistui</string>
   <string name="redirected_from_snackbar">Stivrejuvvon ođđasit siiddus \"%s\"</string>
   <string name="nav_item_donate">Skeaŋkkat</string>
+  <string name="enable_location_service">Váldde atnui</string>
   <string name="view_link_preview_error_button_dismiss">Gidde</string>
   <string name="error_page_does_not_exist">Dát siidu ii gávdno</string>
   <string name="reference_title">Gáldu %s</string>
@@ -280,12 +281,14 @@
   <string name="reading_list_name_hint">Listtu namma</string>
   <string name="reading_list_add_to_other_list">Lasit nuppi lohkanlistui</string>
   <string name="reading_list_select_item">Vállje</string>
+  <string name="reading_lists_sync_reminder_action">Váldde synkroniserema atnui</string>
   <string name="reading_list_articles_added_to_named" fuzzy="true">Artihkkalat %1$d lasihuvvojedje lohkanlistui %2$s</string>
   <string name="reading_list_delete_confirm">Áiggutgo don duođaid %s sihkkut?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Gaskkalduhte</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Čálit sisa</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Ásahusat</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ale čájet dán fas</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Váldde synkroniserema atnui</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ii giitu</string>
   <string name="default_reading_list_name">Vurkejuvvon</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Gaskkalduhte</string>
@@ -302,6 +305,7 @@
   <string name="notification_syncing_resume_button">Joatkke</string>
   <string name="notification_syncing_cancel_button">Gaskkalduhte</string>
   <string name="notifications_activity_title">Almmuhusat</string>
+  <string name="notifications_poll_enable_positive">Váldde atnui</string>
   <string name="watchlist_title">Čuovvunlistu</string>
   <string name="preference_title_notification_thanks">Giitu</string>
   <string name="preference_title_notification_login_fail">Čálit sisa</string>
@@ -384,6 +388,7 @@
   <string name="suggested_edits_image_tags_add_tag">Lasit gilkora</string>
   <string name="suggested_edits_label">Evttohuvvon rievdadusat</string>
   <string name="suggested_edits_learn_more">Lassedieđut</string>
+  <string name="suggested_edits_disabled_title">Váldojuvvon eret anus</string>
   <string name="suggested_edits_task_new" fuzzy="true">ođđa</string>
   <string name="suggested_edits_reactivation_notification_title">Evttohuvvon rievdadusat</string>
   <string name="suggested_edits_contribution_language_label">Giella</string>
@@ -426,6 +431,7 @@
   <string name="insert_media_settings">Lasit dieđuid gova birra</string>
   <string name="insert_media_settings_caption" fuzzy="true">Govvateaksta</string>
   <string name="insert_media_settings_alternative_text">Molssaevttolaš teaksta</string>
+  <string name="insert_media_advanced_settings">Lasseásahusat</string>
   <string name="insert_media_advanced_settings_image_type_thumbnail">Govaš</string>
   <string name="insert_media_advanced_settings_image_size">Govvasturrodat</string>
   <string name="insert_media_insert_button">Lasit</string>
@@ -466,5 +472,6 @@
   <string name="patroller_tasks_filters_automated_contributions_header">Automatiserejuvvon rievdadusat</string>
   <string name="patroller_tasks_filters_significance_minor">Unna rievdadusažat</string>
   <string name="patroller_tasks_filters_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
+  <string name="patroller_tasks_overflow_learn">Lassedieđut</string>
   <string name="data_opt_in_accept">Dohkket</string>
 </resources>
