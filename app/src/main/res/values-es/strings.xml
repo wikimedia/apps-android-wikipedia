@@ -146,6 +146,11 @@
     <item quantity="one">%1$d editar desde %2$s</item>
     <item quantity="other">%1$d editar desde %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d edición desde %2$s (%3$s)</item>
+    <item quantity="other">% 1$d ediciones desde %2$s (%3$s)</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Prueba a cambiar los &lt;a href=\"#\"&gt;filtros&lt;/a&gt; para ver más ediciones.</string>
   <string name="menu_page_show_tabs">Mostrar pestañas</string>
   <string name="menu_page_other_languages">Cambiar idioma</string>
   <string name="menu_page_find_in_page">Buscar en artículo</string>
@@ -188,6 +193,7 @@
   <string name="language_count_link_text">Disponible en %d idiomas más</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Al publicar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Las ediciones se atribuirán a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt;, tendrás más privacidad.</string>
+  <string name="edit_anon_warning">Los ediciones serán atribuidas a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;accedes&lt;/a&gt;, tendrás más privacidad.</string>
   <string name="preference_title_language">Idiomas de Wikipedia</string>
   <string name="langlinks_filter_hint">Buscar</string>
   <string name="langlinks_empty">Esta página no está disponible en otros idiomas.</string>
