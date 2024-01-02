@@ -228,6 +228,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     override fun onStart() {
         super.onStart()
         if (viewModel.fromPlaces) {
+            disableBackgroundDim()
             BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil.displayHeightPx
         }
     }
