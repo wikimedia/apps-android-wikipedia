@@ -22,7 +22,6 @@ import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
-import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -260,15 +259,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
 
         L10nUtil.setConditionalLayoutDirection(requireView(), viewModel.pageTitle.wikiSite.languageCode)
 
-        binding.scrollContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
+        binding.appBarLayout.addOnOffsetChangedListener { _, verticalOffset ->
             val bounds = Rect()
-            binding.contentContainer.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
-            binding.overlayRevisionDetailsView.isVisible = scrollY > bounds.top
-        })
+            binding.collapsingToolbarLayout.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
+            binding.overlayRevisionDetailsView.isVisible = -verticalOffset > bounds.top
+        }
     }
 
     override fun onDestroyView() {
-        binding.scrollContainer.removeCallbacks(sequentialTooltipRunnable)
+        binding.root.removeCallbacks(sequentialTooltipRunnable)
         _binding = null
         super.onDestroyView()
     }
@@ -420,8 +419,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             binding.oresDamagingButton.isVisible && binding.oresGoodFaithButton.isVisible &&
             parentFragment == FragmentUtil.getAncestor(this, SuggestedEditsCardsFragment::class.java)?.topBaseChild()) {
             Prefs.showOneTimeSequentialRecentEditsDiffTooltip = false
-            binding.scrollContainer.removeCallbacks(sequentialTooltipRunnable)
-            binding.scrollContainer.postDelayed(sequentialTooltipRunnable, 500)
+            binding.root.removeCallbacks(sequentialTooltipRunnable)
+            binding.root.postDelayed(sequentialTooltipRunnable, 500)
         }
     }
 
