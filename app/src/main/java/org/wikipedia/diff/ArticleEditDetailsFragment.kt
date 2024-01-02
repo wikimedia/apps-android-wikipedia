@@ -22,7 +22,6 @@ import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
-import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -44,14 +43,13 @@ import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
-import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
-import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
+import org.wikipedia.suggestededits.SuggestedEditsCardsFragment
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
@@ -69,7 +67,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 
-class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, LinkPreviewDialog.Callback, MenuProvider {
+class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, MenuProvider {
     interface Callback {
         fun onUndoSuccess()
         fun onRollbackSuccess()
@@ -261,15 +259,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
         L10nUtil.setConditionalLayoutDirection(requireView(), viewModel.pageTitle.wikiSite.languageCode)
 
-        binding.scrollContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
+        binding.appBarLayout.addOnOffsetChangedListener { _, verticalOffset ->
             val bounds = Rect()
-            binding.contentContainer.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
-            binding.overlayRevisionDetailsView.isVisible = scrollY > bounds.top
-        })
+            binding.collapsingToolbarLayout.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
+            binding.overlayRevisionDetailsView.isVisible = -verticalOffset > bounds.top
+        }
     }
 
     override fun onDestroyView() {
-        binding.scrollContainer.removeCallbacks(sequentialTooltipRunnable)
+        binding.root.removeCallbacks(sequentialTooltipRunnable)
         _binding = null
         super.onDestroyView()
     }
@@ -418,10 +416,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
 
     private fun maybeShowOneTimeSequentialRecentEditsTooltips() {
         if (Prefs.showOneTimeSequentialRecentEditsDiffTooltip && viewModel.fromRecentEdits &&
-            binding.oresDamagingButton.isVisible && binding.oresGoodFaithButton.isVisible) {
+            binding.oresDamagingButton.isVisible && binding.oresGoodFaithButton.isVisible &&
+            parentFragment == FragmentUtil.getAncestor(this, SuggestedEditsCardsFragment::class.java)?.topBaseChild()) {
             Prefs.showOneTimeSequentialRecentEditsDiffTooltip = false
-            binding.scrollContainer.removeCallbacks(sequentialTooltipRunnable)
-            binding.scrollContainer.postDelayed(sequentialTooltipRunnable, 500)
+            binding.root.removeCallbacks(sequentialTooltipRunnable)
+            binding.root.postDelayed(sequentialTooltipRunnable, 500)
         }
     }
 
@@ -450,6 +449,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         binding.diffUnavailableContainer.isVisible = false
         binding.thankButton.isVisible = false
         binding.undoButton.isVisible = false
+        binding.olderIdButton.isVisible = false
+        binding.newerIdButton.isVisible = false
         binding.warnButton.isVisible = viewModel.fromRecentEdits
     }
 
@@ -494,6 +495,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
             }
         }
 
+        binding.olderIdButton.isVisible = true
+        binding.newerIdButton.isVisible = true
         setEnableDisableTint(binding.newerIdButton, !viewModel.canGoForward)
         setEnableDisableTint(binding.olderIdButton, viewModel.revisionFromId == 0L)
         binding.newerIdButton.isEnabled = viewModel.canGoForward
@@ -706,7 +709,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         sendPatrollerExperienceEvent("feedback_input_impression", "pt_feedback")
         MaterialAlertDialogBuilder(requireActivity())
             .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
-            .setCancelable(false)
             .setView(feedbackView)
             .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
                 viewModel.feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
@@ -723,9 +725,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         }
         FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, R.string.patroller_diff_feedback_submitted_snackbar)
         sendPatrollerExperienceEvent("feedback_submit_toast", "pt_feedback")
-        binding.root.postDelayed({
+        requireActivity().window.decorView.postDelayed({
             val anchorView = requireActivity().findViewById<View>(R.id.more_options)
-            if (isAdded && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
+            if (!requireActivity().isDestroyed && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
                 sendPatrollerExperienceEvent("tooltip_impression", "pt_feedback")
                 FeedbackUtil.getTooltip(
                     requireActivity(),
@@ -760,27 +762,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, L
         viewModel.watchOrUnwatch(isWatched, expiry, false)
         ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
         showFeedbackOptionsDialog()
-    }
-
-    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
-        if (inNewTab) {
-            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
-        } else {
-            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
-        }
-    }
-
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        copyLink(title.uri)
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(requireContext(), title)
     }
 
     private fun copyLink(uri: String?) {

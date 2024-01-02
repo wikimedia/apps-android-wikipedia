@@ -438,7 +438,7 @@
   <string name="preference_summary_color_theme">ДӀатоха баьде тема хьаоттаергйолаш</string>
   <string name="text_size_increase">Шрифт хьайоккхае</string>
   <string name="text_size_decrease">Шрифт дӀазӀамигае</string>
-  <string name="text_size_percent_default">%s (юххьанцара мо)</string>
+  <string name="text_size_percent_default">%s (юххьанца мо)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Дешар</string>
   <string name="theme_category_editing">Тоадар</string>
@@ -944,13 +944,13 @@
   <string name="suggested_edits_image_tags_published">Кепатехай</string>
   <string name="suggested_edits_image_tags_onboarding_title">Сурташта фосташ тӀатехача уж сихагӀа корадоагӀ</string>
   <string name="suggested_edits_image_tags_onboarding_text">Сурташта фосташ тӀатохарца, Ӏа гӀо ду Викиларма чу уж лохаш а, Википеде чу статьяш чу лелаеш йола дӀа-хьа доаржаде мукъа долча суртий репозитореш лохаш а.</string>
-  <string name="suggested_edits_image_tags_onboarding_note">Сурташта оаш хержа йола фосташ мара тӀатохаргьяц.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Ӏа хержа дола фосташ мара тӀатохаргдац сурташта.</string>
   <string name="suggested_edits_image_tags_task_detail">Хьай фосташ тӀатоха суртá, из лаха аттагӀа хургдолаш.</string>
   <string name="suggested_edits_image_tags_choose">ТӀатоха е хьахаржа мегаш йола фосташ</string>
   <string name="suggested_edits_image_tags_published_list">Кепатеха йола фосташ</string>
   <string name="suggested_edits_image_tags_search">Фосташ лаха</string>
   <string name="suggested_edits_image_tags_select_title">Укх суртá цхьаккха фост хержаяц Ӏа</string>
-  <string name="suggested_edits_image_tags_select_text">Сурташта оаш хержа йола фосташ мара тӀатохаргьяц. Оаш хержайоацараш дӀакъовларгья. Боккъонца безам бий хьа еррига фосташ хьа ца эцаш йита?</string>
+  <string name="suggested_edits_image_tags_select_text">Сурташта Ӏа хержа дола фосташ мара тӀатохаргдац. Ӏа хержа доацараш юхатохаргда. Боккъонца безам бий хьа деррига фосташ хьа ца эцаш юхатоха?</string>
   <string name="suggested_edits_image_tags_add_tag">Фост тӀатоха</string>
   <string name="suggested_edits_image_zoom_tooltip">Хьадоккхаде йиш я сурт</string>
   <string name="suggested_edits_encouragement_message">%s, баркал хьона тоадарах! ЛохегӀа хьажа кхы а мишта къахьега йиш я Википеде гӀулакхá.</string>
@@ -1188,7 +1188,7 @@
   <string name="main_tooltip_text_v2">Хой шоана, хӀара саго Википеди тоае мегаш йолга?</string>
   <string name="main_tooltip_action_button">ДIадоладе</string>
   <string name="main_tooltip_watchlist_title">Зем-мугӀам</string>
-  <string name="main_tooltip_watchlist_text">ХьалхагӀа хьай зем-мугӀама чуяьха йола статьяши оагӀонаши хьалаха &lt;b&gt;Зем-мугӀам&lt;/b&gt; яхача раздела чу (меню Кхы а).</string>
+  <string name="main_tooltip_watchlist_text">ХьалхагӀа хьай зем-мугӀама тӀатеха йола статьяши оагӀонаши хьалаха &lt;b&gt;Зем-мугӀам&lt;/b&gt; яхача раздела чу (меню чу Кхы а яхача).</string>
   <string name="custom_date_picker_dialog_ok_button_text">ХIау</string>
   <string name="text_input_dialog_ok_button_text">ХIаа</string>
   <string name="text_input_dialog_cancel_button_text">Эшац</string>
