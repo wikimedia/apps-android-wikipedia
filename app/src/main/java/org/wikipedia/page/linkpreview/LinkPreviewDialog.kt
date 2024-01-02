@@ -36,7 +36,6 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.util.ClipboardUtil
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.L10nUtil
@@ -229,7 +228,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         super.onStart()
         if (viewModel.fromPlaces) {
             disableBackgroundDim()
-            BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil.displayHeightPx
+            BottomSheetBehavior.from(requireView().parent as View).state = BottomSheetBehavior.STATE_EXPANDED
         }
     }
 
