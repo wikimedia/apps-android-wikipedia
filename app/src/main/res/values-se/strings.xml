@@ -227,6 +227,7 @@
   <string name="edit_redo">Ráhkat ođđasit</string>
   <string name="edit_summary_tag_links">Lasihan liŋkkaid</string>
   <string name="edit_summary_tag_other">Eará</string>
+  <string name="find_next">Oza čuovvovaš bohtosa</string>
   <string name="search_results_count_zero">Eai bohtosat</string>
   <string name="clear_recent_searches_confirm">Áiggutgo don duođaid iežat ohcanhistorjjá gurret?</string>
   <string name="table_other">Lassedieđut</string>
@@ -300,6 +301,7 @@
   <string name="reading_lists_preview_save_dialog_title">Vurke listtu</string>
   <string name="reading_lists_preview_save_dialog_cancel">Gaskkalduhte</string>
   <string name="reading_lists_preview_save_dialog_save">Vurke</string>
+  <string name="reading_lists_preview_saved_snackbar">Lohkanlistu vurkejuvvon</string>
   <string name="reading_lists_preview_saved_snackbar_action">Čájet</string>
   <string name="user_option_sync_label">Ásahusat</string>
   <string name="notification_syncing_resume_button">Joatkke</string>
@@ -472,5 +474,6 @@
   <string name="patroller_tasks_filters_automated_contributions_header">Automatiserejuvvon rievdadusat</string>
   <string name="patroller_tasks_filters_significance_minor">Unna rievdadusažat</string>
   <string name="patroller_tasks_filters_significance_edits">Eará rievdadusat go unna rievdadusažat</string>
+  <string name="patroller_tasks_overflow_learn">Lassedieđut</string>
   <string name="data_opt_in_accept">Dohkket</string>
 </resources>
