@@ -148,7 +148,7 @@
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d edición desde %2$s (%3$s)</item>
-    <item quantity="other">% 1$d ediciones desde %2$s (%3$s)</item>
+    <item quantity="other">%1$d ediciones desde %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Prueba a cambiar los &lt;a href=\"#\"&gt;filtros&lt;/a&gt; para ver más ediciones.</string>
   <string name="menu_page_show_tabs">Mostrar pestañas</string>

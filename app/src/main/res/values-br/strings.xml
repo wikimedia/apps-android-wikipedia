@@ -69,14 +69,14 @@
     <item quantity="two">%1$d gemm abaoe %2$s</item>
     <item quantity="few">%1$d c\'hemm abaoe %2$s</item>
     <item quantity="many">%1$d a gemmoù abaoe %2$s</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$d a gemmoù abaoe %2$s</item>
   </plurals>
   <plurals name="edits_since_year_per_wiki">
     <item quantity="one">%1$d c\'hemm abaoe %2$s (%3$s)</item>
     <item quantity="two">%1$d gemm abaoe %2$s (%3$s)</item>
     <item quantity="few">%1$d c\'hemm abaoe %2$s (%3$s)</item>
     <item quantity="many">%1$d a gemmoù abaoe %2$s (%3$s)</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$d a gemmoù abaoe %2$s (%3$s)</item>
   </plurals>
   <string name="page_edit_history_empty_search_message">Klaskit cheñch &lt;a href=\"#\"&gt;siloù&lt;/a&gt; evit gwelet muioc\'h a gemmoù</string>
   <string name="menu_page_show_tabs">Diskouez an ivinelloù</string>
@@ -465,21 +465,21 @@
     <item quantity="two">%1$d bennad, %2$.2f MB</item>
     <item quantity="few">%1$d a bennadoù, %2$.2f MB</item>
     <item quantity="many">%1$d a bennadoù, %2$.2f MB</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$d a bennadoù, %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail_without_size">
     <item quantity="one">%1$d diwar 1 pennad da gaout ezlinenn</item>
     <item quantity="two">%1$d diwar %2$d bennad da gaout ezlinenn</item>
     <item quantity="few">%1$d diwar %2$d a bennadoù da gaout ezlinenn</item>
     <item quantity="many">%1$d diwar %2$d a bennadoù da gaout ezlinenn</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$d diwar %2$d a bennadoù da gaout ezlinenn</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d diwar 1 pennad da gaout ezlinenn, %3$.2f MB</item>
     <item quantity="two">%1$d diwar %2$d bennad da gaout ezlinenn, %3$.2f MB</item>
     <item quantity="few">%1$d diwar %2$d a bennadoù da gaout ezlinenn, %3$.2f MB</item>
     <item quantity="many">%1$d diwar %2$d a bennadoù da gaout ezlinenn, %3$.2f MB</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$d diwar %2$d a bennadoù da gaout ezlinenn, %3$.2f MB</item>
   </plurals>
   <string name="reading_list_sort">Rummañ</string>
   <string name="reading_list_sort_ellipsis">Rummañ dre</string>
@@ -509,21 +509,21 @@
     <item quantity="two">%d bennad lamet diouzh ar roll</item>
     <item quantity="few">%d a bennadoù lamet diouzh ar roll</item>
     <item quantity="many">%d a bennadoù lamet diouzh ar roll</item>
-    <item quantity="other"/>
+    <item quantity="other">%d a bennadoù lamet diouzh ar roll</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%d pennad lamet diouzh %s</item>
     <item quantity="two">%d bennad lamet diouzh %s</item>
     <item quantity="few">%d a bennadoù lamet diouzh %s</item>
     <item quantity="many">%d a bennadoù lamet diouzh %s</item>
-    <item quantity="other"/>
+    <item quantity="other">%d a bennadoù lamet diouzh %s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d roll dilamet</item>
     <item quantity="two">%d roll dilamet</item>
     <item quantity="few">%d roll dilamet</item>
     <item quantity="many">%d roll dilamet</item>
-    <item quantity="other"/>
+    <item quantity="other">%d roll dilamet</item>
   </plurals>
   <string name="reading_lists_default_list_delete_message">Ne c\'haller ket dilemel ar roll dre ziouer (%s)</string>
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s dilamet. Ne c\'haller ket dilemel ar roll dre ziouer (%2$s).</string>
@@ -562,7 +562,7 @@
     <item quantity="two">Ha sur oc\'h e faout deoc\'h dilemel %d roll?</item>
     <item quantity="few">Ha sur oc\'h e faout deoc\'h dilemel %d roll?</item>
     <item quantity="many">Ha sur oc\'h e faout deoc\'h dilemel %d roll?</item>
-    <item quantity="other"/>
+    <item quantity="other">Ha sur oc\'h e faout deoc\'h dilemel %d roll?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kevreit evit gweredekaat ar sinkronelaat</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kevreit evit aotren enrollañ ho rolloù lenn en ho kont.</string>
