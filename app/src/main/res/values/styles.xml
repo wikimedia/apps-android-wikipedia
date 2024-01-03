@@ -41,7 +41,7 @@
         <item name="popupMenuStyle">@style/PopupMenuStyle</item>
 
         <item name="collapsingToolbarLayoutStyle">@style/CollapsingToolbarStyle</item>
-``
+
         <item name="talk_page_empty_state_drawable">@drawable/talk_page_empty_state_illustration_light</item>
 
         <item name="colorPrimary">?attr/progressive_color</item>
@@ -547,7 +547,6 @@
 
     <style name="App.BottomSheetStyle" parent="Widget.Material3.BottomSheet.Modal">
         <item name="behavior_peekHeight">@dimen/bottomSheetPeekHeight</item>
-        <item name="android:background">?attr/paper_color</item>
     </style>
 
 </resources>
