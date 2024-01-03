@@ -170,7 +170,7 @@ dependencies {
     String mockitoVersion = '5.2.0'
     String leakCanaryVersion = '2.12'
     String kotlinCoroutinesVersion = '1.7.3'
-    String firebaseMessagingVersion = '23.3.1'
+    String firebaseMessagingVersion = '23.4.0'
     String mlKitVersion = '17.0.4'
     String roomVersion = "2.6.1"
     String espressoVersion = '3.5.1'
