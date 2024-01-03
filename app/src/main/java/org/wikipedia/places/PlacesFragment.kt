@@ -216,7 +216,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 // TODO: Currently the style seems to break when zooming beyond 16.0. See if we can fix this.
                 map.setMaxZoomPreference(15.999)
 
-                map.uiSettings.isLogoEnabled = false
+                map.uiSettings.isAttributionEnabled = false
                 val defMargin = DimenUtil.roundedDpToPx(16f)
                 val navBarMargin = if (navBarInsets != null) navBarInsets!!.bottom else 0
 
