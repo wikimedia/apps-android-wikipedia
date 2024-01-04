@@ -16,6 +16,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
@@ -26,26 +27,35 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.GalleryThumbnailScrollView.GalleryViewListener
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.Namespace
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.ClipboardUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 
 class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
-    interface Callback {
+    interface LoadPageCallback {
         fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean)
-        fun onLinkPreviewCopyLink(title: PageTitle)
+    }
+
+    interface AddToListCallback {
         fun onLinkPreviewAddToList(title: PageTitle)
-        fun onLinkPreviewShareLink(title: PageTitle)
     }
 
     private var _binding: DialogLinkPreviewBinding? = null
     private val binding get() = _binding!!
+
+    private val loadPageCallback get() = getCallback(this, LoadPageCallback::class.java)
+    private val addToListCallback get() = getCallback(this, AddToListCallback::class.java)
 
     private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
     private var linkPreviewInteraction: ArticleLinkPreviewInteraction? = null
@@ -57,15 +67,16 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private val menuListener = PopupMenu.OnMenuItemClickListener { item ->
         return@OnMenuItemClickListener when (item.itemId) {
             R.id.menu_link_preview_add_to_list -> {
-                callback()?.onLinkPreviewAddToList(viewModel.pageTitle)
+                doAddToList()
                 true
             }
             R.id.menu_link_preview_share_page -> {
-                callback()?.onLinkPreviewShareLink(viewModel.pageTitle)
+                ShareUtil.shareText(requireContext(), viewModel.pageTitle)
                 true
             }
             R.id.menu_link_preview_copy_link -> {
-                callback()?.onLinkPreviewCopyLink(viewModel.pageTitle)
+                ClipboardUtil.setPlainText(requireActivity(), text = viewModel.pageTitle.uri)
+                FeedbackUtil.showMessage(requireActivity(), R.string.address_copied)
                 dismiss()
                 true
             }
@@ -208,11 +219,22 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     override fun onAddToList() {
-        callback()?.onLinkPreviewAddToList(viewModel.pageTitle)
+        doAddToList()
     }
 
     override fun onDismiss() {
         dismiss()
+    }
+
+    private fun doAddToList() {
+        addToListCallback.let {
+            if (it != null) {
+                it.onLinkPreviewAddToList(viewModel.pageTitle)
+            } else {
+                ExclusiveBottomSheetPresenter.showAddToListDialog(requireActivity().supportFragmentManager,
+                    viewModel.pageTitle, Constants.InvokeSource.LINK_PREVIEW_MENU)
+            }
+        }
     }
 
     private fun showPreview(contents: LinkPreviewContents) {
@@ -292,7 +314,16 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     private fun loadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
-        callback()?.onLinkPreviewLoadPage(title, entry, inNewTab)
+        loadPageCallback.let {
+            if (it != null) {
+                it.onLinkPreviewLoadPage(title, entry, inNewTab)
+            } else {
+                requireActivity().startActivity(
+                    if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), entry, entry.title)
+                    else PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title, false)
+                )
+            }
+        }
     }
 
     private inner class OverlayViewCallback : LinkPreviewOverlayView.Callback {
@@ -307,10 +338,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         override fun onTertiaryClick() {
             goToExternalMapsApp()
         }
-    }
-
-    private fun callback(): Callback? {
-        return getCallback(this, Callback::class.java)
     }
 
     companion object {
