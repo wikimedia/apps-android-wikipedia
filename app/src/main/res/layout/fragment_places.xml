@@ -95,6 +95,31 @@
 
     </org.wikipedia.views.WikiCardView>
 
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/viewButtonsGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center_horizontal"
+        app:checkedButton="@+id/mapViewButton"
+        app:singleSelection="true">
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/mapViewButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/places_toggle_buttons_map" />
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/listViewButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/places_toggle_buttons_list" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/myLocationButton"
         android:layout_width="wrap_content"
