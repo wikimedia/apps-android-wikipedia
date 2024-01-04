@@ -101,18 +101,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:layout_gravity="center_horizontal"
+        app:selectionRequired="true"
         app:checkedButton="@+id/mapViewButton"
         app:singleSelection="true">
 
         <Button
-            style="?attr/materialButtonOutlinedStyle"
+            style="@style/PlacesToggleStyle"
             android:id="@+id/mapViewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/places_toggle_buttons_map" />
 
         <Button
-            style="?attr/materialButtonOutlinedStyle"
+            style="@style/PlacesToggleStyle"
             android:id="@+id/listViewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

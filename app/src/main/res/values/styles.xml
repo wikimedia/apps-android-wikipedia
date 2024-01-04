@@ -549,4 +549,11 @@
         <item name="cornerSize">50%</item>
     </style>
 
+    <style name="PlacesToggleStyle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/progressive_color</item>
+        <item name="strokeWidth">0dp</item>
+<!--        <item name="backgroundTint">?attr/paper_color</item>-->
+    </style>
+
 </resources>

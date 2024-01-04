@@ -178,6 +178,10 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             }
         }
 
+        binding.viewButtonsGroup.addOnButtonCheckedListener { _, id, _ ->
+            // TODO: implement this
+        }
+
         return binding.root
     }
 
