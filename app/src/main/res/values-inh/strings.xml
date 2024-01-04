@@ -571,7 +571,7 @@
   <string name="split_reading_list_message">ТӀехьагӀа ешаргйолаш дӀяхкача статей мугӀама чу эггара дукхагӀа хила мегаш я: %d статья. СовгӀа статьяш йола мугӀамаш массехк мугӀамех дийкъад.</string>
   <string name="reading_list_move_article_limit_message">Укх мугӀама чу дехьаяккха йиш яц. \"%1$s\" яхача мугӀама чу статьяй лимитага кхаьчав(-й) хьо: %2$d.</string>
   <string name="reading_list_article_limit_message">Укх мугӀамá кхы статья тӀатоха йиш яц. \"%1$s\" яхача мугӀама чу лимит я %2$d статья, из хьалбизаб Ӏа.</string>
-  <string name="reading_lists_limit_message">Керда листам кхолла йиш яц. Цхьан аккаунтага эггара дукхагӀа хила йиш йолча 100 листамага {{GENDER:|кхаьчав|кхаьчай}} хьо.</string>
+  <string name="reading_lists_limit_message">Керда листам кхолла йиш яц. Цхьан аккаунтага эггара дукхагӀа хила йиш йолча 100 листамага кхаьчав хьо.</string>
   <string name="reading_lists_menu_create_list">Керда листам хьабе</string>
   <string name="reading_lists_menu_import_list">Листама импорт</string>
   <string name="reading_lists_menu_sort_by">Къоастадеш дӀанийсде укх тайпара...</string>
