@@ -150,6 +150,10 @@ android {
     namespace 'org.wikipedia'
 }
 
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+}
+
 configurations {
     compileClasspath.extendsFrom(implementation)
 }
