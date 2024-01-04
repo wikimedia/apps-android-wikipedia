@@ -33,6 +33,7 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.google.android.material.button.MaterialButton
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
@@ -178,9 +179,14 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             }
         }
 
-        binding.viewButtonsGroup.addOnButtonCheckedListener { _, id, _ ->
-            // TODO: implement this
+        binding.viewButtonsGroup.addOnButtonCheckedListener { group, id, isChecked ->
+            val backgroundColor = if (isChecked) R.attr.addition_color else R.attr.paper_color
+            val textColor = if (isChecked) R.attr.progressive_color else R.attr.placeholder_color
+            val buttonView = group.findViewById<MaterialButton>(id)
+            buttonView.setTextColor(ResourceUtil.getThemedColorStateList(requireContext(), textColor))
+            buttonView.backgroundTintList = ResourceUtil.getThemedColorStateList(requireContext(), backgroundColor)
         }
+
 
         return binding.root
     }
