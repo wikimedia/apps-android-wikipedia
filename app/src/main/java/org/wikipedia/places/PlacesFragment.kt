@@ -187,7 +187,6 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             buttonView.backgroundTintList = ResourceUtil.getThemedColorStateList(requireContext(), backgroundColor)
         }
 
-
         return binding.root
     }
 
@@ -257,6 +256,11 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
+        }
+
+        binding.viewButtonsGroup.post {
+            binding.viewButtonsGroup.check(R.id.mapViewButton)
+            binding.viewButtonsGroup.isVisible = true
         }
     }
 

@@ -101,8 +101,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
         android:layout_gravity="center_horizontal"
+        android:visibility="gone"
         app:selectionRequired="true"
-        app:checkedButton="@+id/mapViewButton"
         app:singleSelection="true">
 
         <Button
@@ -111,8 +111,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/places_toggle_buttons_map"
-            android:textColor="?attr/progressive_color"
-            android:backgroundTint="?attr/addition_color"/>
+            android:textColor="?attr/placeholder_color"
+            android:backgroundTint="?attr/paper_color"/>
 
         <Button
             style="@style/PlacesToggleStyle"

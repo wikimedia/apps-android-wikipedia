@@ -554,8 +554,10 @@
         <item name="cornerSize">50%</item>
     </style>
 
-    <style name="PlacesToggleStyle" parent="Widget.Material3.Button.TonalButton">
+    <style name="PlacesToggleStyle" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textSize">14sp</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="strokeColor">?attr/paper_color</item>
     </style>
 
 </resources>
