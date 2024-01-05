@@ -239,13 +239,13 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 if (viewModel.fromPlaces) {
                     it.callback = OverlayViewPlacesCallback()
                     it.setPrimaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.places_link_preview_dialog_share_button)
+                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_share_button)
                     )
                     it.setSecondaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.places_link_preview_dialog_save_button)
+                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_save_button)
                     )
                     it.setTertiaryButtonText(
-                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.places_link_preview_dialog_read_button)
+                        L10nUtil.getStringForArticleLanguage(viewModel.pageTitle, R.string.link_preview_dialog_read_button)
                     )
                 } else {
                     it.callback = OverlayViewCallback()
@@ -365,7 +365,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             } else if (viewModel.fromPlaces) {
                 // TODO: needs to be optimized
                 setSecondaryButtonText(L10nUtil.getStringForArticleLanguage(viewModel.pageTitle,
-                    if (viewModel.isInReadingList) R.string.places_link_preview_dialog_saved_button else R.string.places_link_preview_dialog_save_button))
+                    if (viewModel.isInReadingList) R.string.link_preview_dialog_saved_button else R.string.link_preview_dialog_save_button))
             }
         }
     }
