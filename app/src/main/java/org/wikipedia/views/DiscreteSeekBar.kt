@@ -10,8 +10,7 @@ import androidx.core.content.withStyledAttributes
 import androidx.core.graphics.withSave
 import org.wikipedia.R
 
-class DiscreteSeekBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
-        AppCompatSeekBar(context, attrs) {
+class DiscreteSeekBar(context: Context, attrs: AttributeSet? = null) : AppCompatSeekBar(context, attrs) {
     private var minNumber = 0
     private var tickDrawable: Drawable? = null
     private var centerDrawable: Drawable? = null
