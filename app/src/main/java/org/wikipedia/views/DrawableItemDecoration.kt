@@ -14,10 +14,13 @@ import org.wikipedia.R
 import org.wikipedia.util.ResourceUtil
 
 // todo: replace with DividerItemDecoration once it supports headers and footers
-class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRes id: Int,
-                                                       private val drawStart: Boolean = false,
-                                                       private val drawEnd: Boolean = true,
-                                                       private val skipSearchBar: Boolean = false) : ItemDecoration() {
+class DrawableItemDecoration(
+    context: Context,
+    @AttrRes id: Int,
+    private val drawStart: Boolean = false,
+    private val drawEnd: Boolean = true,
+    private val skipSearchBar: Boolean = false
+) : ItemDecoration() {
 
     private val drawable: Drawable = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, id))!!
 

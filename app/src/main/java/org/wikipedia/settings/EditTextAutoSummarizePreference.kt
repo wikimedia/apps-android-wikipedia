@@ -6,11 +6,12 @@ import androidx.core.content.res.use
 import androidx.preference.EditTextPreference
 import org.wikipedia.R
 
-open class EditTextAutoSummarizePreference @JvmOverloads constructor(context: Context,
-                                                                     attrs: AttributeSet?,
-                                                                     defStyleAttr: Int = R.attr.editTextAutoSummarizePreferenceStyle,
-                                                                     defStyleRes: Int = R.style.EditTextAutoSummarizePreference) :
-        EditTextPreference(context, attrs, defStyleAttr, defStyleRes) {
+open class EditTextAutoSummarizePreference(
+    context: Context,
+    attrs: AttributeSet?,
+    defStyleAttr: Int = R.attr.editTextAutoSummarizePreferenceStyle,
+    defStyleRes: Int = R.style.EditTextAutoSummarizePreference
+) : EditTextPreference(context, attrs, defStyleAttr, defStyleRes) {
 
     private val autoSummarize = context.obtainStyledAttributes(attrs, R.styleable.EditTextAutoSummarizePreference, defStyleAttr, defStyleRes).use {
         it.getBoolean(R.styleable.EditTextAutoSummarizePreference_autoSummarize, DEFAULT_AUTO_SUMMARIZE)
