@@ -135,6 +135,8 @@ class WikipediaApp : Application() {
     val isAnyActivityResumed
         get() = activityLifecycleHandler.isAnyActivityResumed
 
+    val currentActiveActivity get() = activityLifecycleHandler.currentActiveActivity()
+
     val voiceRecognitionAvailable by lazy {
         try {
             val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)

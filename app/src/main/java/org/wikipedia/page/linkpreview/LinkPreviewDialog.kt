@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
@@ -19,6 +20,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
@@ -44,9 +46,10 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.watchlist.WatchlistExpiryDialog
 import java.util.Locale
 
-class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
+class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorView.Callback, WatchlistExpiryDialog.Callback, DialogInterface.OnDismissListener {
     interface LoadPageCallback {
         fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean)
     }
@@ -55,16 +58,11 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         fun onLinkPreviewAddToList(title: PageTitle, isInReadingList: Boolean, anchor: View? = null)
     }
 
-    interface WatchCallback {
-        fun onLinkPreviewWatch(title: PageTitle, lastWatchExpiry: WatchlistExpiry, isWatched: Boolean)
-    }
-
     private var _binding: DialogLinkPreviewBinding? = null
     private val binding get() = _binding!!
 
     private val loadPageCallback get() = getCallback(this, LoadPageCallback::class.java)
     private val addToListCallback get() = getCallback(this, AddToListCallback::class.java)
-    private val watchCallback get() = getCallback(this, WatchCallback::class.java)
 
     private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
     private var linkPreviewInteraction: ArticleLinkPreviewInteraction? = null
@@ -84,7 +82,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 true
             }
             R.id.menu_link_preview_watch -> {
-                watchCallback?.onLinkPreviewWatch(viewModel.pageTitle, WatchlistExpiry.NEVER, viewModel.isWatched)
+                viewModel.watchOrUnwatch(viewModel.lastWatchExpiry, viewModel.isWatched)
                 true
             }
             R.id.menu_link_preview_open_in_new_tab -> {
@@ -157,6 +155,10 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                         }
                         is LinkPreviewViewState.Gallery -> {
                             renderGalleryState(it)
+                        }
+                        is LinkPreviewViewState.Watch -> {
+                            showWatchlistSnackbar(requireActivity() as BaseActivity, viewModel.lastWatchExpiry)
+                            dismiss()
                         }
                         is LinkPreviewViewState.Completed -> {
                             binding.linkPreviewProgress.visibility = View.GONE
@@ -290,6 +292,27 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     override fun onDismiss() {
         dismiss()
+    }
+
+    override fun onExpirySelect(expiry: WatchlistExpiry) {
+        viewModel.watchOrUnwatch(expiry, false)
+    }
+
+    private fun showWatchlistSnackbar(activity: AppCompatActivity, lastWatchExpiry: WatchlistExpiry) {
+        viewModel.pageTitle.let {
+            if (!viewModel.isWatched) {
+                FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayText))
+            } else if (viewModel.isWatched) {
+                val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
+                    getString(R.string.watchlist_page_add_to_watchlist_snackbar, it.displayText, getString(viewModel.lastWatchExpiry.stringId)))
+                if (!viewModel.watchlistExpiryChanged) {
+                    snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
+                            ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager, WatchlistExpiryDialog.newInstance(lastWatchExpiry))
+                    }
+                }
+                snackbar.show()
+            }
+        }
     }
 
     private fun doAddToList(anchor: View? = null) {

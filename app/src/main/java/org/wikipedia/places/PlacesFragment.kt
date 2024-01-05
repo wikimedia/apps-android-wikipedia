@@ -82,11 +82,9 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.TabUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
-import org.wikipedia.watchlist.WatchlistExpiry
-import org.wikipedia.watchlist.WatchlistExpiryDialog
 import kotlin.math.abs
 
-class PlacesFragment : Fragment(), LinkPreviewDialog.WatchCallback, LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.AddToListCallback, WatchlistExpiryDialog.Callback, MapboxMap.OnMapClickListener {
+class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.AddToListCallback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -239,7 +237,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.WatchCallback, LinkPreviewD
                             latitude = symbol.latLng.latitude
                             longitude = symbol.latLng.longitude
                         }
-                        viewModel.currentMarkerPageTitle = entry.title
                         ExclusiveBottomSheetPresenter.show(childFragmentManager,
                             LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
                     }
@@ -260,14 +257,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.WatchCallback, LinkPreviewD
         viewModel.nearbyPages.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 updateMapMarkers(it.data)
-            } else if (it is Resource.Error) {
-                FeedbackUtil.showError(requireActivity(), it.throwable)
-            }
-        }
-
-        viewModel.watchStatus.observe(viewLifecycleOwner) {
-            if (it is Resource.Success) {
-                showWatchlistSnackbar()
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
@@ -509,24 +498,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.WatchCallback, LinkPreviewD
         return result
     }
 
-    private fun showWatchlistSnackbar() {
-        viewModel.currentMarkerPageTitle?.let {
-            if (!viewModel.isWatched) {
-                FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayText))
-            } else if (viewModel.isWatched) {
-                val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
-                    getString(R.string.watchlist_page_add_to_watchlist_snackbar, it.displayText, getString(viewModel.lastWatchExpiry.stringId)))
-                if (!viewModel.watchlistExpiryChanged) {
-                    snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                        viewModel.watchlistExpiryChanged = true
-                        ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.lastWatchExpiry))
-                    }
-                }
-                snackbar.show()
-            }
-        }
-    }
-
     private fun onAddToReadingListClick(pageTitle: PageTitle, isInReadingList: Boolean, anchor: View) {
         if (isInReadingList) {
             LongPressMenu(anchor, object : LongPressMenu.Callback {
@@ -587,20 +558,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.WatchCallback, LinkPreviewD
         }
     }
 
-    override fun onLinkPreviewWatch(title: PageTitle, lastWatchExpiry: WatchlistExpiry, isWatched: Boolean) {
-        viewModel.watchlistExpiryChanged = false
-        viewModel.watchOrUnwatch(lastWatchExpiry, isWatched)
-        ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
-    }
-
     override fun onLinkPreviewAddToList(title: PageTitle, isInReadingList: Boolean, anchor: View?) {
         anchor?.let {
             onAddToReadingListClick(title, isInReadingList, it)
         }
-    }
-    override fun onExpirySelect(expiry: WatchlistExpiry) {
-        viewModel.watchOrUnwatch(expiry, false)
-        ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
     }
 
     override fun onMapClick(point: LatLng): Boolean {

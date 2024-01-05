@@ -9,13 +9,16 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
+import org.wikipedia.watchlist.WatchlistExpiry
 
 class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     private val _uiState = MutableStateFlow<LinkPreviewViewState>(LinkPreviewViewState.Loading)
@@ -25,9 +28,12 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     val location = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LOCATION)
     val fromPlaces = bundle.getBoolean(LinkPreviewDialog.ARG_FROM_PLACES, false)
     val lastKnownLocation = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LAST_KNOWN_LOCATION)
-    var isWatched = false
     var isInReadingList = false
 
+    var watchlistExpiryChanged = false
+    var isWatched = false
+    var hasWatchlistExpiry = false
+    var lastWatchExpiry = WatchlistExpiry.NEVER
     init {
         loadContent()
     }
@@ -95,6 +101,36 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
             }
         } else {
             _uiState.value = LinkPreviewViewState.Completed
+        }
+    }
+
+    fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
+        if (isWatched) {
+            WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
+        } else {
+            WatchlistAnalyticsHelper.logAddedToWatchlist(pageTitle)
+        }
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.w("Failed to fetch watch status.", throwable)
+        }) {
+            val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
+            val response = ServiceFactory.get(pageTitle.wikiSite)
+                .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
+
+            lastWatchExpiry = expiry
+            if (watchlistExpiryChanged && unwatch) {
+                watchlistExpiryChanged = false
+            }
+            if (unwatch) {
+                WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
+            } else {
+                WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
+            }
+            response.getFirst()?.let {
+                isWatched = it.watched
+                hasWatchlistExpiry = lastWatchExpiry != WatchlistExpiry.NEVER
+                _uiState.value = LinkPreviewViewState.Watch(isWatched)
+            }
         }
     }
 
