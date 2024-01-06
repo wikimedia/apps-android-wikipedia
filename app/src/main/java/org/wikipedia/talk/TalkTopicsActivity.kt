@@ -305,9 +305,9 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         updateNotificationDot(true)
     }
 
-    override fun onExpirySelect(expiry: WatchlistExpiry) {
-        viewModel.watchOrUnwatch(expiry, false)
-        ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
+    override fun onExpiryChanged(expiry: WatchlistExpiry) {
+        viewModel.hasWatchlistExpiry = expiry !== WatchlistExpiry.NEVER
+        invalidateOptionsMenu()
     }
 
     private fun resetViews() {
@@ -401,7 +401,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnWatch() {
-        showWatchlistSnackbar()
+        showWatchlistSnackbar(WatchlistExpiry.NEVER)
         invalidateOptionsMenu()
     }
 
@@ -436,19 +436,17 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
     }
 
-    private fun showWatchlistSnackbar() {
+    @Suppress("SameParameterValue")
+    private fun showWatchlistSnackbar(expiry: WatchlistExpiry) {
         if (!viewModel.isWatched) {
             FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
         } else if (viewModel.isWatched) {
             val snackbar = FeedbackUtil.makeSnackbar(this,
                 getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                     viewModel.pageTitle.displayText,
-                    getString(viewModel.lastWatchExpiry.stringId)))
-            if (!viewModel.watchlistExpiryChanged) {
-                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                    viewModel.watchlistExpiryChanged = true
-                    ExclusiveBottomSheetPresenter.show(supportFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.lastWatchExpiry))
-                }
+                    getString(expiry.stringId)))
+            snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
+                ExclusiveBottomSheetPresenter.show(supportFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle, expiry))
             }
             snackbar.show()
         }
