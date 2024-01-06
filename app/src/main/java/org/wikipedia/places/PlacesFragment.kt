@@ -100,7 +100,10 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
     private val markerRect = Rect(0, 0, MARKER_WIDTH, MARKER_HEIGHT)
     private val markerPaintSrc = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC) }
     private val markerPaintSrcIn = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC_IN) }
-    private var searchRadius: Int = 50
+    private val searchRadius
+        get() = mapboxMap?.let {
+            latitudeDiffToMeters(it.projection.visibleRegion.latLngBounds.latitudeSpan / 2)
+        } ?: 50
     private var zoom: Double = 15.0
     private var magnifiedMarker: Symbol? = null
 
@@ -246,7 +249,6 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             val assetForTheme = if (WikipediaApp.instance.currentTheme.isDark) "asset://mapstyle-dark.json" else "asset://mapstyle.json"
             map.setStyle(Style.Builder().fromUri(assetForTheme)) { style ->
                 mapboxMap = map
-                searchRadius = latitudeDiffToMeters(mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) / 2
 
                 style.addImage(MARKER_DRAWABLE, AppCompatResources.getDrawable(requireActivity(), R.drawable.map_marker)!!)
 
@@ -577,7 +579,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
     companion object {
         const val MARKER_DRAWABLE = "markerDrawable"
         const val POINT_COUNT = "point_count"
-        const val MAX_ANNOTATIONS = 64
+        const val MAX_ANNOTATIONS = 250
         const val THUMB_SIZE = 160
         const val ITEMS_PER_REQUEST = 75
         const val CLUSTER_TEXT_LAYER_ID = "mapbox-android-cluster-text"
