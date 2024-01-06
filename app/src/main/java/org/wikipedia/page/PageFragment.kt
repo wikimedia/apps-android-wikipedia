@@ -644,15 +644,15 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     }
 
     @Suppress("KotlinConstantConditions")
-    private fun showWatchlistSnackbar(expiry: WatchlistExpiry, isWatched: Boolean) {
+    private fun showWatchlistSnackbar() {
         title?.let {
-            if (!isWatched) {
+            if (!model.isWatched) {
                 FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayText))
-            } else if (isWatched) {
+            } else if (model.isWatched) {
                 val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                    it.displayText, getString(expiry.stringId)))
+                    it.displayText, getString(WatchlistExpiry.NEVER.stringId)))
                 snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) { _ ->
-                    ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(it, expiry))
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(it, WatchlistExpiry.NEVER))
                 }
                 snackbar.show()
             }
@@ -1240,7 +1240,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         return getCallback(this, Callback::class.java)
     }
 
-    fun updateWatchlist(expiry: WatchlistExpiry, unwatch: Boolean) {
+    fun updateWatchlist() {
         title?.let {
             disposables.add(ServiceFactory.get(it.wikiSite).watchToken
                 .subscribeOn(Schedulers.io())
@@ -1249,20 +1249,20 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     if (watchToken.isNullOrEmpty()) {
                         throw RuntimeException("Received empty watch token.")
                     }
-                    ServiceFactory.get(it.wikiSite).postWatch(if (unwatch) 1 else null, null, it.prefixedText, expiry.expiry, watchToken)
+                    ServiceFactory.get(it.wikiSite).postWatch(if (model.isWatched) 1 else null, null, it.prefixedText, WatchlistExpiry.NEVER.expiry, watchToken)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate { updateQuickActionsAndMenuOptions() }
                 .subscribe({ watchPostResponse ->
                     watchPostResponse.getFirst()?.let { watch ->
-                        if (unwatch) {
+                        if (model.isWatched) {
                             WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(it, requireContext())
                         } else {
                             WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(it, requireContext())
                         }
                         model.isWatched = watch.watched
-                        updateWatchlistExpiry(expiry)
-                        showWatchlistSnackbar(expiry, model.isWatched)
+                        updateWatchlistExpiry(WatchlistExpiry.NEVER)
+                        showWatchlistSnackbar()
                     }
                 }) { caught -> L.d(caught) })
         }
@@ -1448,7 +1448,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 articleInteractionEvent?.logWatchClick()
                 metricsPlatformArticleEventToolbarInteraction.logWatchClick()
             }
-            updateWatchlist(WatchlistExpiry.NEVER, model.isWatched)
+            updateWatchlist()
         }
 
         override fun onViewTalkPageSelected() {
