@@ -6,6 +6,7 @@ import android.icu.text.ListFormatter
 import android.os.Build
 import android.text.Spanned
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -17,6 +18,7 @@ import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
@@ -294,13 +296,24 @@ object ReadingListBehaviorsUtil {
     fun addToDefaultList(activity: Activity, title: PageTitle, addToDefault: Boolean, invokeSource: InvokeSource, listener: DialogInterface.OnDismissListener? = null) {
         activity as AppCompatActivity
         if (addToDefault) {
-            val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
-            val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(title))
-            if (addedTitles.isNotEmpty()) {
-                FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, StringUtil.fromHtml(title.displayText)))
-                    .setAction(R.string.reading_list_add_to_list_button) {
-                        moveToList(activity, defaultList.id, listOf(title), invokeSource, true, listener)
-                    }.show()
+            // If the title is a redirect, resolve it before saving to the reading list.
+            activity.lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+                var finalPageTitle = title
+                try {
+                    ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
+                        .query?.firstPage()?.let {
+                            finalPageTitle = PageTitle(it.title, title.wikiSite, it.thumbUrl(), it.description, it.displayTitle(title.wikiSite.languageCode), null)
+                        }
+                } finally {
+                    val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
+                    val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(finalPageTitle))
+                    if (addedTitles.isNotEmpty()) {
+                        FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, StringUtil.fromHtml(finalPageTitle.displayText)))
+                            .setAction(R.string.reading_list_add_to_list_button) {
+                                moveToList(activity, defaultList.id, listOf(finalPageTitle), invokeSource, false, listener)
+                            }.show()
+                    }
+                }
             }
         } else {
             ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
@@ -308,7 +321,8 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun moveToList(activity: Activity, sourceReadingListId: Long, titles: List<PageTitle>, source: InvokeSource, showDefaultList: Boolean = true, listener: DialogInterface.OnDismissListener? = null) {
+    fun moveToList(activity: Activity, sourceReadingListId: Long, titles: List<PageTitle>, source: InvokeSource,
+                   showDefaultList: Boolean = true, listener: DialogInterface.OnDismissListener? = null) {
         activity as AppCompatActivity
         ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
             MoveToReadingListDialog.newInstance(sourceReadingListId, titles, source, showDefaultList, listener))

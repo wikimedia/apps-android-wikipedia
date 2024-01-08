@@ -1,8 +1,9 @@
 package org.wikipedia.page
 
-import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.LongPressHandler.WebViewMenuCallback
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 
 class PageContainerLongPressHandler(private val fragment: PageFragment) : WebViewMenuCallback {
@@ -16,12 +17,12 @@ class PageContainerLongPressHandler(private val fragment: PageFragment) : WebVie
     }
 
     override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-        fragment.addToReadingList(entry.title, Constants.InvokeSource.CONTEXT_MENU, addToDefault)
+        ReadingListBehaviorsUtil.addToDefaultList(fragment.requireActivity(), entry.title, addToDefault, InvokeSource.CONTEXT_MENU)
     }
 
     override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
         page?.run {
-            fragment.moveToReadingList(listId, entry.title, Constants.InvokeSource.CONTEXT_MENU, true)
+            ReadingListBehaviorsUtil.moveToList(fragment.requireActivity(), this.listId, listOf(entry.title), InvokeSource.CONTEXT_MENU)
         }
     }
 

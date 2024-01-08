@@ -130,8 +130,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageUpdateProgressBar(visible: Boolean)
         fun onPageStartSupportActionMode(callback: ActionMode.Callback)
         fun onPageHideSoftKeyboard()
-        fun onPageAddToReadingList(title: PageTitle, source: InvokeSource)
-        fun onPageMoveToReadingList(sourceReadingListId: Long, title: PageTitle, source: InvokeSource, showDefaultList: Boolean)
         fun onPageWatchlistExpirySelect(expiry: WatchlistExpiry)
         fun onPageLoadError(title: PageTitle)
         fun onPageLoadErrorBackPressed()
@@ -1212,30 +1210,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         callback()?.onPageStartSupportActionMode(actionModeCallback)
     }
 
-    fun addToReadingList(title: PageTitle, source: InvokeSource, addToDefault: Boolean) {
-        if (addToDefault) {
-            // If the title is a redirect, resolve it before saving to the reading list.
-            lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
-                var finalPageTitle = title
-                try {
-                    ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
-                        .query?.firstPage()?.let {
-                            finalPageTitle = PageTitle(it.title, title.wikiSite, it.thumbUrl(), it.description, it.displayTitle(title.wikiSite.languageCode), null)
-                        }
-                } finally {
-                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), finalPageTitle, source) { readingListId ->
-                        moveToReadingList(readingListId, finalPageTitle, source, false) }
-                }
-            }
-        } else {
-            callback()?.onPageAddToReadingList(title, source)
-        }
-    }
-
-    fun moveToReadingList(sourceReadingListId: Long, title: PageTitle, source: InvokeSource, showDefaultList: Boolean) {
-        callback()?.onPageMoveToReadingList(sourceReadingListId, title, source, showDefaultList)
-    }
-
     fun callback(): Callback? {
         return getCallback(this, Callback::class.java)
     }
@@ -1373,21 +1347,21 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
 
                     override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
                         title?.run {
-                            addToReadingList(this, InvokeSource.BOOKMARK_BUTTON, addToDefault)
+                            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, addToDefault, InvokeSource.BOOKMARK_BUTTON)
                         }
                     }
 
                     override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
                         page?.let { readingListPage ->
                             title?.run {
-                                moveToReadingList(readingListPage.listId, this, InvokeSource.BOOKMARK_BUTTON, true)
+                                ReadingListBehaviorsUtil.moveToList(requireActivity(), readingListPage.listId, listOf(this), InvokeSource.BOOKMARK_BUTTON)
                             }
                         }
                     }
                 }).show(historyEntry)
             } else {
                 title?.run {
-                    addToReadingList(this, InvokeSource.BOOKMARK_BUTTON, true)
+                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, true, InvokeSource.BOOKMARK_BUTTON)
                 }
             }
             articleInteractionEvent?.logSaveClick()

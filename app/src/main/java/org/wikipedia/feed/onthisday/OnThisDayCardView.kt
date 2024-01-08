@@ -14,10 +14,7 @@ import org.wikipedia.feed.view.CardFooterView
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
-import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.MoveToReadingListDialog
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DateUtil
@@ -140,44 +137,12 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                             }
 
                             override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                                if (addToDefault) {
-                                    ReadingListBehaviorsUtil.addToDefaultList(
-                                        context as AppCompatActivity, entry.title,
-                                        InvokeSource.ON_THIS_DAY_CARD_BODY
-                                    ) { readingListId ->
-                                        ExclusiveBottomSheetPresenter.show(
-                                            (context as AppCompatActivity).supportFragmentManager,
-                                            MoveToReadingListDialog.newInstance(
-                                                readingListId,
-                                                entry.title,
-                                                InvokeSource.ON_THIS_DAY_CARD_BODY
-                                            )
-                                        )
-                                    }
-                                } else {
-                                    ExclusiveBottomSheetPresenter.show(
-                                        (context as AppCompatActivity).supportFragmentManager,
-                                        AddToReadingListDialog.newInstance(
-                                            entry.title,
-                                            InvokeSource.ON_THIS_DAY_CARD_BODY
-                                        )
-                                    )
-                                }
+                                ReadingListBehaviorsUtil.addToDefaultList(context as AppCompatActivity, entry.title, addToDefault, InvokeSource.ON_THIS_DAY_CARD_BODY)
                             }
 
-                            override fun onMoveRequest(
-                                page: ReadingListPage?,
-                                entry: HistoryEntry
-                            ) {
+                            override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
                                 page?.let {
-                                    ExclusiveBottomSheetPresenter.show(
-                                        (context as AppCompatActivity).supportFragmentManager,
-                                        MoveToReadingListDialog.newInstance(
-                                            it.listId,
-                                            entry.title,
-                                            InvokeSource.ON_THIS_DAY_CARD_BODY
-                                        )
-                                    )
+                                    ReadingListBehaviorsUtil.moveToList(context as AppCompatActivity, page.listId, listOf(entry.title), InvokeSource.ON_THIS_DAY_CARD_BODY)
                                 }
                             }
                         }).show(entry)

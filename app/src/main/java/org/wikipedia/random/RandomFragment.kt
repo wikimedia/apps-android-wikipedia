@@ -146,7 +146,7 @@ class RandomFragment : Fragment() {
 
                 override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
                     page?.let {
-                        ReadingListBehaviorsUtil.moveToList(requireActivity(), page.listId, listOf(title), InvokeSource.RANDOM_ACTIVITY, true) {
+                        ReadingListBehaviorsUtil.moveToList(requireActivity(), page.listId, listOf(title), InvokeSource.RANDOM_ACTIVITY) {
                             updateSaveShareButton()
                         }
                     }
