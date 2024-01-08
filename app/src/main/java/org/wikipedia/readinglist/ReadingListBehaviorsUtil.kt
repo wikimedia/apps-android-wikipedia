@@ -5,12 +5,19 @@ import android.content.DialogInterface
 import android.icu.text.ListFormatter
 import android.os.Build
 import android.text.Spanned
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -20,7 +27,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar.Companion.MIN_PROGRESS
-import java.util.*
+import java.util.Locale
 
 object ReadingListBehaviorsUtil {
 
@@ -30,10 +37,6 @@ object ReadingListBehaviorsUtil {
 
     fun interface SnackbarCallback {
         fun onUndoDeleteClicked()
-    }
-
-    fun interface AddToDefaultListCallback {
-        fun onMoveClicked(readingListId: Long)
     }
 
     fun interface Callback {
@@ -288,18 +291,27 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    fun addToDefaultList(activity: Activity, title: PageTitle, invokeSource: InvokeSource, addToDefaultListCallback: AddToDefaultListCallback) {
-        addToDefaultList(activity, title, invokeSource, addToDefaultListCallback, null)
+    fun addToDefaultList(activity: Activity, title: PageTitle, addToDefault: Boolean, invokeSource: InvokeSource, listener: DialogInterface.OnDismissListener? = null) {
+        activity as AppCompatActivity
+        if (addToDefault) {
+            val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
+            val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(title))
+            if (addedTitles.isNotEmpty()) {
+                FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, StringUtil.fromHtml(title.displayText)))
+                    .setAction(R.string.reading_list_add_to_list_button) {
+                        moveToList(activity, defaultList.id, listOf(title), invokeSource, true, listener)
+                    }.show()
+            }
+        } else {
+            ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
+                AddToReadingListDialog.newInstance(title, invokeSource, listener))
+        }
     }
 
-    fun addToDefaultList(activity: Activity, title: PageTitle, invokeSource: InvokeSource, addToDefaultListCallback: AddToDefaultListCallback, callback: Callback?) {
-        val defaultList = AppDatabase.instance.readingListDao().getDefaultList()
-        val addedTitles = AppDatabase.instance.readingListPageDao().addPagesToListIfNotExist(defaultList, listOf(title))
-        if (addedTitles.isNotEmpty()) {
-            FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, title.displayText))
-                .setAction(R.string.reading_list_add_to_list_button) { addToDefaultListCallback.onMoveClicked(defaultList.id) }.show()
-            callback?.onCompleted()
-        }
+    fun moveToList(activity: Activity, sourceReadingListId: Long, titles: List<PageTitle>, source: InvokeSource, showDefaultList: Boolean = true, listener: DialogInterface.OnDismissListener? = null) {
+        activity as AppCompatActivity
+        ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
+            MoveToReadingListDialog.newInstance(sourceReadingListId, titles, source, showDefaultList, listener))
     }
 
     private fun toggleOffline(activity: Activity, page: ReadingListPage, forcedSave: Boolean) {
