@@ -6,7 +6,6 @@ import android.content.ComponentCallbacks2
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
-import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
@@ -15,20 +14,14 @@ import org.wikipedia.theme.Theme
 class ActivityLifecycleHandler : ActivityLifecycleCallbacks, ComponentCallbacks2 {
 
     private var haveMainActivity = false
-    private var currentActiveActivity : Activity? = null
     var isAnyActivityResumed = false
 
     fun haveMainActivity(): Boolean {
         return haveMainActivity
     }
 
-    fun currentActiveActivity(): BaseActivity {
-        return currentActiveActivity as BaseActivity
-    }
-
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
         val app = WikipediaApp.instance
-        currentActiveActivity = activity
         if (activity is MainActivity) {
             haveMainActivity = true
         }

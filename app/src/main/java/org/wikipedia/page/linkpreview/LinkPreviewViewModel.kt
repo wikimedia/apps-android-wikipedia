@@ -16,7 +16,6 @@ import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 
