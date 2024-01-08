@@ -1,19 +1,23 @@
 package org.wikipedia.notifications
 
-import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.Paint
+import android.graphics.Rect
+import android.graphics.RectF
+import android.graphics.Typeface
 import android.net.Uri
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.app.NotificationManagerCompat.NotificationWithIdAndTag
 import androidx.core.app.PendingIntentCompat
 import androidx.core.app.RemoteInput
 import androidx.core.content.ContextCompat
-import androidx.core.content.getSystemService
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
 import org.wikipedia.Constants
@@ -26,13 +30,31 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.theme.Theme
-import org.wikipedia.util.*
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
-import java.util.*
+import java.util.Locale
 
 object NotificationPresenter {
+    private const val NOTIFICATION_GROUP_KEY = "wiki_notifications"
 
-    fun showNotification(context: Context, n: Notification, wikiSiteName: String, lang: String) {
+    private fun createNotification(context: Context, builder: NotificationCompat.Builder, id: Int,
+                                   title: String, text: String, longText: CharSequence, lang: String?,
+                                   @DrawableRes icon: Int, @ColorRes color: Int, bodyIntent: Intent): NotificationWithIdAndTag {
+        builder.setContentIntent(PendingIntentCompat.getActivity(context, 0, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT, false))
+            .setLargeIcon(drawNotificationBitmap(context, color, icon, lang.orEmpty().uppercase(Locale.getDefault())))
+            .setSmallIcon(R.drawable.ic_wikipedia_w)
+            .setColor(ContextCompat.getColor(context, color))
+            .setContentTitle(title)
+            .setContentText(text)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(longText))
+        return NotificationWithIdAndTag(id, builder.build())
+    }
+
+    fun createNotification(context: Context, n: Notification, wikiSiteName: String, lang: String,
+                           isChild: Boolean): NotificationWithIdAndTag {
         val notificationCategory = NotificationCategory.find(n.category)
         var activityIntent = addIntentExtras(NotificationActivity.newIntent(context), n.id, n.type)
         val builder = getDefaultBuilder(context, n.id, n.type, notificationCategory)
@@ -60,21 +82,31 @@ object NotificationPresenter {
             }
         }
 
+        if (isChild) {
+            // Group notifications together and make the child notifications silent.
+            builder.setGroup(NOTIFICATION_GROUP_KEY)
+                .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_SUMMARY)
+        }
+
         val themedContext = ContextThemeWrapper(context, if (WikipediaApp.instance.currentTheme == Theme.LIGHT) R.style.AppTheme else WikipediaApp.instance.currentTheme.resourceId)
 
-        showNotification(context, builder, id, n.agent?.name ?: wikiSiteName, title, title, lang,
-                notificationCategory.iconResId, ResourceUtil.getThemedAttributeId(themedContext, notificationCategory.iconColor), activityIntent)
+        return createNotification(context, builder, id, n.agent?.name ?: wikiSiteName, title, title, lang,
+            notificationCategory.iconResId, ResourceUtil.getThemedAttributeId(themedContext, notificationCategory.iconColor), activityIntent)
     }
 
-    fun showMultipleUnread(context: Context, unreadCount: Int) {
+    fun showMultipleUnreadSummary(context: Context, unreadCount: Long) {
         // When showing the multiple-unread notification, we pass the unreadCount as the "id"
         // purely for analytics purposes, to get a sense of how many unread notifications are
         // typically queued up when the user has more than two of them.
-        val builder = getDefaultBuilder(context, unreadCount.toLong(), NotificationPollBroadcastReceiver.TYPE_MULTIPLE)
-        showNotification(context, builder, 0, context.getString(R.string.app_name),
-                context.getString(R.string.notification_many_unread, unreadCount), context.getString(R.string.notification_many_unread, unreadCount),
+        val summaryBuilder = getDefaultBuilder(context, unreadCount, NotificationPollBroadcastReceiver.TYPE_MULTIPLE)
+            .setGroup(NOTIFICATION_GROUP_KEY)
+            .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_SUMMARY)
+            .setGroupSummary(true)
+        val summaryText = context.getString(R.string.notification_many_unread, unreadCount)
+
+        showNotification(context, summaryBuilder, 0, context.getString(R.string.app_name), summaryText, summaryText,
                 null, R.drawable.ic_notifications_black_24dp, R.color.blue600,
-                addIntentExtras(NotificationActivity.newIntent(context), unreadCount.toLong(), NotificationPollBroadcastReceiver.TYPE_MULTIPLE))
+                addIntentExtras(NotificationActivity.newIntent(context), unreadCount, NotificationPollBroadcastReceiver.TYPE_MULTIPLE))
     }
 
     fun addIntentExtras(intent: Intent, id: Long, type: String): Intent {
@@ -93,14 +125,8 @@ object NotificationPresenter {
     fun showNotification(context: Context, builder: NotificationCompat.Builder, id: Int,
                          title: String, text: String, longText: CharSequence, lang: String?,
                          @DrawableRes icon: Int, @ColorRes color: Int, bodyIntent: Intent) {
-        builder.setContentIntent(PendingIntentCompat.getActivity(context, 0, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT, false))
-                .setLargeIcon(drawNotificationBitmap(context, color, icon, lang.orEmpty().uppercase(Locale.getDefault())))
-                .setSmallIcon(R.drawable.ic_wikipedia_w)
-                .setColor(ContextCompat.getColor(context, color))
-                .setContentTitle(title)
-                .setContentText(text)
-                .setStyle(NotificationCompat.BigTextStyle().bigText(longText))
-        context.getSystemService<NotificationManager>()?.notify(id, builder.build())
+        val notification = createNotification(context, builder, id, title, text, longText, lang, icon, color, bodyIntent)
+        NotificationManagerCompat.from(context).notify(listOf(notification))
     }
 
     private fun addAction(context: Context, builder: NotificationCompat.Builder, link: Notification.Link, n: Notification) {

@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.SystemClock
 import androidx.annotation.StringRes
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.app.PendingIntentCompat
 import androidx.core.app.RemoteInput
 import kotlinx.coroutines.Dispatchers
@@ -141,18 +142,24 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
                 WikipediaApp.instance.bus.post(UnreadNotificationsEvent())
             }
 
-            if (notificationsToDisplay.size > 2) {
+            // Create the child notifications. These are grouped together if there are more than two,
+            // and are individually actionable on Android 7.0 and later.
+            val multipleNotifications = notificationsToDisplay.size > 2
+            val notificationsToCreate = notificationsToDisplay.map {
+                // Record that there is an incoming notification to track/compare further actions on it.
+                NotificationInteractionEvent.logIncoming(it, null)
+                NotificationPresenter.createNotification(context, it,
+                    dbWikiNameMap.getOrElse(it.wiki) { it.wiki },
+                    dbWikiSiteMap.getValue(it.wiki).languageCode,
+                    multipleNotifications)
+            }
+            NotificationManagerCompat.from(context).notify(notificationsToCreate)
+
+            // Create a summary notification grouping together the child notifications if needed.
+            if (multipleNotifications) {
                 // Record that there is an incoming notification to track/compare further actions on it.
                 NotificationInteractionEvent.logIncoming(notificationsToDisplay[0], TYPE_MULTIPLE)
-                NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size)
-            } else {
-                for (n in notificationsToDisplay) {
-                    // Record that there is an incoming notification to track/compare further actions on it.
-                    NotificationInteractionEvent.logIncoming(n, null)
-                    NotificationPresenter.showNotification(context, n,
-                        dbWikiNameMap.getOrElse(n.wiki) { n.wiki },
-                        dbWikiSiteMap.getValue(n.wiki).languageCode)
-                }
+                NotificationPresenter.showMultipleUnreadSummary(context, notificationsToCreate.size.toLong())
             }
         }
 
