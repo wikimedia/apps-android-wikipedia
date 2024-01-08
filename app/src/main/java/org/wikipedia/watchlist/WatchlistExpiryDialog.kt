@@ -8,28 +8,36 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import kotlinx.coroutines.launch
+import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.databinding.DialogWatchlistExpiryBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
 
 class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
 
     interface Callback {
-        fun onExpirySelect(expiry: WatchlistExpiry)
+        fun onExpiryChanged(expiry: WatchlistExpiry)
     }
 
+    private val viewModel: WatchlistExpiryDialogViewModel by viewModels { WatchlistExpiryDialogViewModel.Factory(requireArguments()) }
     private var _binding: DialogWatchlistExpiryBinding? = null
     private val binding get() = _binding!!
-    private lateinit var expiry: WatchlistExpiry
     private lateinit var expiryOptions: Array<View>
     private val expiryList = arrayOf(WatchlistExpiry.NEVER, WatchlistExpiry.ONE_WEEK, WatchlistExpiry.ONE_MONTH,
             WatchlistExpiry.THREE_MONTH, WatchlistExpiry.SIX_MONTH)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogWatchlistExpiryBinding.inflate(inflater, container, false)
-        expiry = requireArguments().getSerializable(ARG_EXPIRY) as WatchlistExpiry
         return binding.root
     }
 
@@ -37,9 +45,9 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         expiryOptions = arrayOf(binding.watchlistExpiryPermanent, binding.watchlistExpiryOneWeek, binding.watchlistExpiryOneMonth,
                 binding.watchlistExpiryThreeMonths, binding.watchlistExpirySixMonths)
-        setupListeners()
+        setupDialog()
         resetAllOptions()
-        selectOption(expiry)
+        selectOption(viewModel.expiry)
     }
 
     override fun onStart() {
@@ -52,7 +60,26 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
         _binding = null
     }
 
-    private fun setupListeners() {
+    private fun setupDialog() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.uiState.collect {
+                    when (it) {
+                        is Resource.Success -> {
+                            FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_add_to_watchlist_snackbar,
+                                viewModel.pageTitle.displayText, getString(it.data.stringId))).show()
+                            callback()?.onExpiryChanged(it.data)
+                            dismiss()
+                        }
+                        is Resource.Error -> {
+                            FeedbackUtil.showError(requireActivity(), it.throwable)
+                            dismiss()
+                        }
+                    }
+                }
+            }
+        }
+
         expiryOptions.forEachIndexed { index, view ->
             view.tag = expiryList[index]
             view.setOnClickListener(ExpiryOptionClickListener())
@@ -82,16 +109,20 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
         override fun onClick(view: View) {
             resetAllOptions()
             updateOptionView(view, true)
-            callback()?.onExpirySelect(view.tag as WatchlistExpiry)
+            viewModel.changeExpiry(view.tag as WatchlistExpiry)
         }
     }
 
     companion object {
-        private const val ARG_EXPIRY = "expiry"
+        const val ARG_PAGE_TITLE = "pageTitle"
+        const val ARG_EXPIRY = "expiry"
 
-        fun newInstance(expiry: WatchlistExpiry): WatchlistExpiryDialog {
+        fun newInstance(pageTitle: PageTitle, expiry: WatchlistExpiry): WatchlistExpiryDialog {
             val dialog = WatchlistExpiryDialog()
-            dialog.arguments = bundleOf(ARG_EXPIRY to expiry)
+            dialog.arguments = bundleOf(
+                ARG_PAGE_TITLE to pageTitle,
+                ARG_EXPIRY to expiry
+            )
             return dialog
         }
     }

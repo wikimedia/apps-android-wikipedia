@@ -305,9 +305,9 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         updateNotificationDot(true)
     }
 
-    override fun onExpirySelect(expiry: WatchlistExpiry) {
-        viewModel.watchOrUnwatch(expiry, false)
-        ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
+    override fun onExpiryChanged(expiry: WatchlistExpiry) {
+        viewModel.hasWatchlistExpiry = expiry !== WatchlistExpiry.NEVER
+        invalidateOptionsMenu()
     }
 
     private fun resetViews() {
@@ -443,12 +443,9 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             val snackbar = FeedbackUtil.makeSnackbar(this,
                 getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                     viewModel.pageTitle.displayText,
-                    getString(viewModel.lastWatchExpiry.stringId)))
-            if (!viewModel.watchlistExpiryChanged) {
-                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                    viewModel.watchlistExpiryChanged = true
-                    ExclusiveBottomSheetPresenter.show(supportFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.lastWatchExpiry))
-                }
+                    getString(WatchlistExpiry.NEVER.stringId)))
+            snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
+                ExclusiveBottomSheetPresenter.show(supportFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle, WatchlistExpiry.NEVER))
             }
             snackbar.show()
         }
