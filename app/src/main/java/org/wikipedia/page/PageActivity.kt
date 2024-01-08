@@ -412,7 +412,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onPageWatchlistExpirySelect(expiry: WatchlistExpiry) {
-        pageFragment.updateWatchlist(expiry, false)
+        pageFragment.updateWatchlistExpiry(expiry)
     }
 
     override fun onPageLoadError(title: PageTitle) {
