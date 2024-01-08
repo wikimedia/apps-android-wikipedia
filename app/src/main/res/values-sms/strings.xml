@@ -83,7 +83,9 @@
   <string name="reset_password_hint">Ođđ peittsääʹnn</string>
   <string name="reset_password_button">Ruõkk da ǩeeʹrjtõõđ sizz</string>
   <string name="preference_title_logout">Ǩeeʹrjtõõđ åålǥas</string>
+  <string name="toast_logout_complete">Leäk ǩeeʹrjtõõttâm åålǥas</string>
   <string name="logout_dialog_cancel_button_text">Jõõsk</string>
+  <string name="logged_out_in_background_title">Leäk ǩeeʹrjtõõttâm åålǥas</string>
   <string name="logged_out_in_background_login">Ǩeeʹrjtõõđ sizz</string>
   <string name="logged_out_in_background_cancel">Jõõsk</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
