@@ -5,16 +5,21 @@ import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Rect
+import android.graphics.Typeface
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.Html.ImageGetter
 import android.text.Html.TagHandler
+import android.text.Layout
 import android.text.Spannable
 import android.text.Spanned
+import android.text.style.AlignmentSpan
 import android.text.style.LeadingMarginSpan
+import android.text.style.StyleSpan
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
+import android.webkit.MimeTypeMap
 import android.widget.TextView
 import androidx.core.graphics.applyCanvas
 import androidx.core.text.HtmlCompat
@@ -24,10 +29,12 @@ import androidx.core.text.toSpanned
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.util.WhiteBackgroundTransformation
 import org.wikipedia.util.log.L
 import org.xml.sax.Attributes
@@ -107,8 +114,12 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         wrapped?.skippedEntity(name)
     }
 
-    class CustomTagHandler(private val view: TextView?) : TagHandler {
+    class CustomTagHandler(private val view: TextView?,
+                           private val noSmallSizeImage: Boolean = true) : TagHandler {
         private var lastAClass = ""
+        private var lastDivClass = ""
+        private var lastDivStyle = ""
+        private var lastSpannedDivString = ""
         private var listItemCount = 0
         private val listParents = mutableListOf<String>()
         private val leadingMarginSize = DimenUtil.dpToPx(16f).toInt()
@@ -117,11 +128,22 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
             if (tag == "img" && view == null) {
                 return true
             } else if (tag == "img" && opening && view != null) {
-                var imgWidth = DimenUtil.htmlPxToInt(getValue(attributes, "width").orEmpty())
-                var imgHeight = DimenUtil.htmlPxToInt(getValue(attributes, "height").orEmpty())
+                var imgWidthStr = getValue(attributes, "width").orEmpty()
+                var imgHeightStr = getValue(attributes, "height").orEmpty()
+                val styleStr = getValue(attributes, "style").orEmpty()
+                val widthRegex = "width:\\s*([\\d.]+)\\w{2}".toRegex()
+                if (imgWidthStr.isEmpty()) {
+                    imgWidthStr = widthRegex.find(styleStr)?.value.orEmpty().replace("width:", "")
+                }
+                val heightRegex = "height:\\s*([\\d.]+)\\w{2}".toRegex()
+                if (imgHeightStr.isEmpty()) {
+                    imgHeightStr = heightRegex.find(styleStr)?.value.orEmpty().replace("height:", "")
+                }
+                var imgWidth = DimenUtil.htmlUnitToPxInt(imgWidthStr) ?: MIN_IMAGE_SIZE
+                var imgHeight = DimenUtil.htmlUnitToPxInt(imgHeightStr) ?: MIN_IMAGE_SIZE
                 val imgSrc = getValue(attributes, "src").orEmpty()
 
-                if (imgWidth < MIN_IMAGE_SIZE || imgHeight < MIN_IMAGE_SIZE) {
+                if (noSmallSizeImage && (imgWidth < MIN_IMAGE_SIZE || imgHeight < MIN_IMAGE_SIZE)) {
                     return true
                 }
 
@@ -129,6 +151,19 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 imgHeight = DimenUtil.roundedDpToPx(imgHeight.toFloat())
 
                 if (imgWidth > 0 && imgHeight > 0 && imgSrc.isNotEmpty()) {
+                    val uri = if (imgSrc.startsWith("//")) {
+                        WikiSite.DEFAULT_SCHEME + ":" + imgSrc
+                    } else if (imgSrc.startsWith("./")) {
+                        Service.COMMONS_URL + imgSrc.replace("./", "")
+                    } else {
+                        UriUtil.resolveProtocolRelativeUrl(WikiSite.forLanguageCode(WikipediaApp.instance.appOrSystemLanguageCode), imgSrc)
+                    }
+
+                    val extension = MimeTypeMap.getFileExtensionFromUrl(uri)
+                    if (!MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension).orEmpty().contains("image", true)) {
+                        return true
+                    }
+
                     val bmpMap = contextBmpMap.getOrPut(view.context) { mutableMapOf() }
                     var drawable = bmpMap[imgSrc]
 
@@ -140,16 +175,10 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
 
                         drawable.setBounds(0, 0, imgWidth, imgHeight)
 
-                        var uri = imgSrc
-                        if (uri.startsWith("//")) {
-                            uri = WikiSite.DEFAULT_SCHEME + ":" + uri
-                        } else if (uri.startsWith("./")) {
-                            uri = Service.COMMONS_URL + uri.replace("./", "")
-                        }
-
                         Glide.with(view)
                             .asBitmap()
                             .load(uri)
+                            .transform(WhiteBackgroundTransformation())
                             .into(object : CustomTarget<Bitmap>() {
                                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                                     if (!drawable.bitmap.isRecycled) {
@@ -199,6 +228,45 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                 listItemCount = 0
             } else if (tag == "li" && listParents.isNotEmpty() && !opening && output != null) {
                 handleListTag(output)
+            } else if (tag == "div" && output != null) {
+                if (opening) {
+                    lastDivStyle = getValue(attributes, "style").orEmpty()
+                    lastDivClass = getValue(attributes, "class").orEmpty()
+                    lastSpannedDivString = output.toString()
+                } else {
+                    val alignmentSpan = if (lastDivClass == "center" || lastDivStyle.contains("margin-left: auto", true) && lastDivStyle.contains("margin-right: auto", true)) {
+                        Layout.Alignment.ALIGN_CENTER
+                    } else if (lastDivClass == "floatright" || lastDivStyle.contains("text-align: right", true)) {
+                        Layout.Alignment.ALIGN_OPPOSITE
+                    } else {
+                        Layout.Alignment.ALIGN_NORMAL
+                    }
+                    val start = lastSpannedDivString.length
+                    val end = output.length
+                    val spans = output.getSpans<AlignmentSpan>(end)
+                    if (start < end && spans.isEmpty()) {
+                        // TODO: fix unexpected error that cannot be escaped.
+                        output.setSpan(AlignmentSpan.Standard(alignmentSpan), start, end, 0)
+                    }
+                }
+            } else if ((tag == "dd" || tag == "dl") && output != null) {
+                if (opening) {
+                    // TODO: maybe replace with LeadingMarginSpan
+                    output.append("\n")
+                    output.append("     ")
+                }
+            } else if (tag == "dt" && output != null) {
+                if (opening) {
+                    output.setSpan(StyleSpan(Typeface.BOLD), output.length, output.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                } else {
+                    val spans = output.getSpans<StyleSpan>(output.length)
+                    if (spans.isNotEmpty()) {
+                        val span = spans.last()
+                        val start = output.getSpanStart(span)
+                        output.removeSpan(span)
+                        output.setSpan(StyleSpan(Typeface.BOLD), start, output.length, 0)
+                    }
+                }
             }
             return false
         }
@@ -250,7 +318,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
         private const val MIN_IMAGE_SIZE = 64
         private val contextBmpMap = mutableMapOf<Context, MutableMap<String, BitmapDrawable>>()
 
-        fun fromHtml(html: String?, view: TextView? = null): Spanned {
+        fun fromHtml(html: String?, view: TextView? = null, hasMinImageSize: Boolean = true): Spanned {
             var sourceStr = html.orEmpty()
 
             if ("<" !in sourceStr && "&" !in sourceStr) {
@@ -269,7 +337,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
             // This would become something like "<inject/>$sourceStr".parseAsHtml(...)
             return sourceStr.parseAsHtml(HtmlCompat.FROM_HTML_MODE_LEGACY,
                 if (view == null) null else CustomImageGetter(view.context),
-                CustomHtmlParser(CustomTagHandler(view)))
+                CustomHtmlParser(CustomTagHandler(view, hasMinImageSize)))
         }
 
         fun pruneBitmaps(context: Context) {

@@ -12,6 +12,7 @@ import android.text.style.StyleSpan
 import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.IntRange
+import androidx.core.text.HtmlCompat
 import androidx.core.text.buildSpannedString
 import androidx.core.text.set
 import okio.ByteString.Companion.encodeUtf8
@@ -109,7 +110,11 @@ object StringUtil {
     }
 
     fun fromHtml(source: String?): Spanned {
-        return CustomHtmlParser.fromHtml(source)
+        return try {
+            CustomHtmlParser.fromHtml(source)
+        } catch (e: Exception) {
+            HtmlCompat.fromHtml(source.orEmpty(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+        }
     }
 
     fun highlightEditText(editText: EditText, parentText: String, highlightText: String) {
