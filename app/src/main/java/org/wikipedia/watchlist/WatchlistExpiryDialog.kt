@@ -21,6 +21,7 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
 
 class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
 
@@ -64,13 +65,13 @@ class WatchlistExpiryDialog : ExtendedBottomSheetDialogFragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is WatchlistExpiryDialogViewModel.UiState.Success -> {
+                        is Resource.Success -> {
                             FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                                viewModel.pageTitle.displayText, getString(it.newExpiry.stringId))).show()
-                            callback()?.onExpiryChanged(it.newExpiry)
+                                viewModel.pageTitle.displayText, getString(it.data.stringId))).show()
+                            callback()?.onExpiryChanged(it.data)
                             dismiss()
                         }
-                        is WatchlistExpiryDialogViewModel.UiState.Error -> {
+                        is Resource.Error -> {
                             FeedbackUtil.showError(requireActivity(), it.throwable)
                             dismiss()
                         }

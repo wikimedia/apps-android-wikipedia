@@ -12,16 +12,17 @@ import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.Resource
 
 class WatchlistExpiryDialogViewModel(bundle: Bundle) : ViewModel() {
     private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.Error(throwable)
+        _uiState.value = Resource.Error(throwable)
     }
 
     var pageTitle = bundle.parcelable<PageTitle>(WatchlistExpiryDialog.ARG_PAGE_TITLE)!!
     var expiry = bundle.getSerializable(WatchlistExpiryDialog.ARG_EXPIRY) as WatchlistExpiry
 
-    private val _uiState = MutableStateFlow(UiState())
+    private val _uiState = MutableStateFlow(Resource<WatchlistExpiry>())
     val uiState = _uiState.asStateFlow()
 
     fun changeExpiry(expiry: WatchlistExpiry) {
@@ -32,7 +33,7 @@ class WatchlistExpiryDialogViewModel(bundle: Bundle) : ViewModel() {
                 .watch(null, null, pageTitle.prefixedText, expiry.expiry, token!!)
             response.getFirst()?.let {
                 WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(pageTitle)
-                _uiState.value = UiState.Success(expiry)
+                _uiState.value = Resource.Success(expiry)
             }
         }
     }
@@ -42,10 +43,5 @@ class WatchlistExpiryDialogViewModel(bundle: Bundle) : ViewModel() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return WatchlistExpiryDialogViewModel(bunble) as T
         }
-    }
-
-    open class UiState {
-        class Success(val newExpiry: WatchlistExpiry) : UiState()
-        class Error(val throwable: Throwable) : UiState()
     }
 }
