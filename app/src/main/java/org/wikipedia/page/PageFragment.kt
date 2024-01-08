@@ -71,7 +71,6 @@ import org.wikipedia.dataclient.donate.CampaignCollection
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
-import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
@@ -163,7 +162,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     internal var metricsPlatformArticleEventToolbarInteraction = ArticleToolbarInteraction(this)
     private var pageRefreshed = false
     private var errorState = false
-    private var watchlistExpiryChanged = false
     private var scrolledUpForThemeChange = false
     private var references: PageReferences? = null
     private var avPlayer: AvPlayer? = null
@@ -365,7 +363,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         shareHandler.showWiktionaryDefinition(term)
     }
 
-    override fun onExpirySelect(expiry: WatchlistExpiry) {
+    override fun onExpiryChanged(expiry: WatchlistExpiry) {
         callback()?.onPageWatchlistExpirySelect(expiry)
         dismissBottomSheet()
     }
@@ -645,24 +643,24 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         webView.visibility = View.INVISIBLE
     }
 
-    private fun showWatchlistSnackbar(expiry: WatchlistExpiry, watch: Watch) {
+    @Suppress("KotlinConstantConditions")
+    private fun showWatchlistSnackbar() {
         title?.let {
-            model.isWatched = watch.watched
-            model.hasWatchlistExpiry = expiry !== WatchlistExpiry.NEVER
-            if (watch.unwatched) {
+            if (!model.isWatched) {
                 FeedbackUtil.showMessage(this, getString(R.string.watchlist_page_removed_from_watchlist_snackbar, it.displayText))
-            } else if (watch.watched) {
+            } else if (model.isWatched) {
                 val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_add_to_watchlist_snackbar,
-                    it.displayText, getString(expiry.stringId)))
-                if (!watchlistExpiryChanged) {
-                    snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                        watchlistExpiryChanged = true
-                        ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
-                    }
+                    it.displayText, getString(WatchlistExpiry.NEVER.stringId)))
+                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) { _ ->
+                    ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(it, WatchlistExpiry.NEVER))
                 }
                 snackbar.show()
             }
         }
+    }
+
+    fun updateWatchlistExpiry(expiry: WatchlistExpiry) {
+        model.hasWatchlistExpiry = expiry !== WatchlistExpiry.NEVER
     }
 
     private fun maybeShowAnnouncement() {
@@ -998,7 +996,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         sidePanelHandler.setEnabled(false)
         errorState = false
         binding.pageError.visibility = View.GONE
-        watchlistExpiryChanged = false
         model.title = title
         model.curEntry = entry
         model.page = null
@@ -1243,7 +1240,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         return getCallback(this, Callback::class.java)
     }
 
-    fun updateWatchlist(expiry: WatchlistExpiry, unwatch: Boolean) {
+    fun updateWatchlist() {
         title?.let {
             disposables.add(ServiceFactory.get(it.wikiSite).watchToken
                 .subscribeOn(Schedulers.io())
@@ -1252,22 +1249,20 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     if (watchToken.isNullOrEmpty()) {
                         throw RuntimeException("Received empty watch token.")
                     }
-                    ServiceFactory.get(it.wikiSite).postWatch(if (unwatch) 1 else null, null, it.prefixedText, expiry.expiry, watchToken)
+                    ServiceFactory.get(it.wikiSite).postWatch(if (model.isWatched) 1 else null, null, it.prefixedText, WatchlistExpiry.NEVER.expiry, watchToken)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate { updateQuickActionsAndMenuOptions() }
                 .subscribe({ watchPostResponse ->
                     watchPostResponse.getFirst()?.let { watch ->
-                        // Reset to make the "Change" button visible.
-                        if (watchlistExpiryChanged && unwatch) {
-                            watchlistExpiryChanged = false
-                        }
-                        if (unwatch) {
+                        if (model.isWatched) {
                             WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(it, requireContext())
                         } else {
                             WatchlistAnalyticsHelper.logAddedToWatchlistSuccess(it, requireContext())
                         }
-                        showWatchlistSnackbar(expiry, watch)
+                        model.isWatched = watch.watched
+                        updateWatchlistExpiry(WatchlistExpiry.NEVER)
+                        showWatchlistSnackbar()
                     }
                 }) { caught -> L.d(caught) })
         }
@@ -1453,7 +1448,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 articleInteractionEvent?.logWatchClick()
                 metricsPlatformArticleEventToolbarInteraction.logWatchClick()
             }
-            updateWatchlist(WatchlistExpiry.NEVER, model.isWatched)
+            updateWatchlist()
         }
 
         override fun onViewTalkPageSelected() {
