@@ -30,10 +30,9 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     val lastKnownLocation = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LAST_KNOWN_LOCATION)
     var isInReadingList = false
 
-    var watchlistExpiryChanged = false
     var isWatched = false
     var hasWatchlistExpiry = false
-    var lastWatchExpiry = WatchlistExpiry.NEVER
+
     init {
         loadContent()
     }
@@ -104,7 +103,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    fun watchOrUnwatch(expiry: WatchlistExpiry, unwatch: Boolean) {
+    fun watchOrUnwatch(unwatch: Boolean) {
         if (isWatched) {
             WatchlistAnalyticsHelper.logRemovedFromWatchlist(pageTitle)
         } else {
@@ -115,12 +114,8 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
         }) {
             val token = ServiceFactory.get(pageTitle.wikiSite).getWatchToken().query?.watchToken()
             val response = ServiceFactory.get(pageTitle.wikiSite)
-                .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
+                .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, WatchlistExpiry.NEVER.expiry, token!!)
 
-            lastWatchExpiry = expiry
-            if (watchlistExpiryChanged && unwatch) {
-                watchlistExpiryChanged = false
-            }
             if (unwatch) {
                 WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
             } else {
@@ -128,7 +123,6 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
             }
             response.getFirst()?.let {
                 isWatched = it.watched
-                hasWatchlistExpiry = lastWatchExpiry != WatchlistExpiry.NEVER
                 _uiState.value = LinkPreviewViewState.Watch(isWatched)
             }
         }
