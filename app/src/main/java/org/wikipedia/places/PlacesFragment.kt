@@ -115,7 +115,6 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         setupMarkerPaints()
         markerBitmapBase = circularBitmapWithBorder()
 
-
         Mapbox.getInstance(requireActivity().applicationContext)
 
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
