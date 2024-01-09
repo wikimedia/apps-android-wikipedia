@@ -324,7 +324,6 @@
         android:id="@+id/diffRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/nav_bar_height"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:scrollbars="vertical"/>
 
@@ -470,18 +469,19 @@
         android:id="@+id/navTabContainer"
         android:background="?attr/paper_color"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/nav_bar_height"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:elevation="8dp"
         android:orientation="horizontal"
         android:visibility="gone"
-        tools:visibility="visible">
+        tools:visibility="visible"
+        android:baselineAligned="false">
 
         <FrameLayout
             android:id="@+id/thankButton"
             android:layout_width="0dp"
             android:layout_weight="0.2"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/nav_bar_height"
             android:contentDescription="@string/thank_label"
             android:clickable="true"
             android:focusable="true"
@@ -513,7 +513,7 @@
             android:id="@+id/watchButton"
             android:layout_width="0dp"
             android:layout_weight="0.2"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/nav_bar_height"
             android:contentDescription="@string/menu_page_watch"
             android:clickable="true"
             android:focusable="true"
@@ -546,7 +546,7 @@
             android:id="@+id/warnButton"
             android:layout_width="0dp"
             android:layout_weight="0.2"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/nav_bar_height"
             android:contentDescription="@string/talk_warn"
             android:clickable="true"
             android:focusable="true"
@@ -578,7 +578,7 @@
             android:id="@+id/undoButton"
             android:layout_width="0dp"
             android:layout_weight="0.2"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/nav_bar_height"
             android:contentDescription="@string/edit_undo"
             android:clickable="true"
             android:focusable="true"
