@@ -204,7 +204,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 val defMargin = DimenUtil.roundedDpToPx(16f)
                 val navBarMargin = if (navBarInsets != null) navBarInsets!!.bottom else 0
 
-                map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass)!!)
+                map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass_with_bg)!!)
                 map.uiSettings.compassGravity = Gravity.BOTTOM or Gravity.START
                 map.uiSettings.setCompassMargins(defMargin, 0, defMargin, navBarMargin + defMargin)
 
