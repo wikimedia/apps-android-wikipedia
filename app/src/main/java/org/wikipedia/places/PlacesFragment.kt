@@ -6,7 +6,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.PorterDuff.Mode
+import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.RectF
@@ -19,6 +19,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.Insets
@@ -91,28 +92,10 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
     private var lastLocationUpdated: LatLng? = null
 
     private lateinit var markerBitmapBase: Bitmap
+    private lateinit var markerPaintSrc: Paint
+    private lateinit var markerPaintSrcIn: Paint
+    private lateinit var markerBorderPaint: Paint
     private val markerRect = Rect(0, 0, MARKER_SIZE, MARKER_SIZE)
-    private val markerPaintSrc by lazy {
-        Paint().apply {
-            isAntiAlias = true
-            color = ResourceUtil.getThemedColor(requireContext(), R.attr.success_color)
-            xfermode = PorterDuffXfermode(Mode.SRC)
-        }
-    }
-    private val markerPaintSrcIn by lazy {
-        Paint().apply {
-            isAntiAlias = true
-            xfermode = PorterDuffXfermode(Mode.SRC_IN)
-        }
-    }
-    private val markerBorderPaint by lazy {
-        Paint().apply {
-            style = Paint.Style.STROKE
-            strokeWidth = MARKER_BORDER_SIZE
-            color = ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)
-            isAntiAlias = true
-        }
-    }
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         when {
@@ -129,7 +112,9 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupMarkerPaints()
         markerBitmapBase = circularBitmapWithBorder()
+
 
         Mapbox.getInstance(requireActivity().applicationContext)
 
@@ -216,10 +201,11 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 // TODO: Currently the style seems to break when zooming beyond 16.0. See if we can fix this.
                 map.setMaxZoomPreference(15.999)
 
-                map.uiSettings.isAttributionEnabled = false
+                map.uiSettings.isLogoEnabled = false
                 val defMargin = DimenUtil.roundedDpToPx(16f)
                 val navBarMargin = if (navBarInsets != null) navBarInsets!!.bottom else 0
 
+                map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass)!!)
                 map.uiSettings.compassGravity = Gravity.BOTTOM or Gravity.START
                 map.uiSettings.setCompassMargins(defMargin, 0, defMargin, navBarMargin + defMargin)
 
@@ -263,6 +249,24 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
+        }
+    }
+
+    private fun setupMarkerPaints() {
+        markerPaintSrc = Paint().apply {
+            isAntiAlias = true
+            color = ResourceUtil.getThemedColor(requireContext(), R.attr.success_color)
+            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC)
+        }
+        markerPaintSrcIn = Paint().apply {
+            isAntiAlias = true
+            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+        }
+        markerBorderPaint = Paint().apply {
+            style = Paint.Style.STROKE
+            strokeWidth = MARKER_BORDER_SIZE
+            color = ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)
+            isAntiAlias = true
         }
     }
 
@@ -493,8 +497,8 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
     private fun circularBitmapWithBorder(thumbnailBitmap: Bitmap? = null): Bitmap {
         val radius = MARKER_SIZE / 2f
-        val outputBitmap = Bitmap.createBitmap(MARKER_SIZE, MARKER_SIZE, Bitmap.Config.ARGB_8888)
-        outputBitmap.applyCanvas {
+        val result = Glide.get(requireContext()).bitmapPool.getDirty(MARKER_SIZE, MARKER_SIZE, Bitmap.Config.ARGB_8888)
+        result.applyCanvas {
             drawCircle(radius, radius, radius, markerPaintSrc)
             thumbnailBitmap?.let {
                 val thumbnailRect = Rect(0, 0, it.width, it.height)
@@ -502,7 +506,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             }
             drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
         }
-        return outputBitmap
+        return result
     }
 
     override fun onMapClick(point: LatLng): Boolean {
@@ -535,7 +539,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         const val ZOOM_IN_ANIMATION_DURATION = 1000
         val CLUSTER_FONT_STACK = arrayOf("Open Sans Semibold")
         val MARKER_FONT_STACK = arrayOf("Open Sans Regular")
-        val MARKER_SIZE = DimenUtil.roundedDpToPx(48f)
+        val MARKER_SIZE = DimenUtil.roundedDpToPx(40f)
         val MARKER_BORDER_SIZE = DimenUtil.dpToPx(2f)
 
         fun newInstance(pageTitle: PageTitle?, location: Location?): PlacesFragment {
