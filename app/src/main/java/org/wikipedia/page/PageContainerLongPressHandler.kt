@@ -22,7 +22,7 @@ class PageContainerLongPressHandler(private val fragment: PageFragment) : WebVie
 
     override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
         page?.run {
-            ReadingListBehaviorsUtil.moveToList(fragment.requireActivity(), this.listId, listOf(entry.title), InvokeSource.CONTEXT_MENU)
+            ReadingListBehaviorsUtil.moveToList(fragment.requireActivity(), this.listId, entry.title, InvokeSource.CONTEXT_MENU)
         }
     }
 

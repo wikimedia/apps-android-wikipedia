@@ -1354,7 +1354,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
                         page?.let { readingListPage ->
                             title?.run {
-                                ReadingListBehaviorsUtil.moveToList(requireActivity(), readingListPage.listId, listOf(this), InvokeSource.BOOKMARK_BUTTON)
+                                ReadingListBehaviorsUtil.moveToList(requireActivity(), readingListPage.listId, this, InvokeSource.BOOKMARK_BUTTON)
                             }
                         }
                     }

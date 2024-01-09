@@ -142,7 +142,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
 
                             override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
                                 page?.let {
-                                    ReadingListBehaviorsUtil.moveToList(context as AppCompatActivity, page.listId, listOf(entry.title), InvokeSource.ON_THIS_DAY_CARD_BODY)
+                                    ReadingListBehaviorsUtil.moveToList(context as AppCompatActivity, page.listId, entry.title, InvokeSource.ON_THIS_DAY_CARD_BODY)
                                 }
                             }
                         }).show(entry)

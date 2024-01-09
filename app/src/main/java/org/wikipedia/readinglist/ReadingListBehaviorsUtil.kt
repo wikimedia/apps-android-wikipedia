@@ -294,10 +294,9 @@ object ReadingListBehaviorsUtil {
     }
 
     fun addToDefaultList(activity: Activity, title: PageTitle, addToDefault: Boolean, invokeSource: InvokeSource, listener: DialogInterface.OnDismissListener? = null) {
-        activity as AppCompatActivity
         if (addToDefault) {
             // If the title is a redirect, resolve it before saving to the reading list.
-            activity.lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
+            (activity as AppCompatActivity).lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
                 var finalPageTitle = title
                 try {
                     ServiceFactory.get(title.wikiSite).getInfoByPageIdsOrTitles(null, title.prefixedText)
@@ -310,22 +309,21 @@ object ReadingListBehaviorsUtil {
                     if (addedTitles.isNotEmpty()) {
                         FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, StringUtil.fromHtml(finalPageTitle.displayText)))
                             .setAction(R.string.reading_list_add_to_list_button) {
-                                moveToList(activity, defaultList.id, listOf(finalPageTitle), invokeSource, false, listener)
+                                moveToList(activity, defaultList.id, finalPageTitle, invokeSource, false, listener)
                             }.show()
                     }
                 }
             }
         } else {
-            ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
+            ExclusiveBottomSheetPresenter.show((activity as AppCompatActivity).supportFragmentManager,
                 AddToReadingListDialog.newInstance(title, invokeSource, listener))
         }
     }
 
-    fun moveToList(activity: Activity, sourceReadingListId: Long, titles: List<PageTitle>, source: InvokeSource,
+    fun moveToList(activity: Activity, sourceReadingListId: Long, title: PageTitle, source: InvokeSource,
                    showDefaultList: Boolean = true, listener: DialogInterface.OnDismissListener? = null) {
-        activity as AppCompatActivity
-        ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
-            MoveToReadingListDialog.newInstance(sourceReadingListId, titles, source, showDefaultList, listener))
+        ExclusiveBottomSheetPresenter.show((activity as AppCompatActivity).supportFragmentManager,
+            MoveToReadingListDialog.newInstance(sourceReadingListId, title, source, showDefaultList, listener))
     }
 
     private fun toggleOffline(activity: Activity, page: ReadingListPage, forcedSave: Boolean) {

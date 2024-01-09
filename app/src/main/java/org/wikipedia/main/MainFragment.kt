@@ -352,7 +352,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-        ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, listOf(entry.title), InvokeSource.FEED)
+        ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.FEED)
     }
 
     override fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView) {

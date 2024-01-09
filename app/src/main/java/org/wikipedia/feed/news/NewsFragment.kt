@@ -125,7 +125,7 @@ class NewsFragment : Fragment() {
         }
 
         override fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-            ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, listOf(entry.title), InvokeSource.NEWS_ACTIVITY)
+            ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.NEWS_ACTIVITY)
         }
     }
 

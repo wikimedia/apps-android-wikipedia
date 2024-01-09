@@ -98,7 +98,7 @@ class TopReadFragment : Fragment() {
         }
 
         override fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-            ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, listOf(entry.title), InvokeSource.MOST_READ_ACTIVITY)
+            ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.MOST_READ_ACTIVITY)
         }
     }
 

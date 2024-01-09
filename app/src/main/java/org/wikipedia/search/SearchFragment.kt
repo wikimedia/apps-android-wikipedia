@@ -217,7 +217,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     override fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-        ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, listOf(entry.title), InvokeSource.SEARCH)
+        ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.SEARCH)
     }
 
     override fun onSearchProgressBar(enabled: Boolean) {

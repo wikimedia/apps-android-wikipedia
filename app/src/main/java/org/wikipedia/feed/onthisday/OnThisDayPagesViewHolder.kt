@@ -105,7 +105,7 @@ class OnThisDayPagesViewHolder(
 
             override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
                 page?.let {
-                    ReadingListBehaviorsUtil.moveToList(activity, it.listId, listOf(entry.title), InvokeSource.ON_THIS_DAY_ACTIVITY)
+                    ReadingListBehaviorsUtil.moveToList(activity, it.listId, entry.title, InvokeSource.ON_THIS_DAY_ACTIVITY)
                 }
             }
         }).show(entry)
