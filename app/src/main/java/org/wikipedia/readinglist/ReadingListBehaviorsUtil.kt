@@ -311,6 +311,8 @@ object ReadingListBehaviorsUtil {
                             .setAction(R.string.reading_list_add_to_list_button) {
                                 moveToList(activity, defaultList.id, finalPageTitle, invokeSource, false, listener)
                             }.show()
+                    } else {
+                        FeedbackUtil.showMessage(activity, activity.getString(R.string.reading_list_article_already_exists_message, defaultList.title, title.displayText))
                     }
                 }
             }

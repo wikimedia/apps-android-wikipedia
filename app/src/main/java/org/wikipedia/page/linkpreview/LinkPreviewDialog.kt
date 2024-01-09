@@ -223,6 +223,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private fun doAddToList() {
         ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, true, Constants.InvokeSource.LINK_PREVIEW_MENU)
+        dialog?.dismiss()
     }
 
     private fun showPreview(contents: LinkPreviewContents) {
