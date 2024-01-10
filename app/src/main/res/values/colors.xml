@@ -45,4 +45,10 @@
     <color name="orange500">#FF9500</color>
     <color name="orange500_50">#80FF9500</color>
 
+
+    <color name="widget_background">#F8F9FA</color>
+    <color name="widget_paper">#FFFFFF</color>
+    <color name="widget_border">#EAECF0</color>
+    <color name="widget_primary">#202122</color>
+
 </resources>

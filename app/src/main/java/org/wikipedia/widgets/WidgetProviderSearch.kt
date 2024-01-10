@@ -5,6 +5,8 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
+import android.os.Build
+import android.util.SizeF
 import android.widget.RemoteViews
 import androidx.core.app.PendingIntentCompat
 import org.wikipedia.Constants.InvokeSource
@@ -18,11 +20,26 @@ class WidgetProviderSearch : AppWidgetProvider() {
         val allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget)
         for (widgetId in allWidgetIds) {
             L.d("updating widget...")
-            val remoteViews = RemoteViews(context.packageName, R.layout.widget_search)
+
             val pendingIntent = PendingIntentCompat.getActivity(context, 0,
-                    SearchActivity.newIntent(context, InvokeSource.WIDGET, null),
-                    PendingIntent.FLAG_UPDATE_CURRENT, false)
-            remoteViews.setOnClickPendingIntent(R.id.widget_container, pendingIntent)
+                SearchActivity.newIntent(context, InvokeSource.WIDGET, null),
+                PendingIntent.FLAG_UPDATE_CURRENT, false)
+
+            val smallView = RemoteViews(context.packageName, R.layout.widget_search_small)
+            val largeView = RemoteViews(context.packageName, R.layout.widget_search_large)
+            smallView.setOnClickPendingIntent(R.id.widget_container, pendingIntent)
+            largeView.setOnClickPendingIntent(R.id.widget_container, pendingIntent)
+
+            val viewMapping: Map<SizeF, RemoteViews> = mapOf(
+                SizeF(32f, 32f) to smallView,
+                SizeF(160f, 32f) to largeView
+            )
+            val remoteViews = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                RemoteViews(viewMapping)
+            } else {
+                largeView
+            }
+
             appWidgetManager.updateAppWidget(widgetId, remoteViews)
         }
     }
