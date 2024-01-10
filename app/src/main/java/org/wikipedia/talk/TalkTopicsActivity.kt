@@ -374,6 +374,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnError(t: Throwable) {
+        binding.talkProgressBar.isVisible = false
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
 
         // In the case of 404, it just means that the talk page hasn't been created yet.
@@ -389,6 +390,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnEmpty() {
+        binding.talkProgressBar.isVisible = false
         binding.talkRefreshView.isRefreshing = false
         binding.talkEmptyContainer.isVisible = true
         binding.talkConditionContainer.isVisible = true
