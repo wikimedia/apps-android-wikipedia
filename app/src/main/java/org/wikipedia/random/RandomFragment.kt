@@ -25,15 +25,10 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.ArticleSavedOrDeletedEvent
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.readinglist.LongPressMenu
-import org.wikipedia.readinglist.MoveToReadingListDialog
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil.AddToDefaultListCallback
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil.addToDefaultList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.AnimationUtil.PagerTransformer
 import org.wikipedia.util.DimenUtil
@@ -144,15 +139,23 @@ class RandomFragment : Fragment() {
                 }
 
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                    onAddPageToList(title, addToDefault)
+                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), title, addToDefault, InvokeSource.RANDOM_ACTIVITY) {
+                        updateSaveShareButton(title)
+                    }
                 }
 
                 override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                    onMovePageToList(page!!.listId, title)
+                    page?.let {
+                        ReadingListBehaviorsUtil.moveToList(requireActivity(), page.listId, title, InvokeSource.RANDOM_ACTIVITY) {
+                            updateSaveShareButton()
+                        }
+                    }
                 }
             }).show(HistoryEntry(title, HistoryEntry.SOURCE_RANDOM))
         } else {
-            onAddPageToList(title, true)
+            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), title, true, InvokeSource.RANDOM_ACTIVITY) {
+                updateSaveShareButton(title)
+            }
         }
     }
 
@@ -172,37 +175,6 @@ class RandomFragment : Fragment() {
             intent,
             if (DimenUtil.isLandscape(requireContext()) || sharedElements.isEmpty()) null else options.toBundle()
         )
-    }
-
-    fun onAddPageToList(title: PageTitle, addToDefault: Boolean) {
-        if (addToDefault) {
-            addToDefaultList(requireActivity(), title, InvokeSource.RANDOM_ACTIVITY,
-                AddToDefaultListCallback { readingListId ->
-                    onMovePageToList(
-                        readingListId,
-                        title
-                    )
-                },
-                ReadingListBehaviorsUtil.Callback { updateSaveShareButton(title) }
-            )
-        } else {
-            ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                AddToReadingListDialog.newInstance(title, InvokeSource.RANDOM_ACTIVITY) {
-                    updateSaveShareButton(title)
-                })
-        }
-    }
-
-    fun onMovePageToList(sourceReadingListId: Long, title: PageTitle) {
-        ExclusiveBottomSheetPresenter.show(childFragmentManager,
-            MoveToReadingListDialog.newInstance(
-                sourceReadingListId,
-                listOf(title),
-                InvokeSource.RANDOM_ACTIVITY,
-                true
-            ) {
-                updateSaveShareButton(title)
-            })
     }
 
     private fun updateBackButton(pagerPosition: Int) {

@@ -2,7 +2,6 @@ package org.wikipedia.page
 
 import android.app.SearchManager
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -79,7 +78,7 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import java.util.Locale
 
-class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.AddToListCallback, FrameLayoutNavMenuTriggerer.Callback {
+class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
 
     enum class TabPosition {
         CURRENT_TAB, CURRENT_TAB_SQUASH, NEW_TAB_BACKGROUND, NEW_TAB_FOREGROUND, EXISTING_TAB
@@ -93,7 +92,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     private var wasTransitionShown = false
     private val currentActionModes = mutableSetOf<ActionMode>()
     private val disposables = CompositeDisposable()
-    private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
     private var isTooltipShowing = false
@@ -403,14 +401,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         DeviceUtil.hideSoftKeyboard(this)
     }
 
-    override fun onPageAddToReadingList(title: PageTitle, source: InvokeSource) {
-        showAddToListDialog(title, source)
-    }
-
-    override fun onPageMoveToReadingList(sourceReadingListId: Long, title: PageTitle, source: InvokeSource, showDefaultList: Boolean) {
-        showMoveToListDialog(sourceReadingListId, title, source, showDefaultList)
-    }
-
     override fun onPageWatchlistExpirySelect(expiry: WatchlistExpiry) {
         pageFragment.updateWatchlistExpiry(expiry)
     }
@@ -467,10 +457,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         loadPage(title, entry, if (inNewTab) TabPosition.NEW_TAB_BACKGROUND else TabPosition.CURRENT_TAB)
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        showAddToListDialog(title, InvokeSource.LINK_PREVIEW_MENU)
     }
 
     private fun handleIntent(intent: Intent) {
@@ -648,15 +634,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     private fun hideLinkPreview() {
         ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
-    }
-
-    private fun showAddToListDialog(title: PageTitle, source: InvokeSource) {
-        ExclusiveBottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, source, listDialogDismissListener)
-    }
-
-    private fun showMoveToListDialog(sourceReadingListId: Long, title: PageTitle, source: InvokeSource, showDefaultList: Boolean) {
-        ExclusiveBottomSheetPresenter.showMoveToListDialog(supportFragmentManager, sourceReadingListId,
-            title, source, showDefaultList, listDialogDismissListener)
     }
 
     private fun removeTransitionAnimState() {
