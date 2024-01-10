@@ -35,7 +35,12 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.places.PlacesActivity
+import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.readinglist.database.ReadingListPage
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
@@ -54,15 +59,10 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean)
     }
 
-    interface AddToListCallback {
-        fun onLinkPreviewAddToList(title: PageTitle, isInReadingList: Boolean, anchor: View? = null)
-    }
-
     private var _binding: DialogLinkPreviewBinding? = null
     private val binding get() = _binding!!
 
     private val loadPageCallback get() = getCallback(this, LoadPageCallback::class.java)
-    private val addToListCallback get() = getCallback(this, AddToListCallback::class.java)
 
     private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
     private var linkPreviewInteraction: ArticleLinkPreviewInteraction? = null
@@ -307,13 +307,31 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
     }
 
-    private fun doAddToList(anchor: View? = null) {
-        addToListCallback.let {
-            if (it != null) {
-                it.onLinkPreviewAddToList(viewModel.pageTitle, viewModel.isInReadingList, anchor)
+    private fun doAddToList() {
+        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, true, Constants.InvokeSource.LINK_PREVIEW_MENU)
+        dialog?.dismiss()
+    }
+
+    private fun showReadingListPopupMenu() {
+        overlayView?.let {
+            if (viewModel.isInReadingList) {
+                LongPressMenu(it.secondaryButtonView, object : LongPressMenu.Callback {
+                    override fun onOpenLink(entry: HistoryEntry) { }
+
+                    override fun onOpenInNewTab(entry: HistoryEntry) { }
+
+                    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, addToDefault, Constants.InvokeSource.LINK_PREVIEW_MENU)
+                    }
+
+                    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+                        page?.let { readingListPage ->
+                            ReadingListBehaviorsUtil.moveToList(requireActivity(), readingListPage.listId, viewModel.pageTitle, Constants.InvokeSource.LINK_PREVIEW_MENU)
+                        }
+                    }
+                }).show(HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK))
             } else {
-                ExclusiveBottomSheetPresenter.showAddToListDialog(requireActivity().supportFragmentManager,
-                    viewModel.pageTitle, Constants.InvokeSource.LINK_PREVIEW_MENU)
+                ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, true, Constants.InvokeSource.LINK_PREVIEW_MENU)
             }
         }
     }
@@ -426,7 +444,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
 
         override fun onSecondaryClick() {
-            doAddToList(overlayView?.secondaryButtonView)
+            showReadingListPopupMenu()
             if (!viewModel.isInReadingList) {
                 dismiss()
             }
