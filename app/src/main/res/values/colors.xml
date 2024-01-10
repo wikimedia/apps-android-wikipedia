@@ -50,5 +50,6 @@
     <color name="widget_paper">#FFFFFF</color>
     <color name="widget_border">#EAECF0</color>
     <color name="widget_primary">#202122</color>
+    <color name="widget_placeholder">#72777D</color>
 
 </resources>

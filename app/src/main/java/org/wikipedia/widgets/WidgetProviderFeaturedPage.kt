@@ -1,15 +1,21 @@
 package org.wikipedia.widgets
 
+import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.text.style.URLSpan
+import android.view.View
 import android.widget.RemoteViews
 import androidx.core.app.PendingIntentCompat
 import androidx.core.text.getSpans
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.AppWidgetTarget
+import com.bumptech.glide.request.transition.Transition
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.Constants
@@ -31,7 +37,7 @@ import org.wikipedia.util.log.L
 class WidgetProviderFeaturedPage : AppWidgetProvider() {
 
     private interface Callback {
-        fun onFeaturedArticleReceived(pageTitle: PageTitle, widgetText: CharSequence)
+        fun onFeaturedArticleReceived(pageTitle: PageTitle)
     }
 
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager,
@@ -39,13 +45,39 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
         val thisWidget = ComponentName(context, WidgetProviderFeaturedPage::class.java)
         val allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget)
         getFeaturedArticleInformation(object : Callback {
-            override fun onFeaturedArticleReceived(pageTitle: PageTitle, widgetText: CharSequence) {
+            override fun onFeaturedArticleReceived(pageTitle: PageTitle) {
                 for (widgetId in allWidgetIds) {
                     L.d("updating widget...")
                     val remoteViews = RemoteViews(context.packageName, R.layout.widget_featured_page)
-                    if (widgetText.isNotEmpty()) {
-                        remoteViews.setTextViewText(R.id.widget_content_text, widgetText)
+
+                    remoteViews.setTextViewText(R.id.widget_content_title, StringUtil.fromHtml(pageTitle.displayText))
+                    if (pageTitle.description.isNullOrEmpty()) {
+                        remoteViews.setViewVisibility(R.id.widget_content_description, View.GONE)
+                    } else {
+                        remoteViews.setTextViewText(R.id.widget_content_description, pageTitle.description)
+                        remoteViews.setViewVisibility(R.id.widget_content_description, View.VISIBLE)
                     }
+                    if (pageTitle.thumbUrl.isNullOrEmpty()) {
+                        remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.GONE)
+                    } else {
+
+
+
+                        val widgetTarget = object : AppWidgetTarget(context, R.id.widget_content_thumbnail, remoteViews, widgetId) {
+                            override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                                super.onResourceReady(resource, transition)
+                                appWidgetManager.updateAppWidget(widgetId, remoteViews)
+                            }
+                        }
+
+                        Glide.with(context.applicationContext)
+                            .asBitmap()
+                            .load(pageTitle.thumbUrl)
+                            .into(widgetTarget)
+
+                        remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.VISIBLE)
+                    }
+
                     appWidgetManager.updateAppWidget(widgetId, remoteViews)
 
                     val intent = Intent(context, PageActivity::class.java)
@@ -62,12 +94,13 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
         })
     }
 
+    @SuppressLint("CheckResult")
     private fun getFeaturedArticleInformation(cb: Callback) {
         val app = WikipediaApp.instance
         val mainPageTitle = PageTitle(
                 MainPageNameData.valueFor(app.appOrSystemLanguageCode),
                 app.wikiSite)
-        val date = DateUtil.getUtcRequestDateFor(0)
+        val date = DateUtil.getUtcRequestDateFor(-1)
         ServiceFactory.getRest(WikipediaApp.instance.wikiSite).getAggregatedFeed(date.year, date.month, date.day)
                 .flatMap { response: AggregatedFeedContent ->
                     if (response.tfa != null) {
@@ -87,11 +120,11 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                     }
                 }
                 .subscribe({ response ->
-                    val widgetText = StringUtil.fromHtml(response.displayTitle)
                     val pageTitle = response.getPageTitle(app.wikiSite)
-                    cb.onFeaturedArticleReceived(pageTitle, widgetText)
+                    pageTitle.displayText = response.displayTitle
+                    cb.onFeaturedArticleReceived(pageTitle)
                 }) { throwable ->
-                    cb.onFeaturedArticleReceived(mainPageTitle, mainPageTitle.displayText)
+                    cb.onFeaturedArticleReceived(mainPageTitle)
                     L.e(throwable)
                 }
     }
