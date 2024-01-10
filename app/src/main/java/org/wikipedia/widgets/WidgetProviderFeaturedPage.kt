@@ -60,9 +60,6 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                     if (pageTitle.thumbUrl.isNullOrEmpty()) {
                         remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.GONE)
                     } else {
-
-
-
                         val widgetTarget = object : AppWidgetTarget(context, R.id.widget_content_thumbnail, remoteViews, widgetId) {
                             override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                                 super.onResourceReady(resource, transition)
