@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.util.SizeF
 import android.widget.RemoteViews
@@ -22,7 +23,8 @@ class WidgetProviderSearch : AppWidgetProvider() {
             L.d("updating widget...")
 
             val pendingIntent = PendingIntentCompat.getActivity(context, 0,
-                SearchActivity.newIntent(context, InvokeSource.WIDGET, null),
+                SearchActivity.newIntent(context, InvokeSource.WIDGET, null)
+                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
                 PendingIntent.FLAG_UPDATE_CURRENT, false)
 
             val smallView = RemoteViews(context.packageName, R.layout.widget_search_small)
