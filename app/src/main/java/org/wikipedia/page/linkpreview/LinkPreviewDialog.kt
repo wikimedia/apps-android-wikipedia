@@ -35,12 +35,10 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.GeoUtil
@@ -312,27 +310,32 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         dialog?.dismiss()
     }
 
-    private fun showReadingListPopupMenu() {
-        overlayView?.let {
-            if (viewModel.isInReadingList) {
-                LongPressMenu(it.secondaryButtonView, object : LongPressMenu.Callback {
-                    override fun onOpenLink(entry: HistoryEntry) { }
+    private fun showReadingListPopupMenu(anchorView: View) {
+        if (viewModel.isInReadingList) {
+            LongPressMenu(anchorView, object : LongPressMenu.Callback {
+                override fun onOpenLink(entry: HistoryEntry) { }
 
-                    override fun onOpenInNewTab(entry: HistoryEntry) { }
+                override fun onOpenInNewTab(entry: HistoryEntry) { }
 
-                    override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, addToDefault, Constants.InvokeSource.LINK_PREVIEW_MENU)
+                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, addToDefault, Constants.InvokeSource.LINK_PREVIEW_MENU)
+                    dismiss()
+                }
+
+                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+                    page?.let { readingListPage ->
+                        ReadingListBehaviorsUtil.moveToList(requireActivity(), readingListPage.listId, viewModel.pageTitle, Constants.InvokeSource.LINK_PREVIEW_MENU)
                     }
+                    dismiss()
+                }
 
-                    override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                        page?.let { readingListPage ->
-                            ReadingListBehaviorsUtil.moveToList(requireActivity(), readingListPage.listId, viewModel.pageTitle, Constants.InvokeSource.LINK_PREVIEW_MENU)
-                        }
-                    }
-                }).show(HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK))
-            } else {
-                ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, true, Constants.InvokeSource.LINK_PREVIEW_MENU)
-            }
+                override fun onRemoveRequest() {
+                    dismiss()
+                }
+            }).show(HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK))
+        } else {
+            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, true, Constants.InvokeSource.LINK_PREVIEW_MENU)
+            dismiss()
         }
     }
 
@@ -444,9 +447,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
 
         override fun onSecondaryClick() {
-            showReadingListPopupMenu()
-            if (!viewModel.isInReadingList) {
-                dismiss()
+            overlayView?.let {
+                showReadingListPopupMenu(it.secondaryButtonView)
             }
         }
 

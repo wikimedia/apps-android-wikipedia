@@ -90,6 +90,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
         listsContainingPage?.let { list ->
             RemoveFromReadingListsDialog(list).deleteOrShowDialog(getActivity()) { readingLists, _ ->
                 entry?.let {
+                    // TODO: remain discussion
                     if (anchorView.isAttachedToWindow) {
                         val readingListNames = readingLists.map { readingList -> readingList.title }.run {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
