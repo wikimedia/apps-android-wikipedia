@@ -202,6 +202,7 @@
         <activity
             android:name=".search.SearchActivity"
             android:windowSoftInputMode="adjustResize"
+            android:theme="@style/AppTheme.Splash"
             android:exported="true">
             <intent-filter android:label="@string/search_hint">
                 <action android:name="android.intent.action.SEND" />
