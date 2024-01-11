@@ -1113,7 +1113,7 @@
   <string name="app_shortcuts_search">Nema</string>
   <string name="on_this_day_card_title">A wannan rana</string>
   <string name="more_events_text">Karin bayani akan wannan rana</string>
-  <string name="events_count_text" fuzzy="true">%1$s abubuwan da suka faru daga %2$s–% 3$d</string>
+  <string name="events_count_text" fuzzy="true">%1$s abubuwan da suka faru daga %2$s–%3$d</string>
   <string name="this_year">Wannan shekara</string>
   <string name="on_this_day_dialog_next_month">Wata mai zuwa</string>
   <string name="on_this_day_dialog_previous_month">Watan da ya gabata</string>
