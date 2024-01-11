@@ -39,7 +39,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:textColor="@color/widget_primary"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:fontFamily="serif"
             tools:text="Lorem ipsum" />
 
@@ -47,7 +47,7 @@
             android:id="@+id/widget_content_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="4dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@color/gray500"
@@ -57,8 +57,8 @@
 
     <ImageView
         android:id="@+id/widget_content_thumbnail"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_margin="12dp"
         android:contentDescription="@null" />
 
