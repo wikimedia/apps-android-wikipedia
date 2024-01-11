@@ -6,6 +6,7 @@
     android:theme="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:minHeight="80dp"
     android:background="@drawable/widget_shape_inner"
     android:gravity="center"
     android:clipChildren="true"
@@ -21,17 +22,12 @@
         android:tint="@color/widget_primary"
         tools:ignore="UseAppTint" />
 
-    <ProgressBar
-        android:layout_width="24dp"
-        android:layout_height="24dp"/>
-
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginVertical="12dp"
         android:layout_marginStart="12dp"
-        android:layout_marginEnd="4dp"
         android:background="@drawable/widget_shape_inner"
         android:gravity="center_vertical"
         android:orientation="vertical">
@@ -63,7 +59,7 @@
         android:id="@+id/widget_content_thumbnail"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_margin="8dp"
+        android:layout_margin="12dp"
         android:contentDescription="@null" />
 
 </LinearLayout>

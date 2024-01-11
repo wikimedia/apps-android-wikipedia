@@ -14,13 +14,16 @@ import androidx.core.os.BundleCompat
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.target.AppWidgetTarget
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
@@ -63,13 +66,12 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
             if (pageTitle.thumbUrl.isNullOrEmpty()) {
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.GONE)
             } else {
-                val widgetTarget = AppWidgetTarget(context, R.id.widget_content_thumbnail, remoteViews, widgetId)
-
-                Glide.with(context.applicationContext)
-                    .asBitmap()
+                Glide.with(context).asBitmap()
                     .load(pageTitle.thumbUrl)
+                    .override(256)
                     .downsample(DownsampleStrategy.CENTER_INSIDE)
-                    .into(widgetTarget)
+                    .transform(CenterCrop(), RoundedCorners(DimenUtil.roundedDpToPx(8f)))
+                    .into(AppWidgetTarget(context, R.id.widget_content_thumbnail, remoteViews, widgetId))
 
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.VISIBLE)
             }
