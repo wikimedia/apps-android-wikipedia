@@ -61,12 +61,9 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentPlacesBinding
-import org.wikipedia.databinding.ItemNotificationBinding
 import org.wikipedia.databinding.ItemPlacesListBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.notifications.NotificationActivity
-import org.wikipedia.notifications.NotificationListItemContainer
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
@@ -80,6 +77,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
@@ -545,7 +543,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
     }
 
-    private inner class RecyclerViewItemHolder constructor(val binding: ItemPlacesListBinding) :
+    private inner class RecyclerViewItemHolder(val binding: ItemPlacesListBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener {
 
         init {
@@ -555,7 +553,9 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
 
         fun bindItem(item: PlacesFragmentViewModel.NearbyPage, position: Int) {
-            // TODO: implement this
+            binding.listItemTitle.text = StringUtil.fromHtml(item.pageTitle.displayText)
+            binding.listItemDescription.text = StringUtil.fromHtml(item.pageTitle.description)
+            ViewUtil.loadImage(binding.listItemThumbnail, item.pageTitle.thumbUrl)
         }
 
 
