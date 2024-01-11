@@ -209,6 +209,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 map.uiSettings.setCompassMargins(defMargin, 0, defMargin, navBarMargin + defMargin)
 
                 map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.END
+                map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
                 map.uiSettings.setAttributionMargins(defMargin * 2 + (if (L10nUtil.isDeviceRTL) binding.myLocationButton.width else 0),
                     0, defMargin * 2 + (if (L10nUtil.isDeviceRTL) 0 else binding.myLocationButton.width), navBarMargin + defMargin)
 
