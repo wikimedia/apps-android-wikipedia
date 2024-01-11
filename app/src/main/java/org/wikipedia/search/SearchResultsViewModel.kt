@@ -72,7 +72,7 @@ class SearchResultsViewModel : ViewModel() {
                 var response: MwQueryResponse? = null
                 val resultList = mutableListOf<SearchResult>()
                 if (prefixSearch) {
-                    if (searchTerm.length > 2) {
+                    if (searchTerm.length > 2 && invokeSource == Constants.InvokeSource.PLACES) {
                         withContext(Dispatchers.IO) {
                             listOf(async {
                                 getSearchResultsFromTabs(searchTerm)
@@ -94,21 +94,15 @@ class SearchResultsViewModel : ViewModel() {
                     val continuation = if (params.key?.continuation?.contains("description") == true) null else params.key?.continuation
                     response = ServiceFactory.get(wikiSite)
                         .fullTextSearch(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, continuation)
+
+                    resultList.addAll(response.query?.pages?.let { list ->
+                        (if (invokeSource == Constants.InvokeSource.PLACES)
+                            list.filter { it.coordinates != null } else list).sortedBy { it.index }
+                            .map { SearchResult(it, wikiSite, it.coordinates) }
+                    } ?: emptyList())
                 }
 
-                val searchResults = response.query?.pages?.let { list ->
-                    if (invokeSource == Constants.InvokeSource.PLACES) {
-                        list.filter { it.coordinates != null }.sortedBy { it.index }.map {
-                            SearchResult(it, wikiSite, it.coordinates)
-                        }
-                    } else {
-                        list.sortedBy { it.index }.map {
-                            SearchResult(it, wikiSite)
-                        }
-                    }
-                } ?: emptyList()
-
-                if (searchResults.isEmpty() && response.continuation == null) {
+                if (resultList.isEmpty() && response.continuation == null) {
                     resultsCount?.clear()
                     WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
                         if (langCode == languageCode) {
@@ -134,9 +128,7 @@ class SearchResultsViewModel : ViewModel() {
                     }
                 }
 
-                resultList.addAll(searchResults)
-
-                return LoadResult.Page(resultList.distinctBy { it.pageTitle.prefixedText }, null, response.continuation)
+                return LoadResult.Page(resultList.distinctBy { it.pageTitle.prefixedText }, null, response?.continuation)
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
