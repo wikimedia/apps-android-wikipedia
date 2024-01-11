@@ -11,8 +11,10 @@ import android.view.View
 import android.widget.RemoteViews
 import androidx.core.app.PendingIntentCompat
 import androidx.core.os.BundleCompat
+import androidx.work.BackoffPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
+import androidx.work.WorkRequest
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
@@ -26,6 +28,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import java.util.concurrent.TimeUnit
 
 class WidgetProviderFeaturedPage : AppWidgetProvider() {
 
@@ -51,6 +54,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                 WorkManager.getInstance(context).cancelAllWorkByTag(WidgetFeaturedPageWorker::class.java.simpleName)
                 val workRequest = OneTimeWorkRequest.Builder(WidgetFeaturedPageWorker::class.java)
                     .addTag(WidgetFeaturedPageWorker::class.java.simpleName)
+                    .setBackoffCriteria(BackoffPolicy.LINEAR, WorkRequest.MIN_BACKOFF_MILLIS, TimeUnit.MILLISECONDS)
                     .build()
                 WorkManager.getInstance(context).enqueue(workRequest)
                 return
