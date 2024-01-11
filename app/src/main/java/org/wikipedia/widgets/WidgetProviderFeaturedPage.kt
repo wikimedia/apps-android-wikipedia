@@ -95,21 +95,18 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
         private var lastServerUpdateMillis = 0L
 
         fun forceUpdateWidget(context: Context, pageTitle: PageTitle? = null) {
-            val intent = Intent(context, WidgetProviderFeaturedPage::class.java)
-            intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
             val appWidgetManager = AppWidgetManager.getInstance(context.applicationContext)
-            val ids = appWidgetManager.getAppWidgetIds(ComponentName(context.applicationContext, WidgetProviderFeaturedPage::class.java))
-            if (ids.isNotEmpty()) {
-                ids.forEach { id ->
+            appWidgetManager.getAppWidgetIds(ComponentName(context.applicationContext, WidgetProviderFeaturedPage::class.java))
+                .forEach { id ->
                     val options = appWidgetManager.getAppWidgetOptions(id)
                     val bundle = Bundle(WikipediaApp.instance.classLoader)
                     bundle.putParcelable(Constants.ARG_TITLE, pageTitle)
                     options.putParcelable(Constants.ARG_TITLE, bundle)
+
+                    // Updating the widget options automatically triggers an update of the widget,
+                    // so no need to fire an intent here.
                     appWidgetManager.updateAppWidgetOptions(id, options)
                 }
-                intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
-                context.sendBroadcast(intent)
-            }
         }
     }
 }
