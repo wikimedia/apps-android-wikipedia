@@ -975,6 +975,7 @@
   <string name="suggested_edits_add_descriptions_task_detail">Opsummér en artikel for at hjælpe læsere med at forstå emnet på et øjeblik.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Dit samlede antal bidrag indtil videre.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Viser hvor mange dage i træk du har bidraget. Hvis du ikke har bidraget i et stykke tid, vises din sidste bidragsdato.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Samlet antal sidevisninger af emner, som du har bidraget til inden for de sidste 30 dage.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips og tricks til redigering</string>
   <string name="suggested_edits_views_label_text">Visninger</string>
   <string name="suggested_edits_quality_label_text">Redigeringskvalitet</string>
@@ -1000,6 +1001,7 @@
   <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="suggested_edits_task_new">Ny</string>
   <string name="suggested_edits_reactivation_notification_title">Redigeringsforslag</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Har du et minut til at fortsætte med at forbedre Wikipedia? Tjek disse redigeringsforslag.</string>
   <string name="suggested_edits_contributions_screen_title">%s\'s bidrag</string>
   <string name="suggested_edits_contribution_language_label">Sprog</string>
   <string name="suggested_edits_contribution_date_time_label">Dato / Tid</string>
@@ -1064,6 +1066,11 @@
   <string name="image_recommendation_reject_dont_know">Jeg kender ikke dette emne</string>
   <string name="image_recommendation_reject_other">Andet</string>
   <string name="image_recommendation_reject_submit">Indsend</string>
+  <string name="image_recommendation_tooltip_main">Tilføj manglende billeder til artikler i Foreslåede redigeringer</string>
+  <string name="image_recommendation_onboarding_1">Billeder hjælper folk med at forstå, men mange artikler har dem ikke.</string>
+  <string name="image_recommendation_onboarding_2">Du bestemmer, om et foreslået billede skal placeres i en Wikipedia-artikel.</string>
+  <string name="image_recommendation_onboarding_4">Billeder er fra Wikimedia Commons, en samling af åbent licenserede billeder benyttet af Wikipedia.</string>
+  <string name="image_recommendation_tooltip_3">Beslut om billedet hjælper læserne med at forstå dette emne bedre</string>
   <string name="image_recommendation_tooltip_next">Næste</string>
   <string name="suggested_edits_report_feature">Problem med funktionen</string>
   <string name="suggested_edits_report_feature_subject">Problem med Foreslåede redigeringer</string>
@@ -1356,6 +1363,7 @@
   <string name="watchlist_filter_latest_revisions_latest_revision">Seneste revidering</string>
   <string name="watchlist_filter_type_of_change_new_users">Nye brugere</string>
   <string name="watchlist_filter_reset_button">Nulstil</string>
+  <string name="preview_edit_watch_this_page">Overvåg denne side</string>
   <string name="action_item_categories">Kategorier</string>
   <string name="page_no_categories">Denne side tilhører ikke nogen kategorier.</string>
   <string name="category_tab_articles">Artikler</string>
@@ -1427,6 +1435,8 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Tilfreds</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Utilfreds</string>
+  <string name="patroller_diff_feedback_dialog_submit">Indsend</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Feedback indsendt.</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Afvis</string>
   <string name="donation_campaign_go_back_button">Gå tilbage</string>
