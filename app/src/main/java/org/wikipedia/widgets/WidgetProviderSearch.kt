@@ -28,12 +28,15 @@ class WidgetProviderSearch : AppWidgetProvider() {
                 PendingIntent.FLAG_UPDATE_CURRENT, false)
 
             val smallView = RemoteViews(context.packageName, R.layout.widget_search_small)
+            val mediumView = RemoteViews(context.packageName, R.layout.widget_search_medium)
             val largeView = RemoteViews(context.packageName, R.layout.widget_search_large)
             smallView.setOnClickPendingIntent(R.id.widget_container, pendingIntent)
+            mediumView.setOnClickPendingIntent(R.id.widget_container, pendingIntent)
             largeView.setOnClickPendingIntent(R.id.widget_container, pendingIntent)
 
             val viewMapping: Map<SizeF, RemoteViews> = mapOf(
                 SizeF(32f, 32f) to smallView,
+                SizeF(64f, 32f) to mediumView,
                 SizeF(160f, 32f) to largeView
             )
             val remoteViews = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
