@@ -48,7 +48,8 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                 bundle.classLoader = WikipediaApp.instance.classLoader
                 pageTitle = BundleCompat.getParcelable(bundle, Constants.ARG_TITLE, PageTitle::class.java)
             }
-            if (pageTitle == null) {
+            if (pageTitle == null || (System.currentTimeMillis() - lastServerUpdateMillis) > TimeUnit.HOURS.toMillis(1)) {
+                lastServerUpdateMillis = System.currentTimeMillis()
                 WorkManager.getInstance(context).cancelAllWorkByTag(WidgetFeaturedPageWorker::class.java.simpleName)
                 val workRequest = OneTimeWorkRequest.Builder(WidgetFeaturedPageWorker::class.java)
                     .addTag(WidgetFeaturedPageWorker::class.java.simpleName)
@@ -91,6 +92,8 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
     }
 
     companion object {
+        private var lastServerUpdateMillis = 0L
+
         fun forceUpdateWidget(context: Context, pageTitle: PageTitle? = null) {
             val intent = Intent(context, WidgetProviderFeaturedPage::class.java)
             intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
