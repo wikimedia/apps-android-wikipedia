@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_marginVertical="12dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginHorizontal="12dp"
         android:background="@drawable/widget_shape_inner"
         android:gravity="center_vertical"
         android:orientation="vertical">
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:maxLines="2"
+            android:maxLines="1"
             android:textColor="@color/widget_primary"
             android:textSize="18sp"
             android:fontFamily="serif"
@@ -59,7 +59,8 @@
         android:id="@+id/widget_content_thumbnail"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:layout_margin="12dp"
+        android:layout_marginVertical="12dp"
+        android:layout_marginEnd="12dp"
         android:contentDescription="@null" />
 
 </LinearLayout>
