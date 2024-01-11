@@ -40,9 +40,7 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
         for (widgetId in allWidgetIds) {
             L.d("updating widget...")
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_featured_page)
-
             val options = appWidgetManager.getAppWidgetOptions(widgetId)
-            appWidgetManager.updateAppWidgetOptions(widgetId, options)
 
             var pageTitle: PageTitle? = null
             val bundle = BundleCompat.getParcelable(options, Constants.ARG_TITLE, Bundle::class.java)
@@ -74,13 +72,11 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                     .load(pageTitle.thumbUrl)
                     .override(256)
                     .downsample(DownsampleStrategy.CENTER_INSIDE)
-                    .transform(CenterCrop(), RoundedCorners(DimenUtil.roundedDpToPx(8f)))
+                    .transform(CenterCrop(), RoundedCorners(DimenUtil.roundedDpToPx(16f)))
                     .into(AppWidgetTarget(context, R.id.widget_content_thumbnail, remoteViews, widgetId))
 
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.VISIBLE)
             }
-
-            appWidgetManager.updateAppWidget(widgetId, remoteViews)
 
             val pendingIntent = PendingIntentCompat.getActivity(context, 1,
                 Intent(context, PageActivity::class.java)
