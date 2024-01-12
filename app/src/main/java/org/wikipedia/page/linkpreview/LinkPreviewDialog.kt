@@ -96,6 +96,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 viewModel.location?.let {
                     // TODO: implement this in Places branch
                     // startActivity(PlacesActivity.newIntent(requireContext(), viewModel.pageTitle, it))
+                    GeoUtil.sendGeoIntent(requireActivity(), it, StringUtil.fromHtml(viewModel.pageTitle.displayText).toString())
                 }
                 dismiss()
                 true
