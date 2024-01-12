@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:paddingTop="8dp">
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_marginHorizontal="8dp"
+            android:layout_marginHorizontal="16dp"
             android:scrollbars="none">
 
             <LinearLayout
@@ -60,7 +60,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp">
+            android:layout_marginHorizontal="12dp">
 
             <CheckBox
                 android:id="@+id/minorEditCheckBox"
@@ -86,7 +86,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp">
+            android:layout_marginHorizontal="12dp">
 
             <CheckBox
                 android:id="@+id/watchPageCheckBox"
@@ -118,45 +118,14 @@
             android:text="@string/preview_edit_learn_more"
             android:textAlignment="viewStart"
             android:textColor="?attr/primary_color"
-            android:paddingStart="12dp"
+            android:paddingStart="16dp"
             app:iconPadding="6dp"
             app:iconTint="?attr/secondary_color"
             app:icon="@drawable/ic_open_in_new_black_24px" />
 
-        <FrameLayout
-            android:id="@+id/temp_account_info_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            tools:visibility="visible">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginBottom="8dp"
-                android:background="?attr/border_color" />
-
-            <ImageView
-                android:id="@+id/temp_account_info_icon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="12dp"
-                android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/ic_temp_account"
-                app:tint="?attr/secondary_color"
-                android:contentDescription="@null" />
-
-            <TextView
-                android:id="@+id/temp_account_info_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="16dp"
-                android:layout_marginStart="48dp"
-                android:lineSpacingExtra="4dp"
-                android:textColor="?attr/secondary_color"
-                android:text="@string/temp_account_edit_status" />
-
-        </FrameLayout>
+        <include
+            android:id="@+id/footerContainer"
+            layout="@layout/inflate_edit_account_footer" />
 
     </LinearLayout>
 

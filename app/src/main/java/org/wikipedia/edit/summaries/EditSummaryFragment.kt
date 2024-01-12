@@ -138,13 +138,13 @@ class EditSummaryFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
-            binding.tempAccountInfoContainer.isVisible = true
-            binding.tempAccountInfoIcon.setImageResource(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
-            binding.tempAccountInfoText.movementMethod = LinkMovementMethod.getInstance()
-            binding.tempAccountInfoText.text = StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_edit_status, AccountUtil.getTempAccountName(), getString(R.string.temp_accounts_help_url))
+            binding.footerContainer.tempAccountInfoContainer.isVisible = true
+            binding.footerContainer.tempAccountInfoIcon.setImageResource(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
+            binding.footerContainer.tempAccountInfoText.movementMethod = LinkMovementMethod.getInstance()
+            binding.footerContainer.tempAccountInfoText.text = StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_edit_status, AccountUtil.getTempAccountName(), getString(R.string.temp_accounts_help_url))
                 else getString(R.string.temp_account_anon_edit_status, getString(R.string.temp_accounts_help_url)))
         } else {
-            binding.tempAccountInfoContainer.isVisible = false
+            binding.footerContainer.tempAccountInfoContainer.isVisible = false
         }
     }
 

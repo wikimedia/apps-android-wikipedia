@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
+import android.text.method.LinkMovementMethod
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.activity.result.contract.ActivityResultContracts
@@ -169,6 +170,19 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
 
         onInitialLoad()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+            binding.footerContainer.tempAccountInfoContainer.isVisible = true
+            binding.footerContainer.tempAccountInfoIcon.setImageResource(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
+            binding.footerContainer.tempAccountInfoText.movementMethod = LinkMovementMethod.getInstance()
+            binding.footerContainer.tempAccountInfoText.text = StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_edit_status, AccountUtil.getTempAccountName(), getString(R.string.temp_accounts_help_url))
+            else getString(R.string.temp_account_anon_edit_status, getString(R.string.temp_accounts_help_url)))
+        } else {
+            binding.footerContainer.tempAccountInfoContainer.isVisible = false
+        }
     }
 
     public override fun onDestroy() {

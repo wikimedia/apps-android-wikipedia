@@ -108,6 +108,10 @@
                 android:textColor="?attr/secondary_color"
                 tools:text="Sample license text" />
 
+            <include
+                android:id="@+id/footerContainer"
+                layout="@layout/inflate_edit_account_footer" />
+
         </LinearLayout>
 
     </ScrollView>
