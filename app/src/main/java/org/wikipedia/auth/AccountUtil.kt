@@ -104,8 +104,11 @@ object AccountUtil {
     }
 
     fun getTempAccountName(): String {
-        return UriUtil.decodeURL(SharedPreferenceCookieManager.instance.getCookieByName(CENTRALAUTH_USER_COOKIE_NAME)
-            .orEmpty().split(";").firstOrNull().orEmpty().trim())
+        return UriUtil.decodeURL(SharedPreferenceCookieManager.instance.getCookieValueByName(CENTRALAUTH_USER_COOKIE_NAME).orEmpty().trim())
+    }
+
+    fun getTempAccountExpiry(): Long {
+        return SharedPreferenceCookieManager.instance.getCookieExpiryByName(CENTRALAUTH_USER_COOKIE_NAME)
     }
 
     fun maybeShowTempAccountWelcome(activity: Activity) {
