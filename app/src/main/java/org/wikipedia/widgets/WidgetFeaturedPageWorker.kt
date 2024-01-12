@@ -1,8 +1,6 @@
 package org.wikipedia.widgets
 
 import android.content.Context
-import android.text.style.URLSpan
-import androidx.core.text.getSpans
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import org.wikipedia.WikipediaApp
@@ -40,7 +38,7 @@ class WidgetFeaturedPageWorker(
             val pageTitle = summary.getPageTitle(app.wikiSite)
             pageTitle.displayText = summary.displayTitle
 
-            WidgetProviderFeaturedPage.forceUpdateWidget(applicationContext, pageTitle)
+            WidgetProviderFeaturedPage.forceUpdateWidget(applicationContext, pageTitle, false)
 
             Result.success()
         } catch (e: Exception) {
@@ -49,25 +47,31 @@ class WidgetFeaturedPageWorker(
         }
     }
 
-    private fun findFeaturedArticleTitle(pageLeadContent: String): String {
-        // Extract the actual link to the featured page in a hacky way (until we
-        // have the correct API for it):
-        // Parse the HTML, and look for the first link, which should be the
-        // article of the day.
-        val text = StringUtil.fromHtml(pageLeadContent)
-        val spans = text.getSpans<URLSpan>()
-        var titleText = ""
-        for (span in spans) {
-            if (!span.url.startsWith("/wiki/") ||
-                    text.getSpanEnd(span) - text.getSpanStart(span) <= 1) {
-                continue
-            }
-            val title = PageTitle.titleForInternalLink(UriUtil.decodeURL(span.url), WikiSite(span.url))
-            if (!title.isFilePage && !title.isSpecial) {
-                titleText = title.displayText
-                break
-            }
+    private fun findFeaturedArticleTitle(pageContent: String): String {
+        // In lieu of a proper API for getting the featured article, we'll just parse it out of the
+        // main page HTML. The idea is to find the first subheading (h2), then search for the first
+        // anchor (link) after that, which satisfies a few conditions.
+
+        var parsePos = pageContent.indexOf("</h2>")
+        if (parsePos == -1) {
+            parsePos = 0
         }
-        return titleText
+
+        // Yes, I know you're not supposed to parse HTML with regexes. But this is a very specific
+        // isolated situation and it's a lot easier and more efficient than a full-blown HTML parser.
+        // Is that ok with you? Good.
+        var match = """<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)(["'])\s*>(.*?)<\/a>""".toRegex()
+            .find(pageContent, parsePos)
+
+        while (match != null) {
+            val href = match.groupValues[2].trim()
+            val text = StringUtil.fromHtml(match.groupValues[4]).toString().trim()
+            val title = PageTitle.titleForInternalLink(UriUtil.decodeURL(href), WikiSite(href))
+            if (!title.isFilePage && !title.isSpecial && href.startsWith("/wiki/") && text.isNotEmpty()) {
+                return title.prefixedText
+            }
+            match = match.next()
+        }
+        return ""
     }
 }
