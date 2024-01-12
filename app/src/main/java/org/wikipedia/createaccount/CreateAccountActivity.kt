@@ -9,6 +9,7 @@ import android.text.TextWatcher
 import android.util.Patterns
 import android.view.KeyEvent
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
@@ -19,6 +20,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.CreateAccountEvent
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.captcha.CaptchaHandler
 import org.wikipedia.captcha.CaptchaResult
 import org.wikipedia.databinding.ActivityCreateAccountBinding
@@ -62,6 +64,14 @@ class CreateAccountActivity : BaseActivity() {
         if (savedInstanceState == null) {
             createAccountEvent.logStart()
         }
+
+        if (AccountUtil.isTemporaryAccount) {
+            binding.footerContainer.tempAccountInfoContainer.isVisible = true
+            binding.footerContainer.tempAccountInfoText.text = getString(R.string.temp_account_login_status, AccountUtil.userName)
+        } else {
+            binding.footerContainer.tempAccountInfoContainer.isVisible = false
+        }
+
         // Set default result to failed, so we can override if it did not
         setResult(RESULT_ACCOUNT_NOT_CREATED)
     }
