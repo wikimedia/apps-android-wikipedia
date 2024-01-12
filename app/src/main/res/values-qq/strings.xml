@@ -1457,6 +1457,8 @@
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
   <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
   <string name="user_contrib_filter_activity_title">Screen title for applying the filters for the contributions of a user.</string>
+  <string name="action_item_view_on_map">Menu label for accessing the map for the geographical coordinates of the page.</string>
+  <string name="action_item_view_on_map_unavailable">Message that indicates the geographical coordinates of the page are not available.</string>
   <string name="shareable_reading_lists_import_dialog_title">Title text for the import reading list dialog.</string>
   <string name="shareable_reading_lists_import_dialog_content">Content text for the import reading list dialog.</string>
   <string name="shareable_reading_lists_new_indicator">Label indicating that the imported list in the list view.</string>
@@ -1590,8 +1592,10 @@
   <string name="patroller_diff_feedback_tooltip">Text of the tooltip for the patrol edit screen indicates how to submit feedback for the feature.\n\n\"Problem with feature\" is {{msg-wm|Wikipedia-android-strings-suggested edits report feature}}</string>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
+  <string name="places_title">Title for the Places screen.</string>
   <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
   <string name="generic_release_notes">Release notes message that will be used on app stores for minor releases and maintenance updates.</string>
+  <string name="places_permissions_denied">Message shown when a required permission was denied by the user.</string>
   <string name="email_report_image_recommendations_subject">Subject heading for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>
@@ -1600,4 +1604,12 @@
   <string name="donation_campaign_donated_snackbar">Text for the snackbar message when user hits the \"I already donated\" option.</string>
   <string name="donation_campaign_go_back_button">Button label for the webview that can go back to the previous screen.</string>
   <string name="menu_single_webview_open_external">Menu option that indicates the web page can be opened in a system browser.</string>
+  <string name="link_preview_dialog_read_button">Button label for reading the article in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_save_button">Button label for saving the article to a reading list in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_saved_button">Button label that indicates the article has been saved in a reading list in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_share_button">Button label for sharing the article in the link preview bottom sheet.</string>
+  <string name="places_search_hint">Hint text for the search box inside the Places screen. Should be as short as possible.</string>
+  <string name="places_filter_title">Title string for places language filter screen.</string>
+  <string name="places_toggle_buttons_map">Button label for viewing the map view in the Places screen.</string>
+  <string name="places_toggle_buttons_list">Button label for viewing the list view in the Places screen.</string>
 </resources>
