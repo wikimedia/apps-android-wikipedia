@@ -195,7 +195,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
         binding.listRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.listRecyclerView.adapter = RecyclerViewAdapter()
-        binding.listRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, skipSearchBar = true))
+        binding.listRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, skipSearchBar = true))
 
         return binding.root
     }
@@ -271,6 +271,22 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         binding.viewButtonsGroup.post {
             binding.viewButtonsGroup.check(R.id.mapViewButton)
             binding.viewButtonsGroup.isVisible = true
+        }
+
+        binding.viewButtonsGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
+            if (!isChecked) {
+                return@addOnButtonCheckedListener
+            }
+            when (checkedId) {
+                R.id.mapViewButton -> {
+                    binding.mapView.isVisible = true
+                    binding.listRecyclerView.isVisible = false
+                }
+                R.id.listViewButton -> {
+                    binding.mapView.isVisible = false
+                    binding.listRecyclerView.isVisible = true
+                }
+            }
         }
     }
 
@@ -555,9 +571,13 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         fun bindItem(item: PlacesFragmentViewModel.NearbyPage, position: Int) {
             binding.listItemTitle.text = StringUtil.fromHtml(item.pageTitle.displayText)
             binding.listItemDescription.text = StringUtil.fromHtml(item.pageTitle.description)
-            ViewUtil.loadImage(binding.listItemThumbnail, item.pageTitle.thumbUrl)
+            item.pageTitle.thumbUrl?.let {
+                ViewUtil.loadImage(binding.listItemThumbnail, it)
+                binding.listItemThumbnail.isVisible = true
+            } ?: run {
+                binding.listItemThumbnail.isVisible = false
+            }
         }
-
 
         override fun onClick(v: View) {
             // TODO: implement this
