@@ -400,6 +400,10 @@
     <string name="multi_select_items_selected">%d selected</string>
     <string name="error_message_generic">An error occurred</string>
     <string name="view_link_preview_error_button_dismiss">Dismiss</string>
+    <string name="link_preview_dialog_read_button">Read</string>
+    <string name="link_preview_dialog_save_button">Save</string>
+    <string name="link_preview_dialog_saved_button">Saved</string>
+    <string name="link_preview_dialog_share_button">Share</string>
     <string name="error_page_does_not_exist">This page does not exist</string>
     <string name="error_user_page_does_not_exist"><![CDATA[Wikipedia does not have a <a href="%1$s">user page</a> with this exact name. In general, this page should be created and edited by <b>%2$s</b>. If in doubt, please verify that \"%3$s\" exists.]]></string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
@@ -1537,6 +1541,8 @@
     <string name="media_playback_error">Error playing media.</string>
     <string name="user_contrib_menu_label">Contributions</string>
     <string name="user_contrib_filter_activity_title">Filter contributions</string>
+    <string name="action_item_view_on_map">View on map</string>
+    <string name="action_item_view_on_map_unavailable">Geographical coordinates are not available for this page</string>
 
     <!-- Shareable reading lists -->
     <string name="shareable_reading_lists_import_dialog_title">Import shared reading list</string>
@@ -1691,4 +1697,11 @@
     <string name="donation_campaign_go_back_button">Go back</string>
     <string name="menu_single_webview_open_external">Open in system browser</string>
     <!-- Donor experience -->
+
+    <string name="places_title">Places</string>
+    <string name="places_permissions_denied">Location permission is required to see your location on the map. Please try again.</string>
+    <string name="places_search_hint">Search places</string>
+    <string name="places_filter_title">Filter language</string>
+    <string name="places_toggle_buttons_map">Map</string>
+    <string name="places_toggle_buttons_list">List</string>
 </resources>
