@@ -643,6 +643,10 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_temp_account_welcome_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_temp_account_welcome_shown, value)
 
+    var tempAccountDialogShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_temp_account_dialog_shown, false)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_temp_account_dialog_shown, value)
+
     var readingListShareSurveyDialogShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_reading_lists_share_survey_dialog_shown, false)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_reading_lists_share_survey_dialog_shown, value)

@@ -115,6 +115,7 @@ object AccountUtil {
     fun maybeShowTempAccountWelcome(activity: Activity): Boolean {
         if (!Prefs.tempAccountWelcomeShown && isTemporaryAccount) {
             Prefs.tempAccountWelcomeShown = true
+            Prefs.tempAccountDialogShown = false
 
             val expiryDays = TimeUnit.MILLISECONDS.toDays(getTempAccountExpiry() - System.currentTimeMillis()).toInt()
             FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.temp_account_created,

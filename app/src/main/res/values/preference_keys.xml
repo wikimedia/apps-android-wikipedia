@@ -138,6 +138,7 @@
     <string name="preference_key_customize_toolbar_menu_order">customizeToolbarMenuOrder</string>
     <string name="preference_key_show_edit_talk_page_source_prompt">showEditTalkPageSourcePrompt</string>
     <string name="preference_key_temp_account_welcome_shown">tempAccountWelcomeShown</string>
+    <string name="preference_key_temp_account_dialog_shown">tempAccountDialogShown</string>
     <string name="preference_key_talk_topics_sort_mode">talkTopicsSortMode</string>
     <string name="preference_key_reading_focus_mode">readingFocusMode</string>
     <string name="preference_key_edit_history_filter_type">editHistoryFilterType</string>

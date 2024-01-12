@@ -501,6 +501,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
                 showEditNotices()
                 true
             }
+            R.id.menu_temp_account -> {
+                maybeShowTempAccountDialog(true)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -788,7 +792,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
     }
 
     private fun maybeShowTempAccountDialog(force: Boolean = false): Boolean {
-        if (force || !AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+        if (force || (!Prefs.tempAccountDialogShown && (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount))) {
             val alert = MaterialAlertDialogBuilder(this)
             alert.setTitle(if (AccountUtil.isTemporaryAccount) R.string.temp_account_using_title else R.string.temp_account_not_logged_in)
             alert.setMessage(StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_temp_dialog_body, AccountUtil.userName)
@@ -802,6 +806,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
                 requestLogin.launch(loginIntent)
             }
             alert.create().show()
+            Prefs.tempAccountDialogShown = true
             return true
         }
         return false

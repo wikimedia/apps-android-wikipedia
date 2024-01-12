@@ -35,6 +35,7 @@ import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.talk.template.TalkTemplatesTextInputDialog
@@ -183,6 +184,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         } else {
             binding.footerContainer.tempAccountInfoContainer.isVisible = false
         }
+        maybeShowTempAccountDialog()
     }
 
     public override fun onDestroy() {
@@ -467,6 +469,27 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
                 UriUtil.handleExternalLink(this, Uri.parse(url))
             }
         }
+    }
+
+    private fun maybeShowTempAccountDialog(force: Boolean = false): Boolean {
+        if (force || (!Prefs.tempAccountDialogShown && (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount))) {
+            val alert = MaterialAlertDialogBuilder(this)
+            alert.setTitle(if (AccountUtil.isTemporaryAccount) R.string.temp_account_using_title else R.string.temp_account_not_logged_in)
+            alert.setMessage(StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_temp_dialog_body, AccountUtil.userName)
+            else getString(R.string.temp_account_anon_dialog_body)))
+            alert.setPositiveButton(getString(R.string.temp_account_dialog_ok)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            alert.setNegativeButton(getString(R.string.create_account_login)) { dialog, _ ->
+                dialog.dismiss()
+                val loginIntent = LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT)
+                requestLogin.launch(loginIntent)
+            }
+            alert.create().show()
+            Prefs.tempAccountDialogShown = true
+            return true
+        }
+        return false
     }
 
     override fun onBackPressed() {
