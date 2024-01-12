@@ -277,17 +277,16 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             if (!isChecked) {
                 return@addOnButtonCheckedListener
             }
-            when (checkedId) {
-                R.id.mapViewButton -> {
-                    binding.mapView.isVisible = true
-                    binding.listRecyclerView.isVisible = false
-                }
-                R.id.listViewButton -> {
-                    binding.mapView.isVisible = false
-                    binding.listRecyclerView.isVisible = true
-                }
-            }
+            updateToggleViews(checkedId == R.id.mapViewButton)
         }
+    }
+
+    private fun updateToggleViews(isMapVisible: Boolean) {
+        val tintColor = ResourceUtil.getThemedColorStateList(requireContext(), if (isMapVisible) R.attr.paper_color else R.attr.background_color)
+        binding.mapView.isVisible = isMapVisible
+        binding.listRecyclerView.isVisible = !isMapVisible
+        binding.searchContainer.backgroundTintList = tintColor
+        // TODO: update list button color
     }
 
     private fun updateSearchCardViews() {
