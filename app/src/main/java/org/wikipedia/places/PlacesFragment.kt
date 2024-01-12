@@ -2,6 +2,7 @@ package org.wikipedia.places
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity.RESULT_OK
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -22,6 +23,7 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.Insets
 import androidx.core.graphics.applyCanvas
@@ -45,6 +47,7 @@ import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
 import com.mapbox.mapboxsdk.plugins.annotation.ClusterOptions
+import com.mapbox.mapboxsdk.plugins.annotation.Symbol
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions
 import com.mapbox.mapboxsdk.style.expressions.Expression
@@ -66,6 +69,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -73,9 +77,9 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
-import kotlin.math.abs
 
 class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
@@ -90,25 +94,56 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
     private var symbolManager: SymbolManager? = null
 
     private val annotationCache = ArrayDeque<PlacesFragmentViewModel.NearbyPage>()
-    private var lastLocationUpdated: LatLng? = null
+    private var lastLocationUpdated: Location? = null
 
     private lateinit var markerBitmapBase: Bitmap
     private lateinit var markerPaintSrc: Paint
     private lateinit var markerPaintSrcIn: Paint
     private lateinit var markerBorderPaint: Paint
     private val markerRect = Rect(0, 0, MARKER_SIZE, MARKER_SIZE)
+    private val searchRadius
+        get() = mapboxMap?.let {
+            latitudeDiffToMeters(it.projection.visibleRegion.latLngBounds.latitudeSpan / 2)
+        } ?: 50
+    private var zoom: Double = 15.0
+    private var magnifiedMarker: Symbol? = null
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         when {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 startLocationTracking()
-                goToLastKnownLocation(1000, viewModel.location, viewModel.pageTitle != null)
+                goToLocation(1000, viewModel.location)
             }
             else -> {
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
             }
         }
+    }
+
+    private val placesSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+              val location = it.data?.getParcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
+              viewModel.pageTitle = it.data?.getParcelableExtra(Constants.ARG_TITLE)!!
+              Prefs.placesWikiCode = viewModel.pageTitle?.wikiSite?.languageCode
+                  ?: WikipediaApp.instance.appOrSystemLanguageCode
+              updateSearchText(viewModel.pageTitle?.displayText.orEmpty())
+              goToLocation(1000, location)
+              viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
+          }
+    }
+
+    private val filterLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+              val languageChanged = it.data?.getBooleanExtra(PlacesFilterActivity.EXTRA_LANG_CHANGED, false)!!
+            if (languageChanged) {
+                annotationCache.clear()
+                symbolManager?.deleteAll()
+                  viewModel.fetchNearbyPages(lastLocationUpdated?.latitude ?: 0.0,
+                      lastLocationUpdated?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
+                  goToLocation(1000, lastLocationUpdated, zoom)
+              }
+          }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -121,6 +156,10 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         Mapbox.getInstance(requireActivity().applicationContext)
 
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
+
+        requireArguments().getParcelable<PageTitle>(Constants.ARG_TITLE)?.let {
+            Prefs.placesWikiCode = it.wikiSite.languageCode
+        }
 
         activity?.window?.let { window ->
             WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -158,7 +197,8 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
 
         binding.searchTextView.setOnClickListener {
-            // TODO: search
+            openSearchActivity(if (binding.searchTextView.text.toString() == getString(R.string.places_search_hint)) null
+            else binding.searchTextView.text.toString())
         }
 
         binding.backButton.setOnClickListener {
@@ -166,22 +206,37 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
 
         binding.searchLangContainer.setOnClickListener {
-            // TODO: change language
+            zoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
+            filterLauncher.launch(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
         binding.searchCloseBtn.setOnClickListener {
-            // TODO: clear search
+            updateSearchText(getString(R.string.places_search_hint))
         }
 
         binding.myLocationButton.setOnClickListener {
             if (haveLocationPermissions()) {
-                goToLastKnownLocation(0)
+                goToLocation(0)
             } else {
                 locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
             }
         }
 
         return binding.root
+    }
+
+    private fun openSearchActivity(query: String?) {
+        val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES, query)
+        val options = binding.searchContainer.let {
+            ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+                binding.searchContainer, getString(R.string.transition_search_bar))
+        }
+        placesSearchLauncher.launch(intent, options)
+    }
+
+    private fun updateSearchText(searchText: String) {
+        binding.searchTextView.text = searchText
+        binding.searchCloseBtn.isVisible = searchText != getString(R.string.places_search_hint) && searchText.isNotEmpty()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -229,7 +284,12 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
+                        updateSearchText(it.pageTitle.displayText)
                         val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_PLACES)
+                        resetMagnifiedSymbol()
+                        magnifiedMarker = it.annotation
+                        magnifiedMarker?.iconSize = 1.75f
+                        symbolManager?.update(magnifiedMarker)
                         ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
                     }
                     true
@@ -238,7 +298,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
-                        goToLastKnownLocation(1000, viewModel.location, viewModel.pageTitle != null)
+                        goToLocation(1000, viewModel.location)
                     }
                 } else {
                     locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -252,6 +312,14 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
+        }
+    }
+
+    private fun resetMagnifiedSymbol() {
+        // Reset the magnified marker to regular size
+        magnifiedMarker?.let {
+            it.iconSize = 1.0f
+            symbolManager?.update(it)
         }
     }
 
@@ -367,24 +435,17 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             return
         }
 
+        lastLocationUpdated = Location("").also {
+            it.latitude = latLng.latitude
+            it.longitude = latLng.longitude
+        }
+
+        LatLng(latLng.latitude, latLng.longitude)
+
         if ((mapboxMap?.cameraPosition?.zoom ?: 0.0) < 3.0) {
             // Don't fetch pages if the map is zoomed out too far.
             return
         }
-
-        // Fetch new pages within the current viewport, but only if the map has moved a significant distance.
-        val latEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) * 0.1
-        val lngEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.longitudeSpan ?: 0.0) * 0.1
-
-        if (lastLocationUpdated != null &&
-            abs(latLng.latitude - (lastLocationUpdated?.latitude ?: 0.0)) < latEpsilon &&
-            abs(latLng.longitude - (lastLocationUpdated?.longitude ?: 0.0)) < lngEpsilon) {
-            return
-        }
-
-        lastLocationUpdated = LatLng(latLng.latitude, latLng.longitude)
-
-        val searchRadius = latitudeDiffToMeters(mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) / 2
 
         L.d(">>> requesting update: " + latLng.latitude + ", " + latLng.longitude + ", " + mapboxMap?.cameraPosition?.zoom)
         viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude, searchRadius, ITEMS_PER_REQUEST)
@@ -401,8 +462,16 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                         .withLatLng(LatLng(it.latitude, it.longitude))
                         .withTextFont(MARKER_FONT_STACK)
                         .withIconImage(MARKER_DRAWABLE)
-                        .withIconOffset(arrayOf(0f, -32f)))
-
+                        .withIconOffset(arrayOf(0f, -32f))
+                )
+                if (StringUtil.removeUnderscores(viewModel.pageTitle?.text.orEmpty()) ==
+                    StringUtil.removeUnderscores(it.pageTitle.text)
+                ) {
+                    magnifiedMarker = it.annotation
+                    magnifiedMarker?.iconSize = 1.75f
+                    // Reset the page title so that the marker doesn't get magnified again
+                    viewModel.pageTitle = null
+                }
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
 
@@ -437,16 +506,16 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
     }
 
-    private fun goToLastKnownLocation(delayMillis: Long, targetLocation: Location? = null, shouldZoomToMax: Boolean = false) {
+    private fun goToLocation(delayMillis: Long, preferredLocation: Location? = null, zoom: Double = 15.0) {
         binding.mapView.postDelayed({
-            if (isAdded) {
+            if (isAdded && haveLocationPermissions()) {
                 mapboxMap?.let {
-                    val location = targetLocation ?: it.locationComponent.lastKnownLocation
-                    if (location != null) {
-                        val latLng = LatLng(location.latitude, location.longitude)
-                        val zoomLevel = if (shouldZoomToMax) 15.999 else 15.0
-                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel))
-                    }
+                    val currentLocation = it.locationComponent.lastKnownLocation
+                    var currentLatLngLoc: LatLng? = null
+                    currentLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
+                    val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
+                    val targetLocation = location ?: currentLatLngLoc
+                    targetLocation?.let { target -> it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom)) }
                 }
             }
         }, delayMillis)
@@ -511,6 +580,9 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             val screenPoint = it.projection.toScreenLocation(point)
             val rect = RectF(screenPoint.x - 10, screenPoint.y - 10, screenPoint.x + 10, screenPoint.y + 10)
 
+            // Reset any enhanced markers to regular size
+            resetMagnifiedSymbol()
+
             // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
             val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
             if (featureList.isNotEmpty()) {
@@ -528,9 +600,9 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
     companion object {
         const val MARKER_DRAWABLE = "markerDrawable"
         const val POINT_COUNT = "point_count"
-        const val MAX_ANNOTATIONS = 64
+        const val MAX_ANNOTATIONS = 250
         const val THUMB_SIZE = 160
-        const val ITEMS_PER_REQUEST = 50
+        const val ITEMS_PER_REQUEST = 75
         const val CLUSTER_TEXT_LAYER_ID = "mapbox-android-cluster-text"
         const val CLUSTER_CIRCLE_LAYER_ID = "mapbox-android-cluster-circle0"
         const val ZOOM_IN_ANIMATION_DURATION = 1000
