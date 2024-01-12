@@ -434,9 +434,14 @@
         <item quantity="one">Temporary account %1$s was created after your edit was published. It will expire in %2$d day.</item>
         <item quantity="other">Temporary account %1$s was created after your edit was published. It will expire in %2$d days.</item>
     </plurals>
+    <plurals name="temp_account_expiry">
+        <item quantity="one">Account will expire in %d day.</item>
+        <item quantity="other">Account will expire in %d days.</item>
+    </plurals>
     <string name="temp_account_edit_status"><![CDATA[<b>You are using a temporary account.</b> Your edit will be attributed to %1$s. <a href="%2$s">Learn more</a>.]]></string>
     <string name="temp_account_login_status"><![CDATA[<b>You are currently using a temporary account.</b> Edits made with the temporary account %1$s will not be carried over to your permanent account when you log in. Log in or create an account to get credit to your username, among other benefits.]]></string>
     <string name="temp_account_end_session">End session</string>
+    <string name="temp_account_end_session_confirm">This will log you out of your temporary account. Do you want to continue?</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_activity_title">Application error</string>
