@@ -58,14 +58,21 @@ class WidgetFeaturedPageWorker(
         }
 
         // Yes, I know you're not supposed to parse HTML with regexes. But this is a very specific
-        // isolated situation and it's a lot easier and more efficient than a full-blown HTML parser.
-        // Is that ok with you? Good.
-        var match = """<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)(["'])\s*>(.*?)<\/a>""".toRegex()
+        // isolated situation and it's a lot easier and more efficient than a full-blown HTML
+        // parser. Is that ok with you? Good.
+        var match = """<a\s*[^>]*href="([^"]*)"[^>]*>""".toRegex()
             .find(pageContent, parsePos)
 
         while (match != null) {
-            val href = match.groupValues[2].trim()
-            val text = StringUtil.fromHtml(match.groupValues[4]).toString().trim()
+            val href = match.groupValues[1].trim()
+            val end = pageContent.indexOf("</a>", match.range.last)
+            if (end == -1) {
+                break
+            }
+
+            val t = pageContent.substring(match.range.last + 1, end)
+
+            val text = StringUtil.fromHtml(t).toString().trim()
             val title = PageTitle.titleForInternalLink(UriUtil.decodeURL(href), WikiSite(href))
             if (!title.isFilePage && !title.isSpecial && href.startsWith("/wiki/") && text.isNotEmpty()) {
                 return title.prefixedText
