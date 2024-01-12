@@ -194,6 +194,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
 
         binding.listRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.listRecyclerView.adapter = RecyclerViewAdapter()
         binding.listRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, skipSearchBar = true))
 
         return binding.root
@@ -259,7 +260,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             }
         }
 
-        viewModel.nearbyPages.observe(viewLifecycleOwner) {
+        viewModel.nearbyPagesLiveData.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 updateMapMarkers(it.data)
             } else if (it is Resource.Error) {
@@ -420,8 +421,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 }
             }
         }
-
-        binding.listRecyclerView.adapter = RecyclerViewAdapter(pages)
+        binding.listRecyclerView.adapter?.notifyDataSetChanged()
     }
 
     private fun haveLocationPermissions(): Boolean {
@@ -529,9 +529,9 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         return false
     }
 
-    private inner class RecyclerViewAdapter(val list: List<PlacesFragmentViewModel.NearbyPage>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
+    private inner class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewItemHolder>() {
         override fun getItemCount(): Int {
-            return list.size
+            return viewModel.nearbyPages.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerViewItemHolder {
@@ -539,7 +539,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
-            holder.bindItem(list[position], position)
+            holder.bindItem(viewModel.nearbyPages[position], position)
         }
     }
 
