@@ -5,9 +5,10 @@ import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.PorterDuff.Mode
+import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.RectF
@@ -96,10 +97,10 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
     private var lastLocationUpdated: Location? = null
 
     private lateinit var markerBitmapBase: Bitmap
-    private lateinit var markerBitmapBaseRect: Rect
-    private val markerRect = Rect(0, 0, MARKER_WIDTH, MARKER_HEIGHT)
-    private val markerPaintSrc = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC) }
-    private val markerPaintSrcIn = Paint().apply { isAntiAlias = true; xfermode = PorterDuffXfermode(Mode.SRC_IN) }
+    private lateinit var markerPaintSrc: Paint
+    private lateinit var markerPaintSrcIn: Paint
+    private lateinit var markerBorderPaint: Paint
+    private val markerRect = Rect(0, 0, MARKER_SIZE, MARKER_SIZE)
     private val searchRadius
         get() = mapboxMap?.let {
             latitudeDiffToMeters(it.projection.visibleRegion.latLngBounds.latitudeSpan / 2)
@@ -147,8 +148,10 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        markerBitmapBase = ResourceUtil.bitmapFromVectorDrawable(requireContext(), R.drawable.map_marker_outline, null)
-        markerBitmapBaseRect = Rect(0, 0, markerBitmapBase.width, markerBitmapBase.height)
+        setupMarkerPaints()
+        markerBitmapBase = Bitmap.createBitmap(MARKER_SIZE, MARKER_SIZE, Bitmap.Config.ARGB_8888).applyCanvas {
+            drawMarker(this)
+        }
 
         Mapbox.getInstance(requireActivity().applicationContext)
 
@@ -250,7 +253,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             map.setStyle(Style.Builder().fromUri(assetForTheme)) { style ->
                 mapboxMap = map
 
-                style.addImage(MARKER_DRAWABLE, AppCompatResources.getDrawable(requireActivity(), R.drawable.map_marker)!!)
+                style.addImage(MARKER_DRAWABLE, markerBitmapBase)
 
                 // TODO: Currently the style seems to break when zooming beyond 16.0. See if we can fix this.
                 map.setMaxZoomPreference(15.999)
@@ -259,10 +262,12 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 val defMargin = DimenUtil.roundedDpToPx(16f)
                 val navBarMargin = if (navBarInsets != null) navBarInsets!!.bottom else 0
 
+                map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass_with_bg)!!)
                 map.uiSettings.compassGravity = Gravity.BOTTOM or Gravity.START
-                map.uiSettings.setCompassMargins(defMargin, 0, defMargin, navBarMargin + defMargin)
+                map.uiSettings.setCompassMargins(defMargin, 0, defMargin, navBarMargin + DimenUtil.roundedDpToPx(24f))
 
                 map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.END
+                map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
                 map.uiSettings.setAttributionMargins(defMargin * 2 + (if (L10nUtil.isDeviceRTL) binding.myLocationButton.width else 0),
                     0, defMargin * 2 + (if (L10nUtil.isDeviceRTL) 0 else binding.myLocationButton.width), navBarMargin + defMargin)
 
@@ -315,6 +320,24 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         magnifiedMarker?.let {
             it.iconSize = 1.0f
             symbolManager?.update(it)
+        }
+    }
+
+    private fun setupMarkerPaints() {
+        markerPaintSrc = Paint().apply {
+            isAntiAlias = true
+            color = ResourceUtil.getThemedColor(requireContext(), R.attr.success_color)
+            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC)
+        }
+        markerPaintSrcIn = Paint().apply {
+            isAntiAlias = true
+            xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+        }
+        markerBorderPaint = Paint().apply {
+            style = Paint.Style.STROKE
+            strokeWidth = MARKER_BORDER_SIZE
+            color = ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)
+            isAntiAlias = true
         }
     }
 
@@ -533,25 +556,23 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
         // Retrieve an unused bitmap from the pool
         val result = Glide.get(requireContext()).bitmapPool
-            .getDirty(MARKER_WIDTH, MARKER_HEIGHT, Bitmap.Config.ARGB_8888)
-
-        // Make the background fully transparent.
-        result.eraseColor(Color.TRANSPARENT)
+            .getDirty(MARKER_SIZE, MARKER_SIZE, Bitmap.Config.ARGB_8888)
 
         result.applyCanvas {
-            val srcRect = Rect(0, 0, thumbnailBitmap.width, thumbnailBitmap.height)
-
-            // Draw a filled circle that will serve as a mask for the thumbnail image.
-            drawCircle((MARKER_WIDTH / 2).toFloat(), (MARKER_WIDTH / 2).toFloat(),
-                ((MARKER_WIDTH / 2) - (MARKER_WIDTH / 16)).toFloat(), markerPaintSrc)
-
-            // Draw the thumbnail, which will be clipped by the circle mask above.
-            drawBitmap(thumbnailBitmap, srcRect, markerRect, markerPaintSrcIn)
-
-            // Draw the marker frame on top of the clipped thumbnail.
-            drawBitmap(markerBitmapBase, markerBitmapBaseRect, markerRect, null)
+            this.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
+            drawMarker(this, thumbnailBitmap)
         }
         return result
+    }
+
+    private fun drawMarker(canvas: Canvas, thumbnailBitmap: Bitmap? = null) {
+        val radius = MARKER_SIZE / 2f
+        canvas.drawCircle(radius, radius, radius, markerPaintSrc)
+        thumbnailBitmap?.let {
+            val thumbnailRect = Rect(0, 0, it.width, it.height)
+            canvas.drawBitmap(it, thumbnailRect, markerRect, markerPaintSrcIn)
+        }
+        canvas.drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
     }
 
     override fun onMapClick(point: LatLng): Boolean {
@@ -587,8 +608,8 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         const val ZOOM_IN_ANIMATION_DURATION = 1000
         val CLUSTER_FONT_STACK = arrayOf("Open Sans Semibold")
         val MARKER_FONT_STACK = arrayOf("Open Sans Regular")
-        val MARKER_WIDTH = DimenUtil.roundedDpToPx(48f)
-        val MARKER_HEIGHT = DimenUtil.roundedDpToPx(60f)
+        val MARKER_SIZE = DimenUtil.roundedDpToPx(40f)
+        val MARKER_BORDER_SIZE = DimenUtil.dpToPx(2f)
 
         fun newInstance(pageTitle: PageTitle?, location: Location?): PlacesFragment {
             return PlacesFragment().apply {
