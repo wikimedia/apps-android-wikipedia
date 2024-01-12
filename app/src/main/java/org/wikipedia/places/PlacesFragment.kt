@@ -4,6 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.PorterDuff
@@ -113,7 +114,9 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupMarkerPaints()
-        markerBitmapBase = circularBitmapWithBorder()
+        markerBitmapBase = Bitmap.createBitmap(MARKER_SIZE, MARKER_SIZE, Bitmap.Config.ARGB_8888).applyCanvas {
+            drawMarker(this)
+        }
 
         Mapbox.getInstance(requireActivity().applicationContext)
 
@@ -486,27 +489,21 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         val result = Glide.get(requireContext()).bitmapPool
             .getDirty(MARKER_SIZE, MARKER_SIZE, Bitmap.Config.ARGB_8888)
 
-        // Make the background fully transparent.
-        result.eraseColor(Color.TRANSPARENT)
-
         result.applyCanvas {
-            drawBitmap(circularBitmapWithBorder(thumbnailBitmap), null, markerRect, null)
+            this.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR)
+            drawMarker(this, thumbnailBitmap)
         }
         return result
     }
 
-    private fun circularBitmapWithBorder(thumbnailBitmap: Bitmap? = null): Bitmap {
+    private fun drawMarker(canvas: Canvas, thumbnailBitmap: Bitmap? = null) {
         val radius = MARKER_SIZE / 2f
-        val result = Glide.get(requireContext()).bitmapPool.getDirty(MARKER_SIZE, MARKER_SIZE, Bitmap.Config.ARGB_8888)
-        result.applyCanvas {
-            drawCircle(radius, radius, radius, markerPaintSrc)
-            thumbnailBitmap?.let {
-                val thumbnailRect = Rect(0, 0, it.width, it.height)
-                drawBitmap(it, thumbnailRect, markerRect, markerPaintSrcIn)
-            }
-            drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
+        canvas.drawCircle(radius, radius, radius, markerPaintSrc)
+        thumbnailBitmap?.let {
+            val thumbnailRect = Rect(0, 0, it.width, it.height)
+            canvas.drawBitmap(it, thumbnailRect, markerRect, markerPaintSrcIn)
         }
-        return result
+        canvas.drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
     }
 
     override fun onMapClick(point: LatLng): Boolean {
