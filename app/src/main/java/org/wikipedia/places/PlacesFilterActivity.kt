@@ -116,7 +116,7 @@ class PlacesFilterActivity : BaseActivity() {
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, position: Int) {
             when (holder) {
                 is PlacesFilterHeaderViewHolder -> holder.bindItem(
-                    context, getString(R.string.places_filter_header)
+                    context, getString(R.string.watchlist_filter_wiki_filter_header)
                 )
                 is PlacesFilterFooterViewHolder -> holder.bindItem(context as Activity)
                 else -> (holder as PlacesFilterItemViewHolder).bindItem(filtersList[position])

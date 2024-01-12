@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="46dp"
         android:gravity="center_vertical"
-        android:text="@string/places_filter_update_app_languages"
+        android:text="@string/notifications_filter_update_app_languages"
         android:textColor="?attr/progressive_color" />
 
 </LinearLayout>

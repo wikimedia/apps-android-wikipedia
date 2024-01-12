@@ -95,6 +95,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
     private val annotationCache = ArrayDeque<PlacesFragmentViewModel.NearbyPage>()
     private var lastLocationUpdated: Location? = null
+    private var lastZoom = 15.0
 
     private lateinit var markerBitmapBase: Bitmap
     private lateinit var markerPaintSrc: Paint
@@ -105,7 +106,6 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         get() = mapboxMap?.let {
             latitudeDiffToMeters(it.projection.visibleRegion.latLngBounds.latitudeSpan / 2)
         } ?: 50
-    private var zoom: Double = 15.0
     private var magnifiedMarker: Symbol? = null
 
     private val locationPermissionRequest = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
@@ -141,7 +141,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 symbolManager?.deleteAll()
                   viewModel.fetchNearbyPages(lastLocationUpdated?.latitude ?: 0.0,
                       lastLocationUpdated?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
-                  goToLocation(1000, lastLocationUpdated, zoom)
+                  goToLocation(1000, lastLocationUpdated, lastZoom)
               }
           }
     }
@@ -206,7 +206,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
 
         binding.searchLangContainer.setOnClickListener {
-            zoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
+            lastZoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
             filterLauncher.launch(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
