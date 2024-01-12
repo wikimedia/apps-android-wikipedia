@@ -431,8 +431,8 @@
     <string name="temp_account_using_title">You are using a temporary account</string>
     <string name="temp_account_dialog_discard">Discard changes and log in</string>
     <plurals name="temp_account_created">
-        <item quantity="one">Temporary account %1$s was created after your edit was published. It will expire in %d day.</item>
-        <item quantity="other">Temporary account %1$s was created after your edit was published. It will expire in %d days.</item>
+        <item quantity="one">Temporary account %1$s was created after your edit was published. It will expire in %2$d day.</item>
+        <item quantity="other">Temporary account %1$s was created after your edit was published. It will expire in %2$d days.</item>
     </plurals>
     <string name="temp_account_edit_status"><![CDATA[<b>You are using a temporary account.</b> Your edit will be attributed to %1$s. <a href="%2$s">Learn more</a>.]]></string>
     <string name="temp_account_login_status"><![CDATA[<b>You are currently using a temporary account.</b> Edits made with the temporary account %1$s will not be carried over to your permanent account when you log in. Log in or create an account to get credit to your username, among other benefits.]]></string>

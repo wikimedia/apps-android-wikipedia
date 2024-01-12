@@ -447,19 +447,18 @@
   <string name="error_blocked_id">Label stating the ID of the block. The %s symbol is replaced by the ID.</string>
   <string name="error_blocked_footer">Text that explains how to get in touch with the user or administrator that created the block. The %1$s symbol is replaced by the username of the blocker, and %2$s is replaced by a URL that leads to the user page of the blocker.</string>
   <string name="temp_account_not_logged_in">Title of dialog informing the user that a temporary account is being used.</string>
-  <string name="temp_account_anon_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting.</string>
-  <string name="temp_account_temp_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting.</string>
+  <string name="temp_account_anon_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting. The %1$s symbol is replaced with a URL.</string>
+  <string name="temp_account_temp_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting. The %1$s symbol is replaced with a URL.</string>
   <string name="temp_account_dialog_ok">Positive action button in Temporary Account info dialog.</string>
   <string name="temp_account_using_title">Title of dialog informing the user that a temporary account is being used.</string>
   <string name="temp_account_dialog_discard">Action button for going directly to the Login screen.</string>
   <plurals name="temp_account_created">
-    <item quantity="one">Message shown when a temporary account is created, and will expire in 1 day.</item>
-    <item quantity="other">Message shown when a temporary account is created, and will expire in %d days.</item>
+    <item quantity="one">Message shown when a temporary account with a name of %1$s is created, and will expire in 1 day.</item>
+    <item quantity="other">Message shown when a temporary account with a name of %1$s is created, and will expire in %2$d days.</item>
   </plurals>
-  <string name="temp_account_edit_status">Status message shown while editing, explaining that a temporary account is being used. Please preserve HTML formatting.</string>
-  <string name="temp_account_login_status">Status message shown while editing, explaining that a temporary account is being used. Please preserve HTML formatting.</string>
+  <string name="temp_account_edit_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting. The %2$s symbol is replaced with a URL.</string>
+  <string name="temp_account_login_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting.</string>
   <string name="temp_account_end_session">Button label for discarding the current temporary account.</string>
-
   <string name="theme_chooser_menu_item_short_tooltip">Tooltip message text for customizing menu options on article screen</string>
   <string name="error_blocked_footer_no_blocker">Text that explains how to get in touch with an administrator that created the block.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
