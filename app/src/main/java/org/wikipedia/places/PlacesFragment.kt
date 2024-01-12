@@ -570,7 +570,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         }
         return result
     }
-    
+
     private fun drawMarker(canvas: Canvas, thumbnailBitmap: Bitmap? = null) {
         val radius = MARKER_SIZE / 2f
         canvas.drawCircle(radius, radius, radius, markerPaintSrc)
