@@ -12,109 +12,102 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="16dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login_username_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_username_hint">
+
+                <org.wikipedia.views.PlainPasteEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="username"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="textNoSuggestions"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login_password_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/login_password_hint"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="?android:textColorHint">
+
+                <org.wikipedia.views.PlainPasteEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="password"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login_2fa_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_2fa_hint"
+                android:visibility="gone">
+
+                <org.wikipedia.views.PlainPasteEditText
+                    style="?android:textAppearanceMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="textVisiblePassword|textNoSuggestions"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/menu_login" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="?attr/border_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:clipToPadding="false"
+                android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:paddingStart="@dimen/activity_horizontal_margin"
-                android:paddingEnd="@dimen/activity_horizontal_margin">
+                android:paddingTop="16dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/login_username_text"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/login_username_hint">
-
-                    <org.wikipedia.views.PlainPasteEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:autofillHints="username"
-                        android:imeOptions="flagNoExtractUi"
-                        android:inputType="textNoSuggestions"
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/login_password_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="@string/login_password_hint"
-                    app:passwordToggleEnabled="true"
-                    app:passwordToggleTint="?android:textColorHint">
-
-                    <org.wikipedia.views.PlainPasteEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:autofillHints="password"
-                        android:imeOptions="flagNoExtractUi"
-                        android:inputType="textPassword"
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/login_2fa_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/login_2fa_hint"
-                    android:visibility="gone">
-
-                    <org.wikipedia.views.PlainPasteEditText
-                        style="?android:textAppearanceMedium"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="flagNoExtractUi"
-                        android:inputType="textVisiblePassword|textNoSuggestions"
-                        android:maxLines="1" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:text="@string/login_dont_have_account"
+                    android:textColor="?attr/secondary_color" />
 
                 <Button
-                    android:id="@+id/login_button"
+                    android:id="@+id/login_create_account_button"
+                    style="@style/App.Button.Secondary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginEnd="0dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/menu_login" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="?attr/border_color" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical"
-                    android:paddingTop="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/login_dont_have_account"
-                        android:textColor="?attr/secondary_color" />
-
-                    <Button
-                        android:id="@+id/login_create_account_button"
-                        style="@style/App.Button.Secondary"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/login_join_wikipedia" />
-
-                </LinearLayout>
-
-                <include
-                    android:id="@+id/inflate_login_and_account"
-                    layout="@layout/inflate_login_and_account_creation_footer" />
+                    android:text="@string/login_join_wikipedia" />
 
             </LinearLayout>
+
+            <include
+                android:id="@+id/footer_container"
+                layout="@layout/inflate_login_and_account_creation_footer" />
 
         </LinearLayout>
 
