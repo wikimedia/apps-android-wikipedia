@@ -33,7 +33,8 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.readinglist.database.ReadingList
-import org.wikipedia.util.*
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.PageItemView
 import org.wikipedia.views.WikiErrorView
