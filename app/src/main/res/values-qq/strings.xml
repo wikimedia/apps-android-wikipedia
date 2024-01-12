@@ -1604,6 +1604,13 @@
   <string name="donation_campaign_donated_snackbar">Text for the snackbar message when user hits the \"I already donated\" option.</string>
   <string name="donation_campaign_go_back_button">Button label for the webview that can go back to the previous screen.</string>
   <string name="menu_single_webview_open_external">Menu option that indicates the web page can be opened in a system browser.</string>
+  <string name="places_filter_title">Title string for places language filter screen.</string>
+  <string name="link_preview_dialog_read_button">Button label for reading the article in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_save_button">Button label for saving the article to a reading list in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_saved_button">Button label that indicates the article has been saved in a reading list in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_share_button">Button label for sharing the article in the link preview bottom sheet.</string>
   <string name="places_search_hint">Hint text for the search box inside the Places screen. Should be as short as possible.</string>
   <string name="places_filter_title">Title string for places language filter screen.</string>
+  <string name="places_toggle_buttons_map">Button label for viewing the map view in the Places screen.</string>
+  <string name="places_toggle_buttons_list">Button label for viewing the list view in the Places screen.</string>
 </resources>
