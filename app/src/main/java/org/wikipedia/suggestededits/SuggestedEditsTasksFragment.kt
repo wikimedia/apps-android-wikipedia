@@ -344,7 +344,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         vandalismPatrolTask.new = !Prefs.recentEditsOnboardingShown
 
         // TODO: limit to the Indonesian and Test wiki now.
-        val availableWikiSitesForPatrollerTasks = listOf("id", "test", "en")
+        val availableWikiSitesForPatrollerTasks = listOf("id", "test")
         if (viewModel.allowToPatrolEdits && viewModel.blockMessageWikipedia.isNullOrEmpty() &&
             availableWikiSitesForPatrollerTasks.contains(WikipediaApp.instance.wikiSite.languageCode)) {
             // TODO: limit to the primary language now.
