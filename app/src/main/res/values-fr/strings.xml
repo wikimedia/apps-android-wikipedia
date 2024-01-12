@@ -24,6 +24,7 @@
 * Gomoko
 * Great11
 * Hydros
+* Iketsi
 * JeanPlu
 * JenyxGym
 * Jgaignerot
@@ -1595,6 +1596,7 @@
   <string name="patroller_onboarding_two_thank_content">Vous voyez une modification pertinente ? Remerciez un utilisateur pour sa contribution !</string>
   <string name="patroller_onboarding_two_watch_title">Suivre</string>
   <string name="patroller_onboarding_two_warn_title">Avertissement</string>
+  <string name="patroller_onboarding_two_undo_title">Annuler/Restaurer</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfait</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutre</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfait</string>
@@ -1610,4 +1612,7 @@
   <string name="email_report_patroller_tasks_subject">Rapport de problème — Fonctionnalité de patrouille de modifications</string>
   <string name="email_report_patroller_tasks_body">J’ai rencontré un problème en rapport avec la fonctionnalité d\'édition du patrouillage :\n- [Décrire le problème spécifique]\n\nLe comportement que je souhaite voir est :\n- [Décrire la solution proposée]\n\n[Captures d\'écrans ou liens]\n\n\n\n\n\n[]</string>
   <string name="donation_campaign_maybe_later_snackbar">Nous vous le rappellerons demain.</string>
+  <string name="donation_campaign_donated_snackbar">Merci, cher donateur ! Votre générosité permet à Wikipédia et à ses sites frères de continuer à prospérer.</string>
+  <string name="donation_campaign_go_back_button">Retour</string>
+  <string name="menu_single_webview_open_external">Ouvrir dans le navigateur système</string>
 </resources>
