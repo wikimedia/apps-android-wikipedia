@@ -344,6 +344,11 @@
 
         <activity
             android:name=".places.PlacesActivity" />
+
+        <activity
+            android:name=".places.PlacesFilterActivity"
+            android:label="@string/places_filter_title"
+            android:theme="@style/AppTheme.ActionBar"/>
  
         <activity
             android:name=".talk.template.TalkTemplatesActivity"

@@ -109,6 +109,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         recentSearchesFragment.callback = this
         searchResultsFragment = childFragmentManager.findFragmentById(
                 R.id.fragment_search_results) as SearchResultsFragment
+        searchResultsFragment.setInvokeSource(invokeSource)
         (activity as? AppCompatActivity)?.setSupportActionBar(binding.searchToolbar)
         binding.searchToolbar.setNavigationOnClickListener { requireActivity().supportFinishAfterTransition() }
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
@@ -255,7 +256,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
                 return@postDelayed
             }
             searchResultsFragment.startSearch(term, force)
-        }, if (invokeSource == InvokeSource.VOICE || invokeSource == InvokeSource.INTENT_SHARE || invokeSource == InvokeSource.INTENT_PROCESS_TEXT) INTENT_DELAY_MILLIS else 0)
+        }, if (invokeSource == InvokeSource.PLACES || invokeSource == InvokeSource.VOICE || invokeSource == InvokeSource.INTENT_SHARE || invokeSource == InvokeSource.INTENT_PROCESS_TEXT) INTENT_DELAY_MILLIS else 0)
     }
 
     private fun openSearch() {
