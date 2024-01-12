@@ -124,9 +124,6 @@ abstract class BaseActivity : AppCompatActivity(), ConnectionStateMonitor.Callba
         unregisterExclusiveBusMethods()
         EXCLUSIVE_BUS_METHODS = exclusiveBusMethods
         EXCLUSIVE_DISPOSABLE = WikipediaApp.instance.bus.subscribe(EXCLUSIVE_BUS_METHODS!!)
-
-        // TODO: move to a more precise spot, i.e. right after the user saves a new edit.
-        AccountUtil.maybeShowTempAccountWelcome(this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

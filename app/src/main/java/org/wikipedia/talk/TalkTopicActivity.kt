@@ -151,6 +151,11 @@ class TalkTopicActivity : BaseActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        AccountUtil.maybeShowTempAccountWelcome(this)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_talk_topic, menu)
         return true

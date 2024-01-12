@@ -98,7 +98,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     private val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            FeedbackUtil.showMessage(this, R.string.edit_saved_successfully)
+            if (!AccountUtil.maybeShowTempAccountWelcome(this)) {
+                FeedbackUtil.showMessage(this, R.string.edit_saved_successfully)
+            }
             // and reload the page...
             pageFragment.model.title?.let { title ->
                 pageFragment.model.curEntry?.let { entry ->

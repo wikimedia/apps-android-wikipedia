@@ -256,6 +256,7 @@ class WikipediaApp : Application() {
         AccountUtil.removeAccount()
         Prefs.isPushNotificationTokenSubscribed = false
         Prefs.pushNotificationTokenOld = ""
+        Prefs.tempAccountWelcomeShown = false
         ServiceFactory.get(wikiSite).getTokenObservable()
                 .subscribeOn(Schedulers.io())
                 .flatMap {

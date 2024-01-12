@@ -6,17 +6,18 @@ import android.accounts.AccountManager
 import android.app.Activity
 import android.os.Build
 import androidx.core.os.bundleOf
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.login.LoginResult
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L.d
 import org.wikipedia.util.log.L.logRemoteErrorIfProd
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 object AccountUtil {
     private const val CENTRALAUTH_USER_COOKIE_NAME = "centralauth_User"
@@ -111,16 +112,16 @@ object AccountUtil {
         return SharedPreferenceCookieManager.instance.getCookieExpiryByName(CENTRALAUTH_USER_COOKIE_NAME)
     }
 
-    fun maybeShowTempAccountWelcome(activity: Activity) {
+    fun maybeShowTempAccountWelcome(activity: Activity): Boolean {
         if (!Prefs.tempAccountWelcomeShown && isTemporaryAccount) {
             Prefs.tempAccountWelcomeShown = true
-            MaterialAlertDialogBuilder(activity)
-                .setTitle("You dropped this, temp king.")
-                .setMessage("Congratulations on making an edit. You have been automatically assigned a temporary account to protect your IP address. Your account name is \"" + getTempAccountName() + "\".")
-                .setPositiveButton(android.R.string.ok, null)
-                .setCancelable(false)
-                .show()
+
+            val expiryDays = TimeUnit.MILLISECONDS.toDays(getTempAccountExpiry() - System.currentTimeMillis()).toInt()
+            FeedbackUtil.showMessage(activity, activity.resources.getQuantityString(R.plurals.temp_account_created,
+                expiryDays, userName, expiryDays))
+            return true
         }
+        return false
     }
 
     private fun createAccount(userName: String, password: String): Boolean {
