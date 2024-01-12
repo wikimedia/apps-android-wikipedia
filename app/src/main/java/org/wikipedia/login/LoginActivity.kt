@@ -27,6 +27,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil.visitInExternalBrowser
 import org.wikipedia.util.log.L
 import org.wikipedia.views.NonEmptyValidator
@@ -83,7 +84,7 @@ class LoginActivity : BaseActivity() {
 
         if (AccountUtil.isTemporaryAccount) {
             binding.footerContainer.tempAccountInfoContainer.isVisible = true
-            binding.footerContainer.tempAccountInfoText.text = getString(R.string.temp_account_login_status, AccountUtil.userName)
+            binding.footerContainer.tempAccountInfoText.text = StringUtil.fromHtml(getString(R.string.temp_account_login_status, AccountUtil.userName))
         } else {
             binding.footerContainer.tempAccountInfoContainer.isVisible = false
         }

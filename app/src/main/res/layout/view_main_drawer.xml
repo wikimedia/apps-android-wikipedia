@@ -59,6 +59,37 @@
                 android:background="?attr/border_color"/>
 
             <LinearLayout
+                android:id="@+id/main_drawer_temp_account_container"
+                style="@style/SideDrawerMenuItem">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:padding="1dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_temp_account"
+                    app:tint="?attr/secondary_color" />
+
+                <TextView
+                    android:id="@+id/temp_account_name"
+                    style="@android:style/TextAppearance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_weight="1"
+                    tools:text="Lorem ipsum"/>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16dp"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_open_in_new_black_24px"
+                    app:tint="?attr/secondary_color" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/main_drawer_contribs_container"
                 style="@style/SideDrawerMenuItem">
 
