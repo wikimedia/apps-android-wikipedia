@@ -7,12 +7,14 @@ import android.content.res.ColorStateList
 import android.net.Uri
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.text.method.LinkMovementMethod
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -35,6 +37,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewAnimations
@@ -126,9 +129,23 @@ class EditSummaryFragment : Fragment() {
             acceptanceState = "accepted", captionAdd = !activity?.intent?.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
             altTextAdd = !activity?.intent?.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty())
     }
+
     override fun onStart() {
         super.onStart()
         editSummaryHandler = EditSummaryHandler(binding.root, binding.editSummaryText, title)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (!AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount) {
+            binding.tempAccountInfoContainer.isVisible = true
+            binding.tempAccountInfoIcon.setImageResource(if (AccountUtil.isTemporaryAccount) R.drawable.ic_temp_account else R.drawable.ic_anon_account)
+            binding.tempAccountInfoText.movementMethod = LinkMovementMethod.getInstance()
+            binding.tempAccountInfoText.text = StringUtil.fromHtml(if (AccountUtil.isTemporaryAccount) getString(R.string.temp_account_edit_status, AccountUtil.getTempAccountName(), getString(R.string.temp_accounts_help_url))
+                else getString(R.string.temp_account_anon_edit_status, getString(R.string.temp_accounts_help_url)))
+        } else {
+            binding.tempAccountInfoContainer.isVisible = false
+        }
     }
 
     override fun onDestroyView() {

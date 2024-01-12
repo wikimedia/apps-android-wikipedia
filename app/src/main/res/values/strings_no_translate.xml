@@ -12,6 +12,7 @@
     <string name="image_captions_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
     <string name="image_alt_text_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
     <string name="quality_and_intent_filters_url">https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Quality_and_Intent_Filters</string>
+    <string name="temp_accounts_help_url">https://www.mediawiki.org/wiki/Help:Temporary_accounts</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
