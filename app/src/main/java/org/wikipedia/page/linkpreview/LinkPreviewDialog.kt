@@ -464,7 +464,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         const val ARG_LAST_KNOWN_LOCATION = "lastKnownLocation"
         const val ARG_FROM_PLACES = "fromPlaces"
 
-        fun newInstance(entry: HistoryEntry, location: Location?, lastKnownLocation: Location? = null, fromPlaces: Boolean = false): LinkPreviewDialog {
+        fun newInstance(entry: HistoryEntry, location: Location? = null, lastKnownLocation: Location? = null, fromPlaces: Boolean = false): LinkPreviewDialog {
             return LinkPreviewDialog().apply {
                 arguments = bundleOf(
                     ARG_ENTRY to entry,
