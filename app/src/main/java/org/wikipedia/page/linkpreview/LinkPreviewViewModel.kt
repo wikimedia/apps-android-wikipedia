@@ -64,9 +64,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
                 isWatched = watchStatus?.watched ?: false
 
                 val readingList = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageTitle)
-                L.d("readingList $readingList")
                 isInReadingList = readingList != null
-                L.d("readingList  isInReadingList $isInReadingList")
             }
 
             if (location == null) {
