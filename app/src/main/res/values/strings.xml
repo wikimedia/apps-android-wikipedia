@@ -400,6 +400,10 @@
     <string name="multi_select_items_selected">%d selected</string>
     <string name="error_message_generic">An error occurred</string>
     <string name="view_link_preview_error_button_dismiss">Dismiss</string>
+    <string name="link_preview_dialog_read_button">Read</string>
+    <string name="link_preview_dialog_save_button">Save</string>
+    <string name="link_preview_dialog_saved_button">Saved</string>
+    <string name="link_preview_dialog_share_button">Share</string>
     <string name="error_page_does_not_exist">This page does not exist</string>
     <string name="error_user_page_does_not_exist"><![CDATA[Wikipedia does not have a <a href="%1$s">user page</a> with this exact name. In general, this page should be created and edited by <b>%2$s</b>. If in doubt, please verify that \"%3$s\" exists.]]></string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
@@ -1678,6 +1682,7 @@
     <string name="places_title">Places</string>
     <string name="places_permissions_denied">Location permission is required to see your location on the map. Please try again.</string>
     <string name="places_search_hint">Search places</string>
+    <string name="places_filter_title">Filter language</string>
     <string name="places_toggle_buttons_map">Map</string>
     <string name="places_toggle_buttons_list">List</string>
 </resources>

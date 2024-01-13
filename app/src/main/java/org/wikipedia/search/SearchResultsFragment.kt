@@ -1,5 +1,8 @@
 package org.wikipedia.search
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
+import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -28,6 +32,7 @@ import org.wikipedia.databinding.ItemSearchResultBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
@@ -238,7 +243,18 @@ class SearchResultsFragment : Fragment() {
 
             view.isLongClickable = true
             view.setOnClickListener {
-                callback()?.navigateToTitle(searchResult.pageTitle, false, position)
+                if (viewModel.invokeSource == Constants.InvokeSource.PLACES) {
+                    val resultIntent = Intent()
+                    searchResult.coordinates?.let { coordinates ->
+                        resultIntent.putExtra(Constants.ARG_TITLE, searchResult.pageTitle)
+                        val location = Location("").also { it.latitude = coordinates[0].lat; it.longitude = coordinates[0].lon }
+                        resultIntent.putExtra(PlacesActivity.EXTRA_LOCATION, location)
+                        requireActivity().setResult(RESULT_OK, resultIntent)
+                    }
+                    requireActivity().finish()
+                } else {
+                    callback()?.navigateToTitle(searchResult.pageTitle, false, position)
+                }
             }
             view.setOnCreateContextMenuListener(LongPressHandler(view,
                     HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))
@@ -247,6 +263,10 @@ class SearchResultsFragment : Fragment() {
 
     private fun callback(): Callback? {
         return getCallback(this, Callback::class.java)
+    }
+
+    fun setInvokeSource(invokeSource: Constants.InvokeSource) {
+        viewModel.invokeSource = invokeSource
     }
 
     private val searchLanguageCode get() =
