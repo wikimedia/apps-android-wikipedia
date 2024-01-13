@@ -24,7 +24,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     val uiState = _uiState.asStateFlow()
     val historyEntry = bundle.parcelable<HistoryEntry>(LinkPreviewDialog.ARG_ENTRY)!!
     var pageTitle = historyEntry.title
-    val location = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LOCATION)
+    var location = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LOCATION)
     val fromPlaces = bundle.getBoolean(LinkPreviewDialog.ARG_FROM_PLACES, false)
     val lastKnownLocation = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LAST_KNOWN_LOCATION)
     var isInReadingList = false
@@ -67,6 +67,10 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
                 L.d("readingList $readingList")
                 isInReadingList = readingList != null
                 L.d("readingList  isInReadingList $isInReadingList")
+            }
+
+            if (location == null) {
+                location = summary.coordinates
             }
 
             _uiState.value = LinkPreviewViewState.Content(summary)
