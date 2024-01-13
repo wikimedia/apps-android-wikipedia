@@ -400,7 +400,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     )
                 )
             } else if (viewModel.fromPlaces) {
-                // TODO: needs to be optimized
                 setSecondaryButtonText(L10nUtil.getStringForArticleLanguage(viewModel.pageTitle,
                     if (viewModel.isInReadingList) R.string.link_preview_dialog_saved_button else R.string.link_preview_dialog_save_button))
             }
