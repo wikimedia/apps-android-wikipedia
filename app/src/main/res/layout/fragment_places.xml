@@ -80,7 +80,6 @@
                     android:textAlignment="center"
                     android:textAllCaps="true"
                     android:textColor="?attr/primary_color"
-                    android:text="EN"
                     tools:text="EN"/>
             </LinearLayout>
 
