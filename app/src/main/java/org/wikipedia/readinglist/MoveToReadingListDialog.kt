@@ -66,6 +66,14 @@ class MoveToReadingListDialog : AddToReadingListDialog() {
         }
 
         fun newInstance(sourceReadingListId: Long,
+                        title: PageTitle,
+                        source: InvokeSource,
+                        showDefaultList: Boolean = true,
+                        listener: DialogInterface.OnDismissListener? = null): MoveToReadingListDialog {
+            return newInstance(sourceReadingListId, listOf(title), source, showDefaultList, listener)
+        }
+
+        fun newInstance(sourceReadingListId: Long,
                         titles: List<PageTitle>,
                         source: InvokeSource,
                         showDefaultList: Boolean = true,

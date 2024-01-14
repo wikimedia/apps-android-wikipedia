@@ -21,13 +21,16 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.view.ListCardItemView
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
-import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.readinglist.MoveToReadingListDialog
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.GradientUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.TabUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.DrawableItemDecoration
@@ -118,15 +121,11 @@ class NewsFragment : Fragment() {
         }
 
         override fun onAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
-            if (addToDefault) {
-                ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, InvokeSource.NEWS_ACTIVITY) { readingListId -> onMovePageToList(readingListId, entry) }
-            } else {
-                ExclusiveBottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(entry.title, InvokeSource.NEWS_ACTIVITY))
-            }
+            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.NEWS_ACTIVITY)
         }
 
         override fun onMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-            ExclusiveBottomSheetPresenter.show(childFragmentManager, MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.NEWS_ACTIVITY))
+            ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.NEWS_ACTIVITY)
         }
     }
 

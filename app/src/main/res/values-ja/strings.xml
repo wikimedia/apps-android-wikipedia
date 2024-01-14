@@ -10,6 +10,7 @@
 * Dbrant
 * Fumi37s
 * GAMEZONE628
+* Great ones
 * Hzy980512
 * Jaw Salvager
 * Kanon und wikipedia
@@ -58,6 +59,7 @@
 * 春春眠眠
 * 神樂坂秀吉
 * 組曲師
+* 翻訳者a
 -->
 <resources>
   <string name="app_name_prod">ウィキペディア</string>
@@ -179,7 +181,7 @@
   <string name="dialog_message_leaving_edit_stay">留まる</string>
   <string name="menu_show_toc">目次</string>
   <string name="search_no_results_found">検索結果なし</string>
-  <string name="search_reading_list_no_results">「%s」は見つかりませんでした</string>
+  <string name="search_reading_list_no_results">「%s」には見つかりませんでした</string>
   <string name="search_reading_lists_no_results">あとで読むリストにはありませんでした</string>
   <string name="search_history_no_results">履歴には見つかりませんでした</string>
   <string name="edit_section_captcha_message">自動投稿スパム避けのため、以下に表示される言葉を入力してください</string>
@@ -502,7 +504,7 @@
   <string name="reading_list_move_to">あとで読むリストに保存</string>
   <string name="reading_list_create_new">新規作成</string>
   <string name="reading_list_title_exists">\'\'%s\'\'という名前のあとで読むリストはすでにあります。</string>
-  <string name="reading_list_article_added_to_named">%1$sを %2$sに加える。</string>
+  <string name="reading_list_article_added_to_named">%1$sを%2$sに加えました。</string>
   <string name="reading_list_article_added_to_default_list">%s を保存しました。リストに追加しますか?</string>
   <string name="reading_list_article_moved_to_named">%1$sを%2$sに保存しました</string>
   <string name="reading_list_article_already_exists_message">大丈夫！%2$sは既に%1$sに含まれています。</string>
@@ -1468,6 +1470,7 @@
   <string name="shareable_reading_lists_import_dialog_content">共有されたリストに名前をつけますか？</string>
   <string name="shareable_reading_lists_new_indicator">*新規*</string>
   <string name="shareable_reading_lists_new_install_dialog_title">リーディングリストが共有されました</string>
+  <string name="shareable_reading_lists_new_install_dialog_content">リーディングリストが共有されていることが通知されました。アプリでこのリストを表示するには、元のメッセージに戻ってリンクをもう一度タップしてください。</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">わかりました</string>
   <string name="shareable_reading_lists_new_imported_snackbar">あとで読むリストをインポートしました</string>
   <string name="reading_list_share_menu_label">共有…</string>
@@ -1493,7 +1496,13 @@
   <string name="talk_templates_edit_message_dialog_save">保存</string>
   <string name="talk_templates_edit_message_dialog_delete">削除</string>
   <string name="talk_templates_edit_message_updated">メッセージが更新されました</string>
-  <string name="talk_templates_message_deleted" fuzzy="true">メッセージが削除されました</string>
+  <string name="talk_templates_menu_remove_message">メッセージの削除</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="other">本当にリストからメッセージを削除しますか？</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="other">メッセージが削除されました</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">タイトルを空にすることはできません。</string>
   <string name="patroller_tasks_edits_list_title">編集の一覧</string>
   <string name="patroller_tasks_edits_list_search_hint">編集を検索または絞り込む</string>
@@ -1563,10 +1572,18 @@
   <string name="patroller_tasks_overflow_report">機能の問題</string>
   <string name="patroller_tasks_overflow_learn">詳細</string>
   <string name="patroller_onboarding_one_title">ウィキペディアの編集の管理と確認に貢献する。</string>
+  <string name="patroller_onboarding_one_content">最近の編集のフィードを積極的にレビューし、他の編集者にガイダンス、品質管理、励ましを提供することで、Wikipedia コンテンツの品質を向上させます。</string>
   <string name="patroller_onboarding_two_thank_title">感謝</string>
+  <string name="patroller_onboarding_two_watch_title">ウォッチ</string>
   <string name="patroller_onboarding_two_warn_title">警告</string>
+  <string name="patroller_onboarding_two_warn_content">編集者のトーク ページで警告メッセージを作成、送信、保存します。</string>
   <string name="patroller_onboarding_two_undo_title">取り消し/巻き戻し</string>
+  <string name="patroller_diff_feedback_dialog_title">この機能の改善にご協力ください</string>
+  <string name="patroller_diff_feedback_dialog_message">この機能に満足していますか?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">満足した</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">中立</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">満足していない</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">どうすれば機能を改善できるでしょうか?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">フィードバック</string>
   <string name="patroller_diff_feedback_dialog_submit">送信</string>
   <string name="patroller_diff_feedback_submitted_snackbar">フィードバックが送信されました。</string>
@@ -1578,6 +1595,8 @@
   <string name="email_report_image_recommendations_body">画像お勧め機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]</string>
   <string name="email_report_patroller_tasks_subject">問題報告 - 編集巡回機能</string>
   <string name="email_report_patroller_tasks_body">編集巡回機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]\n\n[スクリーンショットまたはリンク]</string>
+  <string name="donation_campaign_maybe_later_snackbar">明日改めてお知らせいたします。</string>
+  <string name="donation_campaign_donated_snackbar">親愛なる寄付者様、ありがとうございます！あなたの寛大なご協力により、ウィキペディアとその姉妹サイトが繁栄し続けることができます。</string>
   <string name="donation_campaign_go_back_button">戻る</string>
   <string name="menu_single_webview_open_external">システムブラウザで開く</string>
 </resources>
