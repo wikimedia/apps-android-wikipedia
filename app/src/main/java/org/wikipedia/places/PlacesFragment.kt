@@ -61,6 +61,7 @@ import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textIgnorePlacement
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.FragmentPlacesBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.history.HistoryEntry
@@ -189,6 +190,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
 
         binding.tabsButton.setOnClickListener {
+            PlacesEvent.logAction("tabs_view_click", "map_view")
             if (WikipediaApp.instance.tabCount == 1) {
                 startActivity(PageActivity.newIntent(requireActivity()))
             } else {
@@ -197,24 +199,29 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
 
         binding.searchTextView.setOnClickListener {
+            PlacesEvent.logAction("search_view_click", "map_view")
             openSearchActivity(if (binding.searchTextView.text.toString() == getString(R.string.places_search_hint)) null
             else binding.searchTextView.text.toString())
         }
 
         binding.backButton.setOnClickListener {
+            PlacesEvent.logAction("back_click", "map_view")
             requireActivity().finish()
         }
 
         binding.searchLangContainer.setOnClickListener {
             lastZoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
+            PlacesEvent.logAction("filter_click", "map_view")
             filterLauncher.launch(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
         binding.searchCloseBtn.setOnClickListener {
+            PlacesEvent.logAction("search_clear_click", "map_view")
             updateSearchText(getString(R.string.places_search_hint))
         }
 
         binding.myLocationButton.setOnClickListener {
+            PlacesEvent.logAction("current_location_click", "map_view")
             if (haveLocationPermissions()) {
                 goToLocation(0)
             } else {
@@ -283,6 +290,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 symbolManager?.textAllowOverlap = true
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
+                    PlacesEvent.logAction("marker_click", "map_view")
                     annotationCache.find { it.annotation == symbol }?.let {
                         updateSearchText(it.pageTitle.displayText)
                         val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_PLACES)
@@ -586,6 +594,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
             val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
             if (featureList.isNotEmpty()) {
+                PlacesEvent.logAction("cluster_click", "map_view")
                 val cameraPosition = CameraPosition.Builder()
                     .target(point)
                     .zoom(it.cameraPosition.zoom + 2)

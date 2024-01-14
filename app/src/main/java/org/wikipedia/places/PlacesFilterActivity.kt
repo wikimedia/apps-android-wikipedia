@@ -16,6 +16,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.ActivityPlacesFiltersBinding
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
@@ -159,6 +160,9 @@ class PlacesFilterActivity : BaseActivity() {
             ViewUtil.formatLangButton(langCodeText, languageCode,
                 SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
             itemView.setOnClickListener {
+                if (languageCode != Prefs.placesWikiCode) {
+                    PlacesEvent.logAction("filter_change_save", "filter_view")
+                }
                 Prefs.placesWikiCode = languageCode
                 callback.onLangSelected()
             }
