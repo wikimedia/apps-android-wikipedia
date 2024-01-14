@@ -3,13 +3,13 @@ package org.wikipedia.places
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
@@ -54,6 +54,9 @@ class PlacesFilterActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPlacesFiltersBinding.inflate(layoutInflater)
         setUpRecyclerView()
+        setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.background_color))
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.background_color))
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(ResourceUtil.getThemedColor(this, R.attr.background_color)))
         setContentView(binding.root)
     }
 
@@ -155,7 +158,7 @@ class PlacesFilterActivity : BaseActivity() {
         fun bindItem(languageCode: String) {
             titleText.text = WikipediaApp.instance.languageState.getAppLanguageCanonicalName(languageCode)
             langCodeText.text = languageCode
-            radio.isVisible = languageCode == Prefs.placesWikiCode
+            radio.visibility = if (languageCode == Prefs.placesWikiCode) View.VISIBLE else View.INVISIBLE
             ViewUtil.formatLangButton(langCodeText, languageCode,
                 SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
             itemView.setOnClickListener {
