@@ -269,7 +269,7 @@
   <string name="edit_redo">Ҡабатларға</string>
   <string name="edit_rollback">Кире ҡайтарырға</string>
   <string name="edit_warn">Иҫкәртергә</string>
-  <string name="edit_quality">Сифаты %s</string>
+  <string name="edit_damage">Зыян %s</string>
   <string name="edit_intent">Маҡсат %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s байт</item>
@@ -335,7 +335,7 @@
   <string name="license_title">%s өсөн лицензия</string>
   <string name="gallery_menu_share">Уртаҡлашырға</string>
   <string name="gallery_share_error">%s һүрәте менән  уртаҡлашып булманы</string>
-  <string name="gallery_save_progress">Файл күсереү...</string>
+  <string name="gallery_save_progress">Файлды йөкләү...</string>
   <string name="gallery_save_success">Файл һаҡланды.</string>
   <string name="gallery_error_video_failed">Видеоны уйнатып булмай</string>
   <string name="gallery_save_image_write_permission_rationale">Һүрәттәрҙе һаҡлау өсөн ҡорамалығыҙҙың һаҡлағысына яҙҙырырға рөхсәт талап ителә.</string>
@@ -1459,8 +1459,12 @@
   <string name="talk_templates_edit_message_dialog_save">Һаҡларға</string>
   <string name="talk_templates_edit_message_dialog_delete">Юйырға</string>
   <string name="talk_templates_edit_message_updated">Хәбәр яңыртылған</string>
-  <string name="talk_templates_edit_message_confirm_description">%s хәбәрен исемлектән юйырға теләйһегеҙме?</string>
-  <string name="talk_templates_message_deleted">Хәбәр юйылған</string>
+  <string name="talk_templates_menu_remove_message">Хәбәрҙе юйырға</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Хәбәр юйылған</item>
+    <item quantity="other">Хәбәрҙәр юйылған</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Атама буш була алмай.</string>
   <string name="patroller_tasks_edits_list_title">Үҙгәртеүҙәр исемлеге</string>
   <string name="patroller_tasks_edits_list_search_hint">Төҙәтеүҙәрҙе табырға йәки фильтрларға</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Тамғалар: %s</string>
@@ -1520,11 +1524,6 @@
   <string name="patroller_tasks_filters_number_of_filters">{{PLURAL\n|one=%d фильтр|%d фильтрҙар}}</string>
   <string name="patroller_tasks_patrol_edit_title">Үҙгәртеүҙәрҙе тикшерергә</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Мәҡәләне мөхәррирләү тарихы</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Был үҙгәртеүҙе кире алырғамы?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Был үҙгәртеүҙе кире алырға теләйһегеҙме?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Кире алыу бер йәки бер нисә үҙгәртеүҙең эҙемтәһен кире ҡайтарыуҙы аңлата.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Һығымта (мотлаҡ түгел)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Кире ҡайтарыуҙың сәбәбен аңлатығыҙ</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Кире ҡайтарылды</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Һеҙ ысынлап та кире ҡайтарырға теләйһегеҙме?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Кире ҡайтарылды</string>
@@ -1549,6 +1548,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Ҡәнәғәт</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Нейтраль</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Ҡәнәғәт түгел</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Был функцияны нисек яҡшырта алабыҙ?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Бәйләнеш</string>
   <string name="patroller_diff_feedback_dialog_submit">Тәҡдим итергә</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Фекер ебәрелде.</string>
@@ -1563,4 +1563,6 @@
   <string name="email_report_patroller_tasks_body">Тикшереү функцияһы проблемаһы менән осраштым:\n-[Аныҡ проблеманы күрһәтегеҙ]\nМин күрергә теләгән ғәмәл:\n-[Хәл итеү юлын тасуирлағыҙ]\n\n[Скриншоттар йәки һылтанмалар]</string>
   <string name="donation_campaign_maybe_later_snackbar">Иртәгә тағы ла иҫегеҙгә төшөрөрбөҙ.</string>
   <string name="donation_campaign_donated_snackbar">Рәхмәт! Йомартлығығыҙ Википедияның һәм уның туғандаш проекттарының үҫешеүенә булышлыҡ итә.</string>
+  <string name="donation_campaign_go_back_button">Кире ҡайтырға</string>
+  <string name="menu_single_webview_open_external">Система браузерында асырға</string>
 </resources>

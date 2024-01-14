@@ -32,11 +32,14 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
     var totalPageviews = 0L
     var totalContributions = 0
+    var homeContributions = 0
     var latestEditDate = Date()
     var latestEditStreak = 0
     var revertSeverity = 0
 
     var wikiSupportsImageRecommendations = false
+    // TODO: remove this limitation later.
+    var allowToPatrolEdits = false
 
     fun fetchData() {
         _uiState.value = UiState.Loading()
@@ -78,6 +81,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             wikiSupportsImageRecommendations = true
 
             homeSiteResponse.query?.userInfo?.let {
+                allowToPatrolEdits = it.rights.contains("rollback") || it.groups().contains("sysop")
                 if (it.isBlocked) {
                     blockMessageWikipedia = ThrowableUtil.getBlockMessageHtml(it)
                 }
@@ -96,6 +100,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             totalContributions += wikidataResponse.query?.userInfo!!.editCount
             totalContributions += commonsResponse.query?.userInfo!!.editCount
             totalContributions += homeSiteResponse.query?.userInfo!!.editCount
+            homeContributions = homeSiteResponse.query?.userInfo!!.editCount
 
             latestEditDate = wikidataResponse.query?.userInfo!!.latestContribDate
 

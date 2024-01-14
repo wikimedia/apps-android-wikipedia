@@ -6,6 +6,8 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.settings.Prefs
 
 class InitialOnboardingActivity : SingleFragmentActivity<InitialOnboardingFragment>(), OnboardingFragment.Callback {
+    override fun onSkip() {}
+
     override fun onComplete() {
         setResult(RESULT_OK)
         Prefs.isInitialOnboardingEnabled = false
@@ -18,6 +20,7 @@ class InitialOnboardingActivity : SingleFragmentActivity<InitialOnboardingFragme
         }
         setResult(RESULT_OK)
         finish()
+        super.onBackPressed()
     }
 
     override fun createFragment(): InitialOnboardingFragment {

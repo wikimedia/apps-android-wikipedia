@@ -33,6 +33,8 @@ import org.wikipedia.databinding.ViewTalkTopicsHeaderBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.dataclient.okhttp.HttpStatusException
+import org.wikipedia.edit.EditHandler
+import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
@@ -125,6 +127,12 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             }
         } else {
             // Make sure to reload the list in the case of exiting from the undo process.
+            viewModel.loadTopics()
+        }
+    }
+
+    private val requestEditSource = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             viewModel.loadTopics()
         }
     }
@@ -223,6 +231,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             menu.findItem(R.id.menu_read_article).isVisible = viewModel.pageTitle.namespace() != Namespace.USER_TALK && invokeSource != Constants.InvokeSource.ARCHIVED_TALK_ACTIVITY
             menu.findItem(R.id.menu_view_user_page).isVisible = viewModel.pageTitle.namespace() == Namespace.USER_TALK
             menu.findItem(R.id.menu_view_user_page).title = getString(R.string.menu_option_user_page, StringUtil.removeHTMLTags(StringUtil.removeNamespace(viewModel.pageTitle.displayText)))
+            menu.findItem(R.id.menu_edit_source)?.isVisible = AccountUtil.isLoggedIn
 
             val notificationMenuItem = menu.findItem(R.id.menu_notifications)
             val watchMenuItem = menu.findItem(R.id.menu_watch)
@@ -255,34 +264,40 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.menu_change_language -> {
                 requestLanguageChange.launch(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_TOPICS_ACTIVITY))
-                return true
+                true
             }
             R.id.menu_read_article, R.id.menu_view_user_page -> {
                 goToPage()
-                return true
+                true
             }
             R.id.menu_view_edit_history -> {
                 startActivity(EditHistoryListActivity.newIntent(this, viewModel.pageTitle))
-                return true
+                true
             }
             R.id.menu_talk_topic_share -> {
                 ShareUtil.shareText(this, getString(R.string.talk_share_talk_page), viewModel.pageTitle.uri)
-                return true
+                true
             }
             R.id.menu_watch -> {
                 if (AccountUtil.isLoggedIn) {
                     viewModel.watchOrUnwatch(WatchlistExpiry.NEVER, viewModel.isWatched)
                 }
-                return true
+                true
+            }
+            R.id.menu_edit_source -> {
+                requestEditSource.launch(
+                    EditSectionActivity.newIntent(this, -1, null,
+                        viewModel.pageTitle, Constants.InvokeSource.TALK_TOPICS_ACTIVITY))
+                true
             }
             R.id.menu_archive -> {
                 startActivity(ArchivedTalkPagesActivity.newIntent(this, viewModel.pageTitle))
-                return true
+                true
             }
-            else -> return super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
@@ -290,9 +305,9 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
         updateNotificationDot(true)
     }
 
-    override fun onExpirySelect(expiry: WatchlistExpiry) {
-        viewModel.watchOrUnwatch(expiry, false)
-        ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
+    override fun onExpiryChanged(expiry: WatchlistExpiry) {
+        viewModel.hasWatchlistExpiry = expiry !== WatchlistExpiry.NEVER
+        invalidateOptionsMenu()
     }
 
     private fun resetViews() {
@@ -359,6 +374,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnError(t: Throwable) {
+        binding.talkProgressBar.isVisible = false
         binding.talkRecyclerView.adapter?.notifyDataSetChanged()
 
         // In the case of 404, it just means that the talk page hasn't been created yet.
@@ -374,6 +390,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
     }
 
     private fun updateOnEmpty() {
+        binding.talkProgressBar.isVisible = false
         binding.talkRefreshView.isRefreshing = false
         binding.talkEmptyContainer.isVisible = true
         binding.talkConditionContainer.isVisible = true
@@ -428,12 +445,9 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
             val snackbar = FeedbackUtil.makeSnackbar(this,
                 getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                     viewModel.pageTitle.displayText,
-                    getString(viewModel.lastWatchExpiry.stringId)))
-            if (!viewModel.watchlistExpiryChanged) {
-                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                    viewModel.watchlistExpiryChanged = true
-                    ExclusiveBottomSheetPresenter.show(supportFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.lastWatchExpiry))
-                }
+                    getString(WatchlistExpiry.NEVER.stringId)))
+            snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
+                ExclusiveBottomSheetPresenter.show(supportFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle, WatchlistExpiry.NEVER))
             }
             snackbar.show()
         }

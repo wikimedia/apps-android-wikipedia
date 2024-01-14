@@ -16,7 +16,11 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.time.temporal.TemporalAccessor
-import java.util.*
+import java.util.Calendar
+import java.util.Date
+import java.util.GregorianCalendar
+import java.util.Locale
+import java.util.TimeZone
 import java.util.concurrent.ConcurrentHashMap
 
 object DateUtil {
@@ -106,17 +110,18 @@ object DateUtil {
     }
 
     private fun getDateStringWithSkeletonPattern(date: Date, pattern: String): String {
-        return getCachedDateFormat(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date)
+        return getCachedDateFormat(pattern, Locale.getDefault(), utc = false, skeleton = true)
+            .format(date)
     }
 
     private fun getDateStringWithSkeletonPattern(temporalAccessor: TemporalAccessor, pattern: String): String {
-        return getCachedDateTimeFormatter(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false)
+        return getCachedDateTimeFormatter(pattern, Locale.getDefault(), utc = false, skeleton = true)
             .format(temporalAccessor)
     }
 
-    private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean): SimpleDateFormat {
+    private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean, skeleton: Boolean = false): SimpleDateFormat {
         return DATE_FORMATS.getOrPut(pattern) {
-            val df = SimpleDateFormat(pattern, locale)
+            val df = SimpleDateFormat(if (skeleton) DateFormat.getBestDateTimePattern(locale, pattern) else pattern, locale)
             if (utc) {
                 df.timeZone = TimeZone.getTimeZone("UTC")
             }
@@ -124,9 +129,9 @@ object DateUtil {
         }
     }
 
-    private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean): DateTimeFormatter {
+    private fun getCachedDateTimeFormatter(pattern: String, locale: Locale, utc: Boolean, skeleton: Boolean = false): DateTimeFormatter {
         return DATE_TIME_FORMATTERS.getOrPut(pattern) {
-            val dtf = DateTimeFormatter.ofPattern(pattern, locale)
+            val dtf = DateTimeFormatter.ofPattern(if (skeleton) DateFormat.getBestDateTimePattern(locale, pattern) else pattern, locale)
             return if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
         }
     }

@@ -286,7 +286,7 @@
   <string name="edit_redo">ביצוע חוזר</string>
   <string name="edit_rollback">שחזור</string>
   <string name="edit_warn">אזהרה</string>
-  <string name="edit_quality">איכות %s</string>
+  <string name="edit_damage">נזק %s</string>
   <string name="edit_intent">כוונה %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">בית אחד</item>
@@ -318,7 +318,7 @@
   <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך לכאן.</string>
   <string name="page_similar_titles">דפים דומים</string>
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
-  <string name="search_recent_header">חיפוש אחרונים:</string>
+  <string name="search_recent_header">חיפושים אחרונים:</string>
   <string name="search_results_count_zero">אין תוצאות</string>
   <plurals name="search_results_count">
     <item quantity="one">תוצאה אחת</item>
@@ -406,7 +406,7 @@
   <string name="preference_summary_show_link_previews">הצגת תקציר מהיר של ערכים בעת הקשה על קישורים.</string>
   <string name="preference_title_collapse_tables">מזעור טבלאות</string>
   <string name="preference_summary_collapse_tables">מזעור אוטומטי של טבלאות בערכים, כגון תיבות מידע, מקורות, והערות שוליים.</string>
-  <string name="nav_item_donate">תרומה</string>
+  <string name="nav_item_donate">לתרום</string>
   <string name="error_voice_search_not_available">מצטערים, זיהוי קולי אינו זמין.</string>
   <string name="location_service_disabled">שירותי המיקום כבויים.</string>
   <string name="enable_location_service">הפעלה</string>
@@ -930,7 +930,7 @@
   <string name="description_edit_success_saved_image_tags_snackbar">תגי התמונה פורסמו!</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">נהנית? תעזור לנו להוסיף עוד.</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
-  <string name="description_edit_success_done">בוצע</string>
+  <string name="description_edit_success_done">סיום</string>
   <string name="description_edit_success_did_you_know">הידעת?</string>
   <string name="description_edit_success_article_edit_hint">באפשרותך לערוך ערכים בתוך היישום הזה. אפשר לנסות לתקן שגיאות כתיב ומשפטים קצרים באמצעות לחיצה על הסמל ^1 בפעם הבאה</string>
   <string name="description_edit_tutorial_title_descriptions">תיאורי ערכים</string>
@@ -1562,8 +1562,20 @@
   <string name="talk_templates_edit_message_dialog_save">שמירה</string>
   <string name="talk_templates_edit_message_dialog_delete">מחיקה</string>
   <string name="talk_templates_edit_message_updated">ההודעה עודכנה</string>
-  <string name="talk_templates_edit_message_confirm_description">האם ברצונך באמת למחוק את ההודעה %s מהרשימה?</string>
-  <string name="talk_templates_message_deleted">ההודעה נמחקה</string>
+  <string name="talk_templates_menu_remove_message">הסרת הודעה</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">האם ברצונך למחוק את ההודעה מהרשימה?</item>
+    <item quantity="two">האם ברצונך למחוק את ההודעות מהרשימה?</item>
+    <item quantity="many">האם ברצונך למחוק את ההודעות מהרשימה?</item>
+    <item quantity="other">האם ברצונך למחוק את ההודעות מהרשימה?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">ההודעה נמחקה</item>
+    <item quantity="two">ההודעות נמחקו</item>
+    <item quantity="many">ההודעות נמחקו</item>
+    <item quantity="other">ההודעות נמחקו</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">הכותרת לא יכולה להיות ריקה.</string>
   <string name="patroller_tasks_edits_list_title">רשימת עריכות</string>
   <string name="patroller_tasks_edits_list_search_hint">חיפוש או סינון של עריכות</string>
   <string name="patroller_tasks_edits_list_card_tags_text">תגים: %s</string>
@@ -1628,11 +1640,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">סימון העריכה כבדוקה</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">היסטוריית העריכה של הערך</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">לבטל את העריכה הזאת?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">האם ברצונך באמת לבטל את העריכה הזאת?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">ביטול פירושו הסרת התוצאות של עריכה אחת או יותר.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">תקציר (לא חובה)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">לשתף את הסיבה לשחזור</string>
   <string name="patroller_tasks_patrol_edit_undo_success">השחזור הושלם</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">האם ברצונך באמת לשחזר?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">השחזור הושלם</string>
@@ -1657,6 +1664,7 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">מרוצה</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">אין דעה</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">לא מרוצה</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">איך נוכל לשפר את התכונה?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">משוב</string>
   <string name="patroller_diff_feedback_dialog_submit">שליחה</string>
   <string name="patroller_diff_feedback_submitted_snackbar">המשוב נשלח.</string>
@@ -1671,4 +1679,6 @@
   <string name="email_report_patroller_tasks_body">נתקלתי בבעיה בתכונת משימות ניטור עריכות:\n- [נא לתאר בעיה ספציפית]\n\nההתנהגות שהייתי רוצה לראות היא:\n- [נא לתאר פתרון מוצע]\n\n[צילומי מסך או קישורים]</string>
   <string name="donation_campaign_maybe_later_snackbar">נזכיר לך שוב מחר.</string>
   <string name="donation_campaign_donated_snackbar">תודה, תורם יקר! הנדיבות שלך עוזרת להבטיח את צמיחתם של ויקיפדיה ושל האתרים הקשורים אליה.</string>
+  <string name="donation_campaign_go_back_button">חזרה</string>
+  <string name="menu_single_webview_open_external">פתיחה בדפדפן המערכת</string>
 </resources>
