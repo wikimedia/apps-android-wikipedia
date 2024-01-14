@@ -437,6 +437,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     private fun setLoadingState() {
         binding.progressBar.isVisible = true
         binding.revisionDetailsView.isVisible = false
+        binding.navTabContainer.isVisible = false
         binding.diffRecyclerView.isVisible = false
         binding.diffUnavailableContainer.isVisible = false
         binding.thankButton.isVisible = false
