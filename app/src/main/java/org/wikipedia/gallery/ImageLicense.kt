@@ -4,12 +4,14 @@ import androidx.annotation.DrawableRes
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
-import java.util.*
+import java.util.Locale
 
 @Serializable
-class ImageLicense @JvmOverloads constructor(@SerialName("type") var licenseName: String = "",
-                                             @SerialName("code") var licenseShortName: String = "",
-                                             @SerialName("url") var licenseUrl: String = "") {
+class ImageLicense(
+    @SerialName("type") var licenseName: String = "",
+    @SerialName("code") var licenseShortName: String = "",
+    @SerialName("url") var licenseUrl: String = ""
+) {
 
     constructor(metadata: ExtMetadata) : this(metadata.license(), metadata.licenseShortName(), metadata.licenseUrl())
 

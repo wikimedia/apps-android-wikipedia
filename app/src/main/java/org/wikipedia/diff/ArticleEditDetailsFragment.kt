@@ -22,7 +22,6 @@ import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
-import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -40,7 +39,6 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.okhttp.HttpStatusException
-import org.wikipedia.dataclient.watch.Watch
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
@@ -76,10 +74,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
 
     private var _binding: FragmentArticleEditDetailsBinding? = null
     private val binding get() = _binding!!
-
-    private var isWatched = false
-    private var hasWatchlistExpiry = false
-
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
 
@@ -145,9 +139,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                     editHistoryInteractionEvent = EditHistoryInteractionEvent(viewModel.pageTitle.wikiSite.dbName(), viewModel.pageId)
                     editHistoryInteractionEvent?.logRevision()
                 }
-                isWatched = it.data.watched
-                hasWatchlistExpiry = it.data.hasWatchlistExpiry()
-                updateWatchButton(isWatched, hasWatchlistExpiry)
+                updateWatchButton(it.data.hasWatchlistExpiry())
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
             }
@@ -188,7 +180,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             if (it is Resource.Success) {
                 val firstWatch = it.data.getFirst()
                 if (firstWatch != null) {
-                    showWatchlistSnackbar(viewModel.lastWatchExpiry, firstWatch)
+                    showWatchlistSnackbar()
                 }
             } else if (it is Resource.Error) {
                 setErrorState(it.throwable)
@@ -260,15 +252,15 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
 
         L10nUtil.setConditionalLayoutDirection(requireView(), viewModel.pageTitle.wikiSite.languageCode)
 
-        binding.scrollContainer.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
+        binding.appBarLayout.addOnOffsetChangedListener { _, verticalOffset ->
             val bounds = Rect()
-            binding.contentContainer.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
-            binding.overlayRevisionDetailsView.isVisible = scrollY > bounds.top
-        })
+            binding.collapsingToolbarLayout.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
+            binding.overlayRevisionDetailsView.isVisible = -verticalOffset > bounds.top
+        }
     }
 
     override fun onDestroyView() {
-        binding.scrollContainer.removeCallbacks(sequentialTooltipRunnable)
+        binding.root.removeCallbacks(sequentialTooltipRunnable)
         _binding = null
         super.onDestroyView()
     }
@@ -345,11 +337,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         }
 
         binding.watchButton.setOnClickListener {
-            sendPatrollerExperienceEvent(if (isWatched) "unwatch_init" else "watch_init", "pt_toolbar")
-            viewModel.watchOrUnwatch(isWatched, WatchlistExpiry.NEVER, isWatched)
-            if (isWatched) editHistoryInteractionEvent?.logUnwatchClick() else editHistoryInteractionEvent?.logWatchClick()
+            sendPatrollerExperienceEvent(if (viewModel.isWatched) "unwatch_init" else "watch_init", "pt_toolbar")
+            viewModel.watchOrUnwatch(viewModel.isWatched)
+            if (viewModel.isWatched) editHistoryInteractionEvent?.logUnwatchClick() else editHistoryInteractionEvent?.logWatchClick()
         }
-        updateWatchButton(isWatched, hasWatchlistExpiry)
+        updateWatchButton(false)
 
         binding.warnButton.setOnClickListener {
             sendPatrollerExperienceEvent("warn_init", "pt_toolbar")
@@ -420,8 +412,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             binding.oresDamagingButton.isVisible && binding.oresGoodFaithButton.isVisible &&
             parentFragment == FragmentUtil.getAncestor(this, SuggestedEditsCardsFragment::class.java)?.topBaseChild()) {
             Prefs.showOneTimeSequentialRecentEditsDiffTooltip = false
-            binding.scrollContainer.removeCallbacks(sequentialTooltipRunnable)
-            binding.scrollContainer.postDelayed(sequentialTooltipRunnable, 500)
+            binding.root.removeCallbacks(sequentialTooltipRunnable)
+            binding.root.postDelayed(sequentialTooltipRunnable, 500)
         }
     }
 
@@ -446,6 +438,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     private fun setLoadingState() {
         binding.progressBar.isVisible = true
         binding.revisionDetailsView.isVisible = false
+        binding.navTabContainer.isVisible = false
         binding.diffRecyclerView.isVisible = false
         binding.diffUnavailableContainer.isVisible = false
         binding.thankButton.isVisible = false
@@ -528,13 +521,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 R.attr.inactive_color else R.attr.secondary_color)))
     }
 
-    private fun updateWatchButton(isWatched: Boolean, hasWatchlistExpiry: Boolean) {
+    private fun updateWatchButton(hasWatchlistExpiry: Boolean) {
         binding.watchButton.isVisible = AccountUtil.isLoggedIn
-        binding.watchLabel.text = getString(if (isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
+        binding.watchLabel.text = getString(if (viewModel.isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
         binding.watchIcon.setImageResource(
-            if (isWatched && !hasWatchlistExpiry) {
+            if (viewModel.isWatched && !hasWatchlistExpiry) {
                 R.drawable.ic_star_24
-            } else if (!isWatched) {
+            } else if (!viewModel.isWatched) {
                 R.drawable.ic_baseline_star_outline_24
             } else {
                 R.drawable.ic_baseline_star_half_24
@@ -542,11 +535,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         )
     }
 
-    private fun showWatchlistSnackbar(expiry: WatchlistExpiry, watch: Watch) {
-        isWatched = watch.watched
-        hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
-        updateWatchButton(isWatched, hasWatchlistExpiry)
-        if (watch.unwatched) {
+    private fun showWatchlistSnackbar() {
+        updateWatchButton(false)
+        if (!viewModel.isWatched) {
             sendPatrollerExperienceEvent("unwatch_success_toast", "pt_watchlist")
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.watchlist_page_removed_from_watchlist_snackbar, viewModel.pageTitle.displayText))
             snackbar.addCallback(object : Snackbar.Callback() {
@@ -558,21 +549,18 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 }
             })
             snackbar.show()
-        } else if (watch.watched) {
+        } else if (viewModel.isWatched) {
             sendPatrollerExperienceEvent("watch_success_toast", "pt_watchlist")
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
                     getString(R.string.watchlist_page_add_to_watchlist_snackbar,
                             viewModel.pageTitle.displayText,
-                            getString(expiry.stringId)))
-            if (!viewModel.watchlistExpiryChanged) {
-                snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
-                    viewModel.watchlistExpiryChanged = true
-                    ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(expiry))
-                }
+                            getString(WatchlistExpiry.NEVER.stringId)))
+            snackbar.setAction(R.string.watchlist_page_add_to_watchlist_snackbar_action) {
+                ExclusiveBottomSheetPresenter.show(childFragmentManager, WatchlistExpiryDialog.newInstance(viewModel.pageTitle, WatchlistExpiry.NEVER))
             }
             snackbar.addCallback(object : Snackbar.Callback() {
                 override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
-                    if (!isAdded || viewModel.watchlistExpiryChanged) {
+                    if (!isAdded) {
                         return
                     }
                     showFeedbackOptionsDialog()
@@ -758,10 +746,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         return viewModel.pageTitle.getWebApiUrl("diff=${viewModel.revisionToId}&oldid=${viewModel.revisionFromId}&variant=${viewModel.pageTitle.wikiSite.languageCode}")
     }
 
-    override fun onExpirySelect(expiry: WatchlistExpiry) {
+    override fun onExpiryChanged(expiry: WatchlistExpiry) {
         sendPatrollerExperienceEvent("expiry_" + expiry.expiry.replace(" ", "_"), "pt_watchlist")
-        viewModel.watchOrUnwatch(isWatched, expiry, false)
-        ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
+        updateWatchButton(expiry != WatchlistExpiry.NEVER)
         showFeedbackOptionsDialog()
     }
 
