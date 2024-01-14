@@ -82,6 +82,8 @@ interface HistoryEntryWithImageDao {
             entryWithImage.displayTitle, 0, entryWithImage.namespace, entryWithImage.timestamp,
             entryWithImage.source, entryWithImage.timeSpentSec)
         entry.title.thumbUrl = entryWithImage.imageName
+        entry.title.description = entryWithImage.description
+
         return entry
     }
 

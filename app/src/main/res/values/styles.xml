@@ -49,6 +49,11 @@
         <item name="colorError">?attr/destructive_color</item>
 
         <item name="colorSurface">?attr/paper_color</item>
+        <item name="colorSurfaceContainerLowest">?attr/paper_color</item>
+        <item name="colorSurfaceContainerLow">?attr/paper_color</item>
+        <item name="colorSurfaceContainer">?attr/paper_color</item>
+        <item name="colorSurfaceContainerHigh">?attr/paper_color</item>
+        <item name="colorSurfaceContainerHighest">?attr/paper_color</item>
         <item name="colorOnSurface">?attr/primary_color</item>
 
         <item name="colorTertiaryContainer">?attr/paper_color</item>

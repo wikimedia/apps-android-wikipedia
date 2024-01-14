@@ -373,4 +373,5 @@
   <string name="thank_success_message">Tava pateicība tika nosūtīta %s 👍</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">pastāvīgi</string>
   <string name="watchlist_expiry_dialog_permanent">Pastāvīgi</string>
+  <string name="watchlist_filter_type_of_change_page_creations">Lapu veidošana</string>
 </resources>

@@ -753,6 +753,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ควรเขียนให้พอดีหนึ่งบรรทัด และเขียนตั้งแต่ 2-12 คำ</string>
   <string name="description_edit_tutorial_button_label_start_editing">เริ่มแก้ไข</string>
   <string name="description_edit_tutorial_promise">ฉันสัญญาว่าจะไม่ใช้คุณลักษณะนี้ในทางที่ผิด</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">เครื่องแนะนำ</string>
   <string name="customize_toolbar_category_toolbar">แถบเครื่องมือ</string>
   <string name="customize_toolbar_category_menu">เมนู</string>
   <string name="customize_toolbar_reset_to_default_button">รีเซ็ตเป็นค่าเริ่มต้น</string>

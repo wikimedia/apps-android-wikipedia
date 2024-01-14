@@ -11,8 +11,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
-open class WikiCardView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
-        MaterialCardView(context, attrs, defStyleAttr) {
+open class WikiCardView(context: Context, attrs: AttributeSet? = null) : MaterialCardView(context, attrs) {
 
     init {
         if (!isInEditMode) {

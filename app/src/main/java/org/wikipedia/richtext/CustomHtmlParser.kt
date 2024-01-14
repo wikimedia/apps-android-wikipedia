@@ -34,8 +34,9 @@ import org.xml.sax.Attributes
 import org.xml.sax.ContentHandler
 import org.xml.sax.Locator
 import org.xml.sax.XMLReader
+import java.util.Stack
 
-class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler, ContentHandler {
+class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHandler {
     interface TagHandler {
         fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean
     }
@@ -109,7 +110,7 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
 
     class CustomTagHandler(private val view: TextView?) : TagHandler {
         private var lastAClass = ""
-        private var listItemCount = 0
+        private var listItemCounts = Stack<Int>()
         private val listParents = mutableListOf<String>()
         private val leadingMarginSize = DimenUtil.dpToPx(16f).toInt()
 
@@ -193,10 +194,11 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
             } else if (tag == "ol") {
                 if (opening) {
                     listParents.add(tag)
+                    listItemCounts.push(0)
                 } else {
                     listParents.remove(tag)
+                    listItemCounts.pop()
                 }
-                listItemCount = 0
             } else if (tag == "li" && listParents.isNotEmpty() && !opening && output != null) {
                 handleListTag(output)
             }
@@ -205,18 +207,15 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
 
         private fun handleListTag(output: Editable) {
             if (listParents.last() == "ol") {
-                listItemCount++
-                val split = output.split("\n").filter { it.isNotEmpty() }
-                val start = output.length - split.last().length - 1
-                val replaceStr = "$listItemCount. ${split.last()}"
-                output.replace(start - 1, output.length - 1, replaceStr)
-
+                val count = (if (listItemCounts.size > 0) listItemCounts.pop() else 0) + 1
+                listItemCounts.push(count)
                 val spans = output.getSpans<LeadingMarginSpan>(output.length)
                 if (spans.isNotEmpty()) {
                     val span = spans.last()
-                    val startSpan = output.getSpanStart(span)
+                    val spanStart = output.getSpanStart(span)
                     output.removeSpan(span)
-                    output.setSpan(LeadingMarginSpan.Standard(leadingMarginSize * listParents.size), startSpan, output.length, 0)
+                    output.insert(spanStart, "$count. ")
+                    output.setSpan(LeadingMarginSpan.Standard(leadingMarginSize), spanStart, output.length, 0)
                 }
             }
         }

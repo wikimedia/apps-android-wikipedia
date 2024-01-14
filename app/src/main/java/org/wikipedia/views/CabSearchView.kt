@@ -13,9 +13,10 @@ import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 
-/** [SearchView] that exposes contextual action bar callbacks.  */
-class CabSearchView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = androidx.appcompat.R.attr.searchViewStyle) :
-        SearchView(context, attrs, defStyleAttr) {
+class CabSearchView(
+    context: Context,
+    attrs: AttributeSet? = null
+) : SearchView(context, attrs, androidx.appcompat.R.attr.searchViewStyle) {
 
     private val searchCloseBtn: ImageView
     private val searchSrcTextView: SearchAutoComplete

@@ -972,7 +972,10 @@
   <string name="suggested_edits_encouragement_message">%s , tak for dine redigeringer. Nedenfor kan du finde flere måder at bidrage til Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hej %s&lt;/b&gt; , herunder kan du finde nogle hurtige og nemme måder at hjælpe med at forbedre Wikipedia. Du vil se den forskel, du gør, så snart du går i gang. God redigering!</string>
   <string name="suggested_edits_image_captions_task_detail">Beskriv et billede for at hjælpe læsere med at forstå dets betydning og kontekst.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Opsummér en artikel for at hjælpe læsere med at forstå emnet på et øjeblik.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Dit samlede antal bidrag indtil videre.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Viser hvor mange dage i træk du har bidraget. Hvis du ikke har bidraget i et stykke tid, vises din sidste bidragsdato.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Samlet antal sidevisninger af emner, som du har bidraget til inden for de sidste 30 dage.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips og tricks til redigering</string>
   <string name="suggested_edits_views_label_text">Visninger</string>
   <string name="suggested_edits_quality_label_text">Redigeringskvalitet</string>
@@ -998,6 +1001,7 @@
   <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="suggested_edits_task_new">Ny</string>
   <string name="suggested_edits_reactivation_notification_title">Redigeringsforslag</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Har du et minut til at fortsætte med at forbedre Wikipedia? Tjek disse redigeringsforslag.</string>
   <string name="suggested_edits_contributions_screen_title">%s\'s bidrag</string>
   <string name="suggested_edits_contribution_language_label">Sprog</string>
   <string name="suggested_edits_contribution_date_time_label">Dato / Tid</string>
@@ -1062,6 +1066,11 @@
   <string name="image_recommendation_reject_dont_know">Jeg kender ikke dette emne</string>
   <string name="image_recommendation_reject_other">Andet</string>
   <string name="image_recommendation_reject_submit">Indsend</string>
+  <string name="image_recommendation_tooltip_main">Tilføj manglende billeder til artikler i Foreslåede redigeringer</string>
+  <string name="image_recommendation_onboarding_1">Billeder hjælper folk med at forstå, men mange artikler har dem ikke.</string>
+  <string name="image_recommendation_onboarding_2">Du bestemmer, om et foreslået billede skal placeres i en Wikipedia-artikel.</string>
+  <string name="image_recommendation_onboarding_4">Billeder er fra Wikimedia Commons, en samling af åbent licenserede billeder benyttet af Wikipedia.</string>
+  <string name="image_recommendation_tooltip_3">Beslut om billedet hjælper læserne med at forstå dette emne bedre</string>
   <string name="image_recommendation_tooltip_next">Næste</string>
   <string name="suggested_edits_report_feature">Problem med funktionen</string>
   <string name="suggested_edits_report_feature_subject">Problem med Foreslåede redigeringer</string>
@@ -1281,6 +1290,7 @@
   <string name="thank_dialog_positive_button_text">Send tak</string>
   <string name="thank_dialog_negative_button_text">Annullér</string>
   <string name="thank_success_message">Din \'Tak\' blev sendt til %s 👍</string>
+  <string name="menu_option_view_user_profile">Vis brugerside</string>
   <string name="menu_option_view_user_talk">Vis diskussionsside</string>
   <string name="menu_option_view_user_contributions">Vis brugers bidrag</string>
   <string name="revision_diff_compare">Sammenlign revisioner</string>
@@ -1294,6 +1304,14 @@
   <string name="revision_diff_line_removed">Linje fjernet</string>
   <string name="revision_diff_paragraph_added">Afsnit tilføjet</string>
   <string name="revision_diff_paragraph_removed">Afsnit fjernet</string>
+  <string name="revision_diff_protected">Ændringerne i denne revision er ikke offentligt tilgængelige.</string>
+  <string name="revision_undo_title">Er du sikker på, at du vil fortryde denne redigering?</string>
+  <string name="revision_undo_message">Fortryd betyder at tilbagerulle effekterne af en eller flere redigeringer.</string>
+  <string name="revision_undo_summary_hint">Resumé (valgfrit)</string>
+  <string name="revision_undo_reason">Angiv årsagen for tilbagerulningen</string>
+  <string name="revision_undo_success">Revisionen blev fortrudt.</string>
+  <string name="revision_rollback_dialog_title">Er du sikker på, at du vil rulle ændringerne tilbage?</string>
+  <string name="revision_rollback_success">Redigeringer tilbagerullet.</string>
   <string name="revision_compare_button">Sammenlign</string>
   <string name="revision_compare_two_only">Kun to revisioner kan vælges.</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">%1$s og dens diskussionsside er blevet tilføjet til din overvågningsliste %2$s.</string>
@@ -1325,6 +1343,11 @@
   <string name="watchlist_filter_watchlist_activity_header">Aktivitet for overvågningsliste</string>
   <string name="watchlist_filter_watchlist_activity_unseen">Ulæste ændringer</string>
   <string name="watchlist_filter_watchlist_activity_seen">Sete ændringer</string>
+  <string name="watchlist_filter_contribution_quality_header">Forudsigelser af bidragskvalitet</string>
+  <string name="watchlist_filter_contribution_quality_good">Meget sandsynligt god</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">Kan have problemer</string>
+  <string name="watchlist_filter_contribution_quality_likely_problems">Har sandsynligvis problemer</string>
+  <string name="watchlist_filter_contribution_quality_bad">Har højst sandsynligt problemer</string>
   <string name="watchlist_filter_user_status_registered">Registreret</string>
   <string name="watchlist_filter_user_status_newcomers">Nybegyndere</string>
   <string name="watchlist_filter_user_status_learners">Let øvede</string>
@@ -1340,6 +1363,7 @@
   <string name="watchlist_filter_latest_revisions_latest_revision">Seneste revidering</string>
   <string name="watchlist_filter_type_of_change_new_users">Nye brugere</string>
   <string name="watchlist_filter_reset_button">Nulstil</string>
+  <string name="preview_edit_watch_this_page">Overvåg denne side</string>
   <string name="action_item_categories">Kategorier</string>
   <string name="page_no_categories">Denne side tilhører ikke nogen kategorier.</string>
   <string name="category_tab_articles">Artikler</string>
@@ -1411,6 +1435,8 @@
   <string name="patroller_diff_feedback_dialog_option_satisfied">Tilfreds</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Utilfreds</string>
+  <string name="patroller_diff_feedback_dialog_submit">Indsend</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Feedback indsendt.</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Afvis</string>
   <string name="donation_campaign_go_back_button">Gå tilbage</string>

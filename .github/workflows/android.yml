@@ -31,6 +31,9 @@ jobs:
         alias: ${{ secrets.KEY_STORE_ALIAS }}
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
         keyPassword: ${{ secrets.KEY_PASSWORD }}
+      env:
+        # override default build-tools version (29.0.3) -- optional
+        BUILD_TOOLS_VERSION: "34.0.0"
     - name: Create hash
       run: git rev-parse HEAD > app/build/outputs/apk/alpha/release/rev-hash.txt
     - name: Rename APK to universal

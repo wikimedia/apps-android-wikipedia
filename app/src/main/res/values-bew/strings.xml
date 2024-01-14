@@ -5,7 +5,7 @@
 -->
 <resources>
   <string name="app_name_prod">Wikipédi</string>
-  <string name="app_name_beta">Wikipédi Béta</string>
+  <string name="app_name_beta">Wikipédi Belongkotan</string>
   <string name="app_name_alpha">Wikipédi Alpa</string>
   <string name="wikimedia">Wikimédia</string>
   <string name="nav_item_back">Kombali</string>

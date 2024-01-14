@@ -76,20 +76,22 @@ class SearchResultsViewModel : ViewModel() {
                     prefixSearch = false
                 }
 
-                if (response?.query?.pages == null) {
+                resultList.addAll(response?.query?.pages?.let { list ->
+                    list.sortedBy { it.index }.map { SearchResult(it, wikiSite) }
+                } ?: emptyList())
+
+                if (resultList.size < params.loadSize) {
                     // Prevent using continuation string from prefix search after the first round of LoadResult.
                     val continuation = if (params.key?.continuation?.contains("description") == true) null else params.key?.continuation
                     response = ServiceFactory.get(wikiSite)
                         .fullTextSearch(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, continuation)
+
+                    resultList.addAll(response.query?.pages?.let { list ->
+                        list.sortedBy { it.index }.map { SearchResult(it, wikiSite) }
+                    } ?: emptyList())
                 }
 
-                val searchResults = response.query?.pages?.let { list ->
-                    list.sortedBy { it.index }.map {
-                        SearchResult(it, wikiSite)
-                    }
-                } ?: emptyList()
-
-                if (searchResults.isEmpty() && response.continuation == null) {
+                if (resultList.isEmpty() && response?.continuation == null) {
                     resultsCount?.clear()
                     WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
                         if (langCode == languageCode) {
@@ -115,9 +117,7 @@ class SearchResultsViewModel : ViewModel() {
                     }
                 }
 
-                resultList.addAll(searchResults)
-
-                return LoadResult.Page(resultList.distinctBy { it.pageTitle.prefixedText }, null, response.continuation)
+                return LoadResult.Page(resultList.distinctBy { it.pageTitle.prefixedText }, null, response?.continuation)
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }

@@ -38,6 +38,7 @@ interface HistoryEntryDao {
             curEntry.timeSpentSec += timeSpent
             curEntry.source = entry.source
             curEntry.timestamp = entry.timestamp
+            curEntry.description = entry.description
             insertEntry(curEntry)
         } else {
             entry.timeSpentSec += timeSpent
