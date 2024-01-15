@@ -30,7 +30,8 @@ import kotlin.math.roundToInt
 
 object StringUtil {
     private const val CSV_DELIMITER = ","
-    private val HIGHLIGHT_REGEX_OPTIONS = EnumSet.of(RegexOption.LITERAL, RegexOption.IGNORE_CASE)
+    @JvmField
+    val SEARCH_REGEX_OPTIONS: Set<RegexOption> = EnumSet.of(RegexOption.LITERAL, RegexOption.IGNORE_CASE)
 
     fun listToCsv(list: List<String?>): String {
         return list.joinToString(CSV_DELIMITER)
@@ -148,7 +149,7 @@ object StringUtil {
         textView.text = if (query.isNullOrEmpty()) parentText else buildSpannedString {
             append(parentText)
 
-            query.toRegex(HIGHLIGHT_REGEX_OPTIONS).findAll(parentText)
+            query.toRegex(SEARCH_REGEX_OPTIONS).findAll(parentText)
                 .forEach {
                     val range = it.range
                     val (start, end) = range.first to range.last + 1
