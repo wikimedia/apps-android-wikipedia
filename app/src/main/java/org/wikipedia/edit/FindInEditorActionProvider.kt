@@ -9,7 +9,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.views.FindInPageActionProvider
 import org.wikipedia.views.FindInPageActionProvider.FindInPageListener
-import java.util.*
+import java.util.Locale
 
 class FindInEditorActionProvider(private val scrollView: View,
                                  private val textView: SyntaxHighlightableEditText,

@@ -2,17 +2,26 @@ package org.wikipedia.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
-import kotlinx.coroutines.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
+import androidx.paging.filter
+import androidx.paging.map
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.StringUtil
-import java.util.*
 
 class SearchResultsViewModel : ViewModel() {
 
@@ -133,9 +142,7 @@ class SearchResultsViewModel : ViewModel() {
             if (searchTerm.length >= 2) {
                 WikipediaApp.instance.tabList.forEach { tab ->
                     tab.backStackPositionTitle?.let {
-                        if (StringUtil.fromHtml(it.displayText).toString()
-                                .lowercase(Locale.getDefault())
-                                .contains(searchTerm.lowercase(Locale.getDefault()))) {
+                        if (StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
                             return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
                         }
                     }
