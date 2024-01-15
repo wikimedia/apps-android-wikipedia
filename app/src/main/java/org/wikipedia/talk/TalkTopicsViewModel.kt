@@ -3,8 +3,11 @@ package org.wikipedia.talk
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.csrf.CsrfTokenClient
@@ -38,10 +41,8 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
 
     private val threadItems = mutableListOf<ThreadItem>()
     var sortedThreadItems = listOf<ThreadItem>()
-    var watchlistExpiryChanged = false
     var isWatched = false
     var hasWatchlistExpiry = false
-    var lastWatchExpiry = WatchlistExpiry.NEVER
     var currentSearchQuery: String? = null
         set(value) {
             field = value
@@ -218,10 +219,6 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
             val response = ServiceFactory.get(pageTitle.wikiSite)
                 .watch(if (unwatch) 1 else null, null, pageTitle.prefixedText, expiry.expiry, token!!)
 
-            lastWatchExpiry = expiry
-            if (watchlistExpiryChanged && unwatch) {
-                watchlistExpiryChanged = false
-            }
             if (unwatch) {
                 WatchlistAnalyticsHelper.logRemovedFromWatchlistSuccess(pageTitle)
             } else {
@@ -229,7 +226,7 @@ class TalkTopicsViewModel(var pageTitle: PageTitle, private val sidePanel: Boole
             }
             response.getFirst()?.let {
                 isWatched = it.watched
-                hasWatchlistExpiry = lastWatchExpiry != WatchlistExpiry.NEVER
+                hasWatchlistExpiry = expiry != WatchlistExpiry.NEVER
                 // We have to send values to the object, even if we use the variables from ViewModel.
                 // Otherwise the status will not be updated in the activity since the values in the object remains the same.
                 actionState.value = ActionState.DoWatch(isWatched, hasWatchlistExpiry)

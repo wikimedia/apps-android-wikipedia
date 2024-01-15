@@ -12,6 +12,7 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.time.temporal.TemporalAccessor
@@ -31,11 +32,11 @@ object DateUtil {
     }
 
     fun dbLocalDateTimeFormat(localDateTime: LocalDateTime): String {
-        return getCachedDateTimeFormatter("yyyyMMddHHmmss", Locale.ROOT).format(localDateTime)
+        return getCachedDateTimeFormatter("yyyyMMddHHmmss").format(localDateTime)
     }
 
     fun dbLocalDateTimeParse(date: String): LocalDateTime {
-        return LocalDateTime.parse(date, getCachedDateTimeFormatter("yyyyMMddHHmmss", Locale.ROOT))
+        return LocalDateTime.parse(date, getCachedDateTimeFormatter("yyyyMMddHHmmss"))
     }
 
     fun getFeedCardDateString(age: Int): String {
@@ -85,7 +86,7 @@ object DateUtil {
 
     fun formatAsLegacyDateString(instant: Instant?): String {
         return instant?.atZone(ZoneId.systemDefault())
-            ?.format(getCachedDateTimeFormatter("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ROOT))
+            ?.format(getCachedDateTimeFormatter("EEE MMM dd HH:mm:ss zzz yyyy"))
             .orEmpty()
     }
 
@@ -104,17 +105,18 @@ object DateUtil {
     }
 
     private fun getDateStringWithSkeletonPattern(date: Date, pattern: String): String {
-        return getCachedDateFormat(DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date)
+        return getCachedDateFormat(pattern, Locale.getDefault(), utc = false, skeleton = true)
+            .format(date)
     }
 
     private fun getDateStringWithSkeletonPattern(temporalAccessor: TemporalAccessor, pattern: String): String {
-        val bestPattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern)
-        return getCachedDateTimeFormatter(bestPattern, Locale.getDefault()).format(temporalAccessor)
+        return getCachedDateTimeFormatter(pattern, Locale.getDefault(), skeleton = true)
+            .format(temporalAccessor)
     }
 
-    private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean): SimpleDateFormat {
+    private fun getCachedDateFormat(pattern: String, locale: Locale, utc: Boolean, skeleton: Boolean = false): SimpleDateFormat {
         return DATE_FORMATS.getOrPut(pattern) {
-            val df = SimpleDateFormat(pattern, locale)
+            val df = SimpleDateFormat(if (skeleton) DateFormat.getBestDateTimePattern(locale, pattern) else pattern, locale)
             if (utc) {
                 df.timeZone = TimeZone.getTimeZone("UTC")
             }
@@ -122,9 +124,13 @@ object DateUtil {
         }
     }
 
-    private fun getCachedDateTimeFormatter(pattern: String, locale: Locale): DateTimeFormatter {
+    private fun getCachedDateTimeFormatter(
+        pattern: String, locale: Locale = Locale.ROOT,
+        utc: Boolean = false, skeleton: Boolean = false
+    ): DateTimeFormatter {
         return DATE_TIME_FORMATTERS.getOrPut(pattern) {
-            DateTimeFormatter.ofPattern(pattern, locale)
+            val dtf = DateTimeFormatter.ofPattern(if (skeleton) DateFormat.getBestDateTimePattern(locale, pattern) else pattern, locale)
+            if (utc) dtf.withZone(ZoneOffset.UTC) else dtf
         }
     }
 
