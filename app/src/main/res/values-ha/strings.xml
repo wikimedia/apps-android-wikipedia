@@ -1243,7 +1243,7 @@
   <string name="talk_subject_empty">Batun ba zai iya zama komai ba.</string>
   <string name="talk_response_submitted">An mayar da martani.</string>
   <string name="talk_snackbar_undo">Fasa</string>
-  <string name="talk_last_modified">&lt;b&gt;An shirya shi na ƙarshe %1$s&lt;/b&gt;%1$s da %2$s</string>
+  <string name="talk_last_modified">&lt;b&gt;An shirya shi na ƙarshe %1$s&lt;/b&gt; da %2$s</string>
   <string name="talk_snackbar_survey_text">mun gode da amfani da shafikan magana. kuna iya taimakawa kara fadadawa domin yin bincike.</string>
   <string name="talk_snackbar_survey_action_text">fara yanzu</string>
   <string name="talk_share_discussion_subject">Wikipedia - tattaunawa a kan batun shafin tattaunawa \"%s\"</string>
