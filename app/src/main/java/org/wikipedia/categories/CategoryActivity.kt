@@ -139,7 +139,7 @@ class CategoryActivity : BaseActivity() {
             startActivity(newIntent(this, title))
         } else {
             val entry = HistoryEntry(title, HistoryEntry.SOURCE_CATEGORY)
-            ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+            ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry))
         }
     }
 

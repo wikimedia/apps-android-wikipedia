@@ -72,7 +72,7 @@ class SearchResultsViewModel : ViewModel() {
                 var response: MwQueryResponse? = null
                 val resultList = mutableListOf<SearchResult>()
                 if (prefixSearch) {
-                    if (searchTerm.length > 2 && invokeSource == Constants.InvokeSource.PLACES) {
+                    if (searchTerm.length > 2 && invokeSource != Constants.InvokeSource.PLACES) {
                         withContext(Dispatchers.IO) {
                             listOf(async {
                                 getSearchResultsFromTabs(searchTerm)
