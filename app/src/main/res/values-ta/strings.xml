@@ -197,7 +197,7 @@
   <string name="preference_title_download_reading_list_articles">வாசிப்பு பட்டியலிலுள்ள கட்டுரைகளை பதிவிறக்கு</string>
   <string name="preference_summary_sync_reading_lists">உங்கள் விக்கிப்பீடியா கணக்கிற்கு படிப்பு பட்டியல்களை சேமித்து சாதனங்களுக்கு இடையே ஒருங்குநிகழ் செய்க</string>
   <string name="preference_summary_sync_reading_lists_from_account">உங்கள் விக்கிப்பீடியா கணக்கு \"%s\" க்கு படிப்பு பட்டியல்களை சேமித்து சாதனங்களுக்கு இடையே ஒருங்குநிகழ் செய்க</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">ஒருங்குநிகழ் செய்யப்பட்ட படிப்பு பட்டியல்களை \"%s\" இலிருந்து நீக்கவும்</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">ஒத்திசைவான வாசிப்புப் பட்டியல்களை \"%s\" இலிருந்து அகற்றவா?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">இது முன்கூட்டியே ஒத்திசை செய்யப்பட்ட படிப்பு பட்டியல்களை தொலைநிலை சேமிப்பகத்திலிருந்து அகற்றிவிடும். ஒத்திசை செய்யப்பட்ட பட்டியல்களை உங்கள் \"%s\" கணக்கிலிருந்து அகற்றவா?</string>
   <string name="preferences_privacy_settings_heading">தனியுரிமை</string>
   <string name="preference_title_eventlogging_opt_in">பயன்பாடு அறிக்கை அனுப்பு</string>
@@ -522,7 +522,7 @@
   <string name="onboarding_multilingual_secondary_text">உங்கள் சாதனத்தில் பின்வரும் மொழிகளை நாங்கள் கண்டறிந்தோம்:</string>
   <string name="onboarding_welcome_title_v2">இலவச கலைக்களஞ்சியம்\n… 300 மொழிகளுக்கும் மேலாக</string>
   <string name="app_shortcuts_random">ஏதோ ஒன்று</string>
-  <string name="app_shortcuts_continue_reading">தொடர்ந்து படிக்கவும்</string>
+  <string name="app_shortcuts_continue_reading">வாசிப்பைத் தொடர்</string>
   <string name="app_shortcuts_search">தேடு</string>
   <string name="on_this_day_card_title">இந்த நாளில்</string>
   <string name="more_events_text">இந்நாளில் மேலும்</string>

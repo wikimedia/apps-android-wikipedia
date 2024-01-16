@@ -35,26 +35,46 @@
                     android:layout_height="@dimen/defaultListItemSize"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginVertical="16dp"
                     android:contentDescription="@null"
                     android:visibility="gone" />
 
-                <TextView
-                    android:id="@+id/link_preview_title"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="16dp"
+                    android:layout_marginVertical="16dp"
                     android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:fontFamily="serif"
-                    android:lineSpacingMultiplier="0.9"
-                    android:maxLines="3"
-                    android:paddingBottom="4dp"
-                    android:textColor="?attr/primary_color"
-                    android:textSize="20sp"
-                    tools:text="Lorem ipsum" />
+                    android:orientation="vertical"
+                    android:paddingBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/link_preview_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="serif"
+                        android:lineSpacingMultiplier="0.9"
+                        android:maxLines="3"
+                        android:textColor="?attr/primary_color"
+                        android:textSize="20sp"
+                        tools:text="Lorem ipsum" />
+
+                    <TextView
+                        style="@style/H4"
+                        android:id="@+id/link_preview_distance"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="?attr/success_color"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginStart="-4dp"
+                        android:visibility="gone"
+                        android:gravity="center_vertical"
+                        app:drawableStartCompat="@drawable/location_gradient"
+                        tools:text="Lorem ipsum" />
+
+                </LinearLayout>
 
                 <ImageView
                     android:id="@+id/link_preview_overflow_button"
@@ -119,5 +139,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
+
+    <View
+        android:layout_width="32dp"
+        android:layout_height="4dp"
+        android:layout_marginVertical="8dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rounded_2dp_fill"/>
 
 </FrameLayout>
