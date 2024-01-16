@@ -28,6 +28,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
         fun onOpenInNewTab(entry: HistoryEntry)
         fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean)
         fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry)
+        fun onRemoveRequest() { /* ignore by default */ }
     }
 
     @MenuRes
@@ -89,7 +90,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
         listsContainingPage?.let { list ->
             RemoveFromReadingListsDialog(list).deleteOrShowDialog(getActivity()) { readingLists, _ ->
                 entry?.let {
-                    if (anchorView.isAttachedToWindow) {
+                    if (!getActivity().isDestroyed) {
                         val readingListNames = readingLists.map { readingList -> readingList.title }.run {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                 ListFormatter.getInstance().format(this)
@@ -139,6 +140,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                 }
                 R.id.menu_long_press_remove_from_lists -> {
                     deleteOrShowDialog()
+                    callback?.onRemoveRequest()
                     true
                 }
                 R.id.menu_long_press_share_page -> {
