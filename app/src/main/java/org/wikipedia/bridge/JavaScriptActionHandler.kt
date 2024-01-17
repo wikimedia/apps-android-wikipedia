@@ -71,7 +71,7 @@ object JavaScriptActionHandler {
     }
 
     fun scrollToAnchor(anchorLink: String): String {
-        val anchor = if (anchorLink.contains("#")) anchorLink.substring(anchorLink.indexOf("#") + 1) else anchorLink
+        val anchor = anchorLink.substringAfter('#')
         return "var el = document.getElementById('$anchor');" +
                 "window.scrollTo(0, el.offsetTop - (screen.height / 2));" +
                 "setTimeout(function(){ el.style.backgroundColor='#fc3';" +
