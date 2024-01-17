@@ -55,7 +55,15 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
         val longitude: Double,
         var annotation: Symbol? = null,
         var bitmap: Bitmap? = null
-    )
+    ) {
+
+        private val lat = latitude
+        private val lng = longitude
+        val location get() = Location("").apply {
+            latitude = lat
+            longitude = lng
+        }
+    }
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")

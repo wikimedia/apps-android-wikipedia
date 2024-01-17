@@ -34,7 +34,7 @@
 
     <TextView
         style="@style/H4"
-        android:id="@+id/link_preview_distance"
+        android:id="@+id/listItemDistance"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="?attr/success_color"

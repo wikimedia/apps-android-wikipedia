@@ -78,12 +78,14 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
+import java.util.Locale
 
 class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
@@ -675,6 +677,9 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         fun bindItem(item: PlacesFragmentViewModel.NearbyPage, position: Int) {
             binding.listItemTitle.text = StringUtil.fromHtml(item.pageTitle.displayText)
             binding.listItemDescription.text = StringUtil.fromHtml(item.pageTitle.description)
+            lastLocationUpdated?.let{
+                binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, item.location, Locale.getDefault())
+            }
             item.pageTitle.thumbUrl?.let {
                 ViewUtil.loadImage(binding.listItemThumbnail, it)
                 binding.listItemThumbnail.isVisible = true
