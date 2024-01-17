@@ -677,7 +677,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         fun bindItem(item: PlacesFragmentViewModel.NearbyPage, position: Int) {
             binding.listItemTitle.text = StringUtil.fromHtml(item.pageTitle.displayText)
             binding.listItemDescription.text = StringUtil.fromHtml(item.pageTitle.description)
-            lastLocationUpdated?.let{
+            lastLocationUpdated?.let {
                 binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, item.location, Locale.getDefault())
             }
             item.pageTitle.thumbUrl?.let {
