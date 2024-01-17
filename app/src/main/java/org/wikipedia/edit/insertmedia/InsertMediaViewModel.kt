@@ -15,6 +15,7 @@ import org.wikipedia.Constants
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.FileAliasData
@@ -42,12 +43,14 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
         loadMagicWords()
     }
 
-    class InsertMediaPagingSource(val searchQuery: String) : PagingSource<Int, PageTitle>() {
-        override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PageTitle> {
+    class InsertMediaPagingSource(
+        val searchQuery: String,
+    ) : PagingSource<MwQueryResponse.Continuation, PageTitle>() {
+        override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, PageTitle> {
             return try {
                 val wikiSite = WikiSite(Service.COMMONS_URL)
                 val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL))
-                    .fullTextSearchCommons(searchQuery, params.loadSize, params.key)
+                    .fullTextSearchCommons(searchQuery, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
 
                 return response.query?.pages?.let { list ->
                     val results = list.sortedBy { it.index }.filter { it.imageInfo() != null }.map {
@@ -60,21 +63,20 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                         }
                         pageTitle
                     }
-                    LoadResult.Page(results, params.key, response.continuation?.gsroffset)
+                    LoadResult.Page(results, null, response.continuation)
                 } ?: run {
-                    LoadResult.Page(emptyList(), params.key, null)
+                    LoadResult.Page(emptyList(), null, null)
                 }
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
         }
 
-        override fun getRefreshKey(state: PagingState<Int, PageTitle>): Int? {
+        override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, PageTitle>): MwQueryResponse.Continuation? {
             return null
         }
     }
 
-    @Suppress("KotlinConstantConditions")
     private fun loadMagicWords() {
         if (magicWordsLang == wikiSite.languageCode) {
             return
