@@ -65,10 +65,9 @@ interface Service {
                 "&gsrnamespace=6&iiurlwidth=" + PREFERRED_THUMB_SIZE
     )
     suspend fun fullTextSearchCommons(
-        @Query("gsrsearch") searchTerm: String?,
-        @Query("gsroffset") gsrOffset: String?,
+        @Query("gsrsearch") searchTerm: String,
         @Query("gsrlimit") gsrLimit: Int,
-        @Query("continue") cont: String?
+        @Query("gsroffset") gsrOffset: Int?,
     ): MwQueryResponse
 
     @GET(
