@@ -266,7 +266,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                 // TODO: Needs to be optimized when changing the orientation of the device
                 map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass_with_bg)!!)
                 map.uiSettings.compassGravity = Gravity.TOP or Gravity.END
-                map.uiSettings.setCompassMargins(defMargin, defMargin + statusBarMargin + binding.searchContainer.height, DimenUtil.roundedDpToPx(8f), defMargin)
+                map.uiSettings.setCompassMargins(defMargin, defMargin + statusBarMargin + binding.searchContainer.height, DimenUtil.roundedDpToPx(12f), defMargin)
 
                 map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.START
                 map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
