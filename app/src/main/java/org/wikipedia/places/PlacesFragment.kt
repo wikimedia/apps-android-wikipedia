@@ -38,7 +38,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import com.google.android.material.button.MaterialButton
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
@@ -227,12 +226,38 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             }
         }
 
-        binding.viewButtonsGroup.addOnButtonCheckedListener { group, id, isChecked ->
-            val backgroundColor = if (isChecked) R.attr.addition_color else R.attr.paper_color
-            val textColor = if (isChecked) R.attr.progressive_color else R.attr.placeholder_color
-            val buttonView = group.findViewById<MaterialButton>(id)
-            buttonView.setTextColor(ResourceUtil.getThemedColorStateList(requireContext(), textColor))
-            buttonView.backgroundTintList = ResourceUtil.getThemedColorStateList(requireContext(), backgroundColor)
+        binding.viewButtonsGroup.post {
+            binding.viewButtonsGroup.check(R.id.mapViewButton)
+            binding.viewButtonsGroup.isVisible = true
+        }
+
+        binding.viewButtonsGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
+            if (!isChecked) {
+                return@addOnButtonCheckedListener
+            }
+            val mapViewChecked = checkedId == R.id.mapViewButton
+            updateToggleViews(mapViewChecked)
+
+            val progressColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.progressive_color)
+            val additionColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.addition_color)
+            val placeholderColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.placeholder_color)
+            val paperColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.paper_color)
+            val backgroundColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.background_color)
+            if (mapViewChecked) {
+                binding.mapViewButton.setTextColor(progressColor)
+                binding.mapViewButton.backgroundTintList = additionColor
+                binding.mapViewButton.strokeColor = paperColor
+                binding.listViewButton.setTextColor(placeholderColor)
+                binding.listViewButton.backgroundTintList = paperColor
+                binding.listViewButton.strokeColor = paperColor
+            } else {
+                binding.mapViewButton.setTextColor(placeholderColor)
+                binding.mapViewButton.backgroundTintList = backgroundColor
+                binding.mapViewButton.strokeColor = backgroundColor
+                binding.listViewButton.setTextColor(progressColor)
+                binding.listViewButton.backgroundTintList = additionColor
+                binding.listViewButton.strokeColor = backgroundColor
+            }
         }
 
         binding.listRecyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -330,18 +355,6 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
-        }
-
-        binding.viewButtonsGroup.post {
-            binding.viewButtonsGroup.check(R.id.mapViewButton)
-            binding.viewButtonsGroup.isVisible = true
-        }
-
-        binding.viewButtonsGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
-            if (!isChecked) {
-                return@addOnButtonCheckedListener
-            }
-            updateToggleViews(checkedId == R.id.mapViewButton)
         }
     }
 
