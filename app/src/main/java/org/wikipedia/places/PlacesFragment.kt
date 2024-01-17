@@ -77,10 +77,11 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.TabUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 
-class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
+class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -286,11 +287,16 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                     annotationCache.find { it.annotation == symbol }?.let {
                         updateSearchText(it.pageTitle.displayText)
                         val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_PLACES)
+                        val location = Location("").apply {
+                            latitude = symbol.latLng.latitude
+                            longitude = symbol.latLng.longitude
+                        }
                         resetMagnifiedSymbol()
                         magnifiedMarker = it.annotation
                         magnifiedMarker?.iconSize = 1.75f
                         symbolManager?.update(magnifiedMarker)
-                        ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+                        ExclusiveBottomSheetPresenter.show(childFragmentManager,
+                            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
                     }
                     true
                 }
@@ -573,6 +579,16 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             canvas.drawBitmap(it, thumbnailRect, markerRect, markerPaintSrcIn)
         }
         canvas.drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
+    }
+
+    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
+        if (inNewTab) {
+            TabUtil.openInNewBackgroundTab(entry)
+            // TODO: run animation
+            requireActivity().invalidateOptionsMenu()
+        } else {
+            startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
+        }
     }
 
     override fun onMapClick(point: LatLng): Boolean {
