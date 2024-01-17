@@ -117,7 +117,7 @@ class SearchResultsViewModel : ViewModel() {
                     }
                 }
 
-                return LoadResult.Page(resultList.distinctBy { it.pageTitle.prefixedText }, null, continuation)
+                return LoadResult.Page(resultList.distinctBy { it.pageTitle.prefixedText }, params.key, continuation)
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
