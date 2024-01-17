@@ -584,8 +584,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         if (inNewTab) {
             TabUtil.openInNewBackgroundTab(entry)
-            // TODO: run animation
             requireActivity().invalidateOptionsMenu()
+            binding.tabsButton.updateTabCount(true)
         } else {
             startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
         }
