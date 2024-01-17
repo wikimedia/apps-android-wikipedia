@@ -60,8 +60,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                         }
                         pageTitle
                     }
-                    LoadResult.Page(results, params.key, if (response.continuation?.gsroffset != 0)
-                        response.continuation?.gsroffset else null)
+                    LoadResult.Page(results, params.key, response.continuation?.gsroffset)
                 } ?: run {
                     LoadResult.Page(emptyList(), params.key, null)
                 }
