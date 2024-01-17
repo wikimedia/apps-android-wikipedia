@@ -74,7 +74,6 @@ import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -261,15 +260,16 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 map.uiSettings.isLogoEnabled = false
                 val defMargin = DimenUtil.roundedDpToPx(16f)
                 val navBarMargin = if (navBarInsets != null) navBarInsets!!.bottom else 0
+                val statusBarMargin = if (statusBarInsets != null) statusBarInsets!!.top else 0
 
+                // TODO: Needs to be optimized when changing the orientation of the device
                 map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass_with_bg)!!)
-                map.uiSettings.compassGravity = Gravity.BOTTOM or Gravity.START
-                map.uiSettings.setCompassMargins(defMargin, 0, defMargin, navBarMargin + DimenUtil.roundedDpToPx(24f))
+                map.uiSettings.compassGravity = Gravity.TOP or Gravity.END
+                map.uiSettings.setCompassMargins(defMargin, defMargin + statusBarMargin + binding.searchContainer.height, DimenUtil.roundedDpToPx(8f), defMargin)
 
-                map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.END
+                map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.START
                 map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
-                map.uiSettings.setAttributionMargins(defMargin * 2 + (if (L10nUtil.isDeviceRTL) binding.myLocationButton.width else 0),
-                    0, defMargin * 2 + (if (L10nUtil.isDeviceRTL) 0 else binding.myLocationButton.width), navBarMargin + defMargin)
+                map.uiSettings.setAttributionMargins(defMargin, 0, defMargin, navBarMargin + DimenUtil.roundedDpToPx(36f))
 
                 map.addOnCameraIdleListener {
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
