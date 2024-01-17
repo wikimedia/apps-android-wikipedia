@@ -35,6 +35,7 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -94,9 +95,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             }
             R.id.menu_link_preview_view_on_map -> {
                 viewModel.location?.let {
-                    // TODO: implement this in Places branch
-                    // startActivity(PlacesActivity.newIntent(requireContext(), viewModel.pageTitle, it))
-                    GeoUtil.sendGeoIntent(requireActivity(), it, StringUtil.fromHtml(viewModel.pageTitle.displayText).toString())
+                    startActivity(PlacesActivity.newIntent(requireContext(), viewModel.pageTitle, it))
                 }
                 dismiss()
                 true

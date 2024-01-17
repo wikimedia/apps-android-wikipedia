@@ -1,6 +1,5 @@
 package org.wikipedia.page.linkpreview
 
-import android.text.SpannableStringBuilder
 import android.text.style.SuperscriptSpan
 import androidx.core.text.getSpans
 import org.hamcrest.MatcherAssert
@@ -29,7 +28,7 @@ class LinkPreviewContentsTest {
     @Test
     fun testExtractHasSuperscripts() {
         val linkPreviewContents = LinkPreviewContents(rbPageSummary, TEST)
-        val extract = fromHtml(linkPreviewContents.extract) as SpannableStringBuilder
+        val extract = fromHtml(linkPreviewContents.extract)
 
         // the 3 <sup> tags in the formula are represented correctly
         MatcherAssert.assertThat(extract.getSpans<SuperscriptSpan>(), Matchers.arrayWithSize(EXPECTED_SUPS))
