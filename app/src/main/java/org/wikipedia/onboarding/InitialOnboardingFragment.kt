@@ -15,7 +15,6 @@ import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
@@ -70,7 +69,7 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
         }
 
         override fun getItemCount(): Int {
-            return OnboardingPage.size()
+            return OnboardingPage.entries.size
         }
     }
 
@@ -106,13 +105,8 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
         }
 
         companion object {
-            private val MAP = EnumCodeMap(OnboardingPage::class.java)
             fun of(code: Int): OnboardingPage {
-                return MAP[code]
-            }
-
-            fun size(): Int {
-                return MAP.size()
+                return entries[code]
             }
         }
     }
