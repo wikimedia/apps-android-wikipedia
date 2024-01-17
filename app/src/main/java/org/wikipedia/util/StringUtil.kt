@@ -30,7 +30,6 @@ import kotlin.math.roundToInt
 
 object StringUtil {
     private const val CSV_DELIMITER = ","
-    @JvmField
     val SEARCH_REGEX_OPTIONS: Set<RegexOption> = EnumSet.of(RegexOption.LITERAL, RegexOption.IGNORE_CASE)
 
     fun listToCsv(list: List<String?>): String {
