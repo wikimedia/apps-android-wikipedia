@@ -159,9 +159,7 @@ class SearchResultsFragment : Fragment() {
 
     private inner class SearchResultsDiffCallback : DiffUtil.ItemCallback<SearchResult>() {
         override fun areItemsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
-            return oldItem.pageTitle.prefixedText == newItem.pageTitle.prefixedText &&
-                    oldItem.pageTitle.namespace == newItem.pageTitle.namespace &&
-                    oldItem.pageTitle.description == newItem.pageTitle.description
+            return false
         }
 
         override fun areContentsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {

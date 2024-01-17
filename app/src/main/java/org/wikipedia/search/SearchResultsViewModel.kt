@@ -57,16 +57,17 @@ class SearchResultsViewModel : ViewModel() {
         private var resultsCount: MutableList<Int>?,
         private var totalResults: MutableList<SearchResult>?,
         private var invokeSource: Constants.InvokeSource
-    ) : PagingSource<MwQueryResponse.Continuation, SearchResult>() {
+    ) : PagingSource<Int, SearchResult>() {
 
         private var prefixSearch = true
 
-        override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, SearchResult> {
+        override suspend fun load(params: LoadParams<Int>): LoadResult<Int, SearchResult> {
             return try {
                 if (searchTerm.isNullOrEmpty() || languageCode.isNullOrEmpty()) {
                     return LoadResult.Page(emptyList(), null, null)
                 }
 
+                var continuation: Int? = null
                 val wikiSite = WikiSite.forLanguageCode(languageCode)
                 var response: MwQueryResponse? = null
                 val resultList = mutableListOf<SearchResult>()
@@ -84,20 +85,22 @@ class SearchResultsViewModel : ViewModel() {
                             }
                         }
                     }
-                    response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, params.loadSize, params.key?.gpsoffset)
+                    response = ServiceFactory.get(wikiSite).prefixSearch(searchTerm, params.loadSize, 0)
+                    continuation = 0
                     prefixSearch = false
                 }
 
-                if (response?.query?.pages == null) {
-                    // Prevent using continuation string from prefix search after the first round of LoadResult.
-                    val continuation = if (params.key?.continuation?.contains("description") == true) null else params.key?.continuation
+                resultList.addAll(response?.query?.pages?.let { list ->
+                    list.sortedBy { it.index }.map { SearchResult(it, wikiSite) }
+                } ?: emptyList())
+
+                if (resultList.size < params.loadSize) {
                     response = ServiceFactory.get(wikiSite)
-                        .fullTextSearch(searchTerm, params.key?.gsroffset?.toString(), params.loadSize, continuation)
+                        .fullTextSearch(searchTerm, params.loadSize, params.key)
+                    continuation = response.continuation?.gsroffset
 
                     resultList.addAll(response.query?.pages?.let { list ->
-                        (if (invokeSource == Constants.InvokeSource.PLACES)
-                            list.filter { it.coordinates != null } else list).sortedBy { it.index }
-                            .map { SearchResult(it, wikiSite, it.coordinates) }
+                        list.sortedBy { it.index }.map { SearchResult(it, wikiSite) }
                     } ?: emptyList())
                 }
 
@@ -127,13 +130,13 @@ class SearchResultsViewModel : ViewModel() {
                     }
                 }
 
-                return LoadResult.Page(resultList.distinctBy { it.pageTitle.prefixedText }, null, response?.continuation)
+                return LoadResult.Page(resultList.distinctBy { it.pageTitle.prefixedText }, params.key, continuation)
             } catch (e: Exception) {
                 LoadResult.Error(e)
             }
         }
 
-        override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, SearchResult>): MwQueryResponse.Continuation? {
+        override fun getRefreshKey(state: PagingState<Int, SearchResult>): Int? {
             prefixSearch = true
             totalResults?.clear()
             return null
