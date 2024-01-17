@@ -1612,4 +1612,5 @@
   <string name="places_filter_title">Title string for places language filter screen.</string>
   <string name="places_toggle_buttons_map">Button label for viewing the map view in the Places screen.</string>
   <string name="places_toggle_buttons_list">Button label for viewing the list view in the Places screen.</string>
+  <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
 </resources>
