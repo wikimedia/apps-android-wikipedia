@@ -7,9 +7,9 @@ import android.view.View
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.FindInPageActionProvider
 import org.wikipedia.views.FindInPageActionProvider.FindInPageListener
-import java.util.Locale
 
 class FindInEditorActionProvider(private val scrollView: View,
                                  private val textView: SyntaxHighlightableEditText,
@@ -59,21 +59,13 @@ class FindInEditorActionProvider(private val scrollView: View,
     }
 
     override fun onSearchTextChanged(text: String?) {
-        searchQuery = if (text.isNullOrEmpty()) null else text
+        searchQuery = text?.ifEmpty { null }
         currentResultIndex = 0
         resultPositions.clear()
 
         searchQuery?.let {
-            val searchTextLower = it.lowercase(Locale.getDefault())
-            val textLower = textView.text.toString().lowercase(Locale.getDefault())
-            var position = 0
-            do {
-                position = textLower.indexOf(searchTextLower, position)
-                if (position >= 0) {
-                    resultPositions.add(position)
-                    position += searchTextLower.length
-                }
-            } while (position >= 0)
+            resultPositions += it.toRegex(StringUtil.SEARCH_REGEX_OPTIONS).findAll(textView.text)
+                .map { it.range.first }
         }
         scrollToCurrentResult()
     }
