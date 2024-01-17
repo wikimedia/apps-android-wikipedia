@@ -9,7 +9,8 @@ import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
 import org.wikipedia.util.StringUtil
 import java.text.DateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 
 @Dao
 interface HistoryEntryWithImageDao {
@@ -26,7 +27,7 @@ interface HistoryEntryWithImageDao {
     fun findEntriesBy(excludeSource1: Int, excludeSource2: Int, excludeSource3: Int, minTimeSpent: Int, limit: Int): List<HistoryEntryWithImage>
 
     fun findHistoryItem(searchQuery: String): SearchResults {
-        var normalizedQuery = StringUtils.stripAccents(searchQuery).lowercase(Locale.getDefault())
+        var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
             return SearchResults()
         }
@@ -34,7 +35,7 @@ interface HistoryEntryWithImageDao {
             .replace("%", "\\%").replace("_", "\\_")
 
         val entries = findEntriesBySearchTerm("%$normalizedQuery%")
-                .filter { StringUtil.fromHtml(it.displayTitle).toString().lowercase().contains(normalizedQuery) }
+                .filter { StringUtil.fromHtml(it.displayTitle).contains(normalizedQuery, true) }
 
         return if (entries.isEmpty()) SearchResults()
         else SearchResults(entries.take(3).map { SearchResult(toHistoryEntry(it).title, SearchResult.SearchResultType.HISTORY) }.toMutableList())

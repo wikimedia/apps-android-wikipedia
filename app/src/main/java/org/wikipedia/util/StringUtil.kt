@@ -67,22 +67,15 @@ object StringUtil {
     }
 
     fun dbNameToLangCode(wikiDbName: String): String {
-        return (if (wikiDbName.endsWith("wiki")) wikiDbName.substring(0, wikiDbName.length - "wiki".length) else wikiDbName)
-                .replace("_", "-")
+        return wikiDbName.substringBefore("wiki").replace("_", "-")
     }
 
     fun removeSectionAnchor(text: String?): String {
-        text.orEmpty().let {
-            return if (it.contains("#")) it.substring(0, it.indexOf("#")) else it
-        }
+        return text.orEmpty().substringBefore('#')
     }
 
     fun removeNamespace(text: String): String {
-        return if (text.length > text.indexOf(":")) {
-            text.substring(text.indexOf(":") + 1)
-        } else {
-            text
-        }
+        return text.substringAfter(':')
     }
 
     fun removeHTMLTags(text: String?): String {
