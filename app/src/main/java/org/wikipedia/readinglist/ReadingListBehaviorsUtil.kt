@@ -29,7 +29,6 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.CircularProgressBar.Companion.MIN_PROGRESS
-import java.util.Locale
 
 object ReadingListBehaviorsUtil {
 
@@ -385,14 +384,14 @@ object ReadingListBehaviorsUtil {
             return result
         }
 
-        val normalizedQuery = StringUtils.stripAccents(searchQuery).lowercase(Locale.getDefault())
+        val normalizedQuery = StringUtils.stripAccents(searchQuery)
         var lastListItemIndex = 0
         lists.forEach { list ->
-            if (StringUtils.stripAccents(list.title).lowercase(Locale.getDefault()).contains(normalizedQuery)) {
+            if (StringUtils.stripAccents(list.title).contains(normalizedQuery, true)) {
                 result.add(lastListItemIndex++, list)
             }
             list.pages.forEach { page ->
-                if (page.accentAndCaseInvariantTitle().contains(normalizedQuery)) {
+                if (page.accentInvariantTitle.contains(normalizedQuery, true)) {
                     if (result.none { it is ReadingListPage && it.lang == page.lang && it.apiTitle == page.apiTitle }) {
                         result.add(page)
                     }

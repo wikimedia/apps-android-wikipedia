@@ -7,7 +7,19 @@
     <item android:id="@+id/menu_link_preview_share_page"
         android:title="@string/menu_page_share"
         />
+    <item android:id="@+id/menu_link_preview_watch"
+        android:title="@string/menu_page_watch"
+        />
+    <item android:id="@+id/menu_link_preview_open_in_new_tab"
+        android:title="@string/menu_long_press_open_in_new_tab"
+        />
     <item android:id="@+id/menu_link_preview_copy_link"
         android:title="@string/menu_long_press_copy_page"
+        />
+    <item android:id="@+id/menu_link_preview_view_on_map"
+        android:title="@string/action_item_view_on_map"
+        />
+    <item android:id="@+id/menu_link_preview_get_directions"
+        android:title="@string/button_get_directions"
         />
 </menu>
