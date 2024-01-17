@@ -23,7 +23,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.util.StringUtil
-import java.util.*
 
 class SearchResultsViewModel : ViewModel() {
 
@@ -144,9 +143,7 @@ class SearchResultsViewModel : ViewModel() {
             if (searchTerm.length >= 2) {
                 WikipediaApp.instance.tabList.forEach { tab ->
                     tab.backStackPositionTitle?.let {
-                        if (StringUtil.fromHtml(it.displayText).toString()
-                                .lowercase(Locale.getDefault())
-                                .contains(searchTerm.lowercase(Locale.getDefault()))) {
+                        if (StringUtil.fromHtml(it.displayText).contains(searchTerm, true)) {
                             return SearchResults(mutableListOf(SearchResult(it, SearchResult.SearchResultType.TAB_LIST)))
                         }
                     }
