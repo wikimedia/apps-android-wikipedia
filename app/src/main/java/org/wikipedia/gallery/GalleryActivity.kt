@@ -400,7 +400,7 @@ class GalleryActivity : BaseActivity(), LinkPreviewDialog.LoadPageCallback, Gall
 
     private fun showLinkPreview(title: PageTitle) {
         ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-            LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_GALLERY), null))
+            LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_GALLERY)))
     }
 
     fun setViewPagerEnabled(enabled: Boolean) {
