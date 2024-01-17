@@ -74,14 +74,14 @@ import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.TabUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 
-class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
+class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -261,15 +261,16 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 map.uiSettings.isLogoEnabled = false
                 val defMargin = DimenUtil.roundedDpToPx(16f)
                 val navBarMargin = if (navBarInsets != null) navBarInsets!!.bottom else 0
+                val statusBarMargin = if (statusBarInsets != null) statusBarInsets!!.top else 0
 
+                // TODO: Needs to be optimized when changing the orientation of the device
                 map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass_with_bg)!!)
-                map.uiSettings.compassGravity = Gravity.BOTTOM or Gravity.START
-                map.uiSettings.setCompassMargins(defMargin, 0, defMargin, navBarMargin + DimenUtil.roundedDpToPx(24f))
+                map.uiSettings.compassGravity = Gravity.TOP or Gravity.END
+                map.uiSettings.setCompassMargins(defMargin, defMargin + statusBarMargin + binding.searchContainer.height, DimenUtil.roundedDpToPx(8f), defMargin)
 
-                map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.END
+                map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.START
                 map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
-                map.uiSettings.setAttributionMargins(defMargin * 2 + (if (L10nUtil.isDeviceRTL) binding.myLocationButton.width else 0),
-                    0, defMargin * 2 + (if (L10nUtil.isDeviceRTL) 0 else binding.myLocationButton.width), navBarMargin + defMargin)
+                map.uiSettings.setAttributionMargins(defMargin, 0, defMargin, navBarMargin + DimenUtil.roundedDpToPx(36f))
 
                 map.addOnCameraIdleListener {
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
@@ -286,11 +287,16 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                     annotationCache.find { it.annotation == symbol }?.let {
                         updateSearchText(it.pageTitle.displayText)
                         val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_PLACES)
+                        val location = Location("").apply {
+                            latitude = symbol.latLng.latitude
+                            longitude = symbol.latLng.longitude
+                        }
                         resetMagnifiedSymbol()
                         magnifiedMarker = it.annotation
                         magnifiedMarker?.iconSize = 1.75f
                         symbolManager?.update(magnifiedMarker)
-                        ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+                        ExclusiveBottomSheetPresenter.show(childFragmentManager,
+                            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
                     }
                     true
                 }
@@ -573,6 +579,16 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             canvas.drawBitmap(it, thumbnailRect, markerRect, markerPaintSrcIn)
         }
         canvas.drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
+    }
+
+    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
+        if (inNewTab) {
+            TabUtil.openInNewBackgroundTab(entry)
+            // TODO: run animation
+            requireActivity().invalidateOptionsMenu()
+        } else {
+            startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
+        }
     }
 
     override fun onMapClick(point: LatLng): Boolean {
