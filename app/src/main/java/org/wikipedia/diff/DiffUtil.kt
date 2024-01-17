@@ -86,7 +86,8 @@ object DiffUtil {
     private fun createSpannableDiffText(context: Context, diff: DiffResponse.DiffItem): CharSequence {
         return buildSpannedString {
             if (diff.text.isEmpty()) {
-                inSpans(EmptyLineSpan(context)) {
+                inSpans(EmptyLineSpan(ResourceUtil.getThemedColor(context, android.R.attr.colorBackground),
+                    ResourceUtil.getThemedColor(context, R.attr.placeholder_color))) {
                     appendLine()
                 }
             } else {

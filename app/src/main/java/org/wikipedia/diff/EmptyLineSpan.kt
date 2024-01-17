@@ -1,17 +1,12 @@
 package org.wikipedia.diff
 
-import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.text.style.LineBackgroundSpan
-import org.wikipedia.R
+import androidx.annotation.ColorInt
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.ResourceUtil
 
-class EmptyLineSpan(context: Context) : LineBackgroundSpan {
-    private val fillColor = ResourceUtil.getThemedColor(context, android.R.attr.colorBackground)
-    private val strokeColor = ResourceUtil.getThemedColor(context, R.attr.placeholder_color)
-
+class EmptyLineSpan(@ColorInt val fillColor: Int, @ColorInt val strokeColor: Int) : LineBackgroundSpan {
     override fun drawBackground(canvas: Canvas, paint: Paint, left: Int, right: Int, top: Int, baseline: Int, bottom: Int, text: CharSequence, start: Int, end: Int, lineNumber: Int) {
         val prevColor = paint.color
         val prevStyle = paint.style
