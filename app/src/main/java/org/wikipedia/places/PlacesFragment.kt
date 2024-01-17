@@ -365,7 +365,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         binding.mapView.isVisible = isMapVisible
         binding.listRecyclerView.isVisible = !isMapVisible
         binding.searchContainer.backgroundTintList = tintColor
-        // TODO: update list button color
+        binding.myLocationButton.isVisible = isMapVisible
     }
 
     private fun resetMagnifiedSymbol() {
