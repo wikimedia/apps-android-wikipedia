@@ -91,7 +91,9 @@ class SearchResultsViewModel : ViewModel() {
                 }
 
                 resultList.addAll(response?.query?.pages?.let { list ->
-                    list.sortedBy { it.index }.map { SearchResult(it, wikiSite) }
+                    (if (invokeSource == Constants.InvokeSource.PLACES)
+                        list.filter { it.coordinates != null } else list).sortedBy { it.index }
+                        .map { SearchResult(it, wikiSite, it.coordinates) }
                 } ?: emptyList())
 
                 if (resultList.size < params.loadSize) {
