@@ -100,11 +100,13 @@ class SearchResultsViewModel : ViewModel() {
                     continuation = response.continuation?.gsroffset
 
                     resultList.addAll(response.query?.pages?.let { list ->
-                        list.sortedBy { it.index }.map { SearchResult(it, wikiSite) }
+                        (if (invokeSource == Constants.InvokeSource.PLACES)
+                            list.filter { it.coordinates != null } else list).sortedBy { it.index }
+                            .map { SearchResult(it, wikiSite, it.coordinates) }
                     } ?: emptyList())
                 }
 
-                if (resultList.isEmpty() && response.continuation == null) {
+                if (resultList.isEmpty() && response?.continuation == null) {
                     resultsCount?.clear()
                     WikipediaApp.instance.languageState.appLanguageCodes.forEach { langCode ->
                         if (langCode == languageCode) {
@@ -118,7 +120,7 @@ class SearchResultsViewModel : ViewModel() {
                             }
                             if (countResultSize == 0) {
                                 val fullTextSearchResponse = ServiceFactory.get(WikiSite.forLanguageCode(langCode))
-                                        .fullTextSearch(searchTerm, null, params.loadSize, null)
+                                        .fullTextSearch(searchTerm, params.loadSize, null)
                                 countResultSize = fullTextSearchResponse.query?.pages?.size ?: 0
                             }
                             resultsCount?.add(countResultSize)
