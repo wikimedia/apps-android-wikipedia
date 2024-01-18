@@ -8,6 +8,8 @@ import android.net.Uri
 import org.wikipedia.R
 import org.wikipedia.feed.announcement.GeoIPCookieUnmarshaller
 import org.wikipedia.settings.Prefs
+import java.text.DecimalFormat
+import java.util.Locale
 
 object GeoUtil {
     @Suppress("UnsafeImplicitIntentLaunch")
@@ -37,4 +39,16 @@ object GeoUtil {
             // For our purposes, don't care about malformations in the GeoIP cookie for now.
             null
         }
+
+    fun getDistanceWithUnit(startLocation: Location, endLocation: Location, locale: Locale): String {
+        val countriesUsingMiles = listOf("US", "GB", "LR", "MM")
+        val milesInKilometers = 0.62137119
+        val distance = startLocation.distanceTo(endLocation) / 1000.0 // in Kilometers
+        val formatter = DecimalFormat("#.##")
+        return if (countriesUsingMiles.contains(locale.country)) {
+            "${formatter.format(distance * milesInKilometers)} mi"
+        } else {
+            "${formatter.format(distance)} km"
+        }
+    }
 }

@@ -83,10 +83,10 @@ class UserMentionInputView : LinearLayout, UserMentionEditText.Listener {
     }
 
     fun maybePrepopulateUserName(currentUserName: String, currentPageTitle: PageTitle) {
-        if (binding.inputEditText.text.isNullOrEmpty() && userNameHints.isNotEmpty()) {
+        if (binding.inputEditText.text.isEmpty() && userNameHints.isNotEmpty()) {
             val candidateName = userNameHints.first()
             if (candidateName != currentUserName &&
-                    StringUtil.addUnderscores(candidateName.lowercase()) != StringUtil.addUnderscores(currentPageTitle.text.lowercase())) {
+                    !StringUtil.addUnderscores(candidateName).equals(StringUtil.addUnderscores(currentPageTitle.text), true)) {
                 binding.inputEditText.prepopulateUserName(candidateName, wikiSite)
             }
         }

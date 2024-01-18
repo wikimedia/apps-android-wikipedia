@@ -30,7 +30,7 @@ import kotlin.math.roundToInt
 
 object StringUtil {
     private const val CSV_DELIMITER = ","
-    private val HIGHLIGHT_REGEX_OPTIONS = EnumSet.of(RegexOption.LITERAL, RegexOption.IGNORE_CASE)
+    val SEARCH_REGEX_OPTIONS: Set<RegexOption> = EnumSet.of(RegexOption.LITERAL, RegexOption.IGNORE_CASE)
 
     fun listToCsv(list: List<String?>): String {
         return list.joinToString(CSV_DELIMITER)
@@ -67,22 +67,15 @@ object StringUtil {
     }
 
     fun dbNameToLangCode(wikiDbName: String): String {
-        return (if (wikiDbName.endsWith("wiki")) wikiDbName.substring(0, wikiDbName.length - "wiki".length) else wikiDbName)
-                .replace("_", "-")
+        return wikiDbName.substringBefore("wiki").replace("_", "-")
     }
 
     fun removeSectionAnchor(text: String?): String {
-        text.orEmpty().let {
-            return if (it.contains("#")) it.substring(0, it.indexOf("#")) else it
-        }
+        return text.orEmpty().substringBefore('#')
     }
 
     fun removeNamespace(text: String): String {
-        return if (text.length > text.indexOf(":")) {
-            text.substring(text.indexOf(":") + 1)
-        } else {
-            text
-        }
+        return text.substringAfter(':')
     }
 
     fun removeHTMLTags(text: String?): String {
@@ -148,7 +141,7 @@ object StringUtil {
         textView.text = if (query.isNullOrEmpty()) parentText else buildSpannedString {
             append(parentText)
 
-            query.toRegex(HIGHLIGHT_REGEX_OPTIONS).findAll(parentText)
+            query.toRegex(SEARCH_REGEX_OPTIONS).findAll(parentText)
                 .forEach {
                     val range = it.range
                     val (start, end) = range.first to range.last + 1

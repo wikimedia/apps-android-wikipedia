@@ -78,7 +78,7 @@ class OfflineCacheInterceptor : Interceptor {
                     val name = line.substring(0, pos).trim()
                     val value = line.substring(pos + 1).trim()
                     builder.header(name, value)
-                    if (name.lowercase(Locale.getDefault()) == "content-type") {
+                    if (name.equals("content-type", true)) {
                         contentType = value
                     }
                 }

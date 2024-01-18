@@ -5,14 +5,14 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
 import android.view.*
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.core.graphics.ColorUtils
+import androidx.core.text.buildSpannedString
+import androidx.core.text.color
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -598,10 +598,11 @@ class ReadingListsFragment : Fragment(), SortReadingListsDialog.Callback, Readin
             val deleteItem = menu.findItem(R.id.menu_delete_selected)
             val exportItem = menu.findItem(R.id.menu_export_selected)
             val exportItemTitleColor = ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color)
-            val exportItemAlphaColor = ColorUtils.setAlphaComponent(exportItemTitleColor, alpha)
-            val spanString = SpannableString(exportItem.title.toString())
-            spanString.setSpan(ForegroundColorSpan(exportItemAlphaColor), 0, spanString.length, 0)
-            exportItem.title = spanString
+            exportItem.title = buildSpannedString {
+                color(ColorUtils.setAlphaComponent(exportItemTitleColor, alpha)) {
+                    append(exportItem.title)
+                }
+            }
             deleteItem.icon?.alpha = alpha
             exportItem.isEnabled = isEnabled
             deleteItem.isEnabled = isEnabled

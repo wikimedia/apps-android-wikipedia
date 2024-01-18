@@ -1,9 +1,9 @@
 package org.wikipedia.page
 
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.extensions.getByCode
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
 import org.wikipedia.staticdata.*
 import java.util.*
 
@@ -168,7 +168,6 @@ enum class Namespace(private val code: Int) : EnumCode {
 
     companion object {
         private const val TALK_MASK = 0x1
-        private val MAP = EnumCodeMap(Namespace::class.java)
 
         @JvmStatic
         fun fromLegacyString(wiki: WikiSite, name: String?): Namespace {
@@ -196,7 +195,7 @@ enum class Namespace(private val code: Int) : EnumCode {
 
         @JvmStatic
         fun of(code: Int): Namespace {
-            return MAP[code]
+            return entries.getByCode(code)
         }
     }
 }

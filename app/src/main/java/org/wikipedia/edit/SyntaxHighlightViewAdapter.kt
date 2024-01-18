@@ -62,7 +62,7 @@ class SyntaxHighlightViewAdapter(
     }
 
     override fun onPreviewLink(title: String) {
-        val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK), null)
+        val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK))
         ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager, dialog)
         editText.post {
             dialog.dialog?.setOnDismissListener {

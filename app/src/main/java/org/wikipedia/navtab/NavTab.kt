@@ -7,7 +7,6 @@ import org.wikipedia.R
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
 import org.wikipedia.readinglist.ReadingListsFragment
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 
@@ -47,15 +46,8 @@ enum class NavTab constructor(
     }
 
     companion object {
-
-        private val MAP = EnumCodeMap(NavTab::class.java)
-
         fun of(code: Int): NavTab {
-            return MAP[code]
-        }
-
-        fun size(): Int {
-            return MAP.size()
+            return entries[code]
         }
     }
 }

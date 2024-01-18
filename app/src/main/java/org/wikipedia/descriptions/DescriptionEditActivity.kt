@@ -81,7 +81,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
             val invokeSource = intent.serializableExtra<InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)
             val source = if (invokeSource === InvokeSource.PAGE_ACTIVITY) HistoryEntry.SOURCE_EDIT_DESCRIPTION else HistoryEntry.SOURCE_SUGGESTED_EDITS
             ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                LinkPreviewDialog.newInstance(HistoryEntry(summary.pageTitle, source), null))
+                LinkPreviewDialog.newInstance(HistoryEntry(summary.pageTitle, source)))
         }
     }
 

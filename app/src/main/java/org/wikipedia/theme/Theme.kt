@@ -28,7 +28,7 @@ enum class Theme(val marshallingId: Int, val tag: String, @field:StyleRes @get:S
             get() = LIGHT
 
         fun ofMarshallingId(id: Int): Theme? {
-            return values().find { it.marshallingId == id }
+            return entries.find { it.marshallingId == id }
         }
     }
 }

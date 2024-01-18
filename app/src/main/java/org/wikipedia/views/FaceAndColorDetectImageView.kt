@@ -19,7 +19,6 @@ import com.bumptech.glide.request.target.Target
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CenterCropWithFaceTransformation
 import org.wikipedia.util.WhiteBackgroundTransformation
-import java.util.*
 
 class FaceAndColorDetectImageView : AppCompatImageView {
 
@@ -34,8 +33,8 @@ class FaceAndColorDetectImageView : AppCompatImageView {
 
     private fun shouldDetectFace(uri: Uri): Boolean {
         // TODO: not perfect; should ideally detect based on MIME type.
-        val path = uri.path.orEmpty().lowercase(Locale.ROOT)
-        return path.endsWith(".jpg") || path.endsWith(".jpeg")
+        val path = uri.path.orEmpty()
+        return path.endsWith(".jpg", true) || path.endsWith(".jpeg", true)
     }
 
     fun loadImage(uri: Uri?, roundedCorners: Boolean = false, cropped: Boolean = true, emptyPlaceholder: Boolean = false, listener: OnImageLoadListener? = null) {

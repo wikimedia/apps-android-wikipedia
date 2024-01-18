@@ -335,6 +335,10 @@
   <string name="multi_select_items_selected">%d vyžnijə byə</string>
   <string name="error_message_generic">Xəto beše</string>
   <string name="view_link_preview_error_button_dismiss">Žəj</string>
+  <string name="link_preview_dialog_read_button">Byhand</string>
+  <string name="link_preview_dialog_save_button">Ogətej</string>
+  <string name="link_preview_dialog_saved_button">Ogətə byə</string>
+  <string name="link_preview_dialog_share_button">Pevylo kardej</string>
   <string name="error_page_does_not_exist">Žygo səhifə ni</string>
   <string name="view_wiki_error_message_offline">Bə internet dəše mymkun ni</string>
   <string name="reference_title">Ǧejd %s</string>
@@ -975,6 +979,7 @@
   <string name="namespace_article">Məǧolə</string>
   <string name="user_contrib_current">ysət</string>
   <string name="user_contrib_menu_label">Tohfə</string>
+  <string name="action_item_view_on_map">Xəritədə dijə karde</string>
   <string name="shareable_reading_lists_new_indicator">*tojə*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Dərəsəjm</string>
   <string name="reading_list_share_menu_label">Pevylo kardej...</string>
@@ -1016,4 +1021,7 @@
   <string name="data_opt_in_reject">Ohaštej</string>
   <string name="page_issues_title">Səhifə problemon</string>
   <string name="donation_campaign_go_back_button">Bə dumo</string>
+  <string name="places_title">Vyron</string>
+  <string name="places_toggle_buttons_map">Xəritə</string>
+  <string name="places_toggle_buttons_list">Sijohi</string>
 </resources>

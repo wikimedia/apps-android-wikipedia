@@ -3,7 +3,6 @@ package org.wikipedia.suggestededits
 import androidx.annotation.StringRes
 import org.wikipedia.R
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
 
 @Suppress("unused")
 enum class SuggestedEditsRecentEditsFilterTypes constructor(val id: String,
@@ -80,14 +79,8 @@ enum class SuggestedEditsRecentEditsFilterTypes constructor(val id: String,
 
         val DEFAULT_FILTER_TYPE_SET = DEFAULT_FILTER_OTHERS + DEFAULT_FILTER_USER_STATUS
 
-        private val MAP = EnumCodeMap(SuggestedEditsRecentEditsFilterTypes::class.java)
-
-        private fun findOrNull(id: String): SuggestedEditsRecentEditsFilterTypes? {
-            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id.startsWith(it.id) }
-        }
-
         fun find(id: String): SuggestedEditsRecentEditsFilterTypes {
-            return findOrNull(id) ?: MAP[0]
+            return entries.firstOrNull { id == it.id || id.startsWith(it.id) } ?: entries[0]
         }
 
         fun findGroup(id: String): List<SuggestedEditsRecentEditsFilterTypes> {

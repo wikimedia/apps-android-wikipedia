@@ -72,7 +72,7 @@ object UserTalkPopupHelper {
             helper.show()
         } else {
             ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
-                    LinkPreviewDialog.newInstance(HistoryEntry(title, historySource), null))
+                    LinkPreviewDialog.newInstance(HistoryEntry(title, historySource)))
         }
     }
 

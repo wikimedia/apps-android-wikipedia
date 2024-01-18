@@ -19,6 +19,7 @@ class LinkPreviewOverlayView : FrameLayout {
 
     private val binding = ViewLinkPreviewOverlayBinding.inflate(LayoutInflater.from(context), this, true)
     var callback: Callback? = null
+    val secondaryButtonView get() = binding.linkPreviewSecondaryButton
 
     init {
         binding.linkPreviewPrimaryButton.setOnClickListener {
@@ -46,5 +47,9 @@ class LinkPreviewOverlayView : FrameLayout {
 
     fun showTertiaryButton(show: Boolean) {
         binding.linkPreviewTertiaryButton.visibility = if (show) VISIBLE else GONE
+    }
+
+    fun setTertiaryButtonText(text: CharSequence?) {
+        binding.linkPreviewTertiaryButton.text = text
     }
 }

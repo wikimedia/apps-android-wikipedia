@@ -75,9 +75,21 @@ class StringUtilTest {
     }
 
     @Test
+    fun testDbNameToLangCode() {
+        MatcherAssert.assertThat(StringUtil.dbNameToLangCode("en"), Matchers.`is`("en"))
+        MatcherAssert.assertThat(StringUtil.dbNameToLangCode("enwiki"), Matchers.`is`("en"))
+    }
+
+    @Test
     fun testRemoveSectionAnchor() {
         MatcherAssert.assertThat(StringUtil.removeSectionAnchor("#te_st"), Matchers.`is`(""))
         MatcherAssert.assertThat(StringUtil.removeSectionAnchor("sec#te_st"), Matchers.`is`("sec"))
+    }
+
+    @Test
+    fun testRemoveNamespace() {
+        MatcherAssert.assertThat(StringUtil.removeNamespace("RSP"), Matchers.`is`("RSP"))
+        MatcherAssert.assertThat(StringUtil.removeNamespace("WP:RSP"), Matchers.`is`("RSP"))
     }
 
     @Test

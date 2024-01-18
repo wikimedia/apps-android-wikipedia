@@ -1,9 +1,9 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.text.SpannableStringBuilder
 import android.text.TextWatcher
 import android.util.AttributeSet
+import androidx.core.text.buildSpannedString
 import androidx.core.widget.doOnTextChanged
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.edit.SyntaxHighlightableEditText
@@ -113,13 +113,14 @@ class UserMentionEditText : SyntaxHighlightableEditText {
     }
 
     fun prepopulateUserName(userName: String, wikiSite: WikiSite) {
-        val sb = SpannableStringBuilder()
-        sb.append(composeUserNameLink(userName, wikiSite))
-        sb.append(" ")
         isUserNameCommitting = true
-        text = sb
+        val spannedString = buildSpannedString {
+            append(composeUserNameLink(userName, wikiSite))
+            append(" ")
+        }
+        setText(spannedString)
         isUserNameCommitting = false
-        setSelection(sb.length)
+        setSelection(spannedString.length)
     }
 
     fun onCommitUserName(userName: String, wikiSite: WikiSite) {
@@ -130,16 +131,18 @@ class UserMentionEditText : SyntaxHighlightableEditText {
                 return
             }
 
-            val sb = SpannableStringBuilder()
-            sb.append(text.subSequence(0, userNameStartPos))
-            sb.append(composeUserNameLink(userName, wikiSite))
-            val spanEnd = sb.length
-            if (userNameEndPos < text.length) {
-                sb.append(text.subSequence(userNameEndPos, text.length - 1))
+            val initialString = text.subSequence(0, userNameStartPos)
+            val userNameString = composeUserNameLink(userName, wikiSite)
+            val spannedString = buildSpannedString {
+                append(initialString)
+                append(userNameString)
+                if (userNameEndPos < text.length) {
+                    append(text.subSequence(userNameEndPos, text.length - 1))
+                }
             }
 
-            text = sb
-            setSelection(spanEnd)
+            setText(spannedString)
+            setSelection((initialString.toString() + userNameString).length)
             onCancelUserNameEntry()
         } finally {
             isUserNameCommitting = false
