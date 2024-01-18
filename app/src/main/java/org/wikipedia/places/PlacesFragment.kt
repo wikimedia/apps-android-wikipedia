@@ -167,12 +167,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)?.let {
             Prefs.placesWikiCode = it.wikiSite.languageCode
         }
-
-        activity?.window?.let { window ->
-            WindowCompat.setDecorFitsSystemWindows(window, false)
-            window.statusBarColor = Color.TRANSPARENT
-            window.navigationBarColor = Color.TRANSPARENT
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -181,15 +175,21 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
-            statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            val newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
             var params = binding.searchContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = statusBarInsets!!.top + DimenUtil.roundedDpToPx(4f)
+            params.topMargin = newStatusBarInsets.top + newNavBarInsets.top + DimenUtil.roundedDpToPx(4f)
+            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left + DimenUtil.roundedDpToPx(8f)
+            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(8f)
 
-            navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
             params = binding.myLocationButton.layoutParams as ViewGroup.MarginLayoutParams
-            params.bottomMargin = navBarInsets!!.bottom + DimenUtil.roundedDpToPx(16f)
+            params.bottomMargin = newNavBarInsets.bottom + DimenUtil.roundedDpToPx(16f)
+            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left + DimenUtil.roundedDpToPx(16f)
+            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(16f)
             binding.myLocationButton.layoutParams = params
 
+            statusBarInsets = newStatusBarInsets
+            navBarInsets = newNavBarInsets
             WindowInsetsCompat.Builder()
                 .setInsets(WindowInsetsCompat.Type.navigationBars(), navBarInsets!!)
                 .build().toWindowInsets() ?: windowInsets
@@ -263,17 +263,28 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
                 map.uiSettings.isLogoEnabled = false
                 val defMargin = DimenUtil.roundedDpToPx(16f)
-                val navBarMargin = if (navBarInsets != null) navBarInsets!!.bottom else 0
-                val statusBarMargin = if (statusBarInsets != null) statusBarInsets!!.top else 0
 
-                // TODO: Needs to be optimized when changing the orientation of the device
+                val navBarLeft = navBarInsets?.left ?: 0
+                val navBarRight = navBarInsets?.right ?: 0
+                val navBarTop = navBarInsets?.top ?: 0
+                val navBarBottom = navBarInsets?.bottom ?: 0
+                val statusBarLeft = statusBarInsets?.left ?: 0
+                val statusBarRight = statusBarInsets?.right ?: 0
+                val statusBarTop = statusBarInsets?.top ?: 0
+                val statusBarBottom = statusBarInsets?.bottom ?: 0
+
                 map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass_with_bg)!!)
                 map.uiSettings.compassGravity = Gravity.TOP or Gravity.END
-                map.uiSettings.setCompassMargins(defMargin, defMargin + statusBarMargin + binding.searchContainer.height, DimenUtil.roundedDpToPx(12f), defMargin)
-
                 map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.START
                 map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
-                map.uiSettings.setAttributionMargins(defMargin, 0, defMargin, navBarMargin + DimenUtil.roundedDpToPx(36f))
+
+                map.uiSettings.setCompassMargins(defMargin + navBarLeft + statusBarLeft,
+                    defMargin + navBarTop + statusBarTop + binding.searchContainer.height,
+                    DimenUtil.roundedDpToPx(12f) + navBarRight + statusBarRight, defMargin)
+
+                map.uiSettings.setAttributionMargins(defMargin + navBarLeft + statusBarLeft,
+                    0, defMargin + navBarRight + statusBarRight,
+                    navBarBottom + statusBarBottom + DimenUtil.roundedDpToPx(36f))
 
                 map.addOnCameraIdleListener {
                     onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
@@ -418,6 +429,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
     override fun onResume() {
         super.onResume()
+        activity?.window?.let { window ->
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+            window.statusBarColor = Color.TRANSPARENT
+            window.navigationBarColor = Color.TRANSPARENT
+        }
+
         binding.mapView.onResume()
         updateSearchCardViews()
     }
