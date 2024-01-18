@@ -125,15 +125,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         if (it.resultCode == RESULT_OK) {
             val location = it.data?.getParcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
             viewModel.pageTitle = it.data?.getParcelableExtra(Constants.ARG_TITLE)!!
-            val entry = HistoryEntry(viewModel.pageTitle!!, HistoryEntry.SOURCE_PLACES)
             Prefs.placesWikiCode = viewModel.pageTitle?.wikiSite?.languageCode
                 ?: WikipediaApp.instance.appOrSystemLanguageCode
             updateSearchText(viewModel.pageTitle?.displayText.orEmpty())
             goToLocation(preferredLocation = location, zoom = 15.9)
             viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
             binding.root.postDelayed({
-                ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                    LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
+                if (isAdded && viewModel.pageTitle != null) {
+                    showLinkPreview(viewModel.pageTitle!!, location)
+                }
             }, 1000)
           }
     }
@@ -291,7 +291,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
                         updateSearchText(it.pageTitle.displayText)
-                        val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_PLACES)
                         val location = Location("").apply {
                             latitude = symbol.latLng.latitude
                             longitude = symbol.latLng.longitude
@@ -300,8 +299,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                         magnifiedMarker = it.annotation
                         magnifiedMarker?.iconSize = 1.75f
                         symbolManager?.update(magnifiedMarker)
-                        ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
+                        showLinkPreview(it.pageTitle, location)
                     }
                     true
                 }
@@ -324,6 +322,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
         }
+    }
+
+    private fun showLinkPreview(pageTitle: PageTitle, location: Location) {
+        val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
+            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
     }
 
     private fun resetMagnifiedSymbol() {
