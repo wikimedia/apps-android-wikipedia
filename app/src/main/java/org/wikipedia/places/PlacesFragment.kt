@@ -690,6 +690,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
     private inner class RecyclerViewItemHolder(val binding: ItemPlacesListBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener {
 
+        private var position = 0
+
         init {
             itemView.setOnClickListener(this)
             itemView.setOnLongClickListener(this)
@@ -697,6 +699,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         }
 
         fun bindItem(item: PlacesFragmentViewModel.NearbyPage, position: Int) {
+            this.position = position
             binding.listItemTitle.text = StringUtil.fromHtml(item.pageTitle.displayText)
             binding.listItemDescription.text = StringUtil.fromHtml(item.pageTitle.description)
             lastLocationUpdated?.let {
@@ -711,11 +714,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         }
 
         override fun onClick(v: View) {
-            // TODO: implement this
+            val entry = HistoryEntry(viewModel.nearbyPages[position].pageTitle, HistoryEntry.SOURCE_PLACES)
+            startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
         }
 
         override fun onLongClick(v: View): Boolean {
-            // TODO: implement this)
+            val entry = HistoryEntry(viewModel.nearbyPages[position].pageTitle, HistoryEntry.SOURCE_PLACES)
             return true
         }
     }
