@@ -16,6 +16,7 @@
         style="@style/H3.Article"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="?attr/primary_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/listItemThumbnail"
@@ -23,10 +24,11 @@
 
     <org.wikipedia.views.GoneIfEmptyTextView
         android:id="@+id/listItemDescription"
-        style="@style/List.MaterialListSubtitle"
+        style="@style/P"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
+        android:textColor="?attr/placeholder_color"
         app:layout_constraintTop_toBottomOf="@id/listItemTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/listItemThumbnail"
