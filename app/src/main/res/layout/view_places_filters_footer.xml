@@ -24,7 +24,7 @@
 
         <TextView
             android:id="@+id/footer_title"
-            style="@style/H3"
+            style="@style/H3.Button"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginStart="8dp"
