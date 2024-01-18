@@ -204,8 +204,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         }
 
         binding.searchTextView.setOnClickListener {
-            openSearchActivity(if (binding.searchTextView.text.toString() == getString(R.string.places_search_hint)) null
-            else binding.searchTextView.text.toString())
+            val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES,
+                StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.prefixedText).ifEmpty { null })
+            val options = binding.searchContainer.let {
+                ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+                    binding.searchContainer, getString(R.string.transition_search_bar))
+            }
+            placesSearchLauncher.launch(intent, options)
         }
 
         binding.backButton.setOnClickListener {
@@ -218,7 +223,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         }
 
         binding.searchCloseBtn.setOnClickListener {
-            updateSearchText(getString(R.string.places_search_hint))
+            updateSearchText()
         }
 
         binding.myLocationButton.setOnClickListener {
@@ -232,18 +237,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         return binding.root
     }
 
-    private fun openSearchActivity(query: String?) {
-        val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES, query)
-        val options = binding.searchContainer.let {
-            ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                binding.searchContainer, getString(R.string.transition_search_bar))
+    private fun updateSearchText(searchText: String = "") {
+        if (searchText.isEmpty()) {
+            binding.searchTextView.text = getString(R.string.places_search_hint)
+            binding.searchCloseBtn.isVisible = false
+            resetMagnifiedSymbol()
+        } else {
+            binding.searchCloseBtn.isVisible = true
+            binding.searchTextView.text = searchText
         }
-        placesSearchLauncher.launch(intent, options)
-    }
-
-    private fun updateSearchText(searchText: String) {
-        binding.searchTextView.text = searchText
-        binding.searchCloseBtn.isVisible = searchText != getString(R.string.places_search_hint) && searchText.isNotEmpty()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -299,6 +301,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                         }
                         resetMagnifiedSymbol()
                         setMagnifiedSymbol(it.annotation)
+                        viewModel.highlightedPageTitle = it.pageTitle
                         symbolManager?.update(it.annotation)
                         showLinkPreview(it.pageTitle, location)
                     }
@@ -337,6 +340,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             it.iconSize = 1.0f
             symbolManager?.update(it)
         }
+        viewModel.highlightedPageTitle = null
     }
 
     private fun setMagnifiedSymbol(symbol: Symbol?) {
@@ -491,8 +495,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                     StringUtil.removeUnderscores(it.pageTitle.text)
                 ) {
                     setMagnifiedSymbol(it.annotation)
-                    // Reset the page title so that the marker doesn't get magnified again
-                    viewModel.highlightedPageTitle = null
                 }
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
@@ -612,9 +614,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             val screenPoint = it.projection.toScreenLocation(point)
             val rect = RectF(screenPoint.x - 10, screenPoint.y - 10, screenPoint.x + 10, screenPoint.y + 10)
 
-            // Reset any enhanced markers to regular size
-            resetMagnifiedSymbol()
-            updateSearchText(getString(R.string.places_search_hint))
+            updateSearchText()
             // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
             val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
             if (featureList.isNotEmpty()) {
