@@ -298,11 +298,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                             longitude = symbol.latLng.longitude
                         }
                         resetMagnifiedSymbol()
-                        magnifiedMarker?.symbolSortKey = 0f
-                        magnifiedMarker = it.annotation
-                        magnifiedMarker?.iconSize = 1.75f
-                        magnifiedMarker?.symbolSortKey = 1f
-                        symbolManager?.update(magnifiedMarker)
+                        setMagnifiedSymbol(it.annotation)
+                        symbolManager?.update(it.annotation)
                         showLinkPreview(it.pageTitle, location)
                     }
                     true
@@ -340,6 +337,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             it.iconSize = 1.0f
             symbolManager?.update(it)
         }
+    }
+
+    private fun setMagnifiedSymbol(symbol: Symbol?) {
+        magnifiedMarker?.symbolSortKey = 0f
+        magnifiedMarker = symbol
+        magnifiedMarker?.iconSize = 1.75f
+        magnifiedMarker?.symbolSortKey = 1f
     }
 
     private fun setupMarkerPaints() {
@@ -486,8 +490,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                 if (StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.text.orEmpty()) ==
                     StringUtil.removeUnderscores(it.pageTitle.text)
                 ) {
-                    magnifiedMarker = it.annotation
-                    magnifiedMarker?.iconSize = 1.75f
+                    setMagnifiedSymbol(it.annotation)
                     // Reset the page title so that the marker doesn't get magnified again
                     viewModel.highlightedPageTitle = null
                 }
