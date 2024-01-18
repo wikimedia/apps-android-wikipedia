@@ -58,7 +58,6 @@ class PlacesFilterActivity : BaseActivity() {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.background_color))
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = getString(R.string.places_filter_title)
         setContentView(binding.root)
     }
 
