@@ -406,6 +406,10 @@
   <string name="multi_select_items_selected">%d valgt</string>
   <string name="error_message_generic">Der opstod en fejl</string>
   <string name="view_link_preview_error_button_dismiss">Luk</string>
+  <string name="link_preview_dialog_read_button">Læs</string>
+  <string name="link_preview_dialog_save_button">Gem</string>
+  <string name="link_preview_dialog_saved_button">Gemt</string>
+  <string name="link_preview_dialog_share_button">Del</string>
   <string name="error_page_does_not_exist">Denne side findes ikke.</string>
   <string name="error_user_page_does_not_exist">Wikipedia har ikke en &lt;a href=\"%1$s \"&gt;brugerside&lt;/a&gt; med dette nøjagtige navn. Generelt bør denne side være oprettet og redigeret af &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; . Hvis du er i tvivl, bedes du kontrollere, at \" %3$s \" eksisterer.</string>
   <string name="view_wiki_error_message_offline">Kan ikke oprette forbindelse til internet</string>
@@ -1001,6 +1005,7 @@
   <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="suggested_edits_task_new">Ny</string>
   <string name="suggested_edits_reactivation_notification_title">Redigeringsforslag</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Tak for dit bidrag til Wikipedia! Hvad med at fortsætte hvor du slap?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Har du et minut til at fortsætte med at forbedre Wikipedia? Tjek disse redigeringsforslag.</string>
   <string name="suggested_edits_contributions_screen_title">%s\'s bidrag</string>
   <string name="suggested_edits_contribution_language_label">Sprog</string>
