@@ -244,7 +244,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             resetMagnifiedSymbol()
         } else {
             binding.searchCloseBtn.isVisible = true
-            binding.searchTextView.text = searchText
+            binding.searchTextView.text = StringUtil.fromHtml(searchText)
         }
     }
 
