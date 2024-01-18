@@ -63,6 +63,8 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentPlacesBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.extensions.parcelable
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
@@ -123,16 +125,16 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
     private val placesSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-            val location = it.data?.getParcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
-            viewModel.pageTitle = it.data?.getParcelableExtra(Constants.ARG_TITLE)!!
-            Prefs.placesWikiCode = viewModel.pageTitle?.wikiSite?.languageCode
-                ?: WikipediaApp.instance.appOrSystemLanguageCode
-            updateSearchText(viewModel.pageTitle?.displayText.orEmpty())
+            val location = it.data?.parcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
+            val pageTitle = it.data?.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
+            viewModel.pageTitle = pageTitle
+            Prefs.placesWikiCode = pageTitle.wikiSite.languageCode
+            updateSearchText(pageTitle.displayText)
             goToLocation(preferredLocation = location, zoom = 15.9)
             viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
             binding.root.postDelayed({
-                if (isAdded && viewModel.pageTitle != null) {
-                    showLinkPreview(viewModel.pageTitle!!, location)
+                if (isAdded) {
+                    showLinkPreview(pageTitle, location)
                 }
             }, 1000)
           }
@@ -162,7 +164,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
 
-        requireArguments().getParcelable<PageTitle>(Constants.ARG_TITLE)?.let {
+        requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)?.let {
             Prefs.placesWikiCode = it.wikiSite.languageCode
         }
 
