@@ -5,10 +5,13 @@
     android:layout_height="match_parent"
     android:background="?attr/background_color"
     tools:context=".places.PlacesFilterActivity">
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
+        android:background="?attr/background_color"
         android:layout_height="?attr/actionBarSize" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/placesFiltersRecyclerView"
         android:layout_width="match_parent"
