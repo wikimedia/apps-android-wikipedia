@@ -468,6 +468,8 @@
   <string name="multi_select_items_selected">%d выбрано</string>
   <string name="error_message_generic">Произошла ошибка</string>
   <string name="view_link_preview_error_button_dismiss">Закрыть</string>
+  <string name="link_preview_dialog_save_button">Сохранить</string>
+  <string name="link_preview_dialog_saved_button">Сохранено</string>
   <string name="error_page_does_not_exist">Такой страницы не существует</string>
   <string name="error_user_page_does_not_exist">В Википедии нет &lt;a href=\"%1$s\"&gt;страницы участника_цы&lt;/a&gt; с точно таким именем. Как правило, эта страница должна быть создана и редактироваться участником_цей &lt;b&gt;%2$s&lt;/b&gt;. Если есть сомнения, пожалуйста, проверьте, существует ли «%3$s».</string>
   <string name="view_wiki_error_message_offline">Не удаётся подключиться к интернету</string>
@@ -1517,6 +1519,7 @@
   <string name="media_playback_error">Ошибка воспроизведения медиафайла.</string>
   <string name="user_contrib_menu_label">Вклад</string>
   <string name="user_contrib_filter_activity_title">фильтровать вклад</string>
+  <string name="action_item_view_on_map">Посмотреть на карте</string>
   <string name="shareable_reading_lists_import_dialog_title">Импортирование расшаренного списка для чтения</string>
   <string name="shareable_reading_lists_import_dialog_content">Как бы вы хотели назвать список, которым с вами поделились?</string>
   <string name="shareable_reading_lists_new_indicator">*новый*</string>
@@ -1605,4 +1608,8 @@
   <string name="donation_campaign_donated_snackbar">Спасибо за ваше пожертвование! Ваша поддержка помогает Википедии и её родственным проектам процветать.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Открыть в системном браузере</string>
+  <string name="places_title">Места</string>
+  <string name="places_search_hint">Поиск мест</string>
+  <string name="places_toggle_buttons_map">Карта</string>
+  <string name="places_toggle_buttons_list">Список</string>
 </resources>
