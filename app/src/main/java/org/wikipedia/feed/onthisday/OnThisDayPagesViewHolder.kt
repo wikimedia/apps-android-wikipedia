@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import org.wikipedia.Constants
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.PageSummary
@@ -84,31 +83,32 @@ class OnThisDayPagesViewHolder(
     }
 
     private fun showOverflowMenu(anchorView: View?): Boolean {
-        val entry = HistoryEntry(
-            selectedPage!!.getPageTitle(wiki),
-            HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY
-        )
-
-        LongPressMenu(anchorView!!, true, object : LongPressMenu.Callback {
-            override fun onOpenLink(entry: HistoryEntry) {
-                PageActivity.newIntentForNewTab(activity, entry, entry.title)
-            }
-
-            override fun onOpenInNewTab(entry: HistoryEntry) {
-                TabUtil.openInNewBackgroundTab(entry)
-                FeedbackUtil.showMessage(activity, R.string.article_opened_in_background_tab)
-            }
-
-            override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
-                ReadingListBehaviorsUtil.addToDefaultList(activity, entry.title, addToDefault, InvokeSource.ON_THIS_DAY_ACTIVITY)
-            }
-
-            override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
-                page?.let {
-                    ReadingListBehaviorsUtil.moveToList(activity, it.listId, entry.title, InvokeSource.ON_THIS_DAY_ACTIVITY)
+        anchorView?.let {
+            val entry = HistoryEntry(
+                selectedPage!!.getPageTitle(wiki),
+                HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY
+            )
+            LongPressMenu(it, callback = object : LongPressMenu.Callback {
+                override fun onOpenLink(entry: HistoryEntry) {
+                    PageActivity.newIntentForNewTab(activity, entry, entry.title)
                 }
-            }
-        }).show(entry)
+
+                override fun onOpenInNewTab(entry: HistoryEntry) {
+                    TabUtil.openInNewBackgroundTab(entry)
+                    FeedbackUtil.showMessage(activity, R.string.article_opened_in_background_tab)
+                }
+
+                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                    ReadingListBehaviorsUtil.addToDefaultList(activity, entry.title, addToDefault, Constants.InvokeSource.ON_THIS_DAY_ACTIVITY)
+                }
+
+                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+                    page?.let {
+                        ReadingListBehaviorsUtil.moveToList(activity, it.listId, entry.title, Constants.InvokeSource.ON_THIS_DAY_ACTIVITY)
+                    }
+                }
+            }).show(entry)
+        }
         return true
     }
 }
