@@ -60,7 +60,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerPlacesContainer.setOnClickListener {
-            PlacesEvent.logAction("places_click", "more_menu")
+            PlacesEvent.logAction("places_click", "main_nav_tab")
             requireActivity().startActivity(PlacesActivity.newIntent(requireActivity()))
             dismiss()
         }
