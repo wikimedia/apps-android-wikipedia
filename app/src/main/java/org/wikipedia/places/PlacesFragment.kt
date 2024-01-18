@@ -68,6 +68,7 @@ import org.wikipedia.databinding.ItemPlacesListBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
@@ -266,6 +267,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         binding.listRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.listRecyclerView.adapter = RecyclerViewAdapter()
         binding.listRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, skipSearchBar = true))
+        binding.listEmptyMessage.text = StringUtil.fromHtml(getString(R.string.places_empty_list))
+        binding.listEmptyMessage.movementMethod = LinkMovementMethodExt { _ ->
+            binding.viewButtonsGroup.check(R.id.mapViewButton)
+        }
 
         return binding.root
     }
@@ -548,6 +553,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                 }
             }
         }
+        binding.listRecyclerView.isVisible = viewModel.nearbyPages.isNotEmpty()
+        binding.listEmptyContainer.isVisible = viewModel.nearbyPages.isEmpty()
         binding.listRecyclerView.adapter?.notifyDataSetChanged()
     }
 
