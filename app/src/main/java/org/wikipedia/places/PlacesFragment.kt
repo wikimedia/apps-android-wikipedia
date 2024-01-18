@@ -320,6 +320,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
+
+                        L.d("goToLocation preferredLocation 1 " + viewModel.location)
+                        L.d("goToLocation preferredLocation 2 " + Prefs.placesLastLocation)
                         goToLocation(1000, viewModel.location)
                     }
                 } else {
@@ -468,7 +471,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             }
         }
         markerBitmapBase.recycle()
-
         super.onDestroyView()
     }
 
@@ -477,6 +479,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             it.latitude = latLng.latitude
             it.longitude = latLng.longitude
         }
+        L.d("goToLocation lastLocation 1 " + lastLocation)
+        Prefs.placesLastLocation = lastLocation
+        L.d("goToLocation lastLocation 2 " + Prefs.placesLastLocation)
         lastZoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
 
         if (lastZoom < 3.0) {
@@ -553,6 +558,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
     }
 
     private fun goToLocation(delayMillis: Long = 0, preferredLocation: Location? = null, zoom: Double = 15.0) {
+        L.d("goToLocation preferredLocation " + preferredLocation)
         binding.mapView.postDelayed({
             if (isAdded && haveLocationPermissions()) {
                 mapboxMap?.let {

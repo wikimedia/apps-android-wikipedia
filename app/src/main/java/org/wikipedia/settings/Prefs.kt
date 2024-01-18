@@ -1,5 +1,6 @@
 package org.wikipedia.settings
 
+import android.location.Location
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
@@ -712,4 +713,8 @@ object Prefs {
     var placesWikiCode
         get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
+
+    var placesLastLocation
+        get() = JsonUtil.decodeFromString<Location>(PrefsIoUtil.getString(R.string.preference_key_places_last_location, null))
+        set(value) = PrefsIoUtil.setString(R.string.preference_key_places_last_location, JsonUtil.encodeToString(value))
 }
