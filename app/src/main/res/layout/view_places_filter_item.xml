@@ -19,7 +19,6 @@
             android:layout_height="match_parent"
             android:paddingHorizontal="10dp"
             android:layout_marginStart="14dp"
-            android:background="?attr/selectableItemBackground"
             android:gravity="center">
 
             <TextView

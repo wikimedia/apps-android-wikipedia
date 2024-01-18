@@ -305,6 +305,7 @@
         <item name="elevation">4dp</item>
         <item name="android:outlineAmbientShadowColor" tools:targetApi="p">@color/black</item>
         <item name="android:outlineSpotShadowColor" tools:targetApi="p">@color/black</item>
+        <item name="android:background">?attr/paper_color</item>
         <item name="titleTextColor">?attr/primary_color</item>
         <item name="titleTextAppearance">@style/H1.AppBar</item>
     </style>
