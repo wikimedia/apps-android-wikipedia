@@ -250,11 +250,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Style JSON taken from:
-        // https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Kartographer/+/663867 (mvt-style.json)
-        // https://tegola-wikimedia.s3.amazonaws.com/wikimedia-tilejson.json (for some reason)
-
         binding.mapView.onCreate(savedInstanceState)
 
         binding.mapView.getMapAsync { map ->
@@ -264,8 +259,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
                 style.addImage(MARKER_DRAWABLE, markerBitmapBase)
 
-                // TODO: Currently the style seems to break when zooming beyond 16.0. See if we can fix this.
-                map.setMaxZoomPreference(15.999)
+                map.setMaxZoomPreference(20.0)
 
                 map.uiSettings.isLogoEnabled = false
                 val defMargin = DimenUtil.roundedDpToPx(16f)
