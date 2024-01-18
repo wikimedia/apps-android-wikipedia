@@ -90,6 +90,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
 import java.util.Locale
+import kotlin.math.abs
 
 class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap.OnMapClickListener {
 
@@ -104,8 +105,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
     private var symbolManager: SymbolManager? = null
 
     private val annotationCache = ArrayDeque<PlacesFragmentViewModel.NearbyPage>()
-    private var lastLocationUpdated: Location? = null
+    private var lastLocation: Location? = null
+    private var lastLocationQueried: Location? = null
     private var lastZoom = 15.0
+    private var lastZoomQueried = 0.0
 
     private lateinit var markerBitmapBase: Bitmap
     private lateinit var markerPaintSrc: Paint
@@ -154,9 +157,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             if (languageChanged) {
                 annotationCache.clear()
                 symbolManager?.deleteAll()
-                  viewModel.fetchNearbyPages(lastLocationUpdated?.latitude ?: 0.0,
-                      lastLocationUpdated?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
-                  goToLocation(1000, lastLocationUpdated, lastZoom)
+                  viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
+                      lastLocation?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
+                  goToLocation(1000, lastLocation, lastZoom)
               }
           }
     }
@@ -226,7 +229,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         }
 
         binding.searchLangContainer.setOnClickListener {
-            lastZoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
             filterLauncher.launch(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
@@ -300,11 +302,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Style JSON taken from:
-        // https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Kartographer/+/663867 (mvt-style.json)
-        // https://tegola-wikimedia.s3.amazonaws.com/wikimedia-tilejson.json (for some reason)
-
         binding.mapView.onCreate(savedInstanceState)
 
         binding.mapView.getMapAsync { map ->
@@ -314,8 +311,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
                 style.addImage(MARKER_DRAWABLE, markerBitmapBase)
 
-                // TODO: Currently the style seems to break when zooming beyond 16.0. See if we can fix this.
-                map.setMaxZoomPreference(15.999)
+                map.setMaxZoomPreference(20.0)
 
                 map.uiSettings.isLogoEnabled = false
                 val defMargin = DimenUtil.roundedDpToPx(16f)
@@ -332,7 +328,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                 map.uiSettings.setAttributionMargins(defMargin, 0, defMargin, navBarMargin + DimenUtil.roundedDpToPx(36f))
 
                 map.addOnCameraIdleListener {
-                    onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
+                    mapboxMap?.cameraPosition?.target?.let {
+                        onUpdateCameraPosition(it)
+                    }
                 }
 
                 map.addOnMapClickListener(this)
@@ -516,22 +514,29 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         super.onDestroyView()
     }
 
-    private fun onUpdateCameraPosition(latLng: LatLng?) {
-        if (latLng == null) {
-            return
-        }
-
-        lastLocationUpdated = Location("").also {
+    private fun onUpdateCameraPosition(latLng: LatLng) {
+        lastLocation = Location("").also {
             it.latitude = latLng.latitude
             it.longitude = latLng.longitude
         }
+        lastZoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
 
-        LatLng(latLng.latitude, latLng.longitude)
-
-        if ((mapboxMap?.cameraPosition?.zoom ?: 0.0) < 3.0) {
+        if (lastZoom < 3.0) {
             // Don't fetch pages if the map is zoomed out too far.
             return
         }
+
+        // Fetch new pages within the current viewport, but only if the map has moved a significant distance.
+        val latEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) * 0.2
+        val lngEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.longitudeSpan ?: 0.0) * 0.2
+        if (lastLocationQueried != null &&
+            abs(latLng.latitude - (lastLocationQueried?.latitude ?: 0.0)) < latEpsilon &&
+            abs(latLng.longitude - (lastLocationQueried?.longitude ?: 0.0)) < lngEpsilon &&
+            abs(lastZoom - lastZoomQueried) < 0.5) {
+            return
+        }
+        lastLocationQueried = lastLocation
+        lastZoomQueried = lastZoom
 
         L.d(">>> requesting update: " + latLng.latitude + ", " + latLng.longitude + ", " + mapboxMap?.cameraPosition?.zoom)
         viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude, searchRadius, ITEMS_PER_REQUEST)
@@ -718,7 +723,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             this.position = position
             binding.listItemTitle.text = StringUtil.fromHtml(item.pageTitle.displayText)
             binding.listItemDescription.text = StringUtil.fromHtml(item.pageTitle.description)
-            lastLocationUpdated?.let {
+            lastLocation?.let {
                 binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, item.location, Locale.getDefault())
             }
             item.pageTitle.thumbUrl?.let {
