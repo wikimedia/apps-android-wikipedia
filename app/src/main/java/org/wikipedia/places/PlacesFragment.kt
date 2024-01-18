@@ -123,13 +123,18 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
     private val placesSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-              val location = it.data?.getParcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
-              viewModel.pageTitle = it.data?.getParcelableExtra(Constants.ARG_TITLE)!!
-              Prefs.placesWikiCode = viewModel.pageTitle?.wikiSite?.languageCode
-                  ?: WikipediaApp.instance.appOrSystemLanguageCode
-              updateSearchText(viewModel.pageTitle?.displayText.orEmpty())
-              goToLocation(1000, location)
-              viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
+            val location = it.data?.getParcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
+            viewModel.pageTitle = it.data?.getParcelableExtra(Constants.ARG_TITLE)!!
+            val entry = HistoryEntry(viewModel.pageTitle!!, HistoryEntry.SOURCE_PLACES)
+            Prefs.placesWikiCode = viewModel.pageTitle?.wikiSite?.languageCode
+                ?: WikipediaApp.instance.appOrSystemLanguageCode
+            updateSearchText(viewModel.pageTitle?.displayText.orEmpty())
+            goToLocation(preferredLocation = location, zoom = 15.9)
+            viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
+            binding.root.postDelayed({
+                ExclusiveBottomSheetPresenter.show(childFragmentManager,
+                    LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
+            }, 1000)
           }
     }
 
@@ -512,7 +517,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         }
     }
 
-    private fun goToLocation(delayMillis: Long, preferredLocation: Location? = null, zoom: Double = 15.0) {
+    private fun goToLocation(delayMillis: Long = 0, preferredLocation: Location? = null, zoom: Double = 15.0) {
         binding.mapView.postDelayed({
             if (isAdded && haveLocationPermissions()) {
                 mapboxMap?.let {
@@ -598,7 +603,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
             // Reset any enhanced markers to regular size
             resetMagnifiedSymbol()
-
+            updateSearchText(getString(R.string.places_search_hint))
             // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
             val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
             if (featureList.isNotEmpty()) {
