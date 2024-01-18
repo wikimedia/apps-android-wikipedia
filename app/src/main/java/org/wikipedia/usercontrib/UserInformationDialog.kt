@@ -19,9 +19,7 @@ import org.wikipedia.suggestededits.SuggestedEditsRecentEditsActivity
 import org.wikipedia.suggestededits.SuggestionsActivity
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
-import java.time.LocalDateTime
-import java.time.ZoneId
-import java.util.Date
+import java.time.LocalDate
 
 class UserInformationDialog : DialogFragment() {
 
@@ -74,13 +72,12 @@ class UserInformationDialog : DialogFragment() {
         binding.dialogErrorView.isVisible = false
     }
 
-    private fun onSuccess(editCount: String, registrationDate: Date) {
+    private fun onSuccess(editCount: String, registrationDate: LocalDate) {
         sendPatrollerExperienceEvent()
         binding.userInformationContainer.isVisible = true
         binding.dialogProgressBar.isVisible = false
         binding.dialogErrorView.isVisible = false
-        val localDate = LocalDateTime.ofInstant(registrationDate.toInstant(), ZoneId.systemDefault()).toLocalDate()
-        val dateStr = DateUtil.getShortDateString(localDate)
+        val dateStr = DateUtil.getShortDateString(registrationDate)
         binding.userTenure.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_edits_list_user_information_dialog_joined_date_text, dateStr))
         binding.editCount.text = StringUtil.fromHtml(getString(R.string.patroller_tasks_edits_list_user_information_dialog_edit_count_text, editCount))
     }

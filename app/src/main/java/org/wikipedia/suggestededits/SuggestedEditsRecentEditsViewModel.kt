@@ -2,14 +2,7 @@ package org.wikipedia.suggestededits
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingSource
-import androidx.paging.PagingState
-import androidx.paging.cachedIn
-import androidx.paging.filter
-import androidx.paging.insertSeparators
-import androidx.paging.map
+import androidx.paging.*
 import kotlinx.coroutines.flow.map
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -21,9 +14,9 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
 import retrofit2.HttpException
 import java.io.IOException
-import java.time.Duration
-import java.util.Calendar
-import java.util.Date
+import java.time.Instant
+import java.time.LocalDate
+import java.time.temporal.ChronoUnit
 import kotlin.math.max
 
 class SuggestedEditsRecentEditsViewModel : ViewModel() {
@@ -86,7 +79,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     return LoadResult.Page(cachedRecentEdits, null, cachedContinueKey)
                 }
 
-                val triple = getRecentEditsCall(wikiSite, params.loadSize, Date().toInstant().toString(), "older", params.key, cachedUserInfo)
+                val triple = getRecentEditsCall(wikiSite, params.loadSize, Instant.now(), "older", params.key, cachedUserInfo)
 
                 cachedContinueKey = triple.third
                 cachedRecentEdits.addAll(triple.first)
@@ -109,12 +102,11 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     class RecentEditsSeparator(val date: String) : RecentEditsItemModel()
 
     companion object {
-
-        suspend fun getRecentEditsCall(wikiSite: WikiSite, count: Int, startTimeStamp: String, direction: String,
+        suspend fun getRecentEditsCall(wikiSite: WikiSite, count: Int, startTimeStamp: Instant, direction: String,
             continueStr: String? = null, userInfoCache: MutableList<UserInfo>): Triple<List<MwQueryResult.RecentChange>, List<MwQueryResult.RecentChange>, String?> {
 
             val response = ServiceFactory.get(wikiSite)
-                .getRecentEdits(count, startTimeStamp, direction, latestRevisions(), showCriteriaString(), continueStr)
+                .getRecentEdits(count, startTimeStamp.toString(), direction, latestRevisions(), showCriteriaString(), continueStr)
 
             val allRecentChanges = response.query?.recentChanges.orEmpty()
 
@@ -219,7 +211,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     var qualifiedUser = false
                     userInfo?.let {
                         val editsCount = userInfo.editCount
-                        val diffDays = diffDays(userInfo.registrationDate)
+                        val diffDays = userInfo.registrationDate.until(LocalDate.now(), ChronoUnit.DAYS)
                         findUserExperienceFilters.forEach { type ->
                             val userExperienceArray = type.value.split("|")
                             val requiredEdits = userExperienceArray.first().split(",")
@@ -292,12 +284,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 }
             }
             return recentChanges
-        }
-
-        private fun diffDays(date: Date): Long {
-            val nowDate = Calendar.getInstance().toInstant()
-            val beginDate = date.toInstant()
-            return Duration.between(beginDate, nowDate).toDays()
         }
     }
 }
