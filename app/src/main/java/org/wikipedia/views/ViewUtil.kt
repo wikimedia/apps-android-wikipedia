@@ -6,7 +6,11 @@ import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.view.*
+import android.view.ActionMode
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.graphics.contains
@@ -32,12 +36,13 @@ object ViewUtil {
     private val CENTER_CROP_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(2f)))
     val ROUNDED_CORNERS = RoundedCorners(roundedDpToPx(15f))
     val CENTER_CROP_LARGE_ROUNDED_CORNERS = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), ROUNDED_CORNERS)
+    val CENTER_CROP_CIRCLE = MultiTransformation(CenterCrop(), WhiteBackgroundTransformation(), RoundedCorners(roundedDpToPx(32f)))
 
     fun loadImageWithRoundedCorners(view: ImageView, url: String?, largeRoundedSize: Boolean = false) {
-        loadImage(view, url, true, largeRoundedSize)
+        loadImage(view, url, roundedCorners = true, largeRoundedSize = largeRoundedSize)
     }
 
-    fun loadImage(view: ImageView, url: String?, roundedCorners: Boolean = false, largeRoundedSize: Boolean = false, force: Boolean = false,
+    fun loadImage(view: ImageView, url: String?, circleShape: Boolean = false, roundedCorners: Boolean = false, largeRoundedSize: Boolean = false, force: Boolean = false,
                   listener: RequestListener<Drawable?>? = null) {
         val placeholder = getPlaceholderDrawable(view.context)
         var builder = Glide.with(view)
@@ -47,6 +52,8 @@ object ViewUtil {
                 .error(placeholder)
         builder = if (roundedCorners) {
             builder.transform(if (largeRoundedSize) CENTER_CROP_LARGE_ROUNDED_CORNERS else CENTER_CROP_ROUNDED_CORNERS)
+        } else if (circleShape) {
+            builder.transform(CENTER_CROP_CIRCLE)
         } else {
             builder.transform(WhiteBackgroundTransformation())
         }

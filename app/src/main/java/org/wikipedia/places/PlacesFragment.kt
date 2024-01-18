@@ -374,7 +374,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
     private fun updateToggleViews(isMapVisible: Boolean) {
         val tintColor = ResourceUtil.getThemedColorStateList(requireContext(), if (isMapVisible) R.attr.paper_color else R.attr.background_color)
         binding.mapView.isVisible = isMapVisible
-        binding.listRecyclerView.isVisible = !isMapVisible
+        binding.listRecyclerView.isVisible = !isMapVisible && viewModel.nearbyPages.isNotEmpty()
+        binding.listEmptyContainer.isVisible = !isMapVisible && viewModel.nearbyPages.isEmpty()
         binding.searchContainer.backgroundTintList = tintColor
         binding.myLocationButton.isVisible = isMapVisible
     }
@@ -553,8 +554,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                 }
             }
         }
-        binding.listRecyclerView.isVisible = viewModel.nearbyPages.isNotEmpty()
-        binding.listEmptyContainer.isVisible = viewModel.nearbyPages.isEmpty()
         binding.listRecyclerView.adapter?.notifyDataSetChanged()
     }
 
@@ -704,7 +703,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                 binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, item.location, Locale.getDefault())
             }
             item.pageTitle.thumbUrl?.let {
-                ViewUtil.loadImage(binding.listItemThumbnail, it)
+                ViewUtil.loadImage(binding.listItemThumbnail, it, circleShape = true)
                 binding.listItemThumbnail.isVisible = true
             } ?: run {
                 binding.listItemThumbnail.isVisible = false

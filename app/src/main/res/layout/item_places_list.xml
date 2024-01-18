@@ -48,12 +48,14 @@
         app:layout_constraintEnd_toStartOf="@id/listItemThumbnail"
         tools:text="Lorem ipsum" />
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <ImageView
         android:id="@+id/listItemThumbnail"
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:contentDescription="@null"
         android:src="@drawable/ic_wikipedia_w"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
