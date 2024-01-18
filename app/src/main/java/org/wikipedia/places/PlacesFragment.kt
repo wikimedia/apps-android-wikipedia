@@ -127,7 +127,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         if (it.resultCode == RESULT_OK) {
             val location = it.data?.parcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
             val pageTitle = it.data?.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
-            viewModel.pageTitle = pageTitle
+            viewModel.highlightedPageTitle = pageTitle
             Prefs.placesWikiCode = pageTitle.wikiSite.languageCode
             updateSearchText(pageTitle.displayText)
             goToLocation(preferredLocation = location, zoom = 15.9)
@@ -298,8 +298,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                             longitude = symbol.latLng.longitude
                         }
                         resetMagnifiedSymbol()
+                        magnifiedMarker?.symbolSortKey = 0f
                         magnifiedMarker = it.annotation
                         magnifiedMarker?.iconSize = 1.75f
+                        magnifiedMarker?.symbolSortKey = 1f
                         symbolManager?.update(magnifiedMarker)
                         showLinkPreview(it.pageTitle, location)
                     }
@@ -481,13 +483,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                         .withIconImage(MARKER_DRAWABLE)
                         .withIconOffset(arrayOf(0f, -32f))
                 )
-                if (StringUtil.removeUnderscores(viewModel.pageTitle?.text.orEmpty()) ==
+                if (StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.text.orEmpty()) ==
                     StringUtil.removeUnderscores(it.pageTitle.text)
                 ) {
                     magnifiedMarker = it.annotation
                     magnifiedMarker?.iconSize = 1.75f
                     // Reset the page title so that the marker doesn't get magnified again
-                    viewModel.pageTitle = null
+                    viewModel.highlightedPageTitle = null
                 }
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
