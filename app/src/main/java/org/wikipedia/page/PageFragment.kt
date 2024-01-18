@@ -1356,7 +1356,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             if (model.isInReadingList) {
                 val anchor = if (Prefs.customizeToolbarOrder.contains(PageActionItem.SAVE.id))
                     binding.pageActionsTabLayout else (requireActivity() as PageActivity).getOverflowMenu()
-                LongPressMenu(anchor, object : LongPressMenu.Callback {
+                LongPressMenu(anchor, existsInAnyList = false, callback = object : LongPressMenu.Callback {
                     override fun onOpenLink(entry: HistoryEntry) { }
 
                     override fun onOpenInNewTab(entry: HistoryEntry) { }

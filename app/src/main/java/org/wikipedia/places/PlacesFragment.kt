@@ -66,6 +66,8 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentPlacesBinding
 import org.wikipedia.databinding.ItemPlacesListBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.extensions.parcelable
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
@@ -131,13 +133,18 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
     private val placesSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-              val location = it.data?.getParcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
-              viewModel.pageTitle = it.data?.getParcelableExtra(Constants.ARG_TITLE)!!
-              Prefs.placesWikiCode = viewModel.pageTitle?.wikiSite?.languageCode
-                  ?: WikipediaApp.instance.appOrSystemLanguageCode
-              updateSearchText(viewModel.pageTitle?.displayText.orEmpty())
-              goToLocation(1000, location)
-              viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
+            val location = it.data?.parcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
+            val pageTitle = it.data?.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
+            viewModel.highlightedPageTitle = pageTitle
+            Prefs.placesWikiCode = pageTitle.wikiSite.languageCode
+            updateSearchText(pageTitle.displayText)
+            goToLocation(preferredLocation = location, zoom = 15.9)
+            viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
+            binding.root.postDelayed({
+                if (isAdded) {
+                    showLinkPreview(pageTitle, location)
+                }
+            }, 1000)
           }
     }
 
@@ -165,7 +172,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
 
-        requireArguments().getParcelable<PageTitle>(Constants.ARG_TITLE)?.let {
+        requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)?.let {
             Prefs.placesWikiCode = it.wikiSite.languageCode
         }
 
@@ -205,8 +212,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         }
 
         binding.searchTextView.setOnClickListener {
-            openSearchActivity(if (binding.searchTextView.text.toString() == getString(R.string.places_search_hint)) null
-            else binding.searchTextView.text.toString())
+            val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES,
+                StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.prefixedText).ifEmpty { null })
+            val options = binding.searchContainer.let {
+                ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+                    binding.searchContainer, getString(R.string.transition_search_bar))
+            }
+            placesSearchLauncher.launch(intent, options)
         }
 
         binding.backButton.setOnClickListener {
@@ -219,7 +231,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         }
 
         binding.searchCloseBtn.setOnClickListener {
-            updateSearchText(getString(R.string.places_search_hint))
+            updateSearchText()
         }
 
         binding.myLocationButton.setOnClickListener {
@@ -275,18 +287,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         return binding.root
     }
 
-    private fun openSearchActivity(query: String?) {
-        val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES, query)
-        val options = binding.searchContainer.let {
-            ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                binding.searchContainer, getString(R.string.transition_search_bar))
+    private fun updateSearchText(searchText: String = "") {
+        if (searchText.isEmpty()) {
+            binding.searchTextView.text = getString(R.string.places_search_hint)
+            binding.searchCloseBtn.isVisible = false
+            resetMagnifiedSymbol()
+        } else {
+            binding.searchCloseBtn.isVisible = true
+            binding.searchTextView.text = StringUtil.fromHtml(searchText)
         }
-        placesSearchLauncher.launch(intent, options)
-    }
-
-    private fun updateSearchText(searchText: String) {
-        binding.searchTextView.text = searchText
-        binding.searchCloseBtn.isVisible = searchText != getString(R.string.places_search_hint) && searchText.isNotEmpty()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -336,17 +345,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
                         updateSearchText(it.pageTitle.displayText)
-                        val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_PLACES)
                         val location = Location("").apply {
                             latitude = symbol.latLng.latitude
                             longitude = symbol.latLng.longitude
                         }
                         resetMagnifiedSymbol()
-                        magnifiedMarker = it.annotation
-                        magnifiedMarker?.iconSize = 1.75f
-                        symbolManager?.update(magnifiedMarker)
-                        ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
+                        setMagnifiedSymbol(it.annotation)
+                        viewModel.highlightedPageTitle = it.pageTitle
+                        symbolManager?.update(it.annotation)
+                        showLinkPreview(it.pageTitle, location)
                     }
                     true
                 }
@@ -380,12 +387,26 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         binding.myLocationButton.isVisible = isMapVisible
     }
 
+    private fun showLinkPreview(pageTitle: PageTitle, location: Location) {
+        val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
+            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
+    }
+
     private fun resetMagnifiedSymbol() {
         // Reset the magnified marker to regular size
         magnifiedMarker?.let {
             it.iconSize = 1.0f
             symbolManager?.update(it)
         }
+        viewModel.highlightedPageTitle = null
+    }
+
+    private fun setMagnifiedSymbol(symbol: Symbol?) {
+        magnifiedMarker?.symbolSortKey = 0f
+        magnifiedMarker = symbol
+        magnifiedMarker?.iconSize = 1.75f
+        magnifiedMarker?.symbolSortKey = 1f
     }
 
     private fun setupMarkerPaints() {
@@ -529,13 +550,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                         .withIconImage(MARKER_DRAWABLE)
                         .withIconOffset(arrayOf(0f, -32f))
                 )
-                if (StringUtil.removeUnderscores(viewModel.pageTitle?.text.orEmpty()) ==
+                if (StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.text.orEmpty()) ==
                     StringUtil.removeUnderscores(it.pageTitle.text)
                 ) {
-                    magnifiedMarker = it.annotation
-                    magnifiedMarker?.iconSize = 1.75f
-                    // Reset the page title so that the marker doesn't get magnified again
-                    viewModel.pageTitle = null
+                    setMagnifiedSymbol(it.annotation)
                 }
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
@@ -572,7 +590,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         }
     }
 
-    private fun goToLocation(delayMillis: Long, preferredLocation: Location? = null, zoom: Double = 15.0) {
+    private fun goToLocation(delayMillis: Long = 0, preferredLocation: Location? = null, zoom: Double = 15.0) {
         binding.mapView.postDelayed({
             if (isAdded && haveLocationPermissions()) {
                 mapboxMap?.let {
@@ -656,9 +674,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             val screenPoint = it.projection.toScreenLocation(point)
             val rect = RectF(screenPoint.x - 10, screenPoint.y - 10, screenPoint.x + 10, screenPoint.y + 10)
 
-            // Reset any enhanced markers to regular size
-            resetMagnifiedSymbol()
-
+            updateSearchText()
             // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
             val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
             if (featureList.isNotEmpty()) {

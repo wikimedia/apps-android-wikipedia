@@ -312,7 +312,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private fun showReadingListPopupMenu(anchorView: View) {
         if (viewModel.isInReadingList) {
-            LongPressMenu(anchorView, object : LongPressMenu.Callback {
+            LongPressMenu(anchorView, existsInAnyList = false, callback = object : LongPressMenu.Callback {
                 override fun onOpenLink(entry: HistoryEntry) { }
 
                 override fun onOpenInNewTab(entry: HistoryEntry) { }

@@ -22,7 +22,11 @@ import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 
-class LongPressMenu(private val anchorView: View, private val existsInAnyList: Boolean, private val callback: Callback?) {
+class LongPressMenu(
+    private val anchorView: View,
+    private val existsInAnyList: Boolean = true,
+    private val callback: Callback? = null
+) {
     interface Callback {
         fun onOpenLink(entry: HistoryEntry)
         fun onOpenInNewTab(entry: HistoryEntry)
@@ -35,8 +39,6 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
     private val menuRes: Int = if (existsInAnyList) R.menu.menu_long_press else R.menu.menu_reading_list_page_toggle
     private var listsContainingPage: List<ReadingList>? = null
     private var entry: HistoryEntry? = null
-
-    constructor(anchorView: View, callback: Callback?) : this(anchorView, false, callback)
 
     fun show(entry: HistoryEntry?) {
         entry?.let {

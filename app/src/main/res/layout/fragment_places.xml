@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
@@ -16,7 +17,6 @@
         android:orientation="vertical">
 
         <org.wikipedia.views.WikiCardView
-            xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/searchContainer"
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -51,6 +51,8 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:background="?attr/selectableItemBackgroundBorderless"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:text="@string/places_search_hint"
                     android:textColor="?attr/secondary_color" />
 
@@ -85,7 +87,6 @@
                         android:textAlignment="center"
                         android:textAllCaps="true"
                         android:textColor="?attr/primary_color"
-                        android:text="EN"
                         tools:text="EN"/>
                 </LinearLayout>
 
