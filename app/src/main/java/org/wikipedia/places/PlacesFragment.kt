@@ -44,6 +44,7 @@ import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
 import com.mapbox.mapboxsdk.location.modes.CameraMode
 import com.mapbox.mapboxsdk.location.modes.RenderMode
 import com.mapbox.mapboxsdk.maps.MapboxMap
+import com.mapbox.mapboxsdk.maps.MapboxMap.CancelableCallback
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
 import com.mapbox.mapboxsdk.plugins.annotation.ClusterOptions
@@ -84,7 +85,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
-class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap.OnMapClickListener {
+class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -132,14 +133,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             val pageTitle = it.data?.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
             viewModel.highlightedPageTitle = pageTitle
             Prefs.placesWikiCode = pageTitle.wikiSite.languageCode
-            updateSearchText(pageTitle.displayText)
             goToLocation(preferredLocation = location, zoom = 15.9)
             viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
-            binding.root.postDelayed({
-                if (isAdded) {
-                    showLinkPreview(pageTitle, location)
-                }
-            }, 1000)
           }
     }
 
@@ -148,10 +143,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
               val languageChanged = it.data?.getBooleanExtra(PlacesFilterActivity.EXTRA_LANG_CHANGED, false)!!
             if (languageChanged) {
                 annotationCache.clear()
+                viewModel.highlightedPageTitle = null
                 symbolManager?.deleteAll()
-                  viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
-                      lastLocation?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
-                  goToLocation(1000, lastLocation, lastZoom)
+                viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
+                    lastLocation?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
+                goToLocation(1000, lastLocation, lastZoom)
               }
           }
     }
@@ -303,7 +299,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
-                        updateSearchText(it.pageTitle.displayText)
                         val location = Location("").apply {
                             latitude = symbol.latLng.latitude
                             longitude = symbol.latLng.longitude
@@ -339,8 +334,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
     private fun showLinkPreview(pageTitle: PageTitle, location: Location) {
         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
+        updateSearchText(pageTitle.displayText)
         ExclusiveBottomSheetPresenter.show(childFragmentManager,
-            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
+            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation))
     }
 
     private fun resetMagnifiedSymbol() {
@@ -562,7 +558,17 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                     currentLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
                     val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
                     val targetLocation = location ?: currentLatLngLoc
-                    targetLocation?.let { target -> it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), 10) }
+                    targetLocation?.let { target ->
+                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                            override fun onCancel() { }
+
+                            override fun onFinish() {
+                                if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
+                                    showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
+                                }
+                            }
+                        })
+                    }
                 }
             }
         }, delayMillis)
@@ -630,6 +636,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         } else {
             startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
         }
+    }
+
+    override fun onLinkPreviewDismiss() {
+        updateSearchText()
     }
 
     override fun onMapClick(point: LatLng): Boolean {
