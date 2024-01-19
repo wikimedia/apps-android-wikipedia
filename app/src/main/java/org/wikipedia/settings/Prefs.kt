@@ -714,7 +714,22 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
 
-    var placesLastLocation
-        get() = JsonUtil.decodeFromString<Location>(PrefsIoUtil.getString(R.string.preference_key_places_last_location, null))
-        set(value) = PrefsIoUtil.setString(R.string.preference_key_places_last_location, JsonUtil.encodeToString(value))
+    var placesLastLocation: Location?
+        get() {
+            val locationString = PrefsIoUtil.getString(R.string.preference_key_places_last_location, null)
+            return locationString?.let {
+                val locationArray = locationString.split("|")
+                Location("").apply {
+                    latitude = locationArray.first().toDouble()
+                    longitude = locationArray.last().toDouble()
+                }
+            }
+        }
+        set(value) {
+            var locationString: String? = null
+            value?.let {
+                locationString = "${it.latitude}|${it.longitude}"
+            }
+            PrefsIoUtil.setString(R.string.preference_key_places_last_location, locationString)
+        }
 }
