@@ -315,7 +315,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
-                        goToLocation(viewModel.location)
+                        viewModel.location?.let {
+                            goToLocation(it)
+                        } ?: run {
+                            val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
+                            goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+                        }
                     }
                 } else {
                     locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -455,7 +460,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     override fun onDestroyView() {
-        Prefs.placesLastLocation = lastLocation
+        lastLocation?.let {
+            Prefs.placesLastLocationAndZoomLevel = Pair(it, lastZoom)
+        }
         binding.mapView.onDestroy()
         _binding = null
 
@@ -557,7 +564,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
                 val targetLocation = location ?: currentLatLngLoc
                 targetLocation?.let { target ->
-                    it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                    it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
                         override fun onCancel() { }
 
                         override fun onFinish() {

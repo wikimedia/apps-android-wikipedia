@@ -170,5 +170,5 @@
     <string name="preference_key_show_sequential_recent_edits_diff_tooltip">showSequentialRecentEditsDiffTooltip</string>
     <string name="preference_key_show_recent_edits_feedback_form">showRecentEditsFeedbackForm</string>
     <string name="preference_key_places_wiki_code">filterPlacesWikiCode</string>
-    <string name="preference_key_places_last_location">placesLastLocation</string>
+    <string name="preference_key_places_last_location_and_zoom_level">placesLastLocationAndZoomLevel</string>
 </resources>
