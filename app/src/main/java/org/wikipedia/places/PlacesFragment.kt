@@ -44,6 +44,7 @@ import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
 import com.mapbox.mapboxsdk.location.modes.CameraMode
 import com.mapbox.mapboxsdk.location.modes.RenderMode
 import com.mapbox.mapboxsdk.maps.MapboxMap
+import com.mapbox.mapboxsdk.maps.MapboxMap.CancelableCallback
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
 import com.mapbox.mapboxsdk.plugins.annotation.ClusterOptions
@@ -132,14 +133,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             val pageTitle = it.data?.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
             viewModel.highlightedPageTitle = pageTitle
             Prefs.placesWikiCode = pageTitle.wikiSite.languageCode
-            updateSearchText(pageTitle.displayText)
             goToLocation(preferredLocation = location, zoom = 15.9)
             viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
-            binding.root.postDelayed({
-                if (isAdded) {
-                    showLinkPreview(pageTitle, location)
-                }
-            }, 1000)
           }
     }
 
@@ -148,10 +143,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
               val languageChanged = it.data?.getBooleanExtra(PlacesFilterActivity.EXTRA_LANG_CHANGED, false)!!
             if (languageChanged) {
                 annotationCache.clear()
+                viewModel.highlightedPageTitle = null
                 symbolManager?.deleteAll()
-                  viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
-                      lastLocation?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
-                  goToLocation(1000, lastLocation, lastZoom)
+                viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
+                    lastLocation?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
+                goToLocation(1000, lastLocation, lastZoom)
               }
           }
     }
@@ -303,7 +299,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
-                        updateSearchText(it.pageTitle.displayText)
                         val location = Location("").apply {
                             latitude = symbol.latLng.latitude
                             longitude = symbol.latLng.longitude
@@ -339,6 +334,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     private fun showLinkPreview(pageTitle: PageTitle, location: Location) {
         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
+        updateSearchText(pageTitle.displayText)
         ExclusiveBottomSheetPresenter.show(childFragmentManager,
             LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation))
     }
@@ -561,7 +557,17 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                     currentLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
                     val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
                     val targetLocation = location ?: currentLatLngLoc
-                    targetLocation?.let { target -> it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom)) }
+                    targetLocation?.let { target ->
+                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                            override fun onCancel() { }
+
+                            override fun onFinish() {
+                                if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
+                                    showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
+                                }
+                            }
+                        })
+                    }
                 }
             }
         }, delayMillis)
