@@ -562,7 +562,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                     currentLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
                     val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
                     val targetLocation = location ?: currentLatLngLoc
-                    targetLocation?.let { target -> it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom)) }
+                    targetLocation?.let { target -> it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), 10) }
                 }
             }
         }, delayMillis)
