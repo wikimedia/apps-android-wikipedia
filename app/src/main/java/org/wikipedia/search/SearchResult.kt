@@ -1,5 +1,6 @@
 package org.wikipedia.search
 
+import android.location.Location
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -22,4 +23,11 @@ data class SearchResult(val pageTitle: PageTitle,
 
     constructor(pageTitle: PageTitle, searchResultType: SearchResultType) :
             this(pageTitle, null, searchResultType)
+
+    val location: Location? get() {
+        return if (coordinates.isNullOrEmpty()) null else
+            Location("").also {
+                it.latitude = coordinates[0].lat; it.longitude = coordinates[0].lon
+            }
+    }
 }
