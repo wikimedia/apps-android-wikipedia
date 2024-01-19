@@ -1418,7 +1418,6 @@
   <string name="revision_diff_from">מאת:</string>
   <string name="revision_diff_to">אל:</string>
   <string name="revision_diff_line_num">שורה %d</string>
-  <string name="revision_diff_line_nums">שורות %d–%d</string>
   <string name="revision_diff_lines_from_to">שורות %1$d–%2$d</string>
   <string name="revision_diff_line_added">שורה שנוספה</string>
   <string name="revision_diff_line_removed">שורה שהוסרה</string>

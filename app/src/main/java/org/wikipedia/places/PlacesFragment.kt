@@ -46,6 +46,7 @@ import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
 import com.mapbox.mapboxsdk.location.modes.CameraMode
 import com.mapbox.mapboxsdk.location.modes.RenderMode
 import com.mapbox.mapboxsdk.maps.MapboxMap
+import com.mapbox.mapboxsdk.maps.MapboxMap.CancelableCallback
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
 import com.mapbox.mapboxsdk.plugins.annotation.ClusterOptions
@@ -92,7 +93,7 @@ import org.wikipedia.views.ViewUtil
 import java.util.Locale
 import kotlin.math.abs
 
-class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap.OnMapClickListener {
+class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -126,7 +127,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 startLocationTracking()
-                goToLocation(1000, viewModel.location)
+                goToLocation(viewModel.location)
             }
             else -> {
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
@@ -140,14 +141,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             val pageTitle = it.data?.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
             viewModel.highlightedPageTitle = pageTitle
             Prefs.placesWikiCode = pageTitle.wikiSite.languageCode
-            updateSearchText(pageTitle.displayText)
             goToLocation(preferredLocation = location, zoom = 15.9)
             viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
-            binding.root.postDelayed({
-                if (isAdded) {
-                    showLinkPreview(pageTitle, location)
-                }
-            }, 1000)
           }
     }
 
@@ -156,10 +151,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
               val languageChanged = it.data?.getBooleanExtra(PlacesFilterActivity.EXTRA_LANG_CHANGED, false)!!
             if (languageChanged) {
                 annotationCache.clear()
+                viewModel.highlightedPageTitle = null
                 symbolManager?.deleteAll()
-                  viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
-                      lastLocation?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
-                  goToLocation(1000, lastLocation, lastZoom)
+                viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
+                    lastLocation?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
+                goToLocation(lastLocation, lastZoom)
               }
           }
     }
@@ -178,12 +174,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)?.let {
             Prefs.placesWikiCode = it.wikiSite.languageCode
         }
-
-        activity?.window?.let { window ->
-            WindowCompat.setDecorFitsSystemWindows(window, false)
-            window.statusBarColor = Color.TRANSPARENT
-            window.navigationBarColor = Color.TRANSPARENT
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -192,15 +182,21 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
-            statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            val newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
             var params = binding.searchContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = statusBarInsets!!.top + DimenUtil.roundedDpToPx(4f)
+            params.topMargin = newStatusBarInsets.top + newNavBarInsets.top + DimenUtil.roundedDpToPx(4f)
+            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left + DimenUtil.roundedDpToPx(8f)
+            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(8f)
 
-            navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
             params = binding.myLocationButton.layoutParams as ViewGroup.MarginLayoutParams
-            params.bottomMargin = navBarInsets!!.bottom + DimenUtil.roundedDpToPx(16f)
+            params.bottomMargin = newNavBarInsets.bottom + DimenUtil.roundedDpToPx(16f)
+            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left + DimenUtil.roundedDpToPx(16f)
+            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(16f)
             binding.myLocationButton.layoutParams = params
 
+            statusBarInsets = newStatusBarInsets
+            navBarInsets = newNavBarInsets
             WindowInsetsCompat.Builder()
                 .setInsets(WindowInsetsCompat.Type.navigationBars(), navBarInsets!!)
                 .build().toWindowInsets() ?: windowInsets
@@ -238,7 +234,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
         binding.myLocationButton.setOnClickListener {
             if (haveLocationPermissions()) {
-                goToLocation(0)
+                goToLocation()
             } else {
                 locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
             }
@@ -315,17 +311,28 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
                 map.uiSettings.isLogoEnabled = false
                 val defMargin = DimenUtil.roundedDpToPx(16f)
-                val navBarMargin = if (navBarInsets != null) navBarInsets!!.bottom else 0
-                val statusBarMargin = if (statusBarInsets != null) statusBarInsets!!.top else 0
 
-                // TODO: Needs to be optimized when changing the orientation of the device
+                val navBarLeft = navBarInsets?.left ?: 0
+                val navBarRight = navBarInsets?.right ?: 0
+                val navBarTop = navBarInsets?.top ?: 0
+                val navBarBottom = navBarInsets?.bottom ?: 0
+                val statusBarLeft = statusBarInsets?.left ?: 0
+                val statusBarRight = statusBarInsets?.right ?: 0
+                val statusBarTop = statusBarInsets?.top ?: 0
+                val statusBarBottom = statusBarInsets?.bottom ?: 0
+
                 map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass_with_bg)!!)
                 map.uiSettings.compassGravity = Gravity.TOP or Gravity.END
-                map.uiSettings.setCompassMargins(defMargin, defMargin + statusBarMargin + binding.searchContainer.height, DimenUtil.roundedDpToPx(12f), defMargin)
-
                 map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.START
                 map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
-                map.uiSettings.setAttributionMargins(defMargin, 0, defMargin, navBarMargin + DimenUtil.roundedDpToPx(36f))
+
+                map.uiSettings.setCompassMargins(defMargin + navBarLeft + statusBarLeft,
+                    defMargin + navBarTop + statusBarTop + binding.searchContainer.height,
+                    DimenUtil.roundedDpToPx(12f) + navBarRight + statusBarRight, defMargin)
+
+                map.uiSettings.setAttributionMargins(defMargin + navBarLeft + statusBarLeft,
+                    0, defMargin + navBarRight + statusBarRight,
+                    navBarBottom + statusBarBottom + DimenUtil.roundedDpToPx(36f))
 
                 map.addOnCameraIdleListener {
                     mapboxMap?.cameraPosition?.target?.let {
@@ -342,7 +349,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     annotationCache.find { it.annotation == symbol }?.let {
-                        updateSearchText(it.pageTitle.displayText)
                         val location = Location("").apply {
                             latitude = symbol.latLng.latitude
                             longitude = symbol.latLng.longitude
@@ -359,7 +365,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
-                        goToLocation(1000, viewModel.location)
+                        goToLocation(viewModel.location)
                     }
                 } else {
                     locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -387,8 +393,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
     private fun showLinkPreview(pageTitle: PageTitle, location: Location) {
         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
+        updateSearchText(pageTitle.displayText)
         ExclusiveBottomSheetPresenter.show(childFragmentManager,
-            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
+            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation))
     }
 
     private fun resetMagnifiedSymbol() {
@@ -481,6 +488,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
 
     override fun onResume() {
         super.onResume()
+        activity?.window?.let { window ->
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+            window.statusBarColor = Color.TRANSPARENT
+            window.navigationBarColor = Color.TRANSPARENT
+        }
+
         binding.mapView.onResume()
         updateSearchCardViews()
     }
@@ -553,7 +566,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
                         .withLatLng(LatLng(it.latitude, it.longitude))
                         .withTextFont(MARKER_FONT_STACK)
                         .withIconImage(MARKER_DRAWABLE)
-                        .withIconOffset(arrayOf(0f, -32f))
                 )
                 if (StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.text.orEmpty()) ==
                     StringUtil.removeUnderscores(it.pageTitle.text)
@@ -595,19 +607,27 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         }
     }
 
-    private fun goToLocation(delayMillis: Long = 0, preferredLocation: Location? = null, zoom: Double = 15.0) {
-        binding.mapView.postDelayed({
-            if (isAdded && haveLocationPermissions()) {
-                mapboxMap?.let {
-                    val currentLocation = it.locationComponent.lastKnownLocation
-                    var currentLatLngLoc: LatLng? = null
-                    currentLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
-                    val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
-                    val targetLocation = location ?: currentLatLngLoc
-                    targetLocation?.let { target -> it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom)) }
+    private fun goToLocation(preferredLocation: Location? = null, zoom: Double = 15.0) {
+        if (haveLocationPermissions()) {
+            mapboxMap?.let {
+                val currentLocation = it.locationComponent.lastKnownLocation
+                var currentLatLngLoc: LatLng? = null
+                currentLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
+                val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
+                val targetLocation = location ?: currentLatLngLoc
+                targetLocation?.let { target ->
+                    it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                        override fun onCancel() { }
+
+                        override fun onFinish() {
+                            if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
+                                showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
+                            }
+                        }
+                    })
                 }
             }
-        }, delayMillis)
+        }
     }
 
     private fun queueImageForAnnotation(page: PlacesFragmentViewModel.NearbyPage) {
@@ -672,6 +692,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         } else {
             startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
         }
+    }
+
+    override fun onLinkPreviewDismiss() {
+        updateSearchText()
     }
 
     override fun onMapClick(point: LatLng): Boolean {

@@ -1403,7 +1403,6 @@
     <string name="revision_diff_from">From:</string>
     <string name="revision_diff_to">To:</string>
     <string name="revision_diff_line_num">Line %d</string>
-    <string name="revision_diff_line_nums">Lines %d–%d</string>
     <string name="revision_diff_lines_from_to">Lines %1$d–%2$d</string>
     <string name="revision_diff_line_added">Line added</string>
     <string name="revision_diff_line_removed">Line removed</string>
@@ -1687,5 +1686,7 @@
     <string name="places_toggle_buttons_map">Map</string>
     <string name="places_toggle_buttons_list">List</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
+    <string name="places_nav_tab_tooltip_message">Discover Wikipedia articles around you with Places</string>
+    <string name="places_article_menu_tooltip_message"><![CDATA[Tap <b>\'View on map\'</b> to explore this article\'s location]]></string>
     <!-- /Places -->
 </resources>

@@ -64,6 +64,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:backgroundTint="?attr/primary_color"
                     android:contentDescription="@null"
+                    android:visibility="gone"
                     app:srcCompat="@drawable/ic_close_black_24dp"
                     app:tint="?attr/primary_color" />
 
