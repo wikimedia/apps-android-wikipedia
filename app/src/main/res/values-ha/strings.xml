@@ -1312,7 +1312,6 @@
   <string name="revision_diff_from">Daga:</string>
   <string name="revision_diff_to">Zuwa:</string>
   <string name="revision_diff_line_num">Layi %d</string>
-  <string name="revision_diff_line_nums">Lines %d-%d</string>
   <string name="revision_diff_lines_from_to">Lines %1$d-%2$d</string>
   <string name="revision_diff_line_added">Layin da aka kara</string>
   <string name="revision_diff_line_removed">An cire layin</string>

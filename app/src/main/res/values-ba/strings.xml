@@ -1317,7 +1317,6 @@
   <string name="revision_diff_from">Кемдән:</string>
   <string name="revision_diff_to">Кемгә:</string>
   <string name="revision_diff_line_num">Юл %d</string>
-  <string name="revision_diff_line_nums">%d–%d юлдар</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d юлдар</string>
   <string name="revision_diff_line_added">Юл өҫтәлгән</string>
   <string name="revision_diff_line_removed">Юл юйылған</string>

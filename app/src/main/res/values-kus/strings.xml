@@ -1015,7 +1015,6 @@
   <string name="revision_diff_from">Di yinɛ:</string>
   <string name="revision_diff_to">Ken:</string>
   <string name="revision_diff_line_num">Lai %d</string>
-  <string name="revision_diff_line_nums">Lai %d–%d</string>
   <string name="revision_diff_lines_from_to">Lainam %1$d–%2$d</string>
   <string name="revision_diff_line_added">Lai paasya</string>
   <string name="revision_diff_line_removed">Lai yisya</string>
