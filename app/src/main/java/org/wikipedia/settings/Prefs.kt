@@ -714,12 +714,11 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
 
-
     var placesLastLocationAndZoomLevel: Pair<Location, Double>?
         get() {
             // latitude|longitude|zoomLevel
             val infoList = PrefsIoUtil.getString(R.string.preference_key_places_last_location_and_zoom_level, null)?.split("|")?.map { it.toDouble() }
-            return infoList?.let{
+            return infoList?.let {
                 val location = Location("").apply {
                     latitude = infoList[0]
                     longitude = infoList[1]
