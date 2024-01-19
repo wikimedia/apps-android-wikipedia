@@ -1613,5 +1613,5 @@
   <string name="places_toggle_buttons_map">Button label for viewing the map view in the Places screen.</string>
   <string name="places_toggle_buttons_list">Button label for viewing the list view in the Places screen.</string>
   <string name="places_nav_tab_tooltip_message">Tooltip message to help users discover places feature from explore screen more menu navigation tab</string>
-  <string name="places_article_menu_tooltip_message">Tooltip message to help users discover article's location on the map and its nearby articles through places feature, from article screen more menu</string>
+  <string name="places_article_menu_tooltip_message">Tooltip message to help users discover article\'s location on the map and its nearby articles through places feature, from article screen more menu</string>
 </resources>
