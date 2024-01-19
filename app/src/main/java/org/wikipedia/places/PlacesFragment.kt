@@ -459,6 +459,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
     }
 
     override fun onDestroyView() {
+        Prefs.placesLastLocation = lastLocation
         binding.mapView.onDestroy()
         _binding = null
 
@@ -476,7 +477,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
             it.latitude = latLng.latitude
             it.longitude = latLng.longitude
         }
-        Prefs.placesLastLocation = lastLocation
 
         lastZoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
 
