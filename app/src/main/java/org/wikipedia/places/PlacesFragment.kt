@@ -85,7 +85,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
-class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap.OnMapClickListener {
+class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -336,7 +336,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
         updateSearchText(pageTitle.displayText)
         ExclusiveBottomSheetPresenter.show(childFragmentManager,
-            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation, true))
+            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation))
     }
 
     private fun resetMagnifiedSymbol() {
@@ -635,6 +635,10 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, MapboxMap
         } else {
             startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
         }
+    }
+
+    override fun onLinkPreviewDismiss() {
+        updateSearchText()
     }
 
     override fun onMapClick(point: LatLng): Boolean {
