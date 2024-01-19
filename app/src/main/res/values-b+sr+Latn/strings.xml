@@ -1287,7 +1287,6 @@
   <string name="revision_diff_from">Od:</string>
   <string name="revision_diff_to">Do:</string>
   <string name="revision_diff_line_num">Linija %d</string>
-  <string name="revision_diff_line_nums">Linije %d–%d</string>
   <string name="revision_diff_lines_from_to">Linije %1$d–%2$d</string>
   <string name="revision_diff_line_added">Linija dodata</string>
   <string name="revision_diff_line_removed">Linija uklonjena</string>

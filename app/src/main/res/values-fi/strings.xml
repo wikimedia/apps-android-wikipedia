@@ -1335,7 +1335,6 @@
   <string name="revision_diff_from">Versiosta:</string>
   <string name="revision_diff_to">Versioon:</string>
   <string name="revision_diff_line_num">Rivi %d</string>
-  <string name="revision_diff_line_nums">Rivit %d–%d</string>
   <string name="revision_diff_lines_from_to">Rivit %1$d–%2$d</string>
   <string name="revision_diff_line_added">Rivi lisätty</string>
   <string name="revision_diff_line_removed">Rivi poistettu</string>

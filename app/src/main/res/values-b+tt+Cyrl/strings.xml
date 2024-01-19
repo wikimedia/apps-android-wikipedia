@@ -1313,7 +1313,6 @@
   <string name="revision_diff_from">Кемнән:</string>
   <string name="revision_diff_to">Кемгә:</string>
   <string name="revision_diff_line_num">%d номерлы юл</string>
-  <string name="revision_diff_line_nums">%d–%d юллары</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d юллары</string>
   <string name="revision_diff_line_added">Юл өстәлгән</string>
   <string name="revision_diff_line_removed">Юл бетерелгән</string>
