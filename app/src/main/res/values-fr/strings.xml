@@ -1374,7 +1374,6 @@
   <string name="revision_diff_from">Depuis :</string>
   <string name="revision_diff_to">Jusqu’à :</string>
   <string name="revision_diff_line_num">Ligne %d</string>
-  <string name="revision_diff_line_nums">Lignes %d – %d</string>
   <string name="revision_diff_lines_from_to">Lignes %1$d–%2$d</string>
   <string name="revision_diff_line_added">Ligne ajoutée</string>
   <string name="revision_diff_line_removed">Ligne supprimée</string>
