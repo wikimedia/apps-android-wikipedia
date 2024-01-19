@@ -712,4 +712,12 @@ object Prefs {
     var placesWikiCode
         get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
+
+    var isPlacesPageOnboardingTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_places_page_onboarding_tooltip_shown, false)
+        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_places_page_onboarding_tooltip_shown, enabled)
+
+    var isPlacesMainNavOnboardingTooltipShown
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_places_main_nav_onboarding_tooltip_shown, false)
+        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_places_main_nav_onboarding_tooltip_shown, enabled)
 }

@@ -170,6 +170,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
         maybeShowWatchlistTooltip()
+        maybeShowPlacesTooltip()
     }
 
     override fun onDestroyView() {
@@ -559,6 +560,17 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                         .setOnBalloonDismissListener {
                             Prefs.isWatchlistMainOnboardingTooltipShown = true
                         }
+            }
+        }
+    }
+
+    private fun maybeShowPlacesTooltip() {
+        if (!Prefs.isPlacesMainNavOnboardingTooltipShown) {
+            enqueueTooltip {
+                FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer,
+                    getString(R.string.places_nav_tab_tooltip_message), aboveOrBelow = true, autoDismiss = false).setOnBalloonDismissListener {
+                    Prefs.isPlacesMainNavOnboardingTooltipShown = true
+                }
             }
         }
     }
