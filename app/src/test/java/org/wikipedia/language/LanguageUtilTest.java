@@ -94,7 +94,7 @@ public class LanguageUtilTest {
 
         void test(@NonNull Locale defaultLocale, @Nullable String expected) {
             Locale.setDefault(defaultLocale);
-            String wikiLang = LanguageUtil.localeToWikiLanguageCode(defaultLocale);
+            String wikiLang = LanguageUtil.INSTANCE.localeToWikiLanguageCode(defaultLocale);
             assertThat(wikiLang, is(expected));
         }
     }

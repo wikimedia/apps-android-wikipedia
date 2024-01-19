@@ -1,32 +1,40 @@
 package org.wikipedia.language
 
-import android.content.Context
 import android.os.Build
 import android.view.inputmethod.InputMethodManager
+import android.view.inputmethod.InputMethodSubtype
+import androidx.core.content.getSystemService
 import androidx.core.os.LocaleListCompat
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.WikipediaApp
-import org.wikipedia.util.StringUtil
-import java.util.*
+import java.util.Locale
 
 object LanguageUtil {
-
     private const val HONG_KONG_COUNTRY_CODE = "HK"
     private const val MACAU_COUNTRY_CODE = "MO"
     private val TRADITIONAL_CHINESE_COUNTRY_CODES = listOf(Locale.TAIWAN.country, HONG_KONG_COUNTRY_CODE, MACAU_COUNTRY_CODE)
 
-    val availableLanguages: List<String>
+    private val InputMethodSubtype.localeObject: Locale?
         get() {
-            val languages = mutableListOf<String>()
+            val languageTag = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) languageTag else ""
+            val actualTag = languageTag.ifEmpty {
+                // The keyboard reports locale variants with underscores ("en_US") whereas
+                // Locale.forLanguageTag() expects dashes ("en-US"), so convert them.
+                @Suppress("DEPRECATION")
+                locale.replace('_', '-')
+            }
+            return if (actualTag.isNotEmpty()) Locale.forLanguageTag(actualTag) else null
+        }
+
+    val availableLanguages: Set<String>
+        get() {
+            val languages = mutableSetOf<String>()
 
             // First, look at languages installed on the system itself.
-            var localeList = LocaleListCompat.getDefault()
+            val localeList = LocaleListCompat.getDefault()
             for (i in 0 until localeList.size()) {
                 localeList[i]?.let {
-                    val languageCode = localeToWikiLanguageCode(it)
-                    if (!languages.contains(languageCode)) {
-                        languages.add(languageCode)
-                    }
+                    languages.add(localeToWikiLanguageCode(it))
                 }
             }
             if (languages.isEmpty()) {
@@ -34,52 +42,23 @@ object LanguageUtil {
                 languages.add(localeToWikiLanguageCode(Locale.getDefault()))
             }
 
-            // Query the installed keyboard languages, and add them to the list, if they don't exist.
-            val imm = WikipediaApp.instance.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            val ims = imm.enabledInputMethodList ?: emptyList()
-            val langTagList = mutableListOf<String>()
-            for (method in ims) {
-                val submethods = imm.getEnabledInputMethodSubtypeList(method, true) ?: emptyList()
-                for (submethod in submethods) {
-                    if (submethod.mode == "keyboard") {
-                        var langTag =
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && submethod.languageTag.isNotEmpty()) submethod.languageTag
-                            else submethod.locale
-                        if (langTag.isEmpty()) {
-                            continue
-                        }
-                        if (langTag.contains("_")) {
-                            // The keyboard reports locale variants with underscores ("en_US") whereas
-                            // Locale.forLanguageTag() expects dashes ("en-US"), so convert them.
-                            langTag = langTag.replace('_', '-')
-                        }
-                        if (!langTagList.contains(langTag)) {
-                            langTagList.add(langTag)
-                        }
-                        // A Pinyin keyboard will report itself as zh-CN (simplified), but we want to add
-                        // both Simplified and Traditional in that case.
-                        if (langTag.lowercase(Locale.getDefault()) == AppLanguageLookUpTable.CHINESE_CN_LANGUAGE_CODE &&
-                            !langTagList.contains("zh-TW")) {
-                            langTagList.add("zh-TW")
-                        }
-                    }
+            // Query the installed keyboard languages, and add them to the set, if they don't exist.
+            val imm = WikipediaApp.instance.getSystemService<InputMethodManager>()!!
+            languages += imm.enabledInputMethodList.asSequence()
+                .flatMap { imm.getEnabledInputMethodSubtypeList(it, true) }
+                .mapNotNull { it.localeObject }
+                .flatMap {
+                    // A Pinyin keyboard will report itself as zh-CN (simplified), but we want to add
+                    // both Simplified and Traditional in that case.
+                    if (it == Locale.SIMPLIFIED_CHINESE) listOf(it, Locale.TRADITIONAL_CHINESE) else listOf(it)
                 }
-            }
-            if (langTagList.isNotEmpty()) {
-                localeList = LocaleListCompat.forLanguageTags(StringUtil.listToCsv(langTagList))
-                for (i in 0 until localeList.size()) {
-                    localeList[i]?.let {
-                        val langCode = localeToWikiLanguageCode(it)
-                        if (langCode.isNotEmpty() && !languages.contains(langCode) && langCode != "und") {
-                            languages.add(langCode)
-                        }
-                    }
-                }
-            }
+                .distinct()
+                .map { localeToWikiLanguageCode(it) }
+                .filter { it.isNotEmpty() && it != "und" }
+
             return languages
         }
 
-    @JvmStatic
     fun localeToWikiLanguageCode(locale: Locale): String {
         // Convert deprecated language codes to modern ones.
         // See https://developer.android.com/reference/java/util/Locale.html
