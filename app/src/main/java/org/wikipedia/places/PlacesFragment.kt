@@ -559,7 +559,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                     val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
                     val targetLocation = location ?: currentLatLngLoc
                     targetLocation?.let { target ->
-                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), 10, object : CancelableCallback {
                             override fun onCancel() { }
 
                             override fun onFinish() {
