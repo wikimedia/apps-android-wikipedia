@@ -329,7 +329,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private fun showLinkPreview(pageTitle: PageTitle, location: Location) {
         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
         ExclusiveBottomSheetPresenter.show(childFragmentManager,
-            LinkPreviewDialog.newInstance(entry, location,lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation))
+            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation))
     }
 
     private fun resetMagnifiedSymbol() {
