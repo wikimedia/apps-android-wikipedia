@@ -119,7 +119,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 startLocationTracking()
-                goToLocation(1000, viewModel.location)
+                goToLocation(viewModel.location)
             }
             else -> {
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
@@ -147,7 +147,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 symbolManager?.deleteAll()
                 viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
                     lastLocation?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
-                goToLocation(1000, lastLocation, lastZoom)
+                goToLocation(lastLocation, lastZoom)
               }
           }
     }
@@ -226,7 +226,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
         binding.myLocationButton.setOnClickListener {
             if (haveLocationPermissions()) {
-                goToLocation(0)
+                goToLocation()
             } else {
                 locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
             }
@@ -315,7 +315,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
-                        goToLocation(1000, viewModel.location ?: Prefs.placesLastLocation)
+                        goToLocation(viewModel.location)
                     }
                 } else {
                     locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -508,7 +508,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                         .withLatLng(LatLng(it.latitude, it.longitude))
                         .withTextFont(MARKER_FONT_STACK)
                         .withIconImage(MARKER_DRAWABLE)
-                        .withIconOffset(arrayOf(0f, -32f))
                 )
                 if (StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.text.orEmpty()) ==
                     StringUtil.removeUnderscores(it.pageTitle.text)
@@ -549,29 +548,27 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
     }
 
-    private fun goToLocation(delayMillis: Long = 0, preferredLocation: Location? = null, zoom: Double = 15.0) {
-        binding.mapView.postDelayed({
-            if (isAdded && haveLocationPermissions()) {
-                mapboxMap?.let {
-                    val currentLocation = it.locationComponent.lastKnownLocation
-                    var currentLatLngLoc: LatLng? = null
-                    currentLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
-                    val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
-                    val targetLocation = location ?: currentLatLngLoc
-                    targetLocation?.let { target ->
-                        it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), 10, object : CancelableCallback {
-                            override fun onCancel() { }
+    private fun goToLocation(preferredLocation: Location? = null, zoom: Double = 15.0) {
+        if (haveLocationPermissions()) {
+            mapboxMap?.let {
+                val currentLocation = it.locationComponent.lastKnownLocation
+                var currentLatLngLoc: LatLng? = null
+                currentLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
+                val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
+                val targetLocation = location ?: currentLatLngLoc
+                targetLocation?.let { target ->
+                    it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                        override fun onCancel() { }
 
-                            override fun onFinish() {
-                                if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
-                                    showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
-                                }
+                        override fun onFinish() {
+                            if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
+                                showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
                             }
-                        })
-                    }
+                        }
+                    })
                 }
             }
-        }, delayMillis)
+        }
     }
 
     private fun queueImageForAnnotation(page: PlacesFragmentViewModel.NearbyPage) {
