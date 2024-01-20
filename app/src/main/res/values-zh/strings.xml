@@ -1372,7 +1372,6 @@
   <string name="revision_diff_from">从：</string>
   <string name="revision_diff_to">至：</string>
   <string name="revision_diff_line_num">第%d行</string>
-  <string name="revision_diff_line_nums">第%d到第%d行</string>
   <string name="revision_diff_lines_from_to">第%1$d–%2$d行</string>
   <string name="revision_diff_line_added">已添加行</string>
   <string name="revision_diff_line_removed">已移除行</string>

@@ -129,7 +129,7 @@ class RandomFragment : Fragment() {
         val title = topTitle ?: return
 
         if (saveButtonState) {
-            LongPressMenu(binding.randomSaveButton, object : LongPressMenu.Callback {
+            LongPressMenu(binding.randomSaveButton, existsInAnyList = false, callback = object : LongPressMenu.Callback {
                 override fun onOpenLink(entry: HistoryEntry) {
                     // ignore
                 }
