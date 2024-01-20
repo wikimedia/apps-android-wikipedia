@@ -1,6 +1,5 @@
 package org.wikipedia.navtab
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,9 +15,9 @@ import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
+import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
-import org.wikipedia.util.UriUtil.visitInExternalBrowser
 
 class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
     interface Callback {
@@ -73,9 +72,8 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         binding.mainDrawerDonateContainer.setOnClickListener {
             DonorExperienceEvent.logAction("donate_start_click", "more_menu")
             BreadCrumbLogEvent.logClick(requireActivity(), binding.mainDrawerDonateContainer)
-            visitInExternalBrowser(requireContext(),
-                    Uri.parse(getString(R.string.donate_url,
-                            BuildConfig.VERSION_NAME, WikipediaApp.instance.languageState.systemLanguageCode)))
+            CustomTabsUtil.openInCustomTab(requireContext(), getString(R.string.donate_url,
+                WikipediaApp.instance.languageState.systemLanguageCode, BuildConfig.VERSION_NAME))
             dismiss()
         }
 

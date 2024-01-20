@@ -1313,7 +1313,6 @@
   <string name="revision_diff_from">Кемнән:</string>
   <string name="revision_diff_to">Кемгә:</string>
   <string name="revision_diff_line_num">%d номерлы юл</string>
-  <string name="revision_diff_line_nums">%d–%d юллары</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d юллары</string>
   <string name="revision_diff_line_added">Юл өстәлгән</string>
   <string name="revision_diff_line_removed">Юл бетерелгән</string>
@@ -1455,8 +1454,7 @@
   <string name="talk_templates_edit_message_dialog_save">Сакларга</string>
   <string name="talk_templates_edit_message_dialog_delete">Бетерергә</string>
   <string name="talk_templates_edit_message_updated">Хәбәр яңартылды</string>
-  <string name="talk_templates_edit_message_delete_description">Сез чыннан да \"%s\" хәбәрен исемлектән бетерергә телисезме?</string>
-  <string name="talk_templates_message_deleted">Хәбәр бетерелде</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Хәбәр бетерелде</string>
   <string name="patroller_tasks_edits_list_title">Төзәтмәләр исемлеге</string>
   <string name="patroller_tasks_edits_list_search_hint">Үзгәрешләрне эзләү яки фильтрлау</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Теглар: %s</string>

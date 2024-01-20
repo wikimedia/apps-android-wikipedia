@@ -14,6 +14,7 @@ import android.provider.MediaStore
 import androidx.core.content.contentValuesOf
 import androidx.core.content.getSystemService
 import androidx.core.net.toUri
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.feed.image.FeaturedImage
@@ -53,9 +54,10 @@ class MediaDownloadReceiver : BroadcastReceiver() {
         val saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(imageTitle.displayText))
         var fileUrl = mediaInfo.originalUrl
         val targetDirectoryType: String
-        if (FileUtil.isVideo(mediaInfo.mime) && mediaInfo.bestDerivative != null) {
+        val derivative = mediaInfo.getBestDerivativeForSize(Constants.PREFERRED_GALLERY_IMAGE_SIZE)
+        if (FileUtil.isVideo(mediaInfo.mime) && derivative != null) {
             targetDirectoryType = Environment.DIRECTORY_MOVIES
-            fileUrl = mediaInfo.bestDerivative!!.src
+            fileUrl = derivative.src
         } else if (FileUtil.isAudio(mediaInfo.mime)) {
             targetDirectoryType = Environment.DIRECTORY_MUSIC
         } else if (FileUtil.isImage(mediaInfo.mime)) {
@@ -138,7 +140,7 @@ class MediaDownloadReceiver : BroadcastReceiver() {
         private const val FILE_NAMESPACE = "File:"
 
         private fun trimFileNamespace(filename: String): String {
-            return if (filename.startsWith(FILE_NAMESPACE)) filename.substring(FILE_NAMESPACE.length) else filename
+            return filename.substringAfter(FILE_NAMESPACE)
         }
     }
 }

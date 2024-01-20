@@ -318,7 +318,7 @@
   <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך לכאן.</string>
   <string name="page_similar_titles">דפים דומים</string>
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
-  <string name="search_recent_header">חיפוש אחרונים:</string>
+  <string name="search_recent_header">חיפושים אחרונים:</string>
   <string name="search_results_count_zero">אין תוצאות</string>
   <plurals name="search_results_count">
     <item quantity="one">תוצאה אחת</item>
@@ -1418,7 +1418,6 @@
   <string name="revision_diff_from">מאת:</string>
   <string name="revision_diff_to">אל:</string>
   <string name="revision_diff_line_num">שורה %d</string>
-  <string name="revision_diff_line_nums">שורות %d–%d</string>
   <string name="revision_diff_lines_from_to">שורות %1$d–%2$d</string>
   <string name="revision_diff_line_added">שורה שנוספה</string>
   <string name="revision_diff_line_removed">שורה שהוסרה</string>
@@ -1562,8 +1561,19 @@
   <string name="talk_templates_edit_message_dialog_save">שמירה</string>
   <string name="talk_templates_edit_message_dialog_delete">מחיקה</string>
   <string name="talk_templates_edit_message_updated">ההודעה עודכנה</string>
-  <string name="talk_templates_edit_message_delete_description">האם ברצונך באמת למחוק את ההודעה \"%s\" מהרשימה?</string>
-  <string name="talk_templates_message_deleted">ההודעה נמחקה</string>
+  <string name="talk_templates_menu_remove_message">הסרת הודעה</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">האם ברצונך למחוק את ההודעה מהרשימה?</item>
+    <item quantity="two">האם ברצונך למחוק את ההודעות מהרשימה?</item>
+    <item quantity="many">האם ברצונך למחוק את ההודעות מהרשימה?</item>
+    <item quantity="other">האם ברצונך למחוק את ההודעות מהרשימה?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">ההודעה נמחקה</item>
+    <item quantity="two">ההודעות נמחקו</item>
+    <item quantity="many">ההודעות נמחקו</item>
+    <item quantity="other">ההודעות נמחקו</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">הכותרת לא יכולה להיות ריקה.</string>
   <string name="patroller_tasks_edits_list_title">רשימת עריכות</string>
   <string name="patroller_tasks_edits_list_search_hint">חיפוש או סינון של עריכות</string>

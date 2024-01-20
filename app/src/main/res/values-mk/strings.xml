@@ -393,6 +393,10 @@
   <string name="multi_select_items_selected">%d избрани</string>
   <string name="error_message_generic">Се појави грешка</string>
   <string name="view_link_preview_error_button_dismiss">Тргни</string>
+  <string name="link_preview_dialog_read_button">Прочитај</string>
+  <string name="link_preview_dialog_save_button">Зачувај</string>
+  <string name="link_preview_dialog_saved_button">Зачувано</string>
+  <string name="link_preview_dialog_share_button">Сподели</string>
   <string name="error_page_does_not_exist">Оваа страница не постои.</string>
   <string name="error_user_page_does_not_exist">Википедија нема &lt;a href=\"%1$s\"&gt;корисничка страница&lt;/a&gt; со точно тоа име. Начелно, оваа страница треба да се создаде и уреди од &lt;b&gt;%2$s&lt;/b&gt;. Ако не сте сигурни, проверете дали постои „%3$s“.</string>
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
@@ -1318,7 +1322,6 @@
   <string name="revision_diff_from">Од:</string>
   <string name="revision_diff_to">До:</string>
   <string name="revision_diff_line_num">Ред %d</string>
-  <string name="revision_diff_line_nums">Редови %d – %d</string>
   <string name="revision_diff_lines_from_to">Редови %1$d–%2$d</string>
   <string name="revision_diff_line_added">Додаден ред</string>
   <string name="revision_diff_line_removed">Отстранет ред</string>
@@ -1430,6 +1433,8 @@
   <string name="media_playback_error">Грешка при пуштањето на снимката.</string>
   <string name="user_contrib_menu_label">Придонеси</string>
   <string name="user_contrib_filter_activity_title">Филтер на придонеси</string>
+  <string name="action_item_view_on_map">Погл. на карта</string>
+  <string name="action_item_view_on_map_unavailable">Географските координати не се достапни за оваа страница</string>
   <string name="shareable_reading_lists_import_dialog_title">Уевзи споделен список за читање</string>
   <string name="shareable_reading_lists_import_dialog_content">Како би сакале да го наречете списокот за читање што се споделува со вас?</string>
   <string name="shareable_reading_lists_new_indicator">*ново*</string>
@@ -1460,8 +1465,15 @@
   <string name="talk_templates_edit_message_dialog_save">Зачувај</string>
   <string name="talk_templates_edit_message_dialog_delete">Избриши</string>
   <string name="talk_templates_edit_message_updated">Пораката е подновена</string>
-  <string name="talk_templates_edit_message_delete_description">Дали сигурно сакате да ја избришете оваа порака „%s“ од списокот.</string>
-  <string name="talk_templates_message_deleted">Пораката е избришана</string>
+  <string name="talk_templates_menu_remove_message">Отстрани порака</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Дали сигурно сакате да ја избришете пораката од списокот?</item>
+    <item quantity="other">Дали сигурно сакате да ги избришете пораките од списокот?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Пораката е избришана</item>
+    <item quantity="other">Пораките се избришани</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Насловот не може да стои празен.</string>
   <string name="patroller_tasks_edits_list_title">Список на уредувања</string>
   <string name="patroller_tasks_edits_list_search_hint">Пребарај или филтрирај уредувања</string>
@@ -1566,4 +1578,10 @@
   <string name="donation_campaign_donated_snackbar">Ви благодариме, драг дарителу! Википедија и нејзините збратимени проекти напредуваат благодарение на вашата великодушност.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Отвори во системскиот прелистувач</string>
+  <string name="places_title">Места</string>
+  <string name="places_permissions_denied">Потребна е дозвола за споделување на вашата местоположба на карта. Обидете се повторно.</string>
+  <string name="places_search_hint">Пребарај места</string>
+  <string name="places_filter_title">Филтрирај јазик</string>
+  <string name="places_toggle_buttons_map">Карта</string>
+  <string name="places_toggle_buttons_list">Список</string>
 </resources>

@@ -4,6 +4,7 @@
 * Awdsweq123
 * Bluetpp
 * Dinhxuanduyet
+* Doraemonluonbentoi
 * DreamSeeeeker
 * Flyplanevn27
 * Harriettruong3
@@ -21,6 +22,7 @@
 * Nguyễn Mạnh An
 * Nhatminh01
 * Phjtieudoc
+* Phungminh141
 * Quenhitran
 * Quoclinh94
 * TARGET6tidiem
@@ -563,7 +565,10 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Hủy bỏ</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Hủy bỏ</string>
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_lists_dialog_delete_button_text">Xóa bỏ</string>
   <string name="reading_list_activity_title">Danh sách đọc: %s</string>
+  <string name="reading_lists_preview_save_button">Lưu</string>
+  <string name="reading_lists_preview_save_dialog_save">Lưu</string>
   <string name="user_option_sync_label">Tùy chọn</string>
   <string name="notification_reverted_title">Sửa đổi bị lùi lại</string>
   <string name="notification_channel_title">Đang tải bài viết về…</string>
@@ -908,7 +913,7 @@
   <string name="suggested_edits_ip_blocked_title">IP đã bị cấm</string>
   <string name="suggested_edits_last_edited">Lần sửa đổi cuối</string>
   <string name="suggested_edits_last_edited_never">Không bao giờ</string>
-  <string name="suggested_edits_task_new" fuzzy="true">mới</string>
+  <string name="suggested_edits_task_new">Mới</string>
   <string name="suggested_edits_cc0_notice">Bằng việc xuất bản trang, bạn chấp nhận &lt;a href=\"%1$s\"&gt;các Điều khoản Sử dụng&lt;/a&gt; và phát hành, một cách không thể hủy bỏ, các đóng góp của bạn theo giấy phép &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Sửa đổi gợi ý</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Cảm ơn đã đóng góp cho Wikipedia! Tại sao không tiếp tục nơi bạn đã dừng lại?</string>
@@ -961,7 +966,10 @@
     <item quantity="one">Bạn đã thêm %d ký tự</item>
     <item quantity="other">Bạn đã thêm %d ký tự</item>
   </plurals>
+  <string name="image_recommendation_tutorial">Hướng dẫn</string>
   <string name="image_recommendation_reject">Không</string>
+  <string name="image_recommendation_reject_title">Tại sao không?</string>
+  <string name="image_recommendation_tooltip_next">Kế tiếp</string>
   <string name="file_page_activity_title">Trang tập tin</string>
   <string name="file_page_add_image_caption_button">Thêm chú thích hình ảnh</string>
   <string name="file_page_add_image_tags_button">Thêm thẻ cho hình ảnh</string>

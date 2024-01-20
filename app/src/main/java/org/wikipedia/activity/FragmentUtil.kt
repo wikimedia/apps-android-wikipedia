@@ -2,8 +2,8 @@ package org.wikipedia.activity
 
 import androidx.fragment.app.Fragment
 
+@Suppress("UNCHECKED_CAST")
 object FragmentUtil {
-    @Suppress("UNCHECKED_CAST")
     fun <T> getCallback(fragment: Fragment, callback: Class<T>): T? {
         if (callback.isInstance(fragment.targetFragment)) {
             return fragment.targetFragment as T?
@@ -18,5 +18,16 @@ object FragmentUtil {
         return if (callback.isInstance(fragment.activity)) {
             fragment.activity as T?
         } else null
+    }
+
+    fun <T : Fragment> getAncestor(fragment: Fragment, ancestor: Class<T>): T? {
+        if (fragment.parentFragment == null) {
+            return null
+        }
+        return if (ancestor.isInstance(fragment.parentFragment)) {
+            fragment.parentFragment as T
+        } else {
+            getAncestor(fragment.parentFragment as Fragment, ancestor)
+        }
     }
 }

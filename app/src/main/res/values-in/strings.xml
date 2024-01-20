@@ -1304,7 +1304,6 @@
   <string name="revision_diff_from">Dari:</string>
   <string name="revision_diff_to">Ke:</string>
   <string name="revision_diff_line_num">Baris %d</string>
-  <string name="revision_diff_line_nums">Baris %d–%d</string>
   <string name="revision_diff_lines_from_to">Baris %1$d–%2$d</string>
   <string name="revision_diff_line_added">Baris ditambahkan</string>
   <string name="revision_diff_line_removed">Baris dihapus</string>
@@ -1444,8 +1443,15 @@
   <string name="talk_templates_edit_message_dialog_save">Simpan</string>
   <string name="talk_templates_edit_message_dialog_delete">Hapus</string>
   <string name="talk_templates_edit_message_updated">Pesan telah diperbarui</string>
-  <string name="talk_templates_edit_message_delete_description">Anda yakin ingin menghapus pesan \"%s\" ini dari daftar?</string>
-  <string name="talk_templates_message_deleted">Pesan telah dihapus</string>
+  <string name="talk_templates_menu_remove_message">Hapus pesan</string>
+  <plurals name="talk_templates_message_delete_description" fuzzy="true">
+    <item quantity="one">Anda yakin ingin menghapus pesan dari daftar?</item>
+    <item quantity="other">Anda yakin ingin menghapus pesan dari daftar?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted" fuzzy="true">
+    <item quantity="one">Pesan telah dihapus</item>
+    <item quantity="other">Pesan telah dihapus</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Judul pesan tidak boleh kosong</string>
   <string name="patroller_tasks_edits_list_title">Daftar suntingan</string>
   <string name="patroller_tasks_edits_list_search_hint">Cari atau saring suntingan</string>

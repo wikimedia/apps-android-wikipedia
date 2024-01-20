@@ -1419,7 +1419,6 @@
   <string name="revision_diff_from">Від:</string>
   <string name="revision_diff_to">До:</string>
   <string name="revision_diff_line_num">Рядок %d</string>
-  <string name="revision_diff_line_nums">Рядки %d—%d</string>
   <string name="revision_diff_lines_from_to">Рядки %1$d–%2$d</string>
   <string name="revision_diff_line_added">Рядок додано</string>
   <string name="revision_diff_line_removed">Рядок вилучено</string>
@@ -1563,8 +1562,7 @@
   <string name="talk_templates_edit_message_dialog_save">Зберегти</string>
   <string name="talk_templates_edit_message_dialog_delete">Вилучити</string>
   <string name="talk_templates_edit_message_updated">Повідомлення оновлено</string>
-  <string name="talk_templates_edit_message_delete_description">Ви впевнені, що хочете вилучити повідомлення «%s» зі списку?</string>
-  <string name="talk_templates_message_deleted">Повідомлення вилучено</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Повідомлення вилучено</string>
   <string name="patroller_tasks_edits_list_title">Список редагувань</string>
   <string name="patroller_tasks_edits_list_search_hint">Шукати або фільтрувати редагування</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Мітки: %s</string>

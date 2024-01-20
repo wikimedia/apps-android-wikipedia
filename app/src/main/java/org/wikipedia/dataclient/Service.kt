@@ -49,9 +49,8 @@ interface Service {
     )
     suspend fun fullTextSearch(
         @Query("gsrsearch") searchTerm: String?,
-        @Query("gsroffset") gsrOffset: String?,
         @Query("gsrlimit") gsrLimit: Int,
-        @Query("continue") cont: String?
+        @Query("gsroffset") gsrOffset: Int?
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
@@ -65,11 +64,21 @@ interface Service {
                 "&gsrnamespace=6&iiurlwidth=" + PREFERRED_THUMB_SIZE
     )
     suspend fun fullTextSearchCommons(
-        @Query("gsrsearch") searchTerm: String?,
-        @Query("gsroffset") gsrOffset: String?,
+        @Query("gsrsearch") searchTerm: String,
         @Query("gsrlimit") gsrLimit: Int,
-        @Query("continue") cont: String?
+        @Query("gsroffset") gsrOffset: Int?,
     ): MwQueryResponse
+
+    @GET(
+        MW_API_PREFIX + "action=query&generator=search&gsrnamespace=0&gsrqiprofile=classic_noboostlinks" +
+                "&origin=*&piprop=thumbnail&prop=pageimages|description|info|pageprops" +
+                "&inprop=varianttitles&smaxage=86400&maxage=86400&pithumbsize=" + PREFERRED_THUMB_SIZE
+    )
+    fun searchMoreLike(
+        @Query("gsrsearch") searchTerm: String?,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("pilimit") piLimit: Int,
+    ): Observable<MwQueryResponse>
 
     // ------- Miscellaneous -------
 
@@ -165,6 +174,7 @@ interface Service {
     suspend fun getRecentEdits(
         @Query("rclimit") count: Int,
         @Query("rcstart") startTimeStamp: String,
+        @Query("rcdir") direction: String?,
         @Query("rctoponly") latestRevisions: String?,
         @Query("rcshow") filters: String?,
         @Query("rccontinue") continueStr: String?

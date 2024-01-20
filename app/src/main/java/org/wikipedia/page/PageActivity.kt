@@ -2,7 +2,6 @@ package org.wikipedia.page
 
 import android.app.SearchManager
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -65,12 +64,10 @@ import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
-import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UriUtil
@@ -81,7 +78,7 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import java.util.Locale
 
-class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Callback, FrameLayoutNavMenuTriggerer.Callback {
+class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
 
     enum class TabPosition {
         CURRENT_TAB, CURRENT_TAB_SQUASH, NEW_TAB_BACKGROUND, NEW_TAB_FOREGROUND, EXISTING_TAB
@@ -95,7 +92,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private var wasTransitionShown = false
     private val currentActionModes = mutableSetOf<ActionMode>()
     private val disposables = CompositeDisposable()
-    private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
     private var isTooltipShowing = false
@@ -386,7 +382,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageShowLinkPreview(entry: HistoryEntry) {
-        ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry))
     }
 
     override fun onPageLoadMainPageInForegroundTab() {
@@ -405,16 +401,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         DeviceUtil.hideSoftKeyboard(this)
     }
 
-    override fun onPageAddToReadingList(title: PageTitle, source: InvokeSource) {
-        showAddToListDialog(title, source)
-    }
-
-    override fun onPageMoveToReadingList(sourceReadingListId: Long, title: PageTitle, source: InvokeSource, showDefaultList: Boolean) {
-        showMoveToListDialog(sourceReadingListId, title, source, showDefaultList)
-    }
-
     override fun onPageWatchlistExpirySelect(expiry: WatchlistExpiry) {
-        pageFragment.updateWatchlist(expiry, false)
+        pageFragment.updateWatchlistExpiry(expiry)
     }
 
     override fun onPageLoadError(title: PageTitle) {
@@ -469,19 +457,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         loadPage(title, entry, if (inNewTab) TabPosition.NEW_TAB_BACKGROUND else TabPosition.CURRENT_TAB)
-    }
-
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        copyLink(title.uri)
-        showCopySuccessMessage()
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        showAddToListDialog(title, InvokeSource.LINK_PREVIEW_MENU)
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
     }
 
     private fun handleIntent(intent: Intent) {
@@ -661,15 +636,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
     }
 
-    private fun showAddToListDialog(title: PageTitle, source: InvokeSource) {
-        ExclusiveBottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, source, listDialogDismissListener)
-    }
-
-    private fun showMoveToListDialog(sourceReadingListId: Long, title: PageTitle, source: InvokeSource, showDefaultList: Boolean) {
-        ExclusiveBottomSheetPresenter.showMoveToListDialog(supportFragmentManager, sourceReadingListId,
-            title, source, showDefaultList, listDialogDismissListener)
-    }
-
     private fun removeTransitionAnimState() {
         if (binding.pageFragment.visibility != View.VISIBLE) {
             binding.pageFragment.visibility = View.VISIBLE
@@ -677,14 +643,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (binding.wikiArticleCardView.visibility != View.GONE) {
             binding.wikiArticleCardView.postDelayed({ binding.wikiArticleCardView.visibility = View.GONE }, 250L)
         }
-    }
-
-    private fun copyLink(url: String) {
-        ClipboardUtil.setPlainText(this, text = url)
-    }
-
-    private fun showCopySuccessMessage() {
-        FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
     private fun modifyMenu(mode: ActionMode) {
