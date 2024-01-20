@@ -5,7 +5,7 @@
 -->
 <resources>
   <string name="app_name_prod">Wikipédi</string>
-  <string name="app_name_beta">Wikipédi Béta</string>
+  <string name="app_name_beta">Wikipédi Belongkotan</string>
   <string name="app_name_alpha">Wikipédi Alpa</string>
   <string name="wikimedia">Wikimédia</string>
   <string name="nav_item_back">Kombali</string>
@@ -55,7 +55,7 @@
   <string name="page_edit_history_filter_by_user">Permakan pemaké (%s)</string>
   <string name="page_edit_history_filter_by_anon">Permakan sondernama (%s)</string>
   <string name="page_edit_history_filter_by_bot">Permakan bot (%s)</string>
-  <string name="page_edit_history_metrics_content_description">Mètrik deri %1$s ampé %2$s</string>
+  <string name="page_edit_history_metrics_content_description">Penakeran deri %1$s ampé %2$s</string>
   <plurals name="page_edit_history_article_edits_since_year">
     <item quantity="one">%1$d permakan sedari %2$s</item>
     <item quantity="other">%1$d permakan sedari %2$s</item>
@@ -104,13 +104,13 @@
   <string name="edit_history_link_text">Deleng riwayat permakan</string>
   <string name="map_view_link_text">Deleng di peta</string>
   <string name="other_languages_indication_text">Baca dalem basa laèn</string>
-  <string name="language_count_link_text">Kesedia di %d basa laèn</string>
+  <string name="language_count_link_text">Derak di %d basa laèn</string>
   <string name="edit_save_action_license_logged_in">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah ongji &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;Ketentuan Pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah ongji &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Permakan bakal dinisbatin ke aderès IP lu punya peralatan. Kalo lu &lt;a href=\"https://#login\"&gt;masup&lt;/a&gt;, lu bakal ada punya keresiaan dèwèk nyang lebi.</string>
   <string name="edit_anon_warning">Permakan bakal dinisbatin ke aderès IP lu punya peralatan. Kalo lu &lt;a href=\"https://#login\"&gt;masup&lt;/a&gt;, lu bakal ada punya keresiaan lebi.</string>
   <string name="preference_title_language">Basa Wikipédi</string>
   <string name="langlinks_filter_hint">Cari</string>
-  <string name="langlinks_empty">Ni halaman kaga\' kesedia dalem laèn-laèn basa.</string>
+  <string name="langlinks_empty">Ni halaman kaga\' derak dalem laèn-laèn basa.</string>
   <string name="langlinks_no_match">Basa kaga\' ketemu</string>
   <string name="langlinks_activity_title">Laèn-laèn basa</string>
   <string name="langlinks_your_wikipedia_languages">Basa lu punya Wikipédi</string>
@@ -131,13 +131,13 @@
   <string name="edit_section_captcha_request_an_account_message">Kaga\' bisa ngiat gambar? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Minta\' bikinin rèkening&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ulangin kata-kata di atas</string>
   <string name="title_captcha">Masupin CAPTCHA</string>
-  <string name="edit_section_captcha_reload">Teken CAPTCHA bakal muat ulang</string>
+  <string name="edit_section_captcha_reload">Teken CAPTCHA bakal munggah ulang</string>
   <string name="nav_item_login">Masup ke Wikipédi</string>
   <string name="login_username_hint">Nama pemaké</string>
   <string name="login_password_hint">Kata sandi</string>
   <string name="account_creation_password_hint">Kata sandi</string>
   <string name="login_2fa_hint">Kode Musadakah Dua-Paktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Musadakah dua-paktor dibutuhin! Padol dah, kombali ke penggawéan utama èn masup paké lu punya token 2FA, terus jal lagi dah.</string>
+  <string name="login_2fa_other_workflow_error_msg">Musadakah dua-paktor dibutuhin! Padol dah, kombali ke penggawéan utama èn masup paké lu punya gobang 2FA, terus jal lagi dah.</string>
   <string name="onboarding_card_login">Masup</string>
   <string name="page_editing_login">Masup</string>
   <string name="reading_lists_sync_login">Masup</string>
@@ -182,12 +182,12 @@
   <string name="create_account_generic_error">Kaga\' bisa ngeja rèkening</string>
   <string name="create_account_next">Terus</string>
   <string name="email_recommendation_dialog_title">Keja rèkening sonder aderès surlès?</string>
-  <string name="email_recommendation_dialog_message">Bagèn aderès surlès sipatnya sunah, palingan &lt;b&gt;sunah muakadah&lt;/b&gt; dah tu, sebab surlès dibutuhin pas mulihin rèkening kalo-kalo lu ilang kata sandinya.</string>
+  <string name="email_recommendation_dialog_message">Bagèn aderès surlès sipatnya sunah, palingan &lt;b&gt;sunah muakadah&lt;/b&gt; dah tu, sebab surlès dibutuhin pas mulihin rèkening bok-bok lu ilang kata sandinya.</string>
   <string name="email_recommendation_message">Disaranin sebab surlès dibutuhin bakal mulihin rèkening.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Terusin sonder surlès</string>
   <string name="email_recommendation_dialog_create_with_email_action">Tambahin aderès surlès</string>
   <string name="create_account_button">Keja rèkening</string>
-  <string name="create_account_name_unavailable">Nama pemaké \"%s\" kaga\' kesedia. Padol dah, pilih nama nyang bèda.</string>
+  <string name="create_account_name_unavailable">Nama pemaké \"%s\" kaga\' derak. Padol dah, pilih nama nyang bèda.</string>
   <string name="create_account_ip_block_message">Maap, lu punya aderès IP sekarang ni lagi diblokir deri pengejaan rèkening baru.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Tètèk bengèk</string>
@@ -207,7 +207,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ni bakal bener-bener ngapus semua-muanya daptar bacaan kejuntrung deri penampungan jarak jauh. Buang semua daptar kejuntrung deri lu punya rèkening \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">Keresiaan dèwèk</string>
   <string name="preference_title_eventlogging_opt_in">Kirim laporan pemakéan</string>
-  <string name="preference_summary_eventlogging_opt_in">Ijinin Wikimédia ngumpulin inpormasi pasal cara lu maké ni aplikasi biar mangkin bagus dah ni aplikasi</string>
+  <string name="preference_summary_eventlogging_opt_in">Ijinin Wikimédia ngumpulin pengabaran pasal cara lu maké ni aplikasi biar mangkin bagus dah ni aplikasi</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
   <string name="preference_summary_auto_upload_crash_reports">Ijinin aplikasi otomatis ngirim laporan kerusakan ke penyedia ladènan pihak ketiga biar kita bisa merèksa dah lu punya kerusakan èn ngebetulin tu bangsat lebi lekas èn gampil.</string>
   <string name="editing_error_spamblacklist">Sènggètan ke rungkun nyang diblokir (%s) keendus. Dimohon buang tu èn jal lagi.</string>
@@ -238,7 +238,7 @@
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Ni aplikasi udah diterjemahin ama penerjemah sukarèla di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ongji</string>
-  <string name="about_app_license">Kode sumber kesedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; èn &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Ongji Apache 2.0&lt;/a&gt;. Kecuali ada ketentuan tambahan nyang belakon, isi kesedia di bawahnya &lt;a href=\"\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Ongji Nisbat-DumanSetumbras Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license">Kode sumber derak di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; èn &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Ongji Apache 2.0&lt;/a&gt;. Kecuali ada ketentuan tambahan nyang belakon, isi derak di bawahnya &lt;a href=\"\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Ongji Nisbat-DumanSetumbras Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Produk deri &lt;a href=\"https://wikimediafoundation.org/\"&gt;Yayasan Wikimédia&lt;/a&gt;</string>
   <string name="about_activity_title">Pasal</string>
   <string name="edit_abandon_confirm">Ni halaman udah didandanin. Apa lu yakin pèngèn kuar sonder nyimpen lu punya perobahan?</string>
@@ -250,11 +250,12 @@
   <string name="edit_how_page_improved">Bagémana lu ningkatin halamannya?</string>
   <string name="edit_next">Terus</string>
   <string name="edit_done">Terebitin</string>
-  <string name="edit_preview">Pradeleng</string>
+  <string name="edit_preview">Terawangan</string>
   <string name="edit_undo">Balikin</string>
   <string name="edit_redo">Ulangin</string>
   <string name="edit_rollback">Aterèt</string>
   <string name="edit_warn">Wanti-wanti</string>
+  <string name="edit_damage">Kebejadan %s</string>
   <string name="edit_intent">Maksud %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s bèt</item>
@@ -296,19 +297,19 @@
   <string name="clear_recent_searches_confirm_no">Kaga\'</string>
   <string name="error_browser_not_found">Kaga\' bisa ngebuka halaman jala (aplikasi pengorag kaga\' ketemu).</string>
   <string name="table_infobox">Pakta Singket</string>
-  <string name="table_other">Inpormasi lebi lanjut</string>
+  <string name="table_other">Pengabaran lebi lanjut</string>
   <string name="table_close">Tutup</string>
   <string name="widget_name_featured_page">Isi pilihan Wikipédi</string>
   <string name="widget_title_featured_page">Ni ari punya isi pilihan:</string>
   <string name="widget_name_search">Penyarian Wikipédi</string>
   <string name="wiktionary_no_definitions_found">Ta\'rip kaga\' ketemu.</string>
-  <string name="alpha_update_notification_title">Pembaruan alpa baru kesedia</string>
+  <string name="alpha_update_notification_title">Pembaruan tembèlan baru derak</string>
   <string name="alpha_update_notification_text">Teken bakal nyomot</string>
   <string name="dialog_close_description">Tutup</string>
   <string name="preference_title_show_images">Kasi unjuk gambar</string>
-  <string name="preference_summary_show_images">Nyalain atawa matiin muat gambar di halaman. Ilangin contrèng ni penyetèlan kalo lu punya sambungan internèt langsam, atawa kalo lu punya pakèt data kewates.</string>
+  <string name="preference_summary_show_images">Nyalain atawa matiin munggah gambar di halaman. Ilangin contrèng ni penyetèlan kalo lu punya sambungan internèt langsam, atawa kalo lu punya pakèt data kewates.</string>
   <string name="preference_title_download_only_over_wifi">Comot cuman liwat Wi-Fi</string>
-  <string name="dialog_title_download_only_over_wifi">Konpirmir comot paké pakèt data?</string>
+  <string name="dialog_title_download_only_over_wifi">Tandesin comot paké pakèt data?</string>
   <string name="dialog_text_download_only_over_wifi">Lu ada punya \"Comot cuman liwat Wi-Fi\" nyang dinyalain di penyetèlan. Apa lu pèngèn ngijinin lu punya pakèt data bakal ni comotan doang?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Ijinin</string>
   <string name="read_more_section">Baca lebi lanjut</string>
@@ -331,7 +332,7 @@
   <string name="captcha_image">Gambar Captcha</string>
   <string name="gallery_fair_use_license">Pemakéan wajar</string>
   <string name="gallery_uploader_unknown">Pengangkat kaga\' ditauin</string>
-  <string name="gallery_not_available_offline_snackbar">Tampang galeré kaga\' kesedia di luar-jala.</string>
+  <string name="gallery_not_available_offline_snackbar">Tampang galeré kaga\' derak di luar-jala.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Tutup</string>
   <string name="menu_new_tab">Lembaran baru</string>
   <string name="menu_close_all_tabs">Tutup semua lembaran</string>
@@ -358,20 +359,20 @@
   <string name="button_continue_to_disambiguation">Deleng halaman semacem</string>
   <string name="link_preview_disambiguation_description">Ni judul bekaètan ama lebi deri atu halaman:</string>
   <string name="button_add_to_reading_list">Tambahin ke daptar bacaan</string>
-  <string name="page_offline_notice_cannot_load_while_offline">Makalah kaga\' bisa dimuat di luar-jala.</string>
+  <string name="page_offline_notice_cannot_load_while_offline">Makalah kaga\' bisa dipunggah di luar-jala.</string>
   <string name="page_offline_notice_add_to_reading_list">Bocoran: Tambahin makalah ke daptar bacaan èn bakal langsung kecomot pas lu balik ke dalem-jala.</string>
   <string name="page_offline_notice_last_date">Lu lagi ngebaca pèrsi luar-jala deri ni makalah nyang kesimpen di %s.</string>
   <string name="redirected_from_snackbar">Dialihin deri \"%s\"</string>
   <string name="button_get_directions">Dapetin arah</string>
   <string name="error_no_maps_app">Kaga\' bisa nemuin aplikasi nyang nyediain arah.</string>
   <string name="preference_title_customize_explore_feed">Jelajahin Empan</string>
-  <string name="preference_title_show_link_previews">Kasi unjuk pradeleng sènggètan</string>
+  <string name="preference_title_show_link_previews">Kasi unjuk terawangan sènggètan</string>
   <string name="preference_summary_customize_explore_feed">Cèngliin empan Jelajah</string>
-  <string name="preference_summary_show_link_previews">Kasi unjuk pradeleng singket deri makalah pas neken sènggètannya.</string>
+  <string name="preference_summary_show_link_previews">Kasi unjuk terawangan singket deri makalah pas neken sènggètannya.</string>
   <string name="preference_title_collapse_tables">Gulung jadwal</string>
   <string name="preference_summary_collapse_tables">Otomatis gulung jadwal di makalah, kaya\' kotak inpo, ruju\'an, èn catetan.</string>
   <string name="nav_item_donate">Nyumbang</string>
-  <string name="error_voice_search_not_available">Maap, pengenalan suara kaga\' kesedia.</string>
+  <string name="error_voice_search_not_available">Maap, pengenalan suara kaga\' derak.</string>
   <string name="location_service_disabled">Ladènan lokasi dimatiin.</string>
   <string name="enable_location_service">Nyalain</string>
   <string name="location_permissions_enable_prompt">Nyalain ijin lokasi bakal ngiat tempat di sekuliling lu.</string>
@@ -392,9 +393,9 @@
   <string name="reference_list_title">Ruju\'an</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Pengremengan gambar (di tèma Kereng)</string>
   <string name="preference_title_prefer_offline_content">Utamain isi luar-jaringan dulu</string>
-  <string name="preference_summary_prefer_offline_content">Iritin pemakéan data dengen muat makalah nyang kesedia di luar-jala deripada muat pèrsi mutahir deri makalahnya melulu</string>
+  <string name="preference_summary_prefer_offline_content">Iritin pemakéan data dengen munggah makalah nyang derak di luar-jala ketimbang munggah pèrsi mutahir deri makalahnya melulu</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Cocokin ama tèma sistim</string>
-  <string name="page_footer_license_text">Isi kesedia di bawah $1, kecuali ada catetan tambahan</string>
+  <string name="page_footer_license_text">Isi derak di bawah $1, kecuali ada catetan tambahan</string>
   <string name="empty_tab_title">Lembaran baru</string>
   <string name="menu_save_all_tabs">Simpen semua lembaran</string>
   <string name="error_blocked_title">Lu punya nama pemaké atawa aderès IP udah diblokir.</string>
@@ -460,12 +461,12 @@
     <item quantity="other">%1$d makalah, %2$.2f MB</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail_without_size">
-    <item quantity="one">%1$d deri 1 makalah kesedia di luar-jala</item>
-    <item quantity="other">%1$d deri %2$d makalah kesedia di luar-jala</item>
+    <item quantity="one">%1$d deri 1 makalah derak di luar-jala</item>
+    <item quantity="other">%1$d deri %2$d makalah derak di luar-jala</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
-    <item quantity="one">%1$d deri 1 makalah kesedia di luar-jala, %3$.2f MB</item>
-    <item quantity="other">%1$d deri %2$d makalah kesedia di luar-jala, %3$.2f MB</item>
+    <item quantity="one">%1$d deri 1 makalah derak di luar-jala, %3$.2f MB</item>
+    <item quantity="other">%1$d deri %2$d makalah derak di luar-jala, %3$.2f MB</item>
   </plurals>
   <string name="reading_list_sort">Sortir</string>
   <string name="reading_list_sort_ellipsis">Sortir berales...</string>
@@ -516,8 +517,8 @@
   <string name="saved_list_empty_title">Belon ada halaman kesimpen</string>
   <string name="reading_lists_empty_message">Tambahin makalah ke daptar bacaan bakal entarannya, hata lu lagi di luar-jala.</string>
   <string name="reading_list_empty">Lu kaga\' punya makalah nyang ditambahin ke ni daptar.</string>
-  <string name="reading_list_article_offline">Kesedia di luar-jala</string>
-  <string name="reading_list_article_make_offline">Keja ni makalah kesedia di luar-jala</string>
+  <string name="reading_list_article_offline">Derak di luar-jala</string>
+  <string name="reading_list_article_make_offline">Keja ni makalah derak di luar-jala</string>
   <string name="reading_list_add_to_other_list">Tambahin daptar bacaan laènnya</string>
   <string name="reading_list_move_to_other_list">Pindahin ke daptar bacaan laènnya</string>
   <string name="reading_list_move_from_to_other_list">Pindahin deri %s ke daptar bacaan laènnya</string>
@@ -526,7 +527,7 @@
   <string name="reading_list_select_item">Pilih</string>
   <string name="reading_list_confirm_remove_article_from_offline">Buang deri luar-jala</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Makalah nongol di beberapa daptar</string>
-  <string name="reading_list_confirm_remove_article_from_offline_message">%s kaga\' bakal lagi kesedia di luar-jala bakal semua daptar bacaan:</string>
+  <string name="reading_list_confirm_remove_article_from_offline_message">%s kaga\' bakal lagi derak di luar-jala bakal semua daptar bacaan:</string>
   <string name="reading_lists_sync_reminder_title">Nyalain penjuntrungan daptar bacaan?</string>
   <string name="reading_lists_sync_reminder_text">Makalah nyang disimpen di daptar bacaan sekarang bisa dijuntrungin ke lu punya rèkening Wikipédi. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Belajarin lebi lanjut&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">Daptar bacaan sekarang bisa dijuntrungin di mana-mana peralatan. Masup ke lu punya rèkening Wikipédi èn ijinin lu punya daptar disimpen. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;Belajarin lebi lanjut&lt;/a&gt;</string>
@@ -537,7 +538,7 @@
   <string name="reading_lists_ignore_button">Entar dulu</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ya</string>
   <string name="reading_lists_confirm_remote_delete_no">Kaga\'</string>
-  <string name="reading_list_article_save_in_progress">Makalah lagi dicomot, èn bakalan kesedia di luar-jala pas udah rampung.</string>
+  <string name="reading_list_article_save_in_progress">Makalah lagi dicomot, èn bakalan derak di luar-jala pas udah rampung.</string>
   <string name="reading_list_articles_added_to_named">Nambahin %1$d makalah ke %2$s</string>
   <string name="reading_list_articles_moved_to_named">Mindahin %1$d makalah ke %2$s</string>
   <string name="reading_list_delete_confirm">Apa lu yakin pèngèn ngapus %s?</string>
@@ -574,12 +575,12 @@
   <string name="reading_lists_refresh_sync_option">Segerin penjuntrungan</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Masup / daptar</string>
   <plurals name="reading_list_article_offline_message">
-    <item quantity="one">Ni makalah sekarang bakal kesedia di luar-jala.</item>
-    <item quantity="other">Ni makalah sekarang pada bakal kesedia di luar-jala.</item>
+    <item quantity="one">Ni makalah sekarang bakal derak di luar-jala.</item>
+    <item quantity="other">Ni makalah sekarang pada bakal derak di luar-jala.</item>
   </plurals>
   <plurals name="reading_list_article_not_offline_message">
-    <item quantity="one">Ni makalah sekarang kaga\' bakal lagi kesedia di luar-jala.</item>
-    <item quantity="other">Ni makalah sekarang pada kaga\' bakal lagi kesedia di luar-jala.</item>
+    <item quantity="one">Ni makalah sekarang kaga\' bakal lagi derak di luar-jala.</item>
+    <item quantity="other">Ni makalah sekarang pada kaga\' bakal lagi derak di luar-jala.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Daptar bacaan kejuntrung</string>
   <string name="reading_list_menu_last_sync">Penjuntrungan paling akir: %s</string>
@@ -672,9 +673,9 @@
   <string name="notifications_mark_unread">Tengerin belon dibaca</string>
   <string name="notifications_mark_all_as_read">Tengerin semua udah dibaca</string>
   <string name="notifications_direct_reply_action">Bales</string>
-  <string name="notifications_direct_reply_progress">Mublisir balesan ke %s...</string>
-  <string name="notifications_direct_reply_success">Jawaban dipublisir.</string>
-  <string name="notifications_direct_reply_error">Kaga\' bisa mublisir otomatis.</string>
+  <string name="notifications_direct_reply_progress">Nyeplokin balesan ke %s...</string>
+  <string name="notifications_direct_reply_success">Jawaban diceplokin.</string>
+  <string name="notifications_direct_reply_error">Kaga\' bisa nyeplokin balesan sendèwèk.</string>
   <string name="notifications_mark_all_as_read_message">%d ditengerin udah dibaca.</string>
   <string name="notifications_mark_all_as_unread_message">%d ditengerin belon dibaca.</string>
   <plurals name="notifications_mark_as_read_plural">
@@ -741,7 +742,7 @@
   <string name="notifications_all_wikis_text">Semua \"wiki\"</string>
   <string name="notifications_all_types_text">Semua \"jenis\"</string>
   <string name="notifications_menu_user_talk_page">%s punya halaman obrolan</string>
-  <string name="notifications_offline_disable_message">Pungsi kaga\' kesedia pas di luar-jala.</string>
+  <string name="notifications_offline_disable_message">Pungsi kaga\' derak pas di luar-jala.</string>
   <string name="view_because_you_read_card_title">Sebab lu baca</string>
   <string name="view_random_card_title">Penyembarang</string>
   <string name="view_random_article_card_title">Makalah sembarang</string>
@@ -750,7 +751,7 @@
   <string name="view_top_read_card_action">Lebi banyak bacaan kesohor</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d rb</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d jt</string>
-  <string name="view_next_random_article">Muat makalah sembarang laènnya</string>
+  <string name="view_next_random_article">Punggah makalah sembarang laènnya</string>
   <string name="view_main_page_card_title">Ni ari di Wikipédi</string>
   <string name="view_main_page_card_action">Deleng balé-balé</string>
   <string name="view_featured_image_card_title">Ni ari punya gambar</string>
@@ -772,14 +773,14 @@
   <string name="view_continue_reading_card_subtitle_today">ni ari</string>
   <string name="view_continue_reading_card_subtitle_read_date">Baca %s</string>
   <string name="view_announcement_card_negative_action">Kaga\', makasi</string>
-  <string name="view_offline_card_text">Isi kaga\' bisa dimuat pas di luar-jala.</string>
+  <string name="view_offline_card_text">Isi kaga\' bisa dipunggah pas di luar-jala.</string>
   <string name="view_featured_article_card_title">Makalah pilihan</string>
   <string name="view_static_card_save_button_label">Simpen</string>
   <string name="feed_configure_activity_title">Cèngliin empan</string>
   <string name="feed_configure_menu_reset">Pulihin tampang bawaan</string>
   <string name="feed_configure_menu_select_all">Kasi unjuk semua</string>
   <string name="feed_configure_menu_deselect_all">Umpetin semua</string>
-  <string name="feed_configure_language_warning">Èling baè\'-baè\' kaga\' semua jenis kartu kesedia di semua basa Wikipédi. Permak basa lu punya pilih di Penyetèlan.</string>
+  <string name="feed_configure_language_warning">Èling baè\'-baè\' kaga\' semua jenis kartu derak di semua basa Wikipédi. Permak basa lu punya pilih di Penyetèlan.</string>
   <string name="feed_item_type_news">Makalah pasal peristiwa sekarang ni</string>
   <string name="feed_item_type_on_this_day">Peristiwa dalem sejarah di ni ari</string>
   <string name="feed_item_type_because_you_read">Saran berales makalah nyang baru-baru ni dibaca deri lu punya riwayat</string>
@@ -797,7 +798,7 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Baè\'</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Urungin</string>
   <string name="feed_accessibility_card_text">Lu udah nyampé bawahnya empan.</string>
-  <string name="feed_accessibility_card_load_more_button">Muat lebi banyak</string>
+  <string name="feed_accessibility_card_load_more_button">Punggah banyakan</string>
   <string name="top_read_activity_title">Bacaan kesohor di %s</string>
   <string name="tabs_activity_title">Lembaran</string>
   <string name="description_edit_text_hint">Jabaran makalah</string>
@@ -856,7 +857,7 @@
   <string name="description_edit_tutorial_machine_suggestions_title">Saranan mesin</string>
   <string name="description_edit_tutorial_machine_suggestions_description">Saran dibuat ama mesin, bukan ama sukarèlawan atawa Yayasan Wikimédia</string>
   <string name="customize_toolbar_title">Cèngliin palang peranti</string>
-  <string name="customize_toolbar_shortcut_description_text">Cèngliin palang peranti bawah paké 5 jalan pintas nyang lu kira paling ngebantu.</string>
+  <string name="customize_toolbar_shortcut_description_text">Cèngliin palang peranti bawah paké 5 terogong nyang lu kira paling ngebantu.</string>
   <string name="customize_toolbar_category_toolbar">Palang peranti</string>
   <string name="customize_toolbar_category_menu">Menu</string>
   <string name="customize_toolbar_drag_and_drop_placeholder">Sèrèt èn taroh barang lu punya demen di mari 👋</string>
@@ -889,7 +890,7 @@
   <string name="suggested_edits_task_translate_caption_title">Terjemahin keterangan gambar</string>
   <string name="suggested_edits_task_translate_caption_description">Terjemahin keterangan ke laèn-laèn basa</string>
   <string name="suggested_edits_task_multilingual_title">Tugas laènnya bakal pemermak anèkabasa</string>
-  <string name="suggested_edits_task_multilingual_description">Tugas terjemahan kesedia kalo lu baca èn nulis di lebi deri atu basa Wikipédi.</string>
+  <string name="suggested_edits_task_multilingual_description">Tugas terjemahan derak kalo lu baca èn nulis di lebi deri atu basa Wikipédi.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Kekonci ampé lu mermak %d keterangan gambar</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Kekonci ampé lu mermak %d jabaran makalah (ditahkik)</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan bakal gua</string>
@@ -988,7 +989,7 @@
   <string name="suggested_edits_ip_blocked_title">IP diblokir</string>
   <string name="suggested_edits_last_edited">Paling akir dipermak</string>
   <string name="suggested_edits_last_edited_never">Kaga\' perna</string>
-  <string name="suggested_edits_task_new" fuzzy="true">baru</string>
+  <string name="suggested_edits_task_new">Baru</string>
   <string name="suggested_edits_cc0_notice">Dengen nerebitin, lu akur ama &lt;a href=\"%1$s\"&gt;ketentuan pemakéan&lt;/a&gt;, èn lu tetep akur bakal ngelansir lu punya sumbangsih di bawah &lt;a href=\"%2$s\"&gt;ongji CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Permakan nyang disaranin</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Makasi ya udah mermak Wikipédi! Ngapa kaga\' lanjutin nyang belakangan?</string>
@@ -1019,9 +1020,9 @@
   <string name="suggested_card_more_edits">Lebi banyak permakan nyang disaranin</string>
   <string name="suggested_edits_article_descriptions_dialog_title">Jabaran nyang disaranin</string>
   <string name="suggested_edits_descriptions_report_dialog_title">Pèngèn nglaporin apaan lu?</string>
-  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Kaga\' cukup inpormasi</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">Kaga\' cukup pengabaran</string>
   <string name="suggested_edits_descriptions_cannot_see_suggestion">Kaga\' bisa ngiat jabaran nyang disaranin</string>
-  <string name="suggested_edits_inappropriate_suggestion">Saran kaga\' pantes</string>
+  <string name="suggested_edits_inappropriate_suggestion">Saran kaga\' surup</string>
   <string name="suggested_edits_do_not_understand_suggestion">Kaga\' ngarti ama tugasnya</string>
   <string name="suggested_edits_report_suggestion">Laporin</string>
   <string name="suggested_edits_suggestion_report_submitted">Laporan diserahin</string>
@@ -1051,7 +1052,7 @@
   <string name="image_recommendation_reject_title">Ngapa kaga\'?</string>
   <string name="image_recommendation_reject_subtitle">Lu punya jawaban bakalan ningkatin saran entarannya.</string>
   <string name="image_recommendation_reject_not_relevant">Gambar kaga\' nyambung</string>
-  <string name="image_recommendation_reject_no_info">Kaga\' cukup inpormasi bakal nentuin</string>
+  <string name="image_recommendation_reject_no_info">Kaga\' cukup pengabaran bakal nentuin</string>
   <string name="image_recommendation_reject_offensive">Gambarnya nyinggung</string>
   <string name="image_recommendation_reject_low_quality">Gambarnya kualitèt rendahan</string>
   <string name="image_recommendation_reject_dont_know">Gua kaga\' nyaho ni perihal</string>
@@ -1063,7 +1064,7 @@
   <string name="image_recommendation_onboarding_3">Saran dibuat ama mesin èn lu bakal maké lu punya peniléan sendèwèk bakal nentuin diterima apa ngga\'nya.</string>
   <string name="image_recommendation_onboarding_4">Gambar – pada deri Wikimedia Commons, omplokan deri gambar ongji perdèo nyang dipaké ama Wikipédi.</string>
   <string name="image_recommendation_tooltip_1">Perèksa ulang ni makalah bakal mahamin topiknya</string>
-  <string name="image_recommendation_tooltip_2">Delok gambar èn inpormasi nyang bekaètan</string>
+  <string name="image_recommendation_tooltip_2">Delok gambar èn pengabaran nyang bekaètan</string>
   <string name="image_recommendation_tooltip_3">Tentuin apa ni gambar ngebantu pembaca mahamin ni topik lebi baè\' apa kaga\'</string>
   <string name="image_recommendation_tooltip_next">Terus</string>
   <string name="image_recommendation_tooltip_warning">Dimohon perèksa ulang makalah bakal mahamin ni topik èn delok gambarnya</string>
@@ -1095,7 +1096,7 @@
   <string name="onboarding_explore_text">Selemin liang kelinci Wikipédi paké empan Jelajahin nyang terus diperbaruin. &lt;br/&gt; &lt;b&gt;Cèngliin&lt;/b&gt; empan bakal lu punya minat – mau entu belajar pasal peristiwa sejarah &lt;b&gt;Di ni ari&lt;/b&gt; kè\', mau nglèmpar dadu paké &lt;b&gt;Sembarang&lt;/b&gt; kè\'.</string>
   <string name="onboarding_reading_list_sync_title">Daptar bacaan dengen penjuntrungan</string>
   <string name="onboarding_reading_list_sync_text_v2">Lu bisa ngeja daptar bacaan deri makalah nyang lu pèngèn baca entarnya, hata pas lu lagi di luar-jala. &lt;br/&gt;Masup ke lu punya rèkening Wikipédi bakal ngejuntrungin lu punya daptar bacaan. &lt;a href=\"#login\"&gt;Nimbrung ama Wikipédi&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Kirin data sonder-nama</string>
+  <string name="onboarding_analytics_title">Kirim data sondernama</string>
   <string name="onboarding_analytics_offline_text">Bantu ngeja aplikasi jadi lebi baè\' dengen ngasi kita tau gimana lu makénya. Data nyang kekumpul – sonder-nama. &lt;a href=\"#privacy\"&gt;Belajarin lebi lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kirim data pemakéan</string>
   <string name="onboarding_got_it">Ngarti dah</string>
@@ -1167,7 +1168,8 @@
   <string name="wikitext_numbered_list">Daptar nomoran</string>
   <string name="wikitext_template">Sablonan</string>
   <string name="wikitext_reference">Ruju\'an</string>
-  <string name="wikitext_preview_link">Sènggètan pradeleng</string>
+  <string name="wikitext_preview_link">Sènggètan terawangan</string>
+  <string name="wikitext_mention_user">Sebut pemaké</string>
   <string name="insert_media_title">Selesepin média</string>
   <string name="insert_media_search_description">Pilih berekas deri Wikimedia Commons</string>
   <string name="insert_media_search_hint">Cari média</string>
@@ -1211,7 +1213,7 @@
   <string name="talk_title">Obrolan</string>
   <string name="talk_user_title">Obrolan: %s</string>
   <string name="talk_new_topic">Topik baru</string>
-  <string name="talk_new_topic_submitted">Topik dipublisir.</string>
+  <string name="talk_new_topic_submitted">Topik diceplokin.</string>
   <string name="talk_warn">Wanti-wanti</string>
   <string name="talk_warn_save_dialog_title">Simpen perobahan?</string>
   <string name="talk_warn_save_dialog_message">Simpen jadi pesen baru</string>
@@ -1234,14 +1236,14 @@
   <string name="talk_message_hint">Susun pesen</string>
   <string name="talk_message_empty">Pesen kaga\' bolé kosong.</string>
   <string name="talk_subject_empty">Perihal kaga\' bolé kosong.</string>
-  <string name="talk_response_submitted">Jawaban dipublisir.</string>
+  <string name="talk_response_submitted">Jawaban diceplokin.</string>
   <string name="talk_snackbar_undo">Balikin</string>
   <string name="talk_last_modified">&lt;b&gt;Paling akir dipermak %1$s&lt;/b&gt; ama %2$s</string>
   <string name="talk_snackbar_survey_text">Makasi ya udah maké halaman obrolan. Apa lu bisa bantu kita nyempurnain ni aplikasi dengen ikutan angkèt?</string>
   <string name="talk_snackbar_survey_action_text">Mulain</string>
   <string name="talk_share_discussion_subject">Wikipédi - perhadring di halaman obrolan pasal \"%s\"</string>
   <string name="talk_share_talk_page">Wikipédi - perhadring di halaman obrolan</string>
-  <string name="talk_edit_disclaimer">Ni – halaman obrongan. Tulung hormatin pedoman halaman obrolan, èn jangan ampé lali nèken lu punya publisiran dengen ngetik empat tenger gelombang: ~~~~ pas mublisir paké wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipédi:Pedoman halaman obrolan&lt;/a&gt;</string>
+  <string name="talk_edit_disclaimer">Ni – halaman obrongan. Tulung hormatin pedoman halaman obrolan, èn jangan ampé lali nèken lu punya publisiran dengen ngetik empat tenger gelombang: ~~~~ pas nyeplokin paké wikitext.&lt;br&gt;&lt;br&gt;&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipédi:Pedoman halaman obrolan&lt;/a&gt;</string>
   <string name="talk_search_hint">Cari pesen</string>
   <string name="talk_search_topics_hint">Cari topik</string>
   <string name="talk_search_find_in_talk_topics_hint">Temuin di topik halaman obrolan</string>
@@ -1266,13 +1268,13 @@
   <string name="talk_list_item_overflow_mark_as_read">Tengerin udah dibaca</string>
   <string name="talk_list_item_overflow_mark_as_unread">Tengerin belon dibaca</string>
   <string name="talk_list_item_overflow_share">Dumanin</string>
-  <string name="talk_list_item_last_comment_date">Tanggepan paling baru: %s</string>
+  <string name="talk_list_item_last_comment_date">Sautan paling baru: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Jumblah dibaca</string>
   <string name="talk_list_item_user_icon_content_description">Lambang pemaké</string>
   <string name="talk_list_item_swipe_mark_as_read">Baca</string>
   <string name="talk_list_item_swipe_mark_as_unread">Belon dibaca</string>
   <string name="talk_login_to_subscribe_dialog_title">Masup bakal langganan ke topik</string>
-  <string name="talk_login_to_subscribe_dialog_content">Langganan topik bakal mungkinin lu nerima ma\'lumat pasal tanggepan baru di ni topik. Padol dah, keja rèkening atawa masup ke lu punya rèkening Wikipédi bakal langganan ke topik.</string>
+  <string name="talk_login_to_subscribe_dialog_content">Langganan topik bakal mungkinin lu nerima ma\'lumat pasal sautan baru di ni topik. Padol dah, keja rèkening atawa masup ke lu punya rèkening Wikipédi bakal langganan ke topik.</string>
   <string name="talk_archived_title">Arsip obrolan: %s</string>
   <string name="menu_option_share_talk_discussion">Dumanin perhadring</string>
   <string name="menu_option_share_talk_page">Dumanin halaman obrolan</string>
@@ -1304,16 +1306,16 @@
   <string name="revision_diff_from">Deri:</string>
   <string name="revision_diff_to">Ke:</string>
   <string name="revision_diff_line_num">Baris %d</string>
-  <string name="revision_diff_line_nums">Baris %d–%d</string>
   <string name="revision_diff_lines_from_to">Baris %1$d–%2$d</string>
   <string name="revision_diff_line_added">Baris ditambahin</string>
   <string name="revision_diff_line_removed">Baris dibuang</string>
   <string name="revision_diff_paragraph_added">Paragrap ditambahin</string>
   <string name="revision_diff_paragraph_removed">Paragrap dibuang</string>
   <string name="revision_diff_protected">Perobahan nyang dikeja di ni perbaèkan kaga\' kena dibuka halayak umum.</string>
-  <string name="revision_undo_title" fuzzy="true">Balikin permakan</string>
-  <string name="revision_undo_message" fuzzy="true">Ni bakal mbalikin perobahan nyang dikeja ama perbaèkan deri makalah nyang dikasi unjuk di mari.</string>
-  <string name="revision_undo_reason" fuzzy="true">Bakal nerusin, tulung kasi alesan ngapa balikin ni permakan:</string>
+  <string name="revision_undo_title">Apa lu yakin pèngèn ngebalikin ni permakan?</string>
+  <string name="revision_undo_message">Ngebalikin artinya ngombaliin kesudahan deri atu atawa lebi permakan.</string>
+  <string name="revision_undo_summary_hint">Rangkuman (sunah)</string>
+  <string name="revision_undo_reason">Dumanin alasan pembalikan</string>
   <string name="revision_undo_success">Perbaèkan udah dibalikin.</string>
   <string name="revision_rollback_dialog_title">Apa lu yakin pèngèn ngaterèt ni permakan?</string>
   <string name="revision_rollback_success">Permakan udah dibalikin.</string>
@@ -1391,7 +1393,7 @@
     <item quantity="one">%d saringan</item>
     <item quantity="other">%d saringan</item>
   </plurals>
-  <string name="preview_edit_title">Pradeleng permakan</string>
+  <string name="preview_edit_title">Terawang permakan</string>
   <string name="preview_edit_summarize_edit_title">Rangkum permakan</string>
   <string name="preview_edit_summarize_edit_hint">Bagémana lu ningkatin halamannya?</string>
   <string name="preview_edit_minor_edit">Ni cuman permakan kecit</string>
@@ -1445,18 +1447,19 @@
   <string name="talk_templates_edit_message_dialog_save">Simpen</string>
   <string name="talk_templates_edit_message_dialog_delete">Apus</string>
   <string name="talk_templates_edit_message_updated">Pesen udah diperbaruin</string>
-  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Apa lu yakin pèngèn ngapus ni pesen %s deri daptar?</string>
-  <string name="talk_templates_message_deleted">Pesen udah diapus</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Pesen udah diapus</string>
   <string name="patroller_tasks_edits_list_title">Daptar permakan</string>
   <string name="patroller_tasks_edits_list_search_hint">Cari atawa saring permakan</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tenger: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Kaga\' ada</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Deleng halaman pemaké</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Deleng halaman obrolan</string>
-  <string name="patroller_tasks_edits_list_card_overflow_user_information">Inpormasi pemaké</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">Pengabaran pemaké</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Deleng sumbangsih pemaké</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Makasi</string>
-  <string name="patroller_tasks_edits_list_user_information_dialog_title">Inpormasi pemaké</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Pengabaran pemaké</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Rèkening deri: &lt;/b&gt; %s</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Jumblah permakan: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Tutup</string>
   <string name="patroller_tasks_filters_title">Saringan</string>
   <string name="patroller_tasks_filters_reset">Setèl ulang</string>
@@ -1464,7 +1467,9 @@
   <string name="patroller_tasks_filters_all_text">Semua</string>
   <string name="patroller_tasks_filters_user_status_header">Pendaptaran èn pengalaman pemaké</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Kaga\' kedaptar</string>
+  <string name="patroller_tasks_filters_user_status_unregistered_desc">Pemermak nyang kaga\' masup.</string>
   <string name="patroller_tasks_filters_user_status_registered">Kedaptar</string>
+  <string name="patroller_tasks_filters_user_status_registered_desc">Pemermak nyang masup.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Pendateng</string>
   <string name="patroller_tasks_filters_user_status_learners">Orang belajar</string>
   <string name="patroller_tasks_filters_user_status_experienced">Pemaké kawakan</string>
@@ -1494,17 +1499,16 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Rondain permakan</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Riwayat permakan makalah</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Balikin ni permakan?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Apa lu yakin pèngèn ngebalikin ni permakan?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Ngebalikin artinya ngombaliin kesudahan deri atu atawa lebi permakan.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Rangkuman (sunah)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Dumanin alasan pembalikan</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Pengombalian rampung</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Apa lu yakin pèngèn ngaterèt?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Aterèt rampung</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Deleng</string>
   <string name="patroller_tasks_overflow_report">Masalah ama keboléan</string>
   <string name="patroller_tasks_overflow_learn">Belajarin lebi lanjut</string>
+  <string name="patroller_onboarding_two_thank_title">Makasi</string>
+  <string name="patroller_onboarding_two_watch_title">Pantengin</string>
+  <string name="patroller_onboarding_two_warn_title">Wanti-wanti</string>
+  <string name="patroller_onboarding_two_undo_title">Balikin/Aterèt</string>
   <string name="data_opt_in_accept">Terima</string>
   <string name="data_opt_in_reject">Tolak</string>
   <string name="page_issues_title">Masalah halaman</string>

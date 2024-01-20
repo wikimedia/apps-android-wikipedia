@@ -49,6 +49,11 @@
         <item name="colorError">?attr/destructive_color</item>
 
         <item name="colorSurface">?attr/paper_color</item>
+        <item name="colorSurfaceContainerLowest">?attr/paper_color</item>
+        <item name="colorSurfaceContainerLow">?attr/paper_color</item>
+        <item name="colorSurfaceContainer">?attr/paper_color</item>
+        <item name="colorSurfaceContainerHigh">?attr/paper_color</item>
+        <item name="colorSurfaceContainerHighest">?attr/paper_color</item>
         <item name="colorOnSurface">?attr/primary_color</item>
 
         <item name="colorTertiaryContainer">?attr/paper_color</item>
@@ -224,6 +229,7 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:maxLines">10</item>
         <item name="lineHeight">24dp</item>
+        <item name="android:letterSpacing">0</item>
         <item name="android:textSize">16sp</item>
         <item name="android:paddingTop">0dp</item>
         <item name="android:paddingBottom">0dp</item>
@@ -476,12 +482,27 @@
         <item name="hintTextColor">?attr/progressive_color</item>
         <item name="helperTextTextColor">?attr/placeholder_color</item>
         <item name="counterTextColor">?attr/placeholder_color</item>
+        <item name="errorTextColor">?attr/destructive_color</item>
+        <item name="boxStrokeErrorColor">?attr/destructive_color</item>
         <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
     </style>
 
     <style name="TextInputLayoutStyle.EditSection">
         <item name="android:textColorHighlight">?attr/focus_color</item>
         <item name="strokeColor">@android:color/transparent</item>
+    </style>
+
+    <style name="SpinnerTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="android:textColor">?attr/primary_color</item>
+        <item name="android:textColorHint">?attr/placeholder_color</item>
+        <item name="boxBackgroundColor">?attr/background_color</item>
+        <item name="boxStrokeColor">?attr/input_stroke_color_state</item>
+        <item name="hintTextColor">?attr/progressive_color</item>
+        <item name="helperTextTextColor">?attr/placeholder_color</item>
+        <item name="counterTextColor">?attr/placeholder_color</item>
+        <item name="errorTextColor">?attr/destructive_color</item>
+        <item name="boxStrokeErrorColor">?attr/destructive_color</item>
+        <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
     </style>
 
     <style name="PagePopupMenu" parent="@style/Widget.Material3.PopupMenu.Overflow">
@@ -494,6 +515,23 @@
         <item name="elevationOverlayEnabled">false</item>
         <item name="materialAlertDialogTitleTextStyle">@style/H2.DialogTitle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
+    </style>
+
+    <style name="AlertDialogTheme.Input">
+        <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
+    </style>
+
+    <style name="AlertDialogTheme.Delete">
+        <item name="buttonBarPositiveButtonStyle">@style/DestructiveDialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
+    </style>
+
+    <style name="PlaceholderDialogButton" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/placeholder_color</item>
+    </style>
+
+    <style name="DestructiveDialogButton" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/destructive_color</item>
     </style>
 
     <style name="PreferenceDialogTheme" parent="ThemeOverlay.Material3.MaterialAlertDialog">
@@ -510,6 +548,11 @@
 
     <style name="App.BottomSheetStyle" parent="Widget.Material3.BottomSheet.Modal">
         <item name="behavior_peekHeight">@dimen/bottomSheetPeekHeight</item>
+    </style>
+
+    <style name="FloatingActionButtonRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 
 </resources>

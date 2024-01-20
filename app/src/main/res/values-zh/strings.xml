@@ -143,20 +143,20 @@
   <string name="menu_page_view_edit_history">查看编辑历史</string>
   <string name="menu_page_edit_history">编辑历史</string>
   <string name="menu_page_remove_from_watchlist">从监视列表中移除</string>
-  <string name="menu_page_watched">监视者</string>
-  <string name="edit_section_find_in_page">在页面中查找</string>
+  <string name="menu_page_watched">已监视</string>
+  <string name="edit_section_find_in_page">在页面内查找</string>
   <string name="menu_page_font_and_theme">字体与主题</string>
   <string name="menu_page_add_to_list">添加至阅读列表</string>
   <string name="menu_page_add_to_default_list">保存</string>
   <string name="feed_card_add_to_list">添加至阅读列表</string>
   <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">分享链接</string>
-  <string name="menu_article_share">分享文章</string>
+  <string name="menu_article_share">分享条目</string>
   <string name="menu_page_article_share">分享</string>
   <string name="menu_page_open_a_new_tab">打开新标签页</string>
   <string name="menu_page_new_tab">新标签页</string>
   <string name="menu_page_reading_lists">阅读列表</string>
-  <string name="menu_page_recently_viewed">最近访问</string>
+  <string name="menu_page_recently_viewed">近期浏览</string>
   <string name="menu_page_archive">存档</string>
   <string name="menu_long_press_open_page">打开</string>
   <string name="menu_long_press_open_in_new_tab">在新标签页中打开</string>
@@ -260,12 +260,12 @@
   <string name="create_account_ip_block_details">详情</string>
   <string name="preferences_general_heading">通用</string>
   <string name="preferences_account_heading">账号</string>
-  <string name="wikipedia_app_faq">维基百科应用FAQ</string>
+  <string name="wikipedia_app_faq">维基百科应用常见问题</string>
   <string name="send_feedback">发送应用反馈</string>
   <string name="create_account_account_created_toast">账号已创建！</string>
   <string name="preferences_heading_syncing">同步</string>
   <string name="preferences_heading_data_usage">数据使用</string>
-  <string name="preferences_heading_experimental">实验性</string>
+  <string name="preferences_heading_experimental">实验功能</string>
   <string name="preference_title_sync_reading_lists_from_account">阅读列表同步</string>
   <string name="preference_title_download_reading_list_articles">下载阅读列表的条目</string>
   <string name="preference_summary_sync_reading_lists">通过将阅读列表保存至您的维基百科账号，在不同设备上同步阅读列表</string>
@@ -327,8 +327,8 @@
   <string name="edit_warn">警告</string>
   <string name="edit_intent">意图%s</string>
   <plurals name="edit_diff_bytes">
-    <item quantity="one">%s 字节</item>
-    <item quantity="other">%s 字节</item>
+    <item quantity="one">%s字节</item>
+    <item quantity="other">%s字节</item>
   </plurals>
   <string name="edit_zoom_in">放大</string>
   <string name="edit_zoom_out">缩小</string>
@@ -353,7 +353,7 @@
   <string name="abusefilter_text_warn">自动过滤器识别该编辑为没有潜在建设性的编辑。该编辑可能含有以下一种或多种问题：&lt;br /&gt;&lt;br /&gt;· 全部大写&lt;br /&gt;· 清空条目或有垃圾内容&lt;br /&gt;· 无关的外部链接或图像&lt;br /&gt;· 重复的文字</string>
   <string name="abusefilter_text_disallow">自动过滤器识别该编辑为没有潜在建设性的编辑或是潜在的破坏。&lt;br /&gt;&lt;br /&gt;维基百科是一部百科全书，只收录中立、有关注度的内容。</string>
   <string name="page_similar_titles">类似页面</string>
-  <string name="search_did_you_mean">您是指“%s”吗？</string>
+  <string name="search_did_you_mean">您是想搜索“%s”吗？</string>
   <string name="search_recent_header">最近搜索：</string>
   <string name="search_results_count_zero">没有结果</string>
   <plurals name="search_results_count">
@@ -446,7 +446,7 @@
   <string name="enable_location_service">启用</string>
   <string name="location_permissions_enable_prompt">启用位置权限来查看您附近的地点。</string>
   <string name="location_permissions_enable_action">打开</string>
-  <string name="error_webview_updating">Android系统的WebView当前正在更新。请稍后再试。</string>
+  <string name="error_webview_updating">Android System WebView目前正在更新。请稍后重试。</string>
   <plurals name="multi_items_selected">
     <item quantity="one">选中%d个</item>
     <item quantity="other">选中%d个</item>
@@ -460,7 +460,7 @@
   <string name="view_wiki_error_message_timeout">无法连接到维基百科。请检查您的网络连接，或稍后再试</string>
   <string name="reference_title">参考文献%s</string>
   <string name="reference_list_title">参考文献</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">图像变暗（在暗色主题下）</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">调暗图像（深色主题下）</string>
   <string name="preference_title_prefer_offline_content">偏好离线内容</string>
   <string name="preference_summary_prefer_offline_content">通过加载离线可用的条目而不是始终加载条目的最新版本来节省数据使用量</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">匹配系统主题</string>
@@ -684,7 +684,7 @@
   <string name="reading_lists_preview_save_dialog_title_hint">标题</string>
   <string name="reading_lists_preview_save_dialog_cancel">取消</string>
   <string name="reading_lists_preview_save_dialog_save">储存</string>
-  <string name="reading_lists_preview_saved_snackbar">已储存阅读清单</string>
+  <string name="reading_lists_preview_saved_snackbar">阅读列表已保存</string>
   <string name="reading_lists_preview_saved_snackbar_action">查看</string>
   <string name="user_option_sync_label">参数设置</string>
   <string name="notification_reverted_title">已回退的编辑</string>
@@ -1372,7 +1372,6 @@
   <string name="revision_diff_from">从：</string>
   <string name="revision_diff_to">至：</string>
   <string name="revision_diff_line_num">第%d行</string>
-  <string name="revision_diff_line_nums">第%d到第%d行</string>
   <string name="revision_diff_lines_from_to">第%1$d–%2$d行</string>
   <string name="revision_diff_line_added">已添加行</string>
   <string name="revision_diff_line_removed">已移除行</string>
@@ -1506,8 +1505,9 @@
   <string name="talk_templates_edit_message_dialog_save">保存</string>
   <string name="talk_templates_edit_message_dialog_delete">删除</string>
   <string name="talk_templates_edit_message_updated">消息已更新</string>
-  <string name="talk_templates_edit_message_delete_description">您确定要从列表中删除“%s”这个消息吗？</string>
-  <string name="talk_templates_message_deleted">消息已删除</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="other">消息已删除</item>
+  </plurals>
   <string name="patroller_tasks_edits_list_title">编辑列表</string>
   <string name="patroller_tasks_edits_list_search_hint">搜索或过滤编辑</string>
   <string name="patroller_tasks_edits_list_card_tags_text">标签： %s</string>

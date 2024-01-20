@@ -3,6 +3,7 @@
 * Amara-Amaziɣ
 * Brahim-essaidi
 * Hakim1bal
+* Mohamed Belarhzali
 * ⵕⴰⵊⵉ
 -->
 <resources>
@@ -320,4 +321,5 @@
   <string name="talk_title">ⵎⵙⴳⴷⴰⵍ</string>
   <string name="talk_add_reply">ⵔⴰⵔ</string>
   <string name="talk_reply_subject">ⵉⵎⵔⵙⵉ</string>
+  <string name="talk_templates_menu_remove_message">ⴽⴽⵙ ⵜⵓⵣⵉⵏⵜ</string>
 </resources>

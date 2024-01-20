@@ -64,7 +64,7 @@
   <string name="nav_item_suggested_edits">Modifiche</string>
   <string name="nav_item_more">Altro</string>
   <string name="nav_item_search">Cerca</string>
-  <string name="error_network_error">Non è possibile connettersi ad Internet.</string>
+  <string name="error_network_error">Impossibile connettersi ad Internet.</string>
   <string name="page_error_retry">Riprova</string>
   <string name="card_offline_error_retry">Riprova</string>
   <string name="storage_access_error_retry">Riprova</string>
@@ -73,7 +73,7 @@
   <string name="page_error_back_to_main">Torna indietro</string>
   <string name="error_back">Torna indietro</string>
   <string name="error_next">Successivo</string>
-  <string name="menu_clear_all_history">Cancella la cronologia</string>
+  <string name="menu_clear_all_history">Cancella cronologia</string>
   <string name="history_item_deleted">%s rimosso dalla cronologia</string>
   <string name="history_items_deleted">%d voci rimosse dalla cronologia</string>
   <string name="history_item_delete_undo">Annulla</string>
@@ -86,7 +86,7 @@
   <string name="wikimedia_commons">Wikimedia Commons</string>
   <string name="wikidata">Wikidata</string>
   <string name="dialog_title_clear_history">Cancella cronologia di navigazione</string>
-  <string name="dialog_message_clear_history">Questo cancellerà tutta la tua cronologia di navigazione e chiuderà tutte le schede attualmente aperte. Sei sicuro?</string>
+  <string name="dialog_message_clear_history">Se confermi cancellerai tutta la tua cronologia di navigazione e chiuderai tutte le schede attualmente aperte. Sei sicuro?</string>
   <string name="dialog_message_clear_history_yes">Sì</string>
   <string name="dialog_message_clear_history_no">No</string>
   <string name="share_via">Condividi tramite</string>
@@ -304,6 +304,9 @@
   <string name="edit_undo">Annulla</string>
   <string name="edit_redo">Ripeti</string>
   <string name="edit_rollback">Ripristina</string>
+  <string name="edit_warn">Avviso</string>
+  <string name="edit_damage">%s di danni</string>
+  <string name="edit_intent">%s di intenzione</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
     <item quantity="other">%s byte</item>
@@ -595,7 +598,7 @@
     <item quantity="other">Sei sicuro di voler eliminare gli elenchi di lettura %d?</item>
   </plurals>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accedi per abilitare la sincronizzazione</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accedi per consentire il salvataggio degli elenchi di lettura sulla tua utenza.</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accedi alla tua utemza per consentire il salvataggio degli elenchi di lettura.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Annulla</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Entra</string>
   <string name="reading_list_turned_sync_off_dialog_title">La sincronizzazione degli elenchi di lettura è stata disattivata</string>
@@ -905,6 +908,7 @@
   <string name="suggested_edits_describe_articles">Descrivi voce</string>
   <string name="suggested_edits_caption_images">Didascalia delle immagini</string>
   <string name="suggested_edits_tag_images">Etichetta le immagini</string>
+  <string name="suggested_edits_edit_patrol_review">Revisiona</string>
   <string name="suggested_edits_review_description">Revisiona descrizione della voce</string>
   <string name="suggested_edits_add_description_button">Aggiungi descrizione</string>
   <string name="suggested_edits_edit_description_button">Modifica descrizione</string>
@@ -1078,11 +1082,21 @@
   </plurals>
   <string name="suggested_edits_image_recommendations_task_title">Immagini della voce</string>
   <string name="suggested_edits_image_recommendations_task_detail">Aggiungi immagini suggerite alle voci di Wikipedia per migliorarne la comprensione.</string>
+  <string name="image_recommendation_tutorial">Tutorial</string>
   <string name="image_recommendation_accept">Sì</string>
+  <string name="image_recommendation_reject">No</string>
+  <string name="image_recommendation_notsure">Non sono sicuro</string>
   <string name="image_recommendation_reject_title">Perché no?</string>
   <string name="image_recommendation_reject_dont_know">Non conosco questo argomento</string>
+  <string name="image_recommendation_reject_other">Altro</string>
+  <string name="image_recommendation_reject_submit">Invia</string>
+  <string name="image_recommendation_tooltip_main">Aggiungi le immagini mancanti alle voci in Modifiche suggerite</string>
+  <string name="image_recommendation_tooltip_next">Successivo</string>
   <string name="suggested_edits_report_feature_subject">Problemi con le modifiche suggerite</string>
+  <string name="edit_summary_added_image">Immagine aggiunta</string>
+  <string name="edit_summary_added_caption">Didascalia aggiunta</string>
   <string name="edit_summary_added_image_and_caption">Immagine e didascalia aggiunti</string>
+  <string name="edit_published_view">Visualizza</string>
   <string name="file_page_activity_title">Pagina del file</string>
   <string name="file_page_add_image_caption_button">Aggiungi didascalia immagine</string>
   <string name="file_page_add_image_tags_button">Aggiungi etichette all\'immagine</string>
@@ -1224,6 +1238,9 @@
   <string name="talk_new_topic">Nuovo argomento</string>
   <string name="talk_new_topic_submitted">Argomento pubblicato.</string>
   <string name="talk_warn_save_dialog_message">Salva come nuovo messaggio</string>
+  <string name="talk_warn_save_dialog_publish">Pubblica</string>
+  <string name="talk_warn_save_dialog_cancel">Annulla</string>
+  <string name="talk_warn_saved_message_dropdown">Messaggi salvati</string>
   <string name="talk_page_empty">Questa pagina di discussione è vuota.</string>
   <string name="talk_page_empty_title">La conversazione inizia qui</string>
   <string name="talk_page_empty_content">Le pagine di discussione sono dove le persone discutono su come rendere il contenuto di Wikipedia il migliore possibile. Inizia aggiungendo un nuovo argomento di discussione per connetterti e collaborare con una comunità di wikipediani.</string>
@@ -1304,7 +1321,6 @@
   <string name="revision_diff_from">Da:</string>
   <string name="revision_diff_to">A:</string>
   <string name="revision_diff_line_num">Riga %d</string>
-  <string name="revision_diff_line_nums">Righe %d–%d</string>
   <string name="revision_diff_lines_from_to">Righe %1$d–%2$d</string>
   <string name="revision_diff_line_added">Riga aggiunta</string>
   <string name="revision_diff_line_removed">Riga rimossa</string>
@@ -1381,6 +1397,7 @@
   <string name="watchlist_filter_type_of_change_wikidata_edits">Modifiche di Wikidata</string>
   <string name="watchlist_filter_type_of_change_logged_actions">Azioni di registro</string>
   <string name="watchlist_filter_type_of_change_new_users">Nuovi utenti</string>
+  <string name="watchlist_filter_reset_button">Reimposta</string>
   <plurals name="watchlist_number_of_filters">
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtri</item>
@@ -1421,15 +1438,48 @@
   <string name="reading_list_share_message_v2">Ciao! Vorrei condividere il mio elenco di lettura di Wikipedia con te:</string>
   <string name="reading_list_share_survey_title">Puoi aiutarci a migliorare \"Condividi elenchi di lettura\"?</string>
   <string name="reading_list_share_survey_body">\"Condividi elenchi di lettura\" è una funzione di prova e abbiamo bisogno del tuo commento per migliorarla o rimuoverla.</string>
+  <string name="talk_templates_new_message_title">Nuovo messaggio</string>
   <string name="talk_templates_new_message_compose_hint">Scrivi un messaggio</string>
+  <string name="talk_templates_new_message_save">Salva</string>
+  <string name="talk_templates_new_message_dialog_title">Salva modifiche</string>
+  <string name="talk_templates_new_message_dialog_description">Aggiungi titolo e salva il messaggio.</string>
+  <string name="talk_templates_new_message_dialog_hint">Titolo del messaggio</string>
+  <string name="talk_templates_new_message_dialog_save">Salva</string>
   <string name="talk_templates_new_message_dialog_cancel">Annulla</string>
+  <string name="talk_templates_new_message_dialog_exists">Il template \"%s\" esiste già.</string>
+  <string name="talk_templates_new_message_saved">Il messaggio è stato salvato</string>
   <string name="talk_templates_edit_message_dialog_title">Modifica messaggio</string>
+  <string name="talk_templates_edit_message_dialog_save">Salva</string>
+  <string name="talk_templates_edit_message_dialog_delete">Cancella</string>
+  <string name="talk_templates_edit_message_updated">Il messaggio è stato aggiornato</string>
+  <string name="talk_templates_menu_remove_message">Rimuovi messaggio</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Sei sicuro di voler cancellare il messaggio dall\'elenco?</item>
+    <item quantity="other">Sei sicuro di voler cancellare i messaggi dall\'elenco?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Il messaggio è stato cancellato</item>
+    <item quantity="other">I messaggi sono stati cancellati</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Il titolo non può essere vuoto.</string>
+  <string name="patroller_tasks_edits_list_title">Elenco delle modifiche</string>
+  <string name="patroller_tasks_edits_list_search_hint">Cerca o filtra le modifiche</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etichette: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Nessuno</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Vedi la pagina utente</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Vedi la pagina di discussione</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Informazioni utente</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Ringrazia</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">Informazioni sull\'utente</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">Chiudi</string>
+  <string name="patroller_tasks_filters_title">Filtri</string>
+  <string name="patroller_tasks_filters_reset">Reimposta</string>
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Tutto</string>
   <string name="patroller_tasks_filters_automated_contributions_header">Contributi automatici</string>
+  <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_filters_significance_minor">Modifiche minori</string>
+  <string name="patroller_tasks_filters_significance_edits">Modifiche non minori</string>
   <string name="patroller_tasks_filters_contribution_quality_good">Molto probabilmente buona</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Molto probabilmente ha problemi</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Probabile in malafede</string>
@@ -1439,19 +1489,22 @@
     <item quantity="other">%d filtri</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Verifica modifica</string>
+  <string name="patroller_tasks_patrol_edit_snackbar_view">Visualizza</string>
+  <string name="patroller_tasks_overflow_learn">Ulteriori informazioni</string>
   <string name="patroller_onboarding_two_thank_title">Ringrazia</string>
+  <string name="patroller_onboarding_two_watch_title">Osserva</string>
+  <string name="patroller_onboarding_two_watch_content">Vuoi tenere traccia delle modifiche delle voci? Aggiungilo alla tua lista osservati. Visualizzalo in \"Altro\".</string>
   <string name="patroller_onboarding_two_warn_title">Avvisi</string>
   <string name="patroller_onboarding_two_undo_title">Annulla/Ripristina</string>
   <string name="patroller_onboarding_two_undo_content">Scegli \"Annulla\" per annullare o ripristinare una modifica potenzialmente distruttiva.</string>
-  <string name="patroller_onboarding_three_title">Invia dati anonimi</string>
-  <string name="patroller_onboarding_three_content">Contribuisci a migliorare la funzionalità facendoci sapere come la usi. I dati raccolti sono anonimi. &lt;a href=\"#privacy\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
-  <string name="patroller_onboarding_three_switch">Invia rapporti sull\'utilizzo</string>
   <string name="patroller_diff_feedback_dialog_message">Sei soddisfatto di questa funzionalità?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Soddisfatto</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutrale</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Non soddisfatto</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Come possiamo migliorare la funzionalità?</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">Commenti</string>
   <string name="patroller_diff_feedback_dialog_submit">Invia</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">Commento inviato</string>
   <string name="data_opt_in_accept">Accetta</string>
   <string name="data_opt_in_reject">Rifiuta</string>
   <string name="donation_campaign_maybe_later_snackbar">Te lo ricorderemo di nuovo domani.</string>

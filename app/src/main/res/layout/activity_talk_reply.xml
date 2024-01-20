@@ -21,13 +21,62 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <LinearLayout
+                android:id="@+id/talkTemplateContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/P.MaterialListTitle"
+                    android:id="@+id/talkTemplateMessage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="12dp"
+                    android:layout_weight="1"
+                    android:text="@string/talk_templates_new_message_description"/>
+
+                <ImageView
+                    android:id="@+id/talkTemplateButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="@string/talk_templates_manage_title"
+                    android:padding="12dp"
+                    app:tint="?attr/secondary_color"
+                    app:srcCompat="@drawable/ic_manage_template" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/SpinnerTextInputLayoutStyle"
+                android:id="@+id/talkTemplateSpinnerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="@string/talk_warn_saved_message_dropdown"
+                android:visibility="gone">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/talkTemplateSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/replySubjectLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
                 android:hint="@string/talk_reply_subject">
 
                 <org.wikipedia.views.PlainPasteEditText
@@ -44,9 +93,8 @@
                 android:id="@+id/replyInputView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp" />
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp" />
 
             <TextView
                 android:id="@+id/licenseText"
@@ -88,7 +136,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="?attr/paper_color"
-        android:elevation="12dp"/>
+        android:elevation="12dp"
+        app:headingsEnable="false"/>
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/replyToolbar"

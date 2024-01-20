@@ -184,6 +184,7 @@
   <string name="create_account_generic_error">کھاتہٕ ہؠکہِ نہٕ بٕنِتھ</string>
   <string name="create_account_next">اَمہِ پتہٕ</string>
   <string name="email_recommendation_dialog_title">کھاتہٕ بنأوِو مگر برقی خط وغٲر؟</string>
+  <string name="email_recommendation_message">اَہَم! تِکیٛازِ کھاتہٕ ریکوری خٲطرٕ چُھ ای میلٕچ ضرورت۔</string>
   <string name="email_recommendation_dialog_create_without_email_action">برقی خط وغٲر تھٲوِو جٲری</string>
   <string name="email_recommendation_dialog_create_with_email_action">برقی خط کٕریٚو شٲمل</string>
   <string name="create_account_button">کھاتہٕ بَنٲیو</string>
@@ -201,8 +202,10 @@
   <string name="preferences_heading_experimental">تجرُبأتی</string>
   <string name="preference_title_sync_reading_lists_from_account">پرنٕچہِ فہرستہِ ہِنٛز سِنٛکِنٛگ</string>
   <string name="preference_title_download_reading_list_articles">ڈاوُنلوڈ کٕریٚو پرنٕچہِ فہرست مَضموٗن</string>
+  <string name="preference_summary_sync_reading_lists">پننِس وِکیٖپیٖڈیا کھاتَس پؠٹھ مَحفوٗظ کٔرِتھ کٔرِو مُختٔلِف ڈیوایسَن منٛز پرنٕچ فِہرِسَت سینک</string>
   <string name="preferences_privacy_settings_heading">رازدأری</string>
   <string name="preference_title_eventlogging_opt_in">استعمالُک رِپورٹ سوٗزِیٚو</string>
+  <string name="preference_summary_eventlogging_opt_in">وِکیٖمیٖڈیاہَس دِیِو اِجازت زِ تِم کَرن یہِ معلوٗماتھ حٲصِل زِ تُہؠ کِتھ کٔنؠ چھِو ایپ اِستِمال کَرانتاکہِ ایپ ییٚہِ بَھتَر بَناونہٕ</string>
   <string name="preference_title_auto_upload_crash_reports">نۄقسانُک رِپورٹ سوٗزِیٚو</string>
   <string name="history_filter_list_hint">فِلٹر تَوأریٖخ</string>
   <string name="page_protected_can_not_edit_title">یہِ صَفہٕ چھُ مَحفوٗظ</string>
@@ -241,6 +244,7 @@
   <string name="edit_undo">رَد کٕرو</string>
   <string name="edit_redo">بَحال کٕرو</string>
   <string name="edit_rollback">واپس نیُن</string>
+  <string name="edit_warn">خَبَردار</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
     <item quantity="other">%s bytes</item>
@@ -294,7 +298,6 @@
   <string name="gallery_add_image_caption_in_language_button">تصویٖر مُکالمہٕ کٕریٚو درٕج (%s)</string>
   <string name="err_cannot_save_file">فیِل ہیکہِ نہٕ مَحفوٗظ روٗزِتھ</string>
   <string name="expand_refs">وَہراونہٕ کھٲترٕ کٕریٚو ٹُھک</string>
-  <string name="cc_logo">Creative Commons license</string>
   <string name="captcha_image">کیپچا ہٕچ تصویٖر</string>
   <string name="gallery_fair_use_license">مُنصفانہٕ استعمال</string>
   <string name="gallery_uploader_unknown">نامعلوم اَپلوڈَر</string>
@@ -505,6 +508,7 @@
   <string name="description_edit_cancel_hint">مَنسوٗخ</string>
   <string name="description_edit_success_done">دَرٕج</string>
   <string name="description_edit_success_did_you_know">تۄہہِ چھا پَتا؟</string>
+  <string name="customize_toolbar_category_menu">مینیو</string>
   <string name="suggested_edits_describe_articles">مَضموٗنَن کٕریٚو وؠژھٕنٲی</string>
   <string name="suggested_edits_caption_images">تصویٖرَن کھٲترٕ مُکالمہٕ</string>
   <string name="suggested_edits_tag_images">تصویٖرٕ ٹیگ</string>
@@ -563,6 +567,10 @@
   <string name="suggested_edits_contribution_date_yesterday_text">راتھ</string>
   <string name="suggested_edits_encourage_account_creation_title">تُہؠ چھا خَبَر ہَر کانٛہہ ہیٚکہِ وِکیٖپیٖڈیا اؠڈِٹ کٔرِتھ؟</string>
   <string name="suggested_edits_encourage_account_creation_login_button">وِکیٖپیٖڈیاہَس منٛز دٲخل گژھُن / شٲمِل گژھُن</string>
+  <string name="suggested_edits_report_suggestion">رَپوٹھ کٔرِو</string>
+  <string name="suggested_edits_suggestion_report_submitted">رَپوٹھ آے دِنہٕ</string>
+  <string name="image_recommendation_tooltip_next">برٛونٛہہ</string>
+  <string name="edit_published_view">وُچھِو</string>
   <string name="file_page_activity_title">فَیِل صَفہٕ</string>
   <string name="file_page_add_image_caption_button">تصویٖر مُکالمہٕ کٕریٚو درٕج</string>
   <string name="file_page_edit_button_content_description">اؠڈِٹ %s</string>
@@ -721,7 +729,6 @@
   <string name="revision_diff_from">پؠٹھ:</string>
   <string name="revision_diff_to">تام:</string>
   <string name="revision_diff_line_num">سٕتٕر %d</string>
-  <string name="revision_diff_line_nums">سٕتٕرٕ %d-%d</string>
   <string name="revision_diff_lines_from_to">سٕترٕ %1$d-%2$d</string>
   <string name="revision_diff_line_added">سٕتٕر کٕرٕکھ درٕج</string>
   <string name="revision_diff_line_removed">سٕتٕر مِٹٲوٕکھ</string>

@@ -1315,7 +1315,6 @@
   <string name="revision_diff_from">प्रेषक:</string>
   <string name="revision_diff_to">प्राप्तकर्ता:</string>
   <string name="revision_diff_line_num">लाइन %d</string>
-  <string name="revision_diff_line_nums">लाइन्स %d–%d</string>
   <string name="revision_diff_lines_from_to">पंक्तियाँ %1$d–%2$d</string>
   <string name="revision_diff_line_added">लाइन जोड़ी गई</string>
   <string name="revision_diff_line_removed">लाइन हटाई गई</string>
@@ -1438,6 +1437,7 @@
   <string name="reading_list_share_survey_title">क्या आप \"रीडिंग लिस्ट साझा करें\" में सुधार लाने में हमारी सहायता करेंगे?</string>
   <string name="reading_list_share_survey_body">\"रीडिंग लिस्ट साझा करें\" इस टेस्ट फीचर है और उसे सुधरने या हटाने में आपकी फीडबैक की जरूरत है।</string>
   <string name="talk_templates_new_message_dialog_cancel">रद्द करें</string>
+  <string name="talk_templates_menu_remove_message">संदेश हटाएँ</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">कोई नहीं</string>
   <string name="patroller_onboarding_two_warn_title">चेतावनी</string>
   <string name="data_opt_in_accept">स्वीकार करें</string>

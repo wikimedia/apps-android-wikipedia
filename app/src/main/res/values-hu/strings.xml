@@ -294,7 +294,7 @@
   <string name="edit_conflict_title">Szerkesztési ütközés</string>
   <string name="edit_conflict_message">Ezt a lapot egy másik felhasználó már módosította, és ez ütközik a szerkesztéseddel. Másold ki a szerkesztéseidet, menj vissza az előző oldalra és frissítsd az oldalt, majd próbálkozz újra a szerkesztéssel.</string>
   <string name="edit_notices">Szerkesztési megjegyzés</string>
-  <string name="edit_notices_please_read">Módosítás előtt elolvasni</string>
+  <string name="edit_notices_please_read">Kérjük, olvasd el szerkesztés előtt</string>
   <string name="edit_notices_show_auto">Szerkesztési megjegyzések megjelenése</string>
   <string name="edit_notices_tooltip">Érintsd meg ezt a gombot a szócikk szerkesztési megjegyzéseinek megjelenítéséhez.</string>
   <string name="find_next">Következő keresése</string>
@@ -1330,7 +1330,6 @@
   <string name="revision_diff_from">Ettől:</string>
   <string name="revision_diff_to">Eddig:</string>
   <string name="revision_diff_line_num">%d. sor</string>
-  <string name="revision_diff_line_nums">%d–%d. sor</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d. sor</string>
   <string name="revision_diff_line_added">Sor hozzáadva</string>
   <string name="revision_diff_line_removed">Sor eltávolítva</string>
@@ -1471,7 +1470,7 @@
   <string name="talk_templates_edit_message_dialog_save">Mentés</string>
   <string name="talk_templates_edit_message_dialog_delete">Törlés</string>
   <string name="talk_templates_edit_message_updated">Az üzenet frissítve</string>
-  <string name="talk_templates_message_deleted">Az üzenet törölve</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Az üzenet törölve</string>
   <string name="patroller_tasks_edits_list_title">Szerkesztések listája</string>
   <string name="patroller_tasks_edits_list_search_hint">Szerkesztések keresése vagy szűrése</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Címkék: %s</string>
@@ -1506,8 +1505,6 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems">Valószínűleg rosszhiszemű</string>
   <string name="patroller_tasks_filters_user_intent_bad">Szinte biztosan rosszhiszemű</string>
   <string name="patroller_tasks_patrol_edit_title">Járőr szerkesztése</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Visszavonod ezt a szerkesztést?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Összefoglaló (nem kötelező)</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Visszaállítás kész</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Megtekintés</string>
   <string name="patroller_tasks_overflow_report">Probléma a funkcióval</string>

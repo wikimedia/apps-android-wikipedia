@@ -6,6 +6,7 @@
 * Ankan
 * Bellayet
 * Bodhisattwa
+* Borhan
 * Cooltey
 * Dbrant
 * Elias Ahmmad
@@ -1158,14 +1159,15 @@
   <string name="reading_list_share_survey_title">আপনি কি আমাদের \"পড়ার তালিকা শেয়ার\" উন্নত করতে সহায়তা করতে পারবেন?</string>
   <string name="reading_list_share_survey_body">\"পড়ার তালিকা শেয়ার\" একটি পরীক্ষামূলক ফিচার এবং এটি উন্নত বা অপসারণ করতে আমাদের আপনার প্রতিক্রিয়া প্রয়োজন।</string>
   <string name="talk_templates_new_message_save">সংরক্ষণ</string>
+  <string name="talk_templates_menu_remove_message">বার্তা সরান</string>
   <string name="patroller_tasks_edits_list_card_tags_text">ট্যাগ: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">কোনোটি নয়</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">ব্যবহারকারীর পাতা দেখুন</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">ধন্যবাদ</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">বন্ধ</string>
   <string name="patroller_tasks_filters_wiki_filter_header">উইকি</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">সারাংশ (ঐচ্ছিক)</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">দেখুন</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">আমরা কীভাবে এই বৈশিষ্ট্যটি উন্নত করতে পারি?</string>
   <string name="data_opt_in_accept">গ্রহণ করুন</string>
   <string name="data_opt_in_reject">প্রত্যাখ্যান করুন</string>
   <string name="page_issues_title">পাতার সমস্যা</string>

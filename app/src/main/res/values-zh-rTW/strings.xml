@@ -188,7 +188,7 @@
   <string name="logged_out_in_background_dialog">您已登出維基百科。您要重新登入嗎？</string>
   <string name="logged_out_in_background_login">登入</string>
   <string name="logged_out_in_background_cancel">取消</string>
-  <string name="history_empty_title">沒有近期查看過的條目</string>
+  <string name="history_empty_title">沒有近期檢視過的條目</string>
   <string name="history_empty_message">追蹤您在此讀過的內容。</string>
   <string name="history_offline_articles_toast">一些在歷史紀錄裡的條目可能無法在離線時閱覽。</string>
   <string name="search_empty_message">以您的語言來搜尋閱讀自由的百科全書</string>
@@ -257,10 +257,10 @@
   <string name="privacy_policy_description">隱私權政策</string>
   <string name="terms_of_use_description">使用條款</string>
   <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:關於</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://zh.wikipedia.org/wiki/Wikipedia:账号请求</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.zh_TW</string>
@@ -289,6 +289,7 @@
   <string name="edit_redo">重做</string>
   <string name="edit_rollback">回退</string>
   <string name="edit_warn">警告</string>
+  <string name="edit_damage">破壞：%s</string>
   <string name="edit_intent">意圖：%s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s 位元組</item>
@@ -418,6 +419,10 @@
   <string name="multi_select_items_selected">%d 個已選擇</string>
   <string name="error_message_generic">發生錯誤</string>
   <string name="view_link_preview_error_button_dismiss">關閉</string>
+  <string name="link_preview_dialog_read_button">閱讀</string>
+  <string name="link_preview_dialog_save_button">儲存</string>
+  <string name="link_preview_dialog_saved_button">已儲存</string>
+  <string name="link_preview_dialog_share_button">分享</string>
   <string name="error_page_does_not_exist">此頁面不存在</string>
   <string name="error_user_page_does_not_exist">維基百科上沒有此確切名稱的&lt;a href=\"%1$s\"&gt;使用者頁面&lt;/a&gt;。在一般情況下，此頁面應是由&lt;b&gt;%2$s&lt;/b&gt;建立與編輯。如有疑問，請確認「%3$s」是否存在。</string>
   <string name="view_wiki_error_message_offline">無法連接網路</string>
@@ -738,13 +743,13 @@
   <string name="preference_title_notification_user_talk">討論頁</string>
   <string name="preference_summary_notification_user_talk">來自討論頁的訊息與回覆</string>
   <string name="preference_title_notification_email_user">已接收電子郵件</string>
-  <string name="preference_summary_notification_email_user">某人透過 wiki 發送電子郵件給您</string>
-  <string name="preference_title_notification_user_rights">使用者權限更改</string>
-  <string name="preference_summary_notification_user_rights">當您使用者權限更改時接收</string>
-  <string name="preference_title_notification_article_linked">您所創建條目的連結</string>
+  <string name="preference_summary_notification_email_user">某人透過 wiki 傳送電子郵件給您</string>
+  <string name="preference_title_notification_user_rights">使用者權限變更</string>
+  <string name="preference_summary_notification_user_rights">當您的使用者權限變更時接收</string>
+  <string name="preference_title_notification_article_linked">您所建立條目的連結</string>
   <string name="preference_summary_notification_article_linked">當您所建立的頁面有做出新連結時接收</string>
-  <string name="preference_category_push_notifications">推發通知</string>
-  <string name="preference_title_customize_push_notifications">自訂推發通知</string>
+  <string name="preference_category_push_notifications">推播通知</string>
+  <string name="preference_title_customize_push_notifications">自訂推播通知</string>
   <string name="preference_category_display_settings">顯示設定</string>
   <string name="preference_title_hide_read_notifications">隱藏閱讀通知</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">維基百科</string>
@@ -906,7 +911,7 @@
   <string name="suggested_edits_edit_patrol_hint">檢閱最近的編輯並判斷內容是否具有建設性。</string>
   <string name="suggested_edits_edit_patrol_review">檢閱</string>
   <string name="suggested_edits_review_description">檢閱條目描述</string>
-  <string name="suggested_edits_add_description_button">添加描述</string>
+  <string name="suggested_edits_add_description_button">新增描述</string>
   <string name="suggested_edits_edit_description_button">編輯描述</string>
   <string name="suggested_edits_add_translation_button">新增譯文</string>
   <string name="suggested_edits_edit_translation_button">編輯譯文</string>
@@ -923,7 +928,7 @@
   <string name="suggested_edits_task_image_caption_title">新增圖片說明</string>
   <string name="suggested_edits_task_image_caption_description">為圖片新增缺少的簡短說明</string>
   <string name="suggested_edits_task_translate_caption_title">翻譯圖片說明</string>
-  <string name="suggested_edits_task_translate_caption_description">翻譯說明成其它語言</string>
+  <string name="suggested_edits_task_translate_caption_description">翻譯說明成其他語言</string>
   <string name="suggested_edits_task_multilingual_title">更多的多語言編者任務</string>
   <string name="suggested_edits_task_multilingual_description">若您有讀寫一種以上語言的維基百科，就可接受翻譯任務。</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">直到您編輯過 %d 圖片說明才會解開</string>
@@ -961,7 +966,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
   <string name="suggested_edits_feed_card_add_image_caption">新增圖片說明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">新增圖片說明（%s）</string>
-  <string name="suggested_edits_feed_card_add_image_tags">添加圖像標籤</string>
+  <string name="suggested_edits_feed_card_add_image_tags">新增圖片標籤</string>
   <string name="suggested_edits_snackbar_survey_text">您的編輯體驗如何？請花些許時間來填寫有關應用程式內編輯的調查。</string>
   <string name="suggested_edits_snackbar_survey_action_text">參加調查</string>
   <string name="suggested_edits_task_action_text_add">新增</string>
@@ -973,7 +978,7 @@
   <string name="suggested_edits_image_tags_onboarding_title">標記圖片來讓它們能更容易被找到。</string>
   <string name="suggested_edits_image_tags_onboarding_text">透過確認標籤，您可以協助圖片在維基共享資源上能更容易被搜尋到，維基共享資源是讓維基百科能使用圖片在條目裡的自由許可圖片儲存庫。</string>
   <string name="suggested_edits_image_tags_onboarding_note">僅添加您挑選的標籤到圖片上。</string>
-  <string name="suggested_edits_image_tags_task_detail">添加自定義的標籤到圖片，來讓它能更容易被找到。</string>
+  <string name="suggested_edits_image_tags_task_detail">新增自訂的標籤到圖片，來讓它能更容易被找到。</string>
   <string name="suggested_edits_image_tags_choose">新增或挑選符合的標籤</string>
   <string name="suggested_edits_image_tags_published_list">已發布標籤</string>
   <string name="suggested_edits_image_tags_search">搜尋標籤</string>
@@ -1042,8 +1047,8 @@
   </plurals>
   <string name="suggested_edits_contribution_seen_text">過去 30 天內被觀看過 %s 次。</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
-    <item quantity="one">您已添加 %d 個標籤</item>
-    <item quantity="other">您已添加 %d 個標籤</item>
+    <item quantity="one">您已新增 %d 個標籤</item>
+    <item quantity="other">您已新增 %d 個標籤</item>
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
@@ -1092,7 +1097,7 @@
   <string name="image_recommendation_reject_low_quality">圖片為低品質</string>
   <string name="image_recommendation_reject_dont_know">我不了解這個主題</string>
   <string name="image_recommendation_reject_other">其他</string>
-  <string name="image_recommendation_reject_submit">提交</string>
+  <string name="image_recommendation_reject_submit">送出</string>
   <string name="image_recommendation_tooltip_main">將缺少的圖片加到建議編輯裡的條目</string>
   <string name="image_recommendation_onboarding_1">圖片可以幫助人們理解，但很多條目沒有圖片。</string>
   <string name="image_recommendation_onboarding_2">您將決定是否應讓建議的圖片放入維基百科條目裡。</string>
@@ -1258,11 +1263,11 @@
   <string name="talk_warn_save_dialog_hint">訊息標題</string>
   <string name="talk_warn_save_dialog_publish">發布</string>
   <string name="talk_warn_save_dialog_cancel">取消</string>
-  <string name="talk_warn_submitted">訊息已發布到編輯者的使用者討論頁</string>
+  <string name="talk_warn_submitted">訊息已發布到編輯者的使用者討論頁面</string>
   <string name="talk_warn_submitted_and_saved">已儲存訊息，並發布到編輯者的使用者討論頁</string>
   <string name="talk_warn_saved_message">選擇現有警告訊息或撰寫新的訊息。</string>
   <string name="talk_warn_saved_message_dropdown">已儲存訊息</string>
-  <string name="talk_page_empty">此討論頁為空。</string>
+  <string name="talk_page_empty">此討論頁面為空。</string>
   <string name="talk_page_empty_title">對話從這裡開始</string>
   <string name="talk_page_empty_content">討論頁是讓人們討論如何將維基百科內容做到最好的地方。請先發起一個新的討論主題，以便和維基人社群聯繫與協作。</string>
   <string name="talk_add_reply">回覆</string>
@@ -1306,7 +1311,7 @@
   <string name="talk_list_item_overflow_share">分享</string>
   <string name="talk_list_item_last_comment_date">最後一次的發言：%s</string>
   <string name="talk_list_item_reply_icon_content_description">回覆總數</string>
-  <string name="talk_list_item_user_icon_content_description">使用者圖像</string>
+  <string name="talk_list_item_user_icon_content_description">使用者圖示</string>
   <string name="talk_list_item_swipe_mark_as_read">已讀</string>
   <string name="talk_list_item_swipe_mark_as_unread">未讀</string>
   <string name="talk_login_to_subscribe_dialog_title">登入以訂閱主題</string>
@@ -1319,7 +1324,7 @@
   <string name="menu_option_edit_source">編輯原始碼</string>
   <string name="menu_option_user_page">%s的使用者頁面</string>
   <string name="menu_option_find_in_talk_page_topic">在討論頁主題尋找</string>
-  <string name="menu_option_copy_link_to_clipboard">複製連結到剪貼簿</string>
+  <string name="menu_option_copy_link_to_clipboard">複製連結至剪貼簿</string>
   <string name="talk_menu_copy_text">複製文字</string>
   <string name="talk_menu_expand_threads">展開討論串</string>
   <string name="talk_menu_collapse_threads">折疊討論串</string>
@@ -1329,11 +1334,11 @@
   <string name="watchlist_details_prev_edit">上一編輯</string>
   <string name="thank_label">感謝</string>
   <string name="view_user_page">檢視使用者頁面</string>
-  <string name="thank_dialog_title_text">公開發送感謝</string>
-  <string name="thank_dialog_text">「感謝」是在維基百科上向其他編者所修改出內容表達讚賞的簡易方式。請留意感謝無法撤回發送，並且是公開可見的</string>
+  <string name="thank_dialog_title_text">公開傳送感謝</string>
+  <string name="thank_dialog_text">「感謝」是在維基百科上向其他編者所修改出內容表達讚賞的簡易方式。請留意感謝無法撤回傳送，並且是公開可見的</string>
   <string name="thank_dialog_positive_button_text">發送感謝</string>
   <string name="thank_dialog_negative_button_text">取消</string>
-  <string name="thank_success_message">您的感謝已發送給%s 👍</string>
+  <string name="thank_success_message">您的感謝已傳送至%s 👍</string>
   <string name="menu_option_view_user_profile">檢視使用者頁面</string>
   <string name="menu_option_view_user_talk">檢視討論頁</string>
   <string name="menu_option_view_user_contributions">檢視使用者貢獻</string>
@@ -1342,7 +1347,6 @@
   <string name="revision_diff_from">從：</string>
   <string name="revision_diff_to">至：</string>
   <string name="revision_diff_line_num">第%d行</string>
-  <string name="revision_diff_line_nums">第%d到%d行</string>
   <string name="revision_diff_lines_from_to">第%1$d到%2$d行</string>
   <string name="revision_diff_line_added">已新增行數</string>
   <string name="revision_diff_line_removed">已移除行數</string>
@@ -1389,7 +1393,7 @@
   <string name="watchlist_filter_watchlist_activity_seen">可見變更</string>
   <string name="watchlist_filter_contribution_quality_header">貢獻品質預測</string>
   <string name="watchlist_filter_contribution_quality_good">非常良好</string>
-  <string name="watchlist_filter_contribution_quality_may_problems">可能有問題</string>
+  <string name="watchlist_filter_contribution_quality_may_problems">也許有問題</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">可能有問題</string>
   <string name="watchlist_filter_contribution_quality_bad">非常可能有問題</string>
   <string name="watchlist_filter_user_intent_header">使用者目的預測</string>
@@ -1404,24 +1408,24 @@
   <string name="watchlist_filter_user_status_learners">初學者</string>
   <string name="watchlist_filter_user_status_experienced">有經驗的使用者</string>
   <string name="watchlist_filter_contribution_authorship_header">貢獻的作者</string>
-  <string name="watchlist_filter_contribution_authorship_own">由您做出的更改</string>
+  <string name="watchlist_filter_contribution_authorship_own">您的編輯</string>
   <string name="watchlist_filter_contribution_authorship_except_own">其他人的變更</string>
   <string name="watchlist_filter_automated_contributions_header">自動化貢獻</string>
   <string name="watchlist_filter_automated_contributions_bot">機器人</string>
-  <string name="watchlist_filter_automated_contributions_human">非機器人</string>
+  <string name="watchlist_filter_automated_contributions_human">人工（非機器人）</string>
   <string name="watchlist_filter_significance_header">重要性</string>
   <string name="watchlist_filter_significance_minor">小修改</string>
   <string name="watchlist_filter_significance_edits">非小修改</string>
-  <string name="watchlist_filter_latest_revisions_header">最新修訂</string>
-  <string name="watchlist_filter_latest_revisions_latest_revision">最新修訂</string>
-  <string name="watchlist_filter_latest_revisions_not_latest_revision">不是最新修訂</string>
-  <string name="watchlist_filter_type_of_change_header">更改類型</string>
-  <string name="watchlist_filter_type_of_change_page_edits">頁面編輯次數</string>
-  <string name="watchlist_filter_type_of_change_page_creations">頁面建立次數</string>
-  <string name="watchlist_filter_type_of_change_category_changes">分類更改次數</string>
-  <string name="watchlist_filter_type_of_change_wikidata_edits">維基數據編輯數</string>
-  <string name="watchlist_filter_type_of_change_logged_actions">記錄的操作</string>
-  <string name="watchlist_filter_type_of_change_new_users">新使用者</string>
+  <string name="watchlist_filter_latest_revisions_header">最新修訂版本</string>
+  <string name="watchlist_filter_latest_revisions_latest_revision">最新修訂版本</string>
+  <string name="watchlist_filter_latest_revisions_not_latest_revision">不是最新修訂版本</string>
+  <string name="watchlist_filter_type_of_change_header">變更類型</string>
+  <string name="watchlist_filter_type_of_change_page_edits">頁面編輯</string>
+  <string name="watchlist_filter_type_of_change_page_creations">頁面建立</string>
+  <string name="watchlist_filter_type_of_change_category_changes">分類變更</string>
+  <string name="watchlist_filter_type_of_change_wikidata_edits">維基數據編輯</string>
+  <string name="watchlist_filter_type_of_change_logged_actions">日誌動作</string>
+  <string name="watchlist_filter_type_of_change_new_users">帳號建立</string>
   <string name="watchlist_filter_reset_button">重新設定</string>
   <string name="watchlist_search_bar_hint">搜尋或篩選監視清單</string>
   <string name="watchlist_search_bar_filter_hint">監視清單篩選</string>
@@ -1454,6 +1458,8 @@
   <string name="media_playback_error">播放媒體時出錯。</string>
   <string name="user_contrib_menu_label">貢獻</string>
   <string name="user_contrib_filter_activity_title">篩選貢獻</string>
+  <string name="action_item_view_on_map">在地圖上查看</string>
+  <string name="action_item_view_on_map_unavailable">此頁面的地理座標不可用</string>
   <string name="shareable_reading_lists_import_dialog_title">匯入分享閱讀清單</string>
   <string name="shareable_reading_lists_import_dialog_content">您想如何命名與您分享的清單？</string>
   <string name="shareable_reading_lists_new_indicator">*新的*</string>
@@ -1484,8 +1490,16 @@
   <string name="talk_templates_edit_message_dialog_save">儲存</string>
   <string name="talk_templates_edit_message_dialog_delete">刪除</string>
   <string name="talk_templates_edit_message_updated">訊息已更新</string>
-  <string name="talk_templates_edit_message_delete_description" fuzzy="true">您確定要從清單中刪除這則「%s」訊息嗎？</string>
-  <string name="talk_templates_message_deleted">訊息已刪除</string>
+  <string name="talk_templates_menu_remove_message">刪除訊息</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">您確定要從清單中刪除該訊息嗎？</item>
+    <item quantity="other">您確定要從清單中刪除這些訊息嗎？</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">已刪除訊息</item>
+    <item quantity="other">已刪除訊息</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">標題不能為空。</string>
   <string name="patroller_tasks_edits_list_title">編輯清單</string>
   <string name="patroller_tasks_edits_list_search_hint">搜尋或篩選編輯</string>
   <string name="patroller_tasks_edits_list_card_tags_text">標籤：%s</string>
@@ -1548,11 +1562,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">巡查編輯</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">條目編輯歷史</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">撤消此編輯？</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">您確定要撤銷此編輯嗎？</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">撤銷代表著會回退一個或多個編輯的內容。</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">摘要（可選）</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">分享回退的原因</string>
   <string name="patroller_tasks_patrol_edit_undo_success">回退完成</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">您確定要回退嗎？</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">回退完成</string>
@@ -1560,17 +1569,24 @@
   <string name="patroller_tasks_overflow_report">功能問題</string>
   <string name="patroller_tasks_overflow_learn">了解更多</string>
   <string name="patroller_onboarding_one_title">為維基百科編輯的監督和核准做出貢獻。</string>
+  <string name="patroller_onboarding_one_content">透過積極審查最近編輯的提要，並對其他編輯內容提供指導、品質控制與鼓勵，來提高維基百科內容的品質。</string>
   <string name="patroller_onboarding_two_title">提供意見回饋、監控編輯，並在差異畫面上採取操作</string>
   <string name="patroller_onboarding_two_thank_title">感謝</string>
+  <string name="patroller_onboarding_two_thank_content">有看到優質內容的編輯嗎？來對使用者感謝他們的貢獻。</string>
   <string name="patroller_onboarding_two_watch_title">監視</string>
   <string name="patroller_onboarding_two_watch_content">想要追蹤條目的編輯嗎？添加到您的監視清單。在「更多」下方查看。</string>
   <string name="patroller_onboarding_two_warn_title">警告</string>
   <string name="patroller_onboarding_two_warn_content">在編輯者的討論頁面上建立、發送，和儲存警告訊息。</string>
+  <string name="patroller_onboarding_two_undo_title">撤銷/回退</string>
+  <string name="patroller_onboarding_two_undo_content">選擇「撤銷」以撤銷或回退可能帶有破壞性的編輯。</string>
+  <string name="patroller_diff_tooltip_one">破壞預測編輯是否有對 wiki 造成破壞。</string>
+  <string name="patroller_diff_tooltip_two">意圖預測保存的編輯是出自善意的可能性。</string>
   <string name="patroller_diff_feedback_dialog_title">幫助我們改善這個功能</string>
   <string name="patroller_diff_feedback_dialog_message">您滿意這個功能嗎？</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">滿意</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">普通</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">不滿意</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">我們如何改進功能？</string>
   <string name="patroller_diff_feedback_dialog_input_hint">意見回饋</string>
   <string name="patroller_diff_feedback_dialog_submit">提交</string>
   <string name="patroller_diff_feedback_submitted_snackbar">意見回饋提交成功。</string>
@@ -1587,4 +1603,10 @@
   <string name="donation_campaign_donated_snackbar">謝謝您，親愛的捐贈者！您的慷慨贊助會幫助維基百科與相關姐妹網站蓬勃發展。</string>
   <string name="donation_campaign_go_back_button">返回</string>
   <string name="menu_single_webview_open_external">在系統瀏覽器開啟</string>
+  <string name="places_title">地點</string>
+  <string name="places_permissions_denied">需要位置權限才能在地圖上查看您的位置。請再試一次。</string>
+  <string name="places_search_hint">搜尋地點</string>
+  <string name="places_filter_title">篩選語言</string>
+  <string name="places_toggle_buttons_map">地圖</string>
+  <string name="places_toggle_buttons_list">清單</string>
 </resources>

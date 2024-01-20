@@ -1093,7 +1093,6 @@
   <string name="revision_diff_from">నుండి:</string>
   <string name="revision_diff_to">వరకు:</string>
   <string name="revision_diff_line_num">పంక్తి %d</string>
-  <string name="revision_diff_line_nums">పంక్తులు %d–%d</string>
   <string name="revision_diff_line_added">పంక్తిని చేర్చారు</string>
   <string name="revision_diff_line_removed">పంక్తిని తీసేసారు</string>
   <string name="revision_diff_paragraph_added">పేరాగ్రాఫును చేర్చారు</string>

@@ -13,6 +13,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.navtab.NavTab
@@ -71,6 +72,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     override fun onTabChanged(tab: NavTab) {
         if (tab == NavTab.EDITS) {
             ImageRecommendationsEvent.logImpression("suggested_edit_dialog")
+            PatrollerExperienceEvent.logImpression("suggested_edits_dialog")
         }
         if (tab == NavTab.EXPLORE) {
             binding.mainToolbarWordmark.visibility = View.VISIBLE

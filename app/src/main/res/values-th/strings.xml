@@ -16,6 +16,7 @@
 * Octahedron80
 * Patsagorn Y.
 * Pon44695
+* Ppnplus
 * Prame Tan
 * Trisorn Triboon
 -->
@@ -111,8 +112,8 @@
   <string name="map_view_link_text">ดูบนแผนที่</string>
   <string name="other_languages_indication_text">อ่านในภาษาอื่น</string>
   <string name="language_count_link_text">มีให้อ่านในอีก %d ภาษา</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้ การแก้ไขจะถูกถือว่าเป็นของเลขที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ&lt;a href=\"https://#login\"&gt;เข้าสู่ระบบ&lt;/a&gt;</string>
+  <string name="edit_save_action_license_logged_in">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 4.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้</string>
+  <string name="edit_save_action_license_anon">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ&lt;a href=\"%1$s\"&gt;ข้อกำหนดการใช้งาน&lt;/a&gt; และยินยอมเผยแพร่สิ่งที่คุณแก้ไขภายใต้&lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 4.0&lt;/a&gt; โดยไม่อาจเพิกถอนได้ การแก้ไขจะถูกถือว่าเป็นของเลขที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ&lt;a href=\"https://#login\"&gt;เข้าสู่ระบบ&lt;/a&gt;</string>
   <string name="preference_title_language">ภาษาของวิกิพีเดีย</string>
   <string name="langlinks_filter_hint">ค้นหา</string>
   <string name="langlinks_empty">หน้านี้ไม่มีในภาษาอื่น</string>
@@ -705,7 +706,7 @@
   <string name="feed_accessibility_card_text">คุณได้มาถึงส่วนล่างสุดของฟีดแล้ว</string>
   <string name="feed_accessibility_card_load_more_button">โหลดเพิ่มเติม</string>
   <string name="top_read_activity_title">อ่านมากที่สุดบน %s</string>
-  <string name="tabs_activity_title">ป้ายกำกับ</string>
+  <string name="tabs_activity_title">ป้ายระบุ</string>
   <string name="description_edit_text_hint">คำอธิบายบทความ</string>
   <string name="description_edit_article_description_label">บทความ</string>
   <string name="description_edit_translate_article_description_label_per_language">คำอธิบายบทความ (%s)</string>
@@ -752,6 +753,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ควรเขียนให้พอดีหนึ่งบรรทัด และเขียนตั้งแต่ 2-12 คำ</string>
   <string name="description_edit_tutorial_button_label_start_editing">เริ่มแก้ไข</string>
   <string name="description_edit_tutorial_promise">ฉันสัญญาว่าจะไม่ใช้คุณลักษณะนี้ในทางที่ผิด</string>
+  <string name="description_edit_tutorial_machine_suggestions_title">เครื่องแนะนำ</string>
   <string name="customize_toolbar_category_toolbar">แถบเครื่องมือ</string>
   <string name="customize_toolbar_category_menu">เมนู</string>
   <string name="customize_toolbar_reset_to_default_button">รีเซ็ตเป็นค่าเริ่มต้น</string>
@@ -801,7 +803,7 @@
   <string name="suggested_edits_image_preview_dialog_image">ภาพ</string>
   <string name="suggested_edits_image_preview_dialog_file_commons">ไฟล์จากวิกิมีเดียคอมมอนส์</string>
   <string name="suggested_edits_image_preview_dialog_artist">ศิลปิน</string>
-  <string name="suggested_edits_image_preview_dialog_tags">ป้ายกำกับ</string>
+  <string name="suggested_edits_image_preview_dialog_tags">ป้ายระบุ</string>
   <string name="suggested_edits_image_preview_dialog_date">วันที่</string>
   <string name="suggested_edits_image_preview_dialog_source">ที่มา/ผู้ถ่ายภาพ</string>
   <string name="suggested_edits_image_preview_dialog_licensing">การอนุญาตใช้สิทธิ</string>
@@ -1010,6 +1012,7 @@
   <string name="watchlist_page_moved">ถูกย้าย</string>
   <string name="watchlist_page_protected">ถูกป้องกัน</string>
   <string name="watchlist_page_deleted">ถูกลบ</string>
+  <string name="watchlist_filter_type_of_change_header">ประเภทของการเปลี่ยน</string>
   <string name="action_item_categories">หมวดหมู่</string>
   <string name="category_tab_articles">บทความ</string>
   <string name="category_tab_subcategories">หมวดหมู่ย่อย</string>

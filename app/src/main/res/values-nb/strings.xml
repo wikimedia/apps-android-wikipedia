@@ -26,8 +26,8 @@
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta">Wikipedia beta</string>
+  <string name="app_name_alpha">Wikipedia alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Tilbake</string>
   <string name="page_tabs_back">Tilbake</string>
@@ -280,6 +280,7 @@
   <string name="edit_redo">Gjør om</string>
   <string name="edit_rollback">Tilbakestill</string>
   <string name="edit_warn">Advar</string>
+  <string name="edit_damage">Skade %s</string>
   <string name="edit_intent">Hensikt %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s byte</item>
@@ -1333,7 +1334,6 @@
   <string name="revision_diff_from">Fra:</string>
   <string name="revision_diff_to">Til:</string>
   <string name="revision_diff_line_num">Linje %d</string>
-  <string name="revision_diff_line_nums">Linje %d–%d</string>
   <string name="revision_diff_lines_from_to">Linjer %1$d–%2$d</string>
   <string name="revision_diff_line_added">Linje lagt til</string>
   <string name="revision_diff_line_removed">Linje fjernet</string>
@@ -1475,8 +1475,8 @@
   <string name="talk_templates_edit_message_dialog_save">Lagre</string>
   <string name="talk_templates_edit_message_dialog_delete">Slett</string>
   <string name="talk_templates_edit_message_updated">Meldingen har blitt oppdatert</string>
-  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Er du sikker på at du vil slette meldingen %s fra listen?</string>
-  <string name="talk_templates_message_deleted">Meldingen har blitt slettet</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">Meldingen har blitt slettet</string>
+  <string name="talk_templates_message_title_empty">Tittelen kan ikke være tom.</string>
   <string name="patroller_tasks_edits_list_title">Liste over redigeringer</string>
   <string name="patroller_tasks_edits_list_search_hint">Søk i eller filtrer redigeringer</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tagger: %s</string>
@@ -1539,11 +1539,6 @@
   </plurals>
   <string name="patroller_tasks_patrol_edit_title">Patruljeringsredigering</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikkelredigeringshistorikk</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_title">Gjøre om denne redigeringen?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_confirm_title">Er du sikker på at du vil gjøre om denne redigeringen?</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_message">Å gjøre om tilbakestiller effekten til en eller flere redigeringer.</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_hint">Sammendrag (valgfritt)</string>
-  <string name="patroller_tasks_patrol_edit_undo_dialog_helper">Angi tilbakestillingsårsak</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Tilbakestilt</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Er du sikker på at du vil tilbakestille?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Tilbakestilt</string>
@@ -1561,9 +1556,6 @@
   <string name="patroller_onboarding_two_warn_content">Opprett, send og lagre advarselsmeldinger på en bidragsyters diskusjonsside.</string>
   <string name="patroller_onboarding_two_undo_title">Omgjør/Tilbakestill</string>
   <string name="patroller_onboarding_two_undo_content">Velg «Gjør om» for å omgjøre eller tilbakestille en potensielt ødeleggende redigering.</string>
-  <string name="patroller_onboarding_three_title">Send anonym data</string>
-  <string name="patroller_onboarding_three_content">Hjelp med å gjøre appen bedre ved å la oss vite hvordan du bruker den. Innsamlet informasjon er anonym. &lt;a href=\"#privacy\"&gt;Lær mer&lt;/a&gt;</string>
-  <string name="patroller_onboarding_three_switch">Send bruksrapporter</string>
   <string name="patroller_diff_tooltip_one">Skade forutsier om en redigering forårsaker skade på en wiki.</string>
   <string name="patroller_diff_tooltip_two">Hensikt forutsier sannsynligheten for at en redigering lagres med gode hensikter.</string>
   <string name="patroller_diff_feedback_dialog_title">Hjelp oss å forbedre denne funksjonen</string>

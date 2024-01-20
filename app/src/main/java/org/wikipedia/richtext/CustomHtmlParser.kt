@@ -12,6 +12,7 @@ import android.text.Html.ImageGetter
 import android.text.Html.TagHandler
 import android.text.Spannable
 import android.text.Spanned
+import android.text.style.LeadingMarginSpan
 import android.text.style.TypefaceSpan
 import android.text.style.URLSpan
 import android.widget.TextView
@@ -23,7 +24,6 @@ import androidx.core.text.toSpanned
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import org.wikipedia.R
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.util.DimenUtil
@@ -34,8 +34,9 @@ import org.xml.sax.Attributes
 import org.xml.sax.ContentHandler
 import org.xml.sax.Locator
 import org.xml.sax.XMLReader
+import java.util.Stack
 
-class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler, ContentHandler {
+class CustomHtmlParser(private val handler: TagHandler) : TagHandler, ContentHandler {
     interface TagHandler {
         fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean
     }
@@ -109,6 +110,9 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
 
     class CustomTagHandler(private val view: TextView?) : TagHandler {
         private var lastAClass = ""
+        private var listItemCounts = Stack<Int>()
+        private val listParents = mutableListOf<String>()
+        private val leadingMarginSize = DimenUtil.dpToPx(16f).toInt()
 
         override fun handleTag(opening: Boolean, tag: String?, output: Editable?, attributes: Attributes?): Boolean {
             if (tag == "img" && view == null) {
@@ -187,8 +191,33 @@ class CustomHtmlParser constructor(private val handler: TagHandler) : TagHandler
                         output.setSpan(TypefaceSpan("monospace"), start, output.length, 0)
                     }
                 }
+            } else if (tag == "ol") {
+                if (opening) {
+                    listParents.add(tag)
+                    listItemCounts.push(0)
+                } else {
+                    listParents.remove(tag)
+                    listItemCounts.pop()
+                }
+            } else if (tag == "li" && listParents.isNotEmpty() && !opening && output != null) {
+                handleListTag(output)
             }
             return false
+        }
+
+        private fun handleListTag(output: Editable) {
+            if (listParents.last() == "ol") {
+                val count = (if (listItemCounts.size > 0) listItemCounts.pop() else 0) + 1
+                listItemCounts.push(count)
+                val spans = output.getSpans<LeadingMarginSpan>(output.length)
+                if (spans.isNotEmpty()) {
+                    val span = spans.last()
+                    val spanStart = output.getSpanStart(span)
+                    output.removeSpan(span)
+                    output.insert(spanStart, "$count. ")
+                    output.setSpan(LeadingMarginSpan.Standard(leadingMarginSize), spanStart, output.length, 0)
+                }
+            }
         }
     }
 

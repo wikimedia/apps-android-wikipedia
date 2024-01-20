@@ -50,12 +50,15 @@ import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
 import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.Namespace
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.SuggestedEditsImageRecsFragment
 import org.wikipedia.theme.ThemeChooserDialog
@@ -72,7 +75,7 @@ import org.wikipedia.views.ViewUtil
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
+class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPreviewDialog.LoadPageCallback {
     private lateinit var binding: ActivityEditSectionBinding
     private lateinit var textWatcher: TextWatcher
     private lateinit var captchaHandler: CaptchaHandler
@@ -253,6 +256,11 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         binding.editSectionText.removeTextChangedListener(textWatcher)
         syntaxHighlighter.cleanup()
         super.onDestroy()
+    }
+
+    public override fun onPause() {
+        super.onPause()
+        sectionWikitext = binding.editSectionText.text.toString()
     }
 
     private fun updateEditLicenseText() {
@@ -747,16 +755,24 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
         DeviceUtil.hideSoftKeyboard(this)
         if (sectionTextModified) {
+            doExitActionWithConfirmationDialog { finish() }
+            return
+        }
+        super.onBackPressed()
+    }
+
+    private fun doExitActionWithConfirmationDialog(action: () -> Unit) {
+        if (sectionTextModified) {
             val alert = MaterialAlertDialogBuilder(this)
             alert.setMessage(getString(R.string.edit_abandon_confirm))
             alert.setPositiveButton(getString(R.string.edit_abandon_confirm_yes)) { dialog, _ ->
                 dialog.dismiss()
-                finish()
+                action()
             }
             alert.setNegativeButton(getString(R.string.edit_abandon_confirm_no)) { dialog, _ -> dialog.dismiss() }
             alert.create().show()
         } else {
-            finish()
+            action()
         }
     }
 
@@ -777,6 +793,29 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
         addImageIntent.putExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE_PROJECTS, intent.getStringExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE_PROJECTS))
 
         requestInsertMedia.launch(addImageIntent)
+    }
+
+    override fun onToggleDimImages() { }
+
+    override fun onToggleReadingFocusMode() { }
+
+    override fun onCancelThemeChooser() { }
+
+    override fun onEditingPrefsChanged() {
+        binding.editSectionText.enqueueNoScrollingLayoutChange()
+        updateTextSize()
+        syntaxHighlighter.enabled = Prefs.editSyntaxHighlightEnabled
+        binding.editSectionText.enableTypingSuggestions(Prefs.editTypingSuggestionsEnabled)
+        binding.editSectionText.typeface = if (Prefs.editMonoSpaceFontEnabled) Typeface.MONOSPACE else Typeface.DEFAULT
+        binding.editSectionText.showLineNumbers = Prefs.editLineNumbersEnabled
+        binding.editSectionText.invalidate()
+    }
+
+    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
+        doExitActionWithConfirmationDialog {
+            startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
+                PageActivity.newIntentForCurrentTab(this, entry, title, false))
+        }
     }
 
     companion object {
@@ -801,21 +840,5 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback {
                 .putExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE, addImageSource)
                 .putExtra(InsertMediaActivity.EXTRA_IMAGE_SOURCE_PROJECTS, addImageSourceProjects)
         }
-    }
-
-    override fun onToggleDimImages() { }
-
-    override fun onToggleReadingFocusMode() { }
-
-    override fun onCancelThemeChooser() { }
-
-    override fun onEditingPrefsChanged() {
-        binding.editSectionText.enqueueNoScrollingLayoutChange()
-        updateTextSize()
-        syntaxHighlighter.enabled = Prefs.editSyntaxHighlightEnabled
-        binding.editSectionText.enableTypingSuggestions(Prefs.editTypingSuggestionsEnabled)
-        binding.editSectionText.typeface = if (Prefs.editMonoSpaceFontEnabled) Typeface.MONOSPACE else Typeface.DEFAULT
-        binding.editSectionText.showLineNumbers = Prefs.editLineNumbersEnabled
-        binding.editSectionText.invalidate()
     }
 }

@@ -27,9 +27,11 @@ import org.wikipedia.search.db.RecentSearchDao
 import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.talk.db.TalkPageSeen
 import org.wikipedia.talk.db.TalkPageSeenDao
+import org.wikipedia.talk.db.TalkTemplate
+import org.wikipedia.talk.db.TalkTemplateDao
 
 const val DATABASE_NAME = "wikipedia.db"
-const val DATABASE_VERSION = 24
+const val DATABASE_VERSION = 26
 
 @Database(
     entities = [
@@ -41,7 +43,8 @@ const val DATABASE_VERSION = 24
         OfflineObject::class,
         ReadingList::class,
         ReadingListPage::class,
-        Notification::class
+        Notification::class,
+        TalkTemplate::class
     ],
     version = DATABASE_VERSION
 )
@@ -63,6 +66,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun readingListDao(): ReadingListDao
     abstract fun readingListPageDao(): ReadingListPageDao
     abstract fun notificationDao(): NotificationDao
+    abstract fun talkTemplateDao(): TalkTemplateDao
 
     companion object {
         val MIGRATION_19_20 = object : Migration(19, 20) {
@@ -170,10 +174,20 @@ abstract class AppDatabase : RoomDatabase() {
                 database.execSQL("CREATE TABLE IF NOT EXISTS `Notification` (`id` INTEGER NOT NULL, `wiki` TEXT NOT NULL, `read` TEXT, `category` TEXT NOT NULL, `type` TEXT NOT NULL, `revid` INTEGER NOT NULL, `title` TEXT, `agent` TEXT, `timestamp` TEXT, `contents` TEXT, PRIMARY KEY(`id`, `wiki`))")
             }
         }
+        private val MIGRATION_24_25 = object : Migration(24, 25) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("CREATE TABLE IF NOT EXISTS `TalkTemplate` (`id` INTEGER NOT NULL, `type` INTEGER NOT NULL, `order` INTEGER NOT NULL, `title` TEXT NOT NULL, `subject` TEXT NOT NULL, `message` TEXT NOT NULL, PRIMARY KEY(`id`))")
+            }
+        }
+        private val MIGRATION_25_26 = object : Migration(25, 26) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE HistoryEntry ADD COLUMN description TEXT NOT NULL DEFAULT ''")
+            }
+        }
 
         val instance: AppDatabase by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
             Room.databaseBuilder(WikipediaApp.instance, AppDatabase::class.java, DATABASE_NAME)
-                .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23, MIGRATION_23_24)
+                .addMigrations(MIGRATION_19_20, MIGRATION_20_21, MIGRATION_21_22, MIGRATION_22_23, MIGRATION_23_24, MIGRATION_24_25, MIGRATION_25_26)
                 .allowMainThreadQueries() // TODO: remove after migration
                 .fallbackToDestructiveMigration()
                 .build()
