@@ -128,9 +128,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private val placesSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
+        if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
             val location = it.data?.parcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
-            val pageTitle = it.data?.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
+            val pageTitle = it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)!!
             viewModel.highlightedPageTitle = pageTitle
             Prefs.placesWikiCode = pageTitle.wikiSite.languageCode
             goToLocation(preferredLocation = location, zoom = 15.9)
@@ -204,7 +204,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
         binding.searchTextView.setOnClickListener {
             val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES,
-                StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.prefixedText).ifEmpty { null })
+                StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.prefixedText).ifEmpty { null }, true)
             val options = binding.searchContainer.let {
                 ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
                     binding.searchContainer, getString(R.string.transition_search_bar))
