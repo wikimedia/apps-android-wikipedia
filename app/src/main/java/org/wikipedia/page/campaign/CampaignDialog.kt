@@ -10,10 +10,9 @@ import org.wikipedia.dataclient.donate.Campaign
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CustomTabsUtil
 import org.wikipedia.util.FeedbackUtil
-import java.time.Duration
 import java.time.Instant
 import java.time.LocalDateTime
-import java.util.Date
+import java.time.temporal.ChronoUnit
 
 class CampaignDialog internal constructor(private val context: Context, val campaign: Campaign) : AlertDialog.Builder(context), CampaignDialogView.Callback {
 
@@ -23,8 +22,8 @@ class CampaignDialog internal constructor(private val context: Context, val camp
         val campaignView = CampaignDialogView(context)
         campaignView.campaignAssets = campaign.assets[WikipediaApp.instance.appOrSystemLanguageCode]
         campaignView.callback = this
-        val dateDiff = Duration.between(Instant.ofEpochMilli(Prefs.announcementPauseTime), Instant.now())
-        campaignView.showNeutralButton = dateDiff.toDays() >= 1 && campaign.endDateTime?.isAfter(LocalDateTime.now().plusDays(1)) == true
+        val daysDiff = Prefs.announcementPauseTime.until(Instant.now(), ChronoUnit.DAYS)
+        campaignView.showNeutralButton = daysDiff >= 1 && campaign.endDateTime?.isAfter(LocalDateTime.now().plusDays(1)) == true
         campaignView.setupViews()
         setView(campaignView)
     }
@@ -57,7 +56,7 @@ class CampaignDialog internal constructor(private val context: Context, val camp
 
     override fun onNeutralAction() {
         DonorExperienceEvent.logAction("later_click", "article_banner", campaignId = campaign.id)
-        Prefs.announcementPauseTime = Date().time
+        Prefs.announcementPauseTime = Instant.now()
         FeedbackUtil.showMessage(context as Activity, R.string.donation_campaign_maybe_later_snackbar)
         DonorExperienceEvent.logAction("reminder_toast", "article_banner", campaignId = campaign.id)
         dismissDialog(false)

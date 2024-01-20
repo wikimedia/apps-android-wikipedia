@@ -7,21 +7,21 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.util.DateUtil
-import java.util.*
-import java.util.concurrent.TimeUnit
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
 
 object AnonymousNotificationHelper {
     private const val NOTIFICATION_DURATION_DAYS = 7L
 
     fun onEditSubmitted() {
         if (!AccountUtil.isLoggedIn) {
-            Prefs.lastAnonEditTime = Date().time
+            Prefs.lastAnonEditTime = Instant.now()
         }
     }
 
     fun observableForAnonUserInfo(wikiSite: WikiSite): Observable<MwQueryResponse> {
-        return if (Date().time - Prefs.lastAnonEditTime < TimeUnit.DAYS.toMillis(NOTIFICATION_DURATION_DAYS)) {
+        return if (Prefs.lastAnonEditTime.until(Instant.now(), ChronoUnit.DAYS) < NOTIFICATION_DURATION_DAYS) {
             ServiceFactory.get(wikiSite).userInfo
         } else {
             Observable.just(MwQueryResponse())
@@ -42,10 +42,10 @@ object AnonymousNotificationHelper {
     }
 
     fun anonTalkPageHasRecentMessage(response: MwQueryResponse, title: PageTitle): Boolean {
-        response.query?.firstPage()?.revisions?.firstOrNull()?.timeStamp?.let {
-            if (Date().time - DateUtil.iso8601DateParse(it).time < TimeUnit.DAYS.toMillis(NOTIFICATION_DURATION_DAYS)) {
+        response.query?.firstPage()?.revisions?.firstOrNull()?.localDateTime?.let {
+            if (it.until(LocalDateTime.now(), ChronoUnit.DAYS) < NOTIFICATION_DURATION_DAYS) {
                 Prefs.hasAnonymousNotification = true
-                Prefs.lastAnonNotificationTime = Date().time
+                Prefs.lastAnonNotificationTime = Instant.now()
                 Prefs.lastAnonNotificationLang = title.wikiSite.languageCode
                 return true
             }
@@ -54,6 +54,6 @@ object AnonymousNotificationHelper {
     }
 
     fun isWithinAnonNotificationTime(): Boolean {
-        return Date().time - Prefs.lastAnonNotificationTime < TimeUnit.DAYS.toMillis(NOTIFICATION_DURATION_DAYS)
+        return Prefs.lastAnonNotificationTime.until(Instant.now(), ChronoUnit.DAYS) < NOTIFICATION_DURATION_DAYS
     }
 }

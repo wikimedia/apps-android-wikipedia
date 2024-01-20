@@ -20,6 +20,7 @@ import org.wikipedia.util.DateUtil.dbDateParse
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
+import java.time.Instant
 import java.util.Date
 
 /** Shared preferences utility for convenient POJO access.  */
@@ -131,9 +132,9 @@ object Prefs {
     val ignoreDateForAnnouncements
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_announcement_ignore_date, false)
 
-    var announcementPauseTime
-        get() = PrefsIoUtil.getLong(R.string.preference_key_announcement_pause_time, 0)
-        set(time) = PrefsIoUtil.setLong(R.string.preference_key_announcement_pause_time, time)
+    var announcementPauseTime: Instant
+        get() = Instant.ofEpochMilli(PrefsIoUtil.getLong(R.string.preference_key_announcement_pause_time, 0))
+        set(instant) = PrefsIoUtil.setLong(R.string.preference_key_announcement_pause_time, instant.toEpochMilli())
 
     val announcementDebugUrl
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_announcement_debug_url, false)
@@ -182,9 +183,9 @@ object Prefs {
         return PrefsIoUtil.getKey(R.string.preference_key_last_run_time_format, task)
     }
 
-    var pageLastShown
-        get() = PrefsIoUtil.getLong(R.string.preference_key_page_last_shown, 0)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_page_last_shown, value)
+    var pageLastShown: Instant
+        get() = Instant.ofEpochMilli(PrefsIoUtil.getLong(R.string.preference_key_page_last_shown, 0))
+        set(instant) = PrefsIoUtil.setLong(R.string.preference_key_page_last_shown, instant.toEpochMilli())
 
     val isImageDownloadEnabled
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_images, true)
@@ -228,9 +229,9 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_description_edit_tutorial_enabled, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_description_edit_tutorial_enabled, enabled)
 
-    var lastDescriptionEditTime
-        get() = PrefsIoUtil.getLong(R.string.preference_key_last_description_edit_time, 0)
-        set(time) = PrefsIoUtil.setLong(R.string.preference_key_last_description_edit_time, time)
+    var lastDescriptionEditTime: Instant
+        get() = Instant.ofEpochMilli(PrefsIoUtil.getLong(R.string.preference_key_last_description_edit_time, 0))
+        set(instant) = PrefsIoUtil.setLong(R.string.preference_key_last_description_edit_time, instant.toEpochMilli())
 
     val totalAnonDescriptionsEdited
         get() = PrefsIoUtil.getInt(R.string.preference_key_total_anon_descriptions_edited, 0)
@@ -287,13 +288,13 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_last_anon_user_with_messages, "")
         set(value) = PrefsIoUtil.setString(R.string.preference_key_last_anon_user_with_messages, value)
 
-    var lastAnonEditTime
-        get() = PrefsIoUtil.getLong(R.string.preference_key_last_anon_edit_time, 0)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_last_anon_edit_time, value)
+    var lastAnonEditTime: Instant
+        get() = Instant.ofEpochMilli(PrefsIoUtil.getLong(R.string.preference_key_last_anon_edit_time, 0))
+        set(instant) = PrefsIoUtil.setLong(R.string.preference_key_last_anon_edit_time, instant.toEpochMilli())
 
-    var lastAnonNotificationTime
-        get() = PrefsIoUtil.getLong(R.string.preference_key_last_anon_notification_time, 0)
-        set(value) = PrefsIoUtil.setLong(R.string.preference_key_last_anon_notification_time, value)
+    var lastAnonNotificationTime: Instant
+        get() = Instant.ofEpochMilli(PrefsIoUtil.getLong(R.string.preference_key_last_anon_notification_time, 0))
+        set(instant) = PrefsIoUtil.setLong(R.string.preference_key_last_anon_notification_time, instant.toEpochMilli())
 
     var lastAnonNotificationLang
         get() = PrefsIoUtil.getString(R.string.preference_key_last_anon_notification_lang, "")
