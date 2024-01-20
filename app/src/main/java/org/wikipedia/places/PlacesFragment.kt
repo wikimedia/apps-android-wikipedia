@@ -198,6 +198,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(16f)
             binding.myLocationButton.layoutParams = params
 
+            params = binding.listRecyclerView.layoutParams as ViewGroup.MarginLayoutParams
+            params.bottomMargin = newNavBarInsets.bottom
+
             statusBarInsets = newStatusBarInsets
             navBarInsets = newNavBarInsets
             WindowInsetsCompat.Builder()
