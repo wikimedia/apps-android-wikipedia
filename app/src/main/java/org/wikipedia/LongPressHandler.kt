@@ -85,7 +85,7 @@ class LongPressHandler(
                         (view.rootView as ViewGroup).addView(tempView)
                         anchorView = tempView
                     }
-                    LongPressMenu(anchorView, true, callback).show(entry)
+                    LongPressMenu(anchorView, callback = callback).show(entry)
                 }
             }
         }

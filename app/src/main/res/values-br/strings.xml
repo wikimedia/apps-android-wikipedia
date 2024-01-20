@@ -1154,7 +1154,6 @@
   <string name="revision_diff_from">Digant:</string>
   <string name="revision_diff_to">Da:</string>
   <string name="revision_diff_line_num">Linenn %d</string>
-  <string name="revision_diff_line_nums">Linennoù %d-%d</string>
   <string name="revision_diff_lines_from_to">Linennoù %1$d–%2$d</string>
   <string name="revision_diff_line_added">Linenn ouzhpennet</string>
   <string name="revision_undo_summary_hint">Diverradur (diret)</string>

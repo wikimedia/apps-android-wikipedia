@@ -1301,7 +1301,6 @@
   <string name="revision_diff_from">Dingbaai:</string>
   <string name="revision_diff_to">hali ni:</string>
   <string name="revision_diff_line_num">Kuliga %d</string>
-  <string name="revision_diff_line_nums">Kulisi %d–%d</string>
   <string name="revision_diff_lines_from_to">Kulisi %1$d–%2$d</string>
   <string name="revision_diff_line_added">Kuligi pahiya</string>
   <string name="revision_diff_line_removed">Kuligi yihiya</string>
