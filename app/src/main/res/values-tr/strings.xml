@@ -1360,7 +1360,6 @@
   <string name="revision_diff_from">Gönderen:</string>
   <string name="revision_diff_to">Alıcı:</string>
   <string name="revision_diff_line_num">Satır %d</string>
-  <string name="revision_diff_line_nums">Satırlar %d-%d</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d satırları</string>
   <string name="revision_diff_line_added">Satır eklendi</string>
   <string name="revision_diff_line_removed">Satır kaldırıldı</string>

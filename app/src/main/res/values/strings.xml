@@ -1403,7 +1403,6 @@
     <string name="revision_diff_from">From:</string>
     <string name="revision_diff_to">To:</string>
     <string name="revision_diff_line_num">Line %d</string>
-    <string name="revision_diff_line_nums">Lines %d–%d</string>
     <string name="revision_diff_lines_from_to">Lines %1$d–%2$d</string>
     <string name="revision_diff_line_added">Line added</string>
     <string name="revision_diff_line_removed">Line removed</string>

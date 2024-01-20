@@ -1308,7 +1308,6 @@
   <string name="revision_diff_from">از:</string>
   <string name="revision_diff_to">به:</string>
   <string name="revision_diff_line_num">خط %d</string>
-  <string name="revision_diff_line_nums">خطوط %d-%d</string>
   <string name="revision_diff_lines_from_to">خطوط %1$d–%2$d</string>
   <string name="revision_diff_line_added">خط اضافه شد</string>
   <string name="revision_diff_line_removed">سطر حذف شد</string>
