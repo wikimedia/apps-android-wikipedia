@@ -27,7 +27,8 @@ data class SearchResult(val pageTitle: PageTitle,
     val location: Location? get() {
         return if (coordinates.isNullOrEmpty()) null else
             Location("").also {
-                it.latitude = coordinates[0].lat; it.longitude = coordinates[0].lon
+                it.latitude = coordinates[0].lat
+                it.longitude = coordinates[0].lon
             }
     }
 }
