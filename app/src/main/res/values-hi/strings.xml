@@ -774,7 +774,7 @@
   <string name="notifications_offline_disable_message">ऑफ़लाइन होने पर फ़ंक्शन उपलब्ध नहीं है।</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
-  <string name="view_random_article_card_title">कोई भी लेख</string>
+  <string name="view_random_article_card_title">बेतरतीब लेख</string>
   <string name="view_random_article_card_action">अधिक बेतरतीब लेख</string>
   <string name="view_top_read_card_title">सर्वाधिक पढ़े गए</string>
   <string name="view_top_read_card_action">सर्वाधिक पढ़े अन्य</string>

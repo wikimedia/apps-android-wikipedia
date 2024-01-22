@@ -7,6 +7,7 @@
 * Hamza DK
 * Salihu aliyu
 * Umar-askirason
+* Yusuf Sa'adu
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -1566,4 +1567,6 @@
   <string name="donation_campaign_donated_snackbar">Na gode, ƙaunataccen mai ba da gudummawa! karimcinku yana taimakawa wajen ci gaba da Wikipedia da shafukan \'yan uwanta.</string>
   <string name="donation_campaign_go_back_button">Koma baya</string>
   <string name="menu_single_webview_open_external">Bude a cikin tsarin mai lilo</string>
+  <string name="places_nav_tab_tooltip_message">Gano labaran Wikipedia da ke kewaye da ku tare da Wuraren</string>
+  <string name="places_article_menu_tooltip_message">Taɓa wannnan madannin don bincika wurin wannan labarin</string>
 </resources>
