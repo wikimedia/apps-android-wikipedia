@@ -1334,7 +1334,6 @@
   <string name="revision_diff_from">Fra:</string>
   <string name="revision_diff_to">Til:</string>
   <string name="revision_diff_line_num">Linje %d</string>
-  <string name="revision_diff_line_nums">Linje %d–%d</string>
   <string name="revision_diff_lines_from_to">Linjer %1$d–%2$d</string>
   <string name="revision_diff_line_added">Linje lagt til</string>
   <string name="revision_diff_line_removed">Linje fjernet</string>

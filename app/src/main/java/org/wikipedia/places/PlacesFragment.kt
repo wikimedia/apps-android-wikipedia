@@ -128,9 +128,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private val placesSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
+        if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
             val location = it.data?.parcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
-            val pageTitle = it.data?.parcelableExtra<PageTitle>(Constants.ARG_TITLE)!!
+            val pageTitle = it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)!!
             viewModel.highlightedPageTitle = pageTitle
             Prefs.placesWikiCode = pageTitle.wikiSite.languageCode
             goToLocation(preferredLocation = location, zoom = 15.9)
@@ -204,7 +204,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
         binding.searchTextView.setOnClickListener {
             val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES,
-                StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.prefixedText).ifEmpty { null })
+                StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.prefixedText).ifEmpty { null }, true)
             val options = binding.searchContainer.let {
                 ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
                     binding.searchContainer, getString(R.string.transition_search_bar))
@@ -315,7 +315,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 if (haveLocationPermissions()) {
                     startLocationTracking()
                     if (savedInstanceState == null) {
-                        goToLocation(viewModel.location)
+                        viewModel.location?.let {
+                            goToLocation(it)
+                        } ?: run {
+                            val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
+                            goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+                        }
                     }
                 } else {
                     locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -455,6 +460,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     override fun onDestroyView() {
+        lastLocation?.let {
+            Prefs.placesLastLocationAndZoomLevel = Pair(it, lastZoom)
+        }
         binding.mapView.onDestroy()
         _binding = null
 
@@ -464,7 +472,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             }
         }
         markerBitmapBase.recycle()
-
         super.onDestroyView()
     }
 
@@ -473,6 +480,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             it.latitude = latLng.latitude
             it.longitude = latLng.longitude
         }
+
         lastZoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
 
         if (lastZoom < 3.0) {
@@ -556,7 +564,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
                 val targetLocation = location ?: currentLatLngLoc
                 targetLocation?.let { target ->
-                    it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                    it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
                         override fun onCancel() { }
 
                         override fun onFinish() {

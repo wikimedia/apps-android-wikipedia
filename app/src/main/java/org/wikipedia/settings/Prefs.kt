@@ -1,5 +1,6 @@
 package org.wikipedia.settings
 
+import android.location.Location
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
@@ -720,4 +721,25 @@ object Prefs {
     var isPlacesMainNavOnboardingTooltipShown
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_places_main_nav_onboarding_tooltip_shown, false)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_places_main_nav_onboarding_tooltip_shown, enabled)
+
+    var placesLastLocationAndZoomLevel: Pair<Location, Double>?
+        get() {
+            // latitude|longitude|zoomLevel
+            val infoList = PrefsIoUtil.getString(R.string.preference_key_places_last_location_and_zoom_level, null)?.split("|")?.map { it.toDouble() }
+            return infoList?.let {
+                val location = Location("").apply {
+                    latitude = infoList[0]
+                    longitude = infoList[1]
+                }
+                val zoomLevel = infoList[2]
+                Pair(location, zoomLevel)
+            }
+        }
+        set(pair) {
+            var locationAndZoomLevelString: String? = null
+            pair?.let {
+                locationAndZoomLevelString = "${pair.first.latitude}|${pair.first.longitude}|${pair.second}"
+            }
+            PrefsIoUtil.setString(R.string.preference_key_places_last_location_and_zoom_level, locationAndZoomLevelString)
+        }
 }

@@ -1319,7 +1319,6 @@
   <string name="revision_diff_from">Bundan:</string>
   <string name="revision_diff_to">Bunga:</string>
   <string name="revision_diff_line_num">%d-qator</string>
-  <string name="revision_diff_line_nums">%d-%d qatorlar</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d qatorlar</string>
   <string name="revision_diff_line_added">Qator qoʻshildi</string>
   <string name="revision_diff_line_removed">Qator oʻchirildi</string>

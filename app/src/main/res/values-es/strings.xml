@@ -1254,7 +1254,6 @@
   <string name="revision_diff_from">De:</string>
   <string name="revision_diff_to">Para:</string>
   <string name="revision_diff_line_num">Línea %d</string>
-  <string name="revision_diff_line_nums">Líneas %d–%d</string>
   <string name="revision_diff_line_added">Línea añadida</string>
   <string name="revision_diff_line_removed">Línea eliminada</string>
   <string name="revision_diff_paragraph_added">Párrafo añadido</string>
