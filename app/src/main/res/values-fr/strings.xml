@@ -7,6 +7,7 @@
 * BlueCamille
 * Blurby
 * C13m3n7
+* CKali
 * Cigaryno
 * Crochet.david
 * Dbrant
@@ -1602,6 +1603,7 @@
   <string name="patroller_onboarding_two_watch_title">Suivre</string>
   <string name="patroller_onboarding_two_warn_title">Avertissement</string>
   <string name="patroller_onboarding_two_undo_title">Annuler/Restaurer</string>
+  <string name="patroller_diff_feedback_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfait</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutre</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfait</string>
