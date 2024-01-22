@@ -5,6 +5,7 @@
 * Cooltey
 * Dbrant
 * IBS-Gh
+* Kalakpagh
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -1551,4 +1552,6 @@
   <string name="donation_campaign_donated_snackbar">M-bo n-faan, nyin ŋun tabi sɔŋ! A nirilim maa sɔŋsiya ka Wikipedia mini di boba ni yaɣa tooi kuli tiri tooi.</string>
   <string name="donation_campaign_go_back_button">Labimi nyaaŋa</string>
   <string name="menu_single_webview_open_external">Yoomi li sistɛm browza puuni</string>
+  <string name="places_nav_tab_tooltip_message">Lihimi m-bo \"Wikipedia\" lahabali shɛŋa din be a yaɣa li</string>
+  <string name="places_article_menu_tooltip_message">Dihimi &lt;b&gt;\'View on map\'&lt;/b&gt; ka di zaŋ a m-bo lahabali shɛŋa din be a yaɣa li</string>
 </resources>
