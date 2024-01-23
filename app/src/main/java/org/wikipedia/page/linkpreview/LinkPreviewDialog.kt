@@ -296,10 +296,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         dismiss()
     }
 
-    fun setOnCancelListener(listener: DialogInterface.OnCancelListener) {
-        dialog?.setOnCancelListener(listener)
-    }
-
     private fun showWatchlistSnackbar(activity: AppCompatActivity, pageTitle: PageTitle) {
         viewModel.pageTitle.let {
             if (!viewModel.isWatched) {
