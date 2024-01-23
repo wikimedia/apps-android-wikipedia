@@ -119,7 +119,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/places_toggle_buttons_map"
                 android:textColor="?attr/placeholder_color"
-                android:backgroundTint="?attr/paper_color"/>
+                android:backgroundTint="?attr/paper_color"
+                app:rippleColor="?attr/addition_color"/>
 
             <com.google.android.material.button.MaterialButton
                 style="@style/PlacesToggleStyle"
@@ -128,7 +129,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/places_toggle_buttons_list"
                 android:textColor="?attr/placeholder_color"
-                android:backgroundTint="?attr/paper_color"/>
+                android:backgroundTint="?attr/paper_color"
+                app:rippleColor="?attr/addition_color"/>
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
