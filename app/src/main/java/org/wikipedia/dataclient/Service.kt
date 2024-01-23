@@ -202,7 +202,7 @@ interface Service {
             @Field("url") url: String,
     ): ShortenUrlResponse
 
-    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info&inprop=varianttitles|displaytitle")
+    @GET(MW_API_PREFIX + "action=query&generator=geosearch&prop=coordinates|description|pageimages|info|extracts&inprop=varianttitles|displaytitle&exintro=true&exsentences=1")
     suspend fun getGeoSearch(
         @Query("ggscoord", encoded = true) coordinates: String,
         @Query("ggsradius") radius: Int,
