@@ -761,7 +761,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         fun bindItem(item: PlacesFragmentViewModel.NearbyPage, position: Int) {
             this.position = position
             binding.listItemTitle.text = StringUtil.fromHtml(item.pageTitle.displayText)
-            binding.listItemDescription.text = StringUtil.fromHtml(item.pageTitle.description)
+            val description = item.pageTitle.description.orEmpty().ifEmpty { item.pageTitle.extract }
+            binding.listItemDescription.text = StringUtil.fromHtml(description)
             lastLocation?.let {
                 binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, item.location, Locale.getDefault())
             }

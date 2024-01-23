@@ -173,7 +173,6 @@
     <style name="H3.Article">
         <item name="android:fontFamily">serif</item>
         <item name="android:textStyle">normal</item>
-        <item name="lineHeight">32sp</item>
     </style>
 
     <style name="H4">
@@ -273,6 +272,10 @@
 
     <style name="List.MaterialListSubtitle">
         <item name="android:textColor">?attr/secondary_color</item>
+    </style>
+
+    <style name="List.MaterialListDescription">
+        <item name="android:textColor">?attr/placeholder_color</item>
     </style>
 
     <style name="Small">
