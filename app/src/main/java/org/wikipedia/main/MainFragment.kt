@@ -169,8 +169,8 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
-        maybeShowWatchlistTooltip()
         maybeShowPlacesTooltip()
+        maybeShowWatchlistTooltip()
     }
 
     override fun onDestroyView() {

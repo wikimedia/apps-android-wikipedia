@@ -365,9 +365,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
+        maybeShowPlacesTooltip()
         maybeShowWatchlistTooltip()
         maybeShowThemeTooltip()
-        maybeShowPlacesTooltip()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -684,21 +684,29 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     private fun maybeShowPlacesTooltip() {
-        Prefs.isPlacesPageOnboardingTooltipShown = false
         if (!Prefs.isPlacesPageOnboardingTooltipShown) {
-            FeedbackUtil.getTooltip(
-                this,
-                StringUtil.fromHtml(getString(R.string.places_article_menu_tooltip_message)),
-                topOrBottomMargin = 0,
-                aboveOrBelow = false,
-                autoDismiss = false,
-                showDismissButton = true
-            ).apply {
-                setOnBalloonDismissListener {
-                    Prefs.isPlacesPageOnboardingTooltipShown = true
+            enqueueTooltip {
+                FeedbackUtil.getTooltip(
+                    this,
+                    StringUtil.fromHtml(getString(R.string.places_article_menu_tooltip_message)),
+                    arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
+                    topOrBottomMargin = -8,
+                    aboveOrBelow = false,
+                    autoDismiss = false,
+                    showDismissButton = true
+                ).apply {
+                    setOnBalloonDismissListener {
+                        isTooltipShowing = false
+                        Prefs.isPlacesPageOnboardingTooltipShown = true
+                    }
+                    isTooltipShowing = true
+                    BreadCrumbLogEvent.logTooltipShown(
+                        this@PageActivity,
+                        binding.pageToolbarButtonShowOverflowMenu
+                    )
+                    showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+                    setCurrentTooltip(this)
                 }
-                showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
-                setCurrentTooltip(this)
             }
         }
     }
