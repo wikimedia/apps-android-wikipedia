@@ -984,7 +984,7 @@
   <string name="suggested_edits_contributions_stat_tooltip">El vostre nombre total de contribucions fins ara.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Quants dies seguits hi heu fet contribucions. Si no hi heu contribuït de fa temps, mostra la data de la darrera contribució.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Pàgines vistes totals dels elements en què heu contribuït durant els darrers 30 dies.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Basta en quantes vegades s\'han revertit les vostres contribucions (desfetes per un altre editor). Edicions revertides: %d.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Basat en quantes vegades s\'han revertit les vostres contribucions (desfetes per un altre editor). Edicions revertides: %d.</string>
   <string name="suggested_edits_paused_message">Les edicions suggerides s\'han posat en pausa fins al %1$s. Ho sentim %2$s, però s\'han revertit algunes de les vostres darreres contribucions.</string>
   <string name="suggested_edits_disabled_message">S\'han inhabilitat les edicions suggerides. Ho sentim %s, s\'han revertit massa contribucions recents.</string>
   <string name="suggested_edits_ip_blocked_message">Sembla que la vostra adreça IP (o rang d\'adreces IP) està blocada per a editar a la Viquipèdia.</string>
@@ -1337,7 +1337,6 @@
   <string name="revision_diff_from">De:</string>
   <string name="revision_diff_to">Per a:</string>
   <string name="revision_diff_line_num">Línia %d</string>
-  <string name="revision_diff_line_nums">Línies %d–%d</string>
   <string name="revision_diff_lines_from_to">Línies %1$d–%2$d</string>
   <string name="revision_diff_line_added">Línia afegida</string>
   <string name="revision_diff_line_removed">Línia eliminada</string>

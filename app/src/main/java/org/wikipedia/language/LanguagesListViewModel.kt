@@ -13,7 +13,6 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.util.Resource
 import org.wikipedia.util.log.L
-import java.util.*
 
 class LanguagesListViewModel : ViewModel() {
 
@@ -42,7 +41,7 @@ class LanguagesListViewModel : ViewModel() {
 
     fun getListBySearchTerm(context: Context, searchTerm: String?): List<LanguageListItem> {
         val results = mutableListOf<LanguageListItem>()
-        val filter = StringUtils.stripAccents(searchTerm.orEmpty()).lowercase(Locale.getDefault())
+        val filter = StringUtils.stripAccents(searchTerm.orEmpty())
 
         addFilteredLanguageListItems(filter, suggestedLanguageCodes,
                 context.getString(R.string.languages_list_suggested_text), results)
@@ -59,9 +58,9 @@ class LanguagesListViewModel : ViewModel() {
         for (code in codes) {
             val localizedName = StringUtils.stripAccents(WikipediaApp.instance.languageState.getAppLanguageLocalizedName(code).orEmpty())
             val canonicalName = StringUtils.stripAccents(getCanonicalName(code).orEmpty())
-            if (filter.isEmpty() || code.contains(filter) ||
-                    localizedName.lowercase(Locale.getDefault()).contains(filter) ||
-                    canonicalName.lowercase(Locale.getDefault()).contains(filter)) {
+            if (filter.isEmpty() || code.contains(filter, true) ||
+                    localizedName.contains(filter, true) ||
+                    canonicalName.contains(filter, true)) {
                 if (first) {
                     results.add(LanguageListItem(headerText, true))
                     first = false

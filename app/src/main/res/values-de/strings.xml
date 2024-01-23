@@ -37,6 +37,7 @@
 * Tacsipacsi
 * ThisCarthing
 * Tobi 406
+* Twistqj
 * Umherirrender
 * Umlaut
 * Vogone
@@ -1342,13 +1343,12 @@
   <string name="revision_diff_from">Von:</string>
   <string name="revision_diff_to">Nach:</string>
   <string name="revision_diff_line_num">Zeile %d</string>
-  <string name="revision_diff_line_nums">Zeilen %d–%d</string>
   <string name="revision_diff_lines_from_to">Zeilen %1$d–%2$d</string>
   <string name="revision_diff_line_added">Zeile hinzugefügt</string>
   <string name="revision_diff_line_removed">Zeile entfernt</string>
   <string name="revision_diff_paragraph_added">Abschnitt hinzugefügt</string>
   <string name="revision_diff_paragraph_removed">Abschnitt entfernt</string>
-  <string name="revision_undo_title" fuzzy="true">Bearbeitung rückgängig machen</string>
+  <string name="revision_undo_title">Bist du sicher, dass du diese Bearbeitung rückgangig machen willst?</string>
   <string name="revision_undo_message" fuzzy="true">Damit werden die Änderungen, die durch die hier angezeigte(n) Version(en) des Artikels vorgenommen wurden, rückgängig gemacht.</string>
   <string name="revision_undo_reason" fuzzy="true">Um fortzufahren, gib bitte einen Grund für die Rückgängigmachung dieser Bearbeitung an:</string>
   <string name="revision_undo_success">Die Version wurde rückgängig gemacht.</string>
@@ -1480,7 +1480,12 @@
   <string name="talk_templates_edit_message_dialog_save">Speichern</string>
   <string name="talk_templates_edit_message_dialog_delete">Löschen</string>
   <string name="talk_templates_edit_message_updated">Die Nachricht wurde aktualisiert</string>
-  <string name="talk_templates_message_deleted" fuzzy="true">Nachricht wurde gelöscht</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Nachricht wurde gelöscht</item>
+    <item quantity="other">Nachrichten wurden gelöscht</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Der Titel darf nicht leer sein.</string>
+  <string name="patroller_tasks_edits_list_title">Liste der Bearbeitungen</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Keine</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benutzerseite ansehen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Diskussionsseite anzeigen</string>
@@ -1504,6 +1509,7 @@
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Könnte Probleme haben</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Findet die meisten fehlerhaften oder schädlichen Bearbeitungen, aber mit einer niedrigeren Genauigkeit.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Hat wahrscheinlich Probleme</string>
+  <string name="patroller_tasks_overflow_learn">Mehr erfahren</string>
   <string name="data_opt_in_accept">Zulassen</string>
   <string name="data_opt_in_reject">Ablehnen</string>
   <string name="page_issues_title">Seitenprobleme</string>

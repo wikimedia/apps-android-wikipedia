@@ -419,6 +419,10 @@
   <string name="multi_select_items_selected">%d 個已選擇</string>
   <string name="error_message_generic">發生錯誤</string>
   <string name="view_link_preview_error_button_dismiss">關閉</string>
+  <string name="link_preview_dialog_read_button">閱讀</string>
+  <string name="link_preview_dialog_save_button">儲存</string>
+  <string name="link_preview_dialog_saved_button">已儲存</string>
+  <string name="link_preview_dialog_share_button">分享</string>
   <string name="error_page_does_not_exist">此頁面不存在</string>
   <string name="error_user_page_does_not_exist">維基百科上沒有此確切名稱的&lt;a href=\"%1$s\"&gt;使用者頁面&lt;/a&gt;。在一般情況下，此頁面應是由&lt;b&gt;%2$s&lt;/b&gt;建立與編輯。如有疑問，請確認「%3$s」是否存在。</string>
   <string name="view_wiki_error_message_offline">無法連接網路</string>
@@ -1343,7 +1347,6 @@
   <string name="revision_diff_from">從：</string>
   <string name="revision_diff_to">至：</string>
   <string name="revision_diff_line_num">第%d行</string>
-  <string name="revision_diff_line_nums">第%d到%d行</string>
   <string name="revision_diff_lines_from_to">第%1$d到%2$d行</string>
   <string name="revision_diff_line_added">已新增行數</string>
   <string name="revision_diff_line_removed">已移除行數</string>
@@ -1455,6 +1458,8 @@
   <string name="media_playback_error">播放媒體時出錯。</string>
   <string name="user_contrib_menu_label">貢獻</string>
   <string name="user_contrib_filter_activity_title">篩選貢獻</string>
+  <string name="action_item_view_on_map">在地圖上查看</string>
+  <string name="action_item_view_on_map_unavailable">此頁面的地理座標不可用</string>
   <string name="shareable_reading_lists_import_dialog_title">匯入分享閱讀清單</string>
   <string name="shareable_reading_lists_import_dialog_content">您想如何命名與您分享的清單？</string>
   <string name="shareable_reading_lists_new_indicator">*新的*</string>
@@ -1598,4 +1603,10 @@
   <string name="donation_campaign_donated_snackbar">謝謝您，親愛的捐贈者！您的慷慨贊助會幫助維基百科與相關姐妹網站蓬勃發展。</string>
   <string name="donation_campaign_go_back_button">返回</string>
   <string name="menu_single_webview_open_external">在系統瀏覽器開啟</string>
+  <string name="places_title">地點</string>
+  <string name="places_permissions_denied">需要位置權限才能在地圖上查看您的位置。請再試一次。</string>
+  <string name="places_search_hint">搜尋地點</string>
+  <string name="places_filter_title">篩選語言</string>
+  <string name="places_toggle_buttons_map">地圖</string>
+  <string name="places_toggle_buttons_list">清單</string>
 </resources>

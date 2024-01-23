@@ -774,7 +774,7 @@
   <string name="notifications_offline_disable_message">ऑफ़लाइन होने पर फ़ंक्शन उपलब्ध नहीं है।</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
-  <string name="view_random_article_card_title">कोई भी लेख</string>
+  <string name="view_random_article_card_title">बेतरतीब लेख</string>
   <string name="view_random_article_card_action">अधिक बेतरतीब लेख</string>
   <string name="view_top_read_card_title">सर्वाधिक पढ़े गए</string>
   <string name="view_top_read_card_action">सर्वाधिक पढ़े अन्य</string>
@@ -1315,7 +1315,6 @@
   <string name="revision_diff_from">प्रेषक:</string>
   <string name="revision_diff_to">प्राप्तकर्ता:</string>
   <string name="revision_diff_line_num">लाइन %d</string>
-  <string name="revision_diff_line_nums">लाइन्स %d–%d</string>
   <string name="revision_diff_lines_from_to">पंक्तियाँ %1$d–%2$d</string>
   <string name="revision_diff_line_added">लाइन जोड़ी गई</string>
   <string name="revision_diff_line_removed">लाइन हटाई गई</string>

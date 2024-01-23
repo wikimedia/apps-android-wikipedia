@@ -22,20 +22,23 @@ import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ShareUtil
 
-class LongPressMenu(private val anchorView: View, private val existsInAnyList: Boolean, private val callback: Callback?) {
+class LongPressMenu(
+    private val anchorView: View,
+    private val existsInAnyList: Boolean = true,
+    private val callback: Callback? = null
+) {
     interface Callback {
         fun onOpenLink(entry: HistoryEntry)
         fun onOpenInNewTab(entry: HistoryEntry)
         fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean)
         fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry)
+        fun onRemoveRequest() { /* ignore by default */ }
     }
 
     @MenuRes
     private val menuRes: Int = if (existsInAnyList) R.menu.menu_long_press else R.menu.menu_reading_list_page_toggle
     private var listsContainingPage: List<ReadingList>? = null
     private var entry: HistoryEntry? = null
-
-    constructor(anchorView: View, callback: Callback?) : this(anchorView, false, callback)
 
     fun show(entry: HistoryEntry?) {
         entry?.let {
@@ -89,7 +92,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
         listsContainingPage?.let { list ->
             RemoveFromReadingListsDialog(list).deleteOrShowDialog(getActivity()) { readingLists, _ ->
                 entry?.let {
-                    if (anchorView.isAttachedToWindow) {
+                    if (!getActivity().isDestroyed) {
                         val readingListNames = readingLists.map { readingList -> readingList.title }.run {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                 ListFormatter.getInstance().format(this)
@@ -139,6 +142,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                 }
                 R.id.menu_long_press_remove_from_lists -> {
                     deleteOrShowDialog()
+                    callback?.onRemoveRequest()
                     true
                 }
                 R.id.menu_long_press_share_page -> {

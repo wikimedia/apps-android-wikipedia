@@ -1297,7 +1297,6 @@
   <string name="revision_diff_from">من:</string>
   <string name="revision_diff_to">إلى:</string>
   <string name="revision_diff_line_num">السطر %d</string>
-  <string name="revision_diff_line_nums">الأسطر %d–%d</string>
   <string name="revision_diff_line_added">سطر مُضاف</string>
   <string name="revision_diff_line_removed">سطر مُزال</string>
   <string name="revision_diff_paragraph_added">فقرة مُضافة</string>

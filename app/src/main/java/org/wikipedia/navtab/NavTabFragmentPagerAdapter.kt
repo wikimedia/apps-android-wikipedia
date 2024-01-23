@@ -9,6 +9,6 @@ class NavTabFragmentPagerAdapter(fragment: Fragment) : PositionAwareFragmentStat
     }
 
     override fun getItemCount(): Int {
-        return NavTab.size()
+        return NavTab.entries.size
     }
 }

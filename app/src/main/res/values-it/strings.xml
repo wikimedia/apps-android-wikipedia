@@ -1093,8 +1093,8 @@
   <string name="image_recommendation_tooltip_main">Aggiungi le immagini mancanti alle voci in Modifiche suggerite</string>
   <string name="image_recommendation_tooltip_next">Successivo</string>
   <string name="suggested_edits_report_feature_subject">Problemi con le modifiche suggerite</string>
-  <string name="edit_summary_added_image">Aggiungi immagine</string>
-  <string name="edit_summary_added_caption">Aggiungi didascalia</string>
+  <string name="edit_summary_added_image">Immagine aggiunta</string>
+  <string name="edit_summary_added_caption">Didascalia aggiunta</string>
   <string name="edit_summary_added_image_and_caption">Immagine e didascalia aggiunti</string>
   <string name="edit_published_view">Visualizza</string>
   <string name="file_page_activity_title">Pagina del file</string>
@@ -1321,7 +1321,6 @@
   <string name="revision_diff_from">Da:</string>
   <string name="revision_diff_to">A:</string>
   <string name="revision_diff_line_num">Riga %d</string>
-  <string name="revision_diff_line_nums">Righe %d–%d</string>
   <string name="revision_diff_lines_from_to">Righe %1$d–%2$d</string>
   <string name="revision_diff_line_added">Riga aggiunta</string>
   <string name="revision_diff_line_removed">Riga rimossa</string>
@@ -1455,12 +1454,12 @@
   <string name="talk_templates_edit_message_updated">Il messaggio è stato aggiornato</string>
   <string name="talk_templates_menu_remove_message">Rimuovi messaggio</string>
   <plurals name="talk_templates_message_delete_description">
-    <item quantity="one">Sei sicuro di voler eliminare il messaggio dall\'elenco?</item>
-    <item quantity="other">Sei sicuro di voler eliminare i messaggi dall\'elenco?</item>
+    <item quantity="one">Sei sicuro di voler cancellare il messaggio dall\'elenco?</item>
+    <item quantity="other">Sei sicuro di voler cancellare i messaggi dall\'elenco?</item>
   </plurals>
   <plurals name="talk_templates_message_deleted">
-    <item quantity="one">Il messaggio è stato eliminato</item>
-    <item quantity="other">I messaggi sono stati eliminati</item>
+    <item quantity="one">Il messaggio è stato cancellato</item>
+    <item quantity="other">I messaggi sono stati cancellati</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Il titolo non può essere vuoto.</string>
   <string name="patroller_tasks_edits_list_title">Elenco delle modifiche</string>
@@ -1512,4 +1511,6 @@
   <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità aiuta a far crescere Wikipedia e i suoi siti correlati.</string>
   <string name="donation_campaign_go_back_button">Torna indietro</string>
   <string name="menu_single_webview_open_external">Apri nel browser di sistema</string>
+  <string name="places_nav_tab_tooltip_message">Scopri le voci di Wikipedia intorno a te con Luoghi</string>
+  <string name="places_article_menu_tooltip_message">Tocca &lt;b&gt;\"Visualizza sulla mappa\"&lt;/b&gt; per esplorare la posizione di questa voce</string>
 </resources>
