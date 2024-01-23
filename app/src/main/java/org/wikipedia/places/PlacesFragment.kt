@@ -20,7 +20,9 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
@@ -36,6 +38,7 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
@@ -62,6 +65,7 @@ import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textIgnorePlacement
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.FragmentPlacesBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.extensions.parcelable
@@ -298,17 +302,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 symbolManager?.textAllowOverlap = true
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
-                    annotationCache.find { it.annotation == symbol }?.let {
-                        val location = Location("").apply {
-                            latitude = symbol.latLng.latitude
-                            longitude = symbol.latLng.longitude
-                        }
-                        resetMagnifiedSymbol()
-                        setMagnifiedSymbol(it.annotation)
-                        viewModel.highlightedPageTitle = it.pageTitle
-                        symbolManager?.update(it.annotation)
-                        showLinkPreview(it.pageTitle, location)
-                    }
+                    showFeedbackOptionsDialog()
                     true
                 }
 
@@ -335,6 +329,95 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
         }
+    }
+    private fun showFeedbackOptionsDialog(skipPreference: Boolean = false) {
+        /*if (!viewModel.fromRecentEdits || (!skipPreference && !Prefs.showOneTimeRecentEditsFeedbackForm)) {
+            return
+        }
+        if (Prefs.showOneTimeRecentEditsFeedbackForm) {
+            sendPatrollerExperienceEvent("toolbar_first_feedback", "pt_feedback")
+        }*/
+        var dialog: AlertDialog? = null
+        val feedbackView =
+            layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_options, null)
+
+        val clickListener = View.OnClickListener {
+            // viewModel.feedbackOption = (it as TextView).text.toString()
+            dialog?.dismiss()
+            if (false) {
+                showFeedbackSnackbarAndTooltip()
+            } else {
+                showFeedbackInputDialog()
+            }
+            /*sendPatrollerExperienceEvent("feedback_selection", "pt_feedback",
+                PatrollerExperienceEvent.getActionDataString(feedbackOption = viewModel.feedbackOption))*/
+        }
+
+        feedbackView.findViewById<TextView>(R.id.voptionSatisfied).setOnClickListener(clickListener)
+        feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
+        feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
+        feedbackView.findViewById<TextView>(R.id.optionNeutral).setOnClickListener(clickListener)
+        feedbackView.findViewById<TextView>(R.id.optionUnsatisfied)
+            .setOnClickListener(clickListener)
+        val view1 = feedbackView.findViewById<TextView>(R.id.voptionSatisfied)
+        val view2 = feedbackView.findViewById<TextView>(R.id.voptionUnsatisfied)
+        /* view1.visibility = View.VISIBLE
+         view2.visibility = View.VISIBLE
+         view1.setOnClickListener(clickListener)
+         view2.setOnClickListener(clickListener)*/
+        PatrollerExperienceEvent.logImpression("pt_feedback")
+        dialog = MaterialAlertDialogBuilder(requireActivity())
+            .setTitle(R.string.patroller_diff_feedback_dialog_title)
+            .setCancelable(false)
+            .setView(feedbackView)
+            .show()
+    }
+
+    private fun showFeedbackInputDialog() {
+        /*  if (!viewModel.fromRecentEdits) {
+              return
+          }*/
+        val feedbackView = layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_input, null)
+        // sendPatrollerExperienceEvent("feedback_input_impression", "pt_feedback")
+        MaterialAlertDialogBuilder(requireActivity())
+            .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
+            .setView(feedbackView)
+            .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
+                /*viewModel.feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
+                sendPatrollerExperienceEvent("feedback_submit", "pt_feedback",
+                    PatrollerExperienceEvent.getActionDataString(feedbackText = viewModel.feedbackInput))*/
+                showFeedbackSnackbarAndTooltip()
+            }
+            .show()
+    }
+
+    private fun showFeedbackSnackbarAndTooltip() {
+        /* if (!viewModel.fromRecentEdits) {
+             return
+         }*/
+        FeedbackUtil.showMessage(
+            this@PlacesFragment,
+            R.string.patroller_diff_feedback_submitted_snackbar
+        )
+        // sendPatrollerExperienceEvent("feedback_submit_toast", "pt_feedback")
+        requireActivity().window.decorView.postDelayed({
+            val anchorView = requireActivity().findViewById<View>(R.id.more_options)
+            if (!requireActivity().isDestroyed && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
+                // sendPatrollerExperienceEvent("tooltip_impression", "pt_feedback")
+                FeedbackUtil.getTooltip(
+                    requireActivity(),
+                    getString(R.string.patroller_diff_feedback_tooltip),
+                    arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
+                    topOrBottomMargin = 0,
+                    aboveOrBelow = false,
+                    autoDismiss = false,
+                    showDismissButton = true
+                ).apply {
+                    showAlignBottom(anchorView)
+                    Prefs.showOneTimeRecentEditsFeedbackForm = false
+                }
+            }
+        }, 100)
     }
 
     private fun showLinkPreview(pageTitle: PageTitle, location: Location) {

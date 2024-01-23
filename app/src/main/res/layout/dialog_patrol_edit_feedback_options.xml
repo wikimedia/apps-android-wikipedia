@@ -19,18 +19,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:text="@string/patroller_diff_feedback_dialog_message"/>
+            android:text="@string/patroller_diff_feedback_dialog_message" />
+
+        <TextView
+            android:id="@+id/voptionSatisfied"
+            style="@style/Chip.Accessible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:background="@drawable/background_8dp_radius"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:text="@string/patroller_diff_feedback_dialog_option_very_satisfied" />
 
         <TextView
             android:id="@+id/optionSatisfied"
             style="@style/Chip.Accessible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/patroller_diff_feedback_dialog_option_satisfied"
+            android:layout_marginVertical="8dp"
             android:background="@drawable/background_8dp_radius"
             android:foreground="?attr/selectableItemBackground"
             android:padding="8dp"
-            android:layout_marginVertical="8dp"/>
+            android:text="@string/patroller_diff_feedback_dialog_option_satisfied" />
 
 
         <TextView
@@ -38,11 +50,11 @@
             style="@style/Chip.Accessible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/patroller_diff_feedback_dialog_option_neutral"
+            android:layout_marginVertical="8dp"
             android:background="@drawable/background_8dp_radius"
             android:foreground="?attr/selectableItemBackground"
             android:padding="8dp"
-            android:layout_marginVertical="8dp" />
+            android:text="@string/patroller_diff_feedback_dialog_option_neutral" />
 
 
         <TextView
@@ -50,10 +62,22 @@
             style="@style/Chip.Accessible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/patroller_diff_feedback_dialog_option_unsatisfied"
+            android:layout_marginVertical="8dp"
             android:background="@drawable/background_8dp_radius"
             android:foreground="?attr/selectableItemBackground"
             android:padding="8dp"
-            android:layout_marginVertical="8dp" />
+            android:text="@string/patroller_diff_feedback_dialog_option_unsatisfied" />
+
+        <TextView
+            android:id="@+id/voptionUnsatisfied"
+            style="@style/Chip.Accessible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:visibility="gone"
+            android:background="@drawable/background_8dp_radius"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="8dp"
+            android:text="@string/patroller_diff_feedback_dialog_option_very_unsatisfied" />
     </LinearLayout>
 </ScrollView>
