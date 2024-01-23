@@ -1654,8 +1654,6 @@
     <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfied</string>
     <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
     <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unsatisfied</string>
-    <string name="patroller_diff_feedback_dialog_option_very_satisfied">Very satisfied</string>
-    <string name="patroller_diff_feedback_dialog_option_very_unsatisfied">Very unsatisfied</string>
     <string name="patroller_diff_feedback_dialog_feedback_title">How can we improve the feature?</string>
     <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
     <string name="patroller_diff_feedback_dialog_submit">Submit</string>
@@ -1689,5 +1687,9 @@
     <string name="places_toggle_buttons_list">List</string>
     <string name="places_nav_tab_tooltip_message">Discover Wikipedia articles around you with Places</string>
     <string name="places_article_menu_tooltip_message"><![CDATA[Tap <b>\'View on map\'</b> to explore this article\'s location]]></string>
+    <string name="places_survey_very_satisfied_option">Very satisfied</string>
+    <string name="places_survey_very_unsatisfied_option">Very unsatisfied</string>
+    <string name="places_survey_dialog_title">Help improve \"Places\"</string>
+    <string name="places_survey_feedback_dialog_title">How can \"Places\" be improved?</string>
     <!-- /Places -->
 </resources>
