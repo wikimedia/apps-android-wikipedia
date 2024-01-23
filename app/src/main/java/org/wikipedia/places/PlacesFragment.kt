@@ -16,6 +16,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.location.Location
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -761,8 +762,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         fun bindItem(item: PlacesFragmentViewModel.NearbyPage, position: Int) {
             this.position = position
             binding.listItemTitle.text = StringUtil.fromHtml(item.pageTitle.displayText)
-            val description = item.pageTitle.description.orEmpty().ifEmpty { item.pageTitle.extract }
-            binding.listItemDescription.text = StringUtil.fromHtml(description)
+            if (item.pageTitle.description.isNullOrEmpty()) {
+                binding.listItemDescription.isSingleLine = true
+                binding.listItemDescription.ellipsize = TextUtils.TruncateAt.END
+                binding.listItemDescription.text = StringUtil.fromHtml(item.pageTitle.extract)
+            } else {
+                binding.listItemDescription.text = StringUtil.fromHtml(item.pageTitle.description)
+            }
             lastLocation?.let {
                 binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, item.location, Locale.getDefault())
             }
