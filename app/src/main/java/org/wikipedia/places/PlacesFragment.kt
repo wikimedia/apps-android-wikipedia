@@ -16,7 +16,6 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.location.Location
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -764,9 +763,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             binding.listItemTitle.text = StringUtil.fromHtml(item.pageTitle.displayText)
             if (item.pageTitle.description.isNullOrEmpty()) {
                 binding.listItemDescription.isSingleLine = true
-                binding.listItemDescription.ellipsize = TextUtils.TruncateAt.END
-                binding.listItemDescription.text = StringUtil.fromHtml(item.pageTitle.extract)
+                binding.listItemDescription.text = StringUtil.removeHTMLTags(item.pageTitle.extract)
             } else {
+                binding.listItemDescription.isSingleLine = false
                 binding.listItemDescription.text = StringUtil.fromHtml(item.pageTitle.description)
             }
             lastLocation?.let {
