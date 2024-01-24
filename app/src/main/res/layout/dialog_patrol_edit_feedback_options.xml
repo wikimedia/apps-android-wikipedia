@@ -22,7 +22,7 @@
             android:text="@string/patroller_diff_feedback_dialog_message" />
 
         <TextView
-            android:id="@+id/voptionSatisfied"
+            android:id="@+id/optionVerySatisfied"
             style="@style/Chip.Accessible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             android:foreground="?attr/selectableItemBackground"
             android:padding="8dp"
             android:visibility="gone"
-            android:text="@string/patroller_diff_feedback_dialog_option_very_satisfied" />
+            android:text="@string/places_survey_very_satisfied_option" />
 
         <TextView
             android:id="@+id/optionSatisfied"
@@ -69,7 +69,7 @@
             android:text="@string/patroller_diff_feedback_dialog_option_unsatisfied" />
 
         <TextView
-            android:id="@+id/voptionUnsatisfied"
+            android:id="@+id/optionVeryUnsatisfied"
             style="@style/Chip.Accessible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,6 +78,6 @@
             android:background="@drawable/background_8dp_radius"
             android:foreground="?attr/selectableItemBackground"
             android:padding="8dp"
-            android:text="@string/patroller_diff_feedback_dialog_option_very_unsatisfied" />
+            android:text="@string/places_survey_very_unsatisfied_option" />
     </LinearLayout>
 </ScrollView>

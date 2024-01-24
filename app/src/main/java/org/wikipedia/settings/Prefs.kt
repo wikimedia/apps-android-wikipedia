@@ -714,6 +714,10 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
 
+    var shouldShowOneTimePlacesSurvey
+        get() = PrefsIoUtil.getInt(R.string.preference_key_places_show_one_time_survey, -1)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_places_show_one_time_survey, value)
+
     var placesLastLocationAndZoomLevel: Pair<Location, Double>?
         get() {
             // latitude|longitude|zoomLevel

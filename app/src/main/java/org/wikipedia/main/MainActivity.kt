@@ -19,6 +19,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.PageActivity
+import org.wikipedia.places.PlacesFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -61,8 +62,18 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     }
 
     override fun onResume() {
+        maybeShowPlacesSurvey()
         super.onResume()
         invalidateOptionsMenu()
+    }
+
+    private fun maybeShowPlacesSurvey() {
+        binding.root.postDelayed({
+        if (Prefs.shouldShowOneTimePlacesSurvey == PlacesFragment.SHOW_SURVEY) {
+            Prefs.shouldShowOneTimePlacesSurvey = PlacesFragment.DO_NOT_SHOW_SURVEY
+            PlacesFragment.showFeedbackOptionsDialog(this)
+        }
+        }, 1000)
     }
 
     override fun createFragment(): MainFragment {
