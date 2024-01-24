@@ -735,7 +735,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             // Todo: Wire for impression
             dialog = MaterialAlertDialogBuilder(activity)
                 .setTitle(R.string.places_survey_dialog_title)
-                .setCancelable(false)
+                .setCancelable(true)
                 .setView(feedbackView)
                 .show()
         }
@@ -746,6 +746,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             MaterialAlertDialogBuilder(activity)
                 .setTitle(R.string.places_survey_feedback_dialog_title)
                 .setView(feedbackView)
+                .setCancelable(false)
                 .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
                     // Todo: Wire data for feedback string
                     showFeedbackSnackbarAndTooltip(activity)
