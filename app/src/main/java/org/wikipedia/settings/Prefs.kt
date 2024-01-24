@@ -14,6 +14,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
+import org.wikipedia.places.PlacesFragment
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsFilterTypes
 import org.wikipedia.theme.Theme.Companion.fallback
 import org.wikipedia.util.DateUtil.dbDateFormat
@@ -715,7 +716,7 @@ object Prefs {
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
 
     var shouldShowOneTimePlacesSurvey
-        get() = PrefsIoUtil.getInt(R.string.preference_key_places_show_one_time_survey, -1)
+        get() = PrefsIoUtil.getInt(R.string.preference_key_places_show_one_time_survey, PlacesFragment.SURVEY_NOT_INITIALIZED)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_places_show_one_time_survey, value)
 
     var placesLastLocationAndZoomLevel: Pair<Location, Double>?

@@ -476,8 +476,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             }
         }
         markerBitmapBase.recycle()
-        if (Prefs.shouldShowOneTimePlacesSurvey == NOT_INITIALIZED) {
-            Prefs.shouldShowOneTimePlacesSurvey = SHOW_SURVEY
+        if (Prefs.shouldShowOneTimePlacesSurvey == SURVEY_NOT_INITIALIZED) {
+            Prefs.shouldShowOneTimePlacesSurvey = SURVEY_SHOW
         }
         super.onDestroyView()
     }
@@ -682,9 +682,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         const val CLUSTER_TEXT_LAYER_ID = "mapbox-android-cluster-text"
         const val CLUSTER_CIRCLE_LAYER_ID = "mapbox-android-cluster-circle0"
         const val ZOOM_IN_ANIMATION_DURATION = 1000
-        const val NOT_INITIALIZED = -1
-        const val SHOW_SURVEY = 0
-        const val DO_NOT_SHOW_SURVEY = 1
+        const val SURVEY_NOT_INITIALIZED = -1
+        const val SURVEY_SHOW = 0
+        const val SURVEY_DO_NOT_SHOW = 1
 
         val CLUSTER_FONT_STACK = arrayOf("Open Sans Semibold")
         val MARKER_FONT_STACK = arrayOf("Open Sans Regular")

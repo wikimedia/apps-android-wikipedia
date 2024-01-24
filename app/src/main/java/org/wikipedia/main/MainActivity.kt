@@ -69,10 +69,10 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     private fun maybeShowPlacesSurvey() {
         binding.root.postDelayed({
-        if (Prefs.shouldShowOneTimePlacesSurvey == PlacesFragment.SHOW_SURVEY) {
-            Prefs.shouldShowOneTimePlacesSurvey = PlacesFragment.DO_NOT_SHOW_SURVEY
-            PlacesFragment.showFeedbackOptionsDialog(this)
-        }
+            if (Prefs.shouldShowOneTimePlacesSurvey == PlacesFragment.SURVEY_SHOW && !isDestroyed) {
+                Prefs.shouldShowOneTimePlacesSurvey = PlacesFragment.SURVEY_DO_NOT_SHOW
+                PlacesFragment.showFeedbackOptionsDialog(this)
+            }
         }, 1000)
     }
 
