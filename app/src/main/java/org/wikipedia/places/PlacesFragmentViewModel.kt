@@ -26,13 +26,11 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
     var highlightedPageTitle: PageTitle? = bundle.parcelable(Constants.ARG_TITLE)
 
     val nearbyPagesLiveData = MutableLiveData<Resource<List<NearbyPage>>>()
-    val nearbyPages = mutableListOf<NearbyPage>()
 
     fun fetchNearbyPages(latitude: Double, longitude: Double, radius: Int, maxResults: Int) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             nearbyPagesLiveData.postValue(Resource.Error(throwable))
         }) {
-            nearbyPages.clear()
             val response = ServiceFactory.get(wikiSite).getGeoSearch("$latitude|$longitude", radius, maxResults, maxResults)
             val pages = response.query?.pages.orEmpty()
                 .filter { it.coordinates != null }
@@ -41,7 +39,6 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
                         if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
                         it.description, it.displayTitle(wikiSite.languageCode), it.extract), it.coordinates!![0].lat, it.coordinates[0].lon)
                 }
-            nearbyPages.addAll(pages)
             nearbyPagesLiveData.postValue(Resource.Success(pages))
         }
     }
