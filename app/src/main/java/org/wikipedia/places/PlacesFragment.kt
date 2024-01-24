@@ -476,7 +476,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             }
         }
         markerBitmapBase.recycle()
-        if (Prefs.shouldShowOneTimePlacesSurvey == -NOT_INITIALIZED) {
+        if (Prefs.shouldShowOneTimePlacesSurvey == NOT_INITIALIZED) {
             Prefs.shouldShowOneTimePlacesSurvey = SHOW_SURVEY
         }
         super.onDestroyView()
