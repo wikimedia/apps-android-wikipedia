@@ -414,6 +414,7 @@
   <string name="multi_select_items_selected">%d चयनित</string>
   <string name="error_message_generic">एक त्रुटि हुई है</string>
   <string name="view_link_preview_error_button_dismiss">रद्द करें</string>
+  <string name="link_preview_dialog_save_button">सहेजें</string>
   <string name="error_page_does_not_exist">यह पेज अस्तिव में नहीं है</string>
   <string name="error_user_page_does_not_exist">विकिपीडिया में इस सटीक नाम वाला &lt;a href=\"%1$s\"&gt;सदस्य पृष्ठ&lt;/a&gt; नहीं है। सामान्य तौर पर, यह पृष्ठ &lt;b&gt;%2$s&lt;/b&gt; द्वारा बनाया और संपादित किया जाना चाहिए। यदि संदेह है, तो कृपया सत्यापित करें कि \" %3$s \" मौजूद है।</string>
   <string name="view_wiki_error_message_offline">इंटरनेट से जोड़ा नहीं जा सका</string>
@@ -1444,4 +1445,7 @@
   <string name="data_opt_in_reject">अस्वीकार करें</string>
   <string name="generic_release_notes">मामूली बग फिक्स और सुधार</string>
   <string name="donation_campaign_go_back_button">वापस जाएँ</string>
+  <string name="places_toggle_buttons_map">नक्शा</string>
+  <string name="places_survey_very_satisfied_option">बहुत संतुष्ट</string>
+  <string name="places_survey_very_unsatisfied_option">बहुत असंतुष्ट</string>
 </resources>

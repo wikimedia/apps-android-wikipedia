@@ -703,6 +703,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         if (inNewTab) {
             TabUtil.openInNewBackgroundTab(entry)
             requireActivity().invalidateOptionsMenu()
+            binding.tabsButton.isVisible = WikipediaApp.instance.tabCount > 0
             binding.tabsButton.updateTabCount(true)
         } else {
             startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
