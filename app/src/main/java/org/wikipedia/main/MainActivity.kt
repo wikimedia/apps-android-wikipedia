@@ -24,6 +24,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.SurveyDialog
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
 
@@ -71,7 +72,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         binding.root.postDelayed({
             if (Prefs.shouldShowOneTimePlacesSurvey == PlacesFragment.SURVEY_SHOW && !isDestroyed) {
                 Prefs.shouldShowOneTimePlacesSurvey = PlacesFragment.SURVEY_DO_NOT_SHOW
-                PlacesFragment.showFeedbackOptionsDialog(this)
+                SurveyDialog.showFeedbackOptionsDialog(this, Constants.InvokeSource.PLACES)
             }
         }, 1000)
     }

@@ -2,7 +2,6 @@ package org.wikipedia.places
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -21,9 +20,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
@@ -39,7 +36,6 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
@@ -705,58 +701,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
          */
         fun latitudeDiffToMeters(latitudeDiff: Double): Int {
             return (111132 * latitudeDiff).toInt().coerceIn(10, 10000)
-        }
-        fun showFeedbackOptionsDialog(activity: Activity) {
-            var dialog: AlertDialog? = null
-            val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_options, null)
-
-            val clickListener = View.OnClickListener {
-                val selection = (it as TextView).text.toString()
-                dialog?.dismiss()
-                if (selection == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied) ||
-                    selection == activity.getString(R.string.places_survey_very_satisfied_option)) {
-                    showFeedbackSnackbarAndTooltip(activity)
-                } else {
-                    showFeedbackInputDialog(activity)
-                }
-                // Todo: Wire data for selection
-            }
-            val verySatisfied = feedbackView.findViewById<TextView>(R.id.optionVerySatisfied)
-            val veryUnsatisfied = feedbackView.findViewById<TextView>(R.id.optionVeryUnsatisfied)
-            verySatisfied.visibility = View.VISIBLE
-            veryUnsatisfied.visibility = View.VISIBLE
-            feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
-            feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
-            feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
-            feedbackView.findViewById<TextView>(R.id.optionNeutral).setOnClickListener(clickListener)
-            feedbackView.findViewById<TextView>(R.id.optionUnsatisfied).setOnClickListener(clickListener)
-            verySatisfied.setOnClickListener(clickListener)
-            veryUnsatisfied.setOnClickListener(clickListener)
-            // Todo: Wire for impression
-            dialog = MaterialAlertDialogBuilder(activity)
-                .setTitle(R.string.places_survey_dialog_title)
-                .setCancelable(true)
-                .setView(feedbackView)
-                .show()
-        }
-
-        private fun showFeedbackInputDialog(activity: Activity) {
-            val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_input, null)
-            // Todo: Wire feedback input impression
-            MaterialAlertDialogBuilder(activity)
-                .setTitle(R.string.places_survey_feedback_dialog_title)
-                .setView(feedbackView)
-                .setCancelable(false)
-                .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
-                    // Todo: Wire data for feedback string
-                    showFeedbackSnackbarAndTooltip(activity)
-                }
-                .show()
-        }
-
-        private fun showFeedbackSnackbarAndTooltip(activity: Activity) {
-            FeedbackUtil.showMessage(activity, R.string.patroller_diff_feedback_submitted_snackbar)
-            // Todo: Wire feedback snackbar impression
         }
     }
 }

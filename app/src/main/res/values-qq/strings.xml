@@ -1617,4 +1617,5 @@
   <string name="places_survey_feedback_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature</string>
   <string name="places_survey_very_satisfied_option">Option text suggesting that user is very satisfied with the feature, shown in the survey</string>
   <string name="places_survey_very_unsatisfied_option">Option text suggesting that user is very usatisfied with the feature, shown in the survey</string>
+  <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
 </resources>
