@@ -1618,4 +1618,6 @@
   <string name="places_survey_very_unsatisfied_option">Option text suggesting that user is very usatisfied with the feature, shown in the survey</string>
   <string name="places_survey_dialog_title">Title text for the main feedback dialog for places feature</string>
   <string name="places_survey_feedback_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
+
 </resources>

@@ -23,10 +23,14 @@ object SurveyDialog {
         val clickListener = View.OnClickListener {
             val feedbackOption = (it as TextView).text.toString()
             dialog?.dismiss()
-            if (feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied)) {
+            if (
+                (source == Constants.InvokeSource.PLACES && (feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied) ||
+                        feedbackOption == activity.getString(R.string.places_survey_very_satisfied_option))) ||
+                (source != Constants.InvokeSource.PLACES && feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied))
+            ) {
                 showFeedbackSnackbarAndTooltip(activity, source)
             } else {
-                showFeedbackInputDialog(activity, source)
+                showFeedbackInputDialog(activity, source, feedbackOption)
             }
 
             sendAnalyticsEvent("feedback_selection", "pt_feedback", source,
@@ -61,13 +65,21 @@ object SurveyDialog {
         dialog = dialogBuilder.show()
     }
 
-    private fun showFeedbackInputDialog(activity: Activity, source: Constants.InvokeSource) {
+    private fun showFeedbackInputDialog(activity: Activity, source: Constants.InvokeSource, feedbackOption: String) {
         val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_input, null)
         sendAnalyticsEvent("feedback_input_impression", "pt_feedback", source)
         MaterialAlertDialogBuilder(activity)
             .setTitle(
-                if (source == Constants.InvokeSource.PLACES) R.string.places_survey_dialog_title else
+                if (source == Constants.InvokeSource.PLACES) {
+                    if (feedbackOption == activity.getString(R.string.places_survey_very_unsatisfied_option) ||
+                        feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_unsatisfied)
+                    )
+                        R.string.places_survey_feedback_low_satisfaction_dialog_title
+                    else
+                        R.string.places_survey_feedback_dialog_title
+                } else {
                     R.string.patroller_diff_feedback_dialog_feedback_title
+                }
             )
             .setView(feedbackView)
             .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
