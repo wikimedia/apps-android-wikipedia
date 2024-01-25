@@ -109,6 +109,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private var symbolManager: SymbolManager? = null
 
     private val annotationCache = ArrayDeque<PlacesFragmentViewModel.NearbyPage>()
+    private var lastCheckedId = R.id.mapViewButton
     private var lastLocation: Location? = null
     private var lastLocationQueried: Location? = null
     private var lastZoom = 15.0
@@ -247,7 +248,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         binding.viewButtonsGroup.post {
-            binding.viewButtonsGroup.check(R.id.mapViewButton)
             binding.viewButtonsGroup.isVisible = true
         }
 
@@ -255,6 +255,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             if (!isChecked) {
                 return@addOnButtonCheckedListener
             }
+            lastCheckedId = checkedId
             val mapViewChecked = checkedId == R.id.mapViewButton
             updateToggleViews(mapViewChecked)
 
@@ -369,13 +370,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
                 if (haveLocationPermissions()) {
                     startLocationTracking()
-                    if (savedInstanceState == null) {
-                        viewModel.location?.let {
-                            goToLocation(it)
-                        } ?: run {
-                            val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
-                            goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
-                        }
+                    viewModel.location?.let {
+                        goToLocation(it)
+                    } ?: run {
+                        val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
+                        goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
                     }
                 } else {
                     locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -506,6 +505,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
         binding.mapView.onResume()
         updateSearchCardViews()
+        updateToggleViews(lastCheckedId == R.id.mapViewButton)
     }
 
     override fun onStop() {
@@ -768,7 +768,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 binding.listItemDescription.isSingleLine = false
                 binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
             }
-            lastLocation?.let {
+            mapboxMap?.locationComponent?.lastKnownLocation?.let {
                 binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, page.location, Locale.getDefault())
             }
             page.pageTitle.thumbUrl?.let {
