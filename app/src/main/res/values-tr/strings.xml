@@ -1622,4 +1622,10 @@
   <string name="places_filter_title">Dile göre filtrele</string>
   <string name="places_toggle_buttons_map">Harita</string>
   <string name="places_toggle_buttons_list">Liste</string>
+  <string name="places_nav_tab_tooltip_message">Yerler ile çevrenizdeki Vikipedi maddelerini keşfedin</string>
+  <string name="places_article_menu_tooltip_message">Bu maddenin konumunu ortaya çıkarmak için &lt;b&gt;\'Haritada gör\'&lt;/b&gt;e dokunun</string>
+  <string name="places_survey_very_satisfied_option">Çok mutlu</string>
+  <string name="places_survey_very_unsatisfied_option">Çok mutsuz</string>
+  <string name="places_survey_dialog_title">\"Yerler\"i iyileştirmeye yardımcı olun</string>
+  <string name="places_survey_feedback_dialog_title">\"Yerler\" nasıl geliştirilebilir?</string>
 </resources>
