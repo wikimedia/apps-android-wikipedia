@@ -1584,4 +1584,10 @@
   <string name="places_filter_title">Филтрирај јазик</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
+  <string name="places_nav_tab_tooltip_message">Откривајте Википедиини статии околу вас со Места</string>
+  <string name="places_article_menu_tooltip_message">Допрете на &lt;b&gt;\'Погл. на карта\'&lt;/b&gt; за да го истражите наоѓалиштето на оваа статија</string>
+  <string name="places_survey_very_satisfied_option">Многу задоволен</string>
+  <string name="places_survey_very_unsatisfied_option">Многу незадоволен</string>
+  <string name="places_survey_dialog_title">Помогнете ни да го подобриме „Места“</string>
+  <string name="places_survey_feedback_dialog_title">Како можеме да го подобриме „Места“?</string>
 </resources>

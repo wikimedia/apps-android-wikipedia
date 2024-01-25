@@ -1414,7 +1414,7 @@
   <string name="revision_diff_paragraph_added">Абзац добавлен</string>
   <string name="revision_diff_paragraph_removed">Абзац удалён</string>
   <string name="revision_undo_title">Вы уверены, что хотите отменить эту правку?</string>
-  <string name="revision_undo_message">Отмена означает отмену последствий одной или нескольких правок.</string>
+  <string name="revision_undo_message">Отмена означает устранение последствий одной или нескольких правок.</string>
   <string name="revision_undo_reason">Поделитесь причиной отката</string>
   <string name="revision_undo_success">Версия была отменена.</string>
   <string name="revision_rollback_dialog_title">Вы уверены, что хотите откатить правки?</string>
