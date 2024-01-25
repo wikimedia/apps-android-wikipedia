@@ -7,6 +7,7 @@
 * BlueCamille
 * Blurby
 * C13m3n7
+* CKali
 * Cigaryno
 * Crochet.david
 * Dbrant
@@ -445,6 +446,10 @@
   <string name="multi_select_items_selected">%d sélectionné</string>
   <string name="error_message_generic">Une erreur s’est produite</string>
   <string name="view_link_preview_error_button_dismiss">Fermer</string>
+  <string name="link_preview_dialog_read_button">Lire</string>
+  <string name="link_preview_dialog_save_button">Enregistrer</string>
+  <string name="link_preview_dialog_saved_button">Enregistré</string>
+  <string name="link_preview_dialog_share_button">Partager</string>
   <string name="error_page_does_not_exist">Cette page n’existe pas</string>
   <string name="error_user_page_does_not_exist">Wikipédia n’a pas de &lt;a href=\"%1$s\"&gt;page utilisateur&lt;/a&gt; avec ce nom exact. En général, cette page devrait être créée et modifiée par &lt;b&gt;%2$s&lt;/b&gt;. En cas de doute, veuillez vérifier que « %3$s » existe.</string>
   <string name="view_wiki_error_message_offline">Impossible de se connecter à Internet</string>
@@ -1370,7 +1375,6 @@
   <string name="revision_diff_from">Depuis :</string>
   <string name="revision_diff_to">Jusqu’à :</string>
   <string name="revision_diff_line_num">Ligne %d</string>
-  <string name="revision_diff_line_nums">Lignes %d – %d</string>
   <string name="revision_diff_lines_from_to">Lignes %1$d–%2$d</string>
   <string name="revision_diff_line_added">Ligne ajoutée</string>
   <string name="revision_diff_line_removed">Ligne supprimée</string>
@@ -1482,6 +1486,8 @@
   <string name="media_playback_error">Erreur lors de la lecture du média.</string>
   <string name="user_contrib_menu_label">Contributions</string>
   <string name="user_contrib_filter_activity_title">Filtre des contributions</string>
+  <string name="action_item_view_on_map">Afficher sur une carte</string>
+  <string name="action_item_view_on_map_unavailable">Les coordonnées géographiques ne sont pas disponibles pour cette page</string>
   <string name="shareable_reading_lists_import_dialog_title">Importer une liste de lecture partagée</string>
   <string name="shareable_reading_lists_import_dialog_content">Comment désirez-vous nommer la liste de lecture qui a été partagée avec vous ?</string>
   <string name="shareable_reading_lists_new_indicator">*nouveau*</string>
@@ -1597,6 +1603,7 @@
   <string name="patroller_onboarding_two_watch_title">Suivre</string>
   <string name="patroller_onboarding_two_warn_title">Avertissement</string>
   <string name="patroller_onboarding_two_undo_title">Annuler/Restaurer</string>
+  <string name="patroller_diff_feedback_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfait</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutre</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfait</string>

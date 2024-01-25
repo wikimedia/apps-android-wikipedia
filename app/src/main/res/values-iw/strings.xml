@@ -422,6 +422,10 @@
   <string name="multi_select_items_selected">נבחרו %d</string>
   <string name="error_message_generic">אירעה שגיאה</string>
   <string name="view_link_preview_error_button_dismiss">סגירה</string>
+  <string name="link_preview_dialog_read_button">קריאה</string>
+  <string name="link_preview_dialog_save_button">שמירה</string>
+  <string name="link_preview_dialog_saved_button">נשמר</string>
+  <string name="link_preview_dialog_share_button">שיתוף</string>
   <string name="error_page_does_not_exist">הדף הזה אינו קיים</string>
   <string name="error_user_page_does_not_exist">בוויקיפדיה אין &lt;a href=\"%1$s\"&gt;דף משתמש&lt;/a&gt; בעל שם כזה בדיוק. באופן כללי, הדף הזה צריך להיווצר ולהיערך על־ידי &lt;b&gt;%2$s&lt;/b&gt;. אם יש לך ספק, נא לוודא ששם המשתמש \"%3$s\" קיים.</string>
   <string name="view_wiki_error_message_offline">לא ניתן להתחבר לאינטרנט</string>
@@ -1418,7 +1422,6 @@
   <string name="revision_diff_from">מאת:</string>
   <string name="revision_diff_to">אל:</string>
   <string name="revision_diff_line_num">שורה %d</string>
-  <string name="revision_diff_line_nums">שורות %d–%d</string>
   <string name="revision_diff_lines_from_to">שורות %1$d–%2$d</string>
   <string name="revision_diff_line_added">שורה שנוספה</string>
   <string name="revision_diff_line_removed">שורה שהוסרה</string>
@@ -1532,6 +1535,8 @@
   <string name="media_playback_error">שגיאה בנגינת מדיה.</string>
   <string name="user_contrib_menu_label">תרומות</string>
   <string name="user_contrib_filter_activity_title">סינון תרומות</string>
+  <string name="action_item_view_on_map">הצגה על מפה</string>
+  <string name="action_item_view_on_map_unavailable">נקודות ציון גאוגרפיות אינן זמינות עבור הדף הזה</string>
   <string name="shareable_reading_lists_import_dialog_title">יבוא רשימת קריאה משותפת</string>
   <string name="shareable_reading_lists_import_dialog_content">איזה שם ברצונך לתת לרשימה ששותפה איתך?</string>
   <string name="shareable_reading_lists_new_indicator">*חדשה*</string>
@@ -1681,4 +1686,7 @@
   <string name="donation_campaign_donated_snackbar">תודה, תורם יקר! הנדיבות שלך עוזרת להבטיח את צמיחתם של ויקיפדיה ושל האתרים הקשורים אליה.</string>
   <string name="donation_campaign_go_back_button">חזרה</string>
   <string name="menu_single_webview_open_external">פתיחה בדפדפן המערכת</string>
+  <string name="places_title">מקומות</string>
+  <string name="places_permissions_denied">נדרשת הרשאת מיקום כדי לראות את מיקומך על המפה. נא לנסות שוב.</string>
+  <string name="places_search_hint">חיפוש מקומות</string>
 </resources>
