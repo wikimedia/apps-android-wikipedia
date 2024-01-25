@@ -710,7 +710,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             binding.tabsButton.isVisible = WikipediaApp.instance.tabCount > 0
             binding.tabsButton.updateTabCount(true)
         } else {
-            startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
         }
     }
 
@@ -788,7 +788,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
         override fun onClick(v: View) {
             val entry = HistoryEntry(page.pageTitle, HistoryEntry.SOURCE_PLACES)
-            startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
         }
 
         override fun onLongClick(v: View): Boolean {
