@@ -1611,7 +1611,6 @@
   <string name="places_filter_title">Title string for places language filter screen.</string>
   <string name="places_toggle_buttons_map">Button label for viewing the map view in the Places screen.</string>
   <string name="places_toggle_buttons_list">Button label for viewing the list view in the Places screen.</string>
-  <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
   <string name="places_nav_tab_tooltip_message">Tooltip message to help users discover places feature from explore screen more menu navigation tab</string>
   <string name="places_article_menu_tooltip_message">Tooltip message to help users discover article\'s location on the map and its nearby articles through places feature, from article screen more menu</string>
   <string name="places_survey_very_satisfied_option">Option text suggesting that user is very satisfied with the feature, shown in the survey</string>
