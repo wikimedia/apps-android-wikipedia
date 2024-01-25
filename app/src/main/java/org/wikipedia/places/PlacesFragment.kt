@@ -201,6 +201,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
             params = binding.listRecyclerView.layoutParams as ViewGroup.MarginLayoutParams
             params.bottomMargin = newNavBarInsets.bottom
+            params.rightMargin = newNavBarInsets.right
+
+            params = binding.viewButtonsGroup.layoutParams as ViewGroup.MarginLayoutParams
+            params.leftMargin = newNavBarInsets.left
+            params.rightMargin = newNavBarInsets.right
 
             statusBarInsets = newStatusBarInsets
             navBarInsets = newNavBarInsets
