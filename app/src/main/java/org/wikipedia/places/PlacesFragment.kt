@@ -281,7 +281,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         binding.listRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.listRecyclerView.adapter = RecyclerViewAdapter()
         binding.listRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, skipSearchBar = true))
         binding.listEmptyMessage.text = StringUtil.fromHtml(getString(R.string.places_empty_list))
         binding.listEmptyMessage.movementMethod = LinkMovementMethodExt { _ ->
@@ -396,8 +395,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private fun updateToggleViews(isMapVisible: Boolean) {
         val tintColor = ResourceUtil.getThemedColorStateList(requireContext(), if (isMapVisible) R.attr.paper_color else R.attr.background_color)
         binding.mapView.isVisible = isMapVisible
-        binding.listRecyclerView.isVisible = !isMapVisible && viewModel.nearbyPages.isNotEmpty()
-        binding.listEmptyContainer.isVisible = !isMapVisible && viewModel.nearbyPages.isEmpty()
+        binding.listRecyclerView.isVisible = !isMapVisible && (binding.listRecyclerView.adapter?.itemCount ?: 0) > 0
+        binding.listEmptyContainer.isVisible = !isMapVisible && (binding.listRecyclerView.adapter?.itemCount ?: 0) == 0
         binding.searchContainer.backgroundTintList = tintColor
         binding.myLocationButton.isVisible = isMapVisible
     }
@@ -603,7 +602,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 }
             }
         }
-        binding.listRecyclerView.adapter?.notifyDataSetChanged()
+        binding.listRecyclerView.adapter = RecyclerViewAdapter(pages)
     }
 
     private fun haveLocationPermissions(): Boolean {
@@ -734,9 +733,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         return false
     }
 
-    private inner class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewItemHolder>() {
+    private inner class RecyclerViewAdapter(val nearbyPages: List<PlacesFragmentViewModel.NearbyPage>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
         override fun getItemCount(): Int {
-            return viewModel.nearbyPages.size
+            return nearbyPages.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerViewItemHolder {
@@ -744,14 +743,14 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
-            holder.bindItem(viewModel.nearbyPages[position], position)
+            holder.bindItem(nearbyPages[position])
         }
     }
 
     private inner class RecyclerViewItemHolder(val binding: ItemPlacesListBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener {
 
-        private var position = 0
+        private lateinit var page: PlacesFragmentViewModel.NearbyPage
 
         init {
             itemView.setOnClickListener(this)
@@ -759,20 +758,20 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             DeviceUtil.setContextClickAsLongClick(itemView)
         }
 
-        fun bindItem(item: PlacesFragmentViewModel.NearbyPage, position: Int) {
-            this.position = position
-            binding.listItemTitle.text = StringUtil.fromHtml(item.pageTitle.displayText)
-            if (item.pageTitle.description.isNullOrEmpty()) {
+        fun bindItem(page: PlacesFragmentViewModel.NearbyPage) {
+            this.page = page
+            binding.listItemTitle.text = StringUtil.fromHtml(page.pageTitle.displayText)
+            if (page.pageTitle.description.isNullOrEmpty()) {
                 binding.listItemDescription.isSingleLine = true
-                binding.listItemDescription.text = StringUtil.removeHTMLTags(item.pageTitle.extract)
+                binding.listItemDescription.text = StringUtil.removeHTMLTags(page.pageTitle.extract)
             } else {
                 binding.listItemDescription.isSingleLine = false
-                binding.listItemDescription.text = StringUtil.fromHtml(item.pageTitle.description)
+                binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
             }
             lastLocation?.let {
-                binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, item.location, Locale.getDefault())
+                binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, page.location, Locale.getDefault())
             }
-            item.pageTitle.thumbUrl?.let {
+            page.pageTitle.thumbUrl?.let {
                 ViewUtil.loadImage(binding.listItemThumbnail, it, circleShape = true)
                 binding.listItemThumbnail.isVisible = true
             } ?: run {
@@ -781,13 +780,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         override fun onClick(v: View) {
-            val entry = HistoryEntry(viewModel.nearbyPages[position].pageTitle, HistoryEntry.SOURCE_PLACES)
+            val entry = HistoryEntry(page.pageTitle, HistoryEntry.SOURCE_PLACES)
             startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
         }
 
         override fun onLongClick(v: View): Boolean {
-            val entry = HistoryEntry(viewModel.nearbyPages[position].pageTitle, HistoryEntry.SOURCE_PLACES)
-            val location = viewModel.nearbyPages[position].location
+            val entry = HistoryEntry(page.pageTitle, HistoryEntry.SOURCE_PLACES)
+            val location = page.location
             LongPressMenu(v, menuRes = R.menu.menu_places_long_press, location = location, callback = object : LongPressMenu.Callback {
                 override fun onOpenInNewTab(entry: HistoryEntry) {
                     onLinkPreviewLoadPage(entry.title, entry, true)
