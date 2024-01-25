@@ -751,10 +751,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener {
 
         private lateinit var page: PlacesFragmentViewModel.NearbyPage
+        private var currentLocation: Location?
 
         init {
             itemView.setOnClickListener(this)
             itemView.setOnLongClickListener(this)
+            currentLocation = lastLocation ?: Prefs.placesLastLocationAndZoomLevel?.first
             DeviceUtil.setContextClickAsLongClick(itemView)
         }
 
@@ -768,7 +770,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 binding.listItemDescription.isSingleLine = false
                 binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
             }
-            mapboxMap?.locationComponent?.lastKnownLocation?.let {
+            currentLocation?.let {
                 binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, page.location, Locale.getDefault())
             }
             page.pageTitle.thumbUrl?.let {
