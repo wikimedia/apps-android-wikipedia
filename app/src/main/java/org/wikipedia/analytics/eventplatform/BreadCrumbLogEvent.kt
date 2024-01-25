@@ -58,7 +58,7 @@ class BreadCrumbLogEvent(
         fun logScreenShown(context: Context, fragment: Fragment? = null) {
             val invokeSource = (fragment?.activity?.intent ?: (context as? Activity)?.intent)?.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as? Constants.InvokeSource
             EventPlatformClient.submit(BreadCrumbLogEvent(BreadCrumbViewUtil.getReadableScreenName(context, fragment),
-                "show" + (invokeSource?.let { ".from." + it.value } ?: "")))
+                "show" + invokeSource?.let { ".from." + it.value }.orEmpty()))
         }
 
         fun logBackPress(context: Context) {
