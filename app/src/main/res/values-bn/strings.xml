@@ -412,6 +412,7 @@
   <string name="multi_select_items_selected">%dটি নির্বাচিত</string>
   <string name="error_message_generic">একটি ত্রুটি দেখা দিয়েছে</string>
   <string name="view_link_preview_error_button_dismiss">খারিজ</string>
+  <string name="link_preview_dialog_read_button">পড়ুন</string>
   <string name="error_page_does_not_exist">এই পাতার অস্তিত্ব নেই</string>
   <string name="error_user_page_does_not_exist">উইকিপিডিয়ায় হুবহু এই নামে কোনও &lt;a href=\"%1$s\"&gt;ব্যবহারকারী পাতা&lt;/a&gt; নেই। সাধারণত, এই পাতাটি &lt;b&gt;%2$s&lt;/b&gt; কর্তৃক তৈরি ও সম্পাদনা করা উচিত। যদি নিশ্চিত না হোন, তবে যাচাই করুন যে \"%3$s\"-এর অস্তিত্ব রয়েছে।</string>
   <string name="view_wiki_error_message_offline">ইন্টারনেটে সংযোগ করা যাবে না</string>
@@ -1173,4 +1174,5 @@
   <string name="page_issues_title">পাতার সমস্যা</string>
   <string name="donation_campaign_go_back_button">ফিরে যান</string>
   <string name="menu_single_webview_open_external">সিস্টেম ব্রাউজারে খুলুন</string>
+  <string name="places_toggle_buttons_map">মানচিত্র</string>
 </resources>

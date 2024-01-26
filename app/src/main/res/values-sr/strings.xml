@@ -416,7 +416,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затамњење слика (у тамној теми)</string>
   <string name="preference_title_prefer_offline_content">Приоритет има офлајн-садржај</string>
   <string name="preference_summary_prefer_offline_content">Уштедите на саобраћају приказивањем офлајн-верзије чланка уместо сталног преузимања најновије верзије.</string>
-  <string name="theme_chooser_dialog_match_system_theme_switch_label">Подударање са темом система</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Као и систем</string>
   <string name="page_footer_license_text">Садржај је доступан под лиценцом $1 осим ако није другачије наведено</string>
   <string name="empty_tab_title">Нова картица</string>
   <string name="menu_save_all_tabs">Сачувај све картице</string>
@@ -1062,8 +1062,8 @@
   <string name="image_recommendation_tooltip_main">Додај недостајуће слике у чланке у Предложеним изменама</string>
   <string name="image_recommendation_onboarding_1">Слике помажу људима у разумевању, али их многи чланци немају.</string>
   <string name="image_recommendation_onboarding_2">Ви ћете одлучити уколико предложена слика треба да буде постављена у чланак на Википедији.</string>
-  <string name="image_recommendation_onboarding_3">Предлози су машински генерисани и Ви ћете на основу свог расуђивања одлучити да ли ћете их прихватити или одбити.</string>
-  <string name="image_recommendation_onboarding_4">Слике су са Викимедијине Оставе, колекције слободно лиценцираних слика које се користе на Википедији.</string>
+  <string name="image_recommendation_onboarding_3">Предлози су машински генерисани и Ви ћете на основу своје процене одлучити да ли ћете их прихватити или одбити.</string>
+  <string name="image_recommendation_onboarding_4">Слике су са Викимедијине оставе, колекције слободно лиценцираних слика које се користе на Википедији.</string>
   <string name="image_recommendation_tooltip_1">Прегледајте овај чланак да би сте разумели његову тему</string>
   <string name="image_recommendation_tooltip_2">Прегледајте слику и њене повезане информације</string>
   <string name="image_recommendation_tooltip_3">Одлучите да ли слика помаже читаоцима да боље разумеју тему</string>
@@ -1563,4 +1563,7 @@
   <string name="places_title">Места</string>
   <string name="places_toggle_buttons_map">Мапа</string>
   <string name="places_toggle_buttons_list">Списак</string>
+  <string name="places_nav_tab_tooltip_message">Откријите Википедијине чланке око Вас са Местима</string>
+  <string name="places_survey_very_satisfied_option">Веома задовољан</string>
+  <string name="places_survey_very_unsatisfied_option">Веома незадовољан</string>
 </resources>
