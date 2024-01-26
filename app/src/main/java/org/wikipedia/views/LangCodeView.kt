@@ -54,7 +54,7 @@ class LangCodeView(context: Context, attrs: AttributeSet? = null) : FrameLayout(
     }
 
     fun fillBackground(fillBackground: Boolean) {
-        binding.langCodeText.setBackgroundResource(if (fillBackground) R.drawable.tab_counts_shape_border_filled else R.drawable.tab_counts_shape_border)
+        binding.langCodeText.setBackgroundResource(if (fillBackground) R.drawable.square_shape_border_filled else R.drawable.square_shape_border)
     }
 
     fun setBackgroundTint(@ColorInt tintColor: Int) {

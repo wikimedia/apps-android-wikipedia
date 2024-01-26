@@ -11,7 +11,7 @@
         android:layout_gravity="center"
         android:layout_marginStart="14.5dp"
         android:layout_marginEnd="14.5dp"
-        android:background="@drawable/tab_counts_shape_border"
+        android:background="@drawable/square_shape_border"
         android:backgroundTint="?attr/primary_color"
         android:fontFamily="sans-serif"
         android:textStyle="bold"
