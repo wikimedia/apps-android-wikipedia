@@ -34,6 +34,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -554,9 +555,19 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     private fun maybeShowPlacesTooltip() {
         if (Prefs.showOneTimePlacesMainNavOnboardingTooltip) {
             enqueueTooltip {
-                FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer,
-                    getString(R.string.places_nav_tab_tooltip_message), aboveOrBelow = true, autoDismiss = false).setOnBalloonDismissListener {
-                    Prefs.showOneTimePlacesMainNavOnboardingTooltip = false
+                FeedbackUtil.showTooltip(
+                    requireActivity(),
+                    binding.navMoreContainer,
+                    getString(R.string.places_nav_tab_tooltip_message),
+                    aboveOrBelow = true,
+                    autoDismiss = false,
+                    showDismissButton = true
+                ).apply {
+                    PlacesEvent.logImpression("main_nav_tooltip")
+                    setOnBalloonDismissListener {
+                        PlacesEvent.logAction("dismiss_click", "main_nav_tooltip")
+                        Prefs.showOneTimePlacesMainNavOnboardingTooltip = false
+                    }
                 }
             }
         }
