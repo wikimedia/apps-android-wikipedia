@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:focusable="true"
+    android:paddingVertical="12dp"
+    android:paddingHorizontal="@dimen/list_item_horizontal_padding">
+
+    <TextView
+        android:id="@+id/listItemTitle"
+        style="@style/H3.Article"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/primary_color"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/listItemThumbnail"
+        tools:text="Lorem ipsum" />
+
+    <org.wikipedia.views.GoneIfEmptyTextView
+        android:id="@+id/listItemDescription"
+        style="@style/List.MaterialListDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="12dp"
+        android:ellipsize="end"
+        app:layout_constraintTop_toBottomOf="@id/listItemTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/listItemThumbnail"
+        tools:text="Lorem ipsum" />
+
+    <TextView
+        style="@style/H4"
+        android:id="@+id/listItemDistance"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="?attr/success_color"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="-4dp"
+        android:layout_marginEnd="12dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="4dp"
+        app:drawableStartCompat="@drawable/location_gradient"
+        app:layout_constraintTop_toBottomOf="@id/listItemDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/listItemThumbnail"
+        tools:text="Lorem ipsum" />
+
+    <ImageView
+        android:id="@+id/listItemThumbnail"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_wikipedia_w"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
