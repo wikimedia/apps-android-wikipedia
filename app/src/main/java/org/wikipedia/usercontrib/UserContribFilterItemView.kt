@@ -44,9 +44,7 @@ class UserContribFilterItemView constructor(context: Context, attrs: AttributeSe
 
         if (item.type == UserContribFilterActivity.FILTER_TYPE_WIKI) {
             getTitleCodeFor(item.filterCode)?.let {
-                binding.languageCode.text = LanguageUtil.formatLangCodeForButton(it)
-                binding.languageCode.visibility = View.VISIBLE
-                ViewUtil.formatLangButton(binding.languageCode, it, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+                binding.languageCode.setLangCode(it)
             } ?: run {
                 binding.languageCode.visibility = View.GONE
             }
