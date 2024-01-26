@@ -10,5 +10,6 @@
     android:minResizeWidth="32dp"
     android:minResizeHeight="34dp"
     android:initialLayout="@layout/widget_search_large"
+    android:previewImage="@drawable/widget_search"
     tools:targetApi="s">
 </appwidget-provider>
