@@ -208,7 +208,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             return
         }
         if (returnLink) {
-            if(invokeSource == InvokeSource.PLACES) {
+            if (invokeSource == InvokeSource.PLACES) {
                 PlacesEvent.logAction("search_result_click", "search_view")
             }
             val intent = Intent().putExtra(SearchActivity.EXTRA_RETURN_LINK_TITLE, item)
