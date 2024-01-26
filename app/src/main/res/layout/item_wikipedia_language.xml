@@ -44,7 +44,7 @@
 
     <TextView
         android:id="@+id/wiki_language_title"
-        style="@style/H3.MaterialListTitle"
+        style="@style/P.MaterialListTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"

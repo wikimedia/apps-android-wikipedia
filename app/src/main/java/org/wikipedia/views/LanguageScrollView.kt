@@ -20,7 +20,7 @@ import org.wikipedia.language.LanguageUtil
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.ResourceUtil
 
-class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+class LanguageScrollView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
     interface Callback {
         fun onLanguageTabSelected(selectedLanguageCode: String)
@@ -104,7 +104,7 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
     private fun updateTabLanguageLabel(customView: View, languageCode: String?, @ColorInt textColor: Int?) {
         val languageLabelTextView = customView.findViewById<TextView>(R.id.language_label)
         if (!languageCode.isNullOrEmpty()) {
-            languageLabelTextView.text = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode)
+            languageLabelTextView.text = WikipediaApp.instance.languageState.getAppLanguageCanonicalName(languageCode)
         }
         textColor?.let {
             languageLabelTextView.setTextColor(textColor)
