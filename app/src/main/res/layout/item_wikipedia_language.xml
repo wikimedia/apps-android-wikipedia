@@ -28,19 +28,15 @@
         android:visibility="gone"
         tools:visibility="visible" />
 
-    <TextView
+    <org.wikipedia.views.LangCodeView
         android:id="@+id/wiki_language_code"
-        style="@style/TextViewCentered"
-        android:layout_width="wrap_content"
+        android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="24dp"
-        android:background="@drawable/lang_button_shape_border"
-        android:fontFamily="sans-serif-medium"
-        android:minWidth="24dp"
-        android:paddingHorizontal="2dp"
-        android:textAllCaps="true"
-        android:textColor="?attr/placeholder_color" />
+        android:layout_marginStart="14dp"
+        android:contentDescription="@null"
+        android:textColor="?attr/placeholder_color"
+        android:backgroundTint="?attr/placeholder_color"  />
 
     <TextView
         android:id="@+id/wiki_language_title"
