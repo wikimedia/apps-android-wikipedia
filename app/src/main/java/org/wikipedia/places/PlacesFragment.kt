@@ -768,13 +768,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         fun bindItem(page: PlacesFragmentViewModel.NearbyPage) {
             this.page = page
             binding.listItemTitle.text = StringUtil.fromHtml(page.pageTitle.displayText)
-            if (page.pageTitle.description.isNullOrEmpty()) {
-                binding.listItemDescription.isSingleLine = true
-                binding.listItemDescription.text = StringUtil.removeHTMLTags(page.pageTitle.extract)
-            } else {
-                binding.listItemDescription.isSingleLine = false
-                binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
-            }
+            binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
+            binding.listItemDescription.isVisible = !page.pageTitle.description.isNullOrEmpty()
+            binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
             currentLocation?.let {
                 binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, page.location, Locale.getDefault())
             }
