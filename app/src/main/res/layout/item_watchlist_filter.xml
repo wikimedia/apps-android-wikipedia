@@ -6,18 +6,16 @@
     tools:layout_width="match_parent"
     tools:parentTag="android.widget.LinearLayout">
 
-    <TextView
+    <org.wikipedia.views.LangCodeView
         android:id="@+id/watchlist_filter_language_code"
-        style="@style/TextViewCentered"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="-10dp"
-        android:background="@drawable/lang_button_shape_border"
-        android:fontFamily="sans-serif-medium"
-        android:textAllCaps="true"
-        android:textColor="?attr/placeholder_color" />
+        android:contentDescription="@null"
+        android:textColor="?attr/placeholder_color"
+        android:backgroundTint="?attr/placeholder_color"  />
 
     <ImageView
         android:id="@+id/watchlist_filter_wiki_logo"
