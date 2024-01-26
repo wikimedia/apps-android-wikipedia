@@ -18,6 +18,6 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="?attr/primary_color"
-        android:textSize="6sp"
+        android:textSize="10sp"
         tools:text="ZH-\nHANT" />
 </merge>
