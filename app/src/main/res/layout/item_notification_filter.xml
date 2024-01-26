@@ -13,8 +13,8 @@
         android:contentDescription="@null"
         android:layout_marginStart="24dp"
         android:layout_gravity="center_vertical"
-        android:textColor="?attr/placeholder_color"
-        android:backgroundTint="?attr/placeholder_color" />
+        app:textColor="?attr/placeholder_color"
+        app:backgroundTint="?attr/placeholder_color" />
 
     <ImageView
         android:id="@+id/notification_filter_wiki_logo"

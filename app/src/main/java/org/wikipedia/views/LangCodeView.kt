@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
+import androidx.core.content.res.use
 import androidx.core.view.ViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewLangCodeBinding
@@ -18,10 +19,23 @@ import org.wikipedia.util.ResourceUtil
 class LangCodeView(context: Context, attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
 
     private val binding = ViewLangCodeBinding.inflate(LayoutInflater.from(context), this)
-
+    private val primaryColor = ResourceUtil.getThemedColor(context, R.attr.primary_color)
     init {
+        val (textColor, backgroundTint, fillBackground) = context
+            .obtainStyledAttributes(attrs, R.styleable.LangCodeView)
+            .use {
+                Triple(
+                    it.getColor(R.styleable.LangCodeView_textColor, primaryColor),
+                    it.getColor(R.styleable.LangCodeView_backgroundTint, primaryColor),
+                    it.getBoolean(R.styleable.LangCodeView_fillBackground, false)
+                )
+            }
+
         layoutParams = ViewGroup.LayoutParams(DimenUtil.roundedDpToPx(48.0f), ViewGroup.LayoutParams.MATCH_PARENT)
         setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackgroundBorderless))
+        setTextColor(textColor)
+        setBackgroundTint(backgroundTint)
+        fillBackground(fillBackground)
         isFocusable = true
     }
 

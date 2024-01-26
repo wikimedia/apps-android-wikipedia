@@ -62,8 +62,8 @@
                         android:contentDescription="@null"
                         android:clickable="false"
                         android:focusable="false"
-                        android:textColor="@android:color/white"
-                        android:backgroundTint="?attr/placeholder_color"  />
+                        app:textColor="@android:color/white"
+                        app:backgroundTint="?attr/placeholder_color"  />
 
                 </FrameLayout>
 

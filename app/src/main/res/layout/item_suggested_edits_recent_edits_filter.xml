@@ -14,8 +14,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="-10dp"
         android:contentDescription="@null"
-        android:textColor="?attr/placeholder_color"
-        android:backgroundTint="?attr/placeholder_color"  />
+        app:textColor="?attr/placeholder_color"
+        app:backgroundTint="?attr/placeholder_color"  />
 
     <ImageView
         android:id="@+id/recentEditsFilterWikiLogo"

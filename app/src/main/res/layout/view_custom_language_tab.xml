@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="horizontal">
 
@@ -13,8 +14,8 @@
         android:layout_gravity="center_vertical"
         android:layout_marginEnd="-10dp"
         android:contentDescription="@null"
-        android:textColor="?attr/placeholder_color"
-        android:backgroundTint="?attr/placeholder_color"  />
+        app:textColor="?attr/placeholder_color"
+        app:backgroundTint="?attr/placeholder_color"  />
 
     <TextView
         android:id="@+id/language_label"

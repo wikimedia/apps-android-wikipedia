@@ -13,8 +13,8 @@
         android:layout_gravity="center_vertical"
         android:layout_marginStart="24dp"
         android:contentDescription="@null"
-        android:textColor="?attr/placeholder_color"
-        android:backgroundTint="?attr/placeholder_color"  />
+        app:textColor="?attr/placeholder_color"
+        app:backgroundTint="?attr/placeholder_color"  />
 
     <ImageView
         android:id="@+id/item_logo"

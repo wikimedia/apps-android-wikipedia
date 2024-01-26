@@ -35,8 +35,8 @@
         android:layout_gravity="center_vertical"
         android:layout_marginStart="14dp"
         android:contentDescription="@null"
-        android:textColor="?attr/placeholder_color"
-        android:backgroundTint="?attr/placeholder_color"  />
+        app:textColor="?attr/placeholder_color"
+        app:backgroundTint="?attr/placeholder_color"  />
 
     <TextView
         android:id="@+id/wiki_language_title"
