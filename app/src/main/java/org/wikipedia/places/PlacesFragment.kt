@@ -33,6 +33,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
@@ -63,26 +65,35 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.FragmentPlacesBinding
+import org.wikipedia.databinding.ItemPlacesListBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TabUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
+import java.util.Locale
 import kotlin.math.abs
 
 class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback, MapboxMap.OnMapClickListener {
@@ -98,6 +109,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     private var symbolManager: SymbolManager? = null
 
     private val annotationCache = ArrayDeque<PlacesFragmentViewModel.NearbyPage>()
+    private var lastCheckedId = R.id.mapViewButton
     private var lastLocation: Location? = null
     private var lastLocationQueried: Location? = null
     private var lastZoom = 15.0
@@ -135,7 +147,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             Prefs.placesWikiCode = pageTitle.wikiSite.languageCode
             goToLocation(preferredLocation = location, zoom = 15.9)
             viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
-          }
+        }
     }
 
     private val filterLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -149,7 +161,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                     lastLocation?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
                 goToLocation(lastLocation, lastZoom)
               }
-          }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -186,6 +198,14 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left + DimenUtil.roundedDpToPx(16f)
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(16f)
             binding.myLocationButton.layoutParams = params
+
+            params = binding.listRecyclerView.layoutParams as ViewGroup.MarginLayoutParams
+            params.bottomMargin = newNavBarInsets.bottom
+            params.rightMargin = newNavBarInsets.right
+
+            params = binding.viewButtonsGroup.layoutParams as ViewGroup.MarginLayoutParams
+            params.leftMargin = newNavBarInsets.left
+            params.rightMargin = newNavBarInsets.right
 
             statusBarInsets = newStatusBarInsets
             navBarInsets = newNavBarInsets
@@ -230,6 +250,47 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             } else {
                 locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
             }
+        }
+
+        binding.viewButtonsGroup.post {
+            binding.viewButtonsGroup.isVisible = true
+        }
+
+        binding.viewButtonsGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
+            if (!isChecked) {
+                return@addOnButtonCheckedListener
+            }
+            lastCheckedId = checkedId
+            val mapViewChecked = checkedId == R.id.mapViewButton
+            updateToggleViews(mapViewChecked)
+
+            val progressColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.progressive_color)
+            val additionColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.addition_color)
+            val placeholderColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.placeholder_color)
+            val paperColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.paper_color)
+            val backgroundColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.background_color)
+            if (mapViewChecked) {
+                binding.mapViewButton.setTextColor(progressColor)
+                binding.mapViewButton.backgroundTintList = additionColor
+                binding.mapViewButton.strokeColor = paperColor
+                binding.listViewButton.setTextColor(placeholderColor)
+                binding.listViewButton.backgroundTintList = paperColor
+                binding.listViewButton.strokeColor = paperColor
+            } else {
+                binding.mapViewButton.setTextColor(placeholderColor)
+                binding.mapViewButton.backgroundTintList = backgroundColor
+                binding.mapViewButton.strokeColor = backgroundColor
+                binding.listViewButton.setTextColor(progressColor)
+                binding.listViewButton.backgroundTintList = additionColor
+                binding.listViewButton.strokeColor = backgroundColor
+            }
+        }
+
+        binding.listRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.listRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, skipSearchBar = true))
+        binding.listEmptyMessage.text = StringUtil.fromHtml(getString(R.string.places_empty_list))
+        binding.listEmptyMessage.movementMethod = LinkMovementMethodExt { _ ->
+            binding.viewButtonsGroup.check(R.id.mapViewButton)
         }
 
         return binding.root
@@ -314,13 +375,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
                 if (haveLocationPermissions()) {
                     startLocationTracking()
-                    if (savedInstanceState == null) {
-                        viewModel.location?.let {
-                            goToLocation(it)
-                        } ?: run {
-                            val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
-                            goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
-                        }
+                    viewModel.location?.let {
+                        goToLocation(it)
+                    } ?: run {
+                        val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
+                        goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
                     }
                 } else {
                     locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -328,13 +387,22 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             }
         }
 
-        viewModel.nearbyPages.observe(viewLifecycleOwner) {
+        viewModel.nearbyPagesLiveData.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 updateMapMarkers(it.data)
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
         }
+    }
+
+    private fun updateToggleViews(isMapVisible: Boolean) {
+        val tintColor = ResourceUtil.getThemedColorStateList(requireContext(), if (isMapVisible) R.attr.paper_color else R.attr.background_color)
+        binding.mapView.isVisible = isMapVisible
+        binding.listRecyclerView.isVisible = !isMapVisible && (binding.listRecyclerView.adapter?.itemCount ?: 0) > 0
+        binding.listEmptyContainer.isVisible = !isMapVisible && (binding.listRecyclerView.adapter?.itemCount ?: 0) == 0
+        binding.searchContainer.backgroundTintList = tintColor
+        binding.myLocationButton.isVisible = isMapVisible
     }
 
     private fun showLinkPreview(pageTitle: PageTitle, location: Location) {
@@ -442,6 +510,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
         binding.mapView.onResume()
         updateSearchCardViews()
+        updateToggleViews(lastCheckedId == R.id.mapViewButton)
     }
 
     override fun onStop() {
@@ -538,6 +607,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 }
             }
         }
+        binding.listRecyclerView.adapter = RecyclerViewAdapter(pages)
     }
 
     private fun haveLocationPermissions(): Boolean {
@@ -557,6 +627,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     private fun goToLocation(preferredLocation: Location? = null, zoom: Double = 15.0) {
         if (haveLocationPermissions()) {
+            binding.viewButtonsGroup.check(R.id.mapViewButton)
             mapboxMap?.let {
                 val currentLocation = it.locationComponent.lastKnownLocation
                 var currentLatLngLoc: LatLng? = null
@@ -639,7 +710,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             binding.tabsButton.isVisible = WikipediaApp.instance.tabCount > 0
             binding.tabsButton.updateTabCount(true)
         } else {
-            startActivity(PageActivity.newIntentForCurrentTab(requireActivity(), entry, entry.title, false))
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
         }
     }
 
@@ -665,6 +736,81 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             }
         }
         return false
+    }
+
+    private inner class RecyclerViewAdapter(val nearbyPages: List<PlacesFragmentViewModel.NearbyPage>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
+        override fun getItemCount(): Int {
+            return nearbyPages.size
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerViewItemHolder {
+            return RecyclerViewItemHolder(ItemPlacesListBinding.inflate(layoutInflater, parent, false))
+        }
+
+        override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
+            holder.bindItem(nearbyPages[position])
+        }
+    }
+
+    private inner class RecyclerViewItemHolder(val binding: ItemPlacesListBinding) :
+        RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener {
+
+        private lateinit var page: PlacesFragmentViewModel.NearbyPage
+        private var currentLocation: Location?
+
+        init {
+            itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener(this)
+            currentLocation = lastLocation ?: Prefs.placesLastLocationAndZoomLevel?.first
+            DeviceUtil.setContextClickAsLongClick(itemView)
+        }
+
+        fun bindItem(page: PlacesFragmentViewModel.NearbyPage) {
+            this.page = page
+            binding.listItemTitle.text = StringUtil.fromHtml(page.pageTitle.displayText)
+            if (page.pageTitle.description.isNullOrEmpty()) {
+                binding.listItemDescription.isSingleLine = true
+                binding.listItemDescription.text = StringUtil.removeHTMLTags(page.pageTitle.extract)
+            } else {
+                binding.listItemDescription.isSingleLine = false
+                binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
+            }
+            currentLocation?.let {
+                binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, page.location, Locale.getDefault())
+            }
+            page.pageTitle.thumbUrl?.let {
+                ViewUtil.loadImage(binding.listItemThumbnail, it, circleShape = true)
+                binding.listItemThumbnail.isVisible = true
+            } ?: run {
+                binding.listItemThumbnail.isVisible = false
+            }
+        }
+
+        override fun onClick(v: View) {
+            val entry = HistoryEntry(page.pageTitle, HistoryEntry.SOURCE_PLACES)
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
+        }
+
+        override fun onLongClick(v: View): Boolean {
+            val entry = HistoryEntry(page.pageTitle, HistoryEntry.SOURCE_PLACES)
+            val location = page.location
+            LongPressMenu(v, menuRes = R.menu.menu_places_long_press, location = location, callback = object : LongPressMenu.Callback {
+                override fun onOpenInNewTab(entry: HistoryEntry) {
+                    onLinkPreviewLoadPage(entry.title, entry, true)
+                }
+
+                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, Constants.InvokeSource.PLACES)
+                }
+
+                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+                    page?.let {
+                        ReadingListBehaviorsUtil.moveToList(requireActivity(), it.listId, entry.title, Constants.InvokeSource.PLACES)
+                    }
+                }
+            }).show(entry)
+            return true
+        }
     }
 
     companion object {

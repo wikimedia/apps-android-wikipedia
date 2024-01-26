@@ -1357,10 +1357,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 val anchor = if (Prefs.customizeToolbarOrder.contains(PageActionItem.SAVE.id))
                     binding.pageActionsTabLayout else (requireActivity() as PageActivity).getOverflowMenu()
                 LongPressMenu(anchor, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                    override fun onOpenLink(entry: HistoryEntry) { }
-
-                    override fun onOpenInNewTab(entry: HistoryEntry) { }
-
                     override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
                         title?.run {
                             ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, addToDefault, InvokeSource.BOOKMARK_BUTTON)
