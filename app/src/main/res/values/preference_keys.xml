@@ -167,7 +167,7 @@
     <string name="preference_key_show_sequential_recent_edits_diff_tooltip">showSequentialRecentEditsDiffTooltip</string>
     <string name="preference_key_show_recent_edits_feedback_form">showRecentEditsFeedbackForm</string>
     <string name="preference_key_places_wiki_code">filterPlacesWikiCode</string>
-    <string name="preference_key_places_page_onboarding_tooltip_shown">placesPageOnboardingTooltipShown</string>
-    <string name="preference_key_places_main_nav_onboarding_tooltip_shown">placesMainNavOnboardingTooltipShown</string>
+    <string name="preference_key_show_places_page_onboarding_tooltip">showPlacesPageOnboardingTooltip</string>
+    <string name="preference_key_show_places_main_nav_onboarding_tooltip_shown">showPlacesMainNavOnboardingTooltip</string>
     <string name="preference_key_places_last_location_and_zoom_level">placesLastLocationAndZoomLevel</string>
 </resources>

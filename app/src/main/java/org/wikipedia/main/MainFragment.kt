@@ -552,11 +552,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     private fun maybeShowPlacesTooltip() {
-        if (!Prefs.isPlacesMainNavOnboardingTooltipShown) {
+        if (Prefs.showOneTimePlacesMainNavOnboardingTooltip) {
             enqueueTooltip {
                 FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer,
                     getString(R.string.places_nav_tab_tooltip_message), aboveOrBelow = true, autoDismiss = false).setOnBalloonDismissListener {
-                    Prefs.isPlacesMainNavOnboardingTooltipShown = true
+                    Prefs.showOneTimePlacesMainNavOnboardingTooltip = false
                 }
             }
         }

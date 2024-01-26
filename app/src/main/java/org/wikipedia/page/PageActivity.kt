@@ -665,29 +665,28 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     private fun maybeShowPlacesTooltip() {
-        if (!Prefs.isPlacesPageOnboardingTooltipShown) {
-            enqueueTooltip {
-                FeedbackUtil.getTooltip(
-                    this,
-                    StringUtil.fromHtml(getString(R.string.places_article_menu_tooltip_message)),
-                    arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
-                    topOrBottomMargin = -8,
-                    aboveOrBelow = false,
-                    autoDismiss = false,
-                    showDismissButton = true
-                ).apply {
-                    setOnBalloonDismissListener {
-                        isTooltipShowing = false
-                        Prefs.isPlacesPageOnboardingTooltipShown = true
-                    }
-                    isTooltipShowing = true
-                    BreadCrumbLogEvent.logTooltipShown(
-                        this@PageActivity,
-                        binding.pageToolbarButtonShowOverflowMenu
-                    )
-                    showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
-                    setCurrentTooltip(this)
+        if (!Prefs.showOneTimePlacesPageOnboardingTooltip ||
+            pageFragment.page?.pageProperties?.geo == null || isTooltipShowing) {
+            return
+        }
+        enqueueTooltip {
+            FeedbackUtil.getTooltip(
+                this,
+                StringUtil.fromHtml(getString(R.string.places_article_menu_tooltip_message)),
+                arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
+                topOrBottomMargin = -8,
+                aboveOrBelow = false,
+                autoDismiss = false,
+                showDismissButton = true
+            ).apply {
+                setOnBalloonDismissListener {
+                    isTooltipShowing = false
+                    Prefs.showOneTimePlacesPageOnboardingTooltip = false
                 }
+                isTooltipShowing = true
+                BreadCrumbLogEvent.logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
+                showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+                setCurrentTooltip(this)
             }
         }
     }
