@@ -32,7 +32,7 @@ class LangCodeView(context: Context, attrs: AttributeSet? = null) : FrameLayout(
             }
 
         layoutParams = ViewGroup.LayoutParams(DimenUtil.roundedDpToPx(48.0f), ViewGroup.LayoutParams.MATCH_PARENT)
-        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackgroundBorderless))
+
         setTextColor(textColor)
         setBackgroundTint(backgroundTint)
         fillBackground(fillBackground)
