@@ -28,8 +28,6 @@ import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Consumer
-import java.io.File
-import java.util.concurrent.TimeUnit
 import org.wikipedia.BackPressedHandler
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -83,6 +81,8 @@ import org.wikipedia.util.TabUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.watchlist.WatchlistActivity
+import java.io.File
+import java.util.concurrent.TimeUnit
 
 class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, MenuNavTabDialog.Callback {
     interface Callback {
