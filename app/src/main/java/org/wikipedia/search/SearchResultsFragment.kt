@@ -1,7 +1,5 @@
 package org.wikipedia.search
 
-import android.app.Activity.RESULT_OK
-import android.content.Intent
 import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -33,7 +31,6 @@ import org.wikipedia.databinding.ItemSearchResultBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
-import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
@@ -48,7 +45,7 @@ class SearchResultsFragment : Fragment() {
         fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
         fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
         fun onSearchProgressBar(enabled: Boolean)
-        fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int)
+        fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location? = null)
         fun setSearchText(text: CharSequence)
     }
 
@@ -160,9 +157,7 @@ class SearchResultsFragment : Fragment() {
 
     private inner class SearchResultsDiffCallback : DiffUtil.ItemCallback<SearchResult>() {
         override fun areItemsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
-            return oldItem.pageTitle.prefixedText == newItem.pageTitle.prefixedText &&
-                    oldItem.pageTitle.namespace == newItem.pageTitle.namespace &&
-                    oldItem.pageTitle.description == newItem.pageTitle.description
+            return false
         }
 
         override fun areContentsTheSame(oldItem: SearchResult, newItem: SearchResult): Boolean {
@@ -247,19 +242,7 @@ class SearchResultsFragment : Fragment() {
 
             view.isLongClickable = true
             view.setOnClickListener {
-                if (viewModel.invokeSource == Constants.InvokeSource.PLACES) {
-                    PlacesEvent.logAction("search_result_click", "search_view")
-                    val resultIntent = Intent()
-                    searchResult.coordinates?.let { coordinates ->
-                        resultIntent.putExtra(Constants.ARG_TITLE, searchResult.pageTitle)
-                        val location = Location("").also { it.latitude = coordinates[0].lat; it.longitude = coordinates[0].lon }
-                        resultIntent.putExtra(PlacesActivity.EXTRA_LOCATION, location)
-                        requireActivity().setResult(RESULT_OK, resultIntent)
-                    }
-                    requireActivity().finish()
-                } else {
-                    callback()?.navigateToTitle(searchResult.pageTitle, false, position)
-                }
+                callback()?.navigateToTitle(searchResult.pageTitle, false, position, searchResult.location)
             }
             view.setOnCreateContextMenuListener(LongPressHandler(view,
                     HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))

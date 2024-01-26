@@ -1,5 +1,6 @@
 package org.wikipedia.settings
 
+import android.location.Location
 import okhttp3.Cookie
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
@@ -712,4 +713,25 @@ object Prefs {
     var placesWikiCode
         get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
+
+    var placesLastLocationAndZoomLevel: Pair<Location, Double>?
+        get() {
+            // latitude|longitude|zoomLevel
+            val infoList = PrefsIoUtil.getString(R.string.preference_key_places_last_location_and_zoom_level, null)?.split("|")?.map { it.toDouble() }
+            return infoList?.let {
+                val location = Location("").apply {
+                    latitude = infoList[0]
+                    longitude = infoList[1]
+                }
+                val zoomLevel = infoList[2]
+                Pair(location, zoomLevel)
+            }
+        }
+        set(pair) {
+            var locationAndZoomLevelString: String? = null
+            pair?.let {
+                locationAndZoomLevelString = "${pair.first.latitude}|${pair.first.longitude}|${pair.second}"
+            }
+            PrefsIoUtil.setString(R.string.preference_key_places_last_location_and_zoom_level, locationAndZoomLevelString)
+        }
 }

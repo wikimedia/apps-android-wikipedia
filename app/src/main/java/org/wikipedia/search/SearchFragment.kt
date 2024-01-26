@@ -3,6 +3,7 @@ package org.wikipedia.search
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.Color
+import android.location.Location
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,6 +29,7 @@ import org.wikipedia.json.JsonUtil
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.search.db.RecentSearch
 import org.wikipedia.settings.Prefs
@@ -201,20 +203,24 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchCabView.setQuery(text, false)
     }
 
-    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int) {
+    override fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location?) {
         if (!isAdded) {
             return
         }
         if (returnLink) {
+            if(invokeSource == InvokeSource.PLACES) {
+                PlacesEvent.logAction("search_result_click", "search_view")
+            }
             val intent = Intent().putExtra(SearchActivity.EXTRA_RETURN_LINK_TITLE, item)
+                .putExtra(PlacesActivity.EXTRA_LOCATION, location)
             requireActivity().setResult(SearchActivity.RESULT_LINK_SUCCESS, intent)
             requireActivity().finish()
         } else {
             val historyEntry = HistoryEntry(item, HistoryEntry.SOURCE_SEARCH)
             startActivity(if (inNewTab) PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.title)
             else PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.title, false))
-            closeSearch()
         }
+        closeSearch()
     }
 
     override fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {

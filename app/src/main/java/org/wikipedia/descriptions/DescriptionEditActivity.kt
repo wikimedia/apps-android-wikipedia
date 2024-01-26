@@ -82,7 +82,7 @@ class DescriptionEditActivity : SingleFragmentActivity<DescriptionEditFragment>(
                     LinkPreviewDialog.newInstance(HistoryEntry(summary.pageTitle,
                             if (intent.hasExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) && intent.getSerializableExtra
                                     (Constants.INTENT_EXTRA_INVOKE_SOURCE) === InvokeSource.PAGE_ACTIVITY)
-                                HistoryEntry.SOURCE_EDIT_DESCRIPTION else HistoryEntry.SOURCE_SUGGESTED_EDITS), null))
+                                HistoryEntry.SOURCE_EDIT_DESCRIPTION else HistoryEntry.SOURCE_SUGGESTED_EDITS)))
         }
     }
 

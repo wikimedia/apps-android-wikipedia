@@ -426,6 +426,10 @@
   <string name="multi_select_items_selected">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</string>
   <string name="error_message_generic">Generic message informing the user that an error occurred</string>
   <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview\n{{Identical|Dismiss}}</string>
+  <string name="link_preview_dialog_read_button">Button label for reading the article in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_save_button">Button label for saving the article to a reading list in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_saved_button">Button label that indicates the article has been saved in a reading list in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_share_button">Button label for sharing the article in the link preview bottom sheet.</string>
   <string name="error_page_does_not_exist">Error message informing the user that the requested page does not exist</string>
   <string name="error_user_page_does_not_exist">Error message text shown when the user page does not yet exist. %1$s represents the full URL that points to the user page, %2$s represents the username and %3$s represents username without namespace.</string>
   <string name="view_wiki_error_message_offline">{{Doc-mobileapp-internet}}\nError message shown when network cannot be reached when loading a page</string>
@@ -1345,7 +1349,6 @@
   <string name="revision_diff_from">Label for older revision to be compared.</string>
   <string name="revision_diff_to">Label for newer revision to be compared.</string>
   <string name="revision_diff_line_num">Label for line number seen in a diff between revisions. The %d symbol is replaced with the line number.</string>
-  <string name="revision_diff_line_nums">Label for range of line numbers seen in a diff between revisions. The first %d symbol is the starting line number, and the second %d symbol is the ending line number.</string>
   <string name="revision_diff_lines_from_to">Label for range of line numbers seen in a diff between revisions. The %1$d symbol is the starting line number, and the %2$d symbol is the ending line number.</string>
   <string name="revision_diff_line_added">Label shown in a diff when a line was added.</string>
   <string name="revision_diff_line_removed">Label shown in a diff when a line was removed.</string>
@@ -1592,10 +1595,8 @@
   <string name="patroller_diff_feedback_tooltip">Text of the tooltip for the patrol edit screen indicates how to submit feedback for the feature.\n\n\"Problem with feature\" is {{msg-wm|Wikipedia-android-strings-suggested edits report feature}}</string>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
   <string name="data_opt_in_reject">Button label for rejecting anonymous data collection.</string>
-  <string name="places_title">Title for the Places screen.</string>
   <string name="page_issues_title">Dialog title for displaying page issues (amboxes) for the current page.</string>
   <string name="generic_release_notes">Release notes message that will be used on app stores for minor releases and maintenance updates.</string>
-  <string name="places_permissions_denied">Message shown when a required permission was denied by the user.</string>
   <string name="email_report_image_recommendations_subject">Subject heading for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_image_recommendations_body">Body of email for sending a report about a problem with the Image Recommendations feature.</string>
   <string name="email_report_patroller_tasks_subject">Subject heading for sending a report about a problem with the Patroller Tasks feature.</string>
@@ -1604,12 +1605,18 @@
   <string name="donation_campaign_donated_snackbar">Text for the snackbar message when user hits the \"I already donated\" option.</string>
   <string name="donation_campaign_go_back_button">Button label for the webview that can go back to the previous screen.</string>
   <string name="menu_single_webview_open_external">Menu option that indicates the web page can be opened in a system browser.</string>
-  <string name="link_preview_dialog_read_button">Button label for reading the article in the link preview bottom sheet.</string>
-  <string name="link_preview_dialog_save_button">Button label for saving the article to a reading list in the link preview bottom sheet.</string>
-  <string name="link_preview_dialog_saved_button">Button label that indicates the article has been saved in a reading list in the link preview bottom sheet.</string>
-  <string name="link_preview_dialog_share_button">Button label for sharing the article in the link preview bottom sheet.</string>
+  <string name="places_title">Title for the Places screen.</string>
+  <string name="places_permissions_denied">Message shown when a required permission was denied by the user.</string>
   <string name="places_search_hint">Hint text for the search box inside the Places screen. Should be as short as possible.</string>
   <string name="places_filter_title">Title string for places language filter screen.</string>
   <string name="places_toggle_buttons_map">Button label for viewing the map view in the Places screen.</string>
   <string name="places_toggle_buttons_list">Button label for viewing the list view in the Places screen.</string>
+  <string name="places_nav_tab_tooltip_message">Tooltip message to help users discover places feature from explore screen more menu navigation tab</string>
+  <string name="places_article_menu_tooltip_message">Tooltip message to help users discover article\'s location on the map and its nearby articles through places feature, from article screen more menu</string>
+  <string name="places_survey_very_satisfied_option">Option text suggesting that user is very satisfied with the feature, shown in the survey</string>
+  <string name="places_survey_very_unsatisfied_option">Option text suggesting that user is very usatisfied with the feature, shown in the survey</string>
+  <string name="places_survey_dialog_title">Title text for the main feedback dialog for places feature</string>
+  <string name="places_survey_feedback_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
+  <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
 </resources>

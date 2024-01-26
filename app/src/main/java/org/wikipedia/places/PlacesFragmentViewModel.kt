@@ -23,13 +23,13 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
 
     val wikiSite: WikiSite get() = WikiSite.forLanguageCode(Prefs.placesWikiCode)
     var location: Location? = bundle.parcelable(PlacesActivity.EXTRA_LOCATION)
-    var pageTitle: PageTitle? = bundle.parcelable(Constants.ARG_TITLE)
+    var highlightedPageTitle: PageTitle? = bundle.parcelable(Constants.ARG_TITLE)
 
-    val nearbyPages = MutableLiveData<Resource<List<NearbyPage>>>()
+    val nearbyPagesLiveData = MutableLiveData<Resource<List<NearbyPage>>>()
 
     fun fetchNearbyPages(latitude: Double, longitude: Double, radius: Int, maxResults: Int) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            nearbyPages.postValue(Resource.Error(throwable))
+            nearbyPagesLiveData.postValue(Resource.Error(throwable))
         }) {
             val response = ServiceFactory.get(wikiSite).getGeoSearch("$latitude|$longitude", radius, maxResults, maxResults)
             val pages = response.query?.pages.orEmpty()
@@ -37,12 +37,9 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
                 .map {
                     NearbyPage(it.pageId, PageTitle(it.title, wikiSite,
                         if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
-                        it.description,
-                        it.displayTitle(wikiSite.languageCode)),
-                        it.coordinates!![0].lat, it.coordinates[0].lon)
+                        it.description, it.displayTitle(wikiSite.languageCode)), it.coordinates!![0].lat, it.coordinates[0].lon)
                 }
-
-            nearbyPages.postValue(Resource.Success(pages))
+            nearbyPagesLiveData.postValue(Resource.Success(pages))
         }
     }
 
@@ -53,7 +50,15 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
         val longitude: Double,
         var annotation: Symbol? = null,
         var bitmap: Bitmap? = null
-    )
+    ) {
+
+        private val lat = latitude
+        private val lng = longitude
+        val location get() = Location("").apply {
+            latitude = lat
+            longitude = lng
+        }
+    }
 
     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")

@@ -33,6 +33,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
@@ -44,6 +46,7 @@ import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
 import com.mapbox.mapboxsdk.location.modes.CameraMode
 import com.mapbox.mapboxsdk.location.modes.RenderMode
 import com.mapbox.mapboxsdk.maps.MapboxMap
+import com.mapbox.mapboxsdk.maps.MapboxMap.CancelableCallback
 import com.mapbox.mapboxsdk.maps.Style
 import com.mapbox.mapboxsdk.module.http.HttpRequestImpl
 import com.mapbox.mapboxsdk.plugins.annotation.ClusterOptions
@@ -63,26 +66,38 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.FragmentPlacesBinding
+import org.wikipedia.databinding.ItemPlacesListBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
+import org.wikipedia.extensions.parcelable
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
+import org.wikipedia.readinglist.LongPressMenu
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil
+import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.search.SearchActivity
 import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.TabUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.ViewUtil
+import java.util.Locale
+import kotlin.math.abs
 
-class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
+class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback, MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -95,8 +110,11 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
     private var symbolManager: SymbolManager? = null
 
     private val annotationCache = ArrayDeque<PlacesFragmentViewModel.NearbyPage>()
-    private var lastLocationUpdated: Location? = null
+    private var lastCheckedId = R.id.mapViewButton
+    private var lastLocation: Location? = null
+    private var lastLocationQueried: Location? = null
     private var lastZoom = 15.0
+    private var lastZoomQueried = 0.0
 
     private lateinit var markerBitmapBase: Bitmap
     private lateinit var markerPaintSrc: Paint
@@ -114,7 +132,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
                 startLocationTracking()
-                goToLocation(1000, viewModel.location)
+                goToLocation(viewModel.location)
             }
             else -> {
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
@@ -123,15 +141,14 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
     }
 
     private val placesSearchLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
-              val location = it.data?.getParcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
-              viewModel.pageTitle = it.data?.getParcelableExtra(Constants.ARG_TITLE)!!
-              Prefs.placesWikiCode = viewModel.pageTitle?.wikiSite?.languageCode
-                  ?: WikipediaApp.instance.appOrSystemLanguageCode
-              updateSearchText(viewModel.pageTitle?.displayText.orEmpty())
-              goToLocation(1000, location)
-              viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
-          }
+        if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
+            val location = it.data?.parcelableExtra<Location>(PlacesActivity.EXTRA_LOCATION)!!
+            val pageTitle = it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)!!
+            viewModel.highlightedPageTitle = pageTitle
+            Prefs.placesWikiCode = pageTitle.wikiSite.languageCode
+            goToLocation(preferredLocation = location, zoom = 15.9)
+            viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
+        }
     }
 
     private val filterLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -139,12 +156,13 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
               val languageChanged = it.data?.getBooleanExtra(PlacesFilterActivity.EXTRA_LANG_CHANGED, false)!!
             if (languageChanged) {
                 annotationCache.clear()
+                viewModel.highlightedPageTitle = null
                 symbolManager?.deleteAll()
-                  viewModel.fetchNearbyPages(lastLocationUpdated?.latitude ?: 0.0,
-                      lastLocationUpdated?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
-                  goToLocation(1000, lastLocationUpdated, lastZoom)
+                viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
+                    lastLocation?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
+                goToLocation(lastLocation, lastZoom)
               }
-          }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -158,14 +176,8 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
         HttpRequestImpl.setOkHttpClient(OkHttpConnectionFactory.client)
 
-        requireArguments().getParcelable<PageTitle>(Constants.ARG_TITLE)?.let {
+        requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)?.let {
             Prefs.placesWikiCode = it.wikiSite.languageCode
-        }
-
-        activity?.window?.let { window ->
-            WindowCompat.setDecorFitsSystemWindows(window, false)
-            window.statusBarColor = Color.TRANSPARENT
-            window.navigationBarColor = Color.TRANSPARENT
         }
     }
 
@@ -175,15 +187,29 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
         binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
-            statusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
+            val newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
             var params = binding.searchContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = statusBarInsets!!.top + DimenUtil.roundedDpToPx(4f)
+            params.topMargin = newStatusBarInsets.top + newNavBarInsets.top + DimenUtil.roundedDpToPx(4f)
+            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left + DimenUtil.roundedDpToPx(8f)
+            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(8f)
 
-            navBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
             params = binding.myLocationButton.layoutParams as ViewGroup.MarginLayoutParams
-            params.bottomMargin = navBarInsets!!.bottom + DimenUtil.roundedDpToPx(16f)
+            params.bottomMargin = newNavBarInsets.bottom + DimenUtil.roundedDpToPx(16f)
+            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left + DimenUtil.roundedDpToPx(16f)
+            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(16f)
             binding.myLocationButton.layoutParams = params
 
+            params = binding.listRecyclerView.layoutParams as ViewGroup.MarginLayoutParams
+            params.bottomMargin = newNavBarInsets.bottom
+            params.rightMargin = newNavBarInsets.right
+
+            params = binding.viewButtonsGroup.layoutParams as ViewGroup.MarginLayoutParams
+            params.leftMargin = newNavBarInsets.left
+            params.rightMargin = newNavBarInsets.right
+
+            statusBarInsets = newStatusBarInsets
+            navBarInsets = newNavBarInsets
             WindowInsetsCompat.Builder()
                 .setInsets(WindowInsetsCompat.Type.navigationBars(), navBarInsets!!)
                 .build().toWindowInsets() ?: windowInsets
@@ -200,8 +226,13 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
         binding.searchTextView.setOnClickListener {
             PlacesEvent.logAction("search_view_click", "map_view")
-            openSearchActivity(if (binding.searchTextView.text.toString() == getString(R.string.places_search_hint)) null
-            else binding.searchTextView.text.toString())
+            val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES,
+                StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.prefixedText).ifEmpty { null }, true)
+            val options = binding.searchContainer.let {
+                ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+                    binding.searchContainer, getString(R.string.transition_search_bar))
+            }
+            placesSearchLauncher.launch(intent, options)
         }
 
         binding.backButton.setOnClickListener {
@@ -210,49 +241,81 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
 
         binding.searchLangContainer.setOnClickListener {
-            lastZoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
             PlacesEvent.logAction("filter_click", "map_view")
             filterLauncher.launch(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
         binding.searchCloseBtn.setOnClickListener {
             PlacesEvent.logAction("search_clear_click", "map_view")
-            updateSearchText(getString(R.string.places_search_hint))
+            updateSearchText()
         }
 
         binding.myLocationButton.setOnClickListener {
             PlacesEvent.logAction("current_location_click", "map_view")
             if (haveLocationPermissions()) {
-                goToLocation(0)
+                goToLocation()
             } else {
                 locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
             }
         }
 
+        binding.viewButtonsGroup.post {
+            binding.viewButtonsGroup.isVisible = true
+        }
+
+        binding.viewButtonsGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
+            if (!isChecked) {
+                return@addOnButtonCheckedListener
+            }
+            lastCheckedId = checkedId
+            val mapViewChecked = checkedId == R.id.mapViewButton
+            updateToggleViews(mapViewChecked)
+
+            val progressColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.progressive_color)
+            val additionColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.addition_color)
+            val placeholderColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.placeholder_color)
+            val paperColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.paper_color)
+            val backgroundColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.background_color)
+            if (mapViewChecked) {
+                binding.mapViewButton.setTextColor(progressColor)
+                binding.mapViewButton.backgroundTintList = additionColor
+                binding.mapViewButton.strokeColor = paperColor
+                binding.listViewButton.setTextColor(placeholderColor)
+                binding.listViewButton.backgroundTintList = paperColor
+                binding.listViewButton.strokeColor = paperColor
+            } else {
+                binding.mapViewButton.setTextColor(placeholderColor)
+                binding.mapViewButton.backgroundTintList = backgroundColor
+                binding.mapViewButton.strokeColor = backgroundColor
+                binding.listViewButton.setTextColor(progressColor)
+                binding.listViewButton.backgroundTintList = additionColor
+                binding.listViewButton.strokeColor = backgroundColor
+            }
+        }
+
+        binding.listRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.listRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, skipSearchBar = true))
+        binding.listEmptyMessage.text = StringUtil.fromHtml(getString(R.string.places_empty_list))
+        binding.listEmptyMessage.movementMethod = LinkMovementMethodExt { _ ->
+            binding.viewButtonsGroup.check(R.id.mapViewButton)
+        }
+
         return binding.root
     }
 
-    private fun openSearchActivity(query: String?) {
-        val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES, query)
-        val options = binding.searchContainer.let {
-            ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                binding.searchContainer, getString(R.string.transition_search_bar))
+    private fun updateSearchText(searchText: String = "") {
+        if (searchText.isEmpty()) {
+            binding.searchTextView.text = getString(R.string.places_search_hint)
+            binding.searchCloseBtn.isVisible = false
+            resetMagnifiedSymbol()
+        } else {
+            binding.searchCloseBtn.isVisible = true
+            binding.searchTextView.text = StringUtil.fromHtml(searchText)
         }
-        placesSearchLauncher.launch(intent, options)
-    }
-
-    private fun updateSearchText(searchText: String) {
-        binding.searchTextView.text = searchText
-        binding.searchCloseBtn.isVisible = searchText != getString(R.string.places_search_hint) && searchText.isNotEmpty()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Style JSON taken from:
-        // https://gerrit.wikimedia.org/r/c/mediawiki/extensions/Kartographer/+/663867 (mvt-style.json)
-        // https://tegola-wikimedia.s3.amazonaws.com/wikimedia-tilejson.json (for some reason)
-
         binding.mapView.onCreate(savedInstanceState)
 
         binding.mapView.getMapAsync { map ->
@@ -262,24 +325,37 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
                 style.addImage(MARKER_DRAWABLE, markerBitmapBase)
 
-                // TODO: Currently the style seems to break when zooming beyond 16.0. See if we can fix this.
-                map.setMaxZoomPreference(15.999)
+                map.setMaxZoomPreference(20.0)
 
                 map.uiSettings.isLogoEnabled = false
                 val defMargin = DimenUtil.roundedDpToPx(16f)
-                val navBarMargin = if (navBarInsets != null) navBarInsets!!.bottom else 0
+
+                val navBarLeft = navBarInsets?.left ?: 0
+                val navBarRight = navBarInsets?.right ?: 0
+                val navBarTop = navBarInsets?.top ?: 0
+                val navBarBottom = navBarInsets?.bottom ?: 0
+                val statusBarLeft = statusBarInsets?.left ?: 0
+                val statusBarRight = statusBarInsets?.right ?: 0
+                val statusBarTop = statusBarInsets?.top ?: 0
+                val statusBarBottom = statusBarInsets?.bottom ?: 0
 
                 map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass_with_bg)!!)
-                map.uiSettings.compassGravity = Gravity.BOTTOM or Gravity.START
-                map.uiSettings.setCompassMargins(defMargin, 0, defMargin, navBarMargin + DimenUtil.roundedDpToPx(24f))
-
-                map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.END
+                map.uiSettings.compassGravity = Gravity.TOP or Gravity.END
+                map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.START
                 map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
-                map.uiSettings.setAttributionMargins(defMargin * 2 + (if (L10nUtil.isDeviceRTL) binding.myLocationButton.width else 0),
-                    0, defMargin * 2 + (if (L10nUtil.isDeviceRTL) 0 else binding.myLocationButton.width), navBarMargin + defMargin)
+
+                map.uiSettings.setCompassMargins(defMargin + navBarLeft + statusBarLeft,
+                    defMargin + navBarTop + statusBarTop + binding.searchContainer.height,
+                    DimenUtil.roundedDpToPx(12f) + navBarRight + statusBarRight, defMargin)
+
+                map.uiSettings.setAttributionMargins(defMargin + navBarLeft + statusBarLeft,
+                    0, defMargin + navBarRight + statusBarRight,
+                    navBarBottom + statusBarBottom + DimenUtil.roundedDpToPx(36f))
 
                 map.addOnCameraIdleListener {
-                    onUpdateCameraPosition(mapboxMap?.cameraPosition?.target)
+                    mapboxMap?.cameraPosition?.target?.let {
+                        onUpdateCameraPosition(it)
+                    }
                 }
 
                 map.addOnMapClickListener(this)
@@ -292,21 +368,26 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     PlacesEvent.logAction("marker_click", "map_view")
                     annotationCache.find { it.annotation == symbol }?.let {
-                        updateSearchText(it.pageTitle.displayText)
-                        val entry = HistoryEntry(it.pageTitle, HistoryEntry.SOURCE_PLACES)
+                        val location = Location("").apply {
+                            latitude = symbol.latLng.latitude
+                            longitude = symbol.latLng.longitude
+                        }
                         resetMagnifiedSymbol()
-                        magnifiedMarker = it.annotation
-                        magnifiedMarker?.iconSize = 1.75f
-                        symbolManager?.update(magnifiedMarker)
-                        ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+                        setMagnifiedSymbol(it.annotation)
+                        viewModel.highlightedPageTitle = it.pageTitle
+                        symbolManager?.update(it.annotation)
+                        showLinkPreview(it.pageTitle, location)
                     }
                     true
                 }
 
                 if (haveLocationPermissions()) {
                     startLocationTracking()
-                    if (savedInstanceState == null) {
-                        goToLocation(1000, viewModel.location)
+                    viewModel.location?.let {
+                        goToLocation(it)
+                    } ?: run {
+                        val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
+                        goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
                     }
                 } else {
                     locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
@@ -314,7 +395,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             }
         }
 
-        viewModel.nearbyPages.observe(viewLifecycleOwner) {
+        viewModel.nearbyPagesLiveData.observe(viewLifecycleOwner) {
             if (it is Resource.Success) {
                 updateMapMarkers(it.data)
             } else if (it is Resource.Error) {
@@ -323,12 +404,36 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
     }
 
+    private fun updateToggleViews(isMapVisible: Boolean) {
+        val tintColor = ResourceUtil.getThemedColorStateList(requireContext(), if (isMapVisible) R.attr.paper_color else R.attr.background_color)
+        binding.mapView.isVisible = isMapVisible
+        binding.listRecyclerView.isVisible = !isMapVisible && (binding.listRecyclerView.adapter?.itemCount ?: 0) > 0
+        binding.listEmptyContainer.isVisible = !isMapVisible && (binding.listRecyclerView.adapter?.itemCount ?: 0) == 0
+        binding.searchContainer.backgroundTintList = tintColor
+        binding.myLocationButton.isVisible = isMapVisible
+    }
+
+    private fun showLinkPreview(pageTitle: PageTitle, location: Location) {
+        val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
+        updateSearchText(pageTitle.displayText)
+        ExclusiveBottomSheetPresenter.show(childFragmentManager,
+            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation))
+    }
+
     private fun resetMagnifiedSymbol() {
         // Reset the magnified marker to regular size
         magnifiedMarker?.let {
             it.iconSize = 1.0f
             symbolManager?.update(it)
         }
+        viewModel.highlightedPageTitle = null
+    }
+
+    private fun setMagnifiedSymbol(symbol: Symbol?) {
+        magnifiedMarker?.symbolSortKey = 0f
+        magnifiedMarker = symbol
+        magnifiedMarker?.iconSize = 1.75f
+        magnifiedMarker?.symbolSortKey = 1f
     }
 
     private fun setupMarkerPaints() {
@@ -405,8 +510,15 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
     override fun onResume() {
         super.onResume()
+        activity?.window?.let { window ->
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+            window.statusBarColor = Color.TRANSPARENT
+            window.navigationBarColor = Color.TRANSPARENT
+        }
+
         binding.mapView.onResume()
         updateSearchCardViews()
+        updateToggleViews(lastCheckedId == R.id.mapViewButton)
     }
 
     override fun onStop() {
@@ -425,6 +537,9 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
     }
 
     override fun onDestroyView() {
+        lastLocation?.let {
+            Prefs.placesLastLocationAndZoomLevel = Pair(it, lastZoom)
+        }
         binding.mapView.onDestroy()
         _binding = null
 
@@ -434,26 +549,33 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             }
         }
         markerBitmapBase.recycle()
-
         super.onDestroyView()
     }
 
-    private fun onUpdateCameraPosition(latLng: LatLng?) {
-        if (latLng == null) {
-            return
-        }
-
-        lastLocationUpdated = Location("").also {
+    private fun onUpdateCameraPosition(latLng: LatLng) {
+        lastLocation = Location("").also {
             it.latitude = latLng.latitude
             it.longitude = latLng.longitude
         }
 
-        LatLng(latLng.latitude, latLng.longitude)
+        lastZoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
 
-        if ((mapboxMap?.cameraPosition?.zoom ?: 0.0) < 3.0) {
+        if (lastZoom < 3.0) {
             // Don't fetch pages if the map is zoomed out too far.
             return
         }
+
+        // Fetch new pages within the current viewport, but only if the map has moved a significant distance.
+        val latEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) * 0.2
+        val lngEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.longitudeSpan ?: 0.0) * 0.2
+        if (lastLocationQueried != null &&
+            abs(latLng.latitude - (lastLocationQueried?.latitude ?: 0.0)) < latEpsilon &&
+            abs(latLng.longitude - (lastLocationQueried?.longitude ?: 0.0)) < lngEpsilon &&
+            abs(lastZoom - lastZoomQueried) < 0.5) {
+            return
+        }
+        lastLocationQueried = lastLocation
+        lastZoomQueried = lastZoom
 
         L.d(">>> requesting update: " + latLng.latitude + ", " + latLng.longitude + ", " + mapboxMap?.cameraPosition?.zoom)
         viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude, searchRadius, ITEMS_PER_REQUEST)
@@ -470,15 +592,11 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                         .withLatLng(LatLng(it.latitude, it.longitude))
                         .withTextFont(MARKER_FONT_STACK)
                         .withIconImage(MARKER_DRAWABLE)
-                        .withIconOffset(arrayOf(0f, -32f))
                 )
-                if (StringUtil.removeUnderscores(viewModel.pageTitle?.text.orEmpty()) ==
+                if (StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.text.orEmpty()) ==
                     StringUtil.removeUnderscores(it.pageTitle.text)
                 ) {
-                    magnifiedMarker = it.annotation
-                    magnifiedMarker?.iconSize = 1.75f
-                    // Reset the page title so that the marker doesn't get magnified again
-                    viewModel.pageTitle = null
+                    setMagnifiedSymbol(it.annotation)
                 }
                 annotationCache.addFirst(it)
                 manager.update(it.annotation)
@@ -497,6 +615,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
                 }
             }
         }
+        binding.listRecyclerView.adapter = RecyclerViewAdapter(pages)
     }
 
     private fun haveLocationPermissions(): Boolean {
@@ -514,19 +633,28 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         }
     }
 
-    private fun goToLocation(delayMillis: Long, preferredLocation: Location? = null, zoom: Double = 15.0) {
-        binding.mapView.postDelayed({
-            if (isAdded && haveLocationPermissions()) {
-                mapboxMap?.let {
-                    val currentLocation = it.locationComponent.lastKnownLocation
-                    var currentLatLngLoc: LatLng? = null
-                    currentLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
-                    val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
-                    val targetLocation = location ?: currentLatLngLoc
-                    targetLocation?.let { target -> it.animateCamera(CameraUpdateFactory.newLatLngZoom(target, zoom)) }
+    private fun goToLocation(preferredLocation: Location? = null, zoom: Double = 15.0) {
+        if (haveLocationPermissions()) {
+            binding.viewButtonsGroup.check(R.id.mapViewButton)
+            mapboxMap?.let {
+                val currentLocation = it.locationComponent.lastKnownLocation
+                var currentLatLngLoc: LatLng? = null
+                currentLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
+                val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
+                val targetLocation = location ?: currentLatLngLoc
+                targetLocation?.let { target ->
+                    it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                        override fun onCancel() { }
+
+                        override fun onFinish() {
+                            if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
+                                showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
+                            }
+                        }
+                    })
                 }
             }
-        }, delayMillis)
+        }
     }
 
     private fun queueImageForAnnotation(page: PlacesFragmentViewModel.NearbyPage) {
@@ -583,14 +711,27 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         canvas.drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
     }
 
+    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
+        if (inNewTab) {
+            TabUtil.openInNewBackgroundTab(entry)
+            requireActivity().invalidateOptionsMenu()
+            binding.tabsButton.isVisible = WikipediaApp.instance.tabCount > 0
+            binding.tabsButton.updateTabCount(true)
+        } else {
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
+        }
+    }
+
+    override fun onLinkPreviewDismiss() {
+        updateSearchText()
+    }
+
     override fun onMapClick(point: LatLng): Boolean {
         mapboxMap?.let {
             val screenPoint = it.projection.toScreenLocation(point)
             val rect = RectF(screenPoint.x - 10, screenPoint.y - 10, screenPoint.x + 10, screenPoint.y + 10)
 
-            // Reset any enhanced markers to regular size
-            resetMagnifiedSymbol()
-
+            updateSearchText()
             // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
             val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
             if (featureList.isNotEmpty()) {
@@ -604,6 +745,77 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             }
         }
         return false
+    }
+
+    private inner class RecyclerViewAdapter(val nearbyPages: List<PlacesFragmentViewModel.NearbyPage>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
+        override fun getItemCount(): Int {
+            return nearbyPages.size
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, type: Int): RecyclerViewItemHolder {
+            return RecyclerViewItemHolder(ItemPlacesListBinding.inflate(layoutInflater, parent, false))
+        }
+
+        override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
+            holder.bindItem(nearbyPages[position])
+        }
+    }
+
+    private inner class RecyclerViewItemHolder(val binding: ItemPlacesListBinding) :
+        RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener {
+
+        private lateinit var page: PlacesFragmentViewModel.NearbyPage
+        private var currentLocation: Location?
+
+        init {
+            itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener(this)
+            currentLocation = lastLocation ?: Prefs.placesLastLocationAndZoomLevel?.first
+            DeviceUtil.setContextClickAsLongClick(itemView)
+        }
+
+        fun bindItem(page: PlacesFragmentViewModel.NearbyPage) {
+            this.page = page
+            binding.listItemTitle.text = StringUtil.fromHtml(page.pageTitle.displayText)
+            binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
+            binding.listItemDescription.isVisible = !page.pageTitle.description.isNullOrEmpty()
+            binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
+            currentLocation?.let {
+                binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, page.location, Locale.getDefault())
+            }
+            page.pageTitle.thumbUrl?.let {
+                ViewUtil.loadImage(binding.listItemThumbnail, it, circleShape = true)
+                binding.listItemThumbnail.isVisible = true
+            } ?: run {
+                binding.listItemThumbnail.isVisible = false
+            }
+        }
+
+        override fun onClick(v: View) {
+            val entry = HistoryEntry(page.pageTitle, HistoryEntry.SOURCE_PLACES)
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
+        }
+
+        override fun onLongClick(v: View): Boolean {
+            val entry = HistoryEntry(page.pageTitle, HistoryEntry.SOURCE_PLACES)
+            val location = page.location
+            LongPressMenu(v, menuRes = R.menu.menu_places_long_press, location = location, callback = object : LongPressMenu.Callback {
+                override fun onOpenInNewTab(entry: HistoryEntry) {
+                    onLinkPreviewLoadPage(entry.title, entry, true)
+                }
+
+                override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
+                    ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, Constants.InvokeSource.PLACES)
+                }
+
+                override fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry) {
+                    page?.let {
+                        ReadingListBehaviorsUtil.moveToList(requireActivity(), it.listId, entry.title, Constants.InvokeSource.PLACES)
+                    }
+                }
+            }).show(entry)
+            return true
+        }
     }
 
     companion object {

@@ -2,11 +2,11 @@ package org.wikipedia.readinglist
 
 import android.content.ContextWrapper
 import android.icu.text.ListFormatter
+import android.location.Location
 import android.os.Build
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
-import androidx.annotation.MenuRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import kotlinx.coroutines.CoroutineScope
@@ -20,22 +20,27 @@ import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
 
-class LongPressMenu(private val anchorView: View, private val existsInAnyList: Boolean, private val callback: Callback?) {
+class LongPressMenu(
+    private val anchorView: View,
+    private val existsInAnyList: Boolean = true,
+    private var menuRes: Int = R.menu.menu_long_press,
+    private val location: Location? = null,
+    private val callback: Callback? = null
+) {
     interface Callback {
-        fun onOpenLink(entry: HistoryEntry)
-        fun onOpenInNewTab(entry: HistoryEntry)
+        fun onOpenLink(entry: HistoryEntry) { /* ignore by default */ }
+        fun onOpenInNewTab(entry: HistoryEntry) { /* ignore by default */ }
         fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean)
         fun onMoveRequest(page: ReadingListPage?, entry: HistoryEntry)
+        fun onRemoveRequest() { /* ignore by default */ }
     }
 
-    @MenuRes
-    private val menuRes: Int = if (existsInAnyList) R.menu.menu_long_press else R.menu.menu_reading_list_page_toggle
     private var listsContainingPage: List<ReadingList>? = null
     private var entry: HistoryEntry? = null
-
-    constructor(anchorView: View, callback: Callback?) : this(anchorView, false, callback)
 
     fun show(entry: HistoryEntry?) {
         entry?.let {
@@ -47,6 +52,9 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                     return@launch
                 }
                 this@LongPressMenu.entry = it
+                if (!existsInAnyList) {
+                    this@LongPressMenu.menuRes = R.menu.menu_reading_list_page_toggle
+                }
                 showMenu()
             }
         }
@@ -80,6 +88,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                     saveItem.isVisible = it.isEmpty()
                     saveItem.isEnabled = it.isEmpty()
                 }
+                menu.menu.findItem(R.id.menu_long_press_get_directions).isVisible = location != null
                 menu.show()
             }
         }
@@ -89,7 +98,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
         listsContainingPage?.let { list ->
             RemoveFromReadingListsDialog(list).deleteOrShowDialog(getActivity()) { readingLists, _ ->
                 entry?.let {
-                    if (anchorView.isAttachedToWindow) {
+                    if (!getActivity().isDestroyed) {
                         val readingListNames = readingLists.map { readingList -> readingList.title }.run {
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                 ListFormatter.getInstance().format(this)
@@ -139,6 +148,7 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                 }
                 R.id.menu_long_press_remove_from_lists -> {
                     deleteOrShowDialog()
+                    callback?.onRemoveRequest()
                     true
                 }
                 R.id.menu_long_press_share_page -> {
@@ -149,6 +159,14 @@ class LongPressMenu(private val anchorView: View, private val existsInAnyList: B
                     entry?.let {
                         ClipboardUtil.setPlainText(getActivity(), text = it.title.uri)
                         FeedbackUtil.showMessage((getActivity()), R.string.address_copied)
+                    }
+                    true
+                }
+                R.id.menu_long_press_get_directions -> {
+                    location?.let {
+                        entry?.let {
+                            GeoUtil.sendGeoIntent(getActivity(), location, StringUtil.fromHtml(it.title.displayText).toString())
+                        }
                     }
                     true
                 }

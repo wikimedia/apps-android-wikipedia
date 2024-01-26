@@ -917,7 +917,7 @@
     <item quantity="one">1 ta hissa</item>
     <item quantity="other">%d ta hissa</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Tavsiya etilgan tahrirlar</string>
+  <string name="suggested_edits_feed_card_title">Tavsiya etiladigan tahrirlar</string>
   <string name="suggested_edits_feed_card_add_description_button">Maqolaga tavsif qoʻshmoq</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Maqola tavsifi (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Boshladik</string>
@@ -984,7 +984,7 @@
   <string name="suggested_edits_quality_sufficient_text">Qoniqarli</string>
   <string name="suggested_edits_quality_poor_text">Qoniqarsiz</string>
   <string name="suggested_edits_quality_bad_text">Yomon</string>
-  <string name="suggested_edits_label">Tavsiya etilgan tahrirlar</string>
+  <string name="suggested_edits_label">Tavsiya etiladigan tahrirlar</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Hissa</item>
     <item quantity="other">Hissalar</item>
@@ -1003,7 +1003,7 @@
   <string name="suggested_edits_last_edited_never">Hech qachon</string>
   <string name="suggested_edits_task_new">Yangi</string>
   <string name="suggested_edits_cc0_notice">Nashr qilish bilan siz &lt;a href=\"%1$s\"&gt; foydalanish shartlari &lt;/a&gt;ga va ushbu hissani &lt;a href=\"%2$s\"&gt;CC0 litsenziyasi&lt;/a&gt; asosida qaytarib olmasligingizga rozilik bildirasiz.</string>
-  <string name="suggested_edits_reactivation_notification_title">Tavsiya etilgan tahrirlar</string>
+  <string name="suggested_edits_reactivation_notification_title">Tavsiya etiladigan tahrirlar</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Vikipediyani tahrir qilganingiz uchun tashakkur! Nima uchun toʻxtagan joyingizda davom etmayapsiz?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Vikipediyani takomillashtirishni davom ettirish uchun bir daqiqa vaqtingiz bormi? Ushbu tahrirlash takliflarini koʻrib chiqing.</string>
   <string name="suggested_edits_contributions_screen_title">%sning hissalari</string>
@@ -1082,7 +1082,7 @@
   <string name="image_recommendation_tooltip_warning">Mavzuni tushunish uchun maqolani koʻrib chiqing va rasmni tekshiring</string>
   <string name="image_recommendation_depleted">Kechirasiz, hozirda boshqa tavsiya etilgan rasmlar mavjud emas. Boshqa &lt;a href=\"#\"&gt;tavsiya etilgan tahrirlarni&lt;/a&gt; koʻrib chiqing yoki keyinroq qayting.</string>
   <string name="suggested_edits_report_feature">Oʻziga xoslik bilan muammo</string>
-  <string name="suggested_edits_report_feature_subject">Tavsiya etilgan tahrirlar bilan muammo</string>
+  <string name="suggested_edits_report_feature_subject">Tavsiya etiladigan tahrirlar bilan muammo</string>
   <string name="edit_summary_added_image">Qoʻshilgan rasm</string>
   <string name="edit_summary_added_caption">Izoh qoʻshish</string>
   <string name="edit_summary_added_image_and_caption">Rasm va sarlavha qoʻshildi</string>
@@ -1319,7 +1319,6 @@
   <string name="revision_diff_from">Bundan:</string>
   <string name="revision_diff_to">Bunga:</string>
   <string name="revision_diff_line_num">%d-qator</string>
-  <string name="revision_diff_line_nums">%d-%d qatorlar</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d qatorlar</string>
   <string name="revision_diff_line_added">Qator qoʻshildi</string>
   <string name="revision_diff_line_removed">Qator oʻchirildi</string>
