@@ -169,6 +169,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
+        maybeShowPlacesTooltip()
     }
 
     override fun onDestroyView() {
@@ -546,6 +547,17 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
                     else getString(R.string.main_tooltip_text_v2), aboveOrBelow = true, autoDismiss = false).setOnBalloonDismissListener {
                             Prefs.showSuggestedEditsTooltip = false
                     }
+            }
+        }
+    }
+
+    private fun maybeShowPlacesTooltip() {
+        if (!Prefs.isPlacesMainNavOnboardingTooltipShown) {
+            enqueueTooltip {
+                FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer,
+                    getString(R.string.places_nav_tab_tooltip_message), aboveOrBelow = true, autoDismiss = false).setOnBalloonDismissListener {
+                    Prefs.isPlacesMainNavOnboardingTooltipShown = true
+                }
             }
         }
     }

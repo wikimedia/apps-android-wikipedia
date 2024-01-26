@@ -362,6 +362,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
         maybeShowThemeTooltip()
+        maybeShowPlacesTooltip()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -661,6 +662,34 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             .setView(DescriptionEditRevertHelpView(this, qNumber))
             .setPositiveButton(R.string.reverted_edit_dialog_ok_button_text, null)
             .show()
+    }
+
+    private fun maybeShowPlacesTooltip() {
+        if (!Prefs.isPlacesPageOnboardingTooltipShown) {
+            enqueueTooltip {
+                FeedbackUtil.getTooltip(
+                    this,
+                    StringUtil.fromHtml(getString(R.string.places_article_menu_tooltip_message)),
+                    arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
+                    topOrBottomMargin = -8,
+                    aboveOrBelow = false,
+                    autoDismiss = false,
+                    showDismissButton = true
+                ).apply {
+                    setOnBalloonDismissListener {
+                        isTooltipShowing = false
+                        Prefs.isPlacesPageOnboardingTooltipShown = true
+                    }
+                    isTooltipShowing = true
+                    BreadCrumbLogEvent.logTooltipShown(
+                        this@PageActivity,
+                        binding.pageToolbarButtonShowOverflowMenu
+                    )
+                    showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+                    setCurrentTooltip(this)
+                }
+            }
+        }
     }
 
     private fun maybeShowThemeTooltip() {
