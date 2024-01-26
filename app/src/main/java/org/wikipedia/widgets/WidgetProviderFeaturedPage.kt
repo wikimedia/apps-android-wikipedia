@@ -23,6 +23,7 @@ import com.bumptech.glide.request.target.AppWidgetTarget
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DimenUtil
@@ -79,11 +80,11 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                 remoteViews.setViewVisibility(R.id.widget_content_thumbnail, View.VISIBLE)
             }
 
+            val historyEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_WIDGET)
             val pendingIntent = PendingIntentCompat.getActivity(context, 1,
-                Intent(context, PageActivity::class.java)
-                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    .putExtra(Constants.ARG_TITLE, pageTitle)
-                    .putExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET, true),
+                PageActivity.newIntentForNewTab(context, historyEntry, historyEntry.title)
+                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.WIDGET)
+                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
                     PendingIntent.FLAG_UPDATE_CURRENT, false)
 
             remoteViews.setOnClickPendingIntent(R.id.widget_container, pendingIntent)
