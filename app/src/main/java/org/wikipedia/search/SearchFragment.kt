@@ -24,7 +24,6 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
-import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
@@ -36,7 +35,6 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.LanguageScrollView
-import org.wikipedia.views.ViewUtil
 import java.util.Locale
 
 class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearchesFragment.Callback, LanguageScrollView.Callback {
@@ -310,9 +308,10 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
     }
 
     private fun initLangButton() {
-        binding.searchLangButton.text = LanguageUtil.formatLangCodeForButton(app.languageState.appLanguageCode.uppercase(Locale.ENGLISH))
-        ViewUtil.formatLangButton(binding.searchLangButton, app.languageState.appLanguageCode.uppercase(Locale.ENGLISH),
-                LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER)
+        binding.searchLangButton.setLangCode(app.languageState.appLanguageCode.uppercase(Locale.ENGLISH))
+        binding.searchLangButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+        binding.searchLangButton.fillBackground(true)
+        binding.searchLangButton.setBackgroundTint(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
         FeedbackUtil.setButtonLongPressToast(binding.searchLangButtonContainer)
     }
 

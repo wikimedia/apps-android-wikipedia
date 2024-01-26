@@ -35,11 +35,19 @@ class LangCodeView(context: Context, attrs: AttributeSet? = null) : FrameLayout(
         binding.langCodeText.setTextColor(textColor)
     }
 
+    fun setTextColor(colors: ColorStateList) {
+        binding.langCodeText.setTextColor(colors)
+    }
+
     fun fillBackground(fillBackground: Boolean) {
         binding.langCodeText.setBackgroundResource(if (fillBackground) R.drawable.tab_counts_shape_border_filled else R.drawable.tab_counts_shape_border)
     }
 
     fun setBackgroundTint(@ColorInt tintColor: Int) {
         ViewCompat.setBackgroundTintList(binding.langCodeText, ColorStateList.valueOf(tintColor))
+    }
+
+    fun setBackgroundTint(colors: ColorStateList) {
+        ViewCompat.setBackgroundTintList(binding.langCodeText, colors)
     }
 }
