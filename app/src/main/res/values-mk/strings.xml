@@ -1590,4 +1590,6 @@
   <string name="places_survey_very_unsatisfied_option">Многу незадоволен</string>
   <string name="places_survey_dialog_title">Помогнете ни да го подобриме „Места“</string>
   <string name="places_survey_feedback_dialog_title">Како можеме да го подобриме „Места“?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Што би сакале да промениме или подобриме?</string>
+  <string name="places_empty_list">Ова подрачје е празно. Оддалечете &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
 </resources>
