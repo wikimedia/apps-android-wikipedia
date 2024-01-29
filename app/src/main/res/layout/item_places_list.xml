@@ -15,9 +15,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
+        android:paddingBottom="2dp"
         android:textColor="?attr/primary_color"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/listItemDescription"
         app:layout_constraintEnd_toStartOf="@id/listItemThumbnail"
         tools:text="Lorem ipsum" />
 
@@ -26,21 +27,23 @@
         style="@style/List.MaterialListDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
         android:layout_marginEnd="12dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="3dp"
         android:ellipsize="end"
-        app:layout_constraintTop_toBottomOf="@id/listItemTitle"
+        app:layout_constraintTop_toTopOf="@id/listItemThumbnail"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/listItemThumbnail"
         app:layout_constraintEnd_toStartOf="@id/listItemThumbnail"
         tools:text="Lorem ipsum" />
 
     <TextView
         style="@style/H4"
         android:id="@+id/listItemDistance"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:textColor="?attr/success_color"
-        android:layout_marginTop="6dp"
+        android:paddingTop="3dp"
         android:layout_marginStart="-4dp"
         android:layout_marginEnd="12dp"
         android:gravity="center_vertical"
@@ -48,6 +51,7 @@
         app:drawableStartCompat="@drawable/location_gradient"
         app:layout_constraintTop_toBottomOf="@id/listItemDescription"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/listItemThumbnail"
         tools:text="Lorem ipsum" />
 
     <ImageView
