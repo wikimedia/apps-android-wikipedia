@@ -111,7 +111,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchToolbar.setNavigationOnClickListener { requireActivity().supportFinishAfterTransition() }
         initialLanguageList = JsonUtil.encodeToString(app.languageState.appLanguageCodes).orEmpty()
         binding.searchContainer.setOnClickListener { onSearchContainerClick() }
-        binding.searchLangButtonContainer.setOnClickListener { onLangButtonClick() }
+        binding.searchLangButton.setOnClickListener { onLangButtonClick() }
         initSearchView()
         return binding.root
     }
@@ -148,11 +148,11 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             pos = if (app.languageState.appLanguageCodes.size > pos) pos else 0
             binding.searchLanguageScrollViewContainer.visibility = View.VISIBLE
             binding.searchLanguageScrollView.setUpLanguageScrollTabData(app.languageState.appLanguageCodes, pos, this)
-            binding.searchLangButtonContainer.visibility = View.GONE
+            binding.searchLangButton.visibility = View.GONE
         } else {
             maybeShowMultilingualSearchTooltip()
             binding.searchLanguageScrollViewContainer.visibility = View.GONE
-            binding.searchLangButtonContainer.visibility = View.VISIBLE
+            binding.searchLangButton.visibility = View.VISIBLE
             initLangButton()
             recentSearchesFragment.onLangCodeChanged()
         }
@@ -309,10 +309,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun initLangButton() {
         binding.searchLangButton.setLangCode(app.languageState.appLanguageCode.uppercase(Locale.ENGLISH))
-        binding.searchLangButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
-        binding.searchLangButton.fillBackground(true)
-        binding.searchLangButton.setBackgroundTint(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
-        FeedbackUtil.setButtonLongPressToast(binding.searchLangButtonContainer)
+        FeedbackUtil.setButtonLongPressToast(binding.searchLangButton)
     }
 
     private fun addRecentSearch(title: String?) {

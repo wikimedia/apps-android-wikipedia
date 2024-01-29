@@ -40,32 +40,16 @@
                     app:searchHintIcon="@null"
                     app:defaultQueryHint="@string/search_hint" />
 
-                <FrameLayout
-                    android:id="@+id/search_lang_button_container"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:background="?attr/actionBarItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
+                <org.wikipedia.views.LangCodeView
+                    android:id="@+id/search_lang_button"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/preference_title_language"
-                    android:paddingStart="9dp"
-                    android:paddingTop="2dp"
-                    android:paddingEnd="9dp"
-                    android:paddingBottom="2dp">
-
-                    <org.wikipedia.views.LangCodeView
-                        android:id="@+id/search_lang_button"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center_vertical"
-                        android:contentDescription="@null"
-                        android:clickable="false"
-                        android:focusable="false"
-                        app:textColor="@android:color/white"
-                        app:backgroundTint="?attr/placeholder_color"  />
-
-                </FrameLayout>
+                    android:padding="8dp"
+                    android:layout_marginEnd="4dp"
+                    app:textColor="?attr/placeholder_color"
+                    app:backgroundTint="?attr/placeholder_color"  />
 
             </LinearLayout>
 
