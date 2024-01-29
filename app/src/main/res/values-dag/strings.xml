@@ -1566,4 +1566,6 @@
   <string name="places_survey_very_unsatisfied_option">Bi\'tiɣi viɛnyɛla</string>
   <string name="places_survey_dialog_title">Sɔŋmi lɛbigi tiŋsi</string>
   <string name="places_survey_feedback_dialog_title">Wula ka tiŋsi (\"Places\") ni tooi lɛbigi?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Bo ka a yu ni ti taɣi bee m-pahi?</string>
+  <string name="places_empty_list">Yaɣili ŋɔ ka shɛli. Yima &lt;a href=\"#\"&gt;on the map&lt;/a&gt;.</string>
 </resources>
