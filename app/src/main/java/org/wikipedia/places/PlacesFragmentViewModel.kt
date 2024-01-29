@@ -37,7 +37,7 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
                 .map {
                     NearbyPage(it.pageId, PageTitle(it.title, wikiSite,
                         if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
-                        it.description, it.displayTitle(wikiSite.languageCode), it.extract), it.coordinates!![0].lat, it.coordinates[0].lon)
+                        it.description, it.displayTitle(wikiSite.languageCode)), it.coordinates!![0].lat, it.coordinates[0].lon)
                 }
             nearbyPagesLiveData.postValue(Resource.Success(pages))
         }

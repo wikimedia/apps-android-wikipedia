@@ -1628,4 +1628,6 @@
   <string name="places_survey_very_unsatisfied_option">Çok mutsuz</string>
   <string name="places_survey_dialog_title">\"Yerler\"i iyileştirmeye yardımcı olun</string>
   <string name="places_survey_feedback_dialog_title">\"Yerler\" nasıl geliştirilebilir?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Neyi değiştirmemizi ya da geliştirmemizi istersiniz?</string>
+  <string name="places_empty_list">Bu alan boş. &lt;a href=\"#\"&gt;Haritayı&lt;/a&gt; uzaklaştırın.</string>
 </resources>
