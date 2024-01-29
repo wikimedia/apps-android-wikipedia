@@ -770,7 +770,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             binding.listItemTitle.text = StringUtil.fromHtml(page.pageTitle.displayText)
             binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
             binding.listItemDescription.isVisible = !page.pageTitle.description.isNullOrEmpty()
-            binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
             currentLocation?.let {
                 binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, page.location, Locale.getDefault())
             }
