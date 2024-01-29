@@ -46,6 +46,7 @@ object LanguageUtil {
             val imm = WikipediaApp.instance.getSystemService<InputMethodManager>()!!
             languages += imm.enabledInputMethodList.asSequence()
                 .flatMap { imm.getEnabledInputMethodSubtypeList(it, true) }
+                .filter { it.mode == "keyboard" }
                 .mapNotNull { it.localeObject }
                 .flatMap {
                     // A Pinyin keyboard will report itself as zh-CN (simplified), but we want to add
