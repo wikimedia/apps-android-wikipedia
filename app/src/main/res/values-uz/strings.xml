@@ -396,6 +396,10 @@
   <string name="multi_select_items_selected">%d ta tanlangan</string>
   <string name="error_message_generic">Xatolik ro‘y berdi</string>
   <string name="view_link_preview_error_button_dismiss">Rad etmoq</string>
+  <string name="link_preview_dialog_read_button">Oʻqimoq</string>
+  <string name="link_preview_dialog_save_button">Saqlamoq</string>
+  <string name="link_preview_dialog_saved_button">Saqlandi</string>
+  <string name="link_preview_dialog_share_button">Ulashmoq</string>
   <string name="error_page_does_not_exist">Ushbu sahifa mavjud emas</string>
   <string name="error_user_page_does_not_exist">Vikipediyada aynan shunday &lt;a href=\"%1$s\"&gt; nomga ega foydalanuvchi sahifasi yo‘q.&lt;/a&gt;Umuman olganda, bu sahifa &lt;b&gt;%2$s&lt;/b&gt; tomonidan tuzilishi hamda tahrirlanishi lozim. Agar shubhangiz boʻlsa, “%3$s” mavjudligini tekshiring.</string>
   <string name="view_wiki_error_message_offline">Internetga bog‘lanib bo‘lmadi</string>
@@ -1430,6 +1434,8 @@
   <string name="media_playback_error">Mediani ijro etishda xatolik yuz berdi.</string>
   <string name="user_contrib_menu_label">Hissalar</string>
   <string name="user_contrib_filter_activity_title">Hissalarni filtrlash</string>
+  <string name="action_item_view_on_map">Xaritada ko‘rmoq</string>
+  <string name="action_item_view_on_map_unavailable">Bu sahifa uchun geografik koordinatalar mavjud emas</string>
   <string name="shareable_reading_lists_import_dialog_title">Umumiy oʻqish roʻyxatini import qilish</string>
   <string name="shareable_reading_lists_import_dialog_content">Siz bilan baham koʻrilgan roʻyxatni qanday nomlashni xohlaysiz?</string>
   <string name="shareable_reading_lists_new_indicator">*yangi*</string>
@@ -1573,4 +1579,18 @@
   <string name="donation_campaign_donated_snackbar">Rahmat, hurmatli hissachi! Sizning saxiyligingiz Vikipediya va unga bogʻliq saytlarini rivojiga yordam beradi.</string>
   <string name="donation_campaign_go_back_button">Ortga</string>
   <string name="menu_single_webview_open_external">Tizim brauzerida ochish</string>
+  <string name="places_title">Joylar</string>
+  <string name="places_permissions_denied">Xaritada joylashuvingizni ko‘rish uchun joylashuv ruxsati talab qilinadi. Yana bir bor urinib koʻring.</string>
+  <string name="places_search_hint">Joylarni qidirish</string>
+  <string name="places_filter_title">Til filtri</string>
+  <string name="places_toggle_buttons_map">Xarita</string>
+  <string name="places_toggle_buttons_list">Roʻyxat</string>
+  <string name="places_nav_tab_tooltip_message">Joylashgan yeringizga mos Vikipediya maqolalarini oʻzingiz uchun kashf eting</string>
+  <string name="places_article_menu_tooltip_message">&lt;b&gt;\'Xaritada koʻrish\'&lt;/b&gt; tugmasini bosish orqali maqola yaratilgan yerni koʻrish</string>
+  <string name="places_survey_very_satisfied_option">Qoniqarli</string>
+  <string name="places_survey_very_unsatisfied_option">Qoniqarsiz</string>
+  <string name="places_survey_dialog_title">“Joylar”ni yaxshilashga yordam bering</string>
+  <string name="places_survey_feedback_dialog_title">“Joylar”ni qanday yaxshilash mumkin?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Nimani oʻzgartirishimizni yoki yaxshilashimizni xohlaysiz?</string>
+  <string name="places_empty_list">Maydon boʻsh. &lt;a href=\"#\"&gt;xaritadan&lt;/a&gt; kichraytiring.</string>
 </resources>

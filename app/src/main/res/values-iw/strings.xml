@@ -1689,4 +1689,15 @@
   <string name="places_title">מקומות</string>
   <string name="places_permissions_denied">נדרשת הרשאת מיקום כדי לראות את מיקומך על המפה. נא לנסות שוב.</string>
   <string name="places_search_hint">חיפוש מקומות</string>
+  <string name="places_filter_title">סינון לפי שפה</string>
+  <string name="places_toggle_buttons_map">מפה</string>
+  <string name="places_toggle_buttons_list">רשימה</string>
+  <string name="places_nav_tab_tooltip_message">ב\"מקומות\" אפשר לגלות ערכי ויקיפדיה סביבך</string>
+  <string name="places_article_menu_tooltip_message">יש ללחוץ על &lt;b&gt;\"הצגה על מפה\"&lt;/b&gt; כדי לחקור את המיקום של הערך הזה</string>
+  <string name="places_survey_very_satisfied_option">מרוצה מאוד</string>
+  <string name="places_survey_very_unsatisfied_option">מאוד לא מרוצה</string>
+  <string name="places_survey_dialog_title">עזרו לנו לשפר את \"מקומות\"</string>
+  <string name="places_survey_feedback_dialog_title">איך אפשר לשפר את \"מקומות\"?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">מה היית רוצה שנשנה או נשפר?</string>
+  <string name="places_empty_list">האזור הזה ריק. נא להתרחק &lt;a href=\"#\"&gt;על המפה&lt;/a&gt; .</string>
 </resources>
