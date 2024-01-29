@@ -594,7 +594,7 @@
   <string name="default_reading_list_name">Guardados</string>
   <string name="default_reading_list_description">Lista padrão para os seus artigos guardados</string>
   <string name="no_user_lists_title">Organizar artigos na forma de listas</string>
-  <string name="no_user_lists_msg">Criar listas de locais para viajar, tópicos favoritos, e muito mais</string>
+  <string name="no_user_lists_msg">Criar listas de lugares aonde ir, tópicos preferidos, e muito mais</string>
   <string name="reading_list_saved_list_rename">%1$s (criada pelo utilizador)</string>
   <string name="split_reading_list_message">Há um limite de %d artigos por cada lista de leitura. As listas existentes com um valor acima deste limite foram divididas em várias listas.</string>
   <string name="reading_list_move_article_limit_message">Não foi possível mover para esta lista. Atingiu o limite máximo de %2$d artigos por lista para \"%1$s\".</string>
@@ -1604,4 +1604,10 @@
   <string name="places_toggle_buttons_list">Lista</string>
   <string name="places_nav_tab_tooltip_message">Descubra artigos da Wikipédia perto de si com Lugares</string>
   <string name="places_article_menu_tooltip_message">Toque em &lt;b&gt;\'Ver no mapa\'&lt;/b&gt; para explorar a localização deste artigo</string>
+  <string name="places_survey_very_satisfied_option">Muito satisfeito</string>
+  <string name="places_survey_very_unsatisfied_option">Muito insatisfeito</string>
+  <string name="places_survey_dialog_title">Ajudar a melhorar \"Lugares\"</string>
+  <string name="places_survey_feedback_dialog_title">Como pode a funcionalidade \"Lugares\" ser melhorada?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">O que gostaria que mudássemos ou melhorássemos?</string>
+  <string name="places_empty_list">Esta área está vazia. Reduza a ampliação &lt;a href=\"#\"&gt;no mapa&lt;/a&gt;.</string>
 </resources>
