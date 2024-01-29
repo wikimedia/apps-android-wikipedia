@@ -24,8 +24,9 @@ object SurveyDialog {
             val feedbackOption = (it as TextView).text.toString()
             dialog?.dismiss()
             if (
-                (source == Constants.InvokeSource.PLACES && (feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied) ||
-                        feedbackOption == activity.getString(R.string.places_survey_very_satisfied_option))) ||
+                (source == Constants.InvokeSource.PLACES &&
+                        feedbackOption != activity.getString(R.string.patroller_diff_feedback_dialog_option_unsatisfied) &&
+                        feedbackOption != activity.getString(R.string.places_survey_very_unsatisfied_option)) ||
                 (source != Constants.InvokeSource.PLACES && feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied))
             ) {
                 showFeedbackSnackbarAndTooltip(activity, source)
@@ -70,16 +71,10 @@ object SurveyDialog {
         sendAnalyticsEvent("feedback_input_impression", "pt_feedback", source)
         MaterialAlertDialogBuilder(activity)
             .setTitle(
-                if (source == Constants.InvokeSource.PLACES) {
-                    if (feedbackOption == activity.getString(R.string.places_survey_very_unsatisfied_option) ||
-                        feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_unsatisfied)
-                    )
-                        R.string.places_survey_feedback_low_satisfaction_dialog_title
-                    else
-                        R.string.places_survey_feedback_dialog_title
-                } else {
+                if (source == Constants.InvokeSource.PLACES)
+                    R.string.places_survey_feedback_low_satisfaction_dialog_title
+                else
                     R.string.patroller_diff_feedback_dialog_feedback_title
-                }
             )
             .setView(feedbackView)
             .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
