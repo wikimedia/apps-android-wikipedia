@@ -1615,4 +1615,6 @@
   <string name="places_survey_very_unsatisfied_option">非常不滿意</string>
   <string name="places_survey_dialog_title">協助改善「地點」</string>
   <string name="places_survey_feedback_dialog_title">如何改善「地點」？</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">您希望我們改變或改善什麼？</string>
+  <string name="places_empty_list">該區域是空的。請在&lt;a href=\"#\"&gt;在地圖上&lt;/a&gt;縮小。</string>
 </resources>

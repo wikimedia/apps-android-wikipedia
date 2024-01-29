@@ -14,8 +14,8 @@
         style="@style/H3.Article"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="?attr/primary_color"
         android:layout_marginEnd="12dp"
+        android:textColor="?attr/primary_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/listItemThumbnail"
@@ -26,7 +26,7 @@
         style="@style/List.MaterialListDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="12dp"
         android:ellipsize="end"
         app:layout_constraintTop_toBottomOf="@id/listItemTitle"
@@ -48,8 +48,6 @@
         app:drawableStartCompat="@drawable/location_gradient"
         app:layout_constraintTop_toBottomOf="@id/listItemDescription"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/listItemThumbnail"
         tools:text="Lorem ipsum" />
 
     <ImageView
