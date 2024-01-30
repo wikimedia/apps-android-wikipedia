@@ -213,7 +213,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
         linkPreviewInteraction = ArticleLinkPreviewInteraction(
             viewModel.pageTitle,
-            summary.pageId,
+            summary,
             viewModel.historyEntry.source
         )
         linkPreviewInteraction?.logLinkClick()

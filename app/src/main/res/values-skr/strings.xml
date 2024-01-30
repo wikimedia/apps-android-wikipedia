@@ -234,6 +234,7 @@
   <string name="multi_select_items_selected">%d چُݨیج ڳیا</string>
   <string name="error_message_generic">رپھڑ پئے ڳیا</string>
   <string name="view_link_preview_error_button_dismiss">مکاؤ</string>
+  <string name="link_preview_dialog_read_button">پڑھو</string>
   <string name="link_preview_dialog_save_button">محفوظ کرو</string>
   <string name="link_preview_dialog_saved_button">محفوظ تھی ڳیا</string>
   <string name="link_preview_dialog_share_button">شیئر</string>
@@ -690,4 +691,5 @@
   <string name="places_title">جاہیں</string>
   <string name="places_toggle_buttons_map">نقشہ</string>
   <string name="places_toggle_buttons_list">تندیر</string>
+  <string name="places_survey_very_satisfied_option">ݙاڈھا تسلی بخش</string>
 </resources>

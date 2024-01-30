@@ -218,7 +218,7 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
         }
     }
 
-    private inner class RearrangeableItemTouchHelperCallback constructor(private val adapter: WikipediaLanguageItemAdapter) : ItemTouchHelper.Callback() {
+    private inner class RearrangeableItemTouchHelperCallback(private val adapter: WikipediaLanguageItemAdapter) : ItemTouchHelper.Callback() {
         override fun isLongPressDragEnabled(): Boolean {
             return false
         }
@@ -249,19 +249,19 @@ class WikipediaLanguagesFragment : Fragment(), MenuProvider, WikipediaLanguagesI
         }
     }
 
-    private inner class HeaderViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView) {
+    private inner class HeaderViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
         init {
             itemView.findViewById<TextView>(R.id.section_header_text).setText(R.string.wikipedia_languages_your_languages_text)
         }
     }
 
-    private inner class WikipediaLanguageItemHolder constructor(itemView: WikipediaLanguagesItemView) : DefaultViewHolder<WikipediaLanguagesItemView>(itemView) {
+    private inner class WikipediaLanguageItemHolder(itemView: WikipediaLanguagesItemView) : DefaultViewHolder<WikipediaLanguagesItemView>(itemView) {
         fun bindItem(languageCode: String, position: Int) {
-            view.setContents(languageCode, app.languageState.getAppLanguageLocalizedName(languageCode), position)
+            view.setContents(languageCode, app.languageState.getAppLanguageCanonicalName(languageCode), position)
         }
     }
 
-    private inner class FooterViewHolder constructor(itemView: View) : DefaultViewHolder<View>(itemView)
+    private inner class FooterViewHolder(itemView: View) : DefaultViewHolder<View>(itemView)
 
     private fun wantResultFromItemClick(): Boolean {
         val source = requireActivity().intent.getSerializableExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource?
