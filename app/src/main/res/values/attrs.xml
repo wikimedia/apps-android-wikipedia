@@ -97,4 +97,10 @@
         <attr name="elevation" format="dimension" />
         <attr name="radius" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="LangCodeView">
+        <attr name="textColor" format="color" />
+        <attr name="backgroundTint" format="color" />
+        <attr name="fillBackground" format="boolean" />
+    </declare-styleable>
 </resources>

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -28,7 +27,6 @@ import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.databinding.ItemSearchNoResultsBinding
 import org.wikipedia.databinding.ItemSearchResultBinding
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -36,7 +34,6 @@ import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.ResourceUtil.getThemedColorStateList
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DefaultViewHolder
-import org.wikipedia.views.ViewUtil.formatLangButton
 import org.wikipedia.views.ViewUtil.loadImageWithRoundedCorners
 
 class SearchResultsFragment : Fragment() {
@@ -196,11 +193,9 @@ class SearchResultsFragment : Fragment() {
             itemBinding.resultsText.text = if (resultsCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount)
             itemBinding.resultsText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
             itemBinding.languageCode.visibility = if (viewModel.resultsCount.size == 1) View.GONE else View.VISIBLE
-            itemBinding.languageCode.text = LanguageUtil.formatLangCodeForButton(langCode)
+            itemBinding.languageCode.setLangCode(langCode)
             itemBinding.languageCode.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            ViewCompat.setBackgroundTintList(itemBinding.languageCode, if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
-            formatLangButton(itemBinding.languageCode, langCode,
-                    SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+            itemBinding.languageCode.setBackgroundTint(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
             view.isEnabled = resultsCount > 0
             view.setOnClickListener {
                 if (!isAdded) {
