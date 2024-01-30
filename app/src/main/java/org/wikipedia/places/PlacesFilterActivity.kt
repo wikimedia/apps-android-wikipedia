@@ -17,13 +17,11 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityPlacesFiltersBinding
-import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.DefaultViewHolder
 import org.wikipedia.views.LangCodeView
-import org.wikipedia.views.ViewUtil
 
 class PlacesFilterActivity : BaseActivity() {
 
