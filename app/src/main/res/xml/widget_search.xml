@@ -5,11 +5,12 @@
     android:minWidth="320dp"
     android:minHeight="32dp"
     android:resizeMode="horizontal"
-    android:targetCellWidth="4"
+    android:targetCellWidth="5"
     android:targetCellHeight="1"
     android:minResizeWidth="32dp"
     android:minResizeHeight="34dp"
     android:initialLayout="@layout/widget_search_large"
     android:previewImage="@drawable/widget_search"
+    android:description="@string/widget_description_search"
     tools:targetApi="s">
 </appwidget-provider>

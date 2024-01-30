@@ -5,9 +5,12 @@
     android:minWidth="320dp"
     android:minHeight="32dp"
     android:minResizeWidth="100dp"
+    android:targetCellWidth="5"
+    android:targetCellHeight="1"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="14400000"
     android:initialLayout="@layout/widget_featured_page"
     android:previewImage="@drawable/widget_featured_page"
+    android:description="@string/widget_description_featured_page"
     tools:targetApi="s">
 </appwidget-provider>

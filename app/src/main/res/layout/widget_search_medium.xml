@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/widget_container"
@@ -7,7 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="72dp"
     android:background="@drawable/widget_shape_inner"
-    android:gravity="center"
     android:orientation="horizontal"
     android:paddingHorizontal="16dp"
     android:paddingVertical="12dp">
@@ -15,6 +14,7 @@
     <ImageView
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:layout_gravity="center_vertical"
         android:contentDescription="@null"
         android:src="@drawable/ic_wikipedia_w"
         android:tint="@color/widget_primary"
@@ -25,6 +25,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="4dp"
         android:paddingVertical="8dp"
+        android:layout_gravity="center_vertical|end"
         android:background="@drawable/widget_search_box">
 
         <ImageView
@@ -38,4 +39,4 @@
 
     </FrameLayout>
 
-</LinearLayout>
+</FrameLayout>
