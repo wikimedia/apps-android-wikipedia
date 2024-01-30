@@ -18,8 +18,7 @@
             android:layout_width="48dp"
             android:layout_height="match_parent"
             android:paddingHorizontal="10dp"
-            android:layout_marginStart="14dp"
-            android:background="?attr/selectableItemBackgroundBorderless"/>
+            android:layout_marginStart="14dp"/>
 
         <TextView
             android:id="@+id/placesFilterTitle"
