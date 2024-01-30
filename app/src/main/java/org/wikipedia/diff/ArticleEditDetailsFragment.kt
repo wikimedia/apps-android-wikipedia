@@ -658,6 +658,9 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         if (!viewModel.fromRecentEdits || (!skipPreference && !Prefs.showOneTimeRecentEditsFeedbackForm)) {
             return
         }
+        if (Prefs.showOneTimeRecentEditsFeedbackForm) {
+            sendPatrollerExperienceEvent("toolbar_first_feedback", "pt_feedback")
+        }
         SurveyDialog.showFeedbackOptionsDialog(requireActivity(), InvokeSource.SUGGESTED_EDITS_RECENT_EDITS)
     }
 

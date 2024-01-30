@@ -103,7 +103,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 true
             }
             R.id.menu_link_preview_view_on_map -> {
-                sendPlacesEvent("view_on_map_click", "page_detail_overflow_menu")
+                PlacesEvent.logAction("view_on_map_click", "article_more_menu")
                 viewModel.location?.let {
                     startActivity(PlacesActivity.newIntent(requireContext(), viewModel.pageTitle, it))
                 }

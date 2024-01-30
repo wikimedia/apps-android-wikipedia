@@ -1486,7 +1486,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             title?.let {
                 val location = page?.pageProperties?.geo
                 if (location != null) {
-                    PlacesEvent.logAction("places_click", "article_top_menu")
+                    PlacesEvent.logAction("places_click", "article_more_menu")
                     requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it, location))
                 } else {
                     FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))

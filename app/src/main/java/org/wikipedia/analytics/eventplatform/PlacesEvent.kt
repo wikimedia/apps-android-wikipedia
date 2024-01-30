@@ -11,17 +11,17 @@ class PlacesEvent {
             submitPlacesInteractionEvent("impression", activeInterface)
         }
 
-        fun logAction(action: String, activeInterface: String) {
-            submitPlacesInteractionEvent(action, activeInterface)
+        fun logAction(action: String, activeInterface: String, actionData: String = "") {
+            submitPlacesInteractionEvent(action, activeInterface, actionData)
         }
 
-        private fun submitPlacesInteractionEvent(action: String, activeInterface: String) {
+        private fun submitPlacesInteractionEvent(action: String, activeInterface: String, actionData: String = "") {
             AppInteractionEvent.STREAM_NAME = STREAM_NAME
             EventPlatformClient.submit(
                 AppInteractionEvent(
                     action,
                     activeInterface,
-                    "",
+                    actionData,
                     WikipediaApp.instance.languageState.appLanguageCode,
                     Prefs.placesWikiCode,
                     "android"

@@ -131,10 +131,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         when {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
+                PlacesEvent.logAction("location_permission_granted", "map_view")
                 startLocationTracking()
                 goToLocation(viewModel.location)
             }
             else -> {
+                PlacesEvent.logAction("location_permission_denied", "map_view")
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
             }
         }
@@ -277,7 +279,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             val paperColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.paper_color)
             val backgroundColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.background_color)
             if (mapViewChecked) {
-                PlacesEvent.logAction("map_segment_click", "map_view")
+                PlacesEvent.logAction("map_segment_click", "list_view")
                 binding.mapViewButton.setTextColor(progressColor)
                 binding.mapViewButton.backgroundTintList = additionColor
                 binding.mapViewButton.strokeColor = paperColor
