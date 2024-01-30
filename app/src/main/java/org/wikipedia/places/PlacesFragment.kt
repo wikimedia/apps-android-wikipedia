@@ -80,7 +80,6 @@ import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.search.SearchActivity
-import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -236,7 +235,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             requireActivity().finish()
         }
 
-        binding.searchLangContainer.setOnClickListener {
+        binding.langCodeButton.setOnClickListener {
             filterLauncher.launch(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
@@ -454,9 +453,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(Prefs.placesWikiCode)) {
             Prefs.placesWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
         }
-        binding.searchLangCode.text = Prefs.placesWikiCode
-        ViewUtil.formatLangButton(binding.searchLangCode, Prefs.placesWikiCode,
-            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+        binding.langCodeButton.setLangCode(Prefs.placesWikiCode)
     }
 
     private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {

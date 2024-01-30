@@ -13,29 +13,13 @@
         android:background="?selectableItemBackground"
         android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/placesFilterLangContainer"
-            android:layout_width="wrap_content"
+        <org.wikipedia.views.LangCodeView
+            android:id="@+id/placesFilterLangCode"
+            android:layout_width="48dp"
             android:layout_height="match_parent"
             android:paddingHorizontal="10dp"
             android:layout_marginStart="14dp"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/placesFilterLangCode"
-                style="@style/H5"
-                android:layout_width="wrap_content"
-                android:layout_height="24dp"
-                android:paddingHorizontal="5dp"
-                android:background="@drawable/tab_counts_shape_border"
-                android:backgroundTint="?attr/primary_color"
-                android:gravity="center"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="?attr/primary_color"
-                tools:text="EN"/>
-        </LinearLayout>
-
+            android:background="?attr/selectableItemBackgroundBorderless"/>
 
         <TextView
             android:id="@+id/placesFilterTitle"

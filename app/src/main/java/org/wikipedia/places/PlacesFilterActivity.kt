@@ -22,6 +22,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.LangCodeView
 import org.wikipedia.views.ViewUtil
 
 class PlacesFilterActivity : BaseActivity() {
@@ -153,15 +154,13 @@ class PlacesFilterActivity : BaseActivity() {
             fun onLangSelected()
         }
         private val titleText = itemView.findViewById<TextView>(R.id.placesFilterTitle)!!
-        private val langCodeText = itemView.findViewById<TextView>(R.id.placesFilterLangCode)!!
+        private val langCodeText = itemView.findViewById<LangCodeView>(R.id.placesFilterLangCode)!!
         private val radio = itemView.findViewById<ImageView>(R.id.placesFilterRadio)!!
 
         fun bindItem(languageCode: String) {
             titleText.text = WikipediaApp.instance.languageState.getAppLanguageCanonicalName(languageCode)
-            langCodeText.text = languageCode
+            langCodeText.setLangCode(languageCode)
             radio.isVisible = languageCode == Prefs.placesWikiCode
-            ViewUtil.formatLangButton(langCodeText, languageCode,
-                SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
             itemView.setOnClickListener {
                 Prefs.placesWikiCode = languageCode
                 callback.onLangSelected()
