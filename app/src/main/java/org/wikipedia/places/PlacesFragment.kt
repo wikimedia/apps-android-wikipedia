@@ -277,6 +277,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             val paperColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.paper_color)
             val backgroundColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.background_color)
             if (mapViewChecked) {
+                PlacesEvent.logAction("map_segment_click", "map_view")
                 binding.mapViewButton.setTextColor(progressColor)
                 binding.mapViewButton.backgroundTintList = additionColor
                 binding.mapViewButton.strokeColor = paperColor
@@ -284,6 +285,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 binding.listViewButton.backgroundTintList = paperColor
                 binding.listViewButton.strokeColor = paperColor
             } else {
+                PlacesEvent.logAction("list_segment_click", "map_view")
                 binding.mapViewButton.setTextColor(placeholderColor)
                 binding.mapViewButton.backgroundTintList = backgroundColor
                 binding.mapViewButton.strokeColor = backgroundColor
@@ -414,6 +416,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private fun showLinkPreview(pageTitle: PageTitle, location: Location) {
+        PlacesEvent.logImpression("detail_view")
         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
         updateSearchText(pageTitle.displayText)
         ExclusiveBottomSheetPresenter.show(childFragmentManager,
@@ -795,6 +798,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         override fun onClick(v: View) {
+            PlacesEvent.logAction("read_click", "list_view")
             val entry = HistoryEntry(page.pageTitle, HistoryEntry.SOURCE_PLACES)
             startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
         }
