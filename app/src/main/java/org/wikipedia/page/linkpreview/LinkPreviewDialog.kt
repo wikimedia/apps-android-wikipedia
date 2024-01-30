@@ -226,13 +226,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         showError(throwable)
     }
 
-    override fun onStart() {
-        super.onStart()
-        if (viewModel.fromPlaces) {
-            disableBackgroundDim()
-        }
-    }
-
     override fun onResume() {
         super.onResume()
         val containerView = requireDialog().findViewById<ViewGroup>(R.id.container)
