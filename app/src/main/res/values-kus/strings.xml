@@ -364,6 +364,38 @@
   <string name="preference_title_customize_explore_feed">Gɔɔm ia gandigir</string>
   <string name="preference_title_show_link_previews">Pa\'alimi adɛŋim gɔs link nam</string>
   <string name="enable_location_service">Basim suor</string>
+  <string name="location_permissions_enable_action">Nyu\'um</string>
+  <string name="error_webview_updating"> Android System WebView la bɛnɛ maalugin. M bɛlimnɛ mɔɔm nya\'aŋ di ya\'a niŋ bi\'ela.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d selected</item>
+    <item quantity="other">%d selected</item>
+  </plurals>
+  <string name="multi_select_items_selected">%d Gaŋya</string>
+  <string name="error_message_generic">Daʋŋ si\'a naamya</string>
+  <string name="view_link_preview_error_button_dismiss">Basim</string>
+  <string name="error_page_does_not_exist">Lakir kaŋa nam pʋ bɛɛ</string>
+  <string name="error_user_page_does_not_exist">Wikipedia pʋ mɔr &lt;a href=\"%1$s\"&gt;tʋmtʋm lakirɛ&lt;/a&gt; nɛ yʋ\'ʋkaŋa nɔɔnɛ. Di wʋsa ni, lakir kaŋa nar ye fʋ maal ka dɛmis nɛ &lt;b&gt;%2$s&lt;/b&gt;. Fʋ ya\'a bi\'esid, m bɛlimnɛ gɔsim ye \"%3$s\" bɛɛ.</string>
+  <string name="view_wiki_error_message_offline">Li kʋ nyaŋi tɔŋ nɛ na\'asaasɔɔng nwa</string>
+  <string name="view_wiki_error_message_timeout">Di kʋ nyaŋi tɔ\'ɔŋ nɛ Wikipedia. Gɔsimi fʋ tɔ\'ɔŋir la, bɛɛ fʋn mɔ\' nya\'aŋ</string>
+  <string name="reference_title">Gbanvɛɛnsa %s</string>
+  <string name="reference_list_title">Gbanvɛɛnsa</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Footo diisʋg (di bɛnɛ lik zin\'ig)</string>
+  <string name="preference_title_prefer_offline_content">Gaŋɛ labaar kanɛ bɛ offline</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Kɛl ka di dɔl sistɛm an si\'em</string>
+  <string name="page_footer_license_text">Labaar bɛnɛ $1 ni ya\'a ka\'a nɛ yɛlsi\'a paasɛ</string>
+  <string name="empty_tab_title">Tab paalig</string>
+  <string name="menu_save_all_tabs">Kpɛn\'ɛsim tabnam wʋsa</string>
+  <string name="error_blocked_title">Fʋ yʋ\'ʋr bɛɛ IP adɛrɛs la bulɔknɛ.</string>
+  <string name="error_blocked_by">Kparib kanɛ ka &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; maal</string>
+  <string name="error_blocked_reason">Dinɛ ta\'as la anɛ: %s</string>
+  <string name="error_blocked_start">Kparib pin\'ilʋg: %s</string>
+  <string name="error_blocked_expiry">Fʋ kparib la naad nɛ: %s</string>
+  <string name="error_blocked_id">Kparib la zanbin: %s</string>
+  <string name="error_blocked_footer">Fʋ na tʋn\'e paae &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; bɛɛ sɔ\' ya\'as &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;kpɛɛm&lt;/a&gt; ka ya sɔns kparib la yɛla.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Tiakimb toolbar la</string>
+  <string name="error_blocked_footer_no_blocker">Fʋ tʋn\'e paae &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; ka ya sɔns kparib la yɛla.</string>
+  <string name="crash_report_activity_title">Fʋ buosʋg la paam gbɛlʋŋ</string>
+  <string name="crash_report_relaunch_or_quit">Ti tum taal, Wikipedia app la nyɛnɛ gbɛlʋŋ si\'a ka ba gu\'oe di.\n\nFʋ na bɔɔd ye fʋ pin\'il ya\'as bɛɛ fʋ basɛ?</string>
   <string name="crash_report_relaunch">Maligim pin\'il</string>
   <string name="crash_report_quit">Gu\'om</string>
   <string name="article_menu_bar_save_button">Kpɛn\'ɛsim</string>
@@ -378,12 +410,24 @@
   <string name="color_theme_light">Nɛɛsim</string>
   <string name="color_theme_dark">Lik</string>
   <string name="color_theme_black">Sabil</string>
+  <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Sɔb tʋtuunli</string>
   <string name="preference_title_app_theme">App pian\'akpan</string>
   <string name="text_size_increase">Paasim sɔb bɛdim</string>
   <string name="text_size_decrease">Siem sɔb bɛdim</string>
+  <string name="text_size_percent_default">%s (Di mɛŋi an si\'em)</string>
+  <string name="text_style_title">Sɔb buudi</string>
   <string name="theme_category_reading">Karʋŋ</string>
   <string name="theme_category_editing">Dɛmisid</string>
+  <string name="reading_focus_mode">Di bɛnɛ karʋŋ zin\'igin</string>
+  <string name="reading_focus_mode_detail">Su\'am dɛmisʋg la\'ad nɛ gbinin tuulbaa</string>
+  <string name="editing_syntax_highlight_label">pian\'ad wɛlisʋg suor sɔbʋgʋr</string>
+  <string name="editing_line_numbers_label">Pa\'alim lai kal</string>
+  <string name="editing_monospace_font_label">Gaŋim sɔb buudi kanɛ mɔr faalʋ yinne</string>
+  <string name="editing_typing_suggestions">Pa\'alim sɔbʋg pʋtɛnda</string>
+  <string name="nav_item_saved">Kpɛn\'ɛya</string>
+  <string name="reading_list_save_to">Kpɛ\'ɛsim karʋŋ la\'ad la ni</string>
+  <string name="reading_list_move_to">Vurigim keŋ paas dinɛ ka fʋ Karim la ni</string>
   <string name="reading_list_create_new">Yɔ\'ɔgim paal</string>
   <string name="reading_list_title_exists">Karʋŋ laʋk \"%s\" pʋm bɛ sa.</string>
   <string name="reading_list_article_added_to_named">Zaŋŋɛ %1$s paas %2$s.</string>
@@ -419,12 +463,16 @@
   <string name="reading_list_menu_select">Gaŋim</string>
   <string name="reading_list_menu_unselect">Da gaŋɛ</string>
   <string name="reading_list_menu_rename">Dɛmisim yʋ\'ʋr/ pa\'alʋg</string>
+  <string name="reading_list_action_menu_remove_from_offline">Yisimi li offline</string>
+  <string name="reading_list_action_menu_save_for_offline">Kpɛn\'ɛsimi li offline ni</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Yisimi ba wʋsa yi offline ni</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Kpɛn\'ɛsim wʋsa niŋ offline</string>
   <string name="reading_list_action_menu_add_to_another_list">Zaŋim paas la\'asieba ni</string>
   <string name="reading_list_action_menu_move_to_another_list">Vurigim kpɛn\'ɛs la\'asieba ni</string>
   <string name="reading_list_name_sample">M karʋŋ la\'ad</string>
   <string name="reading_list_name_hint">La\'abama la\'asʋg yʋ\'ʋr</string>
   <string name="reading_list_description_hint">Pa\'alʋg(ka\' tilasɛ)</string>
-  <string name="reading_list_item_deleted" fuzzy="true">%s yi la\'ad la ni</string>
+  <string name="reading_list_item_deleted">%s yi la\'ad la ni</string>
   <string name="reading_list_item_deleted_from_list">%1$s yisi yi %2$s</string>
   <plurals name="reading_list_articles_deleted">
     <item quantity="one">%d yis atikil la\'adin</item>
@@ -448,6 +496,9 @@
   <string name="reading_list_empty">Fʋ pʋ mɔr atikil I paas la\'akaŋa nii.</string>
   <string name="reading_list_add_to_other_list">Zaŋim paas karʋŋ la\'asieba ni</string>
   <string name="reading_list_move_to_other_list">Vurigim kpɛn\'ɛs karʋŋ la\'ad sieba ni</string>
+  <string name="reading_list_select_item">Gaŋim</string>
+  <string name="reading_list_confirm_remove_article_from_offline">Yisimi li offline</string>
+  <string name="reading_list_confirm_remove_article_from_offline_title">Atikil bɛ zin\'is bɛdegʋ ni</string>
   <string name="reading_lists_login_button">Kpɛn\'ɛm pʋʋgin/ paasim Wikipedia ni</string>
   <string name="reading_lists_ignore_button">Ka\' nananaa</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ɛɛn</string>
@@ -964,7 +1015,6 @@
   <string name="revision_diff_from">Di yinɛ:</string>
   <string name="revision_diff_to">Ken:</string>
   <string name="revision_diff_line_num">Lai %d</string>
-  <string name="revision_diff_line_nums">Lai %d–%d</string>
   <string name="revision_diff_lines_from_to">Lainam %1$d–%2$d</string>
   <string name="revision_diff_line_added">Lai paasya</string>
   <string name="revision_diff_line_removed">Lai yisya</string>

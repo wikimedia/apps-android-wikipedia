@@ -10,7 +10,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.StringUtil
 import java.io.Serializable
-import java.util.*
 
 @Entity
 data class ReadingListPage(
@@ -40,20 +39,16 @@ data class ReadingListPage(
         atime = now
     }
 
-    @Transient private var accentAndCaseInvariantTitle: String? = null
+    @delegate:Transient
+    val accentInvariantTitle: String by lazy {
+        StringUtils.stripAccents(StringUtil.fromHtml(displayTitle).toString())
+    }
 
     @Transient var downloadProgress = 0
 
     @Transient var selected = false
 
     val saving get() = offline && (status == STATUS_QUEUE_FOR_SAVE || status == STATUS_QUEUE_FOR_FORCED_SAVE)
-
-    fun accentAndCaseInvariantTitle(): String {
-        if (accentAndCaseInvariantTitle == null) {
-            accentAndCaseInvariantTitle = StringUtils.stripAccents(StringUtil.fromHtml(displayTitle).toString()).lowercase(Locale.getDefault())
-        }
-        return accentAndCaseInvariantTitle!!
-    }
 
     fun touch() {
         atime = System.currentTimeMillis()

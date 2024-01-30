@@ -29,16 +29,23 @@ import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.page.*
-import org.wikipedia.page.linkpreview.LinkPreviewDialog
-import org.wikipedia.readinglist.AddToReadingListDialog
+import org.wikipedia.page.LinkHandler
+import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
-import org.wikipedia.util.*
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.Resource
+import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.SearchActionProvider
 import org.wikipedia.views.ViewUtil
 
-class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
+class TalkTopicActivity : BaseActivity() {
     private lateinit var binding: ActivityTalkTopicBinding
     private lateinit var linkHandler: TalkLinkHandler
 
@@ -427,25 +434,6 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
                     viewModel.undo(undoRevId)
                 }
                 .show()
-    }
-
-    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
-        startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
-            PageActivity.newIntentForCurrentTab(this, entry, title, false))
-    }
-
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, text = title.uri)
-        FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        ExclusiveBottomSheetPresenter.show(supportFragmentManager,
-                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_TOPIC_ACTIVITY))
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
     }
 
     companion object {

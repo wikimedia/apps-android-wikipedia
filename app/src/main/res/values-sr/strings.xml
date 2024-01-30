@@ -403,6 +403,10 @@
   <string name="multi_select_items_selected">Изабрано: %d</string>
   <string name="error_message_generic">Дошло је до грешке</string>
   <string name="view_link_preview_error_button_dismiss">Одбаци</string>
+  <string name="link_preview_dialog_read_button">Читај</string>
+  <string name="link_preview_dialog_save_button">Сачувај</string>
+  <string name="link_preview_dialog_saved_button">Сачувано</string>
+  <string name="link_preview_dialog_share_button">Дели</string>
   <string name="error_page_does_not_exist">Ова страница не постоји</string>
   <string name="error_user_page_does_not_exist">Википедија нема &lt;a href=\"%1$s\"&gt;корисничку страницу&lt;/a&gt; са баш овим именом. Генерално, ову страницу треба да направи или уређује &lt;b&gt;%2$s&lt;/b&gt;. Уколико сте у недоумици, проверите да ли \"%3$s\" постоји.</string>
   <string name="view_wiki_error_message_offline">Није могуће повезати се са интернетом</string>
@@ -412,7 +416,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затамњење слика (у тамној теми)</string>
   <string name="preference_title_prefer_offline_content">Приоритет има офлајн-садржај</string>
   <string name="preference_summary_prefer_offline_content">Уштедите на саобраћају приказивањем офлајн-верзије чланка уместо сталног преузимања најновије верзије.</string>
-  <string name="theme_chooser_dialog_match_system_theme_switch_label">Подударање са темом система</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Као и систем</string>
   <string name="page_footer_license_text">Садржај је доступан под лиценцом $1 осим ако није другачије наведено</string>
   <string name="empty_tab_title">Нова картица</string>
   <string name="menu_save_all_tabs">Сачувај све картице</string>
@@ -1058,8 +1062,8 @@
   <string name="image_recommendation_tooltip_main">Додај недостајуће слике у чланке у Предложеним изменама</string>
   <string name="image_recommendation_onboarding_1">Слике помажу људима у разумевању, али их многи чланци немају.</string>
   <string name="image_recommendation_onboarding_2">Ви ћете одлучити уколико предложена слика треба да буде постављена у чланак на Википедији.</string>
-  <string name="image_recommendation_onboarding_3">Предлози су машински генерисани и Ви ћете на основу свог расуђивања одлучити да ли ћете их прихватити или одбити.</string>
-  <string name="image_recommendation_onboarding_4">Слике су са Викимедијине Оставе, колекције слободно лиценцираних слика које се користе на Википедији.</string>
+  <string name="image_recommendation_onboarding_3">Предлози су машински генерисани и Ви ћете на основу своје процене одлучити да ли ћете их прихватити или одбити.</string>
+  <string name="image_recommendation_onboarding_4">Слике су са Викимедијине оставе, колекције слободно лиценцираних слика које се користе на Википедији.</string>
   <string name="image_recommendation_tooltip_1">Прегледајте овај чланак да би сте разумели његову тему</string>
   <string name="image_recommendation_tooltip_2">Прегледајте слику и њене повезане информације</string>
   <string name="image_recommendation_tooltip_3">Одлучите да ли слика помаже читаоцима да боље разумеју тему</string>
@@ -1304,7 +1308,6 @@
   <string name="revision_diff_from">Од:</string>
   <string name="revision_diff_to">До:</string>
   <string name="revision_diff_line_num">Линија %d</string>
-  <string name="revision_diff_line_nums">Линије %d–%d</string>
   <string name="revision_diff_lines_from_to">Линије %1$d–%2$d</string>
   <string name="revision_diff_line_added">Линија додата</string>
   <string name="revision_diff_line_removed">Линија уклоњена</string>
@@ -1416,6 +1419,7 @@
   <string name="media_playback_error">Дошло је до грешке приликом пуштања медија.</string>
   <string name="user_contrib_menu_label">Доприноси</string>
   <string name="user_contrib_filter_activity_title">Филтер доприноса</string>
+  <string name="action_item_view_on_map">Прикажи на мапи</string>
   <string name="shareable_reading_lists_import_dialog_title">Увези подељену листу за читање</string>
   <string name="shareable_reading_lists_import_dialog_content">Како би сте желели да именујете листу која је подељена са вама?</string>
   <string name="shareable_reading_lists_new_indicator">*ново*</string>
@@ -1455,6 +1459,7 @@
     <item quantity="one">Порука је обрисана</item>
     <item quantity="other">Поруке су обрисане</item>
   </plurals>
+  <string name="talk_templates_message_title_empty">Морате навести назив.</string>
   <string name="patroller_tasks_edits_list_title">Списак измена</string>
   <string name="patroller_tasks_edits_list_search_hint">Претрага или филтрирање измена</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Ознаке: %s</string>
@@ -1555,4 +1560,10 @@
   <string name="donation_campaign_donated_snackbar">Хвала, драги донаторе! Ваша великодушност помаже да Википедија и њени сестрински сајтови буду успешни.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Отвори у прегледачу</string>
+  <string name="places_title">Места</string>
+  <string name="places_toggle_buttons_map">Мапа</string>
+  <string name="places_toggle_buttons_list">Списак</string>
+  <string name="places_nav_tab_tooltip_message">Откријите Википедијине чланке око Вас са Местима</string>
+  <string name="places_survey_very_satisfied_option">Веома задовољан</string>
+  <string name="places_survey_very_unsatisfied_option">Веома незадовољан</string>
 </resources>

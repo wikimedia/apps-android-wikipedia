@@ -7,12 +7,14 @@ import android.view.LayoutInflater
 import android.view.inputmethod.InputConnection
 import android.widget.EditText
 import android.widget.FrameLayout
+import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
+import org.wikipedia.R
 import org.wikipedia.databinding.ViewWikitextKeyboardBinding
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 
-class WikiTextKeyboardView : FrameLayout {
+class WikiTextKeyboardView constructor(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
     interface Callback {
         fun onPreviewLink(title: String)
         fun onRequestInsertMedia()
@@ -30,11 +32,14 @@ class WikiTextKeyboardView : FrameLayout {
         get() { return binding.wikitextButtonUserMention.isVisible }
         set(value) { binding.wikitextButtonUserMention.isVisible = value }
 
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
-
     init {
+        attrs?.let {
+            context.withStyledAttributes(it, R.styleable.WikitextKeyboardView) {
+                val headingsEnable = getBoolean(R.styleable.WikitextKeyboardView_headingsEnable, true)
+                binding.wikitextButtonHeading.isVisible = headingsEnable
+            }
+        }
+
         binding.wikitextButtonUndo.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
         binding.wikitextButtonRedo.visibility = if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) VISIBLE else GONE
         binding.wikitextButtonTextFormat.setExpandable(true)
@@ -85,34 +90,27 @@ class WikiTextKeyboardView : FrameLayout {
         binding.wikitextButtonPreviewLink.setOnClickListener {
             editText?.inputConnection?.let { inputConnection ->
                 var title: String? = null
-                val selection = inputConnection.getSelectedText(0)
-                if (!selection.isNullOrEmpty() && !selection.toString().contains("[[")) {
-                    title = trimPunctuation(selection.toString())
+                val selection = inputConnection.getSelectedText(0)?.toString()
+                if (!selection.isNullOrEmpty() && "[[" !in selection) {
+                    title = selection.trim('.', ',', ';', '?', '!')
                 } else {
-                    val before: String
-                    val after: String
-                    if (selection != null && selection.length > 1) {
-                        val selectionStr = selection.toString()
-                        before = selectionStr.substring(0, selectionStr.length / 2)
-                        after = selectionStr.substring(selectionStr.length / 2)
+                    val (before, after) = if (selection != null && selection.length > 1) {
+                        selection.substring(0, selection.length / 2) to
+                                selection.substring(selection.length / 2)
                     } else {
                         val peekLength = 64
-                        before = inputConnection.getTextBeforeCursor(peekLength, 0).toString()
-                        after = inputConnection.getTextAfterCursor(peekLength, 0).toString()
+                        inputConnection.getTextBeforeCursor(peekLength, 0)?.toString() to
+                                inputConnection.getTextAfterCursor(peekLength, 0)?.toString()
                     }
 
-                    if (before.isNotEmpty() && after.isNotEmpty()) {
-                        var str = before + after
-                        val i1 = lastIndexOf(before, "[[")
-                        val i2 = after.indexOf("]]") + before.length
-                        if (i1 >= 0 && i2 > 0 && i2 > i1) {
-                            str = str.substring(i1 + 2, i2).trim()
-                            if (str.isNotEmpty()) {
-                                if (str.contains("|")) {
-                                    str = str.split("\\|".toRegex()).toTypedArray()[0]
-                                }
-                                title = str
-                            }
+                    if (!before.isNullOrEmpty() && !after.isNullOrEmpty()) {
+                        val str = before + after
+                        val i1 = before.lastIndexOf("[[")
+                        if (i1 >= 0) {
+                            title = str.substring(i1 + 2).substringBefore("]]")
+                                .trim()
+                                .splitToSequence('|')
+                                .firstOrNull()?.ifEmpty { null }
                         }
                     }
                 }
@@ -168,7 +166,6 @@ class WikiTextKeyboardView : FrameLayout {
     }
 
     companion object {
-
         fun toggleSyntaxAroundCurrentSelection(editText: EditText?, ic: InputConnection, prefix: String, suffix: String) {
             editText?.let {
                 if (it.selectionStart == it.selectionEnd) {
@@ -195,33 +192,6 @@ class WikiTextKeyboardView : FrameLayout {
                     ic.setSelection(it.selectionStart - selection.length, it.selectionEnd)
                 }
             }
-        }
-
-        @Suppress("SameParameterValue")
-        fun lastIndexOf(str: String, subStr: String): Int {
-            var index = -1
-            var a = 0
-            while (a < str.length) {
-                val i = str.indexOf(subStr, a)
-                if (i >= 0) {
-                    index = i
-                    a = i + 1
-                } else {
-                    break
-                }
-            }
-            return index
-        }
-
-        fun trimPunctuation(str: String): String {
-            var newStr = str
-            while (newStr.startsWith(".") || newStr.startsWith(",") || newStr.startsWith(";") || newStr.startsWith("?") || newStr.startsWith("!")) {
-                newStr = newStr.substring(1)
-            }
-            while (newStr.endsWith(".") || newStr.endsWith(",") || newStr.endsWith(";") || newStr.endsWith("?") || newStr.endsWith("!")) {
-                newStr = newStr.substring(0, newStr.length - 1)
-            }
-            return newStr
         }
     }
 }

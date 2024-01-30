@@ -113,7 +113,7 @@
   <string name="last_updated_text">Zadnja posodobitev: %s</string>
   <string name="talk_page_link_text">Ogled pogovorne strani</string>
   <string name="edit_history_link_text">Ogled zgodovine urejanja</string>
-  <string name="map_view_link_text">Prikaži na karti</string>
+  <string name="map_view_link_text">Prikaži na zemljevidu</string>
   <string name="other_languages_indication_text">Preberite v drugem jeziku</string>
   <string name="language_count_link_text">Na voljo v %d drugih jezikih</string>
   <string name="edit_save_action_license_logged_in">Z objavo izražate strinjanje s &lt;a href=\"%1$s\"&gt;Pogoji uporabe&lt;/a&gt; in svoje prispevke nepreklicno objavljate pod licenco &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
@@ -302,7 +302,7 @@
   <string name="abusefilter_text_disallow">Samodejni filter je to urejanje zaznal kot morda nekonstruktivno ali morebitni vandalizem.&lt;br /&gt;&lt;br /&gt;Wikipedija je enciklopedija, zato spada vanjo samo nepristranska in pomembna vsebina.</string>
   <string name="page_similar_titles">Podobne strani</string>
   <string name="search_did_you_mean">Ali ste mislili \"%s\"?</string>
-  <string name="search_recent_header">Zadnja iskanja</string>
+  <string name="search_recent_header">Nedavna iskanja</string>
   <string name="search_results_count_zero">Ni zadetkov</string>
   <plurals name="search_results_count">
     <item quantity="one">1 zadetek</item>
@@ -310,7 +310,7 @@
     <item quantity="few">%d zadetki</item>
     <item quantity="other">%d zadetkov</item>
   </plurals>
-  <string name="button_clear_all_recent_searches">Počisti zadnja iskanja</string>
+  <string name="button_clear_all_recent_searches">Počisti nedavna iskanja</string>
   <string name="clear_recent_searches_confirm">Ali res želite počistiti svojo zgodovino iskanja?</string>
   <string name="clear_recent_searches_confirm_yes">Da</string>
   <string name="clear_recent_searches_confirm_no">Ne</string>
@@ -406,6 +406,10 @@
   <string name="multi_select_items_selected">%d izbranih</string>
   <string name="error_message_generic">Prišlo je do napake</string>
   <string name="view_link_preview_error_button_dismiss">Opusti</string>
+  <string name="link_preview_dialog_read_button">Branje</string>
+  <string name="link_preview_dialog_save_button">Shrani</string>
+  <string name="link_preview_dialog_saved_button">Shranjeno</string>
+  <string name="link_preview_dialog_share_button">Deli</string>
   <string name="error_page_does_not_exist">Ta stran ne obstaja</string>
   <string name="error_user_page_does_not_exist">Wikipedija nima &lt;a href=\"%1$s \"&gt;uporabniške strani&lt;/a&gt; s točno tem imenom. Na splošno bi to stran moral ustvariti in urejati &lt;b&gt;%2$s&lt;/b&gt;. Če ste v dvomih, preverite, ali »%3$s« obstaja.</string>
   <string name="view_wiki_error_message_offline">Ni povezave z internetom</string>
@@ -1070,7 +1074,7 @@
   <string name="suggested_edits_reactivation_notification_title">Predlagana urejanja</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Hvala za urejanje Wikipedije! Zakaj ne bi nadaljevali, kjer ste končali?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Imate trenutek za nadaljnje izboljševanje Wikipedije? Oglejte si te predloge za urejanje.</string>
-  <string name="suggested_edits_contributions_screen_title">Prispevki uporabnika/ce %s</string>
+  <string name="suggested_edits_contributions_screen_title">Prispevki uporabnika_ce %s</string>
   <string name="suggested_edits_contribution_language_label">Jezik</string>
   <string name="suggested_edits_contribution_date_time_label">Datum/čas</string>
   <string name="suggested_edits_contribution_type_label">Vrsta prispevka</string>
@@ -1376,9 +1380,9 @@
   <string name="menu_option_share_talk_discussion">Deli razpravo</string>
   <string name="menu_option_share_talk_page">Deli pogovorno stran</string>
   <string name="menu_option_share_edit">Deli urejanje</string>
-  <string name="menu_option_user_contributions">Prispevki uporabnika/ce %s</string>
+  <string name="menu_option_user_contributions">Prispevki uporabnika_ce %s</string>
   <string name="menu_option_edit_source">Uredi vir</string>
-  <string name="menu_option_user_page">Uporabniška stran uporabnika/ce %s</string>
+  <string name="menu_option_user_page">Uporabniška stran uporabnika_ce %s</string>
   <string name="menu_option_find_in_talk_page_topic">Poišči v temi pogovorne strani</string>
   <string name="menu_option_copy_link_to_clipboard">Kopiraj povezavo v odložišče</string>
   <string name="talk_menu_copy_text">Kopiraj besedilo</string>
@@ -1394,7 +1398,7 @@
   <string name="thank_dialog_text">Zahvale so preprost način za izražanje priznanja za delo urejevalca v Wikipediji. Zahval ni mogoče razveljaviti in so javno razvidne.</string>
   <string name="thank_dialog_positive_button_text">Pošlji zahvalo</string>
   <string name="thank_dialog_negative_button_text">Prekliči</string>
-  <string name="thank_success_message">Uporabniku/ci %s ste poslali zahvalo 👍</string>
+  <string name="thank_success_message">Uporabniku_ci %s ste poslali zahvalo 👍</string>
   <string name="menu_option_view_user_profile">Ogled uporabnikove strani</string>
   <string name="menu_option_view_user_talk">Ogled pogovorne strani</string>
   <string name="menu_option_view_user_contributions">Ogled uporabnikovih prispevkov</string>
@@ -1403,7 +1407,6 @@
   <string name="revision_diff_from">Iz:</string>
   <string name="revision_diff_to">V:</string>
   <string name="revision_diff_line_num">Vrstica %d</string>
-  <string name="revision_diff_line_nums">Vrstice %d–%d</string>
   <string name="revision_diff_lines_from_to">Vrstice %1$d–%2$d</string>
   <string name="revision_diff_line_added">Vrstica dodana</string>
   <string name="revision_diff_line_removed">Vrstica odstranjena</string>
@@ -1507,7 +1510,7 @@
   <string name="subcategory_empty">V tej kategoriji ni najdenih podkategorij.</string>
   <string name="search_namespaces">Imenski prostori</string>
   <string name="revision_initial_none">Brez (to je prva redakcija)</string>
-  <string name="user_contrib_activity_title">Prispevki uporabnika/ce %s</string>
+  <string name="user_contrib_activity_title">Prispevki uporabnika_ce %s</string>
   <string name="archive_empty">Ni najdenih arhivskih strani.</string>
   <string name="user_contrib_filter_ns">Filtriraj po imenskem prostoru</string>
   <string name="user_contrib_filter_all">Vsi imenski prostori</string>
@@ -1517,6 +1520,8 @@
   <string name="media_playback_error">Napaka pri predvajanju predstavnosti.</string>
   <string name="user_contrib_menu_label">Prispevki</string>
   <string name="user_contrib_filter_activity_title">Filtriraj prispevke</string>
+  <string name="action_item_view_on_map">Prikaži na zemljevidu</string>
+  <string name="action_item_view_on_map_unavailable">Geografske koordinate za to stran niso na voljo</string>
   <string name="shareable_reading_lists_import_dialog_title">Uvoz deljenega bralnega seznama</string>
   <string name="shareable_reading_lists_import_dialog_content">Kako želite poimenovati seznam, ki je bil deljen z vami?</string>
   <string name="shareable_reading_lists_new_indicator">*novo*</string>
@@ -1666,4 +1671,18 @@
   <string name="donation_campaign_donated_snackbar">Hvala vam, spoštovani darovalec! Vaša velikodušnost pomaga ohranjati uspeh Wikipedije in njenih sestrskih spletnih mest.</string>
   <string name="donation_campaign_go_back_button">Nazaj</string>
   <string name="menu_single_webview_open_external">Odprtje v sistemskem brskalniku</string>
+  <string name="places_title">Kraji</string>
+  <string name="places_permissions_denied">Za ogled vaše lokacije na zemljevidu potrebujete dovoljenje za lokacijo. Prosimo, poskusite znova.</string>
+  <string name="places_search_hint">Iskanje po krajih</string>
+  <string name="places_filter_title">Filtriranje po jeziku</string>
+  <string name="places_toggle_buttons_map">Zemljevid</string>
+  <string name="places_toggle_buttons_list">Seznam</string>
+  <string name="places_nav_tab_tooltip_message">Odkrivajte članke Wikipedije okoli sebe s Kraji</string>
+  <string name="places_article_menu_tooltip_message">Tapnite &lt;b&gt;»Ogled na zemljevidu«&lt;/b&gt;, da raziščete lokacijo tega članka</string>
+  <string name="places_survey_very_satisfied_option">Odlična izkušnja</string>
+  <string name="places_survey_very_unsatisfied_option">Zelo slaba izkušnja</string>
+  <string name="places_survey_dialog_title">Pomagajte izboljšati »Kraje«</string>
+  <string name="places_survey_feedback_dialog_title">Kako lahko izboljšamo »Kraje«?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Kaj bi želeli, da spremenimo ali izboljšamo?</string>
+  <string name="places_empty_list">To območje je prazno. Pomanjšaj &lt;a href=\"#\"&gt;zemljevid&lt;/a&gt;.</string>
 </resources>

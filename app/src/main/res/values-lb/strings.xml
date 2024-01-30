@@ -191,6 +191,7 @@
   <string name="send_feedback">Feedback vun der App schécken</string>
   <string name="create_account_account_created_toast">Benotzerkont ugeluecht!</string>
   <string name="preferences_heading_syncing">Synchronisatioun</string>
+  <string name="preferences_heading_data_usage">Dateverbrauch</string>
   <string name="preferences_heading_experimental">Experimentell</string>
   <string name="preference_title_sync_reading_lists_from_account">Synchronisatioun vun de Lieschlëschten</string>
   <string name="preference_title_download_reading_list_articles">Artikele vun der Lieslëscht eroflueden</string>
@@ -214,7 +215,7 @@
   <string name="settings_item_preferences">Astellungen</string>
   <string name="settings_activity_title">Astellungen</string>
   <string name="about_description">Iwwer d\'Wikipedia App</string>
-  <string name="privacy_policy_description">Dateschutz</string>
+  <string name="privacy_policy_description">Dateschutzrichtlinnen</string>
   <string name="terms_of_use_description">Benotzungs-Bedingungen</string>
   <string name="about_wikipedia_url">https://lb.wikipedia.org/wiki/Wikipedia:Iwwer_d\'Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
@@ -1050,7 +1051,6 @@
   <string name="revision_diff_from">Vum:</string>
   <string name="revision_diff_to">Fir:</string>
   <string name="revision_diff_line_num">Zeil %d</string>
-  <string name="revision_diff_line_nums">Zeile(n) %d-%d</string>
   <string name="revision_diff_lines_from_to">Zeile(n) %1$d–%2$d</string>
   <string name="revision_diff_line_added">Zeil derbäigesat</string>
   <string name="revision_diff_line_removed">Zeil ewechgeholl</string>

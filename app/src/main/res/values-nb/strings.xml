@@ -26,8 +26,8 @@
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
+  <string name="app_name_beta">Wikipedia beta</string>
+  <string name="app_name_alpha">Wikipedia alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Tilbake</string>
   <string name="page_tabs_back">Tilbake</string>
@@ -1334,7 +1334,6 @@
   <string name="revision_diff_from">Fra:</string>
   <string name="revision_diff_to">Til:</string>
   <string name="revision_diff_line_num">Linje %d</string>
-  <string name="revision_diff_line_nums">Linje %d–%d</string>
   <string name="revision_diff_lines_from_to">Linjer %1$d–%2$d</string>
   <string name="revision_diff_line_added">Linje lagt til</string>
   <string name="revision_diff_line_removed">Linje fjernet</string>
