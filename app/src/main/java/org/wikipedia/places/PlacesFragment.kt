@@ -224,10 +224,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         binding.searchTextView.setOnClickListener {
             val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES,
                 StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.prefixedText).ifEmpty { null }, true)
-            val options = binding.searchContainer.let {
-                ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                    binding.searchContainer, getString(R.string.transition_search_bar))
-            }
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+                    binding.searchContainer.getChildAt(0), getString(R.string.transition_search_bar))
             placesSearchLauncher.launch(intent, options)
         }
 
