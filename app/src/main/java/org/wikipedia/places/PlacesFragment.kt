@@ -454,6 +454,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             Prefs.placesWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
         }
         binding.langCodeButton.setLangCode(Prefs.placesWikiCode)
+
+        FeedbackUtil.setButtonLongPressToast(binding.tabsButton, binding.langCodeButton)
     }
 
     private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {
