@@ -1690,7 +1690,6 @@
     <string name="places_survey_very_satisfied_option">Very satisfied</string>
     <string name="places_survey_very_unsatisfied_option">Very unsatisfied</string>
     <string name="places_survey_dialog_title">Help improve \"Places\"</string>
-    <string name="places_survey_feedback_dialog_title">How can \"Places\" be improved?</string>
     <string name="places_survey_dialog_cancel">Cancel</string>
     <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>

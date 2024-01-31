@@ -703,6 +703,10 @@ object Prefs {
         get() = PrefsIoUtil.getString(R.string.preference_key_places_wiki_code, WikipediaApp.instance.appOrSystemLanguageCode).orEmpty()
         set(value) = PrefsIoUtil.setString(R.string.preference_key_places_wiki_code, value)
 
+    var shouldShowOneTimePlacesSurvey
+        get() = PrefsIoUtil.getInt(R.string.preference_key_places_show_one_time_survey, PlacesFragment.SURVEY_NOT_INITIALIZED)
+        set(value) = PrefsIoUtil.setInt(R.string.preference_key_places_show_one_time_survey, value)
+
     var showOneTimePlacesPageOnboardingTooltip
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, value)
@@ -710,10 +714,6 @@ object Prefs {
     var showOneTimePlacesMainNavOnboardingTooltip
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, value)
-
-    var shouldShowOneTimePlacesSurvey
-        get() = PrefsIoUtil.getInt(R.string.preference_key_places_show_one_time_survey, PlacesFragment.SURVEY_NOT_INITIALIZED)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_places_show_one_time_survey, value)
 
     var placesLastLocationAndZoomLevel: Pair<Location, Double>?
         get() {
