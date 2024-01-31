@@ -80,7 +80,6 @@ import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.search.SearchActivity
-import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
@@ -225,10 +224,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         binding.searchTextView.setOnClickListener {
             val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES,
                 StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.prefixedText).ifEmpty { null }, true)
-            val options = binding.searchContainer.let {
-                ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
-                    binding.searchContainer, getString(R.string.transition_search_bar))
-            }
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
+                    binding.searchContainer.getChildAt(0), getString(R.string.transition_search_bar))
             placesSearchLauncher.launch(intent, options)
         }
 
@@ -236,7 +233,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             requireActivity().finish()
         }
 
-        binding.searchLangContainer.setOnClickListener {
+        binding.langCodeButton.setOnClickListener {
             filterLauncher.launch(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
@@ -454,9 +451,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(Prefs.placesWikiCode)) {
             Prefs.placesWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
         }
-        binding.searchLangCode.text = Prefs.placesWikiCode
-        ViewUtil.formatLangButton(binding.searchLangCode, Prefs.placesWikiCode,
-            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+        binding.langCodeButton.setLangCode(Prefs.placesWikiCode)
+
+        FeedbackUtil.setButtonLongPressToast(binding.tabsButton, binding.langCodeButton)
     }
 
     private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {
@@ -773,7 +770,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             binding.listItemTitle.text = StringUtil.fromHtml(page.pageTitle.displayText)
             binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
             binding.listItemDescription.isVisible = !page.pageTitle.description.isNullOrEmpty()
-            binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
             currentLocation?.let {
                 binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, page.location, Locale.getDefault())
             }

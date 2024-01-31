@@ -201,7 +201,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
         linkPreviewInteraction = ArticleLinkPreviewInteraction(
             viewModel.pageTitle,
-            summary.pageId,
+            summary,
             viewModel.historyEntry.source
         )
         linkPreviewInteraction?.logLinkClick()
@@ -224,13 +224,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         L.e(throwable)
         binding.linkPreviewTitle.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
         showError(throwable)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        if (viewModel.fromPlaces) {
-            disableBackgroundDim()
-        }
     }
 
     override fun onResume() {

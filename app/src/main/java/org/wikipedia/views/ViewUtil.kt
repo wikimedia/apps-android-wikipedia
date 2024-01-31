@@ -73,16 +73,6 @@ object ViewUtil {
         binding.closeButton.setOnClickListener { actionMode.finish() }
     }
 
-    fun formatLangButton(langButton: TextView, langCode: String,
-                         langButtonTextSizeSmaller: Int, langButtonTextSizeLarger: Int) {
-        val langCodeStandardLength = 3
-        if (langCode.length > langCodeStandardLength) {
-            langButton.textSize = langButtonTextSizeSmaller.toFloat()
-            return
-        }
-        langButton.textSize = langButtonTextSizeLarger.toFloat()
-    }
-
     fun adjustImagePlaceholderHeight(containerWidth: Float, thumbWidth: Float, thumbHeight: Float): Int {
         return (Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat() / thumbWidth * thumbHeight * containerWidth / Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat()).toInt()
     }

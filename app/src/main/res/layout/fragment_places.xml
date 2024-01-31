@@ -23,13 +23,13 @@
             android:layout_marginTop="4dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:transitionName="@string/transition_search_bar"
             app:elevation="0dp"
             app:radius="22dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:transitionName="@string/transition_search_bar"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -68,28 +68,12 @@
                     app:srcCompat="@drawable/ic_close_black_24dp"
                     app:tint="?attr/primary_color" />
 
-                <LinearLayout
-                    android:id="@+id/searchLangContainer"
-                    android:layout_width="wrap_content"
+                <org.wikipedia.views.LangCodeView
+                    android:id="@+id/langCodeButton"
+                    android:layout_width="48dp"
                     android:layout_height="match_parent"
-                    android:paddingHorizontal="10dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/searchLangCode"
-                        style="@style/H5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:paddingHorizontal="5dp"
-                        android:background="@drawable/tab_counts_shape_border"
-                        android:backgroundTint="?attr/primary_color"
-                        android:gravity="center"
-                        android:textAlignment="center"
-                        android:textAllCaps="true"
-                        android:textColor="?attr/primary_color"
-                        tools:text="EN"/>
-                </LinearLayout>
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/places_filter_title"/>
 
                 <org.wikipedia.views.TabCountsView
                     android:id="@+id/tabsButton"

@@ -504,10 +504,6 @@ object Prefs {
     val exploreFeedVisitCount
         get() = PrefsIoUtil.getInt(R.string.preference_key_explore_feed_visit_count, 0)
 
-    var loggedInPageActivityVisitCount
-        get() = PrefsIoUtil.getInt(R.string.preference_key_logged_in_page_activity_visit_count, 0)
-        set(value) = PrefsIoUtil.setInt(R.string.preference_key_logged_in_page_activity_visit_count, value)
-
     var selectedLanguagePositionInSearch
         get() = PrefsIoUtil.getInt(R.string.preference_key_selected_language_position_in_search, 0)
         set(position) = PrefsIoUtil.setInt(R.string.preference_key_selected_language_position_in_search, position)
@@ -542,14 +538,6 @@ object Prefs {
     var localClassName
         get() = PrefsIoUtil.getString(R.string.preference_key_crash_report_local_class_name, "")
         set(className) = PrefsIoUtil.setString(R.string.preference_key_crash_report_local_class_name, className)
-
-    var isWatchlistPageOnboardingTooltipShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_watchlist_page_onboarding_tooltip_shown, false)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_watchlist_page_onboarding_tooltip_shown, enabled)
-
-    var isWatchlistMainOnboardingTooltipShown
-        get() = PrefsIoUtil.getBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, false)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_watchlist_main_onboarding_tooltip_shown, enabled)
 
     var autoShowEditNotices
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_auto_show_edit_notices, true)
@@ -718,6 +706,14 @@ object Prefs {
     var shouldShowOneTimePlacesSurvey
         get() = PrefsIoUtil.getInt(R.string.preference_key_places_show_one_time_survey, PlacesFragment.SURVEY_NOT_INITIALIZED)
         set(value) = PrefsIoUtil.setInt(R.string.preference_key_places_show_one_time_survey, value)
+
+    var showOneTimePlacesPageOnboardingTooltip
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, value)
+
+    var showOneTimePlacesMainNavOnboardingTooltip
+        get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, true)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, value)
 
     var placesLastLocationAndZoomLevel: Pair<Location, Double>?
         get() {
