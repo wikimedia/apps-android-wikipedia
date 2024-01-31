@@ -13,13 +13,12 @@ import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.onboarding.OnboardingFragment
 import org.wikipedia.onboarding.OnboardingPageView
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
 
 class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callback {
     override val doneButtonText = R.string.onboarding_get_started
-    override val showDoneButton = Prefs.isEventLoggingEnabled
+    override val showDoneButton = true
 
     override fun getAdapter(): FragmentStateAdapter {
         return DescriptionEditTutorialPagerAdapter(this)
@@ -27,7 +26,7 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
 
     internal inner class DescriptionEditTutorialPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
-            return if (!Prefs.isEventLoggingEnabled) pages.size else pages.size - 1
+            return pages.size
         }
 
         override fun createFragment(position: Int): Fragment {
@@ -38,7 +37,6 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
     override fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean) {
         if ((view.tag as Int) == 2) {
             PatrollerExperienceEvent.logAction("onboarding_3_${ if (accept) "accept" else "reject" }", "pt_onboarding")
-            Prefs.isEventLoggingEnabled = accept
             requireActivity().finish()
         }
     }

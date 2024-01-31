@@ -11,7 +11,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
 
 open class MetricsEvent {
@@ -30,7 +29,7 @@ open class MetricsEvent {
         interactionData: InteractionData?,
         pageData: PageData? = null
     ) {
-        if (ReleaseUtil.isPreProdRelease && Prefs.isEventLoggingEnabled) {
+        if (ReleaseUtil.isPreProdRelease) {
             MetricsPlatform.client.submitInteraction(
                 streamName,
                 EVENT_NAME_BASE + eventName,
@@ -57,7 +56,7 @@ open class MetricsEvent {
         interactionData: InteractionData?,
         pageData: PageData? = null
     ) {
-        if (ReleaseUtil.isPreProdRelease && Prefs.isEventLoggingEnabled) {
+        if (ReleaseUtil.isPreProdRelease) {
             MetricsPlatform.client.submitInteraction(
                 streamName,
                 schemaId,

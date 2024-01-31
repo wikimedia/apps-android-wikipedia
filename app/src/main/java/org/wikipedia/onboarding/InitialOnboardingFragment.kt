@@ -15,7 +15,6 @@ import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.model.EnumCode
-import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.UriUtil
@@ -38,7 +37,6 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
 
     override fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean) {
         if (OnboardingPage.of(view.tag as Int) == OnboardingPage.PAGE_USAGE_DATA) {
-            Prefs.isEventLoggingEnabled = accept
             advancePage()
         }
     }
