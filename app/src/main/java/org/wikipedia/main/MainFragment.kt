@@ -553,21 +553,13 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     private fun maybeShowPlacesTooltip() {
-        if (Prefs.showOneTimePlacesMainNavOnboardingTooltip) {
+        if (Prefs.showOneTimePlacesMainNavOnboardingTooltip && Prefs.exploreFeedVisitCount > SHOW_PLACES_MAIN_NAV_TOOLTIP) {
             enqueueTooltip {
-                FeedbackUtil.showTooltip(
-                    requireActivity(),
-                    binding.navMoreContainer,
-                    getString(R.string.places_nav_tab_tooltip_message),
-                    aboveOrBelow = true,
-                    autoDismiss = false,
-                    showDismissButton = true
-                ).apply {
-                    PlacesEvent.logImpression("main_nav_tooltip")
-                    setOnBalloonDismissListener {
-                        PlacesEvent.logAction("dismiss_click", "main_nav_tooltip")
-                        Prefs.showOneTimePlacesMainNavOnboardingTooltip = false
-                    }
+                PlacesEvent.logImpression("main_nav_tooltip")
+                FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer,
+                    getString(R.string.places_nav_tab_tooltip_message), aboveOrBelow = true, autoDismiss = false, showDismissButton = true).setOnBalloonDismissListener {
+                    Prefs.showOneTimePlacesMainNavOnboardingTooltip = false
+                    PlacesEvent.logAction("dismiss_click", "main_nav_tooltip")
                 }
             }
         }
@@ -616,6 +608,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     companion object {
         // Actually shows on the 3rd time of using the app. The Pref.incrementExploreFeedVisitCount() gets call after MainFragment.onResume()
         private const val SHOW_EDITS_SNACKBAR_COUNT = 2
+        private const val SHOW_PLACES_MAIN_NAV_TOOLTIP = 1
 
         fun newInstance(): MainFragment {
             return MainFragment().apply {

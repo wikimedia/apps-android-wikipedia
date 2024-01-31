@@ -705,11 +705,11 @@ object Prefs {
 
     var showOneTimePlacesPageOnboardingTooltip
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, true)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, enabled)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_page_onboarding_tooltip, value)
 
     var showOneTimePlacesMainNavOnboardingTooltip
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, true)
-        set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, enabled)
+        set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_show_places_main_nav_onboarding_tooltip_shown, value)
 
     var shouldShowOneTimePlacesSurvey
         get() = PrefsIoUtil.getInt(R.string.preference_key_places_show_one_time_survey, PlacesFragment.SURVEY_NOT_INITIALIZED)
