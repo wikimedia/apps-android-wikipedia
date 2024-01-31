@@ -217,7 +217,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         binding.tabsButton.setOnClickListener {
-            PlacesEvent.logAction("tabs_view_click", "map_view")
+            PlacesEvent.logAction("tabs_view_click", "search_bar_view")
             if (WikipediaApp.instance.tabCount == 1) {
                 startActivity(PageActivity.newIntent(requireActivity()))
             } else {
@@ -226,7 +226,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         binding.searchTextView.setOnClickListener {
-            PlacesEvent.logAction("search_view_click", "map_view")
+            PlacesEvent.logAction("search_view_click", "search_bar_view")
             val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES,
                 StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.prefixedText).ifEmpty { null }, true)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
@@ -235,17 +235,17 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         binding.backButton.setOnClickListener {
-            PlacesEvent.logAction("back_click", "map_view")
+            PlacesEvent.logAction("back_click", "search_bar_view")
             requireActivity().finish()
         }
 
         binding.langCodeButton.setOnClickListener {
-            PlacesEvent.logAction("filter_click", "map_view")
+            PlacesEvent.logAction("filter_click", "search_bar_view")
             filterLauncher.launch(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
         binding.searchCloseBtn.setOnClickListener {
-            PlacesEvent.logAction("search_clear_click", "map_view")
+            PlacesEvent.logAction("search_clear_click", "search_bar_view")
             updateSearchText()
         }
 
@@ -318,6 +318,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.mapView.onCreate(savedInstanceState)
+
+        PlacesEvent.logImpression("map_view")
 
         binding.mapView.getMapAsync { map ->
             val assetForTheme = if (WikipediaApp.instance.currentTheme.isDark) "asset://mapstyle-dark.json" else "asset://mapstyle.json"

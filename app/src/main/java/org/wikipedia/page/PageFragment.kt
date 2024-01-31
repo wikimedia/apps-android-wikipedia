@@ -246,7 +246,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (shouldLoadFromBackstack(activity) || savedInstanceState != null) {
             reloadFromBackstack()
         }
-        PlacesEvent.logImpression("map_view")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
