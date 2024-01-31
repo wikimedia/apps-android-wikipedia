@@ -70,13 +70,11 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
     fun setLangCode(langCode: String?): CardHeaderView {
         binding.viewListCardHeaderSecondaryIcon.isVisible = false
         if (langCode.isNullOrEmpty() || WikipediaApp.instance.languageState.appLanguageCodes.size < 2) {
-            binding.viewListCardHeaderLangBackground.isVisible = false
             binding.viewListCardHeaderLangCode.isVisible = false
             L10nUtil.setConditionalLayoutDirection(this, WikipediaApp.instance.languageState.systemLanguageCode)
         } else {
-            binding.viewListCardHeaderLangBackground.isVisible = true
             binding.viewListCardHeaderLangCode.isVisible = true
-            binding.viewListCardHeaderLangCode.text = langCode
+            binding.viewListCardHeaderLangCode.setLangCode(langCode)
             L10nUtil.setConditionalLayoutDirection(this, langCode)
         }
         return this
@@ -85,7 +83,6 @@ class CardHeaderView constructor(context: Context, attrs: AttributeSet? = null) 
     fun setSecondaryIcon(@DrawableRes id: Int): CardHeaderView {
         binding.viewListCardHeaderSecondaryIcon.setImageResource(id)
         binding.viewListCardHeaderSecondaryIcon.isVisible = true
-        binding.viewListCardHeaderLangBackground.isVisible = false
         binding.viewListCardHeaderLangCode.isVisible = false
         return this
     }
