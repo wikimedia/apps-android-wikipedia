@@ -70,7 +70,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     private fun maybeShowPlacesSurvey() {
         binding.root.postDelayed({
-            if (Prefs.shouldShowOneTimePlacesSurvey == PlacesFragment.SURVEY_SHOW && !isDestroyed) {
+            if (!isDestroyed && Prefs.shouldShowOneTimePlacesSurvey == PlacesFragment.SURVEY_SHOW) {
                 Prefs.shouldShowOneTimePlacesSurvey = PlacesFragment.SURVEY_DO_NOT_SHOW
                 SurveyDialog.showFeedbackOptionsDialog(this, Constants.InvokeSource.PLACES)
             }
