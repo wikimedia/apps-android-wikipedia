@@ -1611,6 +1611,7 @@
   <string name="places_filter_title">Title string for places language filter screen.</string>
   <string name="places_toggle_buttons_map">Button label for viewing the map view in the Places screen.</string>
   <string name="places_toggle_buttons_list">Button label for viewing the list view in the Places screen.</string>
+  <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_nav_tab_tooltip_message">Tooltip message to help users discover places feature from explore screen more menu navigation tab. \"Places\" must be consistent with {{msg-wm|Wikipedia-android-strings-places title}}</string>
   <string name="places_article_menu_tooltip_message">Tooltip message to help users discover the article\'s location on the map and its nearby articles through places feature, from article screen More menu. \"View on map\" is {{msg-wm|Wikipedia-android-strings-action item view on map}}</string>
   <string name="places_survey_very_satisfied_option">Option text suggesting that user is very satisfied with the feature, shown in the survey</string>

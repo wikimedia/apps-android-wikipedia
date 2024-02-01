@@ -463,6 +463,11 @@
             android:key="ab_test_mBART25"
             android:title="Test group for machine generated article descriptions \n(0=no suggestions, 1=suggestions, 2=suggestions+blp)" />
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_places_show_one_time_survey"
+            android:title="Survey status for places feature \n(-1=not initiated, 0=show the survey, 1=survey shown)" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
