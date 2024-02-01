@@ -1169,7 +1169,7 @@
     <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
     <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
     <string name="onboarding_data_privacy_title">Data &#38; Privacy</string>
-    <string name="onboarding_data_privacy_text"><![CDATA[We believe that you should not have to provide personal information to participate in the free knowledge movement. Usage data collected for this app is anonymous. Learn more about our <a href="#privacy">privacy policy</a> and <a href="https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use">terms of use</a>.]]></string>
+    <string name="onboarding_data_privacy_text"><![CDATA[We believe that you should not have to provide personal information to participate in the free knowledge movement. Usage data collected for this app is anonymous. Learn more about our <a href="#privacy">privacy policy</a> and <a href="#termsOfUse">terms of use</a>.]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
     <string name="onboarding_got_it">Got it</string>
     <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>

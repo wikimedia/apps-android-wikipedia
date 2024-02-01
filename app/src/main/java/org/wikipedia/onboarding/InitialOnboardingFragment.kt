@@ -40,6 +40,7 @@ class InitialOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callb
             "#privacy" -> FeedbackUtil.showPrivacyPolicy(requireContext())
             "#about" -> FeedbackUtil.showAboutWikipedia(requireContext())
             "#offline" -> FeedbackUtil.showOfflineReadingAndData(requireContext())
+            "#termsOfUse" -> FeedbackUtil.showTermsOfUse(requireContext())
             else -> UriUtil.handleExternalLink(requireActivity(), Uri.parse(url))
         }
     }
