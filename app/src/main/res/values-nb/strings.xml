@@ -410,6 +410,10 @@
   <string name="multi_select_items_selected">%d valgt</string>
   <string name="error_message_generic">Det oppsto en feil</string>
   <string name="view_link_preview_error_button_dismiss">Lukk</string>
+  <string name="link_preview_dialog_read_button">Les</string>
+  <string name="link_preview_dialog_save_button">Lagre</string>
+  <string name="link_preview_dialog_saved_button">Lagret</string>
+  <string name="link_preview_dialog_share_button">Del</string>
   <string name="error_page_does_not_exist">Siden eksisterer ikke</string>
   <string name="error_user_page_does_not_exist">Wikipedia har ikke en &lt;a href=\"%1$s\"&gt;brukerside&lt;/a&gt; med dette navnet. Denne siden bør kun opprettes og redigeres av &lt;b&gt;%2$s&lt;/b&gt;. Hvis du er i tvil, sjekk om «%3$s» eksisterer.</string>
   <string name="view_wiki_error_message_offline">Kan ikke koble til internett</string>
@@ -1445,6 +1449,8 @@
   <string name="media_playback_error">Feil ved avspilling av media.</string>
   <string name="user_contrib_menu_label">Bidrag</string>
   <string name="user_contrib_filter_activity_title">Filtrer bidrag</string>
+  <string name="action_item_view_on_map">Vis på kart</string>
+  <string name="action_item_view_on_map_unavailable">Geografiske koordinater er ikke tilgjengelige for denne siden</string>
   <string name="shareable_reading_lists_import_dialog_title">Importer delt leseliste</string>
   <string name="shareable_reading_lists_import_dialog_content">Hva vil du kalle lista som har blitt delt med deg?</string>
   <string name="shareable_reading_lists_new_indicator">*ny*</string>
@@ -1475,7 +1481,15 @@
   <string name="talk_templates_edit_message_dialog_save">Lagre</string>
   <string name="talk_templates_edit_message_dialog_delete">Slett</string>
   <string name="talk_templates_edit_message_updated">Meldingen har blitt oppdatert</string>
-  <string name="talk_templates_message_deleted" fuzzy="true">Meldingen har blitt slettet</string>
+  <string name="talk_templates_menu_remove_message">Fjern beskjed</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Er du sikker på at du vil slette beskjeden fra lista?</item>
+    <item quantity="other">Er du sikker på at du vil slette beskjeden fra lista?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Beskjeden har blitt slettet</item>
+    <item quantity="other">Beskjedene har blitt slettet</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Tittelen kan ikke være tom.</string>
   <string name="patroller_tasks_edits_list_title">Liste over redigeringer</string>
   <string name="patroller_tasks_edits_list_search_hint">Søk i eller filtrer redigeringer</string>
@@ -1580,4 +1594,18 @@
   <string name="donation_campaign_donated_snackbar">Takk, kjære giver! Din sjenerøsitet hjelper å blomstre Wikipedia og søsterprosjektene.</string>
   <string name="donation_campaign_go_back_button">Tilbake</string>
   <string name="menu_single_webview_open_external">Åpne i systemnettleseren</string>
+  <string name="places_title">Steder</string>
+  <string name="places_permissions_denied">Posisjonstillatelse kreves for å se din posisjon på kartet. Prøv igjen.</string>
+  <string name="places_search_hint">Søk i steder</string>
+  <string name="places_filter_title">Filtrer etter språk</string>
+  <string name="places_toggle_buttons_map">Kart</string>
+  <string name="places_toggle_buttons_list">Liste</string>
+  <string name="places_nav_tab_tooltip_message">Oppdag Wikipedia-artikler rundt deg med Steder</string>
+  <string name="places_article_menu_tooltip_message">Trykk på &lt;b&gt;«Vis på kart»&lt;/b&gt; for å utforske nærområdet til denne artikkelen</string>
+  <string name="places_survey_very_satisfied_option">Veldig fornøyd</string>
+  <string name="places_survey_very_unsatisfied_option">Veldig misfornøyd</string>
+  <string name="places_survey_dialog_title">Hjelp til med å forbedre «Steder»</string>
+  <string name="places_survey_feedback_dialog_title">Hvordan kan «Steder» forbedres?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Hva ønsker du at vi endrer eller forbedrer?</string>
+  <string name="places_empty_list">Dette området er tomt. Zoom ut &lt;a href=\"#\"&gt;på kartet&lt;/a&gt;.</string>
 </resources>
