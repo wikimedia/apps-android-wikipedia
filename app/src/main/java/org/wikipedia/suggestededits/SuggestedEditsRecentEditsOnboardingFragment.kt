@@ -18,7 +18,6 @@ import org.wikipedia.util.UriUtil
 
 class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), OnboardingPageView.Callback {
     override val doneButtonText = R.string.onboarding_get_started
-    override val showDoneButton = true
 
     override fun getAdapter(): FragmentStateAdapter {
         return DescriptionEditTutorialPagerAdapter(this)
@@ -31,13 +30,6 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
 
         override fun createFragment(position: Int): Fragment {
             return ItemFragment().apply { arguments = bundleOf(ARG_POSITION to position) }
-        }
-    }
-
-    override fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean) {
-        if ((view.tag as Int) == 2) {
-            PatrollerExperienceEvent.logAction("onboarding_3_${ if (accept) "accept" else "reject" }", "pt_onboarding")
-            requireActivity().finish()
         }
     }
 
@@ -71,7 +63,6 @@ class SuggestedEditsRecentEditsOnboardingFragment : OnboardingFragment(), Onboar
         val pages = arrayOf(
             R.layout.inflate_patroller_tasks_onboarding_page_one,
             R.layout.inflate_patroller_tasks_onboarding_page_two,
-            R.layout.inflate_initial_onboarding_page_three
         )
         fun newInstance() = SuggestedEditsRecentEditsOnboardingFragment()
     }
