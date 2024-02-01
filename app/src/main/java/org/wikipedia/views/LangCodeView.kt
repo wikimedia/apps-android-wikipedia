@@ -42,8 +42,8 @@ class LangCodeView(context: Context, attrs: AttributeSet? = null) : FrameLayout(
     fun setLangCode(langCode: String) {
         binding.langCodeText.text = LanguageUtil.formatLangCodeForButton(langCode.uppercase())
         val textSize = when (langCode.length) {
-            in 1..2 ->  12f
-            in 3 .. 8 -> 7f
+            in 1..2 -> 12f
+            in 3..8 -> 7f
             else -> 5f
         }
         binding.langCodeText.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
