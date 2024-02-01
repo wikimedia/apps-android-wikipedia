@@ -9,7 +9,6 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.HttpStatusException
-import org.wikipedia.json.JsonUtil
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
 import org.wikipedia.util.log.L
@@ -63,9 +62,6 @@ object EventPlatformClient {
      */
     @Synchronized
     fun submit(event: Event) {
-
-        L.d(">>>> submitting: " + JsonUtil.encodeToString(event))
-
         if (!SamplingController.isInSample(event)) {
             return
         }
