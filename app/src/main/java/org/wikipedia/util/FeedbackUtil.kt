@@ -3,6 +3,7 @@ package org.wikipedia.util
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Rect
 import android.net.Uri
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -179,7 +180,16 @@ object FeedbackUtil {
         val binding = ViewPlainTextTooltipBinding.inflate(LayoutInflater.from(context))
         binding.textView.text = text
         binding.buttonView.isVisible = showDismissButton
-        binding.buttonView.setText(dismissButtonText)
+
+        // Explicitly measure the width of the button text and set the button width, with some padding.
+        // The Balloon library seems to present our custom layout in a way that causes the automatic
+        // sizing of the button to be incorrect.
+        val dismissText = context.getString(dismissButtonText)
+        val bounds = Rect()
+        binding.buttonView.paint.getTextBounds(dismissText, 0, dismissText.length, bounds)
+        binding.buttonView.layoutParams = binding.buttonView.layoutParams.apply {
+            width = bounds.width() + DimenUtil.roundedDpToPx(40f)
+        }
 
         if (countTotal > 0) {
             binding.countView.isVisible = true
