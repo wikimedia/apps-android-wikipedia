@@ -419,6 +419,9 @@
   <string name="multi_select_items_selected">%d valittu</string>
   <string name="error_message_generic">Tapahtui virhe</string>
   <string name="view_link_preview_error_button_dismiss">Hylkää</string>
+  <string name="link_preview_dialog_save_button">Tallenna</string>
+  <string name="link_preview_dialog_saved_button">Tallennettu</string>
+  <string name="link_preview_dialog_share_button">Jaa</string>
   <string name="error_page_does_not_exist">Tätä sivua ei ole olemassa</string>
   <string name="error_user_page_does_not_exist">Wikipediassa ei ole tämän nimistä &lt;a href=\"%1$s\"&gt;käyttäjäsivua&lt;/a&gt;. Useimmiten vain käyttäjän &lt;b&gt;%2$s&lt;/b&gt; tulisi luoda tämä sivu ja muokata sitä. Mikäli et ole varma, varmista että käyttäjä \"%3$s\" on olemassa.</string>
   <string name="view_wiki_error_message_offline">Ei voitu yhdistää internetiin</string>
@@ -1476,6 +1479,7 @@
   <string name="talk_templates_edit_message_dialog_save">Tallenna</string>
   <string name="talk_templates_edit_message_dialog_delete">Poista</string>
   <string name="talk_templates_edit_message_updated">Viesti on päivitetty</string>
+  <string name="talk_templates_menu_remove_message">Poista viesti</string>
   <plurals name="talk_templates_message_delete_description">
     <item quantity="one">Haluatko varmasti poistaa viestin luettelosta?</item>
     <item quantity="other">Haluatko varmasti poistaa viestit luettelosta?</item>
@@ -1484,6 +1488,7 @@
     <item quantity="one">Viesti on poistettu</item>
     <item quantity="other">Viestit on poistettu</item>
   </plurals>
+  <string name="talk_templates_message_title_empty">Otsikko ei voi olla tyhjä.</string>
   <string name="patroller_tasks_edits_list_title">Muokkausluettelo</string>
   <string name="patroller_tasks_edits_list_search_hint">Etsi tai suodata muokkauksia</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Merkinnät: %s</string>
@@ -1514,12 +1519,20 @@
   <string name="patroller_tasks_filters_automated_contributions_bot">Botti</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Ihminen (ei botti)</string>
   <string name="patroller_tasks_filters_significance_minor">Pienet muutokset</string>
+  <string name="patroller_tasks_filters_significance_edits">Muut kuin pienet muutokset</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Muokkauksen laadun ennustaminen</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Hyvin todennäköisesti hyvä muokkaus</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Erittäin tarkka löytämään lähes kokonaan ongelmattomia muokkauksia.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Saattaa sisältää ongelmia</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Löytää eniten virheellisiä tai vahingollisia muokkauksia, mutta tarkkuus on alempi.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Sisältää todennäköisesti ongelmia</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d suodatin</item>
     <item quantity="other">%d suodatinta</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikkelin muokkaushistoria</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Näytä</string>
+  <string name="patroller_tasks_overflow_learn">Lisätietoja</string>
   <string name="patroller_onboarding_two_thank_title">Kiitä</string>
   <string name="patroller_onboarding_two_thank_content">Näetkö hyvän muokkauksen? Kiitä käyttäjää.</string>
   <string name="patroller_onboarding_two_watch_title">Tarkkaile</string>
