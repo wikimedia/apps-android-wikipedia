@@ -26,7 +26,7 @@ class TabCountsView(context: Context, attrs: AttributeSet? = null) : FrameLayout
     fun updateTabCount(animation: Boolean) {
         val count = WikipediaApp.instance.tabCount
         binding.tabsCountText.text = count.toString()
-        val tabTextSize = if (count > 99) 5f else 10f
+        val tabTextSize = if (count > 99) 7f else 12f
         binding.tabsCountText.setTextSize(TypedValue.COMPLEX_UNIT_SP, tabTextSize)
         if (animation) {
             startAnimation(AnimationUtils.loadAnimation(context, R.anim.tab_list_zoom_enter))

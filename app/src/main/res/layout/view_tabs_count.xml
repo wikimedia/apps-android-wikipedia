@@ -6,8 +6,8 @@
 
     <TextView
         android:id="@+id/tabsCountText"
-        android:layout_width="19dp"
-        android:layout_height="18dp"
+        android:layout_width="21dp"
+        android:layout_height="20dp"
         android:layout_gravity="center"
         android:layout_marginStart="14.5dp"
         android:layout_marginEnd="14.5dp"
@@ -19,5 +19,6 @@
         android:textAlignment="center"
         android:textColor="?attr/primary_color"
         android:textSize="10sp"
+        android:paddingHorizontal="1.5dp"
         tools:text="3" />
 </merge>
