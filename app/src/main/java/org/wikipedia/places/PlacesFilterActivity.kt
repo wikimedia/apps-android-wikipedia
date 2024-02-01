@@ -1,12 +1,10 @@
 package org.wikipedia.places
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
@@ -18,41 +16,31 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.ActivityPlacesFiltersBinding
+import org.wikipedia.databinding.ViewPlacesFilterItemBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.DefaultViewHolder
-import org.wikipedia.views.LangCodeView
 
 class PlacesFilterActivity : BaseActivity() {
 
     private lateinit var binding: ActivityPlacesFiltersBinding
     private var initLanguage: String = Prefs.placesWikiCode
-    val filtersList: List<String>
-        get() {
-            val list = mutableListOf<String>()
-            list.add(HEADER)
-            list.addAll(appLanguageCodes)
-            list.add(FOOTER)
-            return list
-        }
-
-    val appLanguageCodes: List<String>
-        get() {
-            return WikipediaApp.instance.languageState.appLanguageCodes
-        }
+    private var filtersList = mutableListOf<String>()
 
     val addLanguageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         // Check if places wiki language code was deleted
         if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(Prefs.placesWikiCode)) {
             Prefs.placesWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
         }
+        setUpRecyclerView()
         binding.placesFiltersRecyclerView.adapter?.notifyDataSetChanged()
-        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPlacesFiltersBinding.inflate(layoutInflater)
+
         setUpRecyclerView()
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.background_color))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.background_color))
@@ -68,6 +56,10 @@ class PlacesFilterActivity : BaseActivity() {
     }
 
     private fun setUpRecyclerView() {
+        filtersList.clear()
+        filtersList.add(HEADER)
+        filtersList.addAll(WikipediaApp.instance.languageState.appLanguageCodes)
+        filtersList.add(FOOTER)
         binding.placesFiltersRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.placesFiltersRecyclerView.adapter = PlacesLangListFilterAdapter(this)
     }
@@ -78,31 +70,13 @@ class PlacesFilterActivity : BaseActivity() {
         override fun onCreateViewHolder(parent: ViewGroup, type: Int): DefaultViewHolder<*> {
             return when (type) {
                 VIEW_TYPE_HEADER -> {
-                    PlacesFilterHeaderViewHolder(
-                        layoutInflater.inflate(
-                            R.layout.view_watchlist_filter_header,
-                            parent,
-                            false
-                        )
-                    )
+                    PlacesFilterHeaderViewHolder(layoutInflater.inflate(R.layout.view_watchlist_filter_header, parent, false))
                 }
                 VIEW_TYPE_FOOTER -> {
-                    PlacesFilterFooterViewHolder(
-                        layoutInflater.inflate(
-                            R.layout.view_places_filters_footer,
-                            parent,
-                            false
-                        )
-                    )
+                    PlacesFilterFooterViewHolder(layoutInflater.inflate(R.layout.view_places_filters_footer, parent, false))
                 }
                 else -> {
-                    PlacesFilterItemViewHolder(
-                        layoutInflater.inflate(
-                            R.layout.view_places_filter_item,
-                            parent,
-                            false
-                        ), this
-                    )
+                    PlacesFilterItemViewHolder(ViewPlacesFilterItemBinding.inflate(layoutInflater), this)
                 }
             }
         }
@@ -119,10 +93,8 @@ class PlacesFilterActivity : BaseActivity() {
 
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, position: Int) {
             when (holder) {
-                is PlacesFilterHeaderViewHolder -> holder.bindItem(
-                    context, getString(R.string.watchlist_filter_wiki_filter_header)
-                )
-                is PlacesFilterFooterViewHolder -> holder.bindItem(context as Activity)
+                is PlacesFilterHeaderViewHolder -> holder.bindItem(getString(R.string.watchlist_filter_wiki_filter_header))
+                is PlacesFilterFooterViewHolder -> holder.bindItem()
                 else -> (holder as PlacesFilterItemViewHolder).bindItem(filtersList[position])
             }
         }
@@ -132,35 +104,32 @@ class PlacesFilterActivity : BaseActivity() {
         }
     }
 
-    class PlacesFilterHeaderViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
+    inner class PlacesFilterHeaderViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
         private val headerText = itemView.findViewById<TextView>(R.id.filter_header_title)!!
 
-        fun bindItem(context: Context, filterHeader: String) {
-            headerText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.primary_color))
+        fun bindItem(filterHeader: String) {
+            headerText.setTextColor(ResourceUtil.getThemedColor(this@PlacesFilterActivity, R.attr.primary_color))
             headerText.text = filterHeader
         }
     }
-    class PlacesFilterFooterViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
-        fun bindItem(activity: Activity) {
+    inner class PlacesFilterFooterViewHolder(itemView: View) : DefaultViewHolder<View>(itemView) {
+        fun bindItem() {
             itemView.setOnClickListener {
-                (activity as PlacesFilterActivity).addLanguageLauncher.launch(WikipediaLanguagesActivity.newIntent(itemView.context,
+                addLanguageLauncher.launch(WikipediaLanguagesActivity.newIntent(itemView.context,
                     Constants.InvokeSource.PLACES))
             }
         }
     }
-    class PlacesFilterItemViewHolder(itemView: View, val callback: Callback) : DefaultViewHolder<View>(itemView) {
+    class PlacesFilterItemViewHolder(private val itemViewBinding: ViewPlacesFilterItemBinding, val callback: Callback) : DefaultViewHolder<View>(itemViewBinding.root) {
         interface Callback {
             fun onLangSelected()
         }
-        private val titleText = itemView.findViewById<TextView>(R.id.placesFilterTitle)!!
-        private val langCodeText = itemView.findViewById<LangCodeView>(R.id.placesFilterLangCode)!!
-        private val radio = itemView.findViewById<ImageView>(R.id.placesFilterRadio)!!
 
         fun bindItem(languageCode: String) {
-            titleText.text = WikipediaApp.instance.languageState.getAppLanguageCanonicalName(languageCode)
-            langCodeText.setLangCode(languageCode)
-            radio.isVisible = languageCode == Prefs.placesWikiCode
-            itemView.setOnClickListener {
+            itemViewBinding.placesFilterTitle.text = WikipediaApp.instance.languageState.getAppLanguageCanonicalName(languageCode)
+            itemViewBinding.placesFilterLangCode.setLangCode(languageCode)
+            itemViewBinding.placesFilterRadio.isVisible = languageCode == Prefs.placesWikiCode
+            itemViewBinding.root.setOnClickListener {
                 if (languageCode != Prefs.placesWikiCode) {
                     PlacesEvent.logAction("filter_change_save", "filter_view")
                 }

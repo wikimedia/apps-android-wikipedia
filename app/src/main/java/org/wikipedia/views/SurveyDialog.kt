@@ -23,15 +23,11 @@ object SurveyDialog {
         val clickListener = View.OnClickListener {
             val feedbackOption = (it as TextView).text.toString()
             dialog?.dismiss()
-            if (
-                (source == Constants.InvokeSource.PLACES &&
-                        feedbackOption != activity.getString(R.string.patroller_diff_feedback_dialog_option_unsatisfied) &&
-                        feedbackOption != activity.getString(R.string.places_survey_very_unsatisfied_option)) ||
-                (source != Constants.InvokeSource.PLACES && feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied))
-            ) {
+            if ((source == Constants.InvokeSource.PLACES && feedbackOption != activity.getString(R.string.patroller_diff_feedback_dialog_option_unsatisfied) && feedbackOption != activity.getString(R.string.places_survey_very_unsatisfied_option)) ||
+                (source != Constants.InvokeSource.PLACES && feedbackOption == activity.getString(R.string.patroller_diff_feedback_dialog_option_satisfied))) {
                 showFeedbackSnackbarAndTooltip(activity, source)
             } else {
-                showFeedbackInputDialog(activity, source, feedbackOption)
+                showFeedbackInputDialog(activity, source)
             }
 
             sendAnalyticsEvent("feedback_selection", "feedback_form", source,
@@ -66,7 +62,7 @@ object SurveyDialog {
         dialog = dialogBuilder.show()
     }
 
-    private fun showFeedbackInputDialog(activity: Activity, source: Constants.InvokeSource, feedbackOption: String) {
+    private fun showFeedbackInputDialog(activity: Activity, source: Constants.InvokeSource) {
         val feedbackView = activity.layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_input, null)
         sendAnalyticsEvent("impression", "feedback_input_form", source)
         MaterialAlertDialogBuilder(activity)
