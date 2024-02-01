@@ -981,6 +981,10 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Viser hvor mange dage i træk du har bidraget. Hvis du ikke har bidraget i et stykke tid, vises din sidste bidragsdato.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Samlet antal sidevisninger af emner, som du har bidraget til inden for de sidste 30 dage.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Baseret på, hvor mange gange et af dine bidrag blev tilbageført (tilbageført af en anden redaktør). Tilbageførte redigeringer: %d.</string>
+  <string name="suggested_edits_paused_message">Foreslåede redigeringer er sat på pause indtil %1$s . Beklager %2$s, men nogle af dine seneste bidrag er blevet tilbageført.</string>
+  <string name="suggested_edits_disabled_message">Foreslåede redigeringer er deaktiveret. Beklager %s, for mange af dine seneste bidrag er blevet tilbageført.</string>
+  <string name="suggested_edits_ip_blocked_message">Det ser ud til, at din IP-adresse (eller række af IP-adresser) i øjeblikket er blokeret fra at redigere Wikipedia.</string>
+  <string name="suggested_edits_gate_message">Beklager %s, du skal foretage mindst tre redigeringer direkte i en artikel for at bruge denne funktion.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips og tricks til redigering</string>
   <string name="suggested_edits_views_label_text">Visninger</string>
   <string name="suggested_edits_quality_label_text">Redigeringskvalitet</string>
@@ -1245,6 +1249,7 @@
   <string name="talk_snackbar_undo">Fortryd</string>
   <string name="talk_last_modified">&lt;b&gt;Redigerede sidst %1$s&lt;/b&gt; af %2$s</string>
   <string name="talk_snackbar_survey_action_text">Kom igang</string>
+  <string name="talk_share_discussion_subject">Wikipedia - diskussion om emnet \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - diskussioner på diskussionsside</string>
   <string name="talk_edit_disclaimer">Dette er en diskussionsside. Respekter venligst retningslinjerne for diskussionssiden, og husk at underskrive dine indlæg ved at skrive fire tilder: ~~~~ når du poster ved hjælp af wikitext.&lt;br&gt;&lt;br&gt; &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia: Retningslinjer for diskussionssider&lt;/a&gt;</string>
   <string name="talk_search_hint">Søg i beskeder</string>
@@ -1356,6 +1361,13 @@
   <string name="watchlist_filter_contribution_quality_may_problems">Kan have problemer</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">Har sandsynligvis problemer</string>
   <string name="watchlist_filter_contribution_quality_bad">Har højst sandsynligt problemer</string>
+  <string name="watchlist_filter_user_intent_header">Forudsigelser om brugerens hensigter</string>
+  <string name="watchlist_filter_user_intent_good">Højst sandsynligt gjort med gode hensigter</string>
+  <string name="watchlist_filter_user_intent_may_problems">Kan være gjort med dårlige hensigter</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Sandsynligt gjort med dårlige hensigter</string>
+  <string name="watchlist_filter_user_intent_bad">Meget sandsynligt gjort med dårlige hensigter</string>
+  <string name="watchlist_filter_user_status_header">Brugerregistrering og -erfaring</string>
+  <string name="watchlist_filter_user_status_unregistered">Uregistreret</string>
   <string name="watchlist_filter_user_status_registered">Registreret</string>
   <string name="watchlist_filter_user_status_newcomers">Nybegyndere</string>
   <string name="watchlist_filter_user_status_learners">Let øvede</string>
@@ -1446,7 +1458,12 @@
   <string name="patroller_tasks_filters_user_status_newcomers">Nybegyndere</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrerede brugere som har færre end 10 redigeringer eller 4 dages aktivitet.</string>
   <string name="patroller_tasks_filters_user_status_learners">Let øvede</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Seneste revisioner</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Seneste revision</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ikke den seneste revision</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Automatiserede bidrag</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Menneske (ikke bot)</string>
   <string name="patroller_tasks_filters_significance_header">Betydning</string>
   <string name="patroller_tasks_filters_significance_minor">Mindre ændringer</string>
   <string name="patroller_tasks_filters_significance_edits">Ikke-mindre ændringer</string>
