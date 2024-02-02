@@ -651,7 +651,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     private fun queueImageForAnnotation(page: PlacesFragmentViewModel.NearbyPage) {
         val url = page.pageTitle.thumbUrl
-        if (url.isNullOrEmpty()) {
+        if (!Prefs.isImageDownloadEnabled || url.isNullOrEmpty()) {
             return
         }
 
