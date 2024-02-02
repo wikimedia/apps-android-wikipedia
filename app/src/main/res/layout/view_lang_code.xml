@@ -19,6 +19,6 @@
         android:textAlignment="center"
         android:textColor="?attr/primary_color"
         android:textSize="10sp"
-        android:padding="1.5dp"
+        android:paddingHorizontal="2dp"
         tools:text="ZH-\nHANT" />
 </merge>
