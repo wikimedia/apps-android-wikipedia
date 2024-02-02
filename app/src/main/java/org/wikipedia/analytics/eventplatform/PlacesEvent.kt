@@ -5,7 +5,6 @@ import org.wikipedia.settings.Prefs
 
 class PlacesEvent {
     companion object {
-        private const val STREAM_NAME = "app_places_interaction"
 
         fun logImpression(activeInterface: String) {
             submitPlacesInteractionEvent("impression", activeInterface)
@@ -16,7 +15,6 @@ class PlacesEvent {
         }
 
         private fun submitPlacesInteractionEvent(action: String, activeInterface: String, actionData: String = "") {
-            AppInteractionEvent.STREAM_NAME = STREAM_NAME
             EventPlatformClient.submit(
                 AppInteractionEvent(
                     action,
@@ -24,7 +22,7 @@ class PlacesEvent {
                     actionData,
                     WikipediaApp.instance.languageState.appLanguageCode,
                     Prefs.placesWikiCode,
-                    "android"
+                    "app_places_interaction"
                 )
             )
         }
