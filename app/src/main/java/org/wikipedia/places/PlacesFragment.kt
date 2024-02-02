@@ -748,7 +748,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
-            holder.bindItem(nearbyPages[position])
+            holder.bindItem(nearbyPages[position], mapboxMap?.locationComponent?.lastKnownLocation)
         }
     }
 
@@ -756,21 +756,19 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener {
 
         private lateinit var page: PlacesFragmentViewModel.NearbyPage
-        private var currentLocation: Location?
 
         init {
             itemView.setOnClickListener(this)
             itemView.setOnLongClickListener(this)
-            currentLocation = mapboxMap?.locationComponent?.lastKnownLocation
             DeviceUtil.setContextClickAsLongClick(itemView)
         }
 
-        fun bindItem(page: PlacesFragmentViewModel.NearbyPage) {
+        fun bindItem(page: PlacesFragmentViewModel.NearbyPage, locationForDistance: Location?) {
             this.page = page
             binding.listItemTitle.text = StringUtil.fromHtml(page.pageTitle.displayText)
             binding.listItemDescription.text = StringUtil.fromHtml(page.pageTitle.description)
             binding.listItemDescription.isVisible = !page.pageTitle.description.isNullOrEmpty()
-            currentLocation?.let {
+            locationForDistance?.let {
                 binding.listItemDistance.text = GeoUtil.getDistanceWithUnit(it, page.location, Locale.getDefault())
             }
             page.pageTitle.thumbUrl?.let {
