@@ -276,7 +276,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             val paperColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.paper_color)
             val backgroundColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.background_color)
             if (mapViewChecked) {
-                PlacesEvent.logAction("map_segment_click", "list_view")
                 binding.mapViewButton.setTextColor(progressColor)
                 binding.mapViewButton.backgroundTintList = additionColor
                 binding.mapViewButton.strokeColor = paperColor
@@ -284,7 +283,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 binding.listViewButton.backgroundTintList = paperColor
                 binding.listViewButton.strokeColor = paperColor
             } else {
-                PlacesEvent.logAction("list_segment_click", "map_view")
                 binding.mapViewButton.setTextColor(placeholderColor)
                 binding.mapViewButton.backgroundTintList = backgroundColor
                 binding.mapViewButton.strokeColor = backgroundColor
@@ -408,6 +406,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private fun updateToggleViews(isMapVisible: Boolean) {
+        if ((binding.listRecyclerView.isVisible || binding.listEmptyContainer.isVisible) && isMapVisible) {
+            PlacesEvent.logAction("map_view_click", "map_view")
+        }
+        if (binding.mapView.isVisible && !isMapVisible) {
+            PlacesEvent.logAction("list_view_click", "list_view")
+        }
         val tintColor = ResourceUtil.getThemedColorStateList(requireContext(), if (isMapVisible) R.attr.paper_color else R.attr.background_color)
         binding.mapView.isVisible = isMapVisible
         binding.listRecyclerView.isVisible = !isMapVisible && (binding.listRecyclerView.adapter?.itemCount ?: 0) > 0

@@ -84,7 +84,6 @@ class SearchResultsFragment : Fragment() {
                 }
             }
         }
-        PlacesEvent.logAction("search_results_impression", "search_view")
         return binding.root
     }
 
