@@ -1166,7 +1166,6 @@
   <string name="revision_diff_from">لە:</string>
   <string name="revision_diff_to">بۆ:</string>
   <string name="revision_diff_line_num">دێڕی %d</string>
-  <string name="revision_diff_line_nums">دێڕی %d-%d</string>
   <string name="revision_diff_lines_from_to">دێڕەکانی %1$d–%2$d</string>
   <string name="revision_diff_line_added">دێڕ زیاد کرا</string>
   <string name="revision_diff_line_removed">دێڕ سڕدرایەوە</string>

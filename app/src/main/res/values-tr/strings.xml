@@ -435,6 +435,10 @@
   <string name="multi_select_items_selected">%d seçildi</string>
   <string name="error_message_generic">Bir hata oluştu</string>
   <string name="view_link_preview_error_button_dismiss">Reddet</string>
+  <string name="link_preview_dialog_read_button">Oku</string>
+  <string name="link_preview_dialog_save_button">Sakla</string>
+  <string name="link_preview_dialog_saved_button">Saklandı</string>
+  <string name="link_preview_dialog_share_button">Paylaş</string>
   <string name="error_page_does_not_exist">Bu sayfa mevcut değil</string>
   <string name="error_user_page_does_not_exist">Vikipedi\'de bu isimde bir &lt;a href=\"%1$s\"&gt;kullanıcı sayfası&lt;/a&gt; yok. Genellikle, bu sayfa &lt;b&gt;%2$s&lt;/b&gt; tarafından oluşturulup düzenlenmelidir. Kuşku duyarsanız, \"%3$s\" sayfasının var olduğundan emin olun.</string>
   <string name="view_wiki_error_message_offline">İnternete bağlanılamıyor.</string>
@@ -1356,7 +1360,6 @@
   <string name="revision_diff_from">Gönderen:</string>
   <string name="revision_diff_to">Alıcı:</string>
   <string name="revision_diff_line_num">Satır %d</string>
-  <string name="revision_diff_line_nums">Satırlar %d-%d</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d satırları</string>
   <string name="revision_diff_line_added">Satır eklendi</string>
   <string name="revision_diff_line_removed">Satır kaldırıldı</string>
@@ -1468,6 +1471,8 @@
   <string name="media_playback_error">Ortam oynatılırken hata oluştu.</string>
   <string name="user_contrib_menu_label">Katkılar</string>
   <string name="user_contrib_filter_activity_title">Katkıları filtrele</string>
+  <string name="action_item_view_on_map">Haritada görüntüle</string>
+  <string name="action_item_view_on_map_unavailable">Bu sayfa için coğrafi koordinatlar yok</string>
   <string name="shareable_reading_lists_import_dialog_title">Paylaşılan okuma listesini içe aktar</string>
   <string name="shareable_reading_lists_import_dialog_content">Sizinle paylaşılan listeyi nasıl adlandırmak istersiniz?</string>
   <string name="shareable_reading_lists_new_indicator">*yeni*</string>
@@ -1611,4 +1616,18 @@
   <string name="donation_campaign_donated_snackbar">Teşekkürler sevgili bağışçı! Cömertliğiniz Vikipedi\'nin ve kardeş sitelerinin gelişmesine yardımcı oluyor.</string>
   <string name="donation_campaign_go_back_button">Geri dön</string>
   <string name="menu_single_webview_open_external">Sistem tarayıcısında aç</string>
+  <string name="places_title">Yerler</string>
+  <string name="places_permissions_denied">Haritadaki yerinizi görmek için konum izni gereklidir. Lütfen tekrar deneyin.</string>
+  <string name="places_search_hint">Yerleri ara</string>
+  <string name="places_filter_title">Dile göre filtrele</string>
+  <string name="places_toggle_buttons_map">Harita</string>
+  <string name="places_toggle_buttons_list">Liste</string>
+  <string name="places_nav_tab_tooltip_message">Yerler ile çevrenizdeki Vikipedi maddelerini keşfedin</string>
+  <string name="places_article_menu_tooltip_message">Bu maddenin konumunu ortaya çıkarmak için &lt;b&gt;\'Haritada gör\'&lt;/b&gt;e dokunun</string>
+  <string name="places_survey_very_satisfied_option">Çok mutlu</string>
+  <string name="places_survey_very_unsatisfied_option">Çok mutsuz</string>
+  <string name="places_survey_dialog_title">\"Yerler\"i iyileştirmeye yardımcı olun</string>
+  <string name="places_survey_feedback_dialog_title">\"Yerler\" nasıl geliştirilebilir?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Neyi değiştirmemizi ya da geliştirmemizi istersiniz?</string>
+  <string name="places_empty_list">Bu alan boş. &lt;a href=\"#\"&gt;Haritayı&lt;/a&gt; uzaklaştırın.</string>
 </resources>

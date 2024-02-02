@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tabsCountText"
+        android:id="@+id/langCodeText"
         android:layout_width="21dp"
         android:layout_height="20dp"
         android:layout_gravity="center"
@@ -20,5 +20,5 @@
         android:textColor="?attr/primary_color"
         android:textSize="10sp"
         android:paddingHorizontal="2dp"
-        tools:text="3" />
+        tools:text="ZH-\nHANT" />
 </merge>

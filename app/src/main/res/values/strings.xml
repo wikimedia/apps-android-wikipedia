@@ -215,9 +215,6 @@
     <string name="preference_summary_sync_reading_lists_from_account">Sync reading lists across different devices by saving them to your Wikipedia account \"%s\"</string>
     <string name="preference_dialog_of_turning_off_reading_list_sync_title">Remove synced reading lists from \"%s\"?</string>
     <string name="preference_dialog_of_turning_off_reading_list_sync_text">This will completely delete all previously synced reading lists from remote storage. Remove all synced lists from your account \"%s\"?</string>
-    <string name="preferences_privacy_settings_heading">Privacy</string>
-    <string name="preference_title_eventlogging_opt_in">Send usage reports</string>
-    <string name="preference_summary_eventlogging_opt_in">Allow Wikimedia to collect information about how you use the app to make the app better</string>
     <string name="preference_title_auto_upload_crash_reports">Send crash reports</string>
     <string name="preference_summary_auto_upload_crash_reports">Allow the app to send crash reports to a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
     <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
@@ -400,6 +397,10 @@
     <string name="multi_select_items_selected">%d selected</string>
     <string name="error_message_generic">An error occurred</string>
     <string name="view_link_preview_error_button_dismiss">Dismiss</string>
+    <string name="link_preview_dialog_read_button">Read</string>
+    <string name="link_preview_dialog_save_button">Save</string>
+    <string name="link_preview_dialog_saved_button">Saved</string>
+    <string name="link_preview_dialog_share_button">Share</string>
     <string name="error_page_does_not_exist">This page does not exist</string>
     <string name="error_user_page_does_not_exist"><![CDATA[Wikipedia does not have a <a href="%1$s">user page</a> with this exact name. In general, this page should be created and edited by <b>%2$s</b>. If in doubt, please verify that \"%3$s\" exists.]]></string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
@@ -1187,8 +1188,8 @@
     <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
     <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
     <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
-    <string name="onboarding_analytics_title">Send anonymous data</string>
-    <string name="onboarding_analytics_offline_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#privacy">Learn more</a>]]></string>
+    <string name="onboarding_data_privacy_title">Data &amp; Privacy</string>
+    <string name="onboarding_data_privacy_text"><![CDATA[We believe that you should not have to provide personal information to participate in the free knowledge movement. Usage data collected for this app is anonymous. Learn more about our <a href="#privacy">privacy policy</a> and <a href="#termsOfUse">terms of use</a>.]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
     <string name="onboarding_got_it">Got it</string>
     <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>
@@ -1419,7 +1420,6 @@
     <string name="revision_diff_from">From:</string>
     <string name="revision_diff_to">To:</string>
     <string name="revision_diff_line_num">Line %d</string>
-    <string name="revision_diff_line_nums">Lines %d–%d</string>
     <string name="revision_diff_lines_from_to">Lines %1$d–%2$d</string>
     <string name="revision_diff_line_added">Line added</string>
     <string name="revision_diff_line_removed">Line removed</string>
@@ -1538,6 +1538,8 @@
     <string name="media_playback_error">Error playing media.</string>
     <string name="user_contrib_menu_label">Contributions</string>
     <string name="user_contrib_filter_activity_title">Filter contributions</string>
+    <string name="action_item_view_on_map">View on map</string>
+    <string name="action_item_view_on_map_unavailable">Geographical coordinates are not available for this page</string>
 
     <!-- Shareable reading lists -->
     <string name="shareable_reading_lists_import_dialog_title">Import shared reading list</string>
@@ -1692,4 +1694,21 @@
     <string name="donation_campaign_go_back_button">Go back</string>
     <string name="menu_single_webview_open_external">Open in system browser</string>
     <!-- Donor experience -->
+
+    <!-- Places -->
+    <string name="places_title">Places</string>
+    <string name="places_permissions_denied">Location permission is required to see your location on the map. Please try again.</string>
+    <string name="places_search_hint">Search places</string>
+    <string name="places_filter_title">Filter language</string>
+    <string name="places_toggle_buttons_map">Map</string>
+    <string name="places_toggle_buttons_list">List</string>
+    <string name="places_nav_tab_tooltip_message">Discover Wikipedia articles around you with Places</string>
+    <string name="places_article_menu_tooltip_message"><![CDATA[Tap <b>\'View on map\'</b> to explore this article\'s location]]></string>
+    <string name="places_survey_very_satisfied_option">Very satisfied</string>
+    <string name="places_survey_very_unsatisfied_option">Very unsatisfied</string>
+    <string name="places_survey_dialog_title">Help improve \"Places\"</string>
+    <string name="places_survey_feedback_dialog_title">How can \"Places\" be improved?</string>
+    <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
+    <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
+    <!-- /Places -->
 </resources>

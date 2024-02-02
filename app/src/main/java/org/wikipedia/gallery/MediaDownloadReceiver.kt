@@ -140,7 +140,7 @@ class MediaDownloadReceiver : BroadcastReceiver() {
         private const val FILE_NAMESPACE = "File:"
 
         private fun trimFileNamespace(filename: String): String {
-            return if (filename.startsWith(FILE_NAMESPACE)) filename.substring(FILE_NAMESPACE.length) else filename
+            return filename.substringAfter(FILE_NAMESPACE)
         }
     }
 }

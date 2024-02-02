@@ -1125,7 +1125,6 @@
   <string name="revision_diff_from">Nuo:</string>
   <string name="revision_diff_to">Kam:</string>
   <string name="revision_diff_line_num">%d eilutė</string>
-  <string name="revision_diff_line_nums">Eilutės %d–%d</string>
   <string name="revision_diff_lines_from_to">Eilutės %1$d–%2$d</string>
   <string name="revision_diff_line_added">Eilutė pridėta</string>
   <string name="revision_diff_line_removed">Eilutė pašalinta</string>

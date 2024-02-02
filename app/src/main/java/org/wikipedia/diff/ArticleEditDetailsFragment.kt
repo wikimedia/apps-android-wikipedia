@@ -26,6 +26,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
@@ -76,6 +77,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     private val binding get() = _binding!!
     private val viewModel: ArticleEditDetailsViewModel by viewModels { ArticleEditDetailsViewModel.Factory(requireArguments()) }
     private var editHistoryInteractionEvent: EditHistoryInteractionEvent? = null
+
+    private val actionBarOffsetChangedListener =
+        AppBarLayout.OnOffsetChangedListener { _, verticalOffset ->
+            val bounds = Rect()
+            binding.collapsingToolbarLayout.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
+            binding.overlayRevisionDetailsView.isVisible = -verticalOffset > bounds.top
+        }
 
     private val requestWarn = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || it.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
@@ -252,14 +260,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
 
         L10nUtil.setConditionalLayoutDirection(requireView(), viewModel.pageTitle.wikiSite.languageCode)
 
-        binding.appBarLayout.addOnOffsetChangedListener { _, verticalOffset ->
-            val bounds = Rect()
-            binding.collapsingToolbarLayout.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
-            binding.overlayRevisionDetailsView.isVisible = -verticalOffset > bounds.top
-        }
+        binding.appBarLayout.addOnOffsetChangedListener(actionBarOffsetChangedListener)
     }
 
     override fun onDestroyView() {
+        binding.appBarLayout.removeOnOffsetChangedListener(actionBarOffsetChangedListener)
         binding.root.removeCallbacks(sequentialTooltipRunnable)
         _binding = null
         super.onDestroyView()
@@ -273,7 +278,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 startActivity(FilePageActivity.newIntent(requireContext(), viewModel.pageTitle))
             } else {
                 ExclusiveBottomSheetPresenter.show(childFragmentManager, LinkPreviewDialog.newInstance(
-                        HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS), null))
+                        HistoryEntry(viewModel.pageTitle, HistoryEntry.SOURCE_EDIT_DIFF_DETAILS)))
             }
         }
         binding.newerIdButton.setOnClickListener {

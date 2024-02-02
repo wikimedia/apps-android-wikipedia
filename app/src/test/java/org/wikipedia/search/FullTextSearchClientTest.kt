@@ -91,7 +91,7 @@ class FullTextSearchClientTest : MockRetrofitTest() {
     }
 
     private suspend fun fullTextSearch(): MwQueryResponse {
-        return apiService.fullTextSearch("foo", null, BATCH_SIZE, null)
+        return apiService.fullTextSearch("foo", BATCH_SIZE, null)
     }
 
     companion object {

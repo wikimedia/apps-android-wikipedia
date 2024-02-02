@@ -3,7 +3,6 @@
     <string name="preference_key_language">content_language</string>
     <string name="preference_key_cookie_map">cookie_map</string>
     <string name="preference_key_remote_config">remote_config</string>
-    <string name="preference_key_eventlogging_opt_in">eventlogging_opt_in</string>
     <string name="preference_key_reading_app_install_id">readingAppInstallID</string>
     <string name="preference_key_text_size_multiplier">textSizeMultiplier</string>
     <string name="preference_key_editing_text_size_multiplier">editingTextSizeMultiplier</string>
