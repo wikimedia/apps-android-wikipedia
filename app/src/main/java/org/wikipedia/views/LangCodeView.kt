@@ -42,7 +42,7 @@ class LangCodeView(context: Context, attrs: AttributeSet? = null) : FrameLayout(
 
     fun setLangCode(langCode: String) {
         binding.langCodeText.text = LanguageUtil.formatLangCodeForButton(langCode.uppercase())
-        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(binding.langCodeText, 1, 12, 1, TypedValue.COMPLEX_UNIT_SP)
+        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(binding.langCodeText, 1, 10, 1, TypedValue.COMPLEX_UNIT_SP)
     }
 
     fun setTextColor(@ColorInt textColor: Int) {
