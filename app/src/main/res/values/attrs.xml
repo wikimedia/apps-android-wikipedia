@@ -51,7 +51,6 @@
         <attr name="primaryText" format="string" />
         <attr name="secondaryText" format="string" />
         <attr name="tertiaryText" format="string" />
-        <attr name="acceptRejectButtons" format="boolean" />
         <attr name="imageSize" format="dimension" />
         <attr name="background" format="reference" />
         <attr name="showListView" format="boolean" />

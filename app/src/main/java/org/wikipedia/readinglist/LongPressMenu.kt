@@ -89,7 +89,7 @@ class LongPressMenu(
                     saveItem.isVisible = it.isEmpty()
                     saveItem.isEnabled = it.isEmpty()
                 }
-                menu.menu.findItem(R.id.menu_long_press_get_directions).isVisible = location != null
+                menu.menu.findItem(R.id.menu_long_press_get_directions)?.isVisible = location != null
                 menu.show()
             }
         }
