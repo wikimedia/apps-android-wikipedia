@@ -2,6 +2,7 @@
 <!-- Authors:
 * ASHmed
 * Aboulouei1
+* Ahmed Alyamoor
 * Alaa
 * Alshamiri1
 * Amire80
@@ -1423,4 +1424,6 @@
   <string name="places_survey_very_unsatisfied_option">غير راض جدا</string>
   <string name="places_survey_dialog_title">المساعدة في تحسين \"الأماكن\"</string>
   <string name="places_survey_feedback_dialog_title">كيف يمكن تحسين \"المناطق\"</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">ما الذي تود منا تغييره أو تحسينه؟</string>
+  <string name="places_empty_list">هذه المنطقة فارغة. قم بتكبير &lt;a href\n=\"#\"&gt; الخريطة.</string>
 </resources>

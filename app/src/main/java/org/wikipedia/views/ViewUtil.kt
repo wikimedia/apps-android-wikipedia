@@ -6,7 +6,11 @@ import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.view.*
+import android.view.ActionMode
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.graphics.contains
@@ -64,16 +68,6 @@ object ViewUtil {
         val binding = ViewActionModeCloseButtonBinding.inflate(LayoutInflater.from(context))
         actionMode.customView = binding.root
         binding.closeButton.setOnClickListener { actionMode.finish() }
-    }
-
-    fun formatLangButton(langButton: TextView, langCode: String,
-                         langButtonTextSizeSmaller: Int, langButtonTextSizeLarger: Int) {
-        val langCodeStandardLength = 3
-        if (langCode.length > langCodeStandardLength) {
-            langButton.textSize = langButtonTextSizeSmaller.toFloat()
-            return
-        }
-        langButton.textSize = langButtonTextSizeLarger.toFloat()
     }
 
     fun adjustImagePlaceholderHeight(containerWidth: Float, thumbWidth: Float, thumbHeight: Float): Int {

@@ -215,9 +215,6 @@
     <string name="preference_summary_sync_reading_lists_from_account">Sync reading lists across different devices by saving them to your Wikipedia account \"%s\"</string>
     <string name="preference_dialog_of_turning_off_reading_list_sync_title">Remove synced reading lists from \"%s\"?</string>
     <string name="preference_dialog_of_turning_off_reading_list_sync_text">This will completely delete all previously synced reading lists from remote storage. Remove all synced lists from your account \"%s\"?</string>
-    <string name="preferences_privacy_settings_heading">Privacy</string>
-    <string name="preference_title_eventlogging_opt_in">Send usage reports</string>
-    <string name="preference_summary_eventlogging_opt_in">Allow Wikimedia to collect information about how you use the app to make the app better</string>
     <string name="preference_title_auto_upload_crash_reports">Send crash reports</string>
     <string name="preference_summary_auto_upload_crash_reports">Allow the app to send crash reports to a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
     <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
@@ -1171,8 +1168,8 @@
     <string name="onboarding_explore_text"><![CDATA[Dive down the Wikipedia rabbit hole with a constantly updating Explore feed. <br/> <b>Customize</b> the feed to your interests – whether it’s learning about historical events <b>On this day</b>, or rolling the dice with <b>Random</b>.]]></string>
     <string name="onboarding_reading_list_sync_title">Reading lists with sync</string>
     <string name="onboarding_reading_list_sync_text_v2"><![CDATA[You can make reading lists from articles you want to read later, even when you’re offline. <br/>Login to your Wikipedia account to sync your reading lists. <a href="#login">Join Wikipedia</a>]]></string>
-    <string name="onboarding_analytics_title">Send anonymous data</string>
-    <string name="onboarding_analytics_offline_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#privacy">Learn more</a>]]></string>
+    <string name="onboarding_data_privacy_title">Data &amp; Privacy</string>
+    <string name="onboarding_data_privacy_text"><![CDATA[We believe that you should not have to provide personal information to participate in the free knowledge movement. Usage data collected for this app is anonymous. Learn more about our <a href="#privacy">privacy policy</a> and <a href="#termsOfUse">terms of use</a>.]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
     <string name="onboarding_got_it">Got it</string>
     <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>
@@ -1691,5 +1688,7 @@
     <string name="places_survey_very_unsatisfied_option">Very unsatisfied</string>
     <string name="places_survey_dialog_title">Help improve \"Places\"</string>
     <string name="places_survey_feedback_dialog_title">How can \"Places\" be improved?</string>
+    <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
+    <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
     <!-- /Places -->
 </resources>

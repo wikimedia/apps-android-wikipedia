@@ -10,6 +10,7 @@
 * CKali
 * Cigaryno
 * Crochet.david
+* Daniel236
 * Dbrant
 * DePlusJean
 * Derugon
@@ -1622,4 +1623,6 @@
   <string name="donation_campaign_donated_snackbar">Merci, cher donateur ! Votre générosité permet à Wikipédia et à ses sites frères de continuer à prospérer.</string>
   <string name="donation_campaign_go_back_button">Retour</string>
   <string name="menu_single_webview_open_external">Ouvrir dans le navigateur système</string>
+  <string name="places_toggle_buttons_list">Liste</string>
+  <string name="places_empty_list">Cette zone est vide. Effectuez un zoom arrière &lt;a href=\"#\"&gt;sur la carte&lt;/a&gt;.</string>
 </resources>
