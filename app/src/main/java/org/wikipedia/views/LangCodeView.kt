@@ -10,6 +10,7 @@ import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import androidx.core.content.res.use
 import androidx.core.view.ViewCompat
+import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewLangCodeBinding
 import org.wikipedia.language.LanguageUtil
@@ -41,12 +42,7 @@ class LangCodeView(context: Context, attrs: AttributeSet? = null) : FrameLayout(
 
     fun setLangCode(langCode: String) {
         binding.langCodeText.text = LanguageUtil.formatLangCodeForButton(langCode.uppercase())
-        val textSize = when (langCode.length) {
-            in 1..2 -> 12f
-            in 3..8 -> 7f
-            else -> 5f
-        }
-        binding.langCodeText.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize)
+        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(binding.langCodeText, 1, 12, 1, TypedValue.COMPLEX_UNIT_SP)
     }
 
     fun setTextColor(@ColorInt textColor: Int) {

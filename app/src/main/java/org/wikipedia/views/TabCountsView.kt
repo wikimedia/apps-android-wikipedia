@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
+import androidx.core.widget.TextViewCompat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewTabsCountBinding
@@ -26,8 +27,8 @@ class TabCountsView(context: Context, attrs: AttributeSet? = null) : FrameLayout
     fun updateTabCount(animation: Boolean) {
         val count = WikipediaApp.instance.tabCount
         binding.tabsCountText.text = count.toString()
-        val tabTextSize = if (count > 99) 7f else 12f
-        binding.tabsCountText.setTextSize(TypedValue.COMPLEX_UNIT_SP, tabTextSize)
+        TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(binding.tabsCountText, 7, 12, 1, TypedValue.COMPLEX_UNIT_SP)
+
         if (animation) {
             startAnimation(AnimationUtils.loadAnimation(context, R.anim.tab_list_zoom_enter))
         }
