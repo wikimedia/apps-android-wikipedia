@@ -761,7 +761,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         init {
             itemView.setOnClickListener(this)
             itemView.setOnLongClickListener(this)
-            currentLocation = lastLocation ?: Prefs.placesLastLocationAndZoomLevel?.first
+            currentLocation = mapboxMap?.locationComponent?.lastKnownLocation
             DeviceUtil.setContextClickAsLongClick(itemView)
         }
 
