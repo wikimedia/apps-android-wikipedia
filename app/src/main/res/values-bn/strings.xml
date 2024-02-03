@@ -1175,4 +1175,23 @@
   <string name="donation_campaign_go_back_button">ফিরে যান</string>
   <string name="menu_single_webview_open_external">সিস্টেম ব্রাউজারে খুলুন</string>
   <string name="places_toggle_buttons_map">মানচিত্র</string>
+  <string name="places_title">স্থানগুলি</string>
+  <string name="places_article_menu_tooltip_message">এই নিবন্ধটির অবস্থান অন্বেষণ করতে\'মানচিত্রে দেখুন\' আলতো চাপুন।</string>
+  <string name="action_item_view_on_map">মানচিত্রে দেখুন</string>
+  <string name="places_toggle_buttons_list">তালিকা</string>
+  <string name="link_preview_dialog_save_button">সংরক্ষণ</string>
+  <string name="link_preview_dialog_share_button">শেয়ার করুন</string>
+  <string name="places_search_hint">স্থানগুলি অনুসন্ধান করুন</string>
+  <string name="places_filter_title">ভাষা ফিল্টার করুন</string>
+  <string name="places_empty_list">এই এলাকাটি ফাঁকা। মানচিত্রে জুমআউট করুন।</string>
+  <string name="places_survey_dialog_title">\'স্থানগুলি\' উন্নত করতে সাহায্য করুন</string>
+  <string name="places_survey_very_satisfied_option">খুবই সন্তুষ্ট</string>
+  <string name="patroller_diff_feedback_dialog_message">আপনি এই বৈশিষ্ট্যের সঙ্গে সন্তুষ্ট?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">সন্তুষ্ট</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">নিরপেক্ষ</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">অসন্তুষ্ট</string>
+  <string name="places_survey_very_unsatisfied_option">খুবই অসন্তুষ্ট</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">প্রতিক্রিয়া</string>
+  <string name="patroller_diff_feedback_dialog_submit">জমা দিন</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">প্রতিক্রিয়া জমা দেওয়া হয়েছে। ধন্যবাদ!</string>
 </resources>
