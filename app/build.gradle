@@ -224,6 +224,9 @@ dependencies {
     implementation 'com.github.skydoves:balloon:1.6.4'
     implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
 
+    implementation 'org.maplibre.gl:android-sdk:10.2.0'
+    implementation 'org.maplibre.gl:android-plugin-annotation-v9:2.0.2'
+
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor "androidx.room:room-compiler:$roomVersion"
     ksp "androidx.room:room-compiler:$roomVersion"

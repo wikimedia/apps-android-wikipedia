@@ -1,5 +1,6 @@
 package org.wikipedia.search
 
+import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,10 +18,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.databinding.ItemSearchNoResultsBinding
 import org.wikipedia.databinding.ItemSearchResultBinding
@@ -39,7 +42,7 @@ class SearchResultsFragment : Fragment() {
         fun onSearchAddPageToList(entry: HistoryEntry, addToDefault: Boolean)
         fun onSearchMovePageToList(sourceReadingListId: Long, entry: HistoryEntry)
         fun onSearchProgressBar(enabled: Boolean)
-        fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int)
+        fun navigateToTitle(item: PageTitle, inNewTab: Boolean, position: Int, location: Location? = null)
         fun setSearchText(text: CharSequence)
     }
 
@@ -81,7 +84,6 @@ class SearchResultsFragment : Fragment() {
                 }
             }
         }
-
         return binding.root
     }
 
@@ -187,6 +189,9 @@ class SearchResultsFragment : Fragment() {
         private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.progressive_color)
         private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.secondary_color)
         fun bindItem(position: Int, resultsCount: Int) {
+            if (resultsCount == 0 && viewModel.invokeSource == Constants.InvokeSource.PLACES) {
+                PlacesEvent.logAction("no_results_impression", "search_view")
+            }
             val langCode = WikipediaApp.instance.languageState.appLanguageCodes[position]
             itemBinding.resultsText.text = if (resultsCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount)
             itemBinding.resultsText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)
@@ -231,7 +236,7 @@ class SearchResultsFragment : Fragment() {
 
             view.isLongClickable = true
             view.setOnClickListener {
-                callback()?.navigateToTitle(searchResult.pageTitle, false, position)
+                callback()?.navigateToTitle(searchResult.pageTitle, false, position, searchResult.location)
             }
             view.setOnCreateContextMenuListener(LongPressHandler(view,
                     HistoryEntry.SOURCE_SEARCH, SearchResultsFragmentLongPressHandler(position), pageTitle))
@@ -240,6 +245,10 @@ class SearchResultsFragment : Fragment() {
 
     private fun callback(): Callback? {
         return getCallback(this, Callback::class.java)
+    }
+
+    fun setInvokeSource(invokeSource: Constants.InvokeSource) {
+        viewModel.invokeSource = invokeSource
     }
 
     private val searchLanguageCode get() =
