@@ -508,6 +508,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         binding.mapView.onResume()
         updateSearchCardViews()
         updateToggleViews(lastCheckedId == R.id.mapViewButton)
+        ExclusiveBottomSheetPresenter.dismiss(childFragmentManager)
     }
 
     override fun onStop() {
