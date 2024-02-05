@@ -151,7 +151,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     private val filterLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == RESULT_OK) {
-              val languageChanged = it.data?.getBooleanExtra(PlacesFilterActivity.EXTRA_LANG_CHANGED, false)!!
+            val languageChanged = it.data?.getBooleanExtra(PlacesFilterActivity.EXTRA_LANG_CHANGED, false) ?: false
             if (languageChanged) {
                 annotationCache.clear()
                 viewModel.highlightedPageTitle = null
@@ -159,7 +159,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
                     lastLocation?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
                 goToLocation(lastLocation, lastZoom)
-              }
+            }
         }
     }
 
@@ -223,7 +223,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
         binding.searchTextView.setOnClickListener {
             val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES,
-                StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.prefixedText).ifEmpty { null }, true)
+                viewModel.highlightedPageTitle?.displayText, true)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
                     binding.searchContainer.getChildAt(0), getString(R.string.transition_search_bar))
             placesSearchLauncher.launch(intent, options)
@@ -585,9 +585,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                         .withTextFont(MARKER_FONT_STACK)
                         .withIconImage(MARKER_DRAWABLE)
                 )
-                if (StringUtil.removeUnderscores(viewModel.highlightedPageTitle?.text.orEmpty()) ==
-                    StringUtil.removeUnderscores(it.pageTitle.text)
-                ) {
+                if (viewModel.highlightedPageTitle?.prefixedText.orEmpty() == it.pageTitle.prefixedText) {
                     setMagnifiedSymbol(it.annotation)
                 }
                 annotationCache.addFirst(it)
