@@ -18,6 +18,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.EditHistoryInteractionEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.HistoryEntry
@@ -71,7 +72,7 @@ object UserTalkPopupHelper {
             helper.show()
         } else {
             ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
-                    LinkPreviewDialog.newInstance(HistoryEntry(title, historySource), null))
+                    LinkPreviewDialog.newInstance(HistoryEntry(title, historySource)))
         }
     }
 
@@ -152,7 +153,7 @@ object UserTalkPopupHelper {
         builder.findItem(R.id.menu_user_profile_page).isVisible = !anon
         builder.findItem(R.id.menu_user_contributions_page).isVisible = showContribs
         builder.findItem(R.id.menu_user_information).isVisible = showUserInfo && !anon
-        builder.findItem(R.id.menu_user_thank).isVisible = revisionId != null && !anon
+        builder.findItem(R.id.menu_user_thank).isVisible = revisionId != null && !anon && AccountUtil.isLoggedIn
         val helper = MenuPopupHelper(activity, builder, anchorView)
         helper.setForceShowIcon(true)
         return helper

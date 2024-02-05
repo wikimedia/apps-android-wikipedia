@@ -4,7 +4,6 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import org.wikipedia.R
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
 
 @Suppress("unused")
 enum class PageActionItem constructor(val id: Int,
@@ -105,18 +104,8 @@ enum class PageActionItem constructor(val id: Int,
     }
 
     companion object {
-        val MAP = EnumCodeMap(PageActionItem::class.java)
-
-        fun size(): Int {
-            return MAP.size()
-        }
-
-        private fun findOrNull(id: Int): PageActionItem? {
-            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id == it.viewId }
-        }
-
         fun find(id: Int): PageActionItem {
-            return findOrNull(id = id) ?: MAP[0]
+            return entries.find { id == it.id || id == it.viewId } ?: entries[0]
         }
 
         @DrawableRes

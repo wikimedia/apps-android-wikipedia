@@ -160,9 +160,6 @@ object EventPlatformClient {
          * can contain events of different streams
          */
         private fun send() {
-            if (!Prefs.isEventLoggingEnabled) {
-                return
-            }
             QUEUE.groupBy { it.stream }.forEach { (stream, events) ->
                 sendEventsForStream(STREAM_CONFIGS[stream]!!, events)
             }

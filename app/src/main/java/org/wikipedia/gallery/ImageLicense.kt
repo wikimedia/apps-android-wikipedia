@@ -4,21 +4,22 @@ import androidx.annotation.DrawableRes
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.R
-import java.util.*
 
 @Serializable
-class ImageLicense @JvmOverloads constructor(@SerialName("type") var licenseName: String = "",
-                                             @SerialName("code") var licenseShortName: String = "",
-                                             @SerialName("url") var licenseUrl: String = "") {
+class ImageLicense(
+    @SerialName("type") var licenseName: String = "",
+    @SerialName("code") var licenseShortName: String = "",
+    @SerialName("url") var licenseUrl: String = ""
+) {
 
     constructor(metadata: ExtMetadata) : this(metadata.license(), metadata.licenseShortName(), metadata.licenseUrl())
 
     private val isLicenseCC: Boolean
-        get() = (licenseName.lowercase(Locale.ENGLISH).startsWith(CREATIVE_COMMONS_PREFIX) || licenseShortName.lowercase(Locale.ENGLISH).startsWith(CREATIVE_COMMONS_PREFIX))
+        get() = (licenseName.startsWith(CREATIVE_COMMONS_PREFIX, true) || licenseShortName.startsWith(CREATIVE_COMMONS_PREFIX, true))
     private val isLicensePD: Boolean
-        get() = (licenseName.lowercase(Locale.ENGLISH).startsWith(PUBLIC_DOMAIN_PREFIX) || licenseShortName.lowercase(Locale.ENGLISH).startsWith(PUBLIC_DOMAIN_PREFIX))
+        get() = (licenseName.startsWith(PUBLIC_DOMAIN_PREFIX, true) || licenseShortName.startsWith(PUBLIC_DOMAIN_PREFIX, true))
     private val isLicenseCCBySa: Boolean
-        get() = (licenseName.lowercase(Locale.ENGLISH).replace("-", "").startsWith(CC_BY_SA) || licenseShortName.lowercase(Locale.ENGLISH).replace("-", "").startsWith(CC_BY_SA))
+        get() = (licenseName.replace("-", "").startsWith(CC_BY_SA, true) || licenseShortName.replace("-", "").startsWith(CC_BY_SA, true))
 
     @get:DrawableRes
     val licenseIcon: Int

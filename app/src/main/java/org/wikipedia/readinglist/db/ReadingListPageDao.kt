@@ -14,7 +14,6 @@ import org.wikipedia.savedpages.SavedPageSyncService
 import org.wikipedia.search.SearchResult
 import org.wikipedia.search.SearchResults
 import org.wikipedia.util.StringUtil
-import java.util.*
 
 @Dao
 interface ReadingListPageDao {
@@ -139,7 +138,7 @@ interface ReadingListPageDao {
     }
 
     fun findPageForSearchQueryInAnyList(searchQuery: String): SearchResults {
-        var normalizedQuery = StringUtils.stripAccents(searchQuery).lowercase(Locale.getDefault())
+        var normalizedQuery = StringUtils.stripAccents(searchQuery)
         if (normalizedQuery.isEmpty()) {
             return SearchResults()
         }
@@ -147,7 +146,7 @@ interface ReadingListPageDao {
             .replace("%", "\\%").replace("_", "\\_")
 
         val pages = findPageBySearchTerm("%$normalizedQuery%")
-                .filter { StringUtil.fromHtml(it.accentAndCaseInvariantTitle()).contains(normalizedQuery) }
+                .filter { StringUtil.fromHtml(it.accentInvariantTitle).contains(normalizedQuery, true) }
 
         return if (pages.isEmpty()) SearchResults()
         else SearchResults(pages.take(2).map {

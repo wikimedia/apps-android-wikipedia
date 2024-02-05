@@ -59,6 +59,7 @@
 * 春春眠眠
 * 神樂坂秀吉
 * 組曲師
+* 翻訳者a
 -->
 <resources>
   <string name="app_name_prod">ウィキペディア</string>
@@ -443,6 +444,10 @@
   <string name="multi_select_items_selected">%d件選択</string>
   <string name="error_message_generic">エラーが発生しました</string>
   <string name="view_link_preview_error_button_dismiss">閉じる</string>
+  <string name="link_preview_dialog_read_button">読む</string>
+  <string name="link_preview_dialog_save_button">保存</string>
+  <string name="link_preview_dialog_saved_button">保存済み</string>
+  <string name="link_preview_dialog_share_button">共有</string>
   <string name="error_page_does_not_exist">このページは存在しません</string>
   <string name="error_user_page_does_not_exist">ウィキペディアには正確にこの名前に一致する&lt;a href=\"%1$s\"&gt;利用者ページ&lt;/a&gt;がありません。一般的には、このページは&lt;b&gt;%2$s&lt;/b&gt;によって作成され編集されるべきです。疑問があるならば、「%3$s」が存在することを確かめてください。</string>
   <string name="view_wiki_error_message_offline">インターネットに接続できません</string>
@@ -1354,7 +1359,6 @@
   <string name="revision_diff_from">古い版：</string>
   <string name="revision_diff_to">新しい版：</string>
   <string name="revision_diff_line_num">%d行目</string>
-  <string name="revision_diff_line_nums">%d–%d行目</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d行目</string>
   <string name="revision_diff_line_added">行を追加</string>
   <string name="revision_diff_line_removed">行を除去</string>
@@ -1465,6 +1469,7 @@
   <string name="media_playback_error">メディア再生でエラーが発生しました。</string>
   <string name="user_contrib_menu_label">投稿記録</string>
   <string name="user_contrib_filter_activity_title">投稿を絞り込む</string>
+  <string name="action_item_view_on_map">地図上に表示</string>
   <string name="shareable_reading_lists_import_dialog_title">共有リーディングリストの読み込み</string>
   <string name="shareable_reading_lists_import_dialog_content">共有されたリストに名前をつけますか？</string>
   <string name="shareable_reading_lists_new_indicator">*新規*</string>
@@ -1573,9 +1578,16 @@
   <string name="patroller_onboarding_one_title">ウィキペディアの編集の管理と確認に貢献する。</string>
   <string name="patroller_onboarding_one_content">最近の編集のフィードを積極的にレビューし、他の編集者にガイダンス、品質管理、励ましを提供することで、Wikipedia コンテンツの品質を向上させます。</string>
   <string name="patroller_onboarding_two_thank_title">感謝</string>
+  <string name="patroller_onboarding_two_watch_title">ウォッチ</string>
   <string name="patroller_onboarding_two_warn_title">警告</string>
+  <string name="patroller_onboarding_two_warn_content">編集者のトーク ページで警告メッセージを作成、送信、保存します。</string>
   <string name="patroller_onboarding_two_undo_title">取り消し/巻き戻し</string>
+  <string name="patroller_diff_feedback_dialog_title">この機能の改善にご協力ください</string>
+  <string name="patroller_diff_feedback_dialog_message">この機能に満足していますか?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">満足した</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">中立</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">満足していない</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">どうすれば機能を改善できるでしょうか?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">フィードバック</string>
   <string name="patroller_diff_feedback_dialog_submit">送信</string>
   <string name="patroller_diff_feedback_submitted_snackbar">フィードバックが送信されました。</string>
@@ -1587,6 +1599,8 @@
   <string name="email_report_image_recommendations_body">画像お勧め機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]</string>
   <string name="email_report_patroller_tasks_subject">問題報告 - 編集巡回機能</string>
   <string name="email_report_patroller_tasks_body">編集巡回機能で問題に出くわしました:\n- [具体的な問題の説明]\n\n求めている挙動は:\n- [提案する解決策の説明]\n\n[スクリーンショットまたはリンク]</string>
+  <string name="donation_campaign_maybe_later_snackbar">明日改めてお知らせいたします。</string>
+  <string name="donation_campaign_donated_snackbar">親愛なる寄付者様、ありがとうございます！あなたの寛大なご協力により、ウィキペディアとその姉妹サイトが繁栄し続けることができます。</string>
   <string name="donation_campaign_go_back_button">戻る</string>
   <string name="menu_single_webview_open_external">システムブラウザで開く</string>
 </resources>
