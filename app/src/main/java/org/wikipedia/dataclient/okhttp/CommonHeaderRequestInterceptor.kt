@@ -15,6 +15,8 @@ internal class CommonHeaderRequestInterceptor : Interceptor {
                 .header("X-WMF-UUID", app.appInstallID)
         if (chain.request().url.encodedPath.contains(RestService.PAGE_HTML_ENDPOINT)) {
             builder.header("Accept", RestService.ACCEPT_HEADER_MOBILE_HTML)
+        } else if (chain.request().url.host.contains("maps.wikimedia.org")) {
+            builder.header("Referer", "https://maps.wikimedia.org/")
         }
         return chain.proceed(builder.build())
     }
