@@ -1448,4 +1448,21 @@
   <string name="places_toggle_buttons_map">नक्शा</string>
   <string name="places_survey_very_satisfied_option">बहुत संतुष्ट</string>
   <string name="places_survey_very_unsatisfied_option">बहुत असंतुष्ट</string>
+  <string name="places_title">स्थानों</string>
+  <string name="places_article_menu_tooltip_message">इस आर्टिकल की लोकेशन जानने के लिए \'मैप पर देखें\' पर टैप करें></string>
+  <string name="action_item_view_on_map">मैप पर देखें</string>
+  <string name="places_toggle_buttons_list">लिस्ट</string>
+  <string name="link_preview_dialog_read_button">पढ़ें</string>
+  <string name="link_preview_dialog_share_button">शेयर करें</string>
+  <string name="places_search_hint">স্থানগুলি অনুসন্ধান করুন</string>
+  <string name="places_filter_title">भाषा फ़िल्टर करें</string>
+  <string name="places_empty_list">यह एरिया खाली है. मैप पर ज़ूम आउटकरें.</string>
+  <string name="places_survey_dialog_title">\'स्थानों\' को बेहतर बनाने में सहायता करें</string>
+  <string name="patroller_diff_feedback_dialog_message">क्या आप इस सुविधा से संतुष्ट हैं?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">संतुष्ट</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">ना संतुष्ट ना असंतुष्ट</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">असंतुष्ट</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">फीडबैक</string>
+  <string name="patroller_diff_feedback_dialog_submit">जमा करें</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">फीडबैक जमा किया गया. धन्यवाद!</string>
 </resources>
