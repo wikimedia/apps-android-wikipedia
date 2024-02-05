@@ -23,6 +23,7 @@ import org.wikipedia.LongPressHandler
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.FragmentSearchResultsBinding
 import org.wikipedia.databinding.ItemSearchNoResultsBinding
 import org.wikipedia.databinding.ItemSearchResultBinding
@@ -83,7 +84,6 @@ class SearchResultsFragment : Fragment() {
                 }
             }
         }
-
         return binding.root
     }
 
@@ -189,6 +189,9 @@ class SearchResultsFragment : Fragment() {
         private val accentColorStateList = getThemedColorStateList(requireContext(), R.attr.progressive_color)
         private val secondaryColorStateList = getThemedColorStateList(requireContext(), R.attr.secondary_color)
         fun bindItem(position: Int, resultsCount: Int) {
+            if (resultsCount == 0 && viewModel.invokeSource == Constants.InvokeSource.PLACES) {
+                PlacesEvent.logAction("no_results_impression", "search_view")
+            }
             val langCode = WikipediaApp.instance.languageState.appLanguageCodes[position]
             itemBinding.resultsText.text = if (resultsCount == 0) getString(R.string.search_results_count_zero) else resources.getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount)
             itemBinding.resultsText.setTextColor(if (resultsCount == 0) secondaryColorStateList else accentColorStateList)

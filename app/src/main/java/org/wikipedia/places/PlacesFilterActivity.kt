@@ -14,6 +14,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.ActivityPlacesFiltersBinding
 import org.wikipedia.databinding.ViewPlacesFilterItemBinding
 import org.wikipedia.settings.Prefs
@@ -129,6 +130,9 @@ class PlacesFilterActivity : BaseActivity() {
             itemViewBinding.placesFilterLangCode.setLangCode(languageCode)
             itemViewBinding.placesFilterRadio.isVisible = languageCode == Prefs.placesWikiCode
             itemViewBinding.root.setOnClickListener {
+                if (languageCode != Prefs.placesWikiCode) {
+                    PlacesEvent.logAction("filter_change_save", "filter_view")
+                }
                 Prefs.placesWikiCode = languageCode
                 callback.onLangSelected()
             }

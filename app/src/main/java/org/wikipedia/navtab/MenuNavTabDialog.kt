@@ -12,6 +12,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.databinding.ViewMainDrawerBinding
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -59,6 +60,7 @@ class MenuNavTabDialog : ExtendedBottomSheetDialogFragment() {
         }
 
         binding.mainDrawerPlacesContainer.setOnClickListener {
+            PlacesEvent.logAction("places_click", "main_nav_tab")
             requireActivity().startActivity(PlacesActivity.newIntent(requireActivity()))
             dismiss()
         }

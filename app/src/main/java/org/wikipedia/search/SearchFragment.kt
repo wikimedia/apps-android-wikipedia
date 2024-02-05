@@ -21,6 +21,7 @@ import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.databinding.FragmentSearchBinding
 import org.wikipedia.history.HistoryEntry
@@ -116,6 +117,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         binding.searchContainer.setOnClickListener { onSearchContainerClick() }
         binding.searchLangButton.setOnClickListener { onLangButtonClick() }
         initSearchView()
+        if (invokeSource == InvokeSource.PLACES) {
+            PlacesEvent.logImpression("search_view")
+        }
         return binding.root
     }
 
@@ -202,6 +206,9 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
             return
         }
         if (returnLink) {
+            if (invokeSource == InvokeSource.PLACES) {
+                PlacesEvent.logAction("search_result_click", "search_view")
+            }
             val intent = Intent().putExtra(SearchActivity.EXTRA_RETURN_LINK_TITLE, item)
                 .putExtra(PlacesActivity.EXTRA_LOCATION, location)
             requireActivity().setResult(SearchActivity.RESULT_LINK_SUCCESS, intent)

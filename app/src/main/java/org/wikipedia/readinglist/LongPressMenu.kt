@@ -14,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.readinglist.database.ReadingList
@@ -131,31 +132,38 @@ class LongPressMenu(
                     true
                 }
                 R.id.menu_long_press_open_in_new_tab -> {
+                    sendPlacesEvent("new_tab_click")
                     entry?.let { callback?.onOpenInNewTab(it) }
                     true
                 }
                 R.id.menu_long_press_add_to_default_list -> {
+                    sendPlacesEvent("save_click")
                     entry?.let { callback?.onAddRequest(it, true) }
                     true
                 }
                 R.id.menu_long_press_add_to_another_list -> {
+                    sendPlacesEvent("add_to_another_list_click")
                     listsContainingPage?.let { entry?.let { callback?.onAddRequest(it, false) } }
                     true
                 }
                 R.id.menu_long_press_move_from_list_to_another_list -> {
+                    sendPlacesEvent("move_from_list_to_another_list_click")
                     listsContainingPage?.let { list -> entry?.let { callback?.onMoveRequest(list[0].pages[0], it) } }
                     true
                 }
                 R.id.menu_long_press_remove_from_lists -> {
+                    sendPlacesEvent("remove_from_list_click")
                     deleteOrShowDialog()
                     callback?.onRemoveRequest()
                     true
                 }
                 R.id.menu_long_press_share_page -> {
+                    sendPlacesEvent("share_click")
                     entry?.let { ShareUtil.shareText(getActivity(), it.title) }
                     true
                 }
                 R.id.menu_long_press_copy_page -> {
+                    sendPlacesEvent("copy_link_click")
                     entry?.let {
                         ClipboardUtil.setPlainText(getActivity(), text = it.title.uri)
                         FeedbackUtil.showMessage((getActivity()), R.string.address_copied)
@@ -163,6 +171,7 @@ class LongPressMenu(
                     true
                 }
                 R.id.menu_long_press_get_directions -> {
+                    sendPlacesEvent("directions_click")
                     location?.let {
                         entry?.let {
                             GeoUtil.sendGeoIntent(getActivity(), location, StringUtil.fromHtml(it.title.displayText).toString())
@@ -171,6 +180,14 @@ class LongPressMenu(
                     true
                 }
                 else -> false
+            }
+        }
+    }
+
+    private fun sendPlacesEvent(action: String) {
+        entry?.let {
+            if (it.source == HistoryEntry.SOURCE_PLACES) {
+                PlacesEvent.logAction(action, "list_view_menu")
             }
         }
     }

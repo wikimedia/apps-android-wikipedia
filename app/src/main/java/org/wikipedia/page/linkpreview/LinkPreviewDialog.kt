@@ -23,6 +23,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.DialogLinkPreviewBinding
@@ -85,20 +86,24 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 true
             }
             R.id.menu_link_preview_watch -> {
+                sendPlacesEvent("watch_click", "detail_overflow_menu")
                 viewModel.watchOrUnwatch(viewModel.isWatched)
                 true
             }
             R.id.menu_link_preview_open_in_new_tab -> {
+                sendPlacesEvent("new_tab_click", "detail_overflow_menu")
                 goToLinkedPage(true)
                 true
             }
             R.id.menu_link_preview_copy_link -> {
+                sendPlacesEvent("copy_link_click", "detail_overflow_menu")
                 ClipboardUtil.setPlainText(requireActivity(), text = viewModel.pageTitle.uri)
                 FeedbackUtil.showMessage(requireActivity(), R.string.address_copied)
                 dismiss()
                 true
             }
             R.id.menu_link_preview_view_on_map -> {
+                PlacesEvent.logAction("places_click", "article_preview_more_menu")
                 viewModel.location?.let {
                     startActivity(PlacesActivity.newIntent(requireContext(), viewModel.pageTitle, it))
                 }
@@ -106,12 +111,19 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 true
             }
             R.id.menu_link_preview_get_directions -> {
+                sendPlacesEvent("directions_click", "detail_overflow_menu")
                 viewModel.location?.let {
                     GeoUtil.sendGeoIntent(requireActivity(), it, StringUtil.fromHtml(viewModel.pageTitle.displayText).toString())
                 }
                 true
             }
             else -> false
+        }
+    }
+
+    private fun sendPlacesEvent(action: String, activeInterface: String) {
+        if (viewModel.historyEntry.source == HistoryEntry.SOURCE_PLACES) {
+            PlacesEvent.logAction(action, activeInterface)
         }
     }
 
@@ -437,16 +449,19 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private inner class OverlayViewPlacesCallback : LinkPreviewOverlayView.Callback {
         override fun onPrimaryClick() {
+            sendPlacesEvent("share_click", "detail_toolbar")
             ShareUtil.shareText(requireContext(), viewModel.pageTitle)
         }
 
         override fun onSecondaryClick() {
             overlayView?.let {
+                sendPlacesEvent("save_click", "detail_toolbar")
                 showReadingListPopupMenu(it.secondaryButtonView)
             }
         }
 
         override fun onTertiaryClick() {
+            sendPlacesEvent("read_click", "detail_toolbar")
             goToLinkedPage(false)
         }
     }

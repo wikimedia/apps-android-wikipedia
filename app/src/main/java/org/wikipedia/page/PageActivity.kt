@@ -33,6 +33,7 @@ import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -679,7 +680,9 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                 autoDismiss = false,
                 showDismissButton = true
             ).apply {
+                PlacesEvent.logImpression("article_more_tooltip")
                 setOnBalloonDismissListener {
+                    PlacesEvent.logAction("dismiss_click", "article_more_tooltip")
                     isTooltipShowing = false
                     Prefs.showOneTimePlacesPageOnboardingTooltip = false
                 }

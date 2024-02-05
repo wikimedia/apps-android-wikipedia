@@ -64,6 +64,7 @@ import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textIgnorePlacement
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.FragmentPlacesBinding
 import org.wikipedia.databinding.ItemPlacesListBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
@@ -129,10 +130,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         when {
             permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) ||
             permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
+                PlacesEvent.logAction("location_permission_granted", "map_view")
                 startLocationTracking()
                 goToLocation(viewModel.location)
             }
             else -> {
+                PlacesEvent.logAction("location_permission_denied", "map_view")
                 FeedbackUtil.showMessage(requireActivity(), R.string.places_permissions_denied)
             }
         }
@@ -214,6 +217,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         binding.tabsButton.setOnClickListener {
+            PlacesEvent.logAction("tabs_view_click", "search_bar_view")
             if (WikipediaApp.instance.tabCount == 1) {
                 startActivity(PageActivity.newIntent(requireActivity()))
             } else {
@@ -222,6 +226,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         binding.searchTextView.setOnClickListener {
+            PlacesEvent.logAction("search_view_click", "search_bar_view")
             val intent = SearchActivity.newIntent(requireActivity(), Constants.InvokeSource.PLACES,
                 viewModel.highlightedPageTitle?.displayText, true)
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(requireActivity(),
@@ -230,18 +235,22 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         binding.backButton.setOnClickListener {
+            PlacesEvent.logAction("back_click", "search_bar_view")
             requireActivity().finish()
         }
 
         binding.langCodeButton.setOnClickListener {
+            PlacesEvent.logAction("filter_click", "search_bar_view")
             filterLauncher.launch(PlacesFilterActivity.newIntent(requireActivity()))
         }
 
         binding.searchCloseBtn.setOnClickListener {
+            PlacesEvent.logAction("search_clear_click", "search_bar_view")
             updateSearchText()
         }
 
         binding.myLocationButton.setOnClickListener {
+            PlacesEvent.logAction("current_location_click", "map_view")
             if (haveLocationPermissions()) {
                 goToLocation()
             } else {
@@ -308,6 +317,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         super.onViewCreated(view, savedInstanceState)
         binding.mapView.onCreate(savedInstanceState)
 
+        PlacesEvent.logImpression("map_view")
+
         binding.mapView.getMapAsync { map ->
             val assetForTheme = if (WikipediaApp.instance.currentTheme.isDark) "asset://mapstyle-dark.json" else "asset://mapstyle.json"
             map.setStyle(Style.Builder().fromUri(assetForTheme)) { style ->
@@ -356,6 +367,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 symbolManager?.textAllowOverlap = true
                 symbolManager?.addClickListener { symbol ->
                     L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
+                    PlacesEvent.logAction("marker_click", "map_view")
                     annotationCache.find { it.annotation == symbol }?.let {
                         val location = Location("").apply {
                             latitude = symbol.latLng.latitude
@@ -394,6 +406,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private fun updateToggleViews(isMapVisible: Boolean) {
+        if ((binding.listRecyclerView.isVisible || binding.listEmptyContainer.isVisible) && isMapVisible) {
+            PlacesEvent.logAction("map_view_click", "map_view")
+        }
+        if (binding.mapView.isVisible && !isMapVisible) {
+            PlacesEvent.logAction("list_view_click", "list_view")
+        }
         val tintColor = ResourceUtil.getThemedColorStateList(requireContext(), if (isMapVisible) R.attr.paper_color else R.attr.background_color)
         binding.mapView.isVisible = isMapVisible
         binding.listRecyclerView.isVisible = !isMapVisible && (binding.listRecyclerView.adapter?.itemCount ?: 0) > 0
@@ -403,6 +421,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private fun showLinkPreview(pageTitle: PageTitle, location: Location) {
+        PlacesEvent.logImpression("detail_view")
         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
         updateSearchText(pageTitle.displayText)
         ExclusiveBottomSheetPresenter.show(childFragmentManager,
@@ -726,6 +745,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
             val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
             if (featureList.isNotEmpty()) {
+                PlacesEvent.logAction("cluster_click", "map_view")
                 val cameraPosition = CameraPosition.Builder()
                     .target(point)
                     .zoom(it.cameraPosition.zoom + 2)
@@ -779,6 +799,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         override fun onClick(v: View) {
+            PlacesEvent.logAction("read_click", "list_view")
             val entry = HistoryEntry(page.pageTitle, HistoryEntry.SOURCE_PLACES)
             startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
         }
