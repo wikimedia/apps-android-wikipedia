@@ -28,9 +28,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.Insets
 import androidx.core.graphics.applyCanvas
 import androidx.core.os.bundleOf
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isVisible
+import androidx.core.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -68,8 +66,7 @@ import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.databinding.FragmentPlacesBinding
 import org.wikipedia.databinding.ItemPlacesListBinding
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
-import org.wikipedia.extensions.parcelable
-import org.wikipedia.extensions.parcelableExtra
+import org.wikipedia.extensions.*
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
@@ -101,8 +98,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
-    private var statusBarInsets: Insets? = null
-    private var navBarInsets: Insets? = null
+    private var statusBarInsets = Insets.NONE
+    private var navBarInsets = Insets.NONE
 
     private val viewModel: PlacesFragmentViewModel by viewModels { PlacesFragmentViewModel.Factory(requireArguments()) }
 
@@ -187,28 +184,33 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentPlacesBinding.inflate(inflater, container, false)
 
-        binding.root.setOnApplyWindowInsetsListener { view, windowInsets ->
-            val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
-            val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
-            val newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, windowInsets ->
+            val newStatusBarInsets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars())
+            val newNavBarInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
 
-            var params = binding.controlsContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = newStatusBarInsets.top + newNavBarInsets.top
-            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
-            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
-            params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
-
-            params = binding.myLocationButton.layoutParams as ViewGroup.MarginLayoutParams
-            params.bottomMargin = newNavBarInsets.bottom + DimenUtil.roundedDpToPx(16f)
-            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left + DimenUtil.roundedDpToPx(16f)
-            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(16f)
-            binding.myLocationButton.layoutParams = params
+            binding.controlsContainer.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                updateMargins(
+                    newStatusBarInsets.left + newNavBarInsets.left,
+                    newStatusBarInsets.top + newNavBarInsets.top,
+                    newStatusBarInsets.right + newNavBarInsets.right,
+                    newStatusBarInsets.bottom + newNavBarInsets.bottom
+                )
+            }
+            binding.myLocationButton.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                val sixteenDp = DimenUtil.roundedDpToPx(16f)
+                updateMargins(
+                    left = newStatusBarInsets.left + newNavBarInsets.left + sixteenDp,
+                    right = newStatusBarInsets.right + newNavBarInsets.right + sixteenDp,
+                    bottom = newNavBarInsets.bottom + sixteenDp,
+                )
+            }
 
             statusBarInsets = newStatusBarInsets
             navBarInsets = newNavBarInsets
+
             WindowInsetsCompat.Builder()
-                .setInsets(WindowInsetsCompat.Type.navigationBars(), navBarInsets!!)
-                .build().toWindowInsets() ?: windowInsets
+                .setInsets(WindowInsetsCompat.Type.navigationBars(), newNavBarInsets)
+                .build()
         }
 
         binding.tabsButton.setOnClickListener {
@@ -322,14 +324,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 map.uiSettings.isLogoEnabled = false
                 val defMargin = DimenUtil.roundedDpToPx(16f)
 
-                val navBarLeft = navBarInsets?.left ?: 0
-                val navBarRight = navBarInsets?.right ?: 0
-                val navBarTop = navBarInsets?.top ?: 0
-                val navBarBottom = navBarInsets?.bottom ?: 0
-                val statusBarLeft = statusBarInsets?.left ?: 0
-                val statusBarRight = statusBarInsets?.right ?: 0
-                val statusBarTop = statusBarInsets?.top ?: 0
-                val statusBarBottom = statusBarInsets?.bottom ?: 0
+                val (navBarLeft, navBarTop, navBarRight, navBarBottom) = navBarInsets
+                val (statusBarLeft, statusBarTop, statusBarRight, statusBarBottom) = statusBarInsets
 
                 map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass_with_bg)!!)
                 map.uiSettings.compassGravity = Gravity.TOP or Gravity.END
