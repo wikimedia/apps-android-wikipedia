@@ -53,6 +53,7 @@
   <string name="menu_page_find_in_page">სტატიას გორუა</string>
   <string name="menu_page_add_to_watchlist">კონტროლიშ ერკებულშა გეძინა</string>
   <string name="menu_page_view_talk">ხასჷლაშ სხუნუაშ ძირაფა</string>
+  <string name="menu_page_talk_page">სხუნუაშ ხასჷლა</string>
   <string name="menu_page_view_edit_history">რედაქტირაფაშ ისტორიაშ ძირაფა</string>
   <string name="menu_page_remove_from_watchlist">კონტროლიშ ერკებულშე ლასუა</string>
   <string name="edit_section_find_in_page">ხასჷლას გორუა</string>
@@ -403,8 +404,9 @@
   <string name="preference_title_notification_thanks">მარდი</string>
   <string name="preference_summary_notification_thanks">მიდგაინ რედაქტირაფაშ გეშა მარდის გინმოიგანა</string>
   <string name="preference_title_notification_user_talk">სხუნუაშ ხასჷლა</string>
-  <string name="preference_summary_notification_user_talk" fuzzy="true">სხუნუაშ ხასჷლაშ გინაფეფი</string>
+  <string name="preference_summary_notification_user_talk">სხუნუაშ ხასჷლაშ გინაფეფი დო გამეფი</string>
   <string name="notifications_menu_mark_as_read">უკითხირო მოღანკუა</string>
+  <string name="notifications_menu_user_talk_page">%s\'-შ სხუნუაშ ხასჷლა</string>
   <string name="view_because_you_read_card_title">თიშ გეშა, ნამჷ-და თქვა კითხულენთ</string>
   <string name="view_random_card_title">ჩვაგაფი</string>
   <string name="home">დუდხასჷლა</string>
@@ -470,6 +472,9 @@
   <string name="insert_media_settings">ქეგუძინით სურათიშ დეტალეფი</string>
   <string name="insert_media_settings_caption">სურათიშ ეჭარუა</string>
   <string name="main_tooltip_watchlist_title">კონტროლიშ ერკებული</string>
+  <string name="talk_title">სხუნუა</string>
+  <string name="talk_user_title">სხუნუა: %s</string>
+  <string name="talk_page_empty">ათე სხუნუაშ ხასჷლა ციორი რე.</string>
   <string name="talk_snackbar_survey_action_text">დოჭყაფა</string>
   <string name="menu_option_user_contributions">მახვარებუშ: %s მიშნაღელი თია</string>
   <string name="watchlist_details_watching_label">გინმაჯინე</string>
@@ -478,6 +483,7 @@
   <string name="thank_dialog_positive_button_text" fuzzy="true">მარდიშ გინოგაფა</string>
   <string name="thank_dialog_negative_button_text" fuzzy="true">გოუქვაფა</string>
   <string name="thank_success_message">თქვანი \'უზჷმე მარდი\' ჯღონილი რე მახვარებუშა %s  👍</string>
+  <string name="menu_option_view_user_talk">ხასჷლაშ სხუნუაშ ძირაფა</string>
   <string name="revision_diff_lines_from_to">ღოზეფი %1$d–%2$d</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">თირუა</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">3 თუთათ</string>

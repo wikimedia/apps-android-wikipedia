@@ -396,6 +396,10 @@
   <string name="multi_select_items_selected">%d ta tanlangan</string>
   <string name="error_message_generic">Xatolik ro‘y berdi</string>
   <string name="view_link_preview_error_button_dismiss">Rad etmoq</string>
+  <string name="link_preview_dialog_read_button">Oʻqimoq</string>
+  <string name="link_preview_dialog_save_button">Saqlamoq</string>
+  <string name="link_preview_dialog_saved_button">Saqlandi</string>
+  <string name="link_preview_dialog_share_button">Ulashmoq</string>
   <string name="error_page_does_not_exist">Ushbu sahifa mavjud emas</string>
   <string name="error_user_page_does_not_exist">Vikipediyada aynan shunday &lt;a href=\"%1$s\"&gt; nomga ega foydalanuvchi sahifasi yo‘q.&lt;/a&gt;Umuman olganda, bu sahifa &lt;b&gt;%2$s&lt;/b&gt; tomonidan tuzilishi hamda tahrirlanishi lozim. Agar shubhangiz boʻlsa, “%3$s” mavjudligini tekshiring.</string>
   <string name="view_wiki_error_message_offline">Internetga bog‘lanib bo‘lmadi</string>
@@ -917,7 +921,7 @@
     <item quantity="one">1 ta hissa</item>
     <item quantity="other">%d ta hissa</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Tavsiya etilgan tahrirlar</string>
+  <string name="suggested_edits_feed_card_title">Tavsiya etiladigan tahrirlar</string>
   <string name="suggested_edits_feed_card_add_description_button">Maqolaga tavsif qoʻshmoq</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Maqola tavsifi (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Boshladik</string>
@@ -984,7 +988,7 @@
   <string name="suggested_edits_quality_sufficient_text">Qoniqarli</string>
   <string name="suggested_edits_quality_poor_text">Qoniqarsiz</string>
   <string name="suggested_edits_quality_bad_text">Yomon</string>
-  <string name="suggested_edits_label">Tavsiya etilgan tahrirlar</string>
+  <string name="suggested_edits_label">Tavsiya etiladigan tahrirlar</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Hissa</item>
     <item quantity="other">Hissalar</item>
@@ -1003,7 +1007,7 @@
   <string name="suggested_edits_last_edited_never">Hech qachon</string>
   <string name="suggested_edits_task_new">Yangi</string>
   <string name="suggested_edits_cc0_notice">Nashr qilish bilan siz &lt;a href=\"%1$s\"&gt; foydalanish shartlari &lt;/a&gt;ga va ushbu hissani &lt;a href=\"%2$s\"&gt;CC0 litsenziyasi&lt;/a&gt; asosida qaytarib olmasligingizga rozilik bildirasiz.</string>
-  <string name="suggested_edits_reactivation_notification_title">Tavsiya etilgan tahrirlar</string>
+  <string name="suggested_edits_reactivation_notification_title">Tavsiya etiladigan tahrirlar</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Vikipediyani tahrir qilganingiz uchun tashakkur! Nima uchun toʻxtagan joyingizda davom etmayapsiz?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Vikipediyani takomillashtirishni davom ettirish uchun bir daqiqa vaqtingiz bormi? Ushbu tahrirlash takliflarini koʻrib chiqing.</string>
   <string name="suggested_edits_contributions_screen_title">%sning hissalari</string>
@@ -1082,7 +1086,7 @@
   <string name="image_recommendation_tooltip_warning">Mavzuni tushunish uchun maqolani koʻrib chiqing va rasmni tekshiring</string>
   <string name="image_recommendation_depleted">Kechirasiz, hozirda boshqa tavsiya etilgan rasmlar mavjud emas. Boshqa &lt;a href=\"#\"&gt;tavsiya etilgan tahrirlarni&lt;/a&gt; koʻrib chiqing yoki keyinroq qayting.</string>
   <string name="suggested_edits_report_feature">Oʻziga xoslik bilan muammo</string>
-  <string name="suggested_edits_report_feature_subject">Tavsiya etilgan tahrirlar bilan muammo</string>
+  <string name="suggested_edits_report_feature_subject">Tavsiya etiladigan tahrirlar bilan muammo</string>
   <string name="edit_summary_added_image">Qoʻshilgan rasm</string>
   <string name="edit_summary_added_caption">Izoh qoʻshish</string>
   <string name="edit_summary_added_image_and_caption">Rasm va sarlavha qoʻshildi</string>
@@ -1430,6 +1434,8 @@
   <string name="media_playback_error">Mediani ijro etishda xatolik yuz berdi.</string>
   <string name="user_contrib_menu_label">Hissalar</string>
   <string name="user_contrib_filter_activity_title">Hissalarni filtrlash</string>
+  <string name="action_item_view_on_map">Xaritada ko‘rmoq</string>
+  <string name="action_item_view_on_map_unavailable">Bu sahifa uchun geografik koordinatalar mavjud emas</string>
   <string name="shareable_reading_lists_import_dialog_title">Umumiy oʻqish roʻyxatini import qilish</string>
   <string name="shareable_reading_lists_import_dialog_content">Siz bilan baham koʻrilgan roʻyxatni qanday nomlashni xohlaysiz?</string>
   <string name="shareable_reading_lists_new_indicator">*yangi*</string>
@@ -1573,4 +1579,18 @@
   <string name="donation_campaign_donated_snackbar">Rahmat, hurmatli hissachi! Sizning saxiyligingiz Vikipediya va unga bogʻliq saytlarini rivojiga yordam beradi.</string>
   <string name="donation_campaign_go_back_button">Ortga</string>
   <string name="menu_single_webview_open_external">Tizim brauzerida ochish</string>
+  <string name="places_title">Joylar</string>
+  <string name="places_permissions_denied">Xaritada joylashuvingizni ko‘rish uchun joylashuv ruxsati talab qilinadi. Yana bir bor urinib koʻring.</string>
+  <string name="places_search_hint">Joylarni qidirish</string>
+  <string name="places_filter_title">Til filtri</string>
+  <string name="places_toggle_buttons_map">Xarita</string>
+  <string name="places_toggle_buttons_list">Roʻyxat</string>
+  <string name="places_nav_tab_tooltip_message">Joylashgan yeringizga mos Vikipediya maqolalarini oʻzingiz uchun kashf eting</string>
+  <string name="places_article_menu_tooltip_message">&lt;b&gt;\'Xaritada koʻrish\'&lt;/b&gt; tugmasini bosish orqali maqola yaratilgan yerni koʻrish</string>
+  <string name="places_survey_very_satisfied_option">Qoniqarli</string>
+  <string name="places_survey_very_unsatisfied_option">Qoniqarsiz</string>
+  <string name="places_survey_dialog_title">“Joylar”ni yaxshilashga yordam bering</string>
+  <string name="places_survey_feedback_dialog_title">“Joylar”ni qanday yaxshilash mumkin?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Nimani oʻzgartirishimizni yoki yaxshilashimizni xohlaysiz?</string>
+  <string name="places_empty_list">Maydon boʻsh. &lt;a href=\"#\"&gt;xaritadan&lt;/a&gt; kichraytiring.</string>
 </resources>

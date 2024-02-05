@@ -47,7 +47,6 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.history.SearchActionModeCallback
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.search.SearchFragment
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
@@ -64,7 +63,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.NotificationActionsOverflowView
 import org.wikipedia.views.SearchAndFilterActionProvider
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
-import org.wikipedia.views.ViewUtil
 import org.wikipedia.views.WikiCardView
 
 class NotificationActivity : BaseActivity() {
@@ -430,9 +428,7 @@ class NotificationActivity : BaseActivity() {
                         binding.notificationWikiCode.visibility = View.VISIBLE
                         binding.notificationWikiCodeImage.visibility = View.GONE
                         binding.notificationWikiCodeContainer.isVisible = true
-                        binding.notificationWikiCode.text = langCode
-                        ViewUtil.formatLangButton(binding.notificationWikiCode, langCode,
-                            SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_MEDIUM)
+                        binding.notificationWikiCode.setLangCode(langCode)
                     }
                     else -> {
                         binding.notificationSource.updateLayoutParams<ConstraintLayout.LayoutParams> {

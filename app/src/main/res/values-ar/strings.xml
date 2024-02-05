@@ -2,6 +2,7 @@
 <!-- Authors:
 * ASHmed
 * Aboulouei1
+* Ahmed Alyamoor
 * Alaa
 * Alshamiri1
 * Amire80
@@ -33,6 +34,7 @@
 * MuratTheTurkish
 * NEHAOUA
 * NancyMilad
+* Ola.mahadi
 * PhiberOptik
 * SHaran (WMF)
 * Sandra Hanbo
@@ -1041,7 +1043,7 @@
   <string name="suggested_edits_ip_blocked_title">عنوان بروتوكول إنترنت محجوب</string>
   <string name="suggested_edits_last_edited">آخر تعديل</string>
   <string name="suggested_edits_last_edited_never">أبدا</string>
-  <string name="suggested_edits_task_new" fuzzy="true">جديد</string>
+  <string name="suggested_edits_task_new">جديد</string>
   <string name="suggested_edits_cc0_notice">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">التعديلات المقترحة</string>
   <string name="suggested_edits_reactivation_notification_stage_one">شكرًا لتعديلك ويكيبيديا! لماذا لا تُكمل من حيث توقفت؟</string>
@@ -1075,6 +1077,7 @@
   <string name="image_recommendation_accept">نعم</string>
   <string name="image_recommendation_reject">لا</string>
   <string name="image_recommendation_notsure">لست متأكدًا</string>
+  <string name="image_recommendation_reject_title">لم لا؟</string>
   <string name="image_recommendation_tooltip_next">التالي</string>
   <string name="edit_summary_added_image">أضيفت صورة</string>
   <string name="edit_summary_added_caption">إضافة شرح لصورة</string>
@@ -1417,4 +1420,10 @@
   <string name="data_opt_in_reject">رفض</string>
   <string name="page_issues_title">مشكلات الصفحة</string>
   <string name="generic_release_notes">إصلاحات الشوائب الطفيفة والتحسينات</string>
+  <string name="places_survey_very_satisfied_option">راض جدا</string>
+  <string name="places_survey_very_unsatisfied_option">غير راض جدا</string>
+  <string name="places_survey_dialog_title">المساعدة في تحسين \"الأماكن\"</string>
+  <string name="places_survey_feedback_dialog_title">كيف يمكن تحسين \"المناطق\"</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">ما الذي تود منا تغييره أو تحسينه؟</string>
+  <string name="places_empty_list">هذه المنطقة فارغة. قم بتكبير &lt;a href\n=\"#\"&gt; الخريطة.</string>
 </resources>
