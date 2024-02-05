@@ -1360,7 +1360,6 @@
   <string name="revision_diff_from">Gönderen:</string>
   <string name="revision_diff_to">Alıcı:</string>
   <string name="revision_diff_line_num">Satır %d</string>
-  <string name="revision_diff_line_nums">Satırlar %d-%d</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d satırları</string>
   <string name="revision_diff_line_added">Satır eklendi</string>
   <string name="revision_diff_line_removed">Satır kaldırıldı</string>
@@ -1623,4 +1622,12 @@
   <string name="places_filter_title">Dile göre filtrele</string>
   <string name="places_toggle_buttons_map">Harita</string>
   <string name="places_toggle_buttons_list">Liste</string>
+  <string name="places_nav_tab_tooltip_message">Yerler ile çevrenizdeki Vikipedi maddelerini keşfedin</string>
+  <string name="places_article_menu_tooltip_message">Bu maddenin konumunu ortaya çıkarmak için &lt;b&gt;\'Haritada gör\'&lt;/b&gt;e dokunun</string>
+  <string name="places_survey_very_satisfied_option">Çok mutlu</string>
+  <string name="places_survey_very_unsatisfied_option">Çok mutsuz</string>
+  <string name="places_survey_dialog_title">\"Yerler\"i iyileştirmeye yardımcı olun</string>
+  <string name="places_survey_feedback_dialog_title">\"Yerler\" nasıl geliştirilebilir?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Neyi değiştirmemizi ya da geliştirmemizi istersiniz?</string>
+  <string name="places_empty_list">Bu alan boş. &lt;a href=\"#\"&gt;Haritayı&lt;/a&gt; uzaklaştırın.</string>
 </resources>

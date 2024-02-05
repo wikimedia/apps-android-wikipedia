@@ -1322,7 +1322,6 @@
   <string name="revision_diff_from">Од:</string>
   <string name="revision_diff_to">До:</string>
   <string name="revision_diff_line_num">Ред %d</string>
-  <string name="revision_diff_line_nums">Редови %d – %d</string>
   <string name="revision_diff_lines_from_to">Редови %1$d–%2$d</string>
   <string name="revision_diff_line_added">Додаден ред</string>
   <string name="revision_diff_line_removed">Отстранет ред</string>
@@ -1585,4 +1584,12 @@
   <string name="places_filter_title">Филтрирај јазик</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
+  <string name="places_nav_tab_tooltip_message">Откривајте Википедиини статии околу вас со Места</string>
+  <string name="places_article_menu_tooltip_message">Допрете на &lt;b&gt;\'Погл. на карта\'&lt;/b&gt; за да го истражите наоѓалиштето на оваа статија</string>
+  <string name="places_survey_very_satisfied_option">Многу задоволен</string>
+  <string name="places_survey_very_unsatisfied_option">Многу незадоволен</string>
+  <string name="places_survey_dialog_title">Помогнете ни да го подобриме „Места“</string>
+  <string name="places_survey_feedback_dialog_title">Како можеме да го подобриме „Места“?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Што би сакале да промениме или подобриме?</string>
+  <string name="places_empty_list">Ова подрачје е празно. Оддалечете &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
 </resources>

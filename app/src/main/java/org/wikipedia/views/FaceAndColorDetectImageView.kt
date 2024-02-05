@@ -50,12 +50,12 @@ class FaceAndColorDetectImageView : AppCompatImageView {
                 .downsample(DownsampleStrategy.CENTER_INSIDE)
         if (listener != null) {
             builder = builder.listener(object : RequestListener<Drawable?> {
-                override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                     listener.onImageFailed()
                     return false
                 }
 
-                override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
                     if (resource is BitmapDrawable && resource.bitmap != null) {
                         listener.onImageLoaded(Palette.from(resource.bitmap).generate(), resource.bitmap.width, resource.bitmap.height)
                     } else {

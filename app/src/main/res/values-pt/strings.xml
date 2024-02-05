@@ -412,6 +412,10 @@
   <string name="multi_select_items_selected">%d selecionados</string>
   <string name="error_message_generic">Ocorreu um erro</string>
   <string name="view_link_preview_error_button_dismiss">Descartar</string>
+  <string name="link_preview_dialog_read_button">Ler</string>
+  <string name="link_preview_dialog_save_button">Gravar</string>
+  <string name="link_preview_dialog_saved_button">Gravado</string>
+  <string name="link_preview_dialog_share_button">Partilhar</string>
   <string name="error_page_does_not_exist">Esta página não existe.</string>
   <string name="error_user_page_does_not_exist">A Wikipédia não tem uma &lt;a href=\"%1$s\"&gt;página de utilizador&lt;/a&gt; com este nome exato. Em geral, esta página deve ser criada e editada por &lt;b&gt;%2$s&lt;/b&gt;. Em caso de dúvida verifique que \"%3$s\" existe, por favor.</string>
   <string name="view_wiki_error_message_offline">Não foi possível ligar à Internet</string>
@@ -590,7 +594,7 @@
   <string name="default_reading_list_name">Guardados</string>
   <string name="default_reading_list_description">Lista padrão para os seus artigos guardados</string>
   <string name="no_user_lists_title">Organizar artigos na forma de listas</string>
-  <string name="no_user_lists_msg">Criar listas de locais para viajar, tópicos favoritos, e muito mais</string>
+  <string name="no_user_lists_msg">Criar listas de lugares aonde ir, tópicos preferidos, e muito mais</string>
   <string name="reading_list_saved_list_rename">%1$s (criada pelo utilizador)</string>
   <string name="split_reading_list_message">Há um limite de %d artigos por cada lista de leitura. As listas existentes com um valor acima deste limite foram divididas em várias listas.</string>
   <string name="reading_list_move_article_limit_message">Não foi possível mover para esta lista. Atingiu o limite máximo de %2$d artigos por lista para \"%1$s\".</string>
@@ -1336,7 +1340,6 @@
   <string name="revision_diff_from">De:</string>
   <string name="revision_diff_to">Para:</string>
   <string name="revision_diff_line_num">Linha %d</string>
-  <string name="revision_diff_line_nums">Linhas %d–%d</string>
   <string name="revision_diff_lines_from_to">Linhas %1$d–%2$d</string>
   <string name="revision_diff_line_added">Linha acrescentada</string>
   <string name="revision_diff_line_removed">Linha removida</string>
@@ -1448,6 +1451,8 @@
   <string name="media_playback_error">Erro na reprodução de multimédia.</string>
   <string name="user_contrib_menu_label">Contribuições</string>
   <string name="user_contrib_filter_activity_title">Filtrar contribuições</string>
+  <string name="action_item_view_on_map">Ver no mapa</string>
+  <string name="action_item_view_on_map_unavailable">Não estão disponíveis coordenadas geográficas para esta página</string>
   <string name="shareable_reading_lists_import_dialog_title">Importar lista de leitura partilhada</string>
   <string name="shareable_reading_lists_import_dialog_content">Que nome gostaria de dar à lista que foi partilhada consigo?</string>
   <string name="shareable_reading_lists_new_indicator">*nova*</string>
@@ -1591,4 +1596,18 @@
   <string name="donation_campaign_donated_snackbar">Obrigado, caro benfeitor! A sua generosidade ajuda a continuar o desenvolvimento da Wikipédia e dos \"sites\" associados.</string>
   <string name="donation_campaign_go_back_button">Voltar</string>
   <string name="menu_single_webview_open_external">Abrir no \'\'browser\'\' do sistema</string>
+  <string name="places_title">Lugares</string>
+  <string name="places_permissions_denied">É necessária a permissão de localização para ver a sua localização no mapa. Tente novamente, por favor.</string>
+  <string name="places_search_hint">Procurar lugares</string>
+  <string name="places_filter_title">Filtrar por língua</string>
+  <string name="places_toggle_buttons_map">Mapa</string>
+  <string name="places_toggle_buttons_list">Lista</string>
+  <string name="places_nav_tab_tooltip_message">Descubra artigos da Wikipédia perto de si com Lugares</string>
+  <string name="places_article_menu_tooltip_message">Toque em &lt;b&gt;\'Ver no mapa\'&lt;/b&gt; para explorar a localização deste artigo</string>
+  <string name="places_survey_very_satisfied_option">Muito satisfeito</string>
+  <string name="places_survey_very_unsatisfied_option">Muito insatisfeito</string>
+  <string name="places_survey_dialog_title">Ajudar a melhorar \"Lugares\"</string>
+  <string name="places_survey_feedback_dialog_title">Como pode a funcionalidade \"Lugares\" ser melhorada?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">O que gostaria que mudássemos ou melhorássemos?</string>
+  <string name="places_empty_list">Esta área está vazia. Reduza a ampliação &lt;a href=\"#\"&gt;no mapa&lt;/a&gt;.</string>
 </resources>
