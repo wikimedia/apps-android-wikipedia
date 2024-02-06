@@ -405,7 +405,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
     }
 
-    private fun  updateToggleViews(isMapVisible: Boolean) {
+    private fun updateToggleViews(isMapVisible: Boolean) {
         if ((binding.listRecyclerView.isVisible || binding.listEmptyContainer.isVisible) && isMapVisible) {
             PlacesEvent.logAction("map_view_click", "map_view")
         }
