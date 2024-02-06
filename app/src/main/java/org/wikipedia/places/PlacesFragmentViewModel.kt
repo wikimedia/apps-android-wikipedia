@@ -25,19 +25,24 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
     var location: Location? = bundle.parcelable(PlacesActivity.EXTRA_LOCATION)
     var highlightedPageTitle: PageTitle? = bundle.parcelable(Constants.ARG_TITLE)
 
-    var lastKnownLocation: Location? = null
+    var lastViewportLocation: Location? = null
+    var lastViewportLocationQueried: Location? = null
+    var lastViewportZoom = 15.0
+    var lastViewportZoomQueried = 0.0
+    var lastKnownUserLocation: Location? = null
+
     val nearbyPagesLiveData = MutableLiveData<Resource<List<NearbyPage>>>()
 
-    fun fetchNearbyPages(latitude: Double, longitude: Double, radius: Int, maxResults: Int) {
+    fun fetchNearbyPages(latitude: Double, longitude: Double, radius: Int) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             nearbyPagesLiveData.postValue(Resource.Error(throwable))
         }) {
-            val response = ServiceFactory.get(wikiSite).getGeoSearch("$latitude|$longitude", radius, maxResults, maxResults)
+            val response = ServiceFactory.get(wikiSite).getGeoSearch("$latitude|$longitude", radius, ITEMS_PER_REQUEST, ITEMS_PER_REQUEST)
             val pages = response.query?.pages.orEmpty()
                 .filter { it.coordinates != null }
                 .map {
                     NearbyPage(it.pageId, PageTitle(it.title, wikiSite,
-                        if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
+                        if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, THUMB_SIZE),
                         it.description, it.displayTitle(wikiSite.languageCode)), it.coordinates!![0].lat, it.coordinates[0].lon)
                 }
             nearbyPagesLiveData.postValue(Resource.Success(pages))
@@ -66,5 +71,10 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return PlacesFragmentViewModel(bundle) as T
         }
+    }
+
+    companion object {
+        const val ITEMS_PER_REQUEST = 75
+        const val THUMB_SIZE = 160
     }
 }

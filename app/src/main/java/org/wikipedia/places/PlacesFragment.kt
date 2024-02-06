@@ -110,10 +110,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     private val annotationCache = ArrayDeque<PlacesFragmentViewModel.NearbyPage>()
     private var lastCheckedId = R.id.mapViewButton
-    private var lastLocation: Location? = null
-    private var lastLocationQueried: Location? = null
-    private var lastZoom = 15.0
-    private var lastZoomQueried = 0.0
 
     private lateinit var markerBitmapBase: Bitmap
     private lateinit var markerPaintSrc: Paint
@@ -148,7 +144,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             viewModel.highlightedPageTitle = pageTitle
             Prefs.placesWikiCode = pageTitle.wikiSite.languageCode
             goToLocation(preferredLocation = location, zoom = 15.9)
-            viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius, ITEMS_PER_REQUEST)
+            viewModel.fetchNearbyPages(location.latitude, location.longitude, searchRadius)
         }
     }
 
@@ -156,12 +152,12 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         if (it.resultCode == RESULT_OK) {
             val languageChanged = it.data?.getBooleanExtra(PlacesFilterActivity.EXTRA_LANG_CHANGED, false) ?: false
             if (languageChanged) {
-                annotationCache.clear()
+                clearAnnotationCache()
                 viewModel.highlightedPageTitle = null
                 symbolManager?.deleteAll()
-                viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
-                    lastLocation?.longitude ?: 0.0, searchRadius, ITEMS_PER_REQUEST)
-                goToLocation(lastLocation, lastZoom)
+                viewModel.fetchNearbyPages(viewModel.lastViewportLocation?.latitude ?: 0.0,
+                    viewModel.lastViewportLocation?.longitude ?: 0.0, searchRadius)
+                goToLocation(viewModel.lastViewportLocation, viewModel.lastViewportZoom)
             }
         }
     }
@@ -256,10 +252,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             } else {
                 locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
             }
-        }
-
-        binding.viewButtonsGroup.post {
-            binding.viewButtonsGroup.isVisible = true
         }
 
         binding.viewButtonsGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
@@ -366,7 +358,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 symbolManager?.iconAllowOverlap = true
                 symbolManager?.textAllowOverlap = true
                 symbolManager?.addClickListener { symbol ->
-                    L.d(">>>> clicked: " + symbol.latLng.latitude + ", " + symbol.latLng.longitude)
                     PlacesEvent.logAction("marker_click", "map_view")
                     annotationCache.find { it.annotation == symbol }?.let {
                         val location = Location("").apply {
@@ -388,19 +379,19 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                         goToLocation(it)
                     } ?: run {
                         val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
-                        goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+                        goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: viewModel.lastViewportZoom)
                     }
                 } else {
                     locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
                 }
-            }
-        }
 
-        viewModel.nearbyPagesLiveData.observe(viewLifecycleOwner) {
-            if (it is Resource.Success) {
-                updateMapMarkers(it.data)
-            } else if (it is Resource.Error) {
-                FeedbackUtil.showError(requireActivity(), it.throwable)
+                viewModel.nearbyPagesLiveData.observe(viewLifecycleOwner) {
+                    if (it is Resource.Success) {
+                        updateMapMarkers(it.data)
+                    } else if (it is Resource.Error) {
+                        FeedbackUtil.showError(requireActivity(), it.throwable)
+                    }
+                }
             }
         }
     }
@@ -546,17 +537,13 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     override fun onDestroyView() {
-        lastLocation?.let {
-            Prefs.placesLastLocationAndZoomLevel = Pair(it, lastZoom)
+        viewModel.lastViewportLocation?.let {
+            Prefs.placesLastLocationAndZoomLevel = Pair(it, viewModel.lastViewportZoom)
         }
         binding.mapView.onDestroy()
         _binding = null
 
-        annotationCache.forEach {
-            if (it.bitmap != null) {
-                Glide.get(requireContext()).bitmapPool.put(it.bitmap!!)
-            }
-        }
+        clearAnnotationCache()
         markerBitmapBase.recycle()
         if (Prefs.shouldShowOneTimePlacesSurvey == SURVEY_NOT_INITIALIZED) {
             Prefs.shouldShowOneTimePlacesSurvey = SURVEY_SHOW
@@ -564,15 +551,24 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         super.onDestroyView()
     }
 
+    private fun clearAnnotationCache() {
+        annotationCache.forEach {
+            if (it.bitmap != null) {
+                Glide.get(requireContext()).bitmapPool.put(it.bitmap!!)
+            }
+        }
+        annotationCache.clear()
+    }
+
     private fun onUpdateCameraPosition(latLng: LatLng) {
-        lastLocation = Location("").also {
+        viewModel.lastViewportLocation = Location("").also {
             it.latitude = latLng.latitude
             it.longitude = latLng.longitude
         }
 
-        lastZoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
+        viewModel.lastViewportZoom = mapboxMap?.cameraPosition?.zoom ?: 15.0
 
-        if (lastZoom < 3.0) {
+        if (viewModel.lastViewportZoom < 3.0) {
             // Don't fetch pages if the map is zoomed out too far.
             return
         }
@@ -580,17 +576,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         // Fetch new pages within the current viewport, but only if the map has moved a significant distance.
         val latEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.latitudeSpan ?: 0.0) * 0.2
         val lngEpsilon = (mapboxMap?.projection?.visibleRegion?.latLngBounds?.longitudeSpan ?: 0.0) * 0.2
-        if (lastLocationQueried != null &&
-            abs(latLng.latitude - (lastLocationQueried?.latitude ?: 0.0)) < latEpsilon &&
-            abs(latLng.longitude - (lastLocationQueried?.longitude ?: 0.0)) < lngEpsilon &&
-            abs(lastZoom - lastZoomQueried) < 0.5) {
+        if (viewModel.lastViewportLocationQueried != null &&
+            abs(latLng.latitude - (viewModel.lastViewportLocationQueried?.latitude ?: 0.0)) < latEpsilon &&
+            abs(latLng.longitude - (viewModel.lastViewportLocationQueried?.longitude ?: 0.0)) < lngEpsilon &&
+            abs(viewModel.lastViewportZoom - viewModel.lastViewportZoomQueried) < 0.5) {
             return
         }
-        lastLocationQueried = lastLocation
-        lastZoomQueried = lastZoom
-
-        L.d(">>> requesting update: " + latLng.latitude + ", " + latLng.longitude + ", " + mapboxMap?.cameraPosition?.zoom)
-        viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude, searchRadius, ITEMS_PER_REQUEST)
+        viewModel.lastViewportLocationQueried = viewModel.lastViewportLocation
+        viewModel.lastViewportZoomQueried = viewModel.lastViewportZoom
+        viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude, searchRadius)
     }
 
     private fun updateMapMarkers(pages: List<PlacesFragmentViewModel.NearbyPage>) {
@@ -647,9 +641,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         if (haveLocationPermissions()) {
             binding.viewButtonsGroup.check(R.id.mapViewButton)
             mapboxMap?.let {
-                viewModel.lastKnownLocation = it.locationComponent.lastKnownLocation
+                viewModel.lastKnownUserLocation = it.locationComponent.lastKnownLocation
                 var currentLatLngLoc: LatLng? = null
-                viewModel.lastKnownLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
+                viewModel.lastKnownUserLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
                 val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
                 val targetLocation = location ?: currentLatLngLoc
                 targetLocation?.let { target ->
@@ -767,7 +761,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
-            holder.bindItem(nearbyPages[position], viewModel.lastKnownLocation)
+            holder.bindItem(nearbyPages[position], viewModel.lastKnownUserLocation)
         }
     }
 
@@ -830,8 +824,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         const val MARKER_DRAWABLE = "markerDrawable"
         const val POINT_COUNT = "point_count"
         const val MAX_ANNOTATIONS = 250
-        const val THUMB_SIZE = 160
-        const val ITEMS_PER_REQUEST = 75
         const val CLUSTER_TEXT_LAYER_ID = "mapbox-android-cluster-text"
         const val CLUSTER_CIRCLE_LAYER_ID = "mapbox-android-cluster-circle0"
         const val ZOOM_IN_ANIMATION_DURATION = 1000
