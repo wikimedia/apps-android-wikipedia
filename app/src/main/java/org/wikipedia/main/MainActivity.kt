@@ -9,6 +9,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.play.core.appupdate.AppUpdateManager
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.appupdate.AppUpdateOptions
+import com.google.android.play.core.install.InstallStateUpdatedListener
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.InstallStatus
+import com.google.android.play.core.install.model.UpdateAvailability
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
@@ -32,6 +40,15 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     private var controlNavTabInFragment = false
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { }
+    private val inAppUpdatesLauncher = registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) {
+        if (it.resultCode == RESULT_OK) {
+            FeedbackUtil.showMessage(this, "App updated!")
+        } else {
+            FeedbackUtil.showMessage(this, "Something went wrong!")
+        }
+    }
+
+    private lateinit var appUpdateManager: AppUpdateManager
 
     override fun inflateAndSetContentView() {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -60,11 +77,63 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (savedInstanceState == null) {
             handleIntent(intent)
         }
+
+        appUpdateManager = AppUpdateManagerFactory.create(this)
+
+        // Create a listener to track request state updates.
+        val listener = InstallStateUpdatedListener { state ->
+            // (Optional) Provide a download progress bar.
+            if (state.installStatus() == InstallStatus.DOWNLOADING) {
+                val bytesDownloaded = state.bytesDownloaded()
+                val totalBytesToDownload = state.totalBytesToDownload()
+                // Show update progress bar.
+            } else if (state.installStatus() == InstallStatus.DOWNLOADED) {
+                // After the update is downloaded, show a notification
+                // and request user confirmation to restart the app.
+                val snackbar = FeedbackUtil.makeSnackbar(this, "An update has just been downloaded. ", Snackbar.LENGTH_INDEFINITE)
+                snackbar.setAction("RESTART") {
+                    appUpdateManager.completeUpdate()
+                }
+                snackbar.show()
+            }
+            // Log state or install the update.
+        }
+
+        // Before starting an update, register a listener for updates.
+        appUpdateManager.registerListener(listener)
+
+        // Start an update.
+
+        // When status updates are no longer needed, unregister the listener.
+        appUpdateManager.unregisterListener(listener)
+
+
     }
 
     override fun onResume() {
         maybeShowPlacesSurvey()
         super.onResume()
+
+        // Checks that the platform will allow the specified type of update.
+        appUpdateManager.appUpdateInfo.addOnSuccessListener { appUpdateInfo ->
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                // This example applies an immediate update. To apply a flexible update
+                // instead, pass in AppUpdateType.FLEXIBLE
+                && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)
+            ) {
+                // Request the update.
+                appUpdateManager.startUpdateFlowForResult(
+                    // Pass the intent that is returned by 'getAppUpdateInfo()'.
+                    appUpdateInfo,
+                    // an activity result launcher registered via registerForActivityResult
+                    inAppUpdatesLauncher,
+                    // Or pass 'AppUpdateType.FLEXIBLE' to newBuilder() for
+                    // flexible updates.
+                    AppUpdateOptions.newBuilder(AppUpdateType.FLEXIBLE).build())
+
+            }
+        }
+
         invalidateOptionsMenu()
     }
 

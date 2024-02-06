@@ -37,7 +37,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk 21
         targetSdk 34
-        versionCode 50468
+        versionCode 50469
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -226,6 +226,7 @@ dependencies {
 
     implementation 'org.maplibre.gl:android-sdk:10.2.0'
     implementation 'org.maplibre.gl:android-plugin-annotation-v9:2.0.2'
+    implementation 'com.google.android.play:app-update-ktx:2.1.0'
 
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor "androidx.room:room-compiler:$roomVersion"
