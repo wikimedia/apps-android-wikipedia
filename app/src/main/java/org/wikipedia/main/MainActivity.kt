@@ -83,8 +83,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         appUpdateManager = AppUpdateManagerFactory.create(this)
 
         appUpdateManager.appUpdateInfo.addOnSuccessListener { appUpdateInfo ->
-            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE &&
+                appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
                 appUpdateManager.startUpdateFlowForResult(appUpdateInfo,
                     inAppUpdatesLauncher, AppUpdateOptions.newBuilder(AppUpdateType.FLEXIBLE).build())
             }
