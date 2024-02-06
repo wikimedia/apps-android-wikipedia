@@ -1343,7 +1343,6 @@
   <string name="revision_diff_from">Von:</string>
   <string name="revision_diff_to">Nach:</string>
   <string name="revision_diff_line_num">Zeile %d</string>
-  <string name="revision_diff_line_nums">Zeilen %d–%d</string>
   <string name="revision_diff_lines_from_to">Zeilen %1$d–%2$d</string>
   <string name="revision_diff_line_added">Zeile hinzugefügt</string>
   <string name="revision_diff_line_removed">Zeile entfernt</string>

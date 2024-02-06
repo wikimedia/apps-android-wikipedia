@@ -15,10 +15,8 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemNotificationFilterBinding
-import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.views.ViewUtil
 
 class NotificationFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
@@ -46,10 +44,8 @@ class NotificationFilterItemView constructor(context: Context, attrs: AttributeS
         binding.notificationFilterTitle.text = getTitleFor(filter.filterCode)
         binding.notificationFilterCheck.isVisible = filter.isEnabled()
         getTitleCodeFor(filter.filterCode)?.let {
-            binding.notificationFilterLanguageCode.text = it
+            binding.notificationFilterLanguageCode.setLangCode(it)
             binding.notificationFilterLanguageCode.visibility = View.VISIBLE
-            ViewUtil.formatLangButton(binding.notificationFilterLanguageCode, it,
-                SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         } ?: run {
             if (filter.filterCode == context.getString(R.string.notifications_all_wikis_text) || filter.filterCode == context.getString(R.string.notifications_all_types_text))
                 binding.notificationFilterLanguageCode.visibility = View.INVISIBLE

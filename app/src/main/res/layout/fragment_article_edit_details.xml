@@ -32,17 +32,6 @@
                     android:paddingBottom="12dp"
                     android:background="?attr/paper_color">
 
-                    <com.google.android.material.progressindicator.LinearProgressIndicator
-                        android:id="@+id/progressBar"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:indeterminate="true"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:visibility="visible" />
-
                     <TextView
                         android:id="@+id/articleTitleView"
                         android:layout_width="0dp"
@@ -319,6 +308,14 @@
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/diffRecyclerView"

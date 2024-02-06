@@ -268,12 +268,12 @@ class GalleryItemFragment : Fragment(), MenuProvider, RequestListener<Drawable?>
         ViewUtil.loadImage(binding.imageView, url, roundedCorners = false, largeRoundedSize = false, force = true, listener = this)
     }
 
-    override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
         callback()?.onError(e?.fillInStackTrace() ?: Throwable(getString(R.string.error_message_generic)))
         return false
     }
 
-    override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource,
+    override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable?>, dataSource: DataSource,
         isFirstResource: Boolean): Boolean {
         binding.imageView.visibility = View.VISIBLE
         (requireActivity() as GalleryActivity).onMediaLoaded()

@@ -1297,7 +1297,6 @@
   <string name="revision_diff_from">이전 판:</string>
   <string name="revision_diff_to">다음 판:</string>
   <string name="revision_diff_line_num">줄 %d</string>
-  <string name="revision_diff_line_nums">줄 %d-%d</string>
   <string name="revision_diff_lines_from_to">줄 %1$d–%2$d</string>
   <string name="revision_diff_line_added">줄 추가됨</string>
   <string name="revision_diff_line_removed">줄 제거됨</string>

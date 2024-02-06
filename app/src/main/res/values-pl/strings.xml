@@ -1240,7 +1240,6 @@
   <string name="revision_diff_from">Od:</string>
   <string name="revision_diff_to">Do:</string>
   <string name="revision_diff_line_num">Wiersz %d</string>
-  <string name="revision_diff_line_nums">Wiersze %d-%d</string>
   <string name="revision_diff_line_added">Dodany wiersz</string>
   <string name="revision_diff_line_removed">Wiersz usunięty</string>
   <string name="revision_diff_paragraph_added">Dodany akapit</string>

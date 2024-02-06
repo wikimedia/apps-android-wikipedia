@@ -729,7 +729,6 @@
   <string name="revision_diff_from">پؠٹھ:</string>
   <string name="revision_diff_to">تام:</string>
   <string name="revision_diff_line_num">سٕتٕر %d</string>
-  <string name="revision_diff_line_nums">سٕتٕرٕ %d-%d</string>
   <string name="revision_diff_lines_from_to">سٕترٕ %1$d-%2$d</string>
   <string name="revision_diff_line_added">سٕتٕر کٕرٕکھ درٕج</string>
   <string name="revision_diff_line_removed">سٕتٕر مِٹٲوٕکھ</string>

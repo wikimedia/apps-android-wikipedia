@@ -2,10 +2,12 @@
 <!-- Authors:
 * Bashir Gwanki
 * Bello Na'im
+* Dbrant
 * Gwanki
 * Hamza DK
 * Salihu aliyu
 * Umar-askirason
+* Yusuf Sa'adu
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -389,6 +391,10 @@
   <string name="multi_select_items_selected">%d an zaɓa</string>
   <string name="error_message_generic">An sami kuskure</string>
   <string name="view_link_preview_error_button_dismiss">Kora</string>
+  <string name="link_preview_dialog_read_button">Karanta</string>
+  <string name="link_preview_dialog_save_button">Ajiye</string>
+  <string name="link_preview_dialog_saved_button">An ajiye</string>
+  <string name="link_preview_dialog_share_button">Rarraba</string>
   <string name="error_page_does_not_exist">Babu wannan shafin</string>
   <string name="error_user_page_does_not_exist">Wikipedia ba shi da &lt;a href=\"%1$s \"&gt;shafin mai amfani&lt;/a&gt; da wannan ainihin sunan. Gaba ɗaya, wannan shafin yakamata a ƙirƙira kuma a gyara shi ta &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; %3$s</string>
   <string name="view_wiki_error_message_offline">Ba za a iya haɗawa da intanet ba</string>
@@ -1311,7 +1317,6 @@
   <string name="revision_diff_from">Daga:</string>
   <string name="revision_diff_to">Zuwa:</string>
   <string name="revision_diff_line_num">Layi %d</string>
-  <string name="revision_diff_line_nums">Lines %d-%d</string>
   <string name="revision_diff_lines_from_to">Lines %1$d-%2$d</string>
   <string name="revision_diff_line_added">Layin da aka kara</string>
   <string name="revision_diff_line_removed">An cire layin</string>
@@ -1423,6 +1428,8 @@
   <string name="media_playback_error">Kuskuren kafofin watsa labarai.</string>
   <string name="user_contrib_menu_label">Gudummawa</string>
   <string name="user_contrib_filter_activity_title">Tace gudunmawar</string>
+  <string name="action_item_view_on_map">Duba akan taswira</string>
+  <string name="action_item_view_on_map_unavailable">Ba a samun ma\'aunin ƙasa don wannan shafin</string>
   <string name="shareable_reading_lists_import_dialog_title">Jerin karatun da aka raba</string>
   <string name="shareable_reading_lists_import_dialog_content">Ta yaya za ku so ku ambaci jerin sunayen da aka raba tare da ku?</string>
   <string name="shareable_reading_lists_new_indicator">*sabo*</string>
@@ -1566,4 +1573,12 @@
   <string name="donation_campaign_donated_snackbar">Na gode, ƙaunataccen mai ba da gudummawa! karimcinku yana taimakawa wajen ci gaba da Wikipedia da shafukan \'yan uwanta.</string>
   <string name="donation_campaign_go_back_button">Koma baya</string>
   <string name="menu_single_webview_open_external">Bude a cikin tsarin mai lilo</string>
+  <string name="places_title">Wajaje</string>
+  <string name="places_permissions_denied">Ana buƙatar izinin wuri don ganin wurinku a taswirar. Don Allah ku sake gwadawa.</string>
+  <string name="places_search_hint">Wuraren bincike</string>
+  <string name="places_filter_title">Harshen tacewa</string>
+  <string name="places_toggle_buttons_map">Taswira</string>
+  <string name="places_toggle_buttons_list">jeri</string>
+  <string name="places_nav_tab_tooltip_message">Gano labaran Wikipedia da ke kewaye da ku tare da Wuraren</string>
+  <string name="places_article_menu_tooltip_message">Taɓa wannnan madannin don bincika wurin wannan labarin</string>
 </resources>

@@ -378,7 +378,6 @@
   <string name="revision_diff_from">ពី៖</string>
   <string name="revision_diff_to">ទៅជា៖</string>
   <string name="revision_diff_line_num">បន្ទាត់ទី %d</string>
-  <string name="revision_diff_line_nums">បន្ទាត់ទី %d–%d</string>
   <string name="revision_diff_line_added">បន្ទាត់​ដែល​បាន​បន្ថែម</string>
   <string name="revision_diff_line_removed">បន្ទាត់​ដែល​បានលុប</string>
   <string name="revision_diff_paragraph_added">កថាខណ្ឌ​ដែល​បាន​បន្ថែម</string>

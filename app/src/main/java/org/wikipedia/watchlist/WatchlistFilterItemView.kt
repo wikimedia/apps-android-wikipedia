@@ -15,10 +15,8 @@ import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemWatchlistFilterBinding
-import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.views.ViewUtil
 
 class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
@@ -48,10 +46,8 @@ class WatchlistFilterItemView constructor(context: Context, attrs: AttributeSet?
         binding.watchlistFilterCheck.setImageResource(if (filter.isCheckBox) R.drawable.ic_check_borderless else R.drawable.ic_baseline_radio_button_checked_24)
 
         getTitleCodeFor(filter)?.let {
-            binding.watchlistFilterLanguageCode.text = it
+            binding.watchlistFilterLanguageCode.setLangCode(it)
             binding.watchlistFilterLanguageCode.visibility = View.VISIBLE
-            ViewUtil.formatLangButton(binding.watchlistFilterLanguageCode, it,
-                SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         } ?: run {
             binding.watchlistFilterLanguageCode.visibility = View.GONE
         }

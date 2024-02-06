@@ -25,12 +25,6 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
             findPreference(R.string.preference_key_sync_reading_lists).isVisible = false
         }
         findPreference(R.string.preference_key_sync_reading_lists).onPreferenceChangeListener = SyncReadingListsListener()
-        findPreference(R.string.preference_key_eventlogging_opt_in).onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference: Preference, newValue: Any ->
-            if (!(newValue as Boolean)) {
-                Prefs.appInstallId = null
-            }
-            true
-        }
         loadPreferences(R.xml.preferences_about)
         updateLanguagePrefSummary()
         findPreference(R.string.preference_key_language).onPreferenceClickListener = Preference.OnPreferenceClickListener {

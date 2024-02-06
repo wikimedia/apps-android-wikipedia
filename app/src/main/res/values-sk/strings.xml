@@ -1219,7 +1219,6 @@
   <string name="revision_diff_from">Od:</string>
   <string name="revision_diff_to">Do:</string>
   <string name="revision_diff_line_num">Riadok %d</string>
-  <string name="revision_diff_line_nums">Riadky %d-%d</string>
   <string name="revision_diff_line_added">Riadok pridaný</string>
   <string name="revision_diff_line_removed">Riadok odstránený</string>
   <string name="revision_diff_paragraph_added">Odsek pridaný</string>

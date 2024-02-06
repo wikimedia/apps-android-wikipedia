@@ -1347,7 +1347,6 @@
   <string name="revision_diff_from">從：</string>
   <string name="revision_diff_to">至：</string>
   <string name="revision_diff_line_num">第%d行</string>
-  <string name="revision_diff_line_nums">第%d到%d行</string>
   <string name="revision_diff_lines_from_to">第%1$d到%2$d行</string>
   <string name="revision_diff_line_added">已新增行數</string>
   <string name="revision_diff_line_removed">已移除行數</string>
@@ -1610,4 +1609,12 @@
   <string name="places_filter_title">篩選語言</string>
   <string name="places_toggle_buttons_map">地圖</string>
   <string name="places_toggle_buttons_list">清單</string>
+  <string name="places_nav_tab_tooltip_message">透過地點來探索位於您周遭的維基百科條目</string>
+  <string name="places_article_menu_tooltip_message">輕觸&lt;b&gt;「在地圖上查看」&lt;/b&gt;即可探索該條目的所在位置</string>
+  <string name="places_survey_very_satisfied_option">非常滿意</string>
+  <string name="places_survey_very_unsatisfied_option">非常不滿意</string>
+  <string name="places_survey_dialog_title">協助改善「地點」</string>
+  <string name="places_survey_feedback_dialog_title">如何改善「地點」？</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">您希望我們改變或改善什麼？</string>
+  <string name="places_empty_list">該區域是空的。請在&lt;a href=\"#\"&gt;在地圖上&lt;/a&gt;縮小。</string>
 </resources>

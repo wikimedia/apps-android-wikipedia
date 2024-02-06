@@ -1419,7 +1419,6 @@
   <string name="revision_diff_from">Від:</string>
   <string name="revision_diff_to">До:</string>
   <string name="revision_diff_line_num">Рядок %d</string>
-  <string name="revision_diff_line_nums">Рядки %d—%d</string>
   <string name="revision_diff_lines_from_to">Рядки %1$d–%2$d</string>
   <string name="revision_diff_line_added">Рядок додано</string>
   <string name="revision_diff_line_removed">Рядок вилучено</string>

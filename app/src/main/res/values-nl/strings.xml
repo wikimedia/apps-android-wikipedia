@@ -1353,7 +1353,6 @@
   <string name="revision_diff_from">Van:</string>
   <string name="revision_diff_to">Naar:</string>
   <string name="revision_diff_line_num">Regel %d</string>
-  <string name="revision_diff_line_nums">Regels %d–%d</string>
   <string name="revision_diff_lines_from_to">Regels %1$d–%2$d</string>
   <string name="revision_diff_line_added">Regel toegevoegd</string>
   <string name="revision_diff_line_removed">Regel verwijderd</string>

@@ -1250,7 +1250,6 @@
   <string name="revision_diff_from">Od:</string>
   <string name="revision_diff_to">Do:</string>
   <string name="revision_diff_line_num">Řádek %d</string>
-  <string name="revision_diff_line_nums">Řádky %d-%d</string>
   <string name="revision_diff_lines_from_to">Řádky %1$d-%2$d</string>
   <string name="revision_compare_button">Porovnat</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Stránka „%1$s“ a její diskusní stránka byly přidány do sledovaných stránek %2$s.</string>

@@ -981,7 +981,6 @@
   <string name="revision_diff_from">Από:</string>
   <string name="revision_diff_to">Προς:</string>
   <string name="revision_diff_line_num">Γραμμή %d</string>
-  <string name="revision_diff_line_nums">Γραμμές %d–%d</string>
   <string name="revision_diff_paragraph_added">Προστέθηκε παράγραφος</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">για 1 εβδομάδα</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">για 1 μήνα</string>

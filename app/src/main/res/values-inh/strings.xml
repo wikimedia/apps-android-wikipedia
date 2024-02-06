@@ -1277,7 +1277,6 @@
   <string name="revision_diff_from">Укх ханагара:</string>
   <string name="revision_diff_to">Цу ханага:</string>
   <string name="revision_diff_line_num">МугӀ %d</string>
-  <string name="revision_diff_line_nums">МугӀараш %d–%d</string>
   <string name="revision_diff_line_added">МугӀ тӀатехаб</string>
   <string name="revision_diff_line_removed">МугӀ дӀабаьккхаб</string>
   <string name="revision_diff_paragraph_added">ЦӀе мугӀ тӀатехаб</string>

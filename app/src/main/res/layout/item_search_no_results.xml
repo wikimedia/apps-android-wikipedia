@@ -25,20 +25,17 @@
         app:layout_constraintEnd_toStartOf="@id/language_code"
         />
 
-    <TextView
+    <org.wikipedia.views.LangCodeView
         android:id="@+id/language_code"
-        style="@style/TextViewCentered"
-        android:layout_width="wrap_content"
+        android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/lang_button_shape_border"
-        android:fontFamily="sans-serif-medium"
-        android:minWidth="24dp"
-        android:paddingHorizontal="2dp"
-        android:textAllCaps="true"
-        android:textColor="?attr/secondary_color"
+        android:layout_marginStart="24dp"
+        android:contentDescription="@null"
+        app:textColor="?attr/placeholder_color"
+        app:backgroundTint="?attr/placeholder_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"  />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

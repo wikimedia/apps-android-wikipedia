@@ -1306,7 +1306,6 @@
   <string name="revision_diff_from">Deri:</string>
   <string name="revision_diff_to">Ke:</string>
   <string name="revision_diff_line_num">Baris %d</string>
-  <string name="revision_diff_line_nums">Baris %d–%d</string>
   <string name="revision_diff_lines_from_to">Baris %1$d–%2$d</string>
   <string name="revision_diff_line_added">Baris ditambahin</string>
   <string name="revision_diff_line_removed">Baris dibuang</string>

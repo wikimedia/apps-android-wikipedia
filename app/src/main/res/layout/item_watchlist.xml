@@ -42,35 +42,18 @@
             android:textColor="?attr/secondary_color"
             tools:text="12:00"/>
 
-        <ImageView
-            android:id="@+id/langCodeBackground"
-            android:layout_width="0dp"
-            android:layout_height="18dp"
-            android:contentDescription="@null"
-            app:layout_constraintBottom_toBottomOf="@+id/langCodeText"
-            app:layout_constraintEnd_toEndOf="@+id/langCodeText"
-            app:layout_constraintStart_toStartOf="@+id/langCodeText"
-            app:layout_constraintTop_toTopOf="@+id/langCodeText"
-            app:srcCompat="@drawable/lang_button_shape_border"
-            app:tint="?attr/secondary_color" />
-
-        <TextView
+        <org.wikipedia.views.LangCodeView
             android:id="@+id/langCodeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            android:layout_marginHorizontal="4dp"
             app:layout_constraintTop_toTopOf="@id/timeText"
             app:layout_constraintBottom_toBottomOf="@id/timeText"
             app:layout_constraintEnd_toStartOf="@id/timeText"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="monospace"
-            android:lineSpacingExtra="2sp"
-            android:padding="3dp"
-            android:paddingEnd="4dp"
-            android:textAllCaps="true"
-            android:textColor="?attr/secondary_color"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            tools:text="zh-hant" />
+            app:textColor="?attr/secondary_color"
+            app:backgroundTint="?attr/secondary_color"/>
 
         <org.wikipedia.views.GoneIfEmptyTextView
             android:id="@+id/summaryText"

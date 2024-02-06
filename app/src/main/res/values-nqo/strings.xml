@@ -1114,7 +1114,6 @@
   <string name="revision_diff_from">ߞߵߊ߬ ߘߊߡߌ߬ߣߊ߬:</string>
   <string name="revision_diff_to">ߞߊ߬ ߥߴߊ߬ ߛߌ߰:</string>
   <string name="revision_diff_line_num">ߛߌ߬ߕߊߙߌ %d</string>
-  <string name="revision_diff_line_nums">ߛߌ߬ߕߊߙߌ %d–%d</string>
   <string name="revision_diff_lines_from_to">ߛߌ߬ߕߊߙߌ %1$d-%2$d</string>
   <string name="revision_diff_line_added">ߛߌ߬ߕߊߙߌ ߓߘߊ߫ ߝߙߊ߬</string>
   <string name="revision_diff_line_removed">ߛߌ߬ߕߊߙߌ ߓߘߊ߫ ߖߏ߰ߛߌ߫</string>

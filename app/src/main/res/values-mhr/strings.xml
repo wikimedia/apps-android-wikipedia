@@ -357,7 +357,7 @@
   <string name="color_theme_test_title">Текст пример</string>
   <string name="text_size_increase">Шрифт кугытым кугемдаш</string>
   <string name="text_size_decrease">Шрифт кугытым иземдаш</string>
-  <string name="text_size_percent_default">%s (ойлыде)</string>
+  <string name="text_size_percent_default">%s (ончылгочсо)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Лудмаш</string>
   <string name="theme_category_editing">Тöрлатымаш</string>

@@ -25,7 +25,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/App.Button.Secondary"
-            android:minWidth="88dp"
             android:text="@string/onboarding_got_it"/>
 
         <TextView

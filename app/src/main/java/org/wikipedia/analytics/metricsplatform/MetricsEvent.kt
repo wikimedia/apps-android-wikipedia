@@ -7,10 +7,10 @@ import org.wikimedia.metrics_platform.context.PerformerData
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
 
 open class MetricsEvent {
@@ -18,17 +18,20 @@ open class MetricsEvent {
     /**
      * Submit an event to the Metrics Platform using a base interaction schema
      *
+     * @param streamName the name of the stream
      * @param eventName the name of the event
      * @param interactionData a data object that conforms to core interactions
      * @param pageData dynamic page data that should be added to the ClientData object
      */
     protected fun submitEvent(
+        streamName: String,
         eventName: String,
         interactionData: InteractionData?,
         pageData: PageData? = null
     ) {
-        if (ReleaseUtil.isPreProdRelease && Prefs.isEventLoggingEnabled) {
+        if (ReleaseUtil.isPreProdRelease) {
             MetricsPlatform.client.submitInteraction(
+                streamName,
                 EVENT_NAME_BASE + eventName,
                 getClientData(pageData),
                 interactionData)
@@ -38,6 +41,7 @@ open class MetricsEvent {
     /**
      * Submit an event to the Metrics Platform using a custom schema
      *
+     * @param streamName the name of the stream
      * @param schemaId the custom schema ID
      * @param eventName the name of the event
      * @param customData the custom data key-value pairs that are top-level properties
@@ -45,14 +49,16 @@ open class MetricsEvent {
      * @param pageData dynamic page data that should be added to the ClientData object
      */
     protected fun submitEvent(
+        streamName: String,
         schemaId: String,
         eventName: String,
         customData: Map<String, Any>,
         interactionData: InteractionData?,
         pageData: PageData? = null
     ) {
-        if (ReleaseUtil.isPreProdRelease && Prefs.isEventLoggingEnabled) {
+        if (ReleaseUtil.isPreProdRelease) {
             MetricsPlatform.client.submitInteraction(
+                streamName,
                 schemaId,
                 EVENT_NAME_BASE + eventName,
                 getClientData(pageData),
@@ -62,7 +68,7 @@ open class MetricsEvent {
         }
     }
 
-    protected fun getClientData(pageData: PageData?): ClientData {
+    private fun getClientData(pageData: PageData?): ClientData {
         return ClientData(
             MetricsPlatform.agentData,
             pageData,
@@ -94,6 +100,19 @@ open class MetricsEvent {
             Namespace.of(pageTitle.namespace().code()).toString(),
             revisionId,
             null,
+            pageTitle.wikiSite.languageCode
+        )
+    }
+
+    protected fun getPageData(pageTitle: PageTitle?, pageSummary: PageSummary?): PageData? {
+        if (pageTitle == null) return null
+        return PageData(
+            pageSummary?.pageId,
+            pageTitle.prefixedText,
+            pageTitle.namespace().code(),
+            Namespace.of(pageTitle.namespace().code()).toString(),
+            pageSummary?.revision,
+            pageSummary?.wikiBaseItem,
             pageTitle.wikiSite.languageCode
         )
     }

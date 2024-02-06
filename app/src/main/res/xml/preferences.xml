@@ -59,11 +59,4 @@
             android:title="@string/preference_title_prefer_offline_content"
             android:summary="@string/preference_summary_prefer_offline_content" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/preferences_privacy_settings_heading">
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_eventlogging_opt_in"
-            android:defaultValue="false"
-            android:title="@string/preference_title_eventlogging_opt_in"
-            android:summary="@string/preference_summary_eventlogging_opt_in" />
-    </PreferenceCategory>
 </PreferenceScreen>

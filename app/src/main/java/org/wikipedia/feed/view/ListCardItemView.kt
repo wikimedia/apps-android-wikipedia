@@ -60,7 +60,7 @@ class ListCardItemView(context: Context, attrs: AttributeSet? = null) : Constrai
         }
 
         setOnLongClickListener { view ->
-            LongPressMenu(view, true, object : LongPressMenu.Callback {
+            LongPressMenu(view, callback = object : LongPressMenu.Callback {
                 override fun onOpenLink(entry: HistoryEntry) {
                     card?.let {
                         callback?.onSelectPage(it, entry, false)

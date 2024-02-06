@@ -1148,7 +1148,6 @@
   <string name="revision_diff_from">کان:</string>
   <string name="revision_diff_to">تائين:</string>
   <string name="revision_diff_line_num">سِٽ %d</string>
-  <string name="revision_diff_line_nums">سِٽون %d–%d</string>
   <string name="revision_diff_lines_from_to">سٽون %1$d–%2$d</string>
   <string name="revision_diff_line_added">وڌل سِٽ</string>
   <string name="revision_diff_line_removed">ڪڍيل سِٽ</string>

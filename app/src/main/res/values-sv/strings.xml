@@ -1332,7 +1332,6 @@
   <string name="revision_diff_from">Från:</string>
   <string name="revision_diff_to">Till:</string>
   <string name="revision_diff_line_num">Rad %d</string>
-  <string name="revision_diff_line_nums">Rader %d–%d</string>
   <string name="revision_diff_lines_from_to">Rader %1$d–%2$d</string>
   <string name="revision_diff_line_added">Raden lades till</string>
   <string name="revision_diff_line_removed">Raden togs bort</string>

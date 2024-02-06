@@ -1,26 +1,20 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.content.res.ColorStateList
-import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorInt
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.ViewCompat
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ViewLanguageScrollBinding
-import org.wikipedia.language.LanguageUtil
-import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.ResourceUtil
 
-class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+class LanguageScrollView(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
     interface Callback {
         fun onLanguageTabSelected(selectedLanguageCode: String)
@@ -58,16 +52,15 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
             view?.let {
                 @ColorInt val color = ResourceUtil.getThemedColor(context, R.attr.progressive_color)
                 @ColorInt val paperColor = ResourceUtil.getThemedColor(context, R.attr.paper_color)
-                val drawable = AppCompatResources.getDrawable(context, R.drawable.lang_button_shape)
-                updateTabLanguageCode(it, null, paperColor, drawable, color)
-                updateTabLanguageLabel(it, null, color)
+                updateTabLanguageCode(it, textColor = paperColor, backgroundColorTint = color, fillBackground = true)
+                updateTabLanguageLabel(it, textColor = color)
             }
             callback?.onLanguageTabSelected(languageCodes[tab.position])
         } else {
             view?.let {
-                @ColorInt val color = ResourceUtil.getThemedColor(context, R.attr.secondary_color)
-                updateTabLanguageLabel(it, null, color)
-                updateTabLanguageCode(it, null, color, AppCompatResources.getDrawable(context, R.drawable.lang_button_shape_border), color)
+                @ColorInt val color = ResourceUtil.getThemedColor(context, R.attr.placeholder_color)
+                updateTabLanguageLabel(it, textColor = color)
+                updateTabLanguageCode(it, textColor = color, backgroundColorTint = color)
             }
         }
     }
@@ -96,29 +89,28 @@ class LanguageScrollView constructor(context: Context, attrs: AttributeSet? = nu
 
     private fun createLanguageTab(languageCode: String): View {
         val tab = LayoutInflater.from(context).inflate(R.layout.view_custom_language_tab, this, false)
-        updateTabLanguageCode(tab, languageCode, null, null, null)
-        updateTabLanguageLabel(tab, languageCode, null)
+        updateTabLanguageCode(tab, languageCode)
+        updateTabLanguageLabel(tab, languageCode)
         return tab
     }
 
-    private fun updateTabLanguageLabel(customView: View, languageCode: String?, @ColorInt textColor: Int?) {
+    private fun updateTabLanguageLabel(customView: View, languageCode: String? = null, @ColorInt textColor: Int? = null) {
         val languageLabelTextView = customView.findViewById<TextView>(R.id.language_label)
         if (!languageCode.isNullOrEmpty()) {
-            languageLabelTextView.text = WikipediaApp.instance.languageState.getAppLanguageLocalizedName(languageCode)
+            languageLabelTextView.text = WikipediaApp.instance.languageState.getAppLanguageCanonicalName(languageCode)
         }
         textColor?.let {
             languageLabelTextView.setTextColor(textColor)
         }
     }
 
-    private fun updateTabLanguageCode(customView: View, languageCode: String?, @ColorInt textColor: Int?, background: Drawable?, @ColorInt backgroundColorTint: Int?) {
-        val languageCodeTextView = customView.findViewById<TextView>(R.id.language_code)
+    private fun updateTabLanguageCode(customView: View, languageCode: String? = null, @ColorInt textColor: Int? = null, @ColorInt backgroundColorTint: Int? = null, fillBackground: Boolean = false) {
+        val languageCodeTextView = customView.findViewById<LangCodeView>(R.id.language_code)
         if (languageCode != null) {
-            languageCodeTextView.text = LanguageUtil.formatLangCodeForButton(languageCode)
-            ViewUtil.formatLangButton(languageCodeTextView, languageCode, SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
+            languageCodeTextView.setLangCode(languageCode)
         }
+        languageCodeTextView.fillBackground(fillBackground)
         textColor?.let { languageCodeTextView.setTextColor(it) }
-        background?.let { languageCodeTextView.background = it }
-        backgroundColorTint?.let { ViewCompat.setBackgroundTintList(languageCodeTextView, ColorStateList.valueOf(it)) }
+        backgroundColorTint?.let { languageCodeTextView.setBackgroundTint(it) }
     }
 }

@@ -15,9 +15,7 @@ import androidx.core.widget.ImageViewCompat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.databinding.ItemSuggestedEditsRecentEditsFilterBinding
-import org.wikipedia.search.SearchFragment
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.views.ViewUtil
 
 class SuggestedEditsRecentEditsFilterItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
@@ -65,10 +63,8 @@ class SuggestedEditsRecentEditsFilterItemView constructor(context: Context, attr
         binding.recentEditsFilterDesc.isVisible = showDescription
 
         getTitleCodeFor(filter)?.let {
-            binding.recentEditsFilterLanguageCode.text = it
+            binding.recentEditsFilterLanguageCode.setLangCode(it)
             binding.recentEditsFilterLanguageCode.visibility = View.VISIBLE
-            ViewUtil.formatLangButton(binding.recentEditsFilterLanguageCode, it,
-                SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER, SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER)
         } ?: run {
             binding.recentEditsFilterLanguageCode.visibility = View.GONE
         }

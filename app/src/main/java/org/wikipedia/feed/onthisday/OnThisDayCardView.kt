@@ -120,7 +120,7 @@ class OnThisDayCardView(context: Context) : DefaultFeedCardView<OnThisDayCard>(c
                     } else {
                         val pageTitle = page.getPageTitle(card.wikiSite())
                         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_ON_THIS_DAY_CARD)
-                        LongPressMenu(view, true, object : LongPressMenu.Callback {
+                        LongPressMenu(view, callback = object : LongPressMenu.Callback {
                             override fun onOpenLink(entry: HistoryEntry) {
                                 callback?.onSelectPage(
                                     card,

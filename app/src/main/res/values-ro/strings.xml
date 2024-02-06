@@ -1241,7 +1241,6 @@
   <string name="revision_diff_from">De la:</string>
   <string name="revision_diff_to">La:</string>
   <string name="revision_diff_line_num">Linia %d</string>
-  <string name="revision_diff_line_nums">Linii %d–%d</string>
   <string name="revision_diff_line_added">Linie adăugată</string>
   <string name="revision_diff_line_removed">Linia a fost scoasă</string>
   <string name="revision_diff_paragraph_added">Paragraf adăugat</string>

@@ -1267,7 +1267,6 @@
   <string name="revision_diff_from">A yi:</string>
   <string name="revision_diff_to">ko:</string>
   <string name="revision_diff_line_num">Soɔmaa %d</string>
-  <string name="revision_diff_line_nums">Soɔmie %d-%d</string>
   <string name="revision_diff_lines_from_to">Soɔmie %1$d-%2$d</string>
   <string name="revision_diff_line_added">Soɔmaa paale la</string>
   <string name="revision_diff_line_removed">Soɔmaa ire la</string>

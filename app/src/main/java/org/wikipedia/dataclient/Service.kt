@@ -32,7 +32,7 @@ interface Service {
     fun getPageImages(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @GET(
-        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|info&piprop=thumbnail" +
+        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|coordinates|info&piprop=thumbnail" +
                 "&pilicense=any&generator=prefixsearch&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
     suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
@@ -41,7 +41,7 @@ interface Service {
 
     @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
-                "&prop=description|pageimages|pageprops|info&ppprop=mainpage|disambiguation" +
+                "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +
                 "&generator=search&gsrnamespace=0&gsrwhat=text" +
                 "&inprop=varianttitles|displaytitle" +
                 "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +

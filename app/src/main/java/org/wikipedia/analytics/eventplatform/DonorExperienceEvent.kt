@@ -5,8 +5,6 @@ import org.wikipedia.WikipediaApp
 class DonorExperienceEvent {
 
     companion object {
-        private const val STREAM_NAME = "app_donor_experience"
-
         fun logImpression(activeInterface: String, campaignId: String? = null, wikiId: String = "") {
             submitDonorExperienceEvent("impression", activeInterface, getActionDataString(campaignId), wikiId)
         }
@@ -35,7 +33,6 @@ class DonorExperienceEvent {
             actionData: String,
             wikiId: String
         ) {
-            AppInteractionEvent.STREAM_NAME = STREAM_NAME
             EventPlatformClient.submit(
                 AppInteractionEvent(
                     action,
@@ -43,7 +40,7 @@ class DonorExperienceEvent {
                     actionData,
                     WikipediaApp.instance.languageState.appLanguageCode,
                     wikiId,
-                    "android"
+                    "app_donor_experience"
                 )
             )
         }

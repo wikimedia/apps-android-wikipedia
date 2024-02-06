@@ -1136,7 +1136,6 @@
   <string name="revision_diff_from">De:</string>
   <string name="revision_diff_to">A(d):</string>
   <string name="revision_diff_line_num">Lineo %d</string>
-  <string name="revision_diff_line_nums">Linei %d–%d</string>
   <string name="revision_diff_line_added">Lineo adjuntita</string>
   <string name="revision_diff_line_removed">Lineo efacita</string>
   <string name="revision_diff_paragraph_added">Paragrafo adjuntita</string>

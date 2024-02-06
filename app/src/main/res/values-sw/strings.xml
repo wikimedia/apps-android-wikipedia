@@ -2,6 +2,7 @@
 <!-- Authors:
 * Edwingudfriend
 * Jadnapac
+* Killy95
 * Kwisha
 * MuratTheTurkish
 * Obsuser
@@ -136,6 +137,7 @@
   <string name="close_all_tabs_confirm_yes">Ndiyo</string>
   <string name="close_all_tabs_confirm_no">Hapana</string>
   <string name="button_continue_to_article">Soma makala</string>
+  <string name="link_preview_dialog_save_button">Hifadhi</string>
   <string name="error_page_does_not_exist">Ukarasa haupo.</string>
   <string name="crash_report_quit">Ondoka</string>
   <string name="article_header_edit_hint">Hariri...</string>

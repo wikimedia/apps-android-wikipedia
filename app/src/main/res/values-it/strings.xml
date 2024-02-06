@@ -1321,7 +1321,6 @@
   <string name="revision_diff_from">Da:</string>
   <string name="revision_diff_to">A:</string>
   <string name="revision_diff_line_num">Riga %d</string>
-  <string name="revision_diff_line_nums">Righe %d–%d</string>
   <string name="revision_diff_lines_from_to">Righe %1$d–%2$d</string>
   <string name="revision_diff_line_added">Riga aggiunta</string>
   <string name="revision_diff_line_removed">Riga rimossa</string>
@@ -1512,4 +1511,6 @@
   <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità aiuta a far crescere Wikipedia e i suoi siti correlati.</string>
   <string name="donation_campaign_go_back_button">Torna indietro</string>
   <string name="menu_single_webview_open_external">Apri nel browser di sistema</string>
+  <string name="places_nav_tab_tooltip_message">Scopri le voci di Wikipedia intorno a te con Luoghi</string>
+  <string name="places_article_menu_tooltip_message">Tocca &lt;b&gt;\"Visualizza sulla mappa\"&lt;/b&gt; per esplorare la posizione di questa voce</string>
 </resources>

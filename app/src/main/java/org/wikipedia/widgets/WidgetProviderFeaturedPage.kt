@@ -49,9 +49,10 @@ class WidgetProviderFeaturedPage : AppWidgetProvider() {
                     appWidgetManager.updateAppWidget(widgetId, remoteViews)
 
                     val intent = Intent(context, PageActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                    intent.putExtra(Constants.ARG_TITLE, pageTitle)
-                    intent.putExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET, true)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra(Constants.ARG_TITLE, pageTitle)
+                        .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, Constants.InvokeSource.WIDGET)
+                        .putExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET, true)
                     val pendingIntent = PendingIntentCompat.getActivity(context, 1, intent,
                             PendingIntent.FLAG_UPDATE_CURRENT, false)
 

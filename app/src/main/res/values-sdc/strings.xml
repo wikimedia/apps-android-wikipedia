@@ -293,7 +293,6 @@
   <string name="revision_diff_from">Dà:</string>
   <string name="revision_diff_to">A:</string>
   <string name="revision_diff_line_num">Riga %d</string>
-  <string name="revision_diff_line_nums">Righi %d–%d</string>
   <string name="revision_diff_line_added">Riga aggiùnta</string>
   <string name="revision_diff_line_removed">riga rimossa</string>
   <string name="revision_undo_title">Sei sigura/u ki vói annullà kistha mudìfigga?</string>
