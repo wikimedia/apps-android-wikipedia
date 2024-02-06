@@ -156,7 +156,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         if (it.resultCode == RESULT_OK) {
             val languageChanged = it.data?.getBooleanExtra(PlacesFilterActivity.EXTRA_LANG_CHANGED, false) ?: false
             if (languageChanged) {
-                annotationCache.clear()
+                clearAnnotationCache()
                 viewModel.highlightedPageTitle = null
                 symbolManager?.deleteAll()
                 viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
@@ -250,10 +250,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             } else {
                 locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
             }
-        }
-
-        binding.viewButtonsGroup.post {
-            binding.viewButtonsGroup.isVisible = true
         }
 
         binding.viewButtonsGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
@@ -546,16 +542,21 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         binding.mapView.onDestroy()
         _binding = null
 
-        annotationCache.forEach {
-            if (it.bitmap != null) {
-                Glide.get(requireContext()).bitmapPool.put(it.bitmap!!)
-            }
-        }
+        clearAnnotationCache()
         markerBitmapBase.recycle()
         if (Prefs.shouldShowOneTimePlacesSurvey == SURVEY_NOT_INITIALIZED) {
             Prefs.shouldShowOneTimePlacesSurvey = SURVEY_SHOW
         }
         super.onDestroyView()
+    }
+
+    private fun clearAnnotationCache() {
+        annotationCache.forEach {
+            if (it.bitmap != null) {
+                Glide.get(requireContext()).bitmapPool.put(it.bitmap!!)
+            }
+        }
+        annotationCache.clear()
     }
 
     private fun onUpdateCameraPosition(latLng: LatLng) {
