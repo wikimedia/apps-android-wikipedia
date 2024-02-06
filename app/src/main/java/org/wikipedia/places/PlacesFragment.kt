@@ -647,9 +647,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         if (haveLocationPermissions()) {
             binding.viewButtonsGroup.check(R.id.mapViewButton)
             mapboxMap?.let {
-                val currentLocation = it.locationComponent.lastKnownLocation
+                viewModel.lastKnownLocation = it.locationComponent.lastKnownLocation
                 var currentLatLngLoc: LatLng? = null
-                currentLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
+                viewModel.lastKnownLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
                 val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
                 val targetLocation = location ?: currentLatLngLoc
                 targetLocation?.let { target ->
@@ -767,7 +767,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
-            holder.bindItem(nearbyPages[position], mapboxMap?.locationComponent?.lastKnownLocation)
+            holder.bindItem(nearbyPages[position], viewModel.lastKnownLocation)
         }
     }
 

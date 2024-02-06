@@ -25,6 +25,7 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
     var location: Location? = bundle.parcelable(PlacesActivity.EXTRA_LOCATION)
     var highlightedPageTitle: PageTitle? = bundle.parcelable(Constants.ARG_TITLE)
 
+    var lastKnownLocation: Location? = null
     val nearbyPagesLiveData = MutableLiveData<Resource<List<NearbyPage>>>()
 
     fun fetchNearbyPages(latitude: Double, longitude: Double, radius: Int, maxResults: Int) {
