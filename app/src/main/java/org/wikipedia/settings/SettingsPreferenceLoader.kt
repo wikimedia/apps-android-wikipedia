@@ -9,6 +9,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.feed.configure.ConfigureActivity
 import org.wikipedia.login.LoginActivity
@@ -52,6 +53,12 @@ internal class SettingsPreferenceLoader(fragment: PreferenceFragmentCompat) : Ba
         if (AccountUtil.isLoggedIn) {
             loadPreferences(R.xml.preferences_account)
             (findPreference(R.string.preference_key_logout) as LogoutPreference).activity = activity
+        }
+
+        findPreference(R.string.preference_key_account_vanish).onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            activity.startActivity(SingleWebViewActivity.newIntent(activity,
+                activity.getString(R.string.account_vanish_url)))
+            true
         }
     }
 

@@ -4,6 +4,11 @@
     <PreferenceCategory android:title="@string/preferences_account_heading">
         <org.wikipedia.settings.LogoutPreference
             android:key="@string/preference_key_logout" />
+
+        <org.wikipedia.settings.PreferenceMultiLine
+            android:key="@string/preference_key_account_vanish"
+            android:summary="@string/account_vanish_request_description"
+            android:title="@string/account_vanish_request_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>
