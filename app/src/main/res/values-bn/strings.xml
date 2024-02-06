@@ -412,6 +412,7 @@
   <string name="multi_select_items_selected">%dটি নির্বাচিত</string>
   <string name="error_message_generic">একটি ত্রুটি দেখা দিয়েছে</string>
   <string name="view_link_preview_error_button_dismiss">খারিজ</string>
+  <string name="link_preview_dialog_read_button">পড়ুন</string>
   <string name="error_page_does_not_exist">এই পাতার অস্তিত্ব নেই</string>
   <string name="error_user_page_does_not_exist">উইকিপিডিয়ায় হুবহু এই নামে কোনও &lt;a href=\"%1$s\"&gt;ব্যবহারকারী পাতা&lt;/a&gt; নেই। সাধারণত, এই পাতাটি &lt;b&gt;%2$s&lt;/b&gt; কর্তৃক তৈরি ও সম্পাদনা করা উচিত। যদি নিশ্চিত না হোন, তবে যাচাই করুন যে \"%3$s\"-এর অস্তিত্ব রয়েছে।</string>
   <string name="view_wiki_error_message_offline">ইন্টারনেটে সংযোগ করা যাবে না</string>
@@ -1159,7 +1160,7 @@
   <string name="reading_list_share_survey_title">আপনি কি আমাদের \"পড়ার তালিকা শেয়ার\" উন্নত করতে সহায়তা করতে পারবেন?</string>
   <string name="reading_list_share_survey_body">\"পড়ার তালিকা শেয়ার\" একটি পরীক্ষামূলক ফিচার এবং এটি উন্নত বা অপসারণ করতে আমাদের আপনার প্রতিক্রিয়া প্রয়োজন।</string>
   <string name="talk_templates_new_message_save">সংরক্ষণ</string>
-  <string name="talk_templates_edit_message_delete_description">আপনি কি নিশ্চিত যে আপনি এই \"%s\" বার্তাটি তালিকা থেকে মুছে ফেলতে চান?</string>
+  <string name="talk_templates_menu_remove_message">বার্তা সরান</string>
   <string name="patroller_tasks_edits_list_card_tags_text">ট্যাগ: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">কোনোটি নয়</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">ব্যবহারকারীর পাতা দেখুন</string>
@@ -1173,4 +1174,24 @@
   <string name="page_issues_title">পাতার সমস্যা</string>
   <string name="donation_campaign_go_back_button">ফিরে যান</string>
   <string name="menu_single_webview_open_external">সিস্টেম ব্রাউজারে খুলুন</string>
+  <string name="places_toggle_buttons_map">মানচিত্র</string>
+  <string name="places_title">স্থানগুলি</string>
+  <string name="places_article_menu_tooltip_message">এই নিবন্ধটির অবস্থান অন্বেষণ করতে\'মানচিত্রে দেখুন\' আলতো চাপুন।</string>
+  <string name="action_item_view_on_map">মানচিত্রে দেখুন</string>
+  <string name="places_toggle_buttons_list">তালিকা</string>
+  <string name="link_preview_dialog_save_button">সংরক্ষণ</string>
+  <string name="link_preview_dialog_share_button">শেয়ার করুন</string>
+  <string name="places_search_hint">স্থানগুলি অনুসন্ধান করুন</string>
+  <string name="places_filter_title">ভাষা ফিল্টার করুন</string>
+  <string name="places_empty_list">এই এলাকাটি ফাঁকা। মানচিত্রে জুমআউট করুন।</string>
+  <string name="places_survey_dialog_title">\'স্থানগুলি\' উন্নত করতে সাহায্য করুন</string>
+  <string name="places_survey_very_satisfied_option">খুবই সন্তুষ্ট</string>
+  <string name="patroller_diff_feedback_dialog_message">আপনি এই বৈশিষ্ট্যের সঙ্গে সন্তুষ্ট?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">সন্তুষ্ট</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">নিরপেক্ষ</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">অসন্তুষ্ট</string>
+  <string name="places_survey_very_unsatisfied_option">খুবই অসন্তুষ্ট</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">প্রতিক্রিয়া</string>
+  <string name="patroller_diff_feedback_dialog_submit">জমা দিন</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">প্রতিক্রিয়া জমা দেওয়া হয়েছে। ধন্যবাদ!</string>
 </resources>

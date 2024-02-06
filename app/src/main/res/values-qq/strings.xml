@@ -11,6 +11,7 @@
 * Jeeputer
 * Joao Xavier
 * Kaganer
+* Kimberli Mäkäräinen (WMNO)
 * Kizule
 * KuboF
 * Liuxinyu970226
@@ -241,9 +242,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Description of preference that, when checked, enables syncing the user\'s reading lists across devices from this account. The %s symbol is replaced with the username if logged in</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Title of a warning dialog when turning off the reading list sync. The %s symbol is replaced with the username if logged in</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Description of a warning dialog when turning off the reading list sync. The %s symbol is replaced with the username.</string>
-  <string name="preferences_privacy_settings_heading">Section title for privacy related settings\n{{Identical|Privacy}}</string>
-  <string name="preference_title_eventlogging_opt_in">Title of preference that when checked enables data collection of user behavior.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
-  <string name="preference_summary_eventlogging_opt_in">Description of preference that when checked enables data collection of user behavior.</string>
   <string name="preference_title_auto_upload_crash_reports">Title of preference that when checked enables automatic upload of crash reports.</string>
   <string name="preference_summary_auto_upload_crash_reports">Description of preference that when checked checked enables automatic upload of crash reports.</string>
   <string name="editing_error_spamblacklist">An error message, which appears after trying to save a page with blacklisted links. The single string parameter %s for this message gets substituted with the blocked domain.</string>
@@ -425,6 +423,10 @@
   <string name="multi_select_items_selected">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</string>
   <string name="error_message_generic">Generic message informing the user that an error occurred</string>
   <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview\n{{Identical|Dismiss}}</string>
+  <string name="link_preview_dialog_read_button">Button label for reading the article in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_save_button">Button label for saving the article to a reading list in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_saved_button">Button label that indicates the article has been saved in a reading list in the link preview bottom sheet.</string>
+  <string name="link_preview_dialog_share_button">Button label for sharing the article in the link preview bottom sheet.</string>
   <string name="error_page_does_not_exist">Error message informing the user that the requested page does not exist</string>
   <string name="error_user_page_does_not_exist">Error message text shown when the user page does not yet exist. %1$s represents the full URL that points to the user page, %2$s represents the username and %3$s represents username without namespace.</string>
   <string name="view_wiki_error_message_offline">{{Doc-mobileapp-internet}}\nError message shown when network cannot be reached when loading a page</string>
@@ -485,7 +487,7 @@
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
   <string name="reading_list_title_exists">Error text shown when a user attempts to create a new list with the same title as an existing list. The \"%s\" symbol is replaced with the title of the existing list.</string>
-  <string name="reading_list_article_added_to_named">Message shown to user when an article gets suffessfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_article_added_to_named">Message shown to user when an article is successfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_article_added_to_default_list">Message shown to user when an article gets successfully added to a default readingList.\n\nThe %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_article_moved_to_named">Message shown to user when an article gets suffessfully moved to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_article_already_exists_message">Message shown to users when they try to add an already existing article to a reading list.The first %1$s symbol is replaced with the name of the reading list and the second %2$s symbol is replaced with the name of the article.</string>
@@ -1134,8 +1136,6 @@
   <string name="onboarding_explore_text">Short explanatory text about the benefits of the Explore feed.\n\n* \"On this day\" is {{Msg-wm|Wikipedia-android-strings-on this day card title}}\n* \"Random\" is {{Msg-wm|Wikipedia-android-strings-app shortcuts random}}</string>
   <string name="onboarding_reading_list_sync_title">Title for a tutorial screen about synchronizing reading lists.</string>
   <string name="onboarding_reading_list_sync_text_v2">Short explanatory text about the benefits of synchronizing reading lists. (Please preserve the anchor tag in its exact form)</string>
-  <string name="onboarding_analytics_title">Title for a tutorial screen about anonymous usage reports sent by the app.</string>
-  <string name="onboarding_analytics_offline_text">Short explanatory text about the benefits of allowing the app to send anonymous usage reports. (Please preserve the anchor tag in its exact form)</string>
   <string name="onboarding_analytics_switch_title">Label for an on-off switch that enables sending anonymous usage reports.</string>
   <string name="onboarding_got_it">Button label for dismissing the current onboarding card.\n{{Identical|Got it}}</string>
   <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
@@ -1211,7 +1211,7 @@
   <string name="insert_media_title">Title of the insert media screen.</string>
   <string name="insert_media_search_description">Message saying that the user can select a file from Wikimedia Commons.</string>
   <string name="insert_media_search_hint">Hint label for the insert media search field.</string>
-  <string name="insert_media_settings">Title of the media settings scree.</string>
+  <string name="insert_media_settings">Title of the media settings screen.</string>
   <string name="insert_media_settings_uploaded_image">Label of the uploaded image.</string>
   <string name="insert_media_settings_caption">Label of the caption of the image.</string>
   <string name="insert_media_settings_caption_description">Description of where the caption will be located.</string>
@@ -1344,7 +1344,6 @@
   <string name="revision_diff_from">Label for older revision to be compared.</string>
   <string name="revision_diff_to">Label for newer revision to be compared.</string>
   <string name="revision_diff_line_num">Label for line number seen in a diff between revisions. The %d symbol is replaced with the line number.</string>
-  <string name="revision_diff_line_nums">Label for range of line numbers seen in a diff between revisions. The first %d symbol is the starting line number, and the second %d symbol is the ending line number.</string>
   <string name="revision_diff_lines_from_to">Label for range of line numbers seen in a diff between revisions. The %1$d symbol is the starting line number, and the %2$d symbol is the ending line number.</string>
   <string name="revision_diff_line_added">Label shown in a diff when a line was added.</string>
   <string name="revision_diff_line_removed">Label shown in a diff when a line was removed.</string>
@@ -1456,6 +1455,8 @@
   <string name="media_playback_error">Error shown when the selected media could not be played.</string>
   <string name="user_contrib_menu_label">Menu label for accessing the contributions of the current user.</string>
   <string name="user_contrib_filter_activity_title">Screen title for applying the filters for the contributions of a user.</string>
+  <string name="action_item_view_on_map">Menu label for accessing the map for the geographical coordinates of the page.</string>
+  <string name="action_item_view_on_map_unavailable">Message that indicates the geographical coordinates of the page are not available.</string>
   <string name="shareable_reading_lists_import_dialog_title">Title text for the import reading list dialog.</string>
   <string name="shareable_reading_lists_import_dialog_content">Content text for the import reading list dialog.</string>
   <string name="shareable_reading_lists_new_indicator">Label indicating that the imported list in the list view.</string>
@@ -1486,8 +1487,15 @@
   <string name="talk_templates_edit_message_dialog_save">Button label of the dialog of editing the selected message that save the changes.</string>
   <string name="talk_templates_edit_message_dialog_delete">Button label of the dialog of editing the selected message that delete the message.</string>
   <string name="talk_templates_edit_message_updated">Snackbar message that show the message has been updated.</string>
-  <string name="talk_templates_edit_message_delete_description">Message of confirming the action of deleting the message. %s will be replaced by the title of the saved message.</string>
-  <string name="talk_templates_message_deleted">Snackbar message that show the message has been deleted.</string>
+  <string name="talk_templates_menu_remove_message">Menu label that can start the remove message mode.</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Message of confirming the action of deleting the message.</item>
+    <item quantity="other">Message of confirming the action of deleting the messages.</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Snackbar message that show the message has been deleted.</item>
+    <item quantity="other">Snackbar message that show the messages have been deleted.</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Error message shown when the template title is empty.</string>
   <string name="patroller_tasks_edits_list_title">Title of the screen that shows a list of edits.</string>
   <string name="patroller_tasks_edits_list_search_hint">Hint text of in the search bar of searching or filtering edits.</string>
@@ -1592,4 +1600,21 @@
   <string name="donation_campaign_donated_snackbar">Text for the snackbar message when user hits the \"I already donated\" option.</string>
   <string name="donation_campaign_go_back_button">Button label for the webview that can go back to the previous screen.</string>
   <string name="menu_single_webview_open_external">Menu option that indicates the web page can be opened in a system browser.</string>
+  <string name="places_title">Title for the Places screen.</string>
+  <string name="places_permissions_denied">Message shown when a required permission was denied by the user.</string>
+  <string name="places_search_hint">Hint text for the search box inside the Places screen. Should be as short as possible.</string>
+  <string name="places_filter_title">Title string for places language filter screen.</string>
+  <string name="places_toggle_buttons_map">Button label for viewing the map view in the Places screen.</string>
+  <string name="places_toggle_buttons_list">Button label for viewing the list view in the Places screen.</string>
+  <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
+  <string name="places_nav_tab_tooltip_message">Tooltip message to help users discover places feature from explore screen more menu navigation tab. \"Places\" must be consistent with {{msg-wm|Wikipedia-android-strings-places title}}</string>
+  <string name="places_article_menu_tooltip_message">Tooltip message to help users discover the article\'s location on the map and its nearby articles through places feature, from article screen More menu. \"View on map\" is {{msg-wm|Wikipedia-android-strings-action item view on map}}</string>
+  <string name="places_survey_very_satisfied_option">Option text suggesting that user is very satisfied with the feature, shown in the survey</string>
+  <string name="places_survey_very_unsatisfied_option">Option text suggesting that user is very usatisfied with the feature, shown in the survey</string>
+  <string name="places_survey_dialog_title">Title text for the main feedback dialog for places feature. \"Places\" must be consistent with {{msg-wm|Wikipedia-android-strings-places title}}</string>
+  <string name="places_survey_feedback_dialog_title">Title text for the secondary dialog, which is shown as a result of an action on the main dialog for places feature. \"Places\" must be consistent with {{msg-wm|Wikipedia-android-strings-places title}}</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
+  <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
+  <string name="onboarding_data_privacy_title">Title text for onboarding screen related to data and privacy.</string>
+  <string name="onboarding_data_privacy_text">Message text for onboarding screen related to data and privacy. Please preserve the #privacy and #termsOfUse links.</string>
 </resources>

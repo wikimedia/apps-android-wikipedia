@@ -7,8 +7,10 @@
 * BlueCamille
 * Blurby
 * C13m3n7
+* CKali
 * Cigaryno
 * Crochet.david
+* Daniel236
 * Dbrant
 * DePlusJean
 * Derugon
@@ -24,6 +26,7 @@
 * Gomoko
 * Great11
 * Hydros
+* Iketsi
 * JeanPlu
 * JenyxGym
 * Jgaignerot
@@ -35,6 +38,7 @@
 * Léon973
 * MSClaudiu
 * Macofe
+* Mazighafalkun
 * McDutchie
 * MuratTheTurkish
 * Naheulf
@@ -43,6 +47,7 @@
 * Noé
 * Obscaeris
 * Oupsa
+* Papawy
 * Seb35
 * SleaY
 * The RedBurn
@@ -53,13 +58,14 @@
 * VIGNERON
 * Verdy p
 * Wladek92
+* Wnagxsi
 * Zarisi
 -->
 <resources>
   <string name="app_name_prod">Wikipédia</string>
   <string name="app_name_beta">Wikipédia Bêta</string>
   <string name="app_name_alpha">Wikipédia Alpha</string>
-  <string name="wikimedia">Wikimedia</string>
+  <string name="wikimedia">Wikimédia</string>
   <string name="nav_item_back">Retour</string>
   <string name="page_tabs_back">Retour</string>
   <string name="nav_item_forward">Suivant</string>
@@ -311,7 +317,7 @@
   <string name="edit_redo">Refaire</string>
   <string name="edit_rollback">Révoquer</string>
   <string name="edit_warn">Avertissement</string>
-  <string name="edit_damage" fuzzy="true">%s de dégâts</string>
+  <string name="edit_damage">%s de dommages</string>
   <string name="edit_intent">%s d’intention</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s octet</item>
@@ -441,6 +447,10 @@
   <string name="multi_select_items_selected">%d sélectionné</string>
   <string name="error_message_generic">Une erreur s’est produite</string>
   <string name="view_link_preview_error_button_dismiss">Fermer</string>
+  <string name="link_preview_dialog_read_button">Lire</string>
+  <string name="link_preview_dialog_save_button">Enregistrer</string>
+  <string name="link_preview_dialog_saved_button">Enregistré</string>
+  <string name="link_preview_dialog_share_button">Partager</string>
   <string name="error_page_does_not_exist">Cette page n’existe pas</string>
   <string name="error_user_page_does_not_exist">Wikipédia n’a pas de &lt;a href=\"%1$s\"&gt;page utilisateur&lt;/a&gt; avec ce nom exact. En général, cette page devrait être créée et modifiée par &lt;b&gt;%2$s&lt;/b&gt;. En cas de doute, veuillez vérifier que « %3$s » existe.</string>
   <string name="view_wiki_error_message_offline">Impossible de se connecter à Internet</string>
@@ -1366,7 +1376,6 @@
   <string name="revision_diff_from">Depuis :</string>
   <string name="revision_diff_to">Jusqu’à :</string>
   <string name="revision_diff_line_num">Ligne %d</string>
-  <string name="revision_diff_line_nums">Lignes %d – %d</string>
   <string name="revision_diff_lines_from_to">Lignes %1$d–%2$d</string>
   <string name="revision_diff_line_added">Ligne ajoutée</string>
   <string name="revision_diff_line_removed">Ligne supprimée</string>
@@ -1374,8 +1383,9 @@
   <string name="revision_diff_paragraph_removed">Paragraphe supprimé</string>
   <string name="revision_diff_protected">Les modifications faites dans cette révision ne sont pas accessibles publiquement.</string>
   <string name="revision_undo_title">Êtes-vous sûr d\'annuler cette modification ?</string>
-  <string name="revision_undo_message" fuzzy="true">Cela annulera les modifications réalisées dans les révisions de l’article affichées ici.</string>
-  <string name="revision_undo_reason" fuzzy="true">Pour poursuivre, veuillez fournir un motif pour annuler cette modification :</string>
+  <string name="revision_undo_message">Annuler signifie revenir sur les effets d’une ou plusieurs modifications.</string>
+  <string name="revision_undo_summary_hint">Résumé (facultatif)</string>
+  <string name="revision_undo_reason">Partager le motif d’annulation</string>
   <string name="revision_undo_success">La révision a été annulée.</string>
   <string name="revision_rollback_dialog_title">Voulez-vous vraiment révoquer les modifications ?</string>
   <string name="revision_rollback_success">Modifications révoquées.</string>
@@ -1477,6 +1487,8 @@
   <string name="media_playback_error">Erreur lors de la lecture du média.</string>
   <string name="user_contrib_menu_label">Contributions</string>
   <string name="user_contrib_filter_activity_title">Filtre des contributions</string>
+  <string name="action_item_view_on_map">Afficher sur une carte</string>
+  <string name="action_item_view_on_map_unavailable">Les coordonnées géographiques ne sont pas disponibles pour cette page</string>
   <string name="shareable_reading_lists_import_dialog_title">Importer une liste de lecture partagée</string>
   <string name="shareable_reading_lists_import_dialog_content">Comment désirez-vous nommer la liste de lecture qui a été partagée avec vous ?</string>
   <string name="shareable_reading_lists_new_indicator">*nouveau*</string>
@@ -1507,8 +1519,16 @@
   <string name="talk_templates_edit_message_dialog_save">Enregistrer</string>
   <string name="talk_templates_edit_message_dialog_delete">Supprimer</string>
   <string name="talk_templates_edit_message_updated">Le message a été mis à jour</string>
-  <string name="talk_templates_edit_message_delete_description" fuzzy="true">Êtes-vous sûr de vouloir supprimer ce message %s de la liste ?</string>
-  <string name="talk_templates_message_deleted">Le message a été supprimé</string>
+  <string name="talk_templates_menu_remove_message">Supprimer le message</string>
+  <plurals name="talk_templates_message_delete_description">
+    <item quantity="one">Êtes-vous sûr de vouloir supprimer le message de la liste ?</item>
+    <item quantity="other">Êtes-vous sûr de vouloir supprimer les messages de la liste ?</item>
+  </plurals>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Le message a été supprimé</item>
+    <item quantity="other">Les messages ont été supprimés</item>
+  </plurals>
+  <string name="talk_templates_message_title_empty">Le titre ne peut pas être vide.</string>
   <string name="patroller_tasks_edits_list_title">Liste des modifications</string>
   <string name="patroller_tasks_edits_list_search_hint">Rechercher ou filtrer les modifications</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Balises : %s</string>
@@ -1582,6 +1602,9 @@
   <string name="patroller_onboarding_two_thank_title">Remercier</string>
   <string name="patroller_onboarding_two_thank_content">Vous voyez une modification pertinente ? Remerciez un utilisateur pour sa contribution !</string>
   <string name="patroller_onboarding_two_watch_title">Suivre</string>
+  <string name="patroller_onboarding_two_warn_title">Avertissement</string>
+  <string name="patroller_onboarding_two_undo_title">Annuler/Restaurer</string>
+  <string name="patroller_diff_feedback_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfait</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutre</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfait</string>
@@ -1597,4 +1620,9 @@
   <string name="email_report_patroller_tasks_subject">Rapport de problème — Fonctionnalité de patrouille de modifications</string>
   <string name="email_report_patroller_tasks_body">J’ai rencontré un problème en rapport avec la fonctionnalité d\'édition du patrouillage :\n- [Décrire le problème spécifique]\n\nLe comportement que je souhaite voir est :\n- [Décrire la solution proposée]\n\n[Captures d\'écrans ou liens]\n\n\n\n\n\n[]</string>
   <string name="donation_campaign_maybe_later_snackbar">Nous vous le rappellerons demain.</string>
+  <string name="donation_campaign_donated_snackbar">Merci, cher donateur ! Votre générosité permet à Wikipédia et à ses sites frères de continuer à prospérer.</string>
+  <string name="donation_campaign_go_back_button">Retour</string>
+  <string name="menu_single_webview_open_external">Ouvrir dans le navigateur système</string>
+  <string name="places_toggle_buttons_list">Liste</string>
+  <string name="places_empty_list">Cette zone est vide. Effectuez un zoom arrière &lt;a href=\"#\"&gt;sur la carte&lt;/a&gt;.</string>
 </resources>

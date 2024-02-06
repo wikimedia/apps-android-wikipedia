@@ -111,8 +111,11 @@
   <string name="other_languages_indication_text">Урӑх чӗлхепе вула</string>
   <string name="language_count_link_text">Ытти %d чӗлхепе пур</string>
   <string name="edit_save_action_license_logged_in">Хӑвӑрӑн улшӑнусене янӑ май эсир &lt;a href=\"%1$s\"&gt;усӑ курмалли условисемпе&lt;/a&gt;, ҫавӑн пекех &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензипе яланлӑха вырнаҫтарассипе килӗшетӗр.</string>
+  <string name="edit_save_action_license_anon">Тӳрлетӳсене вырнаҫтарнӑ май эсир &lt;a href=\"%1$s\"&gt;усӑ курмалли условисемпе&lt;/a&gt;, ҫаван пекех &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; лицензипе кӗртнине каялла илмесӗр вырнаҫтарма килӗшетӗр. Тӳрлетӳсем сирӗн хатӗрӗн IP адресӗпе ҫыхӑнӗҫ. &lt;a href=\"https://#login\"&gt;Системӑна кӗрсен&lt;/a&gt; хӑвӑрӑн ҫинчен пӗлтерекен информаци ыттисене сахалтарах курӑнӗ.</string>
+  <string name="edit_anon_warning">Тӳрлетӳсене тӑваканӗ пек сирӗн хатӗрӗн IP адресӗ кӑтартӑнӗ. &lt;a href=\"https://#login\"&gt;Системӑна кӗрсен&lt;/a&gt; ыттисем куракан информаци сахалрах пулӗ, ун чухне эсир усӑ куракан IP адрес курӑнмӗ.</string>
   <string name="preference_title_language">Википеди чӗлхисем</string>
   <string name="langlinks_filter_hint">Шыра</string>
+  <string name="langlinks_empty">Ку страницӑпа ытти чӗлхепе паллашма май ҫук.</string>
   <string name="langlinks_no_match">Чӗлхесем тупӑнмарӗҫ</string>
   <string name="langlinks_activity_title">Ытти чӗлхесем</string>
   <string name="langlinks_your_wikipedia_languages">Википедири сирӗн чӗлхесем</string>
@@ -129,6 +132,9 @@
   <string name="search_reading_list_no_results">\"%s\"-ра нимӗн те тупӑнмарӗ</string>
   <string name="search_reading_lists_no_results">Вуламалли списокра нимӗн те тупӑнмарӗ</string>
   <string name="search_history_no_results">Историре нимӗн те тупӑнмарӗ</string>
+  <string name="edit_section_captcha_message">Пире спамран хӳтӗленме пулӑшмашкӑн аяларах кӑтартнӑ сӑмахсене ҫырса кӗртӗр.</string>
+  <string name="edit_section_captcha_request_an_account_message">Капча ӳкерчӗкне курмастӑр-и? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Аккаунт хатӗрлесе пама ыйтӑр&lt;/a&gt;</string>
+  <string name="edit_section_captcha_hint">Ҫӳлерех кӑтартнӑ сӑмахсене ҫырӑр</string>
   <string name="title_captcha">CAPTCHA кӗртӗр</string>
   <string name="edit_section_captcha_reload">CAPTCHA ҫӗнетме ӑна тӗкӗнӗр</string>
   <string name="nav_item_login">Википедине кӗрӗр</string>
@@ -156,6 +162,7 @@
   <string name="logged_out_in_background_login">Кӗр</string>
   <string name="logged_out_in_background_cancel">Пӑрахӑҫла</string>
   <string name="history_empty_title">Нумай пулмасть пӑхнӑ страницӑсем ҫук</string>
+  <string name="search_empty_message_multilingual_upgrade">Википедире ытти чӗлхесенче шыра</string>
   <string name="delete_selected_items">Суйланӑ элементсене кӑларса пӑрах</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ИКИПЕД&lt;big&gt;И&lt;/big&gt;</string>
   <string name="create_account_username_hint">Хутшӑнакан ячӗ</string>
@@ -171,6 +178,7 @@
   <string name="create_account_passwords_mismatch_error">Парольсем пӗрешкел мар</string>
   <string name="create_account_email_error">Усӑ курма юрӑхсӑр электронлӑ почта адресӗ</string>
   <string name="create_account_username_error">Хутшӑнакан ятӗнче юрӑхсӑр саспаллисем пур</string>
+  <string name="create_account_password_error">Пароль сахалтан та 8 символтан пулмалла</string>
   <string name="create_account_generic_error">Аккаунта хатӗрлеме май ҫук</string>
   <string name="create_account_next">Малалла</string>
   <string name="email_recommendation_dialog_title">Аккаунта электронлӑ почтӑсӑр хатӗрлемелле-и?</string>
@@ -187,6 +195,8 @@
   <string name="preferences_heading_experimental">Экспериментлисем</string>
   <string name="preference_title_sync_reading_lists_from_account">Вулав списокне синхронизацилесси</string>
   <string name="preference_title_download_reading_list_articles">Вулав списокӗнчи статьясене уҫласси</string>
+  <string name="preferences_privacy_settings_heading">Конфиденцилӗх</string>
+  <string name="preference_title_auto_upload_crash_reports">Ҫӗмӗрӗлнисем пирки пӗлтерӗр</string>
   <string name="settings_item_preferences">Ӗнерлевсем</string>
   <string name="settings_activity_title">Ӗнерлевсем</string>
   <string name="about_description">«Википеди» приложени ҫинчен</string>
@@ -200,6 +210,8 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Усӑ курнӑ библиотекӑсем</string>
   <string name="about_contributors_heading">Авторсем</string>
+  <string name="about_translators_heading">Куҫаруҫӑсем</string>
+  <string name="about_app_license_heading">Лицензи</string>
   <string name="about_activity_title">Приложени пирки</string>
   <string name="edit_abandon_confirm_yes">Ҫапла</string>
   <string name="edit_abandon_confirm_no">Ҫук</string>
@@ -264,6 +276,11 @@
   <string name="gallery_save_progress">Файл тиесси…</string>
   <string name="gallery_save_success">Файла ҫырса хутӑмӑр.</string>
   <string name="gallery_error_video_failed">Видео кӑтартма май килмерӗ.</string>
+  <string name="gallery_edit_button_content_description">Ӳкерчӗк ӑнлантарӑвне тӳрлет</string>
+  <string name="gallery_add_image_caption_button">Ӳкерчӗкӗн ӑнлантарӑвне хуш</string>
+  <string name="gallery_add_image_caption_in_language_button">Ӳкерчӗкӗн ӑнлантарӑвне хуш (%s)</string>
+  <string name="err_cannot_save_file">Файла упраса хӑварма май ҫук</string>
+  <string name="expand_refs">Кӑтартмашкӑн кунта пусӑр</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Хуп</string>
   <string name="menu_new_tab">Ҫӗнӗ таб</string>
   <string name="menu_close_all_tabs">Пӗтӗм табсене хуп</string>
@@ -278,9 +295,20 @@
   <string name="button_continue_to_article">Статьяна вула</string>
   <string name="button_continue_to_talk_page">Сӳтсе яву страницине уҫ</string>
   <string name="button_continue_to_disambiguation">Пӗрешкел страницӑсене пӑхасси</string>
+  <string name="nav_item_donate">Укҫапа пулӑш</string>
+  <string name="error_voice_search_not_available">Шел те, сасӑланине текста куҫарма май ҫук.</string>
+  <string name="location_service_disabled">Геолокаци ӗҫлемест.</string>
   <string name="enable_location_service">Ӗҫлеттер</string>
   <string name="location_permissions_enable_prompt">Сирӗнпе юнашар вырнаҫнӑ вырӑнсене курма хӑвар ӑҫтине кӑтартма ирӗк парас.</string>
   <string name="location_permissions_enable_action">Ӗҫлеттер</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d суйланӑ</item>
+    <item quantity="few">%d суйланӑ</item>
+    <item quantity="many">%d суйланӑ</item>
+    <item quantity="other">%d суйланӑ</item>
+  </plurals>
+  <string name="multi_select_items_selected">%d суйланӑ</string>
+  <string name="view_link_preview_error_button_dismiss">Хуп</string>
   <string name="empty_tab_title">Ҫӗнӗ таб</string>
   <string name="menu_save_all_tabs">Мӗнпур табсене астуса юл</string>
   <string name="crash_report_quit">Тух</string>
@@ -302,6 +330,14 @@
   <string name="theme_category_reading">Вулав</string>
   <string name="theme_category_editing">Тӳрлетӳ</string>
   <string name="reading_focus_mode">Вулав режимӗ</string>
+  <string name="editing_syntax_highlight_label">Синтаксиса палӑртни</string>
+  <string name="editing_line_numbers_label">Йӗркесен номерӗсене кӑтартмалла</string>
+  <string name="editing_monospace_font_label">Пӗрсарлакӑш шрифтпа усӑ кур</string>
+  <string name="nav_item_saved">Ҫырса хутӑмӑр</string>
+  <string name="reading_list_save_to">Вуламалли списока хуш</string>
+  <string name="reading_list_move_to">Вуламалли списока куҫар</string>
+  <string name="reading_list_create_new">Ҫӗннине ту</string>
+  <string name="reading_list_title_exists">«%s» ятлӑ вуламалли списока унччен хушнӑ пулнӑ.</string>
   <string name="reading_list_article_already_exists_message">Пит аван! %1$s ӑшӗнче %2$s пур та ӗнтӗ.</string>
   <string name="reading_list_articles_already_exist_message">Пит аван! %s пӗтӗм статьясем пур та ӗнтӗ.</string>
   <string name="reading_list_added_view_button">Списока пӑх</string>
@@ -321,10 +357,31 @@
   <string name="reading_list_sort">Сортла</string>
   <string name="reading_list_sort_ellipsis">Сортла…</string>
   <string name="reading_list_sort_by_name">Ят тӑрӑх сортла</string>
+  <string name="reading_list_sort_by_name_desc">Ятпа сортла (тепӗр май)</string>
+  <string name="reading_list_sort_by_recent">Хушнӑ вӑхӑтпа сортла (ҫӗннисем малта)</string>
+  <string name="reading_list_sort_by_recent_desc">Хушнӑ вӑхӑтпа сортла (киввисем малта)</string>
+  <string name="reading_list_sort_by_created">Хатӗрленӗ вӑхӑтпа сортла (ҫӗннисем малта)</string>
+  <string name="reading_list_sort_by_created_desc">Хатӗрленӗ вӑхӑтпа сортла (киввисем малта)</string>
   <string name="reading_list_menu_delete">Списока хурат</string>
   <string name="reading_list_menu_export">Списока экспортла</string>
   <string name="reading_list_menu_select">Суйла</string>
   <string name="reading_list_menu_unselect">Суйланине пӗтер</string>
+  <string name="reading_list_menu_rename">Ятне/Ӑнлантарӑвне тӳрлет</string>
+  <string name="reading_list_action_menu_remove_from_offline">Офлайнран кӑларса пӑрах</string>
+  <string name="reading_list_action_menu_save_for_offline">Автономлӑ режимра упраса хӑвар</string>
+  <string name="reading_list_action_menu_remove_all_from_offline">Офлайнран пӗтӗмпех кӑларса пӑрах</string>
+  <string name="reading_list_action_menu_save_all_for_offline">Оффлайн валли пӗтӗмпех упраса хӑвар</string>
+  <string name="reading_list_action_menu_add_to_another_list">Урӑх списока хуш</string>
+  <string name="reading_list_action_menu_move_to_another_list">Урӑх списока куҫар</string>
+  <string name="reading_list_name_sample">Манӑн вулав списокӗ</string>
+  <string name="reading_list_name_hint">Ку списокӑн ячӗ</string>
+  <string name="reading_list_description_hint">Ӑнлантару (кирлех мар)</string>
+  <string name="reading_list_item_deleted">%s списокран хуратнӑ</string>
+  <string name="reading_list_items_deleted">Списокри %d статьяна кӑларса пенӗ</string>
+  <string name="reading_lists_item_deleted">списоксенчен %s хуратнӑ</string>
+  <string name="reading_list_item_delete_undo">Пӑрахӑҫла</string>
+  <string name="reading_list_deleted">%s кӑларса пенӗ</string>
+  <string name="reading_list_remove_from_list">%s списокран хурат</string>
   <string name="reading_list_select_item">Суйла</string>
   <string name="reading_list_confirm_remove_article_from_offline">Офлайнран кӑларса пӑрах</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">статья чылай списока кӗрӗ</string>
@@ -337,6 +394,9 @@
   <string name="reading_list_article_save_in_progress">Страница уҫланать. Тиеннӗ хыҫҫӑн унпа оффлайн та паллашма май пулӗ.</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Ӗнерлевсем</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ҫук, кирлӗ мар</string>
+  <string name="default_reading_list_name">Ҫырса хунисем</string>
+  <string name="reading_lists_menu_create_list">Ҫӗнӗ список хатӗрле</string>
   <string name="reading_lists_menu_sort_by">Сортла…</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>

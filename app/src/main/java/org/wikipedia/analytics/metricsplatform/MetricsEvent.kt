@@ -1,38 +1,70 @@
 package org.wikipedia.analytics.metricsplatform
 
 import org.wikimedia.metrics_platform.context.ClientData
+import org.wikimedia.metrics_platform.context.InteractionData
 import org.wikimedia.metrics_platform.context.PageData
 import org.wikimedia.metrics_platform.context.PerformerData
-import org.wikipedia.BuildConfig
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.ReleaseUtil
 
 open class MetricsEvent {
 
-    private val applicationData get() = mapOf(
-        "agent_flavor" to BuildConfig.FLAVOR + BuildConfig.BUILD_TYPE,
-        "app_theme" to WikipediaApp.instance.currentTheme,
-        "app_version" to WikipediaApp.instance.versionCode.toString(),
-        "database" to WikipediaApp.instance.wikiSite.dbName(),
-        "device_language" to WikipediaApp.instance.languageState.systemLanguageCode,
-        "is_prod" to ReleaseUtil.isProdRelease,
-        "is_dev" to ReleaseUtil.isDevRelease,
-        "language_groups" to WikipediaApp.instance.languageState.appLanguageCodes.toString(),
-        "language_primary" to WikipediaApp.instance.languageState.appLanguageCode,
-    )
-
-    protected fun submitEvent(eventName: String, customData: Map<String, Any>, pageData: PageData? = null) {
-        if (ReleaseUtil.isPreProdRelease && Prefs.isEventLoggingEnabled) {
-            MetricsPlatform.client.submitMetricsEvent(
+    /**
+     * Submit an event to the Metrics Platform using a base interaction schema
+     *
+     * @param streamName the name of the stream
+     * @param eventName the name of the event
+     * @param interactionData a data object that conforms to core interactions
+     * @param pageData dynamic page data that should be added to the ClientData object
+     */
+    protected fun submitEvent(
+        streamName: String,
+        eventName: String,
+        interactionData: InteractionData?,
+        pageData: PageData? = null
+    ) {
+        if (ReleaseUtil.isPreProdRelease) {
+            MetricsPlatform.client.submitInteraction(
+                streamName,
                 EVENT_NAME_BASE + eventName,
                 getClientData(pageData),
-                customData + applicationData)
+                interactionData)
+        }
+    }
+
+    /**
+     * Submit an event to the Metrics Platform using a custom schema
+     *
+     * @param streamName the name of the stream
+     * @param schemaId the custom schema ID
+     * @param eventName the name of the event
+     * @param customData the custom data key-value pairs that are top-level properties
+     * @param interactionData a data object that conforms to core interactions
+     * @param pageData dynamic page data that should be added to the ClientData object
+     */
+    protected fun submitEvent(
+        streamName: String,
+        schemaId: String,
+        eventName: String,
+        customData: Map<String, Any>,
+        interactionData: InteractionData?,
+        pageData: PageData? = null
+    ) {
+        if (ReleaseUtil.isPreProdRelease) {
+            MetricsPlatform.client.submitInteraction(
+                streamName,
+                schemaId,
+                EVENT_NAME_BASE + eventName,
+                getClientData(pageData),
+                interactionData,
+                customData
+            )
         }
     }
 
@@ -55,10 +87,7 @@ open class MetricsEvent {
             Namespace.of(pageProperties.namespace.code()).toString(),
             pageProperties.revisionId,
             pageProperties.wikiBaseItem.orEmpty(),
-            fragment.model.title?.wikiSite?.languageCode.orEmpty(),
-            null,
-            null,
-            null
+            fragment.model.title?.wikiSite?.languageCode.orEmpty()
         )
     }
 
@@ -70,26 +99,58 @@ open class MetricsEvent {
             pageTitle.namespace().code(),
             Namespace.of(pageTitle.namespace().code()).toString(),
             revisionId,
-            "",
-            pageTitle.wikiSite.languageCode,
-            null, null, null)
+            null,
+            pageTitle.wikiSite.languageCode
+        )
+    }
+
+    protected fun getPageData(pageTitle: PageTitle?, pageSummary: PageSummary?): PageData? {
+        if (pageTitle == null) return null
+        return PageData(
+            pageSummary?.pageId,
+            pageTitle.prefixedText,
+            pageTitle.namespace().code(),
+            Namespace.of(pageTitle.namespace().code()).toString(),
+            pageSummary?.revision,
+            pageSummary?.wikiBaseItem,
+            pageTitle.wikiSite.languageCode
+        )
     }
 
     private fun getPerformerData(): PerformerData {
         return PerformerData(
+            AccountUtil.hashCode(),
             AccountUtil.userName,
             AccountUtil.isLoggedIn,
-            AccountUtil.hashCode(),
+            null,
             EventPlatformClient.AssociationController.sessionId,
             EventPlatformClient.AssociationController.pageViewId,
             AccountUtil.groups,
-            null,
-            WikipediaApp.instance.languageState.appLanguageCode,
             WikipediaApp.instance.languageState.appLanguageCodes.toString(),
-            null,
-            null,
-            null,
+            WikipediaApp.instance.languageState.appLanguageCode,
             null
+        )
+    }
+
+    protected fun getInteractionData(
+        action: String,
+        actionSubtype: String? = null,
+        actionSource: String? = null,
+        actionContext: String? = null,
+        elementId: String? = null,
+        elementFriendlyName: String? = null,
+        funnelEntryToken: String? = null,
+        funnelEventSequencePosition: Int? = null
+    ): InteractionData {
+        return InteractionData(
+            action,
+            actionSubtype,
+            actionSource,
+            actionContext,
+            elementId,
+            elementFriendlyName,
+            funnelEntryToken,
+            funnelEventSequencePosition
         )
     }
 

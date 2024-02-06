@@ -30,10 +30,12 @@ class HistoryEntry(
     @Serializable(with = DateSerializer::class) var timestamp: Date = Date(),
     var source: Int = SOURCE_INTERNAL_LINK,
     var timeSpentSec: Int = 0,
+    var description: String = ""
 ) : Parcelable {
     constructor(title: PageTitle, source: Int, timestamp: Date = Date(), timeSpentSec: Int = 0) : this(title.wikiSite.authority(),
         title.wikiSite.languageCode, title.text, title.displayText, namespace = title.namespace,
-        timestamp = timestamp, source = source, timeSpentSec = timeSpentSec) {
+        timestamp = timestamp, source = source, timeSpentSec = timeSpentSec,
+        description = title.description.orEmpty()) {
         pageTitle = title
     }
 
@@ -44,8 +46,10 @@ class HistoryEntry(
 
     val title: PageTitle get() {
         if (pageTitle == null) {
-            pageTitle = PageTitle(namespace, apiTitle, WikiSite(authority, lang))
-            pageTitle!!.displayText = displayTitle
+            pageTitle = PageTitle(namespace, apiTitle, WikiSite(authority, lang)).also {
+                it.displayText = displayTitle
+                it.description = description
+            }
         }
         return pageTitle!!
     }
@@ -64,6 +68,7 @@ class HistoryEntry(
         const val SOURCE_LANGUAGE_LINK = 6
         const val SOURCE_RANDOM = 7
         const val SOURCE_MAIN_PAGE = 8
+        const val SOURCE_PLACES = 9
         const val SOURCE_DISAMBIG = 10
         const val SOURCE_READING_LIST = 11
         const val SOURCE_FEED_BECAUSE_YOU_READ = 13

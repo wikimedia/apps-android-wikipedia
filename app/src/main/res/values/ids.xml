@@ -17,4 +17,5 @@
     <item name="page_explore" type="id" />
     <item name="page_categories" type="id" />
     <item name="page_edit_article" type="id" />
+    <item name="page_view_on_map" type="id" />
 </resources>

@@ -2,7 +2,6 @@ package org.wikipedia.page
 
 import android.app.SearchManager
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -34,6 +33,7 @@ import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -65,12 +65,10 @@ import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
-import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
-import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UriUtil
@@ -81,7 +79,7 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import java.util.Locale
 
-class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Callback, FrameLayoutNavMenuTriggerer.Callback {
+class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.LoadPageCallback, FrameLayoutNavMenuTriggerer.Callback {
 
     enum class TabPosition {
         CURRENT_TAB, CURRENT_TAB_SQUASH, NEW_TAB_BACKGROUND, NEW_TAB_FOREGROUND, EXISTING_TAB
@@ -95,7 +93,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     private var wasTransitionShown = false
     private val currentActionModes = mutableSetOf<ActionMode>()
     private val disposables = CompositeDisposable()
-    private val listDialogDismissListener = DialogInterface.OnDismissListener { pageFragment.updateBookmarkAndMenuOptionsFromDao() }
     private val isCabOpen get() = currentActionModes.isNotEmpty()
     private var exclusiveTooltipRunnable: Runnable? = null
     private var isTooltipShowing = false
@@ -253,10 +250,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             loadMainPage(TabPosition.EXISTING_TAB)
         }
 
-        if (AccountUtil.isLoggedIn) {
-            Prefs.loggedInPageActivityVisitCount++
-        }
-
         if (savedInstanceState == null) {
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
             // then we must have been launched with an Intent, so... handle it!
@@ -369,8 +362,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
-        maybeShowWatchlistTooltip()
         maybeShowThemeTooltip()
+        maybeShowPlacesTooltip()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -386,7 +379,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
     }
 
     override fun onPageShowLinkPreview(entry: HistoryEntry) {
-        ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry))
     }
 
     override fun onPageLoadMainPageInForegroundTab() {
@@ -405,16 +398,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         DeviceUtil.hideSoftKeyboard(this)
     }
 
-    override fun onPageAddToReadingList(title: PageTitle, source: InvokeSource) {
-        showAddToListDialog(title, source)
-    }
-
-    override fun onPageMoveToReadingList(sourceReadingListId: Long, title: PageTitle, source: InvokeSource, showDefaultList: Boolean) {
-        showMoveToListDialog(sourceReadingListId, title, source, showDefaultList)
-    }
-
     override fun onPageWatchlistExpirySelect(expiry: WatchlistExpiry) {
-        pageFragment.updateWatchlist(expiry, false)
+        pageFragment.updateWatchlistExpiry(expiry)
     }
 
     override fun onPageLoadError(title: PageTitle) {
@@ -469,19 +454,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
 
     override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
         loadPage(title, entry, if (inNewTab) TabPosition.NEW_TAB_BACKGROUND else TabPosition.CURRENT_TAB)
-    }
-
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        copyLink(title.uri)
-        showCopySuccessMessage()
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        showAddToListDialog(title, InvokeSource.LINK_PREVIEW_MENU)
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title)
     }
 
     private fun handleIntent(intent: Intent) {
@@ -661,15 +633,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         ExclusiveBottomSheetPresenter.dismiss(supportFragmentManager)
     }
 
-    private fun showAddToListDialog(title: PageTitle, source: InvokeSource) {
-        ExclusiveBottomSheetPresenter.showAddToListDialog(supportFragmentManager, title, source, listDialogDismissListener)
-    }
-
-    private fun showMoveToListDialog(sourceReadingListId: Long, title: PageTitle, source: InvokeSource, showDefaultList: Boolean) {
-        ExclusiveBottomSheetPresenter.showMoveToListDialog(supportFragmentManager, sourceReadingListId,
-            title, source, showDefaultList, listDialogDismissListener)
-    }
-
     private fun removeTransitionAnimState() {
         if (binding.pageFragment.visibility != View.VISIBLE) {
             binding.pageFragment.visibility = View.VISIBLE
@@ -677,14 +640,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
         if (binding.wikiArticleCardView.visibility != View.GONE) {
             binding.wikiArticleCardView.postDelayed({ binding.wikiArticleCardView.visibility = View.GONE }, 250L)
         }
-    }
-
-    private fun copyLink(url: String) {
-        ClipboardUtil.setPlainText(this, text = url)
-    }
-
-    private fun showCopySuccessMessage() {
-        FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
     private fun modifyMenu(mode: ActionMode) {
@@ -710,16 +665,31 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Ca
             .show()
     }
 
-    private fun maybeShowWatchlistTooltip() {
-        pageFragment.historyEntry?.let {
-            if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn &&
-                    it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS &&
-                    Prefs.loggedInPageActivityVisitCount >= 3) {
-                enqueueTooltip {
-                    Prefs.isWatchlistPageOnboardingTooltipShown = true
-                    FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
-                        R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
+    private fun maybeShowPlacesTooltip() {
+        if (!Prefs.showOneTimePlacesPageOnboardingTooltip ||
+            pageFragment.page?.pageProperties?.geo == null || isTooltipShowing) {
+            return
+        }
+        enqueueTooltip {
+            FeedbackUtil.getTooltip(
+                this,
+                StringUtil.fromHtml(getString(R.string.places_article_menu_tooltip_message)),
+                arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
+                topOrBottomMargin = -8,
+                aboveOrBelow = false,
+                autoDismiss = false,
+                showDismissButton = true
+            ).apply {
+                PlacesEvent.logImpression("article_more_tooltip")
+                setOnBalloonDismissListener {
+                    PlacesEvent.logAction("dismiss_click", "article_more_tooltip")
+                    isTooltipShowing = false
+                    Prefs.showOneTimePlacesPageOnboardingTooltip = false
                 }
+                isTooltipShowing = true
+                BreadCrumbLogEvent.logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
+                showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+                setCurrentTooltip(this)
             }
         }
     }

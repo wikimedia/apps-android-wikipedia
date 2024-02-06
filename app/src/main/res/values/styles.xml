@@ -49,6 +49,11 @@
         <item name="colorError">?attr/destructive_color</item>
 
         <item name="colorSurface">?attr/paper_color</item>
+        <item name="colorSurfaceContainerLowest">?attr/paper_color</item>
+        <item name="colorSurfaceContainerLow">?attr/paper_color</item>
+        <item name="colorSurfaceContainer">?attr/paper_color</item>
+        <item name="colorSurfaceContainerHigh">?attr/paper_color</item>
+        <item name="colorSurfaceContainerHighest">?attr/paper_color</item>
         <item name="colorOnSurface">?attr/primary_color</item>
 
         <item name="colorTertiaryContainer">?attr/paper_color</item>
@@ -168,8 +173,6 @@
     <style name="H3.Article">
         <item name="android:fontFamily">serif</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textSize">24sp</item>
-        <item name="lineHeight">32sp</item>
     </style>
 
     <style name="H4">
@@ -224,6 +227,7 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:maxLines">10</item>
         <item name="lineHeight">24dp</item>
+        <item name="android:letterSpacing">0</item>
         <item name="android:textSize">16sp</item>
         <item name="android:paddingTop">0dp</item>
         <item name="android:paddingBottom">0dp</item>
@@ -268,6 +272,10 @@
 
     <style name="List.MaterialListSubtitle">
         <item name="android:textColor">?attr/secondary_color</item>
+    </style>
+
+    <style name="List.MaterialListDescription">
+        <item name="android:textColor">?attr/placeholder_color</item>
     </style>
 
     <style name="Small">
@@ -542,6 +550,21 @@
 
     <style name="App.BottomSheetStyle" parent="Widget.Material3.BottomSheet.Modal">
         <item name="behavior_peekHeight">@dimen/bottomSheetPeekHeight</item>
+    </style>
+
+    <style name="FloatingActionButtonRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="PlacesToggleStyle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textSize">14sp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="strokeColor">?attr/paper_color</item>
     </style>
 
 </resources>

@@ -51,7 +51,6 @@
         <attr name="primaryText" format="string" />
         <attr name="secondaryText" format="string" />
         <attr name="tertiaryText" format="string" />
-        <attr name="acceptRejectButtons" format="boolean" />
         <attr name="imageSize" format="dimension" />
         <attr name="background" format="reference" />
         <attr name="showListView" format="boolean" />
@@ -63,6 +62,10 @@
         <attr name="min" format="integer" />
         <attr name="tickDrawable" format="reference" />
         <attr name="centerDrawable" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="WikitextKeyboardView">
+        <attr name="headingsEnable" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="WikitextKeyboardButtonView">
@@ -92,5 +95,11 @@
         <attr name="hasBorder" format="boolean" />
         <attr name="elevation" format="dimension" />
         <attr name="radius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LangCodeView">
+        <attr name="textColor" format="color" />
+        <attr name="backgroundTint" format="color" />
+        <attr name="fillBackground" format="boolean" />
     </declare-styleable>
 </resources>

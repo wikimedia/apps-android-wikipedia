@@ -4,14 +4,17 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.paging.*
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
+import androidx.paging.PagingState
+import androidx.paging.cachedIn
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.FileAliasData
@@ -39,17 +42,15 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
         loadMagicWords()
     }
 
-    class InsertMediaPagingSource(
-        val searchQuery: String,
-    ) : PagingSource<MwQueryResponse.Continuation, PageTitle>() {
-        override suspend fun load(params: LoadParams<MwQueryResponse.Continuation>): LoadResult<MwQueryResponse.Continuation, PageTitle> {
+    class InsertMediaPagingSource(val searchQuery: String) : PagingSource<Int, PageTitle>() {
+        override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PageTitle> {
             return try {
                 val wikiSite = WikiSite(Service.COMMONS_URL)
                 val response = ServiceFactory.get(WikiSite(Service.COMMONS_URL))
-                    .fullTextSearchCommons(searchQuery, params.key?.gsroffset?.toString(), params.loadSize, params.key?.continuation)
+                    .fullTextSearchCommons(searchQuery, params.loadSize, params.key)
 
                 return response.query?.pages?.let { list ->
-                    val results = list.sortedBy { it.index }.map {
+                    val results = list.sortedBy { it.index }.filter { it.imageInfo() != null }.map {
                         val pageTitle = PageTitle(it.title, wikiSite, it.thumbUrl())
                         // since this is an imageinfo query, the thumb URL and description will
                         // come from image metadata.
@@ -59,7 +60,7 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
                         }
                         pageTitle
                     }
-                    LoadResult.Page(results, null, response.continuation)
+                    LoadResult.Page(results, null, response.continuation?.gsroffset)
                 } ?: run {
                     LoadResult.Page(emptyList(), null, null)
                 }
@@ -68,11 +69,12 @@ class InsertMediaViewModel(bundle: Bundle) : ViewModel() {
             }
         }
 
-        override fun getRefreshKey(state: PagingState<MwQueryResponse.Continuation, PageTitle>): MwQueryResponse.Continuation? {
+        override fun getRefreshKey(state: PagingState<Int, PageTitle>): Int? {
             return null
         }
     }
 
+    @Suppress("KotlinConstantConditions")
     private fun loadMagicWords() {
         if (magicWordsLang == wikiSite.languageCode) {
             return

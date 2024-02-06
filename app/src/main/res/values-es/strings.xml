@@ -33,6 +33,7 @@
 * Eloy
 * Enly M
 * Envlh
+* Eulalio
 * Fitoschido
 * Geryescalier
 * Hal9000wopr
@@ -146,6 +147,11 @@
     <item quantity="one">%1$d editar desde %2$s</item>
     <item quantity="other">%1$d editar desde %2$s</item>
   </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%1$d edición desde %2$s (%3$s)</item>
+    <item quantity="other">%1$d ediciones desde %2$s (%3$s)</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">Prueba a cambiar los &lt;a href=\"#\"&gt;filtros&lt;/a&gt; para ver más ediciones.</string>
   <string name="menu_page_show_tabs">Mostrar pestañas</string>
   <string name="menu_page_other_languages">Cambiar idioma</string>
   <string name="menu_page_find_in_page">Buscar en artículo</string>
@@ -188,6 +194,7 @@
   <string name="language_count_link_text">Disponible en %d idiomas más</string>
   <string name="edit_save_action_license_logged_in">Al guardar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Al publicar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Las ediciones se atribuirán a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;inicias sesión&lt;/a&gt;, tendrás más privacidad.</string>
+  <string name="edit_anon_warning">Los ediciones serán atribuidas a la dirección IP de tu dispositivo. Si &lt;a href=\"https://#login\"&gt;accedes&lt;/a&gt;, tendrás más privacidad.</string>
   <string name="preference_title_language">Idiomas de Wikipedia</string>
   <string name="langlinks_filter_hint">Buscar</string>
   <string name="langlinks_empty">Esta página no está disponible en otros idiomas.</string>
@@ -1248,7 +1255,6 @@
   <string name="revision_diff_from">De:</string>
   <string name="revision_diff_to">Para:</string>
   <string name="revision_diff_line_num">Línea %d</string>
-  <string name="revision_diff_line_nums">Líneas %d–%d</string>
   <string name="revision_diff_line_added">Línea añadida</string>
   <string name="revision_diff_line_removed">Línea eliminada</string>
   <string name="revision_diff_paragraph_added">Párrafo añadido</string>
@@ -1323,12 +1329,13 @@
   <string name="reading_list_share_survey_title">¿Podrías ayudarnos a mejorar \"Compartir listas de lectura\"?</string>
   <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
   <string name="talk_templates_edit_message_dialog_delete">Eliminar</string>
-  <string name="talk_templates_edit_message_delete_description" fuzzy="true">¿Estás seguro de que deseas eliminar este %s mensaje de la lista?</string>
-  <string name="talk_templates_message_deleted">El mensaje se ha eliminado</string>
+  <string name="talk_templates_message_deleted" fuzzy="true">El mensaje se ha eliminado</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cuenta de: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Editar recuento: &lt;/b&gt; %s</string>
   <string name="data_opt_in_accept">Aceptar</string>
   <string name="data_opt_in_reject">Rechazar</string>
   <string name="email_report_image_recommendations_subject">Informe de problema: función de recomendaciones de imágenes</string>
   <string name="email_report_image_recommendations_body">He tenido un problema con la función de recomendación de imagen:\n- [Describe el problema en concreto]\n\nEl resultado que me gustaría ver es:\n- [Describe la solución propuesta]</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">¿Qué quieres que cambiemos o mejoremos?</string>
+  <string name="places_empty_list">Esta área está vacía. Alejar &lt;a href=\"#\"&gt;el mapa&lt;/a&gt; .</string>
 </resources>

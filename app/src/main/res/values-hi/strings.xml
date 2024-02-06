@@ -414,6 +414,7 @@
   <string name="multi_select_items_selected">%d चयनित</string>
   <string name="error_message_generic">एक त्रुटि हुई है</string>
   <string name="view_link_preview_error_button_dismiss">रद्द करें</string>
+  <string name="link_preview_dialog_save_button">सहेजें</string>
   <string name="error_page_does_not_exist">यह पेज अस्तिव में नहीं है</string>
   <string name="error_user_page_does_not_exist">विकिपीडिया में इस सटीक नाम वाला &lt;a href=\"%1$s\"&gt;सदस्य पृष्ठ&lt;/a&gt; नहीं है। सामान्य तौर पर, यह पृष्ठ &lt;b&gt;%2$s&lt;/b&gt; द्वारा बनाया और संपादित किया जाना चाहिए। यदि संदेह है, तो कृपया सत्यापित करें कि \" %3$s \" मौजूद है।</string>
   <string name="view_wiki_error_message_offline">इंटरनेट से जोड़ा नहीं जा सका</string>
@@ -774,7 +775,7 @@
   <string name="notifications_offline_disable_message">ऑफ़लाइन होने पर फ़ंक्शन उपलब्ध नहीं है।</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
-  <string name="view_random_article_card_title">कोई भी लेख</string>
+  <string name="view_random_article_card_title">बेतरतीब लेख</string>
   <string name="view_random_article_card_action">अधिक बेतरतीब लेख</string>
   <string name="view_top_read_card_title">सर्वाधिक पढ़े गए</string>
   <string name="view_top_read_card_action">सर्वाधिक पढ़े अन्य</string>
@@ -1315,7 +1316,6 @@
   <string name="revision_diff_from">प्रेषक:</string>
   <string name="revision_diff_to">प्राप्तकर्ता:</string>
   <string name="revision_diff_line_num">लाइन %d</string>
-  <string name="revision_diff_line_nums">लाइन्स %d–%d</string>
   <string name="revision_diff_lines_from_to">पंक्तियाँ %1$d–%2$d</string>
   <string name="revision_diff_line_added">लाइन जोड़ी गई</string>
   <string name="revision_diff_line_removed">लाइन हटाई गई</string>
@@ -1438,10 +1438,31 @@
   <string name="reading_list_share_survey_title">क्या आप \"रीडिंग लिस्ट साझा करें\" में सुधार लाने में हमारी सहायता करेंगे?</string>
   <string name="reading_list_share_survey_body">\"रीडिंग लिस्ट साझा करें\" इस टेस्ट फीचर है और उसे सुधरने या हटाने में आपकी फीडबैक की जरूरत है।</string>
   <string name="talk_templates_new_message_dialog_cancel">रद्द करें</string>
+  <string name="talk_templates_menu_remove_message">संदेश हटाएँ</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">कोई नहीं</string>
   <string name="patroller_onboarding_two_warn_title">चेतावनी</string>
   <string name="data_opt_in_accept">स्वीकार करें</string>
   <string name="data_opt_in_reject">अस्वीकार करें</string>
   <string name="generic_release_notes">मामूली बग फिक्स और सुधार</string>
   <string name="donation_campaign_go_back_button">वापस जाएँ</string>
+  <string name="places_toggle_buttons_map">नक्शा</string>
+  <string name="places_survey_very_satisfied_option">बहुत संतुष्ट</string>
+  <string name="places_survey_very_unsatisfied_option">बहुत असंतुष्ट</string>
+  <string name="places_title">स्थानों</string>
+  <string name="places_article_menu_tooltip_message">इस आर्टिकल की लोकेशन जानने के लिए \'मैप पर देखें\' पर टैप करें></string>
+  <string name="action_item_view_on_map">मैप पर देखें</string>
+  <string name="places_toggle_buttons_list">लिस्ट</string>
+  <string name="link_preview_dialog_read_button">पढ़ें</string>
+  <string name="link_preview_dialog_share_button">शेयर करें</string>
+  <string name="places_search_hint">স্থানগুলি অনুসন্ধান করুন</string>
+  <string name="places_filter_title">भाषा फ़िल्टर करें</string>
+  <string name="places_empty_list">यह एरिया खाली है. मैप पर ज़ूम आउटकरें.</string>
+  <string name="places_survey_dialog_title">\'स्थानों\' को बेहतर बनाने में सहायता करें</string>
+  <string name="patroller_diff_feedback_dialog_message">क्या आप इस सुविधा से संतुष्ट हैं?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">संतुष्ट</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">ना संतुष्ट ना असंतुष्ट</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">असंतुष्ट</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">फीडबैक</string>
+  <string name="patroller_diff_feedback_dialog_submit">जमा करें</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">फीडबैक जमा किया गया. धन्यवाद!</string>
 </resources>

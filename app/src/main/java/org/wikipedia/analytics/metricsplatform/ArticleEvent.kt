@@ -1,6 +1,7 @@
 package org.wikipedia.analytics.metricsplatform
 
 import org.wikimedia.metrics_platform.context.PageData
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -22,6 +23,8 @@ class ArticleFindInPageInteraction(private val fragment: PageFragment) : TimedMe
 
     fun logDone() {
         submitEvent(
+            "android.product_metrics.find_in_page_interaction",
+            "/analytics/mobile_apps/product_metrics/android_find_in_page_interaction/1.0.0",
             "find_in_page_interaction",
             mapOf(
                 "find_text" to findText,
@@ -30,6 +33,7 @@ class ArticleFindInPageInteraction(private val fragment: PageFragment) : TimedMe
                 "page_height" to pageHeight,
                 "time_spent_ms" to timer.elapsedMillis,
             ),
+            getInteractionData("find_in_page_interaction"),
             getPageData(fragment)
         )
     }
@@ -138,11 +142,15 @@ class ArticleToolbarInteraction(private val fragment: PageFragment) : TimedMetri
     fun reset() { timer.reset() }
 
     private fun submitEvent(action: String) {
+
         submitEvent(
+            "android.product_metrics.article_toolbar_interaction",
             "article_toolbar_interaction",
-            mapOf(
-                "action" to action,
-                "time_spent_ms" to timer.elapsedMillis
+            getInteractionData(
+                "article_toolbar_interaction",
+                action,
+                null,
+                "time_spent_ms.${timer.elapsedMillis}"
             ),
             getPageData(fragment)
         )
@@ -178,6 +186,8 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
             return
         }
         submitEvent(
+            "android.product_metrics.article_toc_interaction",
+            "/analytics/mobile_apps/product_metrics/android_article_toc_interaction/1.0.0",
             "article_toc_interaction",
             mapOf(
                 "num_opens" to numOpens,
@@ -185,6 +195,7 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
                 "total_open_sec" to totalOpenedSec,
                 "num_sections" to numSections
             ),
+            getInteractionData("article_toc_interaction"),
             getPageData(fragment)
         )
     }
@@ -204,6 +215,11 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
         pageData = getPageData(pageTitle, pageId)
     }
 
+    constructor(pageTitle: PageTitle, summary: PageSummary, source: Int) {
+        this.source = source
+        pageData = getPageData(pageTitle, summary)
+    }
+
     fun logLinkClick() {
         submitEvent("linkclick")
     }
@@ -218,11 +234,13 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
 
     private fun submitEvent(action: String) {
         submitEvent(
+            "android.product_metrics.article_link_preview_interaction",
             "article_link_preview_interaction",
-            mapOf(
-                "action" to action,
-                "source" to source,
-                "time_spent_ms" to timer.elapsedMillis,
+            getInteractionData(
+                "article_link_preview_interaction",
+                action,
+                source.toString(),
+                "time_spent_ms.${timer.elapsedMillis}",
             ),
             pageData
         )

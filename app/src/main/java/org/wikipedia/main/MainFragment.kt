@@ -11,7 +11,12 @@ import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Pair
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -29,6 +34,7 @@ import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil.getCallback
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.ReadingListsAnalyticsHelper
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -55,11 +61,8 @@ import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.random.RandomActivity
-import org.wikipedia.readinglist.AddToReadingListDialog
-import org.wikipedia.readinglist.MoveToReadingListDialog
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.ReadingListsFragment
 import org.wikipedia.search.SearchActivity
@@ -72,14 +75,17 @@ import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.usercontrib.UserContribListActivity
-import org.wikipedia.util.*
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.ShareUtil
+import org.wikipedia.util.TabUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.TabCountsView
 import org.wikipedia.watchlist.WatchlistActivity
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, LinkPreviewDialog.Callback, MenuNavTabDialog.Callback {
+class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.Callback, HistoryFragment.Callback, MenuNavTabDialog.Callback {
     interface Callback {
         fun onTabChanged(tab: NavTab)
         fun updateToolbarElevation(elevate: Boolean)
@@ -164,7 +170,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         downloadReceiver.register(requireContext(), downloadReceiverCallback)
         // reset the last-page-viewed timer
         Prefs.pageLastShown = 0
-        maybeShowWatchlistTooltip()
+        maybeShowPlacesTooltip()
     }
 
     override fun onDestroyView() {
@@ -343,16 +349,11 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     }
 
     override fun onFeedAddPageToList(entry: HistoryEntry, addToDefault: Boolean) {
-        if (addToDefault) {
-            ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, InvokeSource.FEED) { readingListId -> onFeedMovePageToList(readingListId, entry) }
-        } else {
-            ExclusiveBottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(entry.title, InvokeSource.FEED))
-        }
+        ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), entry.title, addToDefault, InvokeSource.FEED)
     }
 
     override fun onFeedMovePageToList(sourceReadingListId: Long, entry: HistoryEntry) {
-        ExclusiveBottomSheetPresenter.show(childFragmentManager,
-                MoveToReadingListDialog.newInstance(sourceReadingListId, entry.title, InvokeSource.FEED))
+        ReadingListBehaviorsUtil.moveToList(requireActivity(), sourceReadingListId, entry.title, InvokeSource.FEED)
     }
 
     override fun onFeedNewsItemSelected(card: NewsCard, view: NewsItemView) {
@@ -411,26 +412,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
 
     override fun onLoadPage(entry: HistoryEntry) {
         startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
-    }
-
-    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
-        if (inNewTab) {
-            startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.title))
-        } else {
-            startActivity(PageActivity.newIntentForCurrentTab(requireContext(), entry, entry.title))
-        }
-    }
-
-    override fun onLinkPreviewCopyLink(title: PageTitle) {
-        copyLink(title.uri)
-    }
-
-    override fun onLinkPreviewAddToList(title: PageTitle) {
-        ExclusiveBottomSheetPresenter.show(childFragmentManager, AddToReadingListDialog.newInstance(title, InvokeSource.LINK_PREVIEW_MENU))
-    }
-
-    override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(requireContext(), title)
     }
 
     override fun onBackPressed(): Boolean {
@@ -507,11 +488,6 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    private fun copyLink(url: String) {
-        ClipboardUtil.setPlainText(requireContext(), text = url)
-        FeedbackUtil.showMessage(this, R.string.address_copied)
-    }
-
     @Suppress("SameParameterValue")
     private fun lastPageViewedWithin(days: Int): Boolean {
         return TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.pageLastShown) < days
@@ -576,14 +552,15 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
         }
     }
 
-    private fun maybeShowWatchlistTooltip() {
-        if (Prefs.isWatchlistPageOnboardingTooltipShown &&
-                !Prefs.isWatchlistMainOnboardingTooltipShown && AccountUtil.isLoggedIn) {
+    private fun maybeShowPlacesTooltip() {
+        if (Prefs.showOneTimePlacesMainNavOnboardingTooltip && Prefs.exploreFeedVisitCount > SHOW_PLACES_MAIN_NAV_TOOLTIP) {
             enqueueTooltip {
-                FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer, R.layout.view_watchlist_main_tooltip, 0, 0, aboveOrBelow = true, autoDismiss = false)
-                        .setOnBalloonDismissListener {
-                            Prefs.isWatchlistMainOnboardingTooltipShown = true
-                        }
+                PlacesEvent.logImpression("main_nav_tooltip")
+                FeedbackUtil.showTooltip(requireActivity(), binding.navMoreContainer,
+                    getString(R.string.places_nav_tab_tooltip_message), aboveOrBelow = true, autoDismiss = false, showDismissButton = true).setOnBalloonDismissListener {
+                    Prefs.showOneTimePlacesMainNavOnboardingTooltip = false
+                    PlacesEvent.logAction("dismiss_click", "main_nav_tooltip")
+                }
             }
         }
     }
@@ -631,6 +608,7 @@ class MainFragment : Fragment(), BackPressedHandler, MenuProvider, FeedFragment.
     companion object {
         // Actually shows on the 3rd time of using the app. The Pref.incrementExploreFeedVisitCount() gets call after MainFragment.onResume()
         private const val SHOW_EDITS_SNACKBAR_COUNT = 2
+        private const val SHOW_PLACES_MAIN_NAV_TOOLTIP = 1
 
         fun newInstance(): MainFragment {
             return MainFragment().apply {

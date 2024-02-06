@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-java@v3
+    - uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
         java-version: '17'
-    - uses: gradle/gradle-build-action@v2
+    - uses: gradle/gradle-build-action@v3
     - name: Checkout submodules
       run: git submodule update --init --recursive
     - name: Build, test, and lint
@@ -30,7 +30,10 @@ jobs:
         alias: ${{ secrets.KEY_STORE_ALIAS }}
         keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
         keyPassword: ${{ secrets.KEY_PASSWORD }}
-    - uses: actions/upload-artifact@v2
+      env:
+        # override default build-tools version (29.0.3) -- optional
+        BUILD_TOOLS_VERSION: "34.0.0"
+    - uses: actions/upload-artifact@v4
       name: Upload APK artifact
       with:
         name: app_alpha_release

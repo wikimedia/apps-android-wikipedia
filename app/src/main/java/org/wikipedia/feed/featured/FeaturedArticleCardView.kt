@@ -30,7 +30,7 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
             if (ImageZoomHelper.isZooming) {
                 ImageZoomHelper.dispatchCancelEvent(binding.viewFeaturedArticleCardContentContainer)
             } else {
-                LongPressMenu(view, true, object : LongPressMenu.Callback {
+                LongPressMenu(view, callback = object : LongPressMenu.Callback {
                     override fun onOpenLink(entry: HistoryEntry) {
                         card?.let {
                             callback?.onSelectPage(it, entry, false)
