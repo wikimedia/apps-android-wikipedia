@@ -8,6 +8,7 @@ import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.play.core.appupdate.AppUpdateManager
@@ -41,14 +42,13 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     private var controlNavTabInFragment = false
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { }
     private val inAppUpdatesLauncher = registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) {
-        if (it.resultCode == RESULT_OK) {
-            FeedbackUtil.showMessage(this, "App updated!")
-        } else {
+        if (it.resultCode != RESULT_OK) {
             FeedbackUtil.showMessage(this, "Something went wrong!")
         }
     }
 
     private lateinit var appUpdateManager: AppUpdateManager
+    private lateinit var appUpdateListener: InstallStateUpdatedListener
 
     override fun inflateAndSetContentView() {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -80,61 +80,39 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
         appUpdateManager = AppUpdateManagerFactory.create(this)
 
-        // Create a listener to track request state updates.
-        val listener = InstallStateUpdatedListener { state ->
-            // (Optional) Provide a download progress bar.
+        appUpdateManager.appUpdateInfo.addOnSuccessListener { appUpdateInfo ->
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
+                appUpdateManager.startUpdateFlowForResult(appUpdateInfo,
+                    inAppUpdatesLauncher, AppUpdateOptions.newBuilder(AppUpdateType.FLEXIBLE).build())
+            }
+        }
+
+        appUpdateListener = InstallStateUpdatedListener { state ->
             if (state.installStatus() == InstallStatus.DOWNLOADING) {
-                val bytesDownloaded = state.bytesDownloaded()
-                val totalBytesToDownload = state.totalBytesToDownload()
-                // Show update progress bar.
+                FeedbackUtil.showMessage(this, "Downloading the APK...")
+                binding.inAppUpdateProgressBar.isVisible = true
             } else if (state.installStatus() == InstallStatus.DOWNLOADED) {
-                // After the update is downloaded, show a notification
-                // and request user confirmation to restart the app.
                 val snackbar = FeedbackUtil.makeSnackbar(this, "An update has just been downloaded. ", Snackbar.LENGTH_INDEFINITE)
                 snackbar.setAction("RESTART") {
                     appUpdateManager.completeUpdate()
                 }
                 snackbar.show()
+                binding.inAppUpdateProgressBar.isVisible = false
             }
-            // Log state or install the update.
         }
-
-        // Before starting an update, register a listener for updates.
-        appUpdateManager.registerListener(listener)
-
-        // Start an update.
-
-        // When status updates are no longer needed, unregister the listener.
-        appUpdateManager.unregisterListener(listener)
-
-
+        appUpdateManager.registerListener(appUpdateListener)
     }
 
     override fun onResume() {
         maybeShowPlacesSurvey()
         super.onResume()
-
-        // Checks that the platform will allow the specified type of update.
-        appUpdateManager.appUpdateInfo.addOnSuccessListener { appUpdateInfo ->
-            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                // This example applies an immediate update. To apply a flexible update
-                // instead, pass in AppUpdateType.FLEXIBLE
-                && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)
-            ) {
-                // Request the update.
-                appUpdateManager.startUpdateFlowForResult(
-                    // Pass the intent that is returned by 'getAppUpdateInfo()'.
-                    appUpdateInfo,
-                    // an activity result launcher registered via registerForActivityResult
-                    inAppUpdatesLauncher,
-                    // Or pass 'AppUpdateType.FLEXIBLE' to newBuilder() for
-                    // flexible updates.
-                    AppUpdateOptions.newBuilder(AppUpdateType.FLEXIBLE).build())
-
-            }
-        }
-
         invalidateOptionsMenu()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        appUpdateManager.unregisterListener(appUpdateListener)
     }
 
     private fun maybeShowPlacesSurvey() {

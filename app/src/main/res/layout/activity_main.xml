@@ -23,6 +23,13 @@
             app:tint="?attr/primary_color" />
     </com.google.android.material.appbar.MaterialToolbar>
 
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/inAppUpdateProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"/>
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
