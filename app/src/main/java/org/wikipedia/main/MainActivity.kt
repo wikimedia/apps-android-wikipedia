@@ -44,6 +44,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     private val inAppUpdatesLauncher = registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) {
         if (it.resultCode != RESULT_OK) {
             FeedbackUtil.showMessage(this, "Something went wrong!")
+        } else {
+            FeedbackUtil.showMessage(this, "Downloading the APK...")
         }
     }
 
@@ -90,7 +92,6 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
         appUpdateListener = InstallStateUpdatedListener { state ->
             if (state.installStatus() == InstallStatus.DOWNLOADING) {
-                FeedbackUtil.showMessage(this, "Downloading the APK...")
                 binding.inAppUpdateProgressBar.isVisible = true
             } else if (state.installStatus() == InstallStatus.DOWNLOADED) {
                 val snackbar = FeedbackUtil.makeSnackbar(this, "An update has just been downloaded. ", Snackbar.LENGTH_INDEFINITE)
