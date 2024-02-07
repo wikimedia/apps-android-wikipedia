@@ -156,7 +156,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         if (it.resultCode == RESULT_OK) {
             val languageChanged = it.data?.getBooleanExtra(PlacesFilterActivity.EXTRA_LANG_CHANGED, false) ?: false
             if (languageChanged) {
-                annotationCache.clear()
+                clearAnnotationCache()
                 viewModel.highlightedPageTitle = null
                 symbolManager?.deleteAll()
                 viewModel.fetchNearbyPages(lastLocation?.latitude ?: 0.0,
@@ -190,24 +190,18 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets, view)
             val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
             val newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
-            var params = binding.searchContainer.layoutParams as ViewGroup.MarginLayoutParams
-            params.topMargin = newStatusBarInsets.top + newNavBarInsets.top + DimenUtil.roundedDpToPx(4f)
-            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left + DimenUtil.roundedDpToPx(8f)
-            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(8f)
+
+            var params = binding.controlsContainer.layoutParams as ViewGroup.MarginLayoutParams
+            params.topMargin = newStatusBarInsets.top + newNavBarInsets.top
+            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
+            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
+            params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
 
             params = binding.myLocationButton.layoutParams as ViewGroup.MarginLayoutParams
             params.bottomMargin = newNavBarInsets.bottom + DimenUtil.roundedDpToPx(16f)
             params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left + DimenUtil.roundedDpToPx(16f)
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(16f)
             binding.myLocationButton.layoutParams = params
-
-            params = binding.listRecyclerView.layoutParams as ViewGroup.MarginLayoutParams
-            params.bottomMargin = newNavBarInsets.bottom
-            params.rightMargin = newNavBarInsets.right
-
-            params = binding.viewButtonsGroup.layoutParams as ViewGroup.MarginLayoutParams
-            params.leftMargin = newNavBarInsets.left
-            params.rightMargin = newNavBarInsets.right
 
             statusBarInsets = newStatusBarInsets
             navBarInsets = newNavBarInsets
@@ -256,10 +250,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             } else {
                 locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
             }
-        }
-
-        binding.viewButtonsGroup.post {
-            binding.viewButtonsGroup.isVisible = true
         }
 
         binding.viewButtonsGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
@@ -552,16 +542,21 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         binding.mapView.onDestroy()
         _binding = null
 
-        annotationCache.forEach {
-            if (it.bitmap != null) {
-                Glide.get(requireContext()).bitmapPool.put(it.bitmap!!)
-            }
-        }
+        clearAnnotationCache()
         markerBitmapBase.recycle()
         if (Prefs.shouldShowOneTimePlacesSurvey == SURVEY_NOT_INITIALIZED) {
             Prefs.shouldShowOneTimePlacesSurvey = SURVEY_SHOW
         }
         super.onDestroyView()
+    }
+
+    private fun clearAnnotationCache() {
+        annotationCache.forEach {
+            if (it.bitmap != null) {
+                Glide.get(requireContext()).bitmapPool.put(it.bitmap!!)
+            }
+        }
+        annotationCache.clear()
     }
 
     private fun onUpdateCameraPosition(latLng: LatLng) {
@@ -647,9 +642,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         if (haveLocationPermissions()) {
             binding.viewButtonsGroup.check(R.id.mapViewButton)
             mapboxMap?.let {
-                val currentLocation = it.locationComponent.lastKnownLocation
+                viewModel.lastKnownLocation = it.locationComponent.lastKnownLocation
                 var currentLatLngLoc: LatLng? = null
-                currentLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
+                viewModel.lastKnownLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
                 val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
                 val targetLocation = location ?: currentLatLngLoc
                 targetLocation?.let { target ->
@@ -767,7 +762,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
 
         override fun onBindViewHolder(holder: RecyclerViewItemHolder, position: Int) {
-            holder.bindItem(nearbyPages[position], mapboxMap?.locationComponent?.lastKnownLocation)
+            holder.bindItem(nearbyPages[position], viewModel.lastKnownLocation)
         }
     }
 
