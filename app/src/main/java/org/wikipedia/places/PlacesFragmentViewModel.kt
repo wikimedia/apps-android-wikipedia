@@ -40,9 +40,11 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
                         if (it.thumbUrl().isNullOrEmpty()) null else ImageUrlUtil.getUrlForPreferredSize(it.thumbUrl()!!, PlacesFragment.THUMB_SIZE),
                         it.description, it.displayTitle(wikiSite.languageCode)), it.coordinates!![0].lat, it.coordinates[0].lon)
                 }
-                .sortedBy { lastKnownLocation?.run {
-                    it.location.distanceTo(this)
-                }}
+                .sortedBy {
+                    lastKnownLocation?.run {
+                        it.location.distanceTo(this)
+                    }
+                }
             nearbyPagesLiveData.postValue(Resource.Success(pages))
         }
     }
