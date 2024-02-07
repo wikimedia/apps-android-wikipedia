@@ -4,11 +4,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheetOverlayHolder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     android:id="@+id/bottomSheetCoordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipChildren="false"
     android:clipToPadding="false"
+    android:paddingTop="16dp"
     app:behavior_hideable="true"
     app:behavior_peekHeight="@dimen/bottomSheetPeekHeight"
     app:layout_behavior="@string/bottom_sheet_behavior">
@@ -16,7 +22,8 @@
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/paper_color">
+    android:background="?attr/paper_color"
+    android:elevation="12dp">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -47,8 +54,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="16dp"
                     android:layout_marginVertical="16dp"
-                    android:contentDescription="@null"
-                    android:visibility="gone" />
+                    android:contentDescription="@null" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -146,12 +152,6 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <ProgressBar
-        android:id="@+id/link_preview_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
@@ -165,5 +165,19 @@
         android:background="@drawable/rounded_2dp_fill"/>
 
 </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <org.wikipedia.page.linkpreview.LinkPreviewOverlayView
+        android:id="@+id/overlayView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"/>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/link_preview_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

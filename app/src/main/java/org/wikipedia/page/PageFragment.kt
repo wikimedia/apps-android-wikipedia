@@ -380,6 +380,15 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             app.appSessionEvent.touchSession()
         }
         webView.addOnContentHeightChangedListener(scrollTriggerListener)
+
+
+
+        webView.addOnScrollChangeListener({ oldScrollY, scrollY, isHumanScroll ->
+            LinkPreviewDialog.hide(childFragmentManager)
+        })
+
+
+
         webView.webViewClient = object : OkHttpWebViewClient() {
 
             override val model get() = this@PageFragment.model

@@ -22,7 +22,8 @@ import org.wikipedia.watchlist.WatchlistExpiry
 class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     private val _uiState = MutableStateFlow<LinkPreviewViewState>(LinkPreviewViewState.Loading)
     val uiState = _uiState.asStateFlow()
-    val historyEntry = bundle.parcelable<HistoryEntry>(LinkPreviewDialog.ARG_ENTRY)!!
+
+    var historyEntry = bundle.parcelable<HistoryEntry>(LinkPreviewDialog.ARG_ENTRY)!!
     var pageTitle = historyEntry.title
     var location = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LOCATION)
     val fromPlaces = historyEntry.source == HistoryEntry.SOURCE_PLACES
@@ -36,10 +37,17 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
         loadContent()
     }
 
+    fun reloadContent(historyEntry: HistoryEntry) {
+        this.historyEntry = historyEntry
+        pageTitle = historyEntry.title
+        loadContent()
+    }
+
     private fun loadContent() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _uiState.value = LinkPreviewViewState.Error(throwable)
         }) {
+            _uiState.value = LinkPreviewViewState.Loading
             val response = ServiceFactory.getRest(pageTitle.wikiSite)
                 .getSummaryResponseSuspend(pageTitle.prefixedText, null, null, null, null, null)
 
@@ -129,10 +137,10 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    class Factory(private val bunble: Bundle) : ViewModelProvider.Factory {
+    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return LinkPreviewViewModel(bunble) as T
+            return LinkPreviewViewModel(bundle) as T
         }
     }
 }
