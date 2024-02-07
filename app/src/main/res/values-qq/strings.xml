@@ -1617,4 +1617,8 @@
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
   <string name="onboarding_data_privacy_title">Title text for onboarding screen related to data and privacy.</string>
   <string name="onboarding_data_privacy_text">Message text for onboarding screen related to data and privacy. Please preserve the #privacy and #termsOfUse links.</string>
+  <string name="in_app_update_launcher_snackbar_download">Snackbar text that indicates the in-app updates starts the download process.</string>
+  <string name="in_app_update_launcher_snackbar_failure">Snackbar text that indicates the in-app updates failed.</string>
+  <string name="in_app_update_download_completed_snackbar">Snackbar text that indicates the update has been downloaded and it is ready to install.</string>
+  <string name="in_app_update_restart_action">Snackbar action that can restart the app to complete the in-app updates.</string>
 </resources>

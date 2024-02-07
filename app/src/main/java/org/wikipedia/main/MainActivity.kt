@@ -43,9 +43,10 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { }
     private val inAppUpdatesLauncher = registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) {
         if (it.resultCode != RESULT_OK) {
-            FeedbackUtil.showMessage(this, "Something went wrong!")
+            FeedbackUtil.showMessage(this, getString(R.string.in_app_update_launcher_snackbar_failure))
         } else {
-            FeedbackUtil.showMessage(this, "Downloading the APK...")
+            FeedbackUtil.showMessage(this, getString(R.string.in_app_update_launcher_snackbar_download))
+            binding.inAppUpdateProgressBar.isVisible = true
         }
     }
 
@@ -91,11 +92,9 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         }
 
         appUpdateListener = InstallStateUpdatedListener { state ->
-            if (state.installStatus() == InstallStatus.DOWNLOADING) {
-                binding.inAppUpdateProgressBar.isVisible = true
-            } else if (state.installStatus() == InstallStatus.DOWNLOADED) {
-                val snackbar = FeedbackUtil.makeSnackbar(this, "An update has just been downloaded. ", Snackbar.LENGTH_INDEFINITE)
-                snackbar.setAction("RESTART") {
+            if (state.installStatus() == InstallStatus.DOWNLOADED) {
+                val snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.in_app_update_download_completed_snackbar), Snackbar.LENGTH_INDEFINITE)
+                snackbar.setAction(getString(R.string.in_app_update_restart_action).uppercase()) {
                     appUpdateManager.completeUpdate()
                 }
                 snackbar.show()
@@ -106,8 +105,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
     }
 
     override fun onResume() {
-        maybeShowPlacesSurvey()
         super.onResume()
+        maybeShowPlacesSurvey()
         invalidateOptionsMenu()
     }
 

@@ -1692,4 +1692,11 @@
     <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
     <!-- /Places -->
+
+    <!-- In-app updates -->
+    <string name="in_app_update_launcher_snackbar_download">Downloading the update now…</string>
+    <string name="in_app_update_launcher_snackbar_failure">Cannot process in-app updates. Please try again.</string>
+    <string name="in_app_update_download_completed_snackbar">An update has just been downloaded.</string>
+    <string name="in_app_update_restart_action">Restart</string>
+    <!-- / In-app updates -->
 </resources>
