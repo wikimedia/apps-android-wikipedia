@@ -61,7 +61,6 @@ import com.mapbox.mapboxsdk.style.layers.PropertyFactory.circleStrokeWidth
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textAllowOverlap
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textFont
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.textIgnorePlacement
-import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
