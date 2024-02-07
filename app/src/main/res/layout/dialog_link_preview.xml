@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheetCoordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="bottom">
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="@dimen/bottomSheetPeekHeight"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/paper_color">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -149,3 +160,5 @@
         android:background="@drawable/rounded_2dp_fill"/>
 
 </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

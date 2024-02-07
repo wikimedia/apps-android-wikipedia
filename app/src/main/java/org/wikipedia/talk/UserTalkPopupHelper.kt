@@ -9,6 +9,7 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.appcompat.view.menu.MenuPopupHelper
+import androidx.fragment.app.commit
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -71,8 +72,9 @@ object UserTalkPopupHelper {
 
             helper.show()
         } else {
-            ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager,
-                    LinkPreviewDialog.newInstance(HistoryEntry(title, historySource)))
+            activity.supportFragmentManager.commit {
+                add(LinkPreviewDialog.newInstance(HistoryEntry(title, historySource)), "foo")
+            }
         }
     }
 

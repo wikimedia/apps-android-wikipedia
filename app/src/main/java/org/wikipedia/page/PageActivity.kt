@@ -378,10 +378,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         loadPage(title, entry, TabPosition.CURRENT_TAB)
     }
 
-    override fun onPageShowLinkPreview(entry: HistoryEntry) {
-        ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry))
-    }
-
     override fun onPageLoadMainPageInForegroundTab() {
         loadMainPage(TabPosition.EXISTING_TAB)
     }

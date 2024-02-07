@@ -27,6 +27,7 @@ import androidx.core.graphics.Insets
 import androidx.core.view.forEach
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -89,6 +90,7 @@ import org.wikipedia.page.campaign.CampaignDialog
 import org.wikipedia.page.edithistory.EditHistoryListActivity
 import org.wikipedia.page.issues.PageIssuesDialog
 import org.wikipedia.page.leadimages.LeadImagesHandler
+import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
@@ -126,7 +128,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         fun onPageLoadComplete()
         fun onPageLoadPage(title: PageTitle, entry: HistoryEntry)
         fun onPageInitWebView(v: ObservableWebView)
-        fun onPageShowLinkPreview(entry: HistoryEntry)
         fun onPageLoadMainPageInForegroundTab()
         fun onPageUpdateProgressBar(visible: Boolean)
         fun onPageStartSupportActionMode(callback: ActionMode.Callback)
@@ -486,7 +487,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         if (title.namespace() !== Namespace.MAIN || !Prefs.isLinkPreviewEnabled) {
             loadPage(title, historyEntry)
         } else {
-            callback()?.onPageShowLinkPreview(historyEntry)
+            LinkPreviewDialog.show(childFragmentManager, R.id.page_contents_container, historyEntry)
         }
     }
 

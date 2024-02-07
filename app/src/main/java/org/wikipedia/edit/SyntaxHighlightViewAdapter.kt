@@ -6,6 +6,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.fragment.app.commit
 import org.wikipedia.Constants
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.extensions.parcelableExtra
@@ -63,15 +64,8 @@ class SyntaxHighlightViewAdapter(
 
     override fun onPreviewLink(title: String) {
         val dialog = LinkPreviewDialog.newInstance(HistoryEntry(PageTitle(title, pageTitle.wikiSite), HistoryEntry.SOURCE_INTERNAL_LINK))
-        ExclusiveBottomSheetPresenter.show(activity.supportFragmentManager, dialog)
-        editText.post {
-            dialog.dialog?.setOnDismissListener {
-                if (!activity.isDestroyed) {
-                    editText.postDelayed({
-                        DeviceUtil.showSoftKeyboard(editText)
-                    }, 200)
-                }
-            }
+        activity.supportFragmentManager.commit {
+            add(dialog, "foo")
         }
     }
 

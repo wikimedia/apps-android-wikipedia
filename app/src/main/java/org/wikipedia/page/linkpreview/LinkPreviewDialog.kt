@@ -8,11 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -53,7 +57,7 @@ import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import java.util.Locale
 
-class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorView.Callback, DialogInterface.OnDismissListener {
+class LinkPreviewDialog : Fragment(), LinkPreviewErrorView.Callback {
     interface LoadPageCallback {
         fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean)
     }
@@ -153,7 +157,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
 
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
@@ -181,6 +185,14 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             }
         }
         return binding.root
+    }
+
+    private fun dismiss() {
+        dismissCallback?.onLinkPreviewDismiss()
+        if (!navigateSuccess) {
+            articleLinkPreviewInteractionEvent?.logCancel()
+            linkPreviewInteraction?.logCancel()
+        }
     }
 
     private fun setupOverflowMenu() {
@@ -240,7 +252,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     override fun onResume() {
         super.onResume()
-        val containerView = requireDialog().findViewById<ViewGroup>(R.id.container)
+        // TODO
+        val containerView = binding.root.findViewById<ViewGroup>(R.id.container)
         if (overlayView == null && containerView != null) {
             LinkPreviewOverlayView(requireContext()).let {
                 overlayView = it
@@ -284,15 +297,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         super.onDestroyView()
     }
 
-    override fun onDismiss(dialogInterface: DialogInterface) {
-        super.onDismiss(dialogInterface)
-        dismissCallback?.onLinkPreviewDismiss()
-        if (!navigateSuccess) {
-            articleLinkPreviewInteractionEvent?.logCancel()
-            linkPreviewInteraction?.logCancel()
-        }
-    }
-
     override fun onAddToList() {
         doAddToList()
     }
@@ -318,7 +322,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private fun doAddToList() {
         ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, true, Constants.InvokeSource.LINK_PREVIEW_MENU)
-        dialog?.dismiss()
+        dismiss()
     }
 
     private fun showReadingListPopupMenu(anchorView: View) {
@@ -416,7 +420,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         navigateSuccess = true
         articleLinkPreviewInteractionEvent?.logNavigate()
         linkPreviewInteraction?.logNavigate()
-        dialog?.dismiss()
+        dismiss()
         loadPage(viewModel.pageTitle, viewModel.historyEntry, inNewTab)
     }
 
@@ -467,6 +471,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     companion object {
+        const val FRAGMENT_TAG = "linkPreviewDialog"
         const val ARG_ENTRY = "entry"
         const val ARG_LOCATION = "location"
         const val ARG_LAST_KNOWN_LOCATION = "lastKnownLocation"
@@ -478,6 +483,15 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     ARG_LOCATION to location,
                     ARG_LAST_KNOWN_LOCATION to lastKnownLocation
                 )
+            }
+        }
+
+        fun show(fragmentManager: FragmentManager, resId: Int, entry: HistoryEntry, location: Location? = null, lastKnownLocation: Location? = null) {
+            fragmentManager.commit {
+                fragmentManager.findFragmentByTag(FRAGMENT_TAG)?.let {
+                    remove(it)
+                }
+                add(resId, newInstance(entry, location, lastKnownLocation), FRAGMENT_TAG)
             }
         }
     }
