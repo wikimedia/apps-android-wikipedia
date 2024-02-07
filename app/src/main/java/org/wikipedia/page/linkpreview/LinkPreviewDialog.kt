@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
@@ -21,6 +22,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -184,10 +186,25 @@ class LinkPreviewDialog : Fragment(), LinkPreviewErrorView.Callback {
                 }
             }
         }
+
+        ((binding.bottomSheetCoordinatorLayout.layoutParams as? CoordinatorLayout.LayoutParams)?.behavior as? BottomSheetBehavior)?.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                if (newState == BottomSheetBehavior.STATE_HIDDEN) {
+                    dismiss()
+                }
+            }
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+            }
+        })
+
         return binding.root
     }
 
     private fun dismiss() {
+        parentFragmentManager.commit {
+            remove(this@LinkPreviewDialog)
+        }
         dismissCallback?.onLinkPreviewDismiss()
         if (!navigateSuccess) {
             articleLinkPreviewInteractionEvent?.logCancel()
