@@ -292,9 +292,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Guarda tus listas de lectura en tu cuenta de Wikipedia «%s» y sincronízalas en varios dispositivos</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">¿Quieres quitar las listas de lectura sincronizadas de «%s»?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Esta acción eliminará por completo cualquier lista de lectura sincronizada en la nube. ¿Quieres eliminar todas las listas sincronizadas de la cuenta «%s»?</string>
-  <string name="preferences_privacy_settings_heading">Privacidad</string>
-  <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
-  <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
   <string name="preference_summary_auto_upload_crash_reports">Permitir a la aplicación enviar automáticamente informes de cierres súbitos a un proveedor de servicios externo para que podamos revisarlos y corregirlos con mayor rapidez y facilidad.</string>
   <string name="editing_error_spamblacklist">Se detectaron enlaces a dominios bloqueados (%s). Por favor elimínalos y vuelve a intentarlo.</string>
@@ -1106,8 +1103,6 @@
   <string name="onboarding_explore_text">Piérdete en la vastedad de Wikipedia a través del canal de exploración, siempre al día.&lt;br/&gt; &lt;b&gt;Personaliza&lt;/b&gt; el canal en función de lo que te interesa. Aprende sobre acontecimientos históricos en &lt;b&gt;Un día como hoy&lt;/b&gt; o lanza un dado virtual mediante &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de lectura con sincronización</string>
   <string name="onboarding_reading_list_sync_text_v2">Puedes crear listas de los artículos que quieras leer más tarde, incluso sin conexión. &lt;br/&gt;Accede a tu cuenta de Wikipedia para sincronizar tus listas de lectura. &lt;a href=\"#login\"&gt;Únete a Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Enviar datos anónimos</string>
-  <string name="onboarding_analytics_offline_text">Permite que sepamos cómo utilizas la aplicación para ayudar a mejorarla. Los datos recopilados son anónimos. &lt;a href=\"#privacy\"&gt;Más información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar datos de uso</string>
   <string name="onboarding_got_it">Entendido</string>
   <string name="onboarding_multilingual_secondary_text">Encontramos lo siguiente en tu dispositivo:</string>

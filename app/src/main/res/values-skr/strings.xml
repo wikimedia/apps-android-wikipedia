@@ -152,7 +152,6 @@
   <string name="create_account_account_created_toast">کھاتہ کھل ڳیا!</string>
   <string name="preferences_heading_syncing">ہم وقت کرݨ</string>
   <string name="preferences_heading_experimental">تجرباتی</string>
-  <string name="preferences_privacy_settings_heading">پرائیویسی</string>
   <string name="history_filter_list_hint">چھاݨاں تاریخ</string>
   <string name="page_protected_can_not_edit_title">ایہ ورقہ محفوظ ہے</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">پارھاتندیر وچ شامل کرو</string>

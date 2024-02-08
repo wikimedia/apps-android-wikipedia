@@ -160,9 +160,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronaké pratélan wacan ing manéka piranti kanthi nyimpen ing akun Wikipédia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Busak pratélan wacan kang kasinkronaké saka \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Iki bakal mbusek kabèh pratélan wacan kang wis kasinkronaké saka panyimpenan adoh. Busak kabèh pratélan kang kasinkronaké saka akunmu \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Priangga</string>
-  <string name="preference_title_eventlogging_opt_in">Kirim lapuran pangguna</string>
-  <string name="preference_summary_eventlogging_opt_in">Olèhaké Wikimedia nglumpukaké informasi bab anggonmu nganggo aplikasiné kapurih luwih beciké aplikasiné</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim lapuran rusak</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Allow the app to send crash reports to HockeyApp / a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
   <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
@@ -607,7 +604,6 @@
   <string name="onboarding_explore_title">Cara anyar ndlajah</string>
   <string name="onboarding_explore_text" fuzzy="true">Golèk artikel pilihan, rembug mumbul, lan saran wacan ing lebon Djalah.</string>
   <string name="onboarding_reading_list_sync_title">Pratélan wacan mawa sinkronisasi</string>
-  <string name="onboarding_analytics_title">Kirim dhata anonim</string>
   <string name="onboarding_analytics_switch_title">Kirim dhata pangguna</string>
   <string name="onboarding_got_it">Mudheng</string>
   <string name="onboarding_multilingual_secondary_text">Awak dhéwé nemu iki ing pirantiné panjenengan:</string>

@@ -180,9 +180,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">اس \"%s\" کھاتے/اکاؤنٹ سے مختلف آلات پر زیر مطالعہ مضامین کی فہرست کو یکجا کر لیں۔</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" کی زیر مطالعہ فہرست مٹا دیں؟</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">\"%s\" کی زیر مطالعہ فہرست کو مکمل طور پر ریموٹ اسٹوریج سے مٹا دیا جائے گا۔ کیا آپ ایسا کرنا چاہتے ہیں؟</string>
-  <string name="preferences_privacy_settings_heading">نجی نوعیت</string>
-  <string name="preference_title_eventlogging_opt_in">استعمال کی رپورٹ بھیجیں</string>
-  <string name="preference_summary_eventlogging_opt_in">ویکیمیڈیا کو اجازت دیں کہ وہ آپ کے اس ایپ کے استعمال کی معلومات حاصل کرے تاکہ اس اطلاقیے کو مزید بہتر بنایا جا سکے۔</string>
   <string name="preference_title_auto_upload_crash_reports">نقائص کی اطلاع بھیجیں</string>
   <string name="preference_summary_auto_upload_crash_reports">اس ایپ کو از خود تھرڈ پارٹی سروس کی خدمت میں نقائص اور خامیوں کی اطلاع بھیجنے کی اجازت دیں تاکہ ہم جلد از جلد اور بآسانی ان خامیوں کو درست کر سکیں۔</string>
   <string name="editing_error_spamblacklist">ممنوعہ برقی پتوں (%s) کو پرکھا گیا ہے۔ براہ کرم انہیں ہٹاکر پھر کوشش کریں۔</string>
@@ -630,7 +627,6 @@
   <string name="onboarding_explore_title">اکتشاف کی نئی راہیں</string>
   <string name="onboarding_explore_text">Dive down the Wikipedia rabbit hole with a constantly updating Explore feed۔ &lt;br/&gt; &lt;b&gt;حسب ضرورت&lt;/b&gt; the feed to your interests – whether it’s learning about تاریخی واقعات &lt;b&gt;آج کے دن&lt;/b&gt;، یا لڈو کے ڈانے کو گھما کے &lt;b&gt;بے ترتیب&lt;/b&gt;۔</string>
   <string name="onboarding_reading_list_sync_title">موجودہ وقت تک فہرستیں برائے مطالعہ</string>
-  <string name="onboarding_analytics_title">گمنام ڈیٹا بھیجیں</string>
   <string name="onboarding_analytics_switch_title">استعمال شدہ ڈیٹا بھیجیں</string>
   <string name="onboarding_multilingual_secondary_text">ہمیں آپ کے آلات پر یہ ملا:</string>
   <string name="onboarding_multilingual_add_language_text">زبانیں شامل یا ان میں ترمیم کریں</string>
