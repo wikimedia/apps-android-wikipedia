@@ -183,9 +183,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronizirajte popise za čitanje među različitim uređajima tako da ih spremite na Vaš račun \"%s\" na Wikipediji</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ukloniti sinkronizirane popise za čitanje s računa \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ovo će u potpunosti izbrisati sve prethodno sinkronizirane popise za čitanje iz udaljene pohrane. Ukloniti sve sinkronizirane popise za čitanje s Vašeg računa \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privatnost</string>
-  <string name="preference_title_eventlogging_opt_in">Slanje izvješća o korištenju</string>
-  <string name="preference_summary_eventlogging_opt_in">Dopusti Wikimediji da sakuplja anonimne informacije o vašoj aktivnosti kako bi poboljšala aplikaciju</string>
   <string name="preference_title_auto_upload_crash_reports">Slanje izvješća o padu programa</string>
   <string name="preference_summary_auto_upload_crash_reports">Dopusti automatsko slanje izvješća o pogreškama servisu treće strane, kako bismo mogli vidjeti informacije o pogrešci i brže i lakše ispraviti ju.</string>
   <string name="editing_error_spamblacklist">Pronađeni su linkovi na popis blokiranih domena (%s). Molimo, uklonite ih i pokušajte ponovno.</string>
@@ -729,8 +726,6 @@
   <string name="onboarding_maybe_later">Možda kasnije</string>
   <string name="onboarding_explore_title">Novi načini istraživanja</string>
   <string name="onboarding_reading_list_sync_title">Popisi za čitanje sa sinkronizacijom</string>
-  <string name="onboarding_analytics_title">Šalji anonimne podatke</string>
-  <string name="onboarding_analytics_offline_text">Pomozite nam da poboljšamo aplikaciju slanjem podataka o tome kako je koristite. Prikupljeni su podatci anonimni. &lt;a href=\"#privacy\"&gt;Saznajte više&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o korištenju</string>
   <string name="onboarding_got_it">Shvaćam</string>
   <string name="onboarding_multilingual_secondary_text">Pronašli smo sljedeće na Vašem uređaju:</string>

@@ -28,12 +28,10 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.PageActivity
-import org.wikipedia.places.PlacesFragment
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.views.SurveyDialog
 
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
 

@@ -76,9 +76,6 @@
   <string name="wikipedia_app_faq">Öff jeschtallte Frohre övver de Wikkipedija Äpp</string>
   <string name="send_feedback">En Rökmäldong jävve</string>
   <string name="create_account_account_created_toast">Aanjemäldt</string>
-  <string name="preferences_privacy_settings_heading">Prevahtheit</string>
-  <string name="preference_title_eventlogging_opt_in">Bereeschte met Dahte övver der Jebruch afflivvere</string>
-  <string name="preference_summary_eventlogging_opt_in">Donn de Wikkimehdija-Schteffong älaube, Enfommazjuhne drövver opzesammelle, wi De heh di Äpp bruchs, öme se bäßer maache ze künne.</string>
   <string name="preference_title_auto_upload_crash_reports">Bereeschte övver Fähler scheke</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Määd et müjjelesch, Fähler automattesch aan de HockeyApp  udder ene äxtärne Deens scheke, esu dat mer dä Fähler flökker repparehre kann, dä do henger schtisch?</string>
   <string name="error_can_not_process_link">Heh dä Lengk kunnte mer nit aanzeije</string>
