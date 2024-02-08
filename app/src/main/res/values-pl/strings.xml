@@ -239,9 +239,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizuj listy czytanych na różnych urządzeniach, zapisując je na swoim koncie \"%s\" w Wikipedii</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Usunąć zsynchronizowane listy czytanych z \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Spowoduje to całkowite usunięcie wszystkich uprzednio zsynchronizowanych list czytanych ze zdalnego magazynu. Usunąć wszystkie zsynchronizowane listy z Twojego konta \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Prywatność</string>
-  <string name="preference_title_eventlogging_opt_in">Wysyłaj informacje o użytkowaniu</string>
-  <string name="preference_summary_eventlogging_opt_in">Pozwala Wikimedii zbierać informacje o tym, w jaki sposób korzystasz z tej aplikacji, aby ją ulepszać</string>
   <string name="preference_title_auto_upload_crash_reports">Wysyłaj raporty o awariach</string>
   <string name="preference_summary_auto_upload_crash_reports">Pozwól automatycznie wysyłać raporty o błędach do platformy HockeyApp / zewnętrznego usługodawcy, abyśmy mogli szybciej i łatwiej analizować informacje o zgłoszonych awariach oraz naprawiać błędy.</string>
   <string name="editing_error_spamblacklist">Wykryto linki do zablokowanych domen (%s). Usuń je i spróbuj ponownie.</string>
@@ -1047,8 +1044,6 @@
   <string name="onboarding_explore_text">Zanurkuj w króliczej norze Wikipedii, ze stale aktualizowanym kanałem Eksploruj.&lt;br/&gt;&lt;b&gt;Dostosuj&lt;/b&gt; źródła do swoich zainteresowań - niezależnie od tego, czy chodzi o wydarzenia historyczne &lt;b&gt;Tego dnia&lt;/b&gt;, czy rzut kostką za pomocą &lt;b&gt;Losowego artykułu&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Synchronizacja list do przeczytania</string>
   <string name="onboarding_reading_list_sync_text_v2">Możesz tworzyć listy do czytania z artykułów, które chcesz przeczytać później, nawet gdy jesteś offline. &lt;br/&gt; Zaloguj się do swojego konta w Wikipedii, aby zsynchronizować listy czytelnicze. &lt;a href=\"#login\"&gt; Dołącz do Wikipedii &lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Wyślij anonimowo dane</string>
-  <string name="onboarding_analytics_offline_text">Pomóż ulepszyć aplikację, informując nas, jak z niej korzystasz. Zebrane dane są anonimowe. &lt;a href=\"#privacy\"&gt; Dowiedz się więcej &lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Wyślij używane dane</string>
   <string name="onboarding_got_it">Wszystko jasne</string>
   <string name="onboarding_multilingual_secondary_text">Znaleźliśmy następujące na twoim urządzeniu:</string>

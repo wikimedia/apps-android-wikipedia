@@ -213,9 +213,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Vikipediya hesabına \"%s\" yazaraq müxtəlif cihazlar arasında oxuma siyahısını sinxronlaşdırın</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sinxronlaşdırılmış oxuma siyahılarını \"%s\"-dan sil?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Bu, əvvəlcədən sinxronlaşdırılmış oxuma siyahılarını tamamilə siləcəkdir. Bütün sinxronlaşdırılmış siyahıları \"%s\" hesabınızdan silinsin?</string>
-  <string name="preferences_privacy_settings_heading">Məxfilik</string>
-  <string name="preference_title_eventlogging_opt_in">İstifadə hesabatlarını göndərin</string>
-  <string name="preference_summary_eventlogging_opt_in">Vikimediaya tətbiqin daha yaxşı tətbiq edilməsi üçün necə istifadə etdiyinə dair məlumat toplamaq imkanı verin</string>
   <string name="preference_title_auto_upload_crash_reports">Çökmə hesabatları göndərin</string>
   <string name="preference_summary_auto_upload_crash_reports">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
   <string name="editing_error_spamblacklist">Bloklanmış domenlərə aid linklər (%s) aşkarlandı. Lütfən onları çıxarın və yenidən cəhd edin.</string>
