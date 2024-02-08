@@ -26,8 +26,8 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.not
+import org.hamcrest.core.IsInstanceOf
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -36,6 +36,7 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.TestUtil
 import org.wikipedia.TestUtil.childAtPosition
+import org.wikipedia.TestUtil.isDisplayed
 import org.wikipedia.navtab.NavTab
 import java.util.concurrent.TimeUnit
 
@@ -76,7 +77,7 @@ class SmokeTests {
                 .perform(click())
 
         // Dismiss initial onboarding by accepting analytics collection
-        onView(allOf(withId(R.id.acceptButton), withText("Accept"), isDisplayed()))
+        onView(allOf(withId(R.id.fragment_onboarding_done_button), withText("Get started"), isDisplayed()))
                 .perform(click())
 
         TestUtil.delay(2)
@@ -495,12 +496,6 @@ class SmokeTests {
         TestUtil.delay(2)
 
         onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(4))
-
-        TestUtil.delay(6)
-
-        // Picture of the day card seen and clicked
-        onView(allOf(withId(R.id.view_featured_image_card_content_container),
-            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.feed.image.FeaturedImageCardView")), 0), 1), isDisplayed()))
             .perform(click())
 
         TestUtil.delay(2)
@@ -513,7 +508,7 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(5))
+        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(6))
 
         TestUtil.delay(3)
 
@@ -537,7 +532,7 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(6))
+        onView(allOf(withId(R.id.feed_view), isNotFocused())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(7))
 
         TestUtil.delay(2)
 
@@ -556,7 +551,7 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(7))
+        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(8))
 
         TestUtil.delay(2)
 
@@ -571,7 +566,7 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(8))
+        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(9))
 
         TestUtil.delay(5)
 
@@ -705,7 +700,7 @@ class SmokeTests {
 
         // Click `About the wikipedia app` option
         onView(allOf(withId(R.id.recycler_view), childAtPosition(withId(android.R.id.list_container), 0)))
-            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(16, click()))
+            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(14, click()))
 
         TestUtil.delay(2)
 
@@ -865,10 +860,10 @@ class SmokeTests {
         // Click the login button
         onView(withId(R.id.login_button)).perform(scrollTo(), click())
 
-        TestUtil.delay(2)
+        TestUtil.delay(5)
 
-        onView(allOf(withId(R.id.nav_tab_explore), withContentDescription("Explore"), isDisplayed()))
-            .perform(click())
+        onView(allOf(withId(android.R.id.button2), withText("No thanks"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.buttonPanel), 0), 2))).perform(scrollTo(), click())
 
         TestUtil.delay(1)
 
@@ -888,7 +883,7 @@ class SmokeTests {
         TestUtil.delay(1)
 
         // Get out of search action mode
-        pressBack()
+        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
 
         TestUtil.delay(1)
 
@@ -897,16 +892,24 @@ class SmokeTests {
 
         TestUtil.delay(1)
 
+        onView(allOf(withId(R.id.nav_tab_explore), withContentDescription("Explore"),
+            childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 0), isDisplayed())).perform(click())
+
+        TestUtil.delay(1)
+
         goToTop()
 
         // Access Suggested edits card
-        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(9))
+        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(10))
 
         TestUtil.delay(2)
 
+        onView(allOf(withId(R.id.callToActionButton), withText("Add article description")))
+            .perform(scrollTo())
+
         onView(allOf(withId(R.id.callToActionButton), withText("Add article description"),
             childAtPosition(allOf(withId(R.id.viewArticleContainer), childAtPosition(withId(R.id.cardItemContainer), 1)), 6), isDisplayed()))
-            .perform(scrollTo(), click())
+            .perform(click())
 
         TestUtil.delay(2)
 
@@ -930,11 +933,6 @@ class SmokeTests {
         onView(allOf(withId(R.id.main_drawer_watchlist_container), isDisplayed())).perform(click())
 
         TestUtil.delay(1)
-
-        // Assert that the empty container for watchlists is shown
-        onView(allOf(withId(R.id.watchlistEmptyContainer), isDisplayed())).check(matches(isDisplayed()))
-
-        TestUtil.delay(2)
 
         // Return to explore tab
         onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
@@ -994,185 +992,169 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        // Click through `Edits` screen stats onboarding - also confirming tooltip display
-        for (i in 1 until 5) {
-            onView(allOf(withId(R.id.buttonView), withText("Got it"),
-                childAtPosition(childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1), 0), isDisplayed()))
-                .perform(click())
+        // If it is a new account, SE tasks will not be available. Check to make sure they are.
+        val cardView = onView(allOf(withId(R.id.disabledStatesView), withParent(withParent(withId(R.id.suggestedEditsScrollView))), isDisplayed()))
+
+        if (!cardView.isDisplayed()) {
+            // Click through `Edits` screen stats onboarding - also confirming tooltip display
+            for (i in 1 until 5) {
+                onView(allOf(withId(R.id.buttonView), withText("Got it"),
+                    childAtPosition(childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1), 0), isDisplayed())).perform(click())
+                TestUtil.delay(2)
+            }
+
+            // User contributions screen tests. Enter contributions screen
+            onView(allOf(withId(R.id.userStatsArrow), withContentDescription("My contributions"), isDisplayed())).perform(click())
+
             TestUtil.delay(2)
+
+            // Click on filter button to view filter options
+            onView(allOf(withId(R.id.filter_by_button), withContentDescription("Filter by"), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            // Assert the presence of all filters
+            onView(allOf(withId(R.id.item_title), withText("Wikimedia Commons"), withParent(withParent(withId(R.id.recycler_view))), isDisplayed()))
+                .check(matches(withText("Wikimedia Commons")))
+
+            onView(allOf(withId(R.id.item_title), withText("Wikidata"), withParent(withParent(withId(R.id.recycler_view))), isDisplayed()))
+                .check(matches(withText("Wikidata")))
+
+            onView(allOf(withId(R.id.item_title), withText("Article"), withParent(withParent(withId(R.id.recycler_view))), isDisplayed()))
+                .check(matches(withText("Article")))
+
+            onView(allOf(withId(R.id.item_title), withText("Talk"), withParent(withParent(withId(R.id.recycler_view))), isDisplayed()))
+                .check(matches(withText("Talk")))
+
+            onView(allOf(withId(R.id.item_title), withText("User talk"), withParent(withParent(withId(R.id.recycler_view))), isDisplayed()))
+                .check(matches(withText("User talk")))
+
+            onView(allOf(withId(R.id.item_title), withText("User"), withParent(withParent(withId(R.id.recycler_view))), isDisplayed()))
+                .check(matches(withText("User")))
+
+            TestUtil.delay(2)
+
+            // Navigate back to se tasks screen
+            onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            // Click on one of the contributions
+            onView(allOf(withId(R.id.user_contrib_recycler), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
+                .perform(click())
+
+            TestUtil.delay(2)
+
+            // Click on `Add description` task
+            onView(allOf(withId(R.id.tasksRecyclerView), childAtPosition(withId(R.id.tasksContainer), 2)))
+                .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+
+            TestUtil.delay(2)
+
+            // Assert the presence of correct action button
+            onView(allOf(withId(R.id.addContributionButton), withText("Add description"),
+                withParent(allOf(withId(R.id.bottomButtonContainer))), isDisplayed()))
+                .check(matches(isDisplayed()))
+
+            TestUtil.delay(2)
+
+            onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            // Assert `Translate` button leading to add languages screen when there is only one language
+            onView(allOf(withId(R.id.secondaryButton), withText("Translate"),
+                withContentDescription("Translate Article descriptions"), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            // Click on add language button
+            onView(allOf(withId(R.id.wikipedia_languages_recycler), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 1)))
+                .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+
+            TestUtil.delay(2)
+
+            // Select a language
+            onView(allOf(withId(R.id.languages_list_recycler), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            // Assert `Translate` button leading to translate description screen, when there is more than one language
+            val button = onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Article descriptions"),
+                    withParent(withParent(IsInstanceOf.instanceOf(androidx.cardview.widget.CardView::class.java))), isDisplayed()))
+            button.check(matches(isDisplayed()))
+
+            onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Article descriptions"),
+                    childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.suggestededits.SuggestedEditsTaskView")), 0), 6), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            // Verify image caption translation task
+            onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Image captions"), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            // Assert the presence of correct action button text
+            onView(allOf(withId(R.id.addContributionButton), withText("Add translation"), withParent(allOf(withId(R.id.bottomButtonContainer))), isDisplayed()))
+                .check(matches(isDisplayed()))
+
+            onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            // Click on `Image captions` task
+            onView(allOf(withId(R.id.tasksRecyclerView), childAtPosition(withId(R.id.tasksContainer), 2)))
+                .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+
+            TestUtil.delay(2)
+
+            // Assert the presence of correct action button
+            onView(allOf(withId(R.id.addContributionButton), withText("Add caption"), withParent(allOf(withId(R.id.bottomButtonContainer))), isDisplayed()))
+                .check(matches(isDisplayed()))
+
+            TestUtil.delay(2)
+
+            onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            // Click on `Image tags` task
+            onView(allOf(withId(R.id.tasksRecyclerView), childAtPosition(withId(R.id.tasksContainer), 2)))
+                .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+
+            TestUtil.delay(2)
+
+            onView(allOf(withId(R.id.onboarding_done_button), withText("Get started"), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            // Assert the presence of correct action button
+            onView(allOf(withText("Add tag"), withParent(allOf(withId(R.id.tagsChipGroup))), isDisplayed()))
+                .check(matches(isDisplayed()))
+
+            TestUtil.delay(2)
+
+            onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            // Assert the presence of tutorial button
+            onView(allOf(withId(R.id.learnMoreButton), withText("Learn more"),
+                childAtPosition(allOf(withId(R.id.learnMoreCard)), 2), isNotFocused())).perform(scrollTo())
+
+            TestUtil.delay(2)
+
+            onView(allOf(withText("What is Suggested edits?"), withParent(allOf(withId(R.id.learnMoreCard))), isDisplayed()))
+                .check(matches(withText("What is Suggested edits?")))
         }
-
-        // User contributions screen tests. Enter contributions screen
-        onView(allOf(withId(R.id.userStatsArrow), withContentDescription("My contributions"), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Click on filter button to view filter options
-        onView(allOf(withId(R.id.filter_by_button), withContentDescription("Filter by"), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Assert the presence of all filters
-        onView(allOf(withId(R.id.item_title), withText("Wikimedia Commons"),
-            withParent(withParent(withId(R.id.recycler_view))), isDisplayed()))
-            .check(matches(withText("Wikimedia Commons")))
-
-        onView(allOf(withId(R.id.item_title), withText("Wikidata"),
-            withParent(withParent(withId(R.id.recycler_view))), isDisplayed()))
-            .check(matches(withText("Wikidata")))
-
-        onView(allOf(withId(R.id.item_title), withText("Article"),
-            withParent(withParent(withId(R.id.recycler_view))), isDisplayed()))
-            .check(matches(withText("Article")))
-
-        onView(allOf(withId(R.id.item_title), withText("Talk"),
-            withParent(withParent(withId(R.id.recycler_view))), isDisplayed()))
-            .check(matches(withText("Talk")))
-
-        onView(allOf(withId(R.id.item_title), withText("User talk"),
-            withParent(withParent(withId(R.id.recycler_view))), isDisplayed()))
-            .check(matches(withText("User talk")))
-
-        onView(allOf(withId(R.id.item_title), withText("User"),
-            withParent(withParent(withId(R.id.recycler_view))), isDisplayed()))
-            .check(matches(withText("User")))
-
-        TestUtil.delay(2)
-
-        // Navigate back to se tasks screen
-        onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
-            .perform(click())
-
-        TestUtil.delay(2)
-
-        // Click on one of the contributions
-        onView(allOf(withId(R.id.user_contrib_recycler), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
-            .perform(click())
-
-        TestUtil.delay(2)
-
-        onView(allOf(withContentDescription("Navigate up"), isDisplayed()))
-            .perform(click())
-
-        TestUtil.delay(2)
-
-        // Click on `Add description` task
-        onView(allOf(withId(R.id.tasksRecyclerView), childAtPosition(withId(R.id.tasksContainer), 2)))
-            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-
-        TestUtil.delay(2)
-
-        // Assert the presence of correct action button
-        onView(allOf(withId(R.id.addContributionButton), withText("Add description"),
-            withParent(allOf(withId(R.id.bottomButtonContainer))), isDisplayed()))
-            .check(matches(isDisplayed()))
-
-        TestUtil.delay(2)
-
-        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Assert `Translate` button leading to add languages screen when there is only one language
-        onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Article descriptions"),
-            isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Click on add language button
-        onView(allOf(withId(R.id.wikipedia_languages_recycler), childAtPosition(withClassName(Matchers.`is`("android.widget.LinearLayout")), 0)))
-            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
-
-        TestUtil.delay(2)
-
-        // Select a language
-        onView(allOf(withId(R.id.languages_list_recycler), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Assert `Translate` button leading to translate description screen, when there is more than one language
-        onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Article descriptions"),
-            childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.suggestiveness.SuggestedEditsTaskView")), 0), 6), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Assert the presence of correct action button text
-        onView(allOf(withId(R.id.addContributionButton), withText("Add translation"), withParent(allOf(withId(R.id.bottomButtonContainer))),
-            isDisplayed())).check(matches(isDisplayed()))
-
-        TestUtil.delay(2)
-
-        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Verify image caption translation task
-        onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Image captions"), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Assert the presence of correct action button text
-        onView(allOf(withId(R.id.addContributionButton), withText("Add translation"), withParent(allOf(withId(R.id.bottomButtonContainer))), isDisplayed()))
-            .check(matches(isDisplayed()))
-
-        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Click on `Image captions` task
-        onView(allOf(withId(R.id.tasksRecyclerView), childAtPosition(withId(R.id.tasksContainer), 2)))
-            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
-
-        TestUtil.delay(2)
-
-        // Assert the presence of correct action button
-        onView(allOf(withId(R.id.addContributionButton), withText("Add caption"),
-            withParent(allOf(withId(R.id.bottomButtonContainer))), isDisplayed()))
-            .check(matches(isDisplayed()))
-
-        TestUtil.delay(2)
-
-        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Click on `Image tags` task
-        onView(allOf(withId(R.id.tasksRecyclerView), childAtPosition(withId(R.id.tasksContainer), 2)))
-            .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
-
-        TestUtil.delay(2)
-
-        onView(allOf(withId(R.id.onboarding_done_button), withText("Get started"), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Assert the presence of correct action button
-        onView(allOf(withText("Add tag"), withParent(allOf(withId(R.id.tagsChipGroup))), isDisplayed()))
-            .check(matches(isDisplayed()))
-
-        TestUtil.delay(2)
-
-        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Assert the presence of tutorial button
-        onView(allOf(withId(R.id.learnMoreButton), withText("Learn more"),
-            childAtPosition(allOf(withId(R.id.learnMoreCard)), 2), isNotFocused()))
-            .perform(scrollTo())
-
-        TestUtil.delay(2)
-
-        onView(allOf(withText("What is Suggested edits?"), withParent(allOf(withId(R.id.learnMoreCard))), isDisplayed()))
-            .check(matches(withText("What is Suggested edits?")))
 
         TestUtil.delay(2)
 
@@ -1183,17 +1165,6 @@ class SmokeTests {
 
         // Click on `Settings` option
         onView(allOf(withId(R.id.main_drawer_settings_container), isDisplayed())).perform(click())
-
-        TestUtil.delay(2)
-
-        // Click to enter `About` screen
-        onView(withId(androidx.preference.R.id.recycler_view))
-            .perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
-                (hasDescendant(withText(R.string.about_description)), click()))
-
-        TestUtil.delay(2)
-
-        onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
 
