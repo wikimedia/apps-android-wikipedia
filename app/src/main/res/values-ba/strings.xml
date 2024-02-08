@@ -219,9 +219,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Уҡыу исемлектәрен, Википедиялағы «%s» аккаунтығыҙға һаҡлап, ҡулайламалар аша уҡыуҙы синхронлаштыра</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">«%s» синхрон уҡыу исемлектәрен юйырғамы?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Был элек синхрон уҡыу исемлектәрен дистанцион һаҡлағыстан тулыһынса алып ташлай. Бөтә синхрон исемлектәрҙе үҙегеҙҙең \"%s\" аккаунтығыҙҙан юйырғамы?</string>
-  <string name="preferences_privacy_settings_heading">Сер һаҡлау</string>
-  <string name="preference_title_eventlogging_opt_in">Ҡулланыу тураһында отчет ебәрергә</string>
-  <string name="preference_summary_eventlogging_opt_in">Викимедиаға ҡушымтаны нисек ҡулланыуығыҙ тураһында мәғлүмәт йыйырға рөхсәт итеү. Был уны тағы ла яҡшыраҡ итергә мөмкинлек бирәсәк</string>
   <string name="preference_title_auto_upload_crash_reports">Өҙөклөктәр тураһында отчет ебәрергә</string>
   <string name="preference_summary_auto_upload_crash_reports">Ҡушымтаға боҙолоу тураһында отчеттарҙы автоматик рәүештә тышҡы хеҙмәткә ебәрергә рөхсәт итегеҙ, шулай итеп беҙ боҙолоуға килтергән проблеманы тикшереп, хатаны тиҙерәк һәм еңелерәк төҙәтә алабыҙ.</string>
   <string name="editing_error_spamblacklist">Бикләнгән домендарға (%s) һылтанмалар барлығы асыҡланды. Уларҙы юйҙырығыҙ һәм яңынан эшләп ҡарағыҙ.</string>
@@ -1107,8 +1104,6 @@
   <string name="onboarding_explore_text">Википедия лабиринтында даими яңыртылып торған теҙмә ярҙамында сәйәхәт итегеҙ. &lt;br/&gt; Теҙмәне үҙегеҙҙе ҡыҙыҡһындырған темаға тура килерлек итеп &lt;b&gt;көйләгеҙ&lt;/b&gt; — ул &lt;b&gt;был көндә булған тарихи ваҡиғалар&lt;/b&gt; йәки &lt;/b&gt;осраҡлы һайланған&lt;/b&gt; тема булыуы мөмкин.</string>
   <string name="onboarding_reading_list_sync_title">Синхронлаштырылған уҡыу исемлектәре</string>
   <string name="onboarding_reading_list_sync_text_v2">Һеҙ һуңыраҡ, хатта офлайн режимда булғанда ла, уҡырға теләгән мәҡәләләр исемлеген төҙөй алаһығыҙ. Уҡыу исемлектәрен синхронлаштырыу өсөн Википедиялағы иҫәп яҙмағыҙға инегеҙ. &lt;a href=\"#login\"&gt;Википедияға ҡушылығыҙ&lt;/a&gt;&lt;br&gt;</string>
-  <string name="onboarding_analytics_title">Аноним мәғлүмәт ебәрергә</string>
-  <string name="onboarding_analytics_offline_text">Ҡушымтаны нисек ҡулланыуығыҙ тураһында хәбәр ебәреп, уны яҡшыртырға ярҙам итегеҙ. Мәғлүмәттәр аноним рәүештә йыйыла. &lt; a href=\"#privacy\"&gt;Күберәк белергә&lt; / a&gt;</string>
   <string name="onboarding_analytics_switch_title">Ҡулланыу мәғлүмәттәрен ебәрергә</string>
   <string name="onboarding_got_it">Аңлашылды</string>
   <string name="onboarding_multilingual_secondary_text">Һеҙҙең ҡоролмала түбәндәге телдәрҙе таптыҡ:</string>

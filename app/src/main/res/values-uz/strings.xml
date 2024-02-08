@@ -213,9 +213,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Ro‘yxatlarni turli qurilmalardagi \"%s\" Vikipediya hisobingizga saqlash orqali sinxronlashtiring.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sinxronlangan o‘qish ro‘yxatlari \"%s\"dan olib tashlansinmi?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Bu barcha oldindan sinxronlangan o‘qish ro‘yxatlarini butunlay olib tashlaydi. \"%s\" hisobingizdan barcha sinxronlangan ro‘yxatlar o‘chirilsinmi?</string>
-  <string name="preferences_privacy_settings_heading">Shaxsiylik</string>
-  <string name="preference_title_eventlogging_opt_in">Foydalanish haqida hisobotni joʻnatish</string>
-  <string name="preference_summary_eventlogging_opt_in">Wikimedia-ga ilovani yanada yaxshilash uchun qanday foydalanayotganingiz haqida maʼlumot toʻplashga ruxsat bering</string>
   <string name="preference_title_auto_upload_crash_reports">Xatolik hisobotini joʻnatmoq</string>
   <string name="preference_summary_auto_upload_crash_reports">Ilovaga xatoliklar haqida hisobotlarni avtomatik ravishda uchinchi tomon provayderiga yuborishiga ruxsat bering, shunda biz Sizning ilovangizda yuz bergan xatoliklarni koʻrib chiqamiz va xatoni tezroq va osonroq tuzatamiz.</string>
   <string name="editing_error_spamblacklist">Bloklangan domenlarga (%s) havolalar aniqlandi. Iltimos, ularni olib tashlang va qaytadan urinib koʻring.</string>
@@ -1113,8 +1110,6 @@
   <string name="onboarding_explore_text">Doimo yangilanib boriladigan yangiliklar tasmasi orqali Vikipediyaning axborotlar ummoniga shoʻngʻib boring. &lt;br/&gt; Oʻzingizning qiziqishingizga koʻra tasmani &lt;b&gt;Moslashtiring&lt;/b&gt; .</string>
   <string name="onboarding_reading_list_sync_title">Sinxronli roʻyxatni oʻqish</string>
   <string name="onboarding_reading_list_sync_text_v2">Siz keyinroq, hatto oflaynda ham oʻqishni xohlagan maqolalardan roʻyxatlarni tuzishingiz mumkin. &lt;br/&gt;Roʻyxatlaringizni sinxronlashtirish uchun Vikipediya hisobingizga kiring. &lt;a href=\"#login\"&gt;Vikipediaga kirmoq&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Anonim maʼlumotni joʻnatmoq</string>
-  <string name="onboarding_analytics_offline_text">Qanday foydalanayotganingizni bizga xabar berib, ilovani yaxshilashga yordam bering. Toʻplangan maʼlumotlar anonimligicha qoladi. &lt;a href=\"#privacy\"&gt;Batafsil&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Fodalanilgan trafik maʼlumotini joʻnatmoq</string>
   <string name="onboarding_got_it">Tushunarli</string>
   <string name="onboarding_multilingual_secondary_text">Qurilmangizda quyidagilarni aniqladik:</string>
@@ -1586,10 +1581,10 @@
   <string name="places_toggle_buttons_map">Xarita</string>
   <string name="places_toggle_buttons_list">Roʻyxat</string>
   <string name="places_nav_tab_tooltip_message">Joylashgan yeringizga mos Vikipediya maqolalarini oʻzingiz uchun kashf eting</string>
-  <string name="places_article_menu_tooltip_message">&lt;b&gt;\'Xaritada koʻrish\'&lt;/b&gt; tugmasini bosish orqali maqola yaratilgan yerni koʻrish</string>
+  <string name="places_article_menu_tooltip_message" fuzzy="true">&lt;b&gt;\'Xaritada koʻrish\'&lt;/b&gt; tugmasini bosish orqali maqola yaratilgan yerni koʻrish</string>
   <string name="places_survey_very_satisfied_option">Qoniqarli</string>
   <string name="places_survey_very_unsatisfied_option">Qoniqarsiz</string>
-  <string name="places_survey_dialog_title">“Joylar”ni yaxshilashga yordam bering</string>
+  <string name="places_survey_dialog_title" fuzzy="true">“Joylar”ni yaxshilashga yordam bering</string>
   <string name="places_survey_feedback_dialog_title">“Joylar”ni qanday yaxshilash mumkin?</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Nimani oʻzgartirishimizni yoki yaxshilashimizni xohlaysiz?</string>
   <string name="places_empty_list">Maydon boʻsh. &lt;a href=\"#\"&gt;xaritadan&lt;/a&gt; kichraytiring.</string>
