@@ -178,4 +178,12 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="@null" />
 
+    <org.wikipedia.page.linkpreview.LinkPreviewBottomSheet
+        android:id="@+id/linkPreviewBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="120dp"
+        app:layout_behavior="@string/bottom_sheet_behavior" />
+
 </FrameLayout>
