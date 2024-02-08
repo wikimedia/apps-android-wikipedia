@@ -130,14 +130,6 @@ class RandomFragment : Fragment() {
 
         if (saveButtonState) {
             LongPressMenu(binding.randomSaveButton, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                override fun onOpenLink(entry: HistoryEntry) {
-                    // ignore
-                }
-
-                override fun onOpenInNewTab(entry: HistoryEntry) {
-                    // ignore
-                }
-
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
                     ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), title, addToDefault, InvokeSource.RANDOM_ACTIVITY) {
                         updateSaveShareButton(title)

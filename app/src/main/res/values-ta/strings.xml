@@ -199,9 +199,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">உங்கள் விக்கிப்பீடியா கணக்கு \"%s\" க்கு படிப்பு பட்டியல்களை சேமித்து சாதனங்களுக்கு இடையே ஒருங்குநிகழ் செய்க</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">ஒத்திசைவான வாசிப்புப் பட்டியல்களை \"%s\" இலிருந்து அகற்றவா?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">இது முன்கூட்டியே ஒத்திசை செய்யப்பட்ட படிப்பு பட்டியல்களை தொலைநிலை சேமிப்பகத்திலிருந்து அகற்றிவிடும். ஒத்திசை செய்யப்பட்ட பட்டியல்களை உங்கள் \"%s\" கணக்கிலிருந்து அகற்றவா?</string>
-  <string name="preferences_privacy_settings_heading">தனியுரிமை</string>
-  <string name="preference_title_eventlogging_opt_in">பயன்பாடு அறிக்கை அனுப்பு</string>
-  <string name="preference_summary_eventlogging_opt_in">இந்த செயலியின் மேம்பாட்டிற்காக நான் இச்செயலியினை பயன்படுத்திய முறை பற்றிய தகவல்களை சேர்க்க விக்கிமீடியாவை அனுமதிக்கிறேன்</string>
   <string name="preference_title_auto_upload_crash_reports">முறிவு அறிக்கை அனுப்பு</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">செயலிழப்பு அறிக்கைகளை HockeyApp என்ற மூன்றாம் தரப்பு சேவை வழங்குநருக்கு தானாக அனுப்ப இசசெயலிக்கு அனுமதி அளிக்கிறேன் ஏனெனில், செயலிழந்ததன் காரணத்தை கண்டறியவும் பழுதுபார்க்கவும் எங்களுக்கு எளிதாக இருக்கும்.</string>
   <string name="editing_error_spamblacklist">தடைசெய்யப்பட்ட இணையதளங்களின் இணைப்புகள் (%s) கண்டறியப்பட்டுள்ளது. தயவுசெய்து அவற்றை நீக்கியபின் மறுமுயற்சி செய்யவும்.</string>
@@ -515,8 +512,6 @@
   <string name="onboarding_explore_text">தொடர்சியாக புதுப்பிக்கப்படும் சுற்றிபார் ஓடத்தினால் விக்கிப்பீடியா முயல் புதருக்குள் மூழ்கிடுங்கள். &lt;br /&gt;உங்கள் விருப்பத்திர்கேற்ப சுற்றிபார் ஓடத்தை &lt;b&gt;விருப்பமைக&lt;/b&gt; - &lt;b&gt;இந்த நாளில்&lt;/b&gt; நிகழ்ந்த வரலாற்று நிகழ்வுகளை அறிந்து கொள்வதோ, அல்லது &lt;b&gt;தற்போக்கான்&lt;/b&gt;ஐ வைத்து பகடையை உருட்டுவதோ.</string>
   <string name="onboarding_reading_list_sync_title">ஒருங்குநிகழ்கவுடன் படிப்பு பட்டியல்கள்</string>
   <string name="onboarding_reading_list_sync_text_v2">நீங்கள் பின்னர் வாசிக்க விரும்பும் கட்டுரைகளிலிருந்து படிப்பு பட்டியல்களை உருவாக்கலாம். அவற்றை நீங்கள் இணைப்பில்லா நிலையிலும் வாசிக்கலாம். &lt;br/&gt;உங்கள் படிப்பு பட்டியல்களை ஒருங்குநிகழ் செய்ய உங்கள் வீக்கிபீடியா கணக்கிற்குள் புகுபதிகை செய்க. &lt;a href=\"#login\"&gt;விக்கிபீடியாவில் சேர்க&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">அடையாளமற்ற தரவை அனுப்புக</string>
-  <string name="onboarding_analytics_offline_text">நீங்கள் செயலியை எவ்வாறு பயன்படுத்துகிறீர்கள் என்று எங்களுக்கு தெரியபடுத்துவதன் மூலம் அதனை மேம்படுத்த உதவுங்கள். சேகரிக்கப்படும் தரவு அடையாளமற்றது. &lt;a href=\"#privacy\"&gt;மேலும் அறிக&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">பயன்பாட்டுத் தரவை அனுப்பு</string>
   <string name="onboarding_got_it">புரிந்துகொண்டேன்</string>
   <string name="onboarding_multilingual_secondary_text">உங்கள் சாதனத்தில் பின்வரும் மொழிகளை நாங்கள் கண்டறிந்தோம்:</string>

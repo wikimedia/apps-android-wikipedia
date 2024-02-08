@@ -37,7 +37,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk 21
         targetSdk 34
-        versionCode 50467
+        versionCode 50470
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -179,7 +179,7 @@ dependencies {
     String roomVersion = "2.6.1"
     String espressoVersion = '3.5.1'
     String serialization_version = '1.6.2'
-    String metricsVersion = '2.1'
+    String metricsVersion = '2.2'
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 
@@ -223,6 +223,9 @@ dependencies {
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     implementation 'com.github.skydoves:balloon:1.6.4'
     implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
+
+    implementation 'org.maplibre.gl:android-sdk:10.2.0'
+    implementation 'org.maplibre.gl:android-plugin-annotation-v9:2.0.2'
 
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor "androidx.room:room-compiler:$roomVersion"

@@ -25,6 +25,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.graphics.Insets
 import androidx.core.view.forEach
+import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
@@ -53,6 +54,7 @@ import org.wikipedia.analytics.eventplatform.ArticleFindInPageInteractionEvent
 import org.wikipedia.analytics.eventplatform.ArticleInteractionEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.analytics.metricsplatform.ArticleFindInPageInteraction
 import org.wikipedia.analytics.metricsplatform.ArticleToolbarInteraction
@@ -93,6 +95,7 @@ import org.wikipedia.page.references.ReferenceDialog
 import org.wikipedia.page.shareafact.ShareHandler
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.pageimages.db.PageImage
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -104,11 +107,9 @@ import org.wikipedia.util.ActiveTimer
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.GeoUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.ShareUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
@@ -884,8 +885,12 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     }
                     "coordinate" -> {
                         model.page?.let { page ->
-                            page.pageProperties.geo?.let { geo ->
-                                GeoUtil.sendGeoIntent(requireActivity(), geo, StringUtil.fromHtml(page.displayTitle).toString())
+                            val location = page.pageProperties.geo
+                            if (location != null) {
+                                PlacesEvent.logAction("places_click", "article_footer")
+                                requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), page.title, location))
+                            } else {
+                                FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
                             }
                         }
                     }
@@ -1066,16 +1071,29 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
         binding.pageActionsTabLayout.forEach { it as MaterialTextView
             val pageActionItem = PageActionItem.find(it.id)
             val enabled = model.page != null && (!model.shouldLoadAsMobileWeb || (model.shouldLoadAsMobileWeb && pageActionItem.isAvailableOnMobileWeb))
-            it.isEnabled = enabled
-            it.alpha = if (enabled) 1f else 0.5f
-
-            if (pageActionItem == PageActionItem.SAVE) {
-                it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.readingListIcon(model.isInReadingList), 0, 0)
-            } else if (pageActionItem == PageActionItem.ADD_TO_WATCHLIST) {
-                it.setText(if (model.isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
-                it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.watchlistIcon(model.isWatched, model.hasWatchlistExpiry), 0, 0)
-                it.isEnabled = enabled && AccountUtil.isLoggedIn
-                it.alpha = if (it.isEnabled) 1f else 0.5f
+            when (pageActionItem) {
+                PageActionItem.ADD_TO_WATCHLIST -> {
+                    it.setText(if (model.isWatched) R.string.menu_page_unwatch else R.string.menu_page_watch)
+                    it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.watchlistIcon(model.isWatched, model.hasWatchlistExpiry), 0, 0)
+                    it.isEnabled = enabled && AccountUtil.isLoggedIn
+                    it.alpha = if (it.isEnabled) 1f else 0.5f
+                }
+                PageActionItem.SAVE -> {
+                    it.setCompoundDrawablesWithIntrinsicBounds(0, PageActionItem.readingListIcon(model.isInReadingList), 0, 0)
+                }
+                PageActionItem.EDIT_ARTICLE -> {
+                    it.setCompoundDrawablesRelativeWithIntrinsicBounds(0, PageActionItem.editArticleIcon(model.page?.pageProperties?.canEdit != true), 0, 0)
+                }
+                PageActionItem.VIEW_ON_MAP -> {
+                    val geoAvailable = model.page?.pageProperties?.geo != null
+                    val tintColor = ResourceUtil.getThemedColorStateList(requireContext(), if (geoAvailable) R.attr.primary_color else R.attr.inactive_color)
+                    it.setTextColor(tintColor)
+                    TextViewCompat.setCompoundDrawableTintList(it, tintColor)
+                }
+                else -> {
+                    it.isEnabled = enabled
+                    it.alpha = if (enabled) 1f else 0.5f
+                }
             }
         }
         sidePanelHandler.setEnabled(false)
@@ -1395,10 +1413,6 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                 val anchor = if (Prefs.customizeToolbarOrder.contains(PageActionItem.SAVE.id))
                     binding.pageActionsTabLayout else (requireActivity() as PageActivity).getOverflowMenu()
                 LongPressMenu(anchor, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                    override fun onOpenLink(entry: HistoryEntry) { }
-
-                    override fun onOpenInNewTab(entry: HistoryEntry) { }
-
                     override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
                         title?.run {
                             ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), this, addToDefault, InvokeSource.BOOKMARK_BUTTON)
@@ -1519,6 +1533,18 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
             editHandler.startEditingArticle()
             articleInteractionEvent?.logEditArticleClick()
             metricsPlatformArticleEventToolbarInteraction.logEditArticleClick()
+        }
+
+        override fun onViewOnMapSelected() {
+            title?.let {
+                val location = page?.pageProperties?.geo
+                if (location != null) {
+                    PlacesEvent.logAction("places_click", "article_more_menu")
+                    requireActivity().startActivity(PlacesActivity.newIntent(requireContext(), it, location))
+                } else {
+                    FeedbackUtil.showMessage(this@PageFragment, getString(R.string.action_item_view_on_map_unavailable))
+                }
+            }
         }
 
         override fun forwardClick() {

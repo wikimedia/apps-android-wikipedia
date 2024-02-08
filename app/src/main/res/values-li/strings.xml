@@ -105,9 +105,6 @@
   <string name="preferences_heading_data_usage">Gegaevesgebroek</string>
   <string name="preferences_heading_experimental">Experimenteel</string>
   <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">Zèt laesliessynchronisering aan</string>
-  <string name="preferences_privacy_settings_heading">Privacy</string>
-  <string name="preference_title_eventlogging_opt_in">Versjik gebroekersrapporte</string>
-  <string name="preference_summary_eventlogging_opt_in">Gaef Wikimedia toustumming infermasie te verzamele euver wie se de app gebroeks veur de app te kónne verbaetere</string>
   <string name="preference_title_auto_upload_crash_reports">Versjik rapport euver vasloupe</string>
   <string name="error_can_not_process_link">Kós de link neet waergaeve</string>
   <string name="page_protected_autoconfirmed">Dees pagina is hauf-besjermp.</string>

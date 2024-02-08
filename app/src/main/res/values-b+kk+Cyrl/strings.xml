@@ -167,7 +167,6 @@
   <string name="preferences_general_heading">Негізгі</string>
   <string name="send_feedback">Қосымша туралы пікір жіберу</string>
   <string name="create_account_account_created_toast">Тіркелгі жасалды!</string>
-  <string name="preference_title_eventlogging_opt_in">Қолдану есептерін жіберу</string>
   <string name="editing_error_spamblacklist">Бұғатталған домейндерге сілтемелер (%s) анықталды. Оларды аластаңыз және қайта байқап көріңіз.</string>
   <string name="error_can_not_process_link">Осы сілтемені көрсету мүмкін емес</string>
   <string name="page_protected_autoconfirmed">Бұл бет жартылай қорғалған.</string>
