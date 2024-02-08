@@ -195,7 +195,6 @@
   <string name="preferences_heading_experimental">Экспериментлисем</string>
   <string name="preference_title_sync_reading_lists_from_account">Вулав списокне синхронизацилесси</string>
   <string name="preference_title_download_reading_list_articles">Вулав списокӗнчи статьясене уҫласси</string>
-  <string name="preferences_privacy_settings_heading">Конфиденцилӗх</string>
   <string name="preference_title_auto_upload_crash_reports">Ҫӗмӗрӗлнисем пирки пӗлтерӗр</string>
   <string name="settings_item_preferences">Ӗнерлевсем</string>
   <string name="settings_activity_title">Ӗнерлевсем</string>

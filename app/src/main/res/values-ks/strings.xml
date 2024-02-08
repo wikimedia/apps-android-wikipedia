@@ -203,9 +203,6 @@
   <string name="preference_title_sync_reading_lists_from_account">پرنٕچہِ فہرستہِ ہِنٛز سِنٛکِنٛگ</string>
   <string name="preference_title_download_reading_list_articles">ڈاوُنلوڈ کٕریٚو پرنٕچہِ فہرست مَضموٗن</string>
   <string name="preference_summary_sync_reading_lists">پننِس وِکیٖپیٖڈیا کھاتَس پؠٹھ مَحفوٗظ کٔرِتھ کٔرِو مُختٔلِف ڈیوایسَن منٛز پرنٕچ فِہرِسَت سینک</string>
-  <string name="preferences_privacy_settings_heading">رازدأری</string>
-  <string name="preference_title_eventlogging_opt_in">استعمالُک رِپورٹ سوٗزِیٚو</string>
-  <string name="preference_summary_eventlogging_opt_in">وِکیٖمیٖڈیاہَس دِیِو اِجازت زِ تِم کَرن یہِ معلوٗماتھ حٲصِل زِ تُہؠ کِتھ کٔنؠ چھِو ایپ اِستِمال کَرانتاکہِ ایپ ییٚہِ بَھتَر بَناونہٕ</string>
   <string name="preference_title_auto_upload_crash_reports">نۄقسانُک رِپورٹ سوٗزِیٚو</string>
   <string name="history_filter_list_hint">فِلٹر تَوأریٖخ</string>
   <string name="page_protected_can_not_edit_title">یہِ صَفہٕ چھُ مَحفوٗظ</string>

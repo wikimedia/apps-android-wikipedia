@@ -237,9 +237,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য তাঁদের আপনার \"%s\" উইকিপিডিয়া অ্যাকাউন্টে সংরক্ষণ করে</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" থেকে সুসংগত পড়ার তালিকা বাদ দিতে ইচ্ছুক?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">এটি পূর্বতন সমস্ত সুসংগত পড়ার তালিকাকে দূরবর্তী সংরক্ষণাগার থেকে সম্পূর্ণ রূপে বাদ দেবে। আপনি কি সমস্ত সুসংগত তালিকাগুলিকে আপনার \"%s\" অ্যাকাউন্ট থেকে বাদ দিতে চান?</string>
-  <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
-  <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
-  <string name="preference_summary_eventlogging_opt_in">অ্যাপ আরও ভালো করতে উইকিমিডিয়াকে আপনি কিভাবে অ্যাপ্লিকেশন ব্যবহার করছেন সেই সম্পর্কে তথ্য সংগ্রহ করার অনুমতি দিন</string>
   <string name="preference_title_auto_upload_crash_reports">ক্র্যাশ প্রতিবেদন পাঠান</string>
   <string name="preference_summary_auto_upload_crash_reports">অ্যাপকে স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারী HockeyApp-এর কাছে ত্রুটি প্রতিবেদন পাঠাতে অনুমতি দিন তাহলে আমরা আপনার ত্রুটি পর্যালোচনা করতে পারবো এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারবো।</string>
   <string name="editing_error_spamblacklist">অবরুদ্ধ ডোমেইনের (%s) লিংক সনাক্ত হয়েছে। দয়া করে তাদের সরিয়ে নিন ও আবার চেষ্টা করুন।</string>
@@ -413,6 +410,8 @@
   <string name="error_message_generic">একটি ত্রুটি দেখা দিয়েছে</string>
   <string name="view_link_preview_error_button_dismiss">খারিজ</string>
   <string name="link_preview_dialog_read_button">পড়ুন</string>
+  <string name="link_preview_dialog_save_button">সংরক্ষণ</string>
+  <string name="link_preview_dialog_share_button">শেয়ার করুন</string>
   <string name="error_page_does_not_exist">এই পাতার অস্তিত্ব নেই</string>
   <string name="error_user_page_does_not_exist">উইকিপিডিয়ায় হুবহু এই নামে কোনও &lt;a href=\"%1$s\"&gt;ব্যবহারকারী পাতা&lt;/a&gt; নেই। সাধারণত, এই পাতাটি &lt;b&gt;%2$s&lt;/b&gt; কর্তৃক তৈরি ও সম্পাদনা করা উচিত। যদি নিশ্চিত না হোন, তবে যাচাই করুন যে \"%3$s\"-এর অস্তিত্ব রয়েছে।</string>
   <string name="view_wiki_error_message_offline">ইন্টারনেটে সংযোগ করা যাবে না</string>
@@ -1148,6 +1147,7 @@
   <string name="media_playback_error">মিডিয়া চালনায় ত্রুটি৷</string>
   <string name="user_contrib_menu_label">অবদান</string>
   <string name="user_contrib_filter_activity_title">অবদান ছাঁকুন</string>
+  <string name="action_item_view_on_map">মানচিত্রে দেখুন</string>
   <string name="shareable_reading_lists_import_dialog_title">শেয়ার করা পড়ার তালিকা আমদানি করুন</string>
   <string name="shareable_reading_lists_import_dialog_content">আপনার কীভাবে আপনার সাথে শেয়ার করা তালিকার নাম দিতে চান?</string>
   <string name="shareable_reading_lists_new_indicator">*নতুন*</string>
@@ -1168,11 +1168,27 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_close">বন্ধ</string>
   <string name="patroller_tasks_filters_wiki_filter_header">উইকি</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">দেখুন</string>
+  <string name="patroller_diff_feedback_dialog_message">আপনি এই বৈশিষ্ট্যের সঙ্গে সন্তুষ্ট?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">সন্তুষ্ট</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">নিরপেক্ষ</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">অসন্তুষ্ট</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">আমরা কীভাবে এই বৈশিষ্ট্যটি উন্নত করতে পারি?</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">প্রতিক্রিয়া</string>
+  <string name="patroller_diff_feedback_dialog_submit">জমা দিন</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">প্রতিক্রিয়া জমা দেওয়া হয়েছে। ধন্যবাদ!</string>
   <string name="data_opt_in_accept">গ্রহণ করুন</string>
   <string name="data_opt_in_reject">প্রত্যাখ্যান করুন</string>
   <string name="page_issues_title">পাতার সমস্যা</string>
   <string name="donation_campaign_go_back_button">ফিরে যান</string>
   <string name="menu_single_webview_open_external">সিস্টেম ব্রাউজারে খুলুন</string>
+  <string name="places_title">স্থানগুলি</string>
+  <string name="places_search_hint">স্থানগুলি অনুসন্ধান করুন</string>
+  <string name="places_filter_title">ভাষা ফিল্টার করুন</string>
   <string name="places_toggle_buttons_map">মানচিত্র</string>
+  <string name="places_toggle_buttons_list">তালিকা</string>
+  <string name="places_article_menu_tooltip_message">এই নিবন্ধটির অবস্থান অন্বেষণ করতে\'মানচিত্রে দেখুন\' আলতো চাপুন।</string>
+  <string name="places_survey_very_satisfied_option">খুবই সন্তুষ্ট</string>
+  <string name="places_survey_very_unsatisfied_option">খুবই অসন্তুষ্ট</string>
+  <string name="places_survey_dialog_title" fuzzy="true">\'স্থানগুলি\' উন্নত করতে সাহায্য করুন</string>
+  <string name="places_empty_list">এই এলাকাটি ফাঁকা। মানচিত্রে জুমআউট করুন।</string>
 </resources>

@@ -125,8 +125,6 @@
   <string name="create_account_account_created_toast">Konts izveidots!</string>
   <string name="preferences_heading_syncing">Sinhronizē</string>
   <string name="preferences_heading_data_usage">Datu lietojums</string>
-  <string name="preferences_privacy_settings_heading">Konfidencialitāte</string>
-  <string name="preference_title_eventlogging_opt_in">Sūtīt lietojuma ziņojumus</string>
   <string name="page_protected_can_not_edit_title">Šī lapa ir aizsargāta</string>
   <string name="settings_item_preferences">Iestatījumi</string>
   <string name="settings_activity_title">Iestatījumi</string>
@@ -330,7 +328,6 @@
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>
   <string name="onboarding_maybe_later">Varbūt vēlāk</string>
-  <string name="onboarding_analytics_title">Sūtīt anonīmus datus</string>
   <string name="onboarding_got_it">Sapratu</string>
   <string name="onboarding_multilingual_add_language_text">Pievienot vai labot valodas</string>
   <string name="app_shortcuts_random">Nejaušs</string>

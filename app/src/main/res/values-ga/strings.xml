@@ -181,9 +181,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sioncronaigh liostaí léitheoireachta thar ghléasanna difriúla trína sábháil ar do chuntas Vicipéide \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Bain liostaí léitheoireachta sioncronaithe de \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Scriosfar go hiomlán ón cianstóras ná liostaí léitheoireachta go léir a shioncrónaíodh roimhe seo. Bain na liostaí sioncronaithe go léir amach as do chuntas \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Príobháideachas</string>
-  <string name="preference_title_eventlogging_opt_in">Seol tuairiscí úsáide</string>
-  <string name="preference_summary_eventlogging_opt_in">Ceadaigh do Wikimedia eolas a bhailiú ar conas mar a úsáideann tú an aip chun an aip a fheabhsú</string>
   <string name="preference_title_auto_upload_crash_reports">Seol tuairiscí ar tuairteanna</string>
   <string name="preference_summary_auto_upload_crash_reports">Ceadaigh don aip tuairiscí ar clistí a sheoladh go huathoibríoch chuig soláthraí seirbhíse tríú páirtí, chun go bhféadfaimid do chliseadh a athbhreithniú agus an fabht a dheisiú níos tapúla agus níos éasca.</string>
   <string name="editing_error_spamblacklist">Braitheadh naisc chuig fearainn bhactha (%s). Bain amach iad agus triail arís.</string>
@@ -712,8 +709,6 @@
   <string name="onboarding_explore_text">Téigh ar strae i gcathair ghríobháin na Vicipéide leis an bhfotha Taiscéal a nuashonraítear i gcónaí. &lt;br/&gt; &lt;b&gt;Cuir an fotha in oiriúint&lt;/b&gt; mar is spéis leatsa féin – foghlaim faoi ócáidí stairiúla &lt;b&gt;Ar an lá seo&lt;/b&gt;, nó caith an dílse le &lt;b&gt;Randamach&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Liostaí léitheoireachta le sioncronú</string>
   <string name="onboarding_reading_list_sync_text_v2">Is féidir liostaí léitheoireachta a dhéanamh d\'ailt ar mhaith leat iad a léamh níos déanaí, fiú nuair a bheidh tú as líne. &lt;br/&gt;Logáil isteach chuig do chuntas Vicipéide le do chuid liostaí léitheoireachta a shioncrónú. &lt;a href=\"#login\"&gt;Cláraigh le Vicipéid&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Seol sonraí anaithnid</string>
-  <string name="onboarding_analytics_offline_text">Cuidigh leis an aip a fheabhsú trí muid a chur ar an eolas ar conas mar a úsáideann tú é. Is anaithnid na sonraí a bhailítear. &lt;a href=\"#privacy\"&gt;Foghlaim tuilleadh&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Seol sonraí úsáide</string>
   <string name="onboarding_got_it">Tuigim</string>
   <string name="onboarding_multilingual_secondary_text">D\'aimsíomar na teangacha seo a leanas ar do ghléas:</string>

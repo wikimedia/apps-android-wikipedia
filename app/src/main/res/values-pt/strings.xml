@@ -228,9 +228,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sincronize as listas de leitura em dispositivos diferentes guardando-as na sua conta da Wikipédia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Remover as listas de leitura sincronizadas da sua conta \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Isto eliminará completamente do armazenamento remoto todas as listas de leitura sincronizadas anteriormente. Remover todas as listas sincronizadas da sua conta \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privacidade</string>
-  <string name="preference_title_eventlogging_opt_in">Enviar relatórios de utilização</string>
-  <string name="preference_summary_eventlogging_opt_in">Permitir que a Wikimedia recolha informações sobre o uso da aplicação para melhorá-la</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar relatórios de falhas</string>
   <string name="preference_summary_auto_upload_crash_reports">Permite que a aplicação envie automaticamente relatórios de falhas fatais para um fornecedor de serviços terceiro, para podermos analisar a sua falha e corrigir o defeito mais rapidamente e mais facilmente.</string>
   <string name="editing_error_spamblacklist">Foram detetadas hiperligações para domínios bloqueados (%s). Remova-as e tente novamente, por favor.</string>
@@ -1130,8 +1127,6 @@
   <string name="onboarding_explore_text">Mergulhe no poço sem fundo da Wikipédia com um feed Explorar em constante atualização. &lt;br/&gt; &lt;b&gt;Personalize&lt;/b&gt; o feed com as suas preferências – quer seja acontecimentos históricos &lt;b&gt;Neste dia&lt;/b&gt;, ou assuntos ao calhas com &lt;b&gt;Aleatório&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de leitura com sincronização</string>
   <string name="onboarding_reading_list_sync_text_v2">Pode criar listas de leitura dos artigos que pretende ler mais tarde, mesmo quando estiver sem acesso à Internet. &lt;br/&gt;Entre na sua conta da Wikipédia para sincronizar as suas listas de leitura. &lt;a href=\"#login\"&gt;Junte-se à Wikipédia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Enviar dados anónimos</string>
-  <string name="onboarding_analytics_offline_text">Ajude a melhorar a aplicação, informando-nos como a utiliza. Os dados coletados são anónimos. &lt;a href=\"#privacy\"&gt;Saiba mais&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar dados de utilização</string>
   <string name="onboarding_got_it">Percebido</string>
   <string name="onboarding_multilingual_secondary_text">Encontrámos as seguintes no seu dispositivo:</string>
@@ -1603,10 +1598,10 @@
   <string name="places_toggle_buttons_map">Mapa</string>
   <string name="places_toggle_buttons_list">Lista</string>
   <string name="places_nav_tab_tooltip_message">Descubra artigos da Wikipédia perto de si com Lugares</string>
-  <string name="places_article_menu_tooltip_message">Toque em &lt;b&gt;\'Ver no mapa\'&lt;/b&gt; para explorar a localização deste artigo</string>
+  <string name="places_article_menu_tooltip_message" fuzzy="true">Toque em &lt;b&gt;\'Ver no mapa\'&lt;/b&gt; para explorar a localização deste artigo</string>
   <string name="places_survey_very_satisfied_option">Muito satisfeito</string>
   <string name="places_survey_very_unsatisfied_option">Muito insatisfeito</string>
-  <string name="places_survey_dialog_title">Ajudar a melhorar \"Lugares\"</string>
+  <string name="places_survey_dialog_title" fuzzy="true">Ajudar a melhorar \"Lugares\"</string>
   <string name="places_survey_feedback_dialog_title">Como pode a funcionalidade \"Lugares\" ser melhorada?</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">O que gostaria que mudássemos ou melhorássemos?</string>
   <string name="places_empty_list">Esta área está vazia. Reduza a ampliação &lt;a href=\"#\"&gt;no mapa&lt;/a&gt;.</string>
