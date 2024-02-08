@@ -2,6 +2,7 @@ package org.wikipedia.page.linkpreview
 
 import android.content.Context
 import android.graphics.Color
+import android.location.Location
 import android.util.AttributeSet
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
@@ -48,11 +49,11 @@ import org.wikipedia.watchlist.WatchlistExpiryDialog
 import java.util.Locale
 
 class LinkPreviewBottomSheet(context: Context, attrs: AttributeSet? = null) : CoordinatorLayout(context, attrs), LinkPreviewErrorView.Callback {
-    interface LoadPageCallback {
+    fun interface LoadPageCallback {
         fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean)
     }
 
-    interface DismissCallback {
+    fun interface DismissCallback {
         fun onLinkPreviewDismiss()
     }
 
@@ -115,6 +116,13 @@ class LinkPreviewBottomSheet(context: Context, attrs: AttributeSet? = null) : Co
             }
             else -> false
         }
+    }
+
+    fun setup(entry: HistoryEntry, location: Location? = null, lastKnownLocation: Location? = null,
+        dismissCallback: DismissCallback? = null, loadPageCallback: LoadPageCallback? = null) {
+        viewModel.historyEntry = entry
+        viewModel.location = location
+        viewModel.lastKnownLocation = lastKnownLocation
     }
 
     private fun sendPlacesEvent(action: String, activeInterface: String) {

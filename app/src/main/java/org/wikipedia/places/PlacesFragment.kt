@@ -38,6 +38,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
@@ -75,7 +76,6 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.page.tabs.TabActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
@@ -97,7 +97,7 @@ import org.wikipedia.views.ViewUtil
 import java.util.Locale
 import kotlin.math.abs
 
-class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPreviewDialog.DismissCallback, MapboxMap.OnMapClickListener {
+class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
@@ -415,10 +415,26 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     private fun showLinkPreview(pageTitle: PageTitle, location: Location) {
         PlacesEvent.logImpression("detail_view")
-        val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
+        val historyEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
         updateSearchText(pageTitle.displayText)
-        ExclusiveBottomSheetPresenter.show(childFragmentManager,
-            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation))
+
+        binding.linkPreviewBottomSheet.setup(historyEntry, location,
+            mapboxMap?.locationComponent?.lastKnownLocation,
+            loadPageCallback = { _, entry, inNewTab ->
+                if (inNewTab) {
+                    TabUtil.openInNewBackgroundTab(entry)
+                    requireActivity().invalidateOptionsMenu()
+                    binding.tabsButton.isVisible = WikipediaApp.instance.tabCount > 0
+                    binding.tabsButton.updateTabCount(true)
+                } else {
+                    startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
+                }
+            }, dismissCallback = { updateSearchText() })
+        val bottomSheetBehavior = BottomSheetBehavior.from(binding.linkPreviewBottomSheet).apply {
+            state = BottomSheetBehavior.STATE_EXPANDED
+        }
+//        ExclusiveBottomSheetPresenter.show(childFragmentManager,
+//            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation))
     }
 
     private fun resetMagnifiedSymbol() {
@@ -716,21 +732,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         canvas.drawCircle(radius, radius, radius - MARKER_BORDER_SIZE / 2, markerBorderPaint)
     }
 
-    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
-        if (inNewTab) {
-            TabUtil.openInNewBackgroundTab(entry)
-            requireActivity().invalidateOptionsMenu()
-            binding.tabsButton.isVisible = WikipediaApp.instance.tabCount > 0
-            binding.tabsButton.updateTabCount(true)
-        } else {
-            startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
-        }
-    }
-
-    override fun onLinkPreviewDismiss() {
-        updateSearchText()
-    }
-
     override fun onMapClick(point: LatLng): Boolean {
         mapboxMap?.let {
             val screenPoint = it.projection.toScreenLocation(point)
@@ -813,7 +814,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             val location = page.location
             LongPressMenu(v, menuRes = R.menu.menu_places_long_press, location = location, callback = object : LongPressMenu.Callback {
                 override fun onOpenInNewTab(entry: HistoryEntry) {
-                    onLinkPreviewLoadPage(entry.title, entry, true)
+//                    onLinkPreviewLoadPage(entry.title, entry, true)
                 }
 
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
