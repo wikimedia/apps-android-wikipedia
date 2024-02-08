@@ -209,9 +209,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synchronisar listas de lectura inter differente apparatos salveguardante los sur tu conto Wikipedia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Remover listas de lectura synchronisate de \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Isto delera completemente tote le listas de lectura anteriormente synchronisate del immagazinage distante. Remover tote le listas synchronisate de tu conto \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Confidentialitate</string>
-  <string name="preference_title_eventlogging_opt_in">Inviar reportos de uso</string>
-  <string name="preference_summary_eventlogging_opt_in">Permitte que Wikimedia collige information sur como tu usa le application pro meliorar lo</string>
   <string name="preference_title_auto_upload_crash_reports">Inviar reportos de collapso</string>
   <string name="preference_summary_auto_upload_crash_reports">Permitter que le application invia automaticamente reportos de collapso a un fornitor tertie de servicios de maniera que nos pote revider tu collapso e reparar le defecto plus rapide- e facilemente.</string>
   <string name="editing_error_spamblacklist">Ligamines a dominios blocate (%s) detegite. Per favor remove los e tenta lo de novo.</string>
@@ -1103,8 +1100,6 @@
   <string name="onboarding_explore_text">Immerge te in le mundo de Wikipedia con un canal Explorar continuemente actualisate.&lt;br/&gt; &lt;b&gt;Personalisa&lt;/b&gt; le canal secundo tu interesses: apprende eventos historic con &lt;b&gt;Sur iste die&lt;/b&gt; o jecta le datos con &lt;b&gt;Aleatori&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de lectura con synchronisation</string>
   <string name="onboarding_reading_list_sync_text_v2">Tu pote facer listas de lectura de articulos que tu vole leger plus tarde, mesmo quando tu es disconnectite. &lt;br/&gt;Aperi session in tu conto de Wikipedia pro synchronisar tu listas de lectura. &lt;a href=\"#login\"&gt;Crear un conto sur Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Inviar datos anonyme</string>
-  <string name="onboarding_analytics_offline_text">Adjuta nos a meliorar le application faciente nos saper como tu lo usa. Le datos colligite es anonyme. &lt;a href=\"#privacy\"&gt;Leger plus&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Inviar datos de uso</string>
   <string name="onboarding_got_it">Comprendite</string>
   <string name="onboarding_multilingual_secondary_text">Nos ha trovate lo sequente sur tu apparato:</string>

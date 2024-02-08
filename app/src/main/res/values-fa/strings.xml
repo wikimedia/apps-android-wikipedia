@@ -252,9 +252,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">همگام‌سازی فهرست مطالعه بین چند دستگاه متفاوت با ذخیرهٔ آنها در حساب «%s» در ویکی‌پدیا</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">فهرست‌های مطالعهٔ همگام‌سازی‌شده از «%s» حذف شوند؟</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">این کار همهٔ فهرست‌های مطالعه که پیشتر در حافظه همگام‌سازی شده را کاملاً حذف می‌کند. همهٔ فهرست‌های همگام‌سازی‌شده از حساب شما «%s» پاک شود؟</string>
-  <string name="preferences_privacy_settings_heading">حریم خصوصی</string>
-  <string name="preference_title_eventlogging_opt_in">ارسال گزارش‌های استفاده</string>
-  <string name="preference_summary_eventlogging_opt_in">به ویکی‌مدیا اجازه می‌دهید که اطلاعات مربوط به استفادۀ شما از این نرم‌افزار را برای بهبود نرم‌افزار، جمع‌آوری کند</string>
   <string name="preference_title_auto_upload_crash_reports">ارسال گزارش‌های خرابی</string>
   <string name="preference_summary_auto_upload_crash_reports">به برنامه اجازه بدهید گزارش‌های خطا را بصورت خودکار به یک سرویس شخص ثالث ارسال کند تا بتوانیم گزارش خطای شما را بررسی و آن را سریعتر رفع کنیم.</string>
   <string name="editing_error_spamblacklist">پیوندهای مربوط به دامنه‌ای مسدودشده (%s) شناسایی شد. لطفاً آنها را حذف کنید و دوباره تلاش کنید.</string>
@@ -1102,8 +1099,6 @@
   <string name="onboarding_explore_text">جستجو در ویکی‌پدیا با به‌روزرسانی مداوم خوراک بازدید.&lt;br/&gt; &lt;b&gt;شخصی‌سازی&lt;/b&gt; خوراک به‌صورت دلخواه- به نحوی که در مورد رویدادهای تاریخی &lt;b&gt;در این روز &lt;/b&gt; یا جستجوی &lt;b&gt;تصادفی&lt;/b&gt;</string>
   <string name="onboarding_reading_list_sync_title">فهرست‌های مطالعه با همگام‌سازی</string>
   <string name="onboarding_reading_list_sync_text_v2">می‌توانید از مقاله‌هایی برای مطالعه در آینده، حتی در زمانی که آفلاین هستید، یک فهرست مطالعه تهیه کنید. برای همگام‌سازی فهرست‌ها، به حساب ویکی‌پدیای خود وارد شوید. &lt;a href=\"#login\"&gt;به ویکی‌پدیا ملحق شوید.&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">ارسال اطلاعات ناشناس</string>
-  <string name="onboarding_analytics_offline_text">ما را مطلع کنید که چگونه از این برنامه استفاده می کنید تا یاریمان نمایید آن را بهبود بخشیم. جمع‌آوری داده ها به‌صورت ناشناس انجام می‌گیرد. &lt;a href=\"#privacy\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ارسال دادهٔ مصرف</string>
   <string name="onboarding_got_it">فهمیدم</string>
   <string name="onboarding_multilingual_secondary_text">ما مورد(های) زیر را بر روی دستگاه شما یافتیم:</string>

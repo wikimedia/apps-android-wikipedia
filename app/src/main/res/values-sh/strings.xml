@@ -207,9 +207,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Uskladite liste za čitanje na različitim uređajima tako što ćete ih spremiti u svoj račun \"%s\" na Wikipediji</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ukloniti usklađene popise za čitanje s Vašeg računa \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ovim ćete u potpunosti izbrisati sve ranije usklađene liste za čitanje sa udaljenog skladišta. Ukloniti sve usklađene liste s Vašeg naloga \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privatnost</string>
-  <string name="preference_title_eventlogging_opt_in">Šalji izvještaje o korištenju</string>
-  <string name="preference_summary_eventlogging_opt_in">Dozvolite Wikimediji da prikupi informacije o tom kako koristite prilog, da bismo je poboljšali</string>
   <string name="preference_title_auto_upload_crash_reports">Šalji izvještaje o rušenju aplikacije</string>
   <string name="preference_summary_auto_upload_crash_reports">Prilog da šalje izvještaje o otkazivanjima pružaocu usluga treće strane kako bismo ispitali otkazivanja i ispravili grešku brže i lakše.</string>
   <string name="editing_error_spamblacklist">Otkriveni su linkovi na popis blokiranih domena (%s). Molimo, uklonite ih i pokušajte ponovno.</string>
