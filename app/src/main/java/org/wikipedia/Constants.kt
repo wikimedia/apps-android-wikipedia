@@ -85,6 +85,7 @@ object Constants {
         PAGE_EDIT_PENCIL("pageEditPencil"),
         PAGE_EDIT_HIGHLIGHT("pageEditHighlight"),
         PAGE_OVERFLOW_MENU("pageOverflowMenu"),
+        PLACES("places"),
         RANDOM_ACTIVITY("random"),
         READING_LIST_ACTIVITY("readingList"),
         SEARCH("search"),

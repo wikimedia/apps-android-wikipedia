@@ -211,9 +211,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Bincika jerin wanda ake karantawa daga mabanbantan na\'urori ta hanyar ajiye su  asusun ka na Wikipedia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">A cire binciken jerin wanda ake karantawa daga \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Wannan zai goge gaba ɗayan binciken da aka yi a baya na jerin wanda ake karantawa daga ma\'ajiya. A share dukkan jerin binciken daga asusun ka \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Sirri</string>
-  <string name="preference_title_eventlogging_opt_in">Aika da rahoton amfani</string>
-  <string name="preference_summary_eventlogging_opt_in">Bawa Wikimedia damar ta karɓi bayanai a game da yadda zaka yi amfani da manhajar domin bunƙasa manhajar</string>
   <string name="preference_title_auto_upload_crash_reports">Aika rahoton cin karo</string>
   <string name="preference_summary_auto_upload_crash_reports">A bawa manhaja damar ta aika da rahoton cin karo zuwa mai bada sabis na ɓangare na uku ta atomatik domin mu iya duba haɗarin ka kuma mu gyara cikin sauri da sauƙi.</string>
   <string name="editing_error_spamblacklist">Mahaɗar shafukan da aka kulle (%s). Daure ka share su sai ka sake jarrabawa.</string>
@@ -1107,8 +1104,6 @@
   <string name="onboarding_explore_text">Nitsaye cikin rami na zomo na Wikipedia tare da sabuntawa akai-akai Bincike ciyarwa. Yi amfani da abinci don abubuwan da kuke so - ko yana koyo game da abubuwan da suka faru a tarihi &lt;b&gt;A wannan rana&lt;/b&gt;, ko kuma mirgine dice tare da Random.&lt;br/&gt;</string>
   <string name="onboarding_reading_list_sync_title">Jerin karatu tare da daidaitawa</string>
   <string name="onboarding_reading_list_sync_text_v2">Kuna iya yin jerin karatu daga labaran da kuke so ku karanta daga baya, koda kuwa kuna kan layi. Shigar da asusunku na Wikipedia don daidaita jerin karatun ku. &lt;a href=\"#login\"&gt;Shigar da Wikipedia&lt;/a&gt;&lt;br/&gt;</string>
-  <string name="onboarding_analytics_title">Sanya bayanan da ba a san su ba</string>
-  <string name="onboarding_analytics_offline_text">Taimaka yin aikace-aikacen ingantawa ta hanyar sanar da mu yadda kake amfani da shi. Bayanan da aka tattara ba a san su ba. &lt;a href=\"#privacy\"&gt;Koyi ƙarin&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Sanya bayanai na amfani</string>
   <string name="onboarding_got_it">Ka samu</string>
   <string name="onboarding_multilingual_secondary_text">Mun sami wadannan a kan na\'urarku:</string>
@@ -1580,5 +1575,5 @@
   <string name="places_toggle_buttons_map">Taswira</string>
   <string name="places_toggle_buttons_list">jeri</string>
   <string name="places_nav_tab_tooltip_message">Gano labaran Wikipedia da ke kewaye da ku tare da Wuraren</string>
-  <string name="places_article_menu_tooltip_message">Taɓa wannnan madannin don bincika wurin wannan labarin</string>
+  <string name="places_article_menu_tooltip_message" fuzzy="true">Taɓa wannnan madannin don bincika wurin wannan labarin</string>
 </resources>

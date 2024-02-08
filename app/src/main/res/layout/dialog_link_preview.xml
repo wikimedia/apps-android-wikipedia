@@ -71,6 +71,7 @@
                         android:layout_marginStart="-4dp"
                         android:visibility="gone"
                         android:gravity="center_vertical"
+                        android:drawablePadding="4dp"
                         app:drawableStartCompat="@drawable/location_gradient"
                         tools:text="Lorem ipsum" />
 

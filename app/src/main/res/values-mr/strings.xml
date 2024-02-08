@@ -115,9 +115,6 @@
   <string name="preference_summary_sync_reading_lists_from_account" fuzzy="true">%s ह्या विकीमिडीया खात्याच्या वाचन यादीची देवाण-घेवाण करण्यासाठी विकीमिडीयाला परवानगी द्या</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title" fuzzy="true">%s ह्या तुमच्या खात्याच्या वाचन यादीची देवाण-घेवाण बंद केली जात आहे?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">यामुळे तुमच्या %s या खात्याशी संबंधीत सर्व वाचन याद्यांची देवाण-घेवाण दूरच्या साठवणूकीवरून काढून टाकण्यात येईल, तुम्ही तयार आहात का?</string>
-  <string name="preferences_privacy_settings_heading">गोपनीयता</string>
-  <string name="preference_title_eventlogging_opt_in">वापराचा अहवाल पाठवा</string>
-  <string name="preference_summary_eventlogging_opt_in">विकिपीडियास आपण हे अॅप कसे वापरता याबद्दल माहिती घेण्यास परवानगी द्या जेणेकरुन ते अॅप अधिक चांगले करता येईल.</string>
   <string name="preference_title_auto_upload_crash_reports">कोसळल्याचा(क्रॅश) अहवाल पाठवा</string>
   <string name="editing_error_spamblacklist">प्रतिबंधित अधिक्षेत्रांचे दुवे(%s) सापडले आहेत.कृपया त्यांना हटवा व पुन्हा प्रयत्न करा.</string>
   <string name="error_can_not_process_link">हा दुवा दाखवु शकत नाही</string>

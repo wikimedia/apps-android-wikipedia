@@ -37,6 +37,9 @@
     <!-- For keeping the device awake while performing background tasks, such as syncing offline articles. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <!--
         Don't let Google Play filter out devices that just have fake touch
         (e.g. mouse and keyboard instead of a real touchscreen).
@@ -339,6 +342,12 @@
             android:name=".edit.insertmedia.InsertMediaActivity"
             android:label="@string/insert_media_title"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+
+        <activity
+            android:name=".places.PlacesActivity" />
+
+        <activity
+            android:name=".places.PlacesFilterActivity"/>
 
         <activity
             android:name=".talk.template.TalkTemplatesActivity"

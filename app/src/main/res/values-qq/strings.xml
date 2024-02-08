@@ -1138,6 +1138,8 @@
   <string name="onboarding_explore_text">Short explanatory text about the benefits of the Explore feed.\n\n* \"On this day\" is {{Msg-wm|Wikipedia-android-strings-on this day card title}}\n* \"Random\" is {{Msg-wm|Wikipedia-android-strings-app shortcuts random}}</string>
   <string name="onboarding_reading_list_sync_title">Title for a tutorial screen about synchronizing reading lists.</string>
   <string name="onboarding_reading_list_sync_text_v2">Short explanatory text about the benefits of synchronizing reading lists. (Please preserve the anchor tag in its exact form)</string>
+  <string name="onboarding_data_privacy_title">Title text for onboarding screen related to data and privacy.</string>
+  <string name="onboarding_data_privacy_text">Message text for onboarding screen related to data and privacy. Please preserve the #privacy and #termsOfUse links.\n\nSimilar to the following iOS app: {{msg-wm|Wikipedia-ios-welcome-privacy-subtitle}}</string>
   <string name="onboarding_analytics_switch_title">Label for an on-off switch that enables sending anonymous usage reports.</string>
   <string name="onboarding_got_it">Button label for dismissing the current onboarding card.\n{{Identical|Got it}}</string>
   <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
@@ -1614,8 +1616,7 @@
   <string name="places_survey_very_unsatisfied_option">Option text suggesting that user is very usatisfied with the feature, shown in the survey</string>
   <string name="places_survey_dialog_title">Title text for the main feedback dialog for places feature. \"Places\" must be consistent with {{msg-wm|Wikipedia-android-strings-places title}}</string>
   <string name="places_survey_feedback_dialog_title">Title text for the secondary dialog, which is shown as a result of an action on the main dialog for places feature. \"Places\" must be consistent with {{msg-wm|Wikipedia-android-strings-places title}}</string>
+  <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
-  <string name="onboarding_data_privacy_title">Title text for onboarding screen related to data and privacy.</string>
-  <string name="onboarding_data_privacy_text">Message text for onboarding screen related to data and privacy. Please preserve the #privacy and #termsOfUse links.</string>
 </resources>

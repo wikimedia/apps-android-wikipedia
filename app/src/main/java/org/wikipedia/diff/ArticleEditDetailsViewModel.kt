@@ -56,7 +56,6 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
     var hasRollbackRights = false
     var isWatched = false
 
-    var feedbackOption = ""
     var feedbackInput = ""
 
     val diffSize get() = if (revisionFrom != null) revisionTo!!.size - revisionFrom!!.size else revisionTo!!.size

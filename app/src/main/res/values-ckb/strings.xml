@@ -216,9 +216,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">هاوکاتکردنی لیستەکانی خوێندنەوە لە سەر ئامێرە جیاوازەکان بە پاشەکەوتکردنیان بۆ ئەژمێری ویکیپیدیای خۆت \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">سڕینەوەی پێڕستەکانی خوێندنەوەی هاوکاتکراو لە \"%s\"؟</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ئەمە بە تەواوی هەموو پێڕستەکانی خوێندنەوەی هاوکاتکراو پێشووتر دەسڕێتەوە لە هەمارگەی دوورەوە. هەموو پێڕستە هاودەمکراوەکان لابدە لە هەژمارەکەت \"%s\"؟</string>
-  <string name="preferences_privacy_settings_heading">تایبەتێتی</string>
-  <string name="preference_title_eventlogging_opt_in">ناردنی ڕاپۆرتەکانی بەکارھێنان</string>
-  <string name="preference_summary_eventlogging_opt_in">ڕێگە بە بە ویکیمیدیا بدە بۆ کۆکردنەوەی زانیاری لەبارەی چۆنیەتی بەکارھێنانی نەرمەواڵەکە لەلایەن تۆوە، بە مەبەستی باشترکردنی نەرمەواڵەکە</string>
   <string name="preference_title_auto_upload_crash_reports">ناردنی ڕاپۆرتەکانی تێکشکان</string>
   <string name="preference_summary_auto_upload_crash_reports">ڕێگە بە نەرمەواڵەکە بدە کە ڕاپۆرتی کردنەدەرەوە بنێرێت بۆ کەسی سێیەم بە شێوەیەکی خۆگەڕ بۆ ئەوەی بتوانین کێشەی نەرمەواڵەکە خێراتر بدۆزینەوە و چاکی بکەین.</string>
   <string name="editing_error_spamblacklist">تێبینی بەستەر کراوە بۆ دۆمەینە بەستراوەکان (%s). تکایە بیان سڕەوە و ھەوڵبدەوە.</string>
@@ -983,7 +980,6 @@
   <string name="onboarding_maybe_later">ڕەنگە بۆ دواتر</string>
   <string name="onboarding_explore_title">شێوازی نوێ بۆ دۆزینەوە</string>
   <string name="onboarding_reading_list_sync_title">خوێندنەوەی پێڕستەکان لەگەڵ هاوکاتکردن</string>
-  <string name="onboarding_analytics_title">داتای نەناسراوە بنێرە</string>
   <string name="onboarding_analytics_switch_title">داتای بەکارھێنان بنێرە</string>
   <string name="onboarding_got_it">تێگەیشتم</string>
   <string name="onboarding_multilingual_secondary_text">ئەم زمانانەمان لەسەر ئامێرەکەت دۆزییەوە:</string>
