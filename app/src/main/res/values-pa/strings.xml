@@ -145,9 +145,6 @@
   <string name="preferences_heading_experimental">ਪ੍ਰਯੋਗੀ</string>
   <string name="preference_title_sync_reading_lists_from_account">ਪੜ੍ਹਤ ਸੂਚੀ ਦਾ ਸਮਕਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
   <string name="preference_title_download_reading_list_articles">ਪੜ੍ਹਤ ਸੂਚੀ ਦੇ ਲੇਖ ਡਾਊਨਲੋਡ ਕਰੋ</string>
-  <string name="preferences_privacy_settings_heading">ਪਰਦੇਦਾਰੀ</string>
-  <string name="preference_title_eventlogging_opt_in">ਵਰਤੋਂ ਦੀਆਂ ਇਤਲਾਹਾਂ ਘੱਲੋ</string>
-  <string name="preference_summary_eventlogging_opt_in">ਇਸ ਐਪ ਨੂੰ ਚੰਗੇਰੀ ਬਣਾਉਣ ਵਾਸਤੇ ਵਿਕੀਮੀਡੀਆ ਨੂੰ ਤੁਹਾਡੇ ਇਸ ਐਪ ਨੂੰ ਵਰਤਣ ਦੇ ਤਰੀਕੇ ਬਾਬਤ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਉ।</string>
   <string name="preference_title_auto_upload_crash_reports">ਕਰੈਸ਼ ਰਿਪੋਰਟ ਭੇਜੋ</string>
   <string name="error_can_not_process_link">ਇਹ ਕੜੀ ਵਿਖਾਈ ਨਾ ਜਾ ਸਕੀ</string>
   <string name="page_protected_autoconfirmed">ਇਹ ਸਫ਼ਾ ਨੀਮ-ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>

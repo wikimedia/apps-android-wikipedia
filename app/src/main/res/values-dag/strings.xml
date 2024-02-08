@@ -209,9 +209,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">malimi alahabali karinda ka dini tooi niŋ bayana ngu zali niŋ a Wikipedia akawnt ni %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">yihimi ani laɣim lahabali karinda shɛŋa \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ŋɔ nyɛla din yen nyɛhi a ni pun mali lahabali karinda shɛli zali yoma. Yihimi a lahabali karinda zaa sa a daa akawnt ni \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">a daa ashili</string>
-  <string name="preference_title_eventlogging_opt_in">zaŋmi ani pun mali li tumdi tuma lahabali nti ha</string>
-  <string name="preference_summary_eventlogging_opt_in">saɣimi nti ka app maa deei lahabali zaŋ chaŋ ani mali li kuri bukaata shɛm din ni sɔŋ nla viɛligili m-pahi</string>
   <string name="preference_title_auto_upload_crash_reports">zaŋmi di yelmuɣisirili ni nyɛ shɛm lahabali n-ti</string>
   <string name="preference_summary_auto_upload_crash_reports">saɣimi nti ka app ŋɔ zaŋ di zaɣisibu ŋɔ yelmuɣisirili ni nyɛ shɛm lahabali n-ti so ha dabam ŋun mali di baŋsim ka ti tooi vihili ka malili kaliŋ</string>
   <string name="editing_error_spamblacklist">ti vihiya n-nya linkinima din ŋari sɔya maa %s. Dim suɣulo yihimili ka labi m-mɔ yaha</string>
@@ -1097,8 +1094,6 @@
   <string name="onboarding_explore_text">Sirigim n-kpɛ Wikipedia sooŋa laasabu vali ŋɔ ni n-nya anfooni lahabaya din doli taba. &lt;br/&gt; &lt;b&gt;taɣi doli a suhuyurilim&lt;/b&gt; anfooninima lahabaya a ni borili shɛm - di lee nyɛla bohambu zaŋ chaŋ kurumbuna ni niŋsim &lt;b&gt;din jɛndi dabisili ŋɔ&lt;/b&gt;, bee ka a biligi ludu bia laasabu maa buyi &lt;b&gt;Sahasaha&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Yu-karinda din goli taba</string>
   <string name="onboarding_reading_list_sync_text_v2">A ni tooi mɛ yu-karinda n-ti hali atikil shɛna a ni yɛn karim saha sheli ha, hali a yi na ka pɔhim zuɣu gba. &lt;br/&gt;Kpɛmi a Wikipedia akawnti ni n-ti zaŋ a yu-karinda gohi taba. &lt;a href=\"#login\"&gt;Pahami Wikipedia nim\' zuɣu&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Zaŋmi lahabali n-ti ashiloni</string>
-  <string name="onboarding_analytics_offline_text">Chɛ ka ti baŋ a ni mali app maa tumdi tuma shɛm din ni sɔŋ viɛligi app maa. Ti ni dee lahabali shɛli yɛn nyɛla ashiloni. &lt;a href=\"#privacy\"&gt;bohammi pahi&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Zaŋmi a ni mali app maa tumdi tuma shɛm lahabali ti ha</string>
   <string name="onboarding_got_it">N nyɛli</string>
   <string name="onboarding_multilingual_secondary_text">Ti nya dimbɔŋɔ nima a tabibi maʒini maa ni:</string>
@@ -1564,10 +1559,10 @@
   <string name="places_toggle_buttons_map">nahingbaŋ</string>
   <string name="places_toggle_buttons_list">Yuya</string>
   <string name="places_nav_tab_tooltip_message">Lihimi m-bo \"Wikipedia\" lahabali shɛŋa din be a yaɣa li</string>
-  <string name="places_article_menu_tooltip_message">Dihimi &lt;b&gt;\'View on map\'&lt;/b&gt; ka di zaŋ a m-bo lahabali shɛŋa din be a yaɣa li</string>
+  <string name="places_article_menu_tooltip_message" fuzzy="true">Dihimi &lt;b&gt;\'View on map\'&lt;/b&gt; ka di zaŋ a m-bo lahabali shɛŋa din be a yaɣa li</string>
   <string name="places_survey_very_satisfied_option">Tiɣi viɛnyɛla</string>
   <string name="places_survey_very_unsatisfied_option">Bi\'tiɣi viɛnyɛla</string>
-  <string name="places_survey_dialog_title">Sɔŋmi lɛbigi tiŋsi</string>
+  <string name="places_survey_dialog_title" fuzzy="true">Sɔŋmi lɛbigi tiŋsi</string>
   <string name="places_survey_feedback_dialog_title">Wula ka tiŋsi (\"Places\") ni tooi lɛbigi?</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Bo ka a yu ni ti taɣi bee m-pahi?</string>
   <string name="places_empty_list">Yaɣili ŋɔ ka shɛli. Yima &lt;a href=\"#\"&gt;on the map&lt;/a&gt;.</string>

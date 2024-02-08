@@ -235,9 +235,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">透過儲存至您的維基百科帳號「%s」上，來橫跨不同裝置同步閱讀清單</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">從您的帳號「%s」來移除已同步的閱讀清單？</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">這將會從遠端存放區內完全刪除所有之前已同步的閱讀清單，要從您的帳號「%s」移除所有已同步清單嗎？</string>
-  <string name="preferences_privacy_settings_heading">隱私</string>
-  <string name="preference_title_eventlogging_opt_in">傳送使用情況報告</string>
-  <string name="preference_summary_eventlogging_opt_in">允許維基媒體收集有關您如何使用該應用程式使應用程式更好的資訊</string>
   <string name="preference_title_auto_upload_crash_reports">傳送損毀報告</string>
   <string name="preference_summary_auto_upload_crash_reports">請允許手機應用程式自動傳送崩潰報告至第三方服務提供者，以讓我們可以更快速、更簡易地來檢查故障並修復。</string>
   <string name="editing_error_spamblacklist">檢測到來自被封鎖網域（%s）的連結。請刪除它們並再試一次。</string>
@@ -775,7 +772,7 @@
   <string name="notifications_swipe_action_unread">未讀</string>
   <string name="notifications_menu_check_all">勾選所有項目</string>
   <string name="notifications_menu_uncheck_all">取消勾選所有項目</string>
-  <string name="notifications_wiki_filter_header">Wiki 篩選</string>
+  <string name="notifications_wiki_filter_header">篩選wiki</string>
   <string name="notifications_type_filter_header">類型篩選</string>
   <string name="notifications_all_wikis_text">所有「wiki」</string>
   <string name="notifications_all_types_text">所有「類型」</string>
@@ -1137,8 +1134,8 @@
   <string name="onboarding_explore_text">踏上時常更新探索摘要的維基百科之旅中。&lt;br/&gt; &lt;b&gt;自訂&lt;/b&gt;您感興趣的事物的摘要 – 無論是在&lt;b&gt;歷史上的今天&lt;/b&gt;瞭解歷史事件，或是擲骰產生的&lt;b&gt;隨機&lt;/b&gt;內容。</string>
   <string name="onboarding_reading_list_sync_title">帶同步的閱讀清單</string>
   <string name="onboarding_reading_list_sync_text_v2">您可從您想要事後閱讀的條目來建立閱讀清單，讓您即使在離線時也可使用。&lt;br/&gt;登入您的維基百科帳號來同步您的閱讀清單。&lt;a href=\"#login\"&gt;加入維基百科&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">寄送匿名資料</string>
-  <string name="onboarding_analytics_offline_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">資料與隱私</string>
+  <string name="onboarding_data_privacy_text">我們認為您不必提供個人資訊，即可參與自由的知識運動。此應用程式以匿名方式收集使用資料。詳細了解我們的&lt;a href=\"#privacy\"&gt;隱私權政策&lt;/a&gt;和&lt;a href=\"#termsOfUse\"&gt;使用條款&lt;/a&gt;。</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>
   <string name="onboarding_got_it">了解</string>
   <string name="onboarding_multilingual_secondary_text">我們在您的裝置上找到以下語言：</string>
@@ -1386,7 +1383,7 @@
   <string name="watchlist_page_protected">已保護</string>
   <string name="watchlist_page_deleted">已刪除</string>
   <string name="watchlist_filter_title">監視清單篩選</string>
-  <string name="watchlist_filter_wiki_filter_header">維基</string>
+  <string name="watchlist_filter_wiki_filter_header">wiki</string>
   <string name="watchlist_filter_all_text">全部</string>
   <string name="watchlist_filter_watchlist_activity_header">監視列表活動</string>
   <string name="watchlist_filter_watchlist_activity_unseen">不可見變更</string>
@@ -1515,7 +1512,7 @@
   <string name="patroller_tasks_edits_list_user_information_dialog_close">關閉</string>
   <string name="patroller_tasks_filters_title">篩選</string>
   <string name="patroller_tasks_filters_reset">重新設定</string>
-  <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
+  <string name="patroller_tasks_filters_wiki_filter_header">wiki</string>
   <string name="patroller_tasks_filters_all_text">全部</string>
   <string name="patroller_tasks_filters_user_status_header">使用者註冊及經驗</string>
   <string name="patroller_tasks_filters_user_status_unregistered">未註冊</string>
@@ -1610,11 +1607,12 @@
   <string name="places_toggle_buttons_map">地圖</string>
   <string name="places_toggle_buttons_list">清單</string>
   <string name="places_nav_tab_tooltip_message">透過地點來探索位於您周遭的維基百科條目</string>
-  <string name="places_article_menu_tooltip_message">輕觸&lt;b&gt;「在地圖上查看」&lt;/b&gt;即可探索該條目的所在位置</string>
+  <string name="places_article_menu_tooltip_message">輕觸「在地圖上查看」即可探索該條目的所在位置</string>
   <string name="places_survey_very_satisfied_option">非常滿意</string>
   <string name="places_survey_very_unsatisfied_option">非常不滿意</string>
   <string name="places_survey_dialog_title">協助改善「地點」</string>
   <string name="places_survey_feedback_dialog_title">如何改善「地點」？</string>
+  <string name="places_survey_dialog_cancel">取消</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">您希望我們改變或改善什麼？</string>
   <string name="places_empty_list">該區域是空的。請在&lt;a href=\"#\"&gt;在地圖上&lt;/a&gt;縮小。</string>
 </resources>
