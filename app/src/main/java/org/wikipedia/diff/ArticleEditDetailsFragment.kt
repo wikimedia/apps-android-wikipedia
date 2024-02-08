@@ -12,9 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
@@ -29,7 +27,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.textfield.TextInputEditText
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
@@ -55,7 +52,6 @@ import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DateUtil
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
@@ -64,6 +60,7 @@ import org.wikipedia.util.ShareUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.SurveyDialog
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 
@@ -669,74 +666,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         if (Prefs.showOneTimeRecentEditsFeedbackForm) {
             sendPatrollerExperienceEvent("toolbar_first_feedback", "pt_feedback")
         }
-        var dialog: AlertDialog? = null
-        val feedbackView = layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_options, null)
-
-        val clickListener = View.OnClickListener {
-            viewModel.feedbackOption = (it as TextView).text.toString()
-            dialog?.dismiss()
-            if (viewModel.feedbackOption == getString(R.string.patroller_diff_feedback_dialog_option_satisfied)) {
-                showFeedbackSnackbarAndTooltip()
-            } else {
-                showFeedbackInputDialog()
-            }
-            sendPatrollerExperienceEvent("feedback_selection", "pt_feedback",
-                PatrollerExperienceEvent.getActionDataString(feedbackOption = viewModel.feedbackOption))
-        }
-
-        feedbackView.findViewById<TextView>(R.id.optionSatisfied).setOnClickListener(clickListener)
-        feedbackView.findViewById<TextView>(R.id.optionNeutral).setOnClickListener(clickListener)
-        feedbackView.findViewById<TextView>(R.id.optionUnsatisfied).setOnClickListener(clickListener)
-        PatrollerExperienceEvent.logImpression("pt_feedback")
-        dialog = MaterialAlertDialogBuilder(requireActivity())
-            .setTitle(R.string.patroller_diff_feedback_dialog_title)
-            .setCancelable(false)
-            .setView(feedbackView)
-            .show()
-    }
-
-    private fun showFeedbackInputDialog() {
-        if (!viewModel.fromRecentEdits) {
-            return
-        }
-        val feedbackView = layoutInflater.inflate(R.layout.dialog_patrol_edit_feedback_input, null)
-        sendPatrollerExperienceEvent("feedback_input_impression", "pt_feedback")
-        MaterialAlertDialogBuilder(requireActivity())
-            .setTitle(R.string.patroller_diff_feedback_dialog_feedback_title)
-            .setView(feedbackView)
-            .setPositiveButton(R.string.patroller_diff_feedback_dialog_submit) { _, _ ->
-                viewModel.feedbackInput = feedbackView.findViewById<TextInputEditText>(R.id.feedbackInput).text.toString()
-                sendPatrollerExperienceEvent("feedback_submit", "pt_feedback",
-                    PatrollerExperienceEvent.getActionDataString(feedbackText = viewModel.feedbackInput))
-                showFeedbackSnackbarAndTooltip()
-            }
-            .show()
-    }
-
-    private fun showFeedbackSnackbarAndTooltip() {
-        if (!viewModel.fromRecentEdits) {
-            return
-        }
-        FeedbackUtil.showMessage(this@ArticleEditDetailsFragment, R.string.patroller_diff_feedback_submitted_snackbar)
-        sendPatrollerExperienceEvent("feedback_submit_toast", "pt_feedback")
-        requireActivity().window.decorView.postDelayed({
-            val anchorView = requireActivity().findViewById<View>(R.id.more_options)
-            if (!requireActivity().isDestroyed && anchorView != null && Prefs.showOneTimeRecentEditsFeedbackForm) {
-                sendPatrollerExperienceEvent("tooltip_impression", "pt_feedback")
-                FeedbackUtil.getTooltip(
-                    requireActivity(),
-                    getString(R.string.patroller_diff_feedback_tooltip),
-                    arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
-                    topOrBottomMargin = 0,
-                    aboveOrBelow = false,
-                    autoDismiss = false,
-                    showDismissButton = true
-                ).apply {
-                    showAlignBottom(anchorView)
-                    Prefs.showOneTimeRecentEditsFeedbackForm = false
-                }
-            }
-        }, 100)
+        SurveyDialog.showFeedbackOptionsDialog(requireActivity(), InvokeSource.SUGGESTED_EDITS_RECENT_EDITS)
     }
 
     private fun updateActionButtons() {

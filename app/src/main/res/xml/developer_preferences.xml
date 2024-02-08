@@ -248,11 +248,6 @@
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
-            android:key="@string/preference_key_logged_in_page_activity_visit_count"
-            android:title="@string/preference_key_logged_in_page_activity_visit_count" />
-
-        <org.wikipedia.settings.IntPreference
-            style="@style/IntPreference"
             android:key="@string/preference_key_explore_feed_visit_count"
             android:title="@string/preference_key_explore_feed_visit_count" />
 
@@ -290,14 +285,6 @@
             android:title="@string/preference_key_image_zoom_tooltip_shown" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_watchlist_page_onboarding_tooltip_shown"
-            android:title="@string/preference_key_watchlist_page_onboarding_tooltip_shown" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
-            android:key="@string/preference_key_watchlist_main_onboarding_tooltip_shown"
-            android:title="@string/preference_key_watchlist_main_onboarding_tooltip_shown" />
-
-        <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_edit_notices_tooltip_shown"
             android:title="@string/preference_key_edit_notices_tooltip_shown" />
 
@@ -320,6 +307,14 @@
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_show_sequential_recent_edits_diff_tooltip"
             android:title="@string/preference_key_show_sequential_recent_edits_diff_tooltip" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_show_places_page_onboarding_tooltip"
+            android:title="@string/preference_key_show_places_page_onboarding_tooltip" />
+
+        <org.wikipedia.settings.SwitchPreferenceMultiLine
+            android:key="@string/preference_key_show_places_main_nav_onboarding_tooltip_shown"
+            android:title="@string/preference_key_show_places_main_nav_onboarding_tooltip_shown" />
 
         <org.wikipedia.settings.SwitchPreferenceMultiLine
             android:key="@string/preference_key_temp_account_welcome_shown"
@@ -475,6 +470,11 @@
             style="@style/IntPreference"
             android:key="ab_test_mBART25"
             android:title="Test group for machine generated article descriptions \n(0=no suggestions, 1=suggestions, 2=suggestions+blp)" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_places_show_one_time_survey"
+            android:title="Survey status for places feature \n(-1=not initiated, 1=show survey, >1=do not show survey)" />
 
     </PreferenceCategory>
 
