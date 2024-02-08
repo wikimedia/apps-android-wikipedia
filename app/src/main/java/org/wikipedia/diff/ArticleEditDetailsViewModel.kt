@@ -226,9 +226,8 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             val msgResponse = ServiceFactory.get(title.wikiSite).getMessages("undo-summary", "$revisionId|$user")
             val undoMessage = msgResponse.query?.allmessages?.find { it.name == "undo-summary" }?.content
             var summary = if (undoMessage != null) "$undoMessage $comment" else comment
-            if (fromRecentEdits) {
-                summary += DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_UNDO
-            }
+            summary += if (fromRecentEdits) DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_UNDO
+            else DescriptionEditFragment.DIFF_UNDO_COMMENT
             val token = ServiceFactory.get(title.wikiSite).getToken().query!!.csrfToken()!!
             val undoResponse = ServiceFactory.get(title.wikiSite).postUndoEdit(title.prefixedText, summary,
                     null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null)
@@ -241,10 +240,8 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             rollbackResponse.postValue(Resource.Error(throwable))
         }) {
             val rollbackToken = ServiceFactory.get(title.wikiSite).getToken("rollback").query!!.rollbackToken()!!
-            var summary: String? = null
-            if (fromRecentEdits) {
-                summary = DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK
-            }
+            val summary = if (fromRecentEdits) DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK
+            else DescriptionEditFragment.DIFF_ROLLBACK_COMMENT
             val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, summary, user, rollbackToken)
             rollbackResponse.postValue(Resource.Success(rollbackPostResponse))
         }

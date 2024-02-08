@@ -35,6 +35,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.descriptions.DescriptionEditFragment
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -356,7 +357,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .subscribe({ token ->
                     val mId = "M" + page!!.pageId
                     var claimStr = "{\"claims\":["
-                    var commentStr = "/* add-depicts: "
+                    var commentStr = "/* add-depicts: " + DescriptionEditFragment.SUGGESTED_EDITS_IMAGE_TAGS_COMMENT
                     var first = true
                     for (label in acceptedLabels) {
                         if (!first) {
