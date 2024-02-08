@@ -2,6 +2,7 @@ package org.wikipedia.page.linkpreview
 
 import android.location.Location
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,14 +17,15 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 
-class LinkPreviewBottomSheetViewModel : ViewModel() {
+class LinkPreviewBottomSheetViewModel(
+        var historyEntry: HistoryEntry,
+        var location: Location? = null,
+        var lastKnownLocation: Location? = null
+    ) : ViewModel() {
     private val _uiState = MutableStateFlow<LinkPreviewViewState>(LinkPreviewViewState.Loading)
     val uiState = _uiState.asStateFlow()
-    lateinit var historyEntry: HistoryEntry
-    var location: Location? = null
     var pageTitle = historyEntry.title
     val fromPlaces = historyEntry.source == HistoryEntry.SOURCE_PLACES
-    var lastKnownLocation: Location? = null
     var isInReadingList = false
 
     var isWatched = false
@@ -123,6 +125,17 @@ class LinkPreviewBottomSheetViewModel : ViewModel() {
                 isWatched = it.watched
                 _uiState.value = LinkPreviewViewState.Watch(isWatched)
             }
+        }
+    }
+
+    class Factory(
+        private val historyEntry: HistoryEntry,
+        private val location: Location? = null,
+        private val lastKnownLocation: Location? = null
+    ) : ViewModelProvider.Factory {
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return LinkPreviewBottomSheetViewModel(historyEntry, location, lastKnownLocation) as T
         }
     }
 }

@@ -6,7 +6,6 @@ import android.location.Location
 import android.util.AttributeSet
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -70,7 +69,7 @@ class LinkPreviewBottomSheet(context: Context, attrs: AttributeSet? = null) : Co
     private var overlayView: LinkPreviewOverlayView? = null
     private var navigateSuccess = false
     private var revision: Long = 0
-    private val viewModel: LinkPreviewBottomSheetViewModel by activity.viewModels()
+    private lateinit var viewModel: LinkPreviewBottomSheetViewModel
 
     private val menuListener = PopupMenu.OnMenuItemClickListener { item ->
         return@OnMenuItemClickListener when (item.itemId) {
@@ -120,6 +119,7 @@ class LinkPreviewBottomSheet(context: Context, attrs: AttributeSet? = null) : Co
 
     fun setup(entry: HistoryEntry, location: Location? = null, lastKnownLocation: Location? = null,
         dismissCallback: DismissCallback? = null, loadPageCallback: LoadPageCallback? = null) {
+        viewModel = LinkPreviewBottomSheetViewModel(entry, location, lastKnownLocation)
         viewModel.historyEntry = entry
         viewModel.location = location
         viewModel.lastKnownLocation = lastKnownLocation

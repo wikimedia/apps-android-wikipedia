@@ -421,20 +421,24 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
         binding.linkPreviewBottomSheet.setup(historyEntry, location,
             mapboxMap?.locationComponent?.lastKnownLocation,
             loadPageCallback = { _, entry, inNewTab ->
-                if (inNewTab) {
-                    TabUtil.openInNewBackgroundTab(entry)
-                    requireActivity().invalidateOptionsMenu()
-                    binding.tabsButton.isVisible = WikipediaApp.instance.tabCount > 0
-                    binding.tabsButton.updateTabCount(true)
-                } else {
-                    startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
-                }
+                loadPage(entry, inNewTab)
             }, dismissCallback = { updateSearchText() })
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.linkPreviewBottomSheet).apply {
             state = BottomSheetBehavior.STATE_EXPANDED
         }
 //        ExclusiveBottomSheetPresenter.show(childFragmentManager,
 //            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation))
+    }
+
+    private fun loadPage(entry: HistoryEntry, inNewTab: Boolean) {
+        if (inNewTab) {
+            TabUtil.openInNewBackgroundTab(entry)
+            requireActivity().invalidateOptionsMenu()
+            binding.tabsButton.isVisible = WikipediaApp.instance.tabCount > 0
+            binding.tabsButton.updateTabCount(true)
+        } else {
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
+        }
     }
 
     private fun resetMagnifiedSymbol() {
@@ -814,7 +818,7 @@ class PlacesFragment : Fragment(), MapboxMap.OnMapClickListener {
             val location = page.location
             LongPressMenu(v, menuRes = R.menu.menu_places_long_press, location = location, callback = object : LongPressMenu.Callback {
                 override fun onOpenInNewTab(entry: HistoryEntry) {
-//                    onLinkPreviewLoadPage(entry.title, entry, true)
+                    loadPage(entry, true)
                 }
 
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
