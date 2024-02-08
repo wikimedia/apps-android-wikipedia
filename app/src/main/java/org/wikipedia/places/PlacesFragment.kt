@@ -39,6 +39,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.mapbox.android.gestures.MoveGestureDetector
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.camera.CameraPosition
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
@@ -192,17 +193,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             val newStatusBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.statusBars())
             val newNavBarInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.navigationBars())
 
-            var params = binding.controlsContainer.layoutParams as ViewGroup.MarginLayoutParams
+            val params = binding.coordinatorView.layoutParams as ViewGroup.MarginLayoutParams
             params.topMargin = newStatusBarInsets.top + newNavBarInsets.top
             params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left
             params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right
             params.bottomMargin = newStatusBarInsets.bottom + newNavBarInsets.bottom
-
-            params = binding.myLocationButton.layoutParams as ViewGroup.MarginLayoutParams
-            params.bottomMargin = newNavBarInsets.bottom + DimenUtil.roundedDpToPx(16f)
-            params.leftMargin = newStatusBarInsets.left + newNavBarInsets.left + DimenUtil.roundedDpToPx(16f)
-            params.rightMargin = newStatusBarInsets.right + newNavBarInsets.right + DimenUtil.roundedDpToPx(16f)
-            binding.myLocationButton.layoutParams = params
 
             statusBarInsets = newStatusBarInsets
             navBarInsets = newNavBarInsets
@@ -261,6 +256,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             val mapViewChecked = checkedId == R.id.mapViewButton
             updateToggleViews(mapViewChecked)
 
+            LinkPreviewDialog.hide(childFragmentManager)
+
             val progressColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.progressive_color)
             val additionColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.addition_color)
             val placeholderColor = ResourceUtil.getThemedColorStateList(requireContext(), R.attr.placeholder_color)
@@ -298,6 +295,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             binding.searchTextView.text = getString(R.string.places_search_hint)
             binding.searchCloseBtn.isVisible = false
             resetMagnifiedSymbol()
+            //LinkPreviewDialog.hide(childFragmentManager)
         } else {
             binding.searchCloseBtn.isVisible = true
             binding.searchTextView.text = StringUtil.fromHtml(searchText)
@@ -351,6 +349,17 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 }
 
                 map.addOnMapClickListener(this)
+                map.addOnMoveListener(object : MapboxMap.OnMoveListener {
+                    override fun onMoveBegin(detector: MoveGestureDetector) {
+                    }
+
+                    override fun onMove(detector: MoveGestureDetector) {
+                        //LinkPreviewDialog.hide(childFragmentManager)
+                    }
+
+                    override fun onMoveEnd(detector: MoveGestureDetector) {
+                    }
+                })
 
                 setUpSymbolManagerWithClustering(map, style)
 
@@ -415,9 +424,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         PlacesEvent.logImpression("detail_view")
         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
         updateSearchText(pageTitle.displayText)
-        childFragmentManager.commit {
-            add(LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation), "foo")
-        }
+        LinkPreviewDialog.show(childFragmentManager, R.id.coordinatorView, entry, location,
+            lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation)
     }
 
     private fun resetMagnifiedSymbol() {
@@ -586,6 +594,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         lastLocationQueried = lastLocation
         lastZoomQueried = lastZoom
 
+        LinkPreviewDialog.hide(childFragmentManager)
+
         L.d(">>> requesting update: " + latLng.latitude + ", " + latLng.longitude + ", " + mapboxMap?.cameraPosition?.zoom)
         viewModel.fetchNearbyPages(latLng.latitude, latLng.longitude, searchRadius, ITEMS_PER_REQUEST)
     }
@@ -738,7 +748,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
             val screenPoint = it.projection.toScreenLocation(point)
             val rect = RectF(screenPoint.x - 10, screenPoint.y - 10, screenPoint.x + 10, screenPoint.y + 10)
 
-            updateSearchText()
+            //updateSearchText()
+
             // Zoom-in 2 levels on click of a cluster circle. Do not handle other click events
             val featureList = it.queryRenderedFeatures(rect, CLUSTER_CIRCLE_LAYER_ID)
             if (featureList.isNotEmpty()) {
