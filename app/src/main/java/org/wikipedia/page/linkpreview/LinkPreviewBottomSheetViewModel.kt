@@ -1,9 +1,7 @@
 package org.wikipedia.page.linkpreview
 
 import android.location.Location
-import android.os.Bundle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,21 +10,20 @@ import kotlinx.coroutines.launch
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 import org.wikipedia.watchlist.WatchlistExpiry
 
-class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
+class LinkPreviewBottomSheetViewModel : ViewModel() {
     private val _uiState = MutableStateFlow<LinkPreviewViewState>(LinkPreviewViewState.Loading)
     val uiState = _uiState.asStateFlow()
-    val historyEntry = bundle.parcelable<HistoryEntry>(LinkPreviewDialog.ARG_ENTRY)!!
+    lateinit var historyEntry: HistoryEntry
+    var location: Location? = null
     var pageTitle = historyEntry.title
-    var location = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LOCATION)
     val fromPlaces = historyEntry.source == HistoryEntry.SOURCE_PLACES
-    val lastKnownLocation = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LAST_KNOWN_LOCATION)
+    var lastKnownLocation: Location? = null
     var isInReadingList = false
 
     var isWatched = false
@@ -126,13 +123,6 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
                 isWatched = it.watched
                 _uiState.value = LinkPreviewViewState.Watch(isWatched)
             }
-        }
-    }
-
-    class Factory(private val bunble: Bundle) : ViewModelProvider.Factory {
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return LinkPreviewViewModel(bunble) as T
         }
     }
 }
