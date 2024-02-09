@@ -76,7 +76,7 @@ class SmokeTests {
         onView(allOf(withId(R.id.fragment_onboarding_forward_button), isDisplayed()))
                 .perform(click())
 
-        // Dismiss initial onboarding by accepting analytics collection
+        // Dismiss initial onboarding by clicking on the "Get started" button
         onView(allOf(withId(R.id.fragment_onboarding_done_button), withText("Get started"), isDisplayed()))
                 .perform(click())
 
@@ -110,7 +110,7 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        // Make the keyboard disappear
+        // Dismiss keyboard
         pressBack()
 
         TestUtil.delay(1)
@@ -135,7 +135,7 @@ class SmokeTests {
         // Give the page plenty of time to load fully
         TestUtil.delay(5)
 
-        // Dismiss tooltip, if any
+        // Dismiss tooltip
         onView(allOf(withId(R.id.buttonView))).inRoot(withDecorView(not(Matchers.`is`(activity.window.decorView))))
             .perform(click())
 
@@ -171,6 +171,7 @@ class SmokeTests {
 
         // Go back to the original article
         pressBack()
+
         TestUtil.delay(2)
 
         // Ensure the header view (with lead image) is displayed
@@ -212,6 +213,7 @@ class SmokeTests {
 
         // Rotate the display to landscape
         device.setOrientationRight()
+
         TestUtil.delay(2)
 
         // Make sure the header view (with lead image) is not shown in landscape mode
@@ -230,8 +232,7 @@ class SmokeTests {
         device.unfreezeRotation()
 
         // Bring up the theme chooser dialog
-        onView(withId(R.id.page_theme))
-                .perform(click())
+        onView(withId(R.id.page_theme)).perform(click())
 
         TestUtil.delay(2)
 
@@ -241,7 +242,7 @@ class SmokeTests {
                     .check(matches(TestUtil.isNotVisible()))
         } else {
             onView(withId(R.id.theme_chooser_match_system_theme_switch))
-                    .perform(scrollTo(), click())
+                .perform(scrollTo(), click())
 
             TestUtil.delay(1)
         }
@@ -537,8 +538,8 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // On this day card seen and saved to reading lists
-        onView(allOf(withId(R.id.on_this_day_page),
-            childAtPosition(allOf(withId(R.id.event_layout), childAtPosition(withId(R.id.on_this_day_card_view_click_container), 0)), 3), isDisplayed()))
+        onView(allOf(withId(R.id.on_this_day_page), childAtPosition(allOf(withId(R.id.event_layout),
+            childAtPosition(withId(R.id.on_this_day_card_view_click_container), 0)), 3), isDisplayed()))
             .perform(longClick())
 
         onView(allOf(withId(R.id.title), withText("Save"),
@@ -634,6 +635,7 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
+        // Navigate to Explore feed
         onView(allOf(withId(R.id.nav_tab_explore), withContentDescription("Explore"),
             childAtPosition(childAtPosition(withId(R.id.main_nav_tab_layout), 0), 0), isDisplayed())).perform(click())
 
@@ -738,6 +740,7 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
+        // Test disabling of images from settings
         onView(withId(androidx.preference.R.id.recycler_view))
             .perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
                 (hasDescendant(withText(R.string.preference_title_show_images)), click()))
@@ -850,7 +853,7 @@ class SmokeTests {
 
         TestUtil.delay(2)
 
-        // Type in an incorrect username and password
+        // Set environment variables to hold correct username and password
         onView(allOf(TestUtil.withGrandparent(withId(R.id.login_username_text)), withClassName(Matchers.`is`("org.wikipedia.views.PlainPasteEditText"))))
             .perform(replaceText(BuildConfig.TEST_LOGIN_USERNAME), closeSoftKeyboard())
 
@@ -862,11 +865,17 @@ class SmokeTests {
 
         TestUtil.delay(5)
 
-        onView(allOf(withId(android.R.id.button2), withText("No thanks"),
-            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.buttonPanel), 0), 2))).perform(scrollTo(), click())
+        // Check if the list sync dialog is shown and subsequently dismiss it
+        val listSyncDialogButton = onView(allOf(withId(android.R.id.button2), withText("No thanks"),
+            childAtPosition(childAtPosition(withId(androidx.appcompat.R.id.buttonPanel), 0), 2)))
+
+        if (listSyncDialogButton.isDisplayed()) {
+            listSyncDialogButton.perform(scrollTo(), click())
+        }
 
         TestUtil.delay(1)
 
+        // Click on Notifications from the app bar on Explore feed
         onView(allOf(withId(R.id.menu_notifications), withContentDescription("Notifications"),
             isDisplayed())).perform(click())
 
