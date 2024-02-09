@@ -546,6 +546,8 @@ class DescriptionEditFragment : Fragment() {
         const val SUGGESTED_EDITS_ADD_CAPTION_COMMENT = "#suggestededit-add-caption $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_TRANSLATE_CAPTION_COMMENT = "#suggestededit-translate-caption $SUGGESTED_EDITS_UI_VERSION"
         const val SUGGESTED_EDITS_IMAGE_TAGS_COMMENT = "##suggestededit-add-tag $SUGGESTED_EDITS_UI_VERSION"
+        const val WATCHLIST_UNDO_COMMENT = "#watchlist-undo"
+        const val WATCHLIST_ROLLBACK_COMMENT = "#watchlist-rollback"
         const val DIFF_UNDO_COMMENT = "#diff-undo"
         const val DIFF_ROLLBACK_COMMENT = "#diff-rollback"
 
