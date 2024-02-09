@@ -374,7 +374,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     private fun setPreviewContents(contents: LinkPreviewContents) {
-        if (!contents.extract.isNullOrEmpty()) {
             binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
             val colorHex = ResourceUtil.colorToCssString(
                     ResourceUtil.getThemedColor(
@@ -383,14 +382,14 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                     )
             )
             val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
+            val extract = if (contents.extract.isNullOrEmpty()) "<i>" + getString(R.string.link_preview_stub_placeholder_text) + "</i>" else contents.extract
             binding.linkPreviewExtractWebview.loadDataWithBaseURL(
                     null,
-                    "${JavaScriptActionHandler.getCssStyles(viewModel.pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">${contents.extract}</div>",
+                    "${JavaScriptActionHandler.getCssStyles(viewModel.pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">$extract</div>",
                     "text/html",
                     "UTF-8",
                     null
             )
-        }
         contents.title.thumbUrl?.let {
             binding.linkPreviewThumbnail.visibility = View.VISIBLE
             ViewUtil.loadImage(binding.linkPreviewThumbnail, it)
