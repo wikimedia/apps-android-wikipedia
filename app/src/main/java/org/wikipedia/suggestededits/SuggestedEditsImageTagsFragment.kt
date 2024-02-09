@@ -357,7 +357,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .subscribe({ token ->
                     val mId = "M" + page!!.pageId
                     var claimStr = "{\"claims\":["
-                    var commentStr = "/* add-depicts: " + DescriptionEditFragment.SUGGESTED_EDITS_IMAGE_TAGS_COMMENT
+                    var commentStr = "/* add-depicts: "
                     var first = true
                     for (label in acceptedLabels) {
                         if (!first) {
@@ -378,7 +378,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
                     }
                     claimStr += "]}"
-                    commentStr += " */"
+                    commentStr += " */" + DescriptionEditFragment.SUGGESTED_EDITS_IMAGE_TAGS_COMMENT
 
                     disposables.add(ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, token, claimStr, commentStr, null)
                             .subscribeOn(Schedulers.io())

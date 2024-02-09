@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.commit
+import org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityArticleEditDetailsBinding
@@ -24,7 +25,7 @@ class ArticleEditDetailsActivity : BaseActivity() {
             intent.getIntExtra(EXTRA_PAGE_ID, -1),
             intent.getLongExtra(EXTRA_EDIT_REVISION_FROM, -1),
             intent.getLongExtra(EXTRA_EDIT_REVISION_TO, -1),
-            intent.getSerializableExtra(EXTRA_SOURCE) as InvokeSource)
+            intent.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource)
 
         if (savedInstanceState == null) {
             supportFragmentManager.commit { add(binding.fragmentContainer.id, fragment) }
@@ -48,7 +49,7 @@ class ArticleEditDetailsActivity : BaseActivity() {
                 .putExtra(EXTRA_PAGE_ID, pageId)
                 .putExtra(EXTRA_EDIT_REVISION_FROM, revisionFrom)
                 .putExtra(EXTRA_EDIT_REVISION_TO, revisionTo)
-                .putExtra(EXTRA_SOURCE, source)
+                .putExtra(INTENT_EXTRA_INVOKE_SOURCE, source)
         }
     }
 }

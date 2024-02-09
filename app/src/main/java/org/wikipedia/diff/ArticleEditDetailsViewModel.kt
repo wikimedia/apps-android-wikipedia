@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
 import org.wikipedia.dataclient.Service
@@ -28,10 +29,11 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.watchlist.WatchlistExpiry
+import org.wikipedia.watchlist.WatchlistFragment
 
 class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
 
-    private val invokeSource = bundle.getSerializable(ArticleEditDetailsActivity.EXTRA_SOURCE) as InvokeSource
+    private val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
     private val fromWatchList = invokeSource == InvokeSource.WATCHLIST_ACTIVITY
 
     val watchedStatus = MutableLiveData<Resource<MwQueryPage>>()
@@ -228,8 +230,8 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             val msgResponse = ServiceFactory.get(title.wikiSite).getMessages("undo-summary", "$revisionId|$user")
             val undoMessage = msgResponse.query?.allmessages?.find { it.name == "undo-summary" }?.content
             var summary = if (undoMessage != null) "$undoMessage $comment" else comment
-            summary += if (fromRecentEdits) DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_UNDO else if (fromWatchList) DescriptionEditFragment.WATCHLIST_UNDO_COMMENT
-            else DescriptionEditFragment.DIFF_UNDO_COMMENT
+            summary += if (fromRecentEdits) DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_UNDO else if (fromWatchList) WatchlistFragment.WATCHLIST_UNDO_COMMENT
+            else ArticleEditDetailsFragment.DIFF_UNDO_COMMENT
             val token = ServiceFactory.get(title.wikiSite).getToken().query!!.csrfToken()!!
             val undoResponse = ServiceFactory.get(title.wikiSite).postUndoEdit(title.prefixedText, summary,
                     null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null)
@@ -242,8 +244,8 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             rollbackResponse.postValue(Resource.Error(throwable))
         }) {
             val rollbackToken = ServiceFactory.get(title.wikiSite).getToken("rollback").query!!.rollbackToken()!!
-            val summary = if (fromRecentEdits) DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK else if (fromWatchList) DescriptionEditFragment.WATCHLIST_ROLLBACK_COMMENT
-            else DescriptionEditFragment.DIFF_ROLLBACK_COMMENT
+            val summary = if (fromRecentEdits) DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK else if (fromWatchList) WatchlistFragment.WATCHLIST_ROLLBACK_COMMENT
+            else ArticleEditDetailsFragment.DIFF_ROLLBACK_COMMENT
             val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, summary, user, rollbackToken)
             rollbackResponse.postValue(Resource.Success(rollbackPostResponse))
         }
