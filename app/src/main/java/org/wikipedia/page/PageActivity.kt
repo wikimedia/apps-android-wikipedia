@@ -167,23 +167,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         super.onCreate(savedInstanceState)
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
-
-        try {
-            setContentView(binding.root)
-        } catch (e: Exception) {
-            if (!e.message.isNullOrEmpty() && e.message!!.lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW) ||
-                !ThrowableUtil.getInnermostThrowable(e).message.isNullOrEmpty() &&
-                ThrowableUtil.getInnermostThrowable(e).message!!.lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW)) {
-                // If the system failed to inflate our activity because of the WebView (which could
-                // be one of several types of exceptions), it likely means that the system WebView
-                // is in the process of being updated. In this case, show the user a message and
-                // bail immediately.
-                Toast.makeText(app, R.string.error_webview_updating, Toast.LENGTH_LONG).show()
-                finish()
-                return
-            }
-            throw e
-        }
+        setContentView(binding.root)
 
         disposables.add(app.bus.subscribe(EventBusConsumer()))
         updateProgressBar(false)
@@ -254,6 +238,25 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(intent)
+        }
+    }
+
+    override fun onStart() {
+        try {
+            super.onStart()
+        } catch (e: Exception) {
+            if (!e.message.isNullOrEmpty() && e.message!!.lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW) ||
+                !ThrowableUtil.getInnermostThrowable(e).message.isNullOrEmpty() &&
+                ThrowableUtil.getInnermostThrowable(e).message!!.lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW)) {
+                // If the system failed to inflate our activity because of the WebView (which could
+                // be one of several types of exceptions), it likely means that the system WebView
+                // is in the process of being updated. In this case, show the user a message and
+                // bail immediately.
+                Toast.makeText(app, R.string.error_webview_updating, Toast.LENGTH_LONG).show()
+                finish()
+                return
+            }
+            throw e
         }
     }
 
