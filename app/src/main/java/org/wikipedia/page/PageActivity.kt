@@ -245,8 +245,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         try {
             super.onStart()
         } catch (e: Exception) {
-            if (e.message.orEmpty().lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW) ||
-                ThrowableUtil.getInnermostThrowable(e).message.orEmpty().lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW)) {
+            if (e.message.orEmpty().contains(EXCEPTION_MESSAGE_WEBVIEW, true) ||
+                ThrowableUtil.getInnermostThrowable(e).message.orEmpty().contains(EXCEPTION_MESSAGE_WEBVIEW, true)) {
                 // If the system failed to inflate our activity because of the WebView (which could
                 // be one of several types of exceptions), it likely means that the system WebView
                 // is in the process of being updated. In this case, show the user a message and
