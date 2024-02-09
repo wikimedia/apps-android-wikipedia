@@ -8,16 +8,7 @@ import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.play.core.appupdate.AppUpdateManager
-import com.google.android.play.core.appupdate.AppUpdateManagerFactory
-import com.google.android.play.core.appupdate.AppUpdateOptions
-import com.google.android.play.core.install.InstallStateUpdatedListener
-import com.google.android.play.core.install.model.AppUpdateType
-import com.google.android.play.core.install.model.InstallStatus
-import com.google.android.play.core.install.model.UpdateAvailability
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
@@ -25,6 +16,7 @@ import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.inappupdates.InAppUpdates
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.PageActivity
@@ -36,20 +28,9 @@ import org.wikipedia.util.ResourceUtil
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
 
     private lateinit var binding: ActivityMainBinding
-
+    private val inAppUpdates = InAppUpdates()
     private var controlNavTabInFragment = false
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { }
-    private val inAppUpdatesLauncher = registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) {
-        if (it.resultCode != RESULT_OK) {
-            FeedbackUtil.showMessage(this, getString(R.string.in_app_update_launcher_snackbar_failure))
-        } else {
-            FeedbackUtil.showMessage(this, getString(R.string.in_app_update_launcher_snackbar_download))
-            binding.inAppUpdateProgressBar.isVisible = true
-        }
-    }
-
-    private lateinit var appUpdateManager: AppUpdateManager
-    private lateinit var appUpdateListener: InstallStateUpdatedListener
 
     override fun inflateAndSetContentView() {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -78,28 +59,8 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (savedInstanceState == null) {
             handleIntent(intent)
         }
-
-        appUpdateManager = AppUpdateManagerFactory.create(this)
-
-        appUpdateManager.appUpdateInfo.addOnSuccessListener { appUpdateInfo ->
-            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE &&
-                appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
-                appUpdateManager.startUpdateFlowForResult(appUpdateInfo,
-                    inAppUpdatesLauncher, AppUpdateOptions.newBuilder(AppUpdateType.FLEXIBLE).build())
-            }
-        }
-
-        appUpdateListener = InstallStateUpdatedListener { state ->
-            if (state.installStatus() == InstallStatus.DOWNLOADED) {
-                val snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.in_app_update_download_completed_snackbar), Snackbar.LENGTH_INDEFINITE)
-                snackbar.setAction(getString(R.string.in_app_update_restart_action).uppercase()) {
-                    appUpdateManager.completeUpdate()
-                }
-                snackbar.show()
-                binding.inAppUpdateProgressBar.isVisible = false
-            }
-        }
-        appUpdateManager.registerListener(appUpdateListener)
+        inAppUpdates.init(this, binding.inAppUpdateProgressBar)
+        inAppUpdates.registerListener()
     }
 
     override fun onResume() {
@@ -109,7 +70,7 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
 
     override fun onDestroy() {
         super.onDestroy()
-        appUpdateManager.unregisterListener(appUpdateListener)
+        inAppUpdates.unregisterListener()
     }
 
     override fun createFragment(): MainFragment {
