@@ -58,10 +58,14 @@ class InAppUpdates {
     }
 
     fun registerListener() {
-        appUpdateManager?.registerListener(appUpdateListener)
+        appUpdateListener?.run {
+            appUpdateManager?.registerListener(this)
+        }
     }
 
     fun unregisterListener() {
-        appUpdateManager?.unregisterListener(appUpdateListener)
+        appUpdateListener?.run {
+            appUpdateManager?.unregisterListener(this)
+        }
     }
 }
