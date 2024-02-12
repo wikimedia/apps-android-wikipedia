@@ -1505,4 +1505,5 @@
   <string name="patroller_diff_feedback_dialog_input_hint">بازخورد</string>
   <string name="patroller_diff_feedback_dialog_submit">ارسال</string>
   <string name="patroller_diff_feedback_submitted_snackbar">بازخورد ارسال شد.</string>
+  <string name="places_survey_dialog_cancel">لغو</string>
 </resources>
