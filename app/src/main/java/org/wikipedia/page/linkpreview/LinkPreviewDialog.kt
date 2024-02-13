@@ -162,10 +162,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
         binding.linkPreviewEditChip.setOnClickListener {
             viewModel.pageTitle.run {
-                // if (namespace() == Namespace.MAIN) {
                 requestEditSectionLauncher.launch(EditSectionActivity.newIntent(requireContext(), -1, null, this, Constants.InvokeSource.LINK_PREVIEW_MENU, null))
-
-                // }
+                dismiss()
             }
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)

@@ -121,15 +121,19 @@
                     android:id="@+id/link_preview_edit_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="14dp"
+                    android:layout_marginStart="14dp"
                     android:layout_marginTop="4dp"
+                    android:layout_marginEnd="14dp"
                     android:minWidth="72dp"
                     android:text="@string/menu_edit_article"
+                    android:textColor="?attr/secondary_color"
                     android:theme="@style/H3.Button"
                     android:visibility="gone"
                     app:chipBackgroundColor="?attr/background_color"
+                    app:chipCornerRadius="16dp"
                     app:chipIcon="@drawable/ic_mode_edit_white_24dp"
-                    app:chipIconTint="?attr/secondary_color" />
+                    app:chipIconTint="?attr/secondary_color"
+                    app:chipStrokeWidth="0dp" />
             </LinearLayout>
 
             <org.wikipedia.page.linkpreview.LinkPreviewErrorView
