@@ -26,6 +26,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
     var pageTitle = historyEntry.title
     var location = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LOCATION)
     val fromPlaces = historyEntry.source == HistoryEntry.SOURCE_PLACES
+    val fromArticle = historyEntry.source == HistoryEntry.SOURCE_INTERNAL_LINK
     val lastKnownLocation = bundle.parcelable<Location>(LinkPreviewDialog.ARG_LAST_KNOWN_LOCATION)
     var isInReadingList = false
 

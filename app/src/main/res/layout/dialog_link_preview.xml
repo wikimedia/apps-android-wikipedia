@@ -117,6 +117,19 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="4dp" />
 
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/link_preview_edit_chip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="14dp"
+                    android:layout_marginTop="4dp"
+                    android:minWidth="72dp"
+                    android:text="@string/menu_edit_article"
+                    android:theme="@style/H3.Button"
+                    android:visibility="gone"
+                    app:chipBackgroundColor="?attr/background_color"
+                    app:chipIcon="@drawable/ic_mode_edit_white_24dp"
+                    app:chipIconTint="?attr/secondary_color" />
             </LinearLayout>
 
             <org.wikipedia.page.linkpreview.LinkPreviewErrorView

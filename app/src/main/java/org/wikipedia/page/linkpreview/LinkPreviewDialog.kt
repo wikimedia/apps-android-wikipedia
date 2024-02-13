@@ -28,6 +28,8 @@ import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.DialogLinkPreviewBinding
 import org.wikipedia.dataclient.page.PageSummary
+import org.wikipedia.edit.EditHandler
+import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.gallery.GalleryActivity
 import org.wikipedia.gallery.GalleryThumbnailScrollView.GalleryViewListener
 import org.wikipedia.history.HistoryEntry
@@ -145,11 +147,26 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
     }
 
+    private val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
+            FeedbackUtil.showMessage(this, R.string.edit_saved_successfully)
+            // and reload the stub...
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = DialogLinkPreviewBinding.inflate(inflater, container, false)
         binding.linkPreviewToolbar.setOnClickListener { goToLinkedPage(false) }
         binding.linkPreviewOverflowButton.setOnClickListener {
             setupOverflowMenu()
+        }
+        binding.linkPreviewEditChip.setOnClickListener {
+            viewModel.pageTitle.run {
+                // if (namespace() == Namespace.MAIN) {
+                requestEditSectionLauncher.launch(EditSectionActivity.newIntent(requireContext(), -1, null, this, Constants.InvokeSource.LINK_PREVIEW_MENU, null))
+
+                // }
+            }
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
 
@@ -374,22 +391,25 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     }
 
     private fun setPreviewContents(contents: LinkPreviewContents) {
-            binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
-            val colorHex = ResourceUtil.colorToCssString(
-                    ResourceUtil.getThemedColor(
-                            requireContext(),
-                            android.R.attr.textColorPrimary
-                    )
+        binding.linkPreviewExtractWebview.setBackgroundColor(Color.TRANSPARENT)
+        val colorHex = ResourceUtil.colorToCssString(
+            ResourceUtil.getThemedColor(
+                requireContext(),
+                android.R.attr.textColorPrimary
             )
-            val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
-            val extract = if (contents.extract.isNullOrEmpty()) "<i>" + getString(R.string.link_preview_stub_placeholder_text) + "</i>" else contents.extract
-            binding.linkPreviewExtractWebview.loadDataWithBaseURL(
-                    null,
-                    "${JavaScriptActionHandler.getCssStyles(viewModel.pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">$extract</div>",
-                    "text/html",
-                    "UTF-8",
-                    null
-            )
+        )
+        val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
+        val editVisibility = (viewModel.fromPlaces || viewModel.fromArticle) && contents.extract.isNullOrEmpty()
+        binding.linkPreviewEditChip.isVisible = editVisibility
+        binding.linkPreviewThumbnailGallery.isVisible = !editVisibility
+        val extract = if (contents.extract.isNullOrEmpty()) "<i>" + getString(R.string.link_preview_stub_placeholder_text) + "</i>" else contents.extract
+        binding.linkPreviewExtractWebview.loadDataWithBaseURL(
+            null,
+            "${JavaScriptActionHandler.getCssStyles(viewModel.pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">$extract</div>",
+            "text/html",
+            "UTF-8",
+            null
+        )
         contents.title.thumbUrl?.let {
             binding.linkPreviewThumbnail.visibility = View.VISIBLE
             ViewUtil.loadImage(binding.linkPreviewThumbnail, it)
