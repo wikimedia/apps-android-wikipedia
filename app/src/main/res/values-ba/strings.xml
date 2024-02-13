@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Bashkorttan
 * Dbrant
 * Envlh
 * Kareyac
@@ -820,7 +821,7 @@
   <string name="description_edit_translate_caption_label_per_language">Рәсем тасуирламаһы (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Рәсем тасуирламаһы (%s)</string>
   <string name="description_edit_save">Яҙҙырып ҡуйырға</string>
-  <string name="description_edit_read">Уҡырға</string>
+  <string name="description_edit_read">Уҡыу</string>
   <string name="description_edit_add_description">Мәҡәлә тасуирламаһын өҫтәргә</string>
   <string name="description_edit_translate_description">Мәҡәлә тасурламаһын тәржемә итергә</string>
   <string name="description_edit_edit_description">Мәҡәлә тасуирламаһын мөхәррирләргә</string>
