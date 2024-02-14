@@ -909,16 +909,24 @@ class SmokeTests {
         goToTop()
 
         // Access Suggested edits card
+        // On some devices espresso doesnt scroll to >9 position directly, but scrolls in 2 steps
+        onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(9))
         onView(allOf(withId(R.id.feed_view), isDisplayed())).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(10))
 
         TestUtil.delay(2)
 
-        onView(allOf(withId(R.id.callToActionButton), withText("Add article description")))
-            .perform(scrollTo())
+        val callToActionView = onView(allOf(withId(R.id.callToActionButton), withText("Add article description")))
 
-        onView(allOf(withId(R.id.callToActionButton), withText("Add article description"),
-            childAtPosition(allOf(withId(R.id.viewArticleContainer), childAtPosition(withId(R.id.cardItemContainer), 1)), 6), isDisplayed()))
-            .perform(click())
+        // Need to scroll when suggested edits card is very long
+        if (!callToActionView.isDisplayed()) {
+            callToActionView.perform(scrollTo())
+        }
+
+        // Very often the scroll above doesnt work, so we need to ensure that the callToActionView is displayed
+        if (callToActionView.isDisplayed()) {
+            onView(allOf(withId(R.id.callToActionButton), withText("Add article description"),
+            childAtPosition(allOf(withId(R.id.viewArticleContainer), childAtPosition(withId(R.id.cardItemContainer), 1)), 6), isDisplayed())).perform(click())
+        }
 
         TestUtil.delay(2)
 
@@ -926,6 +934,23 @@ class SmokeTests {
         pressBack()
 
         TestUtil.delay(2)
+
+        // Dismiss tooltip if the user gets put into the mgad bucket
+        val mgadTooltipView = onView(
+            allOf(withId(com.skydoves.balloon.R.id.balloon_content))
+        )
+
+        if (mgadTooltipView.isDisplayed()) {
+
+            // Extra back presses to dismiss the tooltip
+            pressBack()
+
+            TestUtil.delay(2)
+
+            pressBack()
+
+            TestUtil.delay(2)
+        }
 
         // Back to explore feed
         pressBack()
@@ -947,6 +972,8 @@ class SmokeTests {
         onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
 
         TestUtil.delay(2)
+
+        goToTop()
 
         // Click on featured article card
         onView(allOf(withId(R.id.view_featured_article_card_content_container)))
@@ -1002,9 +1029,9 @@ class SmokeTests {
         TestUtil.delay(2)
 
         // If it is a new account, SE tasks will not be available. Check to make sure they are.
-        val cardView = onView(allOf(withId(R.id.disabledStatesView), withParent(withParent(withId(R.id.suggestedEditsScrollView))), isDisplayed()))
+        val seDisabledView = onView(allOf(withId(R.id.disabledStatesView), withParent(withParent(withId(R.id.suggestedEditsScrollView))), isDisplayed()))
 
-        if (!cardView.isDisplayed()) {
+        if (!seDisabledView.isDisplayed()) {
             // Click through `Edits` screen stats onboarding - also confirming tooltip display
             for (i in 1 until 5) {
                 onView(allOf(withId(R.id.buttonView), withText("Got it"),
@@ -1099,20 +1126,25 @@ class SmokeTests {
             // Assert `Translate` button leading to translate description screen, when there is more than one language
             val button = onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Article descriptions"),
                     withParent(withParent(IsInstanceOf.instanceOf(androidx.cardview.widget.CardView::class.java))), isDisplayed()))
-            button.check(matches(isDisplayed()))
-
-            onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Article descriptions"),
-                    childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.suggestededits.SuggestedEditsTaskView")), 0), 6), isDisplayed())).perform(click())
-
-            TestUtil.delay(2)
-
-            // Verify image caption translation task
-            onView(allOf(withId(R.id.secondaryButton), withText("Translate"), withContentDescription("Translate Image captions"), isDisplayed())).perform(click())
-
-            TestUtil.delay(2)
+            button.check(matches(isDisplayed())).perform(click())
 
             // Assert the presence of correct action button text
-            onView(allOf(withId(R.id.addContributionButton), withText("Add translation"), withParent(allOf(withId(R.id.bottomButtonContainer))), isDisplayed()))
+            onView(allOf(withId(R.id.addContributionButton), withText("Add translation"),
+                withParent(allOf(withId(R.id.bottomButtonContainer), withParent(IsInstanceOf.instanceOf(android.view.ViewGroup::class.java)))), isDisplayed()))
+                .check(matches(isDisplayed()))
+
+            onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
+
+            TestUtil.delay(2)
+
+            // Assertion of image caption translation task and subsequent action text
+            onView(allOf(withId(R.id.secondaryButton), withText("Translate"),
+                withContentDescription("Translate Image captions"),
+                childAtPosition(childAtPosition(withClassName(Matchers.`is`("org.wikipedia.suggestededits.SuggestedEditsTaskView")), 0), 6), isDisplayed()))
+                .perform(click())
+
+            onView(allOf(withId(R.id.addContributionButton), withText("Add translation"),
+                withParent(allOf(withId(R.id.bottomButtonContainer), withParent(IsInstanceOf.instanceOf(android.view.ViewGroup::class.java)))), isDisplayed()))
                 .check(matches(isDisplayed()))
 
             onView(allOf(withContentDescription("Navigate up"), isDisplayed())).perform(click())
@@ -1135,7 +1167,12 @@ class SmokeTests {
 
             TestUtil.delay(2)
 
-            // Click on `Image tags` task
+            // CScroll to `Image tags` task
+            onView(allOf(withId(R.id.tasksRecyclerView), childAtPosition(withId(R.id.tasksContainer), 2)))
+                .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, scrollTo()))
+
+            TestUtil.delay(2)
+
             onView(allOf(withId(R.id.tasksRecyclerView), childAtPosition(withId(R.id.tasksContainer), 2)))
                 .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
 
@@ -1145,7 +1182,7 @@ class SmokeTests {
 
             TestUtil.delay(2)
 
-            // Assert the presence of correct action button
+            // Assert the presence of correct action button for image tags task
             onView(allOf(withText("Add tag"), withParent(allOf(withId(R.id.tagsChipGroup))), isDisplayed()))
                 .check(matches(isDisplayed()))
 
@@ -1157,7 +1194,7 @@ class SmokeTests {
 
             // Assert the presence of tutorial button
             onView(allOf(withId(R.id.learnMoreButton), withText("Learn more"),
-                childAtPosition(allOf(withId(R.id.learnMoreCard)), 2), isNotFocused())).perform(scrollTo())
+                childAtPosition(allOf(withId(R.id.learnMoreCard)), 2))).perform(scrollTo())
 
             TestUtil.delay(2)
 
