@@ -37,7 +37,6 @@ class ArticleEditDetailsActivity : BaseActivity() {
         const val EXTRA_PAGE_ID = "pageId"
         const val EXTRA_EDIT_REVISION_FROM = "revisionFrom"
         const val EXTRA_EDIT_REVISION_TO = "revisionTo"
-        const val EXTRA_SOURCE = "invokeSource"
 
         fun newIntent(context: Context, title: PageTitle, revisionTo: Long): Intent {
             return newIntent(context, title, -1, -1, revisionTo)
