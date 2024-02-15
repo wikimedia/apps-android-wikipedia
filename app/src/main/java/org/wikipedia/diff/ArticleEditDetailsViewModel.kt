@@ -24,6 +24,7 @@ import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.descriptions.DescriptionEditFragment
 import org.wikipedia.edit.Edit
 import org.wikipedia.extensions.parcelable
+import org.wikipedia.extensions.serializable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
@@ -33,7 +34,7 @@ import org.wikipedia.watchlist.WatchlistFragment
 
 class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
 
-    private val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
+    private val invokeSource = bundle.serializable<InvokeSource>(Constants.INTENT_EXTRA_INVOKE_SOURCE)
     private val fromWatchList = invokeSource == InvokeSource.WATCHLIST_ACTIVITY
 
     val watchedStatus = MutableLiveData<Resource<MwQueryPage>>()
