@@ -194,8 +194,6 @@
   <string name="preference_title_sync_reading_lists_from_account">Sijohijon sinxronizasijə karde bo hande</string>
   <string name="preference_title_download_reading_list_articles">Hande sijohiku məǧolon okyrnije</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sinxron kardə byə bo hande sijohijon «%s» mole?</string>
-  <string name="preferences_privacy_settings_heading">Xysusijət</string>
-  <string name="preference_title_eventlogging_opt_in">Oko doj hisobon vyǧande</string>
   <string name="preference_title_auto_upload_crash_reports">Xəto barədə hisobon vyǧande</string>
   <string name="history_filter_list_hint">Parzyni tarix</string>
   <string name="error_can_not_process_link">Ym linki nišon doj mymkun nybe</string>
@@ -335,6 +333,10 @@
   <string name="multi_select_items_selected">%d vyžnijə byə</string>
   <string name="error_message_generic">Xəto beše</string>
   <string name="view_link_preview_error_button_dismiss">Žəj</string>
+  <string name="link_preview_dialog_read_button">Byhand</string>
+  <string name="link_preview_dialog_save_button">Ogətej</string>
+  <string name="link_preview_dialog_saved_button">Ogətə byə</string>
+  <string name="link_preview_dialog_share_button">Pevylo kardej</string>
   <string name="error_page_does_not_exist">Žygo səhifə ni</string>
   <string name="view_wiki_error_message_offline">Bə internet dəše mymkun ni</string>
   <string name="reference_title">Ǧejd %s</string>
@@ -895,7 +897,6 @@
   <string name="revision_diff_from">Ce:</string>
   <string name="revision_diff_to">Bə:</string>
   <string name="revision_diff_line_num">Sətyr %d</string>
-  <string name="revision_diff_line_nums">Sətyron ce %d-ku tosə %d-nə</string>
   <string name="revision_diff_lines_from_to">Sətyron %1$d–%2$d</string>
   <string name="revision_diff_line_added">Sətyr əlovə kardə byə</string>
   <string name="revision_diff_line_removed">Sətyr molə byə</string>
@@ -975,6 +976,7 @@
   <string name="namespace_article">Məǧolə</string>
   <string name="user_contrib_current">ysət</string>
   <string name="user_contrib_menu_label">Tohfə</string>
+  <string name="action_item_view_on_map">Xəritədə dijə karde</string>
   <string name="shareable_reading_lists_new_indicator">*tojə*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Dərəsəjm</string>
   <string name="reading_list_share_menu_label">Pevylo kardej...</string>
@@ -1016,4 +1018,7 @@
   <string name="data_opt_in_reject">Ohaštej</string>
   <string name="page_issues_title">Səhifə problemon</string>
   <string name="donation_campaign_go_back_button">Bə dumo</string>
+  <string name="places_title">Vyron</string>
+  <string name="places_toggle_buttons_map">Xəritə</string>
+  <string name="places_toggle_buttons_list">Sijohi</string>
 </resources>

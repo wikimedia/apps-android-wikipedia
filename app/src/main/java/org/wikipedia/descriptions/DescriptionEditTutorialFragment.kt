@@ -14,7 +14,6 @@ import org.wikipedia.onboarding.OnboardingPageView
 
 class DescriptionEditTutorialFragment : OnboardingFragment() {
     override val doneButtonText = R.string.description_edit_tutorial_button_label_start_editing
-    override val showDoneButton = true
     var showAIOnBoarding = false
 
     override fun onCreate(savedInstanceState: Bundle?) {

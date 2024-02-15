@@ -208,9 +208,6 @@
   <string name="preference_summary_sync_reading_lists">Giligidnɛ la\'abanɛ ka fʋ karim la divaasinam wʋsa ni ka kpɛn\'ɛsidi ba Wikipedia akaʋnt ni</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Yisim synched dinɛ ka fʋ karim la yi \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Nɛ\' na yis la\'abanɛ ka fʋ giligin la lɛbis zin\'ikanɛ ka sɔ\' zi\'.\n\nYisim la\'abanɛ ka fʋ giligin la fʋ akaʋnt \"%s\" nii</string>
-  <string name="preferences_privacy_settings_heading">Su\'adim</string>
-  <string name="preference_title_eventlogging_opt_in">Tisimi fʋ tʋʋma labaya</string>
-  <string name="preference_summary_eventlogging_opt_in">Basim suor ka Wikipiidia di\'e labaari fʋn mɔr app la tʋm si\'em ka di sʋŋ maal app la sʋ\'ʋŋa</string>
   <string name="preference_title_auto_upload_crash_reports">Tisimi agbirigi san\'am labaya</string>
   <string name="editing_error_spamblacklist">Ba nyɛnɛ linki banɛ pa\'an domɛɛn banɛ ka ba bʋlɔk (%s).\n\nYisimi ba ka mɔ\' nya\'aŋ ya\'as.</string>
   <string name="history_filter_list_hint">Faal labakʋda</string>
@@ -1015,7 +1012,6 @@
   <string name="revision_diff_from">Di yinɛ:</string>
   <string name="revision_diff_to">Ken:</string>
   <string name="revision_diff_line_num">Lai %d</string>
-  <string name="revision_diff_line_nums">Lai %d–%d</string>
   <string name="revision_diff_lines_from_to">Lainam %1$d–%2$d</string>
   <string name="revision_diff_line_added">Lai paasya</string>
   <string name="revision_diff_line_removed">Lai yisya</string>

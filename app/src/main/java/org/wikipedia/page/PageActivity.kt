@@ -33,6 +33,7 @@ import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -166,23 +167,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         super.onCreate(savedInstanceState)
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
-
-        try {
-            setContentView(binding.root)
-        } catch (e: Exception) {
-            if (!e.message.isNullOrEmpty() && e.message!!.lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW) ||
-                !ThrowableUtil.getInnermostThrowable(e).message.isNullOrEmpty() &&
-                ThrowableUtil.getInnermostThrowable(e).message!!.lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW)) {
-                // If the system failed to inflate our activity because of the WebView (which could
-                // be one of several types of exceptions), it likely means that the system WebView
-                // is in the process of being updated. In this case, show the user a message and
-                // bail immediately.
-                Toast.makeText(app, R.string.error_webview_updating, Toast.LENGTH_LONG).show()
-                finish()
-                return
-            }
-            throw e
-        }
+        setContentView(binding.root)
 
         disposables.add(app.bus.subscribe(EventBusConsumer()))
         updateProgressBar(false)
@@ -249,14 +234,28 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             loadMainPage(TabPosition.EXISTING_TAB)
         }
 
-        if (AccountUtil.isLoggedIn) {
-            Prefs.loggedInPageActivityVisitCount++
-        }
-
         if (savedInstanceState == null) {
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(intent)
+        }
+    }
+
+    override fun onStart() {
+        try {
+            super.onStart()
+        } catch (e: Exception) {
+            if (e.message.orEmpty().contains(EXCEPTION_MESSAGE_WEBVIEW, true) ||
+                ThrowableUtil.getInnermostThrowable(e).message.orEmpty().contains(EXCEPTION_MESSAGE_WEBVIEW, true)) {
+                // If the system failed to inflate our activity because of the WebView (which could
+                // be one of several types of exceptions), it likely means that the system WebView
+                // is in the process of being updated. In this case, show the user a message and
+                // bail immediately.
+                Toast.makeText(app, R.string.error_webview_updating, Toast.LENGTH_LONG).show()
+                finish()
+                return
+            }
+            throw e
         }
     }
 
@@ -365,8 +364,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
-        maybeShowWatchlistTooltip()
         maybeShowThemeTooltip()
+        maybeShowPlacesTooltip()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -382,7 +381,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
     }
 
     override fun onPageShowLinkPreview(entry: HistoryEntry) {
-        ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry, null))
+        ExclusiveBottomSheetPresenter.show(supportFragmentManager, LinkPreviewDialog.newInstance(entry))
     }
 
     override fun onPageLoadMainPageInForegroundTab() {
@@ -668,16 +667,31 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             .show()
     }
 
-    private fun maybeShowWatchlistTooltip() {
-        pageFragment.historyEntry?.let {
-            if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn &&
-                    it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS &&
-                    Prefs.loggedInPageActivityVisitCount >= 3) {
-                enqueueTooltip {
-                    Prefs.isWatchlistPageOnboardingTooltipShown = true
-                    FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
-                        R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
+    private fun maybeShowPlacesTooltip() {
+        if (!Prefs.showOneTimePlacesPageOnboardingTooltip ||
+            pageFragment.page?.pageProperties?.geo == null || isTooltipShowing) {
+            return
+        }
+        enqueueTooltip {
+            FeedbackUtil.getTooltip(
+                this,
+                StringUtil.fromHtml(getString(R.string.places_article_menu_tooltip_message)),
+                arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
+                topOrBottomMargin = -8,
+                aboveOrBelow = false,
+                autoDismiss = false,
+                showDismissButton = true
+            ).apply {
+                PlacesEvent.logImpression("article_more_tooltip")
+                setOnBalloonDismissListener {
+                    PlacesEvent.logAction("dismiss_click", "article_more_tooltip")
+                    isTooltipShowing = false
+                    Prefs.showOneTimePlacesPageOnboardingTooltip = false
                 }
+                isTooltipShowing = true
+                BreadCrumbLogEvent.logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
+                showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+                setCurrentTooltip(this)
             }
         }
     }

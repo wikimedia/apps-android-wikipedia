@@ -140,7 +140,7 @@ class WiktionaryDialog : ExtendedBottomSheetDialogFragment() {
     }
 
     private fun getTermFromWikiLink(url: String): String {
-        return removeLinkFragment(url.substring(url.lastIndexOf("/") + 1))
+        return removeLinkFragment(url.substringAfterLast('/'))
     }
 
     private fun removeLinkFragment(url: String): String {

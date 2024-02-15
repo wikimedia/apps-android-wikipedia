@@ -76,32 +76,6 @@
                         android:layout_height="wrap_content"
                         android:visibility="gone"/>
 
-                    <LinearLayout
-                        android:id="@+id/acceptRejectContainer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:orientation="horizontal"
-                        android:gravity="center">
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/rejectButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            style="@style/App.Button.Secondary"
-                            android:textSize="16sp"
-                            android:text="@string/data_opt_in_reject" />
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/acceptButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:text="@string/data_opt_in_accept"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
                 </LinearLayout>
 
                 <org.wikipedia.views.GoneIfEmptyTextView

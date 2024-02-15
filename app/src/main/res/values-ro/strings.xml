@@ -219,9 +219,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sincronizați listelor de lecturi pe diferite dispozitive, salvându-le în contul dumneavoastră Wikipedia \"%s\".</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ștergi listele de lecturi din \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Aceasta va șterge complet toate listele de lectură sincronizate anterior din spațiul de stocare de la distanță. Eliminați toate listele sincronizate din contul dumneavoastră \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Confidențialitate</string>
-  <string name="preference_title_eventlogging_opt_in">Trimite rapoarte de utilizare</string>
-  <string name="preference_summary_eventlogging_opt_in">Permiteți Wikimediei să adune informații despre modul în care utilizați aplicația pentru a putea îmbunătăți aplicația</string>
   <string name="preference_title_auto_upload_crash_reports">Trimite rapoarte de erori</string>
   <string name="preference_summary_auto_upload_crash_reports">Permiteți aplicației să trimită automat rapoarte de avarie unui furnizor de servicii terțe, astfel încât să putem revizui crash-ul și să remediem erorile mai rapid și mai ușor.</string>
   <string name="editing_error_spamblacklist">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>
@@ -1049,8 +1046,6 @@
   <string name="onboarding_explore_text">Aruncă-te în gaura de iepure Wikipedia cu o actualizare constantă a fluxului Explore. &lt;br/&gt; &lt;b&gt;Personalizați&lt;/b&gt; fluxul în funcție de interesele dvs. - fie că învață despre evenimente istorice &lt;b&gt;În această zi&lt;/b&gt;, fie că arunca cu zarurile cu &lt;b&gt;Aleator&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Citirea listelor cu sincronizare</string>
   <string name="onboarding_reading_list_sync_text_v2">Puteți crea liste de citire din articole pe care doriți să le citiți mai târziu, chiar și atunci când sunteți offline.&lt;br/&gt;Conectați-vă la contul dvs. Wikipedia pentru a vă sincroniza listele de citire.. &lt;a href=\"#login\"&gt;Alăturați-vă Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Trimiteți date anonime</string>
-  <string name="onboarding_analytics_offline_text">Ajutați la îmbunătățirea aplicației, informându-ne cum o utilizați. Datele colectate sunt anonime. &lt;a href=\"#privacy\"&gt;Aflați mai multe&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Trimiteți date de utilizare</string>
   <string name="onboarding_got_it">Am înțeles</string>
   <string name="onboarding_multilingual_secondary_text">Am găsit următoarele pe dispozitivul dvs.:</string>
@@ -1241,7 +1236,6 @@
   <string name="revision_diff_from">De la:</string>
   <string name="revision_diff_to">La:</string>
   <string name="revision_diff_line_num">Linia %d</string>
-  <string name="revision_diff_line_nums">Linii %d–%d</string>
   <string name="revision_diff_line_added">Linie adăugată</string>
   <string name="revision_diff_line_removed">Linia a fost scoasă</string>
   <string name="revision_diff_paragraph_added">Paragraf adăugat</string>

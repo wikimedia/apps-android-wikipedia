@@ -262,9 +262,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">あなたのウィキペディアアカウント %s にあとで読むリストを保存して、リストをデバイス間で同期させる</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">「%s」から同期中のあとで読むリストを削除しますか?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">この操作で、これまでに同期されたあとで読むリストをクラウド上のストレージから完全に削除します。本当にすべての同期中のあとで読むリストを 「%s」のアカウントから削除しますか?</string>
-  <string name="preferences_privacy_settings_heading">プライバシー</string>
-  <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
-  <string name="preference_summary_eventlogging_opt_in">アプリの改善に役立てるため、ウィキメディア財団がアプリの使用情報を収集することを許可する</string>
   <string name="preference_title_auto_upload_crash_reports">クラッシュレポートを送信</string>
   <string name="preference_summary_auto_upload_crash_reports">アプリがクラッシュした際に、自動的にサードパーティーのサービスプロバイダーに対してクラッシュレポートを送信することを許可します。これによって、クラッシュ内容を確認して、バグの修正をより迅速かつ簡単に行えるようになります。</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
@@ -444,6 +441,10 @@
   <string name="multi_select_items_selected">%d件選択</string>
   <string name="error_message_generic">エラーが発生しました</string>
   <string name="view_link_preview_error_button_dismiss">閉じる</string>
+  <string name="link_preview_dialog_read_button">読む</string>
+  <string name="link_preview_dialog_save_button">保存</string>
+  <string name="link_preview_dialog_saved_button">保存済み</string>
+  <string name="link_preview_dialog_share_button">共有</string>
   <string name="error_page_does_not_exist">このページは存在しません</string>
   <string name="error_user_page_does_not_exist">ウィキペディアには正確にこの名前に一致する&lt;a href=\"%1$s\"&gt;利用者ページ&lt;/a&gt;がありません。一般的には、このページは&lt;b&gt;%2$s&lt;/b&gt;によって作成され編集されるべきです。疑問があるならば、「%3$s」が存在することを確かめてください。</string>
   <string name="view_wiki_error_message_offline">インターネットに接続できません</string>
@@ -1147,8 +1148,6 @@
   <string name="onboarding_explore_text">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_reading_list_sync_title">あとで読むリストの同期</string>
   <string name="onboarding_reading_list_sync_text_v2">後でオフラインになっても記事が読みたい、そんなあなたのためにあとで読むリストを作成できます。&lt;br/&gt;ウィキペディアのアカウントにログインして、あとで読むリストを同期しましょう&lt;a href=\"#login\"&gt;ウィキペディアに参加&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">匿名データを送信</string>
-  <string name="onboarding_analytics_offline_text">アプリの使い方を教えて機能の向上にご協力ください。収集されるデータは匿名です。 &lt;a href=\"#privacy\"&gt;詳細&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
   <string name="onboarding_got_it">了解!</string>
   <string name="onboarding_multilingual_secondary_text">お使いの端末で次の言語が見つかりました:</string>
@@ -1355,7 +1354,6 @@
   <string name="revision_diff_from">古い版：</string>
   <string name="revision_diff_to">新しい版：</string>
   <string name="revision_diff_line_num">%d行目</string>
-  <string name="revision_diff_line_nums">%d–%d行目</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d行目</string>
   <string name="revision_diff_line_added">行を追加</string>
   <string name="revision_diff_line_removed">行を除去</string>
@@ -1466,6 +1464,7 @@
   <string name="media_playback_error">メディア再生でエラーが発生しました。</string>
   <string name="user_contrib_menu_label">投稿記録</string>
   <string name="user_contrib_filter_activity_title">投稿を絞り込む</string>
+  <string name="action_item_view_on_map">地図上に表示</string>
   <string name="shareable_reading_lists_import_dialog_title">共有リーディングリストの読み込み</string>
   <string name="shareable_reading_lists_import_dialog_content">共有されたリストに名前をつけますか？</string>
   <string name="shareable_reading_lists_new_indicator">*新規*</string>

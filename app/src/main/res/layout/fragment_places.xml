@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:maplibre_foregroundLoadColor="?attr/paper_color"/>
+
+    <LinearLayout
+        android:id="@+id/controlsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <org.wikipedia.views.WikiCardView
+            android:id="@+id/searchContainer"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:elevation="0dp"
+            app:radius="22dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:transitionName="@string/transition_search_bar"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/backButton"
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/search_hint"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/ic_arrow_back_black_24dp"
+                    app:tint="?attr/primary_color" />
+
+                <TextView
+                    android:id="@+id/searchTextView"
+                    style="@style/P"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="@string/places_search_hint"
+                    android:textColor="?attr/secondary_color" />
+
+                <ImageView
+                    android:id="@+id/searchCloseBtn"
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:padding="12dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:backgroundTint="?attr/primary_color"
+                    android:contentDescription="@null"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/ic_close_black_24dp"
+                    app:tint="?attr/primary_color" />
+
+                <org.wikipedia.views.LangCodeView
+                    android:id="@+id/langCodeButton"
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/places_filter_title"/>
+
+                <org.wikipedia.views.TabCountsView
+                    android:id="@+id/tabsButton"
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/menu_page_show_tabs" />
+
+            </LinearLayout>
+
+        </org.wikipedia.views.WikiCardView>
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/viewButtonsGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:layout_gravity="center_horizontal"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/PlacesToggleStyle"
+                android:id="@+id/mapViewButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/places_toggle_buttons_map"
+                android:textColor="?attr/placeholder_color"
+                android:backgroundTint="?attr/paper_color"
+                app:rippleColor="?attr/addition_color"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/PlacesToggleStyle"
+                android:id="@+id/listViewButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/places_toggle_buttons_list"
+                android:textColor="?attr/placeholder_color"
+                android:backgroundTint="?attr/paper_color"
+                app:rippleColor="?attr/addition_color"/>
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="vertical"
+            android:visibility="gone"/>
+
+        <ScrollView
+            android:id="@+id/listEmptyContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="-32dp">
+
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_places_empty_state_illustration" />
+
+                <TextView
+                    android:id="@+id/listEmptyMessage"
+                    style="@style/P"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/myLocationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        style="@style/ThemeOverlay.Material3.FloatingActionButton.Primary"
+        app:shapeAppearanceOverlay="@style/FloatingActionButtonRounded"
+        app:icon="@drawable/my_location_24"
+        app:iconTint="?attr/progressive_color"
+        app:backgroundTint="?attr/paper_color"
+        app:rippleColor="?attr/addition_color"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@null" />
+
+</FrameLayout>

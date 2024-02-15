@@ -251,9 +251,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Okuma listelerini, \"%s\" adlı Vikipedi hesabınıza kaydederek farklı cihazlarda senkronize edin</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Senkronize edilen okuma listeleri \"%s\" hesabından kaldırılsın mı?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Bu, önceden senkronize edilmiş tüm okuma listelerini uzak depolama biriminden tamamen siler. Senkronize edilen tüm listeler, \"%s\" adlı hesabınızdan kaldırılsın mı?</string>
-  <string name="preferences_privacy_settings_heading">Gizlilik</string>
-  <string name="preference_title_eventlogging_opt_in">Kullanım raporlarını gönder</string>
-  <string name="preference_summary_eventlogging_opt_in">Uygulamayı daha iyi hale getirmek için Wikimedia\'nın uygulamayı nasıl kullandığınız hakkında bilgi toplamasına izin verin</string>
   <string name="preference_title_auto_upload_crash_reports">Çökme raporlarını gönder</string>
   <string name="preference_summary_auto_upload_crash_reports">Uygulamanın, kilitlenmenizi inceleyebilmemiz ve hatayı daha hızlı ve daha kolay bir şekilde düzeltebilmemiz için otomatik olarak bir üçüncü taraf hizmet sağlayıcısına kilitlenme raporları göndermesine izin verin.</string>
   <string name="editing_error_spamblacklist">Engellenmiş alan adlarına (%s) bağlantılar tespit edildi. Lütfen bunların kaldırıp tekrar deneyin.</string>
@@ -435,6 +432,10 @@
   <string name="multi_select_items_selected">%d seçildi</string>
   <string name="error_message_generic">Bir hata oluştu</string>
   <string name="view_link_preview_error_button_dismiss">Reddet</string>
+  <string name="link_preview_dialog_read_button">Oku</string>
+  <string name="link_preview_dialog_save_button">Sakla</string>
+  <string name="link_preview_dialog_saved_button">Saklandı</string>
+  <string name="link_preview_dialog_share_button">Paylaş</string>
   <string name="error_page_does_not_exist">Bu sayfa mevcut değil</string>
   <string name="error_user_page_does_not_exist">Vikipedi\'de bu isimde bir &lt;a href=\"%1$s\"&gt;kullanıcı sayfası&lt;/a&gt; yok. Genellikle, bu sayfa &lt;b&gt;%2$s&lt;/b&gt; tarafından oluşturulup düzenlenmelidir. Kuşku duyarsanız, \"%3$s\" sayfasının var olduğundan emin olun.</string>
   <string name="view_wiki_error_message_offline">İnternete bağlanılamıyor.</string>
@@ -1146,8 +1147,8 @@
   <string name="onboarding_explore_text">Vikipedi tavşan deliğine, sürekli Keşfet akışı ile dalın. &lt;br/&gt; Akışınızı ilgileriniz göre &lt;b&gt;özelleştirin&lt;/b&gt; – &lt;b&gt;Tarihte bugün&lt;/b&gt; ile tarihsel olaylar hakkında bilgi alın ya da &lt;b&gt;Rastgele&lt;/b&gt; ile zar atın.</string>
   <string name="onboarding_reading_list_sync_title">Okuma listelerinin senkronizasyonu</string>
   <string name="onboarding_reading_list_sync_text_v2">Çevrimdışı olduğunuzda bile, daha sonra okumak istediğiniz maddeleri okuyabilirsiniz. &lt;br/&gt;Okuma listelerinizi senkronize etmek için Vikipedi hesabınıza giriş yapın. &lt;a href=\"#login\"&gt;Vikipedi\'ye katılın&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Anonim veri gönder</string>
-  <string name="onboarding_analytics_offline_text">Uygulamayı nasıl kullandığınızı bilmemize izin vererek daha iyi hâle getirmemize yardım edin. Veriler anonim olarak toplanır. &lt;a href=\"#privacy\"&gt;Daha fazla bilgi edinin&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Veri &amp; Gizlilik</string>
+  <string name="onboarding_data_privacy_text">Ücretsiz bilgi hareketine katılmak için kişisel bilgilerinizi vermeniz gerekmediğine inanıyoruz. Bu uygulama için toplanan kullanım verilerinin kimliği bilinmez. &lt;a href=\"#privacy\"&gt;Gizlilik ilkemiz&lt;/a&gt; ve &lt;a href=\"#termsOfUse\"&gt;kullanım şartlarımız&lt;/a&gt; hakkında daha fazla bilgi edinin.</string>
   <string name="onboarding_analytics_switch_title">Kullanım verisini gönder</string>
   <string name="onboarding_got_it">Anladım</string>
   <string name="onboarding_multilingual_secondary_text">Cihazınızda aşağıdakilerini bulduk:</string>
@@ -1356,7 +1357,6 @@
   <string name="revision_diff_from">Gönderen:</string>
   <string name="revision_diff_to">Alıcı:</string>
   <string name="revision_diff_line_num">Satır %d</string>
-  <string name="revision_diff_line_nums">Satırlar %d-%d</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d satırları</string>
   <string name="revision_diff_line_added">Satır eklendi</string>
   <string name="revision_diff_line_removed">Satır kaldırıldı</string>
@@ -1468,6 +1468,8 @@
   <string name="media_playback_error">Ortam oynatılırken hata oluştu.</string>
   <string name="user_contrib_menu_label">Katkılar</string>
   <string name="user_contrib_filter_activity_title">Katkıları filtrele</string>
+  <string name="action_item_view_on_map">Haritada görüntüle</string>
+  <string name="action_item_view_on_map_unavailable">Bu sayfa için coğrafi koordinatlar yok</string>
   <string name="shareable_reading_lists_import_dialog_title">Paylaşılan okuma listesini içe aktar</string>
   <string name="shareable_reading_lists_import_dialog_content">Sizinle paylaşılan listeyi nasıl adlandırmak istersiniz?</string>
   <string name="shareable_reading_lists_new_indicator">*yeni*</string>
@@ -1611,4 +1613,19 @@
   <string name="donation_campaign_donated_snackbar">Teşekkürler sevgili bağışçı! Cömertliğiniz Vikipedi\'nin ve kardeş sitelerinin gelişmesine yardımcı oluyor.</string>
   <string name="donation_campaign_go_back_button">Geri dön</string>
   <string name="menu_single_webview_open_external">Sistem tarayıcısında aç</string>
+  <string name="places_title">Yerler</string>
+  <string name="places_permissions_denied">Haritadaki yerinizi görmek için konum izni gereklidir. Lütfen tekrar deneyin.</string>
+  <string name="places_search_hint">Yerleri ara</string>
+  <string name="places_filter_title">Dile göre filtrele</string>
+  <string name="places_toggle_buttons_map">Harita</string>
+  <string name="places_toggle_buttons_list">Liste</string>
+  <string name="places_nav_tab_tooltip_message">Yerler ile çevrenizdeki Vikipedi maddelerini keşfedin</string>
+  <string name="places_article_menu_tooltip_message">Bu maddenin konumunu ortaya çıkarmak için \'Haritada gör\'e dokunun</string>
+  <string name="places_survey_very_satisfied_option">Çok mutlu</string>
+  <string name="places_survey_very_unsatisfied_option">Çok mutsuz</string>
+  <string name="places_survey_dialog_title">\'Yerler\'i iyileştirmeye yardımcı olun</string>
+  <string name="places_survey_feedback_dialog_title">\"Yerler\" nasıl geliştirilebilir?</string>
+  <string name="places_survey_dialog_cancel">İptal</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Neyi değiştirmemizi ya da geliştirmemizi istersiniz?</string>
+  <string name="places_empty_list">Bu alan boş. &lt;a href=\"#\"&gt;Haritayı&lt;/a&gt; uzaklaştırın.</string>
 </resources>

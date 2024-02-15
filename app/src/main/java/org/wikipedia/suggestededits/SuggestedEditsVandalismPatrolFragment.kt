@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import org.wikipedia.Constants
 import org.wikipedia.databinding.FragmentSuggestedEditsVandalismItemBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.diff.ArticleEditDetailsActivity
@@ -28,7 +29,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Arti
             childFragmentManager.commit {
                 add<ArticleEditDetailsFragment>(binding.suggestedEditsItemRootView.id, args = bundleOf(
                     ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to PageTitle("", WikiSite.forLanguageCode(targetWikiLangCode)),
-                    ArticleEditDetailsActivity.EXTRA_FROM_RECENT_EDITS to true,
+                    Constants.INTENT_EXTRA_INVOKE_SOURCE to Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS,
                 ))
             }
         }

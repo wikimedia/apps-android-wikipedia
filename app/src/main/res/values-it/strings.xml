@@ -251,9 +251,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sincronizza gli elenchi di lettura su diversi dispositivi salvandoli sulla tua utenza di Wikipedia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Cancellare gli elenchi di lettura sincronizzati da \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Questa azione cancellerà completamente qualsiasi elenco di lettura precedentemente sincronizzati nel cloud. Vuoi eliminare tutti gli elenchi sincronizzati dall\'utenza «%s»?</string>
-  <string name="preferences_privacy_settings_heading">Privacy</string>
-  <string name="preference_title_eventlogging_opt_in">Invia rapporti sull\'utilizzo</string>
-  <string name="preference_summary_eventlogging_opt_in">Consenti a Wikimedia di raccogliere informazioni su come usi l\'applicazione per renderla migliore</string>
   <string name="preference_title_auto_upload_crash_reports">Invia segnalazioni di errori</string>
   <string name="preference_summary_auto_upload_crash_reports">Consenti all\'applicazione di inviare automaticamente i rapporti sugli arresti anomali a un fornitore di servizi di terze parti, in modo da poter rivedere il tuo arresto anomalo e correggere l\'errore più velocemente e più facilmente.</string>
   <string name="editing_error_spamblacklist">È stato rilevato un collegamento ad un dominio bloccato (%s). Rimuovilo e prova ancora.</string>
@@ -1119,8 +1116,6 @@
   <string name="onboarding_explore_text">Immergiti nella tana del coniglio di Wikipedia con un feed Esplora in costante aggiornamento. &lt;br/&gt; &lt;b&gt;Personalizza&lt;/b&gt; il feed per i tuoi interessi, sia che si tratti di conoscere eventi storici &lt;b&gt;In questo giorno&lt;/b&gt;, sia di lanciare i dadi con &lt;b&gt;Una pagina a caso&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Elenchi di lettura con sincronizzazione</string>
   <string name="onboarding_reading_list_sync_text_v2">Puoi creare elenchi di lettura delle voci che desideri leggere in un secondo momento, anche quando sei offline. &lt;br/&gt; Accedi al tuo account Wikipedia per sincronizzare i tuoi elenchi di lettura. &lt;a href=\"#login\"&gt;Iscriviti a Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Invia dati anonimi</string>
-  <string name="onboarding_analytics_offline_text">Contribuisci a migliorare l\'applicazione facendoci sapere come la usi. I dati raccolti sono anonimi. &lt;a href=\"#privacy\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Invia dati di utilizzo</string>
   <string name="onboarding_got_it">Capito</string>
   <string name="onboarding_multilingual_secondary_text">Abbiamo trovato quanto segue sul tuo dispositivo:</string>
@@ -1321,7 +1316,6 @@
   <string name="revision_diff_from">Da:</string>
   <string name="revision_diff_to">A:</string>
   <string name="revision_diff_line_num">Riga %d</string>
-  <string name="revision_diff_line_nums">Righe %d–%d</string>
   <string name="revision_diff_lines_from_to">Righe %1$d–%2$d</string>
   <string name="revision_diff_line_added">Riga aggiunta</string>
   <string name="revision_diff_line_removed">Riga rimossa</string>
@@ -1512,4 +1506,8 @@
   <string name="donation_campaign_donated_snackbar">Grazie a te che hai donato! La tua generosità aiuta a far crescere Wikipedia e i suoi siti correlati.</string>
   <string name="donation_campaign_go_back_button">Torna indietro</string>
   <string name="menu_single_webview_open_external">Apri nel browser di sistema</string>
+  <string name="places_nav_tab_tooltip_message">Scopri le voci di Wikipedia intorno a te con Luoghi</string>
+  <string name="places_article_menu_tooltip_message">Tocca \"Visualizza sulla mappa\" per esplorare la posizione di questa voce</string>
+  <string name="places_survey_dialog_title">Aiuta a migliorare \'Luoghi\'</string>
+  <string name="places_survey_dialog_cancel">Annulla</string>
 </resources>
