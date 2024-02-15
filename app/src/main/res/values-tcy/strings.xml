@@ -202,8 +202,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">ಓದುನ ಪಟ್ಟಿನ್ ಮಾತಾ ಡಿವೈಸ್‌ಗ್ ಸೇರಾವರ ಇರೆನ ವಿಕಿಪೀಡಿಯ ಖಾತೆ%sಡ್ ಒರಿಪಾಲೆ</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">ಸೇರಾಯಿನ ಓದುನ ಪಟ್ಟಿನ್ %sಡ್ದ್ ದೆಪ್ಪೊಡಾ?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ದುಂಬು ಸೇರಾಯಿನ ಓದುನ ಮಾತಾ ಪಟ್ಟಿನ್ ಉಂದು ಮಾಜಾವುಂಡು. ಸೇರಾಯಿನ ಪಟ್ಟಿನ್ %sಡ್ದ್ ಇರೆನ ಖಾತೆಡ್ದ್ ದೆಪ್ಪೊಡಾ?</string>
-  <string name="preferences_privacy_settings_heading">ಸೊಂತೊ</string>
-  <string name="preference_title_eventlogging_opt_in">ಬೊಡಪಿ ವರದಿನ್ ಕಡಪುಡ್ಲೆ</string>
   <string name="preference_title_auto_upload_crash_reports">ಬೊಡ್ಚಂತಿನ ವರದಿ ಕಡಪ‍್ಡುಕಾ</string>
   <string name="error_can_not_process_link">ಈ ಕೊಂಡಿತಾ ಪುಟೋ ತೋಜೊಂತಿಜ್ಜಿ</string>
   <string name="page_protected_can_not_edit_title">ಈ ಪುಟನ್ ಜಾಗ್ರತೆಡ್ ಡಿತುಂಡು</string>

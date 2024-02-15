@@ -248,9 +248,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synchronisiere Leselisten zwischen unterschiedlichen Geräten durch das Speichern der Listen in dein Wikipedia-Benutzerkonto „%s“</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Synchronisierte Leselisten von „%s“ entfernen?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dies wird alle früher synchronisierten Leselisten vollständig aus dem Fernspeicher löschen. Alle synchronisierten Listen aus deinem Benutzerkonto „%s“ entfernen?</string>
-  <string name="preferences_privacy_settings_heading">Datenschutz</string>
-  <string name="preference_title_eventlogging_opt_in">Nutzungsberichte senden</string>
-  <string name="preference_summary_eventlogging_opt_in">Wikimedia erlauben, Informationen über die Verwendung der App zu sammeln, um sie zu verbessern.</string>
   <string name="preference_title_auto_upload_crash_reports">Absturzberichte senden</string>
   <string name="preference_summary_auto_upload_crash_reports">Der App erlauben, automatisch Absturzberichte an einen ausgelagerten Dienstleistungsanbieter zu senden, so dass wir deinen Absturz überprüfen und den Fehler schneller und einfacher beheben können.</string>
   <string name="editing_error_spamblacklist">Es wurden Links zu gesperrten Domains (%s) entdeckt. Bitte entferne sie und versuche es erneut.</string>
@@ -1138,8 +1135,6 @@
   <string name="onboarding_explore_text">Tauche in die Wikipedia-Welt ein. Bleib mit einem ständig aktuellen Entdecken-Feed auf dem Laufenden.&lt;br/&gt; &lt;b&gt;Passe&lt;/b&gt; den Feed deinen Interessen an – ob er dir historische Ereignisse &lt;b&gt;An diesem Tag&lt;/b&gt; nahebringt oder wirf den Würfel mit &lt;b&gt;Zufällig&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leselisten mit Synchronisierung</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kannst Leselisten von Artikeln erstellen, die du später lesen möchtest, auch wenn du offline bist. &lt;br/&gt;Melde dich bei deinem Wikipedia-Benutzerkonto an, um deine Leselisten zu synchronisieren. &lt;a href=\"#login\"&gt;Wikipedia beitreten&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Anonymisierte Daten senden</string>
-  <string name="onboarding_analytics_offline_text">Hilf uns dabei, die App zu verbessern, indem du uns wissen lässt, wie du sie nutzt. Die gesammelten Daten sind anonym. &lt;a href=\"#privacy\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Nutzungsdaten senden</string>
   <string name="onboarding_got_it">Verstanden</string>
   <string name="onboarding_multilingual_secondary_text">Wir haben die folgenden Sprachen auf deinem Gerät gefunden:</string>

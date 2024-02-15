@@ -167,8 +167,6 @@
   <string name="preferences_heading_experimental">प्रयोगात्मक</string>
   <string name="preference_title_sync_reading_lists_from_account">पठन सूची सिंक होय रहलौ छौं</string>
   <string name="preference_title_download_reading_list_articles">पठन सूची केरौ लेख डाउनलोड करौ</string>
-  <string name="preferences_privacy_settings_heading">गोपनीयता</string>
-  <string name="preference_title_eventlogging_opt_in">उपयोग रिपोर्ट भेजौ</string>
   <string name="preference_title_auto_upload_crash_reports">क्रैश रिपोर्ट भेजौ</string>
   <string name="history_filter_list_hint">फ़िल्टर केरौ इतिहास</string>
   <string name="page_protected_autoconfirmed">हैय पृष्ठ अर्ध-सुरक्षित छै।</string>

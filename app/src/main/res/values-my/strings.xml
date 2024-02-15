@@ -201,9 +201,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">မတူညီသော စက်ပစ္စည်းများရှိ sync လုပ်ထားသော စာဖတ်စာရင်းများကို သင်၏ဝီကီပီးဒီးယားအကောင့် \"%s\" ထဲတွင် သိမ်းရန်</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s မှ sync လုပ်ထားသော စာဖတ်စာရင်းကို ဖယ်ရှားမည်လော</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ဤသည် remote storage မှ မကြာသေးခင်က sync လုပ်ထားသည့် စာဖတ်စာရင်းအားလုံးကို လုံးဝဥသုံ ဖျက်ပစ်မည်ဖြစ်သည်။ သင်၏အကောင့် \"%s\" မှ sync လုပ်ထားသော စာရင်းအားလုံးကို ဖယ်ရှားမည်လော။</string>
-  <string name="preferences_privacy_settings_heading">ကိုယ်ရေးမူဝါဒ</string>
-  <string name="preference_title_eventlogging_opt_in">အသုံးပြုမှု အစီရင်ခံချက်များအား ပို့ရန်</string>
-  <string name="preference_summary_eventlogging_opt_in">အက်ပ်အား ပိုမိုကောင်းမွန်လာစေရန် သင်အသုံးပြုပုံ အချက်အလက်များ ရယူစုဆောင်းနိုင်ရန် ဝီကီမီဒီယာအား ခွင့်ပြုပါ</string>
   <string name="preference_title_auto_upload_crash_reports">ပျက်မှု အစီရင်ခံချက်များအား ပို့ရန်</string>
   <string name="preference_summary_auto_upload_crash_reports">တတိယဝန်ဆောင်မှုလုပ်ငန်းသို့ အက်ပ်မှ ပျက်မှု အစီရင်ခံချက်များအား အလိုအလျောက် ပေးပို့စေခြင်းဖြင့် သင့်အစီရင်ခံချက်ကို လွယ်ကူလျှင်မြန်စွာ ကြည့်ရှုပြင်ဆင်နိုင်စေရန် ခွင့်ပြုပါ။</string>
   <string name="editing_error_spamblacklist">ပိတ်ပင်ထားသော ဒိုမိန်းများ (%s) သို့ ချိတ်ဆက်ထားမှု ရှိနေသည်။ ကျေးဇူးပြု၍ ယင်းတို့ကို ဖယ်ရှားပြီး ထပ်မံကြိုးစားပါ။</string>
@@ -854,8 +851,6 @@
   <string name="onboarding_explore_text">စဉ်ဆက်မပြတ် မွမ်းမံလျက်ရှိသော စူးစမ်းရေးအခင်းအကျင်းနှင့် ဝီကီပီးဒီးယား ယုန်တွင်းပေါက်သို့ ခုန်ဆင်းလိုက်ပါ။ &lt;br/&gt;သင် စိတ်ဝင်စားသော အခင်းအကျင်းကို &lt;b&gt;မွမ်းမံပြင်ဆင်ပါ&lt;/b&gt; - သမိုင်းဝင်ဖြစ်ရပ်များကို &lt;b&gt;ယနေ့ဖြစ်ရပ်များ&lt;/b&gt;၊ သို့မဟုတ် &lt;b&gt;ကျပန်း&lt;/b&gt;ဖြင့် အန်စာတုံးကို လှည့်ကာ လေ့လာနိုင်ပါသည်။</string>
   <string name="onboarding_reading_list_sync_title">Sync နှင့် စာဖတ်စာရင်းများ</string>
   <string name="onboarding_reading_list_sync_text_v2">အော့ဖ်လိုင်းဖြစ်နေစဉ်တွင်တောင်မှ နောင်အခါ သင်ဖတ်ရှုလိုသော ဆောင်းပါးများကို စာဖတ်စာရင်းများအဖြစ် ပြုလုပ်နိုင်ပါသည်။ &lt;br/&gt;သင်၏ ဖတ်ရှုစာရင်းများကို ဝီကီပီးဒီးယားအကောင့်ထဲတွင် sync လုပ်ရန် လော့အင်ဝင်ရောက်ပါ။ &lt;a href=\"#login\"&gt;ဝီကီပီးဒီးယားသို့ ချိတ်ဆက်ပါ&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">အမည်မသိဒေတာကို ပို့ရန်</string>
-  <string name="onboarding_analytics_offline_text">သင် မည်ကဲ့သို့အသုံးချသည်ကို ကျွန်ုပ်တို့အားပြောပြပြီး ဆော့ဝဲလ်ကို ပိုမိုကောင်းမွန်လာအောင် ကူညီပါ။ ဒေတာစုဆောင်းခြင်းမှာ အမည်မသိစနစ်ဖြစ်သည်။ &lt;a href=\"#privacy\"&gt;ပိုမိုလေ့လာရန်&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">အသုံးပြုဒေတာကို ပို့ရန်</string>
   <string name="onboarding_got_it">ရပြီဟေ့</string>
   <string name="onboarding_multilingual_secondary_text">သင်၏စက်ပစ္စည်းပေါ်တွင် အောက်ပါများကို တွေ့ရှိပါသည်:</string>

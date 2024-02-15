@@ -216,9 +216,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinhroniziraj bralne sezname med različnimi napravami tako, da se shranijo v računu »%s« v Wikipediji.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Odstranim sinhronizirane bralne sezname iz »%s«?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">S tem boste iz shranjevanja v oblaku v celoti izbrisali vse predhodno sinhronizirane bralne sezame. Odstranim z vašega računa »%s« vse sinhronizirane sezname?</string>
-  <string name="preferences_privacy_settings_heading">Zasebnost</string>
-  <string name="preference_title_eventlogging_opt_in">Pošiljaj poročila o uporabi</string>
-  <string name="preference_summary_eventlogging_opt_in">Omogočite Wikimedii zbiranje podatkov o tem, kako uporabljate aplikacijo, da bo ta postala še boljša.</string>
   <string name="preference_title_auto_upload_crash_reports">Pošiljaj poročila o sesutjih</string>
   <string name="preference_summary_auto_upload_crash_reports">Omogočite aplikaciji samodejno pošiljanje poročil o sesutjih tretjemu ponudniku storitve, da bomo lahko pregledali dogodke ter hitreje in lažje odpravili hrošče.</string>
   <string name="editing_error_spamblacklist">Zaznane so bile povezave na blokirane domene (%s). Prosimo, odstranite jih in poskusite znova.</string>
@@ -1189,8 +1186,6 @@
   <string name="onboarding_explore_text">Vstopite v zajčjo luknjo Wikipedije z neprestanim posodabljanjem vira raziskovanja. &lt;br/&gt; &lt;b&gt;Prilagodite&lt;/b&gt; vir svojim zanimanjem – pa naj bodo to zgodovinski dogodki &lt;b&gt;Na današnji dan&lt;/b&gt; ali metanje kocke z možnostjo &lt;b&gt;Naključno&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Bralni seznami s sinhroniziranjem</string>
   <string name="onboarding_reading_list_sync_text_v2">Ustvarjate lahko bralne sezname člankov, ki jih želite prebrati pozneje, tudi če niste povezani na splet. &lt;br/&gt;Za sinhroniziranje bralnih seznamov se prijavite v svoj račun v Wikipediji. &lt;a href=\"#login\"&gt;Pridružite se Wikipediji&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Pošiljajte anonimne podatke</string>
-  <string name="onboarding_analytics_offline_text">Pomagajte izboljševati aplikacijo s tem, da nam sporočate, kako jo uporabljate. Zbrani podatki so anonimni. &lt;a href=\"#privacy\"&gt;Več o tem&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Pošiljaj podatke o uporabi</string>
   <string name="onboarding_got_it">Razumem</string>
   <string name="onboarding_multilingual_secondary_text">Na vaši napravi smo našli naslednje:</string>
@@ -1678,10 +1673,10 @@
   <string name="places_toggle_buttons_map">Zemljevid</string>
   <string name="places_toggle_buttons_list">Seznam</string>
   <string name="places_nav_tab_tooltip_message">Odkrivajte članke Wikipedije okoli sebe s Kraji</string>
-  <string name="places_article_menu_tooltip_message">Tapnite &lt;b&gt;»Ogled na zemljevidu«&lt;/b&gt;, da raziščete lokacijo tega članka</string>
+  <string name="places_article_menu_tooltip_message" fuzzy="true">Tapnite &lt;b&gt;»Ogled na zemljevidu«&lt;/b&gt;, da raziščete lokacijo tega članka</string>
   <string name="places_survey_very_satisfied_option">Odlična izkušnja</string>
   <string name="places_survey_very_unsatisfied_option">Zelo slaba izkušnja</string>
-  <string name="places_survey_dialog_title">Pomagajte izboljšati »Kraje«</string>
+  <string name="places_survey_dialog_title" fuzzy="true">Pomagajte izboljšati »Kraje«</string>
   <string name="places_survey_feedback_dialog_title">Kako lahko izboljšamo »Kraje«?</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Kaj bi želeli, da spremenimo ali izboljšamo?</string>
   <string name="places_empty_list">To območje je prazno. Pomanjšaj &lt;a href=\"#\"&gt;zemljevid&lt;/a&gt;.</string>

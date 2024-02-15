@@ -119,9 +119,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronkon daftar bacaan i sude perangkat dohot manyimpanna tu akun Wikipedia Mu \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Apus daftar bacaan na isinkronkon tingon \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">On nangkan mangapus sude daftar bacaan na isinkronkon parjolo tingon panyimpanan nadao. Apus sude daftar na isinkronkon timgon akun Muyu \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Pripasi</string>
-  <string name="preference_title_eventlogging_opt_in">Kirim laporan panggunaan</string>
-  <string name="preference_summary_eventlogging_opt_in">Izinkon Wikimedia get mangumpulkon informasi tontang songondia Amu mamake aplikasi anso mambaen aplikasi tu nadegesna</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan nasega</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Izinkon aplikasi tu mangirimkon laporan nasega tu HockeyApp / panyadio layanan pihak patolu sacara otomatis mambaen ami bisa mangida sega muyui dot pature kasalahan lobi cipat dot lobi momo.</string>
   <string name="editing_error_spamblacklist">Pranala tu domain na iblokir (%s) tardeteksi. Apusma dot kajo mulak.</string>

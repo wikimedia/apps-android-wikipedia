@@ -152,8 +152,6 @@
   <string name="create_account_account_created_toast">Compte creat !</string>
   <string name="preferences_heading_data_usage">Utilizacion dei donadas</string>
   <string name="preferences_heading_experimental">Experimentau</string>
-  <string name="preferences_privacy_settings_heading">Confidencialitat</string>
-  <string name="preference_title_eventlogging_opt_in">Mandar los rapòrts d’utilizacion</string>
   <string name="preference_title_auto_upload_crash_reports">Mandar de rapòrts d’incident</string>
   <string name="error_can_not_process_link">Impossible d’afichar aqueste ligam</string>
   <string name="page_protected_autoconfirmed">Aquesta pagina es estada semiprotegida.</string>

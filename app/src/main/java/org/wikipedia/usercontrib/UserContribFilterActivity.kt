@@ -27,6 +27,9 @@ class UserContribFilterActivity : BaseActivity() {
     private lateinit var binding: ActivityUserContribWikiSelectBinding
 
     private val langUpdateLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (!WikipediaApp.instance.languageState.appLanguageCodes.contains(Prefs.userContribFilterLangCode)) {
+            Prefs.userContribFilterLangCode = WikipediaApp.instance.appOrSystemLanguageCode
+        }
         binding.recyclerView.adapter = ItemAdapter(this)
     }
 

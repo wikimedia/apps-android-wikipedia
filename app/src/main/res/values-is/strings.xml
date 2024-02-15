@@ -210,9 +210,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Samstilla leslista á milli mismunandi tækja með því að vista þá á Wikipedia-notandaaðganginn \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjarlægja samstillta leslista af %s?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Þetta mun eyða öllum áður samstilltum leslistum af fjartengdu gagnageymslunni. Fjarlægja alla samstillta leslista af \"%s notandaaðganginum þínum?</string>
-  <string name="preferences_privacy_settings_heading">Gagnaleynd</string>
-  <string name="preference_title_eventlogging_opt_in">Senda notkunarskýrslur</string>
-  <string name="preference_summary_eventlogging_opt_in">Leyfa Wikimedia til að safna upplýsingum um hvernig þú notar forritið svo hægt sé að gera það betra</string>
   <string name="preference_title_auto_upload_crash_reports">Senda hrunskýrslur</string>
   <string name="preference_summary_auto_upload_crash_reports">Leyfa forritinu að senda tilkynningar um hrun sjálfkrafa til utanaðkomandi þjónustu þannig að við getum skoðað hvað fór úrskeiðis og lagað villur fljótt og vel.</string>
   <string name="editing_error_spamblacklist">Fann tengla á útilokuð lén (%s). Fjarlægðu þá og reyndu aftur.</string>
@@ -1101,8 +1098,6 @@
   <string name="onboarding_explore_text">Hentu þér út í djúpu Wikipedia-laugina með \'Uppgötva\'-streymi sem er uppfært í sífellu. &lt;br/&gt;Þú getur &lt;b&gt;sérsniðið&lt;/b&gt; streymið eftir áhugamálum þínum – hvort sem það er til að læra um sögulega atburði í &lt;b&gt;Á þessum degi&lt;/b&gt;, eða með því að taka áhættuna í &lt;b&gt;Slembið&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leslistar með samstillingu</string>
   <string name="onboarding_reading_list_sync_text_v2">Þú getur búið til leslista úr greinum til að lesa þær síðar, jafnvel án nettengingar. &lt;br/&gt;Skráðu þig inn á Wikipedia-notandaaðganginn þinn til að samstilla leslistana þína. &lt;a href=\"#login\"&gt;Skráðu þig á Wikipedia&lt;/a&gt; \\</string>
-  <string name="onboarding_analytics_title">Senda nafnlaus gögn</string>
-  <string name="onboarding_analytics_offline_text">Hjálpaðu okkur að bæta forritið með því að leyfa okkur að sjá hvernig þú notar það. Gögnum er safnað án persónuauðkenna. &lt;a href=\"#privacy\"&gt;Vita meira&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Senda upplýsingar um notkun</string>
   <string name="onboarding_got_it">Náði því</string>
   <string name="onboarding_multilingual_secondary_text">Við fundum eftirtalin tungumál á tækinu þínu:</string>

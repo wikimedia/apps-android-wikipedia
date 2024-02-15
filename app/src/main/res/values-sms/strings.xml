@@ -268,6 +268,7 @@
   <string name="suggested_edits_image_preview_dialog_tags">Ǩeâlggal</string>
   <string name="suggested_edits_image_preview_dialog_date">Peiʹvvmieʹrr</string>
   <string name="suggested_edits_image_preview_dialog_source">Teâttkäivv/Sniimmi</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Lââʹssteâđ</string>
   <string name="suggested_edits_article_cta_image_caption">Lââʹzzet kartt- leʹbe snimldõkteeʹkst</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Lââʹzzet kartt- leʹbe snimldõkteeʹkst (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Čuäʹjet</string>
@@ -326,6 +327,7 @@
   <string name="custom_date_picker_dialog_cancel_button_text">Jõõsk</string>
   <string name="talk_title">Saǥstõõllâmseidd</string>
   <string name="talk_user_title">Õõʹnni %s saǥstõõllmõõžž</string>
+  <string name="talk_warn_save_dialog_publish">Õlmstââʹtt</string>
   <string name="talk_add_reply">Vaʹstted</string>
   <string name="talk_snackbar_undo">Kååʹmet</string>
   <string name="talk_search_hint">Ooʒʒ saaǥǥid</string>

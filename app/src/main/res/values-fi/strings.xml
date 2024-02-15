@@ -27,6 +27,7 @@
 * Pyscowicz
 * SHaran (WMF)
 * SMAUG
+* Samoasambia
 * ShakePilli
 * Silvonen
 * SuperPete
@@ -237,9 +238,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synkronoi lukulistat eri laitteiden välillä tallentamalla ne Wikipedia-käyttäjätunnuksellesi \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Poista synkronoidut lukulistat käytäjätunnukseltasi \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tämä tulee täysin poistamaan kaikki aiemmin synkronoimasi lukulistat etämuistiltasi. Poista kaikki synkronoinut listat käyttäjätunnukseltasi \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Yksityisyys</string>
-  <string name="preference_title_eventlogging_opt_in">Lähetä käyttöraportteja</string>
-  <string name="preference_summary_eventlogging_opt_in">Salli Wikimedian kerätä tietoja sovelluksen käyttötottumuksista käyttäjäkokemuksen parantamiseksi.</string>
   <string name="preference_title_auto_upload_crash_reports">Lähetä kaatumisilmoituksia</string>
   <string name="preference_summary_auto_upload_crash_reports">Salli sovelluksen lähettää automaattisesti kaatumisilmoituksia kolmannen osapuolen palveluntarjoajalle, jotta voimme käydä läpi sovelluksesi kaatumisen ja korjata ongelmat nopeammin sekä helpommin.</string>
   <string name="editing_error_spamblacklist">Havaittu linkkejä estettyihin verkko-osoitteisiin (%s). Poista ne ja yritä uudelleen.</string>
@@ -829,7 +827,7 @@
   <string name="feed_configure_onboarding_action">Mukauta</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Peruuta</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Mukauta Tutki-syötettä&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Voit mukauttaa ja järjestellä syötteen sisältöä vapassti.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Mukauta Tutki-syötettä&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Voit mukauttaa ja järjestellä syötteen sisältöä vapaasti.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="feed_accessibility_card_text">Olet päässyt syötteen loppuun.</string>
@@ -1129,8 +1127,6 @@
   <string name="onboarding_explore_text">Sukella Wikipedian syövereihin aina ajan tasalla olevalla Tutki-syötteellä. &lt;br/&gt; &lt;b&gt;Mukauta&lt;/b&gt; mielenkiinnonkohteidesi mukaaan – vaikkapa tutustumalla &lt;b&gt;tämän päivämäärän&lt;/b&gt; historiallisiin tapahtumiin tai &lt;b&gt;satunnaisesti&lt;/b&gt; valittuun artikkeliin.</string>
   <string name="onboarding_reading_list_sync_title">Synkronoidut lukulistat</string>
   <string name="onboarding_reading_list_sync_text_v2">Lukulistalle voi lisätä myöhemmin luettavaksi artikkeleita, jotka toimivat myös ilman verkkoyhteyttä. &lt;br/&gt;Lukulistojen käyttö edellyttää Wikipedia-tunnuksella kirjautumista. &lt;a href=\"#login\"&gt;Liity Wikipediaan&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Lähetä dataa nimettömästi</string>
-  <string name="onboarding_analytics_offline_text">Antamalla luvan sovelluksen käyttötietojen keräämiseen tuet sovelluksen kehitystyötä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#privacy\"&gt;Lisätietoja&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Lähetä dataa tavasta, jolla käytät sovellusta</string>
   <string name="onboarding_got_it">Selvä</string>
   <string name="onboarding_multilingual_secondary_text">Laitteesta löytyneet kielet:</string>

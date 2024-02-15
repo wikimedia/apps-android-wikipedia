@@ -194,8 +194,6 @@
   <string name="preference_title_sync_reading_lists_from_account">Sijohijon sinxronizasijə karde bo hande</string>
   <string name="preference_title_download_reading_list_articles">Hande sijohiku məǧolon okyrnije</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sinxron kardə byə bo hande sijohijon «%s» mole?</string>
-  <string name="preferences_privacy_settings_heading">Xysusijət</string>
-  <string name="preference_title_eventlogging_opt_in">Oko doj hisobon vyǧande</string>
   <string name="preference_title_auto_upload_crash_reports">Xəto barədə hisobon vyǧande</string>
   <string name="history_filter_list_hint">Parzyni tarix</string>
   <string name="error_can_not_process_link">Ym linki nišon doj mymkun nybe</string>

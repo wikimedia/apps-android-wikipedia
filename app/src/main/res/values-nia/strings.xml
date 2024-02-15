@@ -195,9 +195,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Irö\'ö gangolita nibaso ba akun \"%s\" ena\'ö tefagölösi ba fefu wakake ni\'oguna\'ö</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Tibo\'ö gangolita nibaso moroi ba \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text" fuzzy="true">Edöna tetibo\'ö fefu gangolita nibaso si no mu\'irö\'ö ba server. Hadia ötohugö \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privasi</string>
-  <string name="preference_title_eventlogging_opt_in">Fa\'ohe\'ö duria wangoguna\'ö</string>
-  <string name="preference_summary_eventlogging_opt_in">Tehegö khö Wikimedia wangowuloi informasi wangoguna\'ö aplikasi, ni\'oguna\'ö dania ba wame ena\'ö abölö sökhi aplikasi.</string>
   <string name="preference_title_auto_upload_crash_reports">Fa\'ohe\'ö duria wa\'alabu (crash)</string>
   <string name="preference_summary_auto_upload_crash_reports">Tehegö ena\'ö tefa\'ohe\'ö duria wa\'alabu (crash) ena\'ö tola mafaigi hadia mbörö ba mufagamöi ia tobali abölö sökhi.</string>
   <string name="editing_error_spamblacklist">No so khai-khai ba domain (%s) niba\'agö. Heta khai-khai andrö ba fuli lau.</string>

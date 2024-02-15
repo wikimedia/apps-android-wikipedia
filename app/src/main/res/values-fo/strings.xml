@@ -53,8 +53,6 @@
   <string name="preferences_general_heading">Generelt</string>
   <string name="send_feedback">Send app afturmelding</string>
   <string name="create_account_account_created_toast">Konto upprættað!</string>
-  <string name="preference_title_eventlogging_opt_in">Send frágreiðingar um brúkara</string>
-  <string name="preference_summary_eventlogging_opt_in">Loyv Wikimedia at savna kunning um hvussu tú nýtir appina, fyri at appin kann gerast betri</string>
   <string name="editing_error_spamblacklist">Leinki til sperraði økisnøvn (domains) (%s) vóru funnin. Vinarliga tak tey burtur og royn aftur.</string>
   <string name="error_can_not_process_link">Kundi ikki vísa hesa leinkjuna</string>
   <string name="page_protected_autoconfirmed">Henda síðan er blivin hálv-vard.</string>

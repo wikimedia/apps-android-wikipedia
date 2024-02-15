@@ -124,9 +124,6 @@
   <string name="preferences_heading_syncing">Sinkronisasie</string>
   <string name="preferences_heading_data_usage">Datagebruik</string>
   <string name="preferences_heading_experimental">Eksperimenteel</string>
-  <string name="preferences_privacy_settings_heading">Privaatheid</string>
-  <string name="preference_title_eventlogging_opt_in">Stuur gebruiksverslae</string>
-  <string name="preference_summary_eventlogging_opt_in">Laat Wikimedia toe om inligting in te samel oor hoe u die toep gebruik om sodoende die toep te verbeter</string>
   <string name="preference_title_auto_upload_crash_reports">Stuur bomverslae</string>
   <string name="editing_error_spamblacklist">Skakels na geblokkeerder domeins (%s) gevind. Verwyder dit en probeer weer.</string>
   <string name="error_can_not_process_link">Kon nie hierdie skakel vertoon nie</string>

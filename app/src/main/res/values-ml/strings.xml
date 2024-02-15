@@ -182,9 +182,6 @@
   <string name="preferences_heading_experimental">പരീക്ഷണാടിസ്ഥാനം</string>
   <string name="preference_title_sync_reading_lists_from_account">വായനാപട്ടിക ഏകതാനമാക്കുന്നു</string>
   <string name="preference_title_download_reading_list_articles">വായനാപട്ടികയിലെ ലേഖനങ്ങൾ ഡൗൺലോഡ് ചെയ്യുക</string>
-  <string name="preferences_privacy_settings_heading">സ്വകാര്യത</string>
-  <string name="preference_title_eventlogging_opt_in">ഉപയോഗ വിവരങ്ങൾ അയയ്ക്കുക</string>
-  <string name="preference_summary_eventlogging_opt_in">താങ്കൾ എങ്ങനെയാണ് ആപ് ഉപയോഗിച്ചതെന്ന വിവരങ്ങൾ ശേഖരിച്ച് ആപ് കൂടുതൽ മെച്ചപ്പെട്ടതാക്കാൻ വിക്കിമീഡിയയെ അനുവദിക്കുക</string>
   <string name="preference_title_auto_upload_crash_reports">നാശത്തിന്റെ റിപ്പോർട്ടുകൾ അയക്കുക</string>
   <string name="editing_error_spamblacklist">തടയപ്പെട്ട ഡൊമൈനുകളിലോട്ടുള്ള കണ്ണികൾ (%s) കണ്ടെത്താനായി. ദയവായി അവ ഒഴിവാക്കി വീണ്ടും ശ്രമിക്കുക.</string>
   <string name="error_can_not_process_link">ഈ കണ്ണി പ്രദർശിപ്പിക്കാനാവില്ല</string>

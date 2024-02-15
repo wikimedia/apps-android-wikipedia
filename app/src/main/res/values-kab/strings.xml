@@ -176,9 +176,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Mtawi tibdarin n tɣuri gar yibenkan yemgaraden s usekles-nsen n umḍan-ik(im) \"%s\" n Wikipedia</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Tukksa n umtawi n tebdarin n tɣuri seg \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Aya ad yekkes akk tibdarin n tɣuri yemtawin seg tazwara seg uklas anmeggag. Tukksa n tebdarin yemtawin akk seg umiḍan-ik(im) \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Tabaḍnit</string>
-  <string name="preference_title_eventlogging_opt_in">Azen ineqqisen n useqdec</string>
-  <string name="preference_summary_eventlogging_opt_in">Eǧǧ Wikimedia ad yelqeḍ talɣut ɣef wamek tseqdaceḍ asnas akken ad t-terreḍ igarrez ugar.</string>
   <string name="preference_title_auto_upload_crash_reports">Azen ineqqisen n uɣelluy</string>
   <string name="preference_summary_auto_upload_crash_reports">Sireg asnas ad yazen ineqqisen n wuguren ar HockeyApp, asaǧǧaw n yimeẓla-nniḍen, s wudem awurman, akken ad nizmir ad nesleḍ sakin ad nesseɣti ugur s tɣawla, s wudem fessusen.</string>
   <string name="editing_error_spamblacklist">Tuṭṭfa n iseɣwan ar tɣula iweḥlen (%s). Ma ulac aɣilif, kkes-iten sakin ɛreḍ tikelt-nniḍen.</string>
@@ -588,7 +585,6 @@
   <string name="onboarding_explore_title">Tarryin-nniden n usnirem</string>
   <string name="onboarding_explore_text" fuzzy="true">Wali imagraden ufrinen, isental imaynutenakked isumar n tɣuri di tnelli n usnirem.</string>
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Tibdarin n tɣuri s umtawi</string>
-  <string name="onboarding_analytics_title">Azen isefka udrigen</string>
   <string name="onboarding_analytics_switch_title">Azen isefka n useqdec</string>
   <string name="app_shortcuts_random">Agacuran</string>
   <string name="app_shortcuts_continue_reading">Kemmel taɣuri</string>

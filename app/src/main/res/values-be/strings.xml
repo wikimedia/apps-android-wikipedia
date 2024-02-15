@@ -228,9 +228,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Сінхранізуйце спісы для чытання на розных прыладах, захаваўшы іх у сваім уліковым запісе Вікіпедыі «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Выдаліць сінхранізаваныя спісы чытання з \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Гэта прывядзе да поўнага выдалення ўсіх спісаў чытання, якія былі захаваны раней, з аддаленага сховішча. Выдаліць усе сінхранізаваныя спісы з вашага ўліковага запісу \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Канфідэнцыяльнасць</string>
-  <string name="preference_title_eventlogging_opt_in">Адпраўляць звесткі пра выкарыстанне</string>
-  <string name="preference_summary_eventlogging_opt_in">Дазвольце Вікімедыі збіраць інфармацыю пра тое, як вы выкарыстоўваеце дадатак, каб зрабіць яго лепш</string>
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы аб збоях</string>
   <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна адпраўляць звесткі пра збоі пабочнаму сэрвісу, каб мы маглі прааналізаваць праблему і выправіць памылкі хутчэй і прасцей.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблакаваныя дамены (%s). Калі ласка, выдаліце іх і паспрабуйце зноў.</string>
@@ -1192,8 +1189,6 @@
   <string name="onboarding_explore_text">Вандруйце ў прасторах Вікіпедыі з шторазова абнаўляльнай стужкай Агляду. &lt;br/&gt; &lt;b&gt;Наладзьце&lt;/b&gt; стужку адпаведна вашым зацікаўленасцям — няхай гэта будзе вывучэнне гістарычных падзей &lt;b&gt;У гэты дзень&lt;/b&gt;, або шукайце нешта новае з &lt;b&gt;Выпадковым артыкулам&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Спісы для чытання з сінхранізацыяй</string>
   <string name="onboarding_reading_list_sync_text_v2">Вы можаце складаць спісы для чытання з артыкулаў, якія вы хочаце прачытаць пазней, нават калі вы знаходзіцеся ў пазасеткавым рэжыме. &lt;br/&gt;Увайдзіце ў свой уліковы запіс Вікіпедыі, каб сінхранізаваць свае спісы для чытання. &lt;a href=\"#login\"&gt;Далучайцеся да Вікіпедыі&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Адпраўляць ананімныя даныя</string>
-  <string name="onboarding_analytics_offline_text">Дапамажыце зрабіць дадатак лепш, паведаміце нам, як вы ім карыстаецеся. Сабраныя даныя будуць ананімнымі. &lt;a href=\"#privacy\"&gt;Даведацца больш&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Адправіць даныя пра выкарыстанне</string>
   <string name="onboarding_got_it">Зразумела</string>
   <string name="onboarding_multilingual_secondary_text">Мы знайшлі наступнае на вашай прыладзе:</string>

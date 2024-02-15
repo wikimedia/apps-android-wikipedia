@@ -93,7 +93,6 @@
   <string name="preferences_general_heading">Të përgjithshme</string>
   <string name="wikipedia_app_faq">Pyetje dhe përgjigje</string>
   <string name="create_account_account_created_toast">Llogaria u krijua!</string>
-  <string name="preferences_privacy_settings_heading">Privatësia</string>
   <string name="edit_abandon_confirm_yes">Po</string>
   <string name="edit_summary_tag_typo">Korrigjim gabim shtypi</string>
   <string name="edit_summary_tag_other">Tjetër</string>

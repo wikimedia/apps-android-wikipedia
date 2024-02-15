@@ -220,9 +220,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizovať zoznamy na prečítanie naprieč rôznymi zariadeniami pomocou ich uloženia do vášho účtu „%s“ na Wikipédii.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Chcete odstrániť synchronizované zoznamy na prečítanie z účtu „%s“?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Táto akcia odstráni všetky predtým synchronizované zoznamy na prečítanie z úložného priestoru. Odstrániť všetky synchronizované zoznamy z vášho účtu „%s“?</string>
-  <string name="preferences_privacy_settings_heading">Súkromie</string>
-  <string name="preference_title_eventlogging_opt_in">Odosielať správu o používaní</string>
-  <string name="preference_summary_eventlogging_opt_in">Povoliť Wikimedii zbierať informácie o vašom používaní aplikácie. Pomáha nám to skvalitniť aplikáciu.</string>
   <string name="preference_title_auto_upload_crash_reports">Odosielať správu o zlyhaní</string>
   <string name="preference_summary_auto_upload_crash_reports">Umožňuje aplikácii automaticky odosielať hlásenia o chybách tretím stranám, aby sme mohli chybu preskúmať a opraviť ju rýchlejšie a jednoduchšie.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
@@ -1061,8 +1058,6 @@
   <string name="onboarding_explore_text">Ponorte sa do Wikipédie s priebežne aktualizovaným kanálom Objaviť. &lt;br/&gt; &lt;b&gt;Prispôsobte&lt;/b&gt; si ho podľa svojich záujmov – či už je to &lt;b&gt;V tento deň&lt;/ b&gt; alebo &lt;b&gt;Náhodný článok&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Zoznamy na prečítanie so synchronizáciou</string>
   <string name="onboarding_reading_list_sync_text_v2">Môžete si vytvárať zoznamy na prečítanie z článkov, ktoré si chcete prečítať, aj keď sa odhlásite od svojho účtu.&lt;br/&gt;Prihláste sa do svojho účtu na Wikipédii, aby ste mohli svoje zoznamy na prečítanie synchronizovať.&lt;br/&gt;&lt;a href=\"#login\"&gt;Pripojiť sa k Wikipédii&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Odosielať anonymné údaje</string>
-  <string name="onboarding_analytics_offline_text">Pomôžte nám spraviť aplikáciu lepšou tak, že nám dáte vedieť ako ju používate. Tieto informácie sa zbierajú anonymne. &lt;a href=\"#privacy\"&gt;Zistite viac&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Posielať informácie o používaní</string>
   <string name="onboarding_got_it">Rozumiem</string>
   <string name="onboarding_multilingual_secondary_text">Na vašom zariadení sme našli nasledujúce jazyky:</string>

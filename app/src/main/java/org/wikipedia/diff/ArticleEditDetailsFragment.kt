@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.activity.FragmentUtil
@@ -697,13 +698,16 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     }
 
     companion object {
-        fun newInstance(title: PageTitle, pageId: Int, revisionFrom: Long, revisionTo: Long, fromRecentEdits: Boolean): ArticleEditDetailsFragment {
+        const val DIFF_UNDO_COMMENT = "#diff-undo"
+        const val DIFF_ROLLBACK_COMMENT = "#diff-rollback"
+
+        fun newInstance(title: PageTitle, pageId: Int, revisionFrom: Long, revisionTo: Long, source: InvokeSource): ArticleEditDetailsFragment {
             return ArticleEditDetailsFragment().apply {
                 arguments = bundleOf(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to title,
                     ArticleEditDetailsActivity.EXTRA_PAGE_ID to pageId,
                     ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM to revisionFrom,
                     ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO to revisionTo,
-                    ArticleEditDetailsActivity.EXTRA_FROM_RECENT_EDITS to fromRecentEdits)
+                    Constants.INTENT_EXTRA_INVOKE_SOURCE to source)
             }
         }
     }

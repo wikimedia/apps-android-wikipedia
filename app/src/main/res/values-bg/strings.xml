@@ -145,7 +145,7 @@
   <string name="login_password_hint">Парола</string>
   <string name="account_creation_password_hint">Парола</string>
   <string name="login_2fa_hint">Двукомпонентен удостоверителен код</string>
-  <string name="login_2fa_other_workflow_error_msg">Нужно е двукомпонентно удостоверяване! Моля, върнете се към основната дейност и влезте с вашия 2FA токен, след което опитайте пак.</string>
+  <string name="login_2fa_other_workflow_error_msg">Нужно е двуфакторно удостоверяване! Моля, върнете се към основната дейност и влезте с вашия 2FA токен, след което опитайте пак.</string>
   <string name="onboarding_card_login">Влизане</string>
   <string name="page_editing_login">Влизане</string>
   <string name="reading_lists_sync_login">Влизане</string>
@@ -213,9 +213,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Синхронизиране на списъци за четене на различни устройства чрез запазването им в сметката Ви „%s“ в Уикипедия</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Премахване на синхронизираните списъци за четене от „%s“?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Това ще изтрие напълно всички синхронизирани досега списъци за четене от външното хранилище. Премахване на всички синхронизирани списъци от сметката Ви „%s“?</string>
-  <string name="preferences_privacy_settings_heading">Поверителност</string>
-  <string name="preference_title_eventlogging_opt_in">Изпращане на доклади за употребата</string>
-  <string name="preference_summary_eventlogging_opt_in">Позволяване на Уикимедия да събира информация за това как използвате приложението, с цел подобряването му</string>
   <string name="preference_title_auto_upload_crash_reports">Изпращане на доклади за сривове</string>
   <string name="preference_summary_auto_upload_crash_reports">Позволяване на приложението да изпраща доклади за сривове към услуга на трети страни автоматично, така че да можем да прегледаме срива и да оправим бъга по-бързо и по-лесно.</string>
   <string name="editing_error_spamblacklist">Открити са препратки до блокирани домейни (%s). Моля, премахнете ги и опитайте пак.</string>
@@ -1002,8 +999,6 @@
   <string name="onboarding_explore_text">Гмурнете се в Уикипедия с постоянно обновяващата се хранилка за откриване. &lt;br/&gt; &lt;b&gt;Персонализирайте&lt;/b&gt; хранилката според Вашите интереси – опознайте историческите събития &lt;b&gt;На днешната дата&lt;/b&gt; или пробвайте късмета си със &lt;b&gt;Случайна&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Списъци за четене със синхронизация</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите списъци за четене от статии, които искате да четете по-късно, дори когато нямате мрежа. &lt;br/&gt;Влезте в сметката си в Уикипедия, за да синхронизирате списъците си за четене. &lt;a href=\"#login\"&gt;Присъединете се към Уикипедия&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Изпращане на анонимни данни</string>
-  <string name="onboarding_analytics_offline_text">Помогнете да направим приложението по-добро, като ни уведомите как го използвате. Събираните данни са анонимни. &lt;a href=\"#privacy\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Изпращане на данни за използване</string>
   <string name="onboarding_got_it">Разбрах</string>
   <string name="onboarding_multilingual_secondary_text">Намерено е следното на Вашето устройство:</string>

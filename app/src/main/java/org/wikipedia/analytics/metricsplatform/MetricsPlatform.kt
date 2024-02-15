@@ -15,7 +15,7 @@ object MetricsPlatform {
         BuildConfig.FLAVOR + BuildConfig.BUILD_TYPE,
         WikipediaApp.instance.appInstallID,
         WikipediaApp.instance.currentTheme.toString(),
-        WikipediaApp.instance.versionCode.toString(),
+        WikipediaApp.instance.versionCode,
         "android",
         "app",
         WikipediaApp.instance.languageState.systemLanguageCode,

@@ -174,8 +174,6 @@
   <string name="preferences_heading_experimental">ექსპერიმენტული</string>
   <string name="preference_title_sync_reading_lists_from_account">ოკითხირე ერკებულიშ სინქრონიზაცია</string>
   <string name="preference_title_download_reading_list_articles">ოკითხირე სტატიეფიშ ერკებულიშ გჷმოხარგუა</string>
-  <string name="preferences_privacy_settings_heading">კონფიდენციალურობა</string>
-  <string name="preference_title_eventlogging_opt_in">გმორინაფაშ ანგარიშიშ ჯღონუა</string>
   <string name="history_filter_list_hint">ტკიბირიშ ისტორია</string>
   <string name="error_can_not_process_link">რცხიშ ძირაფაქ ვემიხერხინუ</string>
   <string name="page_protected_autoconfirmed">თე ხასჷლა გვერდოთხილერი რე.</string>

@@ -160,9 +160,6 @@
   <string name="preferences_heading_data_usage">Выкарыстаньне зьвестак</string>
   <string name="preferences_heading_experimental">Экспэрымэнтальныя</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Выдаліць сынхранізаваныя сьпісы чытаньня з „%s“?</string>
-  <string name="preferences_privacy_settings_heading">Прыватнасьць</string>
-  <string name="preference_title_eventlogging_opt_in">Адпраўляць справаздачы пра карыстаньне</string>
-  <string name="preference_summary_eventlogging_opt_in">Дазволіць Вікімэдыя зьбіраць інфармацыю пра тое як Вы выкарыстоўваеце дастасаваньне каб яго палепшыць</string>
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы пра памылкі</string>
   <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна дасылаць паведамленьні пра памылкі ў пабочны сэрвіс-правайдэр, каб мы маглі праглядаць зьвесткі пра памылку, што дазволіць нам хутчэй выправіць яе.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблякаваныя дамэны (%s). Калі ласка, выдаліце іх і праспрабуйце зноў.</string>

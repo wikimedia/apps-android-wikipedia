@@ -65,8 +65,6 @@
   <string name="preferences_general_heading">Ollgemmyn</string>
   <string name="send_feedback">Danvon dasliv a\'n towlennik</string>
   <string name="create_account_account_created_toast">Akont gwrys!</string>
-  <string name="preference_title_eventlogging_opt_in">Danvon derivadow devnydh</string>
-  <string name="preference_summary_eventlogging_opt_in">Alowa Wikimedia dhe guntel kedhlow a-dro dhe\'n fordh may tevnydhyowgh an app rag y wellhe</string>
   <string name="editing_error_spamblacklist">Kevrennow dhe drigvaow lettyes (%s) helerghys. Gwrewgh aga dilea hag assaya arta.</string>
   <string name="error_can_not_process_link">Ny ylles diskwedhes an gevren ma</string>
   <string name="page_protected_autoconfirmed">Hanter-difresys re beu an folen ma.</string>

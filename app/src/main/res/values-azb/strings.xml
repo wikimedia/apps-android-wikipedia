@@ -66,8 +66,6 @@
   <string name="create_account_button">حساب یارات</string>
   <string name="preferences_general_heading">عمومی</string>
   <string name="create_account_account_created_toast">حساب یارادیلدی!</string>
-  <string name="preferences_privacy_settings_heading">شخصی حریم</string>
-  <string name="preference_title_eventlogging_opt_in">ایشلتمه راپورتلارینی گؤندر</string>
   <string name="preference_title_auto_upload_crash_reports">خطا راپورتو گؤندر</string>
   <string name="error_can_not_process_link">بۇ باغلانتینی گؤسترمک اوْلماییر</string>
   <string name="page_protected_autoconfirmed">بۇ صفحه یاریم‌قوْروما آلتیندادیر.</string>

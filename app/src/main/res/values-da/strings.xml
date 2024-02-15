@@ -223,9 +223,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto »%s«</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjern synkroniserede læselister fra din »%s«?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra eksternt lager. Fjern alle synkroniserede lister fra din konto »%s«?</string>
-  <string name="preferences_privacy_settings_heading">Privatliv</string>
-  <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
-  <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre den bedre.</string>
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om nedbrud</string>
   <string name="preference_summary_auto_upload_crash_reports">Tillad appen at sende rapporter om nedbrud til en tredjepartstjeneste automatisk, så vi kan gennemgå nedbruddet og rette fejlen hurtigere og nemmere.</string>
   <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
@@ -986,6 +983,8 @@
   <string name="suggested_edits_ip_blocked_message">Det ser ud til, at din IP-adresse (eller række af IP-adresser) i øjeblikket er blokeret fra at redigere Wikipedia.</string>
   <string name="suggested_edits_gate_message">Beklager %s, du skal foretage mindst tre redigeringer direkte i en artikel for at bruge denne funktion.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips og tricks til redigering</string>
+  <string name="suggested_edits_help_page_link_text">Hjælpeside for foreslåede redigeringer</string>
+  <string name="suggested_edits_edit_streak_label_text">Redigeringsrække</string>
   <string name="suggested_edits_views_label_text">Visninger</string>
   <string name="suggested_edits_quality_label_text">Redigeringskvalitet</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
@@ -997,6 +996,10 @@
   <string name="suggested_edits_quality_poor_text">Svagt</string>
   <string name="suggested_edits_quality_bad_text">Dårligt</string>
   <string name="suggested_edits_label">Foreslåede redigeringer</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Bidrag</item>
+    <item quantity="other">Bidrag</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dag</item>
     <item quantity="other">%d dage</item>
@@ -1110,8 +1113,6 @@
   <string name="onboarding_explore_text">Dyk ned i Wikipedias kaninhul med et konstant opdaterende Udforsk-feed. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; feedet til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller et kast med terningen med &lt;b&gt;Vilkårlig&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Læselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan lave læselister med artikler, du ønsker at læse senere, selv når du er uden internetadgang. &lt;br/&gt;Log ind på din Wikipediakonto for at synkronisere dine læselister.&lt;a href=\"#login\"&gt;Opret konto på Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Send anonyme data</string>
-  <string name="onboarding_analytics_offline_text">Hjælp med at gøre programmet bedre ved at fortælle os hvordan du bruger den. Data indsamles anonymt. &lt;a href=\"#privacy\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>
   <string name="onboarding_got_it">O.k.</string>
   <string name="onboarding_multilingual_secondary_text">Vi har fundet følgende på din enhed:</string>
@@ -1381,6 +1382,7 @@
   <string name="watchlist_filter_significance_edits">Ikke-mindre ændringer</string>
   <string name="watchlist_filter_latest_revisions_header">Seneste revisioner</string>
   <string name="watchlist_filter_latest_revisions_latest_revision">Seneste revidering</string>
+  <string name="watchlist_filter_type_of_change_header">Ændringstype</string>
   <string name="watchlist_filter_type_of_change_page_edits">Sideredigeringer</string>
   <string name="watchlist_filter_type_of_change_page_creations">Sideoprettelser</string>
   <string name="watchlist_filter_type_of_change_category_changes">Kategoriændringer</string>
@@ -1494,10 +1496,10 @@
   <string name="places_toggle_buttons_map">Kort</string>
   <string name="places_toggle_buttons_list">Liste</string>
   <string name="places_nav_tab_tooltip_message">Opdag Wikipedia-artikler omkring dig med Steder</string>
-  <string name="places_article_menu_tooltip_message">Tryk på &lt;b&gt;\'Se på kort\'&lt;/b&gt; for at udforske denne artikels placering</string>
+  <string name="places_article_menu_tooltip_message" fuzzy="true">Tryk på &lt;b&gt;\'Se på kort\'&lt;/b&gt; for at udforske denne artikels placering</string>
   <string name="places_survey_very_satisfied_option">Meget tilfreds</string>
   <string name="places_survey_very_unsatisfied_option">Meget utilfreds</string>
-  <string name="places_survey_dialog_title">Hjælp med at forbedre \"Steder\"</string>
+  <string name="places_survey_dialog_title" fuzzy="true">Hjælp med at forbedre \"Steder\"</string>
   <string name="places_survey_feedback_dialog_title">Hvordan kan \"Steder\" forbedres?</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Hvad vil du gerne have, at vi ændrer eller forbedrer?</string>
   <string name="places_empty_list">Dette område er tomt. Zoom ud &lt;a href=\"#\"&gt;på kortet&lt;/a&gt;.</string>

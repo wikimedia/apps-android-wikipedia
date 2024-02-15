@@ -155,8 +155,6 @@
   <string name="preference_title_sync_reading_lists_from_account">Á̱ tyei lis fang pwut di̱n ta̱m</string>
   <string name="preference_title_download_reading_list_articles">Cyok ma̱ng a̱yaati̱kut lis fang</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Turung lís fang nang á̱ ku tyia̱ pwut neet di̱ \"%s\" a?</string>
-  <string name="preferences_privacy_settings_heading">A̱bala̱lang</string>
-  <string name="preference_title_eventlogging_opt_in">Ta̱m ma̱ng a̱yaaripot nyian ta̱m</string>
   <string name="history_filter_list_hint">Cyam nkhang gbangbang</string>
   <string name="error_can_not_process_link">Á̱ si̱ mi̱n tsa a̱fwop wuni bah</string>
   <string name="page_protected_autoconfirmed">Á̱ cok peji huni di̱n kap.</string>

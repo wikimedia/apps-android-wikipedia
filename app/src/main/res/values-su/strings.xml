@@ -204,9 +204,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronkeun daptar bacaan dina sakur perangkat ku diteundeun dina akun Wikipédia anjeun \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Pupus daptar bacaeun anu disingkronkeun tina \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Peta ieu bakal ngahapus sakur daptar bacaeun anu disingkronkeun tina simpenan jauh. Hapus sakur daptar anu disingkronkeun tina akun anjeun \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privasi</string>
-  <string name="preference_title_eventlogging_opt_in">Kirim laporan pamakéan</string>
-  <string name="preference_summary_eventlogging_opt_in">Heugbaékeun Wikimédia pikeun ngumpulkeun info ngeunaan cara anjeun migunakeun aplikasi sangkan aplikasi jadi leuwih hadé</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan karuksakan</string>
   <string name="preference_summary_auto_upload_crash_reports">Idinan aplikasi pikeun ngirimkeun laporan karuksakan ka panyadia layanan pihak katilu sacara otomatis sangkan kami bisa ngariksa karuksakanna sarta ngoméan kasalahan leuwih gancang sarta leuwih gampang.</string>
   <string name="editing_error_spamblacklist">Tutumbu ka domain nu dipeunpeuk (%s) kadéték. Pék hapus sarta cobaan deui.</string>
@@ -532,7 +529,6 @@
   <string name="onboarding_explore_title">Cara anyar pikeun ngalanglang</string>
   <string name="onboarding_explore_text" fuzzy="true">Panggihan artikel petingan, jejer nu keur trén, sarta saran artikel di eupan Langlangan.</string>
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Daptar bacaan kalawan singkronisasi</string>
-  <string name="onboarding_analytics_title">Kirim data anonim</string>
   <string name="onboarding_analytics_switch_title">Kirim data pamakéan</string>
   <string name="app_shortcuts_random">Acak</string>
   <string name="app_shortcuts_continue_reading">Tuluykeun Maca</string>

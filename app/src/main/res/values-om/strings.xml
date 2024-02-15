@@ -59,7 +59,6 @@
   <string name="create_account_next">Itti fufi</string>
   <string name="create_account_button">Eenyummeessa uumi</string>
   <string name="create_account_account_created_toast">Eenyummeessi uummame!</string>
-  <string name="preference_title_eventlogging_opt_in">Gabaasa fayyadamaa ergi</string>
   <string name="error_can_not_process_link">Geessituu kana agarsiisuu hindandeenye</string>
   <string name="settings_activity_title">Sirrannoo</string>
   <string name="privacy_policy_description">Seera mateengaa</string>

@@ -242,9 +242,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronkan daftar bacaan di berbagai perangkat dengan menyimpannya ke akun Wikipedia Anda \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Hapus daftar bacaan yang disinkronkan dari \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tindakan ini akan menghapus semua daftar bacaan yang disinkronkan sebelumnya dari penyimpanan jarak jauh. Hapus semua daftar yang disinkronkan dari akun Anda \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privasi</string>
-  <string name="preference_title_eventlogging_opt_in">Kirim laporan penggunaan</string>
-  <string name="preference_summary_eventlogging_opt_in">Izinkan Wikimedia untuk mengumpulkan informasi tentang bagaimana Anda menggunakan aplikasi ini agar aplikasi ini menjadi lebih baik</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
   <string name="preference_summary_auto_upload_crash_reports">Izinkan aplikasi untuk mengirimkan laporan kerusakan ke penyedia layanan pihak ketiga secara otomatis sehingga kami dapat meninjau kerusakan Anda dan memperbaiki kesalahan lebih cepat dan lebih gampang.</string>
   <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
@@ -1102,8 +1099,8 @@
   <string name="onboarding_explore_text">Menyelam menyusuri lubang kelinci Wikipedia dengan umpan Jelajahi yang terus diperbarui. &lt;br/&gt; &lt;b&gt;Sesuaikan&lt;/b&gt; umpan untuk minat Anda – apakah itu mempelajari tentang peristiwa bersejarah &lt;b&gt;Pada hari ini&lt;/b&gt;, atau melempar dadu dengan &lt;b&gt;Sembarang&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Daftar bacaan dengan sinkronisasi</string>
   <string name="onboarding_reading_list_sync_text_v2">Anda bisa membuat daftar bacaan dari artikel yang ingin Anda baca nanti, bahkan saat Anda sedang luring. &lt;br/&gt;Masuk log ke akun Wikipedia Anda untuk menyinkronkan daftar bacaan Anda. &lt;a href=\"#login\"&gt;Bergabunglah dengan Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Kirim data anonim</string>
-  <string name="onboarding_analytics_offline_text">Bantu membuat aplikasi lebih baik dengan memberi tahu kami bagaimana Anda menggunakannya. Data yang dikumpulkan bersifat anonim. &lt;a href=\"#privacy\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Data &amp; Privasi</string>
+  <string name="onboarding_data_privacy_text">Kami percaya bahwa Anda tidak perlu memberikan informasi pribadi untuk berpartisipasi dalam gerakan pengetahuan bebas. Data penggunaan yang dikumpulkan untuk aplikasi ini bersifat anonim. Pelajari lebih lanjut tentang &lt;a href=\"#privacy\"&gt;kebijakan privasi&lt;/a&gt; dan &lt;a href=\"#termsOfUse\"&gt;ketentuan penggunaan&lt;/a&gt; kami.</string>
   <string name="onboarding_analytics_switch_title">Kirim data penggunaan</string>
   <string name="onboarding_got_it">Mengerti</string>
   <string name="onboarding_multilingual_secondary_text">Kami telah menemukan bahasa berikut di perangkat Anda:</string>
@@ -1569,9 +1566,12 @@
   <string name="places_toggle_buttons_map">Peta</string>
   <string name="places_toggle_buttons_list">Daftar</string>
   <string name="places_nav_tab_tooltip_message">Temukan artikel Wikipedia di sekitar Anda dengan Tempat</string>
-  <string name="places_article_menu_tooltip_message">Ketuk &lt;b&gt;\'Lihat di peta\'&lt;/b&gt; untuk menjelajahi lokasi artikel ini</string>
+  <string name="places_article_menu_tooltip_message">Ketuk \'Lihat di peta\' untuk menjelajahi lokasi artikel ini</string>
   <string name="places_survey_very_satisfied_option">Sangat puas</string>
   <string name="places_survey_very_unsatisfied_option">Sangat tidak puas</string>
-  <string name="places_survey_dialog_title">Bantu memperbaiki \"Tempat\"</string>
+  <string name="places_survey_dialog_title">Bantu memperbaiki \'Tempat\'</string>
   <string name="places_survey_feedback_dialog_title">Bagaimana \"Tempat\" sebaiknya diperbaiki?</string>
+  <string name="places_survey_dialog_cancel">Batal</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Apa yang Anda ingin kami ubah atau tingkatkan?</string>
+  <string name="places_empty_list">Daerah ini kosong. Perkecil &lt;a href=\"#\"&gt;peta&lt;/a&gt; .</string>
 </resources>

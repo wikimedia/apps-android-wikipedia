@@ -211,9 +211,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Хьа Википеден аккаунта чу (%s) дӀа а яздеш, тайп-тайпарча устройстваш тӀа éша дӀаяхкача оагӀоний мугӀамашта синхронизаци ю</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">«%s» аккаунта чу синхронизаци яь дола дешара листамаш дӀадаха дезий?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Укх гӀулакхо гаьнарча ларма чура хьаккхá дӀадоахаргда хьалха синхронизаци мел яь хинна дешара листамаш. «%s» яхача хьа аккаунтаца синхронизаци яь дола дешара листамаш дӀадаха дезий?</string>
-  <string name="preferences_privacy_settings_heading">КъайлагӀарча хӀамай политика</string>
-  <string name="preference_title_eventlogging_opt_in">Пайда эцарах отчёташ дӀаахийта</string>
-  <string name="preference_summary_eventlogging_opt_in">Ӏа приложене лелаярах лаьца хоам гулбе Викимедиага могадайтар. Ишта дикагӀа хургья приложени.</string>
   <string name="preference_title_auto_upload_crash_reports">Сбой хиларах отчёташ дӀаахийта</string>
   <string name="preference_summary_auto_upload_crash_reports">Приложене чу этта долаш дола гӀалат тахка а из тоаде а тхона аттагӀеи сихагӀеи хургдолаш цу хатарех лаьца отчёташ арахьарча сервисага ши-шегӀа дӀаахийтар могадайта.</string>
   <string name="editing_error_spamblacklist">Блок теха йолча домений (%s) тӀатовжамаш корадаьд. Дехар да, уж дӀа а даьхе, кхы цхьаькхаза хьажа.</string>
@@ -1082,8 +1079,6 @@
   <string name="onboarding_explore_text">Википеде гӀолла лела хьайна даим кердадувлача лентах пайда а эцаш. &lt;br/&gt;&lt;b&gt;Оттамаш&lt;/b&gt; де йиш цу лента тӀа хьай хьашт дар цо гойтаргдолаш — &lt;b&gt;укх дийнахьа&lt;/b&gt; тархьаре хинна хӀамаш е &lt;b&gt;ца ховш нийсъенна&lt;/b&gt; оагӀонаш.</string>
   <string name="onboarding_reading_list_sync_title">Дешарá дола листамаш синхронизацеца</string>
   <string name="onboarding_reading_list_sync_text_v2">Хье офлайн вале/яле а, тӀехьагӀа хьайна еша безам болча оагӀонех дешара листамаш хьаде йиш я хьа. &lt;br/&gt;Хьай аккаунтаца авторизаци е, хьай дешара листамашта синхронизаци ергйолаш. &lt;a href=\"#login\"&gt;Хьахоттале Википедех&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Пайда эцарах отчеташ дӀаахийта</string>
-  <string name="onboarding_analytics_offline_text">Ер приложени толашагӀа хилийта гӀо де тхона, оашош цох пайда мишта эца хьа а аьнна. Хьагулбаь бола хоам къайла хургба. &lt;a href=\"#privacy\"&gt;Хá ма дарра&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Пайда эцарах отчёташ дӀаахийта</string>
   <string name="onboarding_got_it">Кхет</string>
   <string name="onboarding_multilingual_secondary_text">Ераш метташ корадаьд тхона хьа устройства тӀа:</string>

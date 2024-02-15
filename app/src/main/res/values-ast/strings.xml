@@ -162,9 +162,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sincronizar les llistes de llectura ente distintos preseos guardándoles na to cuenta de Wikipedia «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">¿Desaniciar les llistes de llectura sincronizaes de «%s»?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Esto desaniciará dafechu del almacenamientu remotu toles llistes de llectura sincronizaes anteriormente. ¿Desaniciar toles llistes sincronizaes de la to cuenta «%s»?</string>
-  <string name="preferences_privacy_settings_heading">Intimidá</string>
-  <string name="preference_title_eventlogging_opt_in">Unviar informes d\'usu</string>
-  <string name="preference_summary_eventlogging_opt_in">Permite a Wikimedia collechar información tocante a cómo uses la app p\'ameyorala</string>
   <string name="preference_title_auto_upload_crash_reports">Unviar informes de cuelgues</string>
   <string name="preference_summary_auto_upload_crash_reports">Permitir a la app qu\'unvie informes de cuelgues automáticamente a un fornidor de serviciu d\'un terceru pa que podamos revisar el cuelgue ya iguar el fallu más rápida y fácilmente.</string>
   <string name="editing_error_spamblacklist">Detectáronse enllaces a dominios bloquiaos (%s). Desanícialos y vuelve a intentalo.</string>
@@ -738,8 +735,6 @@
   <string name="onboarding_explore_text">Bucea nel universu de Wikipedia cola canal Esplorar, siempres anovándose.&lt;br&gt;&lt;b&gt;Personaliza&lt;/b&gt; la canal colo que t\'interese (por casu, conocer los acontecimientos históricos n\'&lt;b&gt;Un día como güei&lt;/b&gt;, o xugar a los daos con &lt;b&gt;Al debalu&lt;/b&gt;).</string>
   <string name="onboarding_reading_list_sync_title">Llistes de llectura con sincronización</string>
   <string name="onboarding_reading_list_sync_text_v2">Puedes facer llistes de llectura a partir d\'artículos que quies lleer sero, inclusive cuando teas ensin conexón. &lt;br/&gt;Anicia sesión cola to cuenta de Wikipedia pa sincronizar les llistes de llectura. &lt;a href=\"#login\"&gt;Xúnite a Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Unviar datos anónimos</string>
-  <string name="onboarding_analytics_offline_text">Ayuda a ameyorar l\'aplicación informándonos de como la uses. Los datos recoyíos son anónimos. &lt;a href=\"#privacy\"&gt;Lleer más&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Unviar datos d\'usu</string>
   <string name="onboarding_got_it">Entendílo</string>
   <string name="onboarding_multilingual_secondary_text">Atopamos les siguientes nel to preséu:</string>

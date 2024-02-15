@@ -35,6 +35,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.descriptions.DescriptionEditFragment
 import org.wikipedia.language.LanguageUtil
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -377,7 +378,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
                     }
                     claimStr += "]}"
-                    commentStr += " */"
+                    commentStr += " */" + DescriptionEditFragment.SUGGESTED_EDITS_IMAGE_TAGS_COMMENT
 
                     disposables.add(ServiceFactory.get(Constants.commonsWikiSite).postEditEntity(mId, token, claimStr, commentStr, null)
                             .subscribeOn(Schedulers.io())

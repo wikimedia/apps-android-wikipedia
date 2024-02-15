@@ -130,7 +130,6 @@
   <string name="preferences_general_heading">සාමාන්‍ය</string>
   <string name="wikipedia_app_faq">විකිපීඩියා යෙදුම නිති අසන පැන</string>
   <string name="create_account_account_created_toast">ගිණුම තනන ලදි!</string>
-  <string name="preference_title_eventlogging_opt_in">භාවිත වාර්තා යවන්න</string>
   <string name="page_protected_can_not_edit_title">මෙම පිටුව ආරක්ෂණය කර ඇත</string>
   <string name="settings_activity_title">සැකසුම්</string>
   <string name="privacy_policy_description">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</string>

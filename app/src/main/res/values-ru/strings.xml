@@ -20,6 +20,7 @@
 * Infovarius
 * Iniquity
 * Irus
+* Jack who built the house
 * JackLantern
 * Kaganer
 * Kareyac
@@ -279,9 +280,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Синхронизирует списки для чтения на разных устройствах путём их сохранения в вашей учётной записи Википедии «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Удалить синхронизированные списки для чтения «%s»?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Это полностью удалит из удалённого хранилища все ранее синхронизированные списки для чтения. Удалить все синхронизированные списки из вашей учётной записи «%s»?</string>
-  <string name="preferences_privacy_settings_heading">Конфиденциальность</string>
-  <string name="preference_title_eventlogging_opt_in">Отправлять отчёты об использовании</string>
-  <string name="preference_summary_eventlogging_opt_in">Разрешить Викимедиа собирать информацию о том, как вы используете приложение. Это позволит сделать его лучше.</string>
   <string name="preference_title_auto_upload_crash_reports">Отправлять отчёты о сбоях</string>
   <string name="preference_summary_auto_upload_crash_reports">Разрешить автоматически отправлять отчёты об авариях приложения внешнему сервису, чтобы мы могли проверить проблему, вызвавшую аварию, и исправить ошибку быстрее и проще.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
@@ -1179,6 +1177,7 @@
   <string name="image_recommendation_tooltip_1">Просмотрите эту статью, чтобы понять ее тему</string>
   <string name="image_recommendation_tooltip_3">Решите, поможет ли изображение читателям лучше понять эту тему.</string>
   <string name="image_recommendation_tooltip_next">Далее</string>
+  <string name="suggested_edits_report_feature">Проблема с функцией</string>
   <string name="edit_summary_added_image">Добавлено изображение</string>
   <string name="edit_summary_added_caption">Добавлена подпись</string>
   <string name="edit_summary_added_image_and_caption">Добавить изображение и подпись</string>
@@ -1205,8 +1204,6 @@
   <string name="onboarding_explore_text">Путешествуйте по лабиринтам Википедии с помощью постоянно обновляемой ленты. &lt;br/&gt;&lt;b&gt;Настройте&lt;/b&gt; ленту так, чтобы она отвечала вашим интересам — будь то изучение исторических событий, случившихся &lt;b&gt;в этот день&lt;/b&gt;, или положитесь &lt;b&gt;на удачу&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Списки для чтения с синхронизацией</string>
   <string name="onboarding_reading_list_sync_text_v2">Вы можете создавать списки для чтения из статей, которые вы хотите прочитать позже, даже если вы находитесь в офлайне. &lt;br/&gt;Авторизуйтесь с помощью учётной записи Википедии для синхронизации ваших списков для чтения. &lt;a href=\"#login\"&gt;Происоединяйтесь к Википедии&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Отправлять отчёты об использовании</string>
-  <string name="onboarding_analytics_offline_text">Помогите улучшить это приложение, сообщив нам, как вы его используете. Собранные данные будут анонимны. &lt;a href=\"#privacy\"&gt;Узнать подробнее&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Отправлять отчёты об использовании</string>
   <string name="onboarding_got_it">Понятно</string>
   <string name="onboarding_multilingual_secondary_text">Мы нашли следующие языки на вашем устройстве:</string>
@@ -1378,7 +1375,7 @@
   <string name="talk_list_item_overflow_mark_as_read">Пометить как прочитанное</string>
   <string name="talk_list_item_overflow_mark_as_unread">Пометить как непрочитанное</string>
   <string name="talk_list_item_overflow_share">Поделиться</string>
-  <string name="talk_list_item_last_comment_date">Последний комментарий: %s</string>
+  <string name="talk_list_item_last_comment_date">Последнее сообщение: %s</string>
   <string name="talk_list_item_reply_icon_content_description">Всего ответов</string>
   <string name="talk_list_item_user_icon_content_description">Значок участника_цы</string>
   <string name="talk_list_item_swipe_mark_as_read">Прочитано</string>
@@ -1540,8 +1537,10 @@
   <string name="reading_list_share_survey_body">«Поделиться списком для чтения» — тестовый функционал, и нам была бы полезная ваша обратная связь, чтобы в дальнейшем улучшить или удалить этот функционал.</string>
   <string name="talk_templates_new_message_title">Новое сообщение</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
+  <string name="talk_templates_new_message_compose_hint">Написать сообщение</string>
   <string name="talk_templates_new_message_save">Сохранить</string>
   <string name="talk_templates_new_message_dialog_title">Сохранить изменения</string>
+  <string name="talk_templates_new_message_dialog_hint">Заголовок сообщения</string>
   <string name="talk_templates_new_message_dialog_save">Сохранить</string>
   <string name="talk_templates_new_message_dialog_cancel">Отмена</string>
   <string name="talk_templates_new_message_saved">Сообщение сохранено</string>
@@ -1557,6 +1556,7 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Смотреть страницу участника</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Смотреть страницу обсуждения</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Информация об участнике</string>
+  <string name="patroller_tasks_edits_list_card_overflow_thank">Благодарность</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Информация об участнике</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Закрыть</string>
   <string name="patroller_tasks_filters_title">Фильтры</string>
@@ -1605,6 +1605,7 @@
   <string name="patroller_tasks_patrol_edit_rollback_success">Откат завершён</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Посмотреть</string>
   <string name="patroller_tasks_overflow_learn">Узнать больше</string>
+  <string name="patroller_onboarding_two_thank_title">Благодарность</string>
   <string name="patroller_diff_feedback_dialog_message">Вы довольны этой функцией?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Доволен</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Воздержусь</string>
@@ -1625,4 +1626,6 @@
   <string name="places_search_hint">Поиск мест</string>
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
+  <string name="places_survey_very_satisfied_option">Очень доволен</string>
+  <string name="places_survey_very_unsatisfied_option">Очень неудовлетворен</string>
 </resources>

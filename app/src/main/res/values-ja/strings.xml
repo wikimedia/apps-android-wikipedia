@@ -262,9 +262,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">あなたのウィキペディアアカウント %s にあとで読むリストを保存して、リストをデバイス間で同期させる</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">「%s」から同期中のあとで読むリストを削除しますか?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">この操作で、これまでに同期されたあとで読むリストをクラウド上のストレージから完全に削除します。本当にすべての同期中のあとで読むリストを 「%s」のアカウントから削除しますか?</string>
-  <string name="preferences_privacy_settings_heading">プライバシー</string>
-  <string name="preference_title_eventlogging_opt_in">利用状況レポートを送信</string>
-  <string name="preference_summary_eventlogging_opt_in">アプリの改善に役立てるため、ウィキメディア財団がアプリの使用情報を収集することを許可する</string>
   <string name="preference_title_auto_upload_crash_reports">クラッシュレポートを送信</string>
   <string name="preference_summary_auto_upload_crash_reports">アプリがクラッシュした際に、自動的にサードパーティーのサービスプロバイダーに対してクラッシュレポートを送信することを許可します。これによって、クラッシュ内容を確認して、バグの修正をより迅速かつ簡単に行えるようになります。</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
@@ -1151,8 +1148,6 @@
   <string name="onboarding_explore_text">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_reading_list_sync_title">あとで読むリストの同期</string>
   <string name="onboarding_reading_list_sync_text_v2">後でオフラインになっても記事が読みたい、そんなあなたのためにあとで読むリストを作成できます。&lt;br/&gt;ウィキペディアのアカウントにログインして、あとで読むリストを同期しましょう&lt;a href=\"#login\"&gt;ウィキペディアに参加&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">匿名データを送信</string>
-  <string name="onboarding_analytics_offline_text">アプリの使い方を教えて機能の向上にご協力ください。収集されるデータは匿名です。 &lt;a href=\"#privacy\"&gt;詳細&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
   <string name="onboarding_got_it">了解!</string>
   <string name="onboarding_multilingual_secondary_text">お使いの端末で次の言語が見つかりました:</string>

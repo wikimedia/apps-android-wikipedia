@@ -197,9 +197,6 @@
   <string name="preference_title_download_reading_list_articles">Artikele vun der Lieslëscht eroflueden</string>
   <string name="preference_summary_sync_reading_lists">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater duerch d\'Späichere dovun an Ärem Wikipedia-Benotzerkont</string>
   <string name="preference_summary_sync_reading_lists_from_account">Synchroniséiert Lieslëschten tëscht verschiddenen Apparater duerch d\'Späichere dovun an Ärem Wikipedia-Benotzerkont \"%s\"</string>
-  <string name="preferences_privacy_settings_heading">Dateschutz</string>
-  <string name="preference_title_eventlogging_opt_in">Rapporten iwwer d\'Benotze schécken</string>
-  <string name="preference_summary_eventlogging_opt_in">Wikimedia erlaben Informatiounen iwwer d\'Benotze vun der App ze sammele fir se ze verbesseren.</string>
   <string name="preference_title_auto_upload_crash_reports">Crash-Rapporte schécken</string>
   <string name="preference_summary_auto_upload_crash_reports">Erlaabt der App automatesch Rapporten iwwer Crashe  engem drëtte Service-Provider ze schécken esou datt mir Äre Crash nokucke kënnen an de Feeler méi séier a méi einfach flécke kënnen.</string>
   <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se wgl. ewech a probéiert nach eng Kéier.</string>
@@ -884,8 +881,6 @@
   <string name="onboarding_get_started">Fir unzefänken</string>
   <string name="onboarding_maybe_later">Vläicht méi spéit</string>
   <string name="onboarding_reading_list_sync_title">Lieslëschte mat Synchronisatioun</string>
-  <string name="onboarding_analytics_title">Anonymiséiert Donnéeë schécken</string>
-  <string name="onboarding_analytics_offline_text">Hëlleft eis d\'App besser ze maachen andeem Dir eis wësse loosst, wéi Dir se benotzt. D\'Donnéeën, déi gesammelt ginn, sinn anonymiséiert. &lt;a href=\"#privacy\"&gt;Méi gewuer ginn&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Donnéeën iwwer d\'Notzung schécken</string>
   <string name="onboarding_got_it">Verstanen</string>
   <string name="onboarding_multilingual_secondary_text">Mir hunn déi follgend op Ärem Apparat fonnt:</string>

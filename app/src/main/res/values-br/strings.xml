@@ -219,9 +219,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronelaat ar rolloù lenn etre ardinvikoù a bep seurt en ur enrollañ anezho en ho kont Wikipedia « %s »</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Lemel ar rolloù lenn sinkronelaet diouzh ho kont « %s » ?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Gant an dra-se e vo lamet ar rolloù lenn sinkronelaet a-raok penn-da-benn diouzh ar pellskotañ. Lemel an holl rolloù sinkronelaet diouzh ho kont « %s » ?</string>
-  <string name="preferences_privacy_settings_heading">Prevezded</string>
-  <string name="preference_title_eventlogging_opt_in">Kas danevelloù implij</string>
-  <string name="preference_summary_eventlogging_opt_in">Aotren Wikipedia da zastum titouroù diwar-benn an doare ma implijit an arload evit gwellaat anezhañ</string>
   <string name="preference_title_auto_upload_crash_reports">Kas danevelloù implij</string>
   <string name="preference_summary_auto_upload_crash_reports">Reiñ tro d\'an arload da gas danevelloù implij d\'ur pourchaser servijoù tredeour en un doare emgefreek, abalamour deomp da c\'hallout kompren warno ha reizhañ ar c\'hudennoù buanoc\'h hag aesoc\'h.</string>
   <string name="editing_error_spamblacklist">Liammoù war-zu an domanioù stanket (%s). Lamit anezho ha klaskit en-dro, mar plij.</string>
@@ -1008,8 +1005,6 @@
   <string name="onboarding_explore_title">Doareoù ergerzhet nevez</string>
   <string name="onboarding_reading_list_sync_title">Rolloù lenn gant sinkronelaat</string>
   <string name="onboarding_reading_list_sync_text_v2">Gallout a reot krouiñ rolloù lenn adalek ar pennadoù hoc\'h eus c\'hoant da lenn diwezhatoc\'h, ha pa vefe ezlinenn. &lt;br/&gt;Kevreit ouzh ho kont Wikipedia evit sinkronelaat ho rolloù lenn. &lt;a href=\"#login\"&gt;Mont gant Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Kas roadennoù dizanv</string>
-  <string name="onboarding_analytics_offline_text">Sikourit da wellaat an arload ha roit deomp da c\'houzout penaos e vez implijet ganeoc\'h. Dianav eo ar roadennoù adtapet. &lt;a href=\"#privacy\"&gt;Evit gouzout hiroc\'h&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kas ar roadennoù implijout</string>
   <string name="onboarding_got_it">Mat eo</string>
   <string name="onboarding_multilingual_secondary_text">An dra-mañ hon eus kavet en hoc\'h ardinvik :</string>
