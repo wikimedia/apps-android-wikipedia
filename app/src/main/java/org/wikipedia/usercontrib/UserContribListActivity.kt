@@ -353,7 +353,7 @@ class UserContribListActivity : BaseActivity() {
 
         override fun onClick() {
             startActivity(ArticleEditDetailsActivity.newIntent(this@UserContribListActivity,
-                    PageTitle(contrib.title, viewModel.wikiSite), contrib.pageid, contrib.revid))
+                    PageTitle(contrib.title, viewModel.wikiSite), contrib.pageid, revisionTo = contrib.revid))
         }
     }
 
