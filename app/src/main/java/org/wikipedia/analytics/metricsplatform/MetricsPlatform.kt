@@ -16,6 +16,7 @@ object MetricsPlatform {
         WikipediaApp.instance.appInstallID,
         WikipediaApp.instance.currentTheme.toString(),
         WikipediaApp.instance.versionCode,
+        "WikipediaApp/" + BuildConfig.VERSION_NAME,
         "android",
         "app",
         WikipediaApp.instance.languageState.systemLanguageCode,
