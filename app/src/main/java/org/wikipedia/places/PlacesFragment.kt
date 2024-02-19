@@ -80,8 +80,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
     private var _binding: FragmentPlacesBinding? = null
     private val binding get() = _binding!!
-    private var statusBarInsets = Insets.NONE
-    private var navBarInsets = Insets.NONE
+    private var statusAndNavBarInsets = Insets.NONE
 
     private val viewModel: PlacesFragmentViewModel by viewModels { PlacesFragmentViewModel.Factory(requireArguments()) }
 
@@ -169,26 +168,18 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, windowInsets ->
             val newStatusBarInsets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars())
             val newNavBarInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
+            val combinedInsets = Insets.add(newStatusBarInsets, newNavBarInsets)
 
             binding.controlsContainer.updateLayoutParams<ViewGroup.MarginLayoutParams> {
-                updateMargins(
-                    newStatusBarInsets.left + newNavBarInsets.left,
-                    newStatusBarInsets.top + newNavBarInsets.top,
-                    newStatusBarInsets.right + newNavBarInsets.right,
-                    newStatusBarInsets.bottom + newNavBarInsets.bottom
-                )
+                setMargins(combinedInsets.left, combinedInsets.top, combinedInsets.right, combinedInsets.bottom)
             }
             binding.myLocationButton.updateLayoutParams<ViewGroup.MarginLayoutParams> {
                 val sixteenDp = DimenUtil.roundedDpToPx(16f)
-                updateMargins(
-                    left = newStatusBarInsets.left + newNavBarInsets.left + sixteenDp,
-                    right = newStatusBarInsets.right + newNavBarInsets.right + sixteenDp,
-                    bottom = newNavBarInsets.bottom + sixteenDp,
-                )
+                val newInsets = Insets.add(combinedInsets, Insets.of(sixteenDp, 0, sixteenDp, 0))
+                updateMargins(newInsets.left, right = newInsets.right, bottom = newNavBarInsets.bottom + sixteenDp)
             }
 
-            statusBarInsets = newStatusBarInsets
-            navBarInsets = newNavBarInsets
+            statusAndNavBarInsets = combinedInsets
 
             WindowInsetsCompat.Builder()
                 .setInsets(WindowInsetsCompat.Type.navigationBars(), newNavBarInsets)
@@ -304,25 +295,22 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 map.setMaxZoomPreference(20.0)
 
                 map.uiSettings.isLogoEnabled = false
-                val defMargin = DimenUtil.roundedDpToPx(16f)
-
-                val (navBarLeft, navBarTop) = navBarInsets.left to navBarInsets.top
-                val (navBarRight, navBarBottom) = navBarInsets.right to navBarInsets.bottom
-                val (statusBarLeft, statusBarTop) = statusBarInsets.left to statusBarInsets.top
-                val (statusBarRight, statusBarBottom) = statusBarInsets.right to statusBarInsets.bottom
-
                 map.uiSettings.setCompassImage(AppCompatResources.getDrawable(requireContext(), R.drawable.ic_compass_with_bg)!!)
                 map.uiSettings.compassGravity = Gravity.TOP or Gravity.END
                 map.uiSettings.attributionGravity = Gravity.BOTTOM or Gravity.START
                 map.uiSettings.setAttributionTintColor(ResourceUtil.getThemedColor(requireContext(), R.attr.placeholder_color))
 
-                map.uiSettings.setCompassMargins(defMargin + navBarLeft + statusBarLeft,
-                    defMargin + navBarTop + statusBarTop + binding.searchContainer.height,
-                    DimenUtil.roundedDpToPx(12f) + navBarRight + statusBarRight, defMargin)
+                val defMargin = DimenUtil.roundedDpToPx(16f)
+                val (combinedLeft, combinedTop) = statusAndNavBarInsets.left to statusAndNavBarInsets.top
+                val (combinedRight, combinedBottom) = statusAndNavBarInsets.right to statusAndNavBarInsets.bottom
+                val newLeftMargin = combinedLeft + defMargin
 
-                map.uiSettings.setAttributionMargins(defMargin + navBarLeft + statusBarLeft,
-                    0, defMargin + navBarRight + statusBarRight,
-                    navBarBottom + statusBarBottom + DimenUtil.roundedDpToPx(36f))
+                map.uiSettings.setCompassMargins(newLeftMargin,
+                    defMargin + combinedTop + binding.searchContainer.height,
+                    DimenUtil.roundedDpToPx(12f) + combinedRight, defMargin)
+
+                map.uiSettings.setAttributionMargins(newLeftMargin, 0, defMargin + combinedRight,
+                    combinedBottom + DimenUtil.roundedDpToPx(36f))
 
                 map.addOnCameraIdleListener {
                     mapboxMap?.cameraPosition?.target?.let {
