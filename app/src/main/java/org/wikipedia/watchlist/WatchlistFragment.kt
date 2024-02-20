@@ -352,7 +352,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             return
         }
         startActivity(ArticleEditDetailsActivity.newIntent(requireContext(),
-                PageTitle(item.title, item.wiki!!), item.pageId, item.revid))
+                PageTitle(item.title, item.wiki!!), item.pageId, revisionTo = item.revid, source = Constants.InvokeSource.WATCHLIST_ACTIVITY))
     }
 
     override fun onUserClick(item: MwQueryResult.WatchlistItem, view: View) {
@@ -365,6 +365,8 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         const val VIEW_TYPE_SEARCH_BAR = 0
         const val VIEW_TYPE_DATE = 1
         const val VIEW_TYPE_ITEM = 2
+        const val WATCHLIST_UNDO_COMMENT = "#watchlist-undo"
+        const val WATCHLIST_ROLLBACK_COMMENT = "#watchlist-rollback"
 
         fun newInstance(): WatchlistFragment {
             return WatchlistFragment()

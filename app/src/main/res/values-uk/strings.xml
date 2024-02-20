@@ -232,9 +232,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Синхронізовувати списки читання на різних пристроях, зберігаючи їх у вашому обліковому записі Вікіпедії «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Вилучити синхронізовані читальні списки з «%s»?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Це повністю вилучить усі раніше синхронізовані списки, збережені віддалено. Вилучити всі списки з вашої обліковки «%s»?</string>
-  <string name="preferences_privacy_settings_heading">Конфіденційність</string>
-  <string name="preference_title_eventlogging_opt_in">Надсилати звіти про використання</string>
-  <string name="preference_summary_eventlogging_opt_in">Дозволити Вікімедіа збір інформації про те, як ви використовуєте додаток, щоб зробити його кращим</string>
   <string name="preference_title_auto_upload_crash_reports">Надсилати звіти про аварійне завершення роботи</string>
   <string name="preference_summary_auto_upload_crash_reports">Дозволити додатку відправляти автоматичні звіти про збої сторонньому сервіс-провайдеру, щоб ми могли розглянути ваш збій і виправити помилки швидше і легше.</string>
   <string name="editing_error_spamblacklist">Виявлено посилання на заблоковані домени (%s). Будь ласка, вилучіть їх і спробуйте знову.</string>
@@ -1201,8 +1198,6 @@
   <string name="onboarding_explore_text">Пірнайте у кролячу нору Вікіпедії, гортаючи постійно оновлювану стрічку. &lt;br/&gt; &lt;b&gt;Налаштуйте&lt;/b&gt; стрічку за своїми інтересами — можете дізнаватися про історичні події &lt;b&gt;Цього дня&lt;/b&gt; або покластися на &lt;b&gt;Випадкові&lt;/b&gt; статті.</string>
   <string name="onboarding_reading_list_sync_title">Синхронізовані читальні списки</string>
   <string name="onboarding_reading_list_sync_text_v2">Ви можете укладати списки читання зі статей, які хочете почитати пізніше, навіть коли ви офлайн. &lt;br/&gt;Увійдіть у свій обліковий запис Вікіпедії, щоб синхронізувати свої списки читання. &lt;a href=\"#login\"&gt;Увійти у Вікіпедію&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Надіслати анонімні дані</string>
-  <string name="onboarding_analytics_offline_text">Допоможіть нам покращити додаток, повідомляючи, як ви його використовуєте. Зібрані дані анонімні. &lt;a href=\"#privacy\"&gt;Дізнатись більше&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Надсилати дані використання</string>
   <string name="onboarding_got_it">Зрозуміло</string>
   <string name="onboarding_multilingual_secondary_text">Ми знайшли такі мови на Вашому пристрої:</string>
@@ -1419,7 +1414,6 @@
   <string name="revision_diff_from">Від:</string>
   <string name="revision_diff_to">До:</string>
   <string name="revision_diff_line_num">Рядок %d</string>
-  <string name="revision_diff_line_nums">Рядки %d—%d</string>
   <string name="revision_diff_lines_from_to">Рядки %1$d–%2$d</string>
   <string name="revision_diff_line_added">Рядок додано</string>
   <string name="revision_diff_line_removed">Рядок вилучено</string>

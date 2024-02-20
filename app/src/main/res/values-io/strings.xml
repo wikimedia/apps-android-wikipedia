@@ -210,9 +210,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronigas vua listi che diferanta equipuri, konservanta li che vua Wikipedio-konto \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Removar sinkronigita listi de \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">To efacos komplete omna listi sinkronigita de vua extera konservo-listo. Ka vu deziras removar li de \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privateso</string>
-  <string name="preference_title_eventlogging_opt_in">Sendez informi pri l\'uzado</string>
-  <string name="preference_summary_eventlogging_opt_in">Permisar Wikipedio kolektar informi pri vua uzo dil \'app\' por perfektigar ol</string>
   <string name="preference_title_auto_upload_crash_reports">Sendez informi pri problemi</string>
   <string name="preference_summary_auto_upload_crash_reports">Permisar ke \'\'app\'\' sendez raporti pri eroro automatale ad extera servado, posibliganta ke ni povez revizar la problemo e reparar li plu facile.</string>
   <string name="editing_error_spamblacklist">La sistemo deskovris ligili (%s) a blokusita domeni. Efacez li e probez itere.</string>
@@ -985,8 +982,6 @@
   <string name="onboarding_maybe_later">Posible pose</string>
   <string name="onboarding_explore_title">Nova formi por explorar</string>
   <string name="onboarding_reading_list_sync_title">Lektar listi uzanta sinkronigo</string>
-  <string name="onboarding_analytics_title">Sendez dati anonime</string>
-  <string name="onboarding_analytics_offline_text">Helpez plubonigar la programo: informez quale vu uzas ol. L\'informi quin vu sendos esos anonima. &lt;a href=\"#privacy\"&gt;Savez pluse&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Sendez dati pri uzo</string>
   <string name="onboarding_got_it">Me komprenas</string>
   <string name="onboarding_multilingual_secondary_text">Ni trovis lo sequanta en vua equipuro:</string>
@@ -1136,7 +1131,6 @@
   <string name="revision_diff_from">De:</string>
   <string name="revision_diff_to">A(d):</string>
   <string name="revision_diff_line_num">Lineo %d</string>
-  <string name="revision_diff_line_nums">Linei %d–%d</string>
   <string name="revision_diff_line_added">Lineo adjuntita</string>
   <string name="revision_diff_line_removed">Lineo efacita</string>
   <string name="revision_diff_paragraph_added">Paragrafo adjuntita</string>

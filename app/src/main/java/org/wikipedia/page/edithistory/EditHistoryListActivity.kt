@@ -435,7 +435,7 @@ class EditHistoryListActivity : BaseActivity() {
                 toggleSelectState()
             } else {
                 startActivity(ArticleEditDetailsActivity.newIntent(this@EditHistoryListActivity,
-                        viewModel.pageTitle, viewModel.pageId, revision.revId))
+                        viewModel.pageTitle, viewModel.pageId, revisionTo = revision.revId))
             }
         }
 

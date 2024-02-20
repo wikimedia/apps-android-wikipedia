@@ -129,15 +129,7 @@ class RandomFragment : Fragment() {
         val title = topTitle ?: return
 
         if (saveButtonState) {
-            LongPressMenu(binding.randomSaveButton, object : LongPressMenu.Callback {
-                override fun onOpenLink(entry: HistoryEntry) {
-                    // ignore
-                }
-
-                override fun onOpenInNewTab(entry: HistoryEntry) {
-                    // ignore
-                }
-
+            LongPressMenu(binding.randomSaveButton, existsInAnyList = false, callback = object : LongPressMenu.Callback {
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
                     ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), title, addToDefault, InvokeSource.RANDOM_ACTIVITY) {
                         updateSaveShareButton(title)

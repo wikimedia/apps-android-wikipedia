@@ -39,10 +39,8 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
             }
         }
         if (WikipediaApp.instance.languageState.appLanguageCodes.size == 1) {
-            binding.langCodeBackground.visibility = GONE
             binding.langCodeText.visibility = GONE
         } else {
-            binding.langCodeBackground.visibility = VISIBLE
             binding.langCodeText.visibility = VISIBLE
         }
     }
@@ -50,7 +48,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
     fun setItem(item: MwQueryResult.WatchlistItem, currentQuery: String?) {
         this.item = item
         var isSummaryEmpty = false
-        binding.langCodeText.text = item.wiki!!.languageCode
+        binding.langCodeText.setLangCode(item.wiki!!.languageCode)
         val summary = StringUtil.fromHtml(item.parsedComment).ifEmpty {
             isSummaryEmpty = true
             context.getString(R.string.page_edit_history_comment_placeholder)

@@ -6,8 +6,6 @@ import org.wikipedia.settings.Prefs
 class PatrollerExperienceEvent {
 
     companion object {
-        private const val STREAM_NAME = "app_patroller_experience"
-
         fun logImpression(activeInterface: String) {
             submitPatrollerActivityEvent("impression", activeInterface)
         }
@@ -44,7 +42,6 @@ class PatrollerExperienceEvent {
         }
 
         private fun submitPatrollerActivityEvent(action: String, activeInterface: String, actionData: String = "") {
-            AppInteractionEvent.STREAM_NAME = STREAM_NAME
             EventPlatformClient.submit(
                 AppInteractionEvent(
                     action,
@@ -52,7 +49,7 @@ class PatrollerExperienceEvent {
                     actionData,
                     WikipediaApp.instance.languageState.appLanguageCode,
                     Prefs.recentEditsWikiCode,
-                    "android"
+                    "app_patroller_experience"
                 )
             )
         }

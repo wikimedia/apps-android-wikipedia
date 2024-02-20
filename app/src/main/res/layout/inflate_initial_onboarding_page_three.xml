@@ -6,6 +6,5 @@
     android:orientation="vertical"
     app:centeredImage="@drawable/ic_illustration_onboarding_analytics_white"
     app:imageSize="160dp"
-    app:primaryText="@string/onboarding_analytics_title"
-    app:secondaryText="@string/onboarding_analytics_offline_text"
-    app:acceptRejectButtons="true" />
+    app:primaryText="@string/onboarding_data_privacy_title"
+    app:secondaryText="@string/onboarding_data_privacy_text" />

@@ -127,9 +127,6 @@
   <string name="send_feedback">ផ្ញើមតិយោបល់អំពីកម្មវិធីនេះ</string>
   <string name="create_account_account_created_toast">គណនីបានបង្កើតហើយ!</string>
   <string name="preferences_heading_experimental">ស្ថិតក្រោមការពិសោធន៍នៅឡើយ</string>
-  <string name="preferences_privacy_settings_heading">ឯកជនភាព</string>
-  <string name="preference_title_eventlogging_opt_in">ផ្ញើរបាយការណ៍ពីបម្រើបម្រាស់</string>
-  <string name="preference_summary_eventlogging_opt_in">អនុញ្ញាតអោយវិគីមេឌាប្រមូលព័ត៌មានអំពីរបៀបប្រើប្រាស់កម្មវិធីរបស់អ្នក ដើម្បីជួយកែច្នៃកម្មវិធីនេះអោយកាន់តែប្រសើរ</string>
   <string name="preference_title_auto_upload_crash_reports">ផ្ញើរបាយការណ៍ពីការគាំង</string>
   <string name="error_can_not_process_link">មិនអាចបង្ហាញតំណភ្ជាប់នេះទេ</string>
   <string name="page_protected_autoconfirmed">ទំព័រនេះត្រូវបានការពារពាក់កណ្ដាល។</string>
@@ -378,7 +375,6 @@
   <string name="revision_diff_from">ពី៖</string>
   <string name="revision_diff_to">ទៅជា៖</string>
   <string name="revision_diff_line_num">បន្ទាត់ទី %d</string>
-  <string name="revision_diff_line_nums">បន្ទាត់ទី %d–%d</string>
   <string name="revision_diff_line_added">បន្ទាត់​ដែល​បាន​បន្ថែម</string>
   <string name="revision_diff_line_removed">បន្ទាត់​ដែល​បានលុប</string>
   <string name="revision_diff_paragraph_added">កថាខណ្ឌ​ដែល​បាន​បន្ថែម</string>

@@ -199,8 +199,6 @@
   <string name="preferences_heading_data_usage">Трафикым кучылтмаш</string>
   <string name="preferences_heading_experimental">Экспериментлык</string>
   <string name="preference_title_download_reading_list_articles">Лудашлан спсике гыч статья-влакым тулен налаш</string>
-  <string name="preferences_privacy_settings_heading">Шолыплык</string>
-  <string name="preference_title_eventlogging_opt_in">Кучылтмо нерген отчётым колтедылаш</string>
   <string name="preference_title_auto_upload_crash_reports">Тӧрсыр лекме нерген отчётым колтедылаш</string>
   <string name="history_filter_list_hint">Фильтрын историйже</string>
   <string name="error_can_not_process_link">Тиде кылверым ончыктен кертме огыл</string>
@@ -357,7 +355,7 @@
   <string name="color_theme_test_title">Текст пример</string>
   <string name="text_size_increase">Шрифт кугытым кугемдаш</string>
   <string name="text_size_decrease">Шрифт кугытым иземдаш</string>
-  <string name="text_size_percent_default">%s (ойлыде)</string>
+  <string name="text_size_percent_default">%s (ончылгочсо)</string>
   <string name="text_style_title">Шрифт</string>
   <string name="theme_category_reading">Лудмаш</string>
   <string name="theme_category_editing">Тöрлатымаш</string>

@@ -242,9 +242,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizovat seznamy k přečtení napříč různými zařízeními pomocí jejich uložení do vašeho účtu „%s“ na Wikipedii.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Odstranit synchronizované seznamy k přečtení z „%s“?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tato akce odstraní všechny předtím synchronizované seznamy k přečtení z úložného prostoru. Odstranit všechny synchronizované seznamy z vašeho účtu „%s“?</string>
-  <string name="preferences_privacy_settings_heading">Soukromí</string>
-  <string name="preference_title_eventlogging_opt_in">Odesílat zprávy o využití</string>
-  <string name="preference_summary_eventlogging_opt_in">Umožní nadaci Wikimedia sbírat informace o tom, jak aplikaci používáte, abychom ji mohli zlepšovat.</string>
   <string name="preference_title_auto_upload_crash_reports">Posílat zprávy o chybách</string>
   <string name="preference_summary_auto_upload_crash_reports">Umožuje aplikaci automaticky odesílat hlášení o chybách třetím stranám, abychom mohli chybu přezkoumat a opravit chybu rychleji a jednodušeji.</string>
   <string name="editing_error_spamblacklist">Detekovány odkazy na zablokované domény (%s). Odstraňte je prosím a zkuste to znovu.</string>
@@ -1100,8 +1097,6 @@
   <string name="onboarding_explore_text">Ponořte se do Wikipedie s průběžně aktualizovaným kanálem Objevit. &lt;br/&gt; &lt;b&gt;Přizpůsobte&lt;/b&gt; si jej podle svých zájmů – ať už je to &lt;b&gt;Dnešek v minulosti&lt;/b&gt; nebo &lt;b&gt;Náhodné články&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Seznam k přečtení se synchronizací</string>
   <string name="onboarding_reading_list_sync_text_v2">Můžete si vytvářet seznamy k přečtení z článků, které si chcete přečíst, i když se odhlásíte od svého účtu.&lt;br/&gt;Přihlaste se do svého účtu na Wikipedii, abyste mohli své seznamy k přečtení synchronizovat.&lt;br/&gt;&lt;a href=\"#login\"&gt;Připojte se k Wikipedii&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Posílat anonymní data</string>
-  <string name="onboarding_analytics_offline_text">Pomozte udělat aplikaci lepší uvědoměním nás, jak ji používáte. Data jsou anonymní.&lt;br/&gt;&lt;a href=\"#privacy\"&gt;Zjistit více&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Odesílat informace o používání</string>
   <string name="onboarding_got_it">Rozumím</string>
   <string name="onboarding_multilingual_secondary_text">Na vašem zařízení máte nastaveny následující jazyky:</string>
@@ -1250,7 +1245,6 @@
   <string name="revision_diff_from">Od:</string>
   <string name="revision_diff_to">Do:</string>
   <string name="revision_diff_line_num">Řádek %d</string>
-  <string name="revision_diff_line_nums">Řádky %d-%d</string>
   <string name="revision_diff_lines_from_to">Řádky %1$d-%2$d</string>
   <string name="revision_compare_button">Porovnat</string>
   <string name="watchlist_page_add_to_watchlist_snackbar">Stránka „%1$s“ a její diskusní stránka byly přidány do sledovaných stránek %2$s.</string>

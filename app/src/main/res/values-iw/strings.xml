@@ -232,9 +232,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">להסיר את רשימות הקריאה המסונכרנות שלך מהחשבון \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">זה ימחק לגמריאת כל רשימות הקריאה שסונכרנו בעבר מאחסון מרוחק. להסיר את כל הרשימות המסונכרנות מהחשבון שלך \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">פרטיות</string>
-  <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
-  <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישום כדי לשפר אותה</string>
   <string name="preference_title_auto_upload_crash_reports">לשלוח דיווחי קריסה</string>
   <string name="preference_summary_auto_upload_crash_reports">לאפשר ליישום לשלוח דיווחי קריסה לספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
@@ -422,6 +419,10 @@
   <string name="multi_select_items_selected">נבחרו %d</string>
   <string name="error_message_generic">אירעה שגיאה</string>
   <string name="view_link_preview_error_button_dismiss">סגירה</string>
+  <string name="link_preview_dialog_read_button">קריאה</string>
+  <string name="link_preview_dialog_save_button">שמירה</string>
+  <string name="link_preview_dialog_saved_button">נשמר</string>
+  <string name="link_preview_dialog_share_button">שיתוף</string>
   <string name="error_page_does_not_exist">הדף הזה אינו קיים</string>
   <string name="error_user_page_does_not_exist">בוויקיפדיה אין &lt;a href=\"%1$s\"&gt;דף משתמש&lt;/a&gt; בעל שם כזה בדיוק. באופן כללי, הדף הזה צריך להיווצר ולהיערך על־ידי &lt;b&gt;%2$s&lt;/b&gt;. אם יש לך ספק, נא לוודא ששם המשתמש \"%3$s\" קיים.</string>
   <string name="view_wiki_error_message_offline">לא ניתן להתחבר לאינטרנט</string>
@@ -1200,8 +1201,8 @@
   <string name="onboarding_explore_text">תצללו לוויקיפדיה עם ההזנה המתעדכנת שלנו: \"לחקור\". &lt;br/&gt; תתאימו את ההזנה למה שמעניין אתכם – תלמדו על מה שקרה &lt;b&gt;היום בהיסטוריה&lt;/b&gt;, או תפתחו משהו &lt;b&gt;אקראי&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">רשימת קריאה עם סנכרון</string>
   <string name="onboarding_reading_list_sync_text_v2">אפשר ליצור רשימות קריאה מערכים שברצונך לקרוא מאוחר יותר, גם ללא חיבור לרשת. &lt;br/&gt;יש להיכנס לחשבון הוויקיפדיה שלך כדי לסנכרן את רשימות הקריאה שלך &lt;a href=\"#login\"&gt;הצטרפות לוויקיפדיה&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>
-  <string name="onboarding_analytics_offline_text">עזרו לנו לשפר את היישום על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בו. איסוף הנתונים נעשה באלמוניות. &lt;a href=\"#privacy\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">נתונים ופרטיות</string>
+  <string name="onboarding_data_privacy_text">אנו מאמינים בכך שלא צריך לחייב אותך לספק מידע אישי כדי להשתתף בתנועת הידע החופשי. נתוני השימוש שנאספו עבור היישום הזה הם אלמוניים. אפשר לקבל מידע נוסף על &lt;a href=\"#privacy\"&gt;מדיניות הפרטיות&lt;/a&gt; ועל &lt;a href=\"#termsOfUse\"&gt;תנאי השימוש&lt;/a&gt; שלנו.</string>
   <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>
   <string name="onboarding_got_it">הבנתי</string>
   <string name="onboarding_multilingual_secondary_text">מצאנו את השפות הבאות במכשיר שלך:</string>
@@ -1418,7 +1419,6 @@
   <string name="revision_diff_from">מאת:</string>
   <string name="revision_diff_to">אל:</string>
   <string name="revision_diff_line_num">שורה %d</string>
-  <string name="revision_diff_line_nums">שורות %d–%d</string>
   <string name="revision_diff_lines_from_to">שורות %1$d–%2$d</string>
   <string name="revision_diff_line_added">שורה שנוספה</string>
   <string name="revision_diff_line_removed">שורה שהוסרה</string>
@@ -1532,6 +1532,8 @@
   <string name="media_playback_error">שגיאה בנגינת מדיה.</string>
   <string name="user_contrib_menu_label">תרומות</string>
   <string name="user_contrib_filter_activity_title">סינון תרומות</string>
+  <string name="action_item_view_on_map">הצגה על מפה</string>
+  <string name="action_item_view_on_map_unavailable">נקודות ציון גאוגרפיות אינן זמינות עבור הדף הזה</string>
   <string name="shareable_reading_lists_import_dialog_title">יבוא רשימת קריאה משותפת</string>
   <string name="shareable_reading_lists_import_dialog_content">איזה שם ברצונך לתת לרשימה ששותפה איתך?</string>
   <string name="shareable_reading_lists_new_indicator">*חדשה*</string>
@@ -1681,4 +1683,19 @@
   <string name="donation_campaign_donated_snackbar">תודה, תורם יקר! הנדיבות שלך עוזרת להבטיח את צמיחתם של ויקיפדיה ושל האתרים הקשורים אליה.</string>
   <string name="donation_campaign_go_back_button">חזרה</string>
   <string name="menu_single_webview_open_external">פתיחה בדפדפן המערכת</string>
+  <string name="places_title">מקומות</string>
+  <string name="places_permissions_denied">נדרשת הרשאת מיקום כדי לראות את מיקומך על המפה. נא לנסות שוב.</string>
+  <string name="places_search_hint">חיפוש מקומות</string>
+  <string name="places_filter_title">סינון לפי שפה</string>
+  <string name="places_toggle_buttons_map">מפה</string>
+  <string name="places_toggle_buttons_list">רשימה</string>
+  <string name="places_nav_tab_tooltip_message">ב\"מקומות\" אפשר לגלות ערכי ויקיפדיה סביבך</string>
+  <string name="places_article_menu_tooltip_message">יש ללחוץ על \"הצגה על מפה\" כדי לחקור את המיקום של הערך הזה</string>
+  <string name="places_survey_very_satisfied_option">מרוצה מאוד</string>
+  <string name="places_survey_very_unsatisfied_option">מאוד לא מרוצה</string>
+  <string name="places_survey_dialog_title">עזרו לנו לשפר את \"מקומות\"</string>
+  <string name="places_survey_feedback_dialog_title">איך אפשר לשפר את \"מקומות\"?</string>
+  <string name="places_survey_dialog_cancel">ביטול</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">מה היית רוצה שנשנה או נשפר?</string>
+  <string name="places_empty_list">האזור הזה ריק. נא להתרחק &lt;a href=\"#\"&gt;על המפה&lt;/a&gt; .</string>
 </resources>

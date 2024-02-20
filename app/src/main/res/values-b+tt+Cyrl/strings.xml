@@ -211,9 +211,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Википедиядә үзегезнең хисап язмагызда - «%s» - уку исемлекләрен саклап, аларны төрле җайланмаларда синхронлаштырыгыз.</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\"дан укуның синхронлаштырылган исемлекләрен алырга</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Бу бетерелгән саклагычтан укуның барлык элеккеге синхронлаштырылган исемлекләрен тулысынча юк итәчәк. Сезнең \"%s\" хисап язмасыннан барлык синхронлаштырылган исемлекләрне бетерергәме?</string>
-  <string name="preferences_privacy_settings_heading">Конфиденциальлек</string>
-  <string name="preference_title_eventlogging_opt_in">Куллану турында хәбәр җибәрергә</string>
-  <string name="preference_summary_eventlogging_opt_in">Викимедиага, кушымтаны яхшырак итү өчен, аны ничек куллануыгыз турында мәгълүмат җыярга рөхсәт итегез</string>
   <string name="preference_title_auto_upload_crash_reports">Өзеклекләр турында хәбәр җибәрергә</string>
   <string name="preference_summary_auto_upload_crash_reports">Без сезнең өзеклекне тикшерә, хатаны тизрәк һәм җиңелрәк төзәтә алсын өчен, кушымтага өченче хезмәт күрсәтүчегә автомат рәвештә өзеклек турында хисап җибәрергә рөхсәт итегез.</string>
   <string name="editing_error_spamblacklist">Блокланган доменнарга (%s) сылтамалар табылды. Зинһар, аларны бетерегез һәм яңадан кабатлап карагыз.</string>
@@ -1103,8 +1100,6 @@
   <string name="onboarding_explore_text">Даими яңартыла торган лента ярдәмендә Википедиянең лабиринтлары буйлап сәяхәт итегез. &lt;br/&gt; лентаны сезнең кызыксынуларыгызга туры килерлек итеп &lt;b&gt;көйләгез&lt;/b&gt; - &lt;b&gt; бу көнне  булган&lt;/b&gt; тарихи вакыйгаларны өйрәнү яисә &lt;/b&gt;уңышка&lt;/b&gt; таяну булсынмы.</string>
   <string name="onboarding_reading_list_sync_title">Синхронлаштырылган уку исемлекләре</string>
   <string name="onboarding_reading_list_sync_text_v2">Сез автоном режимда булып та соңрак укырга теләгән мәкаләләрдән уку өчен исемлекләр төзи аласыз.&lt;br/&gt;Үзегезнең уку исемлекләрен синхронлаштыру өчен Википедиядәге хисап язмагызга керегез. &lt;a href=\"#login\"&gt;Википедиягә кушылыгыз&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Аноним мәгълүматларны җибәрү</string>
-  <string name="onboarding_analytics_offline_text">Безгә кушымтаны ничек куллануыгызны хәбәр итеп, аны яхшырак эшләргә ярдәм итегез. Җыелган мәгълүматлар аноним. &lt;a href=\"#privacy\"&gt;Күбрәк белергә&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Куллану турында мәгълүматны җибәрергә</string>
   <string name="onboarding_got_it">Аңладым</string>
   <string name="onboarding_multilingual_secondary_text">Без сезнең җайланмада түбәндәгеләрне таптык:</string>
@@ -1313,7 +1308,6 @@
   <string name="revision_diff_from">Кемнән:</string>
   <string name="revision_diff_to">Кемгә:</string>
   <string name="revision_diff_line_num">%d номерлы юл</string>
-  <string name="revision_diff_line_nums">%d–%d юллары</string>
   <string name="revision_diff_lines_from_to">%1$d–%2$d юллары</string>
   <string name="revision_diff_line_added">Юл өстәлгән</string>
   <string name="revision_diff_line_removed">Юл бетерелгән</string>

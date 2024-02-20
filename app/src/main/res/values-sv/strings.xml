@@ -224,9 +224,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synkronisera läslistor över olika enheter genom att spara dem till ditt Wikipedia-konto %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Ta bort synkroniserade läslistor från \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Detta kommer att radera alla tidigare synkroniserade läslistor från fjärrlagringen helt och hållet. Ta bort alla synkroniserade listor från ditt konto \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Integritet</string>
-  <string name="preference_title_eventlogging_opt_in">Skicka användningsrapporter</string>
-  <string name="preference_summary_eventlogging_opt_in">Tillåt Wikimedia att samla in information om hur du använder appen. Informationen används för att göra appen bättre.</string>
   <string name="preference_title_auto_upload_crash_reports">Skicka kraschrapporter</string>
   <string name="preference_summary_auto_upload_crash_reports">Låter appen automatiskt skicka kraschrapporter till en tredjepartstjänst så att vi kan granska din krasch och åtgärda felet snabbare och lättare.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
@@ -408,6 +405,10 @@
   <string name="multi_select_items_selected">%d markerade</string>
   <string name="error_message_generic">Ett fel inträffade</string>
   <string name="view_link_preview_error_button_dismiss">Stäng</string>
+  <string name="link_preview_dialog_read_button">Läs</string>
+  <string name="link_preview_dialog_save_button">Spara</string>
+  <string name="link_preview_dialog_saved_button">Sparades</string>
+  <string name="link_preview_dialog_share_button">Dela</string>
   <string name="error_page_does_not_exist">Denna sida finns inte</string>
   <string name="error_user_page_does_not_exist">Wikipedia har inte en &lt;a href=\"%1$s\"&gt;användarsida&lt;/a&gt; med exakt detta namn. I allmänhet bör denna sida ha skapats och redigerats av &lt;b&gt;%2$s&lt;/b&gt;. Om du är osäker bör du verifiera att \"%3$s\" finns.</string>
   <string name="view_wiki_error_message_offline">Kan inte ansluta till Internet</string>
@@ -1122,8 +1123,8 @@
   <string name="onboarding_explore_text">Gör en djupdykning i Wikipedia genom att uppdatera utforskarflödet. &lt;br/&gt; &lt;b&gt;Anpassa&lt;/b&gt; flödet för att möta dina intressen – vare sig det handlar om historiska händelser &lt;b&gt;på denna dag&lt;/b&gt; eller kasta tärningen och få en &lt;b&gt;slumpartikel&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Läslistor med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan skapa läslistor från artiklar du vill läsa senare, även när du inte har någon uppkoppling. &lt;br/&gt;Logga in på ditt Wikipedia-konto för att synkronisera dina läslistor. &lt;a href=\"#login\"&gt;Registrera dig på Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Skicka anonym data</string>
-  <string name="onboarding_analytics_offline_text">Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#privacy\"&gt;Läs mer&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Data och integritet</string>
+  <string name="onboarding_data_privacy_text">Vi anser att du inte ska behöva lämna personlig information för att delta i rörelsen för fri kunskap. Användningsdata som samlas in för den här appen är anonym. Läs mer om vår &lt;a href=\"#privacy\"&gt;integritetspolicy&lt;/a&gt; och &lt;a href=\"#termsOfUse\"&gt;användarvillkor&lt;/a&gt; .</string>
   <string name="onboarding_analytics_switch_title">Skicka användningsdata</string>
   <string name="onboarding_got_it">Jag förstår</string>
   <string name="onboarding_multilingual_secondary_text">Vi har hittat följande på din enhet:</string>
@@ -1332,7 +1333,6 @@
   <string name="revision_diff_from">Från:</string>
   <string name="revision_diff_to">Till:</string>
   <string name="revision_diff_line_num">Rad %d</string>
-  <string name="revision_diff_line_nums">Rader %d–%d</string>
   <string name="revision_diff_lines_from_to">Rader %1$d–%2$d</string>
   <string name="revision_diff_line_added">Raden lades till</string>
   <string name="revision_diff_line_removed">Raden togs bort</string>
@@ -1444,6 +1444,8 @@
   <string name="media_playback_error">Fel uppstod när media spelades upp.</string>
   <string name="user_contrib_menu_label">Bidrag</string>
   <string name="user_contrib_filter_activity_title">Filterbidrag</string>
+  <string name="action_item_view_on_map">Visa på kartan</string>
+  <string name="action_item_view_on_map_unavailable">Geografiska koordinater är inte tillgängliga för den här sidan</string>
   <string name="shareable_reading_lists_import_dialog_title">Importera delad läslista</string>
   <string name="shareable_reading_lists_import_dialog_content">Hur vill du namnge listan som har delats med dig?</string>
   <string name="shareable_reading_lists_new_indicator">*ny*</string>
@@ -1587,4 +1589,19 @@
   <string name="donation_campaign_donated_snackbar">Tack, kära donator! Din generositet hjälper till att hålla Wikipedia och dess systerwebbplatser blomstrande.</string>
   <string name="donation_campaign_go_back_button">Gå tillbaka</string>
   <string name="menu_single_webview_open_external">Öppna i systemwebbläsaren</string>
+  <string name="places_title">Platser</string>
+  <string name="places_permissions_denied">Platsbehörighet krävs för att se din plats på kartan. Var god försök igen.</string>
+  <string name="places_search_hint">Sök platser</string>
+  <string name="places_filter_title">Filtrera språk</string>
+  <string name="places_toggle_buttons_map">Karta</string>
+  <string name="places_toggle_buttons_list">Lista</string>
+  <string name="places_nav_tab_tooltip_message">Upptäck Wikipedia-artiklar omkring dig med Platser</string>
+  <string name="places_article_menu_tooltip_message">Tryck på \"Visa på kartan\" för att utforska den här artikelns plats</string>
+  <string name="places_survey_very_satisfied_option">Mycket nöjd</string>
+  <string name="places_survey_very_unsatisfied_option">Mycket missnöjd</string>
+  <string name="places_survey_dialog_title">Hjälp till att förbättra \"Platser\"</string>
+  <string name="places_survey_feedback_dialog_title">Hur kan \"Platser\" förbättras?</string>
+  <string name="places_survey_dialog_cancel">Avbryt</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Vad vill du att vi ska förändra eller förbättra?</string>
+  <string name="places_empty_list">Det här området är tomt. Zooma ut &lt;a href=\"#\"&gt;på kartan&lt;/a&gt;.</string>
 </resources>

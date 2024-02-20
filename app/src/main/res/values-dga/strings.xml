@@ -208,9 +208,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Tɔre a kannoo pɛll yaare devase tɛɛtɛɛ ka fõõ wa biŋ a fo wikipiideɛ die daga poɔ \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">iri viili goɔ kannoo yoe a yi \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">A ŋaa na iri la pɛllɛ kanne zaa gboŋgboŋ naŋ da tɔre yi irimoti binzie. Iri pɛllɛ tɔre zaa yi fo die daga \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Gondo</string>
-  <string name="preference_title_eventlogging_opt_in">Tere lɛ fo naŋ toŋ ta</string>
-  <string name="preference_summary_eventlogging_opt_in">vɛŋ ka a wikimiideɛ deɛ duoro te kyaare lɛ na fo naŋ na e a app ka o waa app soŋ</string>
   <string name="preference_title_auto_upload_crash_reports">Tere tonsaama na fo naŋ toŋ ta</string>
   <string name="preference_summary_auto_upload_crash_reports">Tere a app sori ka o toɔle ŋmɛtaa duoro ko third-party sɛvese terɛ otomatikal ka lɛ na vɛŋ ka ba tõɔ kaa fo ŋmɛtaa na ane furi a bug wieu ne laanfeɛ yaga.</string>
   <string name="editing_error_spamblacklist">Liŋkere naŋ na bege a vogbuli (%s) nyoore la. Sɔroo iri a kyɛ la moɔ nyɛ.</string>
@@ -1267,7 +1264,6 @@
   <string name="revision_diff_from">A yi:</string>
   <string name="revision_diff_to">ko:</string>
   <string name="revision_diff_line_num">Soɔmaa %d</string>
-  <string name="revision_diff_line_nums">Soɔmie %d-%d</string>
   <string name="revision_diff_lines_from_to">Soɔmie %1$d-%2$d</string>
   <string name="revision_diff_line_added">Soɔmaa paale la</string>
   <string name="revision_diff_line_removed">Soɔmaa ire la</string>

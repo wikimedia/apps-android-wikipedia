@@ -7,8 +7,10 @@
 * BlueCamille
 * Blurby
 * C13m3n7
+* CKali
 * Cigaryno
 * Crochet.david
+* Daniel236
 * Dbrant
 * DePlusJean
 * Derugon
@@ -20,6 +22,7 @@
 * Eric.LEWIN
 * Fitoschido
 * Florian COLLIN
+* Framawiki
 * Golmore
 * Gomoko
 * Great11
@@ -33,6 +36,7 @@
 * Kimyungjog
 * Linedwell
 * Ltrlg
+* Lulucmy
 * Léon973
 * MSClaudiu
 * Macofe
@@ -261,9 +265,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synchroniser les listes de lecture entre différents appareils en les enregistrant dans votre compte « %s » sur Wikipédia</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Supprimer les listes de lecture synchronisées de votre compte « %s » ?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Cela supprimera complètement du stockage distant toutes les listes de lecture précédemment synchronisées. Supprimer toutes les listes synchronisées de votre compte « %s » ?</string>
-  <string name="preferences_privacy_settings_heading">Confidentialité</string>
-  <string name="preference_title_eventlogging_opt_in">Envoyer les rapports d’utilisation</string>
-  <string name="preference_summary_eventlogging_opt_in">Permettre à Wikimédia de recueillir des informations sur la manière dont vous utilisez l’application, pour l’améliorer</string>
   <string name="preference_title_auto_upload_crash_reports">Envoyer des rapports d’incident</string>
   <string name="preference_summary_auto_upload_crash_reports">Permettre à l’application d’envoyer automatiquement les rapports d’incident à un fournisseur de services tiers, afin que nous puissions les examiner et corriger le problème plus vite et plus facilement.</string>
   <string name="editing_error_spamblacklist">Détection de liens vers des domaines bloqués (%s) . Veuillez les supprimer et réessayer.</string>
@@ -445,6 +446,10 @@
   <string name="multi_select_items_selected">%d sélectionné</string>
   <string name="error_message_generic">Une erreur s’est produite</string>
   <string name="view_link_preview_error_button_dismiss">Fermer</string>
+  <string name="link_preview_dialog_read_button">Lire</string>
+  <string name="link_preview_dialog_save_button">Enregistrer</string>
+  <string name="link_preview_dialog_saved_button">Enregistré</string>
+  <string name="link_preview_dialog_share_button">Partager</string>
   <string name="error_page_does_not_exist">Cette page n’existe pas</string>
   <string name="error_user_page_does_not_exist">Wikipédia n’a pas de &lt;a href=\"%1$s\"&gt;page utilisateur&lt;/a&gt; avec ce nom exact. En général, cette page devrait être créée et modifiée par &lt;b&gt;%2$s&lt;/b&gt;. En cas de doute, veuillez vérifier que « %3$s » existe.</string>
   <string name="view_wiki_error_message_offline">Impossible de se connecter à Internet</string>
@@ -1160,8 +1165,7 @@
   <string name="onboarding_explore_text">Plongez dans le terrier de Wikipédia avec un flux d\'exploration continuellement mis à jour.&lt;br/&gt; &lt;b&gt;Personnalisez&lt;/b&gt; le flux selon vos intérêts — s\'il s’agit d’apprendre des événements historiques &lt;b&gt;Sur cette journée&lt;/b&gt; ou de choisir aléatoirement avec &lt;b&gt;Aléatoire&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listes de lecture avec synchronisation</string>
   <string name="onboarding_reading_list_sync_text_v2">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même lorsque vous êtes hors connexion.&lt;br /&gt;\nConnectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Envoyer les données de manière anonyme</string>
-  <string name="onboarding_analytics_offline_text">Aide à améliorer l’application en nous faisant savoir comment vous l’utilisez. Les données collectées sont anonymes. &lt;a href=\"#privacy\"&gt;En savoir plus&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Données &amp; confidentialité</string>
   <string name="onboarding_analytics_switch_title">Envoyer les données d’utilisation</string>
   <string name="onboarding_got_it">Compris !</string>
   <string name="onboarding_multilingual_secondary_text">Nous avons trouvé ceci sur votre appareil :</string>
@@ -1370,7 +1374,6 @@
   <string name="revision_diff_from">Depuis :</string>
   <string name="revision_diff_to">Jusqu’à :</string>
   <string name="revision_diff_line_num">Ligne %d</string>
-  <string name="revision_diff_line_nums">Lignes %d – %d</string>
   <string name="revision_diff_lines_from_to">Lignes %1$d–%2$d</string>
   <string name="revision_diff_line_added">Ligne ajoutée</string>
   <string name="revision_diff_line_removed">Ligne supprimée</string>
@@ -1482,6 +1485,8 @@
   <string name="media_playback_error">Erreur lors de la lecture du média.</string>
   <string name="user_contrib_menu_label">Contributions</string>
   <string name="user_contrib_filter_activity_title">Filtre des contributions</string>
+  <string name="action_item_view_on_map">Afficher sur une carte</string>
+  <string name="action_item_view_on_map_unavailable">Les coordonnées géographiques ne sont pas disponibles pour cette page</string>
   <string name="shareable_reading_lists_import_dialog_title">Importer une liste de lecture partagée</string>
   <string name="shareable_reading_lists_import_dialog_content">Comment désirez-vous nommer la liste de lecture qui a été partagée avec vous ?</string>
   <string name="shareable_reading_lists_new_indicator">*nouveau*</string>
@@ -1597,9 +1602,13 @@
   <string name="patroller_onboarding_two_watch_title">Suivre</string>
   <string name="patroller_onboarding_two_warn_title">Avertissement</string>
   <string name="patroller_onboarding_two_undo_title">Annuler/Restaurer</string>
+  <string name="patroller_onboarding_two_undo_content">Choisissez « Annuler » pour révoquer ou annuler une modification potentiellement problématique.</string>
+  <string name="patroller_diff_feedback_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
+  <string name="patroller_diff_feedback_dialog_message">Etes-vous satisfait de cette fonctionnalité ?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfait</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutre</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Insatisfait</string>
+  <string name="patroller_diff_feedback_dialog_feedback_title">Comment pouvons-nous améliorer la fonctionnalité ?</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Commentaire</string>
   <string name="patroller_diff_feedback_dialog_submit">Soumettre</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Commentaire envoyé.</string>
@@ -1615,4 +1624,13 @@
   <string name="donation_campaign_donated_snackbar">Merci, cher donateur ! Votre générosité permet à Wikipédia et à ses sites frères de continuer à prospérer.</string>
   <string name="donation_campaign_go_back_button">Retour</string>
   <string name="menu_single_webview_open_external">Ouvrir dans le navigateur système</string>
+  <string name="places_search_hint">Rechercher des lieux</string>
+  <string name="places_filter_title">Filtrer par langue</string>
+  <string name="places_toggle_buttons_map">Carte</string>
+  <string name="places_toggle_buttons_list">Liste</string>
+  <string name="places_survey_very_satisfied_option">Très satisfait</string>
+  <string name="places_survey_very_unsatisfied_option">Très insatisfait</string>
+  <string name="places_survey_dialog_cancel">Annuler</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Que voudriez-vous que nous changions ou améliorions ?</string>
+  <string name="places_empty_list">Cette zone est vide. Effectuez un zoom arrière &lt;a href=\"#\"&gt;sur la carte&lt;/a&gt;.</string>
 </resources>

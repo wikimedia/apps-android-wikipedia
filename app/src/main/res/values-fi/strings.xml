@@ -27,6 +27,7 @@
 * Pyscowicz
 * SHaran (WMF)
 * SMAUG
+* Samoasambia
 * ShakePilli
 * Silvonen
 * SuperPete
@@ -237,9 +238,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synkronoi lukulistat eri laitteiden välillä tallentamalla ne Wikipedia-käyttäjätunnuksellesi \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Poista synkronoidut lukulistat käytäjätunnukseltasi \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tämä tulee täysin poistamaan kaikki aiemmin synkronoimasi lukulistat etämuistiltasi. Poista kaikki synkronoinut listat käyttäjätunnukseltasi \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Yksityisyys</string>
-  <string name="preference_title_eventlogging_opt_in">Lähetä käyttöraportteja</string>
-  <string name="preference_summary_eventlogging_opt_in">Salli Wikimedian kerätä tietoja sovelluksen käyttötottumuksista käyttäjäkokemuksen parantamiseksi.</string>
   <string name="preference_title_auto_upload_crash_reports">Lähetä kaatumisilmoituksia</string>
   <string name="preference_summary_auto_upload_crash_reports">Salli sovelluksen lähettää automaattisesti kaatumisilmoituksia kolmannen osapuolen palveluntarjoajalle, jotta voimme käydä läpi sovelluksesi kaatumisen ja korjata ongelmat nopeammin sekä helpommin.</string>
   <string name="editing_error_spamblacklist">Havaittu linkkejä estettyihin verkko-osoitteisiin (%s). Poista ne ja yritä uudelleen.</string>
@@ -419,6 +417,9 @@
   <string name="multi_select_items_selected">%d valittu</string>
   <string name="error_message_generic">Tapahtui virhe</string>
   <string name="view_link_preview_error_button_dismiss">Hylkää</string>
+  <string name="link_preview_dialog_save_button">Tallenna</string>
+  <string name="link_preview_dialog_saved_button">Tallennettu</string>
+  <string name="link_preview_dialog_share_button">Jaa</string>
   <string name="error_page_does_not_exist">Tätä sivua ei ole olemassa</string>
   <string name="error_user_page_does_not_exist">Wikipediassa ei ole tämän nimistä &lt;a href=\"%1$s\"&gt;käyttäjäsivua&lt;/a&gt;. Useimmiten vain käyttäjän &lt;b&gt;%2$s&lt;/b&gt; tulisi luoda tämä sivu ja muokata sitä. Mikäli et ole varma, varmista että käyttäjä \"%3$s\" on olemassa.</string>
   <string name="view_wiki_error_message_offline">Ei voitu yhdistää internetiin</string>
@@ -826,7 +827,7 @@
   <string name="feed_configure_onboarding_action">Mukauta</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Peruuta</string>
-  <string name="feed_configure_onboarding_text">&lt;strong&gt;Mukauta Tutki-syötettä&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Voit mukauttaa ja järjestellä syötteen sisältöä vapassti.</string>
+  <string name="feed_configure_onboarding_text">&lt;strong&gt;Mukauta Tutki-syötettä&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Voit mukauttaa ja järjestellä syötteen sisältöä vapaasti.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Peruuta</string>
   <string name="feed_accessibility_card_text">Olet päässyt syötteen loppuun.</string>
@@ -1126,8 +1127,6 @@
   <string name="onboarding_explore_text">Sukella Wikipedian syövereihin aina ajan tasalla olevalla Tutki-syötteellä. &lt;br/&gt; &lt;b&gt;Mukauta&lt;/b&gt; mielenkiinnonkohteidesi mukaaan – vaikkapa tutustumalla &lt;b&gt;tämän päivämäärän&lt;/b&gt; historiallisiin tapahtumiin tai &lt;b&gt;satunnaisesti&lt;/b&gt; valittuun artikkeliin.</string>
   <string name="onboarding_reading_list_sync_title">Synkronoidut lukulistat</string>
   <string name="onboarding_reading_list_sync_text_v2">Lukulistalle voi lisätä myöhemmin luettavaksi artikkeleita, jotka toimivat myös ilman verkkoyhteyttä. &lt;br/&gt;Lukulistojen käyttö edellyttää Wikipedia-tunnuksella kirjautumista. &lt;a href=\"#login\"&gt;Liity Wikipediaan&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Lähetä dataa nimettömästi</string>
-  <string name="onboarding_analytics_offline_text">Antamalla luvan sovelluksen käyttötietojen keräämiseen tuet sovelluksen kehitystyötä. Kerätyt tiedot ovat nimettömiä. &lt;a href=\"#privacy\"&gt;Lisätietoja&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Lähetä dataa tavasta, jolla käytät sovellusta</string>
   <string name="onboarding_got_it">Selvä</string>
   <string name="onboarding_multilingual_secondary_text">Laitteesta löytyneet kielet:</string>
@@ -1335,7 +1334,6 @@
   <string name="revision_diff_from">Versiosta:</string>
   <string name="revision_diff_to">Versioon:</string>
   <string name="revision_diff_line_num">Rivi %d</string>
-  <string name="revision_diff_line_nums">Rivit %d–%d</string>
   <string name="revision_diff_lines_from_to">Rivit %1$d–%2$d</string>
   <string name="revision_diff_line_added">Rivi lisätty</string>
   <string name="revision_diff_line_removed">Rivi poistettu</string>
@@ -1477,6 +1475,7 @@
   <string name="talk_templates_edit_message_dialog_save">Tallenna</string>
   <string name="talk_templates_edit_message_dialog_delete">Poista</string>
   <string name="talk_templates_edit_message_updated">Viesti on päivitetty</string>
+  <string name="talk_templates_menu_remove_message">Poista viesti</string>
   <plurals name="talk_templates_message_delete_description">
     <item quantity="one">Haluatko varmasti poistaa viestin luettelosta?</item>
     <item quantity="other">Haluatko varmasti poistaa viestit luettelosta?</item>
@@ -1485,6 +1484,7 @@
     <item quantity="one">Viesti on poistettu</item>
     <item quantity="other">Viestit on poistettu</item>
   </plurals>
+  <string name="talk_templates_message_title_empty">Otsikko ei voi olla tyhjä.</string>
   <string name="patroller_tasks_edits_list_title">Muokkausluettelo</string>
   <string name="patroller_tasks_edits_list_search_hint">Etsi tai suodata muokkauksia</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Merkinnät: %s</string>
@@ -1515,12 +1515,20 @@
   <string name="patroller_tasks_filters_automated_contributions_bot">Botti</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Ihminen (ei botti)</string>
   <string name="patroller_tasks_filters_significance_minor">Pienet muutokset</string>
+  <string name="patroller_tasks_filters_significance_edits">Muut kuin pienet muutokset</string>
+  <string name="patroller_tasks_filters_contribution_quality_header">Muokkauksen laadun ennustaminen</string>
+  <string name="patroller_tasks_filters_contribution_quality_good">Hyvin todennäköisesti hyvä muokkaus</string>
+  <string name="patroller_tasks_filters_contribution_quality_good_desc">Erittäin tarkka löytämään lähes kokonaan ongelmattomia muokkauksia.</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems">Saattaa sisältää ongelmia</string>
+  <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Löytää eniten virheellisiä tai vahingollisia muokkauksia, mutta tarkkuus on alempi.</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems">Sisältää todennäköisesti ongelmia</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d suodatin</item>
     <item quantity="other">%d suodatinta</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikkelin muokkaushistoria</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Näytä</string>
+  <string name="patroller_tasks_overflow_learn">Lisätietoja</string>
   <string name="patroller_onboarding_two_thank_title">Kiitä</string>
   <string name="patroller_onboarding_two_thank_content">Näetkö hyvän muokkauksen? Kiitä käyttäjää.</string>
   <string name="patroller_onboarding_two_watch_title">Tarkkaile</string>

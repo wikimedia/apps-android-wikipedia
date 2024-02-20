@@ -229,9 +229,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sincronitza les llistes de lectura entre diferents dispositius desant-les en el vostre compte de la Viquipèdia «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Voleu suprimir les llistes de lectura sincronitzades de «%s»?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Això eliminarà completament totes les llistes de lectura sincronitzades de l\'emmagatzemament remot. Voleu suprimir totes les llistes sincronitzades del compte «%s»?</string>
-  <string name="preferences_privacy_settings_heading">Privadesa</string>
-  <string name="preference_title_eventlogging_opt_in">Envia informes sobre l\'ús de l\'aplicació</string>
-  <string name="preference_summary_eventlogging_opt_in">Permetre a Viquimedia recollir informació sobre com utilitzeu l\'aplicació, a fi de poder-la millorar</string>
   <string name="preference_title_auto_upload_crash_reports">Envia informes d\'error</string>
   <string name="preference_summary_auto_upload_crash_reports">Permet que l’aplicació enviï informes de fallades de forma automàtica a un proveïdor de serveis extern, de manera que puguem revisar-los i corregir-los d’una manera més fàcil i ràpida.</string>
   <string name="editing_error_spamblacklist">Enllaços a dominis blocats (%s) detectats. Esborreu-los i torneu-ho a provar.</string>
@@ -984,7 +981,7 @@
   <string name="suggested_edits_contributions_stat_tooltip">El vostre nombre total de contribucions fins ara.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Quants dies seguits hi heu fet contribucions. Si no hi heu contribuït de fa temps, mostra la data de la darrera contribució.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Pàgines vistes totals dels elements en què heu contribuït durant els darrers 30 dies.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Basta en quantes vegades s\'han revertit les vostres contribucions (desfetes per un altre editor). Edicions revertides: %d.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Basat en quantes vegades s\'han revertit les vostres contribucions (desfetes per un altre editor). Edicions revertides: %d.</string>
   <string name="suggested_edits_paused_message">Les edicions suggerides s\'han posat en pausa fins al %1$s. Ho sentim %2$s, però s\'han revertit algunes de les vostres darreres contribucions.</string>
   <string name="suggested_edits_disabled_message">S\'han inhabilitat les edicions suggerides. Ho sentim %s, s\'han revertit massa contribucions recents.</string>
   <string name="suggested_edits_ip_blocked_message">Sembla que la vostra adreça IP (o rang d\'adreces IP) està blocada per a editar a la Viquipèdia.</string>
@@ -1127,8 +1124,6 @@
   <string name="onboarding_explore_text">Capbusseu-vos a l\'univers de la Viquipèdia amb el canal d\'actualització contínua «Exploreu». &lt;br/&gt;&lt;b&gt;Personalitzeu&lt;/b&gt; el canal amb els vostres interessos, llegiu sobre els esdeveniments històrics d\'&lt;b&gt;Un dia com avui&lt;/b&gt; o jugueu als daus amb l\'&lt;b&gt;Article a l\'atzar&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Llistes de lectura amb sincronització</string>
   <string name="onboarding_reading_list_sync_text_v2">Podeu fer llistes de lectura d\'articles que voleu llegir més endavant, fins i tot quan sigueu fora de línia. &lt;br/&gt;Inicieu una sessió al vostre compte de Viquipèdia per sincronitzar les llistes de lectura. &lt;a href=\"#login\"&gt;Uniu-vos a la Viquipèdia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Envia dades anònimes</string>
-  <string name="onboarding_analytics_offline_text">Ajudeu a millorar l’aplicació permitint-nos conèixer com la feu servir. Les dades recollides són anònimes. &lt;a href=\"#privacy\"&gt;Més informació&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envia les dades d\'ús</string>
   <string name="onboarding_got_it">Entesos</string>
   <string name="onboarding_multilingual_secondary_text">Hem trobat el següent en el dispositiu:</string>
@@ -1337,7 +1332,6 @@
   <string name="revision_diff_from">De:</string>
   <string name="revision_diff_to">Per a:</string>
   <string name="revision_diff_line_num">Línia %d</string>
-  <string name="revision_diff_line_nums">Línies %d–%d</string>
   <string name="revision_diff_lines_from_to">Línies %1$d–%2$d</string>
   <string name="revision_diff_line_added">Línia afegida</string>
   <string name="revision_diff_line_removed">Línia eliminada</string>

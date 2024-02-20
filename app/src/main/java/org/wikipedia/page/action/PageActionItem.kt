@@ -4,7 +4,6 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import org.wikipedia.R
 import org.wikipedia.model.EnumCode
-import org.wikipedia.model.EnumCodeMap
 
 @Suppress("unused")
 enum class PageActionItem constructor(val id: Int,
@@ -13,6 +12,7 @@ enum class PageActionItem constructor(val id: Int,
                                       @DrawableRes val iconResId: Int = R.drawable.ic_settings_black_24dp,
                                       val isAvailableOnMobileWeb: Boolean = true,
                                       val isExternalLink: Boolean = false) : EnumCode {
+    // TODO: Need to add the newly added item to the default const lists below
     SAVE(0, R.id.page_save, R.string.article_menu_bar_save_button, R.drawable.ic_bookmark_border_white_24dp, false) {
         override fun select(cb: Callback) {
             cb.onSaveSelected()
@@ -77,6 +77,11 @@ enum class PageActionItem constructor(val id: Int,
         override fun select(cb: Callback) {
             cb.onEditArticleSelected()
         }
+    },
+    VIEW_ON_MAP(13, R.id.page_view_on_map, R.string.action_item_view_on_map, R.drawable.baseline_location_on_24, false) {
+        override fun select(cb: Callback) {
+            cb.onViewOnMapSelected()
+        }
     };
 
     abstract fun select(cb: Callback)
@@ -101,22 +106,16 @@ enum class PageActionItem constructor(val id: Int,
         fun onExploreSelected()
         fun onCategoriesSelected()
         fun onEditArticleSelected()
+        fun onViewOnMapSelected()
         fun forwardClick()
     }
 
     companion object {
-        val MAP = EnumCodeMap(PageActionItem::class.java)
-
-        fun size(): Int {
-            return MAP.size()
-        }
-
-        private fun findOrNull(id: Int): PageActionItem? {
-            return MAP.valueIterator().asSequence().firstOrNull { id == it.id || id == it.viewId }
-        }
+        val DEFAULT_TOOLBAR_LIST = listOf(SAVE, LANGUAGE, FIND_IN_ARTICLE, THEME, CONTENTS).map { it.id }
+        val DEFAULT_OVERFLOW_MENU_LIST = listOf(SHARE, ADD_TO_WATCHLIST, VIEW_TALK_PAGE, VIEW_EDIT_HISTORY, VIEW_ON_MAP, NEW_TAB, EXPLORE, CATEGORIES, EDIT_ARTICLE).map { it.id }
 
         fun find(id: Int): PageActionItem {
-            return findOrNull(id = id) ?: MAP[0]
+            return entries.find { id == it.id || id == it.viewId } ?: entries[0]
         }
 
         @DrawableRes
