@@ -1191,4 +1191,8 @@
   <string name="places_survey_very_unsatisfied_option">খুবই অসন্তুষ্ট</string>
   <string name="places_survey_dialog_title" fuzzy="true">\'স্থানগুলি\' উন্নত করতে সাহায্য করুন</string>
   <string name="places_empty_list">এই এলাকাটি ফাঁকা। মানচিত্রে জুমআউট করুন।</string>
+  <string name="places_nav_tab_tooltip_message">আপনার চারপাশের স্থানগুলি সম্পর্কেউইকিপিডিয়া নিবন্ধগুলি বের করুন</string>
+  <string name="link_preview_dialog_saved_button">সেভ করা হয়েছে</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">আপনি আমাদের কী পরিবর্তন বাউন্নতি চান?</string>
+  <string name="places_permissions_denied">মানচিত্রে আপনার লোকেশন দেখতেলোকেশনের অনুমতি প্রয়োজন। অনুগ্রহকরে আবার চেষ্টা করুন।</string>
 </resources>
