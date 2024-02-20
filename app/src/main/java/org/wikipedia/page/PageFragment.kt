@@ -115,8 +115,8 @@ import org.wikipedia.views.ViewUtil
 import org.wikipedia.watchlist.WatchlistExpiry
 import org.wikipedia.watchlist.WatchlistExpiryDialog
 import org.wikipedia.wiktionary.WiktionaryDialog
-import java.time.Duration
 import java.time.Instant
+import java.time.temporal.ChronoUnit
 
 class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.CommunicationBridgeListener, ThemeChooserDialog.Callback,
     ReferenceDialog.Callback, WiktionaryDialog.Callback, WatchlistExpiryDialog.Callback {
@@ -665,8 +665,8 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
     private fun maybeShowAnnouncement() {
         title?.let { pageTitle ->
             // Check if the pause time is older than 1 day.
-            val dateDiff = Duration.between(Instant.ofEpochMilli(Prefs.announcementPauseTime), Instant.now())
-            if (Prefs.hasVisitedArticlePage && dateDiff.toDays() >= 1) {
+            val dateDiff = Prefs.announcementPauseTime.until(Instant.now(), ChronoUnit.DAYS)
+            if (Prefs.hasVisitedArticlePage && dateDiff >= 1) {
                 lifecycleScope.launch(CoroutineExceptionHandler { _, t -> L.e(t) }) {
                     val campaignList = CampaignCollection.getActiveCampaigns()
                     val availableCampaign = campaignList.find { campaign -> campaign.assets[app.appOrSystemLanguageCode] != null }

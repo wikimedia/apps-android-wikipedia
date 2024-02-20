@@ -130,9 +130,9 @@ object Prefs {
     val ignoreDateForAnnouncements
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_announcement_ignore_date, false)
 
-    var announcementPauseTime
-        get() = PrefsIoUtil.getLong(R.string.preference_key_announcement_pause_time, 0)
-        set(time) = PrefsIoUtil.setLong(R.string.preference_key_announcement_pause_time, time)
+    var announcementPauseTime: Instant
+        get() = Instant.ofEpochMilli(PrefsIoUtil.getLong(R.string.preference_key_announcement_pause_time, 0))
+        set(time) = PrefsIoUtil.setLong(R.string.preference_key_announcement_pause_time, time.toEpochMilli())
 
     val announcementDebugUrl
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_announcement_debug_url, false)
