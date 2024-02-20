@@ -519,7 +519,7 @@
   <string name="reading_lists_default_plus_one_list_delete_message">%1$s яхар дӀабаьккхаб. ХӀаьта юххьанца бола листам (%2$s) дӀабаккха йиш яц.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">Листамаш дӀадаьхад. Амма юххьанца бола листам (%s) дӀабаккха йиш яц.</string>
   <string name="single_list_json_file_name">%s (Википеде чу ешаш йола статьяш).json</string>
-  <string name="multiple_lists_json_file_name">{{grammar:genitive|{{SITENAME}}}} дешарá дола листамаш (%s а, кхы а).json</string>
+  <string name="multiple_lists_json_file_name">Википеден дешарá дола листамаш (%s а, кхы а).json</string>
   <string name="reading_list_items_deleted">%d оагӀув дӀаяьккхай листама чура</string>
   <string name="reading_lists_item_deleted">%s дӀаяьккхай листамашкара</string>
   <string name="reading_list_item_delete_undo">Юхадаккха</string>

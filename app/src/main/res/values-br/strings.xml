@@ -631,7 +631,7 @@
   <string name="notification_syncing_resume_button">Adstagañ ganti</string>
   <string name="notification_syncing_cancel_button">Nullañ</string>
   <string name="notification_syncing_reading_list_channel_description">Emeur o sinkronelaat ar rolloù lenn</string>
-  <string name="notification_many_unread">%d {{PLURAL:%d|c\'hemenn|gemenn|c\'hemenn|a gemennoù}} ho peus da lenn</string>
+  <string name="notification_many_unread">%d a gemennoù ho peus da lenn</string>
   <plurals name="notification_channel_name">
     <item quantity="one">O pellgargañ pennad</item>
     <item quantity="two">O pellgargañ pennadoù</item>
