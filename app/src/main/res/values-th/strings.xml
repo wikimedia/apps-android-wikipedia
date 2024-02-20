@@ -952,6 +952,11 @@
   <string name="wikitext_template">แม่แบบ</string>
   <string name="wikitext_reference">แหล่งอ้างอิง</string>
   <string name="wikitext_preview_link">แสดงตัวอย่างลิงก์</string>
+  <string name="insert_media_advanced_settings">การตั้งค่าขั้นสูง</string>
+  <string name="insert_media_advanced_settings_wrap_image">ตัดข้อความรอบ ๆ รูปภาพ</string>
+  <string name="insert_media_advanced_settings_image_size_custom_width">ความกว้าง</string>
+  <string name="insert_media_advanced_settings_image_size_custom_height">ความสูง</string>
+  <string name="insert_media_advanced_settings_image_size_custom_px">พิกเซล</string>
   <string name="main_drawer_help">วิธีใช้</string>
   <string name="main_drawer_login">เข้าสู่ระบบ / เข้าร่วมวิกิพีเดีย</string>
   <string name="main_tooltip_text">สวัสดี %s คุณรู้หรือไม่ว่าทุกคนสามารถแก้ไขวิกิพีเดียได้?</string>
