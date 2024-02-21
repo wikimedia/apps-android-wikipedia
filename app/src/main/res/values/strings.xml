@@ -268,6 +268,7 @@
     <string name="edit_warn">Warn</string>
     <string name="edit_damage">Damage %s</string>
     <string name="edit_intent">Intent %s</string>
+    <string name="edit_revert_risk">Revert risk: %s</string>
     <plurals name="edit_diff_bytes">
         <item quantity="one">%s byte</item>
         <item quantity="other">%s bytes</item>

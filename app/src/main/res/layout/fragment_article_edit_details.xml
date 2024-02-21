@@ -251,7 +251,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="6dp"
                         android:layout_marginBottom="8dp"
-                        app:constraint_referenced_ids="oresDamagingButton,oresGoodFaithButton,diffCharacterCountView"
+                        app:constraint_referenced_ids="revertRiskButton,diffCharacterCountView"
                         app:flow_horizontalBias="0"
                         app:flow_horizontalGap="8dp"
                         app:flow_horizontalStyle="packed"
@@ -263,22 +263,13 @@
                         app:layout_constraintTop_toBottomOf="@id/thanksDivider" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/oresDamagingButton"
+                        android:id="@+id/revertRiskButton"
                         style="@style/App.Button.Secondary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="?attr/secondary_color"
                         android:layout_marginStart="16dp"
-                        tools:text="Damaging: 50%"/>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/oresGoodFaithButton"
-                        style="@style/App.Button.Secondary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="?attr/secondary_color"
-                        android:layout_marginStart="16dp"
-                        tools:text="Goodfaith: 50%"/>
+                        tools:text="Revert risk: 50%"/>
 
                     <TextView
                         android:id="@+id/diffCharacterCountView"

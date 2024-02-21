@@ -295,6 +295,7 @@
   <string name="edit_warn">Title of the screen of publishing a warn message to a user talk page.</string>
   <string name="edit_damage">Label of the edit damage in the article edit detail page. %s will be replaced by the percentage of edit damage.</string>
   <string name="edit_intent">Label of the edit intent in the article edit detail page. %s will be replaced by the percentage of edit intent.</string>
+  <string name="edit_revert_risk">Label that displays the calculated revert risk of a certain revision. %s will be replaced by the percentage of revert risk.</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">Text for the revisions difference in bytes. %s will be replaced by the positive one or negative one.</item>
     <item quantity="other">Text for the revisions difference in bytes. %s will be replaced by the number of bytes.</item>

@@ -45,16 +45,7 @@ enum class SuggestedEditsRecentEditsFilterTypes constructor(val id: String,
     DAMAGING_LIKELY_PROBLEMS("damagingLikelyProblems", "0.629|0.944",
         R.string.patroller_tasks_filters_contribution_quality_likely_problems, R.string.patroller_tasks_filters_contribution_quality_likely_problems_desc),
     DAMAGING_VERY_LIKELY_PROBLEMS("damagingBad", "0.944|1",
-        R.string.patroller_tasks_filters_contribution_quality_bad, R.string.patroller_tasks_filters_contribution_quality_bad_desc),
-    // Only check the goodfaith: { true } score
-    GOODFAITH_GOOD("goodfaithGood", "0.75|1",
-        R.string.patroller_tasks_filters_user_intent_good, R.string.patroller_tasks_filters_user_intent_good_desc),
-    GOODFAITH_MAY_PROBLEMS("goodfaithMayProblems", "0.647|0.75",
-        R.string.patroller_tasks_filters_user_intent_may_problems, R.string.patroller_tasks_filters_user_intent_may_problems_desc),
-    GOODFAITH_LIKELY_PROBLEMS("goodfaithLikelyProblems", "0.25|0.647",
-        R.string.patroller_tasks_filters_user_intent_likely_problems, R.string.patroller_tasks_filters_user_intent_likely_problems_desc),
-    GOODFAITH_VERY_LIKELY_PROBLEMS("goodfaithBad", "0|0.25",
-        R.string.patroller_tasks_filters_user_intent_bad, R.string.patroller_tasks_filters_user_intent_bad_desc);
+        R.string.patroller_tasks_filters_contribution_quality_bad, R.string.patroller_tasks_filters_contribution_quality_bad_desc);
 
     override fun code(): Int {
         // This enumeration is not marshalled so tying declaration order to presentation order is
@@ -68,8 +59,8 @@ enum class SuggestedEditsRecentEditsFilterTypes constructor(val id: String,
         val LATEST_REVISIONS_GROUP = listOf(LATEST_REVISION, NOT_LATEST_REVISION)
         val USER_REGISTRATION_GROUP = listOf(UNREGISTERED, REGISTERED)
         val USER_EXPERIENCE_GROUP = listOf(NEWCOMERS, LEARNERS, EXPERIENCED_USERS)
+        // TODO: rename to "revert risk"?
         val DAMAGING_GROUP = listOf(DAMAGING_GOOD, DAMAGING_MAY_PROBLEMS, DAMAGING_LIKELY_PROBLEMS, DAMAGING_VERY_LIKELY_PROBLEMS)
-        val GOODFAITH_GROUP = listOf(GOODFAITH_GOOD, GOODFAITH_MAY_PROBLEMS, GOODFAITH_LIKELY_PROBLEMS, GOODFAITH_VERY_LIKELY_PROBLEMS)
 
         // Multiple choice
         val DEFAULT_FILTER_USER_STATUS = setOf(UNREGISTERED, NEWCOMERS)

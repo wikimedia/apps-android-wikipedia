@@ -118,8 +118,8 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
             val allRecentChanges = response.query?.recentChanges.orEmpty()
 
-            // Filtering Ores damaging and goodfaith
-            val recentChanges = filterOresScores(filterOresScores(allRecentChanges, true), false)
+            // Filtering by revert risk
+            val recentChanges = filterOresScores(allRecentChanges)
 
             // Get usernames
             val usernames = recentChanges.filter { !it.anon }.map { it.user }.distinct().filter {
@@ -152,8 +152,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             // Ores related: default is empty
             val findSelectedOres = Prefs.recentEditsIncludedTypeCodes.subtract(findSelectedUserStatus.toSet())
                 .filter { code ->
-                    SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.map { it.id }.contains(code) ||
-                            SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }.contains(code)
+                    SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }.contains(code)
                 }
 
             // Find the remaining selected filters
@@ -195,8 +194,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             }
 
             if (includedTypesCodes.any { code ->
-                    SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.map { it.id }.contains(code) ||
-                            SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }.contains(code) }) {
+                    SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }.contains(code) }) {
                 list.add("oresreview")
             }
 
@@ -266,9 +264,8 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
             return recentChanges
         }
 
-        private fun filterOresScores(recentChanges: List<MwQueryResult.RecentChange>, isDamagingGroup: Boolean): List<MwQueryResult.RecentChange> {
-            val filterGroupSet = if (isDamagingGroup) SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }
-            else SuggestedEditsRecentEditsFilterTypes.GOODFAITH_GROUP.map { it.id }
+        private fun filterOresScores(recentChanges: List<MwQueryResult.RecentChange>): List<MwQueryResult.RecentChange> {
+            val filterGroupSet = SuggestedEditsRecentEditsFilterTypes.DAMAGING_GROUP.map { it.id }
 
             if (Prefs.recentEditsIncludedTypeCodes.any { code -> filterGroupSet.contains(code) }) {
                 val findOresFilters = Prefs.recentEditsIncludedTypeCodes
@@ -280,7 +277,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
 
                 return recentChanges.filter { it.ores != null }.filter {
                     val scoreRanges = findOresFilters.map { type -> type.value }
-                    val oresScore = if (isDamagingGroup) it.ores?.damagingProb ?: 0f else it.ores?.goodfaithProb ?: 0f
+                    val oresScore = it.ores?.revertRisk ?: 0f
                     scoreRanges.forEach { range ->
                         val scoreRangeArray = range.split("|")
                         val inScoreRange = oresScore >= scoreRangeArray.first().toFloat() && oresScore <= scoreRangeArray.last().toFloat()
