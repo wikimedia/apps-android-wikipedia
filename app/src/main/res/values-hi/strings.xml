@@ -1445,7 +1445,7 @@
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">असंतुष्ट</string>
   <string name="patroller_diff_feedback_dialog_input_hint">फीडबैक</string>
   <string name="patroller_diff_feedback_dialog_submit">जमा करें</string>
-  <string name="patroller_diff_feedback_submitted_snackbar">फीडबैक जमा किया गया. धन्यवाद!</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">प्रतिक्रिया जमा किया गया। धन्यवाद!</string>
   <string name="data_opt_in_accept">स्वीकार करें</string>
   <string name="data_opt_in_reject">अस्वीकार करें</string>
   <string name="generic_release_notes">मामूली बग फिक्स और सुधार</string>
@@ -1459,5 +1459,9 @@
   <string name="places_survey_very_satisfied_option">बहुत संतुष्ट</string>
   <string name="places_survey_very_unsatisfied_option">बहुत असंतुष्ट</string>
   <string name="places_survey_dialog_title" fuzzy="true">\'स्थानों\' को बेहतर बनाने में सहायता करें</string>
-  <string name="places_empty_list">यह एरिया खाली है. मैप पर ज़ूम आउटकरें.</string>
+  <string name="places_empty_list">यह क्षेत्र खाली है। मैप पर ज़ूम आउट करें।</string>
+  <string name="places_nav_tab_tooltip_message">स्थानों के साथ अपने आस-पास विकिपीडिया लेख खोजें</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">हमें क्या परिवर्तन या सुधार करने चाहिए?</string>
+  <string name="link_preview_dialog_saved_button">सेव किया गया</string>
+  <string name="places_permissions_denied">मैप पर अपना लोकेशन देखने के लिए लोकेशन परमिशन की आवश्यकता है। कृपया दोबारा प्रयास करें।</string>
 </resources>
