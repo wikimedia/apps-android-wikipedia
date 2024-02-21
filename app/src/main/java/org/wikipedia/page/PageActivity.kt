@@ -529,11 +529,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             val title = PageTitle(query, app.wikiSite)
             val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_SEARCH)
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB)
-        } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
-            intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)?.let {
-                val historyEntry = HistoryEntry(it, HistoryEntry.SOURCE_WIDGET)
-                loadPage(it, historyEntry, TabPosition.EXISTING_TAB)
-            }
         } else if (ACTION_CREATE_NEW_TAB == intent.action) {
             loadMainPage(TabPosition.NEW_TAB_FOREGROUND)
         } else {
