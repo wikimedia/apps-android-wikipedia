@@ -927,6 +927,7 @@
   <string name="suggested_edits_image_tags_add_tag">Ouzhpennañ un dikedenn</string>
   <string name="suggested_edits_image_zoom_tooltip">Piñsit evit zoumañ war ar skeudenn-mañ.</string>
   <string name="suggested_edits_views_label_text">Gweladennoù</string>
+  <string name="suggested_edits_quality_label_text">Kalite ar c\'hemmoù</string>
   <string name="suggested_edits_quality_perfect_text">Peurvat</string>
   <string name="suggested_edits_quality_excellent_text">Dispar</string>
   <string name="suggested_edits_quality_very_good_text">Mat-tre</string>
@@ -978,6 +979,8 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Dec\'h</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kevreañ ouzh / mont gant Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Tikedenn ar skeudenn</string>
+  <string name="suggested_edits_descriptions_not_enough_info_suggestion">N\'eus ket a-walc\'h a ditouroù</string>
+  <string name="suggested_edits_inappropriate_suggestion">Kinnig dizereat</string>
   <string name="suggested_edits_report_suggestion">Danevelliñ</string>
   <string name="suggested_edits_image_recommendations_task_title">Skeudennoù ar pennad</string>
   <string name="image_recommendation_task_instruction">Daoust hag ec\'h ouzhpennfec\'h ar skeudenn-mañ er pennad?</string>
@@ -1148,6 +1151,8 @@
   <string name="menu_option_edit_source">Kemmañ ar vammenn</string>
   <string name="menu_option_user_page">Pajenn implijer %s</string>
   <string name="talk_menu_copy_text">Eilañ an destenn</string>
+  <string name="watchlist_details_watching_label">Oc\'h evezhiañ</string>
+  <string name="watchlist_details_watch_label">Evezhiañ</string>
   <string name="watchlist_details_next_edit">Kemm war-lerc\'h</string>
   <string name="watchlist_details_prev_edit">Kemm kent</string>
   <string name="thank_label">Trugarekaat</string>
@@ -1188,9 +1193,11 @@
   <string name="watchlist_page_deleted">Dilamet</string>
   <string name="watchlist_filter_wiki_filter_header">Wiki</string>
   <string name="watchlist_filter_all_text">An holl</string>
+  <string name="watchlist_filter_user_status_registered">Enskrivet</string>
   <string name="watchlist_filter_user_status_newcomers">Tud nevez-deuet</string>
   <string name="watchlist_filter_user_status_learners">Deskarded</string>
   <string name="watchlist_filter_user_status_experienced">Implijerien arroutet</string>
+  <string name="watchlist_filter_contribution_authorship_header">Aozer ar c\'hemmoù</string>
   <string name="watchlist_filter_contribution_authorship_own">Bet kemmet ganeoc\'h</string>
   <string name="watchlist_filter_contribution_authorship_except_own">Bet kemmet gant tud all</string>
   <string name="watchlist_filter_automated_contributions_header">Degasadennoù emgefre</string>
@@ -1213,6 +1220,11 @@
     <item quantity="many">%d sil</item>
     <item quantity="other">%d sil</item>
   </plurals>
+  <string name="preview_edit_title">Kemm kent</string>
+  <string name="preview_edit_summarize_edit_title">Diverradur ar c\'hemmoù</string>
+  <string name="preview_edit_summarize_edit_hint">Penaos eo bet gwellaet ar bajenn ganeoc\'h?</string>
+  <string name="preview_edit_minor_edit">Ur c\'hemm dister eo hemañ</string>
+  <string name="preview_edit_watch_this_page">Evezhiañ ar bajenn-mañ</string>
   <string name="action_item_categories">Rummadoù</string>
   <string name="category_tab_articles">Pennadoù</string>
   <string name="category_tab_subcategories">Isrummadoù</string>
@@ -1221,12 +1233,14 @@
   <string name="user_contrib_activity_title">Degasadennoù gant %s</string>
   <string name="archive_empty">Diell ebet kavet.</string>
   <string name="namespace_article">Pennad</string>
+  <string name="user_contrib_current">a-vremañ</string>
   <string name="user_contrib_menu_label">Degasadennoù</string>
   <string name="action_item_view_on_map">Diskwel war ar gartenn</string>
   <string name="shareable_reading_lists_new_indicator">*nevez*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">Mat eo</string>
   <string name="reading_list_share_menu_label">Rannañ…</string>
   <string name="talk_templates_new_message_title">Kemennadenn nevez</string>
+  <string name="talk_templates_new_message_subject_hint">Danvez</string>
   <string name="talk_templates_new_message_compose_hint">Skrivañ ur gemennadenn</string>
   <string name="talk_templates_new_message_save">Enrollañ</string>
   <string name="talk_templates_new_message_dialog_title">Enrollañ ar c\'hemmoù</string>
@@ -1241,6 +1255,8 @@
   <string name="talk_templates_edit_message_dialog_delete">Dilemel</string>
   <string name="talk_templates_edit_message_updated">Hizivaet eo bet ar gemennadenn</string>
   <string name="talk_templates_menu_remove_message">Lemel ar gemennadenn</string>
+  <string name="patroller_tasks_edits_list_title">Roll ar c\'hemmoù</string>
+  <string name="patroller_tasks_edits_list_search_hint">Klask pe silañ ar c\'hemmoù</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tikedennoù: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Hini ebet</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Gwelet pajenn an implijer</string>
@@ -1256,13 +1272,22 @@
   <string name="patroller_tasks_filters_wiki_filter_header">Wiki</string>
   <string name="patroller_tasks_filters_all_text">Pep tra</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Aozerien n\'int ket kevreet.</string>
+  <string name="patroller_tasks_filters_user_status_registered">Enskrivet</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Tud nevez-deuet</string>
   <string name="patroller_tasks_filters_user_status_learners">Deskarded</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Degasadennoù emgefre</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Robot</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Den (n\'eo ket ur robot)</string>
   <string name="patroller_tasks_filters_significance_header">Talvoudegezh</string>
   <string name="patroller_tasks_filters_significance_minor">Kemmoù dister</string>
   <string name="patroller_tasks_filters_significance_edits">Kemmoù n\'int ket dister</string>
+  <plurals name="patroller_tasks_filters_number_of_filters">
+    <item quantity="one">%d sil</item>
+    <item quantity="two">%d sil</item>
+    <item quantity="few">%d sil</item>
+    <item quantity="many">%d sil</item>
+    <item quantity="other">%d sil</item>
+  </plurals>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Gwelet</string>
   <string name="patroller_tasks_overflow_learn">Gouzout hiroc\'h</string>
   <string name="patroller_onboarding_two_thank_title">Trugarekaat</string>

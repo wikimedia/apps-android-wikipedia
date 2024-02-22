@@ -349,6 +349,8 @@
   <string name="widget_name_featured_page">Pagina di Wikipedia in primo piano</string>
   <string name="widget_title_featured_page">Pagina di oggi in primo piano:</string>
   <string name="widget_name_search">Ricerca di Wikipedia</string>
+  <string name="widget_description_search">Il modo più veloce per cercare su Wikipedia</string>
+  <string name="widget_description_featured_page">Le voci migliori che Wikipedia ha da offrire</string>
   <string name="wiktionary_no_definitions_found">Nessuna definizione trovata.</string>
   <string name="alpha_update_notification_title">Nuovo aggiornamento alfa disponibile</string>
   <string name="alpha_update_notification_text">Tocca per scaricare</string>
