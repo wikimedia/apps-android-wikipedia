@@ -368,6 +368,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             displayedTasks.add(addImageCaptionsTask)
             displayedTasks.add(addImageTagsTask)
         }
+
+        if (displayedTasks.isEmpty() && !viewModel.blockMessageWikipedia.isNullOrEmpty()) {
+            setIPBlockedStatus()
+        }
     }
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
