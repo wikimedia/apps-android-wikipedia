@@ -343,6 +343,8 @@
   <string name="widget_name_featured_page">Artigo destacado na Wikipédia</string>
   <string name="widget_title_featured_page">Artigo destacado de hoje:</string>
   <string name="widget_name_search">Pesquisa da Wikipédia</string>
+  <string name="widget_description_search">A maneira mais rápida de pesquisar na Wikipédia</string>
+  <string name="widget_description_featured_page">Os melhores artigos que a Wikipédia tem a oferecer</string>
   <string name="wiktionary_no_definitions_found">Não foram encontradas definições.</string>
   <string name="alpha_update_notification_title">Nova versão alpha disponível</string>
   <string name="alpha_update_notification_text">Toque para baixar</string>

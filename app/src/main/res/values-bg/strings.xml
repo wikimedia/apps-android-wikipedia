@@ -145,7 +145,7 @@
   <string name="login_password_hint">Парола</string>
   <string name="account_creation_password_hint">Парола</string>
   <string name="login_2fa_hint">Двукомпонентен удостоверителен код</string>
-  <string name="login_2fa_other_workflow_error_msg">Нужно е двукомпонентно удостоверяване! Моля, върнете се към основната дейност и влезте с вашия 2FA токен, след което опитайте пак.</string>
+  <string name="login_2fa_other_workflow_error_msg">Нужно е двуфакторно удостоверяване! Моля, върнете се към основната дейност и влезте с вашия 2FA токен, след което опитайте пак.</string>
   <string name="onboarding_card_login">Влизане</string>
   <string name="page_editing_login">Влизане</string>
   <string name="reading_lists_sync_login">Влизане</string>

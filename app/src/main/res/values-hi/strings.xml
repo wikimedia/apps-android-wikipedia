@@ -413,6 +413,7 @@
   <string name="view_link_preview_error_button_dismiss">रद्द करें</string>
   <string name="link_preview_dialog_read_button">पढ़ें</string>
   <string name="link_preview_dialog_save_button">सहेजें</string>
+  <string name="link_preview_dialog_saved_button">सेव किया गया</string>
   <string name="link_preview_dialog_share_button">शेयर करें</string>
   <string name="error_page_does_not_exist">यह पेज अस्तिव में नहीं है</string>
   <string name="error_user_page_does_not_exist">विकिपीडिया में इस सटीक नाम वाला &lt;a href=\"%1$s\"&gt;सदस्य पृष्ठ&lt;/a&gt; नहीं है। सामान्य तौर पर, यह पृष्ठ &lt;b&gt;%2$s&lt;/b&gt; द्वारा बनाया और संपादित किया जाना चाहिए। यदि संदेह है, तो कृपया सत्यापित करें कि \" %3$s \" मौजूद है।</string>
@@ -1451,13 +1452,16 @@
   <string name="generic_release_notes">मामूली बग फिक्स और सुधार</string>
   <string name="donation_campaign_go_back_button">वापस जाएँ</string>
   <string name="places_title">स्थानों</string>
+  <string name="places_permissions_denied">मैप पर अपना लोकेशन देखने के लिए लोकेशन परमिशन की आवश्यकता है। कृपया दोबारा प्रयास करें।</string>
   <string name="places_search_hint">স্থানগুলি অনুসন্ধান করুন</string>
   <string name="places_filter_title">भाषा फ़िल्टर करें</string>
   <string name="places_toggle_buttons_map">नक्शा</string>
   <string name="places_toggle_buttons_list">लिस्ट</string>
+  <string name="places_nav_tab_tooltip_message">स्थानों के साथ अपने आस-पास विकिपीडिया लेख खोजें</string>
   <string name="places_article_menu_tooltip_message" fuzzy="true">इस आर्टिकल की लोकेशन जानने के लिए \'मैप पर देखें\' पर टैप करें&gt;</string>
   <string name="places_survey_very_satisfied_option">बहुत संतुष्ट</string>
   <string name="places_survey_very_unsatisfied_option">बहुत असंतुष्ट</string>
   <string name="places_survey_dialog_title" fuzzy="true">\'स्थानों\' को बेहतर बनाने में सहायता करें</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">हमें क्या परिवर्तन या सुधार करने चाहिए?</string>
   <string name="places_empty_list">यह एरिया खाली है. मैप पर ज़ूम आउटकरें.</string>
 </resources>

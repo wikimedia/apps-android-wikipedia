@@ -488,7 +488,7 @@
   <string name="color_theme_select">主题</string>
   <string name="color_theme_light">日间</string>
   <string name="color_theme_dark">夜间</string>
-  <string name="color_theme_black">黑</string>
+  <string name="color_theme_black">黑暗</string>
   <string name="color_theme_sepia">棕褐色</string>
   <string name="color_theme_test_title">示例文本</string>
   <string name="color_theme_test_text">拖动滑块以更改阅读条目时的文本大小。要设置应用其他部分的文本大小，请更改您的系统文本大小。</string>
@@ -660,7 +660,7 @@
   <string name="reading_list_activity_title">阅读列表：%s</string>
   <string name="reading_list_notification_title">已导出的阅读列表</string>
   <string name="reading_list_notification_text">%d个阅读列表已作为“阅读列表导出.json”导出到您的下载文件夹</string>
-  <string name="reading_list_notification_detailed_text">阅读列表已导出到“阅读列表导出.json”</string>
+  <string name="reading_list_notification_detailed_text">阅读列表已导出至“reading_lists_export.json”</string>
   <string name="reading_lists_action_menu_export_lists">导出</string>
   <string name="reading_lists_import_file_picker_title">选择要导入的文件</string>
   <string name="reading_lists_import_failure_message">阅读列表导入失败</string>
