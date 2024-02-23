@@ -171,7 +171,7 @@
   <string name="login_forgot_password">Kata sandi lu lalèn?</string>
   <string name="create_account_already_have">Udah gableg rèkening?</string>
   <string name="create_account_activity_title">Keja rèkening</string>
-  <string name="dialog_create_account_checking_progress">Nahkik</string>
+  <string name="dialog_create_account_checking_progress">Mastiin</string>
   <string name="create_account_email_hint">Surlès (Sunah)</string>
   <string name="create_account_password_repeat_hint">Ulangin kata sandi</string>
   <string name="create_account_password_is_username">Kata sandi kaga\' bolé sama ama nama pemaké</string>
@@ -889,7 +889,7 @@
   <string name="suggested_edits_task_multilingual_title">Tugas laènnya bakal pemermak anèkabasa</string>
   <string name="suggested_edits_task_multilingual_description">Tugas terjemahan derak kalo lu baca èn nulis di lebi deri atu basa Wikipédi.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Kekonci ampé lu mermak %d keterangan gambar</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Kekonci ampé lu mermak %d jabaran makalah (ditahkik)</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Kekonci ampé lu mermak %d jabaran makalah (dipastiin)</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan bakal gua</string>
   <string name="suggested_edits_task_multilingual_positive">Tambah basa</string>
   <string name="suggested_edits_image_caption_summary_title_image">Gambar</string>
