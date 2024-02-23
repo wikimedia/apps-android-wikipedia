@@ -322,6 +322,8 @@
   <string name="widget_name_featured_page">Utvalgt WIkipedia-side</string>
   <string name="widget_title_featured_page">Dagens utvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søk</string>
+  <string name="widget_description_search">Den raskeste måten å søke i Wikipedia</string>
+  <string name="widget_description_featured_page">De beste artiklene Wikipedia har å tilby</string>
   <string name="wiktionary_no_definitions_found">Ingen definisjoner funnet.</string>
   <string name="alpha_update_notification_title">Ny alphaoppdatering tilgjengelig</string>
   <string name="alpha_update_notification_text">Trykk for å laste ned</string>
@@ -1125,6 +1127,7 @@
   <string name="onboarding_reading_list_sync_title">Leselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan lage leselister med artikler du vil lese senere, selv når du er uten nettilgang.&lt;br/&gt;Logg inn med en Wikipedia-konto for å sikkerhetskopiere listene. &lt;a href=\"#login\"&gt;Registrer deg på Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data og personvern</string>
+  <string name="onboarding_data_privacy_text">Vi mener at du ikke skal trenge å oppgi personlig informasjon for å delta i bevegelsen for fri kunnskap. Bruksdata som samles inn for denne appen er anonyme. Lær mer om &lt;a href=\"#privacy\"&gt;personvernspolitikken vår&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;bruksvilkårene våre&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Send bruksdata</string>
   <string name="onboarding_got_it">Skjønner</string>
   <string name="onboarding_multilingual_secondary_text">Følgende ble funnet på enheten din:</string>
@@ -1596,11 +1599,12 @@
   <string name="places_toggle_buttons_map">Kart</string>
   <string name="places_toggle_buttons_list">Liste</string>
   <string name="places_nav_tab_tooltip_message">Oppdag Wikipedia-artikler rundt deg med Steder</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">Trykk på &lt;b&gt;«Vis på kart»&lt;/b&gt; for å utforske nærområdet til denne artikkelen</string>
+  <string name="places_article_menu_tooltip_message">Trykk på «Vis på kart» for å utforske nærområdet til denne artikkelen</string>
   <string name="places_survey_very_satisfied_option">Veldig fornøyd</string>
   <string name="places_survey_very_unsatisfied_option">Veldig misfornøyd</string>
-  <string name="places_survey_dialog_title" fuzzy="true">Hjelp til med å forbedre «Steder»</string>
+  <string name="places_survey_dialog_title">Hjelp til med å forbedre «Steder»</string>
   <string name="places_survey_feedback_dialog_title">Hvordan kan «Steder» forbedres?</string>
+  <string name="places_survey_dialog_cancel">Avbryt</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Hva ønsker du at vi endrer eller forbedrer?</string>
   <string name="places_empty_list">Dette området er tomt. Zoom ut &lt;a href=\"#\"&gt;på kartet&lt;/a&gt;.</string>
 </resources>
