@@ -1320,7 +1320,6 @@
     <string name="talk_warn_save_dialog_cancel">Cancel</string>
     <string name="talk_warn_submitted">Message published to editor\'s user talk page</string>
     <string name="talk_warn_submitted_and_saved">Message saved and published to editor\'s user talk page</string>
-    <string name="talk_warn_saved_message">Select an existing warning message or compose a new message.</string>
     <string name="talk_warn_saved_message_dropdown">Saved messages</string>
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_page_empty_title">The conversation starts here</string>
@@ -1542,7 +1541,6 @@
     <string name="talk_templates_manage_title">Manage templates</string>
     <string name="talk_templates_empty_message">You do not have any warning messages saved.</string>
     <string name="talk_templates_new_message_title">New message</string>
-    <string name="talk_templates_new_message_description">Compose warning message.</string>
     <string name="talk_templates_new_message_subject_hint">Subject</string>
     <string name="talk_templates_new_message_compose_hint">Compose message</string>
     <string name="talk_templates_new_message_save">Save</string>

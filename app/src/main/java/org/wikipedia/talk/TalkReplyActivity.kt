@@ -2,11 +2,9 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
 import android.view.View
-import android.widget.ArrayAdapter
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.util.lruCache
@@ -35,7 +33,6 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.TalkAliasData
-import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.talk.template.TalkTemplatesTextInputDialog
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -43,7 +40,6 @@ import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.UriUtil
 import org.wikipedia.views.UserMentionInputView
 import org.wikipedia.views.ViewUtil
 
@@ -62,7 +58,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
 
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            updateEditLicenseText()
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
         }
     }
@@ -101,17 +96,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         setSupportActionBar(binding.replyToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
-
-        if (viewModel.isFromDiff) {
-            binding.talkTemplateContainer.isVisible = true
-            binding.talkTemplateButton.setOnClickListener {
-                sendPatrollerExperienceEvent("saved_message_edit_click", "pt_warning_messages")
-                requestManageTalkTemplate.launch(TalkTemplatesActivity.newIntent(this))
-            }
-            FeedbackUtil.setButtonLongPressToast(binding.talkTemplateButton)
-        } else {
-            binding.talkTemplateContainer.isVisible = false
-        }
 
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
@@ -181,7 +165,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     }
 
     private fun onInitialLoad() {
-        updateEditLicenseText()
         setSaveButtonEnabled(false)
         setToolbarTitle(viewModel.pageTitle)
         L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
@@ -249,28 +232,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     private fun setTalkTemplateSpinnerAdapter() {
         val talkTemplateMsgStringId: Int
         if (viewModel.talkTemplatesList.isEmpty()) {
-            talkTemplateMsgStringId = R.string.talk_templates_new_message_description
             sendPatrollerExperienceEvent("first_message_init", "pt_warning_messages")
         } else {
-            talkTemplateMsgStringId = R.string.talk_warn_saved_message
             sendPatrollerExperienceEvent("message_init", "pt_warning_messages")
-        }
-        binding.talkTemplateMessage.text = getString(talkTemplateMsgStringId)
-        binding.talkTemplateSpinnerLayout.isVisible = viewModel.talkTemplatesList.isNotEmpty()
-        L10nUtil.setConditionalTextDirection(binding.talkTemplateSpinner, viewModel.pageTitle.wikiSite.languageCode)
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, viewModel.talkTemplatesList)
-        binding.talkTemplateSpinner.setAdapter(adapter)
-        binding.talkTemplateSpinner.setOnClickListener {
-            DeviceUtil.hideSoftKeyboard(this)
-        }
-        binding.talkTemplateSpinner.setOnItemClickListener { _, _, position, _ ->
-            sendPatrollerExperienceEvent("saved_message_select_click", "pt_warning_messages")
-            viewModel.selectedTemplate = viewModel.talkTemplatesList[position]
-            viewModel.selectedTemplate?.let { talkTemplate ->
-                sendPatrollerExperienceEvent("saved_message_impression", "pt_warning_messages")
-                binding.replySubjectText.setText(talkTemplate.subject)
-                binding.replyInputView.editText.setText(talkTemplate.message)
-            }
         }
     }
 
@@ -441,20 +405,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         FeedbackUtil.showError(this, t)
     }
 
-    private fun updateEditLicenseText() {
-        binding.licenseText.text = StringUtil.fromHtml(getString(if (AccountUtil.isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
-                getString(R.string.terms_of_use_url),
-                getString(R.string.cc_by_sa_4_url)))
-        binding.licenseText.movementMethod = LinkMovementMethodExt { url: String ->
-            if (url == "https://#login") {
-                val loginIntent = LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT)
-                requestLogin.launch(loginIntent)
-            } else {
-                UriUtil.handleExternalLink(this, Uri.parse(url))
-            }
-        }
-    }
-
     override fun onBackPressed() {
         setResult(RESULT_BACK_FROM_TOPIC)
         sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")
@@ -478,7 +428,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     }
 
     override fun onUserMentionListUpdate() {
-        binding.licenseText.isVisible = false
         binding.talkScrollContainer.post {
             if (!isDestroyed && !userMentionScrolled) {
                 binding.talkScrollContainer.smoothScrollTo(0, binding.root.height * 4)
@@ -489,7 +438,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
 
     override fun onUserMentionComplete() {
         userMentionScrolled = false
-        binding.licenseText.isVisible = true
     }
 
     private fun sendPatrollerExperienceEvent(action: String, activeInterface: String, actionData: String = "") {
@@ -505,6 +453,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
         const val EXTRA_FROM_DIFF = "fromDiff"
+        const val EXTRA_PAGE = "fromDiff"
         const val RESULT_EDIT_SUCCESS = 1
         const val RESULT_BACK_FROM_TOPIC = 2
         const val RESULT_SAVE_TEMPLATE = 3

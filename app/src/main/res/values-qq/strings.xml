@@ -1266,7 +1266,6 @@
   <string name="talk_warn_save_dialog_cancel">Button label for canceling the warn message.</string>
   <string name="talk_warn_submitted">Snackbar text that indicates the warn message has been published.</string>
   <string name="talk_warn_submitted_and_saved">Snackbar text that indicates the warn message has been published and also saved to the templates list.</string>
-  <string name="talk_warn_saved_message">Message for the dropdown menu that inform the user to select a template from the tempaltes list.</string>
   <string name="talk_warn_saved_message_dropdown">Label for the dropdown menu in the compose screen that allows user to select a saved message.</string>
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
   <string name="talk_page_empty_title">Title text for stating that this talk page is currently empty.</string>
@@ -1476,7 +1475,6 @@
   <string name="talk_templates_manage_title">Title of the manage warn template screen.</string>
   <string name="talk_templates_empty_message">Empty message of the warn template.</string>
   <string name="talk_templates_new_message_title">Title of the add a new message screen.</string>
-  <string name="talk_templates_new_message_description">Description of adding a warning message.</string>
   <string name="talk_templates_new_message_subject_hint">Label of the new message subject input field.</string>
   <string name="talk_templates_new_message_compose_hint">Label of the new message content input field.</string>
   <string name="talk_templates_new_message_save">Button label for saving the new message.</string>

@@ -41,15 +41,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/addTemplateDescription"
-                    style="@style/P.MaterialListTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/talk_templates_new_message_description"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginBottom="16dp"/>
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/addTemplateTitleLayout"
                     android:layout_width="match_parent"

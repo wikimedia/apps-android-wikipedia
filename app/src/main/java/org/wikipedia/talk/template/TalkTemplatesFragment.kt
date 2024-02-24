@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
+import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -25,9 +26,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
+import org.wikipedia.extensions.parcelable
+import org.wikipedia.page.PageTitle
+import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.DrawableItemDecoration
@@ -239,6 +244,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             } else {
                 PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
                 requestEditTemplate.launch(AddTemplateActivity.newIntent(requireContext(), viewModel.talkTemplatesList[position].id))
+                val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
+                requireActivity().startActivity(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true))
             }
         }
 
@@ -365,8 +372,10 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     companion object {
-        fun newInstance(): TalkTemplatesFragment {
-            return TalkTemplatesFragment()
+        fun newInstance(pageTitle: PageTitle): TalkTemplatesFragment {
+            return TalkTemplatesFragment().apply {
+                arguments = bundleOf(Constants.ARG_TITLE to pageTitle)
+            }
         }
     }
 }

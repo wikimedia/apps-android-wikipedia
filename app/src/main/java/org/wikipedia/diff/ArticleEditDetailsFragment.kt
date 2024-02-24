@@ -51,6 +51,7 @@ import org.wikipedia.suggestededits.SuggestedEditsCardsFragment
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
+import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -350,7 +351,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             sendPatrollerExperienceEvent("warn_init", "pt_toolbar")
             viewModel.revisionTo?.let { revision ->
                 val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
-                requestWarn.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = InvokeSource.DIFF_ACTIVITY, fromDiff = true))
+                requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle))
             }
         }
 
