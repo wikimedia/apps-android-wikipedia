@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.text.TextWatcher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -72,10 +71,8 @@ class AddTemplateActivity : BaseActivity(), UserMentionInputView.Listener {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         if (viewModel.talkTemplateId != -1) {
             title = getString(R.string.talk_templates_edit_message_dialog_title)
-            binding.addTemplateDescription.isVisible = false
         } else {
             title = getString(R.string.talk_templates_new_message_title)
-            binding.addTemplateDescription.isVisible = true
         }
 
         addTextWatcher()
