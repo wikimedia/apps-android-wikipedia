@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Anders Feder
 * Christian List
 * Dargelf
@@ -408,7 +409,7 @@
   <string name="link_preview_dialog_saved_button">Gemt</string>
   <string name="link_preview_dialog_share_button">Del</string>
   <string name="error_page_does_not_exist">Denne side findes ikke.</string>
-  <string name="error_user_page_does_not_exist">Wikipedia har ikke en &lt;a href=\"%1$s \"&gt;brugerside&lt;/a&gt; med dette nøjagtige navn. Generelt bør denne side være oprettet og redigeret af &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; . Hvis du er i tvivl, bedes du kontrollere, at \" %3$s \" eksisterer.</string>
+  <string name="error_user_page_does_not_exist" fuzzy="true">Wikipedia har ikke en &lt;a href=\"%1$s \"&gt;brugerside&lt;/a&gt; med dette nøjagtige navn. Generelt bør denne side være oprettet og redigeret af &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; . Hvis du er i tvivl, bedes du kontrollere, at \" %3$s \" eksisterer.</string>
   <string name="view_wiki_error_message_offline">Kan ikke oprette forbindelse til internet</string>
   <string name="view_wiki_error_message_timeout">Kan ikke oprette forbindelse til Wikipedia. Tjek din netværksforbindelse eller prøv igen senere.</string>
   <string name="reference_title">Reference %s</string>
@@ -421,7 +422,7 @@
   <string name="empty_tab_title">Ny fane</string>
   <string name="menu_save_all_tabs">Gem alle faner</string>
   <string name="error_blocked_title">Dit brugernavn eller din IP-adresse er blevet blokeret.</string>
-  <string name="error_blocked_by">Blokeringen blev lavet af &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_by" fuzzy="true">Blokeringen blev lavet af &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Den angivne årsag er: %s</string>
   <string name="error_blocked_start">Start af blokering: %s</string>
   <string name="error_blocked_expiry">Udløb af blokering: %s</string>

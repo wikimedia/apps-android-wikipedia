@@ -289,6 +289,7 @@
   <string name="edit_redo">Tee uudelleen</string>
   <string name="edit_rollback">Palauta</string>
   <string name="edit_warn">Varoita</string>
+  <string name="edit_damage">Vahinko %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s tavu</item>
     <item quantity="other">%s tavua</item>
@@ -334,6 +335,7 @@
   <string name="widget_name_featured_page">Wikipedian suositeltu sivu</string>
   <string name="widget_title_featured_page">Päivän suositeltu sivu:</string>
   <string name="widget_name_search">Wikipedia-haku</string>
+  <string name="widget_description_search">Nopein tapa etsiä Wikipediasta</string>
   <string name="wiktionary_no_definitions_found">Määritelmiä ei löytynyt.</string>
   <string name="alpha_update_notification_title">Uusi alfaversio saatavilla</string>
   <string name="alpha_update_notification_text">Lataa napauttamalla</string>
@@ -417,6 +419,7 @@
   <string name="multi_select_items_selected">%d valittu</string>
   <string name="error_message_generic">Tapahtui virhe</string>
   <string name="view_link_preview_error_button_dismiss">Hylkää</string>
+  <string name="link_preview_dialog_read_button">Lue</string>
   <string name="link_preview_dialog_save_button">Tallenna</string>
   <string name="link_preview_dialog_saved_button">Tallennettu</string>
   <string name="link_preview_dialog_share_button">Jaa</string>
@@ -1527,6 +1530,7 @@
     <item quantity="other">%d suodatinta</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikkelin muokkaushistoria</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Palautus valmis</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Näytä</string>
   <string name="patroller_tasks_overflow_learn">Lisätietoja</string>
   <string name="patroller_onboarding_two_thank_title">Kiitä</string>
