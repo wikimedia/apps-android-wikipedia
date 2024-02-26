@@ -323,6 +323,8 @@
   <string name="widget_name_featured_page">Wikipédia kiemelt cikk</string>
   <string name="widget_title_featured_page">Mai kiemelt szócikk:</string>
   <string name="widget_name_search">Wikipédia keresés</string>
+  <string name="widget_description_search">A Wikipédián való keresés leggyorsabb módja</string>
+  <string name="widget_description_featured_page">A Wikipédia legjobb cikkei</string>
   <string name="wiktionary_no_definitions_found">Nem találhatók definíciók.</string>
   <string name="alpha_update_notification_title">Új alfa frissítés érhető el</string>
   <string name="alpha_update_notification_text">Koppints a letöltéshez</string>
