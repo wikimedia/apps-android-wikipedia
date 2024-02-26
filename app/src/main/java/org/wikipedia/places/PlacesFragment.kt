@@ -385,8 +385,9 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         PlacesEvent.logImpression("detail_view")
         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
         updateSearchText(pageTitle.displayText)
+
         ExclusiveBottomSheetPresenter.show(childFragmentManager,
-            LinkPreviewDialog.newInstance(entry, location, lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation))
+            LinkPreviewDialog.newInstance(entry, location, getLastKnownUserLocation()))
     }
 
     private fun resetMagnifiedSymbol() {
@@ -596,6 +597,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
+    private fun getLastKnownUserLocation(): Location? {
+        return if (mapboxMap?.locationComponent?.isLocationComponentActivated == true)
+            mapboxMap?.locationComponent?.lastKnownLocation else null
+    }
+
     @SuppressLint("MissingPermission")
     private fun startLocationTracking() {
         mapboxMap?.let {
@@ -610,7 +616,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         if (haveLocationPermissions()) {
             binding.viewButtonsGroup.check(R.id.mapViewButton)
             mapboxMap?.let {
-                viewModel.lastKnownLocation = it.locationComponent.lastKnownLocation
+                viewModel.lastKnownLocation = getLastKnownUserLocation()
                 var currentLatLngLoc: LatLng? = null
                 viewModel.lastKnownLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
                 val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
