@@ -87,7 +87,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         private const val FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3
         private const val SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7
 
-        fun startPollTask(context: Context) {
+        fun startPollTask(callerContext: Context) {
+            val context = callerContext.applicationContext
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             try {
                 alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
@@ -103,7 +104,8 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
             }
         }
 
-        fun stopPollTask(context: Context) {
+        fun stopPollTask(callerContext: Context) {
+            val context = callerContext.applicationContext
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             alarmManager.cancel(getAlarmPendingIntent(context))
         }
