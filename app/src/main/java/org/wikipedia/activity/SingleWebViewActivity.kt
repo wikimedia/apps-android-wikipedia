@@ -9,12 +9,14 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
+import android.webkit.CookieManager
 import android.webkit.WebView
 import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
 import org.wikipedia.databinding.ActivitySingleWebViewBinding
+import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
 import org.wikipedia.extensions.parcelableExtra
@@ -69,6 +71,13 @@ class SingleWebViewActivity : BaseActivity() {
                 binding.progressBar.isVisible = false
                 currentUrl = url
                 invalidateOptionsMenu()
+            }
+        }
+
+        CookieManager.getInstance().let {
+            val cookies = SharedPreferenceCookieManager.instance.loadForRequest(targetUrl)
+            for (cookie in cookies) {
+                it.setCookie(targetUrl, cookie.toString())
             }
         }
 

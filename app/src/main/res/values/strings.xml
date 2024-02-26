@@ -169,7 +169,7 @@
     <string name="logged_out_in_background_login">Log in</string>
     <string name="logged_out_in_background_cancel">Cancel</string>
     <string name="account_vanish_request_title">Request account vanishing</string>
-    <string name="account_vanish_request_description">Submit a request for your account to be renamed and permanently inaccessible.</string>
+    <string name="account_vanish_request_confirm">This will navigate to the Account Vanishing Request Form, where you will be able to submit a request to vanish your account. Do you want to continue?</string>
     <string name="history_empty_title">No recently viewed articles</string>
     <string name="history_empty_message">Track what you\'ve been reading here.</string>
     <string name="history_offline_articles_toast">Some articles in history may not be viewable while offline.</string>

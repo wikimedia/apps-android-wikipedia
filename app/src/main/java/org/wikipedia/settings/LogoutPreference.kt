@@ -10,6 +10,7 @@ import androidx.preference.PreferenceViewHolder
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.auth.AccountUtil
 
 @Suppress("unused")
@@ -28,7 +29,7 @@ class LogoutPreference : Preference {
         super.onBindViewHolder(holder)
         holder.itemView.isClickable = false
         holder.itemView.findViewById<TextView>(R.id.accountName).text = AccountUtil.userName
-        holder.itemView.findViewById<Button>(R.id.logoutButton).setOnClickListener { view ->
+        holder.itemView.findViewById<Button>(R.id.logoutButton).setOnClickListener {
             activity?.let {
                 MaterialAlertDialogBuilder(it)
                     .setMessage(R.string.logout_prompt)
@@ -40,6 +41,17 @@ class LogoutPreference : Preference {
                         Prefs.isSuggestedEditsHighestPriorityEnabled = false
                         it.setResult(SettingsActivity.ACTIVITY_RESULT_LOG_OUT)
                         it.finish()
+                    }.show()
+            }
+        }
+        holder.itemView.findViewById<Button>(R.id.accountVanishButton).setOnClickListener {
+            activity?.let {
+                MaterialAlertDialogBuilder(it)
+                    .setMessage(R.string.account_vanish_request_confirm)
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setPositiveButton(android.R.string.ok) { _, _ ->
+                        it.finish()
+                        it.startActivity(SingleWebViewActivity.newIntent(it, it.getString(R.string.account_vanish_url)))
                     }.show()
             }
         }

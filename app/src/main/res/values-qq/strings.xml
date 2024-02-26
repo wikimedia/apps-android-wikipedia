@@ -192,7 +192,7 @@
   <string name="logout_prompt">Message that asks the user whether they really want to log out.</string>
   <string name="logout_dialog_cancel_button_text">Negative action button text in pop-up dialog for loging out.\n{{Identical|Cancel}}</string>
   <string name="account_vanish_request_title">Title for button that takes the user into the account vanishing workflow.</string>
-  <string name="account_vanish_request_description">Description for button that takes the user into the account vanishing workflow.</string>
+  <string name="account_vanish_request_confirm">Text for confirmation dialog when navigating to the account vanishing workflow.</string>
   <string name="logged_out_in_background_title">Title of dialog box that tells the user they have been logged out.</string>
   <string name="logged_out_in_background_dialog">Dialog box text that tells the user they have been logged out, and asks if they want to log in again.</string>
   <string name="logged_out_in_background_login">Button that allows the user to go to the login screen.</string>
