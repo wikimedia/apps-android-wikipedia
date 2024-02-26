@@ -375,14 +375,17 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
                 if (haveLocationPermissions()) {
                     startLocationTracking()
-                    viewModel.location?.let {
-                        goToLocation(it)
-                    } ?: run {
-                        val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
-                        goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+                }
+
+                viewModel.location?.let {
+                    goToLocation(it)
+                } ?: run {
+                    val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
+                    goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+
+                    if (!haveLocationPermissions()) {
+                        locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
                     }
-                } else {
-                    locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
                 }
             }
         }
@@ -645,25 +648,23 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private fun goToLocation(preferredLocation: Location? = null, zoom: Double = 15.0) {
-        if (haveLocationPermissions()) {
-            binding.viewButtonsGroup.check(R.id.mapViewButton)
-            mapboxMap?.let {
-                viewModel.lastKnownLocation = getLastKnownUserLocation()
-                var currentLatLngLoc: LatLng? = null
-                viewModel.lastKnownLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
-                val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
-                val targetLocation = location ?: currentLatLngLoc
-                targetLocation?.let { target ->
-                    it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
-                        override fun onCancel() { }
+        binding.viewButtonsGroup.check(R.id.mapViewButton)
+        mapboxMap?.let {
+            viewModel.lastKnownLocation = getLastKnownUserLocation()
+            var currentLatLngLoc: LatLng? = null
+            viewModel.lastKnownLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
+            val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
+            val targetLocation = location ?: currentLatLngLoc
+            targetLocation?.let { target ->
+                it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                    override fun onCancel() { }
 
-                        override fun onFinish() {
-                            if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
-                                showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
-                            }
+                    override fun onFinish() {
+                        if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
+                            showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
                         }
-                    })
-                }
+                    }
+                })
             }
         }
     }
