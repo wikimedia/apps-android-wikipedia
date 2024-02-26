@@ -1,45 +1,34 @@
 package org.wikipedia.edit
 
-import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
-import android.os.Build
 import android.os.SystemClock
 import android.text.Editable
 import android.text.InputType
 import android.text.Layout
 import android.text.TextPaint
 import android.util.AttributeSet
-import android.view.ContentInfo
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
-import android.widget.EditText
-import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatEditText
+import androidx.core.view.ContentInfoCompat
+import androidx.core.view.updatePaddingRelative
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import kotlin.math.min
 
-/**
- * Notice that this view inherits from the platform EditText class, instead of AppCompatEditText.
- * This is because AppCompatEditText actually has very poor performance when displaying large
- * amounts of text. Inheriting directly from the base EditText provides a vast improvement in
- * performance, but it means we need to keep an eye on the source code of AppCompatEditText, in
- * case we need to copy over any useful compatibility logic.
- */
-@SuppressLint("AppCompatCustomView")
-open class SyntaxHighlightableEditText : EditText {
-
+open class SyntaxHighlightableEditText : AppCompatEditText {
     private var prevLineCount = -1
     private val lineNumberPaint = TextPaint()
     private val lineNumberBackgroundPaint = Paint()
-    private val isRtl: Boolean = resources.configuration.layoutDirection == LAYOUT_DIRECTION_RTL
+    private val isRtl = resources.configuration.layoutDirection == LAYOUT_DIRECTION_RTL
     private val paddingWithoutLineNumbers = DimenUtil.roundedDpToPx(12f)
     private val paddingWithLineNumbers = DimenUtil.roundedDpToPx(36f)
     private val lineNumberGapWidth = DimenUtil.roundedDpToPx(8f)
@@ -112,11 +101,11 @@ open class SyntaxHighlightableEditText : EditText {
         if (showLineNumbers && layout != null) {
             val wrapContent = true // TODO: make wrap content optional?
 
-            val firstLine = if (scrollView != null) layout.getLineForVertical(scrollView!!.scrollY) else 0
-            val lastLine = if (scrollView != null) layout.getLineForVertical(scrollView!!.scrollY + scrollView!!.height) else layout.lineCount - 1
+            val firstLine = scrollView?.let { layout.getLineForVertical(it.scrollY) } ?: 0
+            val lastLine = scrollView?.let { layout.getLineForVertical(it.scrollY + it.height) } ?: (layout.lineCount - 1)
 
             // paint the gutter area with a slightly different color than text background.
-            canvas?.drawRect(gutterRect, lineNumberBackgroundPaint)
+            canvas.drawRect(gutterRect, lineNumberBackgroundPaint)
 
             // paint the line numbers, by getting each line position from the Layout.
             var prevNum = -1
@@ -124,7 +113,7 @@ open class SyntaxHighlightableEditText : EditText {
                 val num = actualLineFromRenderedLine[i]
                 if (!wrapContent || prevNum != num) {
                     prevNum = num
-                    canvas?.drawText(num.toString(),
+                    canvas.drawText(num.toString(),
                             (if (isRtl) width - paddingWithLineNumbers + lineNumberGapWidth else paddingWithLineNumbers - lineNumberGapWidth).toFloat(),
                             layout.getLineBottom(i).toFloat(),
                             lineNumberPaint)
@@ -172,15 +161,11 @@ open class SyntaxHighlightableEditText : EditText {
     }
 
     private fun applyPaddingForLineNumbers() {
-        setPaddingRelative(if (showLineNumbers) paddingWithLineNumbers else paddingWithoutLineNumbers, paddingTop, paddingEnd, paddingBottom)
+        updatePaddingRelative(if (showLineNumbers) paddingWithLineNumbers else paddingWithoutLineNumbers)
     }
 
     override fun getText(): Editable {
-        // A bug pre-P makes getText() crash if called before the first setText due to a cast, so
-        // retrieve the editable text.
-        return (if (Build.VERSION.SDK_INT >= 28) {
-            super.getText()
-        } else super.getEditableText()) ?: Editable.Factory.getInstance().newEditable("")
+        return super.getText() ?: Editable.Factory.getInstance().newEditable("")
     }
 
     override fun onCreateInputConnection(outAttrs: EditorInfo): InputConnection? {
@@ -196,19 +181,18 @@ open class SyntaxHighlightableEditText : EditText {
         return inputConnection
     }
 
-    @RequiresApi(Build.VERSION_CODES.S)
-    override fun onReceiveContent(payload: ContentInfo): ContentInfo? {
-        var newPayload = payload
-        try {
+    override fun onReceiveContent(payload: ContentInfoCompat): ContentInfoCompat? {
+        val newPayload = try {
             // Do not allow pasting of formatted text! We do this by replacing the contents of the clip
             // with plain text.
             val clip = payload.clip
             val lastClipText = clip.getItemAt(clip.itemCount - 1).coerceToText(context).toString()
-            newPayload = ContentInfo.Builder(payload)
-                    .setClip(ClipData.newPlainText(null, lastClipText))
-                    .build()
+            ContentInfoCompat.Builder(payload)
+                .setClip(ClipData.newPlainText(null, lastClipText))
+                .build()
         } catch (e: Exception) {
             L.e(e)
+            payload
         }
         return super.onReceiveContent(newPayload)
     }

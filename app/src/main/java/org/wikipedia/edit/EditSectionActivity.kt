@@ -18,13 +18,20 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import androidx.core.os.postDelayed
+import androidx.core.text.PrecomputedTextCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import androidx.core.widget.TextViewCompat
 import androidx.core.widget.doAfterTextChanged
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -606,51 +613,57 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
     }
 
     private fun fetchSectionText() {
-        if (sectionWikitext == null) {
-            showProgressBar(true)
-            disposables.add(ServiceFactory.get(pageTitle.wikiSite).getWikiTextForSectionWithInfo(pageTitle.prefixedText, if (sectionID >= 0) sectionID else null)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doOnTerminate { showProgressBar(false) }
-                    .subscribe({ response ->
-                        val firstPage = response.query?.firstPage()!!
-                        val rev = firstPage.revisions[0]
+        lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+            showError(throwable)
+            L.e(throwable)
+        }) {
+            if (sectionWikitext == null) {
+                showProgressBar(true)
+                val response = try {
+                    withContext(Dispatchers.IO) {
+                        ServiceFactory.get(pageTitle.wikiSite)
+                            .getWikiTextForSectionWithInfoSuspend(pageTitle.prefixedText,
+                                sectionID.takeIf { it >= 0 })
+                    }
+                } finally {
+                    showProgressBar(false)
+                }
 
-                        pageTitle = PageTitle(firstPage.title, pageTitle.wikiSite).apply {
-                            this.displayText = pageTitle.displayText
-                        }
-                        sectionWikitext = rev.contentMain
-                        sectionWikitextOriginal = sectionWikitext
-                        currentRevision = rev.revId
+                val firstPage = response.query?.firstPage()!!
+                val rev = firstPage.revisions[0]
 
-                        val editError = response.query?.firstPage()!!.getErrorForAction("edit")
-                        if (editError.isEmpty()) {
-                            editingAllowed = true
-                        } else {
-                            val error = editError[0]
-                            FeedbackUtil.showError(this, MwException(error), pageTitle.wikiSite)
-                        }
-                        displaySectionText()
-                        maybeShowEditSourceDialog()
+                pageTitle = PageTitle(firstPage.title, pageTitle.wikiSite).apply {
+                    this.displayText = pageTitle.displayText
+                }
+                sectionWikitext = rev.contentMain
+                sectionWikitextOriginal = sectionWikitext
+                currentRevision = rev.revId
 
-                        editNotices.clear()
-                        // Populate edit notices, but filter out anonymous edit warnings, since
-                        // we show that type of warning ourselves when previewing.
-                        editNotices.addAll(firstPage.getEditNotices()
-                            .filterKeys { key -> (key.startsWith("editnotice") && !key.endsWith("-notext")) }
-                            .values.filter { str -> StringUtil.fromHtml(str).trim().isNotEmpty() })
-                        invalidateOptionsMenu()
-                        if (Prefs.autoShowEditNotices) {
-                            showEditNotices()
-                        } else {
-                            maybeShowEditNoticesTooltip()
-                        }
-                    }) {
-                        showError(it)
-                        L.e(it)
-                    })
-        } else {
-            displaySectionText()
+                val editError = response.query?.firstPage()!!.getErrorForAction("edit")
+                if (editError.isEmpty()) {
+                    editingAllowed = true
+                } else {
+                    val error = editError[0]
+                    FeedbackUtil.showError(this@EditSectionActivity, MwException(error), pageTitle.wikiSite)
+                }
+                displaySectionText()
+                maybeShowEditSourceDialog()
+
+                editNotices.clear()
+                // Populate edit notices, but filter out anonymous edit warnings, since
+                // we show that type of warning ourselves when previewing.
+                editNotices.addAll(firstPage.getEditNotices()
+                    .filterKeys { key -> (key.startsWith("editnotice") && !key.endsWith("-notext")) }
+                    .values.filter { str -> StringUtil.fromHtml(str).trim().isNotEmpty() })
+                invalidateOptionsMenu()
+                if (Prefs.autoShowEditNotices) {
+                    showEditNotices()
+                } else {
+                    maybeShowEditNoticesTooltip()
+                }
+            } else {
+                displaySectionText()
+            }
         }
     }
 
@@ -689,8 +702,12 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
             .show()
     }
 
-    private fun displaySectionText() {
-        binding.editSectionText.setText(sectionWikitext)
+    private suspend fun displaySectionText() {
+        val params = TextViewCompat.getTextMetricsParams(binding.editSectionText)
+        val precomputedText = withContext(Dispatchers.Default) {
+            PrecomputedTextCompat.create(sectionWikitext.orEmpty(), params)
+        }
+        TextViewCompat.setPrecomputedText(binding.editSectionText, precomputedText)
         showProgressBar(false)
         binding.editSectionContainer.isVisible = true
         scrollToHighlight(textToHighlight)
