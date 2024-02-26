@@ -88,13 +88,10 @@ class SyntaxHighlighter(
             val textToHighlight = textBox.text.substring(firstVisibleIndex, lastVisibleIndex)
 
             val list = coroutineScope {
-                val highlightTask = async {
-                    getHighlightSpans(textToHighlight, firstVisibleIndex)
-                }
-                val searchTask = async {
-                    getSyntaxMatches(firstVisibleIndex, textToHighlight.length)
-                }
-                highlightTask.await() + searchTask.await()
+                listOf(
+                    async { getHighlightSpans(textToHighlight, firstVisibleIndex) },
+                    async { getSyntaxMatches(firstVisibleIndex, textToHighlight.length) },
+                ).awaitAll().flatten()
             }
             emit(list)
         }
