@@ -554,7 +554,7 @@
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">prije %d dan</item>
     <item quantity="few">prije %d dana</item>
-    <item quantity="other">prije %2 dana</item>
+    <item quantity="other">prije %d dana</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">danas</string>
   <string name="view_continue_reading_card_subtitle_read_date">Čitano %s</string>
