@@ -62,13 +62,17 @@
   <string name="other_languages_indication_text">Looǥǥ jeeʹres ǩiõʹlle</string>
   <string name="preference_title_language">Wikipedia ǩiõl</string>
   <string name="langlinks_filter_hint">Ooccmõš</string>
+  <string name="langlinks_no_match">Ǩiõllooccmõʹšše ij käunnʼjam ni mii</string>
   <string name="langlinks_activity_title">Jeeʹres ǩiõl</string>
   <string name="menu_save_changes">Õlmstââʹtt muttsid</string>
   <string name="dialog_message_edit_failed">Muuttâs ij oʹnnstam!</string>
   <string name="dialog_message_edit_failed_retry">Ǩiččlõõđ oʹđđest</string>
   <string name="dialog_message_edit_failed_cancel">Jõõsk</string>
   <string name="menu_show_toc">Siiskâžlooǥǥtõs</string>
-  <string name="search_no_results_found">Ni mâiʹd ij käunnʼjam</string>
+  <string name="search_no_results_found">Ij käunnʼjam ni mii</string>
+  <string name="search_reading_list_no_results">Lookkâmliistâst \"%s\" ij käunnʼjam ni mii</string>
+  <string name="search_reading_lists_no_results">Lookkâmliistin ij käunnʼjam ni mii</string>
+  <string name="search_history_no_results">Ooccâmhistoriast ij käunnʼjam ni mii</string>
   <string name="nav_item_login">Ǩeeʹrjtõõđ sizz Wikipediaaʹje</string>
   <string name="login_username_hint">Õõʹnninõmm</string>
   <string name="login_password_hint">Peittsääʹnn</string>
@@ -126,8 +130,9 @@
   <string name="edit_undo">Kååʹmet</string>
   <string name="edit_summary_tag_other">Jeeʹres õʹhtteǩeässmõš</string>
   <string name="search_did_you_mean">Juʹrddiǩ-a ton \"%s\"?</string>
-  <string name="search_results_count_zero">Ni mâiʹd ij käunnʼjam</string>
+  <string name="search_results_count_zero">Ij käunnʼjam ni mii</string>
   <string name="table_other">Lââʹssteâđ</string>
+  <string name="wiktionary_no_definitions_found">Ij käunnʼjam ni õhtt meäʹrteeʹlm.</string>
   <string name="preference_title_show_images">Čuäʹjet kaartid</string>
   <string name="read_more_section">Looǥǥ lââʹzz</string>
   <string name="about_article_section">Teâđ tän artikkeeʹlest</string>
@@ -190,6 +195,7 @@
   <string name="reading_list_remove_from_offline_cancel_button_text">Jõõsk</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Jõõsk</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Jaukkâd</string>
+  <string name="reading_list_activity_title">Lookkâmlistt: %s</string>
   <string name="reading_lists_preview_save_button">Ruõkk</string>
   <string name="reading_lists_preview_save_dialog_title">Ruõkk liist</string>
   <string name="reading_lists_preview_save_dialog_cancel">Jõõsk</string>
@@ -365,6 +371,9 @@
   <string name="watchlist_page_deleted">Jaukkuum</string>
   <string name="action_item_categories">Kategoria</string>
   <string name="category_tab_articles">Artikkeeʹl</string>
+  <string name="category_empty">Tän kategoriast ij käunnʼjam ni õhtt artikkel.</string>
+  <string name="subcategory_empty">Tän kategoriast ij käunnʼjam ni õhtt vueʹllkategoria.</string>
+  <string name="archive_empty">Ij käunnʼjam ni õhtt arkiivõsttum seidd.</string>
   <string name="namespace_article">Artikkel</string>
   <string name="shareable_reading_lists_new_indicator">*ođđ*</string>
   <string name="reading_list_share_menu_label">Jueʹjj…</string>

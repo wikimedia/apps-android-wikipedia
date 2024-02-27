@@ -31,10 +31,12 @@ object EventPlatformClient {
      */
     private var ENABLED = WikipediaApp.instance.isOnline
 
+    @Synchronized
     fun setStreamConfig(streamConfig: StreamConfig) {
         STREAM_CONFIGS[streamConfig.streamName] = streamConfig
     }
 
+    @Synchronized
     fun getStreamConfig(name: String): StreamConfig? {
         return STREAM_CONFIGS[name]
     }
@@ -152,7 +154,9 @@ object EventPlatformClient {
          */
         private fun send() {
             QUEUE.groupBy { it.stream }.forEach { (stream, events) ->
-                sendEventsForStream(STREAM_CONFIGS[stream]!!, events)
+                getStreamConfig(stream)?.let {
+                    sendEventsForStream(it, events)
+                }
             }
         }
 
@@ -289,7 +293,7 @@ object EventPlatformClient {
             if (SAMPLING_CACHE.containsKey(stream)) {
                 return SAMPLING_CACHE[stream]!!
             }
-            val streamConfig = STREAM_CONFIGS[stream] ?: return false
+            val streamConfig = getStreamConfig(stream) ?: return false
             val samplingConfig = streamConfig.samplingConfig
             if (samplingConfig == null || samplingConfig.rate == 1.0) {
                 return true
