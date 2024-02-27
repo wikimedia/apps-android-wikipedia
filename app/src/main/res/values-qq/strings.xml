@@ -1619,4 +1619,24 @@
   <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
+  <string name="patroller_saved_message_title_1">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about vandalism.</string>
+  <string name="patroller_saved_message_title_2">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about editing tests.</string>
+  <string name="patroller_saved_message_title_3">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about a possible violation of wikipedia\'s neutral point of view.</string>
+  <string name="patroller_saved_message_title_4">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about a possible poor quality machine translation.</string>
+  <string name="patroller_saved_message_title_5">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about conflict of interest.</string>
+  <string name="patroller_saved_message_title_6">Title text for the ready-to-use user talk message offered to experienced editors to offer a final warning to another editor. This will be used in case where a user has made multiple destructive edits despite multiple warnings.</string>
+  <string name="patroller_saved_message_title_7">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about copyright violation.</string>
+  <string name="patroller_saved_message_title_8">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor to remind them to leave an edit summary to explain their edit.</string>
+  <string name="patroller_saved_message_title_9">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about censorship.</string>
+  <string name="patroller_saved_message_title_10">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about article improvement suggestion.</string>
+  <string name="patroller_saved_message_1">Ready-to-use user talk message offered to experienced editors to warn another editor about vandalism.</string>
+  <string name="patroller_saved_message_2">Ready-to-use user talk message offered to experienced editors to warn another editor about editing tests.</string>
+  <string name="patroller_saved_message_3">Ready-to-use user talk message offered to experienced editors to warn another editor about a possible violation of wikipedia\'s neutral point of view.</string>
+  <string name="patroller_saved_message_4">Ready-to-use user talk message offered to experienced editors to warn another editor about a possible poor quality machine translation.</string>
+  <string name="patroller_saved_message_5">Ready-to-use user talk message offered to experienced editors to warn another editor about conflict of interest.</string>
+  <string name="patroller_saved_message_6">Ready-to-use user talk message offered to experienced editors to offer a final warning to another editor. This will be used in case where a user has made multiple destructive edits despite multiple warnings.</string>
+  <string name="patroller_saved_message_7">Ready-to-use user talk message offered to experienced editors to warn another editor about copyright violation.</string>
+  <string name="patroller_saved_message_8">Ready-to-use user talk message offered to experienced editors to warn another editor to remind them to leave an edit summary to explain their edit.</string>
+  <string name="patroller_saved_message_9">Ready-to-use user talk message offered to experienced editors to warn another editor about censorship.</string>
+  <string name="patroller_saved_message_10">Ready-to-use user talk message offered to experienced editors to warn another editor about article improvement suggestion.</string>
 </resources>
