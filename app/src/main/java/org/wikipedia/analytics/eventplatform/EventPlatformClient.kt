@@ -114,7 +114,7 @@ object EventPlatformClient {
             WikipediaApp.instance.mainThreadHandler.removeCallbacksAndMessages(TOKEN)
             if (ENABLED) {
                 val eventsByStream: Map<String, List<Event>>
-                synchronized (QUEUE) {
+                synchronized(QUEUE) {
                     eventsByStream = QUEUE.groupBy { it.stream }
                     QUEUE.clear()
                 }
@@ -129,7 +129,7 @@ object EventPlatformClient {
          */
         fun schedule(event: Event) {
             if (ENABLED || QUEUE.size <= MAX_QUEUE_SIZE) {
-                synchronized (QUEUE) {
+                synchronized(QUEUE) {
                     QUEUE.add(event)
                 }
             }
