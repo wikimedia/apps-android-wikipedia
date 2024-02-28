@@ -26,13 +26,13 @@ import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.insertmedia.InsertMediaViewModel
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
-import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
 import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.TalkAliasData
+import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_TEMPLATE_ID
 import org.wikipedia.talk.template.TalkTemplatesTextInputDialog
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -54,16 +54,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
-    }
-
-    private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            FeedbackUtil.showMessage(this, R.string.login_success_toast)
-        }
-    }
-
-    private val requestManageTalkTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        viewModel.loadTemplates()
     }
 
     private val requestInsertMedia = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -130,14 +120,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             }
         }
 
-        viewModel.loadTemplateData.observe(this) {
-            if (it is Resource.Success) {
-                setTalkTemplateSpinnerAdapter()
-            } else if (it is Resource.Error) {
-                FeedbackUtil.showError(this, it.throwable)
-            }
-        }
-
         viewModel.saveTemplateData.observe(this) {
             if (it is Resource.Success) {
                 viewModel.talkTemplateSaved = true
@@ -145,6 +127,13 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
                 viewModel.postReply(it.data.subject, it.data.message)
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(this, it.throwable)
+            }
+        }
+
+        viewModel.savedTemplateData.observe(this) {
+            if (it is Resource.Success && viewModel.isFromDiff && viewModel.templateId != -1) {
+                binding.replySubjectText.setText(it.data?.subject)
+                binding.replyInputView.editText.setText(it.data?.message)
             }
         }
 
@@ -210,10 +199,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
-        if (viewModel.isFromDiff) {
-            supportActionBar?.title = getString(R.string.talk_warn)
-            return
-        }
         val title = StringUtil.fromHtml(
             if (viewModel.isNewTopic) pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>"
             else intent.getStringExtra(EXTRA_PARENT_SUBJECT).orEmpty()
@@ -227,15 +212,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             FeedbackUtil.setButtonLongPressToast(it)
         }
         supportActionBar?.title = title
-    }
-
-    private fun setTalkTemplateSpinnerAdapter() {
-        val talkTemplateMsgStringId: Int
-        if (viewModel.talkTemplatesList.isEmpty()) {
-            sendPatrollerExperienceEvent("first_message_init", "pt_warning_messages")
-        } else {
-            sendPatrollerExperienceEvent("message_init", "pt_warning_messages")
-        }
     }
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
@@ -469,7 +445,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
                       invokeSource: Constants.InvokeSource,
                       undoSubject: CharSequence? = null,
                       undoBody: CharSequence? = null,
-                      fromDiff: Boolean = false): Intent {
+                      fromDiff: Boolean = false,
+                      templateId: Int = -1
+        ): Intent {
             return Intent(context, TalkReplyActivity::class.java)
                     .putExtra(Constants.ARG_TITLE, pageTitle)
                     .putExtra(EXTRA_PARENT_SUBJECT, parentSubject)
@@ -477,6 +455,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
                     .putExtra(EXTRA_SUBJECT, undoSubject)
                     .putExtra(EXTRA_BODY, undoBody)
                     .putExtra(EXTRA_FROM_DIFF, fromDiff)
+                    .putExtra(EXTRA_TEMPLATE_ID, templateId)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

@@ -6,15 +6,6 @@
     tools:layout_width="match_parent"
     tools:parentTag="android.widget.LinearLayout">
 
-    <ImageView
-        android:id="@+id/dragHandle"
-        android:layout_width="56dp"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/customize_toolbar_item_drag_handle_default_tooltip"
-        android:scaleType="center"
-        app:srcCompat="@drawable/ic_draggable"
-        app:tint="?android:attr/textColorTertiary" />
-
 
     <CheckBox
         android:id="@+id/checkbox"
@@ -25,17 +16,44 @@
         android:visibility="gone"
         tools:visibility="visible" />
 
-    <TextView
-        style="@style/P.MaterialListTitle"
-        android:id="@+id/listItem"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="16dp"
-        android:paddingStart="0dp"
-        android:paddingEnd="16dp"
-        android:layout_weight="1"
-        android:contentDescription="@string/customize_toolbar_item_default_tooltip"
-        android:text="@string/talk_templates_manage_title"
-        android:background="?android:attr/selectableItemBackground"/>
+        android:orientation="vertical"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="16dp">
 
+        <TextView
+            android:id="@+id/listItem"
+            style="@style/H3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="@string/customize_toolbar_item_default_tooltip"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="?attr/primary_color" />
+
+        <TextView
+            android:id="@+id/listItemDescription"
+            style="@style/List.MaterialListSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="@string/customize_toolbar_item_default_tooltip"
+            android:ellipsize="end"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/dragHandle"
+        android:layout_width="56dp"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/customize_toolbar_item_drag_handle_default_tooltip"
+        android:scaleType="center"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_draggable"
+        app:tint="?android:attr/textColorTertiary" />
 </merge>

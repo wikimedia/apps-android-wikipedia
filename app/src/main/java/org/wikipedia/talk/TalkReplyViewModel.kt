@@ -12,6 +12,7 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.db.TalkTemplate
+import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.talk.template.TalkTemplatesRepository
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
@@ -29,14 +30,19 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     val isNewTopic = topic == null
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
-    val loadTemplateData = SingleLiveData<Resource<Int>>()
+    val templateId = bundle.getInt(TalkTemplatesActivity.EXTRA_TEMPLATE_ID, -1)
+    val savedTemplateData = SingleLiveData<Resource<TalkTemplate?>>()
 
     init {
-        if (isFromDiff) {
-            loadTemplates()
+        if (templateId != -1) {
+            viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+                savedTemplateData.postValue(Resource.Error(throwable))
+            }) {
+                val template = talkTemplatesRepository.getTemplateById(templateId)
+                savedTemplateData.postValue(Resource.Success(template))
+            }
         }
     }
-
     fun postReply(subject: String, body: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             postReplyData.postValue(Resource.Error(throwable))
@@ -80,16 +86,6 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
                 }
                 saveTemplateData.postValue(Resource.Success(talkTemplate))
             }
-        }
-    }
-
-    fun loadTemplates() {
-        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-            loadTemplateData.postValue(Resource.Error(throwable))
-        }) {
-            talkTemplatesList.clear()
-            talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
-            loadTemplateData.postValue(Resource.Success(talkTemplatesList.size))
         }
     }
 

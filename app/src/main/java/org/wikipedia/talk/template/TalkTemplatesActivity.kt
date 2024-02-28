@@ -14,6 +14,8 @@ class TalkTemplatesActivity : SingleFragmentActivity<TalkTemplatesFragment>() {
     }
 
     companion object {
+        const val EXTRA_TEMPLATE_ID = "templateId"
+
         fun newIntent(context: Context, pageTitle: PageTitle): Intent {
             return Intent(context, TalkTemplatesActivity::class.java)
                 .putExtra(Constants.ARG_TITLE, pageTitle)

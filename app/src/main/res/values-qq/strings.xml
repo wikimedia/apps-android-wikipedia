@@ -1472,7 +1472,6 @@
   <string name="reading_list_share_message_v2">Message that is sent to a recipient when sharing a reading list.</string>
   <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
-  <string name="talk_templates_manage_title">Title of the manage warn template screen.</string>
   <string name="talk_templates_empty_message">Empty message of the warn template.</string>
   <string name="talk_templates_new_message_title">Title of the add a new message screen.</string>
   <string name="talk_templates_new_message_subject_hint">Label of the new message subject input field.</string>
@@ -1617,4 +1616,5 @@
   <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
+  <string name="talk_templates_menu_edit_title">Label text for editing saved messages.</string>
 </resources>

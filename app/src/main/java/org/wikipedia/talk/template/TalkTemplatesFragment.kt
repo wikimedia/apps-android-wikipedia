@@ -3,6 +3,8 @@ package org.wikipedia.talk.template
 import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -35,7 +37,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.MultiSelectActionModeCallback
 
 class TalkTemplatesFragment : Fragment(), MenuProvider {
@@ -56,7 +58,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.talk_templates_manage_title)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.talk_warn)
 
         return binding.root
     }
@@ -105,6 +107,10 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 }
             }
         }
+        binding.addTemplateFab.setOnClickListener {
+            val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
+            requireActivity().startActivity(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true))
+        }
     }
 
     override fun onDestroyView() {
@@ -114,27 +120,15 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_talk_templates, menu)
-    }
-
-    override fun onPrepareMenu(menu: Menu) {
-        super.onPrepareMenu(menu)
-        menu.findItem(R.id.menu_overflow).isVisible = viewModel.talkTemplatesList.isNotEmpty()
+        val menuItem = menu.findItem(R.id.menu_edit_messages)
+        val spannableString = SpannableString(menuItem.title)
+        spannableString.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color)), 0, spannableString.length, 0)
+        menuItem.setTitle(spannableString)
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
-            R.id.menu_overflow -> {
-                PatrollerExperienceEvent.logAction("more_menu_click", "pt_templates")
-                true
-            }
-            R.id.menu_new_message -> {
-                PatrollerExperienceEvent.logAction("new_message_click", "pt_templates")
-                requestNewTemplate.launch(AddTemplateActivity.newIntent(requireContext()))
-                true
-            }
-            R.id.menu_enter_remove_message_mode -> {
-                PatrollerExperienceEvent.logAction("more_menu_remove_click", "pt_templates")
-                beginRemoveItemsMode()
+            R.id.menu_edit_messages -> {
                 true
             }
             else -> false
@@ -146,7 +140,6 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         adapter = RecyclerAdapter()
         binding.talkTemplatesRecyclerView.adapter = adapter
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.talkTemplatesRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
         itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(adapter))
         itemTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)
     }
@@ -243,9 +236,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 adapter.notifyItemChanged(position)
             } else {
                 PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
-                requestEditTemplate.launch(AddTemplateActivity.newIntent(requireContext(), viewModel.talkTemplatesList[position].id))
                 val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
-                requireActivity().startActivity(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true))
+                requireActivity().startActivity(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateId = viewModel.talkTemplatesList[position].id))
             }
         }
 
