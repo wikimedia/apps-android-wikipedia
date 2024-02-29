@@ -1,6 +1,8 @@
 package org.wikipedia.talk.template
 
+import android.os.Bundle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -12,7 +14,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.talk.db.TalkTemplate
 import java.util.Collections
 
-class TalkTemplatesViewModel : ViewModel() {
+class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
 
     private val talkTemplatesRepository = TalkTemplatesRepository(AppDatabase.instance.talkTemplateDao())
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -28,6 +30,8 @@ class TalkTemplatesViewModel : ViewModel() {
 
     private val _actionState = MutableStateFlow(ActionState())
     val actionState = _actionState.asStateFlow()
+
+    val templateManagementMode = bundle.getBoolean(TalkTemplatesActivity.EXTRA_TEMPLATE_MANAGEMENT, false)
 
     init {
         loadTalkTemplates()
@@ -84,5 +88,11 @@ class TalkTemplatesViewModel : ViewModel() {
     open class ActionState {
         class Deleted(val size: Int) : ActionState()
         class Error(val throwable: Throwable) : ActionState()
+    }
+     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
+        @Suppress("unchecked_cast")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return TalkTemplatesViewModel(bundle) as T
+        }
     }
 }

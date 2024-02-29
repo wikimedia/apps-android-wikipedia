@@ -33,6 +33,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_TEMPLATE_ID
+import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.template.TalkTemplatesTextInputDialog
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -99,6 +100,10 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
 
         binding.replySaveButton.setOnClickListener {
             onSaveClicked()
+        }
+
+        if (viewModel.isFromDiff) {
+            binding.replySaveButton.text = getString(if (viewModel.templateManagementMode) R.string.talk_templates_new_message_save else R.string.edit_next)
         }
 
         binding.replyInputView.wikiSite = viewModel.pageTitle.wikiSite
@@ -195,6 +200,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
                     }, 500)
                 }
             }
+        }
+        if (viewModel.templateManagementMode) {
+            supportActionBar?.title = if (viewModel.templateId == -1) getString(R.string.talk_templates_new_message_title) else getString(R.string.talk_templates_edit_message_dialog_title)
         }
     }
 
@@ -344,7 +352,15 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         if (viewModel.isFromDiff) {
             sendPatrollerExperienceEvent("publish_saved_message_click", "pt_warning_messages")
             DeviceUtil.hideSoftKeyboard(this)
-            showSaveDialog(subject, body)
+            if (viewModel.templateManagementMode) {
+                viewModel.selectedTemplate?.let {
+                    viewModel.updateTemplate(it.title, subject, body, it)
+                    setResult(RESULT_OK)
+                    finish()
+                }
+            } else {
+                showSaveDialog(subject, body)
+            }
         } else {
             binding.progressBar.visibility = View.VISIBLE
             viewModel.postReply(subject, body)
@@ -446,7 +462,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
                       undoSubject: CharSequence? = null,
                       undoBody: CharSequence? = null,
                       fromDiff: Boolean = false,
-                      templateId: Int = -1
+                      templateId: Int = -1,
+                      templateManagementMode: Boolean = false
         ): Intent {
             return Intent(context, TalkReplyActivity::class.java)
                     .putExtra(Constants.ARG_TITLE, pageTitle)
@@ -456,6 +473,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
                     .putExtra(EXTRA_BODY, undoBody)
                     .putExtra(EXTRA_FROM_DIFF, fromDiff)
                     .putExtra(EXTRA_TEMPLATE_ID, templateId)
+                    .putExtra(EXTRA_TEMPLATE_MANAGEMENT, templateManagementMode)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

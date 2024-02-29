@@ -367,6 +367,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         menu.findItem(R.id.menu_view_edit_history).isVisible = viewModel.fromRecentEdits
         menu.findItem(R.id.menu_report_feature).isVisible = viewModel.fromRecentEdits
         menu.findItem(R.id.menu_learn_more).isVisible = viewModel.fromRecentEdits
+        menu.findItem(R.id.menu_saved_messages).isVisible = viewModel.fromRecentEdits
     }
 
     override fun onMenuItemSelected(item: MenuItem): Boolean {
@@ -395,6 +396,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             R.id.menu_report_feature -> {
                 sendPatrollerExperienceEvent("top_menu_feedback_click", "pt_edit")
                 showFeedbackOptionsDialog(true)
+                true
+            }
+            R.id.menu_saved_messages -> {
+                val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), "@@@@", viewModel.pageTitle.wikiSite)
+                requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, true))
                 true
             }
             else -> false

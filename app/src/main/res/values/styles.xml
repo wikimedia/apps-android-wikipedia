@@ -90,11 +90,8 @@
     </style>
 
     <style name="AppTheme.CustomMenuText" parent="AppTheme">
-        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
-    </style>
-
-    <style name="MenuTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu">
-        <item name="textAllCaps">false</item>
+        <item name="android:actionMenuTextAppearance">@style/H3</item>
+        <item name="android:actionMenuTextColor">?attr/progressive_color</item>
     </style>
 
     <style name="AppTheme.Splash">

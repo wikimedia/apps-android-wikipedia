@@ -50,6 +50,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.talk.UserTalkPopupHelper
+import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -171,6 +172,11 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             R.id.menu_learn_more -> {
                 sendPatrollerExperienceEvent("top_menu_learn_click", "pt_recent_changes")
                 FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+                true
+            }
+            R.id.menu_saved_messages -> {
+                    val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), "@@@@", viewModel.wikiSite)
+                    requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, true))
                 true
             }
             R.id.menu_report_feature -> {

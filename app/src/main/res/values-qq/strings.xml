@@ -1266,7 +1266,6 @@
   <string name="talk_warn_save_dialog_cancel">Button label for canceling the warn message.</string>
   <string name="talk_warn_submitted">Snackbar text that indicates the warn message has been published.</string>
   <string name="talk_warn_submitted_and_saved">Snackbar text that indicates the warn message has been published and also saved to the templates list.</string>
-  <string name="talk_warn_saved_message_dropdown">Label for the dropdown menu in the compose screen that allows user to select a saved message.</string>
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
   <string name="talk_page_empty_title">Title text for stating that this talk page is currently empty.</string>
   <string name="talk_page_empty_content">Content test for stating that this talk page is currently empty.</string>
@@ -1557,7 +1556,6 @@
     <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
     <item quantity="other">Text indicating more than one filter.  %d indicates the number of filters.</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Title of the patrol edit screen.</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Menu text of the overflow menu that shows the article edit history.</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Snackbar text that indicates the undo process has succeeded.</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Title of the rollback dialog</string>
@@ -1616,4 +1614,6 @@
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
   <string name="talk_templates_menu_edit_title">Label text for editing saved messages.</string>
+  <string name="talk_warn_saved_messages">Label text for menu option to enter the \'saved messages\' screen.</string>
+  <string name="patroller_diff_menu_edit_history_title">Label text for menu option to view the article\'s edit history.</string>
 </resources>

@@ -23,7 +23,12 @@
                 android:id="@+id/menu_view_edit_history"
                 android:icon="@drawable/ic_icon_revision_history_apps"
                 app:iconTint="?attr/secondary_color"
-                android:title="@string/menu_page_edit_history" />
+                android:title="@string/patroller_diff_menu_edit_history_title" />
+            <item
+                android:id="@+id/menu_saved_messages"
+                android:icon="@drawable/ic_manage_template"
+                app:iconTint="?attr/secondary_color"
+                android:title="@string/talk_warn_saved_messages" />
             <item
                 android:id="@+id/menu_report_feature"
                 android:icon="@drawable/ic_report_flag"

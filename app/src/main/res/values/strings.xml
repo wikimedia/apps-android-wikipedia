@@ -1320,7 +1320,7 @@
     <string name="talk_warn_save_dialog_cancel">Cancel</string>
     <string name="talk_warn_submitted">Message published to editor\'s user talk page</string>
     <string name="talk_warn_submitted_and_saved">Message saved and published to editor\'s user talk page</string>
-    <string name="talk_warn_saved_message_dropdown">Saved messages</string>
+    <string name="talk_warn_saved_messages">Saved messages</string>
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_page_empty_title">The conversation starts here</string>
     <string name="talk_page_empty_content">Talk pages are where people discuss how to make Wikipedia content the best it can be. Start by adding a new discussion topic to connect and collaborate with a community of Wikipedians.</string>
@@ -1623,7 +1623,6 @@
         <item quantity="one">%d filter</item>
         <item quantity="other">%d filters</item>
     </plurals>
-    <string name="patroller_tasks_patrol_edit_title">Patrol edit</string>
     <string name="patroller_tasks_patrol_edit_overflow_edit_history">Article edit history</string>
     <string name="patroller_tasks_patrol_edit_undo_success">Revert complete</string>
     <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Are you sure you want to rollback?</string>
@@ -1654,6 +1653,7 @@
     <string name="patroller_diff_feedback_dialog_submit">Submit</string>
     <string name="patroller_diff_feedback_submitted_snackbar">Feedback submitted.</string>
     <string name="patroller_diff_feedback_tooltip">Tap on overflow menu to submit feedback anytime under \'Problem with feature\'.</string>
+    <string name="patroller_diff_menu_edit_history_title">Article edit history</string>
     <string name="patroller_saved_message_title_1">Vandalism warning</string>
     <string name="patroller_saved_message_title_2">Editing tests</string>
     <string name="patroller_saved_message_title_3">Neutral point of view</string>

@@ -3,8 +3,6 @@ package org.wikipedia.talk.template
 import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -36,14 +34,14 @@ import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.db.TalkTemplate
+import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.MultiSelectActionModeCallback
 
 class TalkTemplatesFragment : Fragment(), MenuProvider {
     private var _binding: FragmentTalkTemplatesBinding? = null
 
-    private val viewModel: TalkTemplatesViewModel by viewModels()
+    private val viewModel: TalkTemplatesViewModel by viewModels { TalkTemplatesViewModel.Factory(requireArguments()) }
     private val binding get() = _binding!!
 
     private lateinit var itemTouchHelper: ItemTouchHelper
@@ -58,7 +56,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.talk_warn)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title =
+            getString(if (viewModel.templateManagementMode) R.string.talk_warn_saved_messages else R.string.talk_warn)
 
         return binding.root
     }
@@ -109,7 +108,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
         binding.addTemplateFab.setOnClickListener {
             val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
-            requireActivity().startActivity(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true))
+            requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateManagementMode = viewModel.templateManagementMode))
         }
     }
 
@@ -120,10 +119,6 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_talk_templates, menu)
-        val menuItem = menu.findItem(R.id.menu_edit_messages)
-        val spannableString = SpannableString(menuItem.title)
-        spannableString.setSpan(ForegroundColorSpan(ResourceUtil.getThemedColor(requireContext(), R.attr.progressive_color)), 0, spannableString.length, 0)
-        menuItem.setTitle(spannableString)
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
@@ -237,7 +232,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             } else {
                 PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
                 val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
-                requireActivity().startActivity(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateId = viewModel.talkTemplatesList[position].id))
+                requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateId = viewModel.talkTemplatesList[position].id, templateManagementMode = viewModel.templateManagementMode))
             }
         }
 
@@ -364,9 +359,10 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     companion object {
-        fun newInstance(pageTitle: PageTitle): TalkTemplatesFragment {
+        fun newInstance(pageTitle: PageTitle?, templateManagement: Boolean = false): TalkTemplatesFragment {
             return TalkTemplatesFragment().apply {
-                arguments = bundleOf(Constants.ARG_TITLE to pageTitle)
+                arguments = bundleOf(Constants.ARG_TITLE to pageTitle,
+                    EXTRA_TEMPLATE_MANAGEMENT to templateManagement)
             }
         }
     }
