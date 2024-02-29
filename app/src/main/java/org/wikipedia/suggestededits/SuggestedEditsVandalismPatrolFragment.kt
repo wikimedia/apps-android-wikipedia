@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
 import org.wikipedia.Constants
 import org.wikipedia.databinding.FragmentSuggestedEditsVandalismItemBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.diff.ArticleEditDetailsFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -22,10 +26,12 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Arti
         val targetWikiLangCode = Prefs.recentEditsWikiCode
 
         if (savedInstanceState == null) {
-            childFragmentManager.beginTransaction()
-                .add(binding.suggestedEditsItemRootView.id, ArticleEditDetailsFragment
-                    .newInstance(PageTitle("", WikiSite.forLanguageCode(targetWikiLangCode)), -1, -1, -1, Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS))
-                .commit()
+            childFragmentManager.commit {
+                add<ArticleEditDetailsFragment>(binding.suggestedEditsItemRootView.id, args = bundleOf(
+                    ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to PageTitle("", WikiSite.forLanguageCode(targetWikiLangCode)),
+                    Constants.INTENT_EXTRA_INVOKE_SOURCE to Constants.InvokeSource.SUGGESTED_EDITS_RECENT_EDITS,
+                ))
+            }
         }
         return binding.root
     }

@@ -16,7 +16,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
-import androidx.core.os.bundleOf
 import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
@@ -700,15 +699,5 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     companion object {
         const val DIFF_UNDO_COMMENT = "#diff-undo"
         const val DIFF_ROLLBACK_COMMENT = "#diff-rollback"
-
-        fun newInstance(title: PageTitle, pageId: Int, revisionFrom: Long, revisionTo: Long, source: InvokeSource): ArticleEditDetailsFragment {
-            return ArticleEditDetailsFragment().apply {
-                arguments = bundleOf(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to title,
-                    ArticleEditDetailsActivity.EXTRA_PAGE_ID to pageId,
-                    ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_FROM to revisionFrom,
-                    ArticleEditDetailsActivity.EXTRA_EDIT_REVISION_TO to revisionTo,
-                    Constants.INTENT_EXTRA_INVOKE_SOURCE to source)
-            }
-        }
     }
 }
