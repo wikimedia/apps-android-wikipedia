@@ -16,6 +16,7 @@ import org.wikipedia.analytics.eventplatform.ImageRecommendationsEvent
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.ActivityMainBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.inappupdates.InAppUpdates
 import org.wikipedia.navtab.NavTab
 import org.wikipedia.onboarding.InitialOnboardingActivity
 import org.wikipedia.page.PageActivity
@@ -27,7 +28,7 @@ import org.wikipedia.util.ResourceUtil
 class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callback {
 
     private lateinit var binding: ActivityMainBinding
-
+    private val inAppUpdates = InAppUpdates()
     private var controlNavTabInFragment = false
     private val onboardingLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { }
 
@@ -58,11 +59,18 @@ class MainActivity : SingleFragmentActivity<MainFragment>(), MainFragment.Callba
         if (savedInstanceState == null) {
             handleIntent(intent)
         }
+        inAppUpdates.init(this, binding.inAppUpdateProgressBar)
+        inAppUpdates.registerListener()
     }
 
     override fun onResume() {
         super.onResume()
         invalidateOptionsMenu()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        inAppUpdates.unregisterListener()
     }
 
     override fun createFragment(): MainFragment {
