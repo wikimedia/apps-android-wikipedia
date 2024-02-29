@@ -86,7 +86,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
         _binding = FragmentSuggestedEditsRecentEditsBinding.inflate(inflater, container, false)
 
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
-        (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.patroller_tasks_edits_list_title)
+        (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.suggested_edits_edit_patrol)
 
         return binding.root
     }
