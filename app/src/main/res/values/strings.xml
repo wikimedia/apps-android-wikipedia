@@ -1321,6 +1321,7 @@
     <string name="talk_warn_submitted">Message published to editor\'s user talk page</string>
     <string name="talk_warn_submitted_and_saved">Message saved and published to editor\'s user talk page</string>
     <string name="talk_warn_saved_message">Select an existing warning message or compose a new message.</string>
+    <string name="talk_warn_saved_message_dropdown">Saved messages</string>
     <string name="talk_warn_saved_messages">Saved messages</string>
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_page_empty_title">The conversation starts here</string>
