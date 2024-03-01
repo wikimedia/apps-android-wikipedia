@@ -37,7 +37,7 @@ android {
         applicationId 'org.wikipedia'
         minSdk 21
         targetSdk 34
-        versionCode 50473
+        versionCode 50474
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
@@ -174,12 +174,12 @@ dependencies {
     String mockitoVersion = '5.2.0'
     String leakCanaryVersion = '2.13'
     String kotlinCoroutinesVersion = '1.7.3'
-    String firebaseMessagingVersion = '23.4.0'
-    String mlKitVersion = '17.0.4'
+    String firebaseMessagingVersion = '23.4.1'
+    String mlKitVersion = '17.0.5'
     String roomVersion = "2.6.1"
     String espressoVersion = '3.5.1'
     String serialization_version = '1.6.2'
-    String metricsVersion = '2.3'
+    String metricsVersion = '2.4'
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 
@@ -263,7 +263,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-web:$espressoVersion"
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.3.0'
     androidTestImplementation "androidx.room:room-testing:$roomVersion"
     androidTestUtil 'androidx.test:orchestrator:1.4.2'
 }
