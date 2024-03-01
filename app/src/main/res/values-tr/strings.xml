@@ -349,6 +349,8 @@
   <string name="widget_name_featured_page">Vikipedi seçkin sayfa</string>
   <string name="widget_title_featured_page">Bugünün seçkin sayfası:</string>
   <string name="widget_name_search">Vikipedi arama</string>
+  <string name="widget_description_search">Vikipedi\'de aramanın en hızlı yolu</string>
+  <string name="widget_description_featured_page">Vikipedi\'nin sunduğu en iyi makaleler</string>
   <string name="wiktionary_no_definitions_found">Herhangi bir tanım bulunamadı.</string>
   <string name="alpha_update_notification_title">Yeni alfa güncellemesi mevcut</string>
   <string name="alpha_update_notification_text">İndirmek için dokunun</string>
