@@ -1620,7 +1620,7 @@
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
   <string name="patroller_saved_message_title_vandalism">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about vandalism.</string>
-  <string name="patroller_saved_message_title_etests">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about editing tests.</string>
+  <string name="patroller_saved_message_title_editing_tests">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about editing tests.</string>
   <string name="patroller_saved_message_title_npov">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about a possible violation of wikipedia\'s neutral point of view.</string>
   <string name="patroller_saved_message_title_auto_trans">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about a possible poor quality machine translation.</string>
   <string name="patroller_saved_message_title_coi_rem">Title text for the ready-to-use user talk message offered to experienced editors to warn another editor about conflict of interest.</string>
