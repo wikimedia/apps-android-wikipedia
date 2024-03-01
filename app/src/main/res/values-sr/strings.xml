@@ -317,6 +317,8 @@
   <string name="widget_name_featured_page">Изабрана страница на Википедији</string>
   <string name="widget_title_featured_page">Изабрана страница дана:</string>
   <string name="widget_name_search">Претрага Википедије</string>
+  <string name="widget_description_search">Најбржи начин за претрагу Википедије</string>
+  <string name="widget_description_featured_page">Најбољи чланци које Википедија има да понуди</string>
   <string name="wiktionary_no_definitions_found">Дефиниције нису пронађене.</string>
   <string name="alpha_update_notification_title">Доступна је нова алфа верзија</string>
   <string name="alpha_update_notification_text">Додирните да бисте преузели</string>

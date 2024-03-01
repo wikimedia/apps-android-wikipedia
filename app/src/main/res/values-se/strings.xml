@@ -104,7 +104,7 @@
   <string name="preference_title_language">Wikipedia gielat</string>
   <string name="langlinks_filter_hint">Ohcan</string>
   <string name="langlinks_empty">Dat siidu ii leat gávdnamis eara gielaide.</string>
-  <string name="langlinks_no_match">Ii oktage giella gávdnon</string>
+  <string name="langlinks_no_match">Giellaohcamii ii oktage boađus</string>
   <string name="langlinks_activity_title">Eará gielat</string>
   <string name="langlinks_your_wikipedia_languages">Du Wikipedia gielat</string>
   <string name="menu_save_changes">Almmut rievdadusaid</string>
@@ -119,7 +119,7 @@
   <string name="search_no_results_found">Eai bohtosat.</string>
   <string name="search_reading_list_no_results">Eai bohtosat ohcamii \"%s\"</string>
   <string name="search_reading_lists_no_results">Eai bohtosat lohkanlisttuin dan ohcamii</string>
-  <string name="search_history_no_results">Eai bohtosat historjjás dan ohcamii</string>
+  <string name="search_history_no_results">Eai bohtosat ohcanhistorjjás dan ohcamii</string>
   <string name="edit_section_captcha_message">Eastadan dihte automáhtalaš ruskapoastta, čále mat dáid sániid mat vuollelis leat</string>
   <string name="edit_section_captcha_request_an_account_message">It oainne gova? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt; Bivdde geavaheaddjidovddaldaga &lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Gearddut sániid dás badjelis</string>

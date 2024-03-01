@@ -383,6 +383,7 @@ interface Service {
     suspend fun getUserContributions(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
+        @Query("ucnamespace") ns: Int?,
         @Query("uccontinue") uccontinue: String?
     ): MwQueryResponse
 
