@@ -36,6 +36,8 @@ class SuggestedEditsRecentEditsActivity : SingleFragmentActivity<SuggestedEditsR
     }
 
     companion object {
+        val AVAILABLE_WIKIS = listOf("test", "id", "es", "fr")
+
         fun newIntent(context: Context): Intent {
             return Intent(context, SuggestedEditsRecentEditsActivity::class.java)
         }
