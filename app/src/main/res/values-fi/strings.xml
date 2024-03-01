@@ -257,10 +257,10 @@
   <string name="privacy_policy_description">Tietosuojakäytäntö</string>
   <string name="terms_of_use_description">Käyttöehdot</string>
   <string name="about_wikipedia_url">https://fi.wikipedia.org/wiki/Wikipedia:Tietoja</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/fi</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia Apps/Android FAQ/fi</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/fi</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/fi</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fi</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fi</string>
@@ -289,6 +289,7 @@
   <string name="edit_redo">Tee uudelleen</string>
   <string name="edit_rollback">Palauta</string>
   <string name="edit_warn">Varoita</string>
+  <string name="edit_damage">Vahinko %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="one">%s tavu</item>
     <item quantity="other">%s tavua</item>
@@ -334,6 +335,7 @@
   <string name="widget_name_featured_page">Wikipedian suositeltu sivu</string>
   <string name="widget_title_featured_page">Päivän suositeltu sivu:</string>
   <string name="widget_name_search">Wikipedia-haku</string>
+  <string name="widget_description_search">Nopein tapa etsiä Wikipediasta</string>
   <string name="wiktionary_no_definitions_found">Määritelmiä ei löytynyt.</string>
   <string name="alpha_update_notification_title">Uusi alfaversio saatavilla</string>
   <string name="alpha_update_notification_text">Lataa napauttamalla</string>
@@ -417,6 +419,7 @@
   <string name="multi_select_items_selected">%d valittu</string>
   <string name="error_message_generic">Tapahtui virhe</string>
   <string name="view_link_preview_error_button_dismiss">Hylkää</string>
+  <string name="link_preview_dialog_read_button">Lue</string>
   <string name="link_preview_dialog_save_button">Tallenna</string>
   <string name="link_preview_dialog_saved_button">Tallennettu</string>
   <string name="link_preview_dialog_share_button">Jaa</string>
@@ -1127,6 +1130,7 @@
   <string name="onboarding_explore_text">Sukella Wikipedian syövereihin aina ajan tasalla olevalla Tutki-syötteellä. &lt;br/&gt; &lt;b&gt;Mukauta&lt;/b&gt; mielenkiinnonkohteidesi mukaaan – vaikkapa tutustumalla &lt;b&gt;tämän päivämäärän&lt;/b&gt; historiallisiin tapahtumiin tai &lt;b&gt;satunnaisesti&lt;/b&gt; valittuun artikkeliin.</string>
   <string name="onboarding_reading_list_sync_title">Synkronoidut lukulistat</string>
   <string name="onboarding_reading_list_sync_text_v2">Lukulistalle voi lisätä myöhemmin luettavaksi artikkeleita, jotka toimivat myös ilman verkkoyhteyttä. &lt;br/&gt;Lukulistojen käyttö edellyttää Wikipedia-tunnuksella kirjautumista. &lt;a href=\"#login\"&gt;Liity Wikipediaan&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Data ja yksityisyys</string>
   <string name="onboarding_analytics_switch_title">Lähetä dataa tavasta, jolla käytät sovellusta</string>
   <string name="onboarding_got_it">Selvä</string>
   <string name="onboarding_multilingual_secondary_text">Laitteesta löytyneet kielet:</string>
@@ -1247,6 +1251,7 @@
   <string name="talk_warn_save_dialog_title">Tallenna muutokset?</string>
   <string name="talk_warn_save_dialog_message">Tallenna uutena viestinä</string>
   <string name="talk_warn_save_dialog_existing_new_message">Tallenna uutena viestinä luetteloon</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Päivitä olemassa olevaa viestiä</string>
   <string name="talk_warn_save_dialog_hint">Viestin otsikko</string>
   <string name="talk_warn_save_dialog_publish">Julkaise</string>
   <string name="talk_warn_save_dialog_cancel">Peruuta</string>
@@ -1445,6 +1450,8 @@
   <string name="media_playback_error">Virhe mediaa toistettaessa.</string>
   <string name="user_contrib_menu_label">Muokkaukset</string>
   <string name="user_contrib_filter_activity_title">Suodata muokkauksia</string>
+  <string name="action_item_view_on_map">Näytä kartalla</string>
+  <string name="action_item_view_on_map_unavailable">Maantieteellisiä koordinaatteja ei ole saatavilla tälle sivulle</string>
   <string name="shareable_reading_lists_import_dialog_title">Tuo jaettu lukulista</string>
   <string name="shareable_reading_lists_import_dialog_content">Miten haluat nimetä tämän kanssasi jaetun lukulistan?</string>
   <string name="shareable_reading_lists_new_indicator">* uusi *</string>
@@ -1506,6 +1513,7 @@
   <string name="patroller_tasks_filters_user_status_registered_desc">Sisäänkirjautuneet muokkaajat.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Tulokkaat</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Rekisteröityneet muokkaajat, joilla on vähemmän kuin 10 muokkausta 4 aktiivisuuspäivän aikana.</string>
+  <string name="patroller_tasks_filters_user_status_learners">Oppijat</string>
   <string name="patroller_tasks_filters_user_status_experienced">Kokeneet käyttäjät</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">Rekisteröityneet muokkaajat, joilla enemmän kuin 500 muokkausta ja 30 päivää aktiivisuutta.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Uusimmat versiot</string>
@@ -1527,6 +1535,7 @@
     <item quantity="other">%d suodatinta</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikkelin muokkaushistoria</string>
+  <string name="patroller_tasks_patrol_edit_rollback_success">Palautus valmis</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Näytä</string>
   <string name="patroller_tasks_overflow_learn">Lisätietoja</string>
   <string name="patroller_onboarding_two_thank_title">Kiitä</string>
@@ -1550,4 +1559,5 @@
   <string name="generic_release_notes">Pieniä virheenkorjauksia ja parannuksia</string>
   <string name="donation_campaign_go_back_button">Palaa takaisin</string>
   <string name="menu_single_webview_open_external">Avaa järjestelmäselaimessa</string>
+  <string name="places_survey_dialog_cancel">Peruuta</string>
 </resources>
