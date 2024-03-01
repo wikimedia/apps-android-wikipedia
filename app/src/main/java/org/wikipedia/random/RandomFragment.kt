@@ -241,6 +241,11 @@ class RandomFragment : Fragment() {
             prevPosition = position
 
             updateSaveShareButton()
+
+            val storedOffScreenPagesCount = binding.randomItemPager.offscreenPageLimit * 2 + 1
+            if (position >= storedOffScreenPagesCount) {
+                (binding.randomItemPager.adapter as RandomItemAdapter).removeFragmentAt(position - storedOffScreenPagesCount)
+            }
         }
     }
 
