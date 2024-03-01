@@ -1716,5 +1716,6 @@
     <string name="places_survey_dialog_cancel">Cancel</string>
     <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
+    <string name="talk_warn_learn_more_label">Learn about message placeholders</string>
     <!-- /Places -->
 </resources>
