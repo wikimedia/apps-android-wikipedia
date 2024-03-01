@@ -2,6 +2,7 @@ package org.wikipedia.talk
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
 import android.view.View
@@ -41,6 +42,7 @@ import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 import org.wikipedia.views.UserMentionInputView
 import org.wikipedia.views.ViewUtil
 
@@ -100,6 +102,10 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
 
         binding.replySaveButton.setOnClickListener {
             onSaveClicked()
+        }
+
+        binding.learnLinkContainer.setOnClickListener {
+            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.create_account_ip_block_help_url)))
         }
 
         if (viewModel.isFromDiff) {
@@ -259,7 +265,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     }
 
     private fun showSaveDialog(subject: String, body: String) {
-        TalkTemplatesTextInputDialog(this@TalkReplyActivity, R.string.talk_warn_save_dialog_publish,
+        TalkTemplatesTextInputDialog(this@TalkReplyActivity, R.string.talk_templates_new_message_dialog_save,
             R.string.talk_warn_save_dialog_cancel).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {
@@ -305,7 +311,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
                         }
                     } else {
                         binding.progressBar.isVisible = true
-                        viewModel.postReply(subject, body)
+                        // viewModel.postReply(subject, body)
                     }
                     val messageType = if (textInputDialog.isSaveAsNewChecked) "new" else if (textInputDialog.isSaveExistingChecked) "updated" else ""
                     sendPatrollerExperienceEvent("publish_message_click", "pt_warning_messages", PatrollerExperienceEvent.getActionDataString(messageType = messageType))
@@ -353,11 +359,15 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             sendPatrollerExperienceEvent("publish_saved_message_click", "pt_warning_messages")
             DeviceUtil.hideSoftKeyboard(this)
             if (viewModel.templateManagementMode) {
-                viewModel.selectedTemplate?.let {
-                    viewModel.updateTemplate(it.title, subject, body, it)
-                    setResult(RESULT_OK)
-                    finish()
+                if (viewModel.templateId != -1) {
+                    viewModel.selectedTemplate?.let {
+                        viewModel.updateTemplate(it.title, subject, body, it)
+                    }
+                } else {
+                    viewModel.saveTemplate("", subject, body)
                 }
+                setResult(RESULT_OK)
+                finish()
             } else {
                 showSaveDialog(subject, body)
             }

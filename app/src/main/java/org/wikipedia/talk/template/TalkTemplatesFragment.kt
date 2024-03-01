@@ -106,9 +106,11 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 }
             }
         }
+
         binding.addTemplateFab.setOnClickListener {
             val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
-            requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateManagementMode = viewModel.templateManagementMode))
+            requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null,
+                null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateManagementMode = viewModel.templateManagementMode))
         }
     }
 
@@ -232,7 +234,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             } else {
                 PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
                 val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
-                requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateId = viewModel.talkTemplatesList[position].id, templateManagementMode = viewModel.templateManagementMode))
+                requestEditTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateId = viewModel.talkTemplatesList[position].id, templateManagementMode = viewModel.templateManagementMode))
             }
         }
 

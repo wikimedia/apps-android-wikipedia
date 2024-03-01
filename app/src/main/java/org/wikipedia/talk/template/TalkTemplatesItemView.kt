@@ -42,7 +42,7 @@ class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? =
     }
 
     fun setContents(talkTemplate: TalkTemplate, position: Int) {
-        binding.listItem.text = talkTemplate.title
+        binding.listItemTitle.text = talkTemplate.subject
         binding.listItemDescription.text = talkTemplate.message
         binding.listItem.setOnClickListener {
             callback?.onClick(position)

@@ -6,7 +6,6 @@
     tools:layout_width="match_parent"
     tools:parentTag="android.widget.LinearLayout">
 
-
     <CheckBox
         android:id="@+id/checkbox"
         android:layout_width="48dp"
@@ -17,19 +16,20 @@
         tools:visibility="visible" />
 
     <LinearLayout
+        android:id="@+id/listItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
         android:orientation="vertical"
         android:paddingHorizontal="18dp"
         android:paddingVertical="16dp">
 
         <TextView
-            android:id="@+id/listItem"
+            android:id="@+id/listItemTitle"
             style="@style/H3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
             android:contentDescription="@string/customize_toolbar_item_default_tooltip"
             android:ellipsize="end"
             android:maxLines="1"
@@ -41,7 +41,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="?android:attr/selectableItemBackground"
             android:contentDescription="@string/customize_toolbar_item_default_tooltip"
             android:ellipsize="end"
             android:maxLines="1" />
