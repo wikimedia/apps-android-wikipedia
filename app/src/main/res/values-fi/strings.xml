@@ -1507,6 +1507,7 @@
   <string name="patroller_tasks_filters_title">Suodattimet</string>
   <string name="patroller_tasks_filters_reset">Nollaa</string>
   <string name="patroller_tasks_filters_all_text">Kaikki</string>
+  <string name="patroller_tasks_filters_user_status_header">Käyttäjän rekisteröinti ja kokemus</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Rekisteröitymätön</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Muokkaajat, jotka eivät ole kirjautuneet sisään.</string>
   <string name="patroller_tasks_filters_user_status_registered">Rekisteröitynyt</string>
@@ -1559,5 +1560,10 @@
   <string name="generic_release_notes">Pieniä virheenkorjauksia ja parannuksia</string>
   <string name="donation_campaign_go_back_button">Palaa takaisin</string>
   <string name="menu_single_webview_open_external">Avaa järjestelmäselaimessa</string>
+  <string name="places_title">Paikat</string>
+  <string name="places_search_hint">Hae paikkoja</string>
+  <string name="places_filter_title">Suodata kielen perusteella</string>
+  <string name="places_toggle_buttons_map">Kartta</string>
+  <string name="places_toggle_buttons_list">Luettelo</string>
   <string name="places_survey_dialog_cancel">Peruuta</string>
 </resources>
