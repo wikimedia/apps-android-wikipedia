@@ -1075,6 +1075,7 @@
   <string name="image_recommendation_reject">لا</string>
   <string name="image_recommendation_notsure">لست متأكدًا</string>
   <string name="image_recommendation_reject_title">لم لا؟</string>
+  <string name="image_recommendation_onboarding_4">الصور مأخوذة من ويكيميديا ​​كومنز، وهي مجموعة من الصور المرخصة بحرية والتي تستخدمها ويكيبيديا.</string>
   <string name="image_recommendation_tooltip_next">التالي</string>
   <string name="edit_summary_added_image">أضيفت صورة</string>
   <string name="edit_summary_added_caption">إضافة شرح لصورة</string>

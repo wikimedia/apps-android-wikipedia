@@ -371,6 +371,7 @@
   <string name="watchlist_page_deleted">Jaukkuum</string>
   <string name="action_item_categories">Kategoria</string>
   <string name="category_tab_articles">Artikkeeʹl</string>
+  <string name="category_tab_subcategories">Vueʹllkategoria</string>
   <string name="category_empty">Tän kategoriast ij käunnʼjam ni õhtt artikkel.</string>
   <string name="subcategory_empty">Tän kategoriast ij käunnʼjam ni õhtt vueʹllkategoria.</string>
   <string name="archive_empty">Ij käunnʼjam ni õhtt arkiivõsttum seidd.</string>
