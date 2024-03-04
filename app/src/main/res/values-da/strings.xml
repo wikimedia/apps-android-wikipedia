@@ -321,6 +321,8 @@
   <string name="widget_name_featured_page">Fremhævet Wikipedia-side</string>
   <string name="widget_title_featured_page">Dagens udvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søgning</string>
+  <string name="widget_description_search">Den hurtigste måde at søge på Wikipedia</string>
+  <string name="widget_description_featured_page">De bedste artikler, Wikipedia har at tilbyde</string>
   <string name="wiktionary_no_definitions_found">Ingen definitioner fundet.</string>
   <string name="alpha_update_notification_title">Ny alpha opdatering tilgængelig</string>
   <string name="alpha_update_notification_text">Tryk for at hente</string>
@@ -409,7 +411,7 @@
   <string name="link_preview_dialog_saved_button">Gemt</string>
   <string name="link_preview_dialog_share_button">Del</string>
   <string name="error_page_does_not_exist">Denne side findes ikke.</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">Wikipedia har ikke en &lt;a href=\"%1$s \"&gt;brugerside&lt;/a&gt; med dette nøjagtige navn. Generelt bør denne side være oprettet og redigeret af &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; . Hvis du er i tvivl, bedes du kontrollere, at \" %3$s \" eksisterer.</string>
+  <string name="error_user_page_does_not_exist">Wikipedia har ikke en &lt;a href=\"%1$s\"&gt;brugerside&lt;/a&gt; med dette nøjagtige navn. Generelt bør denne side være oprettet og redigeret af &lt;b&gt;%2$s&lt;/b&gt; . Hvis du er i tvivl, bedes du kontrollere, at \"%3$s\" eksisterer.</string>
   <string name="view_wiki_error_message_offline">Kan ikke oprette forbindelse til internet</string>
   <string name="view_wiki_error_message_timeout">Kan ikke oprette forbindelse til Wikipedia. Tjek din netværksforbindelse eller prøv igen senere.</string>
   <string name="reference_title">Reference %s</string>
@@ -422,7 +424,7 @@
   <string name="empty_tab_title">Ny fane</string>
   <string name="menu_save_all_tabs">Gem alle faner</string>
   <string name="error_blocked_title">Dit brugernavn eller din IP-adresse er blevet blokeret.</string>
-  <string name="error_blocked_by" fuzzy="true">Blokeringen blev lavet af &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_by">Blokeringen blev lavet af &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Den angivne årsag er: %s</string>
   <string name="error_blocked_start">Start af blokering: %s</string>
   <string name="error_blocked_expiry">Udløb af blokering: %s</string>
@@ -1006,6 +1008,7 @@
     <item quantity="other">%d dage</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Hvad er redigeringforslag?</string>
+  <string name="suggested_edits_what_is_text">Foreslåede redigeringer giver mulighed for små, men vitale bidrag til Wikipedia.</string>
   <string name="suggested_edits_learn_more">Lær mere</string>
   <string name="suggested_edits_paused_title">Sat på pause</string>
   <string name="suggested_edits_disabled_title">Deaktiveret</string>
@@ -1013,6 +1016,7 @@
   <string name="suggested_edits_last_edited">Sidst redigeret</string>
   <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="suggested_edits_task_new">Ny</string>
+  <string name="suggested_edits_cc0_notice">Ved at udgive accepterer du &lt;a href=\"%1$s\"&gt;Betingelser for brug&lt;/a&gt; og uigenkaldeligt at frigive dette bidrag under &lt;a href=\"%2$s \"&gt;CC0 licensen&lt;/a&gt; .</string>
   <string name="suggested_edits_reactivation_notification_title">Redigeringsforslag</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Tak for dit bidrag til Wikipedia! Hvad med at fortsætte hvor du slap?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Har du et minut til at fortsætte med at forbedre Wikipedia? Tjek disse redigeringsforslag.</string>
@@ -1083,7 +1087,10 @@
   <string name="image_recommendation_tooltip_main">Tilføj manglende billeder til artikler i Foreslåede redigeringer</string>
   <string name="image_recommendation_onboarding_1">Billeder hjælper folk med at forstå, men mange artikler har dem ikke.</string>
   <string name="image_recommendation_onboarding_2">Du bestemmer, om et foreslået billede skal placeres i en Wikipedia-artikel.</string>
+  <string name="image_recommendation_onboarding_3">Forslag er maskingenererede, og du vil skulle bruge din dømmekraft til at beslutte, om du vil acceptere eller afvise dem.</string>
   <string name="image_recommendation_onboarding_4">Billeder er fra Wikimedia Commons, en samling af åbent licenserede billeder benyttet af Wikipedia.</string>
+  <string name="image_recommendation_tooltip_1">Gennemgå denne artikel for at forstå dets emne</string>
+  <string name="image_recommendation_tooltip_2">Undersøg billedet og dets tilhørende oplysninger</string>
   <string name="image_recommendation_tooltip_3">Beslut om billedet hjælper læserne med at forstå dette emne bedre</string>
   <string name="image_recommendation_tooltip_next">Næste</string>
   <string name="suggested_edits_report_feature">Problem med funktionen</string>
@@ -1392,7 +1399,9 @@
   <string name="watchlist_filter_type_of_change_new_users">Nye brugere</string>
   <string name="watchlist_filter_reset_button">Nulstil</string>
   <string name="watchlist_search_bar_hint">Søg eller filtrér overvågningsliste</string>
+  <string name="preview_edit_minor_edit">Dette er en mindre ændring</string>
   <string name="preview_edit_watch_this_page">Overvåg denne side</string>
+  <string name="preview_edit_learn_more">Læs mere om redigeringsresuméer</string>
   <string name="action_item_categories">Kategorier</string>
   <string name="page_no_categories">Denne side tilhører ikke nogen kategorier.</string>
   <string name="category_tab_articles">Artikler</string>
@@ -1497,11 +1506,12 @@
   <string name="places_toggle_buttons_map">Kort</string>
   <string name="places_toggle_buttons_list">Liste</string>
   <string name="places_nav_tab_tooltip_message">Opdag Wikipedia-artikler omkring dig med Steder</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">Tryk på &lt;b&gt;\'Se på kort\'&lt;/b&gt; for at udforske denne artikels placering</string>
+  <string name="places_article_menu_tooltip_message">Tryk på \'Se på kort\' for at udforske denne artikels placering</string>
   <string name="places_survey_very_satisfied_option">Meget tilfreds</string>
   <string name="places_survey_very_unsatisfied_option">Meget utilfreds</string>
-  <string name="places_survey_dialog_title" fuzzy="true">Hjælp med at forbedre \"Steder\"</string>
+  <string name="places_survey_dialog_title">Hjælp med at forbedre \'Steder\'</string>
   <string name="places_survey_feedback_dialog_title">Hvordan kan \"Steder\" forbedres?</string>
+  <string name="places_survey_dialog_cancel">Annullér</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Hvad vil du gerne have, at vi ændrer eller forbedrer?</string>
   <string name="places_empty_list">Dette område er tomt. Zoom ud &lt;a href=\"#\"&gt;på kortet&lt;/a&gt;.</string>
 </resources>

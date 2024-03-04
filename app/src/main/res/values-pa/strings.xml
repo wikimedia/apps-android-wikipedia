@@ -23,7 +23,10 @@
   <string name="search_hint">ਵਿਕੀਪੀਡੀਆ ਖੋਜੋ</string>
   <string name="search_hint_voice_search">ਅਵਾਜ਼ ਰਾਹੀਂ ਖੋਜ</string>
   <string name="search_hint_search_languages">ਭਾਸ਼ਾ ਖੋਜੋ</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">ਸੁਝਾਈਆਂ ਸੋਧਾਂ</string>
+  <string name="filter_hint_filter_my_lists_and_articles">ਮੇਰੀਆਂ ਸੂਚੀਆਂ ਫਿਲਟਰ ਕਰੋ</string>
+  <string name="nav_item_suggested_edits">ਸੋਧਾਂ</string>
+  <string name="nav_item_more">ਹੋਰ</string>
+  <string name="nav_item_search">ਖੋਜ</string>
   <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="card_offline_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
@@ -32,12 +35,19 @@
   <string name="offline_load_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="page_error_back_to_main">ਪਿੱਛੇ ਜਾਓ</string>
   <string name="error_back">ਪਿੱਛੇ ਜਾਓ</string>
+  <string name="error_next">ਅਗਲਾ</string>
   <string name="menu_clear_all_history">ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
   <string name="history_item_deleted">%s ਨੂੰ ਇਤਿਹਾਸ ਵਿੱਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="history_items_deleted">%d ਲੇਖਾਂ ਨੂੰ ਇਤਿਹਾਸ ਵਿੱਚੋਂ ਹਟਾਇਆ ਗਿਆ</string>
   <string name="history_item_delete_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
   <string name="notification_archive_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
   <string name="app_settings">ਐਪ ਦੀਆਂ ਸੈਟਿੰਗਾਂ</string>
+  <string name="search_tab_tooltip">ਖੋਜ ਸ਼ਬਦ ਨੂੰ ਸਿੱਧਾ ਟਾਈਪ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਆਈਕਾਨ ਨੂੰ ਦੁਬਾਰਾ ਦਬਾਓ।</string>
+  <string name="history_list_title">ਅਤੀਤ</string>
+  <string name="image_content_description">ਤਸਵੀਰ: %s</string>
+  <string name="page_content_description">ਪੰਨਾ: %s</string>
+  <string name="wikimedia_commons">ਵਿਕੀਮੀਡੀਆ ਕਾਮਨਜ਼</string>
+  <string name="wikidata">ਵਿਕੀਡਾਟਾ</string>
   <string name="dialog_title_clear_history"> ਅਤੀਤ ਸਾਫ਼ ਕਰੋ</string>
   <string name="dialog_message_clear_history">ਇਹ ਤੁਹਾਡਾ ਸਾਰਾ ਬ੍ਰਾਉਜ਼ਿੰਗ ਇਤਿਹਾਸ ਸਾਫ ਕਰ ਦੇਵੇਗਾ ਅਤੇ ਇਸ ਵੇਲੇ ਖੁੱਲੇ ਹੋਏ ਕੋਈ ਵੀ ਤੈਬ ਬੰਦ ਕਰ ਦੇਵੇਗਾ। ਕੀ ਤੁਹਾਨੂੰ ਯਕੀਨ ਹੈ?</string>
   <string name="dialog_message_clear_history_yes">ਹਾਂ</string>
@@ -45,17 +55,51 @@
   <string name="share_via">ਇਸ ਰਾਹੀਂ ਸਾਂਝਾ ਕਰੋ</string>
   <string name="image_share_via">ਇਸ ਰਾਹੀਂ ਸਾਂਝਾ ਕਰੋ</string>
   <string name="search_redirect_from">%s ਤੋਂ ਮੋੜਿਆ ਗਿਆ</string>
+  <string name="page_edit_history_activity_title">ਰੀਵਿਜ਼ਨ ਦਾ ਅਤੀਤ: %s</string>
+  <string name="page_edit_history_minor_edit">&lt;b&gt;m&lt;/b&gt; %s</string>
+  <string name="page_edit_history_comment_placeholder">ਸੰਖੇਪ ਸੋਧ ਖਾਲੀ ਕਰੋ</string>
+  <string name="page_edit_history_search_or_filter_edits_hint">ਸੋਧਾਂ ਦੀ ਖੋਜ ਜਾਂ ਫਿਲਟਰ ਕਰੋ</string>
+  <string name="page_edit_history_filter_by">ਅਨੁਸਾਰ ਫਿਲਟਰ</string>
+  <string name="page_edit_history_filter_by_all">ਸਾਰੀਆਂ ਸੋਧਾਂ (%s)</string>
+  <string name="page_edit_history_filter_by_user">ਵਰਤੋਂਕਾਰ ਸੋਧਾਂ (%s)</string>
+  <string name="page_edit_history_filter_by_anon">ਅਗਿਆਤ ਸੋਧਾਂ (%s)</string>
+  <string name="page_edit_history_filter_by_bot">ਬੋਟ ਸੋਧਾਂ (%s)</string>
+  <string name="page_edit_history_metrics_content_description">%1$s ਤੋਂ %2$s ਤੱਕ ਮੈਟ੍ਰਿਕਸ</string>
+  <plurals name="page_edit_history_article_edits_since_year">
+    <item quantity="one">%2$s ਤੋਂ %1$d ਸੋਧ</item>
+    <item quantity="other">%2$s ਤੋਂ %1$d ਸੋਧਾਂ</item>
+  </plurals>
+  <plurals name="edits_since_year_per_wiki">
+    <item quantity="one">%2$s (%3$s) ਤੋਂ %1$d ਸੋਧ</item>
+    <item quantity="other">%2$s (%3$s) ਤੋਂ %1$d ਸੋਧਾਂ</item>
+  </plurals>
+  <string name="page_edit_history_empty_search_message">ਹੋਰ ਸੋਧਾਂ ਦੇਖਣ ਲਈ &lt;a href=\"#\"&gt;ਫਿਲਟਰ&lt;/a&gt; ਬਦਲਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="menu_page_show_tabs">ਟੈਬ ਵਿਖਾਉ</string>
   <string name="menu_page_other_languages">ਹੋਰ ਬੋਲੀਆਂ ਵਿੱਚ ਪੜ੍ਹੋ</string>
-  <string name="menu_page_find_in_page" fuzzy="true">ਪੰਨੇ \'ਚ ਲੱਭੋ</string>
+  <string name="menu_page_find_in_page">ਲੇਖ ਵਿੱਚ ਲੱਭੋ</string>
+  <string name="menu_page_add_to_watchlist">ਨਿਗਰਾਨੀ ਸੂਚੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ</string>
+  <string name="menu_page_watch">ਨਿਗਰਾਨੀ ਰੱਖੋ</string>
+  <string name="menu_page_unwatch">ਨਿਗਰਾਨੀ ਹਟਾਓ</string>
+  <string name="menu_page_view_talk">ਗੱਲ-ਬਾਤ ਸਫ਼ਾ ਦੇਖੋ</string>
+  <string name="menu_page_talk_page">ਗੱਲ-ਬਾਤ ਸਫ਼ਾ</string>
+  <string name="menu_page_view_edit_history">ਸੋਧ ਅਤੀਤ ਦੇਖੋ</string>
+  <string name="menu_page_edit_history">ਸੋਧ ਅਤੀਤ</string>
+  <string name="menu_page_remove_from_watchlist">ਨਿਗਰਾਨੀ-ਸੂਚੀ ’ਚੋਂ ਹਟਾਓ</string>
+  <string name="menu_page_watched">ਨਿਗਰਾਨੀ ਰੱਖੀ ਗਈ</string>
   <string name="edit_section_find_in_page">ਪੰਨੇ \'ਚ ਲੱਭੋ</string>
   <string name="menu_page_font_and_theme">ਅੱਖਰ ਅਤੇ ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="menu_page_add_to_list">ਪੜ੍ਹਨ ਵਾਲੀ ਸੂਚੀ \'ਚ ਜੋੜੋ</string>
+  <string name="menu_page_add_to_default_list">ਸੰਭਾਲੋ</string>
   <string name="feed_card_add_to_list">ਪੜ੍ਹਤ ਸੂਚੀ ਵਿੱਚ ਜੋੜੋ</string>
+  <string name="feed_card_add_to_default_list">ਸੰਭਾਲੋ</string>
   <string name="menu_page_share">ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
+  <string name="menu_article_share">ਲੇਖ ਸਾਂਝਾ ਕਰੋ</string>
+  <string name="menu_page_article_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="menu_page_open_a_new_tab">ਨਵਾਂ ਟੈਬ ਖੋਲ੍ਹੋ</string>
+  <string name="menu_page_new_tab">ਨਵੀਂ ਟੈਬ</string>
   <string name="menu_page_reading_lists">ਪੜ੍ਹਤ ਸੂਚੀਆਂ</string>
   <string name="menu_page_recently_viewed">ਹੁਣੇ ਦੇਖੇ ਗਏ</string>
+  <string name="menu_page_archive">ਪੁਰਾਲੇਖ</string>
   <string name="menu_long_press_open_page">ਖੋਲ੍ਹੋ</string>
   <string name="menu_long_press_open_in_new_tab">ਨਵੇਂ ਟੈਬ \'ਚ ਖੋਲ੍ਹੋ</string>
   <string name="menu_long_press_copy_page">ਕੜੀ ਦਾ ਪਤਾ ੳੁਤਾਰੋ</string>
@@ -63,29 +107,34 @@
   <string name="on_this_day_page_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="reading_list_page_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="menu_text_select_edit_here">ਇੱਥੋਂ ਸੋਧੋ</string>
+  <string name="menu_edit_article">ਲੇਖ ਸੋਧੋ</string>
   <string name="last_updated_text">ਆਖ਼ਰੀ ਉੱਨਤੀਕਰਨ %s</string>
   <string name="talk_page_link_text">ਗੱਲ-ਬਾਤ ਵਾਲਾ ਪੰਨਾ ਦਿਖਾਓ</string>
   <string name="edit_history_link_text">ਸੋਧ ਇਤਿਹਾਸ ਦਿਖਾਓ</string>
   <string name="map_view_link_text">ਨਕਸ਼ੇ ਤੇ ਵੇਖੋ</string>
   <string name="other_languages_indication_text">ਹੋਰ ਭਾਸ਼ਾ ਵਿੱਚ ਪੜ੍ਹੋ</string>
   <string name="language_count_link_text">%d ਹੋਰਾਂ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ ਉਪਲਬਧ ਹੈ</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ।</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
-  <string name="preference_title_language" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਭਾਸ਼ਾ</string>
+  <string name="edit_save_action_license_logged_in">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ।</string>
+  <string name="edit_save_action_license_anon">ਇਹਨੂੰ ਸਾਂਭ ਕੇ ਤੁਸੀਂ &lt;a href=\"%1$s\"&gt;ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ&lt;/a&gt; ਨੂੰ ਅਤੇ &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; ਲਸੰਸ ਹੇਠ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਸਦਾ ਵਾਸਤੇ ਦੇਣ ਨੂੰ ਮੰਨਦੇ ਹੋ। ਸੋਧਾਂ ਦਾ ਨਾਂ ਤੁਹਾਡੇ ਜੰਤਰ ਦੇ ਆਈ.ਪੀ ਪਤੇ \'ਤੇ ਲਾਇਆ ਜਾ ਜਾਵੇਗਾ। ਜੇਕਰ ਤੁਸੀਂ &lt;a href=\"https://#login\"&gt;ਦਾਖ਼ਲ ਹੁੰਦੇ&lt;/a&gt; ਹੋ ਤਾਂ ਤੁਹਾਡੇ ਕੋਲ਼ ਵਧੇਰੇ ਪਰਦੇਦਾਰੀ ਹੋਵੇਗੀ।</string>
+  <string name="preference_title_language">ਵਿਕੀਪੀਡੀਆ ਭਾਸ਼ਾਵਾਂ</string>
   <string name="langlinks_filter_hint">ਖੋਜੋ</string>
   <string name="langlinks_empty">ਇਹ ਪੰਨਾ ਹੋਰਨਾਂ ਬੋਲੀਆਂ ਵਿੱਚ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ।</string>
-  <string name="langlinks_no_match" fuzzy="true">ਤੁਹਾਡੀ ਪੁੱਛਗਿੱਛ ਨਾਲ਼ ਮਿਲਦੀਆਂ ਕੋਈ ਬੋਲੀਆਂ ਨਹੀਂ ਲੱਭੀਆਂ।</string>
+  <string name="langlinks_no_match">ਕੋਈ ਭਾਸ਼ਾਵਾਂ ਨਹੀਂ ਮਿਲੀਆਂ</string>
   <string name="langlinks_activity_title">ਹੋਰ ਬੋਲੀਆਂ</string>
+  <string name="langlinks_your_wikipedia_languages">ਤੁਹਾਡੀਆਂ ਵਿਕੀਪੀਡੀਆ ਭਾਸ਼ਾਵਾਂ</string>
   <string name="menu_save_changes">ਤਬਦੀਲੀਆਂ ਸਾਂਭੋ</string>
   <string name="edit_saved_successfully">ਸੋਧ ਪ੍ਰਕਾਸ਼ਿਤ ਕੀਤੀ ਗਈ!</string>
   <string name="dialog_message_edit_failed">ਸੋਧ ਅਸਫਲ ਹੋਈ!</string>
   <string name="dialog_message_edit_failed_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="dialog_message_edit_failed_cancel">ਰੱਦ ਕਰੋ</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">ਤੁਹਾਡੀਅਾਂ ਸੋਧਾਂ ਅਜੇ ਸਾਂਭੀਅਾਂ ਨਹੀਂ ਗੲੀਅਾਂ। ਕੀ ਤੁਸੀ ਸਫ਼ਾ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+  <string name="dialog_message_leaving_edit">ਤੁਹਾਡੀਆਂ ਤਬਦੀਲੀਆਂ ਅਜੇ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ। ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਇਸ ਪੰਨੇ ਨੂੰ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="dialog_message_leaving_edit_leave">ਰਵਾਨਾ ਹੋਵੋ</string>
   <string name="dialog_message_leaving_edit_stay">ਰਹੋ</string>
   <string name="menu_show_toc">ਸਮੱਗਰੀ ਸਾਰਣੀ</string>
   <string name="search_no_results_found">ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਲੱਭਿਆ</string>
+  <string name="search_reading_list_no_results">\"%s\" ਵਿੱਚ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਮਿਲੇ</string>
+  <string name="search_reading_lists_no_results">ਰੀਡਿੰਗ ਸੂਚੀਆਂ ਵਿੱਚ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਮਿਲੇ</string>
+  <string name="search_history_no_results">ਅਤੀਤ ਵਿੱਚ ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਮਿਲੇ</string>
   <string name="edit_section_captcha_message">ਆਪੇ ਚੱਲਦੇ ਊਲ-ਜਲੂਲ ਤੋਂ ਬਚਣ ਵਿੱਚ ਮਦਦ ਕਰਨ ਵਾਸਤੇ ਹੇਠਾਂ ਵਿਖ ਰਹੇ ਸ਼ਬਦ ਭਰੋ ਜੀ।</string>
   <string name="edit_section_captcha_hint">ਉੱਤੇ ਦਿੱਤੇ ਸ਼ਬਦਾਂ ਨੂੰ ਦੁਹਰਾਉ</string>
   <string name="title_captcha">ਕੈਪਚਾ ਭਰੋ</string>
@@ -100,7 +149,7 @@
   <string name="reading_lists_sync_login">ਦਾਖਲ ਹੋਵੋ</string>
   <string name="create_account_login">ਦਾਖਲ ਹੋਵੋ</string>
   <string name="menu_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
-  <string name="login_activity_title" fuzzy="true">ਵਿਕੀਪੀਡੀਆ \'ਚ ਦਾਖ਼ਲ ਹੋਵੋ</string>
+  <string name="login_activity_title">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="login_in_progress_dialog_message">ਦਾਖ਼ਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…</string>
   <string name="login_success_toast">ਦਾਖਲ ਹੋਏ!</string>
   <string name="reset_password_title">ਆਪਣਾ ਪਾਸਵਰਡ ਸੈੱਟ ਕਰੋ</string>
@@ -116,6 +165,8 @@
   <string name="logged_out_in_background_cancel">ਰੱਦ ਕਰੋ</string>
   <string name="history_empty_title">ਕੋਈ ਹਾਲ ਹੀ ਵਿੱਚ ਵੇਖੇ ਲੇਖ ਨਹੀਂ</string>
   <string name="history_empty_message">ਇੱਥੇ ਜੋ ਤੁਸੀਂ ਪੜ੍ਹ ਚੁੱਕੇ ਹੋ ਉਸਨੂੰ ਟ੍ਰੈਕ ਕਰੋ।</string>
+  <string name="history_offline_articles_toast">ਇਤਿਹਾਸ ਵਿੱਚ ਕੁਝ ਲੇਖ ਆਫ਼ਲਾਈਨ ਹੋਣ \'ਤੇ ਦੇਖਣਯੋਗ ਨਹੀਂ ਹੋ ਸਕਦੇ ਹਨ।</string>
+  <string name="search_empty_message">ਆਪਣੀ ਭਾਸ਼ਾ ਵਿੱਚ ਮੁਫ਼ਤ ਵਿਸ਼ਵਕੋਸ਼ ਦੀ ਖੋਜ ਕਰੋ ਅਤੇ ਪੜ੍ਹੋ</string>
   <string name="search_empty_message_multilingual_upgrade">ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਹੋਰਾਂ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ ਖੋਜੋ</string>
   <string name="delete_selected_items">ਚੁਣੀਆਂ ਚੀਜ਼ਾਂ ਮਿਟਾਓ</string>
   <string name="wp_stylized">&lt;big&gt;ਵਿ&lt;/big&gt;ਕੀਪੀਡੀ&lt;big&gt;ਆ&lt;/big&gt;</string>
@@ -128,15 +179,22 @@
   <string name="dialog_create_account_checking_progress">ਤਸਦੀਕੀ ਜਾਰੀ</string>
   <string name="create_account_email_hint">ਈਮੇਲ (ਚੋਣਵੀਂ)</string>
   <string name="create_account_password_repeat_hint">ਪਛਾਣ-ਸ਼ਬਦ ਦੁਹਰਾਉ</string>
+  <string name="create_account_password_is_username">ਪਾਸਵਰਡ ਅਤੇ ਵਰਤੋਂਕਾਰ ਨਾਮ ਇੱਕੋ ਜਿਹੇ ਨਹੀਂ ਹੋ ਸਕਦੇ</string>
   <string name="create_account_passwords_mismatch_error">ਪਛਾਣ-ਸ਼ਬਦ ਮਿਲ ਨਹੀਂ ਰਹੇ</string>
   <string name="create_account_email_error">ਗ਼ਲਤ ਈਮੇਲ ਪਤਾ</string>
   <string name="create_account_username_error">ਵਰਤੋਂਕਾਰ-ਨਾਂ ਵਿੱਚ ਨਜਾਇਜ਼ ਚਿੰਨ੍ਹ ਹਨ</string>
-  <string name="create_account_password_error" fuzzy="true">ਪਾਸਵਰਡ ਨਜਾਇਜ਼ ਹੈ</string>
+  <string name="create_account_password_error">ਪਾਸਵਰਡ ਘੱਟੋ-ਘੱਟ 8 ਅੱਖਰਾਂ ਦਾ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ</string>
   <string name="create_account_generic_error">ਖਾਤਾ ਨਹੀਂ ਬਣ ਸਕਿਆ</string>
   <string name="create_account_next">ਅਗਲਾ</string>
+  <string name="email_recommendation_dialog_title">ਬਿਨਾਂ ਈਮੇਲ ਪਤੇ ਦੇ ਖਾਤਾ ਬਣਾਉਣਾ ਹੈ?</string>
+  <string name="email_recommendation_dialog_create_without_email_action">ਬਿਨਾਂ ਈਮੇਲ ਦੇ ਜਾਰੀ ਰੱਖੋ</string>
+  <string name="email_recommendation_dialog_create_with_email_action">ਇੱਕ ਈਮੇਲ ਪਤਾ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="create_account_button">ਖਾਤਾ ਬਣਾਉ</string>
+  <string name="create_account_name_unavailable">ਵਰਤੋਂਕਾਰ ਨਾਮ \"%s\" ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਕੋਈ ਵੱਖਰਾ ਨਾਮ ਚੁਣੋ।</string>
+  <string name="create_account_ip_block_message">ਮਾਫ਼ ਕਰਨਾ, ਤੁਹਾਡਾ ਆਈਪੀ ਪਤਾ ਵਰਤਮਾਨ ਵਿੱਚ ਨਵੇਂ ਖਾਤੇ ਬਣਾਉਣ ਤੋਂ ਬਲੌਕ ਕੀਤਾ ਗਿਆ ਹੈ।</string>
   <string name="create_account_ip_block_details">ਵੇਰਵਾ</string>
   <string name="preferences_general_heading">ਆਮ</string>
+  <string name="preferences_account_heading">ਖਾਤਾ</string>
   <string name="wikipedia_app_faq">ਵਿਕੀਪੀਡੀਆ ਐਪ ਬਾਰੇ ਆਮ ਸਵਾਲ</string>
   <string name="send_feedback">ਅੈਪ ਸੰਬੰਧੀ ਸਲਾਹ ਭੇਜੋ</string>
   <string name="create_account_account_created_toast">ਖਾਤਾ ਬਣਿਆ!</string>
@@ -146,11 +204,12 @@
   <string name="preference_title_sync_reading_lists_from_account">ਪੜ੍ਹਤ ਸੂਚੀ ਦਾ ਸਮਕਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
   <string name="preference_title_download_reading_list_articles">ਪੜ੍ਹਤ ਸੂਚੀ ਦੇ ਲੇਖ ਡਾਊਨਲੋਡ ਕਰੋ</string>
   <string name="preference_title_auto_upload_crash_reports">ਕਰੈਸ਼ ਰਿਪੋਰਟ ਭੇਜੋ</string>
+  <string name="history_filter_list_hint">ਫਿਲਟਰ ਅਤੀਤ</string>
   <string name="error_can_not_process_link">ਇਹ ਕੜੀ ਵਿਖਾਈ ਨਾ ਜਾ ਸਕੀ</string>
   <string name="page_protected_autoconfirmed">ਇਹ ਸਫ਼ਾ ਨੀਮ-ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="page_protected_sysop">ਇਹ ਸਫ਼ਾ ਪੂਰਾ ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="page_protected_other">ਇਸ ਸਫ਼ੇ ਨੂੰ ਇਹਨਾਂ ਤਹਿਆਂ ਤੱਕ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ ਹੈ: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">ਤੁਹਾਡੇ ਕੋਲ਼ ਇਸ ਸਫ਼ੇ ਦੀ ਸੁਧਾਈ ਕਰਨ ਦੇ ਹੱਕ ਨਹੀਂ ਹਨ</string>
+  <string name="page_protected_can_not_edit">ਮਾਫ਼ ਕਰਨਾ, ਤੁਹਾਡੇ ਖਾਤੇ ਵਿੱਚ ਇਸ ਸਮੇਂ ਇਸ ਪੰਨੇ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲੋੜੀਂਦੇ ਵਿਸ਼ੇਸ਼ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।</string>
   <string name="page_protected_can_not_edit_title">ਇਹ ਸਫ਼ਾ ਸੁਰੱਖਿਅਤ ਹੈ</string>
   <string name="settings_item_preferences">ਸੈਟਿੰਗਾਂ</string>
   <string name="settings_activity_title">ਸੈਟਿੰਗਾਂ</string>
