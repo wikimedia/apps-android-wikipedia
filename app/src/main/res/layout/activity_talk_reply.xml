@@ -139,6 +139,14 @@
         android:elevation="12dp"
         app:headingsEnable="false"/>
 
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/talk_reply_preview_fragment"
+        android:name="org.wikipedia.edit.preview.EditPreviewFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_preview_edit" />
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/replyToolbar"
         android:layout_width="match_parent"

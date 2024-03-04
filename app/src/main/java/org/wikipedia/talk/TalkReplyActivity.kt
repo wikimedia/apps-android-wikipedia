@@ -26,6 +26,7 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.edit.SyntaxHighlightViewAdapter
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.insertmedia.InsertMediaViewModel
+import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
@@ -51,6 +52,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     private lateinit var binding: ActivityTalkReplyBinding
     private lateinit var linkHandler: TalkLinkHandler
     private lateinit var textWatcher: TextWatcher
+    private lateinit var editPreviewFragment: EditPreviewFragment
 
     private val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
     private var userMentionScrolled = false
@@ -167,6 +169,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.replyInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
             Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
+
+        editPreviewFragment = supportFragmentManager.findFragmentById(R.id.talk_reply_preview_fragment) as EditPreviewFragment
 
         onInitialLoad()
     }
