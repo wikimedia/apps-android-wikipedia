@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
-import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -20,12 +19,16 @@ import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
-import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
-import org.wikipedia.page.*
+import org.wikipedia.page.ExclusiveBottomSheetPresenter
+import org.wikipedia.page.LinkHandler
+import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
+import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
+import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -51,7 +54,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPreviewEditBinding.inflate(layoutInflater, container, false)
         bridge = CommunicationBridge(this)
-        val pageTitle = (requireActivity() as EditSectionActivity).pageTitle
+        val pageTitle = (requireActivity() as TalkReplyActivity).viewModel.pageTitle
         model.title = pageTitle
         model.curEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK)
         linkHandler = EditLinkHandler(requireContext())
@@ -70,12 +73,11 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
      */
     fun showPreview(title: PageTitle, wikiText: String) {
         DeviceUtil.hideSoftKeyboard(requireActivity())
-        (requireActivity() as EditSectionActivity).showProgressBar(true)
-        val url = ServiceFactory.getRestBasePath(model.title!!.wikiSite) +
-                RestService.PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(title.prefixedText)
+        (requireActivity() as TalkReplyActivity).showProgressBar(true)
+        val url = ServiceFactory.getRestBasePath(model.title!!.wikiSite) + RestService.PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(title.prefixedText)
         val postData = "wikitext=" + UriUtil.encodeURL(wikiText)
         binding.editPreviewWebview.postUrl(url, postData.toByteArray())
-        ActivityCompat.requireViewById<View>(requireActivity(), R.id.edit_section_container).isVisible = false
+        // ActivityCompat.requireViewById<View>(requireActivity(), R.id.edit_section_container).isVisible = false
         binding.editPreviewContainer.isVisible = true
         requireActivity().invalidateOptionsMenu()
     }
@@ -95,7 +97,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                 }
                 bridge.onMetadataReady()
                 bridge.execute(JavaScriptActionHandler.setMargins(16, 0, 16, 16 + DimenUtil.roundedPxToDp(binding.licenseText.height.toFloat())))
-                (requireActivity() as EditSectionActivity).showProgressBar(false)
+                (requireActivity() as TalkReplyActivity).showProgressBar(false)
                 requireActivity().invalidateOptionsMenu()
             }
         }

@@ -6,8 +6,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.TextWatcher
 import android.view.View
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.core.app.ActivityCompat
+import androidx.core.net.toUri
 import androidx.core.util.lruCache
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
@@ -25,6 +28,7 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.edit.SyntaxHighlightViewAdapter
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.insertmedia.InsertMediaViewModel
+import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -50,8 +54,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     private lateinit var binding: ActivityTalkReplyBinding
     private lateinit var linkHandler: TalkLinkHandler
     private lateinit var textWatcher: TextWatcher
+    private lateinit var editPreviewFragment: EditPreviewFragment
 
-    private val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
+    val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
     private var userMentionScrolled = false
     private var savedSuccess = false
 
@@ -151,6 +156,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.replyInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
             Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
+
+        editPreviewFragment = supportFragmentManager.findFragmentById(R.id.edit_section_preview_fragment) as EditPreviewFragment
 
         onInitialLoad()
     }
@@ -312,6 +319,21 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
                     } else {
                         binding.progressBar.isVisible = true
                         // viewModel.postReply(subject, body)
+                        binding.talkScrollContainer.isVisible = false
+                        binding.editSectionPreviewFragment.isVisible = true
+                        binding.userName.text = StringUtil.fromHtml(
+                           viewModel.pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(viewModel.pageTitle.displayText)}</a>"
+                        ).trim()
+                        binding.subjectView.text = binding.replySubjectText.text.toString()
+                            binding.userName.movementMethod = LinkMovementMethodExt { _ ->
+                                val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(viewModel.pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
+                                startActivity(PageActivity.newIntentForNewTab(this@TalkReplyActivity, entry, entry.title))
+                            }
+
+                        updateEditLicenseText()
+                        supportActionBar?.title = getString(R.string.edit_preview)
+                        // editPreviewFragment.showPreview(viewModel.pageTitle, "Hello @"+AccountUtil.userName+", I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia; However, I noticed you are in a [[Wikipedia:Conflict_of_interest|conflict of interest]]. A conflict of interest is the incompatibility between Wikipedia\\'s objectives of neutrality and reliability and the particular objectives of certain editors, individuals, entities, or companies of any type.\\nAll contributions in the main space are subject to the policies of content criteria ([[Wikipedia:What_Wikipedia_is_not|what Wikipedia is not]]), encyclopedic quality ([[Wikipedia:Verifiability|verifiability]] and [[Wikipedia:No_original_research|no original research]]), editorial method ([[Wikipedia:Neutral_point_of_view|neutral point of view]]), and legitimacy of content ([[Wikipedia:Copyrights|copyrights]]). All publishers are expected to abide by these policies when creating and evaluating content and to respect and assume good faith in the actions of other publishers to ensure that these policies are followed.\\n\\nIf you edit under a conflict of interest, you must apply the corresponding policy with special care; Otherwise, your user account could be considered private purpose and blocked. Feel free to reach out on my talk page if you have any questions.")
+                        editPreviewFragment.showPreview(viewModel.pageTitle, binding.replyInputView.editText.text.toString())
                     }
                     val messageType = if (textInputDialog.isSaveAsNewChecked) "new" else if (textInputDialog.isSaveExistingChecked) "updated" else ""
                     sendPatrollerExperienceEvent("publish_message_click", "pt_warning_messages", PatrollerExperienceEvent.getActionDataString(messageType = messageType))
@@ -330,6 +352,15 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             textInputDialog.showTemplateCheckboxes(viewModel.selectedTemplate != null)
             textInputDialog.setTitle(R.string.talk_warn_save_dialog_title)
         }.show()
+    }
+
+    private fun updateEditLicenseText() {
+        val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.licenseText)
+        editLicenseText.text = StringUtil.fromHtml(getString(R.string.edit_save_action_license_logged_in,
+            getString(R.string.terms_of_use_url), getString(R.string.cc_by_sa_4_url)))
+        editLicenseText.movementMethod = LinkMovementMethodExt { url: String ->
+            UriUtil.handleExternalLink(this@TalkReplyActivity, url.toUri())
+        }
     }
 
     private fun onSaveClicked() {
@@ -448,6 +479,11 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         }
     }
 
+    fun showProgressBar(b: Boolean) {
+        binding.progressBar.isVisible = b
+        invalidateOptionsMenu()
+    }
+
     companion object {
         const val EXTRA_PARENT_SUBJECT = "parentSubject"
         const val EXTRA_TOPIC = "topic"
@@ -455,7 +491,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         const val EXTRA_SUBJECT = "subject"
         const val EXTRA_BODY = "body"
         const val EXTRA_FROM_DIFF = "fromDiff"
-        const val EXTRA_PAGE = "fromDiff"
         const val RESULT_EDIT_SUCCESS = 1
         const val RESULT_BACK_FROM_TOPIC = 2
         const val RESULT_SAVE_TEMPLATE = 3
