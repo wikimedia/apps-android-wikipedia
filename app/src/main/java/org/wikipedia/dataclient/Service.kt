@@ -152,7 +152,7 @@ interface Service {
     fun parseText(@Query("text") text: String): Observable<MwParseResponse>
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
-    fun parseTextForMainPage(@Query("page") mainPageTitle: String): Observable<MwParseResponse>
+    suspend fun parseTextForMainPage(@Query("page") mainPageTitle: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=info&generator=categories&inprop=varianttitles|displaytitle&gclshow=!hidden&gcllimit=500")
     suspend fun getCategories(@Query("titles") titles: String): MwQueryResponse
@@ -383,6 +383,7 @@ interface Service {
     suspend fun getUserContributions(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
+        @Query("ucnamespace") ns: Int?,
         @Query("uccontinue") uccontinue: String?
     ): MwQueryResponse
 

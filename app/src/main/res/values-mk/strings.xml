@@ -209,9 +209,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Усогласувајте списоци за читање низ разни уреди зачувувајќи ги во вашата сметка „%s“ на Википедија</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Да отстранам усогласени списоци за читање од вашата сметка „%s“?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Со ова целосно ќе се избришат сите претходно усогласени списоци за читање од далечински склад. Дали да ги избришам сите усогласени списоци за читање од вашата сметка „%s“?</string>
-  <string name="preferences_privacy_settings_heading">Лични податоци</string>
-  <string name="preference_title_eventlogging_opt_in">Испраќај извештаи за употребата</string>
-  <string name="preference_summary_eventlogging_opt_in">Ѝ овозможува на Викимедија да собира информации за тоа како го користите прилогот, за да може да го подобри</string>
   <string name="preference_title_auto_upload_crash_reports">Испраќај извештаи за уривање</string>
   <string name="preference_summary_auto_upload_crash_reports">Прилогот да испраќа извештаи за уривање на надворешен услужник за да може уривањата да се разгледуваат и поправаат полесно и побрзо.</string>
   <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
@@ -310,6 +307,8 @@
   <string name="widget_name_featured_page">Избрана страница на Википедија</string>
   <string name="widget_title_featured_page">Избрана страница за денес:</string>
   <string name="widget_name_search">Пребарување по Википедија</string>
+  <string name="widget_description_search">Најбрзиот начин за пребарување на Википедија</string>
+  <string name="widget_description_featured_page">Најдобрите статии кои може да ги понуди Викимедија</string>
   <string name="wiktionary_no_definitions_found">Не најдов ништо во речникот.</string>
   <string name="alpha_update_notification_title">Имаме нова алфа-надградба</string>
   <string name="alpha_update_notification_text">Допрете за да ја симнете</string>
@@ -862,7 +861,7 @@
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Дали сте знаеле?</string>
-  <string name="description_edit_success_article_edit_hint">Со прилогов можете да уредувате и статии. Следен пат, пробајте да исправите мали гршеки при пишување и реченици стискајќи на иконата ^1</string>
+  <string name="description_edit_success_article_edit_hint">Со прилогов можете да уредувате и статии. Следен пат, пробајте да исправите мали грешки при пишување и реченици стискајќи на иконата ^1</string>
   <string name="description_edit_tutorial_title_descriptions">Описи на статиите</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Дава караток опис на статијата, давајќи им претстава на читателите за што се работи</string>
   <string name="description_edit_tutorial_keep_it_short">Мора да биде кратко</string>
@@ -1112,8 +1111,8 @@
   <string name="onboarding_explore_text">Нурнете се длабоко во Википедија со постојано подновениот тековник „Истражи“.&lt;br/&gt; &lt;b&gt;Прилагодете&lt;/b&gt; го тековниот според вашите интереси — дознајте за историските настани кои се случиле &lt;b&gt;На денешен ден&lt;/b&gt; или пробајте си ја среќата со &lt;b&gt;Случајна&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Списоци за читање со усогласување</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите списоци за читање од статиите што сакате да ги читате подоцна, дури и кога немате линија. &lt;br/&gt;Најавете се на Википедија за да ги усогласите списоците. &lt;a href=\"#login\"&gt;Приклучете се на Википедија&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Испраќај анонимни податоци</string>
-  <string name="onboarding_analytics_offline_text">Помогнете ни да го подобриме прилогот со тоа што ќе добиваме информации како го користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#privacy\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Податоци и приватност</string>
+  <string name="onboarding_data_privacy_text">Сметаме дека не треба да давате лични информации за да учествувате во движењето за слободно знаење. Податоците за употреба на овој прилог што ги собираме се анонимни. Дознајте повеќе за нашите &lt;a href=\"#privacy\"&gt;правила за лични податоци&lt;/a&gt; и &lt;a href=\"#termsOfUse\"&gt;условите на употреба&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Испраќај податоци за употреба</string>
   <string name="onboarding_got_it">Јасно</string>
   <string name="onboarding_multilingual_secondary_text">Го пронајдов следново на вашиот уред:</string>
@@ -1585,11 +1584,12 @@
   <string name="places_toggle_buttons_map">Карта</string>
   <string name="places_toggle_buttons_list">Список</string>
   <string name="places_nav_tab_tooltip_message">Откривајте Википедиини статии околу вас со Места</string>
-  <string name="places_article_menu_tooltip_message">Допрете на &lt;b&gt;\'Погл. на карта\'&lt;/b&gt; за да го истражите наоѓалиштето на оваа статија</string>
+  <string name="places_article_menu_tooltip_message">Допрете на „Погл. на карта“ за да го истражите наоѓалиштето на оваа статија</string>
   <string name="places_survey_very_satisfied_option">Многу задоволен</string>
   <string name="places_survey_very_unsatisfied_option">Многу незадоволен</string>
   <string name="places_survey_dialog_title">Помогнете ни да го подобриме „Места“</string>
   <string name="places_survey_feedback_dialog_title">Како можеме да го подобриме „Места“?</string>
+  <string name="places_survey_dialog_cancel">Откажи</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Што би сакале да промениме или подобриме?</string>
   <string name="places_empty_list">Ова подрачје е празно. Оддалечете &lt;a href=\"#\"&gt;на картата&lt;/a&gt;.</string>
 </resources>

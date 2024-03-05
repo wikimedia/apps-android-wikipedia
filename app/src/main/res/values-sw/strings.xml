@@ -91,7 +91,6 @@
   <string name="preferences_general_heading">Kijumla</string>
   <string name="send_feedback">Toa maoni ya programu timizi</string>
   <string name="create_account_account_created_toast">Akaunti imeundwa!</string>
-  <string name="preference_title_eventlogging_opt_in">Tuma ripoti za matumizi</string>
   <string name="error_can_not_process_link">Haingeonyesha kiungo hiki</string>
   <string name="page_protected_autoconfirmed">Ukurasa huu umezuiwa kiasi</string>
   <string name="page_protected_sysop">Ukurasa huu umezuiwa kabisa.</string>

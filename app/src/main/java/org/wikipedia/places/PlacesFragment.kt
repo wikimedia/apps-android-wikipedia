@@ -94,6 +94,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.TabUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.SurveyDialog
 import org.wikipedia.views.ViewUtil
 import java.util.Locale
 import kotlin.math.abs
@@ -384,14 +385,17 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
                 if (haveLocationPermissions()) {
                     startLocationTracking()
-                    viewModel.location?.let {
-                        goToLocation(it)
-                    } ?: run {
-                        val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
-                        goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+                }
+
+                viewModel.location?.let {
+                    goToLocation(it)
+                } ?: run {
+                    val lastLocationAndZoomLevel = Prefs.placesLastLocationAndZoomLevel
+                    goToLocation(lastLocationAndZoomLevel?.first, lastLocationAndZoomLevel?.second ?: lastZoom)
+
+                    if (!haveLocationPermissions()) {
+                        locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
                     }
-                } else {
-                    locationPermissionRequest.launch(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION))
                 }
             }
         }
@@ -403,6 +407,8 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 FeedbackUtil.showError(requireActivity(), it.throwable)
             }
         }
+
+        maybeShowSurvey()
     }
 
     private fun updateToggleViews(isMapVisible: Boolean) {
@@ -425,7 +431,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         val entry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_PLACES)
         updateSearchText(pageTitle.displayText)
         LinkPreviewDialog.show(childFragmentManager, R.id.coordinatorView, entry, location,
-            lastKnownLocation = mapboxMap?.locationComponent?.lastKnownLocation)
+            lastKnownLocation = getLastKnownUserLocation())
     }
 
     private fun resetMagnifiedSymbol() {
@@ -554,9 +560,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
 
         clearAnnotationCache()
         markerBitmapBase.recycle()
-        if (Prefs.shouldShowOneTimePlacesSurvey == SURVEY_NOT_INITIALIZED) {
-            Prefs.shouldShowOneTimePlacesSurvey = SURVEY_SHOW
-        }
         super.onDestroyView()
     }
 
@@ -640,6 +643,11 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
                 ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
+    private fun getLastKnownUserLocation(): Location? {
+        return if (mapboxMap?.locationComponent?.isLocationComponentActivated == true)
+            mapboxMap?.locationComponent?.lastKnownLocation else null
+    }
+
     @SuppressLint("MissingPermission")
     private fun startLocationTracking() {
         mapboxMap?.let {
@@ -651,25 +659,23 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
     }
 
     private fun goToLocation(preferredLocation: Location? = null, zoom: Double = 15.0) {
-        if (haveLocationPermissions()) {
-            binding.viewButtonsGroup.check(R.id.mapViewButton)
-            mapboxMap?.let {
-                viewModel.lastKnownLocation = it.locationComponent.lastKnownLocation
-                var currentLatLngLoc: LatLng? = null
-                viewModel.lastKnownLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
-                val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
-                val targetLocation = location ?: currentLatLngLoc
-                targetLocation?.let { target ->
-                    it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
-                        override fun onCancel() { }
+        binding.viewButtonsGroup.check(R.id.mapViewButton)
+        mapboxMap?.let {
+            viewModel.lastKnownLocation = getLastKnownUserLocation()
+            var currentLatLngLoc: LatLng? = null
+            viewModel.lastKnownLocation?.let { loc -> currentLatLngLoc = LatLng(loc.latitude, loc.longitude) }
+            val location = preferredLocation?.let { loc -> LatLng(loc.latitude, loc.longitude) }
+            val targetLocation = location ?: currentLatLngLoc
+            targetLocation?.let { target ->
+                it.moveCamera(CameraUpdateFactory.newLatLngZoom(target, zoom), object : CancelableCallback {
+                    override fun onCancel() { }
 
-                        override fun onFinish() {
-                            if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
-                                showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
-                            }
+                    override fun onFinish() {
+                        if (isAdded && preferredLocation != null && viewModel.highlightedPageTitle != null) {
+                            showLinkPreview(viewModel.highlightedPageTitle!!, preferredLocation)
                         }
-                    })
-                }
+                    }
+                })
             }
         }
     }
@@ -765,6 +771,15 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         return false
     }
 
+    private fun maybeShowSurvey() {
+        binding.root.postDelayed({
+            if (isAdded && Prefs.shouldShowOneTimePlacesSurvey == 1) {
+                Prefs.shouldShowOneTimePlacesSurvey++
+                SurveyDialog.showFeedbackOptionsDialog(requireActivity(), Constants.InvokeSource.PLACES)
+            }
+        }, 1000)
+    }
+
     private inner class RecyclerViewAdapter(val nearbyPages: List<PlacesFragmentViewModel.NearbyPage>) : RecyclerView.Adapter<RecyclerViewItemHolder>() {
         override fun getItemCount(): Int {
             return nearbyPages.size
@@ -844,8 +859,6 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         const val CLUSTER_CIRCLE_LAYER_ID = "mapbox-android-cluster-circle0"
         const val ZOOM_IN_ANIMATION_DURATION = 1000
         const val SURVEY_NOT_INITIALIZED = -1
-        const val SURVEY_SHOW = 0
-        const val SURVEY_DO_NOT_SHOW = 1
 
         val CLUSTER_FONT_STACK = arrayOf("Open Sans Semibold")
         val MARKER_FONT_STACK = arrayOf("Open Sans Regular")

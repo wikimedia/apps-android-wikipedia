@@ -28,6 +28,10 @@ class PlacesFragmentViewModel(bundle: Bundle) : ViewModel() {
     var lastKnownLocation: Location? = null
     val nearbyPagesLiveData = MutableLiveData<Resource<List<NearbyPage>>>()
 
+    init {
+        Prefs.shouldShowOneTimePlacesSurvey++
+    }
+
     fun fetchNearbyPages(latitude: Double, longitude: Double, radius: Int, maxResults: Int) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             nearbyPagesLiveData.postValue(Resource.Error(throwable))

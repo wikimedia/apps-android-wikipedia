@@ -272,9 +272,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">通过将阅读列表保存到您的维基百科帐户“%s”，在不同设备上同步阅读列表</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">从“%s”移除同步的阅读列表？</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">这将从远程存储中完全删除所有此前同步的阅读列表。从您的账号“%s”移除所有已同步的列表么？</string>
-  <string name="preferences_privacy_settings_heading">隐私</string>
-  <string name="preference_title_eventlogging_opt_in">发送使用情况报告</string>
-  <string name="preference_summary_eventlogging_opt_in">允许维基媒体收集关于您使用该应用的信息，以改进该应用</string>
   <string name="preference_title_auto_upload_crash_reports">发送崩溃报告</string>
   <string name="preference_summary_auto_upload_crash_reports">允许应用自动发送崩溃报告至第三方服务提供方，这样我们可以更快、更容易地浏览您的崩溃报告，并修复漏洞。</string>
   <string name="editing_error_spamblacklist">检测到受封禁域名（%s）的链接。请移除它们并重试。</string>
@@ -491,7 +488,7 @@
   <string name="color_theme_select">主题</string>
   <string name="color_theme_light">日间</string>
   <string name="color_theme_dark">夜间</string>
-  <string name="color_theme_black">黑</string>
+  <string name="color_theme_black">黑暗</string>
   <string name="color_theme_sepia">棕褐色</string>
   <string name="color_theme_test_title">示例文本</string>
   <string name="color_theme_test_text">拖动滑块以更改阅读条目时的文本大小。要设置应用其他部分的文本大小，请更改您的系统文本大小。</string>
@@ -663,7 +660,7 @@
   <string name="reading_list_activity_title">阅读列表：%s</string>
   <string name="reading_list_notification_title">已导出的阅读列表</string>
   <string name="reading_list_notification_text">%d个阅读列表已作为“阅读列表导出.json”导出到您的下载文件夹</string>
-  <string name="reading_list_notification_detailed_text">阅读列表已导出到“阅读列表导出.json”</string>
+  <string name="reading_list_notification_detailed_text">阅读列表已导出至“reading_lists_export.json”</string>
   <string name="reading_lists_action_menu_export_lists">导出</string>
   <string name="reading_lists_import_file_picker_title">选择要导入的文件</string>
   <string name="reading_lists_import_failure_message">阅读列表导入失败</string>
@@ -1162,8 +1159,6 @@
   <string name="onboarding_explore_text">通过不断更新的探索订阅源扑进维基百科的怀抱。&lt;br/&gt;&lt;b&gt;自定义&lt;/b&gt;您感兴趣内容的订阅源——无论是了解有关&lt;b&gt;历史上的今天&lt;/b&gt;，还是&lt;b&gt;随机&lt;/b&gt;掷骰子。</string>
   <string name="onboarding_reading_list_sync_title">同步阅读列表</string>
   <string name="onboarding_reading_list_sync_text_v2">即使您处于离线状态，也可以把以后要阅读的条目做成阅读列表。&lt;br/&gt;登录至您的维基百科账号以同步您的阅读列表。&lt;a href=\"#login\"&gt;加入维基百科&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">发送匿名数据</string>
-  <string name="onboarding_analytics_offline_text">让我们知道您如何使用它，从而使该应用变得更好。收集的数据是匿名的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">发送使用数据</string>
   <string name="onboarding_got_it">知道了</string>
   <string name="onboarding_multilingual_secondary_text">我们在您的设备上找到以下语言：</string>

@@ -200,9 +200,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sincroniza is listas de ligidura in aparìcius diversus sarvendiddusì in su contu tuu de Wikipedia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">A bogai is listas de ligidura sincronizaus de \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Custu at a bogai de totu calichisiat lista de ligidura sincronizada ainnantis in su cloud. Bolis bogai totu is listas sincronizadas de su contu tuu \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privacy</string>
-  <string name="preference_title_eventlogging_opt_in">Imbia arrelatus de impreu</string>
-  <string name="preference_summary_eventlogging_opt_in">Permiti a Wikimèdia de arregolli novas de cumenti impreis s\'aplicatzioni po dda rendiri mellus</string>
   <string name="preference_title_auto_upload_crash_reports">Imbia arrelatus de faddina</string>
   <string name="preference_summary_auto_upload_crash_reports">Permiti a s\'aplicatzioni de imbiai asola is arrelatus de faddina a frunidori de tertzas partis, ca podeus biri sa faddina tua e dda currìgiri prus allestru e a fàcili.</string>
   <string name="editing_error_spamblacklist">Est stètiu agatau unu ligàmini a unu domìniu siddau (%s). Bogaddu e torra a proai.</string>

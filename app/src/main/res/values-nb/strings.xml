@@ -226,9 +226,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synkroniser leselistene på tvers av ulike enheter ved å lagre dem i Wikipedia-kontoen «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjerne synkroniserte leselister fra kontoen «%s»?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Synkroniserte leselister vil bli fullstendig fjernet fra serverne til Wikipedia, men du beholder lokale kopier på denne enheten. Vil du fjerne alle synkroniserte lister fra kontoen «%s»?</string>
-  <string name="preferences_privacy_settings_heading">Personvern</string>
-  <string name="preference_title_eventlogging_opt_in">Send bruksrapporter</string>
-  <string name="preference_summary_eventlogging_opt_in">Tillatt Wikimedia å samle informasjon om hvordan du bruker appen for å forbedre den</string>
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om krasj</string>
   <string name="preference_summary_auto_upload_crash_reports">Tillat at appen automatisk sender krasjrapporter til en tredjepartstjeneste, slik at vi kan gjennomgå disse og fikse feil raskere.</string>
   <string name="editing_error_spamblacklist">Lenker til blokkerte domener (%s) ble funnet. Vennligst fjern dem og prøv igjen.</string>
@@ -248,10 +245,8 @@
   <string name="privacy_policy_description">Personvernspolitikk</string>
   <string name="terms_of_use_description">Bruksvilkår</string>
   <string name="about_wikipedia_url">https://no.wikipedia.org/wiki/Wikipedia:Om</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.no</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.no</string>
@@ -327,6 +322,8 @@
   <string name="widget_name_featured_page">Utvalgt WIkipedia-side</string>
   <string name="widget_title_featured_page">Dagens utvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søk</string>
+  <string name="widget_description_search">Den raskeste måten å søke i Wikipedia</string>
+  <string name="widget_description_featured_page">De beste artiklene Wikipedia har å tilby</string>
   <string name="wiktionary_no_definitions_found">Ingen definisjoner funnet.</string>
   <string name="alpha_update_notification_title">Ny alphaoppdatering tilgjengelig</string>
   <string name="alpha_update_notification_text">Trykk for å laste ned</string>
@@ -862,6 +859,7 @@
   <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksten er for kort.</string>
   <string name="description_ends_with_punctuation">Teksten kan ikke slutte med punktum.</string>
+  <string name="description_starts_with_article">Ikke legg til «a» eller «the» i begynnelsen av artikkeltitler.</string>
   <string name="description_starts_with_uppercase">Begynn med liten bokstav med mindre det første ordet er et egennavn.</string>
   <string name="description_starts_with_lowercase">Unngå å starte med liten forbokstav.</string>
   <string name="description_is_in_different_language">Teksten ser ut til å være på et uventet språk. Språket bør være %s.</string>
@@ -1128,8 +1126,8 @@
   <string name="onboarding_explore_text">Dykk ned i Wikipedia gjennom utforskersiden. &lt;br/&gt; &lt;b&gt;Tilpass&lt;/b&gt; innholdet etter smaken din, enten du vil se historiske hendelser &lt;b&gt;på denne dag&lt;/b&gt; eller oppdage &lt;b&gt;tilfeldige artikler&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan lage leselister med artikler du vil lese senere, selv når du er uten nettilgang.&lt;br/&gt;Logg inn med en Wikipedia-konto for å sikkerhetskopiere listene. &lt;a href=\"#login\"&gt;Registrer deg på Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Send anonyme data</string>
-  <string name="onboarding_analytics_offline_text">Hjelp med å gjøre appen bedre ved å la oss vite hvordan du bruker den. Data samles inn anonymt. &lt;a href=\"#privacy\"&gt;Finn ut mer&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Data og personvern</string>
+  <string name="onboarding_data_privacy_text">Vi mener at du ikke skal trenge å oppgi personlig informasjon for å delta i bevegelsen for fri kunnskap. Bruksdata som samles inn for denne appen er anonyme. Lær mer om &lt;a href=\"#privacy\"&gt;personvernspolitikken vår&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;bruksvilkårene våre&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Send bruksdata</string>
   <string name="onboarding_got_it">Skjønner</string>
   <string name="onboarding_multilingual_secondary_text">Følgende ble funnet på enheten din:</string>
@@ -1601,11 +1599,12 @@
   <string name="places_toggle_buttons_map">Kart</string>
   <string name="places_toggle_buttons_list">Liste</string>
   <string name="places_nav_tab_tooltip_message">Oppdag Wikipedia-artikler rundt deg med Steder</string>
-  <string name="places_article_menu_tooltip_message">Trykk på &lt;b&gt;«Vis på kart»&lt;/b&gt; for å utforske nærområdet til denne artikkelen</string>
+  <string name="places_article_menu_tooltip_message">Trykk på «Vis på kart» for å utforske nærområdet til denne artikkelen</string>
   <string name="places_survey_very_satisfied_option">Veldig fornøyd</string>
   <string name="places_survey_very_unsatisfied_option">Veldig misfornøyd</string>
   <string name="places_survey_dialog_title">Hjelp til med å forbedre «Steder»</string>
   <string name="places_survey_feedback_dialog_title">Hvordan kan «Steder» forbedres?</string>
+  <string name="places_survey_dialog_cancel">Avbryt</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Hva ønsker du at vi endrer eller forbedrer?</string>
   <string name="places_empty_list">Dette området er tomt. Zoom ut &lt;a href=\"#\"&gt;på kartet&lt;/a&gt;.</string>
 </resources>

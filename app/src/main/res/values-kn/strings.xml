@@ -167,8 +167,6 @@
   <string name="preferences_account_heading">ಖಾತೆ</string>
   <string name="create_account_account_created_toast">ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಲಾಯಿತು!</string>
   <string name="preferences_heading_experimental">ಪ್ರಾಯೋಗಿಕ</string>
-  <string name="preferences_privacy_settings_heading">ಗೋಪ್ಯತೆ</string>
-  <string name="preference_title_eventlogging_opt_in">ಉಪಯೋಗ ವರದಿಗಳನ್ನು ಕಳುಹಿಸಿ</string>
   <string name="error_can_not_process_link">ಈ ಕೊಂಡಿಯನ್ನು ತೋರಿಸಲು ಆಗಲಿಲ್ಲ</string>
   <string name="page_protected_sysop">ಈ ಪುಟವು ಪೂರ್ಣವಾಗಿ ಸಂರಕ್ಷಿತವಾಗಿದೆ.</string>
   <string name="page_protected_can_not_edit_title">ಈ ಪುಟವು ಸಂರಕ್ಷಿತವಾಗಿದೆ</string>

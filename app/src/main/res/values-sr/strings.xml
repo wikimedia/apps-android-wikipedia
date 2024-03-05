@@ -222,9 +222,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Синхронизујте листе за читање на различитим уређајима тако што ћете их сачувати на свој налог „%s” на Википедији</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Уклонити синхронизоване листе за читање са налога „%s”?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Овим ћете у потпуности избрисати све раније синхронизоване листе за читање са удаљеног складишта. Уклонити све синхронизоване листе са налога „%s”?</string>
-  <string name="preferences_privacy_settings_heading">Приватност</string>
-  <string name="preference_title_eventlogging_opt_in">Шаљи извештаје о употреби</string>
-  <string name="preference_summary_eventlogging_opt_in">Дозволите Викимедији да прикупља информације о томе како користите апликацију у циљу њеног побољшања</string>
   <string name="preference_title_auto_upload_crash_reports">Шаљи извештаје о отказивањима</string>
   <string name="preference_summary_auto_upload_crash_reports">Дозволите апликацији да аутоматски шаље извештаје о отказивањима независној услузи како бисмо испитали ваш случај и исправили грешку брже и лакше.</string>
   <string name="editing_error_spamblacklist">Откривени су линкови до блокираних домена (%s). Уклоните их па покушајте поново.</string>
@@ -320,6 +317,8 @@
   <string name="widget_name_featured_page">Изабрана страница на Википедији</string>
   <string name="widget_title_featured_page">Изабрана страница дана:</string>
   <string name="widget_name_search">Претрага Википедије</string>
+  <string name="widget_description_search">Најбржи начин за претрагу Википедије</string>
+  <string name="widget_description_featured_page">Најбољи чланци које Википедија има да понуди</string>
   <string name="wiktionary_no_definitions_found">Дефиниције нису пронађене.</string>
   <string name="alpha_update_notification_title">Доступна је нова алфа верзија</string>
   <string name="alpha_update_notification_text">Додирните да бисте преузели</string>
@@ -1098,8 +1097,7 @@
   <string name="onboarding_explore_text">Завирите у непознати свет Википедије помоћу фида „Истражи“ који се непрекидно ажурира.&lt;br/&gt; &lt;b&gt;Прилагодите&lt;/b&gt; фид својим интересима – упознајте историјске догађаје који су се одиграли &lt;b&gt;на данашњи дан&lt;/b&gt; или искушајте срећу са &lt;b&gt;случајним чланком&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Листе за читање са синхронизацијом</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите листе за читање од чланака које желите да читате касније, чак и када сте офлајн. &lt;br/&gt;Пријавите се на свој налог на Википедији да бисте синхронизовали листе за читање. &lt;a href=\"#login\"&gt;Придружите се Википедији&lt;/a&gt;.</string>
-  <string name="onboarding_analytics_title">Слање анонимних података</string>
-  <string name="onboarding_analytics_offline_text">Помозите нам да побољшамо апликацију слањем информација о употреби. Прикупљени подаци су анонимни. &lt;a href=\"#privacy\"&gt;Сазнајте више&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_title">Подаци &amp; приватност</string>
   <string name="onboarding_analytics_switch_title">Шаљи податке о употреби</string>
   <string name="onboarding_got_it">Разумем</string>
   <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
@@ -1566,4 +1564,5 @@
   <string name="places_nav_tab_tooltip_message">Откријите Википедијине чланке око Вас са Местима</string>
   <string name="places_survey_very_satisfied_option">Веома задовољан</string>
   <string name="places_survey_very_unsatisfied_option">Веома незадовољан</string>
+  <string name="places_survey_dialog_cancel">Откажи</string>
 </resources>
