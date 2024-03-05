@@ -25,7 +25,7 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
 
     private lateinit var binding: ActivitySuggestedEditsRecentEditsFiltersBinding
     private var appLanguagesPreFilterList = mutableListOf<String>()
-    private val appLanguagesList get() = WikipediaApp.instance.languageState.appLanguageCodes.filter { SuggestedEditsRecentEditsActivity.AVAILABLE_WIKIS.contains(it) }
+    private val appLanguagesList get() = WikipediaApp.instance.languageState.appLanguageCodes
 
     private val languageChooserLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         val addedCode = appLanguagesList.asSequence().minus(appLanguagesPreFilterList.toSet()).map { it }.toList().toString()
@@ -88,11 +88,12 @@ class SuggestedEditsRecentEditsFilterActivity : BaseActivity() {
 
     private fun filterListWithHeaders(): List<Any> {
         val filterListWithHeaders = mutableListOf<Any>()
-        filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_wiki_filter_header))
-        appLanguagesList.forEach {
-            filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it))
-        }
-        filterListWithHeaders.add(getString(R.string.notifications_filter_update_app_languages))
+        // TODO: limit to the primary language now.
+//        filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_wiki_filter_header))
+//        appLanguagesList.forEach {
+//            filterListWithHeaders.add(Filter(FILTER_TYPE_WIKI, it))
+//        }
+//        filterListWithHeaders.add(getString(R.string.notifications_filter_update_app_languages))
         filterListWithHeaders.add(getString(R.string.patroller_tasks_filters_user_status_header))
         SuggestedEditsRecentEditsFilterTypes.USER_REGISTRATION_GROUP.forEach {
             filterListWithHeaders.add(Filter(FILTER_TYPE_CATEGORY, it.id, true))
