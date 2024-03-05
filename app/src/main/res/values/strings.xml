@@ -170,7 +170,7 @@
     <string name="logged_out_in_background_cancel">Cancel</string>
     <string name="account_vanish_request_title">Vanish account</string>
     <string name="account_vanish_request_confirm_title">Vanish account warning</string>
-    <string name="account_vanish_request_confirm">This will navigate to the Account Vanishing Request Form, where you will be able to submit a request to vanish your account. Do you want to continue?</string>
+    <string name="account_vanish_request_confirm"><![CDATA[Vanishing is a <b>last resort</b> and should <b>only be used when you wish to stop editing forever</b> and also to hide as many of your past associations as possible.<br/><br/>Account deletion on Wikipedia is done by changing your account name to make it so others cannot recognize your contributions in a process called account vanishing. <b>Vanishing does not guarantee complete anonymity or remove contributions to the projects</b>.]]></string>
     <string name="history_empty_title">No recently viewed articles</string>
     <string name="history_empty_message">Track what you\'ve been reading here.</string>
     <string name="history_offline_articles_toast">Some articles in history may not be viewable while offline.</string>

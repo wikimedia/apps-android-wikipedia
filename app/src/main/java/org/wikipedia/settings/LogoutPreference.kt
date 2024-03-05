@@ -12,6 +12,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.util.StringUtil
 
 @Suppress("unused")
 class LogoutPreference : Preference {
@@ -49,7 +50,7 @@ class LogoutPreference : Preference {
                 MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme_Icon_Delete)
                     .setIcon(R.drawable.ic_person_remove)
                     .setTitle(R.string.account_vanish_request_confirm_title)
-                    .setMessage(R.string.account_vanish_request_confirm)
+                    .setMessage(StringUtil.fromHtml(it.getString(R.string.account_vanish_request_confirm)))
                     .setNegativeButton(android.R.string.cancel, null)
                     .setPositiveButton(R.string.account_vanish_request_title) { _, _ ->
                         it.finish()
