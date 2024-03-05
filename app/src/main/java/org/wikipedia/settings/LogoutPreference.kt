@@ -46,10 +46,12 @@ class LogoutPreference : Preference {
         }
         holder.itemView.findViewById<Button>(R.id.accountVanishButton).setOnClickListener {
             activity?.let {
-                MaterialAlertDialogBuilder(it)
+                MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme_Icon_Delete)
+                    .setIcon(R.drawable.ic_person_remove)
+                    .setTitle(R.string.account_vanish_request_confirm_title)
                     .setMessage(R.string.account_vanish_request_confirm)
                     .setNegativeButton(android.R.string.cancel, null)
-                    .setPositiveButton(android.R.string.ok) { _, _ ->
+                    .setPositiveButton(R.string.account_vanish_request_title) { _, _ ->
                         it.finish()
                         it.startActivity(SingleWebViewActivity.newIntent(it, it.getString(R.string.account_vanish_url)))
                     }.show()
