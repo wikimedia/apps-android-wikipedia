@@ -9,7 +9,7 @@ import org.wikipedia.page.PageTitle
 
 @Suppress("unused")
 @Serializable
-@SerialName("/analytics/legacy/editattemptstep/1.4.0")
+@SerialName("/analytics/legacy/editattemptstep/2.0.3")
 class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) : Event(STREAM_NAME) {
 
     companion object {
@@ -40,7 +40,8 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
         }
 
         private fun submitEditAttemptEvent(action: String, editorInterface: String, pageTitle: PageTitle) {
-            EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action, "", editorInterface,
+            EventPlatformClient.submit(EditAttemptStepEvent(EditAttemptStepInteractionEvent(action,
+                WikipediaApp.instance.appInstallID, "", editorInterface,
                 INTEGRATION_ID, "", WikipediaApp.instance.getString(R.string.device_type).lowercase(), 0,
                     if (AccountUtil.isLoggedIn) AccountUtil.getUserIdForLanguage(pageTitle.wikiSite.languageCode) else 0,
                 1, pageTitle.prefixedText, pageTitle.namespace().code())))
@@ -51,6 +52,7 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
 @Suppress("unused")
 @Serializable
 class EditAttemptStepInteractionEvent(private val action: String,
+                                      private val app_install_id: String,
                                       private val editing_session_id: String,
                                       private val editor_interface: String,
                                       private val integration: String,
