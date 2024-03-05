@@ -82,42 +82,14 @@
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/edit_section_preview_fragment"
+        android:name="org.wikipedia.edit.preview.EditPreviewFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
         android:layout_marginTop="?attr/actionBarSize"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/userName"
-            style="@style/H1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="?primary_color" />
-
-        <TextView
-            android:id="@+id/subjectView"
-            style="@style/H1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:textColor="?primary_color"
-            android:textStyle="normal" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="?attr/border_color" />
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/edit_section_preview_fragment"
-            android:name="org.wikipedia.edit.preview.EditPreviewFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            tools:layout="@layout/fragment_preview_edit" />
-    </LinearLayout>
+        tools:layout="@layout/fragment_preview_edit" />
 
     <org.wikipedia.edit.WikiTextKeyboardHeadingsView
         android:id="@+id/edit_keyboard_overlay_headings"
@@ -160,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"
-            android:text="@string/description_edit_save" />
+            android:text="@string/edit_next" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 

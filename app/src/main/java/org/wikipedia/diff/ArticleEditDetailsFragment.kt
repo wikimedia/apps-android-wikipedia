@@ -12,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
@@ -48,7 +47,6 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment
-import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.talk.template.TalkTemplatesActivity
@@ -83,27 +81,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             binding.collapsingToolbarLayout.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
             binding.overlayRevisionDetailsView.isVisible = -verticalOffset > bounds.top
         }
-
-    private val requestWarn = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || it.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
-            viewModel.revisionTo?.let { revision ->
-                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
-                val message = if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
-                    sendPatrollerExperienceEvent("publish_message_toast", "pt_warning_messages")
-                    R.string.talk_warn_submitted
-                } else {
-                    sendPatrollerExperienceEvent("publish_message_saved_toast", "pt_warning_messages")
-                    R.string.talk_warn_submitted_and_saved
-                }
-                val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
-                snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
-                    sendPatrollerExperienceEvent("publish_message_view_click", "pt_warning_messages")
-                    startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, InvokeSource.DIFF_ACTIVITY))
-                }
-                snackbar.show()
-            }
-        }
-    }
 
     private fun sendPatrollerExperienceEvent(action: String, activeInterface: String, actionData: String = "") {
         if (viewModel.fromRecentEdits) {

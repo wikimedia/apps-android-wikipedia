@@ -33,6 +33,7 @@ import org.wikipedia.databinding.FragmentTalkTemplatesBinding
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkReplyActivity
+import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.util.FeedbackUtil
@@ -68,6 +69,22 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             PatrollerExperienceEvent.logAction("save_message_toast", "pt_templates")
             FeedbackUtil.showMessage(this, R.string.talk_templates_new_message_saved)
         }
+        if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
+            val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
+            val message = if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
+                PatrollerExperienceEvent.logAction("publish_message_toast", "pt_warning_messages")
+                R.string.talk_warn_submitted
+            } else {
+                PatrollerExperienceEvent.logAction("publish_message_saved_toast", "pt_warning_messages")
+                R.string.talk_warn_submitted_and_saved
+            }
+            val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
+            snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
+                PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
+                startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, Constants.InvokeSource.DIFF_ACTIVITY))
+            }
+            snackbar.show()
+        }
     }
 
     private val requestEditTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -75,6 +92,22 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             viewModel.loadTalkTemplates()
             PatrollerExperienceEvent.logAction("update_message_toast", "pt_templates")
             FeedbackUtil.showMessage(this, R.string.talk_templates_edit_message_updated)
+        }
+        if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
+            val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
+            val message = if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
+                PatrollerExperienceEvent.logAction("publish_message_toast", "pt_warning_messages")
+                R.string.talk_warn_submitted
+            } else {
+                PatrollerExperienceEvent.logAction("publish_message_saved_toast", "pt_warning_messages")
+                R.string.talk_warn_submitted_and_saved
+            }
+            val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
+            snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
+                PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
+                startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, Constants.InvokeSource.DIFF_ACTIVITY))
+            }
+            snackbar.show()
         }
     }
 

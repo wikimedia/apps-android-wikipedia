@@ -29,7 +29,6 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.page.references.PageReferences
 import org.wikipedia.page.references.ReferenceDialog
-import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
