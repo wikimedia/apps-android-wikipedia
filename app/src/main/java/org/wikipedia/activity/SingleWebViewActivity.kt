@@ -27,6 +27,8 @@ import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
+import org.wikipedia.staticdata.MainPageNameData
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
 class SingleWebViewActivity : BaseActivity() {
@@ -68,9 +70,9 @@ class SingleWebViewActivity : BaseActivity() {
                 if (closeOnLinkClick) {
                     finish()
                     request?.let {
-                        val wiki = WikiSite(it.url)
-                        val title = PageTitle.titleForUri(it.url, wiki)
-                        if (!title.isMainPage) {
+                        // Special case: If the URL is the main page, then just allow the activity to close,
+                        // otherwise, open the URL in an external browser.
+                        if (!it.url.path.orEmpty().endsWith(StringUtil.addUnderscores(MainPageNameData.valueFor("en")))) {
                             UriUtil.visitInExternalBrowser(this@SingleWebViewActivity, it.url)
                         }
                     }

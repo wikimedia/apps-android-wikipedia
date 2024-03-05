@@ -12,7 +12,7 @@
     <string name="image_captions_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
     <string name="image_alt_text_style_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Images</string>
     <string name="quality_and_intent_filters_url">https://www.mediawiki.org/wiki/Help:New_filters_for_edit_review/Quality_and_Intent_Filters</string>
-    <string name="account_vanish_url">https://test.m.wikipedia.org/wiki/Special:Contact/accountvanishapps</string>
+    <string name="account_vanish_url">https://meta.m.wikimedia.org/wiki/Special:Contact/accountvanishapps</string>
 
     <!-- Accounts -->
     <string name="account_name">@string/wikimedia</string>
