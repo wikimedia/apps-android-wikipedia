@@ -74,6 +74,9 @@ class SingleWebViewActivity : BaseActivity() {
             }
         }
 
+        // Explicitly apply our cookies to the default CookieManager of the WebView.
+        // This is because our custom WebViewClient doesn't allow intercepting POST requests
+        // properly, so in the case of POST requests the cookies will be supplied automatically.
         CookieManager.getInstance().let {
             val cookies = SharedPreferenceCookieManager.instance.loadForRequest(targetUrl)
             for (cookie in cookies) {

@@ -257,10 +257,10 @@
   <string name="privacy_policy_description">Tietosuojakäytäntö</string>
   <string name="terms_of_use_description">Käyttöehdot</string>
   <string name="about_wikipedia_url">https://fi.wikipedia.org/wiki/Wikipedia:Tietoja</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy/fi</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia Apps/Android FAQ/fi</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/fi</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/fi</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fi</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fi</string>
@@ -1130,6 +1130,7 @@
   <string name="onboarding_explore_text">Sukella Wikipedian syövereihin aina ajan tasalla olevalla Tutki-syötteellä. &lt;br/&gt; &lt;b&gt;Mukauta&lt;/b&gt; mielenkiinnonkohteidesi mukaaan – vaikkapa tutustumalla &lt;b&gt;tämän päivämäärän&lt;/b&gt; historiallisiin tapahtumiin tai &lt;b&gt;satunnaisesti&lt;/b&gt; valittuun artikkeliin.</string>
   <string name="onboarding_reading_list_sync_title">Synkronoidut lukulistat</string>
   <string name="onboarding_reading_list_sync_text_v2">Lukulistalle voi lisätä myöhemmin luettavaksi artikkeleita, jotka toimivat myös ilman verkkoyhteyttä. &lt;br/&gt;Lukulistojen käyttö edellyttää Wikipedia-tunnuksella kirjautumista. &lt;a href=\"#login\"&gt;Liity Wikipediaan&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Data ja yksityisyys</string>
   <string name="onboarding_analytics_switch_title">Lähetä dataa tavasta, jolla käytät sovellusta</string>
   <string name="onboarding_got_it">Selvä</string>
   <string name="onboarding_multilingual_secondary_text">Laitteesta löytyneet kielet:</string>
@@ -1250,6 +1251,7 @@
   <string name="talk_warn_save_dialog_title">Tallenna muutokset?</string>
   <string name="talk_warn_save_dialog_message">Tallenna uutena viestinä</string>
   <string name="talk_warn_save_dialog_existing_new_message">Tallenna uutena viestinä luetteloon</string>
+  <string name="talk_warn_save_dialog_existing_update_message">Päivitä olemassa olevaa viestiä</string>
   <string name="talk_warn_save_dialog_hint">Viestin otsikko</string>
   <string name="talk_warn_save_dialog_publish">Julkaise</string>
   <string name="talk_warn_save_dialog_cancel">Peruuta</string>
@@ -1448,6 +1450,8 @@
   <string name="media_playback_error">Virhe mediaa toistettaessa.</string>
   <string name="user_contrib_menu_label">Muokkaukset</string>
   <string name="user_contrib_filter_activity_title">Suodata muokkauksia</string>
+  <string name="action_item_view_on_map">Näytä kartalla</string>
+  <string name="action_item_view_on_map_unavailable">Maantieteellisiä koordinaatteja ei ole saatavilla tälle sivulle</string>
   <string name="shareable_reading_lists_import_dialog_title">Tuo jaettu lukulista</string>
   <string name="shareable_reading_lists_import_dialog_content">Miten haluat nimetä tämän kanssasi jaetun lukulistan?</string>
   <string name="shareable_reading_lists_new_indicator">* uusi *</string>
@@ -1503,12 +1507,14 @@
   <string name="patroller_tasks_filters_title">Suodattimet</string>
   <string name="patroller_tasks_filters_reset">Nollaa</string>
   <string name="patroller_tasks_filters_all_text">Kaikki</string>
+  <string name="patroller_tasks_filters_user_status_header">Käyttäjän rekisteröinti ja kokemus</string>
   <string name="patroller_tasks_filters_user_status_unregistered">Rekisteröitymätön</string>
   <string name="patroller_tasks_filters_user_status_unregistered_desc">Muokkaajat, jotka eivät ole kirjautuneet sisään.</string>
   <string name="patroller_tasks_filters_user_status_registered">Rekisteröitynyt</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Sisäänkirjautuneet muokkaajat.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Tulokkaat</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Rekisteröityneet muokkaajat, joilla on vähemmän kuin 10 muokkausta 4 aktiivisuuspäivän aikana.</string>
+  <string name="patroller_tasks_filters_user_status_learners">Oppijat</string>
   <string name="patroller_tasks_filters_user_status_experienced">Kokeneet käyttäjät</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">Rekisteröityneet muokkaajat, joilla enemmän kuin 500 muokkausta ja 30 päivää aktiivisuutta.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Uusimmat versiot</string>
@@ -1554,4 +1560,10 @@
   <string name="generic_release_notes">Pieniä virheenkorjauksia ja parannuksia</string>
   <string name="donation_campaign_go_back_button">Palaa takaisin</string>
   <string name="menu_single_webview_open_external">Avaa järjestelmäselaimessa</string>
+  <string name="places_title">Paikat</string>
+  <string name="places_search_hint">Hae paikkoja</string>
+  <string name="places_filter_title">Suodata kielen perusteella</string>
+  <string name="places_toggle_buttons_map">Kartta</string>
+  <string name="places_toggle_buttons_list">Luettelo</string>
+  <string name="places_survey_dialog_cancel">Peruuta</string>
 </resources>
