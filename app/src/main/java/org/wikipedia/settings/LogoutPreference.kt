@@ -53,7 +53,7 @@ class LogoutPreference : Preference {
                     .setNegativeButton(android.R.string.cancel, null)
                     .setPositiveButton(R.string.account_vanish_request_title) { _, _ ->
                         it.finish()
-                        it.startActivity(SingleWebViewActivity.newIntent(it, it.getString(R.string.account_vanish_url)))
+                        it.startActivity(SingleWebViewActivity.newIntent(it, it.getString(R.string.account_vanish_url), closeOnLinkClick = true))
                     }.show()
             }
         }

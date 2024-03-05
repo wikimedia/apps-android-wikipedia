@@ -10,8 +10,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.webkit.CookieManager
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import androidx.core.view.isVisible
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
@@ -32,8 +34,9 @@ class SingleWebViewActivity : BaseActivity() {
     private lateinit var blankLinkHandler: LinkHandler
     private lateinit var targetUrl: String
     private var currentUrl: String? = null
-    private var pageTitle: PageTitle? = null
-    private var showBackButton: Boolean = false
+    private var pageTitleToLoadOnBackPress: PageTitle? = null
+    private var showBackButton = false
+    private var closeOnLinkClick = false
     val blankModel = PageViewModel()
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -47,8 +50,9 @@ class SingleWebViewActivity : BaseActivity() {
 
         targetUrl = intent.getStringExtra(EXTRA_URL)!!
         showBackButton = intent.getBooleanExtra(EXTRA_SHOW_BACK_BUTTON, false)
-        pageTitle = intent.parcelableExtra(EXTRA_PAGE_TITLE)
-        blankLinkHandler = EditLinkHandler(this, WikipediaApp.instance.wikiSite)
+        closeOnLinkClick = intent.getBooleanExtra(EXTRA_CLOSE_ON_LINK_CLICK, false)
+        pageTitleToLoadOnBackPress = intent.parcelableExtra(Constants.ARG_TITLE)
+        blankLinkHandler = SingleWebViewLinkHandler(this, WikipediaApp.instance.wikiSite)
 
         binding.backButton.isVisible = showBackButton
         binding.backButton.setOnClickListener {
@@ -59,6 +63,23 @@ class SingleWebViewActivity : BaseActivity() {
         binding.webView.webViewClient = object : OkHttpWebViewClient() {
             override val model get() = blankModel
             override val linkHandler get() = blankLinkHandler
+
+            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                if (closeOnLinkClick) {
+                    finish()
+                    request?.let {
+                        if (it.method != "POST") {
+                            val wiki = WikiSite(it.url)
+                            val title = PageTitle.titleForUri(it.url, wiki)
+                            if (!title.isMainPage) {
+                                UriUtil.visitInExternalBrowser(this@SingleWebViewActivity, it.url)
+                            }
+                        }
+                    }
+                    return true
+                }
+                return false
+            }
 
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
@@ -119,7 +140,7 @@ class SingleWebViewActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if (binding.webView.canGoBack()) {
+        if (!closeOnLinkClick && binding.webView.canGoBack()) {
             binding.webView.goBack()
             return
         }
@@ -131,14 +152,14 @@ class SingleWebViewActivity : BaseActivity() {
         if (intent.getStringExtra(EXTRA_PAGE_CONTENT_INFO).orEmpty() == PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE) {
             DonorExperienceEvent.logAction("article_return_click", "webpay_processed")
         }
-        pageTitle?.let {
+        pageTitleToLoadOnBackPress?.let {
             val entry = HistoryEntry(it, HistoryEntry.SOURCE_SINGLE_WEBVIEW)
             startActivity(PageActivity.newIntentForExistingTab(this@SingleWebViewActivity, entry, entry.title))
         }
         finish()
     }
 
-    inner class EditLinkHandler constructor(context: Context, override var wikiSite: WikiSite) : LinkHandler(context) {
+    inner class SingleWebViewLinkHandler(context: Context, override var wikiSite: WikiSite) : LinkHandler(context) {
         override fun onPageLinkClicked(anchor: String, linkText: String) { }
         override fun onInternalLinkClicked(title: PageTitle) { }
         override fun onMediaLinkClicked(title: PageTitle) { }
@@ -148,16 +169,18 @@ class SingleWebViewActivity : BaseActivity() {
     companion object {
         const val EXTRA_URL = "url"
         const val EXTRA_SHOW_BACK_BUTTON = "goBack"
-        const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_PAGE_CONTENT_INFO = "pageContentInfo"
         const val PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE = "donorExperience"
+        const val EXTRA_CLOSE_ON_LINK_CLICK = "closeOnLinkClick"
 
-        fun newIntent(context: Context, url: String, showBackButton: Boolean = false, pageTitle: PageTitle? = null, pageContentInfo: String? = null): Intent {
+        fun newIntent(context: Context, url: String, showBackButton: Boolean = false, pageTitleToLoadOnBackPress: PageTitle? = null,
+                      pageContentInfo: String? = null, closeOnLinkClick: Boolean = false): Intent {
             return Intent(context, SingleWebViewActivity::class.java)
                     .putExtra(EXTRA_URL, url)
                     .putExtra(EXTRA_SHOW_BACK_BUTTON, showBackButton)
-                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                    .putExtra(Constants.ARG_TITLE, pageTitleToLoadOnBackPress)
                     .putExtra(EXTRA_PAGE_CONTENT_INFO, pageContentInfo)
+                    .putExtra(EXTRA_CLOSE_ON_LINK_CLICK, closeOnLinkClick)
         }
     }
 }
