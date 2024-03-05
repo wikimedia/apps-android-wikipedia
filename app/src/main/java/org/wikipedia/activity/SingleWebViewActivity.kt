@@ -68,12 +68,10 @@ class SingleWebViewActivity : BaseActivity() {
                 if (closeOnLinkClick) {
                     finish()
                     request?.let {
-                        if (it.method != "POST") {
-                            val wiki = WikiSite(it.url)
-                            val title = PageTitle.titleForUri(it.url, wiki)
-                            if (!title.isMainPage) {
-                                UriUtil.visitInExternalBrowser(this@SingleWebViewActivity, it.url)
-                            }
+                        val wiki = WikiSite(it.url)
+                        val title = PageTitle.titleForUri(it.url, wiki)
+                        if (!title.isMainPage) {
+                            UriUtil.visitInExternalBrowser(this@SingleWebViewActivity, it.url)
                         }
                     }
                     return true
