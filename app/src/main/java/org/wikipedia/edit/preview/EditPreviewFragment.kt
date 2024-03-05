@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
+import org.wikipedia.activity.FragmentUtil
 import org.wikipedia.bridge.CommunicationBridge
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener
 import org.wikipedia.bridge.JavaScriptActionHandler
@@ -36,6 +37,11 @@ import org.wikipedia.util.UriUtil
 
 class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDialog.Callback {
 
+    interface Callback {
+        fun getParentPageTitle(): PageTitle
+        fun showProgressBar(visible: Boolean)
+    }
+
     private var _binding: FragmentPreviewEditBinding? = null
     private val binding get() = _binding!!
 
@@ -54,7 +60,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentPreviewEditBinding.inflate(layoutInflater, container, false)
         bridge = CommunicationBridge(this)
-        val pageTitle = (requireActivity() as TalkReplyActivity).viewModel.pageTitle
+        val pageTitle = callback().getParentPageTitle()
         model.title = pageTitle
         model.curEntry = HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK)
         linkHandler = EditLinkHandler(requireContext())
@@ -73,11 +79,11 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
      */
     fun showPreview(title: PageTitle, wikiText: String) {
         DeviceUtil.hideSoftKeyboard(requireActivity())
-        (requireActivity() as TalkReplyActivity).showProgressBar(true)
-        val url = ServiceFactory.getRestBasePath(model.title!!.wikiSite) + RestService.PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(title.prefixedText)
+        callback().showProgressBar(true)
+        val url = ServiceFactory.getRestBasePath(model.title!!.wikiSite) +
+                RestService.PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(title.prefixedText)
         val postData = "wikitext=" + UriUtil.encodeURL(wikiText)
         binding.editPreviewWebview.postUrl(url, postData.toByteArray())
-        // ActivityCompat.requireViewById<View>(requireActivity(), R.id.edit_section_container).isVisible = false
         binding.editPreviewContainer.isVisible = true
         requireActivity().invalidateOptionsMenu()
     }
@@ -97,7 +103,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                 }
                 bridge.onMetadataReady()
                 bridge.execute(JavaScriptActionHandler.setMargins(16, 0, 16, 16 + DimenUtil.roundedPxToDp(binding.licenseText.height.toFloat())))
-                (requireActivity() as TalkReplyActivity).showProgressBar(false)
+                callback().showProgressBar(false)
                 requireActivity().invalidateOptionsMenu()
             }
         }
@@ -134,13 +140,16 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
      * Hides (fades out) the Preview fragment.
      * When fade-out completes, the state of the actionbar button(s) is updated.
      */
-    fun hide(toView: View) {
+    fun hide() {
         binding.editPreviewContainer.isVisible = false
-        toView.isVisible = true
         requireActivity().invalidateOptionsMenu()
     }
 
-    inner class EditLinkHandler constructor(context: Context) : LinkHandler(context) {
+    private fun callback(): Callback {
+        return FragmentUtil.getCallback(this, Callback::class.java)!!
+    }
+
+    inner class EditLinkHandler(context: Context) : LinkHandler(context) {
         override fun onPageLinkClicked(anchor: String, linkText: String) {
             // TODO: also need to handle references, issues, disambig, ... in preview eventually
         }

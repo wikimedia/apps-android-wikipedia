@@ -6,6 +6,7 @@
 * Dbrant
 * Gwanki
 * Hamza DK
+* Muhammad Idriss Criteria
 * Salihu aliyu
 * Umar-askirason
 * Yusuf Sa'adu
@@ -394,7 +395,7 @@
   <string name="link_preview_dialog_saved_button">An ajiye</string>
   <string name="link_preview_dialog_share_button">Rarraba</string>
   <string name="error_page_does_not_exist">Babu wannan shafin</string>
-  <string name="error_user_page_does_not_exist" fuzzy="true">Wikipedia ba shi da &lt;a href=\"%1$s \"&gt;shafin mai amfani&lt;/a&gt; da wannan ainihin sunan. Gaba ɗaya, wannan shafin yakamata a ƙirƙira kuma a gyara shi ta &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; %3$s</string>
+  <string name="error_user_page_does_not_exist">Wikipedia ba shi da &lt;a href=\"%1$s \"&gt;shafin mai amfani&lt;/a&gt; da wannan ainihin sunan. Gaba ɗaya, wannan shafin yakamata a ƙirƙira kuma a gyara shi ta &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; %3$s</string>
   <string name="view_wiki_error_message_offline">Ba za a iya haɗawa da intanet ba</string>
   <string name="view_wiki_error_message_timeout">Ba za a iya haɗa shi da Wikipedia ba. Bincika haɗin yanar gizon ku, ko kuma ku sake gwadawa daga baya</string>
   <string name="reference_title">Nassoshi %s</string>
@@ -830,7 +831,7 @@
   <string name="description_edit_help_about_wikidata">Game da Wikidata</string>
   <string name="description_edit_help_wikidata_guide">Jagoran Wikidata don bayanin rubuce-rubuce</string>
   <string name="description_edit_anon_limit">Godiya ga ci gaba da sha\'awarka wajen gyara bayanin labarin! Don yin ƙarin gyare-gyare, don Allah shigar da asusun Wikipedia.</string>
-  <string name="description_edit_license_notice" fuzzy="true">Ta hanyar canza bayanin labarin, na yarda da &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Terms of Use&lt;/a&gt; da kuma fitar da gudunmawata a ƙarƙashin lasisin &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Creative Commons CC0&lt;/a&gt; .</string>
+  <string name="description_edit_license_notice">Ta hanyar canza bayanin labarin, na yarda da &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Terms of Use&lt;/a&gt; da kuma fitar da gudunmawata a ƙarƙashin lasisin &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Creative Commons CC0&lt;/a&gt; .</string>
   <string name="description_edit_helper_text_lowercase_warning">yawanci farawa da ƙananan haruffa</string>
   <string name="description_edit_voice_input_description">Shigar da murya</string>
   <string name="description_edit_learn_more">Ƙari koyo game da bayanin labarin</string>
@@ -888,8 +889,8 @@
   <string name="suggested_edits_review_image_caption">Bitar taken hoto</string>
   <string name="suggested_edits_my_contributions">Gudunmuwar ma\'aikaci</string>
   <string name="suggested_edits_no_description">Wannan fayil ɗin ba shi da bayanin</string>
-  <string name="suggested_edits_license_notice" fuzzy="true">Ta hanyar canza bayanin labarin, na yarda da &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Terms of Use&lt;/a&gt; da kuma fitar da gudunmawata a ƙarƙashin lasisin &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Creative Commons CC0&lt;/a&gt; .</string>
-  <string name="suggested_edits_image_caption_license_notice" fuzzy="true">Ta hanyar canza bayanin labarin, na yarda da &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Terms of Use&lt;/a&gt; da kuma fitar da gudunmawata a ƙarƙashin lasisin &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Creative Commons CC0&lt;/a&gt; .</string>
+  <string name="suggested_edits_license_notice">Ta hanyar canza bayanin labarin, na yarda da &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Terms of Use&lt;/a&gt; da kuma fitar da gudunmawata a ƙarƙashin lasisin &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Creative Commons CC0&lt;/a&gt; .</string>
+  <string name="suggested_edits_image_caption_license_notice">Ta hanyar canza bayanin labarin, na yarda da &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;Terms of Use&lt;/a&gt; da kuma fitar da gudunmawata a ƙarƙashin lasisin &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;Creative Commons CC0&lt;/a&gt; .</string>
   <string name="suggested_edits_menu_info">Bayani</string>
   <string name="suggested_edits_task_add_description_title">Gyara bayanin gida</string>
   <string name="suggested_edits_task_add_description_description">Ka ba da gudummawa ga labarai ba tare da bayanin ba</string>
@@ -998,7 +999,7 @@
   <string name="suggested_edits_last_edited">Gyaran karshe</string>
   <string name="suggested_edits_last_edited_never">Taba</string>
   <string name="suggested_edits_task_new">Sabo</string>
-  <string name="suggested_edits_cc0_notice" fuzzy="true">Ta hanyar bugawa, kun yarda da &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;terms of use&lt;/a&gt; kuma don fitar da wannan gudummawar ba tare da sokewa ba ƙarƙashin &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;CC0 license&lt;/a&gt; .</string>
+  <string name="suggested_edits_cc0_notice">Ta hanyar bugawa, kun yarda da &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;terms of use&lt;/a&gt; kuma don fitar da wannan gudummawar ba tare da sokewa ba ƙarƙashin &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;CC0 license&lt;/a&gt; .</string>
   <string name="suggested_edits_reactivation_notification_title">Gyaran da aka ba da shawarar</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Godiya ga gyara Wikipedia! Me ya sa kada ka ci gaba inda ka tsaya?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Shin kuna da minti daya don ci gaba da inganta Wikipedia? Bincika waɗannan shawarwarin gyara.</string>
@@ -1091,7 +1092,7 @@
   <string name="description_edit_revert_intro">Mun san kun yi iya ƙoƙarinku, amma ɗaya daga cikin masu bitar ya sami damuwa. Dalilan da za a iya dawo da gyaran ku sun haɗa da:</string>
   <string name="description_edit_revert_reason1">gudummawar ku ba ta bi ɗaya daga cikin &lt;a href=\"%1$s\"&gt;jagororin&lt;/a&gt; ba.</string>
   <string name="description_edit_revert_reason2">gudummawar ku ta yi kama da gwaji ko lalata.</string>
-  <string name="description_edit_revert_history" fuzzy="true">Idan kuna sha\'awar, duba &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;edit history&lt;/a&gt; .</string>
+  <string name="description_edit_revert_history">Idan kuna sha\'awar, duba &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;edit history&lt;/a&gt; .</string>
   <string name="description_edit_login_cancel_button_text">Soke</string>
   <string name="offline_read_permission_rationale">Ana buƙatar izinin samun damar ajiya akan na\'urar ku don bincike kan layi.</string>
   <string name="offline_read_final_rationale">Ana buƙatar izinin samun damar ajiya akan na\'urar ku don amfani da ɗakin karatu na Offline.</string>
