@@ -1,6 +1,10 @@
 package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.booleanOrNull
+import kotlinx.serialization.json.contentOrNull
+import kotlinx.serialization.json.jsonPrimitive
 
 @Serializable
 class TemplateDataResponse : MwResponse() {
@@ -24,9 +28,12 @@ class TemplateDataResponse : MwResponse() {
         val aliases: List<String> = emptyList()
         val example: Map<String, String>? = null
         val suggested: Boolean = false
-        val deprecated: Boolean = false // TODO: It will be string if is not deprecated
+        private val deprecated: JsonElement? = null
         val autovalue: String? = null
         val default: String? = null
         val suggestedvalues: List<String> = emptyList()
+
+        val deprecatedAsBoolean get() = deprecated?.jsonPrimitive?.booleanOrNull ?: false
+        val deprecatedAsString get() = deprecated?.jsonPrimitive?.contentOrNull
     }
 }
