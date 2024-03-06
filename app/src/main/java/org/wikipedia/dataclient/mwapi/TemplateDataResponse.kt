@@ -1,5 +1,6 @@
 package org.wikipedia.dataclient.mwapi
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.booleanOrNull
@@ -21,17 +22,19 @@ class TemplateDataResponse : MwResponse() {
 
     @Serializable
     class TemplateDataParam {
-        val label: Map<String, String>? = null
-        val description: Map<String, String>? = null
+        // The [label, description, default and example] original format are in a Map style;
+        // When you send a target language in the request, it will become a String.
+        val label: String? = null
+        val description: String? = null
+        val default: String? = null
+        val example: String? = null
         val type: String = ""
         val required: Boolean = false
-        val aliases: List<String> = emptyList()
-        val example: Map<String, String>? = null
         val suggested: Boolean = false
+        @SerialName("autovalue") val autoValue: String? = null
+        @SerialName("suggestedvalues") val suggestedValues: List<String> = emptyList()
+        val aliases: List<String> = emptyList()
         private val deprecated: JsonElement? = null
-        val autovalue: String? = null
-        val default: String? = null
-        val suggestedvalues: List<String> = emptyList()
 
         val deprecatedAsBoolean get() = deprecated?.jsonPrimitive?.booleanOrNull ?: false
         val deprecatedAsString get() = deprecated?.jsonPrimitive?.contentOrNull
