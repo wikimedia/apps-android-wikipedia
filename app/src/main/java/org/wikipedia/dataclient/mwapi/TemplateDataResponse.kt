@@ -2,23 +2,33 @@ package org.wikipedia.dataclient.mwapi
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.booleanOrNull
 import kotlinx.serialization.json.contentOrNull
+import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.jsonPrimitive
+import org.wikipedia.json.JsonUtil
 
 @Serializable
 class TemplateDataResponse : MwResponse() {
 
-    val pages: Map<String, TemplateData>? = null
+    private val pages: Map<String, TemplateData>? = null
+
+    val getTemplateData get() = pages?.values?.toList() ?: emptyList()
 
     @Serializable
     class TemplateData {
         val title: String = ""
         // When send lang=[langCode], the type of it will become String instead of a Map<String, String>
         val description: String? = null
-        val params: Map<String, TemplateDataParam>? = null
+        private val params: JsonElement? = null
         val format: String? = null
+
+        val getParams: Map<String, TemplateDataParam>?
+            get() = if (params != null && params !is JsonArray) {
+                JsonUtil.json.decodeFromJsonElement<Map<String, TemplateDataParam>>(params)
+            } else null
     }
 
     @Serializable
