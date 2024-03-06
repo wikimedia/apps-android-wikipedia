@@ -17,6 +17,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.ActivitySingleWebViewBinding
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.dataclient.WikiSite
@@ -92,6 +93,7 @@ class SingleWebViewActivity : BaseActivity() {
                 binding.progressBar.isVisible = false
                 currentUrl = url
                 invalidateOptionsMenu()
+                view?.evaluateJavascript(JavaScriptActionHandler.mobileWebChromeShim(0, 0), null)
             }
         }
 
