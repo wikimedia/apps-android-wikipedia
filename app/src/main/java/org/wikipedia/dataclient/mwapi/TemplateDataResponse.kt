@@ -15,14 +15,14 @@ class TemplateDataResponse : MwResponse() {
     @Serializable
     class TemplateData {
         val title: String = ""
-        val description: Map<String, String>? = null
+        val description: String? = null
         val params: Map<String, TemplateDataParam>? = null
         val format: String? = null
     }
 
     @Serializable
     class TemplateDataParam {
-        // The [label, description, default and example] original format are in a Map style;
+        // [label, description, default and example]: The original format of them is in a Map style;
         // When you send a target language in the request, it will become a String.
         val label: String? = null
         val description: String? = null
