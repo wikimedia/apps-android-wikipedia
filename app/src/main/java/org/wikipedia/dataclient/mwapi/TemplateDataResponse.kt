@@ -15,6 +15,7 @@ class TemplateDataResponse : MwResponse() {
     @Serializable
     class TemplateData {
         val title: String = ""
+        // When send lang=[langCode], the type of it will become String instead of a Map<String, String>
         val description: String? = null
         val params: Map<String, TemplateDataParam>? = null
         val format: String? = null
