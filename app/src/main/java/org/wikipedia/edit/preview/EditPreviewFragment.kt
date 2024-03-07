@@ -97,7 +97,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
                     return
                 }
                 bridge.onMetadataReady()
-                bridge.execute(JavaScriptActionHandler.setMargins(16, 0, 16, 16 + DimenUtil.roundedPxToDp(binding.licenseText.height.toFloat())))
+                bridge.execute(JavaScriptActionHandler.setMargins(16, 0, 16, 16 + DimenUtil.roundedPxToDp(binding.editPreviewLicenseText.height.toFloat())))
                 callback().showProgressBar(false)
                 requireActivity().invalidateOptionsMenu()
             }

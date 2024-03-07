@@ -7,8 +7,10 @@ import android.os.Bundle
 import android.text.TextWatcher
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.core.app.ActivityCompat
 import androidx.core.util.lruCache
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
@@ -26,6 +28,7 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.edit.SyntaxHighlightViewAdapter
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.insertmedia.InsertMediaViewModel
+import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
@@ -47,10 +50,11 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.views.UserMentionInputView
 import org.wikipedia.views.ViewUtil
 
-class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
+class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPreviewFragment.Callback {
     private lateinit var binding: ActivityTalkReplyBinding
     private lateinit var linkHandler: TalkLinkHandler
     private lateinit var textWatcher: TextWatcher
+    private lateinit var messagePreviewFragment: EditPreviewFragment
 
     private val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
     private var userMentionScrolled = false
@@ -62,7 +66,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
 
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            updateEditLicenseText()
+            updateEditLicenseText(binding.licenseText)
             FeedbackUtil.showMessage(this, R.string.login_success_toast)
         }
     }
@@ -158,7 +162,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             if (it is Resource.Success) {
                 viewModel.talkTemplateSaved = true
                 binding.progressBar.isVisible = true
-                viewModel.postReply(it.data.subject, it.data.message)
+                showEditPreview()
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(this, it.throwable)
             }
@@ -167,6 +171,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.replyInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
             Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
+
+        messagePreviewFragment = supportFragmentManager.findFragmentById(R.id.message_preview_fragment) as EditPreviewFragment
 
         onInitialLoad()
     }
@@ -181,7 +187,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     }
 
     private fun onInitialLoad() {
-        updateEditLicenseText()
+        updateEditLicenseText(binding.licenseText)
         setSaveButtonEnabled(false)
         setToolbarTitle(viewModel.pageTitle)
         L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
@@ -311,7 +317,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     }
 
     private fun showSaveDialog(subject: String, body: String) {
-        TalkTemplatesTextInputDialog(this@TalkReplyActivity, R.string.talk_warn_save_dialog_publish,
+        TalkTemplatesTextInputDialog(this@TalkReplyActivity, R.string.edit_preview,
             R.string.talk_warn_save_dialog_cancel).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {
@@ -357,7 +363,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
                         }
                     } else {
                         binding.progressBar.isVisible = true
-                        viewModel.postReply(subject, body)
+                        showEditPreview()
                     }
                     val messageType = if (textInputDialog.isSaveAsNewChecked) "new" else if (textInputDialog.isSaveExistingChecked) "updated" else ""
                     sendPatrollerExperienceEvent("publish_message_click", "pt_warning_messages", PatrollerExperienceEvent.getActionDataString(messageType = messageType))
@@ -386,6 +392,13 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             it.putExtra(EXTRA_BODY, body)
         }
 
+        if (messagePreviewFragment.isActive) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.messagePreviewFragment.isVisible = false
+            viewModel.postReply(subject, body)
+            return
+        }
+
         EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
 
         if (viewModel.isNewTopic && subject.isEmpty()) {
@@ -407,7 +420,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             showSaveDialog(subject, body)
         } else {
             binding.progressBar.visibility = View.VISIBLE
-            viewModel.postReply(subject, body)
+            showEditPreview()
         }
     }
 
@@ -441,11 +454,22 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         FeedbackUtil.showError(this, t)
     }
 
-    private fun updateEditLicenseText() {
-        binding.licenseText.text = StringUtil.fromHtml(getString(if (AccountUtil.isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
+    fun showEditPreview() {
+        val editLicenseText = ActivityCompat.requireViewById<TextView>(this, R.id.editPreviewLicenseText)
+        binding.talkScrollContainer.isVisible = false
+        binding.messagePreviewFragment.isVisible = true
+        updateEditLicenseText(editLicenseText)
+        setSaveButtonEnabled(true)
+        supportActionBar?.title = getString(R.string.edit_preview)
+        binding.replySaveButton.text = getString(R.string.description_edit_save)
+        messagePreviewFragment.showPreview(viewModel.pageTitle, binding.replyInputView.editText.text.toString())
+    }
+
+    private fun updateEditLicenseText(licenseTextView: TextView) {
+        licenseTextView.text = StringUtil.fromHtml(getString(if (AccountUtil.isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_4_url)))
-        binding.licenseText.movementMethod = LinkMovementMethodExt { url: String ->
+        licenseTextView.movementMethod = LinkMovementMethodExt { url: String ->
             if (url == "https://#login") {
                 val loginIntent = LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT)
                 requestLogin.launch(loginIntent)
@@ -496,6 +520,15 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         if (viewModel.isFromDiff) {
             PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
         }
+    }
+
+    override fun getParentPageTitle(): PageTitle {
+        return viewModel.pageTitle
+    }
+
+    override fun showProgressBar(visible: Boolean) {
+        binding.progressBar.isVisible = visible
+        invalidateOptionsMenu()
     }
 
     companion object {

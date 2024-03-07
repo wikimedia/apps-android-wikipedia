@@ -73,7 +73,7 @@
         android:orientation="vertical">
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/edit_section_preview_fragment"
+            android:id="@+id/message_preview_fragment"
             android:name="org.wikipedia.edit.preview.EditPreviewFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"

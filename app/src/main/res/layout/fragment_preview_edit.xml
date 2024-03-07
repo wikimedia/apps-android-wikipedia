@@ -26,7 +26,7 @@
             android:background="?attr/border_color"/>
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/licenseText"
+            android:id="@+id/editPreviewLicenseText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
