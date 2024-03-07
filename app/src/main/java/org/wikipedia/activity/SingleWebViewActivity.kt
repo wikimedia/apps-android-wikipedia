@@ -11,6 +11,7 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import android.webkit.CookieManager
 import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import androidx.core.view.isVisible
 import org.wikipedia.Constants
@@ -39,7 +40,8 @@ class SingleWebViewActivity : BaseActivity() {
     private var currentUrl: String? = null
     private var pageTitleToLoadOnBackPress: PageTitle? = null
     private var showBackButton = false
-    private var closeOnLinkClick = false
+    private var isWebForm = false
+    private var wasFormSubmitted = false
     val blankModel = PageViewModel()
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -53,7 +55,7 @@ class SingleWebViewActivity : BaseActivity() {
 
         targetUrl = intent.getStringExtra(EXTRA_URL)!!
         showBackButton = intent.getBooleanExtra(EXTRA_SHOW_BACK_BUTTON, false)
-        closeOnLinkClick = intent.getBooleanExtra(EXTRA_CLOSE_ON_LINK_CLICK, false)
+        isWebForm = intent.getBooleanExtra(EXTRA_IS_WEB_FORM, false)
         pageTitleToLoadOnBackPress = intent.parcelableExtra(Constants.ARG_TITLE)
         blankLinkHandler = SingleWebViewLinkHandler(this, WikipediaApp.instance.wikiSite)
 
@@ -68,7 +70,7 @@ class SingleWebViewActivity : BaseActivity() {
             override val linkHandler get() = blankLinkHandler
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-                if (closeOnLinkClick) {
+                if (isWebForm) {
                     finish()
                     request?.let {
                         // Special case: If the URL is the main page, then just allow the activity to close,
@@ -80,6 +82,13 @@ class SingleWebViewActivity : BaseActivity() {
                     return true
                 }
                 return false
+            }
+
+            override fun shouldInterceptRequest(view: WebView, request: WebResourceRequest): WebResourceResponse? {
+                if (request.method == "POST") {
+                    wasFormSubmitted = true
+                }
+                return super.shouldInterceptRequest(view, request)
             }
 
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
@@ -94,6 +103,9 @@ class SingleWebViewActivity : BaseActivity() {
                 currentUrl = url
                 invalidateOptionsMenu()
                 view?.evaluateJavascript(JavaScriptActionHandler.mobileWebChromeShim(0, 0), null)
+                if (isWebForm && wasFormSubmitted) {
+                    binding.backButton.isVisible = true
+                }
             }
         }
 
@@ -142,7 +154,7 @@ class SingleWebViewActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if (!closeOnLinkClick && binding.webView.canGoBack()) {
+        if (!isWebForm && binding.webView.canGoBack()) {
             binding.webView.goBack()
             return
         }
@@ -173,16 +185,16 @@ class SingleWebViewActivity : BaseActivity() {
         const val EXTRA_SHOW_BACK_BUTTON = "goBack"
         const val EXTRA_PAGE_CONTENT_INFO = "pageContentInfo"
         const val PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE = "donorExperience"
-        const val EXTRA_CLOSE_ON_LINK_CLICK = "closeOnLinkClick"
+        const val EXTRA_IS_WEB_FORM = "isWebForm"
 
         fun newIntent(context: Context, url: String, showBackButton: Boolean = false, pageTitleToLoadOnBackPress: PageTitle? = null,
-                      pageContentInfo: String? = null, closeOnLinkClick: Boolean = false): Intent {
+                      pageContentInfo: String? = null, isWebForm: Boolean = false): Intent {
             return Intent(context, SingleWebViewActivity::class.java)
                     .putExtra(EXTRA_URL, url)
                     .putExtra(EXTRA_SHOW_BACK_BUTTON, showBackButton)
                     .putExtra(Constants.ARG_TITLE, pageTitleToLoadOnBackPress)
                     .putExtra(EXTRA_PAGE_CONTENT_INFO, pageContentInfo)
-                    .putExtra(EXTRA_CLOSE_ON_LINK_CLICK, closeOnLinkClick)
+                    .putExtra(EXTRA_IS_WEB_FORM, isWebForm)
         }
     }
 }
