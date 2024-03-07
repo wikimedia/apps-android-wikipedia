@@ -110,7 +110,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         }
 
         binding.learnLinkContainer.setOnClickListener {
-            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.create_account_ip_block_help_url)))
+            UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.talk_warn_learn_more_url)))
         }
 
         if (viewModel.isFromDiff) {
@@ -140,7 +140,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             if (it is Resource.Success) {
                 viewModel.talkTemplateSaved = true
                 binding.progressBar.isVisible = true
-                viewModel.postReply(it.data.subject, it.data.message)
+                // viewModel.postReply(it.data.subject, it.data.message)
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(this, it.throwable)
             }
@@ -344,8 +344,17 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         setSaveButtonEnabled(true)
         supportActionBar?.title = getString(R.string.edit_preview)
         binding.replySaveButton.text = getString(R.string.description_edit_save)
-        // editPreviewFragment.showPreview(viewModel.pageTitle, "Hello @"+AccountUtil.userName+", I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia;I appreciate your collaboration on Wikipedia; However, I noticed you are in a [[Wikipedia:Conflict_of_interest|conflict of interest]]. A conflict of interest is the incompatibility between Wikipedia\\'s objectives of neutrality and reliability and the particular objectives of certain editors, individuals, entities, or companies of any type.\\nAll contributions in the main space are subject to the policies of content criteria ([[Wikipedia:What_Wikipedia_is_not|what Wikipedia is not]]), encyclopedic quality ([[Wikipedia:Verifiability|verifiability]] and [[Wikipedia:No_original_research|no original research]]), editorial method ([[Wikipedia:Neutral_point_of_view|neutral point of view]]), and legitimacy of content ([[Wikipedia:Copyrights|copyrights]]). All publishers are expected to abide by these policies when creating and evaluating content and to respect and assume good faith in the actions of other publishers to ensure that these policies are followed.\\n\\nIf you edit under a conflict of interest, you must apply the corresponding policy with special care; Otherwise, your user account could be considered private purpose and blocked. Feel free to reach out on my talk page if you have any questions.")
-        editPreviewFragment.showPreview(viewModel.pageTitle, binding.replyInputView.editText.text.toString())
+        editPreviewFragment.showPreview(viewModel.pageTitle, getUpdatedWikitext())
+    }
+
+    private fun getUpdatedWikitext(): String {
+        val fromRevisionId = intent.getLongExtra(FROM_REVISION_ID, -1)
+        val toRevisionId = intent.getLongExtra(TO_REVISION_ID, -1)
+        var replyMessage = binding.replyInputView.editText.text.toString()
+        replyMessage = replyMessage.replace(getString(R.string.username_wikitext), getString(R.string.wikiText_replace_url, viewModel.pageTitle.prefixedText, "@" + StringUtil.removeNamespace(viewModel.pageTitle.prefixedText)))
+        replyMessage = replyMessage.replace(getString(R.string.sender_username_wikitext), AccountUtil.userName.orEmpty())
+        replyMessage = replyMessage.replace(getString(R.string.diff_link_wikitext), viewModel.pageTitle.getWebApiUrl("diff=$toRevisionId&oldid=$fromRevisionId&variant=${viewModel.pageTitle.wikiSite.languageCode}"))
+        return replyMessage
     }
 
     private fun updateEditLicenseText() {
@@ -498,6 +507,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         const val RESULT_BACK_FROM_TOPIC = 2
         const val RESULT_SAVE_TEMPLATE = 3
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
+        const val TO_REVISION_ID = "toRevisionId"
+        const val FROM_REVISION_ID = "fromRevisionId"
 
         // TODO: persist in db. But for now, it's fine to store these for the lifetime of the app.
         val draftReplies = lruCache<String, CharSequence>(10)
@@ -511,6 +522,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                       undoBody: CharSequence? = null,
                       fromDiff: Boolean = false,
                       templateId: Int = -1,
+                      toRevisionId: Long = -1,
+                      fromRevisionId: Long = -1,
                       templateManagementMode: Boolean = false
         ): Intent {
             return Intent(context, TalkReplyActivity::class.java)
@@ -522,6 +535,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     .putExtra(EXTRA_FROM_DIFF, fromDiff)
                     .putExtra(EXTRA_TEMPLATE_ID, templateId)
                     .putExtra(EXTRA_TEMPLATE_MANAGEMENT, templateManagementMode)
+                    .putExtra(FROM_REVISION_ID, fromRevisionId)
+                    .putExtra(TO_REVISION_ID, toRevisionId)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

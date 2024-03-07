@@ -9,16 +9,17 @@
     <CheckBox
         android:id="@+id/checkbox"
         android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_height="match_parent"
         android:layout_marginHorizontal="8dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:visibility="gone"
         tools:visibility="visible" />
 
     <LinearLayout
         android:id="@+id/listItem"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:background="?android:attr/selectableItemBackground"
         android:orientation="vertical"
         android:paddingHorizontal="18dp"
@@ -26,7 +27,7 @@
 
         <TextView
             android:id="@+id/listItemTitle"
-            style="@style/H3"
+            style="@style/H3.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -50,9 +51,9 @@
         android:id="@+id/dragHandle"
         android:layout_width="56dp"
         android:layout_height="match_parent"
+        android:layout_gravity="end"
         android:contentDescription="@string/customize_toolbar_item_drag_handle_default_tooltip"
         android:scaleType="center"
-        android:visibility="gone"
         app:srcCompat="@drawable/ic_draggable"
         app:tint="?android:attr/textColorTertiary" />
 </merge>

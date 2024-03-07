@@ -1675,6 +1675,7 @@
     <string name="patroller_saved_message_body_do_not_censor">Hi {{{username}}}, it appears you removed content without discussing it on the article talk page. Please note that Wikipedia is not censored, and content should not be removed because it is controversial. If you believe the information is inaccurate, please reach a consensus on the article talk page.</string>
     <string name="patroller_saved_message_body_art_imp">Your article is a great start! To make it even better, consider adding more references to reliable sources. This helps verify the information and improves the article\'s quality. Check out the guidelines on [[Wikipedia:Reliable_sources|reliable sources]] for more details.</string><string name="talk_templates_menu_edit_title">Edit</string>
     <string name="talk_warn_learn_more_label">Learn about message placeholders</string>
+    <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
     <!-- /Patroller task -->
 
     <string name="data_opt_in_accept">Accept</string>

@@ -142,8 +142,10 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
         binding.addTemplateFab.setOnClickListener {
             val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
+            val fromRevisionId = requireArguments().getLong(TalkReplyActivity.FROM_REVISION_ID)
+            val toRevisionId = requireArguments().getLong(TalkReplyActivity.TO_REVISION_ID)
             requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null,
-                null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateManagementMode = viewModel.templateManagementMode))
+                null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateManagementMode = viewModel.templateManagementMode, fromRevisionId = fromRevisionId, toRevisionId = toRevisionId))
         }
     }
 
@@ -159,6 +161,10 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
             R.id.menu_edit_messages -> {
+                if (actionMode == null) {
+                    beginRemoveItemsMode()
+                    adapter.notifyDataSetChanged()
+                }
                 true
             }
             else -> false
@@ -238,7 +244,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             holder.bindItem(talkTemplate, position)
             holder.templatesItemView.setCheckBoxEnabled(checkboxEnabled)
             holder.templatesItemView.setCheckBoxChecked(selectedItems.contains(talkTemplate))
-            holder.templatesItemView.setDragHandleEnabled(!checkboxEnabled)
+            holder.templatesItemView.setDragHandleEnabled(actionMode != null)
         }
 
         override fun onViewAttachedToWindow(holder: TalkTemplatesItemViewHolder) {
@@ -267,7 +273,9 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             } else {
                 PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
                 val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
-                requestEditTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateId = viewModel.talkTemplatesList[position].id, templateManagementMode = viewModel.templateManagementMode))
+                val fromRevisionId = requireArguments().getLong(TalkReplyActivity.FROM_REVISION_ID)
+                val toRevisionId = requireArguments().getLong(TalkReplyActivity.TO_REVISION_ID)
+                requestEditTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateId = viewModel.talkTemplatesList[position].id, templateManagementMode = viewModel.templateManagementMode, fromRevisionId = fromRevisionId, toRevisionId = toRevisionId))
             }
         }
 
@@ -394,10 +402,12 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     companion object {
-        fun newInstance(pageTitle: PageTitle?, templateManagement: Boolean = false): TalkTemplatesFragment {
+        fun newInstance(pageTitle: PageTitle?, templateManagement: Boolean = false, fromRevisionId: Long = -1, toRevisionId: Long = -1): TalkTemplatesFragment {
             return TalkTemplatesFragment().apply {
                 arguments = bundleOf(Constants.ARG_TITLE to pageTitle,
-                    EXTRA_TEMPLATE_MANAGEMENT to templateManagement)
+                    EXTRA_TEMPLATE_MANAGEMENT to templateManagement,
+                    TalkReplyActivity.FROM_REVISION_ID to fromRevisionId,
+                    TalkReplyActivity.TO_REVISION_ID to toRevisionId)
             }
         }
     }
