@@ -6,10 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.wikipedia.analytics.eventplatform.WatchlistAnalyticsHelper
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.extensions.parcelable
@@ -41,9 +43,12 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             _uiState.value = LinkPreviewViewState.Error(throwable)
         }) {
-            val response = ServiceFactory.getRest(pageTitle.wikiSite)
-                .getSummaryResponseSuspend(pageTitle.prefixedText, null, null, null, null, null)
+            val summaryCall = async { ServiceFactory.getRest(pageTitle.wikiSite)
+                .getSummaryResponseSuspend(pageTitle.prefixedText, null, null, null, null, null) }
 
+            val watchedCall = async { if (fromPlaces && AccountUtil.isLoggedIn) ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText) else null }
+
+            val response = summaryCall.await()
             val summary = response.body()!!
             // Rebuild our PageTitle, since it may have been redirected or normalized.
             val oldFragment = pageTitle.fragment
@@ -61,9 +66,7 @@ class LinkPreviewViewModel(bundle: Bundle) : ViewModel() {
             }
 
             if (fromPlaces) {
-                val watchStatus = ServiceFactory.get(pageTitle.wikiSite).getWatchedStatus(pageTitle.prefixedText).query?.firstPage()
-                isWatched = watchStatus?.watched ?: false
-
+                isWatched = watchedCall.await()?.query?.firstPage()?.watched ?: false
                 val readingList = AppDatabase.instance.readingListPageDao().findPageInAnyList(pageTitle)
                 isInReadingList = readingList != null
             }
