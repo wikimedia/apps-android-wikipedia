@@ -78,6 +78,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 PatrollerExperienceEvent.logAction("publish_message_saved_toast", "pt_warning_messages")
                 R.string.talk_warn_submitted_and_saved
             }
+            adapter.notifyDataSetChanged()
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
             snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
                 PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
@@ -102,6 +103,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 PatrollerExperienceEvent.logAction("publish_message_saved_toast", "pt_warning_messages")
                 R.string.talk_warn_submitted_and_saved
             }
+            adapter.notifyDataSetChanged()
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
             snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
                 PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")

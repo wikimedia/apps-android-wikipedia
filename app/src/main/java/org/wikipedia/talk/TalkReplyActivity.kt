@@ -140,7 +140,12 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             if (it is Resource.Success) {
                 viewModel.talkTemplateSaved = true
                 binding.progressBar.isVisible = true
-                // viewModel.postReply(it.data.subject, it.data.message)
+                if (!viewModel.templateManagementMode) {
+                    showEditPreview()
+                } else {
+                    setResult(RESULT_OK)
+                    finish()
+                }
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(this, it.throwable)
             }
@@ -291,16 +296,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                                 dialog.setPositiveButtonEnabled(false)
                             }
 
-                            viewModel.talkTemplatesList.any { item -> item.title == it } -> {
-                                dialog.setError(
-                                    dialog.context.getString(
-                                        R.string.talk_templates_new_message_dialog_exists,
-                                        it
-                                    )
-                                )
-                                dialog.setPositiveButtonEnabled(false)
-                            }
-
                             else -> {
                                 dialog.setError(null)
                                 dialog.setPositiveButtonEnabled(true)
@@ -316,8 +311,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                         viewModel.selectedTemplate?.let {
                             viewModel.updateTemplate(it.title, subject, body, it)
                         }
+                    } else {
+                        showEditPreview()
                     }
-                    showEditPreview()
                     val messageType = if (textInputDialog.isSaveAsNewChecked) "new" else if (textInputDialog.isSaveExistingChecked) "updated" else ""
                     sendPatrollerExperienceEvent("publish_message_click", "pt_warning_messages", PatrollerExperienceEvent.getActionDataString(messageType = messageType))
                 }
@@ -376,8 +372,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         if (editPreviewFragment.isActive) {
             binding.progressBar.visibility = View.VISIBLE
             binding.editSectionPreviewFragment.isVisible = false
-            // viewModel.postReply(subject, body)
-            onSaveSuccess(-1)
+            viewModel.postReply(subject, body)
             return
         }
         EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
@@ -406,8 +401,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 } else {
                     viewModel.saveTemplate("", subject, body)
                 }
-                setResult(RESULT_OK)
-                finish()
             } else {
                 showSaveDialog(subject, body)
             }
