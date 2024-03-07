@@ -29,13 +29,11 @@ open class MetricsEvent {
         interactionData: InteractionData?,
         pageData: PageData? = null
     ) {
-        if (ReleaseUtil.isPreProdRelease) {
-            MetricsPlatform.client.submitInteraction(
-                streamName,
-                EVENT_NAME_BASE + eventName,
-                getClientData(pageData),
-                interactionData)
-        }
+        MetricsPlatform.client.submitInteraction(
+            streamName,
+            EVENT_NAME_BASE + eventName,
+            getClientData(pageData),
+            interactionData)
     }
 
     /**
