@@ -1185,7 +1185,11 @@
   <string name="talk_new_topic_submitted">Subiect postat.</string>
   <string name="talk_warn_save_dialog_title">Salvați modificările?</string>
   <string name="talk_warn_save_dialog_message">Salvați ca mesaj nou</string>
+  <string name="talk_warn_submitted">Mesajul a fost publicat pe pagina de discuții a editorului</string>
+  <string name="talk_warn_submitted_and_saved">Mesajul a fost salvat și apoi publicat pe pagina de discuții a editorului</string>
   <string name="talk_page_empty">Această pagină de discuție este goală.</string>
+  <string name="talk_page_empty_title">Conversația începe aici</string>
+  <string name="talk_page_empty_content">Paginile de discuții sunt locurile în care oamenii discută despre cum să facă conținutul Wikipedia să fie cât mai bun posibil. Începeți prin a adăuga un subiect nou de discuție pentru a vă conecta și colabora cu o comunitate de Wikipediști.</string>
   <string name="talk_add_reply">Răspunde</string>
   <string name="talk_no_subject">(Niciun subiect)</string>
   <string name="talk_reply_subject">Subiect</string>
@@ -1332,6 +1336,8 @@
   <string name="talk_templates_new_message_dialog_save">Salvează</string>
   <string name="talk_templates_new_message_dialog_cancel">Anulare</string>
   <string name="talk_templates_edit_message_dialog_title">Editați mesajul</string>
+  <string name="patroller_tasks_edits_list_title">Lista modificărilor</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Vezi pagina de discuții</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cont de la:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Număr de editări:&lt;/b&gt; %s</string>
   <string name="patroller_tasks_filters_reset">Resetează</string>
@@ -1350,6 +1356,7 @@
   <string name="patroller_tasks_filters_user_intent_bad_desc">Foarte precis în găsirea celor mai evidente editări de rea-credință.</string>
   <string name="patroller_tasks_patrol_edit_title">Patrulează editările</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Revenire finalizată</string>
+  <string name="patroller_onboarding_two_warn_content">Creați, trimiteți și stocați mesaje de avertizare pe pagina de discuții a unui editor.</string>
   <string name="patroller_diff_feedback_dialog_message">Sunteți mulțumit de această funcționalitate?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Mulțumit</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutru</string>
@@ -1365,6 +1372,8 @@
   <string name="places_search_hint">Căutați locuri</string>
   <string name="places_filter_title">Filtrare după limbă</string>
   <string name="places_toggle_buttons_map">Hartă</string>
+  <string name="places_toggle_buttons_list">Listă</string>
+  <string name="places_nav_tab_tooltip_message">Descoperiți articole Wikipedia din jurul vostru cu Locuri</string>
   <string name="places_survey_very_satisfied_option">Foarte mulțumit</string>
   <string name="places_survey_very_unsatisfied_option">Foarte nemulțumit</string>
   <string name="places_survey_dialog_title">Ajută să îmbunătățim „Locuri”</string>
