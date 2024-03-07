@@ -4,11 +4,11 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
-import kotlinx.serialization.json.booleanOrNull
 import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.decodeFromJsonElement
 import kotlinx.serialization.json.jsonPrimitive
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.util.log.L
 
 @Serializable
 class TemplateDataResponse : MwResponse() {
@@ -24,11 +24,18 @@ class TemplateDataResponse : MwResponse() {
         val description: String? = null
         private val params: JsonElement? = null
         val format: String? = null
+        @SerialName("notemplatedata") val noTemplateData: Boolean? = null
 
-        val getParams: Map<String, TemplateDataParam>?
-            get() = if (params != null && params !is JsonArray) {
-                JsonUtil.json.decodeFromJsonElement<Map<String, TemplateDataParam>>(params)
-            } else null
+        val getParams: Map<String, TemplateDataParam>? get() {
+            try {
+                if (noTemplateData != true && params != null && params !is JsonArray) {
+                    return JsonUtil.json.decodeFromJsonElement<Map<String, TemplateDataParam>>(params)
+                }
+            } catch (e: Exception) {
+                L.d("Error on parsing params $e")
+            }
+            return null
+        }
     }
 
     @Serializable
@@ -47,9 +54,8 @@ class TemplateDataResponse : MwResponse() {
         val aliases: List<String> = emptyList()
         private val deprecated: JsonElement? = null
 
-        private val deprecatedAsBoolean get() = deprecated?.jsonPrimitive?.booleanOrNull ?: false
         private val deprecatedAsString get() = deprecated?.jsonPrimitive?.contentOrNull
 
-        val isDeprecated get() = deprecatedAsBoolean && !deprecatedAsString.isNullOrEmpty()
+        val isDeprecated get() = !deprecatedAsString.equals("false", true)
     }
 }
