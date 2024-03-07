@@ -196,7 +196,7 @@
   <string name="preferences_general_heading">ਆਮ</string>
   <string name="preferences_account_heading">ਖਾਤਾ</string>
   <string name="wikipedia_app_faq">ਵਿਕੀਪੀਡੀਆ ਐਪ ਬਾਰੇ ਆਮ ਸਵਾਲ</string>
-  <string name="send_feedback">ਅੈਪ ਸੰਬੰਧੀ ਸਲਾਹ ਭੇਜੋ</string>
+  <string name="send_feedback">ਐਪ ਫੀਡਬੈਕ ਭੇਜੋ</string>
   <string name="create_account_account_created_toast">ਖਾਤਾ ਬਣਿਆ!</string>
   <string name="preferences_heading_syncing">ਸਮਕਾਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
   <string name="preferences_heading_data_usage">ਡਾਟੇ ਦੀ ਵਰਤੋਂ</string>
@@ -210,7 +210,9 @@
   <string name="page_protected_sysop">ਇਹ ਸਫ਼ਾ ਪੂਰਾ ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="page_protected_other">ਇਸ ਸਫ਼ੇ ਨੂੰ ਇਹਨਾਂ ਤਹਿਆਂ ਤੱਕ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ ਹੈ: %s</string>
   <string name="page_protected_can_not_edit">ਮਾਫ਼ ਕਰਨਾ, ਤੁਹਾਡੇ ਖਾਤੇ ਵਿੱਚ ਇਸ ਸਮੇਂ ਇਸ ਪੰਨੇ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਲੋੜੀਂਦੇ ਵਿਸ਼ੇਸ਼ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।</string>
+  <string name="page_protected_can_not_edit_anon">ਮਾਫ਼ ਕਰਨਾ, ਇਸ ਸਮੇਂ ਇਸ ਪੰਨੇ ਨੂੰ ਅਗਿਆਤ ਰੂਪ ਵਿੱਚ ਸੰਪਾਦਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।</string>
   <string name="page_protected_can_not_edit_title">ਇਹ ਸਫ਼ਾ ਸੁਰੱਖਿਅਤ ਹੈ</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">ਨਿਗਰਾਨੀ ਸੂਚੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="settings_item_preferences">ਸੈਟਿੰਗਾਂ</string>
   <string name="settings_activity_title">ਸੈਟਿੰਗਾਂ</string>
   <string name="about_description">ਵਿਕੀਪੀਡੀਆ ਐਪ ਬਾਬਤ</string>
@@ -226,8 +228,9 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ਵਰਤੀਆਂ ਲਾਇਬ੍ਰੇਰੀਆਂ</string>
   <string name="about_contributors_heading">ਯੋਗਦਾਨੀ</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;ਟੀਮ ਸਫ਼ਾ&lt;/a&gt;</string>
   <string name="about_translators_heading">ਅਨੁਵਾਦਕ</string>
-  <string name="about_translators_translatewiki">ਇਸ ਐਪ ਦਾ ਤਰਜਮਾ&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ਵਿਖੇ ਸਵੈਇੱਛਕ ਤਰਜਮਾਕਾਰਾਂ ਨੇ ਕੀਤਾ ਸੀ।</string>
+  <string name="about_translators_translatewiki">ਇਸ ਐਪ ਦਾ ਅਨੁਵਾਦ ਸਵੈ-ਸੇਵੀ ਅਨੁਵਾਦਕਾਂ ਦੁਆਰਾ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ਉੱਤੇ ਕੀਤਾ ਗਿਆ ਸੀ।</string>
   <string name="about_app_license_heading">ਲਸੰਸ</string>
   <string name="about_app_license" fuzzy="true">ਸਰੋਤ ਕੋਡ &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ਅਤੇ &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ਉੱਪਰ &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt; ਹੇਠ  ਉਪਲੱਬਧ ਹੈ। ਜੇ ਹੋਰ ਕੁਝ ਨਹੀੰ ਕਿਹਾ ਗਿਆ ਤਾੰ ਸਮੱਗਰੀ &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; ਹੇਠ ਉਪਲੱਬਧ ਹੈ।</string>
   <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ਵਿਕੀਮੀਡੀਆ ਸੰਸਥਾ&lt;/a&gt; ਦੀ ਇੱਕ ਉਪਜ</string>
@@ -250,13 +253,21 @@
   <string name="edit_summary_tag_other">ਹੋਰ</string>
   <string name="edit_summary_tag_other_hint">ਹੋਰ ਤਰੀਕੇ ਜਿਹਨਾਂ ਨਾਲ਼ ਤੁਸੀਂ ਸਫ਼ੇ ਨੂੰ ਸੁਧਾਰਿਆ</string>
   <string name="edit_conflict_title">ਸੋਧ ਤਕਰਾਰ</string>
+  <string name="edit_notices_please_read">ਕਿਰਪਾ ਕਰਕੇ ਸੰਪਾਦਨ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਪੜ੍ਹੋ</string>
+  <string name="edit_notices_show_auto">ਆਪਣੇ ਆਪ ਸੰਪਾਦਨ ਨੋਟਿਸ ਦਿਖਾਓ</string>
+  <string name="edit_notices_tooltip">ਇਸ ਲੇਖ ਲਈ ਸੰਪਾਦਨ ਨੋਟਿਸ ਦੇਖਣ ਲਈ ਇਸ ਬਟਨ \'ਤੇ ਟੈਪ ਕਰੋ।</string>
   <string name="find_next">ਅੱਗੇ ਲੱਭੋ</string>
   <string name="find_previous">ਪਿੱਛੇ ਲੱਭੋ</string>
   <string name="abusefilter_title_warn" fuzzy="true">ਇਹ ਇੱਕ ਬੇਉਸਾਰੂ ਸੋਧ ਹੋ ਸਕਦੀ ਹੈ। ਕੀ ਤੁਸੀਂ ਸੱਚੀਂ ਇਹਨੂੰ ਸਾਂਭਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">ਤੁਸੀਂ ਇਹ ਸੋਧ ਨਹੀਂ ਸਾਂਭ ਸਕਦੇ। ਮਿਹਰਬਾਨੀ ਕਰਕੇ ਪਿੱਛੇ ਜਾਉ ਅਤੇ ਇਹਨੂੰ ਬਦਲੋ।</string>
+  <string name="abusefilter_title_disallow">ਤੁਸੀਂ ਇਸ ਸੰਪਾਦਨ ਨੂੰ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕਰ ਸਕਦੇ ਹੋ। ਕਿਰਪਾ ਕਰਕੇ ਵਾਪਸ ਜਾਓ ਅਤੇ ਇਸਨੂੰ ਬਦਲੋ।</string>
   <string name="page_similar_titles">ਮਿਲਦੇ-ਜੁਲਦੇ ਸਫ਼ੇ</string>
   <string name="search_did_you_mean">ਕੀ ਤੁਹਾਡਾ ਮਤਲਬ \"%s\" ਹੈ?</string>
   <string name="search_recent_header">ਹਾਲੀਆ ਖੋਜਾਂ</string>
+  <string name="search_results_count_zero">ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ</string>
+  <plurals name="search_results_count">
+    <item quantity="one">1 ਨਤੀਜਾ</item>
+    <item quantity="other">%d ਨਤੀਜੇ</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">ਹਾਲੀਆ ਖੋਜਾਂ ਮਿਟਾਓ</string>
   <string name="clear_recent_searches_confirm">ਕੀ ਤੁਸੀਂ ਖੋਜਕੀ ਅਤੀਤ ਸਾਫ਼ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="clear_recent_searches_confirm_yes">ਹਾਂ</string>
@@ -268,12 +279,18 @@
   <string name="widget_name_featured_page">ਵਿਕੀਪੀਡੀਆ ਦਾ ਚੋਣਵਾਂ  ਪੰਨਾ</string>
   <string name="widget_title_featured_page">ਅੱਜ ਦਾ ਚੋਣਵਾਂ ਪੰਨਾ:</string>
   <string name="widget_name_search">ਵਿਕੀਪੀਡੀਆ ਖੋਜ</string>
+  <string name="widget_description_search">ਵਿਕੀਪੀਡੀਆ ਖੋਜਣ ਦਾ ਸਭ ਤੋਂ ਤੇਜ਼ ਤਰੀਕਾ</string>
+  <string name="widget_description_featured_page">ਵਿਕੀਪੀਡੀਆ ਵੱਲੋਂ ਪੇਸ਼ ਕੀਤੇ ਜਾਣ ਵਾਲੇ ਸਭ ਤੋਂ ਵਧੀਆ ਲੇਖ</string>
   <string name="wiktionary_no_definitions_found">ਕੋਈ ਪਰਿਭਾਸ਼ਾ ਨਹੀਂ।</string>
   <string name="alpha_update_notification_title">ਨਵਾਂ ਐਲਫ਼ਾ ਨਵੀਨੀਕਰਨ ਮੌਜੂਦ ਹੈ</string>
   <string name="alpha_update_notification_text">ਉਤਾਰਨ ਵਾਸਤੇ ਟਕੋਰੋ</string>
   <string name="dialog_close_description">ਬੰਦ ਕਰੋ</string>
   <string name="preference_title_show_images">ਤਸਵੀਰਾਂ ਵੇਖੋ</string>
+  <string name="preference_title_download_only_over_wifi">ਸਿਰਫ਼ ਵਾਈ-ਫਾਈ \'ਤੇ ਡਾਊਨਲੋਡ ਕਰੋ</string>
+  <string name="dialog_title_download_only_over_wifi">ਮੋਬਾਈਲ ਡਾਟਾ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਡਾਊਨਲੋਡ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ?</string>
+  <string name="dialog_title_download_only_over_wifi_allow">ਇਜਾਜ਼ਤ ਦਿਓ</string>
   <string name="read_more_section">ਹੋਰ ਪੜ੍ਹੋ</string>
+  <string name="about_article_section">ਇਸ ਲੇਖ ਬਾਰੇ</string>
   <string name="menu_gallery_visit_image_page">ਫ਼ਾੲੀਲ ਦੇ ਸਫ਼ੇ \'ਤੇ ਜਾਓ</string>
   <string name="gallery_error_draw_failed">ਤਸਵੀਰ ਬਣਾ ਨਹੀਂ ਸਕੇ।</string>
   <string name="license_title">%s ਲਈ ਲਸੰਸ</string>
@@ -282,17 +299,27 @@
   <string name="gallery_save_progress">ਫ਼ਾਈਲ ਡਾਊਨਲੋਡ ਹੋ ਰਹੀ ਹੈ...</string>
   <string name="gallery_save_success">ਫਾਇਲ ਸਾਂਭੀ ਗਈ।</string>
   <string name="gallery_error_video_failed">ਵੀਡੀਓ ਨਹੀਂ ਚਲਾ ਸਕੇ।</string>
+  <string name="gallery_edit_button_content_description">ਚਿੱਤਰ ਸੁਰਖੀ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰੋ</string>
+  <string name="gallery_add_image_caption_button">ਚਿੱਤਰ ਸੁਰਖੀ ਸ਼ਾਮਲ ਕਰੋ</string>
+  <string name="gallery_add_image_caption_in_language_button">ਚਿੱਤਰ ਸੁਰਖੀ ਸ਼ਾਮਲ ਕਰੋ (%s)</string>
   <string name="err_cannot_save_file">ਫਾਈਲ ਸਾਂਭੀ ਨਹੀਂ ਗਈ</string>
   <string name="expand_refs">ਫੈਲਾਉਣ ਲਈ ਦਬਾਉ</string>
   <string name="cc_logo">Creative Commons license</string>
   <string name="captcha_image">ਕੈਪਚਾ ਤਸਵੀਰ</string>
   <string name="gallery_fair_use_license">ਨਿਰਪੱਖ ਵਰਤਣ</string>
   <string name="gallery_uploader_unknown">ਚੜ੍ਹਾਉਣ ਵਾਲਾ ਅਣਪਛਾਤਾ ਹੈ</string>
+  <string name="gallery_not_available_offline_snackbar">ਗੈਲਰੀ ਦ੍ਰਿਸ਼ ਆਫਲਾਈਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">ਖਾਰਜ ਕਰੋ</string>
   <string name="menu_new_tab">ਨਵਾਂ ਟੈਬ</string>
+  <string name="menu_close_all_tabs">ਸਾਰੀਆਂ ਟੈਬਾਂ ਬੰਦ ਕਰੋ</string>
+  <string name="close_all_tabs_confirm">ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ \'ਤੇ ਸਾਰੀਆਂ ਟੈਬਾਂ ਨੂੰ ਬੰਦ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
   <string name="close_all_tabs_confirm_yes">ਹਾਂ</string>
   <string name="close_all_tabs_confirm_no">ਨਹੀਂ</string>
   <string name="button_close_tab">ਟੈਬ ਬੰਦ ਕਰੋ</string>
+  <string name="unnamed_tab_closed">ਟੈਬ ਬੰਦ ਕੀਤੀ ਗਈ।</string>
+  <string name="tab_item_closed">%s ਬੰਦ।</string>
+  <string name="all_tab_items_closed">ਸਾਰੀਆਂ ਟੈਬਾਂ ਬੰਦ ਹਨ।</string>
+  <string name="tool_tip_bookmark_icon_title">ਪੜ੍ਹਨ ਵਾਲੀ ਸੂਚੀ \'ਚ ਜੋੜੋ</string>
   <string name="page_view_in_browser">ਬ੍ਰਾਉਜ਼ਰ \'ਚ ਦੇਖੋ</string>
   <string name="error_response_malformed">ਸਰਵਰ ਦਾ ਜਵਾਬ ਸਹੀ ਰੂਪ ਵਿੱਚ ਨਹੀਂ ਸੀ।</string>
   <string name="error_unknown">ਇੱਕ ਅਣਪਛਾਤੀ ਗਲਤੀ ਵਾਪਰੀ।</string>
@@ -304,7 +331,7 @@
   <string name="error_no_maps_app">ਦਿਸ਼ਾਵਾਂ ਮੁਹੱਈਆ ਕਰਵਾਉਣ ਲਈ ਕੋਈ ਐਪ ਨਹੀਂ ਲੱਭੀ।</string>
   <string name="preference_title_show_link_previews">ਕੜੀ ਦੀ ਝਲਕ ਵਿਖਾਉ</string>
   <string name="preference_summary_show_link_previews">ਜਦੋਂ ਕੜੀ ਨੂੰ ਦਬਾਇਆ ਜਾਵੇ ਤਾਂ ਲੇਖ ਦੀ ਥੋੜ੍ਹੀ ਜਿਹੀ ਝਲਕ ਦਿਖਾਈ ਜਾਵੇ।</string>
-  <string name="nav_item_donate" fuzzy="true">ਵਿਕੀਪੀਡੀਆ ਨੂੰ ਸਹਿਯੋਗ ਦੇਵੋ</string>
+  <string name="nav_item_donate">ਦਾਨ</string>
   <string name="error_voice_search_not_available">ਮੁਆਫ ਕਰਨਾ, ਆਵਾਜ਼ ਪਛਾਣ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
   <string name="enable_location_service">ਚਾਲੂ ਕਰੋ</string>
   <string name="view_link_preview_error_button_dismiss">ਖ਼ਾਰਜ ਕਰੋ</string>
@@ -315,6 +342,7 @@
   <string name="crash_report_activity_title">ਆਦੇਸ਼ਕਾਰੀ ਦੀ ਗਲਤੀ</string>
   <string name="crash_report_relaunch">ਸ਼ੁਰੂ \'ਤੋਂ</string>
   <string name="crash_report_quit">ਛੱਡੋ</string>
+  <string name="article_menu_bar_contents_button">ਸਮੱਗਰੀ</string>
   <string name="article_header_edit_hint">ਸੋਧੋ…</string>
   <string name="color_theme_select">ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="color_theme_light">ਹਲਕੀ</string>
@@ -349,7 +377,13 @@
   <string name="notification_syncing_cancel_button">ਰੱਦ ਕਰੋ</string>
   <string name="view_because_you_read_card_title">ਕਿਓੰਕਿ ਤੁਸੀੰ ਇਹ ਪੜ੍ਹਿਆ ਸੀ</string>
   <string name="view_random_card_title">ਰੈੰਡੋਮਾਈਜ਼ਰ</string>
+  <string name="view_random_article_card_title">ਬੇਤਰਤੀਬ ਲੇਖ</string>
+  <string name="view_random_article_card_action">ਹੋਰ ਬੇਤਰਤੀਬੇ ਲੇਖ</string>
+  <string name="view_top_read_card_title">ਸਭ ਤੋਂ ਵੱਧ ਪੜ੍ਹਿਆ</string>
+  <string name="view_top_read_card_action">ਹੋਰ ਸਭ ਤੋਂ ਵੱਧ ਪੜ੍ਹੇ</string>
+  <string name="view_next_random_article">ਕੋਈ ਹੋਰ ਬੇਤਰਤੀਬ ਲੇਖ ਲੋਡ ਕਰੋ</string>
   <string name="view_main_page_card_title">ਵਿਕੀਪੀਡੀਆ \'ਤੇ ਅੱਜ</string>
+  <string name="view_main_page_card_action">ਮੁੱਖ ਸਫ਼ਾ ਦੇਖੋ</string>
   <string name="view_featured_image_card_title">ਦਿਨ ਦੀ ਤਸਵੀਰ</string>
   <string name="view_featured_image_card_download">ਡਾਊਨਲੋਡ</string>
   <string name="menu_feed_card_dismiss">ਇਸ ਕਾਰਡ ਨੂੰ ਓਹਲੇ ਕਰੋ</string>
@@ -365,6 +399,8 @@
   <string name="view_continue_reading_card_subtitle_today">ਅੱਜ</string>
   <string name="view_announcement_card_negative_action">ਨਹੀਂ, ਸ਼ੁਕਰੀਆ</string>
   <string name="feed_configure_menu_select_all" fuzzy="true">ਸਾਰੇ ਚੁਣੋ</string>
+  <string name="feed_item_type_randomizer">ਪੜ੍ਹਨ ਲਈ ਬੇਤਰਤੀਬ ਲੇਖ ਤਿਆਰ ਕਰੋ</string>
+  <string name="top_read_activity_title">%s ਉੱਤੇ ਸਭ ਤੋਂ ਵੱਧ ਪੜ੍ਹਿਆ</string>
   <string name="description_edit_text_hint" fuzzy="true">ਵੇਰਵਾ ਭਰੋ</string>
   <string name="description_edit_save">ਸਾਂਭੋ</string>
   <string name="description_edit_add_description" fuzzy="true">ਵੇਰਵਾ ਸੋਧੋ</string>
@@ -372,6 +408,14 @@
   <string name="description_edit_help_about_wikidata">ਵਿਕੀਡਾਟਾ ਬਾਰੇ</string>
   <string name="description_edit_success_done">ਮੁਕੰਮਲ</string>
   <string name="description_edit_success_did_you_know">ਕੀ ਤੁਸੀੰ ਜਾਣਦੇ ਹੋ?</string>
+  <string name="suggested_edits_my_contributions">ਮੇਰੇ ਯੋਗਦਾਨ</string>
+  <string name="suggested_edits_feed_card_title">ਸੁਝਾਏ ਗਏ ਸੋਧ</string>
+  <string name="suggested_edits_contributions_stat_tooltip">ਤੁਹਾਡੇ ਹੁਣ ਤੱਕ ਦੇ ਯੋਗਦਾਨਾਂ ਦੀ ਕੁੱਲ ਸੰਖਿਆ।</string>
+  <string name="suggested_edits_label">ਸੁਝਾਏ ਗਏ ਸੋਧ</string>
+  <string name="suggested_edits_what_is_title">ਸੁਝਾਏ ਗਏ ਸੋਧ ਕੀ ਹਨ?</string>
+  <string name="suggested_edits_reactivation_notification_title">ਸੁਝਾਏ ਗਏ ਸੋਧ</string>
+  <string name="suggested_edits_contributions_screen_title">%s ਦੇ ਯੋਗਦਾਨ</string>
+  <string name="suggested_card_more_edits">ਹੋਰ ਸੁਝਾਏ ਗਏ ਸੋਧ</string>
   <string name="suggested_edits_image_recommendations_task_title">ਲੇਖ ਚਿੱਤਰ</string>
   <string name="suggested_edits_image_recommendations_task_detail">ਸਮਝ ਨੂੰ ਵਧਾਉਣ ਲਈ ਵਿਕੀਪੀਡੀਆ ਲੇਖਾਂ ਵਿੱਚ ਸੁਝਾਏ ਚਿੱਤਰ ਸ਼ਾਮਲ ਕਰੋ।</string>
   <string name="image_recommendation_accept">ਹਾਂ</string>
@@ -390,8 +434,31 @@
   <string name="app_shortcuts_search">ਖੋਜ</string>
   <string name="on_this_day_card_title">ਅੱਜ ਦੇ ਦਿਨ</string>
   <string name="this_year">ਇਸ ਸਾਲ</string>
+  <string name="edit_type_all">ਸਾਰੇ ਯੋਗਦਾਨ</string>
   <string name="insert_media_settings">ਚਿੱਤਰ ਵੇਰਵੇ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="insert_media_settings_alternative_text_description">ਨੇਤਰਹੀਣ ਪਾਠਕਾਂ ਲਈ ਵਰਣਨ</string>
+  <string name="menu_option_user_contributions">%s ਦੇ ਯੋਗਦਾਨ</string>
+  <string name="menu_option_view_user_contributions">ਵਰਤੋਂਕਾਰ ਯੋਗਦਾਨ ਦੇਖੋ</string>
+  <string name="watchlist_filter_automated_contributions_header">ਸਵੈਚਲਿਤ ਯੋਗਦਾਨ</string>
   <string name="action_item_categories">ਸ਼੍ਰੇਣੀਆਂ</string>
+  <string name="user_contrib_activity_title">%s ਦੇ ਯੋਗਦਾਨ</string>
+  <string name="user_contrib_menu_label">ਯੋਗਦਾਨ</string>
+  <string name="user_contrib_filter_activity_title">ਯੋਗਦਾਨਾਂ ਨੂੰ ਫਿਲਟਰ ਕਰੋ</string>
+  <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">ਵਰਤੋਂਕਾਰ ਯੋਗਦਾਨ ਦੇਖੋ</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">ਸਵੈਚਲਿਤ ਯੋਗਦਾਨ</string>
   <string name="page_issues_title">ਸਫ਼ੇ ਸੰਬੰਧੀ ਮੁੱਦੇ</string>
+  <string name="places_title">ਥਾਂਵਾਂ</string>
+  <string name="places_search_hint">ਥਾਵਾਂ ਲੱਭੋ</string>
+  <string name="places_filter_title">ਭਾਸ਼ਾ ਫਿਲਟਰ ਕਰੋ</string>
+  <string name="places_toggle_buttons_map">ਨਕਸ਼ਾ</string>
+  <string name="places_toggle_buttons_list">ਸੂਚੀ</string>
+  <string name="places_nav_tab_tooltip_message">ਥਾਵਾਂ ਦੇ ਨਾਲ ਆਪਣੇ ਆਲੇ-ਦੁਆਲੇ ਵਿਕੀਪੀਡੀਆ ਲੇਖਾਂ ਦੀ ਖੋਜ ਕਰੋ</string>
+  <string name="places_article_menu_tooltip_message">ਇਸ ਲੇਖ ਦੀ ਥਾਂ ਦਾ ਪਤਾ ਲਗਾਉਣ ਲਈ \'ਨਕਸ਼ੇ ਉੱਤੇ ਦੇਖੋ\' \'ਤੇ ਟੈਪ ਕਰੋ</string>
+  <string name="places_survey_very_satisfied_option">ਬਹੁਤ ਸੰਤੁਸ਼ਟ</string>
+  <string name="places_survey_very_unsatisfied_option">ਬਹੁਤ ਅਸੰਤੁਸ਼ਟ</string>
+  <string name="places_survey_dialog_title">\'ਥਾਵਾਂ\' ਨੂੰ ਸੁਧਾਰਨ ਵਿੱਚ ਮਦਦ ਕਰੋ</string>
+  <string name="places_survey_feedback_dialog_title">\"ਥਾਵਾਂ\" ਨੂੰ ਕਿਵੇਂ ਸੁਧਾਰਿਆ ਜਾ ਸਕਦਾ ਹੈ?</string>
+  <string name="places_survey_dialog_cancel">ਰੱਦ ਕਰੋ</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">ਤੁਸੀਂ ਕੀ ਚਾਹੁੰਦੇ ਹੋ ਕਿ ਅਸੀਂ ਕੀ ਬਦਲੀਏ ਜਾਂ ਸੁਧਾਰ ਕਰੀਏ?</string>
+  <string name="places_empty_list">ਇਹ ਖੇਤਰ ਖਾਲੀ ਹੈ। &lt;a href=\"#\"&gt;ਨਕਸ਼ੇ \'ਤੇ&lt;/a&gt; ਜ਼ੂਮ ਆਉਟ ਕਰੋ।</string>
 </resources>

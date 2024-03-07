@@ -1093,6 +1093,8 @@
   <string name="image_recommendation_tooltip_2">Undersøg billedet og dets tilhørende oplysninger</string>
   <string name="image_recommendation_tooltip_3">Beslut om billedet hjælper læserne med at forstå dette emne bedre</string>
   <string name="image_recommendation_tooltip_next">Næste</string>
+  <string name="image_recommendation_tooltip_warning">Gennemgå venligst artiklen for bedre at forstå emnet og inspicere billedet</string>
+  <string name="image_recommendation_depleted">Beklager, der er ikke flere foreslåede billeder tilgængelige på nuværende tidspunkt. Udforsk venligst andre &lt;a href=\"#\"&gt;foreslåede redigeringer&lt;/a&gt; eller vend tilbage senere.</string>
   <string name="suggested_edits_report_feature">Problem med funktionen</string>
   <string name="suggested_edits_report_feature_subject">Problem med Foreslåede redigeringer</string>
   <string name="edit_summary_added_image">Tilføjede billede</string>
@@ -1121,6 +1123,8 @@
   <string name="onboarding_explore_text">Dyk ned i Wikipedias kaninhul med et konstant opdaterende Udforsk-feed. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; feedet til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller et kast med terningen med &lt;b&gt;Vilkårlig&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Læselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan lave læselister med artikler, du ønsker at læse senere, selv når du er uden internetadgang. &lt;br/&gt;Log ind på din Wikipediakonto for at synkronisere dine læselister.&lt;a href=\"#login\"&gt;Opret konto på Wikipedia&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Data og privatliv</string>
+  <string name="onboarding_data_privacy_text">Vi mener, at du ikke skal afgive personlige oplysninger for at deltage i den frie vidensbevægelse. Brugsdata indsamlet til denne app er anonyme. Lær mere om vores &lt;a href=\"#privacy\"&gt;privatlivspolitik&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;vilkår for brug&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>
   <string name="onboarding_got_it">O.k.</string>
   <string name="onboarding_multilingual_secondary_text">Vi har fundet følgende på din enhed:</string>
