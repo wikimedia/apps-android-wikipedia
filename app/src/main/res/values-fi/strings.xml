@@ -225,7 +225,7 @@
   <string name="create_account_ip_block_help_url">https://fi.wikipedia.org/wiki/Wikipedia:Esto</string>
   <string name="create_account_ip_block_details">Tiedot</string>
   <string name="preferences_general_heading">Yleiset</string>
-  <string name="preferences_account_heading">Käyttäjätili</string>
+  <string name="preferences_account_heading">Käyttäjätunnus</string>
   <string name="wikipedia_app_faq">Wikipedia-sovelluksen UKK</string>
   <string name="send_feedback">Lähetä palautetta sovelluksesta</string>
   <string name="create_account_account_created_toast">Käyttäjätunnus luotu!</string>
@@ -1523,6 +1523,7 @@
   <string name="patroller_tasks_filters_automated_contributions_header">Automatisoidut muutokset</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Botti</string>
   <string name="patroller_tasks_filters_automated_contributions_human">Ihminen (ei botti)</string>
+  <string name="patroller_tasks_filters_significance_header">Oleellisuus</string>
   <string name="patroller_tasks_filters_significance_minor">Pienet muutokset</string>
   <string name="patroller_tasks_filters_significance_edits">Muut kuin pienet muutokset</string>
   <string name="patroller_tasks_filters_contribution_quality_header">Muokkauksen laadun ennustaminen</string>
@@ -1531,6 +1532,11 @@
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Saattaa sisältää ongelmia</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Löytää eniten virheellisiä tai vahingollisia muokkauksia, mutta tarkkuus on alempi.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Sisältää todennäköisesti ongelmia</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad">Sisältää hyvin todennäköisesti ongelmia</string>
+  <string name="patroller_tasks_filters_user_intent_good">Hyvin todennäköisesti hyväntahtoinen</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems">Saattaa olla pahantahtoinen</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems">Todennäköisesti pahantahtoinen</string>
+  <string name="patroller_tasks_filters_user_intent_bad">Hyvin todennäköisesti pahantahtoinen</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d suodatin</item>
     <item quantity="other">%d suodatinta</item>
