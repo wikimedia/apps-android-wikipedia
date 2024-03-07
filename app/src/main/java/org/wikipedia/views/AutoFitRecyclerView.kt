@@ -9,7 +9,7 @@ import org.wikipedia.util.log.L.logRemoteErrorIfProd
 import androidx.annotation.IntRange as AndroidIntRange
 
 /** [RecyclerView] that invokes a callback when the number of columns should be updated.  */
-open class AutoFitRecyclerView constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+open class AutoFitRecyclerView(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
         RecyclerView(context, attrs, defStyleAttr) {
 
     interface Callback {
