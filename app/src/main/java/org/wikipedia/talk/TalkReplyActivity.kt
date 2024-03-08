@@ -170,7 +170,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             if (it is Resource.Success) {
                 viewModel.talkTemplateSaved = true
                 binding.progressBar.isVisible = true
-                onGoNext()
+                showPreview()
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(this, it.throwable)
             }
@@ -248,9 +248,11 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         if (messagePreviewFragment.isActive) {
             supportActionBar?.title = getString(R.string.edit_preview)
             binding.replyNextButton.text = getString(R.string.description_edit_save)
+            binding.replyNextButton.contentDescription = binding.replyNextButton.text
             return
         }
         binding.replyNextButton.text = getString(R.string.edit_next)
+        binding.replyNextButton.contentDescription = binding.replyNextButton.text
         if (viewModel.isFromDiff) {
             supportActionBar?.title = getString(R.string.talk_warn)
             return
@@ -379,7 +381,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                             viewModel.updateTemplate(it.title, subject, body, it)
                         }
                     } else {
-                        binding.progressBar.isVisible = true
                         showPreview()
                     }
                     val messageType = if (textInputDialog.isSaveAsNewChecked) "new" else if (textInputDialog.isSaveExistingChecked) "updated" else ""
