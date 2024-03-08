@@ -24,7 +24,6 @@ import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.NotificationActivity
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.PageActivity
-import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.*
@@ -44,58 +43,9 @@ class TabActivity : BaseActivity() {
         binding.tabCountsView.setOnClickListener { onBackPressed() }
         FeedbackUtil.setButtonLongPressToast(binding.tabCountsView, binding.tabButtonNotifications)
 
-
         binding.tabRecyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.tabRecyclerView.itemAnimator = DefaultItemAnimator()
         binding.tabRecyclerView.adapter = TabItemAdapter()
-
-        /*
-        binding.tabSwitcher.decorator = object : TabSwitcherDecorator() {
-            override fun onInflateView(inflater: LayoutInflater, parent: ViewGroup?, viewType: Int): View {
-                if (viewType == 1) {
-                    val view = AppCompatImageView(this@TabActivity)
-                    view.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-                    view.scaleType = ImageView.ScaleType.CENTER_CROP
-                    view.setImageBitmap(FIRST_TAB_BITMAP)
-                    view.setPadding(0, if (topTabLeadImageEnabled()) 0 else -DimenUtil.getToolbarHeightPx(this@TabActivity), 0, 0)
-                    return view
-                }
-                return inflater.inflate(R.layout.item_tab_contents, parent, false)
-            }
-
-            override fun onShowTab(context: Context, tabSwitcher: TabSwitcher, view: View,
-                                   tab: de.mrapp.android.tabswitcher.Tab, index: Int, viewType: Int, savedInstanceState: Bundle?) {
-                val tabIndex = app.tabCount - index - 1
-                if (viewType == 1 || tabIndex < 0 || app.tabList[tabIndex] == null) {
-                    return
-                }
-                val titleText = view.findViewById<TextView>(R.id.tab_article_title)
-                val descriptionText = view.findViewById<TextView>(R.id.tab_article_description)
-                val title = app.tabList[tabIndex].backStackPositionTitle
-                titleText.text = StringUtil.fromHtml(title!!.displayText)
-                if (title.description.isNullOrEmpty()) {
-                    descriptionText.visibility = View.GONE
-                } else {
-                    descriptionText.text = title.description
-                    descriptionText.visibility = View.VISIBLE
-                }
-                L10nUtil.setConditionalLayoutDirection(view, title.wikiSite.languageCode)
-            }
-
-            override fun getViewType(tab: de.mrapp.android.tabswitcher.Tab, index: Int): Int {
-                return if (FIRST_TAB_BITMAP_TITLE == app.tabList[app.tabCount - index - 1]?.backStackPositionTitle?.prefixedText) {
-                    1
-                } else {
-                    0
-                }
-            }
-
-            override fun getViewTypeCount(): Int {
-                return 2
-            }
-        }
-        */
-
 
         launchedFromPageActivity = intent.hasExtra(LAUNCHED_FROM_PAGE_ACTIVITY)
         setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
@@ -148,6 +98,7 @@ class TabActivity : BaseActivity() {
                             val appTabs = app.tabList.toMutableList()
                             app.tabList.clear()
                             binding.tabCountsView.updateTabCount(false)
+                            binding.tabRecyclerView.adapter?.notifyDataSetChanged()
                             setResult(RESULT_LOAD_FROM_BACKSTACK)
                             showUndoAllSnackbar(appTabs)
                             cancelled = false
@@ -182,14 +133,6 @@ class TabActivity : BaseActivity() {
                 AddToReadingListDialog.newInstance(titlesList, InvokeSource.TABS_ACTIVITY))
     }
 
-    private fun topTabLeadImageEnabled(): Boolean {
-        if (app.tabCount > 0) {
-            val pageTitle = app.tabList[app.tabCount - 1].backStackPositionTitle
-            return pageTitle != null && !pageTitle.isMainPage && !pageTitle.thumbUrl.isNullOrEmpty()
-        }
-        return false
-    }
-
     private fun openNewTab() {
         cancelled = false
         if (launchedFromPageActivity) {
@@ -200,12 +143,13 @@ class TabActivity : BaseActivity() {
         finish()
     }
 
-    private fun showUndoSnackbar(index: Int, appTab: Tab, appTabIndex: Int) {
+    private fun showUndoSnackbar(index: Int, appTab: Tab, adapterPosition: Int) {
         appTab.backStackPositionTitle?.let {
             FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, it.displayText)).run {
                 setAction(R.string.reading_list_item_delete_undo) {
-                    app.tabList.add(appTabIndex, appTab)
-                    // TODO
+                    app.tabList.add(index, appTab)
+                    binding.tabRecyclerView.adapter?.notifyItemInserted(adapterPosition)
+                    binding.tabCountsView.updateTabCount(false)
                 }
                 show()
             }
@@ -217,54 +161,12 @@ class TabActivity : BaseActivity() {
             setAction(R.string.reading_list_item_delete_undo) {
                 app.tabList.addAll(appTabs)
                 appTabs.clear()
+                binding.tabRecyclerView.adapter?.notifyDataSetChanged()
+                binding.tabCountsView.updateTabCount(false)
             }
             show()
         }
     }
-
-    /*
-    private inner class TabListener : TabSwitcherListener {
-        override fun onSwitcherShown(tabSwitcher: TabSwitcher) {}
-        override fun onSwitcherHidden(tabSwitcher: TabSwitcher) {}
-        override fun onSelectionChanged(tabSwitcher: TabSwitcher, index: Int, selectedTab: de.mrapp.android.tabswitcher.Tab?) {
-            if (app.tabList.isNotEmpty() && index < app.tabList.size) {
-                val tabIndex = app.tabList.size - index - 1
-                L.d("Tab selected: $index")
-                if (tabIndex < app.tabList.size - 1) {
-                    val tab = app.tabList.removeAt(tabIndex)
-                    app.tabList.add(tab)
-                }
-                binding.tabCountsView.updateTabCount(false)
-                cancelled = false
-
-                    if (launchedFromPageActivity) {
-                        setResult(RESULT_LOAD_FROM_BACKSTACK)
-                    } else {
-                        startActivity(PageActivity.newIntent(this@TabActivity))
-                    }
-                    finish()
-            }
-        }
-
-        override fun onTabAdded(tabSwitcher: TabSwitcher, index: Int, tab: de.mrapp.android.tabswitcher.Tab, animation: Animation) {
-            binding.tabCountsView.updateTabCount(false)
-        }
-
-        override fun onTabRemoved(tabSwitcher: TabSwitcher, index: Int, tab: de.mrapp.android.tabswitcher.Tab, animation: Animation) {
-            if (app.tabList.isNotEmpty() && index < app.tabList.size) {
-                val tabIndex = app.tabList.size - index - 1
-                val appTab = app.tabList.removeAt(tabIndex)
-                binding.tabCountsView.updateTabCount(false)
-                setResult(RESULT_LOAD_FROM_BACKSTACK)
-                showUndoSnackbar(tab, index, appTab, tabIndex)
-            }
-        }
-
-        override fun onAllTabsRemoved(tabSwitcher: TabSwitcher, tabs: Array<de.mrapp.android.tabswitcher.Tab>, animation: Animation) {
-
-        }
-    }
-    */
 
     private fun goToMainTab() {
         startActivity(MainActivity.newIntent(this)
@@ -290,15 +192,49 @@ class TabActivity : BaseActivity() {
         }
     }
 
-    private open inner class TabViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private fun adapterPositionToTabIndex(adapterPosition: Int): Int {
+        return app.tabList.size - adapterPosition - 1
+    }
+
+    private open inner class TabViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         open fun bindItem(tab: Tab) {
-            itemView.findViewById<TextView>(R.id.section_header_text).text = StringUtil.fromHtml(tab.backStackPositionTitle?.displayText.orEmpty())
+            itemView.findViewById<TextView>(R.id.tabArticleTitle).text = StringUtil.fromHtml(tab.backStackPositionTitle?.displayText.orEmpty())
+            itemView.findViewById<TextView>(R.id.tabArticleDescription).text = StringUtil.fromHtml(tab.backStackPositionTitle?.description.orEmpty())
+            itemView.findViewById<View>(R.id.tabContainer).setOnClickListener(this)
+            itemView.findViewById<View>(R.id.tabCloseButton).setOnClickListener(this)
+        }
+
+        override fun onClick(v: View) {
+            val adapterPosition = bindingAdapterPosition
+            val index = adapterPositionToTabIndex(adapterPosition)
+            if (index < 0 || index >= app.tabList.size) {
+                return
+            }
+            if (v.id == R.id.tabContainer) {
+                if (index < app.tabList.size - 1) {
+                    val tab = app.tabList.removeAt(index)
+                    app.tabList.add(tab)
+                }
+                cancelled = false
+                if (launchedFromPageActivity) {
+                    setResult(RESULT_LOAD_FROM_BACKSTACK)
+                } else {
+                    startActivity(PageActivity.newIntent(this@TabActivity))
+                }
+                finish()
+            } else if (v.id == R.id.tabCloseButton) {
+                val appTab = app.tabList.removeAt(index)
+                binding.tabCountsView.updateTabCount(false)
+                bindingAdapter?.notifyItemRemoved(adapterPosition)
+                setResult(RESULT_LOAD_FROM_BACKSTACK)
+                showUndoSnackbar(index, appTab, adapterPosition)
+            }
         }
     }
 
     private inner class TabItemAdapter : RecyclerView.Adapter<TabViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TabViewHolder {
-            return TabViewHolder(layoutInflater.inflate(R.layout.view_section_header, parent, false))
+            return TabViewHolder(layoutInflater.inflate(R.layout.item_tab_contents, parent, false))
         }
 
         override fun getItemCount(): Int {
@@ -306,7 +242,7 @@ class TabActivity : BaseActivity() {
         }
 
         override fun onBindViewHolder(holder: TabViewHolder, position: Int) {
-            holder.bindItem(app.tabList[position])
+            holder.bindItem(app.tabList[adapterPositionToTabIndex(position)])
         }
     }
 
