@@ -75,7 +75,8 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
                     val pageTitle = PageTitle.titleForUri(uri, WikiSite(uri))
                     if (pageTitle.isUserPage) {
                         binding.overflowViewSecondaryTalk.visibility = View.VISIBLE
-                        binding.overflowViewSecondaryTalk.text = context.getString(R.string.notifications_menu_user_talk_page, secondary.first().label)
+                        binding.overflowViewSecondaryTalk.text = String.format(L10nUtil.getStringForArticleLanguage(StringUtil.dbNameToLangCode(container.notification.wiki),
+                            R.string.notifications_menu_user_talk_page), secondary.first().label)
                         binding.overflowViewSecondaryTalk.setOnClickListener {
                             if (UriUtil.isAppSupportedLink(uri)) {
                                 context.startActivity(TalkTopicsActivity.newIntent(context, pageTitle, Constants.InvokeSource.NOTIFICATION))
