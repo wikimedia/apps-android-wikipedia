@@ -1,19 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/paper_color"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        style="@style/ToolbarStyle.Small"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/talk_templates_toolbar_container"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:contentInsetEnd="0dp"
-        app:contentInsetStart="0dp" />
+        android:layout_height="wrap_content"
+        android:background="?attr/paper_color"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/ToolbarStyle.Small"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:layout_scrollFlags="scroll|enterAlways" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/talk_templates_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/tab_layout_background_bottom_line"
+            android:visibility="visible"
+            app:tabIndicatorColor="?attr/progressive_color"
+            app:tabIndicatorFullWidth="true"
+            app:tabRippleColor="?attr/progressive_color"
+            app:tabSelectedTextColor="?attr/progressive_color"
+            app:tabTextAppearance="@style/H3.Button"
+            app:tabTextColor="?attr/placeholder_color">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/talk_templates_your_messages_tab_title" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/talk_templates_example_messages_tab_title" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -75,8 +111,8 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="12dp"
         android:contentDescription="@null"
-        app:fabSize="normal"
         app:backgroundTint="?attr/progressive_color"
-        app:tint="?attr/paper_color"
-        app:srcCompat="@drawable/new_item_icon" />
+        app:fabSize="normal"
+        app:srcCompat="@drawable/new_item_icon"
+        app:tint="?attr/paper_color" />
 </LinearLayout>

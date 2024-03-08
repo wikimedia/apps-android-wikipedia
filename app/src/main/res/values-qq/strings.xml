@@ -1638,4 +1638,6 @@
   <string name="patroller_saved_message_body_art_imp">Ready-to-use user talk message offered to experienced editors to warn another editor about article improvement suggestion. Please do not translate the keywords formatted in triple braces {{{...}}}. Make sure that all links are formatted as wikitext links, pointing to your language wiki. if a certain link doesn\'t exist in your wiki language, try linking to a similar page on Meta wiki.</string>
   <string name="talk_warn_learn_more_label">Label text for external link to message placeholders.</string>
   <string name="talk_warn_learn_more_url">URL that points to a page on mediawiki.org that contains guidelines for usage of saved messages for patrolling edits.</string>
+  <string name="talk_templates_your_messages_tab_title">Tab title text for list of user\'s custom saved messages.</string>
+  <string name="talk_templates_example_messages_tab_title">Tab title text for list of ready-to-use saved messages made available for user.</string>
 </resources>

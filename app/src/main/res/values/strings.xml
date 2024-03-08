@@ -1564,6 +1564,8 @@
         <item quantity="other">Messages have been deleted</item>
     </plurals>
     <string name="talk_templates_message_title_empty">The title cannot be empty.</string>
+    <string name="talk_templates_your_messages_tab_title">Your messages</string>
+    <string name="talk_templates_example_messages_tab_title">Example messages</string>
     <string name="patroller_tasks_edits_list_search_hint">Search or filter edits</string>
     <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
     <string name="patroller_tasks_edits_list_card_tags_text_none">None</string>
