@@ -29,6 +29,7 @@ import org.wikipedia.notifications.NotificationListItemContainer
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkTopicsActivity
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -93,7 +94,8 @@ class NotificationActionsOverflowView(context: Context) : FrameLayout(context) {
         }
 
         container.notification?.isUnread?.let {
-            binding.overflowMarkAsRead.setText(if (it) R.string.notifications_menu_mark_as_read else R.string.notifications_menu_mark_as_unread)
+            binding.overflowMarkAsRead.text = L10nUtil.getStringForArticleLanguage(StringUtil.dbNameToLangCode(container.notification.wiki),
+                if (it) R.string.notifications_menu_mark_as_read else R.string.notifications_menu_mark_as_unread)
             binding.overflowMarkAsRead.setCompoundDrawablesRelativeWithIntrinsicBounds(if (it) R.drawable.ic_outline_markunread_24 else R.drawable.ic_outline_drafts_24, 0, 0, 0)
         }
 
