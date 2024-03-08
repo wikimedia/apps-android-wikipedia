@@ -10,7 +10,6 @@ import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
@@ -43,7 +42,6 @@ class TabActivity : BaseActivity() {
         binding.tabCountsView.setOnClickListener { onBackPressed() }
         FeedbackUtil.setButtonLongPressToast(binding.tabCountsView, binding.tabButtonNotifications)
 
-        binding.tabRecyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.tabRecyclerView.itemAnimator = DefaultItemAnimator()
         binding.tabRecyclerView.adapter = TabItemAdapter()
 
