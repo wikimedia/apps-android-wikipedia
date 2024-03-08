@@ -43,17 +43,17 @@
 
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <TextView
         android:id="@+id/accountVanishButton"
-        style="@style/App.Button.Text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:icon="@drawable/ic_person_remove"
-        app:iconGravity="textStart"
-        app:iconTint="?attr/colorError"
-        app:iconPadding="12dp"
-        android:minHeight="?attr/actionBarSize"
+        style="@style/H3.Button"
+        android:padding="16dp"
+        app:drawableStartCompat="@drawable/ic_person_remove"
+        android:drawablePadding="12dp"
+        app:drawableTint="?attr/colorError"
+        android:background="?attr/selectableItemBackground"
         android:text="@string/account_vanish_request_title"
-        android:textColor="?attr/colorError"/>
+        android:textColor="?attr/colorError" />
 
 </LinearLayout>

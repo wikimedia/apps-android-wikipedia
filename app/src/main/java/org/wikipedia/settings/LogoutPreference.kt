@@ -3,6 +3,7 @@ package org.wikipedia.settings
 import android.app.Activity
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.preference.Preference
@@ -45,7 +46,7 @@ class LogoutPreference : Preference {
                     }.show()
             }
         }
-        holder.itemView.findViewById<Button>(R.id.accountVanishButton).setOnClickListener {
+        holder.itemView.findViewById<View>(R.id.accountVanishButton).setOnClickListener {
             activity?.let {
                 MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme_Icon_Delete)
                     .setIcon(R.drawable.ic_person_remove)
