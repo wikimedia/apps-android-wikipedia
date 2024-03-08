@@ -314,6 +314,8 @@
     <string name="widget_name_featured_page">Wikipedia featured page</string>
     <string name="widget_title_featured_page">Today\'s featured page:</string>
     <string name="widget_name_search">Wikipedia search</string>
+    <string name="widget_description_search">The fastest way to search Wikipedia</string>
+    <string name="widget_description_featured_page">The best articles Wikipedia has to offer</string>
     <string name="wiktionary_no_definitions_found">No definitions found.</string>
     <string name="alpha_update_notification_title">New alpha update available</string>
     <string name="alpha_update_notification_text">Tap to download</string>
@@ -774,8 +776,8 @@
     <string name="notifications_menu_uncheck_all">Uncheck all items</string>
     <string name="notifications_wiki_filter_header">Wiki filter</string>
     <string name="notifications_type_filter_header">Type filter</string>
-    <string name="notifications_all_wikis_text">All \"wiki\"</string>
-    <string name="notifications_all_types_text">All \"type\"</string>
+    <string name="notifications_all_wikis_text">All wikis</string>
+    <string name="notifications_all_types_text">All types</string>
     <string name="notifications_menu_user_talk_page">%s\'s talk page</string>
     <string name="notifications_offline_disable_message">The function is not available while offline.</string>
     <!-- /Notifications -->

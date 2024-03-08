@@ -56,7 +56,7 @@
   <string name="image_content_description">Рәсем: %s</string>
   <string name="page_content_description">Бит: %s</string>
   <string name="wikimedia_commons">Викимилек</string>
-  <string name="wikidata">Викидата</string>
+  <string name="wikidata">Викимәғлүмәт</string>
   <string name="dialog_title_clear_history">Ҡаралған биттәр тарихын таҙартырға</string>
   <string name="dialog_message_clear_history">Ҡараған биттәрҙең барлыҡ тарихы һәм асыҡ ҡушымталар юйыласаҡ. Дауам итергәме?</string>
   <string name="dialog_message_clear_history_yes">Эйе</string>
@@ -830,8 +830,8 @@
   <string name="description_edit_translate_image_caption">Рәсем яҙмаһын тәржемә итергә</string>
   <string name="description_edit_cancel_hint">Кире алырға</string>
   <string name="description_edit_help_title">Белешмә: Мәҡәләләр тасуирламаһы</string>
-  <string name="description_edit_help_about_wikidata">Викидата тураһында</string>
-  <string name="description_edit_help_wikidata_guide">Викидата өсөн тасуирлама яҙыу ҡулланмаһы</string>
+  <string name="description_edit_help_about_wikidata">Викимәғлүмәт тураһында</string>
+  <string name="description_edit_help_wikidata_guide">Викимәғлүмәт өсөн тасуирлама яҙыу ҡулланмаһы</string>
   <string name="description_edit_anon_limit">Мәҡәлә төҙәтеү менән ҡыҙыҡһыныуығыҙ өсөн рәхмәт! Зинһар, өҫтәмә үҙгәрештәр индереү өсөн Википедияла танылығыҙ.</string>
   <string name="description_edit_license_notice">Мәҡәләне үҙгәрткәндә &lt;a href=\"%1$s\"&gt;ҡулланыу шарттары&lt;/a&gt; менән килешәм һәм шулай уҡ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; лицензияһына ярашлы материалдарымды кире ҡайтарылмаҫлыҡ итеп баҫтырам.</string>
   <string name="description_edit_helper_text_lowercase_warning">ғәҙәттә, бәләкәй хәрефтән башлана</string>

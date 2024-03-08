@@ -939,6 +939,7 @@
   <string name="talk_title">Bincang</string>
   <string name="talk_user_title">Perbincangan: %s</string>
   <string name="talk_new_topic">Topik baru</string>
+  <string name="talk_warn_save_dialog_publish">Terbitkan</string>
   <string name="talk_page_empty">Halaman perbincangan ini kosong.</string>
   <string name="talk_add_reply">Balas</string>
   <string name="talk_no_subject">(Tiada subjek)</string>

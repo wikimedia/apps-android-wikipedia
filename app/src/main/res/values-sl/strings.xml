@@ -1174,7 +1174,7 @@
   <string name="description_edit_revert_reason2">vaš prispevek je bil videti kot eksperiment ali vandalizem.</string>
   <string name="description_edit_revert_history">Če želite, si lahko ogledate &lt;a href=\"%1$s\"&gt;zgodovino urejanj&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Prekliči</string>
-  <string name="offline_read_permission_rationale">Za bsrkanje brez povezave je potrebno dovoljenje za dostop do vaše naprave.</string>
+  <string name="offline_read_permission_rationale">Za brskanje brez povezave je potrebno dovoljenje za dostop do prostora za shranjevanje vaše naprave.</string>
   <string name="offline_read_final_rationale">Za uporabo Nepovezane knjižnice je potrebno dovoljenje za dostop do pomnilnika vaše naprave.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>

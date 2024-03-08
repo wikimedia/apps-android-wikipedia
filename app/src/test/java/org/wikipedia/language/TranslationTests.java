@@ -35,7 +35,7 @@ public class TranslationTests {
                                                                         "\\[\\[.*?\\]\\]",
                                                                         "\\*\\*.*?\\*\\*",
                                                                         "''.*?''"};
-    private static final String[] BAD_NAMES = new String[]{"ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land"};
+    private static final String[] BAD_NAMES = new String[]{"ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land", "night"};
 
     private static File BASE_FILE;
     private static File QQ_FILE;

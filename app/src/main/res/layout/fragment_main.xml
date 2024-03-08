@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/fragment_main_coordinator"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/nav_bar_height">
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/main_nav_tab_border">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/main_view_pager"
@@ -19,20 +21,30 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+    <View
+        android:id="@+id/main_nav_tab_border"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="?attr/border_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/main_nav_tab_container"/>
+
     <LinearLayout
         android:id="@+id/main_nav_tab_container"
         android:background="?attr/paper_color"
         android:layout_width="match_parent"
         android:layout_height="@dimen/nav_bar_height"
-        android:layout_gravity="bottom"
         android:baselineAligned="false"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <org.wikipedia.navtab.NavTabLayout
             android:id="@+id/main_nav_tab_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_gravity="bottom"
             android:layout_weight="0.8"
             app:itemIconTint="@color/color_state_nav_tab"
             app:itemTextAppearanceActive="@style/BottomNavigationTextAppearance.Active"
@@ -73,11 +85,4 @@
 
         </FrameLayout>
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginBottom="@dimen/nav_bar_height"
-        android:layout_gravity="bottom"
-        android:background="?attr/border_color"/>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

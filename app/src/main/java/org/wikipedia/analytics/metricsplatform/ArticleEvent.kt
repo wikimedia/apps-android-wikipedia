@@ -24,7 +24,7 @@ class ArticleFindInPageInteraction(private val fragment: PageFragment) : TimedMe
     fun logDone() {
         submitEvent(
             "android.product_metrics.find_in_page_interaction",
-            "/analytics/mobile_apps/product_metrics/android_find_in_page_interaction/1.0.0",
+            "/analytics/mobile_apps/product_metrics/android_find_in_page_interaction/1.1.0",
             "find_in_page_interaction",
             mapOf(
                 "find_text" to findText,
@@ -147,8 +147,8 @@ class ArticleToolbarInteraction(private val fragment: PageFragment) : TimedMetri
             "android.product_metrics.article_toolbar_interaction",
             "article_toolbar_interaction",
             getInteractionData(
-                "article_toolbar_interaction",
                 action,
+                null,
                 null,
                 "time_spent_ms.${timer.elapsedMillis}"
             ),
@@ -187,7 +187,7 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
         }
         submitEvent(
             "android.product_metrics.article_toc_interaction",
-            "/analytics/mobile_apps/product_metrics/android_article_toc_interaction/1.0.0",
+            "/analytics/mobile_apps/product_metrics/android_article_toc_interaction/1.1.0",
             "article_toc_interaction",
             mapOf(
                 "num_opens" to numOpens,
@@ -237,8 +237,8 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
             "android.product_metrics.article_link_preview_interaction",
             "article_link_preview_interaction",
             getInteractionData(
-                "article_link_preview_interaction",
                 action,
+                null,
                 source.toString(),
                 "time_spent_ms.${timer.elapsedMillis}",
             ),

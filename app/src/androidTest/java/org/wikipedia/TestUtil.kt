@@ -5,9 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.ColorInt
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
-import androidx.test.espresso.action.*
+import androidx.test.espresso.ViewInteraction
+import androidx.test.espresso.action.CoordinatesProvider
+import androidx.test.espresso.action.GeneralLocation
+import androidx.test.espresso.action.GeneralSwipeAction
+import androidx.test.espresso.action.Press
+import androidx.test.espresso.action.Swipe
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.By
@@ -25,6 +34,15 @@ object TestUtil {
 
     fun withGrandparent(grandparentMatcher: Matcher<View>): Matcher<View> {
         return WithGrandparentMatcher(grandparentMatcher)
+    }
+
+    fun ViewInteraction.isDisplayed(): Boolean {
+        return try {
+            check(matches(ViewMatchers.isDisplayed()))
+            true
+        } catch (e: NoMatchingViewException) {
+            false
+        }
     }
 
     fun isNotVisible(): Matcher<View> {

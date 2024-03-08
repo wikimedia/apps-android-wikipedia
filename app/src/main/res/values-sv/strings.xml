@@ -322,6 +322,8 @@
   <string name="widget_name_featured_page">Utmärkt Wikipedia-artikel</string>
   <string name="widget_title_featured_page">Dagens utmärkta artikel:</string>
   <string name="widget_name_search">Wikipedia-sökning</string>
+  <string name="widget_description_search">Det snabbaste sättet att söka på Wikipedia</string>
+  <string name="widget_description_featured_page">De bästa artiklarna som Wikipedia har att erbjuda</string>
   <string name="wiktionary_no_definitions_found">Inga definitioner hittades.</string>
   <string name="alpha_update_notification_title">Ny alpha-uppdatering tillgänglig</string>
   <string name="alpha_update_notification_text">Tryck för att ladda ner</string>

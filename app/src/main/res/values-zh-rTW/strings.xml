@@ -333,6 +333,8 @@
   <string name="widget_name_featured_page">維基百科典範頁面</string>
   <string name="widget_title_featured_page">今日特色頁面：</string>
   <string name="widget_name_search">維基百科搜尋</string>
+  <string name="widget_description_search">搜尋維基百科的最快方法</string>
+  <string name="widget_description_featured_page">維基百科提供的最佳條目</string>
   <string name="wiktionary_no_definitions_found">找不到定義。</string>
   <string name="alpha_update_notification_title">有新的封測版更新可用</string>
   <string name="alpha_update_notification_text">輕觸下載</string>

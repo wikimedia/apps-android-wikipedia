@@ -108,7 +108,7 @@
             android:gravity="start"
             android:hint="@string/edit_summary_tag_other"
             android:textAlignment="viewStart"
-            app:endIconDrawable="@drawable/chip_close_button_dark"
+            app:endIconDrawable="@drawable/ic_close_black_24dp"
             app:endIconMode="custom"
             app:endIconTint="?attr/placeholder_color"
             app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">

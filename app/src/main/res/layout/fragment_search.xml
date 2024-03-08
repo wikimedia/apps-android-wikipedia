@@ -23,6 +23,7 @@
             app:navigationIconTint="?attr/primary_color">
 
             <LinearLayout
+                android:id="@+id/search_lang_button_container"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_gravity="center_vertical"

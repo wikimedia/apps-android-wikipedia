@@ -1148,6 +1148,7 @@
   <string name="onboarding_explore_text">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_reading_list_sync_title">あとで読むリストの同期</string>
   <string name="onboarding_reading_list_sync_text_v2">後でオフラインになっても記事が読みたい、そんなあなたのためにあとで読むリストを作成できます。&lt;br/&gt;ウィキペディアのアカウントにログインして、あとで読むリストを同期しましょう&lt;a href=\"#login\"&gt;ウィキペディアに参加&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">データとプライバシー</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
   <string name="onboarding_got_it">了解!</string>
   <string name="onboarding_multilingual_secondary_text">お使いの端末で次の言語が見つかりました:</string>
@@ -1465,6 +1466,7 @@
   <string name="user_contrib_menu_label">投稿記録</string>
   <string name="user_contrib_filter_activity_title">投稿を絞り込む</string>
   <string name="action_item_view_on_map">地図上に表示</string>
+  <string name="action_item_view_on_map_unavailable">このページの地理座標は入手できません</string>
   <string name="shareable_reading_lists_import_dialog_title">共有リーディングリストの読み込み</string>
   <string name="shareable_reading_lists_import_dialog_content">共有されたリストに名前をつけますか？</string>
   <string name="shareable_reading_lists_new_indicator">*新規*</string>
@@ -1598,4 +1600,19 @@
   <string name="donation_campaign_donated_snackbar">親愛なる寄付者様、ありがとうございます！あなたの寛大なご協力により、ウィキペディアとその姉妹サイトが繁栄し続けることができます。</string>
   <string name="donation_campaign_go_back_button">戻る</string>
   <string name="menu_single_webview_open_external">システムブラウザで開く</string>
+  <string name="places_title">場所</string>
+  <string name="places_permissions_denied">地図上に自分の位置を表示するには、位置情報の許可が必要です。もう一度試してください。</string>
+  <string name="places_search_hint">場所を検索</string>
+  <string name="places_filter_title">言語を絞り込む</string>
+  <string name="places_toggle_buttons_map">地図</string>
+  <string name="places_toggle_buttons_list">一覧</string>
+  <string name="places_nav_tab_tooltip_message">自分の周辺の場所でウィキペディアの記事を発見します</string>
+  <string name="places_article_menu_tooltip_message">この記事の位置を探すには「地図上で表示」をタップしてください</string>
+  <string name="places_survey_very_satisfied_option">非常に満足</string>
+  <string name="places_survey_very_unsatisfied_option">非常に不満</string>
+  <string name="places_survey_dialog_title">「場所」の改善にご協力ください</string>
+  <string name="places_survey_feedback_dialog_title">「場所」をどのように改善できますか？</string>
+  <string name="places_survey_dialog_cancel">キャンセル</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">何を変更または改善してほしいですか？</string>
+  <string name="places_empty_list">このエリアには何もありません。&lt;a href=\"#\"&gt;地図上&lt;/a&gt;でズームアウトしてください。</string>
 </resources>

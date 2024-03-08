@@ -344,5 +344,6 @@
   <string name="watchlist_filter_pages">Siijđoh</string>
   <string name="watchlist_page_deleted">Sikkum</string>
   <string name="action_item_categories">Luokah</string>
+  <string name="category_tab_subcategories">Vyeliluokah</string>
   <string name="shareable_reading_lists_new_indicator">*uđđâ*</string>
 </resources>
