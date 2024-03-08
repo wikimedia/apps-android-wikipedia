@@ -779,8 +779,8 @@
     <string name="notifications_menu_uncheck_all">Uncheck all items</string>
     <string name="notifications_wiki_filter_header">Wiki filter</string>
     <string name="notifications_type_filter_header">Type filter</string>
-    <string name="notifications_all_wikis_text">All \"wiki\"</string>
-    <string name="notifications_all_types_text">All \"type\"</string>
+    <string name="notifications_all_wikis_text">All wikis</string>
+    <string name="notifications_all_types_text">All types</string>
     <string name="notifications_menu_user_talk_page">%s\'s talk page</string>
     <string name="notifications_offline_disable_message">The function is not available while offline.</string>
     <!-- /Notifications -->
