@@ -57,6 +57,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     private val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
     private var userMentionScrolled = false
+    private var subjectOrBodyModified = false
     private var savedSuccess = false
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
@@ -129,6 +130,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
         textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
+            subjectOrBodyModified = true
             binding.replySubjectLayout.error = null
             binding.replyInputView.textInputLayout.error = null
             setSaveButtonEnabled(binding.replyInputView.editText.text.isNotBlank())
@@ -295,6 +297,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 sendPatrollerExperienceEvent("saved_message_impression", "pt_warning_messages")
                 binding.replySubjectText.setText(talkTemplate.subject)
                 binding.replyInputView.editText.setText(talkTemplate.message)
+                subjectOrBodyModified = false
             }
         }
     }
@@ -430,7 +433,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             return
         }
 
-        if (viewModel.isFromDiff) {
+        if (viewModel.isFromDiff && subjectOrBodyModified) {
             setSaveButtonEnabled(false)
             sendPatrollerExperienceEvent("publish_saved_message_click", "pt_warning_messages")
             DeviceUtil.hideSoftKeyboard(this)
