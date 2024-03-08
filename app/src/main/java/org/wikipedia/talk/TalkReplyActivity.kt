@@ -185,6 +185,12 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         onInitialLoad()
     }
 
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle(viewModel.pageTitle)
+        updateEditLicenseText()
+    }
+
     public override fun onDestroy() {
         if (!savedSuccess && binding.replyInputView.editText.text.isNotBlank() && viewModel.topic != null) {
             draftReplies.put(viewModel.topic!!.id, binding.replyInputView.editText.text)
@@ -195,9 +201,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     }
 
     private fun onInitialLoad() {
-        updateEditLicenseText()
         setSaveButtonEnabled(false)
-        setToolbarTitle(viewModel.pageTitle)
         L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
 
         if (viewModel.topic != null) {
@@ -431,18 +435,24 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             DeviceUtil.hideSoftKeyboard(this)
             showSaveDialog(subject, body)
         } else {
+            setSaveButtonEnabled(true)
             showPreview()
         }
     }
 
     private fun showPreview() {
-        binding.talkScrollContainer.isVisible = false
-        binding.messagePreviewFragment.isVisible = true
-        setSaveButtonEnabled(true)
-        supportActionBar?.title = getString(R.string.edit_preview)
-        binding.replyNextButton.text = getString(R.string.description_edit_save)
-        binding.progressBar.isVisible = true
-        messagePreviewFragment.showPreview(viewModel.pageTitle, binding.replyInputView.editText.text.toString())
+        DeviceUtil.hideSoftKeyboard(this)
+        val subject = binding.replySubjectText.text.toString().trim()
+        val body = binding.replyInputView.editText.text.toString().trim()
+
+        var wikitext = body
+        if (!binding.replySubjectText.text.isNullOrEmpty()) {
+            wikitext = "==$subject==\n$wikitext"
+        }
+
+        EditAttemptStepEvent.logSaveIntent(viewModel.pageTitle)
+        messagePreviewFragment.showPreview(viewModel.pageTitle, wikitext)
+        setToolbarTitle(viewModel.pageTitle)
     }
 
     private fun onSaveSuccess(newRevision: Long) {
