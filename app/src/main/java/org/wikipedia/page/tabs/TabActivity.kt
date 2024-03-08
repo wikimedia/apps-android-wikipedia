@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
@@ -44,6 +45,10 @@ class TabActivity : BaseActivity() {
 
         binding.tabRecyclerView.itemAnimator = DefaultItemAnimator()
         binding.tabRecyclerView.adapter = TabItemAdapter()
+        val touchCallback = SwipeableTabTouchHelperCallback(this)
+        touchCallback.swipeableEnabled = true
+        val itemTouchHelper = ItemTouchHelper(touchCallback)
+        itemTouchHelper.attachToRecyclerView(binding.tabRecyclerView)
 
         launchedFromPageActivity = intent.hasExtra(LAUNCHED_FROM_PAGE_ACTIVITY)
         setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
@@ -194,7 +199,7 @@ class TabActivity : BaseActivity() {
         return app.tabList.size - adapterPosition - 1
     }
 
-    private open inner class TabViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    private open inner class TabViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, SwipeableTabTouchHelperCallback.Callback {
         open fun bindItem(tab: Tab) {
             itemView.findViewById<TextView>(R.id.tabArticleTitle).text = StringUtil.fromHtml(tab.backStackPositionTitle?.displayText.orEmpty())
             itemView.findViewById<TextView>(R.id.tabArticleDescription).text = StringUtil.fromHtml(tab.backStackPositionTitle?.description.orEmpty())
@@ -221,12 +226,26 @@ class TabActivity : BaseActivity() {
                 }
                 finish()
             } else if (v.id == R.id.tabCloseButton) {
-                val appTab = app.tabList.removeAt(index)
-                binding.tabCountsView.updateTabCount(false)
-                bindingAdapter?.notifyItemRemoved(adapterPosition)
-                setResult(RESULT_LOAD_FROM_BACKSTACK)
-                showUndoSnackbar(index, appTab, adapterPosition)
+                doCloseTab()
             }
+        }
+
+        override fun onSwipe() {
+            doCloseTab()
+        }
+
+        override fun isSwipeable(): Boolean {
+            return true
+        }
+
+        private fun doCloseTab() {
+            val adapterPosition = bindingAdapterPosition
+            val index = adapterPositionToTabIndex(adapterPosition)
+            val appTab = app.tabList.removeAt(index)
+            binding.tabCountsView.updateTabCount(false)
+            bindingAdapter?.notifyItemRemoved(adapterPosition)
+            setResult(RESULT_LOAD_FROM_BACKSTACK)
+            showUndoSnackbar(index, appTab, adapterPosition)
         }
     }
 
