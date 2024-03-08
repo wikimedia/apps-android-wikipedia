@@ -94,6 +94,7 @@ class SingleWebViewActivity : BaseActivity() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
                 binding.progressBar.isVisible = true
+                view?.evaluateJavascript(JavaScriptActionHandler.mobileWebChromeShim(0, 0), null)
                 invalidateOptionsMenu()
             }
 
@@ -102,7 +103,6 @@ class SingleWebViewActivity : BaseActivity() {
                 binding.progressBar.isVisible = false
                 currentUrl = url
                 invalidateOptionsMenu()
-                view?.evaluateJavascript(JavaScriptActionHandler.mobileWebChromeShim(0, 0), null)
                 if (isWebForm && wasFormSubmitted) {
                     binding.backButton.isVisible = true
                 }
