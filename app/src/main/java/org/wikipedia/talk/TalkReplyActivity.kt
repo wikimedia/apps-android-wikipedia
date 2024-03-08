@@ -242,7 +242,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             else intent.getStringExtra(EXTRA_PARENT_SUBJECT).orEmpty()
         ).trim().ifEmpty { getString(R.string.talk_no_subject) }
         ViewUtil.getTitleViewFromToolbar(binding.replyToolbar)?.let {
-            it.contentDescription = title
             it.movementMethod = LinkMovementMethodExt { _ ->
                 val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
