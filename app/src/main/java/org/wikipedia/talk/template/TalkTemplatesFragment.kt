@@ -2,6 +2,8 @@ package org.wikipedia.talk.template
 
 import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -25,6 +27,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import java.util.Locale
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -171,6 +174,18 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             }
             else -> false
         }
+    }
+
+    fun getLocaleStringResource(requestedLocale: Locale, resourceId: Int, context: Context): String {
+        val result: String
+        val config = Configuration(context.resources.configuration)
+        config.setLocale(requestedLocale)
+        result = context.createConfigurationContext(config).getText(resourceId).toString()
+        return result
+    }
+
+    fun s(strResource: Int): String {
+        return getString(strResource)
     }
 
     private fun setRecyclerView() {
@@ -404,6 +419,14 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     companion object {
+        val savedMessagesTitleList = listOf(R.string.patroller_saved_message_title_vandalism, R.string.patroller_saved_message_title_editing_tests, R.string.patroller_saved_message_title_npov,
+            R.string.patroller_saved_message_title_auto_trans, R.string.patroller_saved_message_title_coi_rem, R.string.patroller_saved_message_title_final_warning,
+            R.string.patroller_saved_message_title_copy_vio, R.string.patroller_saved_message_title_edit_summary_reminder, R.string.patroller_saved_message_title_do_not_censor, R.string.patroller_saved_message_title_art_imp)
+
+        val savedMessagesBodyList = listOf(R.string.patroller_saved_message_body_vandalism, R.string.patroller_saved_message_body_editing_tests, R.string.patroller_saved_message_body_npov,
+            R.string.patroller_saved_message_body_auto_trans, R.string.patroller_saved_message_body_coi_rem, R.string.patroller_saved_message_body_final_warning,
+            R.string.patroller_saved_message_body_copy_vio, R.string.patroller_saved_message_body_edit_summary, R.string.patroller_saved_message_body_do_not_censor, R.string.patroller_saved_message_body_art_imp)
+
         fun newInstance(pageTitle: PageTitle?, templateManagement: Boolean = false, fromRevisionId: Long = -1, toRevisionId: Long = -1): TalkTemplatesFragment {
             return TalkTemplatesFragment().apply {
                 arguments = bundleOf(Constants.ARG_TITLE to pageTitle,
