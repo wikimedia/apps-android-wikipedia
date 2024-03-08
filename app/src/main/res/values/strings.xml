@@ -1294,6 +1294,14 @@
     <string name="insert_media_insert_button">Insert</string>
     <!-- /Insert media -->
 
+    <!-- Templates -->
+    <string name="templates_search_hint">Search templates</string>
+    <string name="templates_insert_button">Insert</string>
+    <string name="templates_param_optional_hint">%s (Optional)</string>
+    <string name="templates_param_suggested_hint">%s (Suggested)</string>
+    <string name="templates_learn_more_link">Learn more</string>
+    <!-- /Templates -->
+
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
     <string name="main_tooltip_text">Hi %s, did you know that everyone can edit Wikipedia?</string>

@@ -84,6 +84,20 @@ interface Service {
     ): MwQueryResponse
 
     @GET(
+        MW_API_PREFIX + "action=query&converttitles=" +
+                "&prop=description|info" +
+                "&generator=search&gsrnamespace=0&gsrwhat=text" +
+                "&inprop=varianttitles|displaytitle" +
+                "&gsrinfo=&gsrprop=redirecttitle" +
+                PREFERRED_THUMB_SIZE
+    )
+    suspend fun fullTextSearchTemplates(
+        @Query("gsrsearch") searchTerm: String,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("gsroffset") gsrOffset: Int?,
+    ): MwQueryResponse
+
+    @GET(
         MW_API_PREFIX + "action=query&generator=search&gsrnamespace=0&gsrqiprofile=classic_noboostlinks" +
                 "&origin=*&piprop=thumbnail&prop=pageimages|description|info|pageprops" +
                 "&inprop=varianttitles&smaxage=86400&maxage=86400&pithumbsize=" + PREFERRED_THUMB_SIZE

@@ -1619,4 +1619,9 @@
   <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
+  <string name="templates_search_hint">Hint text for the search bar in the search templates screen.</string>
+  <string name="templates_insert_button">Button label for the templates data screen to insert the template.</string>
+  <string name="templates_param_optional_hint">Hint text for the input field that indicates the parameter for the template is optional. %s will be replaced by the parameter label.</string>
+  <string name="templates_param_suggested_hint">Hint text for the input field that indicates the parameter for the template is suggested. %s will be replaced by the parameter label.</string>
+  <string name="templates_learn_more_link">Button label for the learn more button that opens the template page.</string>
 </resources>
