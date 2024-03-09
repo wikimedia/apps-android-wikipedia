@@ -1,5 +1,7 @@
 package org.wikipedia.talk.template
 
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -10,9 +12,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.wikipedia.Constants
+import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.extensions.parcelable
+import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.db.TalkTemplate
-import java.util.Collections
+import java.util.*
 
 class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
 
@@ -24,6 +30,7 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
         _actionState.value = ActionState.Error(throwable)
     }
     val talkTemplatesList = mutableListOf<TalkTemplate>()
+    val savedTemplatesList = mutableListOf<TalkTemplate>()
 
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
@@ -32,9 +39,11 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
     val actionState = _actionState.asStateFlow()
 
     val templateManagementMode = bundle.getBoolean(TalkTemplatesActivity.EXTRA_TEMPLATE_MANAGEMENT, false)
+    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
 
     init {
         loadTalkTemplates()
+        loadSavedTemplates()
     }
 
     fun loadTalkTemplates() {
@@ -46,6 +55,24 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
                 _uiState.value = UiState.Success()
             }
         }
+    }
+
+    private fun loadSavedTemplates() {
+        val langCode = pageTitle.wikiSite.languageCode
+        val context = WikipediaApp.instance.applicationContext
+        for (i in TalkTemplatesFragment.savedMessagesTitleList.indices) {
+            val talkTemplate = TalkTemplate(0, 0, -1, "", getLocaleStringResource(Locale(langCode), TalkTemplatesFragment.savedMessagesTitleList[i], context),
+                getLocaleStringResource(Locale(langCode), TalkTemplatesFragment.savedMessagesBodyList[i], context))
+            savedTemplatesList.add(talkTemplate)
+        }
+    }
+
+    private fun getLocaleStringResource(requestedLocale: Locale, resourceId: Int, context: Context): String {
+        val result: String
+        val config = Configuration(context.resources.configuration)
+        config.setLocale(requestedLocale)
+        result = context.createConfigurationContext(config).getText(resourceId).toString()
+        return result
     }
 
     fun swapList(oldPosition: Int, newPosition: Int) {

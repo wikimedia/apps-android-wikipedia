@@ -37,7 +37,9 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.TalkAliasData
-import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_TEMPLATE_ID
+import org.wikipedia.talk.db.TalkTemplate
+import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_SAVED_TEMPLATE
+import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_SELECTED_TEMPLATE
 import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.template.TalkTemplatesTextInputDialog
 import org.wikipedia.util.DeviceUtil
@@ -151,10 +153,10 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             }
         }
 
-        viewModel.savedTemplateData.observe(this) {
-            if (it is Resource.Success && viewModel.isFromDiff && viewModel.templateId != -1) {
-                binding.replySubjectText.setText(it.data?.subject)
-                binding.replyInputView.editText.setText(it.data?.message)
+        viewModel.selectedTemplate?.let {
+            binding.root.post {
+                binding.replySubjectText.setText(it.subject)
+                binding.replyInputView.editText.setText(it.message)
             }
         }
 
@@ -220,7 +222,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             }
         }
         if (viewModel.templateManagementMode) {
-            supportActionBar?.title = if (viewModel.templateId == -1) getString(R.string.talk_templates_new_message_title) else getString(R.string.talk_templates_edit_message_dialog_title)
+            supportActionBar?.title = if (viewModel.selectedTemplate == null) getString(R.string.talk_templates_new_message_title) else getString(R.string.talk_templates_edit_message_dialog_title)
         }
     }
 
@@ -394,7 +396,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             sendPatrollerExperienceEvent("publish_saved_message_click", "pt_warning_messages")
             DeviceUtil.hideSoftKeyboard(this)
             if (viewModel.templateManagementMode) {
-                if (viewModel.templateId != -1) {
+                if (viewModel.selectedTemplate != null && !viewModel.isSavedTemplate) {
                     viewModel.selectedTemplate?.let {
                         viewModel.updateTemplate(it.title, subject, body, it)
                     }
@@ -514,10 +516,11 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                       undoSubject: CharSequence? = null,
                       undoBody: CharSequence? = null,
                       fromDiff: Boolean = false,
-                      templateId: Int = -1,
+                      selectedTemplate: TalkTemplate? = null,
                       toRevisionId: Long = -1,
                       fromRevisionId: Long = -1,
-                      templateManagementMode: Boolean = false
+                      templateManagementMode: Boolean = false,
+                      isSavedTemplate: Boolean = false
         ): Intent {
             return Intent(context, TalkReplyActivity::class.java)
                     .putExtra(Constants.ARG_TITLE, pageTitle)
@@ -526,10 +529,12 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     .putExtra(EXTRA_SUBJECT, undoSubject)
                     .putExtra(EXTRA_BODY, undoBody)
                     .putExtra(EXTRA_FROM_DIFF, fromDiff)
-                    .putExtra(EXTRA_TEMPLATE_ID, templateId)
+                    .putExtra(EXTRA_SELECTED_TEMPLATE, selectedTemplate)
                     .putExtra(EXTRA_TEMPLATE_MANAGEMENT, templateManagementMode)
+                    .putExtra(EXTRA_SAVED_TEMPLATE, isSavedTemplate)
                     .putExtra(FROM_REVISION_ID, fromRevisionId)
                     .putExtra(TO_REVISION_ID, toRevisionId)
+                    .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
         }
     }

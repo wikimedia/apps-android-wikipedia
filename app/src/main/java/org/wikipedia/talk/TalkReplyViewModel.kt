@@ -22,7 +22,6 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
 
     var talkTemplateSaved = false
     val talkTemplatesList = mutableListOf<TalkTemplate>()
-    var selectedTemplate: TalkTemplate? = null
 
     val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     val topic = bundle.parcelable<ThreadItem>(TalkReplyActivity.EXTRA_TOPIC)
@@ -31,19 +30,9 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     val isNewTopic = topic == null
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
-    val templateId = bundle.getInt(TalkTemplatesActivity.EXTRA_TEMPLATE_ID, -1)
-    val savedTemplateData = SingleLiveData<Resource<TalkTemplate?>>()
+    val selectedTemplate = bundle.parcelable<TalkTemplate>(TalkTemplatesActivity.EXTRA_SELECTED_TEMPLATE)
+    val isSavedTemplate = bundle.getBoolean(TalkTemplatesActivity.EXTRA_SAVED_TEMPLATE)
 
-    init {
-        if (templateId != -1) {
-            viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
-                savedTemplateData.postValue(Resource.Error(throwable))
-            }) {
-                selectedTemplate = talkTemplatesRepository.getTemplateById(templateId)
-                savedTemplateData.postValue(Resource.Success(selectedTemplate))
-            }
-        }
-    }
     fun postReply(subject: String, body: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             postReplyData.postValue(Resource.Error(throwable))

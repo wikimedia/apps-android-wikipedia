@@ -2,8 +2,6 @@ package org.wikipedia.talk.template
 
 import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
-import android.content.Context
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -27,7 +25,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import java.util.Locale
+import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -67,6 +65,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     private val requestNewTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        binding.talkTemplatesTabLayout.getTabAt(0)?.select()
+
         if (result.resultCode == RESULT_OK) {
             viewModel.loadTalkTemplates()
             PatrollerExperienceEvent.logAction("save_message_toast", "pt_templates")
@@ -81,7 +81,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 PatrollerExperienceEvent.logAction("publish_message_saved_toast", "pt_warning_messages")
                 R.string.talk_warn_submitted_and_saved
             }
-            adapter.notifyDataSetChanged()
+            updateAndNotifyAdapter()
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
             snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
                 PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
@@ -106,7 +106,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 PatrollerExperienceEvent.logAction("publish_message_saved_toast", "pt_warning_messages")
                 R.string.talk_warn_submitted_and_saved
             }
-            adapter.notifyDataSetChanged()
+            updateAndNotifyAdapter()
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
             snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
                 PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
@@ -150,13 +150,37 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             val fromRevisionId = requireArguments().getLong(TalkReplyActivity.FROM_REVISION_ID)
             val toRevisionId = requireArguments().getLong(TalkReplyActivity.TO_REVISION_ID)
             requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null,
-                null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateManagementMode = viewModel.templateManagementMode, fromRevisionId = fromRevisionId, toRevisionId = toRevisionId))
+                null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateManagementMode = viewModel.templateManagementMode,
+                fromRevisionId = fromRevisionId, toRevisionId = toRevisionId))
         }
+
+        binding.talkTemplatesTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                updateAndNotifyAdapter()
+                requireActivity().invalidateOptionsMenu()
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab) {
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab) {
+            }
+        })
+    }
+
+    fun updateAndNotifyAdapter() {
+        adapter.templatesList.clear()
+        adapter.templatesList.addAll(if (binding.talkTemplatesTabLayout.selectedTabPosition == 0) viewModel.talkTemplatesList else viewModel.savedTemplatesList)
+        adapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onPrepareMenu(menu: Menu) {
+        menu.findItem(R.id.menu_edit_messages).isVisible = binding.talkTemplatesTabLayout.selectedTabPosition == 0
     }
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
@@ -168,24 +192,12 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             R.id.menu_edit_messages -> {
                 if (actionMode == null) {
                     beginRemoveItemsMode()
-                    adapter.notifyDataSetChanged()
+                    updateAndNotifyAdapter()
                 }
                 true
             }
             else -> false
         }
-    }
-
-    fun getLocaleStringResource(requestedLocale: Locale, resourceId: Int, context: Context): String {
-        val result: String
-        val config = Configuration(context.resources.configuration)
-        config.setLocale(requestedLocale)
-        result = context.createConfigurationContext(config).getText(resourceId).toString()
-        return result
-    }
-
-    fun s(strResource: Int): String {
-        return getString(strResource)
     }
 
     private fun setRecyclerView() {
@@ -195,6 +207,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(adapter))
         itemTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)
+        updateAndNotifyAdapter()
     }
 
     private fun onLoading() {
@@ -247,9 +260,10 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     internal inner class RecyclerAdapter : RecyclerView.Adapter<TalkTemplatesItemViewHolder>(), TalkTemplatesItemView.Callback {
 
         private var checkboxEnabled = false
+        var templatesList = mutableListOf<TalkTemplate>()
 
         override fun getItemCount(): Int {
-            return viewModel.talkTemplatesList.size
+            return templatesList.size
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TalkTemplatesItemViewHolder {
@@ -257,7 +271,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
 
         override fun onBindViewHolder(holder: TalkTemplatesItemViewHolder, position: Int) {
-            val talkTemplate = viewModel.talkTemplatesList[position]
+            val talkTemplate = templatesList[position]
             holder.bindItem(talkTemplate, position)
             holder.templatesItemView.setCheckBoxEnabled(checkboxEnabled)
             holder.templatesItemView.setCheckBoxChecked(selectedItems.contains(talkTemplate))
@@ -285,26 +299,28 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
         override fun onClick(position: Int) {
             if (actionMode != null) {
-                toggleSelectedItem(viewModel.talkTemplatesList[position])
+                toggleSelectedItem(templatesList[position])
                 adapter.notifyItemChanged(position)
             } else {
                 PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
                 val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
                 val fromRevisionId = requireArguments().getLong(TalkReplyActivity.FROM_REVISION_ID)
                 val toRevisionId = requireArguments().getLong(TalkReplyActivity.TO_REVISION_ID)
-                requestEditTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateId = viewModel.talkTemplatesList[position].id, templateManagementMode = viewModel.templateManagementMode, fromRevisionId = fromRevisionId, toRevisionId = toRevisionId))
+                requestEditTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY,
+                    fromDiff = true, selectedTemplate = templatesList[position], templateManagementMode = viewModel.templateManagementMode, fromRevisionId = fromRevisionId,
+                    toRevisionId = toRevisionId, isSavedTemplate = binding.talkTemplatesTabLayout.selectedTabPosition == 1))
             }
         }
 
         override fun onCheckedChanged(position: Int) {
-            toggleSelectedItem(viewModel.talkTemplatesList[position])
+            toggleSelectedItem(templatesList[position])
         }
 
         override fun onLongPress(position: Int) {
             if (actionMode == null) {
                 beginRemoveItemsMode()
             }
-            toggleSelectedItem(viewModel.talkTemplatesList[position])
+            toggleSelectedItem(templatesList[position])
             adapter.notifyItemChanged(position)
         }
 
@@ -340,7 +356,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     private fun unselectAllTalkTemplates() {
         selectedItems.clear()
-        adapter.notifyDataSetChanged()
+        updateAndNotifyAdapter()
     }
 
     private fun deleteSelectedTalkTemplates() {
@@ -412,7 +428,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             super.clearView(recyclerView, viewHolder)
             recyclerView.post {
                 if (isAdded) {
-                    adapter.notifyDataSetChanged()
+                    updateAndNotifyAdapter()
                 }
             }
         }
