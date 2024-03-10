@@ -32,7 +32,7 @@ interface Service {
     fun getPageImages(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @GET(
-        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|info&piprop=thumbnail" +
+        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|coordinates|info&piprop=thumbnail" +
                 "&pilicense=any&generator=prefixsearch&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
     suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
@@ -41,7 +41,7 @@ interface Service {
 
     @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
-                "&prop=description|pageimages|pageprops|info&ppprop=mainpage|disambiguation" +
+                "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +
                 "&generator=search&gsrnamespace=0&gsrwhat=text" +
                 "&inprop=varianttitles|displaytitle" +
                 "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
@@ -152,7 +152,7 @@ interface Service {
     fun parseText(@Query("text") text: String): Observable<MwParseResponse>
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
-    fun parseTextForMainPage(@Query("page") mainPageTitle: String): Observable<MwParseResponse>
+    suspend fun parseTextForMainPage(@Query("page") mainPageTitle: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=info&generator=categories&inprop=varianttitles|displaytitle&gclshow=!hidden&gcllimit=500")
     suspend fun getCategories(@Query("titles") titles: String): MwQueryResponse
@@ -383,6 +383,7 @@ interface Service {
     suspend fun getUserContributions(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
+        @Query("ucnamespace") ns: Int?,
         @Query("uccontinue") uccontinue: String?
     ): MwQueryResponse
 

@@ -60,8 +60,6 @@
   <string name="wikipedia_app_faq">Wikipedia App Biahalnak</string>
   <string name="send_feedback">App cung ruahnak kuat ding</string>
   <string name="create_account_account_created_toast">Account ser khawh cang!</string>
-  <string name="preference_title_eventlogging_opt_in">Hmannak ripawt kua</string>
-  <string name="preference_summary_eventlogging_opt_in">App na hmannak ah a that deuh nakhga Wikimedia kha thil sining pawl laknak nawl pe</string>
   <string name="editing_error_spamblacklist">Block cangmi domain pawl %s link a um. Hlo hna law tuah than te.</string>
   <string name="error_can_not_process_link">Mah link hi a pehtawn kho lo</string>
   <string name="page_protected_autoconfirmed">Hi cahmai hi tlawmpal kilven a si.</string>

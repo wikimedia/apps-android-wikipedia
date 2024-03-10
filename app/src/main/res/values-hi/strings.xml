@@ -238,9 +238,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">पठन सूचियाँ अपने विकिपीडिया खाते \"%s\"\n में संयोजित करके विभिन्न डिवाइसों में सिंक करें</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">सिंक की गई पठन सूचियों को \"%s\" से हटा दें?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">इससे दूरस्थ संग्रह से सभी पहले से सिंक किए गए पढ़ने की सूचियों को पूरी तरह से हटा दिया जाएगा। अपने खाते \"%s\" से सभी सिंक की गईं सूचियां हटा दें?</string>
-  <string name="preferences_privacy_settings_heading">गोपनीयता</string>
-  <string name="preference_title_eventlogging_opt_in">उपयोग रिपोर्ट भेजें</string>
-  <string name="preference_summary_eventlogging_opt_in">विकिमीडिया को जानकारी इकट्ठा करने की अनुमति दें कि आप कैसे ऐप को प्रयोग करते हैं ताकि ऐप को बेहतर बनाया जा सके</string>
   <string name="preference_title_auto_upload_crash_reports">क्रैश रिपोर्ट भेजें</string>
   <string name="preference_summary_auto_upload_crash_reports">ऐप्स को क्रैश रिपोर्ट किसी तृतीय-पक्ष सेवा प्रदाता को स्वचालित रूप से भेजने दें ताकि हम आपके क्रैश की समीक्षा कर सकें और बग को तेज़ी से और अधिक आसानी से ठीक कर सकें।</string>
   <string name="editing_error_spamblacklist">प्रतिबंधित डोमेन (%s) के लिंक पाये गए हैं। कृपया इन्हें हटायें और पुनः प्रयास करें।</string>
@@ -414,6 +411,10 @@
   <string name="multi_select_items_selected">%d चयनित</string>
   <string name="error_message_generic">एक त्रुटि हुई है</string>
   <string name="view_link_preview_error_button_dismiss">रद्द करें</string>
+  <string name="link_preview_dialog_read_button">पढ़ें</string>
+  <string name="link_preview_dialog_save_button">सहेजें</string>
+  <string name="link_preview_dialog_saved_button">सेव किया गया</string>
+  <string name="link_preview_dialog_share_button">शेयर करें</string>
   <string name="error_page_does_not_exist">यह पेज अस्तिव में नहीं है</string>
   <string name="error_user_page_does_not_exist">विकिपीडिया में इस सटीक नाम वाला &lt;a href=\"%1$s\"&gt;सदस्य पृष्ठ&lt;/a&gt; नहीं है। सामान्य तौर पर, यह पृष्ठ &lt;b&gt;%2$s&lt;/b&gt; द्वारा बनाया और संपादित किया जाना चाहिए। यदि संदेह है, तो कृपया सत्यापित करें कि \" %3$s \" मौजूद है।</string>
   <string name="view_wiki_error_message_offline">इंटरनेट से जोड़ा नहीं जा सका</string>
@@ -774,7 +775,7 @@
   <string name="notifications_offline_disable_message">ऑफ़लाइन होने पर फ़ंक्शन उपलब्ध नहीं है।</string>
   <string name="view_because_you_read_card_title">क्योंकि आप पढ़ते हैं</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
-  <string name="view_random_article_card_title">कोई भी लेख</string>
+  <string name="view_random_article_card_title">बेतरतीब लेख</string>
   <string name="view_random_article_card_action">अधिक बेतरतीब लेख</string>
   <string name="view_top_read_card_title">सर्वाधिक पढ़े गए</string>
   <string name="view_top_read_card_action">सर्वाधिक पढ़े अन्य</string>
@@ -1118,8 +1119,6 @@
   <string name="onboarding_explore_text">लगातार अपडेट हो रहे एक्सप्लोर फ़ीड के साथ विकिपीडिया के अंतहीन रास्तों पर जायें।&lt;br/&gt; फ़ीड को अपनी रुचियों के अनुसार &lt;b&gt;अनुकूलित करें&lt;/b&gt; - चाहे वह &lt;b&gt;इस दिन&lt;/b&gt; की ऐतिहासिक घटनाओं के बारे में सीखना हो, या &lt;b&gt;बेतरतीब&lt;/b&gt; पासा घुमाना हो।</string>
   <string name="onboarding_reading_list_sync_title">सिंक के साथ पठन सूचियां</string>
   <string name="onboarding_reading_list_sync_text_v2">आप उन लेखों की पठन सूची बना सकते हैं जिन्हें आप बाद में पढ़ना चाहते हैं, तब भी जब आप ऑफ़लाइन हों।&lt;br/&gt; अपनी पठन सूचियों को सिंक करने के लिए अपने विकिपीडिया खाते में लॉगिन करें। &lt;a href=\"#login\"&gt;विकिपीडिया से जुड़ें&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">अनाम डेटा भेजें</string>
-  <string name="onboarding_analytics_offline_text">हमें यह बताकर ऐप को बेहतर बनाने में सहायता करें कि आप इसका उपयोग कैसे करते हैं। एकत्र किया गया डेटा गुमनाम है। &lt;a href=\"#privacy\"&gt;और अधिक जानें&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">उपयोग किया गया डेटा भेजें</string>
   <string name="onboarding_got_it">समझ गया</string>
   <string name="onboarding_multilingual_secondary_text">हमने आपके डिवाइस पर निम्नलिखित पाया है:</string>
@@ -1424,6 +1423,7 @@
   <string name="media_playback_error">मीडिया चलाने में त्रुटि।</string>
   <string name="user_contrib_menu_label">योगदान</string>
   <string name="user_contrib_filter_activity_title">योगदान फ़िल्टर करें</string>
+  <string name="action_item_view_on_map">मैप पर देखें</string>
   <string name="shareable_reading_lists_import_dialog_title">साझा पठन सूची आयात करें</string>
   <string name="shareable_reading_lists_import_dialog_content">आपके साथ साझा की गई सूची को आप क्या नाम देना चाहेंगे?</string>
   <string name="shareable_reading_lists_new_indicator">*नया*</string>
@@ -1440,8 +1440,28 @@
   <string name="talk_templates_menu_remove_message">संदेश हटाएँ</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">कोई नहीं</string>
   <string name="patroller_onboarding_two_warn_title">चेतावनी</string>
+  <string name="patroller_diff_feedback_dialog_message">क्या आप इस सुविधा से संतुष्ट हैं?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">संतुष्ट</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">ना संतुष्ट ना असंतुष्ट</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">असंतुष्ट</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">फीडबैक</string>
+  <string name="patroller_diff_feedback_dialog_submit">जमा करें</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">फीडबैक जमा किया गया. धन्यवाद!</string>
   <string name="data_opt_in_accept">स्वीकार करें</string>
   <string name="data_opt_in_reject">अस्वीकार करें</string>
   <string name="generic_release_notes">मामूली बग फिक्स और सुधार</string>
   <string name="donation_campaign_go_back_button">वापस जाएँ</string>
+  <string name="places_title">स्थानों</string>
+  <string name="places_permissions_denied">मैप पर अपना लोकेशन देखने के लिए लोकेशन परमिशन की आवश्यकता है। कृपया दोबारा प्रयास करें।</string>
+  <string name="places_search_hint">স্থানগুলি অনুসন্ধান করুন</string>
+  <string name="places_filter_title">भाषा फ़िल्टर करें</string>
+  <string name="places_toggle_buttons_map">नक्शा</string>
+  <string name="places_toggle_buttons_list">लिस्ट</string>
+  <string name="places_nav_tab_tooltip_message">स्थानों के साथ अपने आस-पास विकिपीडिया लेख खोजें</string>
+  <string name="places_article_menu_tooltip_message" fuzzy="true">इस आर्टिकल की लोकेशन जानने के लिए \'मैप पर देखें\' पर टैप करें&gt;</string>
+  <string name="places_survey_very_satisfied_option">बहुत संतुष्ट</string>
+  <string name="places_survey_very_unsatisfied_option">बहुत असंतुष्ट</string>
+  <string name="places_survey_dialog_title" fuzzy="true">\'स्थानों\' को बेहतर बनाने में सहायता करें</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">हमें क्या परिवर्तन या सुधार करने चाहिए?</string>
+  <string name="places_empty_list">यह एरिया खाली है. मैप पर ज़ूम आउटकरें.</string>
 </resources>

@@ -208,9 +208,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Συγχρονισμός των λιστών ανάγνωσης μεταξύ διαφορετικών συσκευών αποθηκεύοντάς τις στο λογαριασμός σας στη Βικιπαίδεια \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Αφαίρεση συγχρονισμένων λιστών ανάγνωσης από «%s»;</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Αυτό θα διαγράψει εντελώς όλες τις προηγούμενες συγχρονισμένες λίστες ανάγνωσης από τον απομακρυσμένο χώρο αποθήκευσης. Κατάργηση όλων των συγχρονισμένων λιστών από τον λογαριασμό σας \"%s\";</string>
-  <string name="preferences_privacy_settings_heading">Ιδιωτικότητα</string>
-  <string name="preference_title_eventlogging_opt_in">Αποστολή αναφορών χρήσης</string>
-  <string name="preference_summary_eventlogging_opt_in">Επιτρέψτε στο Wikimedia να συλλέξει πληροφορίες για το πως χρησιμοποιείτε την εφαρμογή ώστε να τη βελτιώσει</string>
   <string name="preference_title_auto_upload_crash_reports">Αποστολή αναφορών κατάρρευσης</string>
   <string name="preference_summary_auto_upload_crash_reports">Επιτρέψτε στην εφαρμογή να στέλνει αναφορές κρασαρίσματος σε μια υπηρεσία τρίτου μέρους αυτόματα, ώστε να μπορούμε να επιθεωρήσουμε το κρασάρισμα και να διορθώσουμε το σφάλμα γρηγορότερα και ευκολότερα.</string>
   <string name="editing_error_spamblacklist">Ανιχνεύθηκαν σύνδεσμοι σε αποκλεισμένους ιστότοπους (%s). Παρακαλούμε αφαιρέστε τους και προσπαθήστε ξανά.</string>
@@ -894,7 +891,6 @@
   <string name="onboarding_maybe_later">Ίσως αργότερα</string>
   <string name="onboarding_explore_title">Νέοι τρόποι να εξερευνήσετε</string>
   <string name="onboarding_reading_list_sync_text_v2">Μπορείτε να δημιουργήσετε λίστες ανάγνωσης από άρθρα που θέλετε να διαβάσετε αργότερα, ακόμα και όταν είστε εκτός σύνδεσης. &lt;br/&gt; Συνδεθείτε στον λογαριασμό σας στη Wikipedia για να συγχρονίσετε τις λίστες ανάγνωσης. &lt;a href=\"#login\"&gt; Εγγραφείτε στο Wikipedia &lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Αποστολή ανώνυμων δεδομένων</string>
   <string name="onboarding_analytics_switch_title">Αποστολή δεδομένων χρήσης</string>
   <string name="onboarding_got_it">Κατάλαβα</string>
   <string name="onboarding_multilingual_secondary_text">Έχουμε βρει τα ακόλουθα στην συσκευή σας:</string>

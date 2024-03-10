@@ -38,6 +38,10 @@
   <string name="app_settings">Налады праграмы</string>
   <string name="search_tab_tooltip">Краніцеся іконкі яшчэ раз, каб пачаць увод шуканага тэрміну.</string>
   <string name="history_list_title">Гісторыя</string>
+  <string name="image_content_description">Выява: %s</string>
+  <string name="page_content_description">Старонка: %s</string>
+  <string name="wikimedia_commons">ВікіСховішча</string>
+  <string name="wikidata">ВікіЗьвесткі</string>
   <string name="dialog_title_clear_history">Ачысьціць гісторыю прагляду</string>
   <string name="dialog_message_clear_history">Гэтае дзеяньне выдаліць усю гісторыю прагляду і зачыніць усе адкрытыя ўстаўкі. Вы ўпэўнены?</string>
   <string name="dialog_message_clear_history_yes">Так</string>
@@ -75,8 +79,8 @@
   <string name="map_view_link_text">Паказаць на мапе</string>
   <string name="other_languages_indication_text">Чытаць іншай мовай</string>
   <string name="language_count_link_text">Даступна %d іншымі мовамі</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Рэдагаваньні будуць прывязаныя да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце ў сыстэму&lt;/a&gt;, то зможаце мець больш высокі ўзровень прыватнасьці.</string>
+  <string name="edit_save_action_license_logged_in">Публікуючы зьмены, вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
+  <string name="edit_save_action_license_anon">Публікуючы зьмены, вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Рэдагаваньні будуць прывязаныя да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце ў сыстэму&lt;/a&gt;, то зможаце мець больш высокі ўзровень прыватнасьці.</string>
   <string name="edit_anon_warning">Рэдагаваньні будуць запісаны на IP-адрас вашай прылады. &lt;a href=\"https://#login\"&gt;Увайшоўшы&lt;/a&gt;, мецьмеце больш прыватнасьці.</string>
   <string name="preference_title_language">Мовы Вікіпэдыі</string>
   <string name="langlinks_filter_hint">Пошук</string>
@@ -160,9 +164,6 @@
   <string name="preferences_heading_data_usage">Выкарыстаньне зьвестак</string>
   <string name="preferences_heading_experimental">Экспэрымэнтальныя</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Выдаліць сынхранізаваныя сьпісы чытаньня з „%s“?</string>
-  <string name="preferences_privacy_settings_heading">Прыватнасьць</string>
-  <string name="preference_title_eventlogging_opt_in">Адпраўляць справаздачы пра карыстаньне</string>
-  <string name="preference_summary_eventlogging_opt_in">Дазволіць Вікімэдыя зьбіраць інфармацыю пра тое як Вы выкарыстоўваеце дастасаваньне каб яго палепшыць</string>
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы пра памылкі</string>
   <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна дасылаць паведамленьні пра памылкі ў пабочны сэрвіс-правайдэр, каб мы маглі праглядаць зьвесткі пра памылку, што дазволіць нам хутчэй выправіць яе.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблякаваныя дамэны (%s). Калі ласка, выдаліце іх і праспрабуйце зноў.</string>
@@ -183,7 +184,7 @@
   <string name="about_translators_heading">Перакладчыкі</string>
   <string name="about_translators_translatewiki">Гэтае дастасаваньне было перакладзеная дабраахвотнікамі на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцэнзія</string>
-  <string name="about_app_license" fuzzy="true">Крынічны код даступны на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; і &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; пад &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ліцэнзіяй Apache 2.0&lt;/a&gt;. Калі не пазначана іншае, зьмест даступны пад &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;ліцэнзіяй Creative Commons Attribution-ShareAlike&lt;/a&gt;.&lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;&lt;/a&gt;</string>
+  <string name="about_app_license">Крынічны код даступны на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; і &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; пад &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;ліцэнзіяй Apache 2.0&lt;/a&gt;. Калі не пазначана іншае, зьмест даступны пад &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;ліцэнзіяй Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Прадукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;фундацыі «Вікімэдыя»&lt;/a&gt;</string>
   <string name="about_activity_title">Пра</string>
   <string name="edit_abandon_confirm">Старонка была зьмененая. Вы ўпэўнены, што жадаеце выйсьці без захаваньня Вашых зьменаў?</string>

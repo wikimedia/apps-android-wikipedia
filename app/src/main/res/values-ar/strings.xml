@@ -2,6 +2,7 @@
 <!-- Authors:
 * ASHmed
 * Aboulouei1
+* Ahmed Alyamoor
 * Alaa
 * Alshamiri1
 * Amire80
@@ -33,6 +34,7 @@
 * MuratTheTurkish
 * NEHAOUA
 * NancyMilad
+* Ola.mahadi
 * PhiberOptik
 * SHaran (WMF)
 * Sandra Hanbo
@@ -245,9 +247,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">مزامنة قائمة قراءتك عبر الأجهزة المختلفة من خلال حفظها إلى حساب ويكيبيديا الخاص بك %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">هل تريد إزالة قوائم القراءة التي تمت مزامنتها من \"%s\"؟</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">سيؤدي هذا إلى حذف جميع قوائم القراءة المتزامنة مسبقا من وحدة التخزين عن بعد، هل تريد إزالة جميع القوائم التي تمت مزامنتها من حسابك \"%s\"؟</string>
-  <string name="preferences_privacy_settings_heading">الخصوصية</string>
-  <string name="preference_title_eventlogging_opt_in">إرسال تقارير الاستخدام</string>
-  <string name="preference_summary_eventlogging_opt_in">السماح لويكيميديا بجمع المعلومات حول كيفية استخدام التطبيق لتحسينه</string>
   <string name="preference_title_auto_upload_crash_reports">إرسال تقارير الأعطال</string>
   <string name="preference_summary_auto_upload_crash_reports">اسمح للتطبيق بإرسال تقارير الأعطال إلى مزود خدمة تابع لجهة خارجية تلقائيا حتى نتمكن من مراجعة الأعطال وإصلاح الخلل بشكل أسرع وأكثر سهولة.</string>
   <string name="editing_error_spamblacklist">تم اكتشاف وصلات لنطاقات ممنوعة (%s). الرجاء إزالة هذه النطاقات والمحاولة مرة أخرى.</string>
@@ -1041,7 +1040,7 @@
   <string name="suggested_edits_ip_blocked_title">عنوان بروتوكول إنترنت محجوب</string>
   <string name="suggested_edits_last_edited">آخر تعديل</string>
   <string name="suggested_edits_last_edited_never">أبدا</string>
-  <string name="suggested_edits_task_new" fuzzy="true">جديد</string>
+  <string name="suggested_edits_task_new">جديد</string>
   <string name="suggested_edits_cc0_notice">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">التعديلات المقترحة</string>
   <string name="suggested_edits_reactivation_notification_stage_one">شكرًا لتعديلك ويكيبيديا! لماذا لا تُكمل من حيث توقفت؟</string>
@@ -1075,6 +1074,8 @@
   <string name="image_recommendation_accept">نعم</string>
   <string name="image_recommendation_reject">لا</string>
   <string name="image_recommendation_notsure">لست متأكدًا</string>
+  <string name="image_recommendation_reject_title">لم لا؟</string>
+  <string name="image_recommendation_onboarding_4">الصور مأخوذة من ويكيميديا ​​كومنز، وهي مجموعة من الصور المرخصة بحرية والتي تستخدمها ويكيبيديا.</string>
   <string name="image_recommendation_tooltip_next">التالي</string>
   <string name="edit_summary_added_image">أضيفت صورة</string>
   <string name="edit_summary_added_caption">إضافة شرح لصورة</string>
@@ -1101,8 +1102,6 @@
   <string name="onboarding_explore_text">تبحّر في محتويات ويكيبيديا باقتراحات الاستكشاف المُحدثة باستمرار. &lt;br/&gt; &lt;b&gt;خصِّص&lt;/b&gt;  الاقتراحات حسب اهتماماتك - سواء أكانت تعلم شيءٍ عن أحداثٍ تاريخيةٍ &lt;b&gt;في هذا اليوم&lt;/b&gt;، أو ارمِ النرد لاقتراحٍ &lt;b&gt;عشوائي&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">قوائم القراءة مع المزامنة</string>
   <string name="onboarding_reading_list_sync_text_v2">أنشئ قوائم قراءة من المقالات التي تريد قراءتها لاحقا، حتى في وضع عدم الاتصال. &lt;br/&gt;قم بتسجيل الدخول لحسابك في ويكيبيديا لمزامنة قوائم قراءتك، &lt;a href=\"#login\"&gt;انضم إلى ويكيبيديا&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">إرسال بيانات مجهولة المصدر</string>
-  <string name="onboarding_analytics_offline_text">ساعد في تحسين التطبيق بالسماح لنا بمعرفة كيفية استخدامه، البيانات التي تُجمع ستكون مجهولة، &lt;a href=\"#privacy\"&gt;اعرف المزيد&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">إرسال بيانات الاستخدام</string>
   <string name="onboarding_got_it">فهمت</string>
   <string name="onboarding_multilingual_secondary_text">لقد وجدنا ما يلي على جهازك:</string>
@@ -1417,4 +1416,10 @@
   <string name="data_opt_in_reject">رفض</string>
   <string name="page_issues_title">مشكلات الصفحة</string>
   <string name="generic_release_notes">إصلاحات الشوائب الطفيفة والتحسينات</string>
+  <string name="places_survey_very_satisfied_option">راض جدا</string>
+  <string name="places_survey_very_unsatisfied_option">غير راض جدا</string>
+  <string name="places_survey_dialog_title" fuzzy="true">المساعدة في تحسين \"الأماكن\"</string>
+  <string name="places_survey_feedback_dialog_title">كيف يمكن تحسين \"المناطق\"</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">ما الذي تود منا تغييره أو تحسينه؟</string>
+  <string name="places_empty_list">هذه المنطقة فارغة. قم بتكبير &lt;a href\n=\"#\"&gt; الخريطة.</string>
 </resources>

@@ -33,6 +33,7 @@
 * Eloy
 * Enly M
 * Envlh
+* Eulalio
 * Fitoschido
 * Geryescalier
 * Hal9000wopr
@@ -291,9 +292,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Guarda tus listas de lectura en tu cuenta de Wikipedia «%s» y sincronízalas en varios dispositivos</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">¿Quieres quitar las listas de lectura sincronizadas de «%s»?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Esta acción eliminará por completo cualquier lista de lectura sincronizada en la nube. ¿Quieres eliminar todas las listas sincronizadas de la cuenta «%s»?</string>
-  <string name="preferences_privacy_settings_heading">Privacidad</string>
-  <string name="preference_title_eventlogging_opt_in">Enviar informes de uso</string>
-  <string name="preference_summary_eventlogging_opt_in">Permitir que Wikimedia recopile información acerca de cómo utiliza la aplicación para mejorarla</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
   <string name="preference_summary_auto_upload_crash_reports">Permitir a la aplicación enviar automáticamente informes de cierres súbitos a un proveedor de servicios externo para que podamos revisarlos y corregirlos con mayor rapidez y facilidad.</string>
   <string name="editing_error_spamblacklist">Se detectaron enlaces a dominios bloqueados (%s). Por favor elimínalos y vuelve a intentarlo.</string>
@@ -344,6 +342,7 @@
   <string name="edit_undo">Deshacer</string>
   <string name="edit_redo">Rehacer</string>
   <string name="edit_rollback">Revertir</string>
+  <string name="edit_warn">Advertir</string>
   <string name="edit_zoom_in">Acercar</string>
   <string name="edit_zoom_out">Alejar</string>
   <string name="edit_summary_tag_typo">Ortografía corregida</string>
@@ -385,6 +384,8 @@
   <string name="widget_name_featured_page">Página destacada de Wikipedia</string>
   <string name="widget_title_featured_page">Página destacada del día:</string>
   <string name="widget_name_search">Búsqueda en Wikipedia</string>
+  <string name="widget_description_search">La forma más rápida de buscar en Wikipedia</string>
+  <string name="widget_description_featured_page">Los mejores artículos que puede ofrecerte Wikipedia</string>
   <string name="wiktionary_no_definitions_found">No se encontraron definiciones.</string>
   <string name="alpha_update_notification_title">Hay una actualización alfa disponible</string>
   <string name="alpha_update_notification_text">Pulsa para descargar</string>
@@ -445,6 +446,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">El artículo no se puede cargar sin conexión.</string>
   <string name="page_offline_notice_add_to_reading_list">Truco: añade el artículo a una lista de lectura y se descargará cuando te vuelvas a conectar.</string>
   <string name="page_offline_notice_last_date">Estás leyendo una versión sin conexión de este artículo guardada el %s.</string>
+  <string name="redirected_from_snackbar">Redirigido desde \"%s\"</string>
   <string name="button_get_directions">Obtener indicaciones</string>
   <string name="error_no_maps_app">No se pudo encontrar ninguna aplicación que proporcione indicaciones.</string>
   <string name="preference_title_customize_explore_feed">Canal explorar</string>
@@ -467,6 +469,10 @@
   <string name="multi_select_items_selected">%d seleccionados</string>
   <string name="error_message_generic">Ha habido un error</string>
   <string name="view_link_preview_error_button_dismiss">Descartar</string>
+  <string name="link_preview_dialog_read_button">Leer</string>
+  <string name="link_preview_dialog_save_button">Guardar</string>
+  <string name="link_preview_dialog_saved_button">Guardado</string>
+  <string name="link_preview_dialog_share_button">Compartir</string>
   <string name="error_page_does_not_exist">Esta página no existe</string>
   <string name="error_user_page_does_not_exist">Wikipedia no tiene una &lt;a href=\"%1$s\"&gt;página de usario&lt;/a&gt; con este nombre exacto. En general, esta página debe ser creada y editada por &lt;b&gt;%2$s&lt;/b&gt;. En caso de duda, verifique que exista \"%3$s\".</string>
   <string name="view_wiki_error_message_offline">No se pudo conectar a Internet.</string>
@@ -504,7 +510,7 @@
   <string name="color_theme_select">Tema</string>
   <string name="color_theme_light">Claro</string>
   <string name="color_theme_dark">Oscuro</string>
-  <string name="color_theme_black" fuzzy="true">Negro</string>
+  <string name="color_theme_black">Negro</string>
   <string name="color_theme_sepia">Sepia</string>
   <string name="color_theme_test_title">Texto de muestra</string>
   <string name="color_theme_test_text">Arrastra el control deslizante para cambiar el tamaño del texto de los artículos. Para modificar el tamaño del texto en toda la aplicación, utiliza la configuración del sistema.</string>
@@ -516,12 +522,15 @@
   <string name="text_style_title">Tipo de letra</string>
   <string name="theme_category_reading">Leyendo</string>
   <string name="theme_category_editing">Edición</string>
+  <string name="reading_focus_mode">Modo de lectura con concentración</string>
+  <string name="reading_focus_mode_detail">Oculta las funciones de edición y la barra de herramientas inferior al desplazarse</string>
   <string name="editing_syntax_highlight_label">Resaltado de sintaxis</string>
   <string name="editing_line_numbers_label">Mostrar números de línea</string>
   <string name="editing_monospace_font_label">Usar fuente monoespaciada</string>
   <string name="editing_typing_suggestions">Mostrar sugerencias de escritura</string>
   <string name="nav_item_saved">Guardado</string>
   <string name="reading_list_save_to">Guardar en lista de lectura</string>
+  <string name="reading_list_move_to">Añadir a lista de lectura</string>
   <string name="reading_list_create_new">Crear una nueva</string>
   <string name="reading_list_title_exists">La lista de lectura «%s» ya existe.</string>
   <string name="reading_list_article_added_to_named">Se agregó %1$s a %2$s.</string>
@@ -531,9 +540,17 @@
   <string name="reading_list_articles_already_exist_message">¡Todo bien! %s ya contiene todos los artículos.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
   <string name="reading_list_add_to_list_button">Añadir a la lista</string>
+  <plurals name="format_reading_list_statistical_summary_without_size">
+    <item quantity="one">1 artículo</item>
+    <item quantity="other">%d artículos</item>
+  </plurals>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 artículo, %2$.2f MB</item>
     <item quantity="other">%1$d artículos, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail_without_size">
+    <item quantity="one">%1$d de 1 artículo disponible sin conexión</item>
+    <item quantity="other">%1$d de %2$d artículos disponibles sin conexión</item>
   </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">%1$d de 1 artículo disponible sin conexión, %3$.2f MB</item>
@@ -548,6 +565,10 @@
   <string name="reading_list_sort_by_created">Ordenar por fecha de creación (más recientes)</string>
   <string name="reading_list_sort_by_created_desc">Ordenar por fecha de creación (más antiguos)</string>
   <string name="reading_list_menu_delete">Eliminar la lista</string>
+  <string name="reading_list_menu_export">Exportar lista</string>
+  <string name="reading_list_menu_select">Seleccionar</string>
+  <string name="reading_list_menu_unselect">Deseleccionar</string>
+  <string name="reading_list_export_write_permission_rationale">Se requiere permiso de escritura en tu dispositivo para poder exportar tu lista de lectura.</string>
   <string name="reading_list_menu_rename">Editar nombre/descripción</string>
   <string name="reading_list_action_menu_remove_from_offline">Quitar de sin conexión</string>
   <string name="reading_list_action_menu_save_for_offline">Guardar para sin conexión</string>
@@ -567,6 +588,10 @@
   <plurals name="reading_list_articles_deleted_from_list">
     <item quantity="one">%d artículo eliminado de %s</item>
     <item quantity="other">%d artículos eliminados de %s</item>
+  </plurals>
+  <plurals name="reading_lists_deleted_message">
+    <item quantity="one">%d lista eliminada</item>
+    <item quantity="other">%d listas eliminadas</item>
   </plurals>
   <string name="reading_list_items_deleted">%d artículos eliminados de la lista</string>
   <string name="reading_lists_item_deleted">%s eliminado de las listas</string>
@@ -1105,8 +1130,6 @@
   <string name="onboarding_explore_text">Piérdete en la vastedad de Wikipedia a través del canal de exploración, siempre al día.&lt;br/&gt; &lt;b&gt;Personaliza&lt;/b&gt; el canal en función de lo que te interesa. Aprende sobre acontecimientos históricos en &lt;b&gt;Un día como hoy&lt;/b&gt; o lanza un dado virtual mediante &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de lectura con sincronización</string>
   <string name="onboarding_reading_list_sync_text_v2">Puedes crear listas de los artículos que quieras leer más tarde, incluso sin conexión. &lt;br/&gt;Accede a tu cuenta de Wikipedia para sincronizar tus listas de lectura. &lt;a href=\"#login\"&gt;Únete a Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Enviar datos anónimos</string>
-  <string name="onboarding_analytics_offline_text">Permite que sepamos cómo utilizas la aplicación para ayudar a mejorarla. Los datos recopilados son anónimos. &lt;a href=\"#privacy\"&gt;Más información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar datos de uso</string>
   <string name="onboarding_got_it">Entendido</string>
   <string name="onboarding_multilingual_secondary_text">Encontramos lo siguiente en tu dispositivo:</string>
@@ -1335,4 +1358,6 @@
   <string name="data_opt_in_reject">Rechazar</string>
   <string name="email_report_image_recommendations_subject">Informe de problema: función de recomendaciones de imágenes</string>
   <string name="email_report_image_recommendations_body">He tenido un problema con la función de recomendación de imagen:\n- [Describe el problema en concreto]\n\nEl resultado que me gustaría ver es:\n- [Describe la solución propuesta]</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">¿Qué quieres que cambiemos o mejoremos?</string>
+  <string name="places_empty_list">Esta área está vacía. Alejar &lt;a href=\"#\"&gt;el mapa&lt;/a&gt; .</string>
 </resources>

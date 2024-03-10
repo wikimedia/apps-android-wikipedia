@@ -246,9 +246,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Leeslijsten synchroniseren met verschillende apparaten door ze te koppelen met uw Wikipedia-account \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Gesynchroniseerde leeslijsten van \"%s\" verwijderen&gt;?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Hiermee worden alle eerder gesynchroniseerde leeslijsten van de externe opslag verwijderd. Wilt u alle gesynchroniseerde lijsten uit uw account \"%s\" verwijderen?</string>
-  <string name="preferences_privacy_settings_heading">Privacy</string>
-  <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
-  <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe u de app gebruikt om de app te kunnen verbeteren</string>
   <string name="preference_title_auto_upload_crash_reports">Crashrapporten verzenden</string>
   <string name="preference_summary_auto_upload_crash_reports">De app toestaan om automatisch crashrapporten naar een dienstverlener te sturen zodat we de omstandigheden van uw crash kunnen analyseren en fouten sneller kunnen herstellen.</string>
   <string name="editing_error_spamblacklist">Er zijn koppelingen naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
@@ -1143,8 +1140,6 @@
   <string name="onboarding_explore_text">Stap in de wereld van Wikipedia met een steeds bijgewerkt overzicht op Verkennen. &lt;br/&gt; Pas het overzicht aan &lt;b&gt;uw interesses&lt;/b&gt; aan – of u nu geïnteresseerd bent in historische gebeurtenissen &lt;b&gt;op deze dag&lt;/b&gt; of het gooien met de dobbelsteen voor een &lt;b&gt;willekeurige pagina&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leeslijsten met synchronisatie</string>
   <string name="onboarding_reading_list_sync_text_v2">U kunt leeslijsten maken van artikelen die u later wilt lezen, ook als u offline bent. &lt;br/&gt;Meld u aan bij uw Wikipedia-account om uw leeslijsten te synchroniseren. &lt;a href=\"#login\"&gt;Bij Wikipedia aanmelden&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Gegevens anoniem versturen</string>
-  <string name="onboarding_analytics_offline_text">Help de app te verbeteren door ons te laten weten hoe u hem gebruikt. De verzamelde gegevens zijn anoniem. &lt;a href=\"#privacy\"&gt;Leer meer&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Uw gebruiksgegevens verzenden</string>
   <string name="onboarding_got_it">Begrepen</string>
   <string name="onboarding_multilingual_secondary_text">We hebben het volgende gevonden op uw apparaat:</string>

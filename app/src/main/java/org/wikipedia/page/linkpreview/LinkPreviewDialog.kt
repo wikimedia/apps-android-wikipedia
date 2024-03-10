@@ -23,6 +23,7 @@ import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.activity.FragmentUtil.getCallback
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.DialogLinkPreviewBinding
@@ -35,6 +36,7 @@ import org.wikipedia.page.ExtendedBottomSheetDialogFragment
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.places.PlacesActivity
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -56,10 +58,15 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean)
     }
 
+    interface DismissCallback {
+        fun onLinkPreviewDismiss()
+    }
+
     private var _binding: DialogLinkPreviewBinding? = null
     private val binding get() = _binding!!
 
     private val loadPageCallback get() = getCallback(this, LoadPageCallback::class.java)
+    private val dismissCallback get() = getCallback(this, DismissCallback::class.java)
 
     private var articleLinkPreviewInteractionEvent: ArticleLinkPreviewInteractionEvent? = null
     private var linkPreviewInteraction: ArticleLinkPreviewInteraction? = null
@@ -79,35 +86,44 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
                 true
             }
             R.id.menu_link_preview_watch -> {
+                sendPlacesEvent("watch_click", "detail_overflow_menu")
                 viewModel.watchOrUnwatch(viewModel.isWatched)
                 true
             }
             R.id.menu_link_preview_open_in_new_tab -> {
+                sendPlacesEvent("new_tab_click", "detail_overflow_menu")
                 goToLinkedPage(true)
                 true
             }
             R.id.menu_link_preview_copy_link -> {
+                sendPlacesEvent("copy_link_click", "detail_overflow_menu")
                 ClipboardUtil.setPlainText(requireActivity(), text = viewModel.pageTitle.uri)
                 FeedbackUtil.showMessage(requireActivity(), R.string.address_copied)
                 dismiss()
                 true
             }
             R.id.menu_link_preview_view_on_map -> {
+                PlacesEvent.logAction("places_click", "article_preview_more_menu")
                 viewModel.location?.let {
-                    // TODO: implement this in Places branch
-                    // startActivity(PlacesActivity.newIntent(requireContext(), viewModel.pageTitle, it))
-                    GeoUtil.sendGeoIntent(requireActivity(), it, StringUtil.fromHtml(viewModel.pageTitle.displayText).toString())
+                    startActivity(PlacesActivity.newIntent(requireContext(), viewModel.pageTitle, it))
                 }
                 dismiss()
                 true
             }
             R.id.menu_link_preview_get_directions -> {
+                sendPlacesEvent("directions_click", "detail_overflow_menu")
                 viewModel.location?.let {
                     GeoUtil.sendGeoIntent(requireActivity(), it, StringUtil.fromHtml(viewModel.pageTitle.displayText).toString())
                 }
                 true
             }
             else -> false
+        }
+    }
+
+    private fun sendPlacesEvent(action: String, activeInterface: String) {
+        if (viewModel.historyEntry.source == HistoryEntry.SOURCE_PLACES) {
+            PlacesEvent.logAction(action, activeInterface)
         }
     }
 
@@ -197,7 +213,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
         linkPreviewInteraction = ArticleLinkPreviewInteraction(
             viewModel.pageTitle,
-            summary.pageId,
+            summary,
             viewModel.historyEntry.source
         )
         linkPreviewInteraction?.logLinkClick()
@@ -220,13 +236,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         L.e(throwable)
         binding.linkPreviewTitle.text = StringUtil.fromHtml(viewModel.pageTitle.displayText)
         showError(throwable)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        if (viewModel.fromPlaces) {
-            disableBackgroundDim()
-        }
     }
 
     override fun onResume() {
@@ -277,6 +286,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     override fun onDismiss(dialogInterface: DialogInterface) {
         super.onDismiss(dialogInterface)
+        dismissCallback?.onLinkPreviewDismiss()
         if (!navigateSuccess) {
             articleLinkPreviewInteractionEvent?.logCancel()
             linkPreviewInteraction?.logCancel()
@@ -314,10 +324,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private fun showReadingListPopupMenu(anchorView: View) {
         if (viewModel.isInReadingList) {
             LongPressMenu(anchorView, existsInAnyList = false, callback = object : LongPressMenu.Callback {
-                override fun onOpenLink(entry: HistoryEntry) { }
-
-                override fun onOpenInNewTab(entry: HistoryEntry) { }
-
                 override fun onAddRequest(entry: HistoryEntry, addToDefault: Boolean) {
                     ReadingListBehaviorsUtil.addToDefaultList(requireActivity(), viewModel.pageTitle, addToDefault, Constants.InvokeSource.LINK_PREVIEW_MENU)
                     dismiss()
@@ -443,16 +449,19 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private inner class OverlayViewPlacesCallback : LinkPreviewOverlayView.Callback {
         override fun onPrimaryClick() {
+            sendPlacesEvent("share_click", "detail_toolbar")
             ShareUtil.shareText(requireContext(), viewModel.pageTitle)
         }
 
         override fun onSecondaryClick() {
             overlayView?.let {
+                sendPlacesEvent("save_click", "detail_toolbar")
                 showReadingListPopupMenu(it.secondaryButtonView)
             }
         }
 
         override fun onTertiaryClick() {
+            sendPlacesEvent("read_click", "detail_toolbar")
             goToLinkedPage(false)
         }
     }
@@ -461,15 +470,13 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         const val ARG_ENTRY = "entry"
         const val ARG_LOCATION = "location"
         const val ARG_LAST_KNOWN_LOCATION = "lastKnownLocation"
-        const val ARG_FROM_PLACES = "fromPlaces"
 
-        fun newInstance(entry: HistoryEntry, location: Location? = null, lastKnownLocation: Location? = null, fromPlaces: Boolean = false): LinkPreviewDialog {
+        fun newInstance(entry: HistoryEntry, location: Location? = null, lastKnownLocation: Location? = null): LinkPreviewDialog {
             return LinkPreviewDialog().apply {
                 arguments = bundleOf(
                     ARG_ENTRY to entry,
                     ARG_LOCATION to location,
-                    ARG_LAST_KNOWN_LOCATION to lastKnownLocation,
-                    ARG_FROM_PLACES to fromPlaces
+                    ARG_LAST_KNOWN_LOCATION to lastKnownLocation
                 )
             }
         }

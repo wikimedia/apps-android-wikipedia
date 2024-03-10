@@ -25,13 +25,11 @@ import java.util.Locale
 
 class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     interface Callback {
-        fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean)
         fun onLinkClick(view: OnboardingPageView, url: String)
         fun onListActionButtonClicked(view: OnboardingPageView)
     }
 
     class DefaultCallback : Callback {
-        override fun onAcceptOrReject(view: OnboardingPageView, accept: Boolean) {}
         override fun onLinkClick(view: OnboardingPageView, url: String) {}
         override fun onListActionButtonClicked(view: OnboardingPageView) {}
     }
@@ -48,7 +46,6 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 val primaryText = getString(R.styleable.OnboardingPageView_primaryText)
                 val secondaryText = getString(R.styleable.OnboardingPageView_secondaryText)
                 val tertiaryText = getString(R.styleable.OnboardingPageView_tertiaryText)
-                val acceptRejectButtons = getBoolean(R.styleable.OnboardingPageView_acceptRejectButtons, false)
                 listDataType = getString(R.styleable.OnboardingPageView_dataType)
                 val showListView = getBoolean(R.styleable.OnboardingPageView_showListView, false)
                 val background = getDrawable(R.styleable.OnboardingPageView_background)
@@ -74,7 +71,6 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 binding.secondaryTextView.text = StringUtil.fromHtml(secondaryText)
                 binding.tertiaryTextView.visibility = if (tertiaryText.isNullOrEmpty()) GONE else VISIBLE
                 binding.tertiaryTextView.text = tertiaryText
-                binding.acceptRejectContainer.isVisible = acceptRejectButtons
                 setUpLanguageListContainer(showListView, listDataType)
                 binding.secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->
                     callback?.onLinkClick(this@OnboardingPageView, url)
@@ -82,8 +78,6 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
                 binding.languageListContainer.addLanguageButton.setOnClickListener {
                     callback?.onListActionButtonClicked(this@OnboardingPageView)
                 }
-                binding.acceptButton.setOnClickListener { callback?.onAcceptOrReject(this@OnboardingPageView, true) }
-                binding.rejectButton.setOnClickListener { callback?.onAcceptOrReject(this@OnboardingPageView, false) }
 
                 binding.patrollerTasksButtonsContainer?.root?.isVisible = showPatrollerTasksButtons
             }

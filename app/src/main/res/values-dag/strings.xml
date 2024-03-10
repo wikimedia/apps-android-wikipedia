@@ -5,6 +5,7 @@
 * Cooltey
 * Dbrant
 * IBS-Gh
+* Kalakpagh
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -208,9 +209,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">malimi alahabali karinda ka dini tooi niŋ bayana ngu zali niŋ a Wikipedia akawnt ni %s</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">yihimi ani laɣim lahabali karinda shɛŋa \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ŋɔ nyɛla din yen nyɛhi a ni pun mali lahabali karinda shɛli zali yoma. Yihimi a lahabali karinda zaa sa a daa akawnt ni \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">a daa ashili</string>
-  <string name="preference_title_eventlogging_opt_in">zaŋmi ani pun mali li tumdi tuma lahabali nti ha</string>
-  <string name="preference_summary_eventlogging_opt_in">saɣimi nti ka app maa deei lahabali zaŋ chaŋ ani mali li kuri bukaata shɛm din ni sɔŋ nla viɛligili m-pahi</string>
   <string name="preference_title_auto_upload_crash_reports">zaŋmi di yelmuɣisirili ni nyɛ shɛm lahabali n-ti</string>
   <string name="preference_summary_auto_upload_crash_reports">saɣimi nti ka app ŋɔ zaŋ di zaɣisibu ŋɔ yelmuɣisirili ni nyɛ shɛm lahabali n-ti so ha dabam ŋun mali di baŋsim ka ti tooi vihili ka malili kaliŋ</string>
   <string name="editing_error_spamblacklist">ti vihiya n-nya linkinima din ŋari sɔya maa %s. Dim suɣulo yihimili ka labi m-mɔ yaha</string>
@@ -388,6 +386,10 @@
   <string name="multi_select_items_selected">%d dihiya piigi</string>
   <string name="error_message_generic">Muɣisigu beni</string>
   <string name="view_link_preview_error_button_dismiss">Kpihimma</string>
+  <string name="link_preview_dialog_read_button">Karim</string>
+  <string name="link_preview_dialog_save_button">tiligi</string>
+  <string name="link_preview_dialog_saved_button">tiligi</string>
+  <string name="link_preview_dialog_share_button">tari</string>
   <string name="error_page_does_not_exist">yaɣili ŋɔ maa kani</string>
   <string name="error_user_page_does_not_exist">Wikipedia zuɣu ka &lt;a href=\"%1$s\"&gt;ŋun su yaɣili&lt;/a&gt; ka mali lala yuli. Ti ni ku yɛn kpuɣili shɛm, yaɣili ŋɔ maa tu ni di nam ka &lt;b&gt;%2$s&lt;/b&gt; maliniŋ. A yi na ku mali zilisigu nyin vihibaŋ kadama \"%3$s\" nyɛla din beni.</string>
   <string name="view_wiki_error_message_offline">di ku tooi gohi pohim zuɣu</string>
@@ -1092,8 +1094,6 @@
   <string name="onboarding_explore_text">Sirigim n-kpɛ Wikipedia sooŋa laasabu vali ŋɔ ni n-nya anfooni lahabaya din doli taba. &lt;br/&gt; &lt;b&gt;taɣi doli a suhuyurilim&lt;/b&gt; anfooninima lahabaya a ni borili shɛm - di lee nyɛla bohambu zaŋ chaŋ kurumbuna ni niŋsim &lt;b&gt;din jɛndi dabisili ŋɔ&lt;/b&gt;, bee ka a biligi ludu bia laasabu maa buyi &lt;b&gt;Sahasaha&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Yu-karinda din goli taba</string>
   <string name="onboarding_reading_list_sync_text_v2">A ni tooi mɛ yu-karinda n-ti hali atikil shɛna a ni yɛn karim saha sheli ha, hali a yi na ka pɔhim zuɣu gba. &lt;br/&gt;Kpɛmi a Wikipedia akawnti ni n-ti zaŋ a yu-karinda gohi taba. &lt;a href=\"#login\"&gt;Pahami Wikipedia nim\' zuɣu&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Zaŋmi lahabali n-ti ashiloni</string>
-  <string name="onboarding_analytics_offline_text">Chɛ ka ti baŋ a ni mali app maa tumdi tuma shɛm din ni sɔŋ viɛligi app maa. Ti ni dee lahabali shɛli yɛn nyɛla ashiloni. &lt;a href=\"#privacy\"&gt;bohammi pahi&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Zaŋmi a ni mali app maa tumdi tuma shɛm lahabali ti ha</string>
   <string name="onboarding_got_it">N nyɛli</string>
   <string name="onboarding_multilingual_secondary_text">Ti nya dimbɔŋɔ nima a tabibi maʒini maa ni:</string>
@@ -1411,6 +1411,7 @@
   <string name="media_playback_error">Yɛluɣisiri beni ni di yibuna</string>
   <string name="user_contrib_menu_label">Tohibu</string>
   <string name="user_contrib_filter_activity_title">Jɛhimi tohibu</string>
+  <string name="action_item_view_on_map">Nyɛm li nahingbaŋ ni</string>
   <string name="shareable_reading_lists_import_dialog_title">Zaŋmi yu-karinda din tari n-kpɛhina</string>
   <string name="shareable_reading_lists_import_dialog_content">Yu bo ka a bori ni a zaŋ n-ti yu-karinda shɛli a ni dee maa?</string>
   <string name="shareable_reading_lists_new_indicator">*Zaɣpalli*</string>
@@ -1551,4 +1552,18 @@
   <string name="donation_campaign_donated_snackbar">M-bo n-faan, nyin ŋun tabi sɔŋ! A nirilim maa sɔŋsiya ka Wikipedia mini di boba ni yaɣa tooi kuli tiri tooi.</string>
   <string name="donation_campaign_go_back_button">Labimi nyaaŋa</string>
   <string name="menu_single_webview_open_external">Yoomi li sistɛm browza puuni</string>
+  <string name="places_title">Zaashɛhi</string>
+  <string name="places_permissions_denied">Dooshee soli nyɛla bɛ ni bori shɛli a yi bori ni a nya dooshee nahingbaŋ ni. Pahimi suɣilo labi niŋ.</string>
+  <string name="places_search_hint">Vihibu zaashɛhi</string>
+  <string name="places_filter_title">Filter balli</string>
+  <string name="places_toggle_buttons_map">nahingbaŋ</string>
+  <string name="places_toggle_buttons_list">Yuya</string>
+  <string name="places_nav_tab_tooltip_message">Lihimi m-bo \"Wikipedia\" lahabali shɛŋa din be a yaɣa li</string>
+  <string name="places_article_menu_tooltip_message" fuzzy="true">Dihimi &lt;b&gt;\'View on map\'&lt;/b&gt; ka di zaŋ a m-bo lahabali shɛŋa din be a yaɣa li</string>
+  <string name="places_survey_very_satisfied_option">Tiɣi viɛnyɛla</string>
+  <string name="places_survey_very_unsatisfied_option">Bi\'tiɣi viɛnyɛla</string>
+  <string name="places_survey_dialog_title" fuzzy="true">Sɔŋmi lɛbigi tiŋsi</string>
+  <string name="places_survey_feedback_dialog_title">Wula ka tiŋsi (\"Places\") ni tooi lɛbigi?</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Bo ka a yu ni ti taɣi bee m-pahi?</string>
+  <string name="places_empty_list">Yaɣili ŋɔ ka shɛli. Yima &lt;a href=\"#\"&gt;on the map&lt;/a&gt;.</string>
 </resources>

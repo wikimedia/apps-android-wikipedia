@@ -207,9 +207,6 @@
   <string name="preferences_heading_experimental">تجرباتي</string>
   <string name="preference_title_sync_reading_lists_from_account">پڙھڻ جي فھرست جي سائنڪنگ</string>
   <string name="preference_title_download_reading_list_articles">پڙھڻ جي فھرست جا مضمون لاھيو</string>
-  <string name="preferences_privacy_settings_heading">نويڪلائي</string>
-  <string name="preference_title_eventlogging_opt_in">استعمال جون رپورٽون اماڻيو</string>
-  <string name="preference_summary_eventlogging_opt_in">وڪيميڊيا ايپ کي اجازت ڏيو تہ اوهان هن ايپ کي ڪيئن استعمال ڪريو ٿا جي معلومات جمع ڪري تہ جيئن هن ايپ کي بھتر بڻائي سگهجي</string>
   <string name="preference_title_auto_upload_crash_reports">ڊهي پوڻ جي رپورٽ اماڻيو</string>
   <string name="preference_summary_auto_upload_crash_reports">ايپ کي اجازت ڏيو تہ ڪريش رپورٽون پاڻمرادو ٽئين ڌر جي خدمت فراهم ڪندڙ کي موڪلي تہ جيئن اسان توهان جي ڪريش جو جائزو وٺي سگهون ۽ بگ کي تيز ۽ وڌيڪ آساني سان حل ڪري سگهون.</string>
   <string name="editing_error_spamblacklist">بندشيل ڊومينس جا ڳنڍڻا (%s) مليا آھن. مھرباني ڪري انھن کي ھٽايو ۽ ٻيھر ڪوشش ڪريو.</string>
@@ -962,7 +959,6 @@
   <string name="onboarding_get_started">شروع ڪريو</string>
   <string name="onboarding_maybe_later">بعد ۾ شايد</string>
   <string name="onboarding_explore_title">کوجڻ جا نوان گس</string>
-  <string name="onboarding_analytics_title">نامعلوم ڊيٽا موڪليو</string>
   <string name="onboarding_analytics_switch_title">استعمال جي ڊيٽا موڪليو</string>
   <string name="onboarding_got_it">سمجھي ويئو</string>
   <string name="onboarding_multilingual_secondary_text">اسان توھان جي اوزار تي ھي لڌيون آھن:</string>

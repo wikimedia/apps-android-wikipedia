@@ -1,6 +1,7 @@
 package org.wikipedia.analytics.metricsplatform
 
 import org.wikimedia.metrics_platform.context.PageData
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageFragment
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -22,7 +23,8 @@ class ArticleFindInPageInteraction(private val fragment: PageFragment) : TimedMe
 
     fun logDone() {
         submitEvent(
-            "/analytics/mobile_apps/product_metrics/android_find_in_page_interaction/1.0.0",
+            "android.product_metrics.find_in_page_interaction",
+            "/analytics/mobile_apps/product_metrics/android_find_in_page_interaction/1.1.0",
             "find_in_page_interaction",
             mapOf(
                 "find_text" to findText,
@@ -142,10 +144,11 @@ class ArticleToolbarInteraction(private val fragment: PageFragment) : TimedMetri
     private fun submitEvent(action: String) {
 
         submitEvent(
+            "android.product_metrics.article_toolbar_interaction",
             "article_toolbar_interaction",
             getInteractionData(
-                "article_toolbar_interaction",
                 action,
+                null,
                 null,
                 "time_spent_ms.${timer.elapsedMillis}"
             ),
@@ -183,7 +186,8 @@ class ArticleTocInteraction(private val fragment: PageFragment, private val numS
             return
         }
         submitEvent(
-            "/analytics/mobile_apps/product_metrics/android_article_toc_interaction/1.0.0",
+            "android.product_metrics.article_toc_interaction",
+            "/analytics/mobile_apps/product_metrics/android_article_toc_interaction/1.1.0",
             "article_toc_interaction",
             mapOf(
                 "num_opens" to numOpens,
@@ -211,6 +215,11 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
         pageData = getPageData(pageTitle, pageId)
     }
 
+    constructor(pageTitle: PageTitle, summary: PageSummary, source: Int) {
+        this.source = source
+        pageData = getPageData(pageTitle, summary)
+    }
+
     fun logLinkClick() {
         submitEvent("linkclick")
     }
@@ -225,10 +234,11 @@ class ArticleLinkPreviewInteraction : TimedMetricsEvent {
 
     private fun submitEvent(action: String) {
         submitEvent(
+            "android.product_metrics.article_link_preview_interaction",
             "article_link_preview_interaction",
             getInteractionData(
-                "article_link_preview_interaction",
                 action,
+                null,
                 source.toString(),
                 "time_spent_ms.${timer.elapsedMillis}",
             ),

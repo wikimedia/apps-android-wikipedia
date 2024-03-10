@@ -212,9 +212,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Lîstên xwendinê li navbera cîhazên cuda senkronîze bike bi qeydkirina wan li hesabê xwe yê Wîkîpediyayê \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Bila lîsta xwendinê yê senkronîzekirî ji \"%s\" were rakirin?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ev wê lîstên xwendinê yên di berê de senkronîzekirî temamen ji depoya dûr bibe. Bila temamê lîstên senkronîzekirî ji hesabê \"%s\" rake?</string>
-  <string name="preferences_privacy_settings_heading">Veşarîtî</string>
-  <string name="preference_title_eventlogging_opt_in">Raportên bikaranînê bişîne</string>
-  <string name="preference_summary_eventlogging_opt_in">Ji bo sepanê çêtir bike, destûr bide Wîkîpediyayê ku agahiyan bicivîne di derbarê bikaranîna te ya sepanê de</string>
   <string name="preference_title_auto_upload_crash_reports">Raportên xirabûnê bişîne</string>
   <string name="preference_summary_auto_upload_crash_reports">Îzn bide sepanê ku raportên xerabûnê bi otomatîkî bişîne pêşkêşkera xizmetê da ku em karibin xerabûnê kontrol kontrol bikin û çewtiyê zûtir û rehettir çareser bikin.</string>
   <string name="editing_error_spamblacklist">Lînkên li domaînên astengkirî (%s) hate tesbîtkirin. Ji kerema xwe wan rake û cardin biceribîne.</string>

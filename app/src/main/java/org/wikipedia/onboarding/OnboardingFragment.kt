@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StringRes
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -31,7 +30,6 @@ abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), 
 
     @get:StringRes
     protected abstract val doneButtonText: Int
-    protected abstract val showDoneButton: Boolean
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -107,7 +105,7 @@ abstract class OnboardingFragment(val enableSkip: Boolean = true) : Fragment(), 
         if (atLastPage()) {
             binding.fragmentOnboardingSkipButton.visibility = View.GONE
             binding.fragmentOnboardingForwardButton.visibility = View.GONE
-            binding.fragmentOnboardingDoneButton.isVisible = showDoneButton
+            binding.fragmentOnboardingDoneButton.visibility = View.VISIBLE
         } else {
             binding.fragmentOnboardingSkipButton.visibility = if (enableSkip) View.VISIBLE else View.GONE
             binding.fragmentOnboardingForwardButton.visibility = View.VISIBLE

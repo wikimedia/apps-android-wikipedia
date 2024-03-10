@@ -100,9 +100,6 @@
   <string name="preferences_account_heading">Аккаунт</string>
   <string name="send_feedback">Тиркемеге өз бааңызды жөнөтүңүз</string>
   <string name="create_account_account_created_toast">Эсеп жазуусу түзүлдү!</string>
-  <string name="preferences_privacy_settings_heading">Купуялык</string>
-  <string name="preference_title_eventlogging_opt_in">Колдонуу тууралуу маалыматтарды жөнөтүү</string>
-  <string name="preference_summary_eventlogging_opt_in">Уикимедиага сиз бул тиркемени кантип колдонуп жаткандыгыңыз тууралуу маалыматтарды чогултууга уруксат бериңиз. Бул, аны жакшыртууга мүмкүндүк берет.</string>
   <string name="editing_error_spamblacklist">Бөгөттөлгөн домендерге (%s) шилтемелер табылды. Сураныч, аларды өчүрүп, кайра аракет кылып көрүңүз.</string>
   <string name="error_can_not_process_link">Бул шилтемени көрсөтүүгө мүмкүнчүлүк болбоду.</string>
   <string name="page_protected_autoconfirmed">Бул барак жарым-жартылай корголгон.</string>

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Bashir Gwanki
 * Bello Na'im
 * Dbrant
 * Gwanki
 * Hamza DK
+* Muhammad Idriss Criteria
 * Salihu aliyu
 * Umar-askirason
+* Yusuf Sa'adu
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -210,9 +213,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Bincika jerin wanda ake karantawa daga mabanbantan na\'urori ta hanyar ajiye su  asusun ka na Wikipedia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">A cire binciken jerin wanda ake karantawa daga \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Wannan zai goge gaba ɗayan binciken da aka yi a baya na jerin wanda ake karantawa daga ma\'ajiya. A share dukkan jerin binciken daga asusun ka \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Sirri</string>
-  <string name="preference_title_eventlogging_opt_in">Aika da rahoton amfani</string>
-  <string name="preference_summary_eventlogging_opt_in">Bawa Wikimedia damar ta karɓi bayanai a game da yadda zaka yi amfani da manhajar domin bunƙasa manhajar</string>
   <string name="preference_title_auto_upload_crash_reports">Aika rahoton cin karo</string>
   <string name="preference_summary_auto_upload_crash_reports">A bawa manhaja damar ta aika da rahoton cin karo zuwa mai bada sabis na ɓangare na uku ta atomatik domin mu iya duba haɗarin ka kuma mu gyara cikin sauri da sauƙi.</string>
   <string name="editing_error_spamblacklist">Mahaɗar shafukan da aka kulle (%s). Daure ka share su sai ka sake jarrabawa.</string>
@@ -390,6 +390,10 @@
   <string name="multi_select_items_selected">%d an zaɓa</string>
   <string name="error_message_generic">An sami kuskure</string>
   <string name="view_link_preview_error_button_dismiss">Kora</string>
+  <string name="link_preview_dialog_read_button">Karanta</string>
+  <string name="link_preview_dialog_save_button">Ajiye</string>
+  <string name="link_preview_dialog_saved_button">An ajiye</string>
+  <string name="link_preview_dialog_share_button">Rarraba</string>
   <string name="error_page_does_not_exist">Babu wannan shafin</string>
   <string name="error_user_page_does_not_exist">Wikipedia ba shi da &lt;a href=\"%1$s \"&gt;shafin mai amfani&lt;/a&gt; da wannan ainihin sunan. Gaba ɗaya, wannan shafin yakamata a ƙirƙira kuma a gyara shi ta &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; %3$s</string>
   <string name="view_wiki_error_message_offline">Ba za a iya haɗawa da intanet ba</string>
@@ -1102,8 +1106,6 @@
   <string name="onboarding_explore_text">Nitsaye cikin rami na zomo na Wikipedia tare da sabuntawa akai-akai Bincike ciyarwa. Yi amfani da abinci don abubuwan da kuke so - ko yana koyo game da abubuwan da suka faru a tarihi &lt;b&gt;A wannan rana&lt;/b&gt;, ko kuma mirgine dice tare da Random.&lt;br/&gt;</string>
   <string name="onboarding_reading_list_sync_title">Jerin karatu tare da daidaitawa</string>
   <string name="onboarding_reading_list_sync_text_v2">Kuna iya yin jerin karatu daga labaran da kuke so ku karanta daga baya, koda kuwa kuna kan layi. Shigar da asusunku na Wikipedia don daidaita jerin karatun ku. &lt;a href=\"#login\"&gt;Shigar da Wikipedia&lt;/a&gt;&lt;br/&gt;</string>
-  <string name="onboarding_analytics_title">Sanya bayanan da ba a san su ba</string>
-  <string name="onboarding_analytics_offline_text">Taimaka yin aikace-aikacen ingantawa ta hanyar sanar da mu yadda kake amfani da shi. Bayanan da aka tattara ba a san su ba. &lt;a href=\"#privacy\"&gt;Koyi ƙarin&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Sanya bayanai na amfani</string>
   <string name="onboarding_got_it">Ka samu</string>
   <string name="onboarding_multilingual_secondary_text">Mun sami wadannan a kan na\'urarku:</string>
@@ -1423,6 +1425,8 @@
   <string name="media_playback_error">Kuskuren kafofin watsa labarai.</string>
   <string name="user_contrib_menu_label">Gudummawa</string>
   <string name="user_contrib_filter_activity_title">Tace gudunmawar</string>
+  <string name="action_item_view_on_map">Duba akan taswira</string>
+  <string name="action_item_view_on_map_unavailable">Ba a samun ma\'aunin ƙasa don wannan shafin</string>
   <string name="shareable_reading_lists_import_dialog_title">Jerin karatun da aka raba</string>
   <string name="shareable_reading_lists_import_dialog_content">Ta yaya za ku so ku ambaci jerin sunayen da aka raba tare da ku?</string>
   <string name="shareable_reading_lists_new_indicator">*sabo*</string>
@@ -1566,4 +1570,12 @@
   <string name="donation_campaign_donated_snackbar">Na gode, ƙaunataccen mai ba da gudummawa! karimcinku yana taimakawa wajen ci gaba da Wikipedia da shafukan \'yan uwanta.</string>
   <string name="donation_campaign_go_back_button">Koma baya</string>
   <string name="menu_single_webview_open_external">Bude a cikin tsarin mai lilo</string>
+  <string name="places_title">Wajaje</string>
+  <string name="places_permissions_denied">Ana buƙatar izinin wuri don ganin wurinku a taswirar. Don Allah ku sake gwadawa.</string>
+  <string name="places_search_hint">Wuraren bincike</string>
+  <string name="places_filter_title">Harshen tacewa</string>
+  <string name="places_toggle_buttons_map">Taswira</string>
+  <string name="places_toggle_buttons_list">jeri</string>
+  <string name="places_nav_tab_tooltip_message">Gano labaran Wikipedia da ke kewaye da ku tare da Wuraren</string>
+  <string name="places_article_menu_tooltip_message" fuzzy="true">Taɓa wannnan madannin don bincika wurin wannan labarin</string>
 </resources>

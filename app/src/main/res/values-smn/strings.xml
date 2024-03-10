@@ -111,7 +111,6 @@
   <string name="create_account_next">Čuávuvâš</string>
   <string name="email_recommendation_dialog_create_with_email_action">Lasseet šleđgâpostâčujottâs</string>
   <string name="create_account_button">Räähti tubdâlduv</string>
-  <string name="preferences_privacy_settings_heading">Priivaatvuotâ</string>
   <string name="history_filter_list_hint">Sillii historjá</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">Lasseet tarkkumliiston</string>
   <string name="settings_item_preferences">Asâttâsah</string>
@@ -212,6 +211,7 @@
   <string name="notification_syncing_cancel_button">Jooskâ</string>
   <string name="notification_echo_channel_description">Wikipedia almottâsah</string>
   <string name="notifications_activity_title">Almottâsah</string>
+  <string name="notifications_direct_reply_action">Västid</string>
   <string name="watchlist_title">Tarkkumlisto</string>
   <string name="preference_title_notification_thanks">Takkâ</string>
   <string name="preference_title_notification_login_fail">Čáládât siisâ</string>
@@ -266,6 +266,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kovetekstâ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Kove</string>
   <string name="suggested_edits_image_preview_dialog_tags">Kilgoleh</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Lasetiäđuh</string>
   <string name="suggested_edits_article_cta_image_tags">Lasseet kovekilgolijd</string>
   <string name="suggested_edits_article_cta_image_caption">Lasseet koveteevstâ</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Lasseet koveteevstâ (%s)</string>
@@ -323,6 +324,8 @@
   <string name="text_input_dialog_cancel_button_text">Jooskâ</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Jooskâ</string>
   <string name="talk_title">Savâstâllâm</string>
+  <string name="talk_warn_save_dialog_publish">Almostit</string>
+  <string name="talk_add_reply">Västid</string>
   <string name="talk_search_hint">Uusâ viestâid</string>
   <string name="talk_list_item_overflow_subscribe">Tiiláá</string>
   <string name="talk_list_item_overflow_share">Jyevi</string>
@@ -341,5 +344,6 @@
   <string name="watchlist_filter_pages">Siijđoh</string>
   <string name="watchlist_page_deleted">Sikkum</string>
   <string name="action_item_categories">Luokah</string>
+  <string name="category_tab_subcategories">Vyeliluokah</string>
   <string name="shareable_reading_lists_new_indicator">*uđđâ*</string>
 </resources>
