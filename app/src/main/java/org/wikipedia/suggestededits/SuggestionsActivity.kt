@@ -8,6 +8,7 @@ import org.wikipedia.Constants.INTENT_EXTRA_ACTION
 import org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
+import org.wikipedia.extensions.serializableExtra
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
 
 class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
@@ -25,8 +26,8 @@ class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>(
     }
 
     override fun createFragment(): SuggestedEditsCardsFragment {
-        return newInstance(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action,
-                intent.getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource)
+        return newInstance(intent.serializableExtra(INTENT_EXTRA_ACTION)!!,
+                intent.serializableExtra(INTENT_EXTRA_INVOKE_SOURCE)!!)
     }
 
     companion object {

@@ -23,6 +23,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.events.UnreadNotificationsEvent
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.main.MainActivity
+import org.wikipedia.navtab.NavTab
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.page.PageTitle
 import org.wikipedia.push.WikipediaFirebaseMessagingService
@@ -184,7 +185,9 @@ class NotificationPollBroadcastReceiver : BroadcastReceiver() {
         }
 
         fun showSuggestedEditsLocalNotification(context: Context, @StringRes description: Int) {
-            val intent = NotificationPresenter.addIntentExtras(MainActivity.newIntent(context).putExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, true), 0, TYPE_LOCAL)
+            val mainIntent = MainActivity.newIntent(context)
+                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EDITS)
+            val intent = NotificationPresenter.addIntentExtras(mainIntent, 0, TYPE_LOCAL)
             NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context, 0, TYPE_LOCAL), 0,
                     context.getString(R.string.suggested_edits_reactivation_notification_title),
                     context.getString(description), context.getString(description), null,

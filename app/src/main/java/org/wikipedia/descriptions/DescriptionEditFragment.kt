@@ -38,6 +38,7 @@ import org.wikipedia.dataclient.mwapi.MwServiceError
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory
 import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.extensions.parcelable
+import org.wikipedia.extensions.serializable
 import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.notifications.AnonymousNotificationHelper
@@ -122,12 +123,13 @@ class DescriptionEditFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageTitle = requireArguments().parcelable(Constants.ARG_TITLE)!!
-        highlightText = requireArguments().getString(ARG_HIGHLIGHT_TEXT)
-        action = requireArguments().getSerializable(ARG_ACTION) as DescriptionEditActivity.Action
-        invokeSource = requireArguments().getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-        sourceSummary = requireArguments().parcelable(ARG_SOURCE_SUMMARY)
-        targetSummary = requireArguments().parcelable(ARG_TARGET_SUMMARY)
+        val arguments = requireArguments()
+        pageTitle = arguments.parcelable(Constants.ARG_TITLE)!!
+        highlightText = arguments.getString(ARG_HIGHLIGHT_TEXT)
+        action = arguments.serializable(ARG_ACTION)!!
+        invokeSource = arguments.serializable(Constants.INTENT_EXTRA_INVOKE_SOURCE)!!
+        sourceSummary = arguments.parcelable(ARG_SOURCE_SUMMARY)
+        targetSummary = arguments.parcelable(ARG_TARGET_SUMMARY)
         EditAttemptStepEvent.logInit(pageTitle, EditAttemptStepEvent.INTERFACE_OTHER)
     }
 
