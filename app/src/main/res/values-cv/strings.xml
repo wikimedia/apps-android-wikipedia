@@ -160,7 +160,7 @@
   <string name="logout_prompt">Сирӗн аккаунтран мӗнпур хатӗрсем ҫинчен тухӑпӑр. Эсир чӑнах та тухасшӑн-и?</string>
   <string name="logout_dialog_cancel_button_text">Пӑрахӑҫла</string>
   <string name="logged_out_in_background_title">Эсир аккаунтран тухрӑр</string>
-  <string name="logged_out_in_background_dialog">Эсир {{SITENAME}} проектӑн аккаунтӗнчен тухрӑр. Каялла кӗрес килмест-и?</string>
+  <string name="logged_out_in_background_dialog">Эсир Википеди проектӑн аккаунтӗнчен тухрӑр. Каялла кӗрес килмест-и?</string>
   <string name="logged_out_in_background_login">Кӗр</string>
   <string name="logged_out_in_background_cancel">Пӑрахӑҫла</string>
   <string name="history_empty_title">Нумай пулмасть пӑхнӑ страницӑсем ҫук</string>
