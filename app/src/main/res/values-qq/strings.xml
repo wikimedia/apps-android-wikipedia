@@ -487,7 +487,7 @@
   <string name="editing_line_numbers_label">Label for checkbox that enables or disables showing line numbers when editing.</string>
   <string name="editing_monospace_font_label">Label for checkbox that enables or disables using a monospace font when editing.</string>
   <string name="editing_typing_suggestions">Label for checkbox that enables or disables typing suggestions when editing.</string>
-  <string name="nav_item_saved">Navigation menu item label for reading lists.</string>
+  <string name="nav_item_saved">Translate as a plural adjective that describes articles (\"saved articles\", but without the word \"articles\").\n\nNavigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>

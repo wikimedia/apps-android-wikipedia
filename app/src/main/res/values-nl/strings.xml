@@ -781,8 +781,8 @@
   <string name="notifications_menu_uncheck_all">Alle items deselecteren</string>
   <string name="notifications_wiki_filter_header">Wikifilter</string>
   <string name="notifications_type_filter_header">Filter naar type</string>
-  <string name="notifications_all_wikis_text">Alle \"wiki\'s\"</string>
-  <string name="notifications_all_types_text">Alle \"types\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Alle \"wiki\'s\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Alle \"types\"</string>
   <string name="notifications_menu_user_talk_page">%s\'s overlegpagina</string>
   <string name="notifications_offline_disable_message">Deze functie is offline niet beschikbaar</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>

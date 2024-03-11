@@ -643,8 +643,8 @@
   <string name="notifications_menu_mark_as_unread">ทำเครื่องหมายว่ายังไม่ได้อ่าน</string>
   <string name="notifications_swipe_action_read">อ่านแล้ว</string>
   <string name="notifications_wiki_filter_header">ตัวกรองวิกิ</string>
-  <string name="notifications_all_wikis_text">ทุก \"วิกิ\"</string>
-  <string name="notifications_all_types_text">ทุก \"ชนิด\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">ทุก \"วิกิ\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">ทุก \"ชนิด\"</string>
   <string name="notifications_menu_user_talk_page">หน้าคุยของ %s</string>
   <string name="view_because_you_read_card_title">เนื่องจากคุณอ่าน</string>
   <string name="view_random_card_title">ตัวสุ่ม</string>

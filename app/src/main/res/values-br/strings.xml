@@ -757,8 +757,8 @@
   <string name="notifications_swipe_action_read">Lenn</string>
   <string name="notifications_swipe_action_unread">N\'eo ket bet lennet</string>
   <string name="notifications_wiki_filter_header">Sil wiki</string>
-  <string name="notifications_all_wikis_text">Pep \"wiki\"</string>
-  <string name="notifications_all_types_text">Pep \"seurt\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Pep \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Pep \"seurt\"</string>
   <string name="notifications_menu_user_talk_page">Pajenn gaozeal %s</string>
   <string name="notifications_offline_disable_message">An arc\'hwel-mañ n\'eo ket hegerz pa vezer ezlinenn.</string>
   <string name="view_because_you_read_card_title">Peogwir ho peus lennet</string>

@@ -258,6 +258,7 @@
   <string name="error_page_does_not_exist">Dát siidu ii gávdno</string>
   <string name="reference_title">Gáldu %s</string>
   <string name="reference_list_title">Gáldut</string>
+  <string name="page_footer_license_text">Sisdoalu sáhttá geavahit liseanssain $1, jus ii boađe eará diehtu.</string>
   <string name="empty_tab_title">Ođđa leavga</string>
   <string name="menu_save_all_tabs">Vurke buot leavggaid</string>
   <string name="error_blocked_title">Du geavaheaddjinamma dahje IP-čujuhus lea hehttejuvvon.</string>
@@ -427,6 +428,8 @@
   <string name="wikitext_italic">Finjučála</string>
   <string name="wikitext_link">Liŋka</string>
   <string name="wikitext_insert_media">Lasit media</string>
+  <string name="wikitext_bulleted_list">Čuokkislistu</string>
+  <string name="wikitext_numbered_list">Nummaraston listu</string>
   <string name="wikitext_template">Málle</string>
   <string name="wikitext_reference">Gáldu</string>
   <string name="insert_media_title">Lasit media</string>
