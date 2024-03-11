@@ -767,8 +767,8 @@
   <string name="notifications_menu_uncheck_all">Desmarcar todos os elementos</string>
   <string name="notifications_wiki_filter_header">Filtro de wikis</string>
   <string name="notifications_type_filter_header">Filtro de tipos</string>
-  <string name="notifications_all_wikis_text">Todas as \"wikis\"</string>
-  <string name="notifications_all_types_text">Todos os \"tipos\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Todas as \"wikis\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Todos os \"tipos\"</string>
   <string name="notifications_menu_user_talk_page">Página de discussão de %s</string>
   <string name="notifications_offline_disable_message">A função não está disponível offline.</string>
   <string name="view_because_you_read_card_title">Porque leu</string>

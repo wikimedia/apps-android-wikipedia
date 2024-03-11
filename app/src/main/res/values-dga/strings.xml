@@ -736,8 +736,8 @@
   <string name="notifications_menu_uncheck_all">Ta la peɛre kaa boma zaa</string>
   <string name="notifications_wiki_filter_header">Wiki boŋkyoraa</string>
   <string name="notifications_type_filter_header">Tɔ boŋkyoɔraa</string>
-  <string name="notifications_all_wikis_text">\"wiki\" zaa</string>
-  <string name="notifications_all_types_text">\"Parԑԑ\" zaa</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">\"wiki\" zaa</string>
+  <string name="notifications_all_types_text" fuzzy="true">\"Parԑԑ\" zaa</string>
   <string name="notifications_menu_user_talk_page">%s\'s yelyaga peegyi</string>
   <string name="notifications_offline_disable_message">A tontonaa ba kyebe saseɛ miri ba tɔnnɔŋ.</string>
   <string name="view_because_you_read_card_title">Bonso fo kanne la</string>

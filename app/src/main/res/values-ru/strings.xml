@@ -526,7 +526,7 @@
   <string name="editing_line_numbers_label">Показывать номера строк</string>
   <string name="editing_monospace_font_label">Использовать моноширинный шрифт</string>
   <string name="editing_typing_suggestions">Показывать автодополнение при вводе</string>
-  <string name="nav_item_saved">Сохранено</string>
+  <string name="nav_item_saved">Сохранённые</string>
   <string name="reading_list_save_to">Добавить в список для чтения</string>
   <string name="reading_list_move_to">Перенести в список для чтения</string>
   <string name="reading_list_create_new">Создать новый</string>
@@ -833,8 +833,8 @@
   <string name="notifications_menu_uncheck_all">Снять отметки со всех объектов</string>
   <string name="notifications_wiki_filter_header">Вики фильтр</string>
   <string name="notifications_type_filter_header">Тип фильтра</string>
-  <string name="notifications_all_wikis_text">Все \"вики\"</string>
-  <string name="notifications_all_types_text">Все «типы»</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Все \"вики\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Все «типы»</string>
   <string name="notifications_menu_user_talk_page">Страница обсуждения %s</string>
   <string name="notifications_offline_disable_message">Эта функция недоступна офлайн.</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>

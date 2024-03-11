@@ -243,8 +243,12 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             rollbackResponse.postValue(Resource.Error(throwable))
         }) {
+
+            val rollbackSummaryMsg = ServiceFactory.get(title.wikiSite).getMessages("revertpage", null)
+                .query?.allmessages?.firstOrNull { it.name == "revertpage" }?.content
+
             val rollbackToken = ServiceFactory.get(title.wikiSite).getToken("rollback").query!!.rollbackToken()!!
-            val summary = if (fromRecentEdits) DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK else if (fromWatchList) WatchlistFragment.WATCHLIST_ROLLBACK_COMMENT
+            val summary = "$rollbackSummaryMsg, " + if (fromRecentEdits) DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK else if (fromWatchList) WatchlistFragment.WATCHLIST_ROLLBACK_COMMENT
             else ArticleEditDetailsFragment.DIFF_ROLLBACK_COMMENT
             val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, summary, user, rollbackToken)
             rollbackResponse.postValue(Resource.Success(rollbackPostResponse))

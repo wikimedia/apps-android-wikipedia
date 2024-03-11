@@ -136,8 +136,8 @@
   <string name="login_username_hint">Nama pemaké</string>
   <string name="login_password_hint">Kata sandi</string>
   <string name="account_creation_password_hint">Kata sandi</string>
-  <string name="login_2fa_hint">Kode Musadakah Dua-Paktor</string>
-  <string name="login_2fa_other_workflow_error_msg">Musadakah dua-paktor dibutuhin! Padol dah, kombali ke penggawéan utama èn masup paké lu punya gobang 2FA, terus jal lagi dah.</string>
+  <string name="login_2fa_hint">Kode Pengeruanan Dua-Sela</string>
+  <string name="login_2fa_other_workflow_error_msg">Pengeruanan dua-selah dibutuhin! Padol dah, kombali ke penggawéan utama èn masup paké lu punya gobang 2FA, terus jal lagi dah.</string>
   <string name="onboarding_card_login">Masup</string>
   <string name="page_editing_login">Masup</string>
   <string name="reading_lists_sync_login">Masup</string>
@@ -206,7 +206,7 @@
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Buang daptar bacaan kejuntrung deri \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Ni bakal bener-bener ngapus semua-muanya daptar bacaan kejuntrung deri penampungan jarak jauh. Buang semua daptar kejuntrung deri lu punya rèkening \"%s\"?</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
-  <string name="preference_summary_auto_upload_crash_reports">Ijinin aplikasi otomatis ngirim laporan kerusakan ke penyedia ladènan pihak ketiga biar kita bisa merèksa dah lu punya kerusakan èn ngebetulin tu bangsat lebi lekas èn gampil.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Ijinin aplikasi otomatis ngirim laporan kerusakan ke pengojèk ladènan pihak ketiga biar kita bisa merèksa dah lu punya kerusakan èn ngebetulin tu bangsat lebi lekas èn gampil.</string>
   <string name="editing_error_spamblacklist">Sènggètan ke rungkun nyang diblokir (%s) keendus. Dimohon buang tu èn jal lagi.</string>
   <string name="history_filter_list_hint">Saring riwayat</string>
   <string name="error_can_not_process_link">Kaga\' bisa mampangin ni sènggètan</string>
@@ -736,8 +736,8 @@
   <string name="notifications_menu_uncheck_all">Ilangin contrèng semua butir</string>
   <string name="notifications_wiki_filter_header">Saringan Wiki</string>
   <string name="notifications_type_filter_header">Saringan jenis</string>
-  <string name="notifications_all_wikis_text">Semua \"wiki\"</string>
-  <string name="notifications_all_types_text">Semua \"jenis\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Semua \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Semua \"jenis\"</string>
   <string name="notifications_menu_user_talk_page">%s punya halaman obrolan</string>
   <string name="notifications_offline_disable_message">Pungsi kaga\' derak pas di luar-jala.</string>
   <string name="view_because_you_read_card_title">Sebab lu baca</string>

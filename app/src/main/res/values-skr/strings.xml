@@ -359,8 +359,8 @@
   <string name="notifications_swipe_action_read">پڑھو</string>
   <string name="notifications_swipe_action_unread">کائنی پڑھا</string>
   <string name="notifications_wiki_filter_header">وکی چھاݨاں</string>
-  <string name="notifications_all_wikis_text">ساریاں \"وکیاں\"</string>
-  <string name="notifications_all_types_text">ساریاں \"قسماں\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">ساریاں \"وکیاں\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">ساریاں \"قسماں\"</string>
   <string name="view_random_article_card_title">پوکھواں مضمون</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d کے</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d ایم</string>
