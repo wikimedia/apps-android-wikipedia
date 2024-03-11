@@ -726,8 +726,8 @@
   <string name="notifications_menu_check_all">Izaberi sve</string>
   <string name="notifications_wiki_filter_header">Filter vikija</string>
   <string name="notifications_type_filter_header">Tip filtera</string>
-  <string name="notifications_all_wikis_text">Svi \"vikiji\"</string>
-  <string name="notifications_all_types_text">Svi \"tipovi\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Svi \"vikiji\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Svi \"tipovi\"</string>
   <string name="notifications_menu_user_talk_page">Stranica za razgovor %s</string>
   <string name="notifications_offline_disable_message">Funkcija nije dostupna dok ste van mreže.</string>
   <string name="view_because_you_read_card_title">Na osnovu pročitanog</string>

@@ -65,6 +65,10 @@ android {
         buildConfig true
     }
 
+    androidResources {
+        generateLocaleConfig = true
+    }
+
     sourceSets {
 
         prod { java.srcDirs += 'src/extra/java' }

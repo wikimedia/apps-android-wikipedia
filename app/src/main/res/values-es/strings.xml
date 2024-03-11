@@ -794,6 +794,8 @@
   <string name="notifications_swipe_action_unread">No leída</string>
   <string name="notifications_menu_check_all">Marcar todas</string>
   <string name="notifications_menu_uncheck_all">Desmarcar todas</string>
+  <string name="notifications_all_wikis_text">Todas las wikis</string>
+  <string name="notifications_all_types_text">Todos los tipos</string>
   <string name="notifications_menu_user_talk_page">Página de discusión de %s</string>
   <string name="view_because_you_read_card_title">Porque leíste</string>
   <string name="view_random_card_title">Aleatorio</string>

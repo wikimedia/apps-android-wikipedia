@@ -777,8 +777,8 @@
   <string name="notifications_menu_uncheck_all">Deseleziona tutti gli elementi</string>
   <string name="notifications_wiki_filter_header">Filtri Wiki</string>
   <string name="notifications_type_filter_header">Tipo di filtro</string>
-  <string name="notifications_all_wikis_text">Tutti gli \"wiki\"</string>
-  <string name="notifications_all_types_text">Tutti i \"tipi\"</string>
+  <string name="notifications_all_wikis_text">Tutti i siti wiki</string>
+  <string name="notifications_all_types_text">Tutti i tipi</string>
   <string name="notifications_menu_user_talk_page">Pagina di discussione di %s</string>
   <string name="notifications_offline_disable_message">La funzione non è disponibile quando si è offline.</string>
   <string name="view_because_you_read_card_title">Perché hai letto</string>
