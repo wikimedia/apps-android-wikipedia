@@ -653,7 +653,7 @@
   <string name="notifications_swipe_action_unread">Μη αναγνωσμένο</string>
   <string name="notifications_menu_check_all">Επισήμανση όλων των αντικειμένων</string>
   <string name="notifications_type_filter_header">Τύπος φίλτρου</string>
-  <string name="notifications_all_types_text">Όλοι οι \"τύποι\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Όλοι οι \"τύποι\"</string>
   <string name="view_because_you_read_card_title">Επειδή διαβάσατε</string>
   <string name="view_random_card_title">Τυχαιοποιητής</string>
   <string name="view_random_article_card_title">Τυχαίο άρθρο</string>

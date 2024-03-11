@@ -698,8 +698,8 @@
   <string name="notifications_menu_uncheck_all">Bijartina temamê wan rake</string>
   <string name="notifications_wiki_filter_header">Parzûna wîkiyê</string>
   <string name="notifications_type_filter_header">Parzûna çeşîdê</string>
-  <string name="notifications_all_wikis_text">Temamê \"wîkî\"yan</string>
-  <string name="notifications_all_types_text">Temamê \"çeşîd\"an</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Temamê \"wîkî\"yan</string>
+  <string name="notifications_all_types_text" fuzzy="true">Temamê \"çeşîd\"an</string>
   <string name="notifications_menu_user_talk_page">Rûpela gotûbêjê yê/ya %s</string>
   <string name="notifications_offline_disable_message">Gava derhêl bî ev fonksiyon ne amade ye.</string>
   <string name="view_because_you_read_card_title">Ji ber ku te xwendiye</string>
