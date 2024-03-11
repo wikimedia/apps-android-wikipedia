@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/paper_color"
-        android:elevation="6dp">
+        android:elevation="1dp">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
@@ -24,15 +24,17 @@
 
             <org.wikipedia.views.CabSearchView
                 android:id="@+id/searchCabView"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="2dp"
-                android:layout_weight="1"
                 android:imeOptions="actionGo|flagNoExtractUi"
                 android:inputType="text"
                 app:searchIcon="@null"
                 app:searchHintIcon="@null"
-                app:defaultQueryHint="@string/search_hint" />
+                app:iconifiedByDefault="false"
+                app:defaultQueryHint="@string/templates_search_hint">
+                <requestFocus />
+            </org.wikipedia.views.CabSearchView>
 
         </com.google.android.material.appbar.MaterialToolbar>
 

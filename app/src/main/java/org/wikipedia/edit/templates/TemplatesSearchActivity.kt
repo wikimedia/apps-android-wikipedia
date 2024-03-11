@@ -2,9 +2,12 @@ package org.wikipedia.edit.templates
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -23,6 +26,8 @@ import org.wikipedia.databinding.ActivityTemplatesSearchBinding
 import org.wikipedia.databinding.ItemTemplatesSearchBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.page.PageTitle
+import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 
 class TemplatesSearchActivity : BaseActivity() {
@@ -32,13 +37,31 @@ class TemplatesSearchActivity : BaseActivity() {
 
     val viewModel: TemplatesSearchViewModel by viewModels { TemplatesSearchViewModel.Factory(intent.extras!!) }
 
+    private val searchCloseListener = SearchView.OnCloseListener {
+        closeSearch()
+        false
+    }
+
+    private val searchQueryListener = object : SearchView.OnQueryTextListener {
+        override fun onQueryTextSubmit(queryText: String): Boolean {
+            DeviceUtil.hideSoftKeyboard(this@TemplatesSearchActivity)
+            return true
+        }
+
+        override fun onQueryTextChange(queryText: String): Boolean {
+            binding.searchCabView.setCloseButtonVisibility(queryText)
+            startSearch(queryText.trim())
+            return true
+        }
+    }
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTemplatesSearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        setImageZoomHelper()
-        supportActionBar?.title = getString(R.string.templates_search_hint)
+
+        initSearchView()
 
         binding.templateRecyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -58,6 +81,23 @@ class TemplatesSearchActivity : BaseActivity() {
                 }
             }
         }
+    }
+
+    private fun initSearchView() {
+        binding.searchCabView.setOnQueryTextListener(searchQueryListener)
+        binding.searchCabView.setOnCloseListener(searchCloseListener)
+        binding.searchCabView.setSearchHintTextColor(ResourceUtil.getThemedColor(this, R.attr.secondary_color))
+        binding.searchCabView.queryHint = getString(R.string.templates_search_hint)
+        val searchEditPlate = binding.searchCabView.findViewById<View>(androidx.appcompat.R.id.search_plate)
+        searchEditPlate.setBackgroundColor(Color.TRANSPARENT)
+    }
+
+    private fun startSearch(term: String?) {
+        // TODO: do search
+    }
+
+    private fun closeSearch() {
+        DeviceUtil.hideSoftKeyboard(this)
     }
 
     override fun onBackPressed() {

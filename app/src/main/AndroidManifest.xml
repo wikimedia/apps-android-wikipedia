@@ -347,7 +347,6 @@
 
         <activity
             android:name=".edit.templates.TemplatesSearchActivity"
-            android:label="@string/templates_search_hint"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity
