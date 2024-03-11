@@ -152,6 +152,7 @@
   <string name="login_in_progress_dialog_message">Системӑна кӗресси…</string>
   <string name="login_success_toast">Сайта кӗтӗмӗр!</string>
   <string name="reset_password_title">Пароль хатӗрлӗр</string>
+  <string name="reset_password_description">Эсир вӑхӑтлӑ парольпе усӑ курса кӗнӗ. Ку ӗҫе вӗҫне ҫитерме сирӗн ҫӗнӗ пароль хатӗрлемелле.</string>
   <string name="reset_password_hint">Ҫӗнӗ пароль</string>
   <string name="reset_password_button">Астуса юл та системӑна кӗр</string>
   <string name="preference_title_logout">Тух</string>
@@ -159,6 +160,7 @@
   <string name="logout_prompt">Сирӗн аккаунтран мӗнпур хатӗрсем ҫинчен тухӑпӑр. Эсир чӑнах та тухасшӑн-и?</string>
   <string name="logout_dialog_cancel_button_text">Пӑрахӑҫла</string>
   <string name="logged_out_in_background_title">Эсир аккаунтран тухрӑр</string>
+  <string name="logged_out_in_background_dialog">Эсир Википеди проектӑн аккаунтӗнчен тухрӑр. Каялла кӗрес килмест-и?</string>
   <string name="logged_out_in_background_login">Кӗр</string>
   <string name="logged_out_in_background_cancel">Пӑрахӑҫла</string>
   <string name="history_empty_title">Нумай пулмасть пӑхнӑ страницӑсем ҫук</string>
@@ -185,6 +187,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Эл. почта кӑтартмасӑр мала кай</string>
   <string name="email_recommendation_dialog_create_with_email_action">Эл. почтӑн адресне хуш</string>
   <string name="create_account_button">Аккаунт хатӗрле</string>
+  <string name="create_account_ip_block_help_url">https://cv.wikipedia.org/wiki/Википеди:Блокланисем</string>
   <string name="create_account_ip_block_details">Анлӑрах</string>
   <string name="preferences_general_heading">Тӗп</string>
   <string name="preferences_account_heading">Аккаунт</string>
@@ -196,6 +199,7 @@
   <string name="preference_title_sync_reading_lists_from_account">Вулав списокне синхронизацилесси</string>
   <string name="preference_title_download_reading_list_articles">Вулав списокӗнчи статьясене уҫласси</string>
   <string name="preference_title_auto_upload_crash_reports">Ҫӗмӗрӗлнисем пирки пӗлтерӗр</string>
+  <string name="history_filter_list_hint">Фильтрланин историйӗ</string>
   <string name="settings_item_preferences">Ӗнерлевсем</string>
   <string name="settings_activity_title">Ӗнерлевсем</string>
   <string name="about_description">«Википеди» приложени ҫинчен</string>
@@ -225,6 +229,12 @@
   <string name="edit_redo">Тепре ту</string>
   <string name="edit_rollback">Каялла тавăр</string>
   <string name="edit_warn">Асӑрхаттару</string>
+  <string name="edit_damage">Сиен %s</string>
+  <string name="edit_intent">Шут тытни %s</string>
+  <plurals name="edit_diff_bytes">
+    <item quantity="one">%s байт</item>
+    <item quantity="other">%s байт</item>
+  </plurals>
   <string name="edit_zoom_in">Пысӑклат</string>
   <string name="edit_zoom_out">Пӗчӗклет</string>
   <string name="edit_summary_tag_typo">Опечаткӑна тӳрлетнӗ</string>
@@ -308,6 +318,11 @@
   </plurals>
   <string name="multi_select_items_selected">%d суйланӑ</string>
   <string name="view_link_preview_error_button_dismiss">Хуп</string>
+  <string name="link_preview_dialog_read_button">Вула</string>
+  <string name="link_preview_dialog_save_button">Упраса хӑвар</string>
+  <string name="link_preview_dialog_saved_button">Упраса хутӑмӑр</string>
+  <string name="link_preview_dialog_share_button">Пайлаш</string>
+  <string name="error_page_does_not_exist">Кун пек страница ҫук</string>
   <string name="empty_tab_title">Ҫӗнӗ таб</string>
   <string name="menu_save_all_tabs">Мӗнпур табсене астуса юл</string>
   <string name="crash_report_quit">Тух</string>
@@ -376,6 +391,10 @@
   <string name="reading_list_name_hint">Ку списокӑн ячӗ</string>
   <string name="reading_list_description_hint">Ӑнлантару (кирлех мар)</string>
   <string name="reading_list_item_deleted">%s списокран хуратнӑ</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">Списокран %d страницӑна кӑларса петӗмӗр</item>
+    <item quantity="other">Списокран %d страница кӑларса петӗмӗр</item>
+  </plurals>
   <string name="reading_list_items_deleted">Списокри %d статьяна кӑларса пенӗ</string>
   <string name="reading_lists_item_deleted">списоксенчен %s хуратнӑ</string>
   <string name="reading_list_item_delete_undo">Пӑрахӑҫла</string>
@@ -391,6 +410,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ҫапла</string>
   <string name="reading_lists_confirm_remote_delete_no">Ҫук</string>
   <string name="reading_list_article_save_in_progress">Страница уҫланать. Тиеннӗ хыҫҫӑн унпа оффлайн та паллашма май пулӗ.</string>
+  <string name="reading_list_delete_lists_confirm_dialog_title">Суйланӑ списоксене кӑларса пемелле-и?</string>
   <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Ӗнерлевсем</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ҫук, кирлӗ мар</string>
@@ -406,6 +426,7 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Кăларса пăрах</string>
   <string name="reading_list_activity_title">Вуламалли список: %s</string>
+  <string name="reading_lists_action_menu_export_lists">Экспортла</string>
   <string name="reading_lists_preview_save_dialog_title_hint">Ячĕ</string>
   <string name="reading_lists_preview_save_dialog_cancel">Пӑрахӑҫла</string>
   <string name="reading_lists_preview_save_dialog_save">Ҫырса хур</string>
@@ -429,6 +450,9 @@
   </plurals>
   <string name="preference_title_notification_thanks">Тав сӑмахӗ</string>
   <string name="preference_summary_notification_thanks">Тахӑшӗ сире тӳрлетӳшӗн тав тунӑ</string>
+  <string name="preference_title_notification_mention">Сире асӑннисем</string>
+  <string name="preference_summary_notification_mention">Страницӑра сире тахӑшӗ асӑнса хӑварнӑ</string>
+  <string name="preference_title_notification_user_talk">Сӳтсе яву страницинче</string>
   <string name="preference_category_display_settings">Курӑмлӑха ӗнерлени</string>
   <string name="notifications_channel_group_wikipedia_notifications_title">Википеди</string>
   <string name="notifications_channel_group_wikipedia_notifications_description">Википедири систерӳсем</string>

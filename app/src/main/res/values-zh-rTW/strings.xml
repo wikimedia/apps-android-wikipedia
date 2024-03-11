@@ -776,8 +776,8 @@
   <string name="notifications_menu_uncheck_all">取消勾選所有項目</string>
   <string name="notifications_wiki_filter_header">篩選wiki</string>
   <string name="notifications_type_filter_header">類型篩選</string>
-  <string name="notifications_all_wikis_text">所有「wiki」</string>
-  <string name="notifications_all_types_text">所有「類型」</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">所有「wiki」</string>
+  <string name="notifications_all_types_text" fuzzy="true">所有「類型」</string>
   <string name="notifications_menu_user_talk_page">%s的討論頁</string>
   <string name="notifications_offline_disable_message">該功能在離線時不可使用。</string>
   <string name="view_because_you_read_card_title">您曾閱讀過的</string>

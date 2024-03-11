@@ -748,8 +748,8 @@
   <string name="notifications_menu_uncheck_all">Cire duk abubuwa</string>
   <string name="notifications_wiki_filter_header">Filter na Wiki</string>
   <string name="notifications_type_filter_header">Nau\'in tacewa</string>
-  <string name="notifications_all_wikis_text">Duk \"wiki\"</string>
-  <string name="notifications_all_types_text">Dukkanin \"nau\'in\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Duk \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Dukkanin \"nau\'in\"</string>
   <string name="notifications_menu_user_talk_page">Shafin magana na %s</string>
   <string name="notifications_offline_disable_message">Ba a samun aikin yayin da yake kan layi.</string>
   <string name="view_because_you_read_card_title">Saboda ka karanta</string>
