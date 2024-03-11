@@ -748,8 +748,8 @@
   <string name="notifications_menu_uncheck_all">Цхьаккха элемент белгал ма е</string>
   <string name="notifications_wiki_filter_header">Вики фильтр</string>
   <string name="notifications_type_filter_header">Фильтра тайпа</string>
-  <string name="notifications_all_wikis_text">Еррига \"викеш\"</string>
-  <string name="notifications_all_types_text">Деррига \"тайпаш\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Еррига \"викеш\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Деррига \"тайпаш\"</string>
   <string name="notifications_menu_user_talk_page">%s яхачун къамаьл-оагӀув</string>
   <string name="notifications_offline_disable_message">Функцес болх биц автономни ража чу.</string>
   <string name="view_because_you_read_card_title">Хьалха дийшачунга хьажжá</string>

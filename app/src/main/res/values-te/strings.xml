@@ -673,8 +673,8 @@
   <string name="notifications_menu_uncheck_all">అంశాలన్నిటి ఎంపికనూ తీసెయ్యి</string>
   <string name="notifications_wiki_filter_header">వికీ వడపోత</string>
   <string name="notifications_type_filter_header">వడపోతను టైపించండి</string>
-  <string name="notifications_all_wikis_text">అన్ని \"వికీ\"</string>
-  <string name="notifications_all_types_text">అన్ని \"రకం\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">అన్ని \"వికీ\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">అన్ని \"రకం\"</string>
   <string name="notifications_menu_user_talk_page">%s చర్చ పేజీ</string>
   <string name="notifications_offline_disable_message">ఈ ఫంక్షను ఆప్‌లైనులో అందుబాటులో లేదు.</string>
   <string name="view_because_you_read_card_title">మీరివి చదివారు కాబట్టి</string>

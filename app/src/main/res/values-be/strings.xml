@@ -811,8 +811,8 @@
   <string name="notifications_menu_uncheck_all">Зняць адзнакі са ўсіх элементаў</string>
   <string name="notifications_wiki_filter_header">Вікі фільтр</string>
   <string name="notifications_type_filter_header">Тып фільтра</string>
-  <string name="notifications_all_wikis_text">Усе \"вікі\"</string>
-  <string name="notifications_all_types_text">Усе \"тыпы\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Усе \"вікі\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Усе \"тыпы\"</string>
   <string name="notifications_menu_user_talk_page">Старонка для размоў %s</string>
   <string name="notifications_offline_disable_message">Функцыя недаступная пакуль вы знаходзіцеся па-за сеткай</string>
   <string name="view_because_you_read_card_title">Праз тое, што вы чыталі</string>

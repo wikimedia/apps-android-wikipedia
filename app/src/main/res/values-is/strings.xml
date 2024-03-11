@@ -743,8 +743,8 @@
   <string name="notifications_menu_uncheck_all">Afmerkja öll atriði</string>
   <string name="notifications_wiki_filter_header">Wiki-sía</string>
   <string name="notifications_type_filter_header">Tegundasía</string>
-  <string name="notifications_all_wikis_text">Allt \"wiki\"</string>
-  <string name="notifications_all_types_text">Allt \"type\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Allt \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Allt \"type\"</string>
   <string name="notifications_menu_user_talk_page">Spjallsíða %s</string>
   <string name="notifications_offline_disable_message">Aðgerðin er ekki tiltæk í ónettengdum ham.</string>
   <string name="view_because_you_read_card_title">Því þú last</string>

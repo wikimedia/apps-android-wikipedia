@@ -726,8 +726,8 @@
   <string name="notifications_menu_uncheck_all">Debifează toate elementele</string>
   <string name="notifications_wiki_filter_header">Filtru wiki</string>
   <string name="notifications_type_filter_header">Tipul filtrului</string>
-  <string name="notifications_all_wikis_text">Toate „wiki”</string>
-  <string name="notifications_all_types_text">Toate „tipurile”</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Toate „wiki”</string>
+  <string name="notifications_all_types_text" fuzzy="true">Toate „tipurile”</string>
   <string name="notifications_menu_user_talk_page">Pagina de discuție a lui %s</string>
   <string name="notifications_offline_disable_message">Funcția nu este disponibilă când sunteți off-line.</string>
   <string name="view_because_you_read_card_title">Pentru că ați citit</string>

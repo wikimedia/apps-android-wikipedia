@@ -766,8 +766,8 @@
   <string name="notifications_menu_uncheck_all">Fjern merking av alle elementer</string>
   <string name="notifications_wiki_filter_header">Wikifilter</string>
   <string name="notifications_type_filter_header">Filtertype</string>
-  <string name="notifications_all_wikis_text">Alle wikier</string>
-  <string name="notifications_all_types_text">Alle typer</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Alle wikier</string>
+  <string name="notifications_all_types_text" fuzzy="true">Alle typer</string>
   <string name="notifications_menu_user_talk_page">%ss diskusjonsside</string>
   <string name="notifications_offline_disable_message">Funksjonen er ikke tilgjengelig offline.</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
