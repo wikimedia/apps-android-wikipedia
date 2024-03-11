@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import org.wikipedia.Constants
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
+import org.wikipedia.edit.templates.TemplatesSearchActivity
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -27,6 +28,7 @@ class SyntaxHighlightViewAdapter(
     private val wikiTextKeyboardHeadingsView: WikiTextKeyboardHeadingsView,
     private val invokeSource: Constants.InvokeSource,
     private val requestInsertMedia: ActivityResultLauncher<Intent>,
+    private val requestInsertTemplate: ActivityResultLauncher<Intent>,
     showUserMention: Boolean = false
 ) : WikiTextKeyboardView.Callback {
 
@@ -79,6 +81,10 @@ class SyntaxHighlightViewAdapter(
         requestInsertMedia.launch(InsertMediaActivity.newIntent(activity, pageTitle.wikiSite,
             if (invokeSource == Constants.InvokeSource.EDIT_ACTIVITY) pageTitle.displayText else "",
             invokeSource))
+    }
+
+    override fun onRequestInsertTemplate() {
+        requestInsertTemplate.launch(TemplatesSearchActivity.newIntent(activity, pageTitle.wikiSite, invokeSource))
     }
 
     override fun onRequestInsertLink() {

@@ -58,7 +58,6 @@ class TemplatesSearchActivity : BaseActivity() {
                 }
             }
         }
-
     }
 
     override fun onBackPressed() {

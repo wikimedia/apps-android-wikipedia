@@ -94,6 +94,10 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         }
     }
 
+    private val requestInsertTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        // TODO: implement this
+    }
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkReplyBinding.inflate(layoutInflater)
@@ -166,7 +170,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
 
         SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.replyInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
-            Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
+            Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, requestInsertTemplate, true)
 
         onInitialLoad()
     }

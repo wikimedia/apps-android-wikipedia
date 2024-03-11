@@ -154,6 +154,10 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
         }
     }
 
+    private val requestInsertTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        // TODO: implement this
+    }
+
     private val editTokenThenSave: Unit
         get() {
             cancelCalls()
@@ -230,7 +234,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
 
         SyntaxHighlightViewAdapter(this, pageTitle, binding.root, binding.editSectionText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
-            Constants.InvokeSource.EDIT_ACTIVITY, requestInsertMedia)
+            Constants.InvokeSource.EDIT_ACTIVITY, requestInsertMedia, requestInsertTemplate)
 
         binding.editSectionText.setOnClickListener { finishActionMode() }
         onEditingPrefsChanged()
