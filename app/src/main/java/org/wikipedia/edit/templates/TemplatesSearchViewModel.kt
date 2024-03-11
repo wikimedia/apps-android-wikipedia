@@ -20,14 +20,17 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
 
     val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
     val wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
-
+    var searchQuery: String? = null
     val searchTemplatesFlow = Pager(PagingConfig(pageSize = 10)) {
-        SearchTemplatesFlowSource("", wikiSite)
+        SearchTemplatesFlowSource(searchQuery, wikiSite)
     }.flow.cachedIn(viewModelScope)
 
-    class SearchTemplatesFlowSource(val searchQuery: String, val wikiSite: WikiSite) : PagingSource<Int, PageTitle>() {
+    class SearchTemplatesFlowSource(val searchQuery: String?, val wikiSite: WikiSite) : PagingSource<Int, PageTitle>() {
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PageTitle> {
             return try {
+                if (searchQuery.isNullOrEmpty()) {
+                    return LoadResult.Page(emptyList(), null, null)
+                }
                 // TODO: check if the description is valid
                 val query = Namespace.TEMPLATE.name + ":" + searchQuery
                 val response = ServiceFactory.get(wikiSite)
@@ -36,6 +39,7 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
                 return response.query?.pages?.let { list ->
                     val results = list.sortedBy { it.index }.map {
                         val pageTitle = PageTitle(it.title, wikiSite, description = it.description)
+                        pageTitle.displayText = it.displayTitle(wikiSite.languageCode)
                         pageTitle
                     }
                     LoadResult.Page(results, null, response.continuation?.gsroffset)

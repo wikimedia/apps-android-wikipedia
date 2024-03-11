@@ -29,6 +29,7 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 
 class TemplatesSearchActivity : BaseActivity() {
     private lateinit var binding: ActivityTemplatesSearchBinding
@@ -63,7 +64,9 @@ class TemplatesSearchActivity : BaseActivity() {
 
         initSearchView()
 
+        templatesSearchAdapter = TemplatesSearchAdapter()
         binding.templateRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.templateRecyclerView.adapter = templatesSearchAdapter
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -93,7 +96,8 @@ class TemplatesSearchActivity : BaseActivity() {
     }
 
     private fun startSearch(term: String?) {
-        // TODO: do search
+        viewModel.searchQuery = term
+        templatesSearchAdapter?.refresh()
     }
 
     private fun closeSearch() {
@@ -129,7 +133,7 @@ class TemplatesSearchActivity : BaseActivity() {
 
     private inner class TemplatesSearchItemHolder(val binding: ItemTemplatesSearchBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(pageTitle: PageTitle) {
-            binding.itemTitle.text = StringUtil.fromHtml(pageTitle.displayText)
+            binding.itemTitle.text = StringUtil.removeNamespace(pageTitle.displayText)
             binding.itemDescription.isVisible = !pageTitle.description.isNullOrEmpty()
             binding.itemDescription.text = pageTitle.description
 

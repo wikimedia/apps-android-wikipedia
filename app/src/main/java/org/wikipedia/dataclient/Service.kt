@@ -88,8 +88,7 @@ interface Service {
                 "&prop=description|info" +
                 "&generator=search&gsrnamespace=0&gsrwhat=text" +
                 "&inprop=varianttitles|displaytitle" +
-                "&gsrinfo=&gsrprop=redirecttitle" +
-                PREFERRED_THUMB_SIZE
+                "&gsrinfo=&gsrprop=redirecttitle"
     )
     suspend fun fullTextSearchTemplates(
         @Query("gsrsearch") searchTerm: String,
