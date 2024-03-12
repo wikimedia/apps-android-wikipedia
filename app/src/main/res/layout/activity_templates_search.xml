@@ -36,6 +36,18 @@
                 <requestFocus />
             </org.wikipedia.views.CabSearchView>
 
+            <TextView
+                style="@style/H3.Button"
+                android:id="@+id/insertTemplateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/templates_insert_button"
+                android:textColor="?attr/progressive_color"
+                android:gravity="center"
+                android:visibility="gone"/>
+
         </com.google.android.material.appbar.MaterialToolbar>
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
@@ -72,11 +84,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-<!--            <androidx.fragment.app.FragmentContainerView-->
-<!--                android:id="@+id/templateSetupFragment"-->
-<!--                android:name="org.wikipedia.edit.insertmedia.InsertMediaSettingsFragment"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent" />-->
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/insertTemplateFragment"
+                android:name="org.wikipedia.edit.templates.InsertTemplateFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 
