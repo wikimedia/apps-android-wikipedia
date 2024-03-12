@@ -32,6 +32,7 @@ import org.wikipedia.util.StringUtil
 
 class TemplatesSearchActivity : BaseActivity() {
     private lateinit var binding: ActivityTemplatesSearchBinding
+    private lateinit var insertTemplateFragment: InsertTemplateFragment
 
     private var templatesSearchAdapter: TemplatesSearchAdapter? = null
 
@@ -66,6 +67,8 @@ class TemplatesSearchActivity : BaseActivity() {
         templatesSearchAdapter = TemplatesSearchAdapter()
         binding.templateRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.templateRecyclerView.adapter = templatesSearchAdapter
+
+        insertTemplateFragment = supportFragmentManager.findFragmentById(R.id.insertTemplateFragment) as InsertTemplateFragment
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
@@ -103,6 +106,12 @@ class TemplatesSearchActivity : BaseActivity() {
         DeviceUtil.hideSoftKeyboard(this)
     }
 
+    private fun showInsertTemplateFragment() {
+        binding.searchCabView.isVisible = false
+        binding.insertTemplateButton.isVisible = true
+        insertTemplateFragment.show()
+    }
+
     override fun onBackPressed() {
         // TODO: handle back press on template data screen
         super.onBackPressed()
@@ -137,8 +146,9 @@ class TemplatesSearchActivity : BaseActivity() {
             binding.itemDescription.text = pageTitle.description
             StringUtil.boldenKeywordText(binding.itemTitle, binding.itemTitle.text.toString(), viewModel.searchQuery)
 
-            binding.root.setOnClickListener {
-                // TODO: implement this
+            itemView.setOnClickListener {
+                viewModel.selectedTemplate = pageTitle
+                showInsertTemplateFragment()
             }
         }
     }

@@ -1,5 +1,6 @@
 package org.wikipedia.edit.templates
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,8 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import org.wikipedia.databinding.FragmentInsertTemplateBinding
+import org.wikipedia.util.StringUtil
+import org.wikipedia.util.UriUtil
 
 class InsertTemplateFragment : Fragment() {
 
@@ -32,8 +35,13 @@ class InsertTemplateFragment : Fragment() {
 
     fun show() {
         binding.root.isVisible = true
-        activity.invalidateOptionsMenu()
-        // TODO: add input field focus?
+        viewModel.selectedTemplate?.let { pageTitle ->
+            binding.templateDataTitle.text = StringUtil.removeNamespace(pageTitle.displayText)
+            binding.templateDataDescription.text = pageTitle.description
+            binding.templateDataLearnMoreButton.setOnClickListener {
+                UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(pageTitle.uri))
+            }
+        }
     }
 
     fun hide() {
