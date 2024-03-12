@@ -76,7 +76,7 @@ import org.wikipedia.views.ViewUtil
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPreviewDialog.LoadPageCallback {
+class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPreviewFragment.Callback, LinkPreviewDialog.LoadPageCallback {
     private lateinit var binding: ActivityEditSectionBinding
     private lateinit var textWatcher: TextWatcher
     private lateinit var captchaHandler: CaptchaHandler
@@ -467,6 +467,7 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
             else -> {
                 // we must be showing the editing window, so show the Preview.
                 DeviceUtil.hideSoftKeyboard(this)
+                binding.editSectionContainer.isVisible = false
                 editPreviewFragment.showPreview(pageTitle, binding.editSectionText.text.toString())
                 EditAttemptStepEvent.logSaveIntent(pageTitle)
                 supportActionBar?.title = getString(R.string.edit_preview)
@@ -613,7 +614,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
             editSummaryFragment.hide()
         }
         if (editPreviewFragment.isActive) {
-            editPreviewFragment.hide(binding.editSectionContainer)
+            editPreviewFragment.hide()
+            binding.editSectionContainer.isVisible = true
         }
     }
 
@@ -720,8 +722,12 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
         binding.editSectionText.highlightText(highlightText)
     }
 
-    fun showProgressBar(enable: Boolean) {
-        binding.viewProgressBar.isVisible = enable
+    override fun getParentPageTitle(): PageTitle {
+        return pageTitle
+    }
+
+    override fun showProgressBar(visible: Boolean) {
+        binding.viewProgressBar.isVisible = visible
         invalidateOptionsMenu()
     }
 
@@ -753,7 +759,8 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, LinkPre
                 recommendationSourceProjects = addImageSourceProjects.orEmpty(), acceptanceState = "accepted",
                 captionAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_CAPTION).isNullOrEmpty(),
                 altTextAdd = !intent.getStringExtra(InsertMediaActivity.RESULT_IMAGE_ALT).isNullOrEmpty()), pageTitle.wikiSite.languageCode)
-            editPreviewFragment.hide(binding.editSectionContainer)
+            editPreviewFragment.hide()
+            binding.editSectionContainer.isVisible = true
             supportActionBar?.title = null
 
             // If we came from the Image Recommendations workflow, bring back the Add Image activity.

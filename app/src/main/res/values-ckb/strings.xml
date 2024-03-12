@@ -691,8 +691,8 @@
   <string name="notifications_swipe_action_read">خوێندراوە</string>
   <string name="notifications_swipe_action_unread">نەخوێندراوە</string>
   <string name="notifications_wiki_filter_header">پاڵێوەری ویکی</string>
-  <string name="notifications_all_wikis_text">ھەموو ویکییەکان</string>
-  <string name="notifications_all_types_text">ھەموو جۆرەکان</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">ھەموو ویکییەکان</string>
+  <string name="notifications_all_types_text" fuzzy="true">ھەموو جۆرەکان</string>
   <string name="notifications_menu_user_talk_page">پەڕەی وتووێژی %s</string>
   <string name="notifications_offline_disable_message">ئەم ئەرکە لەکاتی دەرھێڵدا بەردەست نییە.</string>
   <string name="view_because_you_read_card_title">لەبەرەوەی خوێندتەوە</string>

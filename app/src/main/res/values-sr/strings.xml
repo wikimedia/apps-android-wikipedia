@@ -317,6 +317,8 @@
   <string name="widget_name_featured_page">Изабрана страница на Википедији</string>
   <string name="widget_title_featured_page">Изабрана страница дана:</string>
   <string name="widget_name_search">Претрага Википедије</string>
+  <string name="widget_description_search">Најбржи начин за претрагу Википедије</string>
+  <string name="widget_description_featured_page">Најбољи чланци које Википедија има да понуди</string>
   <string name="wiktionary_no_definitions_found">Дефиниције нису пронађене.</string>
   <string name="alpha_update_notification_title">Доступна је нова алфа верзија</string>
   <string name="alpha_update_notification_text">Додирните да бисте преузели</string>
@@ -747,8 +749,8 @@
   <string name="notifications_menu_uncheck_all">Поништи све</string>
   <string name="notifications_wiki_filter_header">Филтер викија</string>
   <string name="notifications_type_filter_header">Тип филтера</string>
-  <string name="notifications_all_wikis_text">Сви \"викији\"</string>
-  <string name="notifications_all_types_text">Сви \"типови\"</string>
+  <string name="notifications_all_wikis_text">Сви викији</string>
+  <string name="notifications_all_types_text">Све врсте</string>
   <string name="notifications_menu_user_talk_page">Страница за разговор %s</string>
   <string name="notifications_offline_disable_message">Функција није доступна док сте ван мреже.</string>
   <string name="view_because_you_read_card_title">На основу прочитаног</string>

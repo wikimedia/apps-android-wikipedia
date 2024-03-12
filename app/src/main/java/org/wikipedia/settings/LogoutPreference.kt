@@ -3,6 +3,7 @@ package org.wikipedia.settings
 import android.app.Activity
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -12,7 +13,9 @@ import androidx.preference.PreferenceViewHolder
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.util.StringUtil
 import java.util.concurrent.TimeUnit
 
 @Suppress("unused")
@@ -59,5 +62,20 @@ class LogoutPreference : Preference {
                 }
             }
         }
+        holder.itemView.findViewById<View>(R.id.accountVanishButton).setOnClickListener {
+            activity?.let {
+                MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme_Icon_Delete)
+                    .setIcon(R.drawable.ic_person_remove)
+                    .setTitle(R.string.account_vanish_request_confirm_title)
+                    .setMessage(StringUtil.fromHtml(it.getString(R.string.account_vanish_request_confirm)))
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setPositiveButton(R.string.account_vanish_request_title) { _, _ ->
+                        it.finish()
+                        it.startActivity(SingleWebViewActivity.newIntent(it, it.getString(R.string.account_vanish_url), isWebForm = true))
+                    }.show()
+            }
+        }
+
+        holder.itemView.findViewById<View>(R.id.accountVanishButton).isVisible = !AccountUtil.isTemporaryAccount
     }
 }

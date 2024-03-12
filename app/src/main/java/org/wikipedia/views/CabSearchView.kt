@@ -1,5 +1,6 @@
 package org.wikipedia.views
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.text.InputFilter
 import android.text.Spanned
@@ -19,6 +20,7 @@ class CabSearchView(
 ) : SearchView(context, attrs, androidx.appcompat.R.attr.searchViewStyle) {
 
     private val searchCloseBtn: ImageView
+    @SuppressLint("RestrictedApi")
     private val searchSrcTextView: SearchAutoComplete
 
     init {

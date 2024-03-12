@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -28,7 +29,7 @@
             style="@android:style/TextAppearance"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="12dp"
             android:layout_weight="1" />
 
         <Button
@@ -50,6 +51,20 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
-        android:textColor="?attr/secondary_color"/>
+        android:textColor="?attr/secondary_color"
+        tools:text="Lorem ipsum"/>
+
+    <TextView
+        android:id="@+id/accountVanishButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/H3.Button"
+        android:padding="16dp"
+        app:drawableStartCompat="@drawable/ic_person_remove"
+        android:drawablePadding="12dp"
+        app:drawableTint="?attr/colorError"
+        android:background="?attr/selectableItemBackground"
+        android:text="@string/account_vanish_request_title"
+        android:textColor="?attr/colorError" />
 
 </LinearLayout>

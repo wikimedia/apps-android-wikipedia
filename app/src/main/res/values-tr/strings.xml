@@ -349,6 +349,8 @@
   <string name="widget_name_featured_page">Vikipedi seçkin sayfa</string>
   <string name="widget_title_featured_page">Bugünün seçkin sayfası:</string>
   <string name="widget_name_search">Vikipedi arama</string>
+  <string name="widget_description_search">Vikipedi\'de aramanın en hızlı yolu</string>
+  <string name="widget_description_featured_page">Vikipedi\'nin sunduğu en iyi makaleler</string>
   <string name="wiktionary_no_definitions_found">Herhangi bir tanım bulunamadı.</string>
   <string name="alpha_update_notification_title">Yeni alfa güncellemesi mevcut</string>
   <string name="alpha_update_notification_text">İndirmek için dokunun</string>
@@ -790,8 +792,8 @@
   <string name="notifications_menu_uncheck_all">Tüm ögelerin seçimini kaldır</string>
   <string name="notifications_wiki_filter_header">Viki filtresi</string>
   <string name="notifications_type_filter_header">Tür filtresi</string>
-  <string name="notifications_all_wikis_text">Tüm \"viki\"</string>
-  <string name="notifications_all_types_text">Tüm \"tür\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Tüm \"viki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Tüm \"tür\"</string>
   <string name="notifications_menu_user_talk_page">%s tartışma sayfası</string>
   <string name="notifications_offline_disable_message">Bu işlev çevrimdışıyken kullanılamaz.</string>
   <string name="view_because_you_read_card_title">Okuduğun için</string>

@@ -168,6 +168,9 @@
     <string name="logged_out_in_background_dialog">You have been logged out of Wikipedia. Would you like to log in again?</string>
     <string name="logged_out_in_background_login">Log in</string>
     <string name="logged_out_in_background_cancel">Cancel</string>
+    <string name="account_vanish_request_title">Vanish account</string>
+    <string name="account_vanish_request_confirm_title">Vanish account warning</string>
+    <string name="account_vanish_request_confirm"><![CDATA[Vanishing is a <b>last resort</b> and should <b>only be used when you wish to stop editing forever</b> and also to hide as many of your past associations as possible.<br/><br/>Account deletion on Wikipedia is done by changing your account name to make it so others cannot recognize your contributions in a process called account vanishing. <b>Vanishing does not guarantee complete anonymity or remove contributions to the projects</b>.]]></string>
     <string name="history_empty_title">No recently viewed articles</string>
     <string name="history_empty_message">Track what you\'ve been reading here.</string>
     <string name="history_offline_articles_toast">Some articles in history may not be viewable while offline.</string>
@@ -249,7 +252,7 @@
     <string name="about_translators_heading">Translators</string>
     <string name="about_translators_translatewiki"><![CDATA[This app was translated by the volunteer translators at <a href="https://translatewiki.net">translatewiki.net</a>.]]></string>
     <string name="about_app_license_heading">License</string>
-    <string name="about_app_license"><![CDATA[Source code available on <a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\">Gerrit</a> and <a href=\"https://github.com/wikimedia/apps-android-wikipedia\">GitHub</a> under the <a href=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. Unless otherwise specified, content is available under a <a href=\"https://creativecommons.org/licenses/by-sa/4.0\">Creative Commons Attribution-ShareAlike License</a>.]]></string>
+    <string name="about_app_license"><![CDATA[Source code available on <a href=\"https://github.com/wikimedia/apps-android-wikipedia\">GitHub</a> under the <a href=\"https://www.apache.org/licenses/LICENSE-2.0\">Apache 2.0 License</a>. Unless otherwise specified, content is available under a <a href=\"https://creativecommons.org/licenses/by-sa/4.0\">Creative Commons Attribution-ShareAlike License</a>.]]></string>
     <string name="about_wmf"><![CDATA[A product of the <a href="https://wikimediafoundation.org/">Wikimedia Foundation</a>]]></string>
     <string name="about_activity_title">About</string>
     <string name="edit_abandon_confirm">The page has been modified. Are you sure you want to exit without saving your changes?</string>
@@ -796,8 +799,8 @@
     <string name="notifications_menu_uncheck_all">Uncheck all items</string>
     <string name="notifications_wiki_filter_header">Wiki filter</string>
     <string name="notifications_type_filter_header">Type filter</string>
-    <string name="notifications_all_wikis_text">All \"wiki\"</string>
-    <string name="notifications_all_types_text">All \"type\"</string>
+    <string name="notifications_all_wikis_text">All wikis</string>
+    <string name="notifications_all_types_text">All types</string>
     <string name="notifications_menu_user_talk_page">%s\'s talk page</string>
     <string name="notifications_offline_disable_message">The function is not available while offline.</string>
     <!-- /Notifications -->
@@ -1342,6 +1345,7 @@
     <string name="talk_warn_submitted_and_saved">Message saved and published to editor\'s user talk page</string>
     <string name="talk_warn_saved_message">Select an existing warning message or compose a new message.</string>
     <string name="talk_warn_saved_message_dropdown">Saved messages</string>
+    <string name="talk_warn_saved_messages">Saved messages</string>
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_page_empty_title">The conversation starts here</string>
     <string name="talk_page_empty_content">Talk pages are where people discuss how to make Wikipedia content the best it can be. Start by adding a new discussion topic to connect and collaborate with a community of Wikipedians.</string>
@@ -1674,10 +1678,32 @@
     <string name="patroller_diff_feedback_dialog_option_neutral">Neutral</string>
     <string name="patroller_diff_feedback_dialog_option_unsatisfied">Unsatisfied</string>
     <string name="patroller_diff_feedback_dialog_feedback_title">How can we improve the feature?</string>
+    <string name="patroller_diff_menu_edit_history_title">Article edit history</string>
     <string name="patroller_diff_feedback_dialog_input_hint">Feedback</string>
     <string name="patroller_diff_feedback_dialog_submit">Submit</string>
     <string name="patroller_diff_feedback_submitted_snackbar">Feedback submitted.</string>
     <string name="patroller_diff_feedback_tooltip">Tap on overflow menu to submit feedback anytime under \'Problem with feature\'.</string>
+    <string name="patroller_saved_message_title_vandalism">Vandalism warning</string>
+    <string name="patroller_saved_message_title_editing_tests">Editing tests</string>
+    <string name="patroller_saved_message_title_npov">Neutral point of view</string>
+    <string name="patroller_saved_message_title_auto_trans">Automatic translation</string>
+    <string name="patroller_saved_message_title_coi_rem">Conflict of interest reminder</string>
+    <string name="patroller_saved_message_title_final_warning">Final warning</string>
+    <string name="patroller_saved_message_title_copy_vio">Copyright violation alert</string>
+    <string name="patroller_saved_message_title_edit_summary_reminder">Leave an edit summary</string>
+    <string name="patroller_saved_message_title_do_not_censor">Do not censor</string>
+    <string name="patroller_saved_message_title_art_imp">Article improvement suggestion</string>
+    <string name="patroller_saved_message_body_vandalism">Hi {{{username}}}, I want to let you know I\'ve reverted one or more of your [{{{diffLink}}}|recent contributions] because they do not seem constructive. If you think I made a mistake or have questions, you can leave a message on [[User talk:{{{senderUserName}}}|my talk page]]. Please note that continued vandalism may lead to restrictions.</string>
+    <string name="patroller_saved_message_body_editing_tests">Hi {{{username}}}, I am delighted that Wikipedia has caught your attention and that you have been interested in learning how to edit on it. The editing test you did worked; However, you should keep in mind that the goal of this project is to develop a reliable and complete encyclopedia that everyone can consult. Your edit affected the content, so it has been removed.\nIf you want to learn how to edit Wikipedia, the [[Wikipedia:Sandbox|sandbox]] is at your disposal. If your comments were specific to an article, the correct place is that article\'s talk page.</string>
+    <string name="patroller_saved_message_body_npov">Hello {{{username}}}, some contributions you have made do not meet the neutrality required to comply with Wikipedia\'s [[Wikipedia:NPOV|neutral point of view]] policy. For this reason, some content has been modified or removed.\n\nPlease modify the paragraphs or sections that show a partial point of view, replacing them with a more neutral and objective text in line with what is expected in an encyclopedia.</string>
+    <string name="patroller_saved_message_body_auto_trans">Hello {{{username}}}, some contributions you have made are possibly machine translations, which is why they have been modified or marked with the template. If no improvements are made to the article, it may be deleted.\n\nIf, despite all this information, you still have any questions, feel free to leave a message on my talk page. Don\'t be discouraged by this little incident. Your contributions are very important to Wikipedia.</string>
+    <string name="patroller_saved_message_body_coi_rem">Hello {{{username}}}, I appreciate your collaboration on Wikipedia; However, I noticed you are in a [[Wikipedia:Conflict_of_interest|conflict of interest]]. A conflict of interest is the incompatibility between Wikipedia\'s objectives of neutrality and reliability and the particular objectives of certain editors, individuals, entities, or companies of any type.\nAll contributions in the main space are subject to the policies of content criteria ([[Wikipedia:What_Wikipedia_is_not|what Wikipedia is not]]), encyclopedic quality ([[Wikipedia:Verifiability|verifiability]] and [[Wikipedia:No_original_research|no original research]]), editorial method ([[Wikipedia:Neutral_point_of_view|neutral point of view]]), and legitimacy of content ([[Wikipedia:Copyrights|copyrights]]). All publishers are expected to abide by these policies when creating and evaluating content and to respect and assume good faith in the actions of other publishers to ensure that these policies are followed.\n\nIf you edit under a conflict of interest, you must apply the corresponding policy with special care; Otherwise, your user account could be considered private purpose and blocked. Feel free to reach out on my talk page if you have any questions.</string>
+    <string name="patroller_saved_message_body_final_warning">Because you made multiple destructive edits, this will serve as your final warning. Should you vandalize Wikipedia again, you will be banned from editing.</string>
+    <string name="patroller_saved_message_body_copy_vio">Your recent edit appears to include copyrighted material without permission. Please ensure all content complies with Wikipedia\'s copyright policies to avoid removal.</string>
+    <string name="patroller_saved_message_body_edit_summary">Hi {{{username}}}, it appears you removed content from Wikipedia without leaving an edit summary. Please leave an edit summary whenever you add or remove content to Wikipedia. </string>
+    <string name="patroller_saved_message_body_do_not_censor">Hi {{{username}}}, it appears you removed content without discussing it on the article talk page. Please note that Wikipedia is not censored, and content should not be removed because it is controversial. If you believe the information is inaccurate, please reach a consensus on the article talk page.</string>
+    <string name="patroller_saved_message_body_art_imp">Your article is a great start! To make it even better, consider adding more references to reliable sources. This helps verify the information and improves the article\'s quality. Check out the guidelines on [[Wikipedia:Reliable_sources|reliable sources]] for more details.</string>
+    <string name="talk_templates_menu_edit_title">Edit</string>
 
     <!-- /Patroller task -->
 
@@ -1713,5 +1739,6 @@
     <string name="places_survey_dialog_cancel">Cancel</string>
     <string name="places_survey_feedback_low_satisfaction_dialog_title">What would you like us to change or improve?</string>
     <string name="places_empty_list"><![CDATA[This area is empty. Zoom out <a href="#">on the map</a>.]]></string>
+    <string name="talk_warn_learn_more_label">Learn about message placeholders</string>
     <!-- /Places -->
 </resources>

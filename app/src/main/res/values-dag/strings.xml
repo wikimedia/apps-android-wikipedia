@@ -743,8 +743,8 @@
   <string name="notifications_menu_uncheck_all">Dihi yihi binshɛlikam zuɣu</string>
   <string name="notifications_wiki_filter_header">Wiki jɛhibu</string>
   <string name="notifications_type_filter_header">jɛhibu pubu</string>
-  <string name="notifications_all_wikis_text">\"Wiki\" zaa</string>
-  <string name="notifications_all_types_text">\"Balli kaa\" zaa</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">\"Wiki\" zaa</string>
+  <string name="notifications_all_types_text" fuzzy="true">\"Balli kaa\" zaa</string>
   <string name="notifications_menu_user_talk_page">%s\'s yɛltɔɣa yaɣili</string>
   <string name="notifications_offline_disable_message">Niŋsim ŋɔ kani a yi ka pɔhim zuɣu.</string>
   <string name="view_because_you_read_card_title">A ni karimi maa zuɣu</string>

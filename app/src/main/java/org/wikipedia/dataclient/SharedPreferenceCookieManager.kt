@@ -3,6 +3,7 @@ package org.wikipedia.dataclient
 import okhttp3.Cookie
 import okhttp3.CookieJar
 import okhttp3.HttpUrl
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.log.L
 
@@ -107,6 +108,11 @@ class SharedPreferenceCookieManager(
             }
         }
         return cookieList
+    }
+
+    @Synchronized
+    fun loadForRequest(url: String): List<Cookie> {
+        return loadForRequest(url.toHttpUrl())
     }
 
     private fun buildCookieList(outList: MutableList<Cookie>, inList: MutableList<Cookie>, prefix: String?) {
