@@ -27,8 +27,6 @@ class InsertTemplateFragment : Fragment() {
 //                activity.invalidateOptionsMenu()
 //            }
 //        }
-
-
         return binding.root
     }
 
