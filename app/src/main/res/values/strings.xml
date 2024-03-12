@@ -1539,7 +1539,7 @@
     <!-- /Shareable reading lists -->
 
     <!-- Patroller task -->
-    <string name="talk_templates_empty_message">You do not have any warning messages saved.</string>
+    <string name="talk_templates_empty_message"><![CDATA[Create your own warning messages or use <a href="#">example messages</a> to get started.]]>  </string>
     <string name="talk_templates_new_message_title">New message</string>
     <string name="talk_templates_new_message_subject_hint">Subject</string>
     <string name="talk_templates_new_message_compose_hint">Compose message</string>

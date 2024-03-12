@@ -84,6 +84,7 @@
                 app:srcCompat="@drawable/ic_empty_state_illustration" />
 
             <TextView
+                android:id="@+id/talkTemplatesEmptyStateTextView"
                 style="@style/P"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

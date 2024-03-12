@@ -3,6 +3,7 @@ package org.wikipedia.talk.template
 import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -32,12 +33,14 @@ import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
 import org.wikipedia.extensions.parcelable
+import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.MultiSelectActionModeCallback
 
 class TalkTemplatesFragment : Fragment(), MenuProvider {
@@ -161,6 +164,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                     actionMode?.finish()
                 }
                 updateAndNotifyAdapter()
+                updateEmptyState()
                 requireActivity().invalidateOptionsMenu()
             }
 
@@ -170,8 +174,18 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             override fun onTabReselected(tab: TabLayout.Tab) {
             }
         })
+        binding.talkTemplatesEmptyStateTextView.text = StringUtil.fromHtml(getString(R.string.talk_templates_empty_message))
+
+        binding.talkTemplatesEmptyStateTextView.movementMethod = LinkMovementMethodExt { _ ->
+            binding.talkTemplatesTabLayout.getTabAt(1)?.select()
+            updateAndNotifyAdapter()
+        }
     }
 
+    fun updateEmptyState() {
+        binding.talkTemplatesEmptyContainer.isVisible = adapter.templatesList.isEmpty()
+        binding.talkTemplatesRecyclerView.isVisible = adapter.templatesList.isNotEmpty()
+    }
     fun updateAndNotifyAdapter() {
         adapter.templatesList.clear()
         adapter.templatesList.addAll(if (binding.talkTemplatesTabLayout.selectedTabPosition == 0) viewModel.talkTemplatesList else viewModel.savedTemplatesList)
@@ -362,10 +376,19 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         } else {
             selectedItems.add(talkTemplate)
         }
+        actionMode?.title = getString(R.string.multi_select_items_selected, selectedItems.size)
     }
 
     private fun unselectAllTalkTemplates() {
         selectedItems.clear()
+        actionMode?.title = getString(R.string.multi_select_items_selected, selectedItems.size)
+        updateAndNotifyAdapter()
+    }
+
+    private fun selectAllTalkTemplates(mode: ActionMode) {
+        adapter.templatesList.filterNot { selectedItems.contains(it) }
+            .forEach { selectedItems.add(it) }
+        mode.title = getString(R.string.multi_select_items_selected, selectedItems.size)
         updateAndNotifyAdapter()
     }
 
@@ -381,6 +404,33 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             actionMode = mode
             selectedItems.clear()
             return super.onCreateActionMode(mode, menu)
+        }
+
+        override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
+            mode.title = getString(R.string.multi_select_items_selected, selectedItems.size)
+            selectedItems.size.toString()
+            menu.findItem(R.id.menu_check_all).isVisible = true
+            menu.findItem(R.id.menu_uncheck_all).isVisible = false
+            return super.onPrepareActionMode(mode, menu)
+        }
+
+        override fun onActionItemClicked(mode: ActionMode, menuItem: MenuItem): Boolean {
+            super.onActionItemClicked(mode, menuItem)
+            when (menuItem.itemId) {
+                R.id.menu_check_all -> {
+                    selectAllTalkTemplates(mode)
+                    menuItem.isVisible = false
+                    mode.menu.findItem(R.id.menu_uncheck_all).isVisible = true
+                    return true
+                }
+                R.id.menu_uncheck_all -> {
+                    unselectAllTalkTemplates()
+                    menuItem.isVisible = false
+                    mode.menu.findItem(R.id.menu_check_all).isVisible = true
+                    return true
+                }
+            }
+            return false
         }
 
         override fun onDeleteSelected() {
