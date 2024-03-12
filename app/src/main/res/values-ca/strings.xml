@@ -764,8 +764,8 @@
   <string name="notifications_menu_uncheck_all">Desmarca tots els elements</string>
   <string name="notifications_wiki_filter_header">Filtre wiki</string>
   <string name="notifications_type_filter_header">Filtre de tipus</string>
-  <string name="notifications_all_wikis_text">Totes les de «wiki»</string>
-  <string name="notifications_all_types_text">Totes les de «tipus»</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Totes les de «wiki»</string>
+  <string name="notifications_all_types_text" fuzzy="true">Totes les de «tipus»</string>
   <string name="notifications_menu_user_talk_page">Pàgina de discussió de %s</string>
   <string name="notifications_offline_disable_message">La funció no és disponible fora de línia.</string>
   <string name="view_because_you_read_card_title">Perquè vau llegir</string>

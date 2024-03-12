@@ -634,8 +634,8 @@
   <string name="notifications_menu_uncheck_all">ߞߐ߰ߛߌ ߓߐ߫ ߝߌ߬ߛߌ ߟߎ߬ ߓߍ߯ ߟߊ߫</string>
   <string name="notifications_wiki_filter_header">ߥߞߌ ߛߍ߲ߛߍ߲ߟߊ</string>
   <string name="notifications_type_filter_header">ߛߎ߯ߦߊ ߛߍ߲ߛߍ߲ߟߊ߲</string>
-  <string name="notifications_all_wikis_text">\"ߥߞߌ\" ߓߍ߯</string>
-  <string name="notifications_all_types_text">\"ߛߎ߯ߦߊ\" ߓߍ߯</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">\"ߥߞߌ\" ߓߍ߯</string>
+  <string name="notifications_all_types_text" fuzzy="true">\"ߛߎ߯ߦߊ\" ߓߍ߯</string>
   <string name="notifications_menu_user_talk_page">%s ߟߊ߫ ߞߎߡߊ߫ ߞߐߜߍ</string>
   <string name="notifications_offline_disable_message">ߗߋߘߊ ߣߌ߲߬ ߕߍ߫ ߦߋ߲߬ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌߦߊ ߘߐ߫.</string>
   <string name="view_because_you_read_card_title">ߞߊ߬ߡߊߛߐ߬ߘߐ߲߬ ߌ ߓߘߊ߫ ߘߐ߬ߞߊ߲߬ߠߌ߲ ߞߍ߫</string>
