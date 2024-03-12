@@ -652,8 +652,8 @@
   <string name="notifications_swipe_action_unread">অপঠিত</string>
   <string name="notifications_menu_check_all">সকল আইটেম চিহ্নিত করুন</string>
   <string name="notifications_wiki_filter_header">উইকি ছাকনি</string>
-  <string name="notifications_all_wikis_text">সকল \"উইকি\"</string>
-  <string name="notifications_all_types_text">সমস্ত \"ধরন\"</string>
+  <string name="notifications_all_wikis_text">সকল উইকি</string>
+  <string name="notifications_all_types_text">সকল ধরন</string>
   <string name="notifications_menu_user_talk_page">%s-এর আলাপ পাতা</string>
   <string name="notifications_offline_disable_message">অফলাইনে এই ফাংশনটি কার্যকর নয়।</string>
   <string name="view_because_you_read_card_title">কারণ আপনি পড়েছেন</string>

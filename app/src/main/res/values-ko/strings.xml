@@ -8,6 +8,7 @@
 * Cooltey
 * Dbrant
 * Doyoon1995
+* Dr1t jg
 * Eduardo Addad de Oliveira
 * Eduardoaddad
 * Ellif
@@ -327,6 +328,7 @@
   <string name="widget_name_featured_page">위키백과 알찬 글</string>
   <string name="widget_title_featured_page">오늘의 알찬 글:</string>
   <string name="widget_name_search">위키백과 검색</string>
+  <string name="widget_description_search">위키백과를 검색하는 가장 빠른 방법</string>
   <string name="wiktionary_no_definitions_found">정의가 발견되지 않았습니다</string>
   <string name="alpha_update_notification_title">새로운 알파 업데이트를 이용할 수 있습니다</string>
   <string name="alpha_update_notification_text">다운로드하려면 탭하세요</string>
@@ -410,6 +412,10 @@
   <string name="multi_select_items_selected">%d개 선택됨</string>
   <string name="error_message_generic">오류가 발생했습니다</string>
   <string name="view_link_preview_error_button_dismiss">숨기기</string>
+  <string name="link_preview_dialog_read_button">읽기</string>
+  <string name="link_preview_dialog_save_button">저장</string>
+  <string name="link_preview_dialog_saved_button">저장됨</string>
+  <string name="link_preview_dialog_share_button">공유</string>
   <string name="error_page_does_not_exist">이 문서가 존재하지 않습니다</string>
   <string name="error_user_page_does_not_exist">위키백과에 이 이름의 &lt;a href=\"%1$s\"&gt;사용자 문서&lt;/a&gt;가 없습니다. 일반적으로 이 문서는 &lt;b&gt;%2$s&lt;/b&gt;님이 만들고 편집해야 합니다. 의심이 들면 \"%3$s\" 문서가 존재하는지 확인해 주십시오.</string>
   <string name="view_wiki_error_message_offline">인터넷에 연결할 수 없습니다</string>
@@ -741,8 +747,8 @@
   <string name="notifications_menu_uncheck_all">모든 항목의 체크를 해제</string>
   <string name="notifications_wiki_filter_header">위키 필터</string>
   <string name="notifications_type_filter_header">유형 필터</string>
-  <string name="notifications_all_wikis_text">모든 \"위키\"</string>
-  <string name="notifications_all_types_text">모든 \"종류\"</string>
+  <string name="notifications_all_wikis_text">모든 위키</string>
+  <string name="notifications_all_types_text">모든 유형</string>
   <string name="notifications_menu_user_talk_page">%s님의 토론 문서</string>
   <string name="notifications_offline_disable_message">이 기능은 오프라인 상태에서 사용할 수 없습니다.</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
@@ -1087,6 +1093,7 @@
   <string name="onboarding_explore_text">늘 업데이트되는 둘러보기 피드로 위키백과를 탐험하세요.&lt;br/&gt;피드를 당신의 관심사에 &lt;b&gt;맞춤 관리하세요&lt;/b&gt; – 그것이 &lt;b&gt;오늘의 역사&lt;/b&gt;에 대한 역사적 사건을 배우는 것이든, 주사위를 굴려 &lt;b&gt;임의 문서로&lt;/b&gt; 가는 것이든요.</string>
   <string name="onboarding_reading_list_sync_title">읽기 목록 동기화</string>
   <string name="onboarding_reading_list_sync_text_v2">읽기 목록을 만들면 글을 나중에 읽거나 심지어는 오프라인 상태에서도 읽을 수 있습니다.&lt;br/&gt;읽기 목록을 동기화하려면 위키백과 계정에 로그인하십시오. &lt;a href=\"#login\"&gt;위키백과 가입&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">데이터 및 개인정보 보호</string>
   <string name="onboarding_analytics_switch_title">사용 데이터 보내기</string>
   <string name="onboarding_got_it">알겠습니다</string>
   <string name="onboarding_multilingual_secondary_text">장치에서 다음의 언어를 발견했습니다:</string>
@@ -1299,7 +1306,7 @@
   <string name="revision_diff_paragraph_removed">문단 제거됨</string>
   <string name="revision_diff_protected">이 판의 변경 내용은 비공개입니다.</string>
   <string name="revision_undo_title">정말 이 편집을 취소하시겠습니까?</string>
-  <string name="revision_undo_message" fuzzy="true">여기에 보이는 문서의 판들에 의한 변경사항을 취소합니다.</string>
+  <string name="revision_undo_message" fuzzy="true">취소는 하나 이상의 편집을 되돌리는 것은 의미함.</string>
   <string name="revision_undo_summary_hint">요약 (선택사항)</string>
   <string name="revision_undo_reason">되돌리는 이유 공유하기</string>
   <string name="revision_undo_success">이 판의 편집이 취소되었습니다.</string>
@@ -1402,6 +1409,7 @@
   <string name="media_playback_error">미디어를 재생하는 동안 오류가 발생했습니다.</string>
   <string name="user_contrib_menu_label">기여</string>
   <string name="user_contrib_filter_activity_title">기여 필터</string>
+  <string name="action_item_view_on_map">지도에서 보기</string>
   <string name="shareable_reading_lists_import_dialog_title">공유된 읽기 목록 가져오기</string>
   <string name="shareable_reading_lists_import_dialog_content">나에게 공유된 목록의 이름을 어떻게 지정하시겠습니까?</string>
   <string name="shareable_reading_lists_new_indicator">*새 항목*</string>
@@ -1432,7 +1440,10 @@
   <string name="talk_templates_edit_message_dialog_save">저장</string>
   <string name="talk_templates_edit_message_dialog_delete">삭제</string>
   <string name="talk_templates_edit_message_updated">메시지가 업데이트되었습니다</string>
-  <string name="talk_templates_message_deleted" fuzzy="true">메시지가 삭제되었습니다</string>
+  <string name="talk_templates_menu_remove_message">메시지 제거</string>
+  <plurals name="talk_templates_message_deleted" fuzzy="true">
+    <item quantity="other">메시지가 삭제되었음</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">제목은 비워둘 수 없습니다.</string>
   <string name="patroller_tasks_edits_list_title">편집 목록</string>
   <string name="patroller_tasks_edits_list_search_hint">편집 내용 검색 또는 필터링</string>
@@ -1523,4 +1534,14 @@
   <string name="donation_campaign_donated_snackbar">기부해 주셔서 감사합니다! 당신의 관대한 선택으로 위키백과와 자매 사이트의 발전에 큰 힘이 되었습니다.</string>
   <string name="donation_campaign_go_back_button">돌아가기</string>
   <string name="menu_single_webview_open_external">시스템 브라우저에서 열기</string>
+  <string name="places_title">장소</string>
+  <string name="places_search_hint">장소 검색</string>
+  <string name="places_filter_title">언어 필터링</string>
+  <string name="places_toggle_buttons_map">지도</string>
+  <string name="places_toggle_buttons_list">목록</string>
+  <string name="places_survey_very_satisfied_option">매우 만족</string>
+  <string name="places_survey_very_unsatisfied_option">매우 불만족</string>
+  <string name="places_survey_dialog_title">\'장소\' 개선 지원하기</string>
+  <string name="places_survey_feedback_dialog_title">\"장소\"를 어떻게 개선할 수 있나요?</string>
+  <string name="places_survey_dialog_cancel">취소</string>
 </resources>

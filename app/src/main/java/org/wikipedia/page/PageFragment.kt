@@ -19,6 +19,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.app.ActivityCompat
@@ -1572,7 +1573,7 @@ class PageFragment : Fragment(), BackPressedHandler, CommunicationBridge.Communi
                     onPageSetupEvent(false)
                     bridge.onMetadataReady()
                     bridge.onPcsReady()
-                    bridge.execute(JavaScriptActionHandler.mobileWebChromeShim(toolbarMargin))
+                    bridge.execute(JavaScriptActionHandler.mobileWebChromeShim(toolbarMargin, DimenUtil.roundedPxToDp(binding.pageActionsTabLayout.height.toFloat())))
                 }
 
                 onPageMetadataLoaded()

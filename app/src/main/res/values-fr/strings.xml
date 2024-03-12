@@ -806,8 +806,8 @@
   <string name="notifications_menu_uncheck_all">Décocher tous les éléments</string>
   <string name="notifications_wiki_filter_header">Filtre de wikis</string>
   <string name="notifications_type_filter_header">Filtre de types</string>
-  <string name="notifications_all_wikis_text">Tous les « wikis »</string>
-  <string name="notifications_all_types_text">Tous les « types »</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Tous les « wikis »</string>
+  <string name="notifications_all_types_text" fuzzy="true">Tous les « types »</string>
   <string name="notifications_menu_user_talk_page">page de discussion de %s</string>
   <string name="notifications_offline_disable_message">Cette fonction n’est pas disponible hors ligne.</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>

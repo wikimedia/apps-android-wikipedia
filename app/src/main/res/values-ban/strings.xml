@@ -547,8 +547,8 @@
   <string name="notifications_swipe_action_unread">Durung kawacén</string>
   <string name="notifications_wiki_filter_header">Saringan Wiki</string>
   <string name="notifications_type_filter_header">Soroh saringan</string>
-  <string name="notifications_all_wikis_text">Samian \"wiki\"</string>
-  <string name="notifications_all_types_text">Samian \"soroh\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Samian \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Samian \"soroh\"</string>
   <string name="view_random_article_card_title">Kaca ulah-aluh</string>
   <string name="view_random_article_card_action">Suratan ulah-aluh malih</string>
   <string name="view_top_read_card_title">Wacénan pinih duur</string>

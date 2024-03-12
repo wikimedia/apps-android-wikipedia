@@ -751,8 +751,8 @@
   <string name="notifications_menu_uncheck_all">Отштиклирај ги сите</string>
   <string name="notifications_wiki_filter_header">Викифилтер</string>
   <string name="notifications_type_filter_header">Типски филтер</string>
-  <string name="notifications_all_wikis_text">Сите „вики“</string>
-  <string name="notifications_all_types_text">Сите „типски“</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Сите „вики“</string>
+  <string name="notifications_all_types_text" fuzzy="true">Сите „типски“</string>
   <string name="notifications_menu_user_talk_page">Разговорна страница на %s</string>
   <string name="notifications_offline_disable_message">Функцијата е недостапна вонмрежно.</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>

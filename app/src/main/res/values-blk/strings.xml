@@ -645,8 +645,8 @@
   <string name="notifications_menu_uncheck_all">စဲစ်ထွားတဝ်းဒွုမ် တခြိုꩻကားကအဝ်ႏ</string>
   <string name="notifications_wiki_filter_header">ဝီခီ စဲစ်ထွားမုꩻ</string>
   <string name="notifications_type_filter_header">အစွိုးအမျိုꩻ စဲစ်ထွားမုꩻ</string>
-  <string name="notifications_all_wikis_text">\"ဝီခီ\" ကားကအဝ်ႏ</string>
-  <string name="notifications_all_types_text">\"အစွိုးအမျိုꩻ\" ကားကအဝ်ႏ</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">\"ဝီခီ\" ကားကအဝ်ႏ</string>
+  <string name="notifications_all_types_text" fuzzy="true">\"အစွိုးအမျိုꩻ\" ကားကအဝ်ႏ</string>
   <string name="notifications_menu_user_talk_page">%s အိုင်ကိုမ်ဒေါ့ꩻရီ လိတ်မဲ့ငါ</string>
   <string name="view_because_you_read_card_title">ပွိုးနာꩻဟော်ꩻထွားတဲင်</string>
   <string name="view_random_card_title">ရော့ꩻရာꩻစဲဉ်ႏ</string>

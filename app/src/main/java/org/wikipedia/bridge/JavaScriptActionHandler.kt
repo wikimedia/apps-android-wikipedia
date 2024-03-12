@@ -174,11 +174,10 @@ object JavaScriptActionHandler {
                 "})"
     }
 
-    fun mobileWebChromeShim(toolbarMargin: Int): String {
-        val topMargin = DimenUtil.roundedPxToDp(toolbarMargin.toFloat())
+    fun mobileWebChromeShim(marginTop: Int, marginBottom: Int): String {
         return "(function() {" +
                 "let style = document.createElement('style');" +
-                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: ${topMargin}px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { padding-bottom: 72px; } .page-actions-menu { display: none; } .minerva__tab-container { display: none; }';" +
+                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: ${marginTop}px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { padding-bottom: ${marginBottom}px; } .page-actions-menu { display: none; } .minerva__tab-container { display: none; }';" +
                 "document.head.appendChild(style);" +
                 "})();"
     }

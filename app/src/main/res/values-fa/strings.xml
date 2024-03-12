@@ -746,8 +746,8 @@
   <string name="notifications_menu_uncheck_all">عدم علامت‌گذاری تمامی موارد</string>
   <string name="notifications_wiki_filter_header">پالایهٔ ویکی</string>
   <string name="notifications_type_filter_header">پالایهٔ نوع</string>
-  <string name="notifications_all_wikis_text">تمام موارد «ویکی»</string>
-  <string name="notifications_all_types_text">تمام موارد «نوع»</string>
+  <string name="notifications_all_wikis_text">تمام ویکی‌ها</string>
+  <string name="notifications_all_types_text">تمام انواع</string>
   <string name="notifications_menu_user_talk_page">صفحهٔ بحث %s</string>
   <string name="notifications_offline_disable_message">این تابع در حالت آفلاین در دسترس نیست.</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه کرده‌اید</string>
