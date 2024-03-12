@@ -19,7 +19,7 @@ class TalkTemplatesActivity : SingleFragmentActivity<TalkTemplatesFragment>() {
     companion object {
         const val EXTRA_SELECTED_TEMPLATE = "selectedTemplate"
         const val EXTRA_TEMPLATE_MANAGEMENT = "templateManagement"
-        const val EXTRA_SAVED_TEMPLATE = "templateManagement"
+        const val EXTRA_SAVED_TEMPLATE = "savedTemplate"
 
         fun newIntent(context: Context, pageTitle: PageTitle?, templateManagement: Boolean = false, fromRevisionId: Long = -1, toRevisionId: Long = -1): Intent {
             return Intent(context, TalkTemplatesActivity::class.java)

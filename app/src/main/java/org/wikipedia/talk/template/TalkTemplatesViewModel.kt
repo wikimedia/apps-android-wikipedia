@@ -61,7 +61,8 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
         val langCode = pageTitle.wikiSite.languageCode
         val context = WikipediaApp.instance.applicationContext
         for (i in TalkTemplatesFragment.savedMessagesTitleList.indices) {
-            val talkTemplate = TalkTemplate(0, 0, -1, "", getLocaleStringResource(Locale(langCode), TalkTemplatesFragment.savedMessagesTitleList[i], context),
+            val talkTemplate = TalkTemplate(0, 0, -1, "",
+                if (i == 0) "" else getLocaleStringResource(Locale(langCode), TalkTemplatesFragment.savedMessagesTitleList[i], context),
                 getLocaleStringResource(Locale(langCode), TalkTemplatesFragment.savedMessagesBodyList[i], context))
             savedTemplatesList.add(talkTemplate)
         }

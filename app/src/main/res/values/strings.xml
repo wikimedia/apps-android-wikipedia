@@ -1318,6 +1318,7 @@
     <string name="talk_warn_save_dialog_hint">Message title</string>
     <string name="talk_warn_save_dialog_publish">Publish</string>
     <string name="talk_warn_save_dialog_cancel">Cancel</string>
+    <string name="talk_warn_save_dialog_dont_save">Don\'t save</string>
     <string name="talk_warn_submitted">Message published to editor\'s user talk page</string>
     <string name="talk_warn_submitted_and_saved">Message saved and published to editor\'s user talk page</string>
     <string name="talk_warn_saved_messages">Saved messages</string>
@@ -1678,6 +1679,7 @@
     <string name="patroller_saved_message_body_art_imp">Your article is a great start! To make it even better, consider adding more references to reliable sources. This helps verify the information and improves the article\'s quality. Check out the guidelines on [[Wikipedia:Reliable_sources|reliable sources]] for more details.</string><string name="talk_templates_menu_edit_title">Edit</string>
     <string name="talk_warn_learn_more_label">Learn about message placeholders</string>
     <string name="talk_warn_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Message_placeholders</string>
+    <string name="talk_warn_saved_messages_usage_instruction">Use an example message below to customize, send and save to your messages.</string>
     <!-- /Patroller task -->
 
     <string name="data_opt_in_accept">Accept</string>

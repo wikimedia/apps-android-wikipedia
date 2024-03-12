@@ -2,12 +2,15 @@ package org.wikipedia.talk.template
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Typeface
 import android.os.Build
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ItemTalkTemplatesBinding
 import org.wikipedia.talk.db.TalkTemplate
@@ -41,9 +44,17 @@ class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? =
         else ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 
-    fun setContents(talkTemplate: TalkTemplate, position: Int) {
+    fun setContents(talkTemplate: TalkTemplate, position: Int, isSaveMessagesTab: Boolean = false) {
+        binding.listItemTitle.isVisible = !(isSaveMessagesTab && position == 0)
         binding.listItemTitle.text = talkTemplate.subject
         binding.listItemDescription.text = talkTemplate.message
+        binding.listItemDescription.setTypeface(null, if (position == 0 && isSaveMessagesTab) Typeface.ITALIC else Typeface.NORMAL)
+        binding.listItemDescription.maxLines = if (!(position == 0 && isSaveMessagesTab))1 else Int.MAX_VALUE
+        binding.listItem.setBackgroundResource(ResourceUtil.getThemedAttributeId(context,
+            if (position == 0 && isSaveMessagesTab) R.attr.background_color else android.R.attr.selectableItemBackground))
+        binding.listItemDescription.ellipsize =
+            if (!(position == 0 && isSaveMessagesTab)) null else TextUtils.TruncateAt.END
+
         binding.listItem.setOnClickListener {
             callback?.onClick(position)
         }

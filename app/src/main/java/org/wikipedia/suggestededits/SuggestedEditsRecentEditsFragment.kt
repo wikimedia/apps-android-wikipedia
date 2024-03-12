@@ -175,7 +175,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                 true
             }
             R.id.menu_saved_messages -> {
-                    val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), "@@@@", viewModel.wikiSite)
+                    val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.wikiSite.languageCode), "", viewModel.wikiSite)
                     requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, true))
                 true
             }

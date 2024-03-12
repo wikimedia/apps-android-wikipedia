@@ -93,6 +93,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     private val requestEditTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
+            binding.talkTemplatesTabLayout.getTabAt(0)?.select()
             viewModel.loadTalkTemplates()
             PatrollerExperienceEvent.logAction("update_message_toast", "pt_templates")
             FeedbackUtil.showMessage(this, R.string.talk_templates_edit_message_updated)
@@ -156,6 +157,9 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
         binding.talkTemplatesTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
+                if (actionMode != null) {
+                    actionMode?.finish()
+                }
                 updateAndNotifyAdapter()
                 requireActivity().invalidateOptionsMenu()
             }
@@ -253,7 +257,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     internal inner class TalkTemplatesItemViewHolder(val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) {
         fun bindItem(item: TalkTemplate, position: Int) {
-            templatesItemView.setContents(item, position)
+            templatesItemView.setContents(item, position, binding.talkTemplatesTabLayout.selectedTabPosition == 1)
         }
     }
 
@@ -298,6 +302,9 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
 
         override fun onClick(position: Int) {
+            if (position == 0 && binding.talkTemplatesTabLayout.selectedTabPosition == 1) {
+                return
+            }
             if (actionMode != null) {
                 toggleSelectedItem(templatesList[position])
                 adapter.notifyItemChanged(position)
@@ -317,6 +324,9 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
 
         override fun onLongPress(position: Int) {
+            if (binding.talkTemplatesTabLayout.selectedTabPosition == 1) {
+                return
+            }
             if (actionMode == null) {
                 beginRemoveItemsMode()
             }
@@ -435,11 +445,11 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     companion object {
-        val savedMessagesTitleList = listOf(R.string.patroller_saved_message_title_vandalism, R.string.patroller_saved_message_title_editing_tests, R.string.patroller_saved_message_title_npov,
+        val savedMessagesTitleList = listOf(-1, R.string.patroller_saved_message_title_vandalism, R.string.patroller_saved_message_title_editing_tests, R.string.patroller_saved_message_title_npov,
             R.string.patroller_saved_message_title_auto_trans, R.string.patroller_saved_message_title_coi_rem, R.string.patroller_saved_message_title_final_warning,
             R.string.patroller_saved_message_title_copy_vio, R.string.patroller_saved_message_title_edit_summary_reminder, R.string.patroller_saved_message_title_do_not_censor, R.string.patroller_saved_message_title_art_imp)
 
-        val savedMessagesBodyList = listOf(R.string.patroller_saved_message_body_vandalism, R.string.patroller_saved_message_body_editing_tests, R.string.patroller_saved_message_body_npov,
+        val savedMessagesBodyList = listOf(R.string.talk_warn_saved_messages_usage_instruction, R.string.patroller_saved_message_body_vandalism, R.string.patroller_saved_message_body_editing_tests, R.string.patroller_saved_message_body_npov,
             R.string.patroller_saved_message_body_auto_trans, R.string.patroller_saved_message_body_coi_rem, R.string.patroller_saved_message_body_final_warning,
             R.string.patroller_saved_message_body_copy_vio, R.string.patroller_saved_message_body_edit_summary, R.string.patroller_saved_message_body_do_not_censor, R.string.patroller_saved_message_body_art_imp)
 

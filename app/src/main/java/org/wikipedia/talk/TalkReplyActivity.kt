@@ -280,35 +280,12 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     private fun showSaveDialog(subject: String, body: String) {
         TalkTemplatesTextInputDialog(this@TalkReplyActivity, R.string.talk_templates_new_message_dialog_save,
-            R.string.talk_warn_save_dialog_cancel).let { textInputDialog ->
+            R.string.talk_warn_save_dialog_dont_save).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
-                override fun onShow(dialog: TalkTemplatesTextInputDialog) {
-                    dialog.setTitleHint(R.string.talk_warn_save_dialog_hint)
-                    dialog.setPositiveButtonEnabled(true)
-                }
 
-                override fun onTextChanged(text: CharSequence, dialog: TalkTemplatesTextInputDialog) {
-                    text.toString().trim().let {
-                        when {
-                            it.isEmpty() -> {
-                                if (textInputDialog.isSaveExistingChecked) {
-                                    return
-                                }
-                                dialog.setError(null)
-                                dialog.setPositiveButtonEnabled(false)
-                            }
-
-                            else -> {
-                                dialog.setError(null)
-                                dialog.setPositiveButtonEnabled(true)
-                            }
-                        }
-                    }
-                }
-
-                override fun onSuccess(titleText: CharSequence, subjectText: CharSequence, bodyText: CharSequence) {
+                override fun onSuccess() {
                     if (textInputDialog.isSaveAsNewChecked) {
-                        viewModel.saveTemplate(titleText.toString(), subject, body)
+                        viewModel.saveTemplate("", subject, body)
                     } else if (textInputDialog.isSaveExistingChecked) {
                         viewModel.selectedTemplate?.let {
                             viewModel.updateTemplate(it.title, subject, body, it)
@@ -322,15 +299,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
                 override fun onCancel() {
                     sendPatrollerExperienceEvent("publish_cancel", "pt_warning_messages")
-                    setSaveButtonEnabled(true)
+                    showEditPreview()
                 }
 
                 override fun onDismiss() {
                     setSaveButtonEnabled(true)
                 }
             }
-            textInputDialog.showDialogMessage(false)
-            textInputDialog.showTemplateCheckboxes(viewModel.selectedTemplate != null)
+            textInputDialog.showTemplateCheckboxes()
             textInputDialog.setTitle(R.string.talk_warn_save_dialog_title)
         }.show()
     }

@@ -54,6 +54,6 @@
         android:layout_gravity="end"
         android:contentDescription="@string/customize_toolbar_item_drag_handle_default_tooltip"
         android:scaleType="center"
-        app:srcCompat="@drawable/ic_draggable"
+        app:srcCompat="@drawable/drag_icon"
         app:tint="?android:attr/textColorTertiary" />
 </merge>
