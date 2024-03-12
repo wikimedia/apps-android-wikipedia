@@ -15,6 +15,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 
 class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
 
@@ -29,7 +30,8 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PageTitle> {
             return try {
                 if (searchQuery.isNullOrEmpty()) {
-                    return LoadResult.Page(emptyList(), null, null)
+                    val recentUsedTemplates = Prefs.recentUsedTemplates.filter { it.wikiSite == wikiSite }
+                    return LoadResult.Page(recentUsedTemplates, null, null)
                 }
                 // TODO: check if the description is valid
                 val query = Namespace.TEMPLATE.name + ":" + searchQuery

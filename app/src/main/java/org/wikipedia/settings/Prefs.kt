@@ -12,6 +12,7 @@ import org.wikipedia.analytics.eventplatform.AppSessionEvent
 import org.wikipedia.analytics.eventplatform.StreamConfig
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.page.PageTitle
 import org.wikipedia.page.action.PageActionItem
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.places.PlacesFragment
@@ -731,4 +732,8 @@ object Prefs {
             }
             PrefsIoUtil.setString(R.string.preference_key_places_last_location_and_zoom_level, locationAndZoomLevelString)
         }
+
+    var recentUsedTemplates
+        get() = JsonUtil.decodeFromString<List<PageTitle>>(PrefsIoUtil.getString(R.string.preference_key_recent_used_templates, null)) ?: emptyList()
+        set(list) = PrefsIoUtil.setString(R.string.preference_key_recent_used_templates, JsonUtil.encodeToString(list))
 }
