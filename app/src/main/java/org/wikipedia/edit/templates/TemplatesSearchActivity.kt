@@ -135,6 +135,7 @@ class TemplatesSearchActivity : BaseActivity() {
             binding.itemTitle.text = StringUtil.removeNamespace(pageTitle.displayText)
             binding.itemDescription.isVisible = !pageTitle.description.isNullOrEmpty()
             binding.itemDescription.text = pageTitle.description
+            StringUtil.boldenKeywordText(binding.itemTitle, binding.itemTitle.text.toString(), viewModel.searchQuery)
 
             binding.root.setOnClickListener {
                 // TODO: implement this
