@@ -9,9 +9,13 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import androidx.paging.cachedIn
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 import org.wikipedia.Constants
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.TemplateDataResponse
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
@@ -26,6 +30,17 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
     val searchTemplatesFlow = Pager(PagingConfig(pageSize = 10)) {
         SearchTemplatesFlowSource(searchQuery, wikiSite)
     }.flow.cachedIn(viewModelScope)
+
+    val uiState = MutableStateFlow(UiState())
+
+    fun loadTemplateData(pageTitle: PageTitle) {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            uiState.value = UiState.LoadError(throwable)
+        }) {
+            val response = ServiceFactory.get(pageTitle.wikiSite).getTemplateData(pageTitle.wikiSite.languageCode, pageTitle.prefixedText)
+            uiState.value = UiState.LoadTemplateData(pageTitle, response.getTemplateData.first())
+        }
+    }
 
     class SearchTemplatesFlowSource(val searchQuery: String?, val wikiSite: WikiSite) : PagingSource<Int, PageTitle>() {
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PageTitle> {
@@ -64,5 +79,10 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return TemplatesSearchViewModel(bundle) as T
         }
+    }
+
+    open class UiState {
+        data class LoadTemplateData(val pageTitle: PageTitle, val templateData: TemplateDataResponse.TemplateData) : UiState()
+        data class LoadError(val throwable: Throwable) : UiState()
     }
 }

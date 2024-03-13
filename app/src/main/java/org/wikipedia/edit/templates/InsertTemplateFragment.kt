@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import org.wikipedia.databinding.FragmentInsertTemplateBinding
+import org.wikipedia.dataclient.mwapi.TemplateDataResponse
+import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
@@ -34,15 +36,17 @@ class InsertTemplateFragment : Fragment() {
         return binding.root
     }
 
-    fun show() {
+    private fun buildParamsInputFields() {
+//        binding.templateParamsContainer.addView()
+    }
+
+    fun show(pageTitle: PageTitle, templateData: TemplateDataResponse.TemplateData) {
         binding.root.isVisible = true
-        viewModel.selectedTemplate?.let { pageTitle ->
-            binding.templateDataTitle.text = StringUtil.removeNamespace(pageTitle.displayText)
-            binding.templateDataDescription.text = pageTitle.description
-            binding.templateDataDescription.isVisible = !pageTitle.description.isNullOrEmpty()
-            binding.templateDataLearnMoreButton.setOnClickListener {
-                UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(pageTitle.uri))
-            }
+        binding.templateDataTitle.text = StringUtil.removeNamespace(pageTitle.displayText)
+        binding.templateDataDescription.text = pageTitle.description
+        binding.templateDataDescription.isVisible = !pageTitle.description.isNullOrEmpty()
+        binding.templateDataLearnMoreButton.setOnClickListener {
+            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(pageTitle.uri))
         }
     }
 

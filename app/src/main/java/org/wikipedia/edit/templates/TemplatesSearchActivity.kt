@@ -25,8 +25,10 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.databinding.ActivityTemplatesSearchBinding
 import org.wikipedia.databinding.ItemTemplatesSearchBinding
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.TemplateDataResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 
@@ -84,6 +86,18 @@ class TemplatesSearchActivity : BaseActivity() {
                         binding.emptyMessage.isVisible = showEmpty
                     }
                 }
+                launch {
+                    viewModel.uiState.collect {
+                        when (it) {
+                            is TemplatesSearchViewModel.UiState.LoadTemplateData -> {
+                                showInsertTemplateFragment(it.pageTitle, it.templateData)
+                            }
+                            is TemplatesSearchViewModel.UiState.LoadError -> {
+                                FeedbackUtil.showError(this@TemplatesSearchActivity, it.throwable)
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -106,10 +120,10 @@ class TemplatesSearchActivity : BaseActivity() {
         DeviceUtil.hideSoftKeyboard(this)
     }
 
-    private fun showInsertTemplateFragment() {
+    private fun showInsertTemplateFragment(pageTitle: PageTitle, templateData: TemplateDataResponse.TemplateData) {
         binding.searchCabView.isVisible = false
         binding.insertTemplateButton.isVisible = true
-        insertTemplateFragment.show()
+        insertTemplateFragment.show(pageTitle, templateData)
     }
 
     override fun onBackPressed() {
@@ -156,8 +170,7 @@ class TemplatesSearchActivity : BaseActivity() {
             StringUtil.boldenKeywordText(binding.itemTitle, binding.itemTitle.text.toString(), viewModel.searchQuery)
 
             itemView.setOnClickListener {
-                viewModel.selectedTemplate = pageTitle
-                showInsertTemplateFragment()
+                viewModel.loadTemplateData(pageTitle)
             }
         }
     }
