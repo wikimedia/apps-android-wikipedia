@@ -23,6 +23,7 @@ class InsertTemplateFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentInsertTemplateBinding.inflate(layoutInflater, container, false)
         activity = (requireActivity() as TemplatesSearchActivity)
+        activity.supportActionBar?.title = null
 
         // TODO: check all required params
 //        binding.mediaAlternativeText.addTextChangedListener {
@@ -38,6 +39,7 @@ class InsertTemplateFragment : Fragment() {
         viewModel.selectedTemplate?.let { pageTitle ->
             binding.templateDataTitle.text = StringUtil.removeNamespace(pageTitle.displayText)
             binding.templateDataDescription.text = pageTitle.description
+            binding.templateDataDescription.isVisible = !pageTitle.description.isNullOrEmpty()
             binding.templateDataLearnMoreButton.setOnClickListener {
                 UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(pageTitle.uri))
             }

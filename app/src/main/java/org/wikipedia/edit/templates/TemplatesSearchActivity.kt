@@ -113,7 +113,16 @@ class TemplatesSearchActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        // TODO: handle back press on template data screen
+        if (insertTemplateFragment.handleBackPressed()) {
+            if (templatesSearchAdapter != null) {
+                binding.searchCabView.isVisible = true
+                binding.insertTemplateButton.isVisible = false
+                supportActionBar?.title = null
+            } else {
+                finish()
+            }
+            return
+        }
         super.onBackPressed()
     }
 

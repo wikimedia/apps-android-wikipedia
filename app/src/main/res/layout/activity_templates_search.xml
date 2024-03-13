@@ -41,11 +41,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
-                android:layout_marginHorizontal="16dp"
+                android:paddingHorizontal="16dp"
                 android:text="@string/templates_insert_button"
                 android:textColor="?attr/progressive_color"
                 android:gravity="center"
-                android:visibility="gone"/>
+                android:visibility="gone"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground"/>
 
         </com.google.android.material.appbar.MaterialToolbar>
 

@@ -47,6 +47,11 @@
             android:textColor="?attr/progressive_color"
             android:text="@string/templates_learn_more_link"
             android:drawablePadding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            android:layout_marginStart="-8dp"
             app:drawableEndCompat="@drawable/ic_open_in_new_black_24px"
             app:drawableTint="?attr/progressive_color"/>
 
