@@ -129,7 +129,7 @@ class TemplatesSearchActivity : BaseActivity() {
 
     private inner class TemplatesSearchAdapter : PagingDataAdapter<PageTitle, RecyclerView.ViewHolder>(TemplatesSearchDiffCallback()) {
         override fun onCreateViewHolder(parent: ViewGroup, pos: Int): TemplatesSearchItemHolder {
-            return TemplatesSearchItemHolder(ItemTemplatesSearchBinding.inflate(layoutInflater))
+            return TemplatesSearchItemHolder(ItemTemplatesSearchBinding.inflate(layoutInflater, parent, false))
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
