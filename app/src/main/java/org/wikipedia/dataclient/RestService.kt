@@ -76,6 +76,10 @@ interface RestService {
     @get:Headers("Accept: $ACCEPT_HEADER_SUMMARY")
     val randomSummary: Observable<PageSummary>
 
+    @Headers("Accept: $ACCEPT_HEADER_SUMMARY")
+    @GET("page/random/summary")
+    suspend fun getRandom(): PageSummary
+
     @GET("page/media-list/{title}/{revision}")
     fun getMediaList(
         @Path("title") title: String,

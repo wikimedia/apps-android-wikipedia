@@ -398,6 +398,34 @@
                 android:resource="@xml/widget_featured_page" />
         </receiver>
 
+        <receiver
+            android:icon="@mipmap/launcher"
+            android:label="@string/widget_name_featured_image"
+            android:name="org.wikipedia.widgets.WidgetProviderFeaturedImage"
+            android:exported="true">
+            <intent-filter >
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_featured_image" />
+        </receiver>
+
+        <receiver
+            android:icon="@mipmap/launcher"
+            android:label="@string/widget_name_random_page"
+            android:name="org.wikipedia.widgets.WidgetProviderRandomPage"
+            android:exported="true">
+            <intent-filter >
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_random_page" />
+        </receiver>
+
         <receiver android:name=".notifications.NotificationPollBroadcastReceiver"
             android:exported="true">
             <intent-filter>

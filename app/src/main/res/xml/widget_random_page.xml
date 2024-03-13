@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:minWidth="320dp"
+    android:minHeight="32dp"
+    android:minResizeWidth="100dp"
+    android:targetCellWidth="5"
+    android:targetCellHeight="1"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="60000"
+    android:initialLayout="@layout/widget_random_page"
+    android:previewImage="@drawable/widget_featured_page"
+    android:description="@string/widget_description_random_page"
+    tools:targetApi="s">
+</appwidget-provider>
