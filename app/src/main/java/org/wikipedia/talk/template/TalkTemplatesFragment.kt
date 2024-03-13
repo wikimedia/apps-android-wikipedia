@@ -3,7 +3,6 @@ package org.wikipedia.talk.template
 import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -41,7 +40,9 @@ import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.MultiSelectActionModeCallback
+import org.wikipedia.views.SwipeableItemTouchHelperCallback
 
 class TalkTemplatesFragment : Fragment(), MenuProvider {
     private var _binding: FragmentTalkTemplatesBinding? = null
@@ -223,11 +224,20 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         adapter = RecyclerAdapter()
         binding.talkTemplatesRecyclerView.adapter = adapter
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(adapter))
+        binding.talkTemplatesRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
+        val touchCallback = SwipeableItemTouchHelperCallback(requireContext())
+        touchCallback.swipeableEnabled = true
+        itemTouchHelper = ItemTouchHelper(if(actionMode!=null)RearrangeableItemTouchHelperCallback(adapter) else touchCallback)
         itemTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)
         updateAndNotifyAdapter()
     }
 
+    fun updateTouchHelper() {
+        val touchCallback = SwipeableItemTouchHelperCallback(requireContext())
+        touchCallback.swipeableEnabled = true
+        itemTouchHelper = ItemTouchHelper(if(actionMode!=null)RearrangeableItemTouchHelperCallback(adapter) else touchCallback)
+        itemTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)
+    }
     private fun onLoading() {
         binding.talkTemplatesEmptyContainer.visibility = View.GONE
         binding.talkTemplatesRecyclerView.visibility = View.GONE
@@ -269,9 +279,21 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesErrorView.visibility = View.VISIBLE
     }
 
-    internal inner class TalkTemplatesItemViewHolder(val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) {
+    internal inner class TalkTemplatesItemViewHolder(val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) , SwipeableItemTouchHelperCallback.Callback{
+        private lateinit var entry: TalkTemplate
+
         fun bindItem(item: TalkTemplate, position: Int) {
+            this.entry = item
             templatesItemView.setContents(item, position, binding.talkTemplatesTabLayout.selectedTabPosition == 1)
+        }
+
+        override fun onSwipe() {
+            selectedItems.add(entry)
+            deleteSelectedTalkTemplates()
+        }
+
+        override fun isSwipeable(): Boolean {
+            return true
         }
     }
 
@@ -403,6 +425,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             mode.menuInflater.inflate(R.menu.menu_action_mode_talk_templates, menu)
             actionMode = mode
             selectedItems.clear()
+            updateTouchHelper()
             return super.onCreateActionMode(mode, menu)
         }
 
@@ -460,6 +483,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             setMultiSelectEnabled(false)
             actionMode = null
             super.onDestroyActionMode(mode)
+            updateTouchHelper()
         }
     }
 
