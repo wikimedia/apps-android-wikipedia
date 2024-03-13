@@ -72,7 +72,7 @@ class WidgetProviderFeaturedImage : AppWidgetProvider() {
                 .load(ImageUrlUtil.getUrlForPreferredSize(image!!.thumbnail.source, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
                 .override(512)
                 .downsample(DownsampleStrategy.FIT_CENTER)
-                //.transform(CenterCrop(), RoundedCorners(DimenUtil.roundedDpToPx(16f)))
+                // .transform(CenterCrop(), RoundedCorners(DimenUtil.roundedDpToPx(16f)))
                 .into(AppWidgetTarget(context, R.id.widget_image, remoteViews, widgetId))
 
             remoteViews.setOnClickPendingIntent(R.id.widget_container, PendingIntentCompat.getActivity(context, 1,
