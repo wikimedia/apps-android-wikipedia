@@ -49,7 +49,7 @@
             android:layout_marginTop="4dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@color/gray500"
+            android:textColor="@color/widget_placeholder"
             tools:text="Lorem ipsum" />
 
     </LinearLayout>

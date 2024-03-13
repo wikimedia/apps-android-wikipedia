@@ -101,7 +101,7 @@ class WidgetProviderRandomPage : AppWidgetProvider() {
             remoteViews.setOnClickPendingIntent(R.id.logo_image, PendingIntentCompat.getBroadcast(context, 1,
                 Intent(context, WidgetProviderRandomPage::class.java)
                 .setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE)
-                .putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, allWidgetIds),
+                .putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, arrayOf(widgetId).toIntArray()),
                 PendingIntent.FLAG_UPDATE_CURRENT, false))
 
             appWidgetManager.updateAppWidget(widgetId, remoteViews)
@@ -115,7 +115,7 @@ class WidgetProviderRandomPage : AppWidgetProvider() {
                 val pageTitle = result.getPageTitle(WikipediaApp.instance.wikiSite)
                 pageTitle.displayText = result.displayTitle
 
-                forceUpdateWidget(applicationContext, pageTitle, fromWorker = true, sendIntent = false)
+                forceUpdateWidget(applicationContext, pageTitle, fromWorker = true)
 
                 Result.success()
             } catch (e: Exception) {
@@ -129,7 +129,7 @@ class WidgetProviderRandomPage : AppWidgetProvider() {
         private var lastServerUpdateMillis = 0L
         private const val EXTRA_UPDATE_FROM_WORKER = "updateFromWorker"
 
-        fun forceUpdateWidget(context: Context, pageTitle: PageTitle? = null, fromWorker: Boolean = false, sendIntent: Boolean = true) {
+        fun forceUpdateWidget(context: Context, pageTitle: PageTitle? = null, fromWorker: Boolean = false) {
             val appWidgetManager = AppWidgetManager.getInstance(context.applicationContext)
             val ids = appWidgetManager.getAppWidgetIds(ComponentName(context.applicationContext, WidgetProviderRandomPage::class.java))
             ids.forEach { id ->
@@ -139,11 +139,6 @@ class WidgetProviderRandomPage : AppWidgetProvider() {
                 options.putParcelable(Constants.ARG_TITLE, bundle)
                 options.putBoolean(EXTRA_UPDATE_FROM_WORKER, fromWorker)
                 appWidgetManager.updateAppWidgetOptions(id, options)
-            }
-            if (ids.isNotEmpty() && sendIntent) {
-                context.sendBroadcast(Intent(context, WidgetProviderRandomPage::class.java)
-                    .setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE)
-                    .putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids))
             }
         }
     }
