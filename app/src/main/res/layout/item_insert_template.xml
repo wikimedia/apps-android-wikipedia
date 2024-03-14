@@ -12,7 +12,8 @@
         android:layout_marginBottom="16dp"
         android:gravity="start"
         android:textAlignment="viewStart"
-        app:helperTextTextColor="?android:attr/textColorTertiary">
+        app:helperTextTextColor="?android:attr/textColorTertiary"
+        app:placeholderTextColor="?android:attr/textColorTertiary">
 
         <org.wikipedia.views.PlainPasteEditText
             android:id="@+id/editText"

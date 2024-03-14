@@ -42,15 +42,20 @@ class InsertTemplateFragment : Fragment() {
         binding.templateDataParamsContainer.removeAllViews()
         templateData.getParams?.filter { !it.value.isDeprecated }?.forEach {
             val view = ItemInsertTemplateBinding.inflate(layoutInflater)
+            val labelText = StringUtil.capitalize(it.key)
             if (it.value.required) {
-                view.textInputLayout.hint = it.value.label
+                view.textInputLayout.hint = labelText
                 view.textInputLayout.tag = true
             } else if (it.value.suggested) {
-                view.textInputLayout.hint = getString(R.string.templates_param_suggested_hint, it.value.label)
+                view.textInputLayout.hint = getString(R.string.templates_param_suggested_hint, labelText)
                 view.textInputLayout.tag = false
             } else {
-                view.textInputLayout.hint = getString(R.string.templates_param_optional_hint, it.value.label)
+                view.textInputLayout.hint = getString(R.string.templates_param_optional_hint, labelText)
                 view.textInputLayout.tag = false
+            }
+            val hintText = it.value.suggestedValues.firstOrNull()
+            if (!hintText.isNullOrEmpty()) {
+                view.textInputLayout.placeholderText = getString(R.string.templates_param_suggested_value, hintText)
             }
             view.textInputLayout.helperText = it.value.description
             binding.templateDataParamsContainer.addView(view.root)

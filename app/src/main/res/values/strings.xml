@@ -1300,6 +1300,7 @@
     <!-- Templates -->
     <string name="templates_search_hint">Search templates</string>
     <string name="templates_insert_button">Insert</string>
+    <string name="templates_param_suggested_value">e.g. %s</string>
     <string name="templates_param_optional_hint">%s (Optional)</string>
     <string name="templates_param_suggested_hint">%s (Suggested)</string>
     <string name="templates_learn_more_link">Learn more</string>
