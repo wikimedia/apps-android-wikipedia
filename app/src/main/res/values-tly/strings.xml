@@ -589,8 +589,8 @@
   <string name="notifications_menu_uncheck_all">Ce həmmə objektonku nyšonon pegəte</string>
   <string name="notifications_wiki_filter_header">Viki parzyn</string>
   <string name="notifications_type_filter_header">Parzyni tispir</string>
-  <string name="notifications_all_wikis_text">Həmmə \"viki\"</string>
-  <string name="notifications_all_types_text">Həmmə «tispiron»</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Həmmə \"viki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Həmmə «tispiron»</string>
   <string name="notifications_menu_user_talk_page">No-pegəti səhifə %s</string>
   <string name="notifications_offline_disable_message">Ym funksijə oflajnədə dastrəs ni.</string>
   <string name="view_because_you_read_card_title">Šymə handə gylon bynədə</string>

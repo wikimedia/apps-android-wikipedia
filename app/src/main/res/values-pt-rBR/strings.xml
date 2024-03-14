@@ -782,8 +782,8 @@
   <string name="notifications_menu_uncheck_all">Desmarque todos os itens</string>
   <string name="notifications_wiki_filter_header">Filtro de wiki</string>
   <string name="notifications_type_filter_header">Tipo de filtro</string>
-  <string name="notifications_all_wikis_text">Todas as \"wikis\"</string>
-  <string name="notifications_all_types_text">Todos os \"tipos\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Todas as \"wikis\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Todos os \"tipos\"</string>
   <string name="notifications_menu_user_talk_page">página de discussão de %s</string>
   <string name="notifications_offline_disable_message">A função não está disponível enquanto estiver desconectado.</string>
   <string name="view_because_you_read_card_title">Porque você leu</string>

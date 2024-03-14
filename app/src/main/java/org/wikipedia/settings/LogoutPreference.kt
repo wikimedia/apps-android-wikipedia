@@ -3,14 +3,19 @@ package org.wikipedia.settings
 import android.app.Activity
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.StringUtil
 
 @Suppress("unused")
 class LogoutPreference : Preference {
@@ -28,7 +33,7 @@ class LogoutPreference : Preference {
         super.onBindViewHolder(holder)
         holder.itemView.isClickable = false
         holder.itemView.findViewById<TextView>(R.id.accountName).text = AccountUtil.userName
-        holder.itemView.findViewById<Button>(R.id.logoutButton).setOnClickListener { view ->
+        holder.itemView.findViewById<Button>(R.id.logoutButton).setOnClickListener {
             activity?.let {
                 MaterialAlertDialogBuilder(it)
                     .setMessage(R.string.logout_prompt)
@@ -43,5 +48,21 @@ class LogoutPreference : Preference {
                     }.show()
             }
         }
+        holder.itemView.findViewById<View>(R.id.accountVanishButton).setOnClickListener {
+            activity?.let {
+                MaterialAlertDialogBuilder(it, R.style.AlertDialogTheme_Icon_Delete)
+                    .setIcon(R.drawable.ic_person_remove)
+                    .setTitle(R.string.account_vanish_request_confirm_title)
+                    .setMessage(StringUtil.fromHtml(it.getString(R.string.account_vanish_request_confirm)))
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setPositiveButton(R.string.account_vanish_request_title) { _, _ ->
+                        it.finish()
+                        it.startActivity(SingleWebViewActivity.newIntent(it, it.getString(R.string.account_vanish_url), isWebForm = true))
+                    }.show()
+            }
+        }
+
+        // TODO: remove when ready
+        holder.itemView.findViewById<View>(R.id.accountVanishButton).isVisible = ReleaseUtil.isPreProdRelease
     }
 }

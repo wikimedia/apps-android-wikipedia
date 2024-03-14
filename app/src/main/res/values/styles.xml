@@ -152,7 +152,6 @@
         <item name="android:textSize">20sp</item>
         <item name="lineHeight">28sp</item>
         <item name="android:textColor">?attr/primary_color</item>
-        <item name="android:layout_marginBottom">5dp</item>
     </style>
 
     <style name="H2.MessageCard">
@@ -522,6 +521,20 @@
         <item name="elevationOverlayEnabled">false</item>
         <item name="materialAlertDialogTitleTextStyle">@style/H2.DialogTitle</item>
         <item name="materialAlertDialogBodyTextStyle">@style/P.DialogBody</item>
+    </style>
+
+    <style name="DialogIconWithTint" parent="MaterialAlertDialog.Material3.Title.Icon.CenterStacked">
+        <item name="tint">?attr/primary_color</item>
+    </style>
+
+    <style name="AlertDialogTheme.Icon">
+        <item name="materialAlertDialogTitlePanelStyle">@style/MaterialAlertDialog.Material3.Title.Panel.CenterStacked</item>
+        <item name="materialAlertDialogTitleIconStyle">@style/DialogIconWithTint</item>
+    </style>
+
+    <style name="AlertDialogTheme.Icon.Delete">
+        <item name="buttonBarPositiveButtonStyle">@style/DestructiveDialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/PlaceholderDialogButton</item>
     </style>
 
     <style name="AlertDialogTheme.Input">

@@ -283,7 +283,6 @@
   <string name="edit_redo">다시 실행</string>
   <string name="edit_rollback">일괄 되돌리기</string>
   <string name="edit_warn">경고</string>
-  <string name="edit_damage">%s 피해</string>
   <string name="edit_intent">의도 %s</string>
   <plurals name="edit_diff_bytes">
     <item quantity="other">%s바이트</item>
@@ -330,7 +329,6 @@
   <string name="widget_title_featured_page">오늘의 알찬 글:</string>
   <string name="widget_name_search">위키백과 검색</string>
   <string name="widget_description_search">위키백과를 검색하는 가장 빠른 방법</string>
-  <string name="widget_description_featured_page">위키백과가 제공할 수 있는 최고의 글</string>
   <string name="wiktionary_no_definitions_found">정의가 발견되지 않았습니다</string>
   <string name="alpha_update_notification_title">새로운 알파 업데이트를 이용할 수 있습니다</string>
   <string name="alpha_update_notification_text">다운로드하려면 탭하세요</string>
@@ -414,9 +412,9 @@
   <string name="multi_select_items_selected">%d개 선택됨</string>
   <string name="error_message_generic">오류가 발생했습니다</string>
   <string name="view_link_preview_error_button_dismiss">숨기기</string>
-  <string name="link_preview_dialog_read_button">읽음</string>
+  <string name="link_preview_dialog_read_button">읽기</string>
   <string name="link_preview_dialog_save_button">저장</string>
-  <string name="link_preview_dialog_saved_button">저장함</string>
+  <string name="link_preview_dialog_saved_button">저장됨</string>
   <string name="link_preview_dialog_share_button">공유</string>
   <string name="error_page_does_not_exist">이 문서가 존재하지 않습니다</string>
   <string name="error_user_page_does_not_exist">위키백과에 이 이름의 &lt;a href=\"%1$s\"&gt;사용자 문서&lt;/a&gt;가 없습니다. 일반적으로 이 문서는 &lt;b&gt;%2$s&lt;/b&gt;님이 만들고 편집해야 합니다. 의심이 들면 \"%3$s\" 문서가 존재하는지 확인해 주십시오.</string>
@@ -492,9 +490,6 @@
     <item quantity="one">글 1개, %2$.2f MB</item>
     <item quantity="other">글 %1$d개, %2$.2f MB</item>
   </plurals>
-  <plurals name="format_reading_list_statistical_detail_without_size">
-    <item quantity="other">%2$d개 중 %1$d 기사를 인터넷 없이 볼 수 있음</item>
-  </plurals>
   <plurals name="format_reading_list_statistical_detail">
     <item quantity="one">읽을 수 있는 오프라인 글 1개 중 %1$d개, %3$.2f MB</item>
     <item quantity="other">읽을 수 있는 오프라인 글 %2$d개 중 %1$d개, %3$.2f MB</item>
@@ -511,7 +506,6 @@
   <string name="reading_list_menu_export">목록 내보내기</string>
   <string name="reading_list_menu_select">선택</string>
   <string name="reading_list_menu_unselect">선택 해제</string>
-  <string name="reading_list_export_write_permission_rationale">읽기 목록을 내보내려면 기기의 저장 공간을 쓸 권리가 필요함.</string>
   <string name="reading_list_menu_rename">이름/설명 편집</string>
   <string name="reading_list_action_menu_remove_from_offline">오프라인에서 제거</string>
   <string name="reading_list_action_menu_save_for_offline">오프라인을 위해 저장</string>
@@ -532,11 +526,7 @@
     <item quantity="one">%s에서 제거된 문서 %d개</item>
     <item quantity="other">%s에서 제거된 문서 %d개</item>
   </plurals>
-  <plurals name="reading_lists_deleted_message">
-    <item quantity="other">%d개 목록 없앰.</item>
-  </plurals>
   <string name="reading_lists_default_list_delete_message">기본 목록(%s)은 삭제할 수 없습니다</string>
-  <string name="reading_lists_default_plus_one_list_delete_message">%1$s 없앰. (%2$s) 기본 목록은 없앨 수 없음.</string>
   <string name="reading_lists_default_plus_many_lists_delete_message">목록이 삭제되었습니다. 기본 목록(%s)은 삭제할 수 없습니다.</string>
   <string name="single_list_json_file_name">%s (위키백과 읽기 목록).json</string>
   <string name="multiple_lists_json_file_name">위키백과 읽기 목록 (%s 등).json</string>
@@ -623,7 +613,6 @@
   <string name="reading_list_delete_lists_dialog_delete_button_text">삭제</string>
   <string name="reading_list_activity_title">읽기 목록: %s</string>
   <string name="reading_list_notification_title">읽기 목록을 내보냈습니다</string>
-  <string name="reading_list_notification_text">%d 읽기 목록은 내려받기 폴더 \'reading_lists export.json\'에 보내짐.</string>
   <string name="reading_list_notification_detailed_text">읽기 목록을 \'reading_lists_export.json\'으로 내보냈습니다.</string>
   <string name="reading_lists_action_menu_export_lists">내보내기</string>
   <string name="reading_lists_import_file_picker_title">가져올 파일 선택</string>
@@ -758,8 +747,8 @@
   <string name="notifications_menu_uncheck_all">모든 항목의 체크를 해제</string>
   <string name="notifications_wiki_filter_header">위키 필터</string>
   <string name="notifications_type_filter_header">유형 필터</string>
-  <string name="notifications_all_wikis_text">모든 \"위키\"</string>
-  <string name="notifications_all_types_text">모든 \"종류\"</string>
+  <string name="notifications_all_wikis_text">모든 위키</string>
+  <string name="notifications_all_types_text">모든 유형</string>
   <string name="notifications_menu_user_talk_page">%s님의 토론 문서</string>
   <string name="notifications_offline_disable_message">이 기능은 오프라인 상태에서 사용할 수 없습니다.</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
@@ -1074,11 +1063,7 @@
   <string name="image_recommendation_onboarding_2">제안된 그림을 위키백과 문서에 배치할지 여부를 결정하세요.</string>
   <string name="image_recommendation_onboarding_3">제안은 자동 생성되며 당신은 그 제안을 허가할지, 아니면 반려할지를 결정하게 됩니다.</string>
   <string name="image_recommendation_onboarding_4">그림은 위키미디어 공용에서 가져옵니다. 위키백과에서 사용하는 자유 라이선스 이미지의 모음집입니다.</string>
-  <string name="image_recommendation_tooltip_1">이 주제를 알기 위해서 이 기사를 검토해</string>
-  <string name="image_recommendation_tooltip_2">이 사진이랑 관련 정보를 검사해</string>
-  <string name="image_recommendation_tooltip_3">사진이 읽는 사람이 이 주제를 더 잘 이해하는 데 도와주는지를 결정해</string>
   <string name="image_recommendation_tooltip_next">다음</string>
-  <string name="image_recommendation_tooltip_warning">검토해서 기사의 주제를 이해하고 사진을 검사해 줘</string>
   <string name="image_recommendation_depleted">죄송합니다. 현재로서는 더 이상 추천 이미지가 없습니다. 다른 &lt;a href=\"#\"&gt;편집 제안&lt;/a&gt;을 둘러보거나 나중에 다시 방문해 주세요.</string>
   <string name="suggested_edits_report_feature">기능에 문제가 있습니다</string>
   <string name="suggested_edits_report_feature_subject">편집 제안에 문제가 있습니다</string>
@@ -1108,8 +1093,7 @@
   <string name="onboarding_explore_text">늘 업데이트되는 둘러보기 피드로 위키백과를 탐험하세요.&lt;br/&gt;피드를 당신의 관심사에 &lt;b&gt;맞춤 관리하세요&lt;/b&gt; – 그것이 &lt;b&gt;오늘의 역사&lt;/b&gt;에 대한 역사적 사건을 배우는 것이든, 주사위를 굴려 &lt;b&gt;임의 문서로&lt;/b&gt; 가는 것이든요.</string>
   <string name="onboarding_reading_list_sync_title">읽기 목록 동기화</string>
   <string name="onboarding_reading_list_sync_text_v2">읽기 목록을 만들면 글을 나중에 읽거나 심지어는 오프라인 상태에서도 읽을 수 있습니다.&lt;br/&gt;읽기 목록을 동기화하려면 위키백과 계정에 로그인하십시오. &lt;a href=\"#login\"&gt;위키백과 가입&lt;/a&gt;</string>
-  <string name="onboarding_data_privacy_title">데이터 및 개인 정보</string>
-  <string name="onboarding_data_privacy_text">우린 네가 자유 지식 운동에 참여하기 위해서 개인 정보를 안 줘도 된다고 믿어. 이 앱에서 모인 사용 정보는 익명이야. 우리의 &lt;a href=\"#privacy\"&gt;개인 정보 정책&lt;/a&gt;이랑 &lt;a href=\"#termsOfUse\"&gt;이용 약관&lt;/a&gt;에 대해 더 알아봐.</string>
+  <string name="onboarding_data_privacy_title">데이터 및 개인정보 보호</string>
   <string name="onboarding_analytics_switch_title">사용 데이터 보내기</string>
   <string name="onboarding_got_it">알겠습니다</string>
   <string name="onboarding_multilingual_secondary_text">장치에서 다음의 언어를 발견했습니다:</string>
@@ -1322,7 +1306,7 @@
   <string name="revision_diff_paragraph_removed">문단 제거됨</string>
   <string name="revision_diff_protected">이 판의 변경 내용은 비공개입니다.</string>
   <string name="revision_undo_title">정말 이 편집을 취소하시겠습니까?</string>
-  <string name="revision_undo_message">취소는 하나 이상의 편집을 되돌리는 것은 의미함.</string>
+  <string name="revision_undo_message" fuzzy="true">취소는 하나 이상의 편집을 되돌리는 것은 의미함.</string>
   <string name="revision_undo_summary_hint">요약 (선택사항)</string>
   <string name="revision_undo_reason">되돌리는 이유 공유하기</string>
   <string name="revision_undo_success">이 판의 편집이 취소되었습니다.</string>
@@ -1425,8 +1409,7 @@
   <string name="media_playback_error">미디어를 재생하는 동안 오류가 발생했습니다.</string>
   <string name="user_contrib_menu_label">기여</string>
   <string name="user_contrib_filter_activity_title">기여 필터</string>
-  <string name="action_item_view_on_map">지도에서 봐</string>
-  <string name="action_item_view_on_map_unavailable">이 페이지는 지리적 좌표가 없어</string>
+  <string name="action_item_view_on_map">지도에서 보기</string>
   <string name="shareable_reading_lists_import_dialog_title">공유된 읽기 목록 가져오기</string>
   <string name="shareable_reading_lists_import_dialog_content">나에게 공유된 목록의 이름을 어떻게 지정하시겠습니까?</string>
   <string name="shareable_reading_lists_new_indicator">*새 항목*</string>
@@ -1457,11 +1440,8 @@
   <string name="talk_templates_edit_message_dialog_save">저장</string>
   <string name="talk_templates_edit_message_dialog_delete">삭제</string>
   <string name="talk_templates_edit_message_updated">메시지가 업데이트되었습니다</string>
-  <string name="talk_templates_menu_remove_message">메시지 삭제</string>
-  <plurals name="talk_templates_message_delete_description">
-    <item quantity="other">목록에서 메시지를 삭제하는 것을 확신해?</item>
-  </plurals>
-  <plurals name="talk_templates_message_deleted">
+  <string name="talk_templates_menu_remove_message">메시지 제거</string>
+  <plurals name="talk_templates_message_deleted" fuzzy="true">
     <item quantity="other">메시지가 삭제되었음</item>
   </plurals>
   <string name="talk_templates_message_title_empty">제목은 비워둘 수 없습니다.</string>
@@ -1488,9 +1468,7 @@
   <string name="patroller_tasks_filters_user_status_registered">등록</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">로그인한 편집자.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">신입 사용자</string>
-  <string name="patroller_tasks_filters_user_status_newcomers_desc">4일 동안 편집 10개 미만인 등록된 편집자.</string>
   <string name="patroller_tasks_filters_user_status_learners">학습자</string>
-  <string name="patroller_tasks_filters_user_status_learners_desc">경험이 \"신입\"과 \"숙련 사용자\" 사이에 들어가는 등록된 편집자.</string>
   <string name="patroller_tasks_filters_user_status_experienced">능숙한 사용자</string>
   <string name="patroller_tasks_filters_user_status_experienced_desc">30일 이상의 활동 및 500회 이상의 편집을 한 등록된 편집자.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">최신판</string>
@@ -1515,11 +1493,8 @@
   <string name="patroller_tasks_filters_user_intent_good">선의일 가능성이 매우 높습니다</string>
   <string name="patroller_tasks_filters_user_intent_good_desc">대부분 선의의 편집을 발견할 가능성이 매우 높습니다.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">악의일 가능성이 있습니다</string>
-  <string name="patroller_tasks_filters_user_intent_may_problems_desc">더 낮은 정확도로 거의 모든 악의적인 편집을 찾음.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">악의일 가능성이 높습니다</string>
-  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">보통 정확도로 일부의 악의적인 편집을 찾음.</string>
   <string name="patroller_tasks_filters_user_intent_bad">악의일 가능성이 매우 높습니다</string>
-  <string name="patroller_tasks_filters_user_intent_bad_desc">아주 높은 정확도로 명백히 악의적인 편집을 찾음.</string>
   <string name="patroller_tasks_filters_empty_search_message">더 많은 편집을 보려면 %s를 제거해 보십시오</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="other">%d개 필터</item>
@@ -1532,11 +1507,7 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">보기</string>
   <string name="patroller_tasks_overflow_report">기능에 문제가 있습니다</string>
   <string name="patroller_tasks_overflow_learn">더 알아보기</string>
-  <string name="patroller_onboarding_one_title">위키백과 편집의 감독과 승인에 이바지해.</string>
-  <string name="patroller_onboarding_one_content">적극적으로 최근 편집 피드를 평가하고 다른 편집자한테 길잡이, 품질 관리, 격려를 함으로써 위키백과 내용의 질을 높여.</string>
-  <string name="patroller_onboarding_two_title">바뀜 화면에서 피드백을 주고 편집을 감시하고 조치를 해</string>
   <string name="patroller_onboarding_two_thank_title">감사 표현</string>
-  <string name="patroller_onboarding_two_thank_content">좋은 편집이 보여? 그들의 기여에 감사를 보내.</string>
   <string name="patroller_onboarding_two_watch_title">주시</string>
   <string name="patroller_onboarding_two_watch_content">문서의 편집 내용을 추적하고 싶으신가요? 주시문서 목록에 추가하세요. \'더보기\'에서 확인하세요.</string>
   <string name="patroller_onboarding_two_warn_title">경고</string>
@@ -1544,7 +1515,6 @@
   <string name="patroller_onboarding_two_undo_title">편집 취소/일괄 되돌리기</string>
   <string name="patroller_onboarding_two_undo_content">문서 훼손 가능성이 있는 편집을 실행 취소하거나 되돌리려면 \'실행 취소\'를 선택하세요.</string>
   <string name="patroller_diff_tooltip_one">손해는 이 편집으로 위키가 훼손될 것인지 예측합니다.</string>
-  <string name="patroller_diff_tooltip_two">의도는 편집이 선의로 저장될 가능성을 예측해.</string>
   <string name="patroller_diff_feedback_dialog_title">이 기능을 개선할 수 있도록 도와주세요</string>
   <string name="patroller_diff_feedback_dialog_message">이 기능에 만족하시나요?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">만족</string>
@@ -1554,32 +1524,24 @@
   <string name="patroller_diff_feedback_dialog_input_hint">피드백</string>
   <string name="patroller_diff_feedback_dialog_submit">제출</string>
   <string name="patroller_diff_feedback_submitted_snackbar">의견이 제출되었습니다.</string>
-  <string name="patroller_diff_feedback_tooltip">\'기능 문제\'로 피드백을 보내려면 언제나 더보기 메뉴를 눌러</string>
   <string name="data_opt_in_accept">수락</string>
   <string name="data_opt_in_reject">거부</string>
   <string name="page_issues_title">문서 이슈</string>
   <string name="generic_release_notes">사소한 버그 수정 및 개선</string>
   <string name="email_report_image_recommendations_subject">문제 보고 - 이미지 추천 기능</string>
-  <string name="email_report_image_recommendations_body">난 사진 추천 기능의 문제에 마주쳤어:\n- [특정 문제를 설명해]\n\n보고 싶은 동작은:\n- [건의 해결책을 설명해]</string>
-  <string name="email_report_patroller_tasks_subject">문제 보고- 편집 순찰 기능</string>
   <string name="email_report_patroller_tasks_body">편집 순찰 기능에 문제가 발생했습니다:\n- [문제를 자세히 설명]\n\n원하던 동작은 다음과 같습니다.\n- [해결책 제안 설명]\n\n [스크린샷 또는 링크]</string>
   <string name="donation_campaign_maybe_later_snackbar">내일 다시 알려드리겠습니다.</string>
   <string name="donation_campaign_donated_snackbar">기부해 주셔서 감사합니다! 당신의 관대한 선택으로 위키백과와 자매 사이트의 발전에 큰 힘이 되었습니다.</string>
   <string name="donation_campaign_go_back_button">돌아가기</string>
   <string name="menu_single_webview_open_external">시스템 브라우저에서 열기</string>
   <string name="places_title">장소</string>
-  <string name="places_permissions_denied">지도에 네 위치를 보려면 위치 권한이 필요해. 다시 해봐.</string>
-  <string name="places_search_hint">장소를 검색해</string>
-  <string name="places_filter_title">언어를 필터해</string>
+  <string name="places_search_hint">장소 검색</string>
+  <string name="places_filter_title">언어 필터링</string>
   <string name="places_toggle_buttons_map">지도</string>
   <string name="places_toggle_buttons_list">목록</string>
-  <string name="places_nav_tab_tooltip_message">장소로 네 주변 위키백과 기사를 찾아</string>
-  <string name="places_article_menu_tooltip_message">이 기사의 위치를 탐색하려면 \'지도에서 보기\'를 눌러</string>
-  <string name="places_survey_very_satisfied_option">너무 만족함</string>
-  <string name="places_survey_very_unsatisfied_option">너무 불만족함</string>
-  <string name="places_survey_dialog_title">\'장소\'를 더 좋게 만드는 데 도와줘</string>
-  <string name="places_survey_feedback_dialog_title">\"장소\"가 어떻게 더 좋아질 수 있어?</string>
+  <string name="places_survey_very_satisfied_option">매우 만족</string>
+  <string name="places_survey_very_unsatisfied_option">매우 불만족</string>
+  <string name="places_survey_dialog_title">\'장소\' 개선 지원하기</string>
+  <string name="places_survey_feedback_dialog_title">\"장소\"를 어떻게 개선할 수 있나요?</string>
   <string name="places_survey_dialog_cancel">취소</string>
-  <string name="places_survey_feedback_low_satisfaction_dialog_title">어떤 걸 바꾸거나 개선하면 좋겠어?</string>
-  <string name="places_empty_list">이 지역은 비었어. &lt;a href=\"#\"&gt;지도&lt;/a&gt;를 축소해서 나가.</string>
 </resources>

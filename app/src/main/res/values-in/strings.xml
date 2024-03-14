@@ -761,8 +761,8 @@
   <string name="notifications_menu_uncheck_all">Hapus centang semua item</string>
   <string name="notifications_wiki_filter_header">Saringan Wiki</string>
   <string name="notifications_type_filter_header">Saringan jenis</string>
-  <string name="notifications_all_wikis_text">Semua \"wiki\"</string>
-  <string name="notifications_all_types_text">Semua \"jenis\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Semua \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Semua \"jenis\"</string>
   <string name="notifications_menu_user_talk_page">Halaman pembicaraan %s</string>
   <string name="notifications_offline_disable_message">Fungsi ini tidak tersedia ketika luring.</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>
