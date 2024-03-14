@@ -31,7 +31,6 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 
 class TemplatesSearchActivity : BaseActivity() {
     private lateinit var binding: ActivityTemplatesSearchBinding

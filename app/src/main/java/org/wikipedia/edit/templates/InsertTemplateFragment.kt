@@ -23,8 +23,6 @@ class InsertTemplateFragment : Fragment() {
     private lateinit var activity: TemplatesSearchActivity
     private var _binding: FragmentInsertTemplateBinding? = null
     private val binding get() = _binding!!
-    private val viewModel get() = activity.viewModel
-
     val isActive get() = binding.root.visibility == View.VISIBLE
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

@@ -85,4 +85,13 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
         data class LoadTemplateData(val pageTitle: PageTitle, val templateData: TemplateDataResponse.TemplateData) : UiState()
         data class LoadError(val throwable: Throwable) : UiState()
     }
+
+
+    companion object {
+        fun insertTemplateIntoWikiText(): String {
+            // TODO: implement this
+            // TODO: save to Prefs
+            return ""
+        }
+    }
 }
