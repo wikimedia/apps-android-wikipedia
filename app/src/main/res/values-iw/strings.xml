@@ -480,7 +480,7 @@
   <string name="editing_line_numbers_label">להציג מספרי שורות</string>
   <string name="editing_monospace_font_label">להשתמש בגופן ברוחב אחיד</string>
   <string name="editing_typing_suggestions">הצגת הצעות הקלדה</string>
-  <string name="nav_item_saved">נשמר</string>
+  <string name="nav_item_saved">שמורים</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_move_to">העברה לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>
@@ -824,8 +824,8 @@
   <string name="notifications_menu_uncheck_all">ביטול סימון כל הפריטים</string>
   <string name="notifications_wiki_filter_header">סינון ויקי</string>
   <string name="notifications_type_filter_header">סינון סוג</string>
-  <string name="notifications_all_wikis_text">כל סימוני \"ויקי\"</string>
-  <string name="notifications_all_types_text">כל סימוני \"סוג\"</string>
+  <string name="notifications_all_wikis_text">כל אתרי הוויקי</string>
+  <string name="notifications_all_types_text">כל הסוגים</string>
   <string name="notifications_menu_user_talk_page">דף השיחה של %s</string>
   <string name="notifications_offline_disable_message">האפשרות הזאת אינה זמינה כשאין חיבור לרשת.</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>

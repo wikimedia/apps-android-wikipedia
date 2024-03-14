@@ -715,8 +715,8 @@
   <string name="notifications_menu_uncheck_all">Odznacz wszystkie elementy</string>
   <string name="notifications_wiki_filter_header">Filtr Wiki</string>
   <string name="notifications_type_filter_header">Filtr typów</string>
-  <string name="notifications_all_wikis_text">Wszystkie \"wiki\"</string>
-  <string name="notifications_all_types_text">Wszystkie \"typy\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Wszystkie \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Wszystkie \"typy\"</string>
   <string name="notifications_menu_user_talk_page">strona dyskusji %s</string>
   <string name="notifications_offline_disable_message">Funkcja nie jest dostępna w trybie offline.</string>
   <string name="view_because_you_read_card_title">Ponieważ czytasz</string>

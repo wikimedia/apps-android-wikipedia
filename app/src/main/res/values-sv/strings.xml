@@ -765,8 +765,8 @@
   <string name="notifications_menu_uncheck_all">Avmarkera alla objekt</string>
   <string name="notifications_wiki_filter_header">Wikifilter</string>
   <string name="notifications_type_filter_header">Typfilter</string>
-  <string name="notifications_all_wikis_text">Alla \"wikier\"</string>
-  <string name="notifications_all_types_text">Alla \"typer\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Alla \"wikier\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Alla \"typer\"</string>
   <string name="notifications_menu_user_talk_page">%ss diskussionssida</string>
   <string name="notifications_offline_disable_message">Funktionen är inte tillgänglig när du saknar uppkoppling.</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>

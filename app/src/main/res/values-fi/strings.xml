@@ -775,8 +775,8 @@
   <string name="notifications_menu_uncheck_all">Poista valinta kaikista</string>
   <string name="notifications_wiki_filter_header">Wikisuodatin</string>
   <string name="notifications_type_filter_header">Tyyppisuodatin</string>
-  <string name="notifications_all_wikis_text">Kaikki \"wikit\"</string>
-  <string name="notifications_all_types_text">Kaikki \"tyypit\"</string>
+  <string name="notifications_all_wikis_text">Kaikki wikit</string>
+  <string name="notifications_all_types_text">Kaikki tyypit</string>
   <string name="notifications_menu_user_talk_page">Käyttäjän %s keskustelusivu</string>
   <string name="notifications_offline_disable_message">Tämä toiminto ei ole käytettävissä ilman verkkoyhteyttä.</string>
   <string name="view_because_you_read_card_title">Aiemmin lukemasi perusteella</string>
@@ -1502,6 +1502,7 @@
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Tarkastele käyttäjän muokkauksia</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Kiitä</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_title">Käyttäjätiedot</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Tili luotu: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Muokkausmäärä: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_close">Sulje</string>
   <string name="patroller_tasks_filters_title">Suodattimet</string>
@@ -1533,15 +1534,23 @@
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Löytää eniten virheellisiä tai vahingollisia muokkauksia, mutta tarkkuus on alempi.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Sisältää todennäköisesti ongelmia</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Sisältää hyvin todennäköisesti ongelmia</string>
+  <string name="patroller_tasks_filters_user_intent_header">Käyttäjän aikomuksen ennustaminen</string>
   <string name="patroller_tasks_filters_user_intent_good">Hyvin todennäköisesti hyväntahtoinen</string>
+  <string name="patroller_tasks_filters_user_intent_good_desc">Erittäin tarkka löytämään lähes pelkästään hyväntahtoisia muokkauksia.</string>
   <string name="patroller_tasks_filters_user_intent_may_problems">Saattaa olla pahantahtoinen</string>
+  <string name="patroller_tasks_filters_user_intent_may_problems_desc">Löytää pääosin pahantahtoisia muokkauksia, mutta tarkkuus on alempi.</string>
   <string name="patroller_tasks_filters_user_intent_likely_problems">Todennäköisesti pahantahtoinen</string>
+  <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Keskipitkällä tarkkuudella, löytää kohtuullisen murto-osan pahantahtoisia muokkauksia.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Hyvin todennäköisesti pahantahtoinen</string>
+  <string name="patroller_tasks_filters_user_intent_bad_desc">Erittäin hyvin tarkka löytämään selkeimmin pahantahtoiset muokkaukset.</string>
+  <string name="patroller_tasks_filters_empty_search_message">Kokeile poistaa %s nähdäksesi lisää muokkauksia</string>
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="one">%d suodatin</item>
     <item quantity="other">%d suodatinta</item>
   </plurals>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikkelin muokkaushistoria</string>
+  <string name="patroller_tasks_patrol_edit_undo_success">Palautus valmis</string>
+  <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Haluatko varmasti suorittaa palautuksen?</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Palautus valmis</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Näytä</string>
   <string name="patroller_tasks_overflow_learn">Lisätietoja</string>
@@ -1563,7 +1572,9 @@
   <string name="patroller_diff_feedback_submitted_snackbar">Palaute lähetetty.</string>
   <string name="data_opt_in_accept">Hyväksy</string>
   <string name="data_opt_in_reject">Hylkää</string>
+  <string name="page_issues_title">Sivun ongelmat</string>
   <string name="generic_release_notes">Pieniä virheenkorjauksia ja parannuksia</string>
+  <string name="donation_campaign_maybe_later_snackbar">Muistutamme sinua jälleen huomenna.</string>
   <string name="donation_campaign_go_back_button">Palaa takaisin</string>
   <string name="menu_single_webview_open_external">Avaa järjestelmäselaimessa</string>
   <string name="places_title">Paikat</string>
@@ -1571,5 +1582,11 @@
   <string name="places_filter_title">Suodata kielen perusteella</string>
   <string name="places_toggle_buttons_map">Kartta</string>
   <string name="places_toggle_buttons_list">Luettelo</string>
+  <string name="places_survey_very_satisfied_option">Erittäin tyytyväinen</string>
+  <string name="places_survey_very_unsatisfied_option">Erittäin tyytymätön</string>
+  <string name="places_survey_dialog_title">Auta parantamaan \'Paikat\'-toimintoa</string>
+  <string name="places_survey_feedback_dialog_title">Miten \"Paikat\"-toimintoa voidaan parantaa?</string>
   <string name="places_survey_dialog_cancel">Peruuta</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Mitä haluaisit meidän muuttavan tai parantavan?</string>
+  <string name="places_empty_list">Tämä alue on tyhjä. Loitonna &lt;a href=\"#\"&gt;karttaa&lt;/a&gt;.</string>
 </resources>

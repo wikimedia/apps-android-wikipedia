@@ -10,11 +10,15 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.webkit.CookieManager
+import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import androidx.core.view.isVisible
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.bridge.JavaScriptActionHandler
 import org.wikipedia.databinding.ActivitySingleWebViewBinding
 import org.wikipedia.dataclient.SharedPreferenceCookieManager
 import org.wikipedia.dataclient.WikiSite
@@ -25,6 +29,8 @@ import org.wikipedia.page.LinkHandler
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
+import org.wikipedia.staticdata.MainPageNameData
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
 class SingleWebViewActivity : BaseActivity() {
@@ -32,8 +38,10 @@ class SingleWebViewActivity : BaseActivity() {
     private lateinit var blankLinkHandler: LinkHandler
     private lateinit var targetUrl: String
     private var currentUrl: String? = null
-    private var pageTitle: PageTitle? = null
-    private var showBackButton: Boolean = false
+    private var pageTitleToLoadOnBackPress: PageTitle? = null
+    private var showBackButton = false
+    private var isWebForm = false
+    private var wasFormSubmitted = false
     val blankModel = PageViewModel()
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -47,8 +55,9 @@ class SingleWebViewActivity : BaseActivity() {
 
         targetUrl = intent.getStringExtra(EXTRA_URL)!!
         showBackButton = intent.getBooleanExtra(EXTRA_SHOW_BACK_BUTTON, false)
-        pageTitle = intent.parcelableExtra(EXTRA_PAGE_TITLE)
-        blankLinkHandler = EditLinkHandler(this, WikipediaApp.instance.wikiSite)
+        isWebForm = intent.getBooleanExtra(EXTRA_IS_WEB_FORM, false)
+        pageTitleToLoadOnBackPress = intent.parcelableExtra(Constants.ARG_TITLE)
+        blankLinkHandler = SingleWebViewLinkHandler(this, WikipediaApp.instance.wikiSite)
 
         binding.backButton.isVisible = showBackButton
         binding.backButton.setOnClickListener {
@@ -60,6 +69,28 @@ class SingleWebViewActivity : BaseActivity() {
             override val model get() = blankModel
             override val linkHandler get() = blankLinkHandler
 
+            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                if (isWebForm) {
+                    finish()
+                    request?.let {
+                        // Special case: If the URL is the main page, then just allow the activity to close,
+                        // otherwise, open the URL in an external browser.
+                        if (!it.url.path.orEmpty().endsWith(StringUtil.addUnderscores(MainPageNameData.valueFor("en")))) {
+                            UriUtil.visitInExternalBrowser(this@SingleWebViewActivity, it.url)
+                        }
+                    }
+                    return true
+                }
+                return false
+            }
+
+            override fun shouldInterceptRequest(view: WebView, request: WebResourceRequest): WebResourceResponse? {
+                if (request.method == "POST") {
+                    wasFormSubmitted = true
+                }
+                return super.shouldInterceptRequest(view, request)
+            }
+
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
                 binding.progressBar.isVisible = true
@@ -70,7 +101,11 @@ class SingleWebViewActivity : BaseActivity() {
                 super.onPageFinished(view, url)
                 binding.progressBar.isVisible = false
                 currentUrl = url
+                view?.evaluateJavascript(JavaScriptActionHandler.mobileWebChromeShim(0, 0), null)
                 invalidateOptionsMenu()
+                if (isWebForm && wasFormSubmitted) {
+                    binding.backButton.isVisible = true
+                }
             }
         }
 
@@ -119,7 +154,7 @@ class SingleWebViewActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if (binding.webView.canGoBack()) {
+        if (!isWebForm && binding.webView.canGoBack()) {
             binding.webView.goBack()
             return
         }
@@ -131,14 +166,14 @@ class SingleWebViewActivity : BaseActivity() {
         if (intent.getStringExtra(EXTRA_PAGE_CONTENT_INFO).orEmpty() == PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE) {
             DonorExperienceEvent.logAction("article_return_click", "webpay_processed")
         }
-        pageTitle?.let {
+        pageTitleToLoadOnBackPress?.let {
             val entry = HistoryEntry(it, HistoryEntry.SOURCE_SINGLE_WEBVIEW)
             startActivity(PageActivity.newIntentForExistingTab(this@SingleWebViewActivity, entry, entry.title))
         }
         finish()
     }
 
-    inner class EditLinkHandler constructor(context: Context, override var wikiSite: WikiSite) : LinkHandler(context) {
+    inner class SingleWebViewLinkHandler(context: Context, override var wikiSite: WikiSite) : LinkHandler(context) {
         override fun onPageLinkClicked(anchor: String, linkText: String) { }
         override fun onInternalLinkClicked(title: PageTitle) { }
         override fun onMediaLinkClicked(title: PageTitle) { }
@@ -148,16 +183,18 @@ class SingleWebViewActivity : BaseActivity() {
     companion object {
         const val EXTRA_URL = "url"
         const val EXTRA_SHOW_BACK_BUTTON = "goBack"
-        const val EXTRA_PAGE_TITLE = "pageTitle"
         const val EXTRA_PAGE_CONTENT_INFO = "pageContentInfo"
         const val PAGE_CONTENT_SOURCE_DONOR_EXPERIENCE = "donorExperience"
+        const val EXTRA_IS_WEB_FORM = "isWebForm"
 
-        fun newIntent(context: Context, url: String, showBackButton: Boolean = false, pageTitle: PageTitle? = null, pageContentInfo: String? = null): Intent {
+        fun newIntent(context: Context, url: String, showBackButton: Boolean = false, pageTitleToLoadOnBackPress: PageTitle? = null,
+                      pageContentInfo: String? = null, isWebForm: Boolean = false): Intent {
             return Intent(context, SingleWebViewActivity::class.java)
                     .putExtra(EXTRA_URL, url)
                     .putExtra(EXTRA_SHOW_BACK_BUTTON, showBackButton)
-                    .putExtra(EXTRA_PAGE_TITLE, pageTitle)
+                    .putExtra(Constants.ARG_TITLE, pageTitleToLoadOnBackPress)
                     .putExtra(EXTRA_PAGE_CONTENT_INFO, pageContentInfo)
+                    .putExtra(EXTRA_IS_WEB_FORM, isWebForm)
         }
     }
 }
