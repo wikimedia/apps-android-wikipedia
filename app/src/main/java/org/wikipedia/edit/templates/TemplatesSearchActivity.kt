@@ -31,6 +31,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.util.log.L
 
 class TemplatesSearchActivity : BaseActivity() {
     private lateinit var binding: ActivityTemplatesSearchBinding
@@ -124,6 +125,11 @@ class TemplatesSearchActivity : BaseActivity() {
         binding.searchCabView.isVisible = false
         binding.insertTemplateButton.isVisible = true
         insertTemplateFragment.show(pageTitle, templateData)
+    }
+
+    fun updateInsertButton(enabled: Boolean) {
+        binding.insertTemplateButton.isEnabled = enabled
+        binding.insertTemplateButton.setTextColor(ResourceUtil.getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.inactive_color))
     }
 
     override fun onBackPressed() {

@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.children
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentInsertTemplateBinding
@@ -14,6 +16,7 @@ import org.wikipedia.dataclient.mwapi.TemplateDataResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.views.PlainPasteEditText
 
 class InsertTemplateFragment : Fragment() {
 
@@ -28,38 +31,44 @@ class InsertTemplateFragment : Fragment() {
         _binding = FragmentInsertTemplateBinding.inflate(layoutInflater, container, false)
         activity = (requireActivity() as TemplatesSearchActivity)
         activity.supportActionBar?.title = null
-
-        // TODO: check all required params
-//        binding.mediaAlternativeText.addTextChangedListener {
-//            if (!activity.isDestroyed) {
-//                activity.invalidateOptionsMenu()
-//            }
-//        }
         return binding.root
     }
 
     private fun buildParamsInputFields(templateData: TemplateDataResponse.TemplateData) {
+        activity.updateInsertButton(true)
         binding.templateDataParamsContainer.removeAllViews()
         templateData.getParams?.filter { !it.value.isDeprecated }?.forEach {
-            val view = ItemInsertTemplateBinding.inflate(layoutInflater)
+            val itemBinding = ItemInsertTemplateBinding.inflate(layoutInflater)
             val labelText = StringUtil.capitalize(it.key)
+            itemBinding.root.tag = false
             if (it.value.required) {
-                view.textInputLayout.hint = labelText
-                view.textInputLayout.tag = true
+                itemBinding.textInputLayout.hint = labelText
+                itemBinding.editText.addTextChangedListener {
+                    if (!activity.isDestroyed) {
+                        checkRequiredParams()
+                    }
+                }
+                itemBinding.root.tag = true
+                // Make the insert button disable when require param shows up.
+                activity.updateInsertButton(false)
             } else if (it.value.suggested) {
-                view.textInputLayout.hint = getString(R.string.templates_param_suggested_hint, labelText)
-                view.textInputLayout.tag = false
+                itemBinding.textInputLayout.hint = getString(R.string.templates_param_suggested_hint, labelText)
             } else {
-                view.textInputLayout.hint = getString(R.string.templates_param_optional_hint, labelText)
-                view.textInputLayout.tag = false
+                itemBinding.textInputLayout.hint = getString(R.string.templates_param_optional_hint, labelText)
             }
             val hintText = it.value.suggestedValues.firstOrNull()
             if (!hintText.isNullOrEmpty()) {
-                view.textInputLayout.placeholderText = getString(R.string.templates_param_suggested_value, hintText)
+                itemBinding.textInputLayout.placeholderText = getString(R.string.templates_param_suggested_value, hintText)
             }
-            view.textInputLayout.helperText = it.value.description
-            binding.templateDataParamsContainer.addView(view.root)
+            itemBinding.textInputLayout.helperText = it.value.description
+            binding.templateDataParamsContainer.addView(itemBinding.root)
         }
+    }
+
+    private fun checkRequiredParams() {
+        val allRequiredParamsFilled = !binding.templateDataParamsContainer.children
+            .any { it.tag == true && it.findViewById<PlainPasteEditText>(R.id.editText).text.toString().trim().isEmpty() }
+        activity.updateInsertButton(allRequiredParamsFilled)
     }
 
     fun show(pageTitle: PageTitle, templateData: TemplateDataResponse.TemplateData) {
