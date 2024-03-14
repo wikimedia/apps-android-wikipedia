@@ -149,8 +149,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            FeedbackUtil.showMessage(this, R.string.edit_saved_successfully)
-            // and reload the stub...
+            FeedbackUtil.showMessage(requireActivity(), R.string.edit_saved_successfully)
+            dismiss()
         }
     }
 
@@ -163,7 +163,6 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         binding.linkPreviewEditChip.setOnClickListener {
             viewModel.pageTitle.run {
                 requestEditSectionLauncher.launch(EditSectionActivity.newIntent(requireContext(), -1, null, this, Constants.InvokeSource.LINK_PREVIEW_MENU, null))
-                dismiss()
             }
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)
@@ -397,7 +396,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             )
         )
         val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
-        val editVisibility = (viewModel.fromPlaces || viewModel.fromArticle) && contents.extract.isNullOrEmpty()
+        val editVisibility = contents.extract.isNullOrEmpty()
         binding.linkPreviewEditChip.isVisible = editVisibility
         binding.linkPreviewThumbnailGallery.isVisible = !editVisibility
         val extract = if (contents.extract.isNullOrEmpty()) "<i>" + getString(R.string.link_preview_stub_placeholder_text) + "</i>" else contents.extract
