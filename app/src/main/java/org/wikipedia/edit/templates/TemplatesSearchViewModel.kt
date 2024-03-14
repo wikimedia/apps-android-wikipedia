@@ -56,7 +56,7 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
 
                 return response.query?.pages?.let { list ->
                     val results = list.sortedBy { it.index }.map {
-                        val pageTitle = PageTitle(it.title, wikiSite, description = it.description)
+                        val pageTitle = PageTitle(wikiSite = wikiSite, _text = it.title, description = it.description)
                         pageTitle.displayText = it.displayTitle(wikiSite.languageCode)
                         pageTitle
                     }

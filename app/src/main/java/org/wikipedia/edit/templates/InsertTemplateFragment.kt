@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import org.wikipedia.R
 import org.wikipedia.databinding.FragmentInsertTemplateBinding
+import org.wikipedia.databinding.ItemInsertTemplateBinding
 import org.wikipedia.dataclient.mwapi.TemplateDataResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.StringUtil
@@ -36,8 +38,23 @@ class InsertTemplateFragment : Fragment() {
         return binding.root
     }
 
-    private fun buildParamsInputFields() {
-//        binding.templateParamsContainer.addView()
+    private fun buildParamsInputFields(templateData: TemplateDataResponse.TemplateData) {
+        binding.templateDataParamsContainer.removeAllViews()
+        templateData.getParams?.filter { !it.value.isDeprecated }?.forEach {
+            val view = ItemInsertTemplateBinding.inflate(layoutInflater)
+            if (it.value.required) {
+                view.textInputLayout.hint = it.value.label
+                view.textInputLayout.tag = true
+            } else if (it.value.suggested) {
+                view.textInputLayout.hint = getString(R.string.templates_param_suggested_hint, it.value.label)
+                view.textInputLayout.tag = false
+            } else {
+                view.textInputLayout.hint = getString(R.string.templates_param_optional_hint, it.value.label)
+                view.textInputLayout.tag = false
+            }
+            view.textInputLayout.helperText = it.value.description
+            binding.templateDataParamsContainer.addView(view.root)
+        }
     }
 
     fun show(pageTitle: PageTitle, templateData: TemplateDataResponse.TemplateData) {
@@ -48,6 +65,7 @@ class InsertTemplateFragment : Fragment() {
         binding.templateDataLearnMoreButton.setOnClickListener {
             UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(pageTitle.uri))
         }
+        buildParamsInputFields(templateData)
     }
 
     fun hide() {

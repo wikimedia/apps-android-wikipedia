@@ -13,7 +13,6 @@
     tools:visibility="visible">
 
     <LinearLayout
-        android:id="@+id/templateParamsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -55,6 +54,13 @@
             android:layout_marginStart="-8dp"
             app:drawableEndCompat="@drawable/ic_open_in_new_black_24px"
             app:drawableTint="?attr/progressive_color"/>
+
+        <LinearLayout
+            android:id="@+id/templateDataParamsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"/>
 
     </LinearLayout>
 
