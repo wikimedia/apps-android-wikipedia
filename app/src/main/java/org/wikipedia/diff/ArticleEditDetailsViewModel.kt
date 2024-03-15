@@ -29,12 +29,10 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
 import org.wikipedia.watchlist.WatchlistExpiry
-import org.wikipedia.watchlist.WatchlistFragment
 
 class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
 
     private val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as InvokeSource
-    private val fromWatchList = invokeSource == InvokeSource.WATCHLIST_ACTIVITY
 
     val watchedStatus = MutableLiveData<Resource<MwQueryPage>>()
     val rollbackRights = MutableLiveData<Resource<Boolean>>()
@@ -230,8 +228,9 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
             val msgResponse = ServiceFactory.get(title.wikiSite).getMessages("undo-summary", "$revisionId|$user")
             val undoMessage = msgResponse.query?.allmessages?.find { it.name == "undo-summary" }?.content
             var summary = if (undoMessage != null) "$undoMessage $comment" else comment
-            summary += if (fromRecentEdits) DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_UNDO else if (fromWatchList) WatchlistFragment.WATCHLIST_UNDO_COMMENT
-            else ArticleEditDetailsFragment.DIFF_UNDO_COMMENT
+            if (fromRecentEdits) {
+                summary += ", " + DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_UNDO
+            }
             val token = ServiceFactory.get(title.wikiSite).getToken().query!!.csrfToken()!!
             val undoResponse = ServiceFactory.get(title.wikiSite).postUndoEdit(title.prefixedText, summary,
                     null, token, revisionId, if (revisionIdAfter > 0) revisionIdAfter else null)
@@ -243,9 +242,15 @@ class ArticleEditDetailsViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
             rollbackResponse.postValue(Resource.Error(throwable))
         }) {
+
+            val rollbackSummaryMsg = ServiceFactory.get(title.wikiSite).getMessages("revertpage", null)
+                .query?.allmessages?.firstOrNull { it.name == "revertpage" }?.content
+
             val rollbackToken = ServiceFactory.get(title.wikiSite).getToken("rollback").query!!.rollbackToken()!!
-            val summary = if (fromRecentEdits) DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK else if (fromWatchList) WatchlistFragment.WATCHLIST_ROLLBACK_COMMENT
-            else ArticleEditDetailsFragment.DIFF_ROLLBACK_COMMENT
+            var summary = rollbackSummaryMsg
+            if (fromRecentEdits) {
+                summary += ", " + DescriptionEditFragment.SUGGESTED_EDITS_PATROLLER_TASKS_ROLLBACK
+            }
             val rollbackPostResponse = ServiceFactory.get(title.wikiSite).postRollback(title.prefixedText, summary, user, rollbackToken)
             rollbackResponse.postValue(Resource.Success(rollbackPostResponse))
         }
