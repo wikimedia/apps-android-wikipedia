@@ -110,14 +110,13 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         }
     }
 
-    private val sequentialTooltipRunnable = Runnable {
+    private val revertRiskTooltipRunnable = Runnable {
         if (!isAdded) {
             return@Runnable
         }
         sendPatrollerExperienceEvent("impression", "pt_tooltip")
-        val balloon = FeedbackUtil.getTooltip(requireContext(), getString(R.string.patroller_diff_tooltip_one), autoDismiss = true, showDismissButton = true, dismissButtonText = R.string.image_recommendation_tooltip_next, countNum = 1, countTotal = 2)
-        balloon.showAlignBottom(binding.oresDamagingButton)
-        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), getString(R.string.patroller_diff_tooltip_two), autoDismiss = true, showDismissButton = true, countNum = 2, countTotal = 2), binding.oresGoodFaithButton)
+        FeedbackUtil.getTooltip(requireContext(), getString(R.string.patroller_diff_tooltip_one), autoDismiss = true, showDismissButton = true)
+            .showAlignBottom(binding.revertRiskButton)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -263,7 +262,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
 
     override fun onDestroyView() {
         binding.appBarLayout.removeOnOffsetChangedListener(actionBarOffsetChangedListener)
-        binding.root.removeCallbacks(sequentialTooltipRunnable)
+        binding.root.removeCallbacks(revertRiskTooltipRunnable)
         _binding = null
         super.onDestroyView()
     }
@@ -412,11 +411,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
 
     private fun maybeShowOneTimeSequentialRecentEditsTooltips() {
         if (Prefs.showOneTimeSequentialRecentEditsDiffTooltip && viewModel.fromRecentEdits &&
-            binding.oresDamagingButton.isVisible && binding.oresGoodFaithButton.isVisible &&
+            binding.revertRiskButton.isVisible &&
             parentFragment == FragmentUtil.getAncestor(this, SuggestedEditsCardsFragment::class.java)?.topBaseChild()) {
             Prefs.showOneTimeSequentialRecentEditsDiffTooltip = false
-            binding.root.removeCallbacks(sequentialTooltipRunnable)
-            binding.root.postDelayed(sequentialTooltipRunnable, 500)
+            binding.root.removeCallbacks(revertRiskTooltipRunnable)
+            binding.root.postDelayed(revertRiskTooltipRunnable, 500)
         }
     }
 
@@ -471,8 +470,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         }
         binding.overlayRevisionFromTimestamp.text = binding.revisionFromTimestamp.text
 
-        binding.oresDamagingButton.isVisible = false
-        binding.oresGoodFaithButton.isVisible = false
+        binding.revertRiskButton.isVisible = false
 
         viewModel.revisionTo?.let {
             binding.usernameToButton.text = it.user
@@ -480,13 +478,10 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             binding.overlayRevisionToTimestamp.text = binding.revisionToTimestamp.text
             binding.revisionToEditComment.text = StringUtil.fromHtml(it.parsedcomment.trim())
 
-            if (it.ores != null && viewModel.fromRecentEdits) {
-                binding.oresDamagingButton.isVisible = true
-                binding.oresDamagingButton.text = getString(R.string.edit_damage, ((it.ores?.damagingProb ?: 0f) * 100f).toInt().toString().plus("%"))
-                binding.oresDamagingButton.setOnClickListener(openQualityAndIntentFiltersPage)
-                binding.oresGoodFaithButton.isVisible = true
-                binding.oresGoodFaithButton.text = getString(R.string.edit_intent, ((it.ores?.goodfaithProb ?: 0f) * 100f).toInt().toString().plus("%"))
-                binding.oresGoodFaithButton.setOnClickListener(openQualityAndIntentFiltersPage)
+            if (it.ores != null) {
+                binding.revertRiskButton.isVisible = true
+                binding.revertRiskButton.text = getString(R.string.edit_revert_risk, ((it.ores?.revertRisk ?: 0f) * 100f).toInt().toString().plus("%"))
+                binding.revertRiskButton.setOnClickListener(openQualityAndIntentFiltersPage)
 
                 maybeShowOneTimeSequentialRecentEditsTooltips()
             }
@@ -506,11 +501,8 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     }
 
     private val openQualityAndIntentFiltersPage = View.OnClickListener { view ->
-        if (view.id == R.id.oresDamagingButton) {
-            sendPatrollerExperienceEvent("quality_click", "pt_edit")
-        } else {
-            sendPatrollerExperienceEvent("intent_click", "pt_edit")
-        }
+        sendPatrollerExperienceEvent("revert_risk_click", "pt_edit")
+        // TODO: correct url:
         UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.quality_and_intent_filters_url)))
     }
 

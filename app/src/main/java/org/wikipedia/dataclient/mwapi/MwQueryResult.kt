@@ -227,15 +227,12 @@ class MwQueryResult {
 
     @Serializable
     class OresResult {
-        private val damaging: OresItem? = null
-        private val goodfaith: OresItem? = null
-
+        private val revertrisklanguageagnostic: OresItem? = null
         // TODO: articlequality
         // TODO: draftquality
-        val damagingProb: Float
-            get() = damaging?.trueProb ?: 0f
-        val goodfaithProb: Float
-            get() = goodfaith?.trueProb ?: 0f
+
+        val revertRisk: Float
+            get() = revertrisklanguageagnostic?.trueProb ?: 0f
     }
 
     @Serializable
