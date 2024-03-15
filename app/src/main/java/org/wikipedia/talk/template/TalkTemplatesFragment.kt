@@ -227,7 +227,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
         val touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         touchCallback.swipeableEnabled = true
-        itemTouchHelper = ItemTouchHelper(if(actionMode!=null)RearrangeableItemTouchHelperCallback(adapter) else touchCallback)
+        itemTouchHelper = ItemTouchHelper(if (actionMode != null) RearrangeableItemTouchHelperCallback(adapter) else touchCallback)
         itemTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)
         updateAndNotifyAdapter()
     }
@@ -235,7 +235,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     fun updateTouchHelper() {
         val touchCallback = SwipeableItemTouchHelperCallback(requireContext())
         touchCallback.swipeableEnabled = true
-        itemTouchHelper = ItemTouchHelper(if(actionMode!=null)RearrangeableItemTouchHelperCallback(adapter) else touchCallback)
+        itemTouchHelper = ItemTouchHelper(if (actionMode != null) RearrangeableItemTouchHelperCallback(adapter) else touchCallback)
         itemTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)
     }
     private fun onLoading() {
@@ -279,7 +279,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesErrorView.visibility = View.VISIBLE
     }
 
-    internal inner class TalkTemplatesItemViewHolder(val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView) , SwipeableItemTouchHelperCallback.Callback{
+    internal inner class TalkTemplatesItemViewHolder(val templatesItemView: TalkTemplatesItemView) : RecyclerView.ViewHolder(templatesItemView.rootView), SwipeableItemTouchHelperCallback.Callback {
         private lateinit var entry: TalkTemplate
 
         fun bindItem(item: TalkTemplate, position: Int) {
