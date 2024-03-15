@@ -1640,4 +1640,9 @@
   <string name="patroller_saved_message_body_do_not_censor">Ready-to-use user talk message offered to experienced editors to warn another editor about censorship. Please do not translate the keywords formatted in triple braces {{{...}}}.</string>
   <string name="patroller_saved_message_body_art_imp">Ready-to-use user talk message offered to experienced editors to warn another editor about article improvement suggestion. Please do not translate the keywords formatted in triple braces {{{...}}}. Please include the relevant language version of the link(s). If no link is found, please do not include a link. Editors may add a link(s) to another language wiki\'s policy if desired.</string>
   <string name="talk_warn_learn_more_label">Label text for external link to message placeholders.</string>
+  <string name="talk_warn_learn_more_url">URL that points to a page on mediawiki.org that contains guidelines for usage of saved messages for patrolling edits.</string>
+  <string name="talk_templates_your_messages_tab_title">Tab title text for list of user\'s custom saved messages.</string>
+  <string name="talk_templates_example_messages_tab_title">Tab title text for list of ready-to-use saved messages made available for user.</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Instruction text to guide user on usage of saved messages.</string>
+  <string name="talk_warn_save_dialog_dont_save">Negative action label text for talk warm messages save dialog.</string>
 </resources>
