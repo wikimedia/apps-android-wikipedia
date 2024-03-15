@@ -7,7 +7,6 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
-import android.text.format.DateUtils
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -50,6 +49,7 @@ import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.settings.NotificationSettingsActivity
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
@@ -389,7 +389,7 @@ class NotificationActivity : BaseActivity() {
                 }
             }
 
-            binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.date().time, System.currentTimeMillis(), 0L)
+            binding.notificationTime.text = DateUtil.formatRelativeTime(n.instant())
             binding.notificationTime.setTextColor(if (n.isUnread) primaryColor else inactiveColor)
             binding.notificationOverflowMenu.imageTintList = if (n.isUnread) primaryColor else inactiveColor
 
