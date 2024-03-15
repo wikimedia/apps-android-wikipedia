@@ -160,7 +160,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         binding.linkPreviewOverflowButton.setOnClickListener {
             setupOverflowMenu()
         }
-        binding.linkPreviewEditChip.setOnClickListener {
+        binding.linkPreviewEditButton.setOnClickListener {
             viewModel.pageTitle.run {
                 requestEditSectionLauncher.launch(EditSectionActivity.newIntent(requireContext(), -1, null, this, Constants.InvokeSource.LINK_PREVIEW_MENU, null))
             }
@@ -397,7 +397,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         )
         val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
         val editVisibility = contents.extract.isNullOrEmpty()
-        binding.linkPreviewEditChip.isVisible = editVisibility
+        binding.linkPreviewEditButton.isVisible = editVisibility
         binding.linkPreviewThumbnailGallery.isVisible = !editVisibility
         val extract = if (contents.extract.isNullOrEmpty()) "<i>" + getString(R.string.link_preview_stub_placeholder_text) + "</i>" else contents.extract
         binding.linkPreviewExtractWebview.loadDataWithBaseURL(
