@@ -201,7 +201,6 @@ class EditSummaryFragment : Fragment() {
     fun show() {
         ViewAnimations.fadeIn(binding.root) {
             requireActivity().invalidateOptionsMenu()
-            binding.editSummaryText.requestFocus()
             DeviceUtil.showSoftKeyboard(binding.editSummaryText)
         }
     }

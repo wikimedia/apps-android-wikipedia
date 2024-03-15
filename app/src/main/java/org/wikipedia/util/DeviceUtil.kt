@@ -12,12 +12,10 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.Window
 import android.view.accessibility.AccessibilityManager
-import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
+import androidx.core.view.SoftwareKeyboardControllerCompat
 import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.appbar.MaterialToolbar
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -27,16 +25,16 @@ object DeviceUtil {
         get() = WindowCompat.getInsetsController(this, decorView)
 
     fun showSoftKeyboard(view: View) {
-        (view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
-                .showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+        view.requestFocus()
+        SoftwareKeyboardControllerCompat(view).show()
     }
 
     fun hideSoftKeyboard(activity: Activity) {
-        activity.window.insetsControllerCompat.hide(WindowInsetsCompat.Type.ime())
+        hideSoftKeyboard(activity.window.decorView)
     }
 
     fun hideSoftKeyboard(view: View) {
-        ViewCompat.getWindowInsetsController(view)?.hide(WindowInsetsCompat.Type.ime())
+        SoftwareKeyboardControllerCompat(view).hide()
     }
 
     fun isHardKeyboardAttached(resources: Resources): Boolean {

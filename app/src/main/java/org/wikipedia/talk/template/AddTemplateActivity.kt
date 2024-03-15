@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
+import androidx.core.view.postDelayed
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -125,14 +126,13 @@ class AddTemplateActivity : BaseActivity(), UserMentionInputView.Listener {
             }
         }
 
-        binding.addTemplateTitleLayout.postDelayed({
+        binding.addTemplateTitleLayout.postDelayed(500) {
             if (!isDestroyed) {
-                binding.addTemplateTitleLayout.requestFocus()
                 val position = binding.addTemplateTitleText.text?.length ?: 0
                 binding.addTemplateTitleText.setSelection(position)
                 DeviceUtil.showSoftKeyboard(binding.addTemplateTitleText)
             }
-        }, 500)
+        }
     }
 
     private fun setSaveButtonEnabled(enabled: Boolean) {

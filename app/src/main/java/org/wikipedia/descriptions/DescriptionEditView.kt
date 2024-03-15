@@ -13,6 +13,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.core.view.isVisible
+import androidx.core.view.postDelayed
 import androidx.core.widget.ImageViewCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -28,7 +29,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.*
 import org.wikipedia.views.SuggestedArticleDescriptionsDialog
-import java.util.*
+import java.util.Locale
 
 class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
     interface Callback {
@@ -242,7 +243,6 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
         enableSaveButton(enabled = allowed, saveInProgress = false)
         binding.viewDescriptionEditTextLayout.isEnabled = allowed
         if (allowed) {
-            binding.viewDescriptionEditText.requestFocus()
             DeviceUtil.showSoftKeyboard(binding.viewDescriptionEditText)
         }
     }
@@ -454,11 +454,11 @@ class DescriptionEditView : LinearLayout, MlKitLanguageDetector.Callback {
                     aboveOrBelow = false, autoDismiss = true, showDismissButton = true
                 ).apply {
                     setOnBalloonDismissListener {
-                        binding.root.postDelayed({
+                        binding.root.postDelayed(500) {
                             if (isAttachedToWindow) {
                                 DeviceUtil.showSoftKeyboard(binding.viewDescriptionEditText)
                             }
-                        }, 500)
+                        }
                     }
                 }
                 Prefs.suggestedEditsMachineGeneratedDescriptionTooltipShown = true

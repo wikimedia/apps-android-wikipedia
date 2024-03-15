@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.util.lruCache
 import androidx.core.view.isVisible
+import androidx.core.view.postDelayed
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.Constants
@@ -216,11 +217,10 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             binding.replyInputView.maybePrepopulateUserName(AccountUtil.userName.orEmpty(), viewModel.pageTitle)
             binding.talkScrollContainer.post {
                 if (!isDestroyed) {
-                    binding.replyInputView.editText.requestFocus()
                     DeviceUtil.showSoftKeyboard(binding.replyInputView.editText)
-                    binding.talkScrollContainer.postDelayed({
+                    binding.talkScrollContainer.postDelayed(500) {
                         binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 4)
-                    }, 500)
+                    }
                 }
             }
         }
