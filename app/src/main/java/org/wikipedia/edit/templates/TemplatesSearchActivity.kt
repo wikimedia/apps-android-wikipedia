@@ -27,6 +27,7 @@ import org.wikipedia.databinding.ItemTemplatesSearchBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.TemplateDataResponse
 import org.wikipedia.page.PageTitle
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
@@ -73,10 +74,15 @@ class TemplatesSearchActivity : BaseActivity() {
         insertTemplateFragment = supportFragmentManager.findFragmentById(R.id.insertTemplateFragment) as InsertTemplateFragment
 
         binding.insertTemplateButton.setOnClickListener {
-            val wikiText = insertTemplateFragment.collectParamsInfoAndBuildWikiText()
-            val intent = Intent().putExtra(RESULT_WIKI_TEXT, wikiText)
-            setResult(RESULT_INSERT_TEMPLATE_SUCCESS, intent)
-            finish()
+            viewModel.selectedPageTitle?.let {
+                val list = Prefs.recentUsedTemplates.toMutableList()
+                list.add(it)
+                Prefs.recentUsedTemplates = list
+                val wikiText = insertTemplateFragment.collectParamsInfoAndBuildWikiText()
+                val intent = Intent().putExtra(RESULT_WIKI_TEXT, wikiText)
+                setResult(RESULT_INSERT_TEMPLATE_SUCCESS, intent)
+                finish()
+            }
         }
 
         lifecycleScope.launch {
@@ -183,6 +189,7 @@ class TemplatesSearchActivity : BaseActivity() {
 
             itemView.setOnClickListener {
                 viewModel.loadTemplateData(pageTitle)
+                viewModel.selectedPageTitle = pageTitle
             }
         }
     }

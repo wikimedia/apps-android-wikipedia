@@ -26,6 +26,7 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
     val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
     val wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
     var searchQuery: String? = null
+    var selectedPageTitle: PageTitle? = null
     val searchTemplatesFlow = Pager(PagingConfig(pageSize = 10)) {
         SearchTemplatesFlowSource(searchQuery, wikiSite)
     }.flow.cachedIn(viewModelScope)
