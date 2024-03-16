@@ -315,7 +315,7 @@ class UserContribListActivity : BaseActivity() {
                     launchFilterActivity.launch(UserContribFilterActivity.newIntent(this@UserContribListActivity))
                 }
 
-                FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
+                FeedbackUtil.setButtonTooltip(binding.filterByButton)
                 binding.root.isVisible = true
             }
         }
