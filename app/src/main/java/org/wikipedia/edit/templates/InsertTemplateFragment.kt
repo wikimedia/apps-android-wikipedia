@@ -92,12 +92,10 @@ class InsertTemplateFragment : Fragment() {
         wikiText += binding.templateDataTitle.text
         binding.templateDataParamsContainer.children.iterator().forEach {
             var label = it.findViewById<TextInputLayout>(R.id.textInputLayout).tag as String
-            if (label.toIntOrNull() != null) {
-                label = ""
-            }
+            label = if (label.toIntOrNull() != null) "" else "$label="
             val editText = it.findViewById<PlainPasteEditText>(R.id.editText).text.toString().trim()
             if (editText.isNotEmpty()) {
-                wikiText += "|$label=$editText"
+                wikiText += "|$label$editText"
             }
         }
         wikiText += "}}"

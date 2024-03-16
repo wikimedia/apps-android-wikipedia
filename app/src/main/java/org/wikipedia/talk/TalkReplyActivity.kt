@@ -26,6 +26,7 @@ import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.edit.SyntaxHighlightViewAdapter
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.insertmedia.InsertMediaViewModel
+import org.wikipedia.edit.templates.TemplatesSearchActivity
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
@@ -95,7 +96,12 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     }
 
     private val requestInsertTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        // TODO: implement this
+        if (it.resultCode == TemplatesSearchActivity.RESULT_INSERT_TEMPLATE_SUCCESS) {
+            it.data?.let { data ->
+                val newWikiText = data.getStringExtra(TemplatesSearchActivity.RESULT_WIKI_TEXT)
+                binding.replyInputView.editText.inputConnection?.commitText(newWikiText, 1)
+            }
+        }
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {

@@ -49,6 +49,7 @@ import org.wikipedia.edit.insertmedia.InsertMediaViewModel
 import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.edit.richtext.SyntaxHighlighter
 import org.wikipedia.edit.summaries.EditSummaryFragment
+import org.wikipedia.edit.templates.TemplatesSearchActivity
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
@@ -155,7 +156,12 @@ class EditSectionActivity : BaseActivity(), ThemeChooserDialog.Callback, EditPre
     }
 
     private val requestInsertTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        // TODO: implement this
+        if (it.resultCode == TemplatesSearchActivity.RESULT_INSERT_TEMPLATE_SUCCESS) {
+            it.data?.let { data ->
+                val newWikiText = data.getStringExtra(TemplatesSearchActivity.RESULT_WIKI_TEXT)
+                binding.editSectionText.inputConnection?.commitText(newWikiText, 1)
+            }
+        }
     }
 
     private val editTokenThenSave: Unit
