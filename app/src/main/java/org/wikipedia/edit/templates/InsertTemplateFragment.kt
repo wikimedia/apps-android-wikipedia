@@ -9,6 +9,7 @@ import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import com.google.android.material.textfield.TextInputLayout
 import org.wikipedia.R
 import org.wikipedia.databinding.FragmentInsertTemplateBinding
 import org.wikipedia.databinding.ItemInsertTemplateBinding
@@ -54,6 +55,7 @@ class InsertTemplateFragment : Fragment() {
             } else {
                 itemBinding.textInputLayout.hint = getString(R.string.templates_param_optional_hint, labelText)
             }
+            itemBinding.textInputLayout.tag = it.key
             val hintText = it.value.suggestedValues.firstOrNull()
             if (!hintText.isNullOrEmpty()) {
                 itemBinding.textInputLayout.placeholderText = getString(R.string.templates_param_suggested_value, hintText)
@@ -83,6 +85,23 @@ class InsertTemplateFragment : Fragment() {
     fun hide() {
         binding.root.isVisible = false
         activity.invalidateOptionsMenu()
+    }
+
+    fun collectParamsInfoAndBuildWikiText(): String {
+        var wikiText = "{{"
+        wikiText += binding.templateDataTitle.text
+        binding.templateDataParamsContainer.children.iterator().forEach {
+            var label = it.findViewById<TextInputLayout>(R.id.textInputLayout).tag as String
+            if (label.toIntOrNull() != null) {
+                label = ""
+            }
+            val editText = it.findViewById<PlainPasteEditText>(R.id.editText).text.toString().trim()
+            if (editText.isNotEmpty()) {
+                wikiText += "|$label=$editText"
+            }
+        }
+        wikiText += "}}"
+        return wikiText
     }
 
     fun handleBackPressed(): Boolean {

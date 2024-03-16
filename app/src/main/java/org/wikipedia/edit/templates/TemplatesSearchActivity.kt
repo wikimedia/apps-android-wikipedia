@@ -72,6 +72,13 @@ class TemplatesSearchActivity : BaseActivity() {
 
         insertTemplateFragment = supportFragmentManager.findFragmentById(R.id.insertTemplateFragment) as InsertTemplateFragment
 
+        binding.insertTemplateButton.setOnClickListener {
+            val wikiText = insertTemplateFragment.collectParamsInfoAndBuildWikiText()
+            val intent = Intent().putExtra(RESULT_WIKI_TEXT, wikiText)
+            setResult(RESULT_INSERT_TEMPLATE_SUCCESS, intent)
+            finish()
+        }
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
@@ -181,6 +188,8 @@ class TemplatesSearchActivity : BaseActivity() {
     }
 
     companion object {
+        const val RESULT_INSERT_TEMPLATE_SUCCESS = 100
+        const val RESULT_WIKI_TEXT = "resultWikiText"
         fun newIntent(context: Context, wikiSite: WikiSite, invokeSource: Constants.InvokeSource): Intent {
             return Intent(context, TemplatesSearchActivity::class.java)
                 .putExtra(Constants.ARG_WIKISITE, wikiSite)

@@ -26,7 +26,6 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
     val invokeSource = bundle.getSerializable(Constants.INTENT_EXTRA_INVOKE_SOURCE) as Constants.InvokeSource
     val wikiSite = bundle.parcelable<WikiSite>(Constants.ARG_WIKISITE)!!
     var searchQuery: String? = null
-    var selectedTemplate: PageTitle? = null
     val searchTemplatesFlow = Pager(PagingConfig(pageSize = 10)) {
         SearchTemplatesFlowSource(searchQuery, wikiSite)
     }.flow.cachedIn(viewModelScope)
@@ -49,7 +48,6 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
                     val recentUsedTemplates = Prefs.recentUsedTemplates.filter { it.wikiSite == wikiSite }
                     return LoadResult.Page(recentUsedTemplates, null, null)
                 }
-                // TODO: check if the description is valid
                 val query = Namespace.TEMPLATE.name + ":" + searchQuery
                 val response = ServiceFactory.get(wikiSite)
                     .fullTextSearchTemplates(query, params.loadSize, params.key)
@@ -84,14 +82,5 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
     open class UiState {
         data class LoadTemplateData(val pageTitle: PageTitle, val templateData: TemplateDataResponse.TemplateData) : UiState()
         data class LoadError(val throwable: Throwable) : UiState()
-    }
-
-
-    companion object {
-        fun insertTemplateIntoWikiText(): String {
-            // TODO: implement this
-            // TODO: save to Prefs
-            return ""
-        }
     }
 }
