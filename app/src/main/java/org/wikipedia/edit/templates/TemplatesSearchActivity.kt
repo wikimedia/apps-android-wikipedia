@@ -3,6 +3,7 @@ package org.wikipedia.edit.templates
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -186,6 +187,12 @@ class TemplatesSearchActivity : BaseActivity() {
             binding.itemDescription.isVisible = !pageTitle.description.isNullOrEmpty()
             binding.itemDescription.text = pageTitle.description
             StringUtil.boldenKeywordText(binding.itemTitle, binding.itemTitle.text.toString(), viewModel.searchQuery)
+
+            if (viewModel.searchQuery.isNullOrEmpty()) {
+                binding.itemTitle.typeface = Typeface.DEFAULT_BOLD
+            } else {
+                binding.itemTitle.typeface = Typeface.DEFAULT
+            }
 
             itemView.setOnClickListener {
                 viewModel.loadTemplateData(pageTitle)
