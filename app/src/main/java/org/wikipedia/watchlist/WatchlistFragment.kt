@@ -365,8 +365,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         const val VIEW_TYPE_SEARCH_BAR = 0
         const val VIEW_TYPE_DATE = 1
         const val VIEW_TYPE_ITEM = 2
-        const val WATCHLIST_UNDO_COMMENT = "#watchlist-undo"
-        const val WATCHLIST_ROLLBACK_COMMENT = "#watchlist-rollback"
 
         fun newInstance(): WatchlistFragment {
             return WatchlistFragment()

@@ -388,8 +388,8 @@
   <string name="notifications_menu_uncheck_all">सब्भे आइटम्स प सँ चयन हटाबौ</string>
   <string name="notifications_wiki_filter_header">विकी चालनी</string>
   <string name="notifications_type_filter_header">प्रकार चालनी</string>
-  <string name="notifications_all_wikis_text">सब्भे \"विकी\"</string>
-  <string name="notifications_all_types_text">सब्भे \"प्रकार\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">सब्भे \"विकी\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">सब्भे \"प्रकार\"</string>
   <string name="notifications_menu_user_talk_page">%s क वार्ता पृष्ठ</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
   <string name="view_random_article_card_title">कोय्यो लेख</string>

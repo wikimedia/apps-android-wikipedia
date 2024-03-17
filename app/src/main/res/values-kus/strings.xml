@@ -642,8 +642,8 @@
   <string name="notifications_swipe_action_unread">Pʋ karim</string>
   <string name="notifications_menu_check_all">Kpansim la\'ad wʋsa</string>
   <string name="notifications_menu_uncheck_all">Da kpans la\'ad wʋsaa</string>
-  <string name="notifications_all_wikis_text">Wiki wʋsa</string>
-  <string name="notifications_all_types_text">Buudi wʋsa</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Wiki wʋsa</string>
+  <string name="notifications_all_types_text" fuzzy="true">Buudi wʋsa</string>
   <string name="notifications_menu_user_talk_page">%s\'s sɔnsʋg lakir zin\'ig</string>
   <string name="view_because_you_read_card_title">Fʋn karim la zug</string>
   <string name="view_random_card_title">Yɔɔg-yɔɔg</string>

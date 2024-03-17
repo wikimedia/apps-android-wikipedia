@@ -636,8 +636,8 @@
   <string name="notifications_menu_uncheck_all">Atžymėti visus elementus</string>
   <string name="notifications_wiki_filter_header">Viki filtras</string>
   <string name="notifications_type_filter_header">Tipo filtras</string>
-  <string name="notifications_all_wikis_text">Visi „viki“</string>
-  <string name="notifications_all_types_text">Visi „tipai“</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Visi „viki“</string>
+  <string name="notifications_all_types_text" fuzzy="true">Visi „tipai“</string>
   <string name="notifications_menu_user_talk_page">%s aptarmo puslapis</string>
   <string name="notifications_offline_disable_message">Ši funkcija neprieinama neprisijungus.</string>
   <string name="view_because_you_read_card_title">Nes jūs skaitėte</string>
