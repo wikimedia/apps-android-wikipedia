@@ -106,18 +106,17 @@ class SingleWebViewActivity : BaseActivity() {
                 if (isWebForm && wasFormSubmitted) {
                     binding.backButton.isVisible = true
                 }
+
+                // Explicitly apply any other cookies that we received during this call to the WebView,
+                // so that subsequent POST(s) can inherit them.
+                setCookies(url.orEmpty())
             }
         }
 
         // Explicitly apply our cookies to the default CookieManager of the WebView.
         // This is because our custom WebViewClient doesn't allow intercepting POST requests
         // properly, so in the case of POST requests the cookies will be supplied automatically.
-        CookieManager.getInstance().let {
-            val cookies = SharedPreferenceCookieManager.instance.loadForRequest(targetUrl)
-            for (cookie in cookies) {
-                it.setCookie(targetUrl, cookie.toString())
-            }
-        }
+        setCookies(targetUrl)
 
         if (savedInstanceState == null) {
             binding.webView.loadUrl(targetUrl)
@@ -171,6 +170,15 @@ class SingleWebViewActivity : BaseActivity() {
             startActivity(PageActivity.newIntentForExistingTab(this@SingleWebViewActivity, entry, entry.title))
         }
         finish()
+    }
+
+    private fun setCookies(url: String) {
+        CookieManager.getInstance().let {
+            val cookies = SharedPreferenceCookieManager.instance.loadForRequest(url)
+            for (cookie in cookies) {
+                it.setCookie(url, cookie.toString())
+            }
+        }
     }
 
     inner class SingleWebViewLinkHandler(context: Context, override var wikiSite: WikiSite) : LinkHandler(context) {
