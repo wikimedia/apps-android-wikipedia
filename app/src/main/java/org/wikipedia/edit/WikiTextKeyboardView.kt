@@ -2,6 +2,7 @@ package org.wikipedia.edit
 
 import android.content.Context
 import android.os.Build
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.inputmethod.InputConnection
@@ -171,7 +172,7 @@ class WikiTextKeyboardView constructor(context: Context, attrs: AttributeSet?) :
                 if (it.selectionStart == it.selectionEnd) {
                     val before = ic.getTextBeforeCursor(prefix.length, 0)
                     val after = ic.getTextAfterCursor(suffix.length, 0)
-                    if (before != null && before.toString() == prefix && after != null && after.toString() == suffix) {
+                    if (TextUtils.equals(before, after)) {
                         // the cursor is actually inside the exact syntax, so negate it.
                         ic.deleteSurroundingText(prefix.length, suffix.length)
                     } else {
@@ -181,7 +182,7 @@ class WikiTextKeyboardView constructor(context: Context, attrs: AttributeSet?) :
                     }
                 } else {
                     var selection = ic.getSelectedText(0) ?: return
-                    selection = if (selection.toString().startsWith(prefix) && selection.toString().endsWith(suffix)) {
+                    selection = if (selection.startsWith(prefix) && selection.endsWith(suffix)) {
                         // the highlighted text is already a link, so toggle the link away.
                         selection.subSequence(prefix.length, selection.length - suffix.length)
                     } else {
