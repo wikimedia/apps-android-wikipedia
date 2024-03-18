@@ -46,7 +46,7 @@ class CampaignDialogView(context: Context) : FrameLayout(context) {
             binding.closeButton.setOnClickListener {
                 callback?.onClose()
             }
-            FeedbackUtil.setButtonLongPressToast(binding.closeButton)
+            FeedbackUtil.setButtonTooltip(binding.closeButton)
 
             // TODO: think about optimizing the usage of actions array
             try {

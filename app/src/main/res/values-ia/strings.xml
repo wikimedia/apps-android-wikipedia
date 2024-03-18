@@ -241,7 +241,7 @@
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Iste app ha essite traducite per le traductores voluntari de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentia</string>
-  <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
+  <string name="about_app_license">Le codice fonte es disponibile sur &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sub le &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licentia Apache 2.0&lt;/a&gt;. Salvo indication contrari, le contento es disponibile sub un &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/\"&gt;licentia Creative Commons Attribution-CompartiSimile&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto del &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">A proposito</string>
   <string name="edit_abandon_confirm">Le pagina ha essite modificate. Es tu secur de voler exir sin salveguardar tu cambiamentos?</string>
@@ -742,8 +742,8 @@
   <string name="notifications_menu_uncheck_all">Dismarcar tote le elementos</string>
   <string name="notifications_wiki_filter_header">Filtro de wikis</string>
   <string name="notifications_type_filter_header">Filtro de typos</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Tote le wikis</string>
-  <string name="notifications_all_types_text" fuzzy="true">Tote le typos</string>
+  <string name="notifications_all_wikis_text">Tote le wikis</string>
+  <string name="notifications_all_types_text">Tote le typos</string>
   <string name="notifications_menu_user_talk_page">Pagina de discussion de %s</string>
   <string name="notifications_offline_disable_message">Le function non es disponibile foras de linea.</string>
   <string name="view_because_you_read_card_title">Perque tu ha legite</string>
