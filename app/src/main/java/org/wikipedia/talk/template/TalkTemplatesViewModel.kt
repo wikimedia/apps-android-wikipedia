@@ -95,6 +95,16 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
+    fun saveTemplates(talkTemplates: List<TalkTemplate>) {
+        viewModelScope.launch(actionHandler) {
+            withContext(Dispatchers.IO) {
+                talkTemplates.forEach { talkTemplatesRepository.insertTemplate(it) }
+                talkTemplatesList.addAll(talkTemplates)
+                _actionState.value = ActionState.Added()
+            }
+        }
+    }
+
     fun deleteTemplates(talkTemplates: List<TalkTemplate>) {
         viewModelScope.launch(actionHandler) {
             withContext(Dispatchers.IO) {
@@ -114,6 +124,7 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
     }
 
     open class ActionState {
+        class Added : ActionState()
         class Deleted(val size: Int) : ActionState()
         class Error(val throwable: Throwable) : ActionState()
     }

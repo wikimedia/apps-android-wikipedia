@@ -55,6 +55,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     private var touchCallback: SwipeableItemTouchHelperCallback? = null
     private lateinit var adapter: RecyclerAdapter
     private val selectedItems = mutableListOf<TalkTemplate>()
+    private val deletedItems = mutableListOf<TalkTemplate>()
     private var actionMode: ActionMode? = null
     private val multiSelectCallback = MultiSelectCallback()
 
@@ -146,6 +147,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                         when (it) {
                             is TalkTemplatesViewModel.ActionState.Deleted -> onDeleted(it.size)
                             is TalkTemplatesViewModel.ActionState.Error -> onActionError(it.throwable)
+                            is TalkTemplatesViewModel.ActionState.Added -> onAdded()
                         }
                     }
                 }
@@ -168,7 +170,6 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 }
                 touchCallback?.swipeableEnabled = binding.talkTemplatesTabLayout.selectedTabPosition == 0
                 updateAndNotifyAdapter()
-                updateEmptyState()
                 requireActivity().invalidateOptionsMenu()
             }
 
@@ -185,13 +186,15 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
     }
 
-    fun updateEmptyState() {
+    private fun updateEmptyState() {
         binding.talkTemplatesEmptyContainer.isVisible = adapter.templatesList.isEmpty()
         binding.talkTemplatesRecyclerView.isVisible = adapter.templatesList.isNotEmpty()
     }
+
     fun updateAndNotifyAdapter() {
         adapter.templatesList.clear()
         adapter.templatesList.addAll(if (binding.talkTemplatesTabLayout.selectedTabPosition == 0) viewModel.talkTemplatesList else viewModel.savedTemplatesList)
+        updateEmptyState()
         adapter.notifyDataSetChanged()
     }
 
@@ -257,7 +260,11 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     private fun onDeleted(size: Int) {
         PatrollerExperienceEvent.logAction("message_deleted_toast", "pt_templates")
         val messageStr = resources.getQuantityString(R.plurals.talk_templates_message_deleted, size)
-        FeedbackUtil.showMessage(this, messageStr)
+        FeedbackUtil.makeSnackbar(requireActivity(), messageStr)
+            .setAction(R.string.reading_list_item_delete_undo) {
+                viewModel.saveTemplates(deletedItems)
+            }
+            .show()
         binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesRecyclerView.isVisible = viewModel.talkTemplatesList.isNotEmpty()
         if (binding.talkTemplatesEmptyContainer.isVisible) {
@@ -265,6 +272,10 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         }
         actionMode?.finish()
         unselectAllTalkTemplates()
+    }
+
+    private fun onAdded() {
+      updateAndNotifyAdapter()
     }
 
     private fun onActionError(t: Throwable) {
@@ -413,6 +424,8 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     private fun deleteSelectedTalkTemplates() {
+        deletedItems.clear()
+        deletedItems.addAll(selectedItems)
         viewModel.deleteTemplates(selectedItems)
     }
 
