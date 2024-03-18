@@ -1652,4 +1652,8 @@
   <string name="templates_param_suggested_hint">Hint text for the input field that indicates the parameter for the template is suggested. %s will be replaced by the parameter label.</string>
   <string name="templates_learn_more_link">Button label for the learn more button that opens the template page.</string>
   <string name="templates_param_suggested_value">Hint text for the input field. %s will be replaced by the suggested value.</string>
+  <string name="templates_description_incomplete">Text for the message that indicates the description of the template may be incomplete.</string>
+  <string name="templates_description_empty">Text for the message that induces the description of the template is empty. %s will be replaced by the name of the template.</string>
+  <string name="templates_description_missing_data">Text for the message that indicates the template is missing its template data.</string>
+
 </resources>
