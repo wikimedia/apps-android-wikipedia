@@ -266,7 +266,7 @@
   <string name="about_translators_heading">번역자</string>
   <string name="about_translators_translatewiki">이 앱은 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;의 자원 번역자가 번역했습니다.</string>
   <string name="about_app_license_heading">라이선스</string>
-  <string name="about_app_license">소스 코드는 &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;아파치 2.0 라이선스&lt;/a&gt; 하에 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;게릿&lt;/a&gt;과 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;깃허브&lt;/a&gt;에서 확인할 수 있습니다. 별도로 명시하지 않은 내용은 &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.ko\"&gt;크리에이티브 커먼즈 저작자표시-동일조건변경허락 라이선스&lt;/a&gt; 하에 이용할 수 있습니다.</string>
+  <string name="about_app_license" fuzzy="true">소스 코드는 &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;아파치 2.0 라이선스&lt;/a&gt; 하에 &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;게릿&lt;/a&gt;과 &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;깃허브&lt;/a&gt;에서 확인할 수 있습니다. 별도로 명시하지 않은 내용은 &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.ko\"&gt;크리에이티브 커먼즈 저작자표시-동일조건변경허락 라이선스&lt;/a&gt; 하에 이용할 수 있습니다.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;위키미디어 재단&lt;/a&gt;의 제품</string>
   <string name="about_activity_title">정보</string>
   <string name="edit_abandon_confirm">문서가 수정되어 있습니다. 바뀐 내용을 저장하지 않고 빠져나가겠습니까?</string>
@@ -1524,6 +1524,9 @@
   <string name="patroller_diff_feedback_dialog_input_hint">피드백</string>
   <string name="patroller_diff_feedback_dialog_submit">제출</string>
   <string name="patroller_diff_feedback_submitted_snackbar">의견이 제출되었습니다.</string>
+  <string name="patroller_saved_message_title_auto_trans">자동 번역</string>
+  <string name="patroller_saved_message_title_final_warning">마지막 경고</string>
+  <string name="talk_templates_menu_edit_title">편집</string>
   <string name="data_opt_in_accept">수락</string>
   <string name="data_opt_in_reject">거부</string>
   <string name="page_issues_title">문서 이슈</string>

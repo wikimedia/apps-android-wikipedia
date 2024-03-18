@@ -204,6 +204,8 @@
   <string name="logged_out_in_background_dialog">Vikipedi\'den çıkış yaptınız. Tekrar giriş yapmak ister misiniz?</string>
   <string name="logged_out_in_background_login">Oturum aç</string>
   <string name="logged_out_in_background_cancel">İptal</string>
+  <string name="account_vanish_request_title">Hesabı yok et</string>
+  <string name="account_vanish_request_confirm_title">Hesabı yok etme uyarısı</string>
   <string name="history_empty_title">Yakın zamanda görüntülenen madde yok</string>
   <string name="history_empty_message">Okuduklarınızı buradan takip edin.</string>
   <string name="history_offline_articles_toast">Geçmişteki bazı maddeler, çevrimdışı iken görünmeyebilir.</string>
@@ -285,7 +287,7 @@
   <string name="about_translators_heading">Çevirmenler</string>
   <string name="about_translators_translatewiki">Bu uygulama &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'teki gönüllü çevirmenler tarafından tercüme edilmiştir.</string>
   <string name="about_app_license_heading">Lisans</string>
-  <string name="about_app_license">Kaynak koduna &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ve &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisansı&lt;/a&gt; ile ulaşılabilir. Aksi belirtilmediği sürece, içerikler &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Atıf-BenzerPaylaşım Lisansı&lt;/a&gt; ile sunulmaktadır.</string>
+  <string name="about_app_license" fuzzy="true">Kaynak koduna &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ve &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisansı&lt;/a&gt; ile ulaşılabilir. Aksi belirtilmediği sürece, içerikler &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Atıf-BenzerPaylaşım Lisansı&lt;/a&gt; ile sunulmaktadır.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Vakfı&lt;/a&gt; ürünüdür</string>
   <string name="about_activity_title">Hakkında</string>
   <string name="edit_abandon_confirm">Sayfa değiştirildi. Değişikliklerinizi kaydetmeden çıkmak istediğinizden emin misiniz?</string>
@@ -792,8 +794,8 @@
   <string name="notifications_menu_uncheck_all">Tüm ögelerin seçimini kaldır</string>
   <string name="notifications_wiki_filter_header">Viki filtresi</string>
   <string name="notifications_type_filter_header">Tür filtresi</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Tüm \"viki\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">Tüm \"tür\"</string>
+  <string name="notifications_all_wikis_text">Tüm vikiler</string>
+  <string name="notifications_all_types_text">Tüm türler</string>
   <string name="notifications_menu_user_talk_page">%s tartışma sayfası</string>
   <string name="notifications_offline_disable_message">Bu işlev çevrimdışıyken kullanılamaz.</string>
   <string name="view_because_you_read_card_title">Okuduğun için</string>
@@ -1279,6 +1281,7 @@
   <string name="talk_warn_submitted_and_saved">İleti, düzenleyicinin kullanıcı tartışma sayfasında saklandı ve yayımlandı</string>
   <string name="talk_warn_saved_message">Var olan bir uyarı iletisini seçin ya da yeni bir ileti oluşturun.</string>
   <string name="talk_warn_saved_message_dropdown">Saklanan iletiler</string>
+  <string name="talk_warn_saved_messages">Saklanan iletiler</string>
   <string name="talk_page_empty">Bu tartışma sayfası boş.</string>
   <string name="talk_page_empty_title">Konuşma burada başlıyor</string>
   <string name="talk_page_empty_content">Tartışma sayfaları, insanların Vikipedi içeriğini olabildiğince iyi hale getirmeyi tartıştığı yerdir. Vikipedist topluluğuyla bağlantı kurmak ve işbirliği yapmak için yeni bir tartışma konusu ekleyerek başlayın.</string>
@@ -1599,6 +1602,7 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Tarafsız</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Mutsuz</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Özelliği nasıl geliştirebiliriz?</string>
+  <string name="patroller_diff_menu_edit_history_title">Madde düzenleme geçmişi</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Geri bildirim</string>
   <string name="patroller_diff_feedback_dialog_submit">Gönder</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Geri bildirim gönderildi.</string>
