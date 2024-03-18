@@ -276,7 +276,7 @@
   <string name="about_translators_heading">Překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.cs\"&gt;licence Creative Commons Uveďte původ – Zachovejte licenci&lt;/a&gt;.</string>
+  <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.cs\"&gt;licence Creative Commons Uveďte původ – Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;nadace Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci Wikipedie</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
@@ -1320,10 +1320,10 @@
   <string name="user_contrib_filter_activity_title">Filtrovat příspěvky</string>
   <string name="action_item_view_on_map">Zobrazit na mapě</string>
   <string name="patroller_tasks_overflow_report">Problém s funkcí</string>
-  <string name="patroller_diff_feedback_dialog_message">Jste s touto funkcí spokojeni?</string>
-  <string name="patroller_diff_feedback_dialog_option_satisfied">Spokojen</string>
+  <string name="patroller_diff_feedback_dialog_message">Jste s touto funkcí spokojen(a)?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Spokojen(a)</string>
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutrální</string>
-  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Nespokojen</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Nespokojen(a)</string>
   <string name="places_title">Místa</string>
   <string name="places_search_hint">Hledat místa</string>
   <string name="places_filter_title">Filtrovat jazyk</string>
@@ -1331,7 +1331,7 @@
   <string name="places_toggle_buttons_list">Seznam</string>
   <string name="places_nav_tab_tooltip_message">Objevujte články na Wikipedii kolem sebe pomocí záložky Místa</string>
   <string name="places_article_menu_tooltip_message">Klepnutím na „Zobrazit na mapě“ prozkoumáte polohu tohoto článku</string>
-  <string name="places_survey_very_satisfied_option">Velmi spokojen</string>
-  <string name="places_survey_very_unsatisfied_option">Velmi nespokojen</string>
+  <string name="places_survey_very_satisfied_option">Velmi spokojen(a)</string>
+  <string name="places_survey_very_unsatisfied_option">Velmi nespokojen(a)</string>
   <string name="places_survey_dialog_title">Pomozte vylepšit „Místa“</string>
 </resources>

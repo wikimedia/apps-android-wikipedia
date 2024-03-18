@@ -102,7 +102,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentArticleEditDetailsBinding.inflate(inflater, container, false)
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
+        FeedbackUtil.setButtonTooltip(binding.newerIdButton, binding.olderIdButton)
         return binding.root
     }
 

@@ -321,7 +321,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
 
     private fun initLangButton() {
         binding.searchLangButton.setLangCode(app.languageState.appLanguageCode.uppercase(Locale.ENGLISH))
-        FeedbackUtil.setButtonLongPressToast(binding.searchLangButton)
+        FeedbackUtil.setButtonTooltip(binding.searchLangButton)
     }
 
     private fun addRecentSearch(title: String?) {

@@ -250,7 +250,7 @@
   <string name="about_translators_heading">Troerien</string>
   <string name="about_translators_translatewiki">Troet eo bet an arload-mañ gant troerien a-youl vat e &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Aotre-implijout</string>
-  <string name="about_app_license">Kod mammennoù a c\'haller kaout e &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ha &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;GitHub&lt;/a&gt; dindan &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Nemet kemennoù kontrol a vefe, e c\'haller kaout an endalc\'had &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;aotre-implijout Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kod mammennoù a c\'haller kaout e &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ha &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;GitHub&lt;/a&gt; dindan &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;licence Apache 2.0&lt;/a&gt;. Nemet kemennoù kontrol a vefe, e c\'haller kaout an endalc\'had &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;aotre-implijout Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Ur produ gant &lt;a href=\"https://wikimediafoundation.org/\"&gt;Diazezadur Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Diwar-benn</string>
   <string name="edit_abandon_confirm">Kemmet eo bet ar bajenn. Ha sur oc\'h e fell deoc\'h mont kuit anez enrollañ ho kemmoù ?</string>
@@ -757,8 +757,8 @@
   <string name="notifications_swipe_action_read">Lenn</string>
   <string name="notifications_swipe_action_unread">N\'eo ket bet lennet</string>
   <string name="notifications_wiki_filter_header">Sil wiki</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Pep \"wiki\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">Pep \"seurt\"</string>
+  <string name="notifications_all_wikis_text">An holl wikioù</string>
+  <string name="notifications_all_types_text">Pep seurt</string>
   <string name="notifications_menu_user_talk_page">Pajenn gaozeal %s</string>
   <string name="notifications_offline_disable_message">An arc\'hwel-mañ n\'eo ket hegerz pa vezer ezlinenn.</string>
   <string name="view_because_you_read_card_title">Peogwir ho peus lennet</string>
@@ -1295,6 +1295,9 @@
   <string name="patroller_onboarding_two_warn_title">Diwall</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Roit hoc\'h ali</string>
   <string name="patroller_diff_feedback_dialog_submit">Kas</string>
+  <string name="patroller_saved_message_title_npov">Sav-boent neptu</string>
+  <string name="patroller_saved_message_title_auto_trans">Troidigezh emgefreek</string>
+  <string name="talk_templates_menu_edit_title">Kemmañ</string>
   <string name="data_opt_in_accept">Asantiñ</string>
   <string name="data_opt_in_reject">Disteurel</string>
   <string name="page_issues_title">Kudennoù war ar bajenn</string>
