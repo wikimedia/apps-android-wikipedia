@@ -121,12 +121,8 @@ object FeedbackUtil {
         }
     }
 
-    fun setButtonTooltip(view: View) {
-        TooltipCompat.setTooltipText(view, view.contentDescription)
-    }
-
     fun setButtonTooltip(vararg views: View) {
-        views.forEach { setButtonTooltip(it) }
+        views.forEach { TooltipCompat.setTooltipText(it, it.contentDescription) }
     }
 
     fun setButtonOnClickToast(vararg views: View) {
