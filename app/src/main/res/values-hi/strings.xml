@@ -769,7 +769,7 @@
   <string name="notifications_menu_uncheck_all">सभी आइटम्स पर से चयन हटाएँ</string>
   <string name="notifications_wiki_filter_header">विकी छलनी</string>
   <string name="notifications_type_filter_header">प्रकार छलनी</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">सभी \"विकी\"</string>
+  <string name="notifications_all_wikis_text">सभी विकी</string>
   <string name="notifications_all_types_text" fuzzy="true">सभी प्रकार\"</string>
   <string name="notifications_menu_user_talk_page">%s का वार्ता पृष्ठ</string>
   <string name="notifications_offline_disable_message">ऑफ़लाइन होने पर फ़ंक्शन उपलब्ध नहीं है।</string>
@@ -1447,6 +1447,7 @@
   <string name="patroller_diff_feedback_dialog_input_hint">फीडबैक</string>
   <string name="patroller_diff_feedback_dialog_submit">जमा करें</string>
   <string name="patroller_diff_feedback_submitted_snackbar">फीडबैक जमा किया गया. धन्यवाद!</string>
+  <string name="talk_templates_menu_edit_title">सम्पादन</string>
   <string name="data_opt_in_accept">स्वीकार करें</string>
   <string name="data_opt_in_reject">अस्वीकार करें</string>
   <string name="generic_release_notes">मामूली बग फिक्स और सुधार</string>
