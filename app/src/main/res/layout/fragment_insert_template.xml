@@ -38,6 +38,26 @@
             android:textColor="?attr/secondary_color"
             tools:text="Generic speedy deletion template"/>
 
+        <LinearLayout
+            android:id="@+id/templateDataMissing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="?attr/background_color"
+            android:layout_marginTop="8dp"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/templateDataMissingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/primary_color"
+                android:textSize="14sp"
+                android:lineSpacingExtra="6sp"
+                android:ellipsize="end" />
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/templateDataLearnMoreButton"
             style="@style/H3.Button"
