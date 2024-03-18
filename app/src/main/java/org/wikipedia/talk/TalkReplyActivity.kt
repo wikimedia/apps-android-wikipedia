@@ -228,7 +228,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
         val title = StringUtil.fromHtml(
-            if (viewModel.isNewTopic) pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>"
+            if (viewModel.isNewTopic || viewModel.isFromDiff) pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(pageTitle.displayText)}</a>"
             else intent.getStringExtra(EXTRA_PARENT_SUBJECT).orEmpty()
         ).trim().ifEmpty { getString(R.string.talk_no_subject) }
         ViewUtil.getTitleViewFromToolbar(binding.replyToolbar)?.let {
@@ -313,7 +313,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     private fun showEditPreview() {
         binding.talkScrollContainer.isVisible = false
-        binding.editSectionPreviewFragment.isVisible = true
         updateEditLicenseText()
         setSaveButtonEnabled(true)
         supportActionBar?.title = getString(R.string.edit_preview)
@@ -349,7 +348,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         }
         if (editPreviewFragment.isActive) {
             binding.progressBar.visibility = View.VISIBLE
-            binding.editSectionPreviewFragment.isVisible = false
+            editPreviewFragment.hide()
             viewModel.postReply(subject, body)
             return
         }
@@ -434,6 +433,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     sendPatrollerExperienceEvent("publish_exit_cancel", "pt_warning_messages")
                 }
                 .show()
+        } else if (viewModel.isFromDiff && editPreviewFragment.isActive) {
+            showProgressBar(true)
+            binding.talkScrollContainer.isVisible = true
+            editPreviewFragment.hide()
+            setSaveButtonEnabled(true)
+            binding.replySaveButton.text = getString(R.string.edit_next)
+            setToolbarTitle(viewModel.pageTitle)
+            binding.root.postDelayed({ showProgressBar(false) }, 250)
         } else {
             super.onBackPressed()
         }

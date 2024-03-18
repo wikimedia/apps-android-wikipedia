@@ -67,7 +67,7 @@
                     android:layout_marginTop="1dp"
                     android:contentDescription="@null"
                     app:srcCompat="@drawable/ic_open_in_new_black_24px"
-                    app:tint="?attr/secondary_color" />
+                    app:iconTint="?attr/secondary_color" />
 
                 <TextView
                     android:id="@+id/externalLinkText"

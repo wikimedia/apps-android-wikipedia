@@ -26,7 +26,7 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     val topic = bundle.parcelable<ThreadItem>(TalkReplyActivity.EXTRA_TOPIC)
     val isFromDiff = bundle.getBoolean(TalkReplyActivity.EXTRA_FROM_DIFF, false)
-    val isNewTopic = topic == null
+    val isNewTopic = topic == null && !isFromDiff
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
     val selectedTemplate = bundle.parcelable<TalkTemplate>(TalkTemplatesActivity.EXTRA_SELECTED_TEMPLATE)
