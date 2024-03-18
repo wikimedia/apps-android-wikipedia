@@ -49,7 +49,7 @@ class TemplatesSearchViewModel(bundle: Bundle) : ViewModel() {
                     val recentUsedTemplates = Prefs.recentUsedTemplates.filter { it.wikiSite == wikiSite }
                     return LoadResult.Page(recentUsedTemplates, null, null)
                 }
-                val query = Namespace.TEMPLATE.name + ":" + searchQuery
+                val query = Namespace.TEMPLATE.name + ":" + searchQuery + "*"
                 val response = ServiceFactory.get(wikiSite)
                     .fullTextSearchTemplates(query, params.loadSize, params.key)
 
