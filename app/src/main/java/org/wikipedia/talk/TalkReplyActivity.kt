@@ -417,7 +417,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
 
             binding.progressBar.isVisible = true
-            binding.messagePreviewFragment.isVisible = false
+            setSaveButtonEnabled(false)
             viewModel.postReply(subject, body)
             return
         }
