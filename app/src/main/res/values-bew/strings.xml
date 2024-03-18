@@ -235,7 +235,7 @@
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Ni aplikasi udah diterjemahin ama penerjemah sukarèla di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ongji</string>
-  <string name="about_app_license">Kode sumber derak di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; èn &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Ongji Apache 2.0&lt;/a&gt;. Kecuali ada ketentuan tambahan nyang belakon, isi derak di bawahnya &lt;a href=\"\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Ongji Nisbat-DumanSetumbras Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kode sumber derak di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; èn &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Ongji Apache 2.0&lt;/a&gt;. Kecuali ada ketentuan tambahan nyang belakon, isi derak di bawahnya &lt;a href=\"\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Ongji Nisbat-DumanSetumbras Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Produk deri &lt;a href=\"https://wikimediafoundation.org/\"&gt;Yayasan Wikimédia&lt;/a&gt;</string>
   <string name="about_activity_title">Pasal</string>
   <string name="edit_abandon_confirm">Ni halaman udah didandanin. Apa lu yakin pèngèn kuar sonder nyimpen lu punya perobahan?</string>

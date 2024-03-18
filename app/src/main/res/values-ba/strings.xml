@@ -250,7 +250,7 @@
   <string name="about_translators_heading">Тәржемәселәр</string>
   <string name="about_translators_translatewiki">Был ҡушымта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ирекмәндәре тарафынан тәржемә ителгән.</string>
   <string name="about_app_license_heading">Лицензия</string>
-  <string name="about_app_license">Башланғыс код &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; һәм &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisansı&lt;/a&gt; урынлашҡан. Башҡа шарт күрһәтелмәһә, эстәлекте &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; һылтанмаһы буйынса ҡарап була.</string>
+  <string name="about_app_license" fuzzy="true">Башланғыс код &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; һәм &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisansı&lt;/a&gt; урынлашҡан. Башҡа шарт күрһәтелмәһә, эстәлекте &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; һылтанмаһы буйынса ҡарап була.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt; Викимедиа фонды&lt;/a&gt; продукты</string>
   <string name="about_activity_title">Ҡушымта тураһында</string>
   <string name="edit_abandon_confirm">Бит үҙгәртелде. Үҙгәртеүҙәрҙе һаҡламайынса сығырға уйлайһығыҙмы?</string>

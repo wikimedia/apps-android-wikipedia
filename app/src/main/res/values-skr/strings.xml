@@ -683,6 +683,7 @@
   <string name="patroller_tasks_overflow_learn">ٻیا سِکھو</string>
   <string name="patroller_diff_feedback_dialog_input_hint">فیڈ بیک</string>
   <string name="patroller_diff_feedback_dialog_submit">جمع کرواؤ</string>
+  <string name="talk_templates_menu_edit_title">لکھو</string>
   <string name="data_opt_in_accept">قبول کرو</string>
   <string name="data_opt_in_reject">مسترد کرو</string>
   <string name="page_issues_title">ورقہ معاملے</string>
