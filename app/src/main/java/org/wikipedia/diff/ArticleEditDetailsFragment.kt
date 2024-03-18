@@ -682,9 +682,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     }
 
     companion object {
-        const val DIFF_UNDO_COMMENT = "#diff-undo"
-        const val DIFF_ROLLBACK_COMMENT = "#diff-rollback"
-
         fun newInstance(title: PageTitle, pageId: Int, revisionFrom: Long, revisionTo: Long, source: InvokeSource): ArticleEditDetailsFragment {
             return ArticleEditDetailsFragment().apply {
                 arguments = bundleOf(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to title,
