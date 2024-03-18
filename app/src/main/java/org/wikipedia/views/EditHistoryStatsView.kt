@@ -43,7 +43,7 @@ class EditHistoryStatsView constructor(context: Context, attrs: AttributeSet? = 
                     stats.allEdits.count, stats.allEdits.count, createdYear)
                 binding.statsGraphView.setData(stats.metrics.map { it.edits.toFloat() })
                 binding.statsGraphView.contentDescription = context.getString(R.string.page_edit_history_metrics_content_description, lastYear, today)
-                FeedbackUtil.setButtonLongPressToast(binding.statsGraphView)
+                FeedbackUtil.setButtonTooltip(binding.statsGraphView)
             }
         }
         binding.articleTitleView.movementMethod = LinkMovementMethodExt { _ ->

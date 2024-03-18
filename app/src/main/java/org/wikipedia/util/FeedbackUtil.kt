@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
+import androidx.appcompat.widget.TooltipCompat
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -35,13 +36,9 @@ import org.wikipedia.util.log.L
 
 object FeedbackUtil {
     private const val LENGTH_SHORT = 3000
-    const val LENGTH_DEFAULT = 5000
+    private const val LENGTH_DEFAULT = 5000
     const val LENGTH_MEDIUM = 8000
     const val LENGTH_LONG = 15000
-    private val TOOLBAR_LONG_CLICK_LISTENER = View.OnLongClickListener { v ->
-        showToastOverView(v, v.contentDescription, LENGTH_DEFAULT)
-        true
-    }
     private val TOOLBAR_ON_CLICK_LISTENER = View.OnClickListener { v ->
         showToastOverView(v, v.contentDescription, LENGTH_SHORT)
     }
@@ -124,8 +121,8 @@ object FeedbackUtil {
         }
     }
 
-    fun setButtonLongPressToast(vararg views: View) {
-        views.forEach { it.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER) }
+    fun setButtonTooltip(vararg views: View) {
+        views.forEach { TooltipCompat.setTooltipText(it, it.contentDescription) }
     }
 
     fun setButtonOnClickToast(vararg views: View) {

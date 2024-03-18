@@ -22,7 +22,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.page.Namespace
 import org.wikipedia.search.db.RecentSearch
-import org.wikipedia.util.FeedbackUtil.setButtonLongPressToast
+import org.wikipedia.util.FeedbackUtil.setButtonTooltip
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
@@ -66,7 +66,7 @@ class RecentSearchesFragment : Fragment() {
         touchCallback.swipeableEnabled = true
         val itemTouchHelper = ItemTouchHelper(touchCallback)
         itemTouchHelper.attachToRecyclerView(binding.recentSearchesRecycler)
-        setButtonLongPressToast(binding.recentSearchesDeleteButton)
+        setButtonTooltip(binding.recentSearchesDeleteButton)
         return binding.root
     }
 
