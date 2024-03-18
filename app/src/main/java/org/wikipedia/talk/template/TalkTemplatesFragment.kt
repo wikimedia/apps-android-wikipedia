@@ -52,6 +52,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     private var itemTouchHelper: ItemTouchHelper? = null
     private var itemSwipeTouchHelper: ItemTouchHelper? = null
+    private var touchCallback: SwipeableItemTouchHelperCallback? = null
     private lateinit var adapter: RecyclerAdapter
     private val selectedItems = mutableListOf<TalkTemplate>()
     private var actionMode: ActionMode? = null
@@ -165,42 +166,23 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 if (actionMode != null) {
                     actionMode?.finish()
                 }
+                touchCallback?.swipeableEnabled = binding.talkTemplatesTabLayout.selectedTabPosition == 0
                 updateAndNotifyAdapter()
                 updateEmptyState()
                 requireActivity().invalidateOptionsMenu()
-                updateTouchListeners()
             }
 
-            override fun onTabUnselected(tab: TabLayout.Tab) {
-                itemTouchHelper = null
-                itemSwipeTouchHelper = null
-            }
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
 
-            override fun onTabReselected(tab: TabLayout.Tab) {
-            }
+            override fun onTabReselected(tab: TabLayout.Tab) {}
         })
+
         binding.talkTemplatesEmptyStateTextView.text = StringUtil.fromHtml(getString(R.string.talk_templates_empty_message))
 
         binding.talkTemplatesEmptyStateTextView.movementMethod = LinkMovementMethodExt { _ ->
             binding.talkTemplatesTabLayout.getTabAt(1)?.select()
             updateAndNotifyAdapter()
         }
-    }
-
-    fun updateTouchListeners() {
-        binding.talkTemplatesRecyclerView.postDelayed({
-            if (binding.talkTemplatesTabLayout.selectedTabPosition == 0) {
-            val touchCallback = SwipeableItemTouchHelperCallback(requireContext())
-            touchCallback.swipeableEnabled = true
-            itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(adapter))
-            itemSwipeTouchHelper = ItemTouchHelper(touchCallback)
-            itemTouchHelper?.attachToRecyclerView(binding.talkTemplatesRecyclerView)
-            itemSwipeTouchHelper?.attachToRecyclerView(binding.talkTemplatesRecyclerView)
-        } else {
-            itemTouchHelper = null
-            itemSwipeTouchHelper = null
-            }
-        }, 500)
     }
 
     fun updateEmptyState() {
@@ -245,8 +227,13 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesRecyclerView.adapter = adapter
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.talkTemplatesRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
+        touchCallback = SwipeableItemTouchHelperCallback(requireContext())
+        touchCallback?.swipeableEnabled = true
+        itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(adapter))
+        itemSwipeTouchHelper = ItemTouchHelper(touchCallback!!)
+        itemTouchHelper?.attachToRecyclerView(binding.talkTemplatesRecyclerView)
+        itemSwipeTouchHelper?.attachToRecyclerView(binding.talkTemplatesRecyclerView)
         updateAndNotifyAdapter()
-        updateTouchListeners()
     }
 
     private fun onLoading() {
