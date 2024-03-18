@@ -121,7 +121,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 sendPatrollerExperienceEvent("saved_message_edit_click", "pt_warning_messages")
                 requestManageTalkTemplate.launch(TalkTemplatesActivity.newIntent(this))
             }
-            FeedbackUtil.setButtonLongPressToast(binding.talkTemplateButton)
+            FeedbackUtil.setButtonTooltip(binding.talkTemplateButton)
         } else {
             binding.talkTemplateContainer.isVisible = false
         }
@@ -268,7 +268,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
             }
-            FeedbackUtil.setButtonLongPressToast(it)
+            FeedbackUtil.setButtonTooltip(it)
         }
         supportActionBar?.title = title
     }

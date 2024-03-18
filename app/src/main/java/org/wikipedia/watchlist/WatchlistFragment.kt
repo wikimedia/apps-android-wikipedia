@@ -135,7 +135,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
             notificationMenuItem.actionView = notificationButtonView
             notificationMenuItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+            FeedbackUtil.setButtonTooltip(notificationButtonView)
         } else {
             notificationMenuItem.isVisible = false
         }
@@ -229,7 +229,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
                 resultLauncher.launch(WatchlistFilterActivity.newIntent(it.context))
             }
 
-            FeedbackUtil.setButtonLongPressToast(itemBinding.filterButton)
+            FeedbackUtil.setButtonTooltip(itemBinding.filterButton)
         }
 
         fun updateFilterIconAndCount() {
