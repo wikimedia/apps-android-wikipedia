@@ -74,12 +74,22 @@ class InsertTemplateFragment : Fragment() {
     fun show(pageTitle: PageTitle, templateData: TemplateDataResponse.TemplateData) {
         binding.root.isVisible = true
         binding.templateDataTitle.text = StringUtil.removeNamespace(pageTitle.displayText)
-        binding.templateDataDescription.text = pageTitle.description.orEmpty().ifEmpty { templateData.description }
+        binding.templateDataDescription.text = getTemplateDescription(templateData)
         binding.templateDataDescription.isVisible = !binding.templateDataDescription.text.isNullOrEmpty()
         binding.templateDataLearnMoreButton.setOnClickListener {
             UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(pageTitle.uri))
         }
         buildParamsInputFields(templateData)
+    }
+
+    private fun getTemplateDescription(templateData: TemplateDataResponse.TemplateData): String {
+        var returnString = ""
+        if (templateData.description.isNullOrEmpty()) {
+            returnString = getString(R.string.templates_description_empty, templateData.title)
+        } else {
+            returnString = templateData.description + "\n" + getString(R.string.templates_description_incomplete)
+        }
+        return returnString
     }
 
     fun hide() {
