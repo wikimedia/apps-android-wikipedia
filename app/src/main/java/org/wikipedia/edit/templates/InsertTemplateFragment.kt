@@ -74,8 +74,8 @@ class InsertTemplateFragment : Fragment() {
     fun show(pageTitle: PageTitle, templateData: TemplateDataResponse.TemplateData) {
         binding.root.isVisible = true
         binding.templateDataTitle.text = StringUtil.removeNamespace(pageTitle.displayText)
-        binding.templateDataDescription.text = pageTitle.description
-        binding.templateDataDescription.isVisible = !pageTitle.description.isNullOrEmpty()
+        binding.templateDataDescription.text = pageTitle.description.orEmpty().ifEmpty { templateData.description }
+        binding.templateDataDescription.isVisible = !binding.templateDataDescription.text.isNullOrEmpty()
         binding.templateDataLearnMoreButton.setOnClickListener {
             UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(pageTitle.uri))
         }
