@@ -182,7 +182,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         setSaveButtonEnabled(false)
         setToolbarTitle(viewModel.pageTitle)
         L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
-
+        binding.learnLinkContainer.isVisible = viewModel.isFromDiff
         if (viewModel.topic != null) {
             binding.replyInputView.userNameHints = setOf(viewModel.topic!!.author)
         }
@@ -201,8 +201,10 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         }
         EditAttemptStepEvent.logInit(viewModel.pageTitle)
 
-        if (viewModel.isNewTopic) {
-            title = getString(R.string.talk_new_topic)
+        if (viewModel.isNewTopic || viewModel.isFromDiff) {
+            if (viewModel.isNewTopic) {
+                title = getString(R.string.talk_new_topic)
+            }
             binding.replyInputView.textInputLayout.hint = getString(R.string.talk_message_hint)
             binding.replySubjectLayout.isVisible = true
             binding.replySubjectLayout.requestFocus()
