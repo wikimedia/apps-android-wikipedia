@@ -30,6 +30,7 @@ import org.wikipedia.dataclient.mwapi.TemplateDataResponse
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -137,6 +138,7 @@ class TemplatesSearchActivity : BaseActivity() {
     private fun showInsertTemplateFragment(pageTitle: PageTitle, templateData: TemplateDataResponse.TemplateData) {
         binding.searchCabView.isVisible = false
         binding.insertTemplateButton.isVisible = true
+        updateToolbarElevation(false)
         insertTemplateFragment.show(pageTitle, templateData)
     }
 
@@ -145,12 +147,17 @@ class TemplatesSearchActivity : BaseActivity() {
         binding.insertTemplateButton.setTextColor(ResourceUtil.getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.inactive_color))
     }
 
+    private fun updateToolbarElevation(enabled: Boolean) {
+        binding.toolbarContainer.elevation = if (enabled) DimenUtil.dpToPx(1f) else 0f
+    }
+
     override fun onBackPressed() {
         if (insertTemplateFragment.handleBackPressed()) {
             if (templatesSearchAdapter != null) {
                 binding.searchCabView.isVisible = true
                 binding.insertTemplateButton.isVisible = false
                 supportActionBar?.title = null
+                updateToolbarElevation(true)
             } else {
                 finish()
             }
