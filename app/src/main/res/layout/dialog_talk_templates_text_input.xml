@@ -12,7 +12,7 @@
 
             <RadioButton
                 android:id="@+id/dialogSaveAsNewRadio"
-                style="@style/H3.MaterialListTitle"
+                style="@style/H3.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -21,7 +21,7 @@
 
             <RadioButton
                 android:id="@+id/dialogSaveExistingRadio"
-                style="@style/H3.MaterialListTitle"
+                style="@style/H3.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
