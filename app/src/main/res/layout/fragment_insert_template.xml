@@ -63,7 +63,7 @@
             style="@style/H3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="4dp"
+            android:layout_marginBottom="4dp"
             android:textColor="?attr/progressive_color"
             android:text="@string/templates_learn_more_link"
             android:drawablePadding="8dp"
