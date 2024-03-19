@@ -280,7 +280,7 @@
   <string name="about_translators_heading">Vertalers</string>
   <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentie</string>
-  <string name="about_app_license">Broncode beschikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Licetie&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Broncode beschikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Licetie&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
   <string name="about_wmf">Een product van de &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
   <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
@@ -781,8 +781,8 @@
   <string name="notifications_menu_uncheck_all">Alle items deselecteren</string>
   <string name="notifications_wiki_filter_header">Wikifilter</string>
   <string name="notifications_type_filter_header">Filter naar type</string>
-  <string name="notifications_all_wikis_text">Alle \"wiki\'s\"</string>
-  <string name="notifications_all_types_text">Alle \"types\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Alle \"wiki\'s\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Alle \"types\"</string>
   <string name="notifications_menu_user_talk_page">%s\'s overlegpagina</string>
   <string name="notifications_offline_disable_message">Deze functie is offline niet beschikbaar</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>

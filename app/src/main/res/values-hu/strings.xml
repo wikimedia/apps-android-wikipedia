@@ -178,6 +178,9 @@
   <string name="logged_out_in_background_dialog">Kijelentkeztél a Wikipédiából. Szeretnél újra bejelentkezni?</string>
   <string name="logged_out_in_background_login">Bejelentkezés</string>
   <string name="logged_out_in_background_cancel">Mégsem</string>
+  <string name="account_vanish_request_title">Fiók eltüntetése</string>
+  <string name="account_vanish_request_confirm_title">Fiókeltüntetés-figyelmeztetés</string>
+  <string name="account_vanish_request_confirm">Az eltűnés egy &lt;b&gt;utolsó lehetőség&lt;/b&gt;; &lt;b&gt;csak akkor használd, ha örökre abba akarod hagyni a szerkesztést&lt;/b&gt;, és az eddigi szerkesztéseiddel való összekapcsolhatóságot is a lehető legnagyobb mértékben meg akarod szüntetni.&lt;br/&gt;&lt;br/&gt;A fióktörlés a Wikipédián a szerkesztőnév olyanra módosításával történik, amitől mások nem ismerik fel a közreműködéseidet (ez az ún. fiókeltüntetés). &lt;b&gt;Az eltűnés nem jelent se teljes anonimitást, se a közreműködéseid eltávolítását a projektekből.&lt;/b&gt;</string>
   <string name="history_empty_title">Nincsenek nemrég megtekintett cikkek</string>
   <string name="history_empty_message">Itt követheted az elolvasott szócikkeket.</string>
   <string name="history_offline_articles_toast">Néhány szócikk lehet, hogy nem olvasható offline módban.</string>
@@ -259,7 +262,7 @@
   <string name="about_translators_heading">Fordítók</string>
   <string name="about_translators_translatewiki">Ezt az alkalmazást önkéntesek fordították a &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; segítségével.</string>
   <string name="about_app_license_heading">Licenc</string>
-  <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.hu\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
+  <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.hu\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
   <string name="about_wmf">A &lt;a href=\"https://wikimediafoundation.org\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
   <string name="about_activity_title">Névjegy</string>
   <string name="edit_abandon_confirm">A lap megváltozott. A módosítások mentése nélkül akarsz kilépni?</string>
@@ -323,6 +326,8 @@
   <string name="widget_name_featured_page">Wikipédia kiemelt cikk</string>
   <string name="widget_title_featured_page">Mai kiemelt szócikk:</string>
   <string name="widget_name_search">Wikipédia keresés</string>
+  <string name="widget_description_search">A Wikipédián való keresés leggyorsabb módja</string>
+  <string name="widget_description_featured_page">A Wikipédia legjobb cikkei</string>
   <string name="wiktionary_no_definitions_found">Nem találhatók definíciók.</string>
   <string name="alpha_update_notification_title">Új alfa frissítés érhető el</string>
   <string name="alpha_update_notification_text">Koppints a letöltéshez</string>
@@ -894,6 +899,7 @@
   <string name="suggested_edits_describe_articles">Szócikkek leírása</string>
   <string name="suggested_edits_caption_images">Hiányzó képfeliratok</string>
   <string name="suggested_edits_tag_images">Képek címkézése</string>
+  <string name="suggested_edits_edit_patrol">Szerkesztések járőrözése</string>
   <string name="suggested_edits_edit_patrol_hint">Ellenőrizd a legutóbbi szerkesztéseket, és dönts el, hogy építő jellegűek vagy sem.</string>
   <string name="suggested_edits_edit_patrol_review">Ellenőrzés</string>
   <string name="suggested_edits_review_description">Szócikkleírás ellenőrzése</string>
@@ -1124,6 +1130,7 @@
   <string name="onboarding_reading_list_sync_title">Olvasólisták szinkronizálással</string>
   <string name="onboarding_reading_list_sync_text_v2">Olvasólistákat készíthetsz olyan szócikkekről, amelyeket később szeretnél elolvasni, akár offline is.&lt;br/&gt;Jelentkezz be a Wikipédia-fiókodba, hogy szinkronizálhasd az olvasólistáidat.&lt;a href=\"#login\"&gt;Csatlakozz a Wikipédiához&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Adatvédelem</string>
+  <string name="onboarding_data_privacy_text">Hiszünk benne, hogy nem kell elvárni tőled személyes adatok megadását a nyílttudás-mozgalomban való részvételhez. Az alkalmazás által gyűjtött használati adatok anonimak. További információkért lásd az &lt;a href=\"#privacy\"&gt;adatvédelmi irányelvünket&lt;/a&gt; és a &lt;a href=\"#termsOfUse\"&gt;felhasználási feltételeinket&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Felhasználási adatok küldése</string>
   <string name="onboarding_got_it">Értem</string>
   <string name="onboarding_multilingual_secondary_text">A következőket találtuk a készülékeden:</string>
@@ -1269,6 +1276,7 @@
   <string name="talk_snackbar_survey_action_text">Kezdjük el</string>
   <string name="talk_share_discussion_subject">Wikipédia - vita a vitalap \"%s\" témájáról</string>
   <string name="talk_share_talk_page">Wikipédia – beszélgetések a vitalapon</string>
+  <string name="talk_edit_disclaimer">Ez egy vitalap. Kérjük, tartsd be a vitalapra vonatkozó irányelveket, és ne felejtse el aláírni a bejegyzéseit négy hullámvonal begépelésével: ~~~~, amikor wikiszöveg használatával tesz közzé.&lt;br&gt;&lt;br&gt; &lt;a href=\"https://hu.wikipedia.org/wiki/Wikip%C3%A9dia:Vitalapok_haszn%C3%A1lata\"&gt;Wikipédia:Vitalapok használata&lt;/a&gt;</string>
   <string name="talk_search_hint">Üzenetek keresése</string>
   <string name="talk_search_topics_hint">Témák keresése</string>
   <string name="talk_search_find_in_talk_topics_hint">Keresés vitalapi témákban</string>
@@ -1338,7 +1346,7 @@
   <string name="revision_diff_paragraph_removed">Bekezdés eltávolítva</string>
   <string name="revision_diff_protected">Az ebben a változatban végrehajtott változtatások nem nyilvánosak.</string>
   <string name="revision_undo_title">Biztosan vissza akarod vonni ezt a szerkesztést?</string>
-  <string name="revision_undo_message" fuzzy="true">Ezzel visszavonod a szócikk itt látható lapváltozata(i) által végzett módosításokat.</string>
+  <string name="revision_undo_message">A visszavonás semmissé teszi egy vagy több szerkesztés hatását.</string>
   <string name="revision_undo_summary_hint">Összefoglaló (nem kötelező)</string>
   <string name="revision_undo_reason">Add meg a visszavonás okát</string>
   <string name="revision_undo_success">A változtatás visszavonva.</string>
@@ -1507,8 +1515,11 @@
   <string name="patroller_tasks_filters_user_status_registered">Regisztrált</string>
   <string name="patroller_tasks_filters_user_status_registered_desc">Bejelentkezett szerkesztők.</string>
   <string name="patroller_tasks_filters_user_status_newcomers">Újoncok</string>
+  <string name="patroller_tasks_filters_user_status_newcomers_desc">Regisztrált szerkesztők kevesebb mint 10 szerkesztéssel vagy 4 nap aktivitással.</string>
   <string name="patroller_tasks_filters_user_status_learners">Tanulók</string>
+  <string name="patroller_tasks_filters_user_status_learners_desc">Regisztrált szerkesztők „újonc” és „tapasztalt szerkesztő” közé eső tapasztalattal.</string>
   <string name="patroller_tasks_filters_user_status_experienced">Tapasztalt szerkesztők</string>
+  <string name="patroller_tasks_filters_user_status_experienced_desc">Regisztrált szerkesztők több mint 30 nap aktivitással és 500 szerkesztéssel.</string>
   <string name="patroller_tasks_filters_latest_revisions_header">Aktuális változat</string>
   <string name="patroller_tasks_filters_latest_revisions_latest_revision">Legutóbbi változat</string>
   <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Régebbi változatok</string>
@@ -1549,6 +1560,7 @@
   <string name="patroller_tasks_patrol_edit_snackbar_view">Megtekintés</string>
   <string name="patroller_tasks_overflow_report">Probléma a funkcióval</string>
   <string name="patroller_tasks_overflow_learn">Tudj meg többet!</string>
+  <string name="patroller_onboarding_one_content">Javítsd a Wikipédia-tartalom minőségét azáltal, hogy aktívan átnézed a legutóbbi szerkesztések hírcsatornáját, és útmutatást, minőség-ellenőrzést és bátorítást nyújt a többi szerkesztőnek.</string>
   <string name="patroller_onboarding_two_thank_title">Köszönet</string>
   <string name="patroller_onboarding_two_thank_content">Hatékony szerkesztést láttál? Köszönd meg a felhasználó közreműködését!</string>
   <string name="patroller_onboarding_two_watch_title">Lap figyelése</string>

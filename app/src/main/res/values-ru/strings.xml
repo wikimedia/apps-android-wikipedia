@@ -314,7 +314,7 @@
   <string name="about_translators_heading">Переводчики</string>
   <string name="about_translators_translatewiki">Это приложение было переведено добровольцами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лицензия</string>
-  <string name="about_app_license">Исходный код доступен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; под лицензией &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Если не указано иное, содержимое доступно в соответствии с лицензией &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.ru\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Исходный код доступен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; под лицензией &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Если не указано иное, содержимое доступно в соответствии с лицензией &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.ru\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонда Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">О приложении</string>
   <string name="edit_abandon_confirm">Страница была изменена. Вы уверены, что хотите выйти без сохранения изменений?</string>
@@ -526,7 +526,7 @@
   <string name="editing_line_numbers_label">Показывать номера строк</string>
   <string name="editing_monospace_font_label">Использовать моноширинный шрифт</string>
   <string name="editing_typing_suggestions">Показывать автодополнение при вводе</string>
-  <string name="nav_item_saved">Сохранено</string>
+  <string name="nav_item_saved">Сохранённые</string>
   <string name="reading_list_save_to">Добавить в список для чтения</string>
   <string name="reading_list_move_to">Перенести в список для чтения</string>
   <string name="reading_list_create_new">Создать новый</string>
@@ -833,8 +833,8 @@
   <string name="notifications_menu_uncheck_all">Снять отметки со всех объектов</string>
   <string name="notifications_wiki_filter_header">Вики фильтр</string>
   <string name="notifications_type_filter_header">Тип фильтра</string>
-  <string name="notifications_all_wikis_text">Все \"вики\"</string>
-  <string name="notifications_all_types_text">Все «типы»</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Все \"вики\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Все «типы»</string>
   <string name="notifications_menu_user_talk_page">Страница обсуждения %s</string>
   <string name="notifications_offline_disable_message">Эта функция недоступна офлайн.</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>

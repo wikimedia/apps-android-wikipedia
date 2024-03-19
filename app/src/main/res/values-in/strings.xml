@@ -276,7 +276,7 @@
   <string name="about_translators_heading">Penerjemah</string>
   <string name="about_translators_translatewiki">Aplikasi ini telah diterjemahkan oleh penerjemah sukarela di &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensi</string>
-  <string name="about_app_license">Kode sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
+  <string name="about_app_license" fuzzy="true">Kode sumber tersedia di &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; dan &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; di bawah &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License\"&gt;Lisensi Apache 2.0&lt;/a&gt;. Konten tersedia di bawah &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Lisensi Atribusi-BerbagiSerupa Creative Commons&lt;/a&gt; kecuali dinyatakan lain.</string>
   <string name="about_wmf">Sebuah produk dari &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Tentang</string>
   <string name="edit_abandon_confirm">Halaman ini telah diubah. Apakah Anda yakin ingin keluar tanpa menyimpan perubahan?</string>
@@ -761,8 +761,8 @@
   <string name="notifications_menu_uncheck_all">Hapus centang semua item</string>
   <string name="notifications_wiki_filter_header">Saringan Wiki</string>
   <string name="notifications_type_filter_header">Saringan jenis</string>
-  <string name="notifications_all_wikis_text">Semua \"wiki\"</string>
-  <string name="notifications_all_types_text">Semua \"jenis\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Semua \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Semua \"jenis\"</string>
   <string name="notifications_menu_user_talk_page">Halaman pembicaraan %s</string>
   <string name="notifications_offline_disable_message">Fungsi ini tidak tersedia ketika luring.</string>
   <string name="view_because_you_read_card_title">Karena Anda membaca</string>

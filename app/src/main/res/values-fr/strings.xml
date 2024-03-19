@@ -42,6 +42,7 @@
 * Macofe
 * Mazighafalkun
 * McDutchie
+* Melimeli
 * MuratTheTurkish
 * Naheulf
 * NemesisIII
@@ -299,7 +300,7 @@
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licence Creative Commons Attribution – Partage à l\'identique&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licence Creative Commons Attribution – Partage à l\'identique&lt;/a&gt;.</string>
   <string name="about_wmf">Un produit de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">À propos</string>
   <string name="edit_abandon_confirm">La page a été modifiée. Êtes-vous sûr de vouloir la quitter sans enregistrer vos modifications ?</string>
@@ -805,8 +806,8 @@
   <string name="notifications_menu_uncheck_all">Décocher tous les éléments</string>
   <string name="notifications_wiki_filter_header">Filtre de wikis</string>
   <string name="notifications_type_filter_header">Filtre de types</string>
-  <string name="notifications_all_wikis_text">Tous les « wikis »</string>
-  <string name="notifications_all_types_text">Tous les « types »</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Tous les « wikis »</string>
+  <string name="notifications_all_types_text" fuzzy="true">Tous les « types »</string>
   <string name="notifications_menu_user_talk_page">page de discussion de %s</string>
   <string name="notifications_offline_disable_message">Cette fonction n’est pas disponible hors ligne.</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
@@ -1166,6 +1167,7 @@
   <string name="onboarding_reading_list_sync_title">Listes de lecture avec synchronisation</string>
   <string name="onboarding_reading_list_sync_text_v2">Vous pouvez créer des listes de lecture depuis les articles que vous voulez lire ultérieurement, même lorsque vous êtes hors connexion.&lt;br /&gt;\nConnectez-vous à votre compte Wikipédia pour synchroniser vos listes de lecture. &lt;a href=\"#login\"&gt;Rejoindre Wikipédia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Données &amp; confidentialité</string>
+  <string name="onboarding_data_privacy_text">Nous pensons que vous ne devriez pas avoir à fournir d’informations personnelles pour participer au mouvement du savoir libre. Les données d’utilisation collectées pour cette application sont anonymes. Apprenez-en plus sur notre &lt;a href=\"#privacy\"&gt;politique de confidentialité&lt;/a&gt; et &lt;a href=\"#termsOfUse\"&gt;nos conditions d’utilisation&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Envoyer les données d’utilisation</string>
   <string name="onboarding_got_it">Compris !</string>
   <string name="onboarding_multilingual_secondary_text">Nous avons trouvé ceci sur votre appareil :</string>
@@ -1597,12 +1599,17 @@
   <string name="patroller_tasks_overflow_learn">En savoir plus</string>
   <string name="patroller_onboarding_one_title">Contribuer à la surveillance et à l’approbation des modifications de Wikipédia.</string>
   <string name="patroller_onboarding_one_content">Améliore la qualité du contenu de Wikipédia en relisant activement un flux de nouvelles modifications et en fournissant des conseils, un contrôle de qualité et des encouragements à d’autres éditeurs.</string>
+  <string name="patroller_onboarding_two_title">Offrez des commentaires, surveillez les modifications et prenez des mesures sur l’écran de comparaison</string>
   <string name="patroller_onboarding_two_thank_title">Remercier</string>
   <string name="patroller_onboarding_two_thank_content">Vous voyez une modification pertinente ? Remerciez un utilisateur pour sa contribution !</string>
   <string name="patroller_onboarding_two_watch_title">Suivre</string>
+  <string name="patroller_onboarding_two_watch_content">Vous souhaitez suivre les modifications d’articles ? Ajoutez à votre liste de surveillance. Consultez-la sous « Plus ».</string>
   <string name="patroller_onboarding_two_warn_title">Avertissement</string>
+  <string name="patroller_onboarding_two_warn_content">Créez, envoyez et stockez des messages d’avertissement sur la page de discussion d’un éditeur.</string>
   <string name="patroller_onboarding_two_undo_title">Annuler/Restaurer</string>
   <string name="patroller_onboarding_two_undo_content">Choisissez « Annuler » pour révoquer ou annuler une modification potentiellement problématique.</string>
+  <string name="patroller_diff_tooltip_one">Dommage prédit si une modification cause des dommages à un wiki.</string>
+  <string name="patroller_diff_tooltip_two">L’intention prédit la probabilité qu’une modification soit enregistrée de bonne foi.</string>
   <string name="patroller_diff_feedback_dialog_title">Aidez-nous à améliorer cette fonctionnalité</string>
   <string name="patroller_diff_feedback_dialog_message">Etes-vous satisfait de cette fonctionnalité ?</string>
   <string name="patroller_diff_feedback_dialog_option_satisfied">Satisfait</string>
@@ -1612,6 +1619,7 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Commentaire</string>
   <string name="patroller_diff_feedback_dialog_submit">Soumettre</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Commentaire envoyé.</string>
+  <string name="patroller_diff_feedback_tooltip">Appuyez sur le menu de débordement pour soumettre des commentaires à tout moment sous « Problème avec la fonctionnalité ».</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Rejeter</string>
   <string name="page_issues_title">Problèmes de la page</string>
@@ -1624,12 +1632,18 @@
   <string name="donation_campaign_donated_snackbar">Merci, cher donateur ! Votre générosité permet à Wikipédia et à ses sites frères de continuer à prospérer.</string>
   <string name="donation_campaign_go_back_button">Retour</string>
   <string name="menu_single_webview_open_external">Ouvrir dans le navigateur système</string>
+  <string name="places_title">Lieux</string>
+  <string name="places_permissions_denied">Une autorisation de localisation est requise pour voir votre position sur la carte. Veuillez réessayer.</string>
   <string name="places_search_hint">Rechercher des lieux</string>
   <string name="places_filter_title">Filtrer par langue</string>
   <string name="places_toggle_buttons_map">Carte</string>
   <string name="places_toggle_buttons_list">Liste</string>
+  <string name="places_nav_tab_tooltip_message">Découvrez les articles Wikipédia autour de vous avec Lieux</string>
+  <string name="places_article_menu_tooltip_message">Appuyez sur « Afficher sur la carte » pour explorer l’emplacement de cet article.</string>
   <string name="places_survey_very_satisfied_option">Très satisfait</string>
   <string name="places_survey_very_unsatisfied_option">Très insatisfait</string>
+  <string name="places_survey_dialog_title">Aider à améliorer les \'Lieux\'</string>
+  <string name="places_survey_feedback_dialog_title">Comment améliorer les « Lieux » ?</string>
   <string name="places_survey_dialog_cancel">Annuler</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Que voudriez-vous que nous changions ou améliorions ?</string>
   <string name="places_empty_list">Cette zone est vide. Effectuez un zoom arrière &lt;a href=\"#\"&gt;sur la carte&lt;/a&gt;.</string>

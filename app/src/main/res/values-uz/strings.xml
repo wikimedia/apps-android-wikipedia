@@ -246,7 +246,7 @@
   <string name="about_translators_heading">Tarjimonlar</string>
   <string name="about_translators_translatewiki">Ilovaning oʻzbekchasi &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; saytida koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
   <string name="about_app_license_heading">Litsenziya</string>
-  <string name="about_app_license">Ilovaning ochiq manba kodi &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; va &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarida &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 litsenziyasi&lt;/a&gt; asosida mavjud. Qolgan barcha zaruriy tarkiblar &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; sahifasiga joylangan.</string>
+  <string name="about_app_license" fuzzy="true">Ilovaning ochiq manba kodi &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; va &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; saytlarida &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 litsenziyasi&lt;/a&gt; asosida mavjud. Qolgan barcha zaruriy tarkiblar &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; sahifasiga joylangan.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya Fondi&lt;/a&gt;  mahsuloti</string>
   <string name="about_activity_title">Ilova haqida</string>
   <string name="edit_abandon_confirm">Sahifa oʻzgartirildi. Oʻzgartirishlaringizni saqlamasdan chiqmoqchimisiz?</string>
@@ -310,6 +310,8 @@
   <string name="widget_name_featured_page">Tanlangan sahifa</string>
   <string name="widget_title_featured_page">Bugunning sahifasi:</string>
   <string name="widget_name_search">Vikipediyadan qidirish</string>
+  <string name="widget_description_search">Vikipediyada qidirishning eng tezkor usuli</string>
+  <string name="widget_description_featured_page">Vikipediya taklif qiladigan eng yaxshi maqolalar</string>
   <string name="wiktionary_no_definitions_found">Hech nima topilmadi.</string>
   <string name="alpha_update_notification_title">Yangi alfa versiya mavjud</string>
   <string name="alpha_update_notification_text">Yuklab olish uchun bosing</string>
@@ -751,8 +753,8 @@
   <string name="notifications_menu_uncheck_all">Barini belgilamaslik</string>
   <string name="notifications_wiki_filter_header">Vikifiltr</string>
   <string name="notifications_type_filter_header">Filtr turi</string>
-  <string name="notifications_all_wikis_text">Barcha “wiki”</string>
-  <string name="notifications_all_types_text">Barcha “tur”</string>
+  <string name="notifications_all_wikis_text">Barcha vikilar</string>
+  <string name="notifications_all_types_text">Barcha turlar</string>
   <string name="notifications_menu_user_talk_page">%sʼning suhbat sahifasi</string>
   <string name="notifications_offline_disable_message">Ushbu funksiya oflayn boʻlganda mavjud boʻlmaydi.</string>
   <string name="view_because_you_read_card_title">Oʻqiganingiz uchun tavsiya etildi</string>
@@ -1110,6 +1112,8 @@
   <string name="onboarding_explore_text">Doimo yangilanib boriladigan yangiliklar tasmasi orqali Vikipediyaning axborotlar ummoniga shoʻngʻib boring. &lt;br/&gt; Oʻzingizning qiziqishingizga koʻra tasmani &lt;b&gt;Moslashtiring&lt;/b&gt; .</string>
   <string name="onboarding_reading_list_sync_title">Sinxronli roʻyxatni oʻqish</string>
   <string name="onboarding_reading_list_sync_text_v2">Siz keyinroq, hatto oflaynda ham oʻqishni xohlagan maqolalardan roʻyxatlarni tuzishingiz mumkin. &lt;br/&gt;Roʻyxatlaringizni sinxronlashtirish uchun Vikipediya hisobingizga kiring. &lt;a href=\"#login\"&gt;Vikipediaga kirmoq&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Maʼlumot va Maxfiylik</string>
+  <string name="onboarding_data_privacy_text">Erkin bilimlar harakatida ishtirok etish uchun shaxsiy ma’lumotlarni taqdim etishingiz shart emas deb hisoblaymiz. Bu ilova uchun toʻplangan foydalanish maʼlumotlari anonim hisoblanadi. Batafsil maʼlumotni &lt;a href=\"#privacy\"&gt;maxfiylik siyosati&lt;/a&gt; hamda &lt;a href=\"#termsOfUse\"&gt;foydalanish shartlari&lt;/a&gt;dan olishingiz mumkin.</string>
   <string name="onboarding_analytics_switch_title">Fodalanilgan trafik maʼlumotini joʻnatmoq</string>
   <string name="onboarding_got_it">Tushunarli</string>
   <string name="onboarding_multilingual_secondary_text">Qurilmangizda quyidagilarni aniqladik:</string>
@@ -1581,11 +1585,12 @@
   <string name="places_toggle_buttons_map">Xarita</string>
   <string name="places_toggle_buttons_list">Roʻyxat</string>
   <string name="places_nav_tab_tooltip_message">Joylashgan yeringizga mos Vikipediya maqolalarini oʻzingiz uchun kashf eting</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">&lt;b&gt;\'Xaritada koʻrish\'&lt;/b&gt; tugmasini bosish orqali maqola yaratilgan yerni koʻrish</string>
+  <string name="places_article_menu_tooltip_message">Ushbu maqola joylashuvini koʻrish uchun “Xaritada koʻrish” tugmasini bosing</string>
   <string name="places_survey_very_satisfied_option">Qoniqarli</string>
   <string name="places_survey_very_unsatisfied_option">Qoniqarsiz</string>
-  <string name="places_survey_dialog_title" fuzzy="true">“Joylar”ni yaxshilashga yordam bering</string>
+  <string name="places_survey_dialog_title">“Joylashuvlar”ni yaxshilashga yordam bering</string>
   <string name="places_survey_feedback_dialog_title">“Joylar”ni qanday yaxshilash mumkin?</string>
+  <string name="places_survey_dialog_cancel">Bekor qilish</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Nimani oʻzgartirishimizni yoki yaxshilashimizni xohlaysiz?</string>
   <string name="places_empty_list">Maydon boʻsh. &lt;a href=\"#\"&gt;xaritadan&lt;/a&gt; kichraytiring.</string>
 </resources>

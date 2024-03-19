@@ -250,7 +250,7 @@
   <string name="about_translators_heading">Prevajalci</string>
   <string name="about_translators_translatewiki">Aplikacijo so prevedli prostovoljci projekta &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
-  <string name="about_app_license">Izvorna koda je na voljo v shrambah &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; in &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Če ni navedeno drugače, je vsebina na razpolago pod licenco &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.sl\"&gt;Creative Commons Pripis avtorja-Deljenje pod enakimi pogoji&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Izvorna koda je na voljo v shrambah &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; in &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pod licenco &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Če ni navedeno drugače, je vsebina na razpolago pod licenco &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.sl\"&gt;Creative Commons Pripis avtorja-Deljenje pod enakimi pogoji&lt;/a&gt;.</string>
   <string name="about_wmf">Izdelek &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fundacije Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O projektu</string>
   <string name="edit_abandon_confirm">Stran je bila spremenjena. Ali jo res želite zapustiti, ne da bi shranili svoje spremembe?</string>
@@ -806,8 +806,8 @@
   <string name="notifications_menu_uncheck_all">Odznači vse predmete</string>
   <string name="notifications_wiki_filter_header">Filter vikijev</string>
   <string name="notifications_type_filter_header">Filter tipov</string>
-  <string name="notifications_all_wikis_text">Vsi vikiji</string>
-  <string name="notifications_all_types_text">Vse vrste</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Vsi vikiji</string>
+  <string name="notifications_all_types_text" fuzzy="true">Vse vrste</string>
   <string name="notifications_menu_user_talk_page">%s: pogovorna stran</string>
   <string name="notifications_offline_disable_message">Ta funkcija ni na voljo brez internetne povezave.</string>
   <string name="view_because_you_read_card_title">Ker ste prebrali</string>
@@ -1174,7 +1174,7 @@
   <string name="description_edit_revert_reason2">vaš prispevek je bil videti kot eksperiment ali vandalizem.</string>
   <string name="description_edit_revert_history">Če želite, si lahko ogledate &lt;a href=\"%1$s\"&gt;zgodovino urejanj&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Prekliči</string>
-  <string name="offline_read_permission_rationale">Za bsrkanje brez povezave je potrebno dovoljenje za dostop do vaše naprave.</string>
+  <string name="offline_read_permission_rationale">Za brskanje brez povezave je potrebno dovoljenje za dostop do prostora za shranjevanje vaše naprave.</string>
   <string name="offline_read_final_rationale">Za uporabo Nepovezane knjižnice je potrebno dovoljenje za dostop do pomnilnika vaše naprave.</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>

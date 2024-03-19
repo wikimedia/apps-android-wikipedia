@@ -236,7 +236,7 @@
   <string name="about_translators_heading">Vertėjai</string>
   <string name="about_translators_translatewiki">Ši programėlė buvo išversta savanorių vertėjų &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencija</string>
-  <string name="about_app_license">Šaltinio kodas prieinamas &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ir &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pagal &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 licenciją&lt;/a&gt;. Jeigu nenurodyta kitaip, turinys pateikiamas pagal &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike licenciją&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Šaltinio kodas prieinamas &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ir &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; pagal &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 licenciją&lt;/a&gt;. Jeigu nenurodyta kitaip, turinys pateikiamas pagal &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike licenciją&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimedijos fondo&lt;/a&gt; produktas</string>
   <string name="about_activity_title">Apie</string>
   <string name="edit_abandon_confirm">Puslapis buvo pakeistas. Ar tikrai norite išeiti neįrašydami pakeitimų?</string>
@@ -636,8 +636,8 @@
   <string name="notifications_menu_uncheck_all">Atžymėti visus elementus</string>
   <string name="notifications_wiki_filter_header">Viki filtras</string>
   <string name="notifications_type_filter_header">Tipo filtras</string>
-  <string name="notifications_all_wikis_text">Visi „viki“</string>
-  <string name="notifications_all_types_text">Visi „tipai“</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Visi „viki“</string>
+  <string name="notifications_all_types_text" fuzzy="true">Visi „tipai“</string>
   <string name="notifications_menu_user_talk_page">%s aptarmo puslapis</string>
   <string name="notifications_offline_disable_message">Ši funkcija neprieinama neprisijungus.</string>
   <string name="view_because_you_read_card_title">Nes jūs skaitėte</string>

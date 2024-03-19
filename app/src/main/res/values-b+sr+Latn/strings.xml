@@ -239,7 +239,7 @@
   <string name="about_translators_heading">Prevodioci</string>
   <string name="about_translators_translatewiki">Aplikaciju su preveli dobrovoljci na sajtu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenca</string>
-  <string name="about_app_license">Izvorni kôd je dostupan na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-u&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-u&lt;/a&gt; pod licencom &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Sadržaj je dostupan pod licencom &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Autorstvo—Deliti pod istim uslovima&lt;/a&gt;, osim ako nije drugačije navedeno.</string>
+  <string name="about_app_license" fuzzy="true">Izvorni kôd je dostupan na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-u&lt;/a&gt; i &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-u&lt;/a&gt; pod licencom &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Sadržaj je dostupan pod licencom &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Autorstvo—Deliti pod istim uslovima&lt;/a&gt;, osim ako nije drugačije navedeno.</string>
   <string name="about_wmf">Proizvod &lt;a href=\"https://wikimediafoundation.org/\"&gt;Zadužbine Vikimedija&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaciji</string>
   <string name="edit_abandon_confirm">Stranica je izmenjena. Želite li zaista da izađete bez čuvanja promene?</string>
@@ -726,8 +726,8 @@
   <string name="notifications_menu_check_all">Izaberi sve</string>
   <string name="notifications_wiki_filter_header">Filter vikija</string>
   <string name="notifications_type_filter_header">Tip filtera</string>
-  <string name="notifications_all_wikis_text">Svi \"vikiji\"</string>
-  <string name="notifications_all_types_text">Svi \"tipovi\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Svi \"vikiji\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Svi \"tipovi\"</string>
   <string name="notifications_menu_user_talk_page">Stranica za razgovor %s</string>
   <string name="notifications_offline_disable_message">Funkcija nije dostupna dok ste van mreže.</string>
   <string name="view_because_you_read_card_title">Na osnovu pročitanog</string>

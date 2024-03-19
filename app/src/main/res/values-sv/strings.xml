@@ -258,7 +258,7 @@
   <string name="about_translators_heading">Översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
-  <string name="about_app_license">Källkoden finns tillgänglig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; och &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Källkoden finns tillgänglig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; och &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
   <string name="about_wmf">En app utvecklad av &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Ändringar har gjorts i sidan. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
@@ -322,6 +322,8 @@
   <string name="widget_name_featured_page">Utmärkt Wikipedia-artikel</string>
   <string name="widget_title_featured_page">Dagens utmärkta artikel:</string>
   <string name="widget_name_search">Wikipedia-sökning</string>
+  <string name="widget_description_search">Det snabbaste sättet att söka på Wikipedia</string>
+  <string name="widget_description_featured_page">De bästa artiklarna som Wikipedia har att erbjuda</string>
   <string name="wiktionary_no_definitions_found">Inga definitioner hittades.</string>
   <string name="alpha_update_notification_title">Ny alpha-uppdatering tillgänglig</string>
   <string name="alpha_update_notification_text">Tryck för att ladda ner</string>
@@ -763,8 +765,8 @@
   <string name="notifications_menu_uncheck_all">Avmarkera alla objekt</string>
   <string name="notifications_wiki_filter_header">Wikifilter</string>
   <string name="notifications_type_filter_header">Typfilter</string>
-  <string name="notifications_all_wikis_text">Alla \"wikier\"</string>
-  <string name="notifications_all_types_text">Alla \"typer\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Alla \"wikier\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Alla \"typer\"</string>
   <string name="notifications_menu_user_talk_page">%ss diskussionssida</string>
   <string name="notifications_offline_disable_message">Funktionen är inte tillgänglig när du saknar uppkoppling.</string>
   <string name="view_because_you_read_card_title">Eftersom du läste</string>

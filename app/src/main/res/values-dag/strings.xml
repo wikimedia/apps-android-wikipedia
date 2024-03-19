@@ -239,7 +239,7 @@
   <string name="about_translators_heading">lɛbigiriba</string>
   <string name="about_translators_translatewiki">Ninvuɣ\'shɛb ban paɣi bɛ suhiri n daa sɔŋ lɛbigi App ŋɔ zuliya maa &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;. puuni</string>
   <string name="about_app_license_heading">Shɛhira gbaŋ din dihi nua</string>
-  <string name="about_app_license">di yibu shɛɛ kɔɔd nyɛla din beni &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Naɣila nyini n zalili laa, din be di puuni gba beni kpɛ &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">di yibu shɛɛ kɔɔd nyɛla din beni &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Naɣila nyini n zalili laa, din be di puuni gba beni kpɛ &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">A product of the &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Dini nye shem</string>
   <string name="edit_abandon_confirm">taɣibu niŋla yaɣili ŋɔ. A dihitabili ni a bori ni a yi ka bi gu lala taɣibu maa?</string>
@@ -743,8 +743,8 @@
   <string name="notifications_menu_uncheck_all">Dihi yihi binshɛlikam zuɣu</string>
   <string name="notifications_wiki_filter_header">Wiki jɛhibu</string>
   <string name="notifications_type_filter_header">jɛhibu pubu</string>
-  <string name="notifications_all_wikis_text">\"Wiki\" zaa</string>
-  <string name="notifications_all_types_text">\"Balli kaa\" zaa</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">\"Wiki\" zaa</string>
+  <string name="notifications_all_types_text" fuzzy="true">\"Balli kaa\" zaa</string>
   <string name="notifications_menu_user_talk_page">%s\'s yɛltɔɣa yaɣili</string>
   <string name="notifications_offline_disable_message">Niŋsim ŋɔ kani a yi ka pɔhim zuɣu.</string>
   <string name="view_because_you_read_card_title">A ni karimi maa zuɣu</string>

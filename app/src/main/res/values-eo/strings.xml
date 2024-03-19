@@ -385,7 +385,7 @@
   <string name="text_size_percent_default">%s (Defaŭlto)</string>
   <string name="text_style_title">Tiparo</string>
   <string name="theme_category_reading">Legado</string>
-  <string name="nav_item_saved">Konservita</string>
+  <string name="nav_item_saved">Konservitaj</string>
   <string name="reading_list_save_to">Konservi al legolisto</string>
   <string name="reading_list_create_new">Krei novan</string>
   <string name="reading_list_title_exists">Legolisto \"%s\" jam ekzistas.</string>

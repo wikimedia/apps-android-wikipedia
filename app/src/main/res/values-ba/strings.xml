@@ -56,7 +56,7 @@
   <string name="image_content_description">Рәсем: %s</string>
   <string name="page_content_description">Бит: %s</string>
   <string name="wikimedia_commons">Викимилек</string>
-  <string name="wikidata">Викидата</string>
+  <string name="wikidata">Викимәғлүмәт</string>
   <string name="dialog_title_clear_history">Ҡаралған биттәр тарихын таҙартырға</string>
   <string name="dialog_message_clear_history">Ҡараған биттәрҙең барлыҡ тарихы һәм асыҡ ҡушымталар юйыласаҡ. Дауам итергәме?</string>
   <string name="dialog_message_clear_history_yes">Эйе</string>
@@ -250,7 +250,7 @@
   <string name="about_translators_heading">Тәржемәселәр</string>
   <string name="about_translators_translatewiki">Был ҡушымта &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ирекмәндәре тарафынан тәржемә ителгән.</string>
   <string name="about_app_license_heading">Лицензия</string>
-  <string name="about_app_license">Башланғыс код &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; һәм &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisansı&lt;/a&gt; урынлашҡан. Башҡа шарт күрһәтелмәһә, эстәлекте &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; һылтанмаһы буйынса ҡарап була.</string>
+  <string name="about_app_license" fuzzy="true">Башланғыс код &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; һәм &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Lisansı&lt;/a&gt; урынлашҡан. Башҡа шарт күрһәтелмәһә, эстәлекте &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; һылтанмаһы буйынса ҡарап була.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt; Викимедиа фонды&lt;/a&gt; продукты</string>
   <string name="about_activity_title">Ҡушымта тураһында</string>
   <string name="edit_abandon_confirm">Бит үҙгәртелде. Үҙгәртеүҙәрҙе һаҡламайынса сығырға уйлайһығыҙмы?</string>
@@ -750,8 +750,8 @@
   <string name="notifications_menu_uncheck_all">Барлыҡ элементтарҙан билдәне алырға</string>
   <string name="notifications_wiki_filter_header">Вики-фильтр</string>
   <string name="notifications_type_filter_header">Фильтр төрө</string>
-  <string name="notifications_all_wikis_text">Барлыҡ \"вики\"</string>
-  <string name="notifications_all_types_text">Барлыҡ \"төрҙәр\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Барлыҡ \"вики\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Барлыҡ \"төрҙәр\"</string>
   <string name="notifications_menu_user_talk_page">%s фекер алышыу бите</string>
   <string name="notifications_offline_disable_message">Был функцияны офлайн режимда ҡулланып булмай.</string>
   <string name="view_because_you_read_card_title">Уҡылғандар нигеҙендә</string>
@@ -830,8 +830,8 @@
   <string name="description_edit_translate_image_caption">Рәсем яҙмаһын тәржемә итергә</string>
   <string name="description_edit_cancel_hint">Кире алырға</string>
   <string name="description_edit_help_title">Белешмә: Мәҡәләләр тасуирламаһы</string>
-  <string name="description_edit_help_about_wikidata">Викидата тураһында</string>
-  <string name="description_edit_help_wikidata_guide">Викидата өсөн тасуирлама яҙыу ҡулланмаһы</string>
+  <string name="description_edit_help_about_wikidata">Викимәғлүмәт тураһында</string>
+  <string name="description_edit_help_wikidata_guide">Викимәғлүмәт өсөн тасуирлама яҙыу ҡулланмаһы</string>
   <string name="description_edit_anon_limit">Мәҡәлә төҙәтеү менән ҡыҙыҡһыныуығыҙ өсөн рәхмәт! Зинһар, өҫтәмә үҙгәрештәр индереү өсөн Википедияла танылығыҙ.</string>
   <string name="description_edit_license_notice">Мәҡәләне үҙгәрткәндә &lt;a href=\"%1$s\"&gt;ҡулланыу шарттары&lt;/a&gt; менән килешәм һәм шулай уҡ &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; лицензияһына ярашлы материалдарымды кире ҡайтарылмаҫлыҡ итеп баҫтырам.</string>
   <string name="description_edit_helper_text_lowercase_warning">ғәҙәттә, бәләкәй хәрефтән башлана</string>

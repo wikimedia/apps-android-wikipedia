@@ -124,7 +124,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentArticleEditDetailsBinding.inflate(inflater, container, false)
         binding.diffRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        FeedbackUtil.setButtonLongPressToast(binding.newerIdButton, binding.olderIdButton)
+        FeedbackUtil.setButtonTooltip(binding.newerIdButton, binding.olderIdButton)
         return binding.root
     }
 
@@ -698,9 +698,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     }
 
     companion object {
-        const val DIFF_UNDO_COMMENT = "#diff-undo"
-        const val DIFF_ROLLBACK_COMMENT = "#diff-rollback"
-
         fun newInstance(title: PageTitle, pageId: Int, revisionFrom: Long, revisionTo: Long, source: InvokeSource): ArticleEditDetailsFragment {
             return ArticleEditDetailsFragment().apply {
                 arguments = bundleOf(ArticleEditDetailsActivity.EXTRA_ARTICLE_TITLE to title,

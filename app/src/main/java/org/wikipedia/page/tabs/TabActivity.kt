@@ -12,6 +12,7 @@ import androidx.core.view.drawToBitmap
 import androidx.core.view.isVisible
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import de.mrapp.android.tabswitcher.Animation
+import de.mrapp.android.tabswitcher.SwipeAnimation
 import de.mrapp.android.tabswitcher.TabSwitcher
 import de.mrapp.android.tabswitcher.TabSwitcherDecorator
 import de.mrapp.android.tabswitcher.TabSwitcherListener
@@ -47,7 +48,7 @@ class TabActivity : BaseActivity() {
         setContentView(binding.root)
         binding.tabCountsView.updateTabCount(false)
         binding.tabCountsView.setOnClickListener { onBackPressed() }
-        FeedbackUtil.setButtonLongPressToast(binding.tabCountsView, binding.tabButtonNotifications)
+        FeedbackUtil.setButtonTooltip(binding.tabCountsView, binding.tabButtonNotifications)
         binding.tabSwitcher.setPreserveState(false)
         binding.tabSwitcher.decorator = object : TabSwitcherDecorator() {
             override fun onInflateView(inflater: LayoutInflater, parent: ViewGroup?, viewType: Int): View {
@@ -111,6 +112,15 @@ class TabActivity : BaseActivity() {
         binding.tabSwitcher.logLevel = LogLevel.OFF
         binding.tabSwitcher.addListener(tabListener)
         binding.tabSwitcher.showSwitcher()
+
+        binding.tabSwitcher.addCloseTabListener { tabSwitcher, tab ->
+            tabSwitcher.removeTab(tab, SwipeAnimation.Builder()
+                .setDuration(0)
+                .setRelocateAnimationDuration(100)
+                .setInterpolator(null).create())
+            false
+        }
+
         launchedFromPageActivity = intent.hasExtra(LAUNCHED_FROM_PAGE_ACTIVITY)
         setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground))

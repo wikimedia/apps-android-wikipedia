@@ -266,7 +266,7 @@
   <string name="about_translators_heading">מתרגמים</string>
   <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
-  <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
   <string name="edit_abandon_confirm">הדף שונה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
@@ -334,6 +334,8 @@
   <string name="widget_name_featured_page">ערך מומלץ בוויקיפדיה</string>
   <string name="widget_title_featured_page">הערך המומלץ של היום:</string>
   <string name="widget_name_search">חיפוש בוויקיפדיה</string>
+  <string name="widget_description_search">הדרך המהירה ביותר לחפש בוויקיפדיה</string>
+  <string name="widget_description_featured_page">הערכים הטובים ביותר שיש לוויקיפדיה להציע</string>
   <string name="wiktionary_no_definitions_found">לא נמצאו הגדרות</string>
   <string name="alpha_update_notification_title">זמין עדכון אלפא חדש.</string>
   <string name="alpha_update_notification_text">נא להקיש להורדה</string>
@@ -478,7 +480,7 @@
   <string name="editing_line_numbers_label">להציג מספרי שורות</string>
   <string name="editing_monospace_font_label">להשתמש בגופן ברוחב אחיד</string>
   <string name="editing_typing_suggestions">הצגת הצעות הקלדה</string>
-  <string name="nav_item_saved">נשמר</string>
+  <string name="nav_item_saved">שמורים</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_move_to">העברה לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>
@@ -822,8 +824,8 @@
   <string name="notifications_menu_uncheck_all">ביטול סימון כל הפריטים</string>
   <string name="notifications_wiki_filter_header">סינון ויקי</string>
   <string name="notifications_type_filter_header">סינון סוג</string>
-  <string name="notifications_all_wikis_text">כל סימוני \"ויקי\"</string>
-  <string name="notifications_all_types_text">כל סימוני \"סוג\"</string>
+  <string name="notifications_all_wikis_text">כל אתרי הוויקי</string>
+  <string name="notifications_all_types_text">כל הסוגים</string>
   <string name="notifications_menu_user_talk_page">דף השיחה של %s</string>
   <string name="notifications_offline_disable_message">האפשרות הזאת אינה זמינה כשאין חיבור לרשת.</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>

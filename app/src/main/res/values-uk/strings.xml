@@ -266,7 +266,7 @@
   <string name="about_translators_heading">Перекладачі</string>
   <string name="about_translators_translatewiki">Цей додаток був перекладений перекладачами-волонтерами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцензія</string>
-  <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про програму</string>
   <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
@@ -818,8 +818,8 @@
   <string name="notifications_menu_uncheck_all">Зніміть прапорці з усіх елементів</string>
   <string name="notifications_wiki_filter_header">Фільтр вікі</string>
   <string name="notifications_type_filter_header">Тип фільтра</string>
-  <string name="notifications_all_wikis_text">Усі «вікі»</string>
-  <string name="notifications_all_types_text">Всі «тип»</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Усі «вікі»</string>
+  <string name="notifications_all_types_text" fuzzy="true">Всі «тип»</string>
   <string name="notifications_menu_user_talk_page">сторінка обговорення %s</string>
   <string name="notifications_offline_disable_message">Функція недоступна в автономному режимі.</string>
   <string name="view_because_you_read_card_title">Оскільки Ви читали</string>

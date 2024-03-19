@@ -286,7 +286,7 @@
   <string name="about_translators_heading">مترجم‌ها</string>
   <string name="about_translators_translatewiki">این اپلیکیشن توسط مترجمان داوطلب در &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; ترجمه شده‌است.</string>
   <string name="about_app_license_heading">مجوز</string>
-  <string name="about_app_license">کد اصلی در &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت مجوز &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. برای موارد خاص تحت مجوز &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; یافت می‌شود.</string>
+  <string name="about_app_license" fuzzy="true">کد اصلی در &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; و &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; تحت مجوز &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. برای موارد خاص تحت مجوز &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt; یافت می‌شود.</string>
   <string name="about_wmf">محصولی از &lt;a href=\"https://wikimediafoundation.org/\"&gt;بنیاد ویکی‌مدیا&lt;/a&gt;</string>
   <string name="about_activity_title">درباره</string>
   <string name="edit_abandon_confirm">صفحه ویرایش شده است. آیا مطمئنید که می‌خواهید بدون ذخیره تغییرات خارج شوید؟</string>
@@ -746,8 +746,8 @@
   <string name="notifications_menu_uncheck_all">عدم علامت‌گذاری تمامی موارد</string>
   <string name="notifications_wiki_filter_header">پالایهٔ ویکی</string>
   <string name="notifications_type_filter_header">پالایهٔ نوع</string>
-  <string name="notifications_all_wikis_text">تمام موارد «ویکی»</string>
-  <string name="notifications_all_types_text">تمام موارد «نوع»</string>
+  <string name="notifications_all_wikis_text">تمام ویکی‌ها</string>
+  <string name="notifications_all_types_text">تمام انواع</string>
   <string name="notifications_menu_user_talk_page">صفحهٔ بحث %s</string>
   <string name="notifications_offline_disable_message">این تابع در حالت آفلاین در دسترس نیست.</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه کرده‌اید</string>
@@ -1224,6 +1224,7 @@
   <string name="talk_warn_submitted">پیام در صفحه بحث کاربری ویرایشگر منتشر شد</string>
   <string name="talk_warn_saved_message">یک پیام هشدار موجود را انتخاب کنید یا یک پیام جدید بنویسید.</string>
   <string name="talk_warn_saved_message_dropdown">پیام‌های ذخیره شده</string>
+  <string name="talk_warn_saved_messages">پیام‌های ذخیره‌شده</string>
   <string name="talk_page_empty">این صفحهٔ بحث خالی است.</string>
   <string name="talk_page_empty_content">صفحه‌های بحث جایی هستند که افراد در آن‌ها پیرامون چگونگی رساندن محتوای ویکی‌پدیا به بالاترین سطح با یکدیگر گفتگو می‌کنند. برای برقراری ارتباط و همکاری با اجتماع ویکی‌پدیایی‌ها با افزودن یک مبحث تازه شروع کنید.</string>
   <string name="talk_add_reply">پاسخ</string>
@@ -1502,8 +1503,25 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">خنثی</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">ناراضی</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">چگونه می‌توانیم ویژگی را بهبود ببخشیم؟</string>
+  <string name="patroller_diff_menu_edit_history_title">تاریخچهٔ ویرایش مقاله</string>
   <string name="patroller_diff_feedback_dialog_input_hint">بازخورد</string>
   <string name="patroller_diff_feedback_dialog_submit">ارسال</string>
   <string name="patroller_diff_feedback_submitted_snackbar">بازخورد ارسال شد.</string>
+  <string name="patroller_saved_message_title_vandalism">هشدار خرابکاری</string>
+  <string name="patroller_saved_message_title_editing_tests">ویرایش‌های آزمایشی</string>
+  <string name="patroller_saved_message_title_npov">دیدگاه بی‌طرفانه</string>
+  <string name="patroller_saved_message_title_auto_trans">ترجمهٔ خودکار</string>
+  <string name="patroller_saved_message_title_coi_rem">یادآوری تعارض منافع</string>
+  <string name="patroller_saved_message_title_final_warning">آخرین هشدار</string>
+  <string name="patroller_saved_message_title_copy_vio">هشدار نقض حق تکثیر</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">خلاصهٔ ویرایش بنویسید</string>
+  <string name="patroller_saved_message_title_do_not_censor">سانسور نکنید</string>
+  <string name="patroller_saved_message_title_art_imp">پیشنهاد بهبود مقاله</string>
+  <string name="patroller_saved_message_body_vandalism">سلام {{{username}}}، خواستم بگویم که یک یا چند مورد از [{{{diffLink}}}|مشارکت‌های اخیر شما] را خنثی کردم، چون سازنده به‌نظر نمی‌رسیدند. اگر فکر می‌کنید من اشتباه کرده‌ام یا این که پرسشی دارید، می‌توانید در [[User talk:{{{senderUserName}}}|صفحهٔ بحث من]] پیام بگذارید. لطفاً دقت کنید که ادامهٔ خرابکاری ممکن است به محدود شدن حساب شما منجر شود.</string>
+  <string name="patroller_saved_message_body_editing_tests">سلام {{{username}}}، خوشحالم که ویکی‌پدیا نظر شما را جلب کرده و به آموختن چگونگی ویرایش در آن علاقه‌مند شده‌اید. آزمون ویرایشی که انجام دادید، درست بود؛ با این حال، باید در نظر داشته باشید که هدف این پروژه ساخت یک دانشنامهٔ قابل اطمینان و کامل است که هرکسی می‌تواند به آن رجوع کند. ویرایش شما سازنده نبود و از همین روی حذف شد. اگر می‌خواهید نحوهٔ ویرایش در ویکی‌پدیا را بیاموزید، می‌توانید از [[ویکی‌پدیا:صفحه تمرین|صفحهٔ تمرین]] استفاده کنید. اگر پیام‌های شما به یک مقالهٔ خاص اختصاص دارند، محل درست برای مطرح کردن آن‌ها صفحهٔ بحث آن مقاله است.</string>
+  <string name="patroller_saved_message_body_final_warning">از آنجا که چندین ویرایش غیرسازنده انجام داده‌اید، این آخرین هشدار به شما است. در صورتی که دوباره در ویکی‌پدیا خرابکاری کنید، دسترسی ویرایشی شما مسدود خواهد شد.</string>
+  <string name="patroller_saved_message_body_edit_summary">سلام {{{username}}}، به‌نظر می‌رسد که بدون ارائهٔ خلاصهٔ ویرایش، مطالبی را از ویکی‌پدیا حذف کرده‌اید. لطفاً هرگاه مطلبی را به ویکی‌پدیا می‌افزایید یا حذف می‌کنید، در خلاصهٔ ویرایش دلیل کار خود را توضیح دهید.</string>
+  <string name="patroller_saved_message_body_do_not_censor">سلام {{{username}}، به‌نظر می‌رسد که بدون گفتگو در صفحهٔ بحث مقاله، محتوایی را از آن حذف کرده‌اید. لطفاً دقت داشته باشید که ویکی‌پدیا سانسور نمی‌شود و محتوا را نباید تنها به این دلیل که مناقشه‌برانگیز است، حذف کرد. اگر باور دارید که اطلاعات مورد نظر دقیق نیست، لطفاً در صفحهٔ بحث مقاله به‌دنبال کسب اجماع باشید.</string>
+  <string name="talk_templates_menu_edit_title">ویرایش</string>
   <string name="places_survey_dialog_cancel">لغو</string>
 </resources>

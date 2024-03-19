@@ -34,7 +34,6 @@ object Constants {
     const val INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume"
     const val INTENT_EXTRA_NOTIFICATION_TYPE = "notificationType"
     const val INTENT_EXTRA_REVERT_QNUMBER = "revertQNumber"
-    const val INTENT_FEATURED_ARTICLE_FROM_WIDGET = "featuredArticleFromWidget"
     const val INTENT_RETURN_TO_MAIN = "returnToMain"
 
     const val MAX_READING_LIST_ARTICLE_LIMIT = 5000
@@ -50,6 +49,8 @@ object Constants {
     const val COMMONS_DB_NAME = "commonswiki"
     const val WIKI_CODE_WIKIDATA = "wikidata"
     const val WIKIDATA_DB_NAME = "wikidatawiki"
+
+    val NON_LANGUAGE_SUBDOMAINS = listOf("donate", "thankyou", "quote", "textbook", "sources", "species", "commons", "meta")
 
     val commonsWikiSite = WikiSite(Service.COMMONS_URL)
     val wikidataWikiSite = WikiSite(Service.WIKIDATA_URL)

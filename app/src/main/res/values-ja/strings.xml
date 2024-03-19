@@ -296,7 +296,7 @@
   <string name="about_translators_heading">翻訳者</string>
   <string name="about_translators_translatewiki">このアプリは&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;で、ボランティアの翻訳者によって翻訳されました。</string>
   <string name="about_app_license_heading">ライセンス</string>
-  <string name="about_app_license">ソースコードは&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;と&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能で、&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;の下で提供されています。特に明記されている場合を除き、コンテンツは&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;の下で提供されます。</string>
+  <string name="about_app_license" fuzzy="true">ソースコードは&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt;と&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;上で利用可能で、&lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 License&lt;/a&gt;の下で提供されています。特に明記されている場合を除き、コンテンツは&lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;の下で提供されます。</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;ウィキメディア財団&lt;/a&gt;のプロダクト</string>
   <string name="about_activity_title">このアプリについて</string>
   <string name="edit_abandon_confirm">ページが変更されています。変更を保存せずに終了してもよろしいですか?</string>
@@ -790,8 +790,8 @@
   <string name="notifications_menu_uncheck_all">すべての項目のチェックを外す</string>
   <string name="notifications_wiki_filter_header">ウィキフィルター</string>
   <string name="notifications_type_filter_header">種類フィルター</string>
-  <string name="notifications_all_wikis_text">すべての「ウィキ」</string>
-  <string name="notifications_all_types_text">すべての「種類」</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">すべての「ウィキ」</string>
+  <string name="notifications_all_types_text" fuzzy="true">すべての「種類」</string>
   <string name="notifications_menu_user_talk_page">%sのトークページ</string>
   <string name="notifications_offline_disable_message">この機能はオフラインでは利用できません。</string>
   <string name="view_because_you_read_card_title">閲覧履歴からのおすすめ</string>
@@ -1148,6 +1148,7 @@
   <string name="onboarding_explore_text">絶えずアップデートしていく「探検」のフィードを追って、ウィキペディアの未知の世界に潜り込みましょう。過去の出来事を&lt;b&gt;今日は何の日&lt;/ b&gt;を学んだり、&lt;b&gt;おまかせ表示&lt;/ b&gt;で運にまかせるなど、フィードをあなたの興味のままに&lt;b&gt;カスタマイズ&lt;/ b&gt;することができます。</string>
   <string name="onboarding_reading_list_sync_title">あとで読むリストの同期</string>
   <string name="onboarding_reading_list_sync_text_v2">後でオフラインになっても記事が読みたい、そんなあなたのためにあとで読むリストを作成できます。&lt;br/&gt;ウィキペディアのアカウントにログインして、あとで読むリストを同期しましょう&lt;a href=\"#login\"&gt;ウィキペディアに参加&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">データとプライバシー</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
   <string name="onboarding_got_it">了解!</string>
   <string name="onboarding_multilingual_secondary_text">お使いの端末で次の言語が見つかりました:</string>
@@ -1465,6 +1466,7 @@
   <string name="user_contrib_menu_label">投稿記録</string>
   <string name="user_contrib_filter_activity_title">投稿を絞り込む</string>
   <string name="action_item_view_on_map">地図上に表示</string>
+  <string name="action_item_view_on_map_unavailable">このページの地理座標は入手できません</string>
   <string name="shareable_reading_lists_import_dialog_title">共有リーディングリストの読み込み</string>
   <string name="shareable_reading_lists_import_dialog_content">共有されたリストに名前をつけますか？</string>
   <string name="shareable_reading_lists_new_indicator">*新規*</string>
@@ -1598,4 +1600,19 @@
   <string name="donation_campaign_donated_snackbar">親愛なる寄付者様、ありがとうございます！あなたの寛大なご協力により、ウィキペディアとその姉妹サイトが繁栄し続けることができます。</string>
   <string name="donation_campaign_go_back_button">戻る</string>
   <string name="menu_single_webview_open_external">システムブラウザで開く</string>
+  <string name="places_title">場所</string>
+  <string name="places_permissions_denied">地図上に自分の位置を表示するには、位置情報の許可が必要です。もう一度試してください。</string>
+  <string name="places_search_hint">場所を検索</string>
+  <string name="places_filter_title">言語を絞り込む</string>
+  <string name="places_toggle_buttons_map">地図</string>
+  <string name="places_toggle_buttons_list">一覧</string>
+  <string name="places_nav_tab_tooltip_message">自分の周辺の場所でウィキペディアの記事を発見します</string>
+  <string name="places_article_menu_tooltip_message">この記事の位置を探すには「地図上で表示」をタップしてください</string>
+  <string name="places_survey_very_satisfied_option">非常に満足</string>
+  <string name="places_survey_very_unsatisfied_option">非常に不満</string>
+  <string name="places_survey_dialog_title">「場所」の改善にご協力ください</string>
+  <string name="places_survey_feedback_dialog_title">「場所」をどのように改善できますか？</string>
+  <string name="places_survey_dialog_cancel">キャンセル</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">何を変更または改善してほしいですか？</string>
+  <string name="places_empty_list">このエリアには何もありません。&lt;a href=\"#\"&gt;地図上&lt;/a&gt;でズームアウトしてください。</string>
 </resources>

@@ -197,7 +197,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
             notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
             notificationMenuItem.actionView = notificationButtonView
             notificationMenuItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+            FeedbackUtil.setButtonTooltip(notificationButtonView)
         } else {
             notificationMenuItem.isVisible = false
         }
@@ -360,7 +360,7 @@ class SuggestedEditsRecentEditsFragment : Fragment(), MenuProvider {
                 launchFilterActivity.launch(SuggestedEditsRecentEditsFilterActivity.newIntent(requireContext()))
             }
 
-            FeedbackUtil.setButtonLongPressToast(binding.filterByButton)
+            FeedbackUtil.setButtonTooltip(binding.filterByButton)
             binding.root.isVisible = true
         }
 

@@ -258,7 +258,7 @@
   <string name="about_translators_heading">Oversettere</string>
   <string name="about_translators_translatewiki">Appen ble oversatt av frivillige oversettere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisens</string>
-  <string name="about_app_license">Kildekode tilgjengelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0-lisensen&lt;/a&gt;. Om ikke annet er angitt, er innhold tilgjengelig under lisensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngivelse-DelPåSammeVilkår&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kildekode tilgjengelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0-lisensen&lt;/a&gt;. Om ikke annet er angitt, er innhold tilgjengelig under lisensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngivelse-DelPåSammeVilkår&lt;/a&gt;.</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Denne siden har blitt endret. Er du sikker på at du ønsker å avslutte uten å lagre endringene dine?</string>
@@ -322,6 +322,8 @@
   <string name="widget_name_featured_page">Utvalgt WIkipedia-side</string>
   <string name="widget_title_featured_page">Dagens utvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søk</string>
+  <string name="widget_description_search">Den raskeste måten å søke i Wikipedia</string>
+  <string name="widget_description_featured_page">De beste artiklene Wikipedia har å tilby</string>
   <string name="wiktionary_no_definitions_found">Ingen definisjoner funnet.</string>
   <string name="alpha_update_notification_title">Ny alphaoppdatering tilgjengelig</string>
   <string name="alpha_update_notification_text">Trykk for å laste ned</string>
@@ -764,8 +766,8 @@
   <string name="notifications_menu_uncheck_all">Fjern merking av alle elementer</string>
   <string name="notifications_wiki_filter_header">Wikifilter</string>
   <string name="notifications_type_filter_header">Filtertype</string>
-  <string name="notifications_all_wikis_text">Alle wikier</string>
-  <string name="notifications_all_types_text">Alle typer</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Alle wikier</string>
+  <string name="notifications_all_types_text" fuzzy="true">Alle typer</string>
   <string name="notifications_menu_user_talk_page">%ss diskusjonsside</string>
   <string name="notifications_offline_disable_message">Funksjonen er ikke tilgjengelig offline.</string>
   <string name="view_because_you_read_card_title">Fordi du leste</string>
@@ -1125,6 +1127,7 @@
   <string name="onboarding_reading_list_sync_title">Leselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan lage leselister med artikler du vil lese senere, selv når du er uten nettilgang.&lt;br/&gt;Logg inn med en Wikipedia-konto for å sikkerhetskopiere listene. &lt;a href=\"#login\"&gt;Registrer deg på Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_data_privacy_title">Data og personvern</string>
+  <string name="onboarding_data_privacy_text">Vi mener at du ikke skal trenge å oppgi personlig informasjon for å delta i bevegelsen for fri kunnskap. Bruksdata som samles inn for denne appen er anonyme. Lær mer om &lt;a href=\"#privacy\"&gt;personvernspolitikken vår&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;bruksvilkårene våre&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Send bruksdata</string>
   <string name="onboarding_got_it">Skjønner</string>
   <string name="onboarding_multilingual_secondary_text">Følgende ble funnet på enheten din:</string>
@@ -1596,11 +1599,12 @@
   <string name="places_toggle_buttons_map">Kart</string>
   <string name="places_toggle_buttons_list">Liste</string>
   <string name="places_nav_tab_tooltip_message">Oppdag Wikipedia-artikler rundt deg med Steder</string>
-  <string name="places_article_menu_tooltip_message" fuzzy="true">Trykk på &lt;b&gt;«Vis på kart»&lt;/b&gt; for å utforske nærområdet til denne artikkelen</string>
+  <string name="places_article_menu_tooltip_message">Trykk på «Vis på kart» for å utforske nærområdet til denne artikkelen</string>
   <string name="places_survey_very_satisfied_option">Veldig fornøyd</string>
   <string name="places_survey_very_unsatisfied_option">Veldig misfornøyd</string>
-  <string name="places_survey_dialog_title" fuzzy="true">Hjelp til med å forbedre «Steder»</string>
+  <string name="places_survey_dialog_title">Hjelp til med å forbedre «Steder»</string>
   <string name="places_survey_feedback_dialog_title">Hvordan kan «Steder» forbedres?</string>
+  <string name="places_survey_dialog_cancel">Avbryt</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Hva ønsker du at vi endrer eller forbedrer?</string>
   <string name="places_empty_list">Dette området er tomt. Zoom ut &lt;a href=\"#\"&gt;på kartet&lt;/a&gt;.</string>
 </resources>
