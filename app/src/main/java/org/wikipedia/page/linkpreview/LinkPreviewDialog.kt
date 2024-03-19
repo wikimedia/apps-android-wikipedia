@@ -147,9 +147,9 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
     }
 
-    private val requestEditSectionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+    private val requestStubArticleEditLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            FeedbackUtil.showMessage(requireActivity(), R.string.edit_saved_successfully)
+            FeedbackUtil.showMessage(requireActivity(), R.string.stub_article_edit_saved_successfully)
             dismiss()
         }
     }
@@ -162,7 +162,7 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
         }
         binding.linkPreviewEditButton.setOnClickListener {
             viewModel.pageTitle.run {
-                requestEditSectionLauncher.launch(EditSectionActivity.newIntent(requireContext(), -1, null, this, Constants.InvokeSource.LINK_PREVIEW_MENU, null))
+                requestStubArticleEditLauncher.launch(EditSectionActivity.newIntent(requireContext(), -1, null, this, Constants.InvokeSource.LINK_PREVIEW_MENU, null))
             }
         }
         L10nUtil.setConditionalLayoutDirection(binding.root, viewModel.pageTitle.wikiSite.languageCode)

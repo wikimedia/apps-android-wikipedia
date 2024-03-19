@@ -126,6 +126,7 @@
     <string name="langlinks_your_wikipedia_languages">Your Wikipedia languages</string>
     <string name="menu_save_changes">Publish changes</string>
     <string name="edit_saved_successfully">Edit published!</string>
+    <string name="stub_article_edit_saved_successfully">Edit published! Changes may take time to appear.</string>
     <string name="dialog_message_edit_failed">Edit failed!</string>
     <string name="dialog_message_edit_failed_retry">Retry</string>
     <string name="dialog_message_edit_failed_cancel">Cancel</string>

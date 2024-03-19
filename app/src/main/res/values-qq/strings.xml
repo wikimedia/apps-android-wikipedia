@@ -1647,4 +1647,5 @@
   <string name="talk_warn_saved_messages">Label text for menu option to enter the \'saved messages\' screen.</string>
   <string name="patroller_diff_menu_edit_history_title">Label text for menu option to view the article\'s edit history.</string>
   <string name="talk_warn_learn_more_label">Label text for external link to message placeholders.</string>
+  <string name="stub_article_edit_saved_successfully">Message text shown to users after a successful edit to a stub article.</string>
 </resources>
