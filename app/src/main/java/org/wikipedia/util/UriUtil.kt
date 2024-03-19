@@ -1,5 +1,6 @@
 package org.wikipedia.util
 
+import android.app.Activity
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -113,6 +114,12 @@ object UriUtil {
     }
 
     fun handleExternalLink(context: Context, uri: Uri) {
+        if (uri.authority.orEmpty().contains("geohack") && context is Activity) {
+            StringUtil.geoHackToLocation(uri.getQueryParameter("params"))?.let {
+                GeoUtil.sendGeoIntent(context, it, uri.getQueryParameter("pagename") ?: "")
+                return
+            }
+        }
         visitInExternalBrowser(context, uri)
     }
 
