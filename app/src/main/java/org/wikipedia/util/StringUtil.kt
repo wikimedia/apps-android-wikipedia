@@ -245,7 +245,7 @@ object StringUtil {
 
     fun geoHackToLocation(params: String?): Location? {
         if (!params.isNullOrBlank()) {
-            val regex = """((\d+)_)((\d+)_)?((\d+)_)?(([NS])_)((\d+)_)?((\d+)_)?((\d+)_)?([EW])""".toRegex()
+            val regex = """(([\d.]+)_)(([\d.]+)_)?(([\d.]+)_)?(([NS])_)(([\d.]+)_)?(([\d.]+)_)?(([\d.]+)_)?([EW])""".toRegex()
             val match = regex.find(params)
             if (match != null) {
                 val latDeg = match.groupValues[2].ifEmpty { "0" }
