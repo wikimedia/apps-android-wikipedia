@@ -48,7 +48,7 @@ class TabActivity : BaseActivity() {
         setContentView(binding.root)
         binding.tabCountsView.updateTabCount(false)
         binding.tabCountsView.setOnClickListener { onBackPressed() }
-        FeedbackUtil.setButtonLongPressToast(binding.tabCountsView, binding.tabButtonNotifications)
+        FeedbackUtil.setButtonTooltip(binding.tabCountsView, binding.tabButtonNotifications)
         binding.tabSwitcher.setPreserveState(false)
         binding.tabSwitcher.decorator = object : TabSwitcherDecorator() {
             override fun onInflateView(inflater: LayoutInflater, parent: ViewGroup?, viewType: Int): View {

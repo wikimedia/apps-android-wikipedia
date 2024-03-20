@@ -245,6 +245,9 @@
   <string name="logged_out_in_background_dialog">Se ha cerrado tu sesión en Wikipedia. ¿Quieres volver a iniciarla?</string>
   <string name="logged_out_in_background_login">Iniciar sesión</string>
   <string name="logged_out_in_background_cancel">Cancelar</string>
+  <string name="account_vanish_request_title">Cuenta desaparecida</string>
+  <string name="account_vanish_request_confirm_title">Advertencia de cuenta desaparecida</string>
+  <string name="account_vanish_request_confirm">La desaparición es un &lt;b&gt;último recurso&lt;/b&gt; y solo se debe cuando desee dejar de editar para siempre y también para ocultar tantas asociaciones pasadas como sea posible.&lt;br/&gt;&lt;br/&gt; La eliminación de cuentas en Wikipedia se hace cambiando el nombre de su cuenta para que otros no puedan reconocer sus contribuciones en un proceso llamado desaparición de cuentos. &lt;b&gt;La desaparición no garantiza el anonimato total ni elimina las contribuciones a los proyectos&lt;/b&gt;.</string>
   <string name="history_empty_title">No hay hay artículos visitados recientemente</string>
   <string name="history_empty_message">Consulta lo que has leído aquí.</string>
   <string name="history_offline_articles_toast">Es posible que algunos artículos del historial no aparezcan al estar sin conexión.</string>
@@ -326,7 +329,7 @@
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación fue traducida por traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
-  <string name="about_app_license">Código fuente disponible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; bajo la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licencia Apache 2.0&lt;/a&gt;. A menos que se especifique lo contrario, el contenido está disponible bajo la &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_4.0_Unported_License\"&gt;Licencia Atribución-CompartirIgual de Creative Commons&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Código fuente disponible en &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; y &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; bajo la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licencia Apache 2.0&lt;/a&gt;. A menos que se especifique lo contrario, el contenido está disponible bajo la &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_4.0_Unported_License\"&gt;Licencia Atribución-CompartirIgual de Creative Commons&lt;/a&gt;.</string>
   <string name="about_wmf">Un producto de &lt;a href=\"https://wikimediafoundation.org/es/?noredirect=es_ES\"&gt;Fundación Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Acerca de</string>
   <string name="edit_abandon_confirm">Se ha modificado la página. ¿Quieres salir sin guardar los cambios?</string>
@@ -1238,6 +1241,7 @@
   <string name="talk_user_title">Discusión: %s</string>
   <string name="talk_new_topic">Tema nuevo</string>
   <string name="talk_new_topic_submitted">Tema posted.</string>
+  <string name="talk_warn_saved_messages">Mensajes guardados</string>
   <string name="talk_page_empty">Esta página de discusión está vacía.</string>
   <string name="talk_add_reply">Responder</string>
   <string name="talk_no_subject">(Sin asunto)</string>
@@ -1356,10 +1360,33 @@
   <string name="talk_templates_message_deleted" fuzzy="true">El mensaje se ha eliminado</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cuenta de: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Editar recuento: &lt;/b&gt; %s</string>
+  <string name="patroller_diff_menu_edit_history_title">Historial de edición del artículo</string>
+  <string name="patroller_saved_message_title_vandalism">Advertencia de vandalismo</string>
+  <string name="patroller_saved_message_title_editing_tests">Pestañas de edición</string>
+  <string name="patroller_saved_message_title_npov">Punto de vista neutral</string>
+  <string name="patroller_saved_message_title_auto_trans">Traducción automática</string>
+  <string name="patroller_saved_message_title_coi_rem">Recordatorio de conflicto de intereses</string>
+  <string name="patroller_saved_message_title_final_warning">Advertencia final</string>
+  <string name="patroller_saved_message_title_copy_vio">Alerta de violación de derechos de autor</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Deja un resumen de edición</string>
+  <string name="patroller_saved_message_title_do_not_censor">No censurar</string>
+  <string name="patroller_saved_message_title_art_imp">Sugerencia de mejora del artículo.</string>
+  <string name="patroller_saved_message_body_vandalism">Hola {{{username}}}, quiero informarte que he revertido una o más de tus [{{{diffLink}}}|contribuciones recientes] porque no parecen constructivas. Si cree que cometí un error o tiene preguntas, puede dejar un mensaje en [[User talk:{{{senderUserName}}}|mi página de discusión]]. Tenga en cuenta que el vandalismo continuo puede dar lugar a restricciones.</string>
+  <string name="patroller_saved_message_body_editing_tests">Hola {{{nombre de usuario}}}, me alegra que Wikipedia te haya llamado la atención y te haya interesado aprender a editar en ella. La prueba de edición que hiciste funcionó; Sin embargo, debes tener en cuenta que el objetivo de este proyecto es desarrollar una enciclopedia confiable y completa que todos puedan consultar. Su edición afectó el contenido, por lo que se eliminó.\nSi desea aprender a editar Wikipedia, el [[Wikipedia:Sandbox|sandbox]] está a su disposición. Si sus comentarios fueron específicos de un artículo, el lugar correcto es la página de discusión de ese artículo.</string>
+  <string name="patroller_saved_message_body_npov">Hola {{{username}}}, algunas contribuciones que has realizado no cumplen con la neutralidad requerida para cumplir con la política de [[Wikipedia:NPOV|punto de vista neutral]] de Wikipedia. Por este motivo, se han modificado o eliminados algunos contenidos.\n\nPor favor, modifique los párrafos o apartados que muestren un punto de vista parcial, reemplazándolos por un texto más neutral y objetivo, acorde con lo esperado en una enciclopedia.</string>
+  <string name="patroller_saved_message_body_auto_trans">Hola {{{username}}}, algunas aportaciones que has realizado posiblemente sean traducciones automáticas, por lo que se han modificado o marcado con la plantilla. Si no se realizan mejoras en el artículo, es posible que se elimine.\n\nSi, a pesar de toda esta información, todavía tienes alguna pregunta, no dudes en dejar un mensaje [[Usuario discusión:{{{senderUserName}}}|mi página de discusión]]. No te desanimes por este pequeño incidente. Tus contribuciones son muy importantes para Wikipedia.</string>
+  <string name="patroller_saved_message_body_coi_rem">Hola {{{username}}}, agradezco tu colaboración en Wikipedia; Sin embargo, noté que estás en un [[Wikipedia:Conflict_of_interest|conflicto de intereses]]. Un conflicto de intereses es la incompatibilidad entre los objetivos de neutralidad y confiabilidad de Wikipedia y los objetivos particulares de ciertos editores, individuos, entidades o empresas de cualquier tipo.\n\nTodas las contribuciones en el espacio principal están sujetas a las políticas de criterios de contenido de esta Wikipedia ([[Wikipedia:What_Wikipedia_is_not|lo que Wikipedia no es]]), calidad enciclopédica ([[Wikipedia:Verifiability|verifiability ]] y [[Wikipedia:No_original_research|sin investigación original]]), método editorial ([[Wikipedia:Neutral_point_of_view|punto de vista neutral]]) y legitimidad del contenido ([[Wikipedia:Copyrights|copyrights]]). Se espera que todos los editores cumplan con estas políticas al crear y evaluar contenido y que respeten y asuman buena fe en las acciones de otros editores para garantizar que se sigan estas políticas.\n\nSi edita bajo un conflicto de intereses, deberá aplicar la política correspondiente con especial cuidado; De lo contrario, su cuenta de usuario podría considerarse privada y bloquearse. No dude en comunicarse con mi página de discusión si tiene alguna pregunta.</string>
+  <string name="patroller_saved_message_body_final_warning">Debido a que ha hecho varias modificaciones destructivas, esto le servirá como advertencia final. Si vuelve a vandalizar Wikipedia, se le prohibirá editar.</string>
+  <string name="patroller_saved_message_body_copy_vio">Su edición reciente parece incluir material protegido por derechos de autor sin permiso. Asegúrese de que todo el contenido cumpla con las políticas de [[Wikipedia:Copyrights|copyright]]para evitar su eliminación.</string>
+  <string name="patroller_saved_message_body_edit_summary">Hola, {{{nombre de usuario}}}, parece que eliminaste contenido de Wikipedia sin dejar un resumen de edición. Deje un resumen de edición cada vez que agregue o elimine contenido en Wikipedia.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Hola, {{{username}}}, parece que eliminaste contenido sin comentarlo en la página de discusión del artículo. Tenga en cuenta que Wikipedia no tiene censura y el contenido no se debe eliminar porque sea controvertido. Si cree que la información es inexacta, llegue a un consenso en la página de discusión del artículo.</string>
+  <string name="patroller_saved_message_body_art_imp">Hola {{{username}}}. ¡Tu artículo es un gran comienzo! Para hacerlo aún mejor, planteese agregar más referencias a fuentes confiables. Esto ayuda a verificar la información y mejora la calidad del artículo. Consulte las pautas de Wikipedia sobre [[Wikipedia:Reliable_sources|fuentes confiables]] para obtener más detalles.</string>
+  <string name="talk_templates_menu_edit_title">Editar</string>
   <string name="data_opt_in_accept">Aceptar</string>
   <string name="data_opt_in_reject">Rechazar</string>
   <string name="email_report_image_recommendations_subject">Informe de problema: función de recomendaciones de imágenes</string>
   <string name="email_report_image_recommendations_body">He tenido un problema con la función de recomendación de imagen:\n- [Describe el problema en concreto]\n\nEl resultado que me gustaría ver es:\n- [Describe la solución propuesta]</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">¿Qué quieres que cambiemos o mejoremos?</string>
   <string name="places_empty_list">Esta área está vacía. Alejar &lt;a href=\"#\"&gt;el mapa&lt;/a&gt; .</string>
+  <string name="talk_warn_learn_more_label">Más información sobre los marcadores de posición de mensajes</string>
 </resources>

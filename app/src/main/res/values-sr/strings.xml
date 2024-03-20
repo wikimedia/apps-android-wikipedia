@@ -175,6 +175,7 @@
   <string name="logged_out_in_background_dialog">Одјављени сте са Википедије. Да ли желите да се поново пријавите?</string>
   <string name="logged_out_in_background_login">Пријави ме</string>
   <string name="logged_out_in_background_cancel">Откажи</string>
+  <string name="account_vanish_request_title">Гашење налога</string>
   <string name="history_empty_title">Нема недавно прегледаних чланака</string>
   <string name="history_empty_message">Овде пратите шта сте читали.</string>
   <string name="history_offline_articles_toast">Неки чланци у историји можда неће бити видљиви док сте офлајн.</string>
@@ -254,7 +255,7 @@
   <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Апликацију су превели добровољци на сајту &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-у&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Ауторство—Делити под истим условима&lt;/a&gt;, осим ако није другачије наведено.</string>
+  <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Ауторство—Делити под истим условима&lt;/a&gt;, осим ако није другачије наведено.</string>
   <string name="about_wmf">Производ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Задужбине Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">О апликацији</string>
   <string name="edit_abandon_confirm">Страница је измењена. Желите ли заиста да изађете без чувања промене?</string>
@@ -1226,6 +1227,7 @@
   <string name="talk_warn_submitted_and_saved">Порука је сачувана и објављена на уредниковој страници за разговор</string>
   <string name="talk_warn_saved_message">Одабери постојећу поруку упозорења или започните нову поруку.</string>
   <string name="talk_warn_saved_message_dropdown">Сачуване поруке</string>
+  <string name="talk_warn_saved_messages">Сачуване поруке</string>
   <string name="talk_page_empty">Ова страница за разговор је празна.</string>
   <string name="talk_page_empty_title">Разговор почиње овде</string>
   <string name="talk_page_empty_content">Странице за разговор су места где уредници дискутују како да учине садржај Википедији најбољим могућим. Почните додавањем нове теме за дискусију да би сте се повезали и сарађивали са заједницом Википедијанаца.</string>
@@ -1543,9 +1545,15 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Неутрално</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадовољавајуће</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Како можемо да унапредимо могућност?</string>
+  <string name="patroller_diff_menu_edit_history_title">Историја</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Повратне информације</string>
   <string name="patroller_diff_feedback_dialog_submit">Пошаљи</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Повратне информације послате.</string>
+  <string name="patroller_saved_message_title_npov">Неутрална тачка гледишта</string>
+  <string name="patroller_saved_message_title_auto_trans">Аутоматски превод</string>
+  <string name="patroller_saved_message_title_final_warning">Последње упозорење</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Наведите опис измене</string>
+  <string name="talk_templates_menu_edit_title">Уреди</string>
   <string name="data_opt_in_accept">Прихватам</string>
   <string name="data_opt_in_reject">Одбаци</string>
   <string name="page_issues_title">Проблеми странице</string>

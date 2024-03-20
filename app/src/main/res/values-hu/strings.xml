@@ -178,6 +178,9 @@
   <string name="logged_out_in_background_dialog">Kijelentkeztél a Wikipédiából. Szeretnél újra bejelentkezni?</string>
   <string name="logged_out_in_background_login">Bejelentkezés</string>
   <string name="logged_out_in_background_cancel">Mégsem</string>
+  <string name="account_vanish_request_title">Fiók eltüntetése</string>
+  <string name="account_vanish_request_confirm_title">Fiókeltüntetés-figyelmeztetés</string>
+  <string name="account_vanish_request_confirm">Az eltűnés egy &lt;b&gt;utolsó lehetőség&lt;/b&gt;; &lt;b&gt;csak akkor használd, ha örökre abba akarod hagyni a szerkesztést&lt;/b&gt;, és az eddigi szerkesztéseiddel való összekapcsolhatóságot is a lehető legnagyobb mértékben meg akarod szüntetni.&lt;br/&gt;&lt;br/&gt;A fióktörlés a Wikipédián a szerkesztőnév olyanra módosításával történik, amitől mások nem ismerik fel a közreműködéseidet (ez az ún. fiókeltüntetés). &lt;b&gt;Az eltűnés nem jelent se teljes anonimitást, se a közreműködéseid eltávolítását a projektekből.&lt;/b&gt;</string>
   <string name="history_empty_title">Nincsenek nemrég megtekintett cikkek</string>
   <string name="history_empty_message">Itt követheted az elolvasott szócikkeket.</string>
   <string name="history_offline_articles_toast">Néhány szócikk lehet, hogy nem olvasható offline módban.</string>
@@ -259,7 +262,7 @@
   <string name="about_translators_heading">Fordítók</string>
   <string name="about_translators_translatewiki">Ezt az alkalmazást önkéntesek fordították a &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; segítségével.</string>
   <string name="about_app_license_heading">Licenc</string>
-  <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerriten&lt;/a&gt; és &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.hu\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
+  <string name="about_app_license">A forráskód elérhető &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubon&lt;/a&gt; az &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt; alatt. Ha nincs másként jelezve, a tartalom egy &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.hu\"&gt;Creatice Commons Nevezd meg! – Így add tovább! licenc&lt;/a&gt; alatt érhető el.</string>
   <string name="about_wmf">A &lt;a href=\"https://wikimediafoundation.org\"&gt;Wikimédia Alapítvány&lt;/a&gt; terméke</string>
   <string name="about_activity_title">Névjegy</string>
   <string name="edit_abandon_confirm">A lap megváltozott. A módosítások mentése nélkül akarsz kilépni?</string>
