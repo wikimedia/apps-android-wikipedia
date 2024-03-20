@@ -171,6 +171,7 @@
   <string name="reading_list_delete_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Жокко чыгаруу</string>
+  <string name="user_option_sync_label">Параметрлер</string>
   <string name="notification_syncing_cancel_button">Жокко чыгаруу</string>
   <string name="notifications_channel_group_other_title">Башка</string>
   <string name="view_featured_image_card_download">Жүктөп алуу</string>

@@ -255,6 +255,8 @@
   <string name="nav_item_donate">Skeaŋkkat</string>
   <string name="enable_location_service">Váldde atnui</string>
   <string name="view_link_preview_error_button_dismiss">Gidde</string>
+  <string name="link_preview_dialog_save_button">Vurke</string>
+  <string name="link_preview_dialog_saved_button">Vurkejuvvon</string>
   <string name="error_page_does_not_exist">Dát siidu ii gávdno</string>
   <string name="reference_title">Gáldu %s</string>
   <string name="reference_list_title">Gáldut</string>
@@ -297,6 +299,7 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Gaskkalduhte</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Sihko</string>
   <string name="reading_list_activity_title">Lohkanlistu: %s</string>
+  <string name="reading_lists_preview_save_button">Vurke</string>
   <string name="reading_lists_preview_save_dialog_title">Vurke listtu</string>
   <string name="reading_lists_preview_save_dialog_cancel">Gaskkalduhte</string>
   <string name="reading_lists_preview_save_dialog_save">Vurke</string>
@@ -444,6 +447,7 @@
   <string name="main_tooltip_watchlist_title">Čuovvunlistu</string>
   <string name="text_input_dialog_cancel_button_text">Gaskkalduhte</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Gaskkalduhte</string>
+  <string name="talk_warn_save_dialog_title">Vurke rievdadusaid?</string>
   <string name="talk_warn_save_dialog_publish">Almmut</string>
   <string name="talk_warn_save_dialog_cancel">Gaskkalduhte</string>
   <string name="talk_add_reply">Vástit</string>
@@ -471,7 +475,11 @@
   <string name="category_tab_subcategories">Vuollekategoriijat</string>
   <string name="search_namespaces">Nammagomuvuođat</string>
   <string name="shareable_reading_lists_new_indicator">*ođđa*</string>
+  <string name="talk_templates_new_message_save">Vurke</string>
+  <string name="talk_templates_new_message_dialog_title">Vurke rievdadusaid</string>
+  <string name="talk_templates_new_message_dialog_save">Vurke</string>
   <string name="talk_templates_new_message_dialog_cancel">Gaskkalduhte</string>
+  <string name="talk_templates_edit_message_dialog_save">Vurke</string>
   <string name="patroller_tasks_filters_user_status_header">Geavaheaddji registreren ja hárjánusdássi</string>
   <string name="patroller_tasks_filters_user_status_registered">Registrerejuvvon</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrerejuvvon geavaheaddjit geain leat unnit go 10 rievdadusa dahkan dahje 4 aktiiva beaivvi.</string>
