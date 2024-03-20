@@ -243,7 +243,7 @@
   <string name="about_translators_heading">Mai fassara</string>
   <string name="about_translators_translatewiki">Lasisi</string>
   <string name="about_app_license_heading">Lasisi</string>
-  <string name="about_app_license">Akwai tushen alamu &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; da &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ƙarƙashin &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Sai dai in an kayyade, akwai abun ciki a ƙarƙashin a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Akwai tushen alamu &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; da &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ƙarƙashin &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Sai dai in an kayyade, akwai abun ciki a ƙarƙashin a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Sanarwar &lt;a href=\"https://wikimediafoundation.org/\"&gt;Gidauniyar Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Game da</string>
   <string name="edit_abandon_confirm">An gyara shafin. Shin ka tabbata kana son fita ba tare da adana canje-canjenku ba?</string>

@@ -469,7 +469,7 @@ class PlacesFragment : Fragment(), LinkPreviewDialog.LoadPageCallback, LinkPrevi
         }
         binding.langCodeButton.setLangCode(Prefs.placesWikiCode)
 
-        FeedbackUtil.setButtonLongPressToast(binding.tabsButton, binding.langCodeButton)
+        FeedbackUtil.setButtonTooltip(binding.tabsButton, binding.langCodeButton)
     }
 
     private fun setUpSymbolManagerWithClustering(mapboxMap: MapboxMap, style: Style) {

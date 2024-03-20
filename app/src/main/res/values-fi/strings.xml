@@ -191,6 +191,7 @@
   <string name="logged_out_in_background_dialog">Olet kirjautunut ulos Wikipediasta. Haluaisitko kirjautua takaisin sisään?</string>
   <string name="logged_out_in_background_login">Kirjaudu sisään</string>
   <string name="logged_out_in_background_cancel">Peruuta</string>
+  <string name="account_vanish_request_title">Häivytä käyttäjätunnus</string>
   <string name="history_empty_title">Ei äskettäin tarkasteltuja artikkeleita</string>
   <string name="history_empty_message">Pidä kirjaa lukemastasi.</string>
   <string name="history_offline_articles_toast">Jotkut lukuhistorian artikkelit eivät ehkä ole nähtävissä ilman verkkoyhteyttä.</string>
@@ -272,7 +273,7 @@
   <string name="about_translators_heading">Kääntäjät</string>
   <string name="about_translators_translatewiki">Tämän sovelluksen ovat kääntäneet &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;-sivuston vapaaehtoiset kääntäjät.</string>
   <string name="about_app_license_heading">Lisenssi</string>
-  <string name="about_app_license">Lähdekoodi löytyy &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritistä&lt;/a&gt; ja &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubista&lt;/a&gt;, ja se on julkaistu &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 -lisenssillä&lt;/a&gt;. Ellei toisin ole mainittu, sisältö on julkaistu &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.fi\"&gt;Creative Commons Nimeä–JaaSamoin -lisenssillä&lt;/a&gt;.</string>
+  <string name="about_app_license">Lähdekoodi löytyy &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubista&lt;/a&gt;, ja se on julkaistu &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 -lisenssillä&lt;/a&gt;. Ellei toisin ole mainittu, sisältö on julkaistu &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.fi\"&gt;Creative Commons Nimeä–JaaSamoin -lisenssillä&lt;/a&gt;.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia-säätiön&lt;/a&gt; tuote</string>
   <string name="about_activity_title">Tietoja</string>
   <string name="edit_abandon_confirm">Sivua on muokattu. Haluatko varmasti poistua tallentamatta muutoksiasi?</string>
@@ -1259,6 +1260,7 @@
   <string name="talk_warn_submitted_and_saved">Viesti tallennettu ja julkaistu muokkaajan keskustelusivulla</string>
   <string name="talk_warn_saved_message">Valitse olemassa oleva varoitusviesti tai kirjoita uusi viesti.</string>
   <string name="talk_warn_saved_message_dropdown">Tallennetut viestit</string>
+  <string name="talk_warn_saved_messages">Tallennetut viestit</string>
   <string name="talk_page_empty">Tämä keskustelusivu on tyhjä.</string>
   <string name="talk_page_empty_title">Keskustelu alkaa tästä</string>
   <string name="talk_page_empty_content">Parhaat Wikipedia-artikkelit syntyvät yhteistyöllä. Näillä sivuilla käyttäjät keskustella artikkelin sisällöstä ja kehittämisestä.</string>
@@ -1567,9 +1569,19 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutraali</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Tyytymätön</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Kuinka voimme parantaa ominaisuutta?</string>
+  <string name="patroller_diff_menu_edit_history_title">Artikkelin muokkaushistoria</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Palaute</string>
   <string name="patroller_diff_feedback_dialog_submit">Lähetä</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Palaute lähetetty.</string>
+  <string name="patroller_saved_message_title_vandalism">Varoitus vandalismista</string>
+  <string name="patroller_saved_message_title_npov">Neutraali näkökulma</string>
+  <string name="patroller_saved_message_title_auto_trans">Automaattinen käännös</string>
+  <string name="patroller_saved_message_title_final_warning">Viimeinen varoitus</string>
+  <string name="patroller_saved_message_title_copy_vio">Varoitus tekijänoikeusrikkomuksesta</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Jätä muokkausyhteenveto</string>
+  <string name="patroller_saved_message_title_do_not_censor">Älä sensuroi</string>
+  <string name="patroller_saved_message_title_art_imp">Artikkelin parannusehdotus</string>
+  <string name="talk_templates_menu_edit_title">Muokkaa</string>
   <string name="data_opt_in_accept">Hyväksy</string>
   <string name="data_opt_in_reject">Hylkää</string>
   <string name="page_issues_title">Sivun ongelmat</string>
