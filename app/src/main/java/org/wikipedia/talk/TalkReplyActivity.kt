@@ -100,11 +100,18 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         linkHandler = TalkLinkHandler(this)
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
-        textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
+        textWatcher = binding.replySubjectText.doOnTextChanged { text, _, _, _ ->
             binding.replySubjectLayout.error = null
             binding.replyInputView.textInputLayout.error = null
             setSaveButtonEnabled(binding.replyInputView.editText.text.isNotBlank())
+            viewModel.talkTemplatesList.filter { it.subject == text.toString() }.let {
+                if (viewModel.selectedTemplate == null && it.isNotEmpty()) {
+                    binding.replySubjectLayout.error = getString(R.string.talk_subject_duplicate)
+                    setSaveButtonEnabled(false)
+                }
+            }
         }
+
         binding.replyInputView.editText.addTextChangedListener(textWatcher)
 
         binding.replySaveButton.setOnClickListener {
@@ -285,9 +292,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             R.string.talk_warn_save_dialog_dont_save).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
 
-                override fun onSuccess() {
+                override fun onSuccess(subjectText: String) {
                     if (textInputDialog.isSaveAsNewChecked) {
-                        viewModel.saveTemplate("", subject, body)
+                        viewModel.saveTemplate("", subjectText, body)
                     } else if (textInputDialog.isSaveExistingChecked) {
                         viewModel.selectedTemplate?.let {
                             viewModel.updateTemplate(it.title, subject, body, it)
@@ -304,8 +311,41 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     showEditPreview()
                 }
 
+                override fun onTextChanged(text: String, dialog: TalkTemplatesTextInputDialog) {
+                    text.trim().let {
+                        when {
+                            it.isEmpty() -> {
+                                if (textInputDialog.isSaveExistingChecked) {
+                                    return
+                                }
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(false)
+                            }
+
+                            viewModel.talkTemplatesList.any { item -> item.subject == it } -> {
+                                if (textInputDialog.isSaveExistingChecked) {
+                                    return
+                                }
+                                dialog.getView().postDelayed({
+                                    dialog.setError(dialog.context.getString(R.string.talk_subject_duplicate))
+                                    dialog.setPositiveButtonEnabled(false)
+                                }, 250)
+                            }
+
+                            else -> {
+                                dialog.setError(null)
+                                dialog.setPositiveButtonEnabled(true)
+                            }
+                        }
+                    }
+                }
+
                 override fun onDismiss() {
                     setSaveButtonEnabled(true)
+                }
+
+                override fun getSubjectText(): String {
+                    return subject
                 }
             }
             textInputDialog.showTemplateCheckboxes()
@@ -381,7 +421,12 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     viewModel.saveTemplate("", subject, body)
                 }
             } else {
-                showSaveDialog(subject, body)
+                if (viewModel.selectedTemplate != null && viewModel.selectedTemplate?.subject == subject &&
+                    viewModel.selectedTemplate?.message == body) {
+                    showEditPreview()
+                } else {
+                    showSaveDialog(subject, body)
+                }
             }
         } else {
             showEditPreview()

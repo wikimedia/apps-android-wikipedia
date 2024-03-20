@@ -16,6 +16,7 @@ import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.talk.template.TalkTemplatesRepository
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData
+import org.wikipedia.util.log.L
 
 class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     private val talkTemplatesRepository = TalkTemplatesRepository(AppDatabase.instance.talkTemplateDao())
@@ -32,6 +33,21 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     val selectedTemplate = bundle.parcelable<TalkTemplate>(TalkTemplatesActivity.EXTRA_SELECTED_TEMPLATE)
     val isSavedTemplate = bundle.getBoolean(TalkTemplatesActivity.EXTRA_SAVED_TEMPLATE, false)
     val templateManagementMode = bundle.getBoolean(TalkTemplatesActivity.EXTRA_TEMPLATE_MANAGEMENT, false)
+
+    init {
+        if (isFromDiff) {
+            loadTemplates()
+        }
+    }
+
+    private fun loadTemplates() {
+        viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->
+            L.e(throwable)
+        }) {
+            talkTemplatesList.clear()
+            talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
+        }
+    }
 
     fun postReply(subject: String, body: String) {
         viewModelScope.launch(CoroutineExceptionHandler { _, throwable ->

@@ -1647,4 +1647,5 @@
   <string name="talk_templates_example_messages_tab_title">Tab title text for list of ready-to-use saved messages made available for user.</string>
   <string name="talk_warn_saved_messages_usage_instruction">Instruction text to guide user on usage of saved messages.</string>
   <string name="talk_warn_save_dialog_dont_save">Negative action label text for talk warm messages save dialog.</string>
+  <string name="talk_subject_duplicate">Error state text shown to user when they are trying to create a talk messgage with duplicate subject.</string>
 </resources>

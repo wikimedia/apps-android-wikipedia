@@ -4,29 +4,43 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-        <RadioGroup
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="8dp">
+
+        <RadioButton
+            android:id="@+id/dialogSaveAsNewRadio"
+            style="@style/H3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="8dp">
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="@string/talk_warn_save_dialog_message" />
 
-            <RadioButton
-                android:id="@+id/dialogSaveAsNewRadio"
-                style="@style/H3.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="16dp"
-                android:text="@string/talk_warn_save_dialog_message" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/subjectInputContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <RadioButton
-                android:id="@+id/dialogSaveExistingRadio"
-                style="@style/H3.Button"
-                android:layout_width="wrap_content"
+            <org.wikipedia.views.PlainPasteEditText
+                android:id="@+id/subjectInput"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="16dp"
-                android:text="@string/talk_warn_save_dialog_existing_update_message" />
-        </RadioGroup>
+                android:hint="@string/talk_reply_subject"
+                android:inputType="textCapSentences"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RadioButton
+            android:id="@+id/dialogSaveExistingRadio"
+            style="@style/H3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="@string/talk_warn_save_dialog_existing_update_message" />
+    </RadioGroup>
 
 </ScrollView>
