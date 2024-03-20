@@ -35,6 +35,7 @@ import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkReplyActivity
+import org.wikipedia.talk.TalkReplyActivity.Companion.RESULT_BACK_FROM_TOPIC
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
@@ -74,10 +75,12 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     private val requestNewTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         binding.talkTemplatesTabLayout.getTabAt(0)?.select()
 
-        if (result.resultCode == RESULT_OK) {
+        if (result.resultCode == RESULT_OK || result.resultCode == RESULT_BACK_FROM_TOPIC) {
             viewModel.loadTalkTemplates()
             PatrollerExperienceEvent.logAction("save_message_toast", "pt_templates")
-            FeedbackUtil.showMessage(this, R.string.talk_templates_new_message_saved)
+            if (result.resultCode != RESULT_BACK_FROM_TOPIC) {
+                FeedbackUtil.showMessage(this, R.string.talk_templates_new_message_saved)
+            }
         }
         if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
             val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
@@ -99,11 +102,13 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     private val requestEditTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == RESULT_OK) {
+        if (result.resultCode == RESULT_OK || result.resultCode == RESULT_BACK_FROM_TOPIC) {
             binding.talkTemplatesTabLayout.getTabAt(0)?.select()
             viewModel.loadTalkTemplates()
             PatrollerExperienceEvent.logAction("update_message_toast", "pt_templates")
-            FeedbackUtil.showMessage(this, R.string.talk_templates_edit_message_updated)
+            if (result.resultCode != RESULT_BACK_FROM_TOPIC) {
+                FeedbackUtil.showMessage(this, R.string.talk_templates_edit_message_updated)
+            }
         }
         if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
             val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
