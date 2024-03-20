@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
@@ -45,6 +44,11 @@ class TalkTemplatesTextInputDialog constructor(private val activity: Activity,
         binding.subjectInput.doOnTextChanged { text, _, _, _ ->
             callback?.onTextChanged(text.toString(), this)
         }
+        binding.dialogSaveExistingRadio.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                callback?.onTextChanged(binding.subjectInput.text.toString(), this)
+            }
+        }
     }
 
     override fun create(): AlertDialog {
@@ -55,11 +59,6 @@ class TalkTemplatesTextInputDialog constructor(private val activity: Activity,
         }
         binding.subjectInput.setText(callback?.getSubjectText())
         return dialog!!
-    }
-
-    fun showTemplateCheckboxes() {
-        binding.dialogSaveAsNewRadio.isVisible = true
-        binding.dialogSaveExistingRadio.isVisible = true
     }
 
     fun setError(text: CharSequence?) {

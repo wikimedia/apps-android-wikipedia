@@ -312,12 +312,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 }
 
                 override fun onTextChanged(text: String, dialog: TalkTemplatesTextInputDialog) {
+                    if (textInputDialog.isSaveExistingChecked) {
+                        dialog.setError(null)
+                        dialog.setPositiveButtonEnabled(true)
+                        return
+                    }
                     text.trim().let {
                         when {
                             it.isEmpty() -> {
-                                if (textInputDialog.isSaveExistingChecked) {
-                                    return
-                                }
                                 dialog.setError(null)
                                 dialog.setPositiveButtonEnabled(false)
                             }
@@ -348,7 +350,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     return subject
                 }
             }
-            textInputDialog.showTemplateCheckboxes()
             textInputDialog.setTitle(R.string.talk_warn_save_dialog_title)
         }.show()
     }
