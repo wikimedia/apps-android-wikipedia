@@ -81,6 +81,10 @@ object FeedbackUtil {
         makeSnackbar(activity, text, duration).show()
     }
 
+    fun showMessage(bestView: View, text: String, duration: Int = Snackbar.LENGTH_LONG) {
+        Snackbar.make(bestView, text, duration).show()
+    }
+
     fun showPrivacyPolicy(context: Context) {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.privacy_policy_url)))
     }

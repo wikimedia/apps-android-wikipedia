@@ -149,8 +149,9 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
 
     private val requestStubArticleEditLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            FeedbackUtil.showMessage(requireActivity(), R.string.stub_article_edit_saved_successfully)
-            dismiss()
+            overlayView?.let { overlay ->
+                FeedbackUtil.showMessage(overlay.rootView, getString(R.string.stub_article_edit_saved_successfully))
+            }
         }
     }
 
