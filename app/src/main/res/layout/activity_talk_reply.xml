@@ -31,12 +31,11 @@
 
                 <org.wikipedia.views.PlainPasteEditText
                     android:id="@+id/replySubjectText"
+                    style="@style/P"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|actionNext"
-                    android:inputType="textEmailSubject"
-                    android:lineSpacingExtra="6sp"
-                    android:textSize="16sp" />
+                    android:inputType="textEmailSubject"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <org.wikipedia.views.UserMentionInputView
