@@ -64,6 +64,7 @@ import org.wikipedia.views.NotificationActionsOverflowView
 import org.wikipedia.views.SearchAndFilterActionProvider
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 import org.wikipedia.views.WikiCardView
+import java.time.Instant
 
 class NotificationActivity : BaseActivity() {
     private lateinit var binding: ActivityNotificationsBinding
@@ -389,7 +390,8 @@ class NotificationActivity : BaseActivity() {
                 }
             }
 
-            binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(n.date().time, System.currentTimeMillis(), 0L)
+            val instant = n.instant ?: Instant.now()
+            binding.notificationTime.text = DateUtils.getRelativeTimeSpanString(instant.toEpochMilli(), System.currentTimeMillis(), 0L)
             binding.notificationTime.setTextColor(if (n.isUnread) primaryColor else inactiveColor)
             binding.notificationOverflowMenu.imageTintList = if (n.isUnread) primaryColor else inactiveColor
 

@@ -3,10 +3,10 @@ package org.wikipedia.dataclient.mwapi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.wikipedia.dataclient.ServiceError
-import org.wikipedia.util.DateUtil
+import org.wikipedia.json.InstantAsString
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.ThrowableUtil
-import java.util.*
+import java.time.Instant
 
 @Serializable
 class MwServiceError(val code: String? = null,
@@ -47,29 +47,15 @@ class MwServiceError(val code: String? = null,
     class Message(val name: String?, val html: String = "")
 
     @Serializable
-    open class BlockInfo {
-
-        @SerialName("blockedbyid")
-        val blockedById = 0
-        @SerialName("blockid")
-        val blockId = 0
-        @SerialName("blockedby")
-        val blockedBy: String = ""
-        @SerialName("blockreason")
-        val blockReason: String = ""
-        @SerialName("blockedtimestamp")
-        val blockTimeStamp: String = ""
-        @SerialName("blockexpiry")
-        val blockExpiry: String = ""
-
+    open class BlockInfo(
+        @SerialName("blockedbyid") val blockedById: Int = 0,
+        @SerialName("blockid") val blockId: Int = 0,
+        @SerialName("blockedby") val blockedBy: String = "",
+        @SerialName("blockreason") val blockReason: String = "",
+        @SerialName("blockedtimestamp") val blockTimeStamp: InstantAsString? = null,
+        @SerialName("blockexpiry") val blockExpiry: InstantAsString? = null
+    ) {
         val isBlocked: Boolean
-            get() {
-                if (blockExpiry.isEmpty()) {
-                    return false
-                }
-                val now = Date()
-                val expiry = DateUtil.iso8601DateParse(blockExpiry)
-                return expiry.after(now)
-            }
+            get() = blockExpiry != null && blockExpiry > Instant.now()
     }
 }

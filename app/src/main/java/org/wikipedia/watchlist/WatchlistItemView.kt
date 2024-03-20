@@ -56,7 +56,7 @@ class WatchlistItemView constructor(context: Context, attrs: AttributeSet? = nul
         binding.summaryText.setTypeface(Typeface.SANS_SERIF, if (isSummaryEmpty) Typeface.ITALIC else Typeface.NORMAL)
         binding.summaryText.setTextColor(ResourceUtil.getThemedColor(context,
             if (isSummaryEmpty) R.attr.secondary_color else R.attr.primary_color))
-        binding.timeText.text = DateUtil.getTimeString(context, item.date)
+        binding.timeText.text = DateUtil.getTimeString(context, item.localDateTime)
         binding.userNameText.contentDescription = context.getString(R.string.talk_user_title, item.user)
 
         binding.userNameText.setIconResource(if (item.isAnon) R.drawable.ic_anonymous_ooui else R.drawable.ic_user_avatar)

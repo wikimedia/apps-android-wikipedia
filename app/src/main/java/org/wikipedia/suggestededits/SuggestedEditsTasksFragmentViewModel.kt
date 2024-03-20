@@ -14,8 +14,8 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.ThrowableUtil
+import java.time.LocalDate
 import java.time.temporal.ChronoUnit
-import java.util.Date
 
 class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
@@ -33,7 +33,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
     var totalPageviews = 0L
     var totalContributions = 0
     var homeContributions = 0
-    var latestEditDate = Date()
+    var latestEditDate: LocalDate = LocalDate.now()
     var latestEditStreak = 0
     var revertSeverity = 0
 
@@ -102,15 +102,11 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             totalContributions += homeSiteResponse.query?.userInfo!!.editCount
             homeContributions = homeSiteResponse.query?.userInfo!!.editCount
 
-            latestEditDate = wikidataResponse.query?.userInfo!!.latestContribDate
-
-            if (commonsResponse.query?.userInfo!!.latestContribDate.after(latestEditDate)) {
-                latestEditDate = commonsResponse.query?.userInfo!!.latestContribDate
-            }
-
-            if (homeSiteResponse.query?.userInfo!!.latestContribDate.after(latestEditDate)) {
-                latestEditDate = homeSiteResponse.query?.userInfo!!.latestContribDate
-            }
+            latestEditDate = maxOf(
+                wikidataResponse.query?.userInfo!!.latestContrib,
+                commonsResponse.query?.userInfo!!.latestContrib,
+                homeSiteResponse.query?.userInfo!!.latestContrib
+            )
 
             latestEditStreak = getEditStreak(
                 wikidataResponse.query!!.userContributions +
@@ -129,7 +125,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
         if (contributions.isEmpty()) {
             return 0
         }
-        val dates = contributions.map { it.parsedDateTime.toLocalDate() }
+        val dates = contributions.map { it.localDateTime.toLocalDate() }
             .toSortedSet(Comparator.reverseOrder())
         return dates.asSequence()
             .zipWithNext { date1, date2 -> date2.until(date1, ChronoUnit.DAYS) }

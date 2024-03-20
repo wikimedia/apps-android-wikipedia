@@ -6,15 +6,15 @@ import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.decodeFromJsonElement
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.json.InstantAsString
 import org.wikipedia.json.JsonUtil
+import org.wikipedia.json.LocalDateTimeAsTimestamp
 import org.wikipedia.notifications.db.Notification
 import org.wikipedia.notifications.db.Notification.SeenTime
 import org.wikipedia.notifications.db.Notification.UnreadNotificationWikiItem
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfo
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
-import java.util.*
 
 @Serializable
 class MwQueryResult {
@@ -164,55 +164,51 @@ class MwQueryResult {
                            @SerialName("continue") val continueStr: String? = null)
 
     @Serializable
-    class WatchlistItem {
-
-        @SerialName("new") val isNew = false
-        @SerialName("anon") val isAnon = false
-        @SerialName("minor") val isMinor = false
-        @SerialName("bot") val isBot = false
-        @SerialName("old_revid") private val oldRevid: Long = 0
-        private val timestamp: String? = null
-        private val comment: String? = null
-        val type: String = ""
-        @SerialName("pageid") val pageId = 0
-        val revid: Long = 0
-        val ns = 0
-        val title: String = ""
-        val user: String = ""
-        val logtype: String = ""
-        val logdisplay: String = ""
-        val oldlen = 0
-        val newlen = 0
-        var wiki: WikiSite? = null
+    class WatchlistItem(
+        @SerialName("new") val isNew: Boolean = false,
+        @SerialName("anon") val isAnon: Boolean = false,
+        @SerialName("minor") val isMinor: Boolean = false,
+        @SerialName("bot") val isBot: Boolean = false,
+        @SerialName("old_revid") private val oldRevid: Long = 0,
+        @SerialName("timestamp") val localDateTime: LocalDateTimeAsTimestamp,
+        private val comment: String? = null,
+        val type: String = "",
+        @SerialName("pageid") val pageId: Int = 0,
+        val revid: Long = 0,
+        val ns: Int = 0,
+        val title: String = "",
+        val user: String = "",
+        val logtype: String = "",
+        val logdisplay: String = "",
+        val oldlen: Int = 0,
+        val newlen: Int = 0,
+        var wiki: WikiSite? = null,
         @SerialName("parsedcomment") val parsedComment: String = ""
-        val date: Date
-            get() = DateUtil.iso8601DateParse(timestamp.orEmpty())
-    }
+    )
 
     @Serializable
-    class RecentChange {
-        private val type: String = ""
-        private val ns = 0
-        val title: String = ""
-        val pageid: Int = 0
-        @SerialName("revid") val curRev: Long = 0
-        @SerialName("old_revid") val revFrom: Long = 0
-        val rcid: Long = 0
-        val user: String = ""
-        val anon = false
-        val bot = false
+    class RecentChange(
+        private val type: String = "",
+        private val ns: Int = 0,
+        val title: String = "",
+        val pageid: Int = 0,
+        @SerialName("revid") val curRev: Long = 0,
+        @SerialName("old_revid") val revFrom: Long = 0,
+        val rcid: Long = 0,
+        val user: String = "",
+        val anon: Boolean = false,
+        val bot: Boolean = false,
 
-        @SerialName("new") private val isNew = false
-        private val minor = false
-        val oldlen = 0
-        val newlen = 0
-        val timestamp: String = ""
+        @SerialName("new") private val isNew: Boolean = false,
+        private val minor: Boolean = false,
+        val oldlen: Int = 0,
+        val newlen: Int = 0,
+        val timestamp: InstantAsString,
 
-        @SerialName("parsedcomment") val parsedComment: String = ""
-        private val tags: List<String>? = null
-        private val oresscores: JsonElement? = null
-
-        val parsedDateTime by lazy { DateUtil.iso8601LocalDateTimeParse(timestamp) }
+        @SerialName("parsedcomment") val parsedComment: String = "",
+        private val tags: List<String>? = null,
+        private val oresscores: JsonElement? = null,
+    ) {
         val joinedTags by lazy { tags?.joinToString(separator = ", ").orEmpty() }
 
         override fun toString(): String {

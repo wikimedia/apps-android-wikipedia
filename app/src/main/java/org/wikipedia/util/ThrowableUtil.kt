@@ -107,16 +107,9 @@ object ThrowableUtil {
             .replace("$3", "") // IP address of user (TODO: somehow get from API?)
             .replace("$4", "") // unknown parameter (unused?)
             .replace("$5", info.blockId.toString())
-            .replace("$6", parseBlockedDate(info.blockExpiry))
+            .replace("$6", DateUtil.formatAsLegacyDateString(info.blockExpiry))
             .replace("$7", "<a href=\"${StringUtil.userPageTitleFromName(userName, WikipediaApp.instance.wikiSite).mobileUri}\">$userName</a>")
-            .replace("$8", parseBlockedDate(info.blockTimeStamp))
-    }
-
-    private fun parseBlockedDate(dateStr: String): String {
-        try {
-            return DateUtil.iso8601DateParse(dateStr).toString()
-        } catch (_: Exception) {}
-        return dateStr
+            .replace("$8", DateUtil.formatAsLegacyDateString(info.blockTimeStamp))
     }
 
     class EmptyException : Exception()

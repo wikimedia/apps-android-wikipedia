@@ -10,7 +10,6 @@ import androidx.core.view.isVisible
 import org.wikipedia.R
 import org.wikipedia.databinding.ViewUserContribStatsBinding
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.StringUtil
 
@@ -30,7 +29,7 @@ class UserContribStatsView constructor(context: Context, attrs: AttributeSet? = 
         binding.userNameView.movementMethod = movementMethod
 
         if (stats.totalEdits >= 0) {
-            val regYear = DateUtil.getYearOnlyDateString(stats.registrationDate)
+            val regYear = stats.registrationDate.year.toString()
             binding.editCountsView.isVisible = true
             binding.editCountsView.text = context.resources.getQuantityString(R.plurals.edits_since_year_per_wiki,
                     stats.totalEdits, stats.totalEdits, regYear, stats.projectName)

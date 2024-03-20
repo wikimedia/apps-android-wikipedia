@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import java.util.*
+import java.time.LocalDate
 
 class UserInformationDialogViewModel(bundle: Bundle) : ViewModel() {
 
@@ -44,7 +44,7 @@ class UserInformationDialogViewModel(bundle: Bundle) : ViewModel() {
 
     open class UiState {
         class Loading : UiState()
-        class Success(val editCount: String, val registrationDate: Date) : UiState()
+        class Success(val editCount: String, val registrationDate: LocalDate) : UiState()
         class Error(val throwable: Throwable) : UiState()
     }
 

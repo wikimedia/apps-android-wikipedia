@@ -15,14 +15,15 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.time.LocalDateTime
 
 object ReadingListsReceiveHelper {
 
     suspend fun receiveReadingLists(context: Context, encodedJson: String): ReadingList {
         val readingListData = getExportedReadingLists(encodedJson)
         val listTitle = readingListData?.name.orEmpty().ifEmpty { context.getString(R.string.reading_lists_preview_header_title) }
-        val listDescription = readingListData?.description.orEmpty().ifEmpty { DateUtil.getTimeAndDateString(context, Date()) }
+        val listDescription = readingListData?.description.orEmpty()
+            .ifEmpty { DateUtil.getTimeAndDateString(context, LocalDateTime.now()) }
         val listPages = mutableListOf<ReadingListPage>()
 
         // Request API by languages

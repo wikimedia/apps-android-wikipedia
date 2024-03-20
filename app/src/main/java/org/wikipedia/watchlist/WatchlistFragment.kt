@@ -48,7 +48,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.NotificationButtonView
 import org.wikipedia.views.SearchAndFilterActionProvider
-import java.util.Date
+import java.time.LocalDate
 
 class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     private var _binding: FragmentWatchlistBinding? = null
@@ -208,7 +208,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
     }
 
     internal inner class WatchlistDateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun bindItem(date: Date) {
+        fun bindItem(date: LocalDate) {
             val textView = itemView.findViewById<TextView>(R.id.dateText)
             textView.text = DateUtil.getShortDateString(date)
         }
@@ -257,7 +257,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             if (position == 0 && actionMode == null) {
                 return VIEW_TYPE_SEARCH_BAR
             }
-            return if (items[position] is Date) {
+            return if (items[position] is LocalDate) {
                 VIEW_TYPE_DATE
             } else {
                 VIEW_TYPE_ITEM
@@ -281,7 +281,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             when (holder) {
                 is WatchlistSearchBarHolder -> holder.updateFilterIconAndCount()
-                is WatchlistDateViewHolder -> holder.bindItem(items[position] as Date)
+                is WatchlistDateViewHolder -> holder.bindItem(items[position] as LocalDate)
                 else -> (holder as WatchlistItemViewHolder).bindItem((items[position] as MwQueryResult.WatchlistItem))
             }
         }

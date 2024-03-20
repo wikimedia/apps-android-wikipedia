@@ -49,6 +49,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
+import java.time.LocalDate
 
 class SuggestedEditsTasksFragment : Fragment() {
     private var _binding: FragmentSuggestedEditsTasksBinding? = null
@@ -204,7 +205,11 @@ class SuggestedEditsTasksFragment : Fragment() {
         binding.pageViewStatsView.setTitle(viewModel.totalPageviews.toString())
 
         if (viewModel.latestEditStreak < 2) {
-            binding.editStreakStatsView.setTitle(if (viewModel.latestEditDate.time > 0) DateUtil.getMDYDateString(viewModel.latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
+            binding.editStreakStatsView.setTitle(if (viewModel.latestEditDate > LocalDate.EPOCH) {
+                DateUtil.getMDYDateString(viewModel.latestEditDate)
+            } else {
+                resources.getString(R.string.suggested_edits_last_edited_never)
+            })
             binding.editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
         } else {
             binding.editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
@@ -285,7 +290,8 @@ class SuggestedEditsTasksFragment : Fragment() {
             return true
         } else if (pauseEndDate != null) {
             clearContents()
-            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.userName))
+            binding.disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message,
+                DateUtil.getShortDateString(pauseEndDate.toLocalDate()), AccountUtil.userName))
             binding.disabledStatesView.visibility = VISIBLE
             UserContributionEvent.logPaused()
             return true

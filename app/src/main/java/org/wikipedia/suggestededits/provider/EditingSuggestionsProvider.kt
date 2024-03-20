@@ -13,7 +13,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsViewModel
-import java.util.Date
+import java.time.Instant
 import java.util.Stack
 import java.util.concurrent.Semaphore
 import kotlin.math.abs
@@ -43,7 +43,7 @@ object EditingSuggestionsProvider {
     private var revertCandidateLang: String = ""
     private val revertCandidateCache: ArrayDeque<MwQueryResult.RecentChange> = ArrayDeque()
     private var revertCandidateLastRevId = 0L
-    private var revertCandidateLastTimeStamp = Date().toInstant().toString()
+    private var revertCandidateLastTimeStamp = Instant.now()
 
     private const val MAX_RETRY_LIMIT: Long = 50
 
@@ -385,9 +385,9 @@ object EditingSuggestionsProvider {
                             // starting from the last recorded timestamp.
                             val triple = if (revertCandidateLastRevId == 0L)
                                 SuggestedEditsRecentEditsViewModel.getRecentEditsCall(wikiSite,
-                                10, Date().toInstant().toString(), "older", null, mutableListOf())
+                                10, Instant.now(), "older", null, mutableListOf())
                             else SuggestedEditsRecentEditsViewModel.getRecentEditsCall(wikiSite,
-                                10, revertCandidateLastTimeStamp, "newer", null, mutableListOf())
+                                10, revertCandidateLastTimeStamp, "newer", userInfoCache = mutableListOf())
 
                             // Retrieve the list of filtered changes from our filter, but *also* get
                             // the list of total changes so that we can update our maxRevId and latest

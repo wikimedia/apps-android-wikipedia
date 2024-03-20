@@ -69,8 +69,8 @@ class TalkThreadItemView constructor(context: Context, attrs: AttributeSet? = nu
         StringUtil.setHighlightedAndBoldenedText(binding.userNameText, item.author, searchQuery)
         binding.userNameTapTarget.contentDescription = binding.userNameText.text
         binding.profileImage.isInvisible = !showAuthor
-        binding.timeStampText.isVisible = item.date != null
-        item.date?.let {
+        binding.timeStampText.isVisible = item.localDateTime != null
+        item.localDateTime?.let {
             val timestamp = DateUtil.getTimeAndDateString(context, it)
             StringUtil.setHighlightedAndBoldenedText(binding.timeStampText, timestamp, searchQuery)
         }

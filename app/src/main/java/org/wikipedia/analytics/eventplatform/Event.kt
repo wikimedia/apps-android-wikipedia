@@ -3,6 +3,7 @@ package org.wikipedia.analytics.eventplatform
 import kotlinx.serialization.Required
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
+import org.wikipedia.json.InstantAsString
 import java.time.Instant
 import java.util.*
 
@@ -12,7 +13,7 @@ import java.util.*
 @Serializable
 sealed class Event(@Transient val stream: String = "") {
     private val meta = Meta(stream)
-    @Required private val dt = Instant.now().toString()
+    @Required private val dt: InstantAsString = Instant.now()
 
     @Serializable
     private class Meta(@Required val stream: String)

@@ -17,12 +17,13 @@ import org.wikipedia.page.tabs.Tab
 import org.wikipedia.places.PlacesFragment
 import org.wikipedia.suggestededits.SuggestedEditsRecentEditsFilterTypes
 import org.wikipedia.theme.Theme.Companion.fallback
-import org.wikipedia.util.DateUtil.dbDateFormat
-import org.wikipedia.util.DateUtil.dbDateParse
+import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ReleaseUtil.isDevRelease
 import org.wikipedia.util.StringUtil
 import org.wikipedia.watchlist.WatchlistFilterTypes
-import java.util.Date
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 /** Shared preferences utility for convenient POJO access.  */
 object Prefs {
@@ -129,9 +130,9 @@ object Prefs {
     val ignoreDateForAnnouncements
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_announcement_ignore_date, false)
 
-    var announcementPauseTime
-        get() = PrefsIoUtil.getLong(R.string.preference_key_announcement_pause_time, 0)
-        set(time) = PrefsIoUtil.setLong(R.string.preference_key_announcement_pause_time, time)
+    var announcementPauseTime: Instant
+        get() = Instant.ofEpochMilli(PrefsIoUtil.getLong(R.string.preference_key_announcement_pause_time, 0))
+        set(time) = PrefsIoUtil.setLong(R.string.preference_key_announcement_pause_time, time.toEpochMilli())
 
     val announcementDebugUrl
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_announcement_debug_url, false)
@@ -376,9 +377,15 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, true)
         set(enabled) = PrefsIoUtil.setBoolean(R.string.preference_key_show_remove_chinese_variant_prompt, enabled)
 
-    var remoteNotificationsSeenTime
-        get() = PrefsIoUtil.getString(R.string.preference_key_remote_notifications_seen_time, "").orEmpty()
-        set(seenTime) = PrefsIoUtil.setString(R.string.preference_key_remote_notifications_seen_time, seenTime)
+    var remoteNotificationsSeenTime: Instant
+        get() {
+            val timestamp = PrefsIoUtil.getString(R.string.preference_key_remote_notifications_seen_time, "").orEmpty()
+            return if (timestamp.isEmpty()) Instant.EPOCH else Instant.parse(timestamp)
+        }
+        set(seenTime) {
+            val timestamp = if (seenTime == Instant.EPOCH) "" else seenTime.toString()
+            PrefsIoUtil.setString(R.string.preference_key_remote_notifications_seen_time, timestamp)
+        }
 
     var showHistoryOfflineArticlesToast
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_history_offline_articles_toast, true)
@@ -429,12 +436,16 @@ object Prefs {
         get() = PrefsIoUtil.getBoolean(R.string.preference_key_match_system_theme, true)
         set(value) = PrefsIoUtil.setBoolean(R.string.preference_key_match_system_theme, value)
 
-    var suggestedEditsPauseDate: Date
+    var suggestedEditsPauseDate: LocalDateTime?
         get() {
             val pref = PrefsIoUtil.getString(R.string.preference_key_suggested_edits_pause_date, "")
-            return if (!pref.isNullOrEmpty()) { dbDateParse(pref) } else Date(0)
+            val localDateTime = if (!pref.isNullOrEmpty()) { DateUtil.dbLocalDateTimeParse(pref) } else null
+            return if (localDateTime != LocalDate.EPOCH.atStartOfDay()) localDateTime else null
         }
-        set(date) = PrefsIoUtil.setString(R.string.preference_key_suggested_edits_pause_date, dbDateFormat(date))
+        set(localDateTime) {
+            val dateString = localDateTime?.let { DateUtil.dbLocalDateTimeFormat(it) }
+            PrefsIoUtil.setString(R.string.preference_key_suggested_edits_pause_date, dateString)
+        }
 
     var suggestedEditsPauseReverts
         get() = PrefsIoUtil.getInt(R.string.preference_key_suggested_edits_pause_reverts, 0)

@@ -12,7 +12,7 @@ import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.databinding.ViewReadingListsOverflowBinding
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DateUtil
-import java.text.ParseException
+import java.time.format.DateTimeParseException
 
 class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
     interface Callback {
@@ -77,7 +77,7 @@ class ReadingListsOverflowView(context: Context) : FrameLayout(context) {
                 try {
                     binding.readingListsOverflowLastSync.text = context.getString(R.string.reading_list_menu_last_sync,
                             DateUtil.getTimeAndDateString(context, it))
-                } catch (e: ParseException) {
+                } catch (e: DateTimeParseException) {
                     // ignore
                 }
             }

@@ -9,13 +9,13 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.settings.Prefs
-import java.util.*
+import java.time.LocalDateTime
 import kotlin.math.ceil
 
 object UserContribStats {
     private const val REVERT_SEVERITY_PAUSE_THRESHOLD = 5
     private const val REVERT_SEVERITY_DISABLE_THRESHOLD = 7
-    private const val PAUSE_DURATION_DAYS = 7
+    private const val PAUSE_DURATION_DAYS = 7L
 
     private var totalEdits: Int = 0
     var totalReverts: Int = 0
@@ -91,36 +91,31 @@ object UserContribStats {
         return getRevertSeverity() > REVERT_SEVERITY_DISABLE_THRESHOLD
     }
 
-    fun maybePauseAndGetEndDate(): Date? {
-        val pauseDate = Prefs.suggestedEditsPauseDate
-        var pauseEndDate: Date? = null
+    fun maybePauseAndGetEndDate(): LocalDateTime? {
+        val pauseDateTime = Prefs.suggestedEditsPauseDate
+        val now = LocalDateTime.now()
+        var pauseEndDateTime: LocalDateTime? = null
 
         // Are we currently in a pause period?
-        if (pauseDate.time != 0L) {
-            val cal = Calendar.getInstance()
-            cal.time = pauseDate
-            cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
-            pauseEndDate = cal.time
+        if (pauseDateTime != null) {
+            pauseEndDateTime = pauseDateTime.plusDays(PAUSE_DURATION_DAYS)
 
-            if (Date().after((pauseEndDate))) {
+            if (now > pauseEndDateTime) {
                 // We've exceeded the pause period, so remove it.
-                Prefs.suggestedEditsPauseDate = Date(0)
-                pauseEndDate = null
+                Prefs.suggestedEditsPauseDate = null
+                pauseEndDateTime = null
             }
         }
 
         if (getRevertSeverity() > REVERT_SEVERITY_PAUSE_THRESHOLD) {
             // Do we need to impose a new pause?
             if (totalReverts > Prefs.suggestedEditsPauseReverts) {
-                val cal = Calendar.getInstance()
-                cal.time = Date()
-                Prefs.suggestedEditsPauseDate = cal.time
+                Prefs.suggestedEditsPauseDate = now
                 Prefs.suggestedEditsPauseReverts = totalReverts
 
-                cal.add(Calendar.DAY_OF_YEAR, PAUSE_DURATION_DAYS)
-                pauseEndDate = cal.time
+                pauseEndDateTime = now.plusDays(PAUSE_DURATION_DAYS)
             }
         }
-        return pauseEndDate
+        return pauseEndDateTime
     }
 }

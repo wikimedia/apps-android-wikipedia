@@ -21,9 +21,11 @@ import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
 import retrofit2.HttpException
 import java.io.IOException
-import java.time.Duration
-import java.util.Calendar
-import java.util.Date
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.temporal.ChronoUnit
 import kotlin.math.max
 
 class SuggestedEditsRecentEditsViewModel : ViewModel() {
@@ -52,13 +54,14 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                         it.title.contains(currentQuery, true) ||
                         it.user.contains(currentQuery, true) ||
                         it.joinedTags.contains(currentQuery, true) ||
-                        it.parsedDateTime.toString().contains(currentQuery, true)
+                        LocalDateTime.ofInstant(it.timestamp, ZoneId.systemDefault())
+                            .toString().contains(currentQuery, true)
             } else true
         }.map {
             RecentEditsItem(it)
         }.insertSeparators { before, after ->
-            val dateBefore = before?.item?.parsedDateTime?.toLocalDate()
-            val dateAfter = after?.item?.parsedDateTime?.toLocalDate()
+            val dateBefore = before?.item?.timestamp?.let { LocalDate.ofInstant(it, ZoneId.systemDefault()) }
+            val dateAfter = after?.item?.timestamp?.let { LocalDate.ofInstant(it, ZoneId.systemDefault()) }
             if (dateAfter != null && dateAfter != dateBefore) {
                 RecentEditsSeparator(DateUtil.getShortDateString(dateAfter))
             } else {
@@ -86,7 +89,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     return LoadResult.Page(cachedRecentEdits, null, cachedContinueKey)
                 }
 
-                val triple = getRecentEditsCall(wikiSite, params.loadSize, Date().toInstant().toString(), "older", params.key, cachedUserInfo)
+                val triple = getRecentEditsCall(wikiSite, params.loadSize, Instant.now(), "older", params.key, cachedUserInfo)
 
                 cachedContinueKey = triple.third
                 cachedRecentEdits.addAll(triple.first)
@@ -109,12 +112,11 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
     class RecentEditsSeparator(val date: String) : RecentEditsItemModel()
 
     companion object {
-
-        suspend fun getRecentEditsCall(wikiSite: WikiSite, count: Int, startTimeStamp: String, direction: String,
+        suspend fun getRecentEditsCall(wikiSite: WikiSite, count: Int, startTimeStamp: Instant, direction: String,
             continueStr: String? = null, userInfoCache: MutableList<UserInfo>): Triple<List<MwQueryResult.RecentChange>, List<MwQueryResult.RecentChange>, String?> {
 
             val response = ServiceFactory.get(wikiSite)
-                .getRecentEdits(count, startTimeStamp, direction, latestRevisions(), showCriteriaString(), continueStr)
+                .getRecentEdits(count, startTimeStamp.toString(), direction, latestRevisions(), showCriteriaString(), continueStr)
 
             val allRecentChanges = response.query?.recentChanges.orEmpty()
 
@@ -219,7 +221,7 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                     var qualifiedUser = false
                     userInfo?.let {
                         val editsCount = userInfo.editCount
-                        val diffDays = diffDays(userInfo.registrationDate)
+                        val diffDays = userInfo.registrationDate.until(LocalDate.now(), ChronoUnit.DAYS)
                         findUserExperienceFilters.forEach { type ->
                             val userExperienceArray = type.value.split("|")
                             val requiredEdits = userExperienceArray.first().split(",")
@@ -292,12 +294,6 @@ class SuggestedEditsRecentEditsViewModel : ViewModel() {
                 }
             }
             return recentChanges
-        }
-
-        private fun diffDays(date: Date): Long {
-            val nowDate = Calendar.getInstance().toInstant()
-            val beginDate = date.toInstant()
-            return Duration.between(beginDate, nowDate).toDays()
         }
     }
 }

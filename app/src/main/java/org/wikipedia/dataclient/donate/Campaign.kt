@@ -2,23 +2,19 @@ package org.wikipedia.dataclient.donate
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.wikipedia.util.DateUtil
+import org.wikipedia.json.LocalDateTimeAsTimestamp
 
 @Suppress("unused")
 @Serializable
 class Campaign(
     val version: Int,
     val id: String = "",
-    @SerialName("start_time") private val startTime: String? = null,
-    @SerialName("end_time") private val endTime: String? = null,
+    @SerialName("start_time") val startTime: LocalDateTimeAsTimestamp? = null,
+    @SerialName("end_time") val endTime: LocalDateTimeAsTimestamp? = null,
     val platforms: Map<String, PlatformParams> = emptyMap(),
     val countries: List<String> = emptyList(),
     val assets: Map<String, Assets> = emptyMap()
 ) {
-    val startDateTime get() = startTime?.let { DateUtil.iso8601LocalDateTimeParse(it) }
-
-    val endDateTime get() = endTime?.let { DateUtil.iso8601LocalDateTimeParse(it) }
-
     fun hasPlatform(platform: String): Boolean {
         return platforms.containsKey(platform)
     }
