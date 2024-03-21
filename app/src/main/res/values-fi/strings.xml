@@ -1535,7 +1535,9 @@
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Saattaa sisältää ongelmia</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Löytää eniten virheellisiä tai vahingollisia muokkauksia, mutta tarkkuus on alempi.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Sisältää todennäköisesti ongelmia</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Löytää keskitarkkuudella välijatkeen ongelmallisista muokkauksista.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Sisältää hyvin todennäköisesti ongelmia</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Erittäin tarkka löytämään ilmiselvästi virheelliset tai vahingolliset muokkaukset.</string>
   <string name="patroller_tasks_filters_user_intent_header">Käyttäjän aikomuksen ennustaminen</string>
   <string name="patroller_tasks_filters_user_intent_good">Hyvin todennäköisesti hyväntahtoinen</string>
   <string name="patroller_tasks_filters_user_intent_good_desc">Erittäin tarkka löytämään lähes pelkästään hyväntahtoisia muokkauksia.</string>
