@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.TextWatcher
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.util.lruCache
@@ -27,6 +28,7 @@ import org.wikipedia.edit.SyntaxHighlightViewAdapter
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.insertmedia.InsertMediaViewModel
 import org.wikipedia.edit.templates.TemplatesSearchActivity
+import org.wikipedia.edit.preview.EditPreviewFragment
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
@@ -48,17 +50,28 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.views.UserMentionInputView
 import org.wikipedia.views.ViewUtil
 
-class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
+class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPreviewFragment.Callback {
     private lateinit var binding: ActivityTalkReplyBinding
     private lateinit var linkHandler: TalkLinkHandler
     private lateinit var textWatcher: TextWatcher
+    private lateinit var messagePreviewFragment: EditPreviewFragment
 
     private val viewModel: TalkReplyViewModel by viewModels { TalkReplyViewModel.Factory(intent.extras!!) }
     private var userMentionScrolled = false
+    private var subjectOrBodyModified = false
     private var savedSuccess = false
 
     private val linkMovementMethod = LinkMovementMethodExt { url, title, linkText, x, y ->
         linkHandler.onUrlClick(url, title, linkText, x, y)
+    }
+
+    private val licenseTextMovementMethod = LinkMovementMethodExt { url: String ->
+        if (url == "https://#login") {
+            val loginIntent = LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT)
+            requestLogin.launch(loginIntent)
+        } else {
+            UriUtil.handleExternalLink(this, Uri.parse(url))
+        }
     }
 
     private val requestLogin = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -127,14 +140,15 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         linkHandler.wikiSite = viewModel.pageTitle.wikiSite
 
         textWatcher = binding.replySubjectText.doOnTextChanged { _, _, _, _ ->
+            subjectOrBodyModified = true
             binding.replySubjectLayout.error = null
             binding.replyInputView.textInputLayout.error = null
             setSaveButtonEnabled(binding.replyInputView.editText.text.isNotBlank())
         }
         binding.replyInputView.editText.addTextChangedListener(textWatcher)
 
-        binding.replySaveButton.setOnClickListener {
-            onSaveClicked()
+        binding.replyNextButton.setOnClickListener {
+            onGoNext()
         }
 
         binding.replyInputView.wikiSite = viewModel.pageTitle.wikiSite
@@ -168,7 +182,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             if (it is Resource.Success) {
                 viewModel.talkTemplateSaved = true
                 binding.progressBar.isVisible = true
-                viewModel.postReply(it.data.subject, it.data.message)
+                showPreview()
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(this, it.throwable)
             }
@@ -178,7 +192,15 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
             Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, requestInsertTemplate, true)
 
+        messagePreviewFragment = supportFragmentManager.findFragmentById(R.id.message_preview_fragment) as EditPreviewFragment
+
         onInitialLoad()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setToolbarTitle(viewModel.pageTitle)
+        updateEditLicenseText()
     }
 
     public override fun onDestroy() {
@@ -191,9 +213,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     }
 
     private fun onInitialLoad() {
-        updateEditLicenseText()
         setSaveButtonEnabled(false)
-        setToolbarTitle(viewModel.pageTitle)
         L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
 
         if (viewModel.topic != null) {
@@ -237,6 +257,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     }
 
     private fun setToolbarTitle(pageTitle: PageTitle) {
+        if (messagePreviewFragment.isActive) {
+            supportActionBar?.title = getString(R.string.edit_preview)
+            binding.replyNextButton.text = getString(R.string.description_edit_save)
+            binding.replyNextButton.contentDescription = binding.replyNextButton.text
+            return
+        }
+        binding.replyNextButton.text = getString(R.string.edit_next)
+        binding.replyNextButton.contentDescription = binding.replyNextButton.text
         if (viewModel.isFromDiff) {
             supportActionBar?.title = getString(R.string.talk_warn)
             return
@@ -246,7 +274,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             else intent.getStringExtra(EXTRA_PARENT_SUBJECT).orEmpty()
         ).trim().ifEmpty { getString(R.string.talk_no_subject) }
         ViewUtil.getTitleViewFromToolbar(binding.replyToolbar)?.let {
-            it.contentDescription = title
             it.movementMethod = LinkMovementMethodExt { _ ->
                 val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
@@ -280,6 +307,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
                 sendPatrollerExperienceEvent("saved_message_impression", "pt_warning_messages")
                 binding.replySubjectText.setText(talkTemplate.subject)
                 binding.replyInputView.editText.setText(talkTemplate.message)
+                subjectOrBodyModified = false
             }
         }
     }
@@ -315,13 +343,13 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     }
 
     private fun setSaveButtonEnabled(enabled: Boolean) {
-        binding.replySaveButton.isEnabled = enabled
-        binding.replySaveButton.setTextColor(ResourceUtil
+        binding.replyNextButton.isEnabled = enabled
+        binding.replyNextButton.setTextColor(ResourceUtil
             .getThemedColor(this, if (enabled) R.attr.progressive_color else R.attr.inactive_color))
     }
 
     private fun showSaveDialog(subject: String, body: String) {
-        TalkTemplatesTextInputDialog(this@TalkReplyActivity, R.string.talk_warn_save_dialog_publish,
+        TalkTemplatesTextInputDialog(this@TalkReplyActivity, R.string.edit_preview,
             R.string.talk_warn_save_dialog_cancel).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
                 override fun onShow(dialog: TalkTemplatesTextInputDialog) {
@@ -366,8 +394,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
                             viewModel.updateTemplate(it.title, subject, body, it)
                         }
                     } else {
-                        binding.progressBar.isVisible = true
-                        viewModel.postReply(subject, body)
+                        showPreview()
                     }
                     val messageType = if (textInputDialog.isSaveAsNewChecked) "new" else if (textInputDialog.isSaveExistingChecked) "updated" else ""
                     sendPatrollerExperienceEvent("publish_message_click", "pt_warning_messages", PatrollerExperienceEvent.getActionDataString(messageType = messageType))
@@ -388,7 +415,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         }.show()
     }
 
-    private fun onSaveClicked() {
+    private fun onGoNext() {
         val subject = binding.replySubjectText.text.toString().trim()
         val body = binding.replyInputView.editText.text.toString().trim()
         Intent().let {
@@ -396,7 +423,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             it.putExtra(EXTRA_BODY, body)
         }
 
-        EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
+        if (messagePreviewFragment.isActive) {
+            EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
+
+            binding.progressBar.isVisible = true
+            setSaveButtonEnabled(false)
+            viewModel.postReply(subject, body)
+            return
+        }
 
         if (viewModel.isNewTopic && subject.isEmpty()) {
             sendPatrollerExperienceEvent("publish_error_subject", "pt_warning_messages")
@@ -409,16 +443,30 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
             return
         }
 
-        setSaveButtonEnabled(false)
-
-        if (viewModel.isFromDiff) {
+        if (viewModel.isFromDiff && subjectOrBodyModified) {
+            setSaveButtonEnabled(false)
             sendPatrollerExperienceEvent("publish_saved_message_click", "pt_warning_messages")
             DeviceUtil.hideSoftKeyboard(this)
             showSaveDialog(subject, body)
         } else {
-            binding.progressBar.visibility = View.VISIBLE
-            viewModel.postReply(subject, body)
+            setSaveButtonEnabled(true)
+            showPreview()
         }
+    }
+
+    private fun showPreview() {
+        DeviceUtil.hideSoftKeyboard(this)
+        val subject = binding.replySubjectText.text.toString().trim()
+        val body = binding.replyInputView.editText.text.toString().trim()
+
+        var wikitext = body
+        if (!binding.replySubjectText.text.isNullOrEmpty()) {
+            wikitext = "==$subject==\n$wikitext"
+        }
+
+        EditAttemptStepEvent.logSaveIntent(viewModel.pageTitle)
+        messagePreviewFragment.showPreview(viewModel.pageTitle, wikitext)
+        setToolbarTitle(viewModel.pageTitle)
     }
 
     private fun onSaveSuccess(newRevision: Long) {
@@ -452,20 +500,23 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
     }
 
     private fun updateEditLicenseText() {
-        binding.licenseText.text = StringUtil.fromHtml(getString(if (AccountUtil.isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
+        val text = StringUtil.fromHtml(getString(if (AccountUtil.isLoggedIn) R.string.edit_save_action_license_logged_in else R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_4_url)))
-        binding.licenseText.movementMethod = LinkMovementMethodExt { url: String ->
-            if (url == "https://#login") {
-                val loginIntent = LoginActivity.newIntent(this, LoginActivity.SOURCE_EDIT)
-                requestLogin.launch(loginIntent)
-            } else {
-                UriUtil.handleExternalLink(this, Uri.parse(url))
-            }
+        binding.licenseText.text = text
+        binding.licenseText.movementMethod = licenseTextMovementMethod
+        messagePreviewFragment.view?.findViewById<TextView>(R.id.licenseText)?.apply {
+            this.text = text
+            this.movementMethod = licenseTextMovementMethod
         }
     }
 
     override fun onBackPressed() {
+        if (messagePreviewFragment.isActive) {
+            messagePreviewFragment.hide()
+            setToolbarTitle(viewModel.pageTitle)
+            return
+        }
         setResult(RESULT_BACK_FROM_TOPIC)
         sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")
         if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
@@ -506,6 +557,15 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener {
         if (viewModel.isFromDiff) {
             PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
         }
+    }
+
+    override fun getParentPageTitle(): PageTitle {
+        return viewModel.pageTitle
+    }
+
+    override fun showProgressBar(visible: Boolean) {
+        binding.progressBar.isVisible = visible
+        invalidateOptionsMenu()
     }
 
     companion object {
