@@ -16,7 +16,7 @@ jobs:
         message="${{ github.actor }} ${{ github.event.action }} ${{ github.event.pull_request._links.html.href }}"
         echo "Message: ${message}"
         echo "Body: ${PR_BODY}"
-        tasks=$(echo -e "${PR_BODY}" | grep "^Bug:\s*T[0-9]*$" | grep -oEi "T[0-9]*")
+        tasks=$(echo "${PR_BODY}" | grep "^Bug:\s*T[0-9]*$" | grep -oEi "T[0-9]*")
         echo "Tasks: ${tasks}"
         echo "{$tasks}" | while IFS= read -r line; do
           echo "Processing: $line"
