@@ -17,11 +17,11 @@ jobs:
         echo "Message: ${message}"
         echo "Body: ${PR_BODY}"
         echo "Reading tasks from PR body...\n"
-        tasks=$(echo -e "${PR_BODY}" | grep -oEi "T[0-9]*")
+        tasks=$(echo -e "${PR_BODY}" | grep "^Bug:/\s*T[0-9]*$" | grep -oEi "T[0-9]*")
         echo "Proceeding..."
         echo "Tasks: ${tasks}"
         echo "Iterating..."
-        echo "{$tasks}" | while IFS= read -r line; do
+        echo "${tasks}" | while IFS= read -r line; do
           echo "Processing: $line"
           curl https://phabricator.wikimedia.org/api/maniphest.edit \
               -d api.token=${{ secrets.PHAB_BOT_API_KEY }} \
