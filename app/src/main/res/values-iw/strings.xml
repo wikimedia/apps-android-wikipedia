@@ -185,6 +185,9 @@
   <string name="logged_out_in_background_dialog">יצאת מוויקיפדיה. להיכנס בחזרה?</string>
   <string name="logged_out_in_background_login">כניסה לחשבון</string>
   <string name="logged_out_in_background_cancel">ביטול</string>
+  <string name="account_vanish_request_title">העלמת החשבון שלך</string>
+  <string name="account_vanish_request_confirm_title">אזהרת העלמת חשבון</string>
+  <string name="account_vanish_request_confirm">היעלמות היא &lt;b&gt;מוצא אחרון&lt;/b&gt; וצריך להשתמש בה &lt;b&gt;רק כשברצונך להפסיק לערוך לתמיד&lt;/b&gt; וגם להסתיר את הקשרים הקודמים שלך במידת האפשר.&lt;br/&gt;&lt;br/&gt;מחיקת חשבון בוויקיפדיה מתבצעת על ידי שינוי שם החשבון שלך כדי להסוות אותו מפני אחרים כדי שלא יוכלו לזהות את התרומות שלך בתהליך שנקרא העלמת חשבון. &lt;b&gt;העלמה לא מבטיחה אלמוניות מלאה או הסרת התרומות למיזמים&lt;/b&gt;.</string>
   <string name="history_empty_title">אין ערכים שהוצגו לאחרונה</string>
   <string name="history_empty_message">כאן עוקבים אחרי מה שקראת.</string>
   <string name="history_offline_articles_toast">ייתכן שחלק מהערכים בהיסטוריה אינם זמינים להצגה ללא חיבור לרשת.</string>
@@ -266,7 +269,7 @@
   <string name="about_translators_heading">מתרגמים</string>
   <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
-  <string name="about_app_license" fuzzy="true">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
+  <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;גיטהאב&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
   <string name="edit_abandon_confirm">הדף שונה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
@@ -1337,6 +1340,7 @@
   <string name="talk_warn_submitted_and_saved">ההודעה נשמרה ופורסמה בדף השיחת המשתמש של העורך</string>
   <string name="talk_warn_saved_message">בחירת הודעת אזהרה קיימת או כתיבת הודעה חדשה.</string>
   <string name="talk_warn_saved_message_dropdown">הודעות שמורות</string>
+  <string name="talk_warn_saved_messages">הודעות שמורות</string>
   <string name="talk_page_empty">דף השיחה הזה ריק.</string>
   <string name="talk_page_empty_title">השיחה מתחילה כאן</string>
   <string name="talk_page_empty_content">דפי שיחה הם המקום שבו אנשים דנים איך להפוך את התוכן בוויקיפדיה לטוב ביותר שהוא יכול להיות. יש להתחיל בהוספת נושא דיון חדש כדי להתחבר ולשתף פעולה עם קהילה של ויקיפדים.</string>
@@ -1669,10 +1673,23 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">אין דעה</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">לא מרוצה</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">איך נוכל לשפר את התכונה?</string>
+  <string name="patroller_diff_menu_edit_history_title">היסטוריית העריכה של הערך</string>
   <string name="patroller_diff_feedback_dialog_input_hint">משוב</string>
   <string name="patroller_diff_feedback_dialog_submit">שליחה</string>
   <string name="patroller_diff_feedback_submitted_snackbar">המשוב נשלח.</string>
   <string name="patroller_diff_feedback_tooltip">יש להקיש על התפריט הצף כדי לשלוח משוב בכל עת תחת \"בעיה עם תכונה\".</string>
+  <string name="patroller_saved_message_title_vandalism">אזהרת השחתה</string>
+  <string name="patroller_saved_message_title_editing_tests">ניסויי עריכה</string>
+  <string name="patroller_saved_message_title_npov">נקודת מבט ניטרלית</string>
+  <string name="patroller_saved_message_title_auto_trans">תרגום אוטומטי</string>
+  <string name="patroller_saved_message_title_coi_rem">תזכורת לניגוד עניינים</string>
+  <string name="patroller_saved_message_title_final_warning">אזהרה אחרונה</string>
+  <string name="patroller_saved_message_title_copy_vio">אזהרת הפרת זכויות יוצרים</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">נא להוסיף תקציר עריכה</string>
+  <string name="patroller_saved_message_title_do_not_censor">אסור לצנזר</string>
+  <string name="patroller_saved_message_title_art_imp">הצעה לשיפור הערך</string>
+  <string name="patroller_saved_message_body_vandalism">שלום {{{username}}}, אני רוצה להודיע לך ששחזרתי אחת או יותר מ[{{{diffLink}}}|התרומות שלך] כי הן לא נראות בונות. אם נראה לך שטעיתי או שיש לך שאלות, באפשרותך להשאיר הודעה ב[[User talk:{{{senderUserName}}}|דף השיחה שלי]]. נא לשים לב לכך שהמשך ההשחתה עלול להוביל להגבלות.</string>
+  <string name="talk_templates_menu_edit_title">עריכה</string>
   <string name="data_opt_in_accept">לקבל</string>
   <string name="data_opt_in_reject">לדחות</string>
   <string name="page_issues_title">בעיות בדף</string>
@@ -1700,4 +1717,5 @@
   <string name="places_survey_dialog_cancel">ביטול</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">מה היית רוצה שנשנה או נשפר?</string>
   <string name="places_empty_list">האזור הזה ריק. נא להתרחק &lt;a href=\"#\"&gt;על המפה&lt;/a&gt; .</string>
+  <string name="talk_warn_learn_more_label">מידע נוסף על מילוי הודעות</string>
 </resources>

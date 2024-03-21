@@ -3,6 +3,7 @@
 * A2093064
 * Chubit
 * Cookai1205
+* Cooltey
 * Cwlin0416
 * Dbrant
 * DinoWP
@@ -1025,7 +1026,7 @@
     <item quantity="other">%d 天</item>
   </plurals>
   <string name="suggested_edits_what_is_title">什麼是建議編輯？</string>
-  <string name="suggested_edits_what_is_text">建議編輯提供了微小；但對於維基百科是至關重要貢獻的機會。</string>
+  <string name="suggested_edits_what_is_text">建議編輯功能會提供貢獻維基百科的機會，這些貢獻雖小但不可或缺。</string>
   <string name="suggested_edits_learn_more">瞭解更多</string>
   <string name="suggested_edits_paused_title">已暫停</string>
   <string name="suggested_edits_disabled_title">已停用</string>
@@ -1598,13 +1599,13 @@
   <string name="patroller_diff_feedback_tooltip">點選溢出選單，在「功能問題」下方隨時提交回饋。</string>
   <string name="patroller_saved_message_title_vandalism">破壞警告</string>
   <string name="patroller_saved_message_title_editing_tests">編輯測試</string>
-  <string name="patroller_saved_message_title_npov">中立觀點</string>
+  <string name="patroller_saved_message_title_npov">中立的觀點</string>
   <string name="patroller_saved_message_title_auto_trans">自動翻譯</string>
   <string name="patroller_saved_message_title_coi_rem">利益衝突提醒</string>
   <string name="patroller_saved_message_title_final_warning">最後警告</string>
-  <string name="patroller_saved_message_title_copy_vio">侵犯版權警告</string>
-  <string name="patroller_saved_message_title_edit_summary_reminder">留下編輯摘要</string>
-  <string name="patroller_saved_message_title_do_not_censor">不要審查</string>
+  <string name="patroller_saved_message_title_copy_vio">侵犯著作權警告</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">註明編輯摘要</string>
+  <string name="patroller_saved_message_title_do_not_censor">不審查</string>
   <string name="patroller_saved_message_title_art_imp">條目改善建議</string>
   <string name="patroller_saved_message_body_vandalism">{{{username}}}您好，在這裡向您通知我回退了您的一筆或多筆[{{{diffLink}}}|近期編輯]，因為內容似乎缺乏建設性。如果您認為我做錯了，或是有其他疑問，請在[[User talk:{{{senderUserName}}}|我的討論頁面]]留言。另外請留意，持續的破壞行為可能會導致禁止編輯。</string>
   <string name="patroller_saved_message_body_editing_tests">{{{username}}}您好，很高興維基百科引起了您的注意，並且您有興趣學習如何編輯。您所做的編輯測試雖已生效；但請記住，維基百科的目標是開發一個人人都可查閱，可靠且完整的百科全書。因為您的編輯已影響到條目內容，所以將其刪除。\n\n如果您想學習如何編輯維基百科，您可以在[[Wikipedia:Sandbox|沙盒]]測試。如果您想對某篇條目發表特定意見，請移至該條目的討論頁面。</string>
