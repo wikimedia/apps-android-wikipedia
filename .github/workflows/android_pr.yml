@@ -10,21 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Post to Phabricator when pull request is opened or closed.
-        if: ${{ github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'closed') }}
-        run: |
-          message="${{ github.actor }} ${{ github.event.action }} ${{ github.event.pull_request._links.html.href }}"
-          echo "${message}"
-          inital_commit=$(git log origin/main..origin/${{ github.head_ref }} --pretty=%H | tail -n1)
-          task=$(curl ${{ github.event.pull_request._links.commits.href }} | jq .[0].commit.message -r | grep "^Bug: T[0-9]*$" | head -1 | awk '{print $2}')
+    - name: Post to Phabricator when pull request is opened or closed
+      if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' || github.event.action == 'closed' }}
+      run: |
+        message="${{ github.actor }} ${{ github.event.action }} ${{ github.event.pull_request._links.html.href }}"
+        echo "${message}"
+        inital_commit=$(git log origin/main..origin/${{ github.head_ref }} --pretty=%H | tail -n1)
+        task=$(curl ${{ github.event.pull_request._links.commits.href }} | jq .[0].commit.message -r | grep "^Bug: T[0-9]*$" | head -1 | awk '{print $2}')
 
-          if [ -n "${task}" ]; then
-            curl https://phabricator.wikimedia.org/api/maniphest.edit \
-                -d api.token=${{ secrets.PHAB_BOT_API_KEY }} \
-                -d transactions[0][type]=comment \
-                -d transactions[0][value]="${message}" \
-                -d objectIdentifier=${task}
-          fi
+        if [ -n "${task}" ]; then
+          curl https://phabricator.wikimedia.org/api/maniphest.edit \
+              -d api.token=${{ secrets.PHAB_BOT_API_KEY }} \
+              -d transactions[0][type]=comment \
+              -d transactions[0][value]="${message}" \
+              -d objectIdentifier=${task}
+        fi
     - uses: gradle/wrapper-validation-action@v2
     - uses: actions/setup-java@v4
       with:
