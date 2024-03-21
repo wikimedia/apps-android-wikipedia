@@ -274,7 +274,7 @@
   <string name="preference_summary_sync_reading_lists">通过将阅读列表保存至您的维基百科账号，在不同设备上同步阅读列表</string>
   <string name="preference_summary_sync_reading_lists_from_account">通过将阅读列表保存到您的维基百科帐户“%s”，在不同设备上同步阅读列表</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">从“%s”移除同步的阅读列表？</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">这将从远程存储中完全删除所有此前同步的阅读列表。从您的账号“%s”移除所有已同步的列表么？</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">这将从远程存储中完全删除所有此前同步的阅读列表。从您的账号“%s”移除所有已同步的列表吗？</string>
   <string name="preference_title_auto_upload_crash_reports">发送崩溃报告</string>
   <string name="preference_summary_auto_upload_crash_reports">允许应用自动发送崩溃报告至第三方服务提供方，这样我们可以更快、更容易地浏览您的崩溃报告，并修复漏洞。</string>
   <string name="editing_error_spamblacklist">检测到受封禁域名（%s）的链接。请移除它们并重试。</string>
@@ -287,7 +287,7 @@
   <string name="page_protected_can_not_edit_anon">对不起，该页面目前不能匿名编辑。</string>
   <string name="page_protected_can_not_edit_title">该页面受到保护</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">添加到监视列表</string>
-  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">跟踪你感兴趣的条目正在发生的事情。点击下拉菜单并选择&lt;b&gt;添加到监视列表&lt;/b&gt;以查看条目的变化。</string>
+  <string name="page_watchlist_overflow_menu_onboarding_tooltip_text">跟踪您感兴趣条目的最新状况。点击下拉菜单并选择&lt;b&gt;添加到监视列表&lt;/b&gt;以查看条目的变化。</string>
   <string name="settings_item_preferences">设置</string>
   <string name="settings_activity_title">设置</string>
   <string name="about_description">关于维基百科应用</string>
@@ -348,7 +348,7 @@
   <string name="find_first_occurence">这是首次出现</string>
   <string name="find_last_occurence">这是最后一次出现</string>
   <string name="article_opened_in_background_tab">条目已在后台标签页中打开。</string>
-  <string name="abusefilter_title_warn">这可能是没有建设性的编辑。您确认要发布它么？</string>
+  <string name="abusefilter_title_warn">这可能是没有建设性的编辑。您确认要发布它吗？</string>
   <string name="abusefilter_title_disallow">您不能发布该编辑。请返回更改。</string>
   <string name="abusefilter_text_warn">自动过滤器识别该编辑为没有潜在建设性的编辑。该编辑可能含有以下一种或多种问题：&lt;br /&gt;&lt;br /&gt;· 全部大写&lt;br /&gt;· 清空条目或有垃圾内容&lt;br /&gt;· 无关的外部链接或图像&lt;br /&gt;· 重复的文字</string>
   <string name="abusefilter_text_disallow">自动过滤器识别该编辑为没有潜在建设性的编辑或是潜在的破坏。&lt;br /&gt;&lt;br /&gt;维基百科是一部百科全书，只收录中立、有关注度的内容。</string>
@@ -380,7 +380,7 @@
   <string name="preference_title_show_images">显示图像</string>
   <string name="preference_summary_show_images">启用或禁用页面中图像的加载。如果您的网络连接过慢或数据流量有限时，请取消选中该设置。</string>
   <string name="preference_title_download_only_over_wifi">仅通过Wi-Fi下载</string>
-  <string name="dialog_title_download_only_over_wifi">确认使用移动数据下载么？</string>
+  <string name="dialog_title_download_only_over_wifi">确认使用移动数据下载吗？</string>
   <string name="dialog_text_download_only_over_wifi">您已在设置中启用“仅通过Wi-Fi下载”。您是否希望只在这次下载中使用您的移动数据流量？</string>
   <string name="dialog_title_download_only_over_wifi_allow">允许</string>
   <string name="read_more_section">阅读更多</string>
@@ -1020,13 +1020,13 @@
   <string name="suggested_edits_image_tags_exit_dialog_message">未发布的标签不会被保存</string>
   <string name="suggested_edits_image_zoom_tooltip">缩放此图像。</string>
   <string name="suggested_edits_encouragement_message">%s，感谢您的编辑。下面您可以找到更多的方法来为维基百科做贡献。</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;您好 %s&lt;/b&gt;，下面，您可以找到一些简捷的方法来帮助改进维基百科。你一开始就会看到你做出的更改。祝您编辑愉快!</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;您好，%s&lt;/b&gt;，在下方您可以找到一些快速且简易的方法来改善维基百科。只要您开始编辑，您就可以看到您作出的更改。祝您编辑愉快!</string>
   <string name="suggested_edits_image_captions_task_detail">描述图像以帮助读者理解其含义和情境。</string>
   <string name="suggested_edits_add_descriptions_task_detail">概述条目以帮助读者一目了然地了解主题。</string>
   <string name="suggested_edits_contributions_stat_tooltip">您迄今为止的贡献总数。</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">您已连续贡献了几天。如果您有一段时间没有贡献，则会显示您最后贡献的日期。</string>
   <string name="suggested_edits_page_views_stat_tooltip">在过去30天内，您贡献项目的总浏览量。</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">根据你的某个贡献被回退的次数（被其他编者撤销）。被回退的编辑：%d。</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">根据您的某个贡献被回退的次数（被其他编者撤销）。被回退的编辑：%d。</string>
   <string name="suggested_edits_paused_message">已暂停编辑建议，直至%1$s。很抱歉，%2$s，您最近的部分贡献遭到了回退。</string>
   <string name="suggested_edits_disabled_message">已禁用编辑建议。很抱歉，%s，您近期的贡献有太多遭到回退。</string>
   <string name="suggested_edits_ip_blocked_message">看样子您目前所使用的IP地址（或地址段）被禁止编辑维基百科。</string>
