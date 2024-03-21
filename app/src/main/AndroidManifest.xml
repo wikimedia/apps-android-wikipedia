@@ -305,7 +305,8 @@
             android:name=".talk.TalkTopicActivity" />
 
         <activity
-            android:name=".talk.TalkReplyActivity" />
+            android:name=".talk.TalkReplyActivity"
+            android:configChanges="orientation|screenSize"/>
 
         <activity
             android:name=".talk.ArchivedTalkPagesActivity" />

@@ -112,6 +112,7 @@
 
     </ScrollView>
 
+
     <org.wikipedia.edit.WikiTextKeyboardHeadingsView
         android:id="@+id/edit_keyboard_overlay_headings"
         android:layout_width="wrap_content"
@@ -139,6 +140,14 @@
         android:elevation="12dp"
         app:headingsEnable="false"/>
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/message_preview_fragment"
+        android:name="org.wikipedia.edit.preview.EditPreviewFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        tools:layout="@layout/fragment_preview_edit" />
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/replyToolbar"
         android:layout_width="match_parent"
@@ -148,12 +157,12 @@
         app:contentInsetEnd="0dp">
 
         <TextView
-            android:id="@+id/replySaveButton"
+            android:id="@+id/replyNextButton"
             style="@style/App.Button.Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"
-            android:text="@string/description_edit_save"/>
+            android:text="@string/edit_next"/>
 
     </com.google.android.material.appbar.MaterialToolbar>
 
