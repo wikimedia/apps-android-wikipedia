@@ -1,15 +1,15 @@
-name: Android pull request test
+name: Post to Phabricator
 
 on:
   pull_request:
-    types: [opened, synchronize, closed]
+    types: [opened, closed]
 
 jobs:
   post_to_phab:
     runs-on: ubuntu-latest
     steps:
     - name: Post to Phabricator when pull request is opened or closed
-      if: ${{ github.event_name == 'pull_request' }}
+      if: ${{ github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'closed') }}
       env:
         PR_BODY: ${{ github.event.pull_request.body }}
       run: |
