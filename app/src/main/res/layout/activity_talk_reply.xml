@@ -81,6 +81,7 @@
         </LinearLayout>
     </ScrollView>
 
+
     <org.wikipedia.edit.WikiTextKeyboardHeadingsView
         android:id="@+id/edit_keyboard_overlay_headings"
         android:layout_width="wrap_content"

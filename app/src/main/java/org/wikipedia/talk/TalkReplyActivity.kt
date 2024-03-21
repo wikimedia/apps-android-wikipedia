@@ -448,7 +448,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         body = body.replace(getString(R.string.username_wikitext), getString(R.string.wikiText_replace_url, viewModel.pageTitle.prefixedText, "@" + StringUtil.removeNamespace(viewModel.pageTitle.prefixedText)))
         body = body.replace(getString(R.string.sender_username_wikitext), AccountUtil.userName.orEmpty())
         body = body.replace(getString(R.string.diff_link_wikitext), viewModel.pageTitle.getWebApiUrl("diff=$toRevisionId&oldid=$fromRevisionId&variant=${viewModel.pageTitle.wikiSite.languageCode}"))
-        return if(subject.isNotEmpty()) "==$subject==\n$body" else body
+        return if (subject.isNotEmpty()) "==$subject==\n$body" else body
     }
 
     private fun onSaveSuccess(newRevision: Long) {
