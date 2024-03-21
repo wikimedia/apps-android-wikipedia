@@ -81,8 +81,8 @@ object FeedbackUtil {
         makeSnackbar(activity, text, duration).show()
     }
 
-    fun showMessage(bestView: View, text: String, duration: Int = Snackbar.LENGTH_LONG) {
-        Snackbar.make(bestView, text, duration).show()
+    fun showMessage(bestView: View, text: String, duration: Int = Snackbar.LENGTH_LONG): Snackbar {
+       return Snackbar.make(bestView, text, duration)
     }
 
     fun showPrivacyPolicy(context: Context) {
