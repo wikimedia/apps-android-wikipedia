@@ -6,6 +6,6 @@
     <item
         android:id="@+id/menu_edit_messages"
         android:title="@string/talk_templates_menu_edit_title"
-        app:showAsAction="always|withText"
+        app:showAsAction="never"
         tools:ignore="AlwaysShowAction" />
 </menu>

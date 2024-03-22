@@ -51,9 +51,9 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     private val viewModel: TalkTemplatesViewModel by viewModels { TalkTemplatesViewModel.Factory(requireArguments()) }
     private val binding get() = _binding!!
 
-    private var itemTouchHelper: ItemTouchHelper? = null
-    private var itemSwipeTouchHelper: ItemTouchHelper? = null
-    private var touchCallback: SwipeableItemTouchHelperCallback? = null
+    private lateinit var itemTouchHelper: ItemTouchHelper
+    private lateinit var itemSwipeTouchHelper: ItemTouchHelper
+    private lateinit var touchCallback: SwipeableItemTouchHelperCallback
     private lateinit var adapter: RecyclerAdapter
     private val selectedItems = mutableListOf<TalkTemplate>()
     private val deletedItems = mutableListOf<TalkTemplate>()
@@ -168,20 +168,28 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
                 fromRevisionId = fromRevisionId, toRevisionId = toRevisionId))
         }
 
+        binding.toolBarEditView.setOnClickListener {
+            if (actionMode == null) {
+                beginRemoveItemsMode()
+                updateAndNotifyAdapter()
+            }
+        }
+
         binding.talkTemplatesTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 if (actionMode != null) {
                     actionMode?.finish()
                 }
-                touchCallback?.swipeableEnabled = binding.talkTemplatesTabLayout.selectedTabPosition == 0
+                touchCallback.swipeableEnabled = tab.position == 0
                 updateAndNotifyAdapter()
-                requireActivity().invalidateOptionsMenu()
+                showToolbarEditView(tab.position == 0)
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
 
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
+        setUpTouchListeners()
 
         binding.talkTemplatesEmptyStateTextView.text = StringUtil.fromHtml(getString(R.string.talk_templates_empty_message))
 
@@ -189,6 +197,19 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             binding.talkTemplatesTabLayout.getTabAt(1)?.select()
             updateAndNotifyAdapter()
         }
+    }
+
+    private fun showToolbarEditView(visible: Boolean) {
+        binding.toolBarEditView.isVisible = visible
+    }
+
+    private fun setUpTouchListeners() {
+        touchCallback = SwipeableItemTouchHelperCallback(requireContext())
+        touchCallback.swipeableEnabled = true
+        itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(adapter))
+        itemSwipeTouchHelper = ItemTouchHelper(touchCallback)
+        itemTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)
+        itemSwipeTouchHelper.attachToRecyclerView(binding.talkTemplatesRecyclerView)
     }
 
     private fun updateEmptyState() {
@@ -200,6 +221,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         adapter.templatesList.clear()
         adapter.templatesList.addAll(if (binding.talkTemplatesTabLayout.selectedTabPosition == 0) viewModel.talkTemplatesList else viewModel.savedTemplatesList)
         updateEmptyState()
+        showToolbarEditView(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
         adapter.notifyDataSetChanged()
     }
 
@@ -209,24 +231,13 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     }
 
     override fun onPrepareMenu(menu: Menu) {
-        menu.findItem(R.id.menu_edit_messages).isVisible = binding.talkTemplatesTabLayout.selectedTabPosition == 0
     }
 
     override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_talk_templates, menu)
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        return when (menuItem.itemId) {
-            R.id.menu_edit_messages -> {
-                if (actionMode == null) {
-                    beginRemoveItemsMode()
-                    updateAndNotifyAdapter()
-                }
-                true
-            }
-            else -> false
-        }
+        return false
     }
 
     private fun setRecyclerView() {
@@ -235,12 +246,6 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
         binding.talkTemplatesRecyclerView.adapter = adapter
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.talkTemplatesRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
-        touchCallback = SwipeableItemTouchHelperCallback(requireContext())
-        touchCallback?.swipeableEnabled = true
-        itemTouchHelper = ItemTouchHelper(RearrangeableItemTouchHelperCallback(adapter))
-        itemSwipeTouchHelper = ItemTouchHelper(touchCallback!!)
-        itemTouchHelper?.attachToRecyclerView(binding.talkTemplatesRecyclerView)
-        itemSwipeTouchHelper?.attachToRecyclerView(binding.talkTemplatesRecyclerView)
         updateAndNotifyAdapter()
     }
 
@@ -252,7 +257,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     private fun onSuccess() {
         setRecyclerView()
-        requireActivity().invalidateOptionsMenu()
+        showToolbarEditView(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
         binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesErrorView.visibility = View.GONE
         binding.talkTemplatesProgressBar.visibility = View.GONE
