@@ -60,8 +60,6 @@ class TemplateDataResponse : MwResponse() {
         val aliases: List<String> = emptyList()
         private val deprecated: JsonElement? = null
 
-        private val deprecatedAsString get() = deprecated?.jsonPrimitive?.contentOrNull
-
-        val isDeprecated get() = !deprecatedAsString.equals("false", true)
+        val isDeprecated get() = deprecated != null && !deprecated.jsonPrimitive.contentOrNull.equals("false", true)
     }
 }
