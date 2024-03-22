@@ -64,6 +64,10 @@ class AddTemplateActivity : BaseActivity(), UserMentionInputView.Listener {
         }
     }
 
+    private val requestInsertTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        // TODO: implement this
+    }
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddTemplateBinding.inflate(layoutInflater)
@@ -89,7 +93,7 @@ class AddTemplateActivity : BaseActivity(), UserMentionInputView.Listener {
 
         SyntaxHighlightViewAdapter(this, PageTitle("Main Page", wikiSite), binding.root, binding.addTemplateInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
-            Constants.InvokeSource.ADD_TEMPLATE_ACTIVITY, requestInsertMedia, true)
+            Constants.InvokeSource.ADD_TEMPLATE_ACTIVITY, requestInsertMedia, requestInsertTemplate, true)
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
