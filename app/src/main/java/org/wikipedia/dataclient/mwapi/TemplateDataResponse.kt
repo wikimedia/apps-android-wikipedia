@@ -24,7 +24,7 @@ class TemplateDataResponse : MwResponse() {
         val description: String? = null
         private val params: JsonElement? = null
         val format: String? = null
-        @SerialName("notemplatedata") val noTemplateData: Boolean = true
+        @SerialName("notemplatedata") val noTemplateData: Boolean = false
 
         val getParams: Map<String, TemplateDataParam>? get() {
             try {
