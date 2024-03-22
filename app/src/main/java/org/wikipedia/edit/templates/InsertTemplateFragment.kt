@@ -41,7 +41,7 @@ class InsertTemplateFragment : Fragment() {
             !it.value.isDeprecated
         }?.forEach {
             val itemBinding = ItemInsertTemplateBinding.inflate(layoutInflater)
-            val labelText = StringUtil.capitalize(it.key)
+            val labelText = it.value.label.orEmpty().ifEmpty { StringUtil.capitalize(it.key) }
             itemBinding.root.tag = false
             if (it.value.required) {
                 itemBinding.textInputLayout.hint = labelText
