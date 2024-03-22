@@ -734,6 +734,14 @@ object Prefs {
         }
 
     var recentUsedTemplates
-        get() = JsonUtil.decodeFromString<List<PageTitle>>(PrefsIoUtil.getString(R.string.preference_key_recent_used_templates, null)) ?: emptyList()
-        set(list) = PrefsIoUtil.setString(R.string.preference_key_recent_used_templates, JsonUtil.encodeToString(list))
+        get() = JsonUtil.decodeFromString<Set<PageTitle>>(PrefsIoUtil.getString(R.string.preference_key_recent_used_templates, null)) ?: emptySet()
+        set(set) = PrefsIoUtil.setString(R.string.preference_key_recent_used_templates, JsonUtil.encodeToString(set))
+
+    fun addRecentUsedTemplates(set: Set<PageTitle>) {
+        val maxStoredIds = 100
+        val currentSet = recentUsedTemplates.toMutableSet()
+        currentSet.addAll(set)
+        recentUsedTemplates = if (currentSet.size < maxStoredIds) currentSet else set
+    }
+
 }

@@ -77,9 +77,7 @@ class TemplatesSearchActivity : BaseActivity() {
 
         binding.insertTemplateButton.setOnClickListener {
             viewModel.selectedPageTitle?.let {
-                val list = Prefs.recentUsedTemplates.toMutableList()
-                list.add(it)
-                Prefs.recentUsedTemplates = list
+                Prefs.addRecentUsedTemplates(setOf(it))
                 val wikiText = insertTemplateFragment.collectParamsInfoAndBuildWikiText()
                 val intent = Intent().putExtra(RESULT_WIKI_TEXT, wikiText)
                 setResult(RESULT_INSERT_TEMPLATE_SUCCESS, intent)
