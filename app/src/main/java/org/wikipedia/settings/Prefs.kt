@@ -743,5 +743,4 @@ object Prefs {
         currentSet.addAll(set)
         recentUsedTemplates = if (currentSet.size < maxStoredIds) currentSet else set
     }
-
 }
