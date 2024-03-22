@@ -28,7 +28,6 @@ import org.wikipedia.edit.SyntaxHighlightViewAdapter
 import org.wikipedia.edit.insertmedia.InsertMediaActivity
 import org.wikipedia.edit.insertmedia.InsertMediaViewModel
 import org.wikipedia.edit.preview.EditPreviewFragment
-import org.wikipedia.edit.templates.TemplatesSearchActivity
 import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginActivity
@@ -108,15 +107,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         }
     }
 
-    private val requestInsertTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == TemplatesSearchActivity.RESULT_INSERT_TEMPLATE_SUCCESS) {
-            it.data?.let { data ->
-                val newWikiText = data.getStringExtra(TemplatesSearchActivity.RESULT_WIKI_TEXT)
-                binding.replyInputView.editText.inputConnection?.commitText(newWikiText, 1)
-            }
-        }
-    }
-
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTalkReplyBinding.inflate(layoutInflater)
@@ -190,7 +180,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
         SyntaxHighlightViewAdapter(this, viewModel.pageTitle, binding.root, binding.replyInputView.editText,
             binding.editKeyboardOverlay, binding.editKeyboardOverlayFormatting, binding.editKeyboardOverlayHeadings,
-            Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, requestInsertTemplate, true)
+            Constants.InvokeSource.TALK_REPLY_ACTIVITY, requestInsertMedia, true)
 
         messagePreviewFragment = supportFragmentManager.findFragmentById(R.id.message_preview_fragment) as EditPreviewFragment
 
