@@ -14,6 +14,6 @@ jobs:
         PR_BODY: ${{ github.event.pull_request.body }}
       run: |
         message="${{ github.actor }} ${{ github.event.action }} ${{ github.event.pull_request._links.html.href }}"
-        echo -e "${PR_BODY}" | grep -oEi "(^Bug:\s*T[0-9]+)|(^([\u002A]*phabricator[\u002A]*:\s*)?https:\/\/phabricator\.wikimedia\.org\/T[0-9]+)" | grep -oEi "T[0-9]+" | while IFS= read -r line; do
+        echo -e "${PR_BODY}" | tr '*' _ | grep -oEi "(^Bug:\s*T[0-9]+)|(^([_]*phabricator[_]*:\s*)?https:\/\/phabricator\.wikimedia\.org\/T[0-9]+)" | grep -oEi "T[0-9]+" | while IFS= read -r line; do
           echo "Processing: $line"
         done
