@@ -24,12 +24,18 @@ class TemplateDataResponse : MwResponse() {
         val description: String? = null
         private val params: JsonElement? = null
         val format: String? = null
-        @SerialName("notemplatedata") val noTemplateData: Boolean? = null
+        @SerialName("notemplatedata") val noTemplateData: Boolean = true
 
         val getParams: Map<String, TemplateDataParam>? get() {
             try {
-                if (noTemplateData != true && params != null && params !is JsonArray) {
-                    return JsonUtil.json.decodeFromJsonElement<Map<String, TemplateDataParam>>(params)
+                if (params != null && params !is JsonArray) {
+                    return if (noTemplateData) {
+                        JsonUtil.json.decodeFromJsonElement<Map<String, JsonArray>>(params).mapValues {
+                            TemplateDataParam()
+                        }
+                    } else {
+                        JsonUtil.json.decodeFromJsonElement<Map<String, TemplateDataParam>>(params)
+                    }
                 }
             } catch (e: Exception) {
                 L.d("Error on parsing params $e")
@@ -56,6 +62,6 @@ class TemplateDataResponse : MwResponse() {
 
         private val deprecatedAsString get() = deprecated?.jsonPrimitive?.contentOrNull
 
-        val isDeprecated get() = !deprecatedAsString.equals("false", true)
+        val isDeprecated get() = deprecatedAsString.equals("true", true)
     }
 }
