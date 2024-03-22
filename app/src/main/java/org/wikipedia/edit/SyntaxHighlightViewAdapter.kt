@@ -28,7 +28,6 @@ class SyntaxHighlightViewAdapter(
     private val wikiTextKeyboardHeadingsView: WikiTextKeyboardHeadingsView,
     private val invokeSource: Constants.InvokeSource,
     private val requestInsertMedia: ActivityResultLauncher<Intent>,
-    private val requestInsertTemplate: ActivityResultLauncher<Intent>,
     showUserMention: Boolean = false
 ) : WikiTextKeyboardView.Callback {
 
@@ -59,6 +58,15 @@ class SyntaxHighlightViewAdapter(
         if (it.resultCode == SearchActivity.RESULT_LINK_SUCCESS) {
             it.data?.parcelableExtra<PageTitle>(SearchActivity.EXTRA_RETURN_LINK_TITLE)?.let { title ->
                 wikiTextKeyboardView.insertLink(title, pageTitle.wikiSite.languageCode)
+            }
+        }
+    }
+
+    private val requestInsertTemplate = activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == TemplatesSearchActivity.RESULT_INSERT_TEMPLATE_SUCCESS) {
+            it.data?.let { data ->
+                val newWikiText = data.getStringExtra(TemplatesSearchActivity.RESULT_WIKI_TEXT)
+                editText.inputConnection?.commitText(newWikiText, 1)
             }
         }
     }
