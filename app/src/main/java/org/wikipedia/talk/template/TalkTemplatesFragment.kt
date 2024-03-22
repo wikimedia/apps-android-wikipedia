@@ -5,7 +5,6 @@ import android.app.Activity.RESULT_OK
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
@@ -14,7 +13,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.core.os.bundleOf
-import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -45,7 +43,7 @@ import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
 
-class TalkTemplatesFragment : Fragment(), MenuProvider {
+class TalkTemplatesFragment : Fragment() {
     private var _binding: FragmentTalkTemplatesBinding? = null
 
     private val viewModel: TalkTemplatesViewModel by viewModels { TalkTemplatesViewModel.Factory(requireArguments()) }
@@ -131,11 +129,10 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requireActivity().addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         binding.talkTemplatesErrorView.retryClickListener = View.OnClickListener { viewModel.loadTalkTemplates() }
 
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 launch {
                     viewModel.uiState.collect {
@@ -228,16 +225,6 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onPrepareMenu(menu: Menu) {
-    }
-
-    override fun onCreateMenu(menu: Menu, inflater: MenuInflater) {
-    }
-
-    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        return false
     }
 
     private fun setRecyclerView() {
@@ -341,7 +328,7 @@ class TalkTemplatesFragment : Fragment(), MenuProvider {
             super.onViewAttachedToWindow(holder)
             holder.templatesItemView.setDragHandleTouchListener { v, event ->
                 when (event.actionMasked) {
-                    MotionEvent.ACTION_DOWN -> itemTouchHelper?.startDrag(holder)
+                    MotionEvent.ACTION_DOWN -> itemTouchHelper.startDrag(holder)
                     MotionEvent.ACTION_UP -> v.performClick()
                     else -> { }
                 }
