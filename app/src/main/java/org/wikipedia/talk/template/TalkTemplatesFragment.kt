@@ -81,7 +81,7 @@ class TalkTemplatesFragment : Fragment() {
             }
         }
         if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
-            val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
+            val pageTitle = viewModel.pageTitle
             val message = if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
                 PatrollerExperienceEvent.logAction("publish_message_toast", "pt_warning_messages")
                 R.string.talk_warn_submitted
@@ -109,7 +109,7 @@ class TalkTemplatesFragment : Fragment() {
             }
         }
         if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
-            val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
+            val pageTitle = viewModel.pageTitle
             val message = if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
                 PatrollerExperienceEvent.logAction("publish_message_toast", "pt_warning_messages")
                 R.string.talk_warn_submitted
@@ -157,7 +157,7 @@ class TalkTemplatesFragment : Fragment() {
         }
 
         binding.addTemplateFab.setOnClickListener {
-            val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
+            val pageTitle = viewModel.pageTitle
             val fromRevisionId = requireArguments().getLong(TalkReplyActivity.FROM_REVISION_ID)
             val toRevisionId = requireArguments().getLong(TalkReplyActivity.TO_REVISION_ID)
             requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null,
@@ -525,14 +525,6 @@ class TalkTemplatesFragment : Fragment() {
     }
 
     companion object {
-        val savedMessagesTitleList = listOf(-1, R.string.patroller_saved_message_title_vandalism, R.string.patroller_saved_message_title_editing_tests, R.string.patroller_saved_message_title_npov,
-            R.string.patroller_saved_message_title_auto_trans, R.string.patroller_saved_message_title_coi_rem, R.string.patroller_saved_message_title_final_warning,
-            R.string.patroller_saved_message_title_copy_vio, R.string.patroller_saved_message_title_edit_summary_reminder, R.string.patroller_saved_message_title_do_not_censor, R.string.patroller_saved_message_title_art_imp)
-
-        val savedMessagesBodyList = listOf(R.string.talk_warn_saved_messages_usage_instruction, R.string.patroller_saved_message_body_vandalism, R.string.patroller_saved_message_body_editing_tests, R.string.patroller_saved_message_body_npov,
-            R.string.patroller_saved_message_body_auto_trans, R.string.patroller_saved_message_body_coi_rem, R.string.patroller_saved_message_body_final_warning,
-            R.string.patroller_saved_message_body_copy_vio, R.string.patroller_saved_message_body_edit_summary, R.string.patroller_saved_message_body_do_not_censor, R.string.patroller_saved_message_body_art_imp)
-
         fun newInstance(pageTitle: PageTitle?, templateManagement: Boolean = false, fromRevisionId: Long = -1, toRevisionId: Long = -1): TalkTemplatesFragment {
             return TalkTemplatesFragment().apply {
                 arguments = bundleOf(Constants.ARG_TITLE to pageTitle,

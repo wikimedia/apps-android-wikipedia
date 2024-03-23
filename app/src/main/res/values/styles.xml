@@ -89,11 +89,6 @@
 
     </style>
 
-    <style name="AppTheme.CustomMenuText" parent="AppTheme">
-        <item name="android:actionMenuTextAppearance">@style/H3</item>
-        <item name="android:actionMenuTextColor">?attr/progressive_color</item>
-    </style>
-
     <style name="AppTheme.Splash">
         <item name="android:windowBackground">@drawable/splash_bg</item>
         <item name="android:navigationBarColor">@color/gray700</item>

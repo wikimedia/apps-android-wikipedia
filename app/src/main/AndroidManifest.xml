@@ -359,7 +359,7 @@
 
         <activity
             android:name=".talk.template.TalkTemplatesActivity"
-            android:theme="@style/AppTheme.CustomMenuText" />
+            android:theme="@style/AppTheme" />
 
         <provider
             android:name=".WikipediaFileProvider"

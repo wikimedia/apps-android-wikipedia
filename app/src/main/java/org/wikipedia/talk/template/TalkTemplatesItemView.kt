@@ -48,8 +48,8 @@ class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? =
         binding.listItemTitle.isVisible = !(isSaveMessagesTab && position == 0)
         binding.listItemTitle.text = talkTemplate.subject
         binding.listItemDescription.text = talkTemplate.message
-        binding.listItemDescription.setTypeface(null, if (position == 0 && isSaveMessagesTab) Typeface.ITALIC else Typeface.NORMAL)
-        binding.listItemDescription.maxLines = if (!(position == 0 && isSaveMessagesTab))1 else Int.MAX_VALUE
+        binding.listItemDescription.setTypeface(Typeface.SANS_SERIF, if (position == 0 && isSaveMessagesTab) Typeface.ITALIC else Typeface.NORMAL)
+        binding.listItemDescription.isSingleLine = !(position == 0 && isSaveMessagesTab)
         binding.listItem.setBackgroundResource(ResourceUtil.getThemedAttributeId(context,
             if (position == 0 && isSaveMessagesTab) R.attr.background_color else android.R.attr.selectableItemBackground))
         binding.listItemDescription.ellipsize =

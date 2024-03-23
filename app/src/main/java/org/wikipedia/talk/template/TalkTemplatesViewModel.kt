@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
+import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.extensions.parcelable
@@ -60,10 +61,10 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
     private fun loadSavedTemplates() {
         val langCode = pageTitle.wikiSite.languageCode
         val context = WikipediaApp.instance.applicationContext
-        for (i in TalkTemplatesFragment.savedMessagesTitleList.indices) {
+        for (i in savedMessagesTitleList.indices) {
             val talkTemplate = TalkTemplate(0, 0, -1, "",
-                if (i == 0) "" else getLocaleStringResource(Locale(langCode), TalkTemplatesFragment.savedMessagesTitleList[i], context),
-                getLocaleStringResource(Locale(langCode), TalkTemplatesFragment.savedMessagesBodyList[i], context))
+                if (i == 0) "" else getLocaleStringResource(Locale(langCode), savedMessagesTitleList[i], context),
+                getLocaleStringResource(Locale(langCode), savedMessagesBodyList[i], context))
             savedTemplatesList.add(talkTemplate)
         }
     }
@@ -133,5 +134,16 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return TalkTemplatesViewModel(bundle) as T
         }
+    }
+
+    companion object {
+        private val savedMessagesTitleList = listOf(-1, R.string.patroller_saved_message_title_vandalism, R.string.patroller_saved_message_title_editing_tests, R.string.patroller_saved_message_title_npov,
+            R.string.patroller_saved_message_title_auto_trans, R.string.patroller_saved_message_title_coi_rem, R.string.patroller_saved_message_title_final_warning,
+            R.string.patroller_saved_message_title_copy_vio, R.string.patroller_saved_message_title_edit_summary_reminder, R.string.patroller_saved_message_title_do_not_censor, R.string.patroller_saved_message_title_art_imp)
+
+        private val savedMessagesBodyList = listOf(
+            R.string.talk_warn_saved_messages_usage_instruction, R.string.patroller_saved_message_body_vandalism, R.string.patroller_saved_message_body_editing_tests, R.string.patroller_saved_message_body_npov,
+            R.string.patroller_saved_message_body_auto_trans, R.string.patroller_saved_message_body_coi_rem, R.string.patroller_saved_message_body_final_warning,
+            R.string.patroller_saved_message_body_copy_vio, R.string.patroller_saved_message_body_edit_summary, R.string.patroller_saved_message_body_do_not_censor, R.string.patroller_saved_message_body_art_imp)
     }
 }
