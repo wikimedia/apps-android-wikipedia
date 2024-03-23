@@ -29,7 +29,6 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
-import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkReplyActivity

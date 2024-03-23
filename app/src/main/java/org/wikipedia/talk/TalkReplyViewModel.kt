@@ -15,7 +15,6 @@ import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_SAVED_TEMPLATE
 import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_SELECTED_TEMPLATE
 import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.db.TalkTemplate
-import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.talk.template.TalkTemplatesRepository
 import org.wikipedia.util.Resource
 import org.wikipedia.util.SingleLiveData

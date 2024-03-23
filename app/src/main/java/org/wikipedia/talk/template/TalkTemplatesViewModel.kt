@@ -18,10 +18,10 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
-import org.wikipedia.talk.db.TalkTemplate
-import java.util.*
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
+import org.wikipedia.talk.db.TalkTemplate
+import java.util.*
 
 class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
 
@@ -151,4 +151,3 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
             R.string.patroller_saved_message_body_copy_vio, R.string.patroller_saved_message_body_edit_summary, R.string.patroller_saved_message_body_do_not_censor, R.string.patroller_saved_message_body_art_imp)
     }
 }
-
