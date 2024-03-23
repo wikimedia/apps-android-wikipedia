@@ -11,6 +11,9 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
+import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_SAVED_TEMPLATE
+import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_SELECTED_TEMPLATE
+import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.talk.template.TalkTemplatesRepository
@@ -30,9 +33,9 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     val isNewTopic = topic == null && !isFromDiff
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
-    val selectedTemplate = bundle.parcelable<TalkTemplate>(TalkTemplatesActivity.EXTRA_SELECTED_TEMPLATE)
-    val isSavedTemplate = bundle.getBoolean(TalkTemplatesActivity.EXTRA_SAVED_TEMPLATE, false)
-    val templateManagementMode = bundle.getBoolean(TalkTemplatesActivity.EXTRA_TEMPLATE_MANAGEMENT, false)
+    val selectedTemplate = bundle.parcelable<TalkTemplate>(EXTRA_SELECTED_TEMPLATE)
+    val isSavedTemplate = bundle.getBoolean(EXTRA_SAVED_TEMPLATE, false)
+    val templateManagementMode = bundle.getBoolean(EXTRA_TEMPLATE_MANAGEMENT, false)
 
     init {
         if (isFromDiff) {

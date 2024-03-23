@@ -37,9 +37,6 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.talk.db.TalkTemplate
-import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_SAVED_TEMPLATE
-import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_SELECTED_TEMPLATE
-import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.template.TalkTemplatesTextInputDialog
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
@@ -562,6 +559,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         const val RESULT_NEW_REVISION_ID = "newRevisionId"
         const val TO_REVISION_ID = "toRevisionId"
         const val FROM_REVISION_ID = "fromRevisionId"
+        const val EXTRA_SELECTED_TEMPLATE = "selectedTemplate"
+        const val EXTRA_TEMPLATE_MANAGEMENT = "templateManagement"
+        const val EXTRA_SAVED_TEMPLATE = "savedTemplate"
 
         // TODO: persist in db. But for now, it's fine to store these for the lifetime of the app.
         val draftReplies = lruCache<String, CharSequence>(10)

@@ -33,10 +33,10 @@ import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkReplyActivity
+import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.TalkReplyActivity.Companion.RESULT_BACK_FROM_TOPIC
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.db.TalkTemplate
-import org.wikipedia.talk.template.TalkTemplatesActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DrawableItemDecoration
@@ -157,12 +157,9 @@ class TalkTemplatesFragment : Fragment() {
         }
 
         binding.addTemplateFab.setOnClickListener {
-            val pageTitle = viewModel.pageTitle
-            val fromRevisionId = requireArguments().getLong(TalkReplyActivity.FROM_REVISION_ID)
-            val toRevisionId = requireArguments().getLong(TalkReplyActivity.TO_REVISION_ID)
-            requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null,
+            requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), viewModel.pageTitle, null,
                 null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateManagementMode = viewModel.templateManagementMode,
-                fromRevisionId = fromRevisionId, toRevisionId = toRevisionId))
+                fromRevisionId = viewModel.fromRevisionId, toRevisionId = viewModel.toRevisionId))
         }
 
         binding.toolBarEditView.setOnClickListener {
@@ -352,12 +349,9 @@ class TalkTemplatesFragment : Fragment() {
                 adapter.notifyItemChanged(position)
             } else {
                 PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
-                val pageTitle = requireArguments().parcelable<PageTitle>(Constants.ARG_TITLE)!!
-                val fromRevisionId = requireArguments().getLong(TalkReplyActivity.FROM_REVISION_ID)
-                val toRevisionId = requireArguments().getLong(TalkReplyActivity.TO_REVISION_ID)
-                requestEditTemplate.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY,
-                    fromDiff = true, selectedTemplate = templatesList[position], templateManagementMode = viewModel.templateManagementMode, fromRevisionId = fromRevisionId,
-                    toRevisionId = toRevisionId, isSavedTemplate = binding.talkTemplatesTabLayout.selectedTabPosition == 1))
+                requestEditTemplate.launch(TalkReplyActivity.newIntent(requireContext(), viewModel.pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY,
+                    fromDiff = true, selectedTemplate = templatesList[position], templateManagementMode = viewModel.templateManagementMode, fromRevisionId = viewModel.fromRevisionId,
+                    toRevisionId = viewModel.toRevisionId, isSavedTemplate = binding.talkTemplatesTabLayout.selectedTabPosition == 1))
             }
         }
 
