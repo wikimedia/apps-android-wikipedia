@@ -385,7 +385,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
             binding.progressBar.isVisible = true
             setSaveButtonEnabled(false)
-            viewModel.postReply(subject, body)
+            viewModel.postReply(subject, getUpdatedWikitext())
             return
         }
 
