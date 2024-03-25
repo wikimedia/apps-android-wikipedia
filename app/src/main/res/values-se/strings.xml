@@ -223,9 +223,9 @@
   <string name="edit_preview">Ovdačájáhus</string>
   <string name="edit_undo">Gáđa</string>
   <string name="edit_redo">Ráhkat ođđasit</string>
-  <string name="edit_summary_tag_typo">Divui čállinmeattáhusa</string>
-  <string name="edit_summary_tag_grammar">Divui giellaoahpa</string>
-  <string name="edit_summary_tag_links">Lasihii liŋkkaid</string>
+  <string name="edit_summary_tag_typo">Čállinmeattáhus divvojuvvon</string>
+  <string name="edit_summary_tag_grammar">Giellaoahppa divvojuvvon</string>
+  <string name="edit_summary_tag_links">Liŋkkat lasihuvvon</string>
   <string name="edit_summary_tag_other">Eará</string>
   <string name="edit_conflict_title">Ovttaáigásaš rievdadeapmi</string>
   <string name="find_next">Oza čuovvovaš bohtosa</string>

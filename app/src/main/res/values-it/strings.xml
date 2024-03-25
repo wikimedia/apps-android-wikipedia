@@ -1220,6 +1220,11 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Altezza</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Inserisci</string>
+  <string name="templates_insert_button">Inserisci</string>
+  <string name="templates_param_suggested_value">ad esempio %s</string>
+  <string name="templates_param_optional_hint">%s (facoltativo)</string>
+  <string name="templates_param_suggested_hint">%s (suggerito)</string>
+  <string name="templates_learn_more_link">Ulteriori informazioni</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
   <string name="main_tooltip_text">Ciao %s, sapevi che tutti possono modificare Wikipedia?</string>
