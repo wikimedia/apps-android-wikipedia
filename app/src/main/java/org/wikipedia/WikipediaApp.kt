@@ -2,14 +2,15 @@ package org.wikipedia
 
 import android.annotation.SuppressLint
 import android.app.Application
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Handler
 import android.speech.RecognizerIntent
-import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.util.TypedValueCompat
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
@@ -236,12 +237,12 @@ class WikipediaApp : Application() {
     /**
      * Gets the current size of the app's font. This is given as a device-specific size (not "sp"),
      * and can be passed directly to setTextSize() functions.
-     * @param window The window on which the font will be displayed.
+     * @param context The context on which the font will be displayed.
      * @return Actual current size of the font.
      */
-    fun getFontSize(window: Window, editing: Boolean = false): Float {
-        return DimenUtil.getFontSizeFromSp(window,
-                resources.getDimension(R.dimen.textSize)) * (1.0f + (if (editing) Prefs.editingTextSizeMultiplier else Prefs.textSizeMultiplier) *
+    fun getFontSize(context: Context, editing: Boolean = false): Float {
+        return TypedValueCompat.pxToSp(resources.getDimension(R.dimen.textSize), context.resources.displayMetrics) *
+                (1.0f + (if (editing) Prefs.editingTextSizeMultiplier else Prefs.textSizeMultiplier) *
                 DimenUtil.getFloat(R.dimen.textSizeMultiplierFactor))
     }
 

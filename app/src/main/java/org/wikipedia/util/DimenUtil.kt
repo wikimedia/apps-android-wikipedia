@@ -5,9 +5,9 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.util.DisplayMetrics
 import android.util.TypedValue
-import android.view.Window
 import androidx.annotation.DimenRes
 import androidx.core.content.res.use
+import androidx.core.util.TypedValueCompat
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.log.L
@@ -15,15 +15,15 @@ import kotlin.math.roundToInt
 
 object DimenUtil {
     fun dpToPx(dp: Float): Float {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics)
+        return TypedValueCompat.dpToPx(dp, displayMetrics)
     }
 
     fun roundedDpToPx(dp: Float): Int {
         return dpToPx(dp).roundToInt()
     }
 
-    private fun pxToDp(px: Float): Float {
-        return px / densityScalar
+    fun pxToDp(px: Float): Float {
+        return TypedValueCompat.pxToDp(px, displayMetrics)
     }
 
     fun roundedPxToDp(px: Float): Int {
@@ -41,16 +41,9 @@ object DimenUtil {
         return TypedValue.complexToFloat(getValue(id).data)
     }
 
-    fun getFontSizeFromSp(window: Window, fontSp: Float): Float {
-        val metrics = DisplayMetrics()
-        window.windowManager.defaultDisplay.getMetrics(metrics)
-        return fontSp / metrics.scaledDensity
-    }
-
     // TODO: use getResources().getDimensionPixelSize()?  Define leadImageWidth with px, not dp?
     fun calculateLeadImageWidth(): Int {
-        val res = WikipediaApp.instance.resources
-        return (res.getDimension(R.dimen.leadImageWidth) / densityScalar).toInt()
+        return pxToDp(WikipediaApp.instance.resources.getDimension(R.dimen.leadImageWidth)).toInt()
     }
 
     val displayWidthPx: Int
@@ -116,8 +109,9 @@ object DimenUtil {
         return context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
     }
 
-    fun leadImageHeightForDevice(context: Context): Int {
-        return if (isLandscape(context)) (displayWidthPx * articleHeaderViewScreenHeightRatio()).toInt() else (displayHeightPx * articleHeaderViewScreenHeightRatio()).toInt()
+    fun leadImageHeightForDevice(context: Context): Float {
+        val dimenPx = if (isLandscape(context)) displayWidthPx else displayHeightPx
+        return dimenPx * articleHeaderViewScreenHeightRatio()
     }
 
     private fun articleHeaderViewScreenHeightRatio(): Float {

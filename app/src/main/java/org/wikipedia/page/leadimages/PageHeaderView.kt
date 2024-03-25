@@ -65,7 +65,8 @@ class PageHeaderView : LinearLayoutOverWebView, ObservableWebView.OnScrollChange
     }
 
     fun show() {
-        layoutParams = CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.leadImageHeightForDevice(context))
+        layoutParams = CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+            DimenUtil.leadImageHeightForDevice(context).toInt())
         visibility = VISIBLE
     }
 

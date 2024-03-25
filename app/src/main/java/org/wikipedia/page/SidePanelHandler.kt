@@ -258,7 +258,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
         scrollerViewParams.rightMargin = if (rtl) 0 else DimenUtil.roundedDpToPx(SCROLLER_BUTTON_REVEAL_MARGIN)
         val toolbarHeight = DimenUtil.getToolbarHeightPx(fragment.requireContext())
         scrollerViewParams.topMargin = (toolbarHeight + (webView.height - 2 * toolbarHeight) *
-                (webView.scrollY.toFloat() / webView.contentHeight.toFloat() / DimenUtil.densityScalar)).toInt()
+                DimenUtil.pxToDp(webView.scrollY.toFloat() / webView.contentHeight.toFloat()).toInt())
         if (scrollerViewParams.topMargin < toolbarHeight) {
             scrollerViewParams.topMargin = toolbarHeight
         }
@@ -288,7 +288,7 @@ class SidePanelHandler internal constructor(private val fragment: PageFragment,
     private fun onScrollerMoved(dy: Float, scrollWebView: Boolean) {
         val webViewScrollY = webView.scrollY
         val webViewHeight = webView.height
-        val webViewContentHeight = webView.contentHeight * DimenUtil.densityScalar
+        val webViewContentHeight = DimenUtil.dpToPx(webView.contentHeight.toFloat())
         var scrollY = webViewScrollY.toFloat()
         scrollY += dy * webViewContentHeight / (webViewHeight - 2 * DimenUtil.getToolbarHeightPx(fragment.requireContext())).toFloat()
         if (scrollY < 0) {

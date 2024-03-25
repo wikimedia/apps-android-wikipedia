@@ -45,7 +45,7 @@ class WikiArticleCardView constructor(context: Context, attrs: AttributeSet? = n
             binding.articleImageContainer.visibility = GONE
         } else {
             binding.articleImageContainer.layoutParams = LayoutParams(LayoutParams.MATCH_PARENT,
-                    DimenUtil.leadImageHeightForDevice(context) - DimenUtil.getToolbarHeightPx(context))
+                    DimenUtil.leadImageHeightForDevice(context).toInt() - DimenUtil.getToolbarHeightPx(context))
             binding.articleImageContainer.visibility = VISIBLE
             binding.articleImage.loadImage(uri)
         }
