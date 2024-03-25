@@ -126,6 +126,7 @@
     <string name="langlinks_your_wikipedia_languages">Your Wikipedia languages</string>
     <string name="menu_save_changes">Publish changes</string>
     <string name="edit_saved_successfully">Edit published!</string>
+    <string name="stub_article_edit_saved_successfully">Edit published! Changes may take time to appear.</string>
     <string name="dialog_message_edit_failed">Edit failed!</string>
     <string name="dialog_message_edit_failed_retry">Retry</string>
     <string name="dialog_message_edit_failed_cancel">Cancel</string>
@@ -406,6 +407,7 @@
     <string name="link_preview_dialog_save_button">Save</string>
     <string name="link_preview_dialog_saved_button">Saved</string>
     <string name="link_preview_dialog_share_button">Share</string>
+    <string name="link_preview_stub_placeholder_text">This article is a stub, which means there isn\'t enough content in the article to generate a preview. However, you can change that.</string>
     <string name="error_page_does_not_exist">This page does not exist</string>
     <string name="error_user_page_does_not_exist"><![CDATA[Wikipedia does not have a <a href="%1$s">user page</a> with this exact name. In general, this page should be created and edited by <b>%2$s</b>. If in doubt, please verify that \"%3$s\" exists.]]></string>
     <string name="view_wiki_error_message_offline">Cannot connect to internet</string>
