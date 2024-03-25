@@ -1651,7 +1651,6 @@
   <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
-  <string name="talk_warn_learn_more_label">Label text for external link to message placeholders.</string>
   <string name="talk_warn_learn_more_url">URL that points to a page on mediawiki.org that contains guidelines for usage of saved messages for patrolling edits.</string>
   <string name="talk_templates_your_messages_tab_title">Tab title text for list of user\'s custom saved messages.</string>
   <string name="talk_templates_example_messages_tab_title">Tab title text for list of ready-to-use saved messages made available for user.</string>
