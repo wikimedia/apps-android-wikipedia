@@ -1244,6 +1244,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">高度</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">像素</string>
   <string name="insert_media_insert_button">插入</string>
+  <string name="templates_search_hint">搜尋模板</string>
+  <string name="templates_insert_button">插入</string>
+  <string name="templates_param_suggested_value">例如：%s</string>
+  <string name="templates_param_optional_hint">%s（可選）</string>
+  <string name="templates_param_suggested_hint">%s（建議）</string>
+  <string name="templates_learn_more_link">了解更多</string>
+  <string name="templates_description_incomplete">模板是由使用者產生，可能缺乏完整的描述。</string>
+  <string name="templates_description_empty">模板「%s」還沒有描述。</string>
+  <string name="templates_description_missing_data">此模板缺少&lt;a href=\"%1$s\"&gt;模板資料&lt;/a&gt;，且參數已&lt;a href=\"%2$s\"&gt;自動產生&lt;/a&gt;。因此模板及參數都缺乏描述。</string>
   <string name="main_drawer_help">說明</string>
   <string name="main_drawer_login">登入/加入維基百科</string>
   <string name="main_tooltip_text">嗨 %s，您知道維基百科是每個人都可編輯的嗎？</string>
@@ -1272,6 +1281,7 @@
   <string name="talk_warn_saved_message">選擇現有警告訊息或撰寫新的訊息。</string>
   <string name="talk_warn_saved_message_dropdown">已儲存訊息</string>
   <string name="talk_warn_saved_messages">已儲存訊息</string>
+  <string name="talk_warn_learn_more_label">了解訊息佔位符</string>
   <string name="talk_page_empty">此討論頁面為空。</string>
   <string name="talk_page_empty_title">對話從這裡開始</string>
   <string name="talk_page_empty_content">討論頁是讓人們討論如何將維基百科內容做到最好的地方。請先發起一個新的討論主題，以便和維基人社群聯繫與協作。</string>
@@ -1645,5 +1655,4 @@
   <string name="places_survey_dialog_cancel">取消</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">您希望我們改變或改善什麼？</string>
   <string name="places_empty_list">該區域是空的。請在&lt;a href=\"#\"&gt;在地圖上&lt;/a&gt;縮小。</string>
-  <string name="talk_warn_learn_more_label">了解訊息佔位符</string>
 </resources>

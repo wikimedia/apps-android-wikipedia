@@ -1200,6 +1200,13 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Висина</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">п</string>
   <string name="insert_media_insert_button">Уметни</string>
+  <string name="templates_search_hint">Претрага шаблона</string>
+  <string name="templates_insert_button">Уметни</string>
+  <string name="templates_param_suggested_value">нпр. %s</string>
+  <string name="templates_param_optional_hint">%s (необавезно)</string>
+  <string name="templates_param_suggested_hint">%s (пожељно)</string>
+  <string name="templates_learn_more_link">Сазнајте више</string>
+  <string name="templates_description_empty">Шаблон „%s” још увек нема опис.</string>
   <string name="main_drawer_help">Помоћ</string>
   <string name="main_drawer_login">Пријави ме / придружи ме Википедији</string>
   <string name="main_tooltip_text">Здраво, %s! Јесте ли знали да свако може да уређује Википедију?</string>
