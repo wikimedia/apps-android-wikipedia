@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/insertMediaPreviewContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/paper_color"
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="16dp">
+
+        <TextView
+            android:id="@+id/templateDataTitle"
+            style="@style/H1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/primary_color"
+            android:drawablePadding="8dp"
+            app:drawableStartCompat="@drawable/ic_puzzle"
+            app:drawableTint="?attr/primary_color"
+            tools:text="Db"/>
+
+        <TextView
+            android:id="@+id/templateDataDescription"
+            style="@style/P"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="?attr/secondary_color"
+            tools:text="Generic speedy deletion template"/>
+
+        <LinearLayout
+            android:id="@+id/templateDataMissing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="?attr/background_color"
+            android:layout_marginTop="8dp"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/templateDataMissingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/primary_color"
+                android:textSize="14sp"
+                android:lineSpacingExtra="6sp"
+                android:ellipsize="end" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/templateDataLearnMoreButton"
+            style="@style/H3.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:textColor="?attr/progressive_color"
+            android:text="@string/templates_learn_more_link"
+            android:drawablePadding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="8dp"
+            android:layout_marginStart="-8dp"
+            app:drawableEndCompat="@drawable/ic_open_in_new_black_24px"
+            app:drawableTint="?attr/progressive_color"/>
+
+        <LinearLayout
+            android:id="@+id/templateDataParamsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -305,7 +305,8 @@
             android:name=".talk.TalkTopicActivity" />
 
         <activity
-            android:name=".talk.TalkReplyActivity" />
+            android:name=".talk.TalkReplyActivity"
+            android:configChanges="orientation|screenSize"/>
 
         <activity
             android:name=".talk.ArchivedTalkPagesActivity" />
@@ -343,6 +344,11 @@
         <activity
             android:name=".edit.insertmedia.InsertMediaActivity"
             android:label="@string/insert_media_title"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+
+        <activity
+            android:name=".edit.templates.TemplatesSearchActivity"
+            android:label="@string/templates_search_hint"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity

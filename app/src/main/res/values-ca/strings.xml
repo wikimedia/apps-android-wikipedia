@@ -24,6 +24,7 @@
 * Ssola
 * Toniher
 * Unapersona
+* V27t
 * Vfc
 * Xavier Dengra
 -->
@@ -1225,6 +1226,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Alçària</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Insereix</string>
+  <string name="templates_insert_button">Insereix</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
   <string name="main_tooltip_text">Hola %s, sabíeu que tothom pot editar la Viquipèdia?</string>
