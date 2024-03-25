@@ -35,7 +35,7 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     val fromRevisionId = bundle.getLong(TalkReplyActivity.FROM_REVISION_ID, -1)
     val toRevisionId = bundle.getLong(TalkReplyActivity.TO_REVISION_ID, -1)
     val isNewTopic = topic == null && !isFromDiff
-    
+
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
 
