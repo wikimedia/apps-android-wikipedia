@@ -127,8 +127,7 @@
             android:layout_margin="12dp"
             android:contentDescription="@null"
             app:backgroundTint="?attr/progressive_color"
-            app:fabSize="normal"
-            app:srcCompat="@drawable/new_item_icon"
+            app:srcCompat="@drawable/outline_edit_square_24"
             app:tint="?attr/paper_color" />
 
     </FrameLayout>
