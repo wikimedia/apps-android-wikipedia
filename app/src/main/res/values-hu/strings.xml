@@ -1232,6 +1232,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Magasság</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">pixel</string>
   <string name="insert_media_insert_button">Beszúrás</string>
+  <string name="templates_search_hint">Sablon keresése</string>
+  <string name="templates_insert_button">Beszúrás</string>
+  <string name="templates_param_suggested_value">pl. %s</string>
+  <string name="templates_param_optional_hint">%s (opcionális)</string>
+  <string name="templates_param_suggested_hint">%s (javasolt)</string>
+  <string name="templates_learn_more_link">További információk</string>
+  <string name="templates_description_incomplete">A sablonok felhasználók által generált tartalmak, és lehet, hogy nincs teljes leírásuk.</string>
+  <string name="templates_description_empty">A(z) „%s” sablonnak még nincs leírása.</string>
+  <string name="templates_description_missing_data">Ennek a sablonnak nincs &lt;a href=\"%1$s\"&gt;TemplateData-leírása&lt;/a&gt;, és a paraméterlistája &lt;a href=\"%2$s\"&gt;automatikusan generált&lt;/a&gt;. Ezért a sablonnak és paramétereinek nincs leírása.</string>
   <string name="main_drawer_help">Segítség</string>
   <string name="main_drawer_login">Bejelentkezés/regisztrálás a Wikipédiába</string>
   <string name="main_tooltip_text">Helló %s, tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
@@ -1259,6 +1268,7 @@
   <string name="talk_warn_submitted_and_saved">Az üzenet elmentve és közzétéve a szerkesztő vitalapján</string>
   <string name="talk_warn_saved_message">Válassz ki egy meglévő figyelmeztető üzenetet, vagy írj új üzenetet.</string>
   <string name="talk_warn_saved_message_dropdown">Mentett üzenetek</string>
+  <string name="talk_warn_saved_messages">Mentett üzenetek</string>
   <string name="talk_page_empty">Ez a vitalap üres.</string>
   <string name="talk_page_empty_title">A beszélgetés itt kezdődik</string>
   <string name="talk_page_empty_content">A vitalapok annak megbeszélésére szolgálnak, hogy hogyan lehet a Wikipédia tartalmát a lehető legjobbá tenni. Indíts egy új témát a wikipédisták közösségével való kapcsolódáshoz és együttműködéshez.</string>
@@ -1578,6 +1588,14 @@
   <string name="patroller_diff_feedback_dialog_submit">Elküldés</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Visszajelzés elküldve.</string>
   <string name="patroller_diff_feedback_tooltip">Érintse meg a túlcsordulás menüt, hogy bármikor visszajelzést küldhessél a „Probléma a funkcióval” alatt.</string>
+  <string name="patroller_saved_message_title_vandalism">Vandalizmus figyelmeztetés</string>
+  <string name="patroller_saved_message_title_editing_tests">Tesztszerkesztések</string>
+  <string name="patroller_saved_message_title_npov">Semleges nézőpont</string>
+  <string name="patroller_saved_message_title_auto_trans">Automatikus fordítás</string>
+  <string name="patroller_saved_message_title_final_warning">Utolsó figyelmeztetés</string>
+  <string name="patroller_saved_message_title_copy_vio">Szerzői jog megsértésére vonatkozó figyelmeztetés</string>
+  <string name="patroller_saved_message_title_art_imp">Szócikk javítási javaslat</string>
+  <string name="talk_templates_menu_edit_title">Szerkesztés</string>
   <string name="data_opt_in_accept">Elfogad</string>
   <string name="data_opt_in_reject">Elutasít</string>
   <string name="page_issues_title">A lap problémái</string>

@@ -1226,6 +1226,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Altura</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Inserte</string>
+  <string name="templates_search_hint">Buscar plantillas</string>
+  <string name="templates_insert_button">Insertar</string>
+  <string name="templates_param_suggested_value">por ejemplo, %s</string>
+  <string name="templates_param_optional_hint">%s (opcional)</string>
+  <string name="templates_param_suggested_hint">%s (sugerido)</string>
+  <string name="templates_learn_more_link">Aprende más</string>
+  <string name="templates_description_incomplete">Las plantillas las generan el usuario y pueden carecer de descripciones completas.</string>
+  <string name="templates_description_empty">La plantilla \" %s \" aún no tiene descripción.</string>
+  <string name="templates_description_missing_data">Esta plantilla carece de &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, y sus parámetros han sido &lt;a href=\"%2$s\"&gt;generados automáticamente&lt;/a&gt;. En consecuencia, la plantilla y sus parámetros carecen de descripciones.</string>
   <string name="main_drawer_help">Ayuda</string>
   <string name="main_drawer_login">Iniciar sesión / unirse a Wikipedia</string>
   <string name="main_tooltip_text">Hola, %s, ¿sabías que todos pueden editar Wikipedia?</string>
@@ -1242,6 +1251,7 @@
   <string name="talk_new_topic">Tema nuevo</string>
   <string name="talk_new_topic_submitted">Tema posted.</string>
   <string name="talk_warn_saved_messages">Mensajes guardados</string>
+  <string name="talk_warn_learn_more_label">Más información sobre los marcadores de posición de mensajes</string>
   <string name="talk_page_empty">Esta página de discusión está vacía.</string>
   <string name="talk_add_reply">Responder</string>
   <string name="talk_no_subject">(Sin asunto)</string>
@@ -1388,5 +1398,4 @@
   <string name="email_report_image_recommendations_body">He tenido un problema con la función de recomendación de imagen:\n- [Describe el problema en concreto]\n\nEl resultado que me gustaría ver es:\n- [Describe la solución propuesta]</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">¿Qué quieres que cambiemos o mejoremos?</string>
   <string name="places_empty_list">Esta área está vacía. Alejar &lt;a href=\"#\"&gt;el mapa&lt;/a&gt; .</string>
-  <string name="talk_warn_learn_more_label">Más información sobre los marcadores de posición de mensajes</string>
 </resources>

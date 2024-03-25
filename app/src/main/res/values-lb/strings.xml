@@ -1039,6 +1039,9 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Héicht</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Drasetzen</string>
+  <string name="templates_insert_button">Drasetzen</string>
+  <string name="templates_param_suggested_value">z.&amp;nbsp;B %s</string>
+  <string name="templates_param_optional_hint">%s (Fakultativ)</string>
   <string name="main_drawer_help">Hëllef</string>
   <string name="main_drawer_login">Aloggen / bei Wikipedia matmaachen</string>
   <string name="main_tooltip_text">Salut %s, wousst Dir, datt jiddwereen op Wikipedia Ännerunge maache kann?</string>
