@@ -14,7 +14,8 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.SiteInfo
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.time.*
+import java.util.Date
 
 @Serializable
 class MwQueryResult {
@@ -212,7 +213,10 @@ class MwQueryResult {
         private val tags: List<String>? = null
         private val oresscores: JsonElement? = null
 
-        val parsedDateTime by lazy { DateUtil.iso8601LocalDateTimeParse(timestamp) }
+        val parsedInstant: Instant by lazy { Instant.parse(timestamp) }
+        val parsedDateTime: LocalDateTime by lazy {
+            LocalDateTime.ofInstant(parsedInstant, ZoneId.systemDefault())
+        }
         val joinedTags by lazy { tags?.joinToString(separator = ", ").orEmpty() }
 
         override fun toString(): String {
