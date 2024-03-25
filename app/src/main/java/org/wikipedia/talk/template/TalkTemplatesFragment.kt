@@ -91,8 +91,10 @@ class TalkTemplatesFragment : Fragment() {
             updateAndNotifyAdapter()
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
             snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
-                PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
-                startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, Constants.InvokeSource.DIFF_ACTIVITY))
+                if (isAdded) {
+                    PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
+                    startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, Constants.InvokeSource.DIFF_ACTIVITY))
+                }
             }
             snackbar.show()
         }
@@ -119,8 +121,10 @@ class TalkTemplatesFragment : Fragment() {
             updateAndNotifyAdapter()
             val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
             snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
-                PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
-                startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, Constants.InvokeSource.DIFF_ACTIVITY))
+                if (isAdded) {
+                    PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
+                    startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, Constants.InvokeSource.DIFF_ACTIVITY))
+                }
             }
             snackbar.show()
         }
