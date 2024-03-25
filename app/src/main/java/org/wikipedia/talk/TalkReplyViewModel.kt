@@ -4,16 +4,16 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.discussiontools.ThreadItem
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
-import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_SAVED_TEMPLATE
-import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_SELECTED_TEMPLATE
-import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.talk.template.TalkTemplatesRepository
 import org.wikipedia.util.Resource
@@ -29,12 +29,15 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     val topic = bundle.parcelable<ThreadItem>(TalkReplyActivity.EXTRA_TOPIC)
     val isFromDiff = bundle.getBoolean(TalkReplyActivity.EXTRA_FROM_DIFF, false)
+    val selectedTemplate = bundle.parcelable<TalkTemplate>(TalkReplyActivity.EXTRA_SELECTED_TEMPLATE)
+    val isSavedTemplate = bundle.getBoolean(TalkReplyActivity.EXTRA_SAVED_TEMPLATE, false)
+    val templateManagementMode = bundle.getBoolean(TalkReplyActivity.EXTRA_TEMPLATE_MANAGEMENT, false)
+    val fromRevisionId = bundle.getLong(TalkReplyActivity.FROM_REVISION_ID, -1)
+    val toRevisionId = bundle.getLong(TalkReplyActivity.TO_REVISION_ID, -1)
     val isNewTopic = topic == null && !isFromDiff
+    
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()
-    val selectedTemplate = bundle.parcelable<TalkTemplate>(EXTRA_SELECTED_TEMPLATE)
-    val isSavedTemplate = bundle.getBoolean(EXTRA_SAVED_TEMPLATE, false)
-    val templateManagementMode = bundle.getBoolean(EXTRA_TEMPLATE_MANAGEMENT, false)
 
     init {
         if (isFromDiff) {

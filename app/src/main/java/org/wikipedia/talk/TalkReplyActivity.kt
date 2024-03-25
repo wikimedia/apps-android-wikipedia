@@ -385,7 +385,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
             binding.progressBar.isVisible = true
             setSaveButtonEnabled(false)
-            viewModel.postReply(subject, getUpdatedWikitext())
+            viewModel.postReply(subject, getWikitextBody())
             return
         }
 
@@ -433,19 +433,22 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         setSaveButtonEnabled(true)
         supportActionBar?.title = getString(R.string.edit_preview)
         binding.replyNextButton.text = getString(R.string.description_edit_save)
-        messagePreviewFragment.showPreview(viewModel.pageTitle, getUpdatedWikitext())
+        messagePreviewFragment.showPreview(viewModel.pageTitle, getWikitextForPreview())
         EditAttemptStepEvent.logSaveIntent(viewModel.pageTitle)
     }
 
-    private fun getUpdatedWikitext(): String {
-        val fromRevisionId = intent.getLongExtra(FROM_REVISION_ID, -1)
-        val toRevisionId = intent.getLongExtra(TO_REVISION_ID, -1)
+    private fun getWikitextForPreview(): String {
         val subject = binding.replySubjectText.text.toString().trim()
+        val body = getWikitextBody()
+        return if (subject.isNotEmpty()) "==$subject==\n$body" else body
+    }
+
+    private fun getWikitextBody(): String {
         var body = binding.replyInputView.editText.text.toString().trim()
         body = body.replace(getString(R.string.username_wikitext), getString(R.string.wikiText_replace_url, viewModel.pageTitle.prefixedText, "@" + StringUtil.removeNamespace(viewModel.pageTitle.prefixedText)))
         body = body.replace(getString(R.string.sender_username_wikitext), AccountUtil.userName.orEmpty())
-        body = body.replace(getString(R.string.diff_link_wikitext), viewModel.pageTitle.getWebApiUrl("diff=$toRevisionId&oldid=$fromRevisionId&variant=${viewModel.pageTitle.wikiSite.languageCode}"))
-        return if (subject.isNotEmpty()) "==$subject==\n$body" else body
+        body = body.replace(getString(R.string.diff_link_wikitext), viewModel.pageTitle.getWebApiUrl("diff=${viewModel.toRevisionId}&oldid=${viewModel.fromRevisionId}&variant=${viewModel.pageTitle.wikiSite.languageCode}"))
+        return body
     }
 
     private fun onSaveSuccess(newRevision: Long) {
