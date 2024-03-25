@@ -1233,6 +1233,8 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Korkeus</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">kuvapistettä</string>
   <string name="insert_media_insert_button">Lisää</string>
+  <string name="templates_param_suggested_value">esim. %s</string>
+  <string name="templates_learn_more_link">Lisätietoja</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="main_tooltip_text">Hei %s, tiesitkö että kuka tahansa voi muokata Wikipediaa?</string>

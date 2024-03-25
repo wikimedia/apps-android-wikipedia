@@ -67,7 +67,7 @@
   <string name="dialog_message_clear_history_yes">כן</string>
   <string name="dialog_message_clear_history_no">לא</string>
   <string name="share_via">שיתוף באמצעות</string>
-  <string name="image_share_via">שיתוף דרך</string>
+  <string name="image_share_via">שיתוף באמצעות</string>
   <string name="search_redirect_from">הופנה מהדף %s</string>
   <string name="page_edit_history_activity_title">היסטוריית גרסאות:  %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;מ&lt;/b&gt; %s</string>
@@ -94,17 +94,17 @@
   <string name="page_edit_history_empty_search_message">נא לנסות לשנות את &lt;a href=\"#\"&gt;המסננים&lt;/a&gt; כדי לראות יותר עריכות</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
-  <string name="menu_page_find_in_page">חיפוש בערך</string>
+  <string name="menu_page_find_in_page">למצוא בערך</string>
   <string name="menu_page_add_to_watchlist">הוספה לרשימת המעקב</string>
   <string name="menu_page_watch">לעקוב</string>
-  <string name="menu_page_unwatch">הפסקת מעקב</string>
+  <string name="menu_page_unwatch">להפסיק לעקוב</string>
   <string name="menu_page_view_talk">הצגת דף השיחה</string>
   <string name="menu_page_talk_page">דף שיחה</string>
   <string name="menu_page_view_edit_history">הצגת היסטוריית עריכות</string>
   <string name="menu_page_edit_history">היסטוריית עריכות</string>
   <string name="menu_page_remove_from_watchlist">הסרה מרשימת המעקב</string>
   <string name="menu_page_watched">במעקב</string>
-  <string name="edit_section_find_in_page">איתור בעמוד</string>
+  <string name="edit_section_find_in_page">למצוא בדף</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
   <string name="menu_page_add_to_default_list">שמירה</string>
@@ -179,7 +179,7 @@
   <string name="reset_password_button">שמירה וכניסה לחשבון</string>
   <string name="preference_title_logout">יציאה מהחשבון</string>
   <string name="toast_logout_complete">יצאת מהחשבון</string>
-  <string name="logout_prompt">פעולה זו תוציא אותך מהחשבון בכל המכשירים בהם נכנסת לחשבון. להמשיך?</string>
+  <string name="logout_prompt">הפעולה הזאת תוציא אותך מהחשבון בכל המכשירים שנכנסת בהם לחשבון. להמשיך?</string>
   <string name="logout_dialog_cancel_button_text">ביטול</string>
   <string name="logged_out_in_background_title">יצאת</string>
   <string name="logged_out_in_background_dialog">יצאת מוויקיפדיה. להיכנס בחזרה?</string>
@@ -307,8 +307,8 @@
   <string name="edit_notices_please_read">נא לקרוא לפני עריכה</string>
   <string name="edit_notices_show_auto">להציג אוטומטית את ההודעות לעורכים</string>
   <string name="edit_notices_tooltip">יש ללחוץ על הכפתור הזה כדי לצפות בהודעות לעורכים עבור הערך הזה.</string>
-  <string name="find_next">חיפוש הבא</string>
-  <string name="find_previous">חיפוש הקודם</string>
+  <string name="find_next">למצוא את הבא</string>
+  <string name="find_previous">למצוא את הקודם</string>
   <string name="find_first_occurence">זה המופע הראשון</string>
   <string name="find_last_occurence">זה המופע האחרון</string>
   <string name="article_opened_in_background_tab">הערך הזה נפתח בלשונית רקע.</string>
@@ -401,7 +401,7 @@
   <string name="page_offline_notice_last_date">זאת גרסה לקריאה ללא חיבור לרשת של הערך הזה, שנשמרה ב־%s.</string>
   <string name="redirected_from_snackbar">הופנה מהדף \"%s\"</string>
   <string name="button_get_directions">לקבל כיוונים</string>
-  <string name="error_no_maps_app">לא מצאתי אף יישום שנותן הכוונה.</string>
+  <string name="error_no_maps_app">לא מצאתי שום יישום ניווט.</string>
   <string name="preference_title_customize_explore_feed">הזנת \"לחקור\"</string>
   <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>
   <string name="preference_summary_customize_explore_feed">התאמה אישית של ההזנה \"לחקור\"</string>
@@ -1031,7 +1031,7 @@
   <string name="suggested_edits_image_tags_onboarding_title">תיוג תמונות עוזר לאחרים למצוא אותן.</string>
   <string name="suggested_edits_image_tags_onboarding_text">אימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.</string>
   <string name="suggested_edits_image_tags_onboarding_note">רק תגים שאישרת יוּספו לתמונות.</string>
-  <string name="suggested_edits_image_tags_task_detail">הוסיפו תגים מותאמים אישית לתמונה כדי שיהיה קל יותר למצוא אותה.</string>
+  <string name="suggested_edits_image_tags_task_detail">יש להוסיף תגים מותאמים אישית לתמונה כדי שיהיה קל יותר למצוא אותה.</string>
   <string name="suggested_edits_image_tags_choose">נא לבחור או להוסיף תגים תואמים</string>
   <string name="suggested_edits_image_tags_published_list">תגים שפורסמו</string>
   <string name="suggested_edits_image_tags_search">חיפוש תגים</string>
@@ -1053,7 +1053,7 @@
   <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסומה כרגע מעריכת ויקיפדיה.</string>
   <string name="suggested_edits_gate_message">סליחה, %s, יש לעשות לפחות שלוש עריכות ישירות בערכים שבמיזם כדי להשתמש בתכונה הזאת.</string>
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
-  <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
+  <string name="suggested_edits_help_page_link_text">דף עזרה לעריכות מוצעות</string>
   <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
   <string name="suggested_edits_views_label_text">צפיות</string>
   <string name="suggested_edits_quality_label_text">איכות עריכה</string>
@@ -1313,13 +1313,22 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">גובה</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">פיקסל</string>
   <string name="insert_media_insert_button">הוספה</string>
+  <string name="templates_search_hint">חיפוש תבניות</string>
+  <string name="templates_insert_button">הוספה</string>
+  <string name="templates_param_suggested_value">למשל %s</string>
+  <string name="templates_param_optional_hint">%s (לא חובה)</string>
+  <string name="templates_param_suggested_hint">%s (מוצע)</string>
+  <string name="templates_learn_more_link">מידע נוסף</string>
+  <string name="templates_description_incomplete">התבניות נוצרות על־ידי משתמשים ועשויות להיות חסרות תיאורים מלאים.</string>
+  <string name="templates_description_empty">לתבנית \"%s  עדיין אין תיאור.</string>
+  <string name="templates_description_missing_data">בתבנית הזאת אין &lt;a href=\"%1$s\"&gt;נתוני תבנית&lt;/a&gt;, והפרמטרים שלה &lt;a href=\"%2$s\"&gt;נוצרו באופן אוטומטי&lt;/a&gt;. בגלל זה לתבנית ולפרמטרים שלה אין תיאורים.</string>
   <string name="main_drawer_help">עזרה</string>
   <string name="main_drawer_login">כניסה / הצטרפות לוויקיפדיה</string>
-  <string name="main_tooltip_text">היי %s, הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
+  <string name="main_tooltip_text">שלום %s, הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="main_tooltip_text_v2">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="main_tooltip_action_button">להתחיל</string>
   <string name="main_tooltip_watchlist_title">רשימת המעקב</string>
-  <string name="main_tooltip_watchlist_text">מצא ערכים ודפים שהוספת לרשימת המעקב שלך בתפריד \"עוד\" תחת &lt;b&gt;רשימת המעקב&lt;/b&gt;.</string>
+  <string name="main_tooltip_watchlist_text">אפשר למצוא את הערכים ואת הדפים שהוספת לרשימת המעקב שלך בתפריט \"עוד\" תחת &lt;b&gt;רשימת המעקב&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_cancel_button_text">ביטול</string>
@@ -1341,6 +1350,7 @@
   <string name="talk_warn_saved_message">בחירת הודעת אזהרה קיימת או כתיבת הודעה חדשה.</string>
   <string name="talk_warn_saved_message_dropdown">הודעות שמורות</string>
   <string name="talk_warn_saved_messages">הודעות שמורות</string>
+  <string name="talk_warn_learn_more_label">מידע נוסף על מילוי הודעות</string>
   <string name="talk_page_empty">דף השיחה הזה ריק.</string>
   <string name="talk_page_empty_title">השיחה מתחילה כאן</string>
   <string name="talk_page_empty_content">דפי שיחה הם המקום שבו אנשים דנים איך להפוך את התוכן בוויקיפדיה לטוב ביותר שהוא יכול להיות. יש להתחיל בהוספת נושא דיון חדש כדי להתחבר ולשתף פעולה עם קהילה של ויקיפדים.</string>
@@ -1689,6 +1699,15 @@
   <string name="patroller_saved_message_title_do_not_censor">אסור לצנזר</string>
   <string name="patroller_saved_message_title_art_imp">הצעה לשיפור הערך</string>
   <string name="patroller_saved_message_body_vandalism">שלום {{{username}}}, אני רוצה להודיע לך ששחזרתי אחת או יותר מ[{{{diffLink}}}|התרומות שלך] כי הן לא נראות בונות. אם נראה לך שטעיתי או שיש לך שאלות, באפשרותך להשאיר הודעה ב[[User talk:{{{senderUserName}}}|דף השיחה שלי]]. נא לשים לב לכך שהמשך ההשחתה עלול להוביל להגבלות.</string>
+  <string name="patroller_saved_message_body_editing_tests">שלום {{{username}}}, משמח אותי שוויקיפדיה משכה את תשומת לבך ושמעניין אותך ללמוד איך לערוך בה. בדיקת העריכה שעשית עבדה; עם זאת, כדאי לזכור שהמטרה של המיזם הזה היא לפתח אנציקלופדיה אמינה ושלמה שכולם יכולים לקבל ממנה מידע. העריכה שלך השפיעה על התוכן, ולכן הוא הוסר.\nאם ברצונך ללמוד איך לערוך את ויקיפדיה, לרשותך עומד [[ויקיפדיה:ארגז חול|ארגז]]. אם היו לך הערות מסוימיות על ערך, המקום הנכון הוא דף השיחה של אותו הערך.</string>
+  <string name="patroller_saved_message_body_npov">שלום {{{username}}}, חלק מהתרומות שעשית אינן עומדות בניטרליות הנדרשת כדי לציית ל[[Wikipedia:NPOV|מדיניות נקודת המבט הניטרלית]] של הוויקיפדיה הזאת. מהסיבה הזאת, חלק מהתוכן שוּנה או הוסר. נא לשנות את הפסקאות או הסעיפים המציגים נקודת מבט מוטה, ולהחליף אותם בטקסט ניטרלי ואובייקטיבי יותר בהתאם למצופה באנציקלופדיה.</string>
+  <string name="patroller_saved_message_body_auto_trans">שלום {{{username}}}, חלק מהתרומות שעשית יכולות להיות תרגומי מכונה, וזאת הסיבה שהן שונו או סומנו בתבנית. אם לא ייעשו שיפורים בערך, הוא עלול להימחק.\n\nאם, למרות כל המידע הזה, עדיין יש לך שאלות, נא לא להסס להשאיר הודעה בכתובת [[User talk:{{{senderUserName}}}|דף השיחה שלי]]. לא תריך להתייאש מהאירוע הקטן הזה. התרומות שלך חשובות מאוד לוויקיפדיה.</string>
+  <string name="patroller_saved_message_body_coi_rem">שלום {{{username}}}, אני מודה לך על עבודתך בוויקיפדיה; עם זאת, שמתי לב שיש לך ב[[ויקיפדיה:אוטוביוגרפיה|ניגוד עניינים]]. ניגוד עניינים הוא חוסר ההתאמה בין יעדי הניטרליות והאמינות של ויקיפדיה לבין מטרות מסוימות של עורכים, אנשים, ישויות או חברות מכל סוג.\n\nכל התרומות במרחב הראשי כפופות למדיניות התוכן של הוויקיפדיה הזאת ([[ויקיפדיה:מה ויקיפדיה איננה|מה ויקיפדיה איננה]]), איכות אנציקלופדית (תוכן בר־אימות ואיסור על מחקר מקורי), שיטת עריכה ([[ויקיפדיה:נקודת מבט נייטרלית|נקודת מבט נייטרלית]]), ומעמד חוקי של תוכן ([[ויקיפדיה:זכויות יוצרים|זכויות יוצרים]]). מצופה מכל מי שמפרסם תוכן לציית למדיניות הזאת בעת יצירה והערכה של תוכן ולכבד ולהניח כוונה טובה בפעולותיהם של מפרסמים אחרים כדי להבטיח שכל כללי המדיניות הזאת מיושמים.\n\nאם נעשות מחשבון עריכות בעת ניגוד עניינים, יש ליישם את המדיניות המתאימה בזהירות יתרה; אחרת, חשבון המשתמש שלך יכול להיחשב לבעל מטרה פרטית ולהיחסם. נא לא להסס לפנות אליי בדף השיחה שלי אם יש לך שאלות.</string>
+  <string name="patroller_saved_message_body_final_warning">מכיוון שעשית עריכות הרסניות רבות, זאת האזהרה האחרונה שלך. אם תשחית שוב את ויקיפדיה, ייאסר עליך לערוך.</string>
+  <string name="patroller_saved_message_body_copy_vio">נראה שהעריכה האחרונה שלך כוללת חומר המוגבל בזכויות יוצרים ללא רשות. נא לוודא שכל התוכן תואם למדיניות [[ויקיפדיה:זכויות יוצרים|זכויות היוצרים]] של הוויקיפדיה הזאת כדי להימנע מהסרה.</string>
+  <string name="patroller_saved_message_body_edit_summary">שלום {{{username}}}, נראה שהסרת תוכן מוויקיפדיה מבלי להשאיר תקציר עריכה. נא לכתוב תקציר עריכה בכל הוספה או הסרה של תוכן בוויקיפדיה.</string>
+  <string name="patroller_saved_message_body_do_not_censor">שלום {{{username}}}, נראה שהסרת תוכן מבלי לדון בו בדף השיחה של הערך. יש לשים לב לכך שוויקיפדיה אינה מצונזרת, ואין להסיר תוכן רק מכיוון שהוא שנוי במחלוקת. אם נראה לך שהמידע אינו מדויק, נא להגיע להסכמה בדף השיחה של הערך.</string>
+  <string name="patroller_saved_message_body_art_imp">שלום {{{username}}}. הערך שלך הוא התחלה מצוינת! כדי לשפר אותו עוד יותר, נא לשקול להוסיף הפניות נוספות למקורות אמינים. זה עוזר לאמת את המידע ומשפר את איכות הערך. נא לעיין בהנחיות של הוויקיפדיה הזאת בנושא [[ויקיפדיה:ביבליוגרפיה|מקורות מהימנים]] לפרטים נוספים.</string>
   <string name="talk_templates_menu_edit_title">עריכה</string>
   <string name="data_opt_in_accept">לקבל</string>
   <string name="data_opt_in_reject">לדחות</string>
@@ -1717,5 +1736,4 @@
   <string name="places_survey_dialog_cancel">ביטול</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">מה היית רוצה שנשנה או נשפר?</string>
   <string name="places_empty_list">האזור הזה ריק. נא להתרחק &lt;a href=\"#\"&gt;על המפה&lt;/a&gt; .</string>
-  <string name="talk_warn_learn_more_label">מידע נוסף על מילוי הודעות</string>
 </resources>

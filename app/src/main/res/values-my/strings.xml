@@ -364,6 +364,10 @@
   <string name="multi_select_items_selected">%d ရွေးချယ်ခဲ့။</string>
   <string name="error_message_generic">အမှားတစ်ခု ဖြစ်ခဲ့သည်</string>
   <string name="view_link_preview_error_button_dismiss">ဖြုတ်ရန်</string>
+  <string name="link_preview_dialog_read_button">ဖတ်ရန်</string>
+  <string name="link_preview_dialog_save_button">သိမ်းရန်</string>
+  <string name="link_preview_dialog_saved_button">သိမ်းဆည်းပြီး</string>
+  <string name="link_preview_dialog_share_button">မျှဝေ</string>
   <string name="error_page_does_not_exist">ဤစာမျက်နှာ မရှိပါ</string>
   <string name="view_wiki_error_message_offline">အင်တာနက်သို့ ချိတ်ဆက်နိုင်ခြင်း မရှိပါ။</string>
   <string name="view_wiki_error_message_timeout">ဝီကီပီးဒီးယားသို့ ချိတ်ဆက်မရနိုင်ပါ။ သင်၏ နက်ဝတ်ကွန်နက်ရှင်ကိုစစ်ဆေးပါ သို့မဟုတ် ကြုံမှထပ်မံကြိုးစားကြည့်ပါ။</string>
@@ -715,6 +719,7 @@
   <string name="customize_toolbar_category_menu">မီးနူး</string>
   <string name="suggested_edits_describe_articles">ဆောင်းပါးများ ဖော်ပြရန်</string>
   <string name="suggested_edits_caption_images">ရုပ်ပုံများကို ပုံစံသတ်မှတ်ရန်</string>
+  <string name="suggested_edits_edit_patrol_review">ပြန်လည်ဆန်းစစ်</string>
   <string name="suggested_edits_review_description">ဆောင်းပါးဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="suggested_edits_edit_description_button">ဖော်ပြချက် တည်းဖြတ်ရန်</string>
@@ -829,7 +834,10 @@
   <string name="suggested_card_more_edits">ပိုမို၍ အကြံပြုထားသော တည်းဖြတ်မှုများ</string>
   <string name="suggested_edits_article_descriptions_dialog_title">အကြံပြုထားသော ဖော်ပြချက်များ</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">လုံလောက်မှုမရှိသော သတင်းအချက်အလက်</string>
+  <string name="suggested_edits_report_suggestion">အစီရင်ခံရန်</string>
   <string name="suggested_edits_contribution_diff_count_text">{{ဗဟုဝုစ်ကိန်း|တစ်=%1$s သွင်ပြင်လက္ခဏာ|%1$s သွင်ပြင်လက္ခဏာများ}}</string>
+  <string name="image_recommendation_reject_other">အခြား</string>
+  <string name="image_recommendation_tooltip_next">ရှေ့</string>
   <string name="file_page_activity_title">ဖိုင်စာမျက်နှာ</string>
   <string name="file_page_add_image_caption_button">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန်</string>
   <string name="file_page_edit_button_content_description">တည်းဖြတ်မှု %s</string>
@@ -925,6 +933,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_width">အကျယ်</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">အမြင့်</string>
   <string name="insert_media_insert_button">ထည့်သွင်းရန်</string>
+  <string name="templates_learn_more_link">ပိုမို လေ့လာရန်</string>
   <string name="main_drawer_help">အကူအညီ</string>
   <string name="main_drawer_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
   <string name="main_tooltip_text">ဟိုင်း %s၊ ဝီကီပီးဒီးယားကို လူတိုင်းတည်းဖြတ်နိုင်တယ်ဆိုတာ သင်သိပါသလား</string>
@@ -997,6 +1006,8 @@
   <string name="watchlist_page_moved">ရွေ့ပြောင်းခဲ့</string>
   <string name="watchlist_page_protected">ကာကွယ်ခဲ့သည်</string>
   <string name="watchlist_page_deleted">ဖျက်ပြီးပြီ</string>
+  <string name="watchlist_filter_user_status_unregistered">မှတ်ပုံမတင်ထားသူ</string>
+  <string name="watchlist_filter_user_status_registered">မှတ်ပုံတင်ထားသူ</string>
   <string name="watchlist_filter_user_status_newcomers">လူသစ်များ</string>
   <string name="watchlist_filter_user_status_learners">လေ့လာသူများ</string>
   <string name="watchlist_filter_user_status_experienced">အတွေ့အကြုံရှိ အသုံးပြုသူများ</string>
@@ -1029,6 +1040,20 @@
   <string name="user_contrib_menu_label">ဆောင်ရွက်ချက်များ</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">သဘောပေါက်ပြီ</string>
   <string name="reading_list_share_menu_label">မျှဝေ...</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">အသုံးပြုသူ သတင်းအချက်အလက်</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">အသုံးပြုသူ သတင်းအချက်အလက်</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">ပိတ်ရန်</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">မှတ်ပုံမတင်ထားသူ</string>
+  <string name="patroller_tasks_filters_user_status_registered">မှတ်ပုံတင်ထားသူ</string>
+  <string name="patroller_tasks_filters_user_status_experienced">အတွေ့အကြုံရှိ အသုံးပြုသူများ</string>
+  <string name="patroller_tasks_filters_significance_minor">အရေးမကြီးသည့် တည်းဖြတ်မှုများ</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">ဆောင်းပါး တည်းဖြတ်မှုမှတ်တမ်း</string>
+  <string name="patroller_tasks_overflow_learn">ပိုမို လေ့လာရန်</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">အကြံပေးရန်</string>
+  <string name="patroller_diff_feedback_dialog_submit">ထည့်သွင်းရန်</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">အကြံပြုချက် တင်သွင်းခဲ့သည်။</string>
   <string name="data_opt_in_accept">လက်ခံ</string>
   <string name="data_opt_in_reject">ပယ်ချရန်</string>
+  <string name="donation_campaign_go_back_button">နောက်သို့ ပြန်သွားရန်</string>
+  <string name="places_survey_dialog_cancel">မလုပ်တော့ပါ</string>
 </resources>
