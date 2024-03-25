@@ -150,7 +150,8 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
     private val requestStubArticleEditLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         if (it.resultCode == EditHandler.RESULT_REFRESH_PAGE) {
             overlayView?.let { overlay ->
-                FeedbackUtil.showMessage(overlay.rootView, getString(R.string.stub_article_edit_saved_successfully)).setAnchorView(overlay.secondaryButtonView).show()
+                FeedbackUtil.makeSnackbar(overlay.rootView, getString(R.string.stub_article_edit_saved_successfully))
+                    .setAnchorView(overlay.secondaryButtonView).show()
             }
         }
     }
@@ -397,10 +398,10 @@ class LinkPreviewDialog : ExtendedBottomSheetDialogFragment(), LinkPreviewErrorV
             )
         )
         val dir = if (L10nUtil.isLangRTL(viewModel.pageTitle.wikiSite.languageCode)) "rtl" else "ltr"
-        val editVisibility = contents.extract.isNullOrEmpty()
+        val editVisibility = contents.extract.isNullOrBlank() && viewModel.pageTitle.namespace() == Namespace.MAIN
         binding.linkPreviewEditButton.isVisible = editVisibility
         binding.linkPreviewThumbnailGallery.isVisible = !editVisibility
-        val extract = if (contents.extract.isNullOrEmpty()) "<i>" + getString(R.string.link_preview_stub_placeholder_text) + "</i>" else contents.extract
+        val extract = if (editVisibility) "<i>" + getString(R.string.link_preview_stub_placeholder_text) + "</i>" else contents.extract
         binding.linkPreviewExtractWebview.loadDataWithBaseURL(
             null,
             "${JavaScriptActionHandler.getCssStyles(viewModel.pageTitle.wikiSite)}<div style=\"line-height: 150%; color: #$colorHex\" dir=\"$dir\">$extract</div>",

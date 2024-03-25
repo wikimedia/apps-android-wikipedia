@@ -119,18 +119,15 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/linkPreviewEditButton"
-                    style="@style/App.Button"
+                    style="@style/App.Button.Tertiary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="14dp"
                     android:layout_marginTop="4dp"
-                    android:backgroundTint="?attr/background_color"
                     android:text="@string/menu_edit_article"
-                    android:textColor="?attr/secondary_color"
                     android:visibility="gone"
                     app:icon="@drawable/ic_mode_edit_white_24dp"
-                    app:iconGravity="start"
-                    app:iconTint="?attr/secondary_color" />
+                    tools:visibility="visible" />
             </LinearLayout>
 
             <org.wikipedia.page.linkpreview.LinkPreviewErrorView

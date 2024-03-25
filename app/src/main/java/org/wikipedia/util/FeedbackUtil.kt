@@ -81,10 +81,6 @@ object FeedbackUtil {
         makeSnackbar(activity, text, duration).show()
     }
 
-    fun showMessage(bestView: View, text: String, duration: Int = Snackbar.LENGTH_LONG): Snackbar {
-       return Snackbar.make(bestView, text, duration)
-    }
-
     fun showPrivacyPolicy(context: Context) {
         UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.privacy_policy_url)))
     }
@@ -133,13 +129,16 @@ object FeedbackUtil {
         views.forEach { it.setOnClickListener(TOOLBAR_ON_CLICK_LISTENER) }
     }
 
-    fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
-        val view = findBestView(activity)
+    fun makeSnackbar(view: View, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
         val snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration)
         val textView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
         textView.setLinkTextColor(ResourceUtil.getThemedColor(view.context, R.attr.progressive_color))
         textView.movementMethod = LinkMovementMethodExt.getExternalLinkMovementMethod(wikiSite)
         return snackbar
+    }
+
+    fun makeSnackbar(activity: Activity, text: CharSequence, duration: Int = LENGTH_DEFAULT, wikiSite: WikiSite = WikipediaApp.instance.wikiSite): Snackbar {
+        return makeSnackbar(findBestView(activity), text, duration, wikiSite)
     }
 
     fun showToastOverView(view: View, text: CharSequence?, duration: Int): Toast {
