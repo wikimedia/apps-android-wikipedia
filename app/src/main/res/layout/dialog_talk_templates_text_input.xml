@@ -17,7 +17,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:padding="16dp"
-            android:text="@string/talk_warn_save_dialog_message" />
+            android:text="@string/talk_warn_save_dialog_message"
+            android:textColor="?primary_color"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/subjectInputContainer"
@@ -40,7 +41,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:padding="16dp"
-            android:text="@string/talk_warn_save_dialog_existing_update_message" />
+            android:text="@string/talk_warn_save_dialog_existing_update_message"
+            android:textColor="?primary_color" />
     </RadioGroup>
 
 </ScrollView>

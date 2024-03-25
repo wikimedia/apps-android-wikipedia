@@ -132,7 +132,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             onGoNext()
         }
 
-        binding.learnLinkContainer.setOnClickListener {
+        binding.learnMoreButton.setOnClickListener {
             UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.talk_warn_learn_more_url)))
         }
 
@@ -208,7 +208,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     private fun onInitialLoad() {
         setSaveButtonEnabled(false)
         L10nUtil.setConditionalLayoutDirection(binding.talkScrollContainer, viewModel.pageTitle.wikiSite.languageCode)
-        binding.learnLinkContainer.isVisible = viewModel.isFromDiff
+        binding.learnMoreButton.isVisible = viewModel.isFromDiff
         if (viewModel.topic != null) {
             binding.replyInputView.userNameHints = setOf(viewModel.topic!!.author)
         }

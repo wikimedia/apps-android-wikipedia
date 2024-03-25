@@ -53,7 +53,7 @@ class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? =
         binding.listItem.setBackgroundResource(ResourceUtil.getThemedAttributeId(context,
             if (position == 0 && isSaveMessagesTab) R.attr.background_color else android.R.attr.selectableItemBackground))
         binding.listItemDescription.ellipsize =
-            if (!(position == 0 && isSaveMessagesTab)) null else TextUtils.TruncateAt.END
+            if (position == 0 && isSaveMessagesTab) null else TextUtils.TruncateAt.END
 
         binding.listItem.setOnClickListener {
             callback?.onClick(position)
