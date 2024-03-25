@@ -53,8 +53,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="?attr/primary_color"
                 android:textSize="14sp"
-                android:lineSpacingExtra="6sp"
-                android:ellipsize="end" />
+                android:lineSpacingExtra="6sp" />
 
         </LinearLayout>
 
