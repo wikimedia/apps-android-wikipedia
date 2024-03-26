@@ -358,8 +358,6 @@ class TalkTemplatesFragment : Fragment() {
             } else {
                 val logAction = if (inExampleMessagesTab) "example_message_select_click" else "saved_message_select_click"
                 PatrollerExperienceEvent.logAction(logAction, "pt_warning_messages")
-                // TODO: checking with Shay
-                PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
                 requestEditTemplate.launch(TalkReplyActivity.newIntent(requireContext(), viewModel.pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY,
                     fromDiff = true, selectedTemplate = templatesList[position], templateManagementMode = viewModel.templateManagementMode, fromRevisionId = viewModel.fromRevisionId,
                     toRevisionId = viewModel.toRevisionId, isExampleTemplate = inExampleMessagesTab))
@@ -472,8 +470,6 @@ class TalkTemplatesFragment : Fragment() {
         override fun onDeleteSelected() {
             if (selectedItems.size > 0) {
                 PatrollerExperienceEvent.logAction("delete_messages_click", "pt_warning_messages")
-                // TODO: confirm with Shay
-                PatrollerExperienceEvent.logAction("more_menu_remove_confirm", "pt_templates")
                 val messageStr = resources.getQuantityString(
                     R.plurals.talk_templates_message_delete_description,
                     selectedItems.size
