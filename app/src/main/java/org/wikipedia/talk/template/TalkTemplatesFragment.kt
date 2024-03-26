@@ -206,14 +206,14 @@ class TalkTemplatesFragment : Fragment() {
     }
 
     private fun setToolbarTitle() {
-        val title = StringUtil.fromHtml(viewModel.pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(viewModel.pageTitle.displayText)}</a>"
+        val title = StringUtil.fromHtml(viewModel.pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode) } +
+                ": " + "<a href='#'>${StringUtil.removeNamespace(viewModel.pageTitle.displayText)}</a>"
         ).trim().ifEmpty { getString(R.string.talk_no_subject) }
         ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
             it.movementMethod = LinkMovementMethodExt { _ ->
                 val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(viewModel.pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
                 startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
             }
-            FeedbackUtil.setButtonTooltip(it)
         }
         (requireActivity() as AppCompatActivity).supportActionBar?.title = title
     }

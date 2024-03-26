@@ -256,7 +256,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
                 startActivity(PageActivity.newIntentForNewTab(this, entry, entry.title))
             }
-            FeedbackUtil.setButtonTooltip(it)
         }
         supportActionBar?.title = title
     }
