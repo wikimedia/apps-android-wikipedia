@@ -27,6 +27,7 @@ class SwipeableItemTouchHelperCallback(
 ) : ItemTouchHelper.Callback() {
 
     interface Callback {
+        fun onMove() {}
         fun onSwipe()
         fun isSwipeable(): Boolean
     }
@@ -66,6 +67,9 @@ class SwipeableItemTouchHelperCallback(
     }
 
     override fun onMove(recyclerView: RecyclerView, source: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+        if (source is Callback) {
+            source.onMove()
+        }
         return source.itemViewType == target.itemViewType
     }
 

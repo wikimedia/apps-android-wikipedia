@@ -258,6 +258,7 @@ class TalkTemplatesFragment : Fragment() {
 
     private fun onDeleted(size: Int) {
         PatrollerExperienceEvent.logAction("message_deleted_toast", "pt_templates")
+        PatrollerExperienceEvent.logAction("delete_message_success", "pt_warning_messages")
         val messageStr = resources.getQuantityString(R.plurals.talk_templates_message_deleted, size)
         FeedbackUtil.makeSnackbar(requireActivity(), messageStr)
             .setAction(R.string.reading_list_item_delete_undo) {
@@ -295,8 +296,14 @@ class TalkTemplatesFragment : Fragment() {
             templatesItemView.setContents(item, position, binding.talkTemplatesTabLayout.selectedTabPosition == 1)
         }
 
+        override fun onMove() {
+            PatrollerExperienceEvent.logAction("delete_message_init", "pt_warning_messages")
+            super.onMove()
+        }
+
         override fun onSwipe() {
             selectedItems.add(entry)
+            PatrollerExperienceEvent.logAction("delete_message_click", "pt_warning_messages")
             deleteSelectedTalkTemplates()
         }
 
@@ -451,6 +458,7 @@ class TalkTemplatesFragment : Fragment() {
             super.onActionItemClicked(mode, menuItem)
             when (menuItem.itemId) {
                 R.id.menu_check_all -> {
+                    PatrollerExperienceEvent.logAction("delete_messages_init", "pt_warning_messages")
                     selectAllTalkTemplates(mode)
                     menuItem.isVisible = false
                     mode.menu.findItem(R.id.menu_uncheck_all).isVisible = true
@@ -468,6 +476,8 @@ class TalkTemplatesFragment : Fragment() {
 
         override fun onDeleteSelected() {
             if (selectedItems.size > 0) {
+                PatrollerExperienceEvent.logAction("delete_messages_click", "pt_warning_messages")
+                // TODO: confirm with Shay
                 PatrollerExperienceEvent.logAction("more_menu_remove_confirm", "pt_templates")
                 val messageStr = resources.getQuantityString(
                     R.plurals.talk_templates_message_delete_description,
