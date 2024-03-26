@@ -15,6 +15,8 @@ class EditAttemptStepEvent(private val event: EditAttemptStepInteractionEvent) :
     companion object {
         const val INTERFACE_WIKITEXT = "wikitext"
         const val INTERFACE_OTHER = "other"
+        const val INTERFACE_UNDO = "undo"
+        const val INTERFACE_ROLLBACK = "rollback"
 
         private const val STREAM_NAME = "eventlogging_EditAttemptStep"
         private const val INTEGRATION_ID = "app-android"
