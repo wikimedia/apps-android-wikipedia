@@ -1,6 +1,10 @@
 package org.wikipedia.talk.template
 
+import android.content.Context
+import android.content.res.Configuration
+import android.os.Bundle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -8,11 +12,18 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.wikipedia.Constants
+import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
+import org.wikipedia.extensions.parcelable
+import org.wikipedia.page.PageTitle
+import org.wikipedia.talk.TalkReplyActivity
+import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.db.TalkTemplate
-import java.util.Collections
+import java.util.*
 
-class TalkTemplatesViewModel : ViewModel() {
+class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
 
     private val talkTemplatesRepository = TalkTemplatesRepository(AppDatabase.instance.talkTemplateDao())
     private val handler = CoroutineExceptionHandler { _, throwable ->
@@ -22,6 +33,7 @@ class TalkTemplatesViewModel : ViewModel() {
         _actionState.value = ActionState.Error(throwable)
     }
     val talkTemplatesList = mutableListOf<TalkTemplate>()
+    val savedTemplatesList = mutableListOf<TalkTemplate>()
 
     private val _uiState = MutableStateFlow(UiState())
     val uiState = _uiState.asStateFlow()
@@ -29,8 +41,14 @@ class TalkTemplatesViewModel : ViewModel() {
     private val _actionState = MutableStateFlow(ActionState())
     val actionState = _actionState.asStateFlow()
 
+    val templateManagementMode = bundle.getBoolean(EXTRA_TEMPLATE_MANAGEMENT, false)
+    val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
+    val fromRevisionId = bundle.getLong(TalkReplyActivity.FROM_REVISION_ID)
+    val toRevisionId = bundle.getLong(TalkReplyActivity.TO_REVISION_ID)
+
     init {
         loadTalkTemplates()
+        loadSavedTemplates()
     }
 
     fun loadTalkTemplates() {
@@ -42,6 +60,25 @@ class TalkTemplatesViewModel : ViewModel() {
                 _uiState.value = UiState.Success()
             }
         }
+    }
+
+    private fun loadSavedTemplates() {
+        val langCode = pageTitle.wikiSite.languageCode
+        val context = WikipediaApp.instance.applicationContext
+        for (i in savedMessagesTitleList.indices) {
+            val talkTemplate = TalkTemplate(0, 0, -1, "",
+                if (i == 0) "" else getLocaleStringResource(Locale(langCode), savedMessagesTitleList[i], context),
+                getLocaleStringResource(Locale(langCode), savedMessagesBodyList[i], context))
+            savedTemplatesList.add(talkTemplate)
+        }
+    }
+
+    private fun getLocaleStringResource(requestedLocale: Locale, resourceId: Int, context: Context): String {
+        val result: String
+        val config = Configuration(context.resources.configuration)
+        config.setLocale(requestedLocale)
+        result = context.createConfigurationContext(config).getText(resourceId).toString()
+        return result
     }
 
     fun swapList(oldPosition: Int, newPosition: Int) {
@@ -59,6 +96,16 @@ class TalkTemplatesViewModel : ViewModel() {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
                 talkTemplatesRepository.updateTemplates(talkTemplatesList)
+            }
+        }
+    }
+
+    fun saveTemplates(talkTemplates: List<TalkTemplate>) {
+        viewModelScope.launch(actionHandler) {
+            withContext(Dispatchers.IO) {
+                talkTemplates.forEach { talkTemplatesRepository.insertTemplate(it) }
+                talkTemplatesList.addAll(talkTemplates)
+                _actionState.value = ActionState.Added()
             }
         }
     }
@@ -82,7 +129,25 @@ class TalkTemplatesViewModel : ViewModel() {
     }
 
     open class ActionState {
+        class Added : ActionState()
         class Deleted(val size: Int) : ActionState()
         class Error(val throwable: Throwable) : ActionState()
+    }
+     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
+        @Suppress("unchecked_cast")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return TalkTemplatesViewModel(bundle) as T
+        }
+    }
+
+    companion object {
+        private val savedMessagesTitleList = listOf(-1, R.string.patroller_saved_message_title_vandalism, R.string.patroller_saved_message_title_editing_tests, R.string.patroller_saved_message_title_npov,
+            R.string.patroller_saved_message_title_auto_trans, R.string.patroller_saved_message_title_coi_rem, R.string.patroller_saved_message_title_final_warning,
+            R.string.patroller_saved_message_title_copy_vio, R.string.patroller_saved_message_title_edit_summary_reminder, R.string.patroller_saved_message_title_do_not_censor, R.string.patroller_saved_message_title_art_imp)
+
+        private val savedMessagesBodyList = listOf(
+            R.string.talk_warn_saved_messages_usage_instruction, R.string.patroller_saved_message_body_vandalism, R.string.patroller_saved_message_body_editing_tests, R.string.patroller_saved_message_body_npov,
+            R.string.patroller_saved_message_body_auto_trans, R.string.patroller_saved_message_body_coi_rem, R.string.patroller_saved_message_body_final_warning,
+            R.string.patroller_saved_message_body_copy_vio, R.string.patroller_saved_message_body_edit_summary, R.string.patroller_saved_message_body_do_not_censor, R.string.patroller_saved_message_body_art_imp)
     }
 }

@@ -1,35 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/paper_color"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/talk_templates_toolbar_container"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        style="@style/ToolbarStyle.Small"
-        app:contentInsetStart="0dp"
-        app:contentInsetEnd="0dp" />
+        android:layout_height="wrap_content"
+        android:background="?attr/paper_color"
+        app:elevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                style="@style/ToolbarStyle.Small"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_weight="1"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:layout_scrollFlags="scroll|enterAlways" />
+
+            <TextView
+                android:id="@+id/toolBar_edit_view"
+                style="@style/H3"
+                android:textColor="?attr/progressive_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/talk_templates_menu_edit_title" />
+        </LinearLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/talk_templates_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/tab_layout_background_bottom_line"
+            android:visibility="visible"
+            app:tabIndicatorColor="?attr/progressive_color"
+            app:tabIndicatorFullWidth="true"
+            app:tabRippleColor="?attr/progressive_color"
+            app:tabSelectedTextColor="?attr/progressive_color"
+            app:tabTextAppearance="@style/H3.Button"
+            app:tabTextColor="?attr/inactive_color">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/talk_templates_your_messages_tab_title" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/talk_templates_example_messages_tab_title" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
         <ProgressBar
             android:id="@+id/talkTemplatesProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/talkTemplatesRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="vertical"/>
+            android:scrollbars="vertical"
+            android:paddingBottom="64dp"
+            android:background="?paper_color"
+            android:clipToPadding="false" />
 
         <LinearLayout
             android:id="@+id/talkTemplatesEmptyContainer"
@@ -44,9 +100,10 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_empty_state_illustration"/>
+                app:srcCompat="@drawable/ic_empty_state_illustration" />
 
             <TextView
+                android:id="@+id/talkTemplatesEmptyStateTextView"
                 style="@style/P"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,6 +121,17 @@
             android:layout_gravity="center"
             android:orientation="vertical"
             android:visibility="gone" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_template_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="12dp"
+            android:contentDescription="@null"
+            app:backgroundTint="?attr/progressive_color"
+            app:srcCompat="@drawable/outline_edit_square_24"
+            app:tint="?attr/paper_color" />
 
     </FrameLayout>
 

@@ -12,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
@@ -48,9 +47,9 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment
-import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
+import org.wikipedia.talk.template.TalkTemplatesActivity
 import org.wikipedia.util.ClipboardUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
@@ -82,27 +81,6 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             binding.collapsingToolbarLayout.offsetDescendantRectToMyCoords(binding.articleTitleDivider, bounds)
             binding.overlayRevisionDetailsView.isVisible = -verticalOffset > bounds.top
         }
-
-    private val requestWarn = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || it.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
-            viewModel.revisionTo?.let { revision ->
-                val pageTitle = PageTitle(UserAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
-                val message = if (it.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
-                    sendPatrollerExperienceEvent("publish_message_toast", "pt_warning_messages")
-                    R.string.talk_warn_submitted
-                } else {
-                    sendPatrollerExperienceEvent("publish_message_saved_toast", "pt_warning_messages")
-                    R.string.talk_warn_submitted_and_saved
-                }
-                val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
-                snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
-                    sendPatrollerExperienceEvent("publish_message_view_click", "pt_warning_messages")
-                    startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, InvokeSource.DIFF_ACTIVITY))
-                }
-                snackbar.show()
-            }
-        }
-    }
 
     private fun sendPatrollerExperienceEvent(action: String, activeInterface: String, actionData: String = "") {
         if (viewModel.fromRecentEdits) {
@@ -350,7 +328,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             sendPatrollerExperienceEvent("warn_init", "pt_toolbar")
             viewModel.revisionTo?.let { revision ->
                 val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
-                requestWarn.launch(TalkReplyActivity.newIntent(requireContext(), pageTitle, null, null, invokeSource = InvokeSource.DIFF_ACTIVITY, fromDiff = true))
+                requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, fromRevisionId = viewModel.revisionFromId, toRevisionId = viewModel.revisionToId))
             }
         }
 
@@ -366,6 +344,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
         menu.findItem(R.id.menu_view_edit_history).isVisible = viewModel.fromRecentEdits
         menu.findItem(R.id.menu_report_feature).isVisible = viewModel.fromRecentEdits
         menu.findItem(R.id.menu_learn_more).isVisible = viewModel.fromRecentEdits
+        menu.findItem(R.id.menu_saved_messages).isVisible = viewModel.fromRecentEdits
     }
 
     override fun onMenuItemSelected(item: MenuItem): Boolean {
@@ -394,6 +373,11 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             R.id.menu_report_feature -> {
                 sendPatrollerExperienceEvent("top_menu_feedback_click", "pt_edit")
                 showFeedbackOptionsDialog(true)
+                true
+            }
+            R.id.menu_saved_messages -> {
+                val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), viewModel.pageTitle.text, viewModel.pageTitle.wikiSite)
+                requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, true))
                 true
             }
             else -> false

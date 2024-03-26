@@ -74,4 +74,10 @@
     <string name="tag_icon_key">tagIconKey</string>
     <string name="tag_text_key">tagTextKey</string>
 
+    <!-- Patroller tasks -->
+    <string name="username_wikitext">{{{username}}}</string>
+    <string name="sender_username_wikitext">{{{senderUserName}}}</string>
+    <string name="diff_link_wikitext">{{{diffLink}}}</string>
+    <string name="wikiText_replace_url">[[%1$s|%2$s]]</string>
+
 </resources>
