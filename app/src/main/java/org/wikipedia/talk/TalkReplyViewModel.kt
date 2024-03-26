@@ -31,7 +31,6 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     val isFromDiff = bundle.getBoolean(TalkReplyActivity.EXTRA_FROM_DIFF, false)
     val selectedTemplate = bundle.parcelable<TalkTemplate>(TalkReplyActivity.EXTRA_SELECTED_TEMPLATE)
     val isSavedTemplate = bundle.getBoolean(TalkReplyActivity.EXTRA_SAVED_TEMPLATE, false)
-    val templateManagementMode = bundle.getBoolean(TalkReplyActivity.EXTRA_TEMPLATE_MANAGEMENT, false)
     val fromRevisionId = bundle.getLong(TalkReplyActivity.FROM_REVISION_ID, -1)
     val toRevisionId = bundle.getLong(TalkReplyActivity.TO_REVISION_ID, -1)
     val isNewTopic = topic == null && !isFromDiff
