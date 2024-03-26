@@ -188,7 +188,6 @@ class TalkTemplatesFragment : Fragment() {
 
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
-        setUpTouchListeners()
 
         binding.talkTemplatesEmptyStateTextView.text = StringUtil.fromHtml(getString(R.string.talk_templates_empty_message))
 
@@ -236,6 +235,7 @@ class TalkTemplatesFragment : Fragment() {
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.talkTemplatesRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
         updateAndNotifyAdapter()
+        setUpTouchListeners()
     }
 
     private fun onLoading() {
@@ -296,12 +296,9 @@ class TalkTemplatesFragment : Fragment() {
             templatesItemView.setContents(item, position, binding.talkTemplatesTabLayout.selectedTabPosition == 1)
         }
 
-        override fun onMove() {
-            PatrollerExperienceEvent.logAction("delete_message_init", "pt_warning_messages")
-            super.onMove()
-        }
-
         override fun onSwipe() {
+            // TODO: confirm with Shay
+            PatrollerExperienceEvent.logAction("delete_message_init", "pt_warning_messages")
             selectedItems.add(entry)
             PatrollerExperienceEvent.logAction("delete_message_click", "pt_warning_messages")
             deleteSelectedTalkTemplates()

@@ -129,7 +129,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         binding.replyInputView.editText.addTextChangedListener(textWatcher)
 
         binding.replyNextButton.setOnClickListener {
-            sendPatrollerExperienceEvent("message_review_next_click", "pt_warning_messages")
             onGoNext()
         }
 
@@ -324,8 +323,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     }
                     val messageType = if (textInputDialog.isSaveAsNewChecked) "new" else "updated"
                     sendPatrollerExperienceEvent("save_message_success", "pt_warning_messages", PatrollerExperienceEvent.getActionDataString(messageType = messageType))
-
-//                    viewModel.isExampleMessageModified =
                 }
 
                 override fun onCancel() {
@@ -418,12 +415,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             } else {
                 if (viewModel.selectedTemplate != null && viewModel.selectedTemplate?.subject == subject &&
                     viewModel.selectedTemplate?.message == body) {
+                    sendPatrollerExperienceEvent("message_review_next_click", "pt_warning_messages")
                     showEditPreview()
                 } else {
                     showSaveDialog(subject, body)
                 }
             }
         } else {
+            sendPatrollerExperienceEvent("message_review_next_click", "pt_warning_messages")
             showEditPreview()
             setSaveButtonEnabled(true)
         }
@@ -458,8 +457,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         AnonymousNotificationHelper.onEditSubmitted()
 
         PatrollerExperienceEvent.logAction("publish_message_success", "pt_warning_messages",
-            PatrollerExperienceEvent.getPublishMessageActionString(isModified = viewModel.selectedTemplate != null && subjectOrBodyModified,
-                isSaved = viewModel.talkTemplateSaved, exampleMessage = if (viewModel.isExampleTemplate) viewModel.selectedTemplate?.title else ""))
+            PatrollerExperienceEvent.getPublishMessageActionString(isModified = viewModel.isExampleTemplate && viewModel.selectedTemplate != null && subjectOrBodyModified,
+                isSaved = viewModel.talkTemplateSaved, exampleMessage = if (viewModel.isExampleTemplate) viewModel.selectedTemplate?.title else null))
 
         binding.progressBar.visibility = View.GONE
         setSaveButtonEnabled(true)
@@ -571,7 +570,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         const val FROM_REVISION_ID = "fromRevisionId"
         const val EXTRA_SELECTED_TEMPLATE = "selectedTemplate"
         const val EXTRA_TEMPLATE_MANAGEMENT = "templateManagement"
-        const val EXTRA_SAVED_TEMPLATE = "savedTemplate"
         const val EXTRA_EXAMPLE_TEMPLATE = "exampleTemplate"
 
         // TODO: persist in db. But for now, it's fine to store these for the lifetime of the app.
