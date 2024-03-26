@@ -34,7 +34,11 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     val templateManagementMode = bundle.getBoolean(TalkReplyActivity.EXTRA_TEMPLATE_MANAGEMENT, false)
     val fromRevisionId = bundle.getLong(TalkReplyActivity.FROM_REVISION_ID, -1)
     val toRevisionId = bundle.getLong(TalkReplyActivity.TO_REVISION_ID, -1)
+    var isExampleMessageModified = false
+    var isMessageSaved = false
     val isNewTopic = topic == null && !isFromDiff
+
+
 
     val postReplyData = SingleLiveData<Resource<Long>>()
     val saveTemplateData = SingleLiveData<Resource<TalkTemplate>>()

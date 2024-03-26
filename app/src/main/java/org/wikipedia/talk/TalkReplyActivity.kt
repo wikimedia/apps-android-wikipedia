@@ -129,10 +129,12 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         binding.replyInputView.editText.addTextChangedListener(textWatcher)
 
         binding.replyNextButton.setOnClickListener {
+            sendPatrollerExperienceEvent("message_review_next_click", "pt_warning_messages")
             onGoNext()
         }
 
         binding.learnMoreButton.setOnClickListener {
+            sendPatrollerExperienceEvent("learn_click", "pt_warning_messages")
             UriUtil.visitInExternalBrowser(this, Uri.parse(getString(R.string.talk_warn_learn_more_url)))
         }
 
@@ -320,8 +322,10 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     } else {
                         showEditPreview()
                     }
-                    val messageType = if (textInputDialog.isSaveAsNewChecked) "new" else if (textInputDialog.isSaveExistingChecked) "updated" else ""
-                    sendPatrollerExperienceEvent("publish_message_click", "pt_warning_messages", PatrollerExperienceEvent.getActionDataString(messageType = messageType))
+                    val messageType = if (textInputDialog.isSaveAsNewChecked) "new" else "updated"
+                    sendPatrollerExperienceEvent("save_message_success", "pt_warning_messages", PatrollerExperienceEvent.getActionDataString(messageType = messageType))
+
+//                    viewModel.isExampleMessageModified =
                 }
 
                 override fun onCancel() {
@@ -382,7 +386,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
         if (messagePreviewFragment.isActive) {
             EditAttemptStepEvent.logSaveAttempt(viewModel.pageTitle)
-
+            PatrollerExperienceEvent.logAction("publish_message_click", "pt_warning_messages")
             binding.progressBar.isVisible = true
             setSaveButtonEnabled(false)
             viewModel.postReply(subject, getWikitextBody())
@@ -402,7 +406,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
         if (viewModel.isFromDiff && subjectOrBodyModified) {
             setSaveButtonEnabled(false)
-            sendPatrollerExperienceEvent("publish_saved_message_click", "pt_warning_messages")
             DeviceUtil.hideSoftKeyboard(this)
             if (viewModel.templateManagementMode) {
                 if (viewModel.selectedTemplate != null && !viewModel.isSavedTemplate) {
@@ -453,6 +456,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     private fun onSaveSuccess(newRevision: Long) {
         AnonymousNotificationHelper.onEditSubmitted()
+
+        PatrollerExperienceEvent.logAction("publish_message_success", "pt_warning_messages",
+            PatrollerExperienceEvent.getPublishMessageActionString())
 
         binding.progressBar.visibility = View.GONE
         setSaveButtonEnabled(true)

@@ -159,14 +159,16 @@ class TalkTemplatesFragment : Fragment() {
             }
         }
 
-        binding.addTemplateFab.setOnClickListener {
+        binding.addSavedMessageFab.setOnClickListener {
+            PatrollerExperienceEvent.logAction("new_message_init", "pt_warning_messages")
             requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), viewModel.pageTitle, null,
                 null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateManagementMode = viewModel.templateManagementMode,
                 fromRevisionId = viewModel.fromRevisionId, toRevisionId = viewModel.toRevisionId))
         }
 
-        binding.toolBarEditView.setOnClickListener {
+        binding.toolBarEditButton.setOnClickListener {
             if (actionMode == null) {
+                PatrollerExperienceEvent.logAction("saved_message_edit_click", "pt_warning_messages")
                 beginRemoveItemsMode()
                 updateAndNotifyAdapter()
             }
@@ -179,7 +181,7 @@ class TalkTemplatesFragment : Fragment() {
                 }
                 touchCallback.swipeableEnabled = tab.position == 0
                 updateAndNotifyAdapter()
-                showToolbarEditView(tab.position == 0)
+                showToolbarEditButton(tab.position == 0)
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
@@ -196,8 +198,8 @@ class TalkTemplatesFragment : Fragment() {
         }
     }
 
-    private fun showToolbarEditView(visible: Boolean) {
-        binding.toolBarEditView.isVisible = visible
+    private fun showToolbarEditButton(visible: Boolean) {
+        binding.toolBarEditButton.isVisible = visible
     }
 
     private fun setUpTouchListeners() {
@@ -218,7 +220,7 @@ class TalkTemplatesFragment : Fragment() {
         adapter.templatesList.clear()
         adapter.templatesList.addAll(if (binding.talkTemplatesTabLayout.selectedTabPosition == 0) viewModel.talkTemplatesList else viewModel.savedTemplatesList)
         updateEmptyState()
-        showToolbarEditView(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
+        showToolbarEditButton(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
         adapter.notifyDataSetChanged()
     }
 
@@ -244,7 +246,7 @@ class TalkTemplatesFragment : Fragment() {
 
     private fun onSuccess() {
         setRecyclerView()
-        showToolbarEditView(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
+        showToolbarEditButton(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
         binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesErrorView.visibility = View.GONE
         binding.talkTemplatesProgressBar.visibility = View.GONE
@@ -351,6 +353,10 @@ class TalkTemplatesFragment : Fragment() {
                 toggleSelectedItem(templatesList[position])
                 adapter.notifyItemChanged(position)
             } else {
+                val logAction = if (binding.talkTemplatesTabLayout.selectedTabPosition == 1)
+                    "example_message_select_click" else "saved_message_select_click"
+                PatrollerExperienceEvent.logAction(logAction, "pt_warning_messages")
+                // TODO: checking with Shay
                 PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
                 requestEditTemplate.launch(TalkReplyActivity.newIntent(requireContext(), viewModel.pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY,
                     fromDiff = true, selectedTemplate = templatesList[position], templateManagementMode = viewModel.templateManagementMode, fromRevisionId = viewModel.fromRevisionId,

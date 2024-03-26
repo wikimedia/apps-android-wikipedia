@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/talk_templates_toolbar_container"
+        android:id="@+id/talkTemplatesToolbarTontainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/paper_color"
@@ -29,7 +29,7 @@
                 app:layout_scrollFlags="scroll|enterAlways" />
 
             <TextView
-                android:id="@+id/toolBar_edit_view"
+                android:id="@+id/toolBarEditButton"
                 style="@style/H3"
                 android:textColor="?attr/progressive_color"
                 android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/talk_templates_tab_layout"
+            android:id="@+id/talkTemplatesTabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -123,7 +123,7 @@
             android:visibility="gone" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_template_fab"
+            android:id="@+id/addSavedMessageFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
