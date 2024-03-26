@@ -297,8 +297,6 @@ class TalkTemplatesFragment : Fragment() {
         }
 
         override fun onSwipe() {
-            // TODO: confirm with Shay
-            PatrollerExperienceEvent.logAction("delete_message_init", "pt_warning_messages")
             selectedItems.add(entry)
             PatrollerExperienceEvent.logAction("delete_message_click", "pt_warning_messages")
             deleteSelectedTalkTemplates()
