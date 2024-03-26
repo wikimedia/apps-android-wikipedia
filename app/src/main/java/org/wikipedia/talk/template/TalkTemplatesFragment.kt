@@ -346,21 +346,21 @@ class TalkTemplatesFragment : Fragment() {
         }
 
         override fun onClick(position: Int) {
-            if (position == 0 && binding.talkTemplatesTabLayout.selectedTabPosition == 1) {
+            val inExampleMessagesTab = binding.talkTemplatesTabLayout.selectedTabPosition == 1
+            if (position == 0 && inExampleMessagesTab) {
                 return
             }
             if (actionMode != null) {
                 toggleSelectedItem(templatesList[position])
                 adapter.notifyItemChanged(position)
             } else {
-                val logAction = if (binding.talkTemplatesTabLayout.selectedTabPosition == 1)
-                    "example_message_select_click" else "saved_message_select_click"
+                val logAction = if (inExampleMessagesTab) "example_message_select_click" else "saved_message_select_click"
                 PatrollerExperienceEvent.logAction(logAction, "pt_warning_messages")
                 // TODO: checking with Shay
                 PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
                 requestEditTemplate.launch(TalkReplyActivity.newIntent(requireContext(), viewModel.pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY,
                     fromDiff = true, selectedTemplate = templatesList[position], templateManagementMode = viewModel.templateManagementMode, fromRevisionId = viewModel.fromRevisionId,
-                    toRevisionId = viewModel.toRevisionId, isSavedTemplate = binding.talkTemplatesTabLayout.selectedTabPosition == 1))
+                    toRevisionId = viewModel.toRevisionId, isExampleTemplate = inExampleMessagesTab))
             }
         }
 

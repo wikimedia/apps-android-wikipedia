@@ -408,7 +408,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             setSaveButtonEnabled(false)
             DeviceUtil.hideSoftKeyboard(this)
             if (viewModel.templateManagementMode) {
-                if (viewModel.selectedTemplate != null && !viewModel.isSavedTemplate) {
+                if (viewModel.selectedTemplate != null && !viewModel.isExampleTemplate) {
                     viewModel.selectedTemplate?.let {
                         viewModel.updateTemplate(it.title, subject, body, it)
                     }
@@ -458,7 +458,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         AnonymousNotificationHelper.onEditSubmitted()
 
         PatrollerExperienceEvent.logAction("publish_message_success", "pt_warning_messages",
-            PatrollerExperienceEvent.getPublishMessageActionString())
+            PatrollerExperienceEvent.getPublishMessageActionString(isModified = viewModel.selectedTemplate != null && subjectOrBodyModified,
+                isSaved = viewModel.talkTemplateSaved, exampleMessage = if (viewModel.isExampleTemplate) viewModel.selectedTemplate?.title else ""))
 
         binding.progressBar.visibility = View.GONE
         setSaveButtonEnabled(true)
@@ -571,6 +572,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         const val EXTRA_SELECTED_TEMPLATE = "selectedTemplate"
         const val EXTRA_TEMPLATE_MANAGEMENT = "templateManagement"
         const val EXTRA_SAVED_TEMPLATE = "savedTemplate"
+        const val EXTRA_EXAMPLE_TEMPLATE = "exampleTemplate"
 
         // TODO: persist in db. But for now, it's fine to store these for the lifetime of the app.
         val draftReplies = lruCache<String, CharSequence>(10)
@@ -587,7 +589,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                       toRevisionId: Long = -1,
                       fromRevisionId: Long = -1,
                       templateManagementMode: Boolean = false,
-                      isSavedTemplate: Boolean = false
+                      isExampleTemplate: Boolean = false
         ): Intent {
             return Intent(context, TalkReplyActivity::class.java)
                     .putExtra(Constants.ARG_TITLE, pageTitle)
@@ -598,7 +600,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     .putExtra(EXTRA_FROM_DIFF, fromDiff)
                     .putExtra(EXTRA_SELECTED_TEMPLATE, selectedTemplate)
                     .putExtra(EXTRA_TEMPLATE_MANAGEMENT, templateManagementMode)
-                    .putExtra(EXTRA_SAVED_TEMPLATE, isSavedTemplate)
+                    .putExtra(EXTRA_EXAMPLE_TEMPLATE, isExampleTemplate)
                     .putExtra(FROM_REVISION_ID, fromRevisionId)
                     .putExtra(TO_REVISION_ID, toRevisionId)
                     .putExtra(Constants.INTENT_EXTRA_INVOKE_SOURCE, invokeSource)
