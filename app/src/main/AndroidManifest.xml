@@ -361,11 +361,6 @@
             android:name=".talk.template.TalkTemplatesActivity"
             android:theme="@style/AppTheme" />
 
-        <activity
-            android:name=".talk.template.AddTemplateActivity"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-
         <provider
             android:name=".WikipediaFileProvider"
             android:authorities="${applicationId}.fileprovider"

@@ -21,56 +21,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <LinearLayout
-                android:id="@+id/talkTemplateContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="gone">
-
-                <TextView
-                    style="@style/P.MaterialListTitle"
-                    android:id="@+id/talkTemplateMessage"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="12dp"
-                    android:layout_weight="1"
-                    android:text="@string/talk_templates_new_message_description"/>
-
-                <ImageView
-                    android:id="@+id/talkTemplateButton"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:contentDescription="@string/talk_templates_manage_title"
-                    android:padding="12dp"
-                    app:tint="?attr/secondary_color"
-                    app:srcCompat="@drawable/ic_manage_template" />
-
-            </LinearLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/SpinnerTextInputLayoutStyle"
-                android:id="@+id/talkTemplateSpinnerLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                android:hint="@string/talk_warn_saved_message_dropdown"
-                android:visibility="gone">
-
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/talkTemplateSpinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none"
-                    tools:ignore="LabelFor" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/replySubjectLayout"
                 android:layout_width="match_parent"
@@ -81,12 +31,11 @@
 
                 <org.wikipedia.views.PlainPasteEditText
                     android:id="@+id/replySubjectText"
+                    style="@style/P"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="flagNoExtractUi|actionNext"
-                    android:inputType="textEmailSubject"
-                    android:lineSpacingExtra="6sp"
-                    android:textSize="16sp" />
+                    android:inputType="textEmailSubject" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <org.wikipedia.views.UserMentionInputView
@@ -97,19 +46,23 @@
                 android:layout_marginTop="16dp" />
 
             <TextView
-                android:id="@+id/licenseText"
+                android:id="@+id/learnMoreButton"
+                style="@style/P"
+                android:background="?android:attr/selectableItemBackground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                app:drawableStartCompat="@drawable/ic_license_cc"
-                app:drawableTint="?attr/placeholder_color"
-                android:drawablePadding="8dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?attr/secondary_color"
-                tools:text="Sample license text" />
-
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="48dp"
+                android:layout_marginHorizontal="12dp"
+                android:text="@string/talk_warn_learn_more_label"
+                android:textColor="?attr/primary_color"
+                android:drawablePadding="12dp"
+                android:paddingVertical="8dp"
+                app:drawableStartCompat="@drawable/ic_open_in_new_black_24px"
+                app:drawableTint="?attr/secondary_color" />
         </LinearLayout>
-
     </ScrollView>
 
 
@@ -129,7 +82,7 @@
         android:layout_gravity="bottom"
         android:layout_marginBottom="48dp"
         android:background="?attr/paper_color"
-        android:elevation="12dp"/>
+        android:elevation="12dp" />
 
     <org.wikipedia.edit.WikiTextKeyboardView
         android:id="@+id/edit_keyboard_overlay"
@@ -138,7 +91,7 @@
         android:layout_gravity="bottom"
         android:background="?attr/paper_color"
         android:elevation="12dp"
-        app:headingsEnable="false"/>
+        app:headingsEnable="false" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/message_preview_fragment"
@@ -150,11 +103,11 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/replyToolbar"
+        style="@style/ToolbarStyle.Small"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        style="@style/ToolbarStyle.Small"
-        app:contentInsetStart="0dp"
-        app:contentInsetEnd="0dp">
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
 
         <TextView
             android:id="@+id/replyNextButton"
@@ -162,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|center_vertical"
-            android:text="@string/edit_next"/>
+            android:text="@string/edit_next" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 

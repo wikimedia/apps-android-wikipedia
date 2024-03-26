@@ -1487,10 +1487,8 @@
   <string name="reading_list_share_message_v2">Message that is sent to a recipient when sharing a reading list.</string>
   <string name="reading_list_share_survey_title">Title for dialog box that leads to a survey about sharing reading lists.</string>
   <string name="reading_list_share_survey_body">Message body for dialog box that leads to a survey about sharing reading lists.</string>
-  <string name="talk_templates_manage_title">Title of the manage warn template screen.</string>
   <string name="talk_templates_empty_message">Empty message of the warn template.</string>
   <string name="talk_templates_new_message_title">Title of the add a new message screen.</string>
-  <string name="talk_templates_new_message_description">Description of adding a warning message.</string>
   <string name="talk_templates_new_message_subject_hint">Label of the new message subject input field.</string>
   <string name="talk_templates_new_message_compose_hint">Label of the new message content input field.</string>
   <string name="talk_templates_new_message_save">Button label for saving the new message.</string>
@@ -1515,7 +1513,6 @@
     <item quantity="other">Snackbar message that show the messages have been deleted.</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Error message shown when the template title is empty.</string>
-  <string name="patroller_tasks_edits_list_title">Title of the screen that shows a list of edits.</string>
   <string name="patroller_tasks_edits_list_search_hint">Hint text of in the search bar of searching or filtering edits.</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Text of showing added tags in this edit. %s will be replaced by the added tags.</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Text that indicates no tag has been added in this edit.</string>
@@ -1575,7 +1572,6 @@
     <item quantity="one">Text indicating a single filter. %d indicates the number of filters.</item>
     <item quantity="other">Text indicating more than one filter.  %d indicates the number of filters.</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Title of the patrol edit screen.</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Menu text of the overflow menu that shows the article edit history.</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Snackbar text that indicates the undo process has succeeded.</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Title of the rollback dialog</string>
@@ -1655,6 +1651,12 @@
   <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
+  <string name="talk_warn_learn_more_url">URL that points to a page on mediawiki.org that contains guidelines for usage of saved messages for patrolling edits.</string>
+  <string name="talk_templates_your_messages_tab_title">Tab title text for list of user\'s custom saved messages.</string>
+  <string name="talk_templates_example_messages_tab_title">Tab title text for list of ready-to-use saved messages made available for user.</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Instruction text to guide user on usage of saved messages.</string>
+  <string name="talk_warn_save_dialog_dont_save">Negative action label text for talk warm messages save dialog.</string>
+  <string name="talk_subject_duplicate">Error state text shown to user when they are trying to create a talk messgage with duplicate subject.</string>
   <string name="link_preview_stub_placeholder_text">Placeholder text shown to users in the preview dialog of an article, when there isn\'t enough content in the article to show in the preview.</string>
   <string name="stub_article_edit_saved_successfully">Message text shown to users after a successful edit to a stub article.</string>
 </resources>
