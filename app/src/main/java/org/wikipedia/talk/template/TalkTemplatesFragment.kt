@@ -186,7 +186,6 @@ class TalkTemplatesFragment : Fragment() {
 
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
-        setUpTouchListeners()
 
         binding.talkTemplatesEmptyStateTextView.text = StringUtil.fromHtml(getString(R.string.talk_templates_empty_message))
 
@@ -234,6 +233,7 @@ class TalkTemplatesFragment : Fragment() {
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.talkTemplatesRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
         updateAndNotifyAdapter()
+        setUpTouchListeners()
     }
 
     private fun onLoading() {
