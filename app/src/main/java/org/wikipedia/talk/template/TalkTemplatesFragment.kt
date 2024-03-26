@@ -29,8 +29,11 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkReplyActivity.Companion.RESULT_BACK_FROM_TOPIC
 import org.wikipedia.talk.TalkTopicsActivity
@@ -40,6 +43,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.views.ViewUtil
 
 class TalkTemplatesFragment : Fragment() {
     private var _binding: FragmentTalkTemplatesBinding? = null
@@ -62,7 +66,8 @@ class TalkTemplatesFragment : Fragment() {
 
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.talk_warn)
+
+        setToolbarTitle()
 
         binding.talkTemplatesRecyclerView.setHasFixedSize(true)
         adapter = RecyclerAdapter()
@@ -198,6 +203,19 @@ class TalkTemplatesFragment : Fragment() {
             binding.talkTemplatesTabLayout.getTabAt(1)?.select()
             updateAndNotifyAdapter()
         }
+    }
+
+    private fun setToolbarTitle() {
+        val title = StringUtil.fromHtml(viewModel.pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode) } + ": " + "<a href='#'>${StringUtil.removeNamespace(viewModel.pageTitle.displayText)}</a>"
+        ).trim().ifEmpty { getString(R.string.talk_no_subject) }
+        ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
+            it.movementMethod = LinkMovementMethodExt { _ ->
+                val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(viewModel.pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
+                startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
+            }
+            FeedbackUtil.setButtonTooltip(it)
+        }
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = title
     }
 
     private fun showToolbarEditView(visible: Boolean) {
