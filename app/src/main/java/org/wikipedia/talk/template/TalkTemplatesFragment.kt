@@ -169,14 +169,16 @@ class TalkTemplatesFragment : Fragment() {
             }
         }
 
-        binding.addTemplateFab.setOnClickListener {
+        binding.addSavedMessageFab.setOnClickListener {
+            PatrollerExperienceEvent.logAction("new_message_init", "pt_warning_messages")
             requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), viewModel.pageTitle, null,
                 null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateManagementMode = viewModel.templateManagementMode,
                 fromRevisionId = viewModel.fromRevisionId, toRevisionId = viewModel.toRevisionId))
         }
 
-        binding.toolBarEditView.setOnClickListener {
+        binding.toolBarEditButton.setOnClickListener {
             if (actionMode == null) {
+                PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
                 beginRemoveItemsMode()
                 updateAndNotifyAdapter()
             }
@@ -189,7 +191,7 @@ class TalkTemplatesFragment : Fragment() {
                 }
                 touchCallback.swipeableEnabled = tab.position == 0
                 updateAndNotifyAdapter()
-                showToolbarEditView(tab.position == 0)
+                showToolbarEditButton(tab.position == 0)
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
@@ -206,6 +208,10 @@ class TalkTemplatesFragment : Fragment() {
         }
     }
 
+    private fun showToolbarEditButton(visible: Boolean) {
+        binding.toolBarEditButton.isVisible = visible
+    }
+
     private fun setToolbarTitle() {
         val title = if (viewModel.templateManagementMode) getString(R.string.talk_warn_saved_messages) else
             StringUtil.fromHtml(viewModel.pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode) } +
@@ -218,10 +224,6 @@ class TalkTemplatesFragment : Fragment() {
             }
         }
         (requireActivity() as AppCompatActivity).supportActionBar?.title = title
-    }
-
-    private fun showToolbarEditView(visible: Boolean) {
-        binding.toolBarEditView.isVisible = visible
     }
 
     private fun setUpTouchListeners() {
@@ -242,7 +244,7 @@ class TalkTemplatesFragment : Fragment() {
         adapter.templatesList.clear()
         adapter.templatesList.addAll(if (binding.talkTemplatesTabLayout.selectedTabPosition == 0) viewModel.talkTemplatesList else viewModel.savedTemplatesList)
         updateEmptyState()
-        showToolbarEditView(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
+        showToolbarEditButton(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
         adapter.notifyDataSetChanged()
     }
 
@@ -268,7 +270,7 @@ class TalkTemplatesFragment : Fragment() {
 
     private fun onSuccess() {
         setRecyclerView()
-        showToolbarEditView(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
+        showToolbarEditButton(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
         binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesErrorView.visibility = View.GONE
         binding.talkTemplatesProgressBar.visibility = View.GONE
@@ -280,6 +282,7 @@ class TalkTemplatesFragment : Fragment() {
 
     private fun onDeleted(size: Int) {
         PatrollerExperienceEvent.logAction("message_deleted_toast", "pt_templates")
+        PatrollerExperienceEvent.logAction("delete_message_success", "pt_warning_messages")
         val messageStr = resources.getQuantityString(R.plurals.talk_templates_message_deleted, size)
         FeedbackUtil.makeSnackbar(requireActivity(), messageStr)
             .setAction(R.string.reading_list_item_delete_undo) {
@@ -319,6 +322,7 @@ class TalkTemplatesFragment : Fragment() {
 
         override fun onSwipe() {
             selectedItems.add(entry)
+            PatrollerExperienceEvent.logAction("delete_message_click", "pt_warning_messages")
             deleteSelectedTalkTemplates()
         }
 
@@ -368,17 +372,19 @@ class TalkTemplatesFragment : Fragment() {
         }
 
         override fun onClick(position: Int) {
-            if (position == 0 && binding.talkTemplatesTabLayout.selectedTabPosition == 1) {
+            val inExampleMessagesTab = binding.talkTemplatesTabLayout.selectedTabPosition == 1
+            if (position == 0 && inExampleMessagesTab) {
                 return
             }
             if (actionMode != null) {
                 toggleSelectedItem(templatesList[position])
                 adapter.notifyItemChanged(position)
             } else {
-                PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
+                val logAction = if (inExampleMessagesTab) "example_message_select_click" else "saved_message_select_click"
+                PatrollerExperienceEvent.logAction(logAction, "pt_warning_messages")
                 requestEditTemplate.launch(TalkReplyActivity.newIntent(requireContext(), viewModel.pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY,
                     fromDiff = true, selectedTemplate = templatesList[position], templateManagementMode = viewModel.templateManagementMode, fromRevisionId = viewModel.fromRevisionId,
-                    toRevisionId = viewModel.toRevisionId, isSavedTemplate = binding.talkTemplatesTabLayout.selectedTabPosition == 1))
+                    toRevisionId = viewModel.toRevisionId, isExampleTemplate = inExampleMessagesTab))
             }
         }
 
@@ -469,6 +475,7 @@ class TalkTemplatesFragment : Fragment() {
             super.onActionItemClicked(mode, menuItem)
             when (menuItem.itemId) {
                 R.id.menu_check_all -> {
+                    PatrollerExperienceEvent.logAction("delete_messages_init", "pt_warning_messages")
                     selectAllTalkTemplates(mode)
                     menuItem.isVisible = false
                     mode.menu.findItem(R.id.menu_uncheck_all).isVisible = true
@@ -486,7 +493,7 @@ class TalkTemplatesFragment : Fragment() {
 
         override fun onDeleteSelected() {
             if (selectedItems.size > 0) {
-                PatrollerExperienceEvent.logAction("more_menu_remove_confirm", "pt_templates")
+                PatrollerExperienceEvent.logAction("delete_messages_click", "pt_warning_messages")
                 val messageStr = resources.getQuantityString(
                     R.plurals.talk_templates_message_delete_description,
                     selectedItems.size

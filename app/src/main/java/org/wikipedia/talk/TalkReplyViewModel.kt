@@ -30,7 +30,7 @@ class TalkReplyViewModel(bundle: Bundle) : ViewModel() {
     val topic = bundle.parcelable<ThreadItem>(TalkReplyActivity.EXTRA_TOPIC)
     val isFromDiff = bundle.getBoolean(TalkReplyActivity.EXTRA_FROM_DIFF, false)
     val selectedTemplate = bundle.parcelable<TalkTemplate>(TalkReplyActivity.EXTRA_SELECTED_TEMPLATE)
-    val isSavedTemplate = bundle.getBoolean(TalkReplyActivity.EXTRA_SAVED_TEMPLATE, false)
+    val isExampleTemplate = bundle.getBoolean(TalkReplyActivity.EXTRA_EXAMPLE_TEMPLATE, false)
     val templateManagementMode = bundle.getBoolean(TalkReplyActivity.EXTRA_TEMPLATE_MANAGEMENT, false)
     val fromRevisionId = bundle.getLong(TalkReplyActivity.FROM_REVISION_ID, -1)
     val toRevisionId = bundle.getLong(TalkReplyActivity.TO_REVISION_ID, -1)
