@@ -456,8 +456,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         AnonymousNotificationHelper.onEditSubmitted()
 
         PatrollerExperienceEvent.logAction("publish_message_success", "pt_warning_messages",
-            PatrollerExperienceEvent.getPublishMessageActionString(isModified = viewModel.isExampleTemplate && viewModel.selectedTemplate != null && subjectOrBodyModified,
-                isSaved = viewModel.talkTemplateSaved, exampleMessage = if (viewModel.isExampleTemplate) viewModel.selectedTemplate?.title else null))
+            PatrollerExperienceEvent.getPublishMessageActionString(isModified = viewModel.selectedTemplate != null && subjectOrBodyModified,
+                isSaved = viewModel.talkTemplateSaved, isExample = viewModel.isExampleTemplate, exampleMessage = if (viewModel.isExampleTemplate) viewModel.selectedTemplate?.title else null))
 
         binding.progressBar.visibility = View.GONE
         setSaveButtonEnabled(true)

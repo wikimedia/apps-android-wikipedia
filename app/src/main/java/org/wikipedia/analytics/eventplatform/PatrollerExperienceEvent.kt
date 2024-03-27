@@ -41,11 +41,12 @@ class PatrollerExperienceEvent {
                     filterSelectedStr + filterWikiStr + filtersListStr + appLanguageCodeAddedStr + appLanguageCodesStr
         }
 
-        fun getPublishMessageActionString(isModified: Boolean? = null, isSaved: Boolean? = null, exampleMessage: String? = null): String {
+        fun getPublishMessageActionString(isModified: Boolean? = null, isSaved: Boolean? = null, isExample: Boolean? = null, exampleMessage: String? = null): String {
             val isModifiedStr = isModified?.let { "is_modified: $it, " }.orEmpty()
             val isSavedStr = isSaved?.let { "is_saved: $it, " }.orEmpty()
+            val isExampleStr = isExample?.let { "is_example: $it, " }.orEmpty()
             val exampleMessageStr = exampleMessage?.let { "example_message: $it " }.orEmpty()
-            return isModifiedStr + isSavedStr + exampleMessageStr
+            return isModifiedStr + isSavedStr + isExampleStr + exampleMessageStr
         }
 
         private fun submitPatrollerActivityEvent(action: String, activeInterface: String, actionData: String = "") {

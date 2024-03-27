@@ -178,7 +178,7 @@ class TalkTemplatesFragment : Fragment() {
 
         binding.toolBarEditButton.setOnClickListener {
             if (actionMode == null) {
-                PatrollerExperienceEvent.logAction("saved_message_edit_click", "pt_warning_messages")
+                PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
                 beginRemoveItemsMode()
                 updateAndNotifyAdapter()
             }
