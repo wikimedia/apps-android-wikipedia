@@ -29,8 +29,11 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.FragmentTalkTemplatesBinding
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.TalkReplyActivity.Companion.RESULT_BACK_FROM_TOPIC
@@ -41,6 +44,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.MultiSelectActionModeCallback
 import org.wikipedia.views.SwipeableItemTouchHelperCallback
+import org.wikipedia.views.ViewUtil
 
 class TalkTemplatesFragment : Fragment() {
     private var _binding: FragmentTalkTemplatesBinding? = null
@@ -63,8 +67,14 @@ class TalkTemplatesFragment : Fragment() {
 
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        (requireActivity() as AppCompatActivity).supportActionBar?.title =
-            getString(if (viewModel.templateManagementMode) R.string.talk_warn_saved_messages else R.string.talk_warn)
+
+        setToolbarTitle()
+
+        binding.talkTemplatesRecyclerView.setHasFixedSize(true)
+        adapter = RecyclerAdapter()
+        binding.talkTemplatesRecyclerView.adapter = adapter
+        binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.talkTemplatesRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
 
         return binding.root
     }
@@ -186,6 +196,7 @@ class TalkTemplatesFragment : Fragment() {
 
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
+        setUpTouchListeners()
 
         binding.talkTemplatesEmptyStateTextView.text = StringUtil.fromHtml(getString(R.string.talk_templates_empty_message))
 
@@ -193,6 +204,20 @@ class TalkTemplatesFragment : Fragment() {
             binding.talkTemplatesTabLayout.getTabAt(1)?.select()
             updateAndNotifyAdapter()
         }
+    }
+
+    private fun setToolbarTitle() {
+        val title = if (viewModel.templateManagementMode) getString(R.string.talk_warn_saved_messages) else
+            StringUtil.fromHtml(viewModel.pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode) } +
+                ": " + "<a href='#'>${StringUtil.removeNamespace(viewModel.pageTitle.displayText)}</a>"
+        ).trim().ifEmpty { getString(R.string.talk_no_subject) }
+        ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
+            it.movementMethod = LinkMovementMethodExt { _ ->
+                val entry = HistoryEntry(TalkTopicsActivity.getNonTalkPageTitle(viewModel.pageTitle), HistoryEntry.SOURCE_TALK_TOPIC)
+                startActivity(PageActivity.newIntentForNewTab(requireActivity(), entry, entry.title))
+            }
+        }
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = title
     }
 
     private fun showToolbarEditView(visible: Boolean) {
@@ -233,7 +258,6 @@ class TalkTemplatesFragment : Fragment() {
         binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.talkTemplatesRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
         updateAndNotifyAdapter()
-        setUpTouchListeners()
     }
 
     private fun onLoading() {
