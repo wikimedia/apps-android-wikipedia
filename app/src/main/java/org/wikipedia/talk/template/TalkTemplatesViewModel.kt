@@ -1,7 +1,5 @@
 package org.wikipedia.talk.template
 
-import android.content.Context
-import android.content.res.Configuration
 import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -14,15 +12,14 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.db.TalkTemplate
+import org.wikipedia.util.L10nUtil
 import java.util.Collections
-import java.util.Locale
 
 class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
 
@@ -65,21 +62,12 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
 
     private fun loadSavedTemplates() {
         val langCode = pageTitle.wikiSite.languageCode
-        val context = WikipediaApp.instance.applicationContext
         for (i in savedMessagesSubjectList.indices) {
-            val talkTemplate = TalkTemplate(0, 0, -1, savedMessagesTitleList[i],
-                if (i == 0) "" else getLocaleStringResource(Locale(langCode), savedMessagesSubjectList[i], context),
-                getLocaleStringResource(Locale(langCode), savedMessagesBodyList[i], context))
+            val subjectString = if (i == 0) "" else L10nUtil.getStringForArticleLanguage(langCode, savedMessagesSubjectList[i])
+            val bodyString = L10nUtil.getStringForArticleLanguage(langCode, savedMessagesBodyList[i])
+            val talkTemplate = TalkTemplate(0, 0, -1, savedMessagesTitleList[i], subjectString, bodyString)
             savedTemplatesList.add(talkTemplate)
         }
-    }
-
-    private fun getLocaleStringResource(requestedLocale: Locale, resourceId: Int, context: Context): String {
-        val result: String
-        val config = Configuration(context.resources.configuration)
-        config.setLocale(requestedLocale)
-        result = context.createConfigurationContext(config).getText(resourceId).toString()
-        return result
     }
 
     fun swapList(oldPosition: Int, newPosition: Int) {
