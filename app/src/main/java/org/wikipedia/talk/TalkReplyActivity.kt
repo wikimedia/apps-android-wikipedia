@@ -137,7 +137,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         }
 
         if (viewModel.isFromDiff) {
-            binding.replyNextButton.text = getString(R.string.edit_next)
+            binding.replyNextButton.text = getString(if (viewModel.templateManagementMode) R.string.talk_templates_new_message_save else R.string.edit_next)
         }
 
         binding.replyInputView.wikiSite = viewModel.pageTitle.wikiSite
@@ -163,7 +163,12 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             if (it is Resource.Success) {
                 viewModel.talkTemplateSaved = true
                 binding.progressBar.isVisible = true
-                showEditPreview()
+                if (!viewModel.templateManagementMode) {
+                    showEditPreview()
+                } else {
+                    setResult(RESULT_OK)
+                    finish()
+                }
             } else if (it is Resource.Error) {
                 FeedbackUtil.showError(this, it.throwable)
             }
@@ -243,6 +248,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     }, 500)
                 }
             }
+        }
+        if (viewModel.templateManagementMode) {
+            supportActionBar?.title = if (viewModel.selectedTemplate == null) getString(R.string.talk_templates_new_message_title) else getString(R.string.talk_templates_edit_message_dialog_title)
         }
     }
 
@@ -395,11 +403,21 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
             setSaveButtonEnabled(false)
             sendPatrollerExperienceEvent("publish_saved_message_click", "pt_warning_messages")
             DeviceUtil.hideSoftKeyboard(this)
-            if (viewModel.selectedTemplate != null && viewModel.selectedTemplate?.subject == subject &&
-                viewModel.selectedTemplate?.message == body) {
-                showEditPreview()
+            if (viewModel.templateManagementMode) {
+                if (viewModel.selectedTemplate != null && !viewModel.isSavedTemplate) {
+                    viewModel.selectedTemplate?.let {
+                        viewModel.updateTemplate(it.title, subject, body, it)
+                    }
+                } else {
+                    viewModel.saveTemplate("", subject, body)
+                }
             } else {
-                showSaveDialog(subject, body)
+                if (viewModel.selectedTemplate != null && viewModel.selectedTemplate?.subject == subject &&
+                    viewModel.selectedTemplate?.message == body) {
+                    showEditPreview()
+                } else {
+                    showSaveDialog(subject, body)
+                }
             }
         } else {
             showEditPreview()
@@ -544,6 +562,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
         const val TO_REVISION_ID = "toRevisionId"
         const val FROM_REVISION_ID = "fromRevisionId"
         const val EXTRA_SELECTED_TEMPLATE = "selectedTemplate"
+        const val EXTRA_TEMPLATE_MANAGEMENT = "templateManagement"
         const val EXTRA_SAVED_TEMPLATE = "savedTemplate"
 
         // TODO: persist in db. But for now, it's fine to store these for the lifetime of the app.
@@ -560,6 +579,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                       selectedTemplate: TalkTemplate? = null,
                       toRevisionId: Long = -1,
                       fromRevisionId: Long = -1,
+                      templateManagementMode: Boolean = false,
                       isSavedTemplate: Boolean = false
         ): Intent {
             return Intent(context, TalkReplyActivity::class.java)
@@ -570,6 +590,7 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     .putExtra(EXTRA_BODY, undoBody)
                     .putExtra(EXTRA_FROM_DIFF, fromDiff)
                     .putExtra(EXTRA_SELECTED_TEMPLATE, selectedTemplate)
+                    .putExtra(EXTRA_TEMPLATE_MANAGEMENT, templateManagementMode)
                     .putExtra(EXTRA_SAVED_TEMPLATE, isSavedTemplate)
                     .putExtra(FROM_REVISION_ID, fromRevisionId)
                     .putExtra(TO_REVISION_ID, toRevisionId)

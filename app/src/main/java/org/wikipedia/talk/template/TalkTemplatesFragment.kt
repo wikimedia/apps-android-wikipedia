@@ -35,6 +35,7 @@ import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.staticdata.TalkAliasData
 import org.wikipedia.talk.TalkReplyActivity
+import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.TalkReplyActivity.Companion.RESULT_BACK_FROM_TOPIC
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.db.TalkTemplate
@@ -170,7 +171,7 @@ class TalkTemplatesFragment : Fragment() {
 
         binding.addTemplateFab.setOnClickListener {
             requestNewTemplate.launch(TalkReplyActivity.newIntent(requireContext(), viewModel.pageTitle, null,
-                null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true,
+                null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY, fromDiff = true, templateManagementMode = viewModel.templateManagementMode,
                 fromRevisionId = viewModel.fromRevisionId, toRevisionId = viewModel.toRevisionId))
         }
 
@@ -206,7 +207,8 @@ class TalkTemplatesFragment : Fragment() {
     }
 
     private fun setToolbarTitle() {
-        val title = StringUtil.fromHtml(viewModel.pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode) } +
+        val title = if (viewModel.templateManagementMode) getString(R.string.talk_warn_saved_messages) else
+            StringUtil.fromHtml(viewModel.pageTitle.namespace.ifEmpty { TalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode) } +
                 ": " + "<a href='#'>${StringUtil.removeNamespace(viewModel.pageTitle.displayText)}</a>"
         ).trim().ifEmpty { getString(R.string.talk_no_subject) }
         ViewUtil.getTitleViewFromToolbar(binding.toolbar)?.let {
@@ -249,6 +251,15 @@ class TalkTemplatesFragment : Fragment() {
         _binding = null
     }
 
+    private fun setRecyclerView() {
+        binding.talkTemplatesRecyclerView.setHasFixedSize(true)
+        adapter = RecyclerAdapter()
+        binding.talkTemplatesRecyclerView.adapter = adapter
+        binding.talkTemplatesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.talkTemplatesRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_divider, drawStart = true, drawEnd = false))
+        updateAndNotifyAdapter()
+    }
+
     private fun onLoading() {
         binding.talkTemplatesEmptyContainer.visibility = View.GONE
         binding.talkTemplatesRecyclerView.visibility = View.GONE
@@ -256,7 +267,7 @@ class TalkTemplatesFragment : Fragment() {
     }
 
     private fun onSuccess() {
-        updateAndNotifyAdapter()
+        setRecyclerView()
         showToolbarEditView(binding.talkTemplatesTabLayout.selectedTabPosition == 0 && viewModel.talkTemplatesList.isNotEmpty())
         binding.talkTemplatesEmptyContainer.isVisible = viewModel.talkTemplatesList.isEmpty()
         binding.talkTemplatesErrorView.visibility = View.GONE
@@ -366,7 +377,7 @@ class TalkTemplatesFragment : Fragment() {
             } else {
                 PatrollerExperienceEvent.logAction("edit_message_click", "pt_templates")
                 requestEditTemplate.launch(TalkReplyActivity.newIntent(requireContext(), viewModel.pageTitle, null, null, invokeSource = Constants.InvokeSource.DIFF_ACTIVITY,
-                    fromDiff = true, selectedTemplate = templatesList[position], fromRevisionId = viewModel.fromRevisionId,
+                    fromDiff = true, selectedTemplate = templatesList[position], templateManagementMode = viewModel.templateManagementMode, fromRevisionId = viewModel.fromRevisionId,
                     toRevisionId = viewModel.toRevisionId, isSavedTemplate = binding.talkTemplatesTabLayout.selectedTabPosition == 1))
             }
         }
@@ -535,9 +546,10 @@ class TalkTemplatesFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(pageTitle: PageTitle?, fromRevisionId: Long = -1, toRevisionId: Long = -1): TalkTemplatesFragment {
+        fun newInstance(pageTitle: PageTitle?, templateManagement: Boolean = false, fromRevisionId: Long = -1, toRevisionId: Long = -1): TalkTemplatesFragment {
             return TalkTemplatesFragment().apply {
                 arguments = bundleOf(Constants.ARG_TITLE to pageTitle,
+                    EXTRA_TEMPLATE_MANAGEMENT to templateManagement,
                     TalkReplyActivity.FROM_REVISION_ID to fromRevisionId,
                     TalkReplyActivity.TO_REVISION_ID to toRevisionId)
             }

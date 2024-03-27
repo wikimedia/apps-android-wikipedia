@@ -19,6 +19,7 @@ import org.wikipedia.database.AppDatabase
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkReplyActivity
+import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.db.TalkTemplate
 import java.util.*
 
@@ -40,6 +41,7 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
     private val _actionState = MutableStateFlow(ActionState())
     val actionState = _actionState.asStateFlow()
 
+    val templateManagementMode = bundle.getBoolean(EXTRA_TEMPLATE_MANAGEMENT, false)
     val pageTitle = bundle.parcelable<PageTitle>(Constants.ARG_TITLE)!!
     val fromRevisionId = bundle.getLong(TalkReplyActivity.FROM_REVISION_ID)
     val toRevisionId = bundle.getLong(TalkReplyActivity.TO_REVISION_ID)
