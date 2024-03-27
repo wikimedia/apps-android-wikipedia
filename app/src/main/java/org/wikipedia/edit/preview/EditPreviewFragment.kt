@@ -20,6 +20,7 @@ import org.wikipedia.dataclient.RestService
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.JsonUtil
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
@@ -154,7 +155,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         }
 
         override fun onInternalLinkClicked(title: PageTitle) {
-            showLeavingEditDialogue {
+            showLeavingEditDialog {
                 startActivity(
                     PageActivity.newIntentForCurrentTab(
                         context,
@@ -165,7 +166,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         }
 
         override fun onExternalLinkClicked(uri: Uri) {
-            showLeavingEditDialogue { UriUtil.handleExternalLink(context, uri) }
+            showLeavingEditDialog { UriUtil.handleExternalLink(context, uri) }
         }
 
         override fun onMediaLinkClicked(title: PageTitle) {
@@ -173,7 +174,9 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
         }
 
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
-            // ignore
+            showLeavingEditDialog {
+                startActivity(ArticleEditDetailsActivity.newIntent(requireContext(), title, revisionId))
+            }
         }
 
         /**
@@ -182,7 +185,7 @@ class EditPreviewFragment : Fragment(), CommunicationBridgeListener, ReferenceDi
          *
          * @param runnable The runnable that is run if the user chooses to leave.
          */
-        private fun showLeavingEditDialogue(runnable: Runnable) {
+        private fun showLeavingEditDialog(runnable: Runnable) {
             // Ask the user if they really meant to leave the edit workflow
             MaterialAlertDialogBuilder(requireActivity())
                 .setMessage(R.string.dialog_message_leaving_edit)
