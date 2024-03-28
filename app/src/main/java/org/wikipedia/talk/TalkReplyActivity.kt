@@ -245,7 +245,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     binding.replyInputView.editText.requestFocus()
                     DeviceUtil.showSoftKeyboard(binding.replyInputView.editText)
                     binding.talkScrollContainer.postDelayed({
-                        binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 4)
+                        if (!isDestroyed) {
+                            binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 4)
+                        }
                     }, 500)
                 }
             }
@@ -513,13 +515,12 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                 }
                 .show()
         } else if (viewModel.isFromDiff && messagePreviewFragment.isActive) {
-            showProgressBar(true)
+            showProgressBar(false)
             binding.talkScrollContainer.isVisible = true
             messagePreviewFragment.hide()
             setSaveButtonEnabled(true)
             binding.replyNextButton.text = getString(R.string.edit_next)
             setToolbarTitle(viewModel.pageTitle)
-            binding.root.postDelayed({ showProgressBar(false) }, 250)
         } else {
             super.onBackPressed()
         }
