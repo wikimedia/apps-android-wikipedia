@@ -237,6 +237,9 @@ interface Service {
         @Query("colimit") coLimit: Int,
     ): MwQueryResponse
 
+    @GET("api.php?format=json&action=getPaymentMethods")
+    suspend fun getPaymentMethods(@Query("country") country: String): MwQueryResponse
+
     // ------- CSRF, Login, and Create Account -------
 
     @Headers("Cache-Control: no-cache")
