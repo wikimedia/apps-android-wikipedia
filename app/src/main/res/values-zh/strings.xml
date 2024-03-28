@@ -173,7 +173,6 @@
   <string name="map_view_link_text">在地图上查看</string>
   <string name="other_languages_indication_text">阅读其他语言</string>
   <string name="language_count_link_text">有其他%d种语言版本</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。</string>
   <string name="edit_save_action_license_anon">一旦发布，即表示您认同&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt;许可协议不可撤销地发表您的贡献。编辑历史会显示您设备的IP地址。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;后编辑，可以更好地保护您的隐私。</string>
   <string name="edit_anon_warning">编辑将以您设备的 IP 地址发布。如果您&lt;a href=\"https://#login\"&gt;登录&lt;/a&gt;，您将拥有更多隐私。</string>
@@ -1298,8 +1297,6 @@
   <string name="talk_warn_save_dialog_cancel">取消</string>
   <string name="talk_warn_submitted">消息发布到编辑的用户的讨论页面</string>
   <string name="talk_warn_submitted_and_saved">消息已保存并发布到编辑的用户的讨论页面</string>
-  <string name="talk_warn_saved_message">选择已有的警告消息或撰写新消息。</string>
-  <string name="talk_warn_saved_message_dropdown">已保存的消息</string>
   <string name="talk_warn_saved_messages">已保存的消息</string>
   <string name="talk_page_empty">此讨论页为空。</string>
   <string name="talk_page_empty_title">对话从这里开始</string>
@@ -1499,10 +1496,8 @@
   <string name="reading_list_share_message_v2">你好！我想给你分享我的维基百科阅读清单：</string>
   <string name="reading_list_share_survey_title">您能帮助我们改进“分享阅读清单”吗？</string>
   <string name="reading_list_share_survey_body">“分享阅读清单”是一项测试功能，我们需要您的反馈来改进或删除它。</string>
-  <string name="talk_templates_manage_title">管理模板</string>
-  <string name="talk_templates_empty_message">您没有保存任何警告消息。</string>
+  <string name="talk_templates_empty_message" fuzzy="true">您没有保存任何警告消息。</string>
   <string name="talk_templates_new_message_title">新留言</string>
-  <string name="talk_templates_new_message_description">撰写警告留言。</string>
   <string name="talk_templates_new_message_subject_hint">主题</string>
   <string name="talk_templates_new_message_compose_hint">撰写消息</string>
   <string name="talk_templates_new_message_save">保存</string>
@@ -1520,7 +1515,6 @@
   <plurals name="talk_templates_message_deleted">
     <item quantity="other">消息已删除</item>
   </plurals>
-  <string name="patroller_tasks_edits_list_title">编辑列表</string>
   <string name="patroller_tasks_edits_list_search_hint">搜索或过滤编辑</string>
   <string name="patroller_tasks_edits_list_card_tags_text">标签： %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">无</string>

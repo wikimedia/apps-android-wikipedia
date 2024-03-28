@@ -143,6 +143,7 @@
   <string name="langlinks_your_wikipedia_languages">שפות הוויקיפדיה שלך</string>
   <string name="menu_save_changes">פרסום השינויים</string>
   <string name="edit_saved_successfully">העריכה פורסמה!</string>
+  <string name="stub_article_edit_saved_successfully">העריכה פורסמה! ייתכן שייקח כמה זמן עד שהשינויים יופיעו.</string>
   <string name="dialog_message_edit_failed">העריכה נכשלה!</string>
   <string name="dialog_message_edit_failed_retry">לנסות שוב</string>
   <string name="dialog_message_edit_failed_cancel">ביטול</string>
@@ -428,6 +429,7 @@
   <string name="link_preview_dialog_save_button">שמירה</string>
   <string name="link_preview_dialog_saved_button">נשמר</string>
   <string name="link_preview_dialog_share_button">שיתוף</string>
+  <string name="link_preview_stub_placeholder_text">הערך הזה הוא קצרמר, מה שאומר שאין מספיק תוכן בערך כדי ליצור תצוגה מקדימה. עם זאת, יש לך אפשרות לשנות את זה.</string>
   <string name="error_page_does_not_exist">הדף הזה אינו קיים</string>
   <string name="error_user_page_does_not_exist">בוויקיפדיה אין &lt;a href=\"%1$s\"&gt;דף משתמש&lt;/a&gt; בעל שם כזה בדיוק. באופן כללי, הדף הזה צריך להיווצר ולהיערך על־ידי &lt;b&gt;%2$s&lt;/b&gt;. אם יש לך ספק, נא לוודא ששם המשתמש \"%3$s\" קיים.</string>
   <string name="view_wiki_error_message_offline">לא ניתן להתחבר לאינטרנט</string>
@@ -1345,12 +1347,10 @@
   <string name="talk_warn_save_dialog_hint">כותרת ההודעה</string>
   <string name="talk_warn_save_dialog_publish">פרסום</string>
   <string name="talk_warn_save_dialog_cancel">ביטול</string>
+  <string name="talk_warn_save_dialog_dont_save">לא לשמור</string>
   <string name="talk_warn_submitted">ההודעה פורסמה בדף שיחת המשתמש של העורך</string>
   <string name="talk_warn_submitted_and_saved">ההודעה נשמרה ופורסמה בדף השיחת המשתמש של העורך</string>
-  <string name="talk_warn_saved_message">בחירת הודעת אזהרה קיימת או כתיבת הודעה חדשה.</string>
-  <string name="talk_warn_saved_message_dropdown">הודעות שמורות</string>
   <string name="talk_warn_saved_messages">הודעות שמורות</string>
-  <string name="talk_warn_learn_more_label">מידע נוסף על מילוי הודעות</string>
   <string name="talk_page_empty">דף השיחה הזה ריק.</string>
   <string name="talk_page_empty_title">השיחה מתחילה כאן</string>
   <string name="talk_page_empty_content">דפי שיחה הם המקום שבו אנשים דנים איך להפוך את התוכן בוויקיפדיה לטוב ביותר שהוא יכול להיות. יש להתחיל בהוספת נושא דיון חדש כדי להתחבר ולשתף פעולה עם קהילה של ויקיפדים.</string>
@@ -1361,6 +1361,7 @@
   <string name="talk_message_hint">כתיבת הודעה</string>
   <string name="talk_message_empty">ההודעה אינה יכולה להיות ריקה.</string>
   <string name="talk_subject_empty">הכותרת אינה יכולה להיות ריקה.</string>
+  <string name="talk_subject_duplicate">שם הנושא כבר קיים. נא לנסות לכתוב משהו אחר.</string>
   <string name="talk_response_submitted">התגובה פורסמה.</string>
   <string name="talk_snackbar_undo">ביטול</string>
   <string name="talk_last_modified">&lt;b&gt;נערך לאחרונה ב־%1$s&lt;/b&gt; על־ידי %2$s</string>
@@ -1562,10 +1563,8 @@
   <string name="reading_list_share_message_v2">שלום! אני רוצה לשתף את רשימת הקריאה שלי בוויקיפדיה איתך:</string>
   <string name="reading_list_share_survey_title">אפשר לבקש ממך לעזור לנו לשפר את התכונה \"שיתוף רשימות קריאה\"?</string>
   <string name="reading_list_share_survey_body">\"שיתוף רשימות קריאה\" היא תכונה בבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
-  <string name="talk_templates_manage_title">ניהול תבניות</string>
-  <string name="talk_templates_empty_message">לא שמרת שום הודעת אזהרה.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">באפשרותך ליצור הודעות אזהרה משלך או להשתמש ב&lt;a href=\"#\"&gt;הודעות לדוגמה&lt;/a&gt; כדי להתחיל.</string>
   <string name="talk_templates_new_message_title">הודעה חדשה</string>
-  <string name="talk_templates_new_message_description">כתיבת הודעת אזהרה.</string>
   <string name="talk_templates_new_message_subject_hint">נושא</string>
   <string name="talk_templates_new_message_compose_hint">כתיבת הודעה</string>
   <string name="talk_templates_new_message_save">שמירה</string>
@@ -1594,7 +1593,8 @@
     <item quantity="other">ההודעות נמחקו</item>
   </plurals>
   <string name="talk_templates_message_title_empty">הכותרת לא יכולה להיות ריקה.</string>
-  <string name="patroller_tasks_edits_list_title">רשימת עריכות</string>
+  <string name="talk_templates_your_messages_tab_title">ההודעות שלך</string>
+  <string name="talk_templates_example_messages_tab_title">הודעות לדוגמה</string>
   <string name="patroller_tasks_edits_list_search_hint">חיפוש או סינון של עריכות</string>
   <string name="patroller_tasks_edits_list_card_tags_text">תגים: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">אין</string>
@@ -1656,7 +1656,6 @@
     <item quantity="many">%d מסננים</item>
     <item quantity="other">%d מסננים</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">סימון העריכה כבדוקה</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">היסטוריית העריכה של הערך</string>
   <string name="patroller_tasks_patrol_edit_undo_success">השחזור הושלם</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">האם ברצונך באמת לשחזר?</string>
@@ -1707,6 +1706,8 @@
   <string name="patroller_saved_message_body_copy_vio">נראה שהעריכה האחרונה שלך כוללת חומר המוגבל בזכויות יוצרים ללא רשות. נא לוודא שכל התוכן תואם למדיניות [[ויקיפדיה:זכויות יוצרים|זכויות היוצרים]] של הוויקיפדיה הזאת כדי להימנע מהסרה.</string>
   <string name="patroller_saved_message_body_edit_summary">שלום {{{username}}}, נראה שהסרת תוכן מוויקיפדיה מבלי להשאיר תקציר עריכה. נא לכתוב תקציר עריכה בכל הוספה או הסרה של תוכן בוויקיפדיה.</string>
   <string name="patroller_saved_message_body_do_not_censor">שלום {{{username}}}, נראה שהסרת תוכן מבלי לדון בו בדף השיחה של הערך. יש לשים לב לכך שוויקיפדיה אינה מצונזרת, ואין להסיר תוכן רק מכיוון שהוא שנוי במחלוקת. אם נראה לך שהמידע אינו מדויק, נא להגיע להסכמה בדף השיחה של הערך.</string>
+  <string name="talk_warn_learn_more_label">מידע נוסף על מילוי הודעות</string>
+  <string name="talk_warn_saved_messages_usage_instruction">נא להשתמש בהודעה לדוגמה למטה כדי להתאים אישית, לשלוח ולשמור בהודעות שלך.</string>
   <string name="patroller_saved_message_body_art_imp">שלום {{{username}}}. הערך שלך הוא התחלה מצוינת! כדי לשפר אותו עוד יותר, נא לשקול להוסיף הפניות נוספות למקורות אמינים. זה עוזר לאמת את המידע ומשפר את איכות הערך. נא לעיין בהנחיות של הוויקיפדיה הזאת בנושא [[ויקיפדיה:ביבליוגרפיה|מקורות מהימנים]] לפרטים נוספים.</string>
   <string name="talk_templates_menu_edit_title">עריכה</string>
   <string name="data_opt_in_accept">לקבל</string>

@@ -1243,7 +1243,7 @@
   <string name="talk_warn_save_dialog_message">Salva come nuovo messaggio</string>
   <string name="talk_warn_save_dialog_publish">Pubblica</string>
   <string name="talk_warn_save_dialog_cancel">Annulla</string>
-  <string name="talk_warn_saved_message_dropdown">Messaggi salvati</string>
+  <string name="talk_warn_save_dialog_dont_save">Non salvare</string>
   <string name="talk_warn_saved_messages">Messaggi salvati</string>
   <string name="talk_page_empty">Questa pagina di discussione è vuota.</string>
   <string name="talk_page_empty_title">La conversazione inizia qui</string>
@@ -1466,7 +1466,8 @@
     <item quantity="other">I messaggi sono stati cancellati</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Il titolo non può essere vuoto.</string>
-  <string name="patroller_tasks_edits_list_title">Elenco delle modifiche</string>
+  <string name="talk_templates_your_messages_tab_title">I tuoi messaggi</string>
+  <string name="talk_templates_example_messages_tab_title">Messaggi di esempio</string>
   <string name="patroller_tasks_edits_list_search_hint">Cerca o filtra le modifiche</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etichette: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Nessuno</string>
@@ -1492,7 +1493,6 @@
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtri</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Verifica modifica</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Visualizza</string>
   <string name="patroller_tasks_overflow_learn">Ulteriori informazioni</string>
   <string name="patroller_onboarding_two_thank_title">Ringrazia</string>
