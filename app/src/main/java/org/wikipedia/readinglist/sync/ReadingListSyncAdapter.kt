@@ -27,7 +27,7 @@ class ReadingListSyncAdapter : JobIntentService() {
 
     override fun onHandleWork(intent: Intent) {
         val extras = intent.extras!!
-        if (RemoteConfig.config.disableReadingListSync || !AccountUtil.isLoggedIn ||
+        if (RemoteConfig.config.disableReadingListSync || !AccountUtil.isLoggedIn || AccountUtil.isTemporaryAccount ||
                 !(Prefs.isReadingListSyncEnabled || Prefs.isReadingListsRemoteDeletePending)) {
             L.d("Skipping sync of reading lists.")
             if (extras.containsKey(SYNC_EXTRAS_REFRESHING)) {

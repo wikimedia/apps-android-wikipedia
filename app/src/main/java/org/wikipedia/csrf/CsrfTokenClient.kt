@@ -37,7 +37,7 @@ object CsrfTokenClient {
                 for (retry in 0 until MAX_RETRIES) {
                     if (retry > 0) {
                         // Log in explicitly
-                        LoginClient().loginBlocking(site, AccountUtil.userName!!, AccountUtil.password!!, "")
+                        LoginClient().loginBlocking(site, AccountUtil.userName, AccountUtil.password!!, "")
                                 .subscribeOn(Schedulers.io())
                                 .blockingSubscribe({ }) {
                                     L.e(it)

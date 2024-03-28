@@ -256,6 +256,7 @@ class WikipediaApp : Application() {
         AccountUtil.removeAccount()
         Prefs.isPushNotificationTokenSubscribed = false
         Prefs.pushNotificationTokenOld = ""
+        Prefs.tempAccountWelcomeShown = false
         ServiceFactory.get(wikiSite).getTokenObservable()
                 .subscribeOn(Schedulers.io())
                 .flatMap {
@@ -284,7 +285,7 @@ class WikipediaApp : Application() {
 
     @SuppressLint("CheckResult")
     private fun getUserIdForLanguage(code: String) {
-        if (!AccountUtil.isLoggedIn || AccountUtil.userName.isNullOrEmpty()) {
+        if (!AccountUtil.isLoggedIn || AccountUtil.userName.isEmpty()) {
             return
         }
         val wikiSite = WikiSite.forLanguageCode(code)

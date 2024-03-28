@@ -215,6 +215,7 @@ class TalkTopicsActivity : BaseActivity(), WatchlistExpiryDialog.Callback {
 
     public override fun onResume() {
         super.onResume()
+        AccountUtil.maybeShowTempAccountWelcome(this)
         searchActionModeCallback.searchActionProvider?.selectAllQueryTexts()
     }
 
