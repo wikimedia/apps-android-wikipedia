@@ -1194,6 +1194,13 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">높이</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">넣기</string>
+  <string name="templates_insert_button">넣기</string>
+  <string name="templates_param_suggested_value">예: %s</string>
+  <string name="templates_param_optional_hint">%s (선택 사항)</string>
+  <string name="templates_param_suggested_hint">%s (제안됨)</string>
+  <string name="templates_learn_more_link">더 알아보기</string>
+  <string name="templates_description_incomplete">틀은 사용자가 생성하였으므로 완전한 설명이 부족할 수 있습니다.</string>
+  <string name="templates_description_empty">\"%s\" 틀에 설명이 아직 없습니다.</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
   <string name="main_tooltip_text">%s님, 누구나 위키백과를 편집할 수 있다는 사실을 알고 계셨나요?</string>
@@ -1219,8 +1226,6 @@
   <string name="talk_warn_save_dialog_cancel">취소</string>
   <string name="talk_warn_submitted">편집자의 사용자 토론 페이지에 게시된 메시지</string>
   <string name="talk_warn_submitted_and_saved">편집자의 사용자 토론 페이지에 메시지가 저장 및 게시되었습니다.</string>
-  <string name="talk_warn_saved_message">기존 경고 메시지를 선택하거나 새 메시지를 작성하세요.</string>
-  <string name="talk_warn_saved_message_dropdown">저장된 메시지</string>
   <string name="talk_page_empty">이 토론 문서는 비어있습니다.</string>
   <string name="talk_page_empty_title">여기에서 토론을 시작하세요</string>
   <string name="talk_page_empty_content">토론 문서는 위키백과 문서를 더욱 발전시키기 위해 사용자들과 의논하는 곳입니다. 새로운 토론 주제를 추가하여 위키백과 공동체와 협업을 시작하세요.</string>
@@ -1422,10 +1427,8 @@
   <string name="reading_list_share_message_v2">안녕하세요! 저의 위키백과 읽기 목록을 당신께 공유하고 싶습니다:</string>
   <string name="reading_list_share_survey_title">\"읽기 목록 공유\" 개선에 도움을 주시겠습니까?</string>
   <string name="reading_list_share_survey_body">\"읽기 목록 공유\"는 시험 기능이며, 이를 개선하거나 제거하려면 여러분의 의견이 필요합니다.</string>
-  <string name="talk_templates_manage_title">틀 관리</string>
-  <string name="talk_templates_empty_message">저장된 경고 메시지가 없습니다.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">저장된 경고 메시지가 없습니다.</string>
   <string name="talk_templates_new_message_title">새 메시지</string>
-  <string name="talk_templates_new_message_description">경고 메시지를 작성합니다.</string>
   <string name="talk_templates_new_message_subject_hint">주제</string>
   <string name="talk_templates_new_message_compose_hint">메시지 쓰기</string>
   <string name="talk_templates_new_message_save">저장</string>
@@ -1445,7 +1448,6 @@
     <item quantity="other">메시지가 삭제되었음</item>
   </plurals>
   <string name="talk_templates_message_title_empty">제목은 비워둘 수 없습니다.</string>
-  <string name="patroller_tasks_edits_list_title">편집 목록</string>
   <string name="patroller_tasks_edits_list_search_hint">편집 내용 검색 또는 필터링</string>
   <string name="patroller_tasks_edits_list_card_tags_text">태그: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">없음</string>
@@ -1499,7 +1501,6 @@
   <plurals name="patroller_tasks_filters_number_of_filters">
     <item quantity="other">%d개 필터</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">편집 점검</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">문서 편집 역사</string>
   <string name="patroller_tasks_patrol_edit_undo_success">되돌리기 완료</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">일괄 되돌리기를 하시겠습니까?</string>
@@ -1521,11 +1522,18 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">보통</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">불만족</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">기능을 어떻게 개선할 수 있나요?</string>
+  <string name="patroller_diff_menu_edit_history_title">문서 편집 역사</string>
   <string name="patroller_diff_feedback_dialog_input_hint">피드백</string>
   <string name="patroller_diff_feedback_dialog_submit">제출</string>
   <string name="patroller_diff_feedback_submitted_snackbar">의견이 제출되었습니다.</string>
+  <string name="patroller_saved_message_title_vandalism">문서 훼손 경고</string>
+  <string name="patroller_saved_message_title_npov">중립적 시각</string>
   <string name="patroller_saved_message_title_auto_trans">자동 번역</string>
+  <string name="patroller_saved_message_title_coi_rem">이해관계의 충돌 알림</string>
   <string name="patroller_saved_message_title_final_warning">마지막 경고</string>
+  <string name="patroller_saved_message_title_copy_vio">저작권 위반 알림</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">편집 요약 남기기</string>
+  <string name="patroller_saved_message_title_art_imp">문서 개선 제안</string>
   <string name="talk_templates_menu_edit_title">편집</string>
   <string name="data_opt_in_accept">수락</string>
   <string name="data_opt_in_reject">거부</string>

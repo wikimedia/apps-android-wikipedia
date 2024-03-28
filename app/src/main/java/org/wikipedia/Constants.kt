@@ -11,7 +11,6 @@ object Constants {
     const val ACTIVITY_REQUEST_FEED_CONFIGURE = 58
     const val ACTIVITY_REQUEST_GALLERY = 52
     const val ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING = 65
-    const val ACTIVITY_REQUEST_LANGLINKS = 50
     const val ACTIVITY_REQUEST_LOGIN = 53
     const val ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY = 62
     const val ACTIVITY_REQUEST_SETTINGS = 41
@@ -98,7 +97,6 @@ object Constants {
         TALK_TOPICS_ACTIVITY("talkTopicsActivity"),
         TALK_TOPIC_ACTIVITY("talkTopicActivity"),
         TALK_REPLY_ACTIVITY("talkReplyActivity"),
-        ADD_TEMPLATE_ACTIVITY("addTemplateActivity"),
         EDIT_ACTIVITY("editActivity"),
         TOOLBAR("toolbar"),
         VOICE("voice"),

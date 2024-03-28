@@ -1200,8 +1200,6 @@
   <string name="talk_warn_save_dialog_cancel">Otkaži</string>
   <string name="talk_warn_submitted">Poruka je objavljena na urednikovoj stranici za razgovor</string>
   <string name="talk_warn_submitted_and_saved">Poruka je sačuvana i objavljena na urednikovoj stranici za razgovor</string>
-  <string name="talk_warn_saved_message">Odaberi postojeću poruku upozorenja ili započnite novu poruku.</string>
-  <string name="talk_warn_saved_message_dropdown">Sačuvane poruke</string>
   <string name="talk_page_empty">Ova stranica za razgovor je prazna.</string>
   <string name="talk_page_empty_title">Razgovor počinje ovde</string>
   <string name="talk_page_empty_content">Stranice za razgovor su mesta gde urednici diskutuju kako da učine sadržaj Vikipediji najboljim mogućim. Počnite dodavanjem nove teme za diskusiju da bi ste se povezali i sarađivali sa zajednicom Vikipedijanaca.</string>
@@ -1405,10 +1403,8 @@
   <string name="reading_list_share_message_v2">Zdravo! Želim da podelim moju listu za čitanje na Vikipediji sa vama:</string>
   <string name="reading_list_share_survey_title">Da li možete da nam pomognete u unapređivanju \"deljenja listi za čitanje\"?</string>
   <string name="reading_list_share_survey_body">\"Deljenje listi za čitanje\" je testna mogućnost i potrebne su vam vaše povratne informacije da bi smo je unapredili ili uklonili.</string>
-  <string name="talk_templates_manage_title">Upravljanje šablonima</string>
-  <string name="talk_templates_empty_message">Nemate sačuvane poruke upozorenja.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Nemate sačuvane poruke upozorenja.</string>
   <string name="talk_templates_new_message_title">Nova poruka</string>
-  <string name="talk_templates_new_message_description">Sastavi poruku upozorenja.</string>
   <string name="talk_templates_new_message_subject_hint">Tema</string>
   <string name="talk_templates_new_message_compose_hint">Napiši poruku</string>
   <string name="talk_templates_new_message_save">Sačuvaj</string>
@@ -1424,7 +1420,6 @@
   <string name="talk_templates_edit_message_dialog_delete">Obriši</string>
   <string name="talk_templates_edit_message_updated">Poruka je izmenjena</string>
   <string name="talk_templates_message_deleted" fuzzy="true">Poruka je obrisana</string>
-  <string name="patroller_tasks_edits_list_title">Spisak izmena</string>
   <string name="patroller_tasks_edits_list_search_hint">Pretraga ili filtriranje izmena</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Oznake: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Nema</string>
@@ -1484,7 +1479,6 @@
     <item quantity="one">%d filter</item>
     <item quantity="other">%d filtera</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Patroliraj izmenu</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Istorija</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Vraćanje je završeno</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Sigurno vrati izmene?</string>

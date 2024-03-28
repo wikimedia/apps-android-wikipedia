@@ -1253,7 +1253,6 @@
   <string name="talk_warn_save_dialog_cancel">Annullér</string>
   <string name="talk_warn_submitted">Besked offentliggjort på brugerens brugerdiskussionsside</string>
   <string name="talk_warn_submitted_and_saved">Beskeden er gemt og offentliggjort på brugerens brugerdiskussionsside</string>
-  <string name="talk_warn_saved_message_dropdown">Gemte beskeder</string>
   <string name="talk_warn_saved_messages">Gemte beskeder</string>
   <string name="talk_page_empty">Diskussionssiden er tom.</string>
   <string name="talk_page_empty_title">Samtalen begynder her</string>
@@ -1437,7 +1436,6 @@
   <string name="reading_list_share_menu_tooltip">Del din læseliste med andre</string>
   <string name="reading_list_share_message_v2">Hej! Jeg vil gerne dele min Wikipedia-læseliste med dig:</string>
   <string name="talk_templates_new_message_title">Ny besked</string>
-  <string name="talk_templates_new_message_description">Skriv en advarselsmeddelelse.</string>
   <string name="talk_templates_new_message_subject_hint">Emne</string>
   <string name="talk_templates_new_message_compose_hint">Skriv besked</string>
   <string name="talk_templates_new_message_save">Gem</string>
@@ -1457,7 +1455,6 @@
     <item quantity="one">Beskeden er slettet</item>
     <item quantity="other">Beskederne er slettet</item>
   </plurals>
-  <string name="patroller_tasks_edits_list_title">Liste over redigeringer</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Ingen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Vis brugerside</string>

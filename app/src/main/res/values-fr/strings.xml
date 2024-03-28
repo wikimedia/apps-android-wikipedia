@@ -9,6 +9,7 @@
 * C13m3n7
 * CKali
 * Cigaryno
+* Cooltey
 * Crochet.david
 * Daniel236
 * Dbrant
@@ -392,7 +393,7 @@
   <string name="expand_refs">Taper pour développer</string>
   <string name="cc_logo">Licence Creative Commons</string>
   <string name="captcha_image">Image Captcha</string>
-  <string name="gallery_fair_use_license">Utilisation légitime</string>
+  <string name="gallery_fair_use_license">Utilisation équitable</string>
   <string name="gallery_uploader_unknown">Téléverseur inconnu</string>
   <string name="gallery_not_available_offline_snackbar">Affichage de la galerie non disponible hors ligne.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">Fermer</string>
@@ -1294,8 +1295,6 @@
   <string name="talk_warn_save_dialog_cancel">Annuler</string>
   <string name="talk_warn_submitted">Message publié sur la page de discussion utilisateur de l’éditeur</string>
   <string name="talk_warn_submitted_and_saved">Message enregistré et publié sur la page de discussion utilisateur de l’éditeur</string>
-  <string name="talk_warn_saved_message">Sélectionner un message d’avertissement existant ou composer un nouveau message.</string>
-  <string name="talk_warn_saved_message_dropdown">Messages enregistrés</string>
   <string name="talk_page_empty">Cette page de discussion est vide.</string>
   <string name="talk_page_empty_title">La conversation commence ici</string>
   <string name="talk_page_empty_content">Les pages de discussion sont des endroits pour discuter de la façon de rendre le contenu de Wikipédia le meilleur possible. Commencez par ajouter un nouveau sujet de discussion pour vous connecter et collaborer avec une communauté de Wikipédiens.</string>
@@ -1501,10 +1500,8 @@
   <string name="reading_list_share_message_v2">Bonjour ! J’aimerais partager ma liste de lecture Wikipédia avec vous :</string>
   <string name="reading_list_share_survey_title">Pourriez-vous nous aider à améliorer la fonctionnalité « Partager des listes de lecture » ?</string>
   <string name="reading_list_share_survey_body">Le « Partage de listes de lecture » est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
-  <string name="talk_templates_manage_title">Gérer les modèles</string>
-  <string name="talk_templates_empty_message">Vous n’avez pas de message d’avertissement enregistré.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Vous n’avez pas de message d’avertissement enregistré.</string>
   <string name="talk_templates_new_message_title">Nouveau message</string>
-  <string name="talk_templates_new_message_description">Composer un message d’avertissement.</string>
   <string name="talk_templates_new_message_subject_hint">Sujet</string>
   <string name="talk_templates_new_message_compose_hint">Composer le message</string>
   <string name="talk_templates_new_message_save">Enregistrer</string>
@@ -1529,7 +1526,6 @@
     <item quantity="other">Les messages ont été supprimés</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Le titre ne peut pas être vide.</string>
-  <string name="patroller_tasks_edits_list_title">Liste des modifications</string>
   <string name="patroller_tasks_edits_list_search_hint">Rechercher ou filtrer les modifications</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Balises : %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Aucune</string>
@@ -1589,7 +1585,6 @@
     <item quantity="one">%d filtre</item>
     <item quantity="other">%d filtres</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Patrouiller la modification</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Historique des modifications de l’article</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Annulation terminée</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Êtes-vous sûr de vouloir revenir en arrière ?</string>
@@ -1620,6 +1615,26 @@
   <string name="patroller_diff_feedback_dialog_submit">Soumettre</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Commentaire envoyé.</string>
   <string name="patroller_diff_feedback_tooltip">Appuyez sur le menu de débordement pour soumettre des commentaires à tout moment sous « Problème avec la fonctionnalité ».</string>
+  <string name="patroller_saved_message_title_vandalism">Avertissement de vandalisme</string>
+  <string name="patroller_saved_message_title_editing_tests">Tests d\'édition</string>
+  <string name="patroller_saved_message_title_npov">Neutralité de point de vue</string>
+  <string name="patroller_saved_message_title_auto_trans">Traduction automatique</string>
+  <string name="patroller_saved_message_title_coi_rem">Rappel sur les conflits d\'intérêts</string>
+  <string name="patroller_saved_message_title_final_warning">Dernier avertissement</string>
+  <string name="patroller_saved_message_title_copy_vio">Alerte sur la violation du droit d\'auteur</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Laissez un résumé des modifications</string>
+  <string name="patroller_saved_message_title_do_not_censor">Ne pas censurer</string>
+  <string name="patroller_saved_message_title_art_imp">Suggestion d\'amélioration d\'article</string>
+  <string name="patroller_saved_message_body_vandalism">Bonjour {{{username}}}, je tiens à vous informer que j\'ai annulé une ou plusieurs de vos [{{{diffLink}}}|dernières modificatons] car elle ne semblent pas être constructives. Si vous pensez que c\'est une erreur, vous pouvez me laisser un message sur [[User talk:{{{senderUserName}}}|ma page de discussion]]. Veuillez noter que d\'autres actions de vandalisme peuvent mener à un blocage.</string>
+  <string name="patroller_saved_message_body_editing_tests">Bonjour {{{username}}}, c\'est une bonne chose que Wikipédia ait attiré votre attention et que vous ayez essayé de la modifier. Le test d\'édition que vous avez effectué a fonctionné. Cependant, vous devez garder à l\'esprit que le but de ce projet est de développer une encyclopédie fiable et complète que tout le monde peut consulter. Votre révision a affecté le contenu d\'un article et a donc du être retirée.\nSi vous souhaitez vous familiariser avec la modification de Wikipédia, le [[Aide:Bac_à_sable|bac à sable]] est à votre disposition. Si vos commentaires sont spécifiques à un article, le bon endroit est la page de discussion de cet article.</string>
+  <string name="patroller_saved_message_body_npov">Bonjour {{{username}}}, certaines de vos contributions ne respectent pas la neutralité requise pour se conformer à la politique de [[Wikipédia:NPOV|point de vue neutre]] de Wikipédia. Pour cette raison, certains contenus ont été modifiés ou supprimés.\nVeuillez modifier les paragraphes ou sections qui présentent un point de vue partial, en les remplaçant par un texte plus neutre et objectif, conforme à ce qui est attendu dans une encyclopédie.</string>
+  <string name="patroller_saved_message_body_auto_trans">Bonjour {{{username}}}, certaines de vos contributions sont peut-être des traductions automatiques, c\'est pourquoi elles ont été modifiées ou marquées comme telles par le modèle. Si aucune amélioration n\'est apportée à l\'article, celui-ci peut être supprimé.\n\nSi, malgré toutes ces informations, vous avez encore des questions, n\'hésitez pas à laisser un message [[User talk:{{{senderUserName}}}|sur ma page de discussion]]. Ne vous laissez pas décourager par ce petit incident. Vos contributions sont très importantes pour Wikipédia.</string>
+  <string name="patroller_saved_message_body_coi_rem">Bonjour {{username}}, j\'apprécie votre collaboration à Wikipédia ; cependant, j\'ai remarqué que vous êtes en [[wikipedia:fr:Conflit d\'intérêts|conflit d\'intérêts]]. Un conflit d\'intérêt est l\'incompatibilité entre les objectifs de neutralité et de fiabilité de Wikipédia et les objectifs particuliers de certains éditeurs, individus, entités ou entreprises de tout type.\n\nToutes les contributions dans l\'espace principal sont soumises aux politiques de critères de contenu ([[wikipedia:fr:Wikipedia:Ce que Wikipédia n\'est pas|ce que Wikipédia n\'est pas]]), de qualité encyclopédique ([[wikipedia:fr:Vérification|vérifiabilité]] et [[wikipedia:fr:Wikipédia:Travaux inédits|absence de recherche originale]]), de méthode éditoriale ([[wikipedia:Neutral_point_of_view|point de vue neutre]]) et de légitimité du contenu ([[wikipedia:fr:Copyright|droits d\'auteur]]). Tous les éditeurs sont tenus de respecter ces politiques lors de la création et de l\'évaluation des contenus, ainsi que de respecter les actions des autres éditeurs et de faire preuve de bonne foi pour s\'assurer que ces politiques sont respectées.\n\nSi vous éditez dans le cadre d\'un conflit d\'intérêts, vous devez appliquer la politique correspondante avec une attention particulière ; dans le cas contraire, votre compte d\'utilisateur pourrait être considéré comme étant à des fins privées et bloqué. N\'hésitez pas à me contacter sur ma page de discussion si vous avez des questions.</string>
+  <string name="patroller_saved_message_body_final_warning">Comme vous avez effectué plusieurs modifications destructrices, ceci est votre dernier avertissement. Si vous continuez à vandaliser Wikipédia, votre compte sera bloqué pour les modifications.</string>
+  <string name="patroller_saved_message_body_copy_vio">Bonjour {{{username}}}. Votre récente modification semble inclure du matériel protégé par le droit d\'auteur sans autorisation. Veuillez vous assurer que tout le contenu est [[WP:VDA|conforme aux politiques de Wikipédia en matière de droits d\'auteur]] afin d\'éviter toute annulation.</string>
+  <string name="patroller_saved_message_body_edit_summary">Bonjour {{{username}}}, il semble que vous ayez supprimé du contenu de Wikipédia sans l\'expliquer dans le résumé de modification. Veuillez laisser un résumé de modification chaque fois que vous ajoutez ou supprimez du contenu sur Wikipédia.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Bonjour {{{username}}}, il semble que vous ayez supprimé un contenu sans en discuter au préalable sur la page de discussion de l\'article. Veuillez noter que Wikipédia n\'est pas censurée et qu\'un contenu ne doit pas être supprimé parce qu\'il est controversé. Si vous pensez que l\'information est inexacte, veuillez parvenir à un consensus sur la page de discussion de l\'article.</string>
+  <string name="patroller_saved_message_body_art_imp">Bonjour {{{username}}} ! Votre article est un excellent début ! Pour l\'améliorer encore, pensez à ajouter davantage de références à des sources fiables. Cela permet de vérifier les informations et d\'améliorer la qualité de l\'article. Pour plus de détails, consultez les pages de [[Wikipedia:Reliable_sources|sources fiables]].</string>
   <string name="data_opt_in_accept">Accepter</string>
   <string name="data_opt_in_reject">Rejeter</string>
   <string name="page_issues_title">Problèmes de la page</string>

@@ -1226,6 +1226,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Altura</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Inserte</string>
+  <string name="templates_search_hint">Buscar plantillas</string>
+  <string name="templates_insert_button">Insertar</string>
+  <string name="templates_param_suggested_value">por ejemplo, %s</string>
+  <string name="templates_param_optional_hint">%s (opcional)</string>
+  <string name="templates_param_suggested_hint">%s (sugerido)</string>
+  <string name="templates_learn_more_link">Aprende más</string>
+  <string name="templates_description_incomplete">Las plantillas las generan el usuario y pueden carecer de descripciones completas.</string>
+  <string name="templates_description_empty">La plantilla \" %s \" aún no tiene descripción.</string>
+  <string name="templates_description_missing_data">Esta plantilla carece de &lt;a href=\"%1$s\"&gt;TemplateData&lt;/a&gt;, y sus parámetros han sido &lt;a href=\"%2$s\"&gt;generados automáticamente&lt;/a&gt;. En consecuencia, la plantilla y sus parámetros carecen de descripciones.</string>
   <string name="main_drawer_help">Ayuda</string>
   <string name="main_drawer_login">Iniciar sesión / unirse a Wikipedia</string>
   <string name="main_tooltip_text">Hola, %s, ¿sabías que todos pueden editar Wikipedia?</string>
@@ -1241,6 +1250,7 @@
   <string name="talk_user_title">Discusión: %s</string>
   <string name="talk_new_topic">Tema nuevo</string>
   <string name="talk_new_topic_submitted">Tema posted.</string>
+  <string name="talk_warn_save_dialog_dont_save">No guardar</string>
   <string name="talk_warn_saved_messages">Mensajes guardados</string>
   <string name="talk_page_empty">Esta página de discusión está vacía.</string>
   <string name="talk_add_reply">Responder</string>
@@ -1250,6 +1260,7 @@
   <string name="talk_message_hint">Redactar mensaje</string>
   <string name="talk_message_empty">El mensaje no puede estar vacío.</string>
   <string name="talk_subject_empty">El asunto no puede estar vacío.</string>
+  <string name="talk_subject_duplicate">El nombre del sujeto ya existe. Prueba con uno diferente.</string>
   <string name="talk_response_submitted">Respuesta posted.</string>
   <string name="talk_snackbar_undo">Deshacer</string>
   <string name="talk_last_modified">&lt;b&gt;Último editado&lt;/b&gt; %1$s por %2$s</string>
@@ -1356,8 +1367,11 @@
   <string name="reading_list_share_message_v2">¡Hola! Me gustaría compartir mi lista de lectura de Wikipedia contigo:</string>
   <string name="reading_list_share_survey_title">¿Podrías ayudarnos a mejorar \"Compartir listas de lectura\"?</string>
   <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Cree sus propios mensajes de advertencia o utilice &lt;a href=\"#\"&gt;mensajes de ejemplo&lt;/a&gt; para comenzar.</string>
   <string name="talk_templates_edit_message_dialog_delete">Eliminar</string>
   <string name="talk_templates_message_deleted" fuzzy="true">El mensaje se ha eliminado</string>
+  <string name="talk_templates_your_messages_tab_title">Sus mensajes</string>
+  <string name="talk_templates_example_messages_tab_title">Mensajes de ejemplo</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_joined_date_text">&lt;b&gt;Cuenta de: &lt;/b&gt; %s</string>
   <string name="patroller_tasks_edits_list_user_information_dialog_edit_count_text">&lt;b&gt;Editar recuento: &lt;/b&gt; %s</string>
   <string name="patroller_diff_menu_edit_history_title">Historial de edición del artículo</string>
@@ -1380,6 +1394,8 @@
   <string name="patroller_saved_message_body_copy_vio">Su edición reciente parece incluir material protegido por derechos de autor sin permiso. Asegúrese de que todo el contenido cumpla con las políticas de [[Wikipedia:Copyrights|copyright]]para evitar su eliminación.</string>
   <string name="patroller_saved_message_body_edit_summary">Hola, {{{nombre de usuario}}}, parece que eliminaste contenido de Wikipedia sin dejar un resumen de edición. Deje un resumen de edición cada vez que agregue o elimine contenido en Wikipedia.</string>
   <string name="patroller_saved_message_body_do_not_censor">Hola, {{{username}}}, parece que eliminaste contenido sin comentarlo en la página de discusión del artículo. Tenga en cuenta que Wikipedia no tiene censura y el contenido no se debe eliminar porque sea controvertido. Si cree que la información es inexacta, llegue a un consenso en la página de discusión del artículo.</string>
+  <string name="talk_warn_learn_more_label">Más información sobre los marcadores de posición de mensajes</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Utilice un mensaje de ejemplo a continuación para personalizar, enviar y guardar sus mensajes.</string>
   <string name="patroller_saved_message_body_art_imp">Hola {{{username}}}. ¡Tu artículo es un gran comienzo! Para hacerlo aún mejor, planteese agregar más referencias a fuentes confiables. Esto ayuda a verificar la información y mejora la calidad del artículo. Consulte las pautas de Wikipedia sobre [[Wikipedia:Reliable_sources|fuentes confiables]] para obtener más detalles.</string>
   <string name="talk_templates_menu_edit_title">Editar</string>
   <string name="data_opt_in_accept">Aceptar</string>
@@ -1388,5 +1404,4 @@
   <string name="email_report_image_recommendations_body">He tenido un problema con la función de recomendación de imagen:\n- [Describe el problema en concreto]\n\nEl resultado que me gustaría ver es:\n- [Describe la solución propuesta]</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">¿Qué quieres que cambiemos o mejoremos?</string>
   <string name="places_empty_list">Esta área está vacía. Alejar &lt;a href=\"#\"&gt;el mapa&lt;/a&gt; .</string>
-  <string name="talk_warn_learn_more_label">Más información sobre los marcadores de posición de mensajes</string>
 </resources>

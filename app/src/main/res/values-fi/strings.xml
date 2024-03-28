@@ -1233,6 +1233,8 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Korkeus</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">kuvapistettä</string>
   <string name="insert_media_insert_button">Lisää</string>
+  <string name="templates_param_suggested_value">esim. %s</string>
+  <string name="templates_learn_more_link">Lisätietoja</string>
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="main_tooltip_text">Hei %s, tiesitkö että kuka tahansa voi muokata Wikipediaa?</string>
@@ -1258,8 +1260,6 @@
   <string name="talk_warn_save_dialog_cancel">Peruuta</string>
   <string name="talk_warn_submitted">Viesti julkaistu muokkaajan keskustelusivulla</string>
   <string name="talk_warn_submitted_and_saved">Viesti tallennettu ja julkaistu muokkaajan keskustelusivulla</string>
-  <string name="talk_warn_saved_message">Valitse olemassa oleva varoitusviesti tai kirjoita uusi viesti.</string>
-  <string name="talk_warn_saved_message_dropdown">Tallennetut viestit</string>
   <string name="talk_warn_saved_messages">Tallennetut viestit</string>
   <string name="talk_page_empty">Tämä keskustelusivu on tyhjä.</string>
   <string name="talk_page_empty_title">Keskustelu alkaa tästä</string>
@@ -1466,10 +1466,8 @@
   <string name="reading_list_share_message_v2">Hei! Haluan jakaa Wikipedian lukulistani kanssasi:</string>
   <string name="reading_list_share_survey_title">Voisitko auttaa meitä parantamaan lukulistojen jakamista?</string>
   <string name="reading_list_share_survey_body">Lukulistojen jakaminen on testiominaisuus, jonka kehittämiseen tarvitsemme palautettasi.</string>
-  <string name="talk_templates_manage_title">Hallinnoi mallineita</string>
-  <string name="talk_templates_empty_message">Sinulla ei ole tallennettuja varoitusviestejä.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Sinulla ei ole tallennettuja varoitusviestejä.</string>
   <string name="talk_templates_new_message_title">Uusi viesti</string>
-  <string name="talk_templates_new_message_description">Kirjoita varoitusviesti.</string>
   <string name="talk_templates_new_message_subject_hint">Aihe</string>
   <string name="talk_templates_new_message_compose_hint">Kirjoita viesti</string>
   <string name="talk_templates_new_message_save">Tallenna</string>
@@ -1494,7 +1492,6 @@
     <item quantity="other">Viestit on poistettu</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Otsikko ei voi olla tyhjä.</string>
-  <string name="patroller_tasks_edits_list_title">Muokkausluettelo</string>
   <string name="patroller_tasks_edits_list_search_hint">Etsi tai suodata muokkauksia</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Merkinnät: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Ei mitään</string>
@@ -1535,7 +1532,9 @@
   <string name="patroller_tasks_filters_contribution_quality_may_problems">Saattaa sisältää ongelmia</string>
   <string name="patroller_tasks_filters_contribution_quality_may_problems_desc">Löytää eniten virheellisiä tai vahingollisia muokkauksia, mutta tarkkuus on alempi.</string>
   <string name="patroller_tasks_filters_contribution_quality_likely_problems">Sisältää todennäköisesti ongelmia</string>
+  <string name="patroller_tasks_filters_contribution_quality_likely_problems_desc">Löytää keskitarkkuudella välijatkeen ongelmallisista muokkauksista.</string>
   <string name="patroller_tasks_filters_contribution_quality_bad">Sisältää hyvin todennäköisesti ongelmia</string>
+  <string name="patroller_tasks_filters_contribution_quality_bad_desc">Erittäin tarkka löytämään ilmiselvästi virheelliset tai vahingolliset muokkaukset.</string>
   <string name="patroller_tasks_filters_user_intent_header">Käyttäjän aikomuksen ennustaminen</string>
   <string name="patroller_tasks_filters_user_intent_good">Hyvin todennäköisesti hyväntahtoinen</string>
   <string name="patroller_tasks_filters_user_intent_good_desc">Erittäin tarkka löytämään lähes pelkästään hyväntahtoisia muokkauksia.</string>

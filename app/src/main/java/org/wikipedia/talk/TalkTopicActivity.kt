@@ -24,6 +24,7 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.ActivityTalkTopicBinding
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.discussiontools.ThreadItem
+import org.wikipedia.diff.ArticleEditDetailsActivity
 import org.wikipedia.edit.EditHandler
 import org.wikipedia.edit.EditSectionActivity
 import org.wikipedia.history.HistoryEntry
@@ -412,7 +413,7 @@ class TalkTopicActivity : BaseActivity() {
         }
 
         override fun onDiffLinkClicked(title: PageTitle, revisionId: Long) {
-            // TODO
+            startActivity(ArticleEditDetailsActivity.newIntent(this@TalkTopicActivity, title, revisionId))
         }
 
         override lateinit var wikiSite: WikiSite
