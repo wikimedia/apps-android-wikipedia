@@ -6,6 +6,7 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
+import org.wikipedia.dataclient.donate.PaymentResponseContainer
 import org.wikipedia.dataclient.mwapi.CreateAccountResponse
 import org.wikipedia.dataclient.mwapi.MwParseResponse
 import org.wikipedia.dataclient.mwapi.MwPostResponse
@@ -238,7 +239,33 @@ interface Service {
     ): MwQueryResponse
 
     @GET("api.php?format=json&action=getPaymentMethods")
-    suspend fun getPaymentMethods(@Query("country") country: String): MwQueryResponse
+    suspend fun getPaymentMethods(@Query("country") country: String): PaymentResponseContainer
+
+    @FormUrlEncoded
+    @POST("api.php?format=json&action=submitPayment")
+    suspend fun submitPayment(
+        @Field("amount") amount: String,
+        @Field("app_version") appVersion: String,
+        @Field("banner") banner: String,
+        @Field("city") city: String,
+        @Field("country") country: String,
+        @Field("currency") currency: String,
+        @Field("donor_country") donorCountry: String,
+        @Field("email") email: String,
+        @Field("first_name") firstName: String,
+        @Field("full_name") fullName: String,
+        @Field("language") language: String,
+        @Field("last_name") lastName: String,
+        @Field("recurring") recurring: String,
+        @Field("payment_token") paymentToken: String,
+        @Field("opt_in") optIn: String,
+        @Field("pay_the_fee") payTheFee: String,
+        @Field("payment_method") paymentMethod: String,
+        @Field("payment_network") paymentNetwork: String,
+        @Field("postal_code") postalCode: String,
+        @Field("state_province") stateProvince: String,
+        @Field("street_address") streetAddress: String
+    ): PaymentResponseContainer
 
     // ------- CSRF, Login, and Create Account -------
 
