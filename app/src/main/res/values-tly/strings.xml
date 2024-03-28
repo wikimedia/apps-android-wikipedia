@@ -848,7 +848,6 @@
   <string name="talk_warn_save_dialog_title">Ovaxtətijon ogəte?</string>
   <string name="talk_warn_save_dialog_publish">Edaštej</string>
   <string name="talk_warn_save_dialog_cancel">Ohaštej</string>
-  <string name="talk_warn_saved_message_dropdown">Ogətə byə ǧədəǧon</string>
   <string name="talk_page_empty_title">No-pegət ijo bino bejdə</string>
   <string name="talk_add_reply">Čəvob doj</string>
   <string name="talk_no_subject">(Be myžori)</string>
@@ -988,7 +987,6 @@
   <string name="talk_templates_edit_message_dialog_title">Ǧədəǧə sərost kardej</string>
   <string name="talk_templates_edit_message_dialog_save">Ogətej</string>
   <string name="talk_templates_edit_message_dialog_delete">Mole</string>
-  <string name="patroller_tasks_edits_list_title">Ovaxtətijon sijohi</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tegon: %s</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_contributions">Ištirokəkə tohfə dijəkə</string>
   <string name="patroller_tasks_edits_list_card_overflow_thank">Sepas</string>
