@@ -1232,6 +1232,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Magasság</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">pixel</string>
   <string name="insert_media_insert_button">Beszúrás</string>
+  <string name="templates_search_hint">Sablon keresése</string>
+  <string name="templates_insert_button">Beszúrás</string>
+  <string name="templates_param_suggested_value">pl. %s</string>
+  <string name="templates_param_optional_hint">%s (opcionális)</string>
+  <string name="templates_param_suggested_hint">%s (javasolt)</string>
+  <string name="templates_learn_more_link">További információk</string>
+  <string name="templates_description_incomplete">A sablonok felhasználók által generált tartalmak, és lehet, hogy nincs teljes leírásuk.</string>
+  <string name="templates_description_empty">A(z) „%s” sablonnak még nincs leírása.</string>
+  <string name="templates_description_missing_data">Ennek a sablonnak nincs &lt;a href=\"%1$s\"&gt;TemplateData-leírása&lt;/a&gt;, és a paraméterlistája &lt;a href=\"%2$s\"&gt;automatikusan generált&lt;/a&gt;. Ezért a sablonnak és paramétereinek nincs leírása.</string>
   <string name="main_drawer_help">Segítség</string>
   <string name="main_drawer_login">Bejelentkezés/regisztrálás a Wikipédiába</string>
   <string name="main_tooltip_text">Helló %s, tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
@@ -1257,8 +1266,7 @@
   <string name="talk_warn_save_dialog_cancel">Mégse</string>
   <string name="talk_warn_submitted">Az üzenet közzétéve a szerkesztő vitalapján</string>
   <string name="talk_warn_submitted_and_saved">Az üzenet elmentve és közzétéve a szerkesztő vitalapján</string>
-  <string name="talk_warn_saved_message">Válassz ki egy meglévő figyelmeztető üzenetet, vagy írj új üzenetet.</string>
-  <string name="talk_warn_saved_message_dropdown">Mentett üzenetek</string>
+  <string name="talk_warn_saved_messages">Mentett üzenetek</string>
   <string name="talk_page_empty">Ez a vitalap üres.</string>
   <string name="talk_page_empty_title">A beszélgetés itt kezdődik</string>
   <string name="talk_page_empty_content">A vitalapok annak megbeszélésére szolgálnak, hogy hogyan lehet a Wikipédia tartalmát a lehető legjobbá tenni. Indíts egy új témát a wikipédisták közösségével való kapcsolódáshoz és együttműködéshez.</string>
@@ -1464,10 +1472,8 @@
   <string name="reading_list_share_message_v2">Szia! Szeretném megosztani veled a Wikipédia-olvasólistámat:</string>
   <string name="reading_list_share_survey_title">Tudnál segíteni nekünk ennek a funkciónak a fejlesztésében?</string>
   <string name="reading_list_share_survey_body">Az olvasólisták megosztása egy tesztelés alatt álló funkció, és szükségünk van a visszajelzésedre a fejlesztéséhez vagy eltávolításához.</string>
-  <string name="talk_templates_manage_title">Sablonok kezelése</string>
-  <string name="talk_templates_empty_message">Nincsenek mentett figyelmeztető üzeneteid.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Nincsenek mentett figyelmeztető üzeneteid.</string>
   <string name="talk_templates_new_message_title">Új üzenetek</string>
-  <string name="talk_templates_new_message_description">Figyelmeztető üzenet írása.</string>
   <string name="talk_templates_new_message_subject_hint">Tárgy</string>
   <string name="talk_templates_new_message_compose_hint">Üzenet megfogalmazása</string>
   <string name="talk_templates_new_message_save">Mentés</string>
@@ -1492,7 +1498,6 @@
     <item quantity="other">Az üzenetek törölve</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Az cím nem lehet üres.</string>
-  <string name="patroller_tasks_edits_list_title">Szerkesztések listája</string>
   <string name="patroller_tasks_edits_list_search_hint">Szerkesztések keresése vagy szűrése</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Címkék: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Semmi</string>
@@ -1552,7 +1557,6 @@
     <item quantity="one">%d szűrő</item>
     <item quantity="other">%d szűrő</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Járőr szerkesztése</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Szócikk szerkesztési laptörténet</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Visszaállítás kész</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Biztosan vissza akarod állítani?</string>
@@ -1578,6 +1582,14 @@
   <string name="patroller_diff_feedback_dialog_submit">Elküldés</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Visszajelzés elküldve.</string>
   <string name="patroller_diff_feedback_tooltip">Érintse meg a túlcsordulás menüt, hogy bármikor visszajelzést küldhessél a „Probléma a funkcióval” alatt.</string>
+  <string name="patroller_saved_message_title_vandalism">Vandalizmus figyelmeztetés</string>
+  <string name="patroller_saved_message_title_editing_tests">Tesztszerkesztések</string>
+  <string name="patroller_saved_message_title_npov">Semleges nézőpont</string>
+  <string name="patroller_saved_message_title_auto_trans">Automatikus fordítás</string>
+  <string name="patroller_saved_message_title_final_warning">Utolsó figyelmeztetés</string>
+  <string name="patroller_saved_message_title_copy_vio">Szerzői jog megsértésére vonatkozó figyelmeztetés</string>
+  <string name="patroller_saved_message_title_art_imp">Szócikk javítási javaslat</string>
+  <string name="talk_templates_menu_edit_title">Szerkesztés</string>
   <string name="data_opt_in_accept">Elfogad</string>
   <string name="data_opt_in_reject">Elutasít</string>
   <string name="page_issues_title">A lap problémái</string>

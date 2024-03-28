@@ -20,6 +20,7 @@
 * Hwboehm
 * Justman10000
 * Killarnee
+* KimKelting
 * Lucas Werkmeister
 * ManuelFranz
 * McDutchie
@@ -1447,6 +1448,7 @@
   <string name="media_playback_error">Fehler beim Abspielen von Medien.</string>
   <string name="user_contrib_menu_label">Beiträge</string>
   <string name="user_contrib_filter_activity_title">Beiträge filtern</string>
+  <string name="action_item_view_on_map">Auf der Karte anzeigen</string>
   <string name="shareable_reading_lists_import_dialog_title">Gemeinsame Leseliste importieren</string>
   <string name="shareable_reading_lists_import_dialog_content">Wie würdest du die Liste nennen, die man dir gegeben hat?</string>
   <string name="shareable_reading_lists_new_indicator">*neu*</string>
@@ -1460,7 +1462,6 @@
   <string name="reading_list_share_survey_title">Kannst du uns helfen, \"Leselisten teilen\" zu verbessern?</string>
   <string name="reading_list_share_survey_body">\"Leselisten teilen\" ist eine Testfunktion und wir brauchen dein Feedback, um sie zu verbessern oder zu entfernen.</string>
   <string name="talk_templates_new_message_title">Neue Nachricht</string>
-  <string name="talk_templates_new_message_description">Warnmeldung verfassen.</string>
   <string name="talk_templates_new_message_subject_hint">Betreff</string>
   <string name="talk_templates_new_message_compose_hint">Nachricht schreiben</string>
   <string name="talk_templates_new_message_save">Speichern</string>
@@ -1480,7 +1481,6 @@
     <item quantity="other">Nachrichten wurden gelöscht</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Der Titel darf nicht leer sein.</string>
-  <string name="patroller_tasks_edits_list_title">Liste der Bearbeitungen</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Keine</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benutzerseite ansehen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Diskussionsseite anzeigen</string>
@@ -1509,4 +1509,19 @@
   <string name="data_opt_in_reject">Ablehnen</string>
   <string name="page_issues_title">Seitenprobleme</string>
   <string name="generic_release_notes">Kleinere Fehlerbehebungen und Verbesserungen</string>
+  <string name="places_title">Orte</string>
+  <string name="places_permissions_denied">Um deinen Standort auf der Karte anzuzeigen, ist eine Standortgenehmigung erforderlich. Bitte versuche es erneut.</string>
+  <string name="places_search_hint">Orte suchen</string>
+  <string name="places_filter_title">Sprache filtern</string>
+  <string name="places_toggle_buttons_map">Karte</string>
+  <string name="places_toggle_buttons_list">Liste</string>
+  <string name="places_nav_tab_tooltip_message">Entdecke Wikipedia-Artikel in deiner Nähe mit Orte</string>
+  <string name="places_article_menu_tooltip_message">Tippe auf „Auf Karte anzeigen“, um den Standort dieses Artikels zu erkunden</string>
+  <string name="places_survey_very_satisfied_option">Sehr zufrieden</string>
+  <string name="places_survey_very_unsatisfied_option">Sehr unzufrieden</string>
+  <string name="places_survey_dialog_title">Hilf mit, „Orte“ zu verbessern</string>
+  <string name="places_survey_feedback_dialog_title">Wie kann „Orte“ verbessert werden?</string>
+  <string name="places_survey_dialog_cancel">Abbrechen</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Was sollen wir ändern oder verbessern?</string>
+  <string name="places_empty_list">Dieser Bereich ist leer. Verkleinere &lt;a href=\"#\"&gt;die Karte&lt;/a&gt;.</string>
 </resources>

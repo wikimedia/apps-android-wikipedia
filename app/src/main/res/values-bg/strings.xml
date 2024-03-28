@@ -1282,7 +1282,6 @@
   <string name="shareable_reading_lists_new_imported_snackbar">Списъкът за четене е внесен</string>
   <string name="reading_list_share_menu_label">Споделяне...</string>
   <string name="reading_list_share_menu_tooltip">Споделяне на списъка за четене с други</string>
-  <string name="patroller_tasks_patrol_edit_title">Патрулиране на редакция</string>
   <string name="patroller_onboarding_two_thank_title">Благодарност</string>
   <string name="patroller_onboarding_two_watch_title">Наблюдение</string>
   <string name="patroller_onboarding_two_warn_title">Предупреждение</string>

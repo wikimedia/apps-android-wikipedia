@@ -557,7 +557,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_gravity="center_horizontal"
                 app:tint="?attr/placeholder_color"
-                app:srcCompat="@drawable/ic_warning_outline_24" />
+                app:srcCompat="@drawable/ic_notification_user_talk" />
 
             <TextView
                 style="@style/BottomNavigationTextAppearance"
@@ -566,7 +566,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="44dp"
                 android:textAlignment="center"
-                android:text="@string/talk_warn"
+                android:text="@string/talk_title"
                 android:textColor="?attr/placeholder_color"/>
 
         </FrameLayout>
