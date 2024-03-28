@@ -173,7 +173,7 @@
   <string name="login_username_hint">Uživatelské jméno</string>
   <string name="login_password_hint">Heslo</string>
   <string name="account_creation_password_hint">Heslo</string>
-  <string name="login_2fa_hint">Dvoufaktorový autentizační kód</string>
+  <string name="login_2fa_hint">Dvoufázový ověřovací kód</string>
   <string name="login_2fa_other_workflow_error_msg">Dvoufázové ověření je povinné! Prosíme, přihlaste se pomocí tokenu dvoufázového ověření; poté to zkuste znovu.</string>
   <string name="onboarding_card_login">Přihlásit se</string>
   <string name="page_editing_login">Přihlásit se</string>
@@ -194,7 +194,7 @@
   <string name="logged_out_in_background_title">Byli jste odhlášeni</string>
   <string name="logged_out_in_background_dialog">Byli jste odhlášeni z Wikipedie. Chcete se znovu přihlásit?</string>
   <string name="logged_out_in_background_login">Přihlásit se</string>
-  <string name="logged_out_in_background_cancel">Ne</string>
+  <string name="logged_out_in_background_cancel">Storno</string>
   <string name="history_empty_title">Nejsou zde žádné nedávno navštívené stránky</string>
   <string name="history_empty_message">Mějte přehled o tom, co jste zde četli.</string>
   <string name="history_offline_articles_toast">Některé články v historii nemusí být zobrazeny, když je zařízení offline.</string>
@@ -276,7 +276,7 @@
   <string name="about_translators_heading">Překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerritu&lt;/a&gt; a &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.cs\"&gt;licence Creative Commons Uveďte původ – Zachovejte licenci&lt;/a&gt;.</string>
+  <string name="about_app_license">Zdrojový kód je dostupný na &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubu&lt;/a&gt; za podmínek &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Pokud není uvedeno jinak, obsah je dostupný za podmínek &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.cs\"&gt;licence Creative Commons Uveďte původ – Zachovejte licenci&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;nadace Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikaci Wikipedie</string>
   <string name="edit_abandon_confirm">Stránka byla změněna. Jste si jisti, že chcete odejít bez uložení změn?</string>
@@ -776,8 +776,8 @@
   <string name="notifications_menu_uncheck_all">Odebrat všechny položky</string>
   <string name="notifications_wiki_filter_header">Wiki filtr</string>
   <string name="notifications_type_filter_header">Filtr typu</string>
-  <string name="notifications_all_wikis_text">Vše \"wiki\"</string>
-  <string name="notifications_all_types_text">Všechny „typy“</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Vše \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Všechny „typy“</string>
   <string name="notifications_menu_user_talk_page">Diskusní stránka uživatele %s</string>
   <string name="view_because_you_read_card_title">Protože jste četli</string>
   <string name="view_random_card_title">Náhodný článek</string>
@@ -1318,5 +1318,20 @@
   <string name="user_contrib_current">aktuální</string>
   <string name="user_contrib_menu_label">Příspěvky</string>
   <string name="user_contrib_filter_activity_title">Filtrovat příspěvky</string>
+  <string name="action_item_view_on_map">Zobrazit na mapě</string>
   <string name="patroller_tasks_overflow_report">Problém s funkcí</string>
+  <string name="patroller_diff_feedback_dialog_message">Jste s touto funkcí spokojen(a)?</string>
+  <string name="patroller_diff_feedback_dialog_option_satisfied">Spokojen(a)</string>
+  <string name="patroller_diff_feedback_dialog_option_neutral">Neutrální</string>
+  <string name="patroller_diff_feedback_dialog_option_unsatisfied">Nespokojen(a)</string>
+  <string name="places_title">Místa</string>
+  <string name="places_search_hint">Hledat místa</string>
+  <string name="places_filter_title">Filtrovat jazyk</string>
+  <string name="places_toggle_buttons_map">Mapa</string>
+  <string name="places_toggle_buttons_list">Seznam</string>
+  <string name="places_nav_tab_tooltip_message">Objevujte články na Wikipedii kolem sebe pomocí záložky Místa</string>
+  <string name="places_article_menu_tooltip_message">Klepnutím na „Zobrazit na mapě“ prozkoumáte polohu tohoto článku</string>
+  <string name="places_survey_very_satisfied_option">Velmi spokojen(a)</string>
+  <string name="places_survey_very_unsatisfied_option">Velmi nespokojen(a)</string>
+  <string name="places_survey_dialog_title">Pomozte vylepšit „Místa“</string>
 </resources>

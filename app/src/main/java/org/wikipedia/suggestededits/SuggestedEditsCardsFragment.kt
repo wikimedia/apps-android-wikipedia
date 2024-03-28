@@ -175,7 +175,7 @@ class SuggestedEditsCardsFragment : Fragment(), MenuProvider, SuggestedEditsItem
             ADD_IMAGE_TAGS -> getString(R.string.suggested_edits_tag_images)
             ADD_CAPTION, TRANSLATE_CAPTION -> getString(R.string.suggested_edits_caption_images)
             IMAGE_RECOMMENDATIONS -> ""
-            VANDALISM_PATROL -> getString(R.string.patroller_tasks_patrol_edit_title)
+            VANDALISM_PATROL -> getString(R.string.suggested_edits_edit_patrol)
             else -> getString(R.string.suggested_edits_describe_articles)
         }
     }

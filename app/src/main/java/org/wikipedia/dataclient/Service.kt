@@ -6,7 +6,15 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
-import org.wikipedia.dataclient.mwapi.*
+import org.wikipedia.dataclient.mwapi.CreateAccountResponse
+import org.wikipedia.dataclient.mwapi.MwParseResponse
+import org.wikipedia.dataclient.mwapi.MwPostResponse
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
+import org.wikipedia.dataclient.mwapi.ParamInfoResponse
+import org.wikipedia.dataclient.mwapi.ShortenUrlResponse
+import org.wikipedia.dataclient.mwapi.SiteMatrix
+import org.wikipedia.dataclient.mwapi.TemplateDataResponse
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
@@ -16,7 +24,13 @@ import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
 import org.wikipedia.login.LoginClient.LoginResponse
-import retrofit2.http.*
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Headers
+import retrofit2.http.POST
+import retrofit2.http.Query
 
 /**
  * Retrofit service layer for all API interactions, including regular MediaWiki and RESTBase.
@@ -64,6 +78,19 @@ interface Service {
                 "&gsrnamespace=6&iiurlwidth=" + PREFERRED_THUMB_SIZE
     )
     suspend fun fullTextSearchCommons(
+        @Query("gsrsearch") searchTerm: String,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("gsroffset") gsrOffset: Int?,
+    ): MwQueryResponse
+
+    @GET(
+        MW_API_PREFIX + "action=query&converttitles=" +
+                "&prop=description|info" +
+                "&generator=search&gsrnamespace=0&gsrwhat=text" +
+                "&inprop=varianttitles|displaytitle" +
+                "&gsrinfo=&gsrprop=redirecttitle"
+    )
+    suspend fun fullTextSearchTemplates(
         @Query("gsrsearch") searchTerm: String,
         @Query("gsrlimit") gsrLimit: Int,
         @Query("gsroffset") gsrOffset: Int?,
@@ -655,6 +682,10 @@ interface Service {
     suspend fun getParamInfo(
         @Query("modules") modules: String
     ): ParamInfoResponse
+
+    @GET(MW_API_PREFIX + "action=templatedata&includeMissingTitles=&converttitles=")
+    suspend fun getTemplateData(@Query("lang") langCode: String,
+                                @Query("titles") titles: String): TemplateDataResponse
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"

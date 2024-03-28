@@ -41,7 +41,7 @@ class TabActivity : BaseActivity() {
         setContentView(binding.root)
         binding.tabCountsView.updateTabCount(false)
         binding.tabCountsView.setOnClickListener { onBackPressed() }
-        FeedbackUtil.setButtonLongPressToast(binding.tabCountsView, binding.tabButtonNotifications)
+        FeedbackUtil.setButtonTooltip(binding.tabCountsView, binding.tabButtonNotifications)
 
         binding.tabRecyclerView.itemAnimator = DefaultItemAnimator()
         binding.tabRecyclerView.adapter = TabItemAdapter()

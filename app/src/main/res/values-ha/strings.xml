@@ -243,7 +243,7 @@
   <string name="about_translators_heading">Mai fassara</string>
   <string name="about_translators_translatewiki">Lasisi</string>
   <string name="about_app_license_heading">Lasisi</string>
-  <string name="about_app_license">Akwai tushen alamu &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; da &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ƙarƙashin &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Sai dai in an kayyade, akwai abun ciki a ƙarƙashin a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Akwai tushen alamu &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; da &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; ƙarƙashin &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Sai dai in an kayyade, akwai abun ciki a ƙarƙashin a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">Sanarwar &lt;a href=\"https://wikimediafoundation.org/\"&gt;Gidauniyar Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Game da</string>
   <string name="edit_abandon_confirm">An gyara shafin. Shin ka tabbata kana son fita ba tare da adana canje-canjenku ba?</string>
@@ -748,8 +748,8 @@
   <string name="notifications_menu_uncheck_all">Cire duk abubuwa</string>
   <string name="notifications_wiki_filter_header">Filter na Wiki</string>
   <string name="notifications_type_filter_header">Nau\'in tacewa</string>
-  <string name="notifications_all_wikis_text">Duk \"wiki\"</string>
-  <string name="notifications_all_types_text">Dukkanin \"nau\'in\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Duk \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Dukkanin \"nau\'in\"</string>
   <string name="notifications_menu_user_talk_page">Shafin magana na %s</string>
   <string name="notifications_offline_disable_message">Ba a samun aikin yayin da yake kan layi.</string>
   <string name="view_because_you_read_card_title">Saboda ka karanta</string>
@@ -1232,8 +1232,6 @@
   <string name="talk_warn_save_dialog_cancel">Yanke</string>
   <string name="talk_warn_submitted">Sakon da aka buga ga shafin tattaunawa na mai amfani</string>
   <string name="talk_warn_submitted_and_saved">Saƙon da aka adana kuma aka buga zuwa shafin tattaunawa na mai amfani</string>
-  <string name="talk_warn_saved_message">Zaɓi saƙon gargadi na yanzu ko rubuta sabon saƙo.</string>
-  <string name="talk_warn_saved_message_dropdown">Saƙonnin da aka adana</string>
   <string name="talk_page_empty">Wannan shafin magana ba kome ba ne.</string>
   <string name="talk_page_empty_title">Tattaunawar ta fara a nan</string>
   <string name="talk_page_empty_content">Shafukan tattaunawa sune inda mutane ke tattauna yadda za a sanya abun cikin Wikipedia mafi kyau. Farawa ta hanyar ƙara sabon batun tattaunawa don haɗi da haɗin gwiwa tare da al\'ummar Wikipedians.</string>
@@ -1439,10 +1437,8 @@
   <string name="reading_list_share_message_v2">Ya kasance! Ina so in raba jerin karatun Wikipedia tare da ku:</string>
   <string name="reading_list_share_survey_title">Shin za ku iya taimaka mana mu inganta \"Listunan karatu na raba\"?</string>
   <string name="reading_list_share_survey_body">\"Listing Reading Sharing\" fasalin gwaji ne kuma muna buƙatar ra\'ayoyinku don ingantawa ko cire shi.</string>
-  <string name="talk_templates_manage_title">Sarrafa samfura</string>
-  <string name="talk_templates_empty_message">Ba ku da saƙonnin gargadi da aka adana.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Ba ku da saƙonnin gargadi da aka adana.</string>
   <string name="talk_templates_new_message_title">Sabon saƙo</string>
-  <string name="talk_templates_new_message_description">Ƙirƙiri saƙon gargaɗi</string>
   <string name="talk_templates_new_message_subject_hint">Batu</string>
   <string name="talk_templates_new_message_compose_hint">Rubuta saƙo</string>
   <string name="talk_templates_new_message_save">Ajiye</string>
@@ -1467,7 +1463,6 @@
     <item quantity="other">An share saƙo</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Batun ba zai iya zama komai ba.</string>
-  <string name="patroller_tasks_edits_list_title">Jerin gyare-gyare</string>
   <string name="patroller_tasks_edits_list_search_hint">Bincike ko gyaran tacewa</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Alamomi: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Babu</string>
@@ -1527,7 +1522,6 @@
     <item quantity="one">%d tace</item>
     <item quantity="other"> %d tacewa</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Gyaran Patrol</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Tarihin gyaran labarin</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Komawa cikakke</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Shin kun tabbata kuna son rufe duk shafuka?</string>

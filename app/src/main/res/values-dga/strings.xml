@@ -238,7 +238,7 @@
   <string name="about_translators_heading">Leɛ leɛre ba</string>
   <string name="about_translators_translatewiki">A app ŋa da leɛŋ a yi leɛ leɛreba ŋa naŋ maŋ tona zaala toma na a yi &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Sori terebo</string>
-  <string name="about_app_license">A yiibuzie koodi be la &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">A yiibuzie koodi be la &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under the &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 License&lt;/a&gt;. Unless otherwise specified, content is available under a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike License&lt;/a&gt;.</string>
   <string name="about_wmf">A booree ŋa naŋ yi a &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">A kyaare</string>
   <string name="edit_abandon_confirm">Ba maale la a peegyi eŋ kaama. Fo sage la ka fo boɔrɔ la ka fo yi kyɛ ba biŋ a fo yel-leɛre?</string>
@@ -736,8 +736,8 @@
   <string name="notifications_menu_uncheck_all">Ta la peɛre kaa boma zaa</string>
   <string name="notifications_wiki_filter_header">Wiki boŋkyoraa</string>
   <string name="notifications_type_filter_header">Tɔ boŋkyoɔraa</string>
-  <string name="notifications_all_wikis_text">\"wiki\" zaa</string>
-  <string name="notifications_all_types_text">\"Parԑԑ\" zaa</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">\"wiki\" zaa</string>
+  <string name="notifications_all_types_text" fuzzy="true">\"Parԑԑ\" zaa</string>
   <string name="notifications_menu_user_talk_page">%s\'s yelyaga peegyi</string>
   <string name="notifications_offline_disable_message">A tontonaa ba kyebe saseɛ miri ba tɔnnɔŋ.</string>
   <string name="view_because_you_read_card_title">Bonso fo kanne la</string>
@@ -1184,8 +1184,6 @@
   <string name="talk_warn_save_dialog_cancel">Ŋmaa o</string>
   <string name="talk_warn_submitted">Masɛgye toɔle gaa la a maale enna tontoŋ yelyaga peegyi</string>
   <string name="talk_warn_submitted_and_saved">A masɛgye biŋ la kyɛ toɔle gaa a maale enna tontoŋ yelyaga peegyi</string>
-  <string name="talk_warn_saved_message">Kaa iri kpaambo masɛgye naŋ daŋ bebe bee kuri masɛgye paalaa.</string>
-  <string name="talk_warn_saved_message_dropdown">Biŋ masɛgyere</string>
   <string name="talk_page_empty">A yelyaga peegyi ŋa e la kpale.</string>
   <string name="talk_page_empty_title">A dɛmɛ diibo piili la kyɛ</string>
   <string name="talk_add_reply">Leɛ sagbo</string>
@@ -1379,10 +1377,8 @@
   <string name="reading_list_share_message_v2">Hi! N da na nɔŋ la ka n tɔre n wikipiideɛ kannoo pɛll ne fo:</string>
   <string name="reading_list_share_survey_title">Fo na baŋ soŋ te la baa \"kannoo pɛll tɔre\"?</string>
   <string name="reading_list_share_survey_body">\"Kannoo pɛll tɔraa\" e la nanda nyooraa te boɔra la fo  sagebo duoro na baa bee iri o bare.</string>
-  <string name="talk_templates_manage_title">Managye tɛmplete</string>
-  <string name="talk_templates_empty_message">Fo ba taa kpããbo masɛgye binnaa zaa.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Fo ba taa kpããbo masɛgye binnaa zaa.</string>
   <string name="talk_templates_new_message_title">Masɛgye paalaa</string>
-  <string name="talk_templates_new_message_description">Maale kpaannoo masɛgye.</string>
   <string name="talk_templates_new_message_subject_hint">Bɔgere</string>
   <string name="talk_templates_new_message_compose_hint">Kuri masɛgye</string>
   <string name="talk_templates_new_message_save">Biŋ</string>
@@ -1407,7 +1403,6 @@
     <item quantity="other">Mɛsɛgyere sãã yɛ la</item>
   </plurals>
   <string name="talk_templates_message_title_empty">A yelzu koŋ baŋ e kpale.</string>
-  <string name="patroller_tasks_edits_list_title">Maale eŋ pɛllɛ</string>
   <string name="patroller_tasks_edits_list_search_hint">Bɔ bee kyoɔre maale eŋ</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Magere: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Kaŋa zaa naane</string>
@@ -1449,7 +1444,6 @@
     <item quantity="one">%d filter</item>
     <item quantity="other">%d boŋkyoɔre</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Yɔɔbo maale eŋ</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Atekele maale yelkorɔ</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Leɛbo baare la</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Fo sage di la ka fo boɔrɔ la ka fo leɛ puori?</string>

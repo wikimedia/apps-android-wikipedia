@@ -244,7 +244,7 @@
   <string name="about_translators_heading">Таржамхой</string>
   <string name="about_translators_translatewiki">Укх приложенена &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; чу таржам даьр ГӀалгӀай Википеден админ ва (&lt;a href=\"https://instagram.com/ingush_wikipedia\"&gt;@Ingush_Wikipedia&lt;/a&gt;).</string>
   <string name="about_app_license_heading">Лицензи</string>
-  <string name="about_app_license">Юххьера код тӀакхоачача да &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; яхача моттиге &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt; лицензеца. Нагахьа санна кхыдар белгалдаьдеце, чурадолчунна тӀакхачар &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt; яхача лицензеца да.</string>
+  <string name="about_app_license" fuzzy="true">Юххьера код тӀакхоачача да &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; яхача моттиге &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt; лицензеца. Нагахьа санна кхыдар белгалдаьдеце, чурадолчунна тӀакхачар &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt; яхача лицензеца да.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонд Викимедиан продукт&lt;/a&gt;</string>
   <string name="about_activity_title">Приложенех лаьца</string>
   <string name="edit_abandon_confirm">ОагӀона тӀа хувцам баьб. Боккъонца лов хьона хувцам дӀа ца язбеш аравала?</string>
@@ -748,8 +748,8 @@
   <string name="notifications_menu_uncheck_all">Цхьаккха элемент белгал ма е</string>
   <string name="notifications_wiki_filter_header">Вики фильтр</string>
   <string name="notifications_type_filter_header">Фильтра тайпа</string>
-  <string name="notifications_all_wikis_text">Еррига \"викеш\"</string>
-  <string name="notifications_all_types_text">Деррига \"тайпаш\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Еррига \"викеш\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Деррига \"тайпаш\"</string>
   <string name="notifications_menu_user_talk_page">%s яхачун къамаьл-оагӀув</string>
   <string name="notifications_offline_disable_message">Функцес болх биц автономни ража чу.</string>
   <string name="view_because_you_read_card_title">Хьалха дийшачунга хьажжá</string>
