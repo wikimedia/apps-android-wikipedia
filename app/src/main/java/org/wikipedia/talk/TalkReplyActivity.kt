@@ -347,10 +347,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                                 if (textInputDialog.isSaveExistingChecked) {
                                     return
                                 }
-                                dialog.getView().postDelayed({
-                                    dialog.setError(dialog.context.getString(R.string.talk_subject_duplicate))
-                                    dialog.setPositiveButtonEnabled(false)
-                                }, 250)
+                                dialog.setError(dialog.context.getString(R.string.talk_subject_duplicate))
+                                dialog.setPositiveButtonEnabled(false)
                             }
 
                             else -> {
