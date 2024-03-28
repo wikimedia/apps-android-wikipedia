@@ -62,6 +62,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private var _binding: FragmentReadingListBinding? = null
     private val binding get() = _binding!!
 
+    private val previewReadingListRepository = PreviewReadingListRepository()
+
     private lateinit var touchCallback: SwipeableItemTouchHelperCallback
     private lateinit var headerView: ReadingListItemView
     private var previewSaveDialog: AlertDialog? = null
@@ -299,21 +301,18 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
     private fun updateReadingListData() {
         if (isPreview) {
             if (readingList == null) {
-                val encodedJson = Prefs.receiveReadingListsData
-                if (!encodedJson.isNullOrEmpty()) {
-                    lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
-                        L.e(throwable)
-                        FeedbackUtil.showError(requireActivity(), throwable)
-                        requireActivity().finish()
-                    }) {
-                        withContext(Dispatchers.Main) {
-                            readingList = ReadingListsReceiveHelper.receiveReadingLists(requireContext(), encodedJson)
-                            readingList?.let {
-                                ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
-                                binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
-                            }
-                            update()
+                lifecycleScope.launch(CoroutineExceptionHandler { _, throwable ->
+                    L.e(throwable)
+                    FeedbackUtil.showError(requireActivity(), throwable)
+                    requireActivity().finish()
+                }) {
+                    withContext(Dispatchers.Main) {
+                        readingList = previewReadingListRepository.getPreviewReadingList()
+                        readingList?.let {
+                            ReadingListsAnalyticsHelper.logReceivePreview(requireContext(), it)
+                            binding.searchEmptyView.setEmptyText(getString(R.string.search_reading_list_no_results, it.title))
                         }
+                        update()
                     }
                 }
             } else {
