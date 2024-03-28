@@ -257,7 +257,7 @@
   <string name="edit_how_page_improved">Bagaimanakah anda menambah baik laman ini?</string>
   <string name="edit_next">Seterusnya</string>
   <string name="edit_done">Terbitkan</string>
-  <string name="edit_preview">Pratayang</string>
+  <string name="edit_preview">Pralihat</string>
   <string name="edit_undo">Nyahbuat</string>
   <string name="edit_redo">Buat semula</string>
   <string name="edit_zoom_in">Zum dekat</string>
@@ -948,6 +948,7 @@
   <string name="talk_message_hint">Tulis pesanan</string>
   <string name="talk_message_empty">Pesanan jangan dibiarkan kosong.</string>
   <string name="talk_subject_empty">Subjek jangan dibiarkan kosong.</string>
+  <string name="talk_last_modified">&lt;b&gt;Kali terakhir disunting %1$s&lt;/b&gt; oleh %2$s</string>
   <string name="talk_search_hint">Cari mesej</string>
   <string name="talk_search_topics_hint">Cari topik</string>
   <string name="talk_overflow_sort_topic_name">Nama topik</string>
@@ -971,6 +972,7 @@
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_week">untuk 1 minggu</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_one_month">untuk 1 bulan</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_for_three_months">untuk 3 bulan</string>
+  <string name="watchlist_expiry_dialog_permanent">Kekal</string>
   <string name="watchlist_expiry_dialog_one_week">1 minggu</string>
   <string name="watchlist_expiry_dialog_one_month">1 bulan</string>
   <string name="watchlist_expiry_dialog_three_months">3 bulan</string>

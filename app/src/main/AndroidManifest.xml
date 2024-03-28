@@ -305,7 +305,8 @@
             android:name=".talk.TalkTopicActivity" />
 
         <activity
-            android:name=".talk.TalkReplyActivity" />
+            android:name=".talk.TalkReplyActivity"
+            android:configChanges="orientation|screenSize"/>
 
         <activity
             android:name=".talk.ArchivedTalkPagesActivity" />
@@ -346,6 +347,11 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
 
         <activity
+            android:name=".edit.templates.TemplatesSearchActivity"
+            android:label="@string/templates_search_hint"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
+
+        <activity
             android:name=".places.PlacesActivity" />
 
         <activity
@@ -354,11 +360,6 @@
         <activity
             android:name=".talk.template.TalkTemplatesActivity"
             android:theme="@style/AppTheme" />
-
-        <activity
-            android:name=".talk.template.AddTemplateActivity"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
 
         <provider
             android:name=".WikipediaFileProvider"
