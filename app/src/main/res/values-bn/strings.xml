@@ -1023,6 +1023,8 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">উচ্চতা</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">যোগ করুন</string>
+  <string name="templates_param_suggested_value">উদা. %s</string>
+  <string name="templates_learn_more_link">আরও জানুন</string>
   <string name="main_drawer_help">সাহায্য</string>
   <string name="main_drawer_login">উইকিপিডিয়াতে প্রবেশ করুন/যোগ দিন</string>
   <string name="main_tooltip_text">সুধী %s, আপনি জানেন কি উইকিপিডিয়ায় যে কেউ সম্পাদনা করতে পারে?</string>

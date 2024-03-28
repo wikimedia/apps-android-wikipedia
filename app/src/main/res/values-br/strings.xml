@@ -1123,7 +1123,6 @@
   <string name="talk_warn_save_dialog_hint">Titl ar gemennadenn</string>
   <string name="talk_warn_save_dialog_publish">Embann</string>
   <string name="talk_warn_save_dialog_cancel">Nullañ</string>
-  <string name="talk_warn_saved_message_dropdown">Kemmadennoù enrollet</string>
   <string name="talk_page_empty">Goullo eo ar bejenn gaozeal-mañ.</string>
   <string name="talk_add_reply">Respont</string>
   <string name="talk_no_subject">(Danvez ebet)</string>
@@ -1255,7 +1254,6 @@
   <string name="talk_templates_edit_message_dialog_delete">Dilemel</string>
   <string name="talk_templates_edit_message_updated">Hizivaet eo bet ar gemennadenn</string>
   <string name="talk_templates_menu_remove_message">Lemel ar gemennadenn</string>
-  <string name="patroller_tasks_edits_list_title">Roll ar c\'hemmoù</string>
   <string name="patroller_tasks_edits_list_search_hint">Klask pe silañ ar c\'hemmoù</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tikedennoù: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Hini ebet</string>

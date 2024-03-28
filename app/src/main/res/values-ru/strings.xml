@@ -315,7 +315,7 @@
   <string name="about_translators_heading">Переводчики</string>
   <string name="about_translators_translatewiki">Это приложение было переведено добровольцами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лицензия</string>
-  <string name="about_app_license" fuzzy="true">Исходный код доступен на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; под лицензией &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0&lt;/a&gt;. Если не указано иное, содержимое доступно в соответствии с лицензией &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.ru\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license">Исходный код доступен на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;Github&lt;/a&gt; под лицензией &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Если не указано иное, содержимое доступно в соответствии с лицензией &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.ru\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонда Викимедиа&lt;/a&gt;</string>
   <string name="about_activity_title">О приложении</string>
   <string name="edit_abandon_confirm">Страница была изменена. Вы уверены, что хотите выйти без сохранения изменений?</string>
@@ -383,6 +383,8 @@
   <string name="widget_name_featured_page">Избранная страница Википедии</string>
   <string name="widget_title_featured_page">Избранная страница дня:</string>
   <string name="widget_name_search">Поиск по Википедии</string>
+  <string name="widget_description_search">Самый быстрый способ поиска в Википедии</string>
+  <string name="widget_description_featured_page">Лучшие статьи, которые может предложить Википедия</string>
   <string name="wiktionary_no_definitions_found">Никаких определений не найдено.</string>
   <string name="alpha_update_notification_title">Доступно новое обновление альфа-версии</string>
   <string name="alpha_update_notification_text">Нажмите, чтобы скачать</string>
@@ -834,8 +836,8 @@
   <string name="notifications_menu_uncheck_all">Снять отметки со всех объектов</string>
   <string name="notifications_wiki_filter_header">Вики фильтр</string>
   <string name="notifications_type_filter_header">Тип фильтра</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Все \"вики\"</string>
-  <string name="notifications_all_types_text" fuzzy="true">Все «типы»</string>
+  <string name="notifications_all_wikis_text">Все вики</string>
+  <string name="notifications_all_types_text">Все типы</string>
   <string name="notifications_menu_user_talk_page">Страница обсуждения %s</string>
   <string name="notifications_offline_disable_message">Эта функция недоступна офлайн.</string>
   <string name="view_because_you_read_card_title">На основе прочитанного</string>
@@ -1205,6 +1207,7 @@
   <string name="onboarding_explore_text">Путешествуйте по лабиринтам Википедии с помощью постоянно обновляемой ленты. &lt;br/&gt;&lt;b&gt;Настройте&lt;/b&gt; ленту так, чтобы она отвечала вашим интересам — будь то изучение исторических событий, случившихся &lt;b&gt;в этот день&lt;/b&gt;, или положитесь &lt;b&gt;на удачу&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Списки для чтения с синхронизацией</string>
   <string name="onboarding_reading_list_sync_text_v2">Вы можете создавать списки для чтения из статей, которые вы хотите прочитать позже, даже если вы находитесь в офлайне. &lt;br/&gt;Авторизуйтесь с помощью учётной записи Википедии для синхронизации ваших списков для чтения. &lt;a href=\"#login\"&gt;Происоединяйтесь к Википедии&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Данные и конфиденциальность</string>
   <string name="onboarding_analytics_switch_title">Отправлять отчёты об использовании</string>
   <string name="onboarding_got_it">Понятно</string>
   <string name="onboarding_multilingual_secondary_text">Мы нашли следующие языки на вашем устройстве:</string>
@@ -1312,8 +1315,10 @@
   <string name="insert_media_insert_button">Вставить</string>
   <string name="templates_search_hint">Поиск шаблонов</string>
   <string name="templates_insert_button">Вставить</string>
+  <string name="templates_param_suggested_value">например, %s</string>
   <string name="templates_param_optional_hint">%s (необязательно)</string>
   <string name="templates_param_suggested_hint">%s (рекомендуется)</string>
+  <string name="templates_learn_more_link">Узнать больше</string>
   <string name="templates_description_incomplete">Шаблоны создаются пользователями и могут не содержать полных описаний.</string>
   <string name="templates_description_missing_data">В этом шаблоне отсутствует &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%1$s \"&gt;TemplateData&lt;/a&gt; , а его параметры были &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s \"&gt;autogenerated&lt;/a&gt; . В результате у шаблона и его параметров отсутствуют описания.</string>
   <string name="main_drawer_help">Справка</string>
@@ -1337,7 +1342,6 @@
   <string name="talk_warn_save_dialog_hint">Заголовок сообщения</string>
   <string name="talk_warn_save_dialog_publish">Опубликовать</string>
   <string name="talk_warn_save_dialog_cancel">Отмена</string>
-  <string name="talk_warn_saved_message_dropdown">Сохранённые сообщения</string>
   <string name="talk_page_empty">Эта страница обсуждения пустая.</string>
   <string name="talk_page_empty_title">Обсуждение начинается здесь</string>
   <string name="talk_add_reply">Ответить</string>
@@ -1556,9 +1560,15 @@
   <string name="talk_templates_edit_message_dialog_delete">Удалить</string>
   <string name="talk_templates_edit_message_updated">Сообщение обновлено</string>
   <string name="talk_templates_menu_remove_message">Удалить сообщение</string>
-  <string name="talk_templates_message_deleted" fuzzy="true">Сообщение удалено</string>
+  <plurals name="talk_templates_message_deleted">
+    <item quantity="one">Сообщение удалено</item>
+    <item quantity="few">Сообщения удалены</item>
+    <item quantity="many">Сообщения удалены</item>
+    <item quantity="other">Сообщения удалены</item>
+  </plurals>
   <string name="talk_templates_message_title_empty">Заголовок не может быть пустым.</string>
-  <string name="patroller_tasks_edits_list_title">Список правок</string>
+  <string name="talk_templates_your_messages_tab_title">Ваши сообщения</string>
+  <string name="talk_templates_example_messages_tab_title">Примеры сообщений</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Теги: %s</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Смотреть страницу участника</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Смотреть страницу обсуждения</string>
@@ -1608,7 +1618,6 @@
   <string name="patroller_tasks_filters_user_intent_likely_problems_desc">Со средней точностью находит промежуточную часть недобросовестных изменений.</string>
   <string name="patroller_tasks_filters_user_intent_bad">Скорее всего недобросовестные</string>
   <string name="patroller_tasks_filters_user_intent_bad_desc">Максимально точен в поиске очевидно недобросовестных правок.</string>
-  <string name="patroller_tasks_patrol_edit_title">Отпатрулировать правку</string>
   <string name="patroller_tasks_patrol_edit_rollback_success">Откат завершён</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Посмотреть</string>
   <string name="patroller_tasks_overflow_learn">Узнать больше</string>
@@ -1621,6 +1630,7 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Обратная связь</string>
   <string name="patroller_diff_feedback_dialog_submit">Отправить</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Обратная связь отправлена.</string>
+  <string name="patroller_saved_message_title_copy_vio">Предупреждение о нарушении авторских прав</string>
   <string name="patroller_saved_message_body_copy_vio">Судя по всему, ваша недавняя правка без разрешения содержит материалы, защищенные авторским правом. Пожалуйста, убедитесь, что весь контент соответствует политике [[Wikipedia:Авторские права|авторское право]] этой Википедии, чтобы избежать удаления.</string>
   <string name="data_opt_in_accept">Принять</string>
   <string name="data_opt_in_reject">Отклонить</string>
@@ -1636,4 +1646,6 @@
   <string name="places_toggle_buttons_list">Список</string>
   <string name="places_survey_very_satisfied_option">Очень доволен</string>
   <string name="places_survey_very_unsatisfied_option">Очень неудовлетворен</string>
+  <string name="places_survey_dialog_cancel">Отмена</string>
+  <string name="places_survey_feedback_low_satisfaction_dialog_title">Что бы вы хотели, чтобы мы изменили или улучшили?</string>
 </resources>
