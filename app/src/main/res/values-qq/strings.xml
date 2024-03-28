@@ -153,6 +153,7 @@
   <string name="langlinks_your_wikipedia_languages">Section header text that shows user list of languages the current article is available in.</string>
   <string name="menu_save_changes">{{Identical|Publish changes}}</string>
   <string name="edit_saved_successfully">Small toast (popup) message saying that the edit was successful</string>
+  <string name="stub_article_edit_saved_successfully">Message text shown to users after a successful edit to a stub article.</string>
   <string name="dialog_message_edit_failed">Message for dialog box specifying that an edit save had failed</string>
   <string name="dialog_message_edit_failed_retry">Button text to retry a failed edit save.\n{{Identical|Retry}}</string>
   <string name="dialog_message_edit_failed_cancel">Button text to cancel retrying a failed edit save.\n{{Identical|Cancel}}</string>
@@ -432,6 +433,7 @@
   <string name="link_preview_dialog_save_button">Button label for saving the article to a reading list in the link preview bottom sheet.</string>
   <string name="link_preview_dialog_saved_button">Button label that indicates the article has been saved in a reading list in the link preview bottom sheet.</string>
   <string name="link_preview_dialog_share_button">Button label for sharing the article in the link preview bottom sheet.</string>
+  <string name="link_preview_stub_placeholder_text">Placeholder text shown to users in the preview dialog of an article, when there isn\'t enough content in the article to show in the preview.</string>
   <string name="error_page_does_not_exist">Error message informing the user that the requested page does not exist</string>
   <string name="error_user_page_does_not_exist">Error message text shown when the user page does not yet exist. %1$s represents the full URL that points to the user page, %2$s represents the username and %3$s represents username without namespace.</string>
   <string name="view_wiki_error_message_offline">{{Doc-mobileapp-internet}}\nError message shown when network cannot be reached when loading a page</string>
@@ -1276,12 +1278,10 @@
   <string name="talk_warn_save_dialog_hint">Hint for text fiel for the message title.</string>
   <string name="talk_warn_save_dialog_publish">Button label for publishing the warn message.</string>
   <string name="talk_warn_save_dialog_cancel">Button label for canceling the warn message.</string>
+  <string name="talk_warn_save_dialog_dont_save">Negative action label text for talk warm messages save dialog.</string>
   <string name="talk_warn_submitted">Snackbar text that indicates the warn message has been published.</string>
   <string name="talk_warn_submitted_and_saved">Snackbar text that indicates the warn message has been published and also saved to the templates list.</string>
-  <string name="talk_warn_saved_message">Message for the dropdown menu that inform the user to select a template from the tempaltes list.</string>
-  <string name="talk_warn_saved_message_dropdown">Label for the dropdown menu in the compose screen that allows user to select a saved message.</string>
   <string name="talk_warn_saved_messages">Label text for menu option to enter the \'saved messages\' screen.</string>
-  <string name="talk_warn_learn_more_label">Label text for external link to message placeholders.</string>
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
   <string name="talk_page_empty_title">Title text for stating that this talk page is currently empty.</string>
   <string name="talk_page_empty_content">Content test for stating that this talk page is currently empty.</string>
@@ -1292,6 +1292,7 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
+  <string name="talk_subject_duplicate">Error state text shown to user when they are trying to create a talk messgage with duplicate subject.</string>
   <string name="talk_response_submitted">Message shown when the response has been submitted.</string>
   <string name="talk_snackbar_undo">Button label to undo the operation of submitting the response.\n\n{{Identical|Undo}}</string>
   <string name="talk_last_modified">Label for the last modified date of the talk page. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual date and user name.\n\nShould be similar to this MediaWiki messages such as this: {{msg-mw|Mobile-frontend-last-modified-with-user-hours}}</string>
@@ -1513,6 +1514,8 @@
     <item quantity="other">Snackbar message that show the messages have been deleted.</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Error message shown when the title of the saved message is empty.</string>
+  <string name="talk_templates_your_messages_tab_title">Tab title text for list of user\'s custom saved messages.</string>
+  <string name="talk_templates_example_messages_tab_title">Tab title text for list of ready-to-use saved messages made available for user.</string>
   <string name="patroller_tasks_edits_list_search_hint">Hint text of in the search bar of searching or filtering edits.</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Text of showing added tags in this edit. %s will be replaced by the added tags.</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Text that indicates no tag has been added in this edit.</string>
@@ -1622,6 +1625,9 @@
   <string name="patroller_saved_message_body_copy_vio">Ready-to-use user talk message offered to experienced editors to warn another editor about copyright violation. Please include the relevant language version of the link; you may find a link to your language in the interlanguage links list at [[:w:en:Wikipedia:Copyrights|Wikipedia:Copyrights in the English Wikipedia]].\n\nAppears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title copy vio}}</string>
   <string name="patroller_saved_message_body_edit_summary">Ready-to-use user talk message offered to experienced editors to warn another editor to remind them to leave an edit summary to explain their edit. Please do not translate the keywords formatted in triple braces {{{...}}}. Appears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title edit summary reminder}}</string>
   <string name="patroller_saved_message_body_do_not_censor">Ready-to-use user talk message offered to experienced editors to warn another editor about censorship. Please do not translate the keywords formatted in triple braces {{{...}}}. Appears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title do not censor}}</string>
+  <string name="talk_warn_learn_more_label">Label text for external link to message placeholders.</string>
+  <string name="talk_warn_learn_more_url">{{optional}}\nURL that points to a page on mediawiki.org that contains guidelines for usage of saved messages for patrolling edits.</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Instruction text to guide user on usage of saved messages.</string>
   <string name="patroller_saved_message_body_art_imp">Ready-to-use user talk message offered to experienced editors to warn another editor about article improvement suggestion. Please do not translate the keywords formatted in triple braces {{{...}}}. Please include the relevant language version of the link; you may find a link to your language in the interlanguage links list at [[:w:en:Wikipedia:Reliable sources|Wikipedia:Reliable sources in the English Wikipedia]]. If no link is found, please do not include a link. Editors may add a link(s) to another language wiki\'s policy if desired. Appears under the title {{msg-wm|Wikipedia-android-strings-patroller saved message title art imp}}</string>
   <string name="talk_templates_menu_edit_title">Label text for editing saved messages.</string>
   <string name="data_opt_in_accept">Button label for accepting anonymous data collection.</string>
@@ -1651,12 +1657,4 @@
   <string name="places_survey_dialog_cancel">Negative action button text for places survey dialog</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Title text for the secondary dialog which is shown as a result of an action on the main dialog for places feature - shown only to users who are very unsatisfied with the feature</string>
   <string name="places_empty_list">Empty message for the list in the current map area. Please keep the anchor link around the \"on the map\".</string>
-  <string name="talk_warn_learn_more_url">URL that points to a page on mediawiki.org that contains guidelines for usage of saved messages for patrolling edits.</string>
-  <string name="talk_templates_your_messages_tab_title">Tab title text for list of user\'s custom saved messages.</string>
-  <string name="talk_templates_example_messages_tab_title">Tab title text for list of ready-to-use saved messages made available for user.</string>
-  <string name="talk_warn_saved_messages_usage_instruction">Instruction text to guide user on usage of saved messages.</string>
-  <string name="talk_warn_save_dialog_dont_save">Negative action label text for talk warm messages save dialog.</string>
-  <string name="talk_subject_duplicate">Error state text shown to user when they are trying to create a talk messgage with duplicate subject.</string>
-  <string name="link_preview_stub_placeholder_text">Placeholder text shown to users in the preview dialog of an article, when there isn\'t enough content in the article to show in the preview.</string>
-  <string name="stub_article_edit_saved_successfully">Message text shown to users after a successful edit to a stub article.</string>
 </resources>
