@@ -12,4 +12,13 @@ object ImageUrlUtil {
             original
         }
     }
+
+    fun getThumbUrlFromCommonsUrl(url: String, size: Int): String {
+        val fileName = UriUtil.getFilenameFromUploadUrl(url)
+        if (!url.contains("/wikipedia/commons/") || url.contains("/wikipedia/commons/thumb/")) {
+            return url
+        }
+        return url.replace("/wikipedia/commons/", "/wikipedia/commons/thumb/") +
+                "/" + size + "px-" + fileName
+    }
 }
