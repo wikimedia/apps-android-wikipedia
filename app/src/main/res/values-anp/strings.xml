@@ -167,8 +167,6 @@
   <string name="preferences_heading_experimental">प्रयोगात्मक</string>
   <string name="preference_title_sync_reading_lists_from_account">पठन सूची सिंक होय रहलौ छौं</string>
   <string name="preference_title_download_reading_list_articles">पठन सूची केरौ लेख डाउनलोड करौ</string>
-  <string name="preferences_privacy_settings_heading">गोपनीयता</string>
-  <string name="preference_title_eventlogging_opt_in">उपयोग रिपोर्ट भेजौ</string>
   <string name="preference_title_auto_upload_crash_reports">क्रैश रिपोर्ट भेजौ</string>
   <string name="history_filter_list_hint">फ़िल्टर केरौ इतिहास</string>
   <string name="page_protected_autoconfirmed">हैय पृष्ठ अर्ध-सुरक्षित छै।</string>
@@ -390,8 +388,8 @@
   <string name="notifications_menu_uncheck_all">सब्भे आइटम्स प सँ चयन हटाबौ</string>
   <string name="notifications_wiki_filter_header">विकी चालनी</string>
   <string name="notifications_type_filter_header">प्रकार चालनी</string>
-  <string name="notifications_all_wikis_text">सब्भे \"विकी\"</string>
-  <string name="notifications_all_types_text">सब्भे \"प्रकार\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">सब्भे \"विकी\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">सब्भे \"प्रकार\"</string>
   <string name="notifications_menu_user_talk_page">%s क वार्ता पृष्ठ</string>
   <string name="view_random_card_title">रैंडमाइज़र</string>
   <string name="view_random_article_card_title">कोय्यो लेख</string>

@@ -249,9 +249,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sincronize as listas de leitura em dispositivos diferentes salvando-as na sua conta da Wikipédia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Remover as listas de leitura sincronizadas da sua conta \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Isto eliminará completamente do armazenamento remoto todas as listas de leitura sincronizadas anteriormente. Remover todas as listas sincronizadas da sua conta \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Privacidade</string>
-  <string name="preference_title_eventlogging_opt_in">Enviar relatórios de uso</string>
-  <string name="preference_summary_eventlogging_opt_in">Permite que a Wikimedia recolha informações sobre o uso do aplicativo para aperfeiçoá-lo</string>
   <string name="preference_title_auto_upload_crash_reports">Enviar relatórios de falhas</string>
   <string name="preference_summary_auto_upload_crash_reports">Permite que o aplicativo envie relatórios de falhas automaticamente ao provedor de serviços de terceiros para que possamos analisar a falha e corrigi-la de forma rápida e fácil.</string>
   <string name="editing_error_spamblacklist">Foram detectadas ligações para domínios bloqueadas (%s). Remova-as e tente novamente.</string>
@@ -286,7 +283,7 @@
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Este aplicativo foi traduzido pelos tradutores voluntários na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
-  <string name="about_app_license">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"ttps://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Código-fonte disponível em &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sob a &lt;a href=\"ttps://www.apache.org/licenses/LICENSE-2.0\"&gt;Licença Apache 2.0&lt;/a&gt;. A menos que especificado, o conteúdo é disponibilizado sob a &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Licença Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Um produto da &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Sobre</string>
   <string name="edit_abandon_confirm">A página foi modificada. Tem certeza que pretende sair sem salvar as suas alterações?</string>
@@ -346,6 +343,8 @@
   <string name="widget_name_featured_page">Artigo destacado na Wikipédia</string>
   <string name="widget_title_featured_page">Artigo destacado de hoje:</string>
   <string name="widget_name_search">Pesquisa da Wikipédia</string>
+  <string name="widget_description_search">A maneira mais rápida de pesquisar na Wikipédia</string>
+  <string name="widget_description_featured_page">Os melhores artigos que a Wikipédia tem a oferecer</string>
   <string name="wiktionary_no_definitions_found">Não foram encontradas definições.</string>
   <string name="alpha_update_notification_title">Nova versão alpha disponível</string>
   <string name="alpha_update_notification_text">Toque para baixar</string>
@@ -541,7 +540,8 @@
     <item quantity="other">%d artigos removidos da lista</item>
   </plurals>
   <plurals name="reading_list_articles_deleted_from_list">
-    <item quantity="other">um=%d artigo removido de %s</item>
+    <item quantity="one">%d artigo removido de %s</item>
+    <item quantity="other">%d artigos removidos de %s</item>
   </plurals>
   <plurals name="reading_lists_deleted_message">
     <item quantity="one">%d lista excluída</item>
@@ -782,8 +782,8 @@
   <string name="notifications_menu_uncheck_all">Desmarque todos os itens</string>
   <string name="notifications_wiki_filter_header">Filtro de wiki</string>
   <string name="notifications_type_filter_header">Tipo de filtro</string>
-  <string name="notifications_all_wikis_text">Todas as \"wikis\"</string>
-  <string name="notifications_all_types_text">Todos os \"tipos\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Todas as \"wikis\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Todos os \"tipos\"</string>
   <string name="notifications_menu_user_talk_page">página de discussão de %s</string>
   <string name="notifications_offline_disable_message">A função não está disponível enquanto estiver desconectado.</string>
   <string name="view_because_you_read_card_title">Porque você leu</string>
@@ -1122,8 +1122,6 @@
   <string name="onboarding_explore_text">Mergulhe no buraco de coelho da Wikipédia com um feed de Explorar em constante atualização. &lt;br/&gt; &lt;b&gt;Customizar&lt;/b&gt; Personalize o feed de acordo com seus interesses – seja aprendendo sobre eventos históricos em &lt;b&gt;Neste dia&lt;/b&gt;, ou rolando os dados com &lt;b&gt;Aleatório&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Listas de leitura com sincronização</string>
   <string name="onboarding_reading_list_sync_text_v2">Você pode criar listas de leitura dos artigos que deseja ler mais tarde, mesmo quando estiver sem acesso à Internet. &lt;br/&gt;Entre na sua conta da Wikipédia para sincronizar as suas listas de leitura. &lt;a href=\"#login\"&gt;Junte-se à Wikipédia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Enviar dados anônimos</string>
-  <string name="onboarding_analytics_offline_text">Ajude a melhorar o aplicativo, informando-nos como você o usa. Os dados coletados são anônimos. &lt;a href=\"#privacy\"&gt;Saber mais&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar dados de uso</string>
   <string name="onboarding_got_it">Entendi</string>
   <string name="onboarding_multilingual_secondary_text">Encontramos os seguintes no seu dispositivo:</string>

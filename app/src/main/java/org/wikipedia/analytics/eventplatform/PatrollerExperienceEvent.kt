@@ -6,8 +6,6 @@ import org.wikipedia.settings.Prefs
 class PatrollerExperienceEvent {
 
     companion object {
-        private const val STREAM_NAME = "app_patroller_experience"
-
         fun logImpression(activeInterface: String) {
             submitPatrollerActivityEvent("impression", activeInterface)
         }
@@ -43,8 +41,15 @@ class PatrollerExperienceEvent {
                     filterSelectedStr + filterWikiStr + filtersListStr + appLanguageCodeAddedStr + appLanguageCodesStr
         }
 
+        fun getPublishMessageActionString(isModified: Boolean? = null, isSaved: Boolean? = null, isExample: Boolean? = null, exampleMessage: String? = null): String {
+            val isModifiedStr = isModified?.let { "is_modified: $it, " }.orEmpty()
+            val isSavedStr = isSaved?.let { "is_saved: $it, " }.orEmpty()
+            val isExampleStr = isExample?.let { "is_example: $it, " }.orEmpty()
+            val exampleMessageStr = exampleMessage?.let { "example_message: $it " }.orEmpty()
+            return isModifiedStr + isSavedStr + isExampleStr + exampleMessageStr
+        }
+
         private fun submitPatrollerActivityEvent(action: String, activeInterface: String, actionData: String = "") {
-            AppInteractionEvent.STREAM_NAME = STREAM_NAME
             EventPlatformClient.submit(
                 AppInteractionEvent(
                     action,
@@ -52,7 +57,7 @@ class PatrollerExperienceEvent {
                     actionData,
                     WikipediaApp.instance.languageState.appLanguageCode,
                     Prefs.recentEditsWikiCode,
-                    "android"
+                    "app_patroller_experience"
                 )
             )
         }

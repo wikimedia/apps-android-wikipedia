@@ -135,7 +135,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
             notificationMenuItem.actionView = notificationButtonView
             notificationMenuItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+            FeedbackUtil.setButtonTooltip(notificationButtonView)
         } else {
             notificationMenuItem.isVisible = false
         }
@@ -229,7 +229,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
                 resultLauncher.launch(WatchlistFilterActivity.newIntent(it.context))
             }
 
-            FeedbackUtil.setButtonLongPressToast(itemBinding.filterButton)
+            FeedbackUtil.setButtonTooltip(itemBinding.filterButton)
         }
 
         fun updateFilterIconAndCount() {
@@ -352,7 +352,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             return
         }
         startActivity(ArticleEditDetailsActivity.newIntent(requireContext(),
-                PageTitle(item.title, item.wiki!!), item.pageId, item.revid))
+                PageTitle(item.title, item.wiki!!), item.pageId, revisionTo = item.revid, source = Constants.InvokeSource.WATCHLIST_ACTIVITY))
     }
 
     override fun onUserClick(item: MwQueryResult.WatchlistItem, view: View) {

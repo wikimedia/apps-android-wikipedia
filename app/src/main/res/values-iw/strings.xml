@@ -67,7 +67,7 @@
   <string name="dialog_message_clear_history_yes">כן</string>
   <string name="dialog_message_clear_history_no">לא</string>
   <string name="share_via">שיתוף באמצעות</string>
-  <string name="image_share_via">שיתוף דרך</string>
+  <string name="image_share_via">שיתוף באמצעות</string>
   <string name="search_redirect_from">הופנה מהדף %s</string>
   <string name="page_edit_history_activity_title">היסטוריית גרסאות:  %s</string>
   <string name="page_edit_history_minor_edit">&lt;b&gt;מ&lt;/b&gt; %s</string>
@@ -94,17 +94,17 @@
   <string name="page_edit_history_empty_search_message">נא לנסות לשנות את &lt;a href=\"#\"&gt;המסננים&lt;/a&gt; כדי לראות יותר עריכות</string>
   <string name="menu_page_show_tabs">הצגת לשוניות</string>
   <string name="menu_page_other_languages">שינוי שפה</string>
-  <string name="menu_page_find_in_page">חיפוש בערך</string>
+  <string name="menu_page_find_in_page">למצוא בערך</string>
   <string name="menu_page_add_to_watchlist">הוספה לרשימת המעקב</string>
   <string name="menu_page_watch">לעקוב</string>
-  <string name="menu_page_unwatch">הפסקת מעקב</string>
+  <string name="menu_page_unwatch">להפסיק לעקוב</string>
   <string name="menu_page_view_talk">הצגת דף השיחה</string>
   <string name="menu_page_talk_page">דף שיחה</string>
   <string name="menu_page_view_edit_history">הצגת היסטוריית עריכות</string>
   <string name="menu_page_edit_history">היסטוריית עריכות</string>
   <string name="menu_page_remove_from_watchlist">הסרה מרשימת המעקב</string>
   <string name="menu_page_watched">במעקב</string>
-  <string name="edit_section_find_in_page">איתור בעמוד</string>
+  <string name="edit_section_find_in_page">למצוא בדף</string>
   <string name="menu_page_font_and_theme">גופן וערכת נושא</string>
   <string name="menu_page_add_to_list">הוספה לרשימת הקריאה</string>
   <string name="menu_page_add_to_default_list">שמירה</string>
@@ -143,6 +143,7 @@
   <string name="langlinks_your_wikipedia_languages">שפות הוויקיפדיה שלך</string>
   <string name="menu_save_changes">פרסום השינויים</string>
   <string name="edit_saved_successfully">העריכה פורסמה!</string>
+  <string name="stub_article_edit_saved_successfully">העריכה פורסמה! ייתכן שייקח כמה זמן עד שהשינויים יופיעו.</string>
   <string name="dialog_message_edit_failed">העריכה נכשלה!</string>
   <string name="dialog_message_edit_failed_retry">לנסות שוב</string>
   <string name="dialog_message_edit_failed_cancel">ביטול</string>
@@ -179,12 +180,15 @@
   <string name="reset_password_button">שמירה וכניסה לחשבון</string>
   <string name="preference_title_logout">יציאה מהחשבון</string>
   <string name="toast_logout_complete">יצאת מהחשבון</string>
-  <string name="logout_prompt">פעולה זו תוציא אותך מהחשבון בכל המכשירים בהם נכנסת לחשבון. להמשיך?</string>
+  <string name="logout_prompt">הפעולה הזאת תוציא אותך מהחשבון בכל המכשירים שנכנסת בהם לחשבון. להמשיך?</string>
   <string name="logout_dialog_cancel_button_text">ביטול</string>
   <string name="logged_out_in_background_title">יצאת</string>
   <string name="logged_out_in_background_dialog">יצאת מוויקיפדיה. להיכנס בחזרה?</string>
   <string name="logged_out_in_background_login">כניסה לחשבון</string>
   <string name="logged_out_in_background_cancel">ביטול</string>
+  <string name="account_vanish_request_title">העלמת החשבון שלך</string>
+  <string name="account_vanish_request_confirm_title">אזהרת העלמת חשבון</string>
+  <string name="account_vanish_request_confirm">היעלמות היא &lt;b&gt;מוצא אחרון&lt;/b&gt; וצריך להשתמש בה &lt;b&gt;רק כשברצונך להפסיק לערוך לתמיד&lt;/b&gt; וגם להסתיר את הקשרים הקודמים שלך במידת האפשר.&lt;br/&gt;&lt;br/&gt;מחיקת חשבון בוויקיפדיה מתבצעת על ידי שינוי שם החשבון שלך כדי להסוות אותו מפני אחרים כדי שלא יוכלו לזהות את התרומות שלך בתהליך שנקרא העלמת חשבון. &lt;b&gt;העלמה לא מבטיחה אלמוניות מלאה או הסרת התרומות למיזמים&lt;/b&gt;.</string>
   <string name="history_empty_title">אין ערכים שהוצגו לאחרונה</string>
   <string name="history_empty_message">כאן עוקבים אחרי מה שקראת.</string>
   <string name="history_offline_articles_toast">ייתכן שחלק מהערכים בהיסטוריה אינם זמינים להצגה ללא חיבור לרשת.</string>
@@ -232,9 +236,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">סנכרון רשימות קריאה במכשירים שונים באמצעות שמירתם לחשבון הוויקיפדיה שלך \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">להסיר את רשימות הקריאה המסונכרנות שלך מהחשבון \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">זה ימחק לגמריאת כל רשימות הקריאה שסונכרנו בעבר מאחסון מרוחק. להסיר את כל הרשימות המסונכרנות מהחשבון שלך \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">פרטיות</string>
-  <string name="preference_title_eventlogging_opt_in">לשלוח דיווחי שימוש</string>
-  <string name="preference_summary_eventlogging_opt_in">לאפשר לוויקימדיה לאסוף מידע על השימוש שלך ביישום כדי לשפר אותה</string>
   <string name="preference_title_auto_upload_crash_reports">לשלוח דיווחי קריסה</string>
   <string name="preference_summary_auto_upload_crash_reports">לאפשר ליישום לשלוח דיווחי קריסה לספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
@@ -269,7 +270,7 @@
   <string name="about_translators_heading">מתרגמים</string>
   <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
-  <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; and &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
+  <string name="about_app_license">קוד המקור זמין ב־&lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;גיטהאב&lt;/a&gt; לפי תנאי &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;רישיון Apache 2.0&lt;/a&gt;. אלא אם נאמר אחרת, התוכן זמין לפי &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;רישיון קריאייטיב קומונז–ייחוס–שיתוף זהה&lt;/a&gt;.</string>
   <string name="about_wmf">מוצר של &lt;a href=\"https://wikimediafoundation.org/\"&gt;קרן ויקימדיה&lt;/a&gt;</string>
   <string name="about_activity_title">אודות</string>
   <string name="edit_abandon_confirm">הדף שונה. האם ברצונך לצאת בלי לשמור את השינויים שלך?</string>
@@ -307,8 +308,8 @@
   <string name="edit_notices_please_read">נא לקרוא לפני עריכה</string>
   <string name="edit_notices_show_auto">להציג אוטומטית את ההודעות לעורכים</string>
   <string name="edit_notices_tooltip">יש ללחוץ על הכפתור הזה כדי לצפות בהודעות לעורכים עבור הערך הזה.</string>
-  <string name="find_next">חיפוש הבא</string>
-  <string name="find_previous">חיפוש הקודם</string>
+  <string name="find_next">למצוא את הבא</string>
+  <string name="find_previous">למצוא את הקודם</string>
   <string name="find_first_occurence">זה המופע הראשון</string>
   <string name="find_last_occurence">זה המופע האחרון</string>
   <string name="article_opened_in_background_tab">הערך הזה נפתח בלשונית רקע.</string>
@@ -337,6 +338,8 @@
   <string name="widget_name_featured_page">ערך מומלץ בוויקיפדיה</string>
   <string name="widget_title_featured_page">הערך המומלץ של היום:</string>
   <string name="widget_name_search">חיפוש בוויקיפדיה</string>
+  <string name="widget_description_search">הדרך המהירה ביותר לחפש בוויקיפדיה</string>
+  <string name="widget_description_featured_page">הערכים הטובים ביותר שיש לוויקיפדיה להציע</string>
   <string name="wiktionary_no_definitions_found">לא נמצאו הגדרות</string>
   <string name="alpha_update_notification_title">זמין עדכון אלפא חדש.</string>
   <string name="alpha_update_notification_text">נא להקיש להורדה</string>
@@ -399,7 +402,7 @@
   <string name="page_offline_notice_last_date">זאת גרסה לקריאה ללא חיבור לרשת של הערך הזה, שנשמרה ב־%s.</string>
   <string name="redirected_from_snackbar">הופנה מהדף \"%s\"</string>
   <string name="button_get_directions">לקבל כיוונים</string>
-  <string name="error_no_maps_app">לא מצאתי אף יישום שנותן הכוונה.</string>
+  <string name="error_no_maps_app">לא מצאתי שום יישום ניווט.</string>
   <string name="preference_title_customize_explore_feed">הזנת \"לחקור\"</string>
   <string name="preference_title_show_link_previews">תצוגה מקדימה של קישורים</string>
   <string name="preference_summary_customize_explore_feed">התאמה אישית של ההזנה \"לחקור\"</string>
@@ -426,6 +429,7 @@
   <string name="link_preview_dialog_save_button">שמירה</string>
   <string name="link_preview_dialog_saved_button">נשמר</string>
   <string name="link_preview_dialog_share_button">שיתוף</string>
+  <string name="link_preview_stub_placeholder_text">הערך הזה הוא קצרמר, מה שאומר שאין מספיק תוכן בערך כדי ליצור תצוגה מקדימה. עם זאת, יש לך אפשרות לשנות את זה.</string>
   <string name="error_page_does_not_exist">הדף הזה אינו קיים</string>
   <string name="error_user_page_does_not_exist">בוויקיפדיה אין &lt;a href=\"%1$s\"&gt;דף משתמש&lt;/a&gt; בעל שם כזה בדיוק. באופן כללי, הדף הזה צריך להיווצר ולהיערך על־ידי &lt;b&gt;%2$s&lt;/b&gt;. אם יש לך ספק, נא לוודא ששם המשתמש \"%3$s\" קיים.</string>
   <string name="view_wiki_error_message_offline">לא ניתן להתחבר לאינטרנט</string>
@@ -481,7 +485,7 @@
   <string name="editing_line_numbers_label">להציג מספרי שורות</string>
   <string name="editing_monospace_font_label">להשתמש בגופן ברוחב אחיד</string>
   <string name="editing_typing_suggestions">הצגת הצעות הקלדה</string>
-  <string name="nav_item_saved">נשמר</string>
+  <string name="nav_item_saved">שמורים</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_move_to">העברה לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>
@@ -825,8 +829,8 @@
   <string name="notifications_menu_uncheck_all">ביטול סימון כל הפריטים</string>
   <string name="notifications_wiki_filter_header">סינון ויקי</string>
   <string name="notifications_type_filter_header">סינון סוג</string>
-  <string name="notifications_all_wikis_text">כל סימוני \"ויקי\"</string>
-  <string name="notifications_all_types_text">כל סימוני \"סוג\"</string>
+  <string name="notifications_all_wikis_text">כל אתרי הוויקי</string>
+  <string name="notifications_all_types_text">כל הסוגים</string>
   <string name="notifications_menu_user_talk_page">דף השיחה של %s</string>
   <string name="notifications_offline_disable_message">האפשרות הזאת אינה זמינה כשאין חיבור לרשת.</string>
   <string name="view_because_you_read_card_title">כי כבר קראת</string>
@@ -1029,7 +1033,7 @@
   <string name="suggested_edits_image_tags_onboarding_title">תיוג תמונות עוזר לאחרים למצוא אותן.</string>
   <string name="suggested_edits_image_tags_onboarding_text">אימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.</string>
   <string name="suggested_edits_image_tags_onboarding_note">רק תגים שאישרת יוּספו לתמונות.</string>
-  <string name="suggested_edits_image_tags_task_detail">הוסיפו תגים מותאמים אישית לתמונה כדי שיהיה קל יותר למצוא אותה.</string>
+  <string name="suggested_edits_image_tags_task_detail">יש להוסיף תגים מותאמים אישית לתמונה כדי שיהיה קל יותר למצוא אותה.</string>
   <string name="suggested_edits_image_tags_choose">נא לבחור או להוסיף תגים תואמים</string>
   <string name="suggested_edits_image_tags_published_list">תגים שפורסמו</string>
   <string name="suggested_edits_image_tags_search">חיפוש תגים</string>
@@ -1051,7 +1055,7 @@
   <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסומה כרגע מעריכת ויקיפדיה.</string>
   <string name="suggested_edits_gate_message">סליחה, %s, יש לעשות לפחות שלוש עריכות ישירות בערכים שבמיזם כדי להשתמש בתכונה הזאת.</string>
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
-  <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
+  <string name="suggested_edits_help_page_link_text">דף עזרה לעריכות מוצעות</string>
   <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
   <string name="suggested_edits_views_label_text">צפיות</string>
   <string name="suggested_edits_quality_label_text">איכות עריכה</string>
@@ -1204,8 +1208,8 @@
   <string name="onboarding_explore_text">תצללו לוויקיפדיה עם ההזנה המתעדכנת שלנו: \"לחקור\". &lt;br/&gt; תתאימו את ההזנה למה שמעניין אתכם – תלמדו על מה שקרה &lt;b&gt;היום בהיסטוריה&lt;/b&gt;, או תפתחו משהו &lt;b&gt;אקראי&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">רשימת קריאה עם סנכרון</string>
   <string name="onboarding_reading_list_sync_text_v2">אפשר ליצור רשימות קריאה מערכים שברצונך לקרוא מאוחר יותר, גם ללא חיבור לרשת. &lt;br/&gt;יש להיכנס לחשבון הוויקיפדיה שלך כדי לסנכרן את רשימות הקריאה שלך &lt;a href=\"#login\"&gt;הצטרפות לוויקיפדיה&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>
-  <string name="onboarding_analytics_offline_text">עזרו לנו לשפר את היישום על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בו. איסוף הנתונים נעשה באלמוניות. &lt;a href=\"#privacy\"&gt;מידע נוסף&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">נתונים ופרטיות</string>
+  <string name="onboarding_data_privacy_text">אנו מאמינים בכך שלא צריך לחייב אותך לספק מידע אישי כדי להשתתף בתנועת הידע החופשי. נתוני השימוש שנאספו עבור היישום הזה הם אלמוניים. אפשר לקבל מידע נוסף על &lt;a href=\"#privacy\"&gt;מדיניות הפרטיות&lt;/a&gt; ועל &lt;a href=\"#termsOfUse\"&gt;תנאי השימוש&lt;/a&gt; שלנו.</string>
   <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>
   <string name="onboarding_got_it">הבנתי</string>
   <string name="onboarding_multilingual_secondary_text">מצאנו את השפות הבאות במכשיר שלך:</string>
@@ -1311,13 +1315,22 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">גובה</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">פיקסל</string>
   <string name="insert_media_insert_button">הוספה</string>
+  <string name="templates_search_hint">חיפוש תבניות</string>
+  <string name="templates_insert_button">הוספה</string>
+  <string name="templates_param_suggested_value">למשל %s</string>
+  <string name="templates_param_optional_hint">%s (לא חובה)</string>
+  <string name="templates_param_suggested_hint">%s (מוצע)</string>
+  <string name="templates_learn_more_link">מידע נוסף</string>
+  <string name="templates_description_incomplete">התבניות נוצרות על־ידי משתמשים ועשויות להיות חסרות תיאורים מלאים.</string>
+  <string name="templates_description_empty">לתבנית \"%s  עדיין אין תיאור.</string>
+  <string name="templates_description_missing_data">בתבנית הזאת אין &lt;a href=\"%1$s\"&gt;נתוני תבנית&lt;/a&gt;, והפרמטרים שלה &lt;a href=\"%2$s\"&gt;נוצרו באופן אוטומטי&lt;/a&gt;. בגלל זה לתבנית ולפרמטרים שלה אין תיאורים.</string>
   <string name="main_drawer_help">עזרה</string>
   <string name="main_drawer_login">כניסה / הצטרפות לוויקיפדיה</string>
-  <string name="main_tooltip_text">היי %s, הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
+  <string name="main_tooltip_text">שלום %s, הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="main_tooltip_text_v2">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="main_tooltip_action_button">להתחיל</string>
   <string name="main_tooltip_watchlist_title">רשימת המעקב</string>
-  <string name="main_tooltip_watchlist_text">מצא ערכים ודפים שהוספת לרשימת המעקב שלך בתפריד \"עוד\" תחת &lt;b&gt;רשימת המעקב&lt;/b&gt;.</string>
+  <string name="main_tooltip_watchlist_text">אפשר למצוא את הערכים ואת הדפים שהוספת לרשימת המעקב שלך בתפריט \"עוד\" תחת &lt;b&gt;רשימת המעקב&lt;/b&gt;.</string>
   <string name="custom_date_picker_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_cancel_button_text">ביטול</string>
@@ -1334,10 +1347,10 @@
   <string name="talk_warn_save_dialog_hint">כותרת ההודעה</string>
   <string name="talk_warn_save_dialog_publish">פרסום</string>
   <string name="talk_warn_save_dialog_cancel">ביטול</string>
+  <string name="talk_warn_save_dialog_dont_save">לא לשמור</string>
   <string name="talk_warn_submitted">ההודעה פורסמה בדף שיחת המשתמש של העורך</string>
   <string name="talk_warn_submitted_and_saved">ההודעה נשמרה ופורסמה בדף השיחת המשתמש של העורך</string>
-  <string name="talk_warn_saved_message">בחירת הודעת אזהרה קיימת או כתיבת הודעה חדשה.</string>
-  <string name="talk_warn_saved_message_dropdown">הודעות שמורות</string>
+  <string name="talk_warn_saved_messages">הודעות שמורות</string>
   <string name="talk_page_empty">דף השיחה הזה ריק.</string>
   <string name="talk_page_empty_title">השיחה מתחילה כאן</string>
   <string name="talk_page_empty_content">דפי שיחה הם המקום שבו אנשים דנים איך להפוך את התוכן בוויקיפדיה לטוב ביותר שהוא יכול להיות. יש להתחיל בהוספת נושא דיון חדש כדי להתחבר ולשתף פעולה עם קהילה של ויקיפדים.</string>
@@ -1348,6 +1361,7 @@
   <string name="talk_message_hint">כתיבת הודעה</string>
   <string name="talk_message_empty">ההודעה אינה יכולה להיות ריקה.</string>
   <string name="talk_subject_empty">הכותרת אינה יכולה להיות ריקה.</string>
+  <string name="talk_subject_duplicate">שם הנושא כבר קיים. נא לנסות לכתוב משהו אחר.</string>
   <string name="talk_response_submitted">התגובה פורסמה.</string>
   <string name="talk_snackbar_undo">ביטול</string>
   <string name="talk_last_modified">&lt;b&gt;נערך לאחרונה ב־%1$s&lt;/b&gt; על־ידי %2$s</string>
@@ -1549,10 +1563,8 @@
   <string name="reading_list_share_message_v2">שלום! אני רוצה לשתף את רשימת הקריאה שלי בוויקיפדיה איתך:</string>
   <string name="reading_list_share_survey_title">אפשר לבקש ממך לעזור לנו לשפר את התכונה \"שיתוף רשימות קריאה\"?</string>
   <string name="reading_list_share_survey_body">\"שיתוף רשימות קריאה\" היא תכונה בבדיקה ואנחנו זקוקים למשוב שלך כדי לשפר או להסיר אותה.</string>
-  <string name="talk_templates_manage_title">ניהול תבניות</string>
-  <string name="talk_templates_empty_message">לא שמרת שום הודעת אזהרה.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">באפשרותך ליצור הודעות אזהרה משלך או להשתמש ב&lt;a href=\"#\"&gt;הודעות לדוגמה&lt;/a&gt; כדי להתחיל.</string>
   <string name="talk_templates_new_message_title">הודעה חדשה</string>
-  <string name="talk_templates_new_message_description">כתיבת הודעת אזהרה.</string>
   <string name="talk_templates_new_message_subject_hint">נושא</string>
   <string name="talk_templates_new_message_compose_hint">כתיבת הודעה</string>
   <string name="talk_templates_new_message_save">שמירה</string>
@@ -1581,7 +1593,8 @@
     <item quantity="other">ההודעות נמחקו</item>
   </plurals>
   <string name="talk_templates_message_title_empty">הכותרת לא יכולה להיות ריקה.</string>
-  <string name="patroller_tasks_edits_list_title">רשימת עריכות</string>
+  <string name="talk_templates_your_messages_tab_title">ההודעות שלך</string>
+  <string name="talk_templates_example_messages_tab_title">הודעות לדוגמה</string>
   <string name="patroller_tasks_edits_list_search_hint">חיפוש או סינון של עריכות</string>
   <string name="patroller_tasks_edits_list_card_tags_text">תגים: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">אין</string>
@@ -1643,7 +1656,6 @@
     <item quantity="many">%d מסננים</item>
     <item quantity="other">%d מסננים</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">סימון העריכה כבדוקה</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">היסטוריית העריכה של הערך</string>
   <string name="patroller_tasks_patrol_edit_undo_success">השחזור הושלם</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">האם ברצונך באמת לשחזר?</string>
@@ -1670,10 +1682,34 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">אין דעה</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">לא מרוצה</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">איך נוכל לשפר את התכונה?</string>
+  <string name="patroller_diff_menu_edit_history_title">היסטוריית העריכה של הערך</string>
   <string name="patroller_diff_feedback_dialog_input_hint">משוב</string>
   <string name="patroller_diff_feedback_dialog_submit">שליחה</string>
   <string name="patroller_diff_feedback_submitted_snackbar">המשוב נשלח.</string>
   <string name="patroller_diff_feedback_tooltip">יש להקיש על התפריט הצף כדי לשלוח משוב בכל עת תחת \"בעיה עם תכונה\".</string>
+  <string name="patroller_saved_message_title_vandalism">אזהרת השחתה</string>
+  <string name="patroller_saved_message_title_editing_tests">ניסויי עריכה</string>
+  <string name="patroller_saved_message_title_npov">נקודת מבט ניטרלית</string>
+  <string name="patroller_saved_message_title_auto_trans">תרגום אוטומטי</string>
+  <string name="patroller_saved_message_title_coi_rem">תזכורת לניגוד עניינים</string>
+  <string name="patroller_saved_message_title_final_warning">אזהרה אחרונה</string>
+  <string name="patroller_saved_message_title_copy_vio">אזהרת הפרת זכויות יוצרים</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">נא להוסיף תקציר עריכה</string>
+  <string name="patroller_saved_message_title_do_not_censor">אסור לצנזר</string>
+  <string name="patroller_saved_message_title_art_imp">הצעה לשיפור הערך</string>
+  <string name="patroller_saved_message_body_vandalism">שלום {{{username}}}, אני רוצה להודיע לך ששחזרתי אחת או יותר מ[{{{diffLink}}}|התרומות שלך] כי הן לא נראות בונות. אם נראה לך שטעיתי או שיש לך שאלות, באפשרותך להשאיר הודעה ב[[User talk:{{{senderUserName}}}|דף השיחה שלי]]. נא לשים לב לכך שהמשך ההשחתה עלול להוביל להגבלות.</string>
+  <string name="patroller_saved_message_body_editing_tests">שלום {{{username}}}, משמח אותי שוויקיפדיה משכה את תשומת לבך ושמעניין אותך ללמוד איך לערוך בה. בדיקת העריכה שעשית עבדה; עם זאת, כדאי לזכור שהמטרה של המיזם הזה היא לפתח אנציקלופדיה אמינה ושלמה שכולם יכולים לקבל ממנה מידע. העריכה שלך השפיעה על התוכן, ולכן הוא הוסר.\nאם ברצונך ללמוד איך לערוך את ויקיפדיה, לרשותך עומד [[ויקיפדיה:ארגז חול|ארגז]]. אם היו לך הערות מסוימיות על ערך, המקום הנכון הוא דף השיחה של אותו הערך.</string>
+  <string name="patroller_saved_message_body_npov">שלום {{{username}}}, חלק מהתרומות שעשית אינן עומדות בניטרליות הנדרשת כדי לציית ל[[Wikipedia:NPOV|מדיניות נקודת המבט הניטרלית]] של הוויקיפדיה הזאת. מהסיבה הזאת, חלק מהתוכן שוּנה או הוסר. נא לשנות את הפסקאות או הסעיפים המציגים נקודת מבט מוטה, ולהחליף אותם בטקסט ניטרלי ואובייקטיבי יותר בהתאם למצופה באנציקלופדיה.</string>
+  <string name="patroller_saved_message_body_auto_trans">שלום {{{username}}}, חלק מהתרומות שעשית יכולות להיות תרגומי מכונה, וזאת הסיבה שהן שונו או סומנו בתבנית. אם לא ייעשו שיפורים בערך, הוא עלול להימחק.\n\nאם, למרות כל המידע הזה, עדיין יש לך שאלות, נא לא להסס להשאיר הודעה בכתובת [[User talk:{{{senderUserName}}}|דף השיחה שלי]]. לא תריך להתייאש מהאירוע הקטן הזה. התרומות שלך חשובות מאוד לוויקיפדיה.</string>
+  <string name="patroller_saved_message_body_coi_rem">שלום {{{username}}}, אני מודה לך על עבודתך בוויקיפדיה; עם זאת, שמתי לב שיש לך ב[[ויקיפדיה:אוטוביוגרפיה|ניגוד עניינים]]. ניגוד עניינים הוא חוסר ההתאמה בין יעדי הניטרליות והאמינות של ויקיפדיה לבין מטרות מסוימות של עורכים, אנשים, ישויות או חברות מכל סוג.\n\nכל התרומות במרחב הראשי כפופות למדיניות התוכן של הוויקיפדיה הזאת ([[ויקיפדיה:מה ויקיפדיה איננה|מה ויקיפדיה איננה]]), איכות אנציקלופדית (תוכן בר־אימות ואיסור על מחקר מקורי), שיטת עריכה ([[ויקיפדיה:נקודת מבט נייטרלית|נקודת מבט נייטרלית]]), ומעמד חוקי של תוכן ([[ויקיפדיה:זכויות יוצרים|זכויות יוצרים]]). מצופה מכל מי שמפרסם תוכן לציית למדיניות הזאת בעת יצירה והערכה של תוכן ולכבד ולהניח כוונה טובה בפעולותיהם של מפרסמים אחרים כדי להבטיח שכל כללי המדיניות הזאת מיושמים.\n\nאם נעשות מחשבון עריכות בעת ניגוד עניינים, יש ליישם את המדיניות המתאימה בזהירות יתרה; אחרת, חשבון המשתמש שלך יכול להיחשב לבעל מטרה פרטית ולהיחסם. נא לא להסס לפנות אליי בדף השיחה שלי אם יש לך שאלות.</string>
+  <string name="patroller_saved_message_body_final_warning">מכיוון שעשית עריכות הרסניות רבות, זאת האזהרה האחרונה שלך. אם תשחית שוב את ויקיפדיה, ייאסר עליך לערוך.</string>
+  <string name="patroller_saved_message_body_copy_vio">נראה שהעריכה האחרונה שלך כוללת חומר המוגבל בזכויות יוצרים ללא רשות. נא לוודא שכל התוכן תואם למדיניות [[ויקיפדיה:זכויות יוצרים|זכויות היוצרים]] של הוויקיפדיה הזאת כדי להימנע מהסרה.</string>
+  <string name="patroller_saved_message_body_edit_summary">שלום {{{username}}}, נראה שהסרת תוכן מוויקיפדיה מבלי להשאיר תקציר עריכה. נא לכתוב תקציר עריכה בכל הוספה או הסרה של תוכן בוויקיפדיה.</string>
+  <string name="patroller_saved_message_body_do_not_censor">שלום {{{username}}}, נראה שהסרת תוכן מבלי לדון בו בדף השיחה של הערך. יש לשים לב לכך שוויקיפדיה אינה מצונזרת, ואין להסיר תוכן רק מכיוון שהוא שנוי במחלוקת. אם נראה לך שהמידע אינו מדויק, נא להגיע להסכמה בדף השיחה של הערך.</string>
+  <string name="talk_warn_learn_more_label">מידע נוסף על מילוי הודעות</string>
+  <string name="talk_warn_saved_messages_usage_instruction">נא להשתמש בהודעה לדוגמה למטה כדי להתאים אישית, לשלוח ולשמור בהודעות שלך.</string>
+  <string name="patroller_saved_message_body_art_imp">שלום {{{username}}}. הערך שלך הוא התחלה מצוינת! כדי לשפר אותו עוד יותר, נא לשקול להוסיף הפניות נוספות למקורות אמינים. זה עוזר לאמת את המידע ומשפר את איכות הערך. נא לעיין בהנחיות של הוויקיפדיה הזאת בנושא [[ויקיפדיה:ביבליוגרפיה|מקורות מהימנים]] לפרטים נוספים.</string>
+  <string name="talk_templates_menu_edit_title">עריכה</string>
   <string name="data_opt_in_accept">לקבל</string>
   <string name="data_opt_in_reject">לדחות</string>
   <string name="page_issues_title">בעיות בדף</string>
@@ -1693,11 +1729,12 @@
   <string name="places_toggle_buttons_map">מפה</string>
   <string name="places_toggle_buttons_list">רשימה</string>
   <string name="places_nav_tab_tooltip_message">ב\"מקומות\" אפשר לגלות ערכי ויקיפדיה סביבך</string>
-  <string name="places_article_menu_tooltip_message">יש ללחוץ על &lt;b&gt;\"הצגה על מפה\"&lt;/b&gt; כדי לחקור את המיקום של הערך הזה</string>
+  <string name="places_article_menu_tooltip_message">יש ללחוץ על \"הצגה על מפה\" כדי לחקור את המיקום של הערך הזה</string>
   <string name="places_survey_very_satisfied_option">מרוצה מאוד</string>
   <string name="places_survey_very_unsatisfied_option">מאוד לא מרוצה</string>
   <string name="places_survey_dialog_title">עזרו לנו לשפר את \"מקומות\"</string>
   <string name="places_survey_feedback_dialog_title">איך אפשר לשפר את \"מקומות\"?</string>
+  <string name="places_survey_dialog_cancel">ביטול</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">מה היית רוצה שנשנה או נשפר?</string>
   <string name="places_empty_list">האזור הזה ריק. נא להתרחק &lt;a href=\"#\"&gt;על המפה&lt;/a&gt; .</string>
 </resources>

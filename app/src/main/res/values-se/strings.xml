@@ -104,7 +104,7 @@
   <string name="preference_title_language">Wikipedia gielat</string>
   <string name="langlinks_filter_hint">Ohcan</string>
   <string name="langlinks_empty">Dat siidu ii leat gávdnamis eara gielaide.</string>
-  <string name="langlinks_no_match">Ii oktage giella gávdnon</string>
+  <string name="langlinks_no_match">Giellaohcamii ii oktage boađus</string>
   <string name="langlinks_activity_title">Eará gielat</string>
   <string name="langlinks_your_wikipedia_languages">Du Wikipedia gielat</string>
   <string name="menu_save_changes">Almmut rievdadusaid</string>
@@ -119,7 +119,7 @@
   <string name="search_no_results_found">Eai bohtosat.</string>
   <string name="search_reading_list_no_results">Eai bohtosat ohcamii \"%s\"</string>
   <string name="search_reading_lists_no_results">Eai bohtosat lohkanlisttuin dan ohcamii</string>
-  <string name="search_history_no_results">Eai bohtosat historjjás dan ohcamii</string>
+  <string name="search_history_no_results">Eai bohtosat ohcanhistorjjás dan ohcamii</string>
   <string name="edit_section_captcha_message">Eastadan dihte automáhtalaš ruskapoastta, čále mat dáid sániid mat vuollelis leat</string>
   <string name="edit_section_captcha_request_an_account_message">It oainne gova? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt; Bivdde geavaheaddjidovddaldaga &lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Gearddut sániid dás badjelis</string>
@@ -197,9 +197,7 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synkronisere lohkanlisttuid iešguđet ovttadagaid gaskka, go vurket daid iežat Wikipedia dovddaldahkii \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Sihko synkroniserejuvvon lohkanlisttuid \"%s:is\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dát ollasit sihkku visot ovdal synkroniserejuvvon lohkanlisttuid gáiddusvuorkkás. Jávkat visot synkroniserejuvvon listtuid iežat dovddaldagas \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Peršuvdnasuodjalus</string>
-  <string name="preference_title_eventlogging_opt_in">Sádde geavaheaddjiraporttaid</string>
-  <string name="preference_summary_eventlogging_opt_in">Divtte Wikimedia čoaggit dieđuid du appageavaheami birra vai besset buoridit appa</string>
+  <string name="error_can_not_process_link">Dán liŋkka čájeheapmi ii lihkostuvvan</string>
   <string name="page_protected_autoconfirmed">Dát siidu lea beallesuodjaluvvon.</string>
   <string name="page_protected_sysop">Dát siidu lea ollásit suodjaluvvon.</string>
   <string name="page_protected_other">Dát siidu lea suodjaluvvon čuovvovaččat: %s</string>
@@ -225,8 +223,11 @@
   <string name="edit_preview">Ovdačájáhus</string>
   <string name="edit_undo">Gáđa</string>
   <string name="edit_redo">Ráhkat ođđasit</string>
-  <string name="edit_summary_tag_links">Lasihan liŋkkaid</string>
+  <string name="edit_summary_tag_typo">Čállinmeattáhus divvojuvvon</string>
+  <string name="edit_summary_tag_grammar">Giellaoahppa divvojuvvon</string>
+  <string name="edit_summary_tag_links">Liŋkkat lasihuvvon</string>
   <string name="edit_summary_tag_other">Eará</string>
+  <string name="edit_conflict_title">Ovttaáigásaš rievdadeapmi</string>
   <string name="find_next">Oza čuovvovaš bohtosa</string>
   <string name="search_results_count_zero">Eai bohtosat</string>
   <string name="clear_recent_searches_confirm">Áiggutgo don duođaid iežat ohcanhistorjjá gurret?</string>
@@ -257,9 +258,12 @@
   <string name="nav_item_donate">Skeaŋkkat</string>
   <string name="enable_location_service">Váldde atnui</string>
   <string name="view_link_preview_error_button_dismiss">Gidde</string>
+  <string name="link_preview_dialog_save_button">Vurke</string>
+  <string name="link_preview_dialog_saved_button">Vurkejuvvon</string>
   <string name="error_page_does_not_exist">Dát siidu ii gávdno</string>
   <string name="reference_title">Gáldu %s</string>
   <string name="reference_list_title">Gáldut</string>
+  <string name="page_footer_license_text">Sisdoalu sáhttá geavahit liseanssain $1, jus ii boađe eará diehtu.</string>
   <string name="empty_tab_title">Ođđa leavga</string>
   <string name="menu_save_all_tabs">Vurke buot leavggaid</string>
   <string name="error_blocked_title">Du geavaheaddjinamma dahje IP-čujuhus lea hehttejuvvon.</string>
@@ -298,6 +302,7 @@
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Gaskkalduhte</string>
   <string name="reading_list_delete_lists_dialog_delete_button_text">Sihko</string>
   <string name="reading_list_activity_title">Lohkanlistu: %s</string>
+  <string name="reading_lists_preview_save_button">Vurke</string>
   <string name="reading_lists_preview_save_dialog_title">Vurke listtu</string>
   <string name="reading_lists_preview_save_dialog_cancel">Gaskkalduhte</string>
   <string name="reading_lists_preview_save_dialog_save">Vurke</string>
@@ -308,6 +313,7 @@
   <string name="notification_syncing_cancel_button">Gaskkalduhte</string>
   <string name="notifications_activity_title">Almmuhusat</string>
   <string name="notifications_poll_enable_positive">Váldde atnui</string>
+  <string name="notifications_direct_reply_action">Vástit</string>
   <string name="watchlist_title">Čuovvunlistu</string>
   <string name="preference_title_notification_thanks">Giitu</string>
   <string name="preference_title_notification_login_fail">Čálit sisa</string>
@@ -360,6 +366,7 @@
   <string name="suggested_edits_edit_translation_button">Rievdat jorgalusa</string>
   <string name="suggested_edits_add_caption_button">Lasit govvateavstta</string>
   <string name="suggested_edits_edit_caption_button">Rievdat govvateavstta</string>
+  <string name="suggested_edits_menu_info">Dieđut</string>
   <string name="suggested_edits_task_add_description_title">Lasit artihkkala govvádusaid</string>
   <string name="suggested_edits_task_image_caption_title">Lasit govvateavsttaid</string>
   <string name="suggested_edits_task_translate_caption_title">Jorgal govvateavsttaid</string>
@@ -375,6 +382,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Govvateaksta (%s)</string>
   <string name="suggested_edits_image_preview_dialog_image">Govva</string>
   <string name="suggested_edits_image_preview_dialog_tags">Gilkorat</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Lassedieđut</string>
   <string name="suggested_edits_article_cta_image_tags">Lasit govvagilkoriid</string>
   <string name="suggested_edits_article_cta_image_caption">Lasit govvateavstta</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Lasit govvateavstta (%s)</string>
@@ -391,6 +399,7 @@
   <string name="suggested_edits_label">Evttohuvvon rievdadusat</string>
   <string name="suggested_edits_learn_more">Lassedieđut</string>
   <string name="suggested_edits_disabled_title">Váldojuvvon eret anus</string>
+  <string name="suggested_edits_last_edited_never">Ii goassige</string>
   <string name="suggested_edits_task_new" fuzzy="true">ođđa</string>
   <string name="suggested_edits_reactivation_notification_title">Evttohuvvon rievdadusat</string>
   <string name="suggested_edits_contribution_language_label">Giella</string>
@@ -426,6 +435,8 @@
   <string name="wikitext_italic">Finjučála</string>
   <string name="wikitext_link">Liŋka</string>
   <string name="wikitext_insert_media">Lasit media</string>
+  <string name="wikitext_bulleted_list">Čuokkislistu</string>
+  <string name="wikitext_numbered_list">Nummaraston listu</string>
   <string name="wikitext_template">Málle</string>
   <string name="wikitext_reference">Gáldu</string>
   <string name="insert_media_title">Lasit media</string>
@@ -440,7 +451,10 @@
   <string name="main_tooltip_watchlist_title">Čuovvunlistu</string>
   <string name="text_input_dialog_cancel_button_text">Gaskkalduhte</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Gaskkalduhte</string>
+  <string name="talk_warn_save_dialog_title">Vurke rievdadusaid?</string>
+  <string name="talk_warn_save_dialog_publish">Almmut</string>
   <string name="talk_warn_save_dialog_cancel">Gaskkalduhte</string>
+  <string name="talk_add_reply">Vástit</string>
   <string name="talk_overflow_sort_date_updated">Maŋemus rievdaduvvon</string>
   <string name="talk_list_item_overflow_subscribe">Diŋgo</string>
   <string name="menu_option_edit_source">Rievdat wikiteavsttain</string>
@@ -465,7 +479,11 @@
   <string name="category_tab_subcategories">Vuollekategoriijat</string>
   <string name="search_namespaces">Nammagomuvuođat</string>
   <string name="shareable_reading_lists_new_indicator">*ođđa*</string>
+  <string name="talk_templates_new_message_save">Vurke</string>
+  <string name="talk_templates_new_message_dialog_title">Vurke rievdadusaid</string>
+  <string name="talk_templates_new_message_dialog_save">Vurke</string>
   <string name="talk_templates_new_message_dialog_cancel">Gaskkalduhte</string>
+  <string name="talk_templates_edit_message_dialog_save">Vurke</string>
   <string name="patroller_tasks_filters_user_status_header">Geavaheaddji registreren ja hárjánusdássi</string>
   <string name="patroller_tasks_filters_user_status_registered">Registrerejuvvon</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrerejuvvon geavaheaddjit geain leat unnit go 10 rievdadusa dahkan dahje 4 aktiiva beaivvi.</string>

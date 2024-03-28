@@ -191,9 +191,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">আপোনাৰ \"%s\" ৱিকিপিডিয়া একাউণ্টত পাঠ্য তালিকা সাঁচি সেয়া বিভিন্ন সঁজুলিত ছীঙ্ক কৰক</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\"ৰ পৰা ছীঙ্ক কৰা পাঠ্য তালিকা আঁতৰাব?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ই ৰিম\'ট ষ্ট\'ৰেজৰ পৰা পূৰ্বতে ছিংক কৰা সকলো পঢ়া তালিকা সম্পূৰ্ণৰূপে মচি পেলাব। আপোনাৰ একাউণ্ট \"%s\"ৰ পৰা সকলো ছিংক কৰা তালিকা আঁতৰাবনে?</string>
-  <string name="preferences_privacy_settings_heading">গোপনীয়তা</string>
-  <string name="preference_title_eventlogging_opt_in">ব্যৱহাৰৰ প্ৰতিবেদন পঠিয়াওক</string>
-  <string name="preference_summary_eventlogging_opt_in">এপ্‌টো উন্নত কৰিবৰ বাবে আপুনি এই এপ্‌ কেনেকৈ ব্যৱহাৰ কৰে জানিবলৈ ৱিকিমিডিয়াক তথ্য সংগ্ৰহৰ অনুমতি দিয়ক</string>
   <string name="preference_title_auto_upload_crash_reports">ক্ৰেশ্ব প্ৰতিবেদন পঠিয়াওক</string>
   <string name="preference_summary_auto_upload_crash_reports">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰীলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
   <string name="editing_error_spamblacklist">অৱৰুদ্ধ ডমেইনৰ সংযোগ (%s) চিনাক্ত কৰা হৈছে। অনুগ্ৰহ কৰি সেইবোৰ আঁতৰাওক আৰু পুনৰ চেষ্টা কৰক।</string>
@@ -540,8 +537,8 @@
   <string name="notifications_menu_uncheck_all">আটাইকেইটা বাছনি বাতিল কৰক</string>
   <string name="notifications_wiki_filter_header">ৱিকি ফিল্টাৰ</string>
   <string name="notifications_type_filter_header">প্ৰকাৰ ফিল্টাৰ</string>
-  <string name="notifications_all_wikis_text">সকলো \"ৱিকি\"</string>
-  <string name="notifications_all_types_text">সকলো \"প্ৰকাৰ\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">সকলো \"ৱিকি\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">সকলো \"প্ৰকাৰ\"</string>
   <string name="view_because_you_read_card_title">কাৰণ আপুনি পঢ়িছে</string>
   <string name="view_random_card_title">যাদৃচ্ছিক</string>
   <string name="view_random_article_card_title">যাদৃচ্ছিক প্ৰবন্ধ</string>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Amire80
 * Anders Feder
 * Christian List
 * Dargelf
@@ -176,6 +177,9 @@
   <string name="logged_out_in_background_dialog">Du har blevet logget ud af Wikipedia. Vil du logge ind igen?</string>
   <string name="logged_out_in_background_login">Log på</string>
   <string name="logged_out_in_background_cancel">Annullér</string>
+  <string name="account_vanish_request_title">Slet konto</string>
+  <string name="account_vanish_request_confirm_title">Advarsel om kontosletning</string>
+  <string name="account_vanish_request_confirm">At forsvinde er en &lt;b&gt;sidste udvej&lt;/b&gt; og bør &lt;b&gt;kun bruges, når du ønsker at stoppe med at redigere for altid&lt;/b&gt; og også for at skjule så mange af dine tidligere tilknytninger som muligt.&lt;br/&gt;&lt;br/&gt; Sletning af konto på Wikipedia sker ved at ændre dit kontonavn, sådan at andre ikke kan genkende dine bidrag i en proces, der kaldes kontoforsvinding. &lt;b&gt;Forsvinding garanterer ikke fuldstændig anonymitet eller fjerner bidrag til projekterne&lt;/b&gt; .</string>
   <string name="history_empty_title">Ingen nyligt læste artikler.</string>
   <string name="history_empty_message">Hold styr på hvad du har læst her.</string>
   <string name="history_offline_articles_toast">Nogle artikler i historikken kan måske ikke vises når offline.</string>
@@ -223,9 +227,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synkroniser læselister på tværs af forskellige enheder ved at gemme dem på din Wikipediakonto »%s«</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Fjern synkroniserede læselister fra din »%s«?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Dette vil fuldstændig slette alle tidligere synkroniserede læselister fra eksternt lager. Fjern alle synkroniserede lister fra din konto »%s«?</string>
-  <string name="preferences_privacy_settings_heading">Privatliv</string>
-  <string name="preference_title_eventlogging_opt_in">Send anvendelsesrapporter</string>
-  <string name="preference_summary_eventlogging_opt_in">Tillad Wikimedia at indsamle oplysninger om, hvordan du bruger app\'en, for at gøre den bedre.</string>
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om nedbrud</string>
   <string name="preference_summary_auto_upload_crash_reports">Tillad appen at sende rapporter om nedbrud til en tredjepartstjeneste automatisk, så vi kan gennemgå nedbruddet og rette fejlen hurtigere og nemmere.</string>
   <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
@@ -259,7 +260,7 @@
   <string name="about_translators_heading">Oversættere</string>
   <string name="about_translators_translatewiki">Denne app blev oversat af de frivillige oversættere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
-  <string name="about_app_license">Kildekode er tilgængelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-licensen&lt;/a&gt;. Med mindre andet er angivet er indhold tilgængeligt under &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngiv - Del på samme vilkår Licens&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kildekode er tilgængelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-licensen&lt;/a&gt;. Med mindre andet er angivet er indhold tilgængeligt under &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngiv - Del på samme vilkår Licens&lt;/a&gt;.</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Den side er blevet ændret. Er du sikker på at du vil afslutte uden at gemme dine ændringer?</string>
@@ -323,6 +324,8 @@
   <string name="widget_name_featured_page">Fremhævet Wikipedia-side</string>
   <string name="widget_title_featured_page">Dagens udvalgte side:</string>
   <string name="widget_name_search">Wikipedia-søgning</string>
+  <string name="widget_description_search">Den hurtigste måde at søge på Wikipedia</string>
+  <string name="widget_description_featured_page">De bedste artikler, Wikipedia har at tilbyde</string>
   <string name="wiktionary_no_definitions_found">Ingen definitioner fundet.</string>
   <string name="alpha_update_notification_title">Ny alpha opdatering tilgængelig</string>
   <string name="alpha_update_notification_text">Tryk for at hente</string>
@@ -411,7 +414,7 @@
   <string name="link_preview_dialog_saved_button">Gemt</string>
   <string name="link_preview_dialog_share_button">Del</string>
   <string name="error_page_does_not_exist">Denne side findes ikke.</string>
-  <string name="error_user_page_does_not_exist">Wikipedia har ikke en &lt;a href=\"%1$s \"&gt;brugerside&lt;/a&gt; med dette nøjagtige navn. Generelt bør denne side være oprettet og redigeret af &lt;b&gt;&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s&lt;/b&gt; . Hvis du er i tvivl, bedes du kontrollere, at \" %3$s \" eksisterer.</string>
+  <string name="error_user_page_does_not_exist">Wikipedia har ikke en &lt;a href=\"%1$s\"&gt;brugerside&lt;/a&gt; med dette nøjagtige navn. Generelt bør denne side være oprettet og redigeret af &lt;b&gt;%2$s&lt;/b&gt; . Hvis du er i tvivl, bedes du kontrollere, at \"%3$s\" eksisterer.</string>
   <string name="view_wiki_error_message_offline">Kan ikke oprette forbindelse til internet</string>
   <string name="view_wiki_error_message_timeout">Kan ikke oprette forbindelse til Wikipedia. Tjek din netværksforbindelse eller prøv igen senere.</string>
   <string name="reference_title">Reference %s</string>
@@ -424,7 +427,7 @@
   <string name="empty_tab_title">Ny fane</string>
   <string name="menu_save_all_tabs">Gem alle faner</string>
   <string name="error_blocked_title">Dit brugernavn eller din IP-adresse er blevet blokeret.</string>
-  <string name="error_blocked_by">Blokeringen blev lavet af &lt;a href=\"&lt;span class=\"notranslate\" translate=\"no\"&gt;%2$s\"&gt;%1$s&lt;/a&gt;</string>
+  <string name="error_blocked_by">Blokeringen blev lavet af &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;</string>
   <string name="error_blocked_reason">Den angivne årsag er: %s</string>
   <string name="error_blocked_start">Start af blokering: %s</string>
   <string name="error_blocked_expiry">Udløb af blokering: %s</string>
@@ -981,7 +984,13 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Viser hvor mange dage i træk du har bidraget. Hvis du ikke har bidraget i et stykke tid, vises din sidste bidragsdato.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Samlet antal sidevisninger af emner, som du har bidraget til inden for de sidste 30 dage.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Baseret på, hvor mange gange et af dine bidrag blev tilbageført (tilbageført af en anden redaktør). Tilbageførte redigeringer: %d.</string>
+  <string name="suggested_edits_paused_message">Foreslåede redigeringer er sat på pause indtil %1$s . Beklager %2$s, men nogle af dine seneste bidrag er blevet tilbageført.</string>
+  <string name="suggested_edits_disabled_message">Foreslåede redigeringer er deaktiveret. Beklager %s, for mange af dine seneste bidrag er blevet tilbageført.</string>
+  <string name="suggested_edits_ip_blocked_message">Det ser ud til, at din IP-adresse (eller række af IP-adresser) i øjeblikket er blokeret fra at redigere Wikipedia.</string>
+  <string name="suggested_edits_gate_message">Beklager %s, du skal foretage mindst tre redigeringer direkte i en artikel for at bruge denne funktion.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips og tricks til redigering</string>
+  <string name="suggested_edits_help_page_link_text">Hjælpeside for foreslåede redigeringer</string>
+  <string name="suggested_edits_edit_streak_label_text">Redigeringsrække</string>
   <string name="suggested_edits_views_label_text">Visninger</string>
   <string name="suggested_edits_quality_label_text">Redigeringskvalitet</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
@@ -993,11 +1002,16 @@
   <string name="suggested_edits_quality_poor_text">Svagt</string>
   <string name="suggested_edits_quality_bad_text">Dårligt</string>
   <string name="suggested_edits_label">Foreslåede redigeringer</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Bidrag</item>
+    <item quantity="other">Bidrag</item>
+  </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d dag</item>
     <item quantity="other">%d dage</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Hvad er redigeringforslag?</string>
+  <string name="suggested_edits_what_is_text">Foreslåede redigeringer giver mulighed for små, men vitale bidrag til Wikipedia.</string>
   <string name="suggested_edits_learn_more">Lær mere</string>
   <string name="suggested_edits_paused_title">Sat på pause</string>
   <string name="suggested_edits_disabled_title">Deaktiveret</string>
@@ -1005,6 +1019,7 @@
   <string name="suggested_edits_last_edited">Sidst redigeret</string>
   <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="suggested_edits_task_new">Ny</string>
+  <string name="suggested_edits_cc0_notice">Ved at udgive accepterer du &lt;a href=\"%1$s\"&gt;Betingelser for brug&lt;/a&gt; og uigenkaldeligt at frigive dette bidrag under &lt;a href=\"%2$s \"&gt;CC0 licensen&lt;/a&gt; .</string>
   <string name="suggested_edits_reactivation_notification_title">Redigeringsforslag</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Tak for dit bidrag til Wikipedia! Hvad med at fortsætte hvor du slap?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Har du et minut til at fortsætte med at forbedre Wikipedia? Tjek disse redigeringsforslag.</string>
@@ -1075,9 +1090,14 @@
   <string name="image_recommendation_tooltip_main">Tilføj manglende billeder til artikler i Foreslåede redigeringer</string>
   <string name="image_recommendation_onboarding_1">Billeder hjælper folk med at forstå, men mange artikler har dem ikke.</string>
   <string name="image_recommendation_onboarding_2">Du bestemmer, om et foreslået billede skal placeres i en Wikipedia-artikel.</string>
+  <string name="image_recommendation_onboarding_3">Forslag er maskingenererede, og du vil skulle bruge din dømmekraft til at beslutte, om du vil acceptere eller afvise dem.</string>
   <string name="image_recommendation_onboarding_4">Billeder er fra Wikimedia Commons, en samling af åbent licenserede billeder benyttet af Wikipedia.</string>
+  <string name="image_recommendation_tooltip_1">Gennemgå denne artikel for at forstå dets emne</string>
+  <string name="image_recommendation_tooltip_2">Undersøg billedet og dets tilhørende oplysninger</string>
   <string name="image_recommendation_tooltip_3">Beslut om billedet hjælper læserne med at forstå dette emne bedre</string>
   <string name="image_recommendation_tooltip_next">Næste</string>
+  <string name="image_recommendation_tooltip_warning">Gennemgå venligst artiklen for bedre at forstå emnet og inspicere billedet</string>
+  <string name="image_recommendation_depleted">Beklager, der er ikke flere foreslåede billeder tilgængelige på nuværende tidspunkt. Udforsk venligst andre &lt;a href=\"#\"&gt;foreslåede redigeringer&lt;/a&gt; eller vend tilbage senere.</string>
   <string name="suggested_edits_report_feature">Problem med funktionen</string>
   <string name="suggested_edits_report_feature_subject">Problem med Foreslåede redigeringer</string>
   <string name="edit_summary_added_image">Tilføjede billede</string>
@@ -1106,8 +1126,8 @@
   <string name="onboarding_explore_text">Dyk ned i Wikipedias kaninhul med et konstant opdaterende Udforsk-feed. &lt;br/&gt; &lt;b&gt;Tilpas&lt;/b&gt; feedet til dine interesser – om det er historiske hændelser &lt;b&gt;På denne dag&lt;/b&gt;, eller et kast med terningen med &lt;b&gt;Vilkårlig&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Læselister med synkronisering</string>
   <string name="onboarding_reading_list_sync_text_v2">Du kan lave læselister med artikler, du ønsker at læse senere, selv når du er uden internetadgang. &lt;br/&gt;Log ind på din Wikipediakonto for at synkronisere dine læselister.&lt;a href=\"#login\"&gt;Opret konto på Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Send anonyme data</string>
-  <string name="onboarding_analytics_offline_text">Hjælp med at gøre programmet bedre ved at fortælle os hvordan du bruger den. Data indsamles anonymt. &lt;a href=\"#privacy\"&gt;Lær mere&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">Data og privatliv</string>
+  <string name="onboarding_data_privacy_text">Vi mener, at du ikke skal afgive personlige oplysninger for at deltage i den frie vidensbevægelse. Brugsdata indsamlet til denne app er anonyme. Lær mere om vores &lt;a href=\"#privacy\"&gt;privatlivspolitik&lt;/a&gt; og &lt;a href=\"#termsOfUse\"&gt;vilkår for brug&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>
   <string name="onboarding_got_it">O.k.</string>
   <string name="onboarding_multilingual_secondary_text">Vi har fundet følgende på din enhed:</string>
@@ -1231,7 +1251,9 @@
   <string name="talk_warn_save_dialog_hint">Beskedens titel</string>
   <string name="talk_warn_save_dialog_publish">Udgiv</string>
   <string name="talk_warn_save_dialog_cancel">Annullér</string>
-  <string name="talk_warn_saved_message_dropdown">Gemte beskeder</string>
+  <string name="talk_warn_submitted">Besked offentliggjort på brugerens brugerdiskussionsside</string>
+  <string name="talk_warn_submitted_and_saved">Beskeden er gemt og offentliggjort på brugerens brugerdiskussionsside</string>
+  <string name="talk_warn_saved_messages">Gemte beskeder</string>
   <string name="talk_page_empty">Diskussionssiden er tom.</string>
   <string name="talk_page_empty_title">Samtalen begynder her</string>
   <string name="talk_add_reply">Svar</string>
@@ -1245,6 +1267,7 @@
   <string name="talk_snackbar_undo">Fortryd</string>
   <string name="talk_last_modified">&lt;b&gt;Redigerede sidst %1$s&lt;/b&gt; af %2$s</string>
   <string name="talk_snackbar_survey_action_text">Kom igang</string>
+  <string name="talk_share_discussion_subject">Wikipedia - diskussion om emnet \"%s\"</string>
   <string name="talk_share_talk_page">Wikipedia - diskussioner på diskussionsside</string>
   <string name="talk_edit_disclaimer">Dette er en diskussionsside. Respekter venligst retningslinjerne for diskussionssiden, og husk at underskrive dine indlæg ved at skrive fire tilder: ~~~~ når du poster ved hjælp af wikitext.&lt;br&gt;&lt;br&gt; &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Talk_page_guidelines\"&gt;Wikipedia: Retningslinjer for diskussionssider&lt;/a&gt;</string>
   <string name="talk_search_hint">Søg i beskeder</string>
@@ -1356,6 +1379,13 @@
   <string name="watchlist_filter_contribution_quality_may_problems">Kan have problemer</string>
   <string name="watchlist_filter_contribution_quality_likely_problems">Har sandsynligvis problemer</string>
   <string name="watchlist_filter_contribution_quality_bad">Har højst sandsynligt problemer</string>
+  <string name="watchlist_filter_user_intent_header">Forudsigelser om brugerens hensigter</string>
+  <string name="watchlist_filter_user_intent_good">Højst sandsynligt gjort med gode hensigter</string>
+  <string name="watchlist_filter_user_intent_may_problems">Kan være gjort med dårlige hensigter</string>
+  <string name="watchlist_filter_user_intent_likely_problems">Sandsynligt gjort med dårlige hensigter</string>
+  <string name="watchlist_filter_user_intent_bad">Meget sandsynligt gjort med dårlige hensigter</string>
+  <string name="watchlist_filter_user_status_header">Brugerregistrering og -erfaring</string>
+  <string name="watchlist_filter_user_status_unregistered">Uregistreret</string>
   <string name="watchlist_filter_user_status_registered">Registreret</string>
   <string name="watchlist_filter_user_status_newcomers">Nybegyndere</string>
   <string name="watchlist_filter_user_status_learners">Let øvede</string>
@@ -1369,6 +1399,7 @@
   <string name="watchlist_filter_significance_edits">Ikke-mindre ændringer</string>
   <string name="watchlist_filter_latest_revisions_header">Seneste revisioner</string>
   <string name="watchlist_filter_latest_revisions_latest_revision">Seneste revidering</string>
+  <string name="watchlist_filter_type_of_change_header">Ændringstype</string>
   <string name="watchlist_filter_type_of_change_page_edits">Sideredigeringer</string>
   <string name="watchlist_filter_type_of_change_page_creations">Sideoprettelser</string>
   <string name="watchlist_filter_type_of_change_category_changes">Kategoriændringer</string>
@@ -1377,7 +1408,9 @@
   <string name="watchlist_filter_type_of_change_new_users">Nye brugere</string>
   <string name="watchlist_filter_reset_button">Nulstil</string>
   <string name="watchlist_search_bar_hint">Søg eller filtrér overvågningsliste</string>
+  <string name="preview_edit_minor_edit">Dette er en mindre ændring</string>
   <string name="preview_edit_watch_this_page">Overvåg denne side</string>
+  <string name="preview_edit_learn_more">Læs mere om redigeringsresuméer</string>
   <string name="action_item_categories">Kategorier</string>
   <string name="page_no_categories">Denne side tilhører ikke nogen kategorier.</string>
   <string name="category_tab_articles">Artikler</string>
@@ -1403,7 +1436,6 @@
   <string name="reading_list_share_menu_tooltip">Del din læseliste med andre</string>
   <string name="reading_list_share_message_v2">Hej! Jeg vil gerne dele min Wikipedia-læseliste med dig:</string>
   <string name="talk_templates_new_message_title">Ny besked</string>
-  <string name="talk_templates_new_message_description">Skriv en advarselsmeddelelse.</string>
   <string name="talk_templates_new_message_subject_hint">Emne</string>
   <string name="talk_templates_new_message_compose_hint">Skriv besked</string>
   <string name="talk_templates_new_message_save">Gem</string>
@@ -1423,7 +1455,6 @@
     <item quantity="one">Beskeden er slettet</item>
     <item quantity="other">Beskederne er slettet</item>
   </plurals>
-  <string name="patroller_tasks_edits_list_title">Liste over redigeringer</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tags: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Ingen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Vis brugerside</string>
@@ -1446,7 +1477,12 @@
   <string name="patroller_tasks_filters_user_status_newcomers">Nybegyndere</string>
   <string name="patroller_tasks_filters_user_status_newcomers_desc">Registrerede brugere som har færre end 10 redigeringer eller 4 dages aktivitet.</string>
   <string name="patroller_tasks_filters_user_status_learners">Let øvede</string>
+  <string name="patroller_tasks_filters_latest_revisions_header">Seneste revisioner</string>
+  <string name="patroller_tasks_filters_latest_revisions_latest_revision">Seneste revision</string>
+  <string name="patroller_tasks_filters_latest_revisions_not_latest_revision">Ikke den seneste revision</string>
+  <string name="patroller_tasks_filters_automated_contributions_header">Automatiserede bidrag</string>
   <string name="patroller_tasks_filters_automated_contributions_bot">Bot</string>
+  <string name="patroller_tasks_filters_automated_contributions_human">Menneske (ikke bot)</string>
   <string name="patroller_tasks_filters_significance_header">Betydning</string>
   <string name="patroller_tasks_filters_significance_minor">Mindre ændringer</string>
   <string name="patroller_tasks_filters_significance_edits">Ikke-mindre ændringer</string>
@@ -1477,11 +1513,12 @@
   <string name="places_toggle_buttons_map">Kort</string>
   <string name="places_toggle_buttons_list">Liste</string>
   <string name="places_nav_tab_tooltip_message">Opdag Wikipedia-artikler omkring dig med Steder</string>
-  <string name="places_article_menu_tooltip_message">Tryk på &lt;b&gt;\'Se på kort\'&lt;/b&gt; for at udforske denne artikels placering</string>
+  <string name="places_article_menu_tooltip_message">Tryk på \'Se på kort\' for at udforske denne artikels placering</string>
   <string name="places_survey_very_satisfied_option">Meget tilfreds</string>
   <string name="places_survey_very_unsatisfied_option">Meget utilfreds</string>
-  <string name="places_survey_dialog_title">Hjælp med at forbedre \"Steder\"</string>
+  <string name="places_survey_dialog_title">Hjælp med at forbedre \'Steder\'</string>
   <string name="places_survey_feedback_dialog_title">Hvordan kan \"Steder\" forbedres?</string>
+  <string name="places_survey_dialog_cancel">Annullér</string>
   <string name="places_survey_feedback_low_satisfaction_dialog_title">Hvad vil du gerne have, at vi ændrer eller forbedrer?</string>
   <string name="places_empty_list">Dette område er tomt. Zoom ud &lt;a href=\"#\"&gt;på kortet&lt;/a&gt;.</string>
 </resources>

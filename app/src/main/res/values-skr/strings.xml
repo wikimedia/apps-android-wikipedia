@@ -152,7 +152,6 @@
   <string name="create_account_account_created_toast">کھاتہ کھل ڳیا!</string>
   <string name="preferences_heading_syncing">ہم وقت کرݨ</string>
   <string name="preferences_heading_experimental">تجرباتی</string>
-  <string name="preferences_privacy_settings_heading">پرائیویسی</string>
   <string name="history_filter_list_hint">چھاݨاں تاریخ</string>
   <string name="page_protected_can_not_edit_title">ایہ ورقہ محفوظ ہے</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">پارھاتندیر وچ شامل کرو</string>
@@ -360,8 +359,8 @@
   <string name="notifications_swipe_action_read">پڑھو</string>
   <string name="notifications_swipe_action_unread">کائنی پڑھا</string>
   <string name="notifications_wiki_filter_header">وکی چھاݨاں</string>
-  <string name="notifications_all_wikis_text">ساریاں \"وکیاں\"</string>
-  <string name="notifications_all_types_text">ساریاں \"قسماں\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">ساریاں \"وکیاں\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">ساریاں \"قسماں\"</string>
   <string name="view_random_article_card_title">پوکھواں مضمون</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d کے</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d ایم</string>
@@ -684,6 +683,7 @@
   <string name="patroller_tasks_overflow_learn">ٻیا سِکھو</string>
   <string name="patroller_diff_feedback_dialog_input_hint">فیڈ بیک</string>
   <string name="patroller_diff_feedback_dialog_submit">جمع کرواؤ</string>
+  <string name="talk_templates_menu_edit_title">لکھو</string>
   <string name="data_opt_in_accept">قبول کرو</string>
   <string name="data_opt_in_reject">مسترد کرو</string>
   <string name="page_issues_title">ورقہ معاملے</string>

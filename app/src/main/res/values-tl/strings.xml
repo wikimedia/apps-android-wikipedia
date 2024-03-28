@@ -214,9 +214,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">I-sync ang mga babasahin mo sa iba\'t-ibang device sa pamamagitan ng pag-save sa kanila sa account mo sa Wikipedia na \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Tanggalin ang mga na-sync na mga babasahin mula sa \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Buburahin niyo ang lahat ng mga babasahin na na-sync noon mula sa remote na storage. Tatanggalin ba talaga ang lahat ng mga babasahin mula sa account mo na \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Pagkapribado</string>
-  <string name="preference_title_eventlogging_opt_in">Magpadala ng mga ulat sa paggamit</string>
-  <string name="preference_summary_eventlogging_opt_in">Payagan ang Wikimedia na mangolekta ng impormasyon patungkol sa paano mo ginagamit ang app para mapahusay pa ito nang husto</string>
   <string name="preference_title_auto_upload_crash_reports">Magpadala ng mga ulat ng pag-crash</string>
   <string name="preference_summary_auto_upload_crash_reports">Payagan ang app na kusang magpadala ng mga ulat ng pag-crash sa isang third-party na service provider para marebyu namin ang crash niyo at maayos ang bug nang mas mabilis at mas madali.</string>
   <string name="editing_error_spamblacklist">May mga na-detect na link sa mga hinaharangang domain (%s). Pakitanggal po sila at subukan muli.</string>
@@ -247,7 +244,7 @@
   <string name="about_translators_heading">Mga nagsalin</string>
   <string name="about_translators_translatewiki">Boluntaryong isinalin ang app na ito sa &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Lisensiya</string>
-  <string name="about_app_license">Magagamit ang source code sa &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; at &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sa ilalim ng &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;lisensiyang Apache 2.0&lt;/a&gt;.\nMaliban lang kung nakasaad, magagamit ang nilalaman sa ilalim ng &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;lisensiyang Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Magagamit ang source code sa &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; at &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sa ilalim ng &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;lisensiyang Apache 2.0&lt;/a&gt;.\nMaliban lang kung nakasaad, magagamit ang nilalaman sa ilalim ng &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;lisensiyang Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Produkto ng &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Patungkol</string>
   <string name="edit_abandon_confirm">Binago mo ang pahinang ito. Sigurado ka bang aalis ka nang hindi sine-save ang mga binago mo?</string>
@@ -734,8 +731,8 @@
   <string name="notifications_menu_uncheck_all">Tanggalin ang lahat ng tsek</string>
   <string name="notifications_wiki_filter_header">Filter sa wiki</string>
   <string name="notifications_type_filter_header">Filter sa uri</string>
-  <string name="notifications_all_wikis_text">Lahat ng \"wiki\"</string>
-  <string name="notifications_all_types_text">Lahat ng \"uri\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Lahat ng \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Lahat ng \"uri\"</string>
   <string name="notifications_menu_user_talk_page">Usapan ni %s</string>
   <string name="notifications_offline_disable_message">Di magagamit ang function na ito offline.</string>
   <string name="view_because_you_read_card_title">Dahil binasa mo</string>
@@ -1041,8 +1038,6 @@
   <string name="onboarding_explore_text">Pasukin ang mundo ng Wikipedia gamit ang palaging updated na maglibot.&lt;br/&gt;&lt;b&gt;I-customize&lt;/b&gt; ito upang sumakto sa mga interes mo – tungkol man yan sa mga pangyayari sa nakaraan &lt;b&gt;ngayong araw&lt;/b&gt;, o magbasa ng &lt;b&gt;anumang artikulo&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Mga babasahin na nasi-sync</string>
   <string name="onboarding_reading_list_sync_text_v2">Pwede kang gumawa ng mga listahan ng babasahin mong artikulo mamaya, kahit na naka-offline ka. &lt;br/&gt;Mag-login sa account mo sa Wikipedia para maisabay (i-sync) ang mga listahan mo. &lt;a href=\"#login\"&gt;Sumali sa Wikipedia&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Magpadala ng anonymous na datos</string>
-  <string name="onboarding_analytics_offline_text">Tumulong sa lalong pagpapahusay sa app sa pamamagitan po ng pagsabi sa amin kung paano niyo ginagamit ito. Anonymous (walang pagkakakilanlan) po ang mga nakakolektang datos. &lt;a href=\"#privacy\"&gt;Matuto pa&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Magpadala ng datos sa paggamit</string>
   <string name="onboarding_got_it">Kuha ko</string>
   <string name="onboarding_multilingual_secondary_text">Nakita namin ang sumusunod sa iyong device:</string>

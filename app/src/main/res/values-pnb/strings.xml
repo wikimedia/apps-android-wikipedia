@@ -148,9 +148,6 @@
   <string name="preferences_heading_experimental">پریوگی</string>
   <string name="preference_title_sync_reading_lists_from_account">پڑھت سوچی دا سمکال لیتا جا رہا ہے</string>
   <string name="preference_title_download_reading_list_articles">پڑھت سوچی دے لیکھ ڈاؤنلوڈ کرو</string>
-  <string name="preferences_privacy_settings_heading">پردیداری</string>
-  <string name="preference_title_eventlogging_opt_in">ورتوں دیاں اِتلاہاں گھلو</string>
-  <string name="preference_summary_eventlogging_opt_in">اِس اَیپ چنگیری بݨاؤݨ واستے وِکیپیڈیا نوں تہاڈے اِس اَیپ نوں ورتن دی اِجازت دیو۔</string>
   <string name="preference_title_auto_upload_crash_reports">کریش رپورٹ بھیجو</string>
   <string name="error_can_not_process_link">اِس لنک وکھائی نا جا سکی</string>
   <string name="page_protected_autoconfirmed">اِس سفحہ نیم سرکھیات کر دتا گیا ہے۔</string>

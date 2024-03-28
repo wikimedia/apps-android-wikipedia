@@ -33,6 +33,7 @@ import org.wikipedia.activity.SingleWebViewActivity
 import org.wikipedia.analytics.eventplatform.ArticleLinkPreviewInteractionEvent
 import org.wikipedia.analytics.eventplatform.BreadCrumbLogEvent
 import org.wikipedia.analytics.eventplatform.DonorExperienceEvent
+import org.wikipedia.analytics.eventplatform.PlacesEvent
 import org.wikipedia.analytics.metricsplatform.ArticleLinkPreviewInteraction
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.commons.FilePageActivity
@@ -166,23 +167,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
         super.onCreate(savedInstanceState)
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         binding = ActivityPageBinding.inflate(layoutInflater)
-
-        try {
-            setContentView(binding.root)
-        } catch (e: Exception) {
-            if (!e.message.isNullOrEmpty() && e.message!!.lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW) ||
-                !ThrowableUtil.getInnermostThrowable(e).message.isNullOrEmpty() &&
-                ThrowableUtil.getInnermostThrowable(e).message!!.lowercase(Locale.getDefault()).contains(EXCEPTION_MESSAGE_WEBVIEW)) {
-                // If the system failed to inflate our activity because of the WebView (which could
-                // be one of several types of exceptions), it likely means that the system WebView
-                // is in the process of being updated. In this case, show the user a message and
-                // bail immediately.
-                Toast.makeText(app, R.string.error_webview_updating, Toast.LENGTH_LONG).show()
-                finish()
-                return
-            }
-            throw e
-        }
+        setContentView(binding.root)
 
         disposables.add(app.bus.subscribe(EventBusConsumer()))
         updateProgressBar(false)
@@ -205,7 +190,7 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             requestBrowseTabLauncher.launch(TabActivity.newIntentFromPageActivity(this))
         }
         toolbarHideHandler = ViewHideHandler(binding.pageToolbarContainer, null, Gravity.TOP) { isTooltipShowing }
-        FeedbackUtil.setButtonLongPressToast(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
+        FeedbackUtil.setButtonTooltip(binding.pageToolbarButtonNotifications, binding.pageToolbarButtonTabs, binding.pageToolbarButtonShowOverflowMenu)
         binding.pageToolbarButtonShowOverflowMenu.setOnClickListener {
             pageFragment.showOverflowMenu(it)
             pageFragment.articleInteractionEvent?.logMoreClick()
@@ -249,14 +234,28 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             loadMainPage(TabPosition.EXISTING_TAB)
         }
 
-        if (AccountUtil.isLoggedIn) {
-            Prefs.loggedInPageActivityVisitCount++
-        }
-
         if (savedInstanceState == null) {
             // if there's no savedInstanceState, and we're not coming back from a Theme change,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(intent)
+        }
+    }
+
+    override fun onStart() {
+        try {
+            super.onStart()
+        } catch (e: Exception) {
+            if (e.message.orEmpty().contains(EXCEPTION_MESSAGE_WEBVIEW, true) ||
+                ThrowableUtil.getInnermostThrowable(e).message.orEmpty().contains(EXCEPTION_MESSAGE_WEBVIEW, true)) {
+                // If the system failed to inflate our activity because of the WebView (which could
+                // be one of several types of exceptions), it likely means that the system WebView
+                // is in the process of being updated. In this case, show the user a message and
+                // bail immediately.
+                Toast.makeText(app, R.string.error_webview_updating, Toast.LENGTH_LONG).show()
+                finish()
+                return
+            }
+            throw e
         }
     }
 
@@ -365,8 +364,8 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
 
     override fun onPageLoadComplete() {
         removeTransitionAnimState()
-        maybeShowWatchlistTooltip()
         maybeShowThemeTooltip()
+        maybeShowPlacesTooltip()
     }
 
     override fun onPageDismissBottomSheet() {
@@ -485,13 +484,13 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
                     return
                 }
                 // Special cases:
-                // If the link is to a page in the "donate." or "thankyou." domains (e.g. a "thank you" page
-                // after having donated), then bounce it out to an external browser, since we don't have
-                // the same cookie state as the browser does.
+                // If the subdomain of the URL is not a "language" subdomain as we expect, then
+                // bounce it out to an external browser. This can be links to the "donate." or
+                // "thankyou." subdomains, or the Wikiquote "quote." subdomain, and possibly others.
                 val language = wiki.languageCode.lowercase(Locale.getDefault())
-                val isDonationRelated = language == "donate" || language == "thankyou"
-                if (isDonationRelated || (title.isSpecial && !title.isContributions)) {
-                    // Stop bouncing out if the URL is from the Android app customTab.
+                if (Constants.NON_LANGUAGE_SUBDOMAINS.contains(language) || (title.isSpecial && !title.isContributions)) {
+                    // ...Except if the URL came as a result of a successful donation, in which case
+                    // open it in a Custom Tab.
                     val utmCampaign = uri.getQueryParameter("utm_campaign")
                     if (utmCampaign != null && utmCampaign == "Android") {
                         // TODO: need to verify if the page can be displayed and logged properly.
@@ -530,11 +529,6 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             val title = PageTitle(query, app.wikiSite)
             val historyEntry = HistoryEntry(title, HistoryEntry.SOURCE_SEARCH)
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB)
-        } else if (intent.hasExtra(Constants.INTENT_FEATURED_ARTICLE_FROM_WIDGET)) {
-            intent.parcelableExtra<PageTitle>(Constants.ARG_TITLE)?.let {
-                val historyEntry = HistoryEntry(it, HistoryEntry.SOURCE_WIDGET)
-                loadPage(it, historyEntry, TabPosition.EXISTING_TAB)
-            }
         } else if (ACTION_CREATE_NEW_TAB == intent.action) {
             loadMainPage(TabPosition.NEW_TAB_FOREGROUND)
         } else {
@@ -668,16 +662,31 @@ class PageActivity : BaseActivity(), PageFragment.Callback, LinkPreviewDialog.Lo
             .show()
     }
 
-    private fun maybeShowWatchlistTooltip() {
-        pageFragment.historyEntry?.let {
-            if (!Prefs.isWatchlistPageOnboardingTooltipShown && AccountUtil.isLoggedIn &&
-                    it.source != HistoryEntry.SOURCE_SUGGESTED_EDITS &&
-                    Prefs.loggedInPageActivityVisitCount >= 3) {
-                enqueueTooltip {
-                    Prefs.isWatchlistPageOnboardingTooltipShown = true
-                    FeedbackUtil.showTooltip(this, binding.pageToolbarButtonShowOverflowMenu,
-                        R.layout.view_watchlist_page_tooltip, -32, -8, aboveOrBelow = false, autoDismiss = false)
+    private fun maybeShowPlacesTooltip() {
+        if (!Prefs.showOneTimePlacesPageOnboardingTooltip ||
+            pageFragment.page?.pageProperties?.geo == null || isTooltipShowing) {
+            return
+        }
+        enqueueTooltip {
+            FeedbackUtil.getTooltip(
+                this,
+                StringUtil.fromHtml(getString(R.string.places_article_menu_tooltip_message)),
+                arrowAnchorPadding = -DimenUtil.roundedDpToPx(7f),
+                topOrBottomMargin = -8,
+                aboveOrBelow = false,
+                autoDismiss = false,
+                showDismissButton = true
+            ).apply {
+                PlacesEvent.logImpression("article_more_tooltip")
+                setOnBalloonDismissListener {
+                    PlacesEvent.logAction("dismiss_click", "article_more_tooltip")
+                    isTooltipShowing = false
+                    Prefs.showOneTimePlacesPageOnboardingTooltip = false
                 }
+                isTooltipShowing = true
+                BreadCrumbLogEvent.logTooltipShown(this@PageActivity, binding.pageToolbarButtonShowOverflowMenu)
+                showAlignBottom(binding.pageToolbarButtonShowOverflowMenu)
+                setCurrentTooltip(this)
             }
         }
     }
