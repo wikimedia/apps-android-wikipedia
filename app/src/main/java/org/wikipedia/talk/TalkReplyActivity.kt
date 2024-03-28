@@ -307,7 +307,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     private fun showSaveDialog(subject: String, body: String) {
         TalkTemplatesTextInputDialog(this@TalkReplyActivity, R.string.talk_templates_new_message_dialog_save,
-            R.string.talk_warn_save_dialog_dont_save).let { textInputDialog ->
+            R.string.talk_warn_save_dialog_dont_save,
+            !viewModel.isExampleTemplate && viewModel.selectedTemplate != null).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
 
                 override fun onSuccess(subjectText: String) {
