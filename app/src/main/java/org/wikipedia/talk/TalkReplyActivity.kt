@@ -446,11 +446,10 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     }
 
     private fun getWikitextBody(): String {
-        var body = binding.replyInputView.editText.text.toString().trim()
-        body = body.replace(getString(R.string.username_wikitext), getString(R.string.wikiText_replace_url, viewModel.pageTitle.prefixedText, "@" + StringUtil.removeNamespace(viewModel.pageTitle.prefixedText)))
-        body = body.replace(getString(R.string.sender_username_wikitext), AccountUtil.userName.orEmpty())
-        body = body.replace(getString(R.string.diff_link_wikitext), viewModel.pageTitle.getWebApiUrl("diff=${viewModel.toRevisionId}&oldid=${viewModel.fromRevisionId}&variant=${viewModel.pageTitle.wikiSite.languageCode}"))
-        return body
+        return binding.replyInputView.editText.text.toString().trim()
+            .replace(getString(R.string.username_wikitext), getString(R.string.wikiText_replace_url, viewModel.pageTitle.prefixedText, "@" + StringUtil.removeNamespace(viewModel.pageTitle.prefixedText)))
+            .replace(getString(R.string.sender_username_wikitext), AccountUtil.userName.orEmpty())
+            .replace(getString(R.string.diff_link_wikitext), viewModel.pageTitle.getWebApiUrl("diff=${viewModel.toRevisionId}&oldid=${viewModel.fromRevisionId}&variant=${viewModel.pageTitle.wikiSite.languageCode}"))
     }
 
     private fun onSaveSuccess(newRevision: Long) {
