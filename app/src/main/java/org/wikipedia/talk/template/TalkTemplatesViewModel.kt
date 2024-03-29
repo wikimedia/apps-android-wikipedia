@@ -95,7 +95,7 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
             withContext(Dispatchers.IO) {
                 talkTemplates.forEach { talkTemplatesRepository.insertTemplate(it) }
                 talkTemplatesList.addAll(talkTemplates)
-                _actionState.emit(ActionState.Added())
+                _actionState.value = ActionState.Added()
             }
         }
     }
@@ -107,7 +107,7 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
                 talkTemplatesList.removeAll(talkTemplates)
                 resetOrder()
                 talkTemplatesRepository.updateTemplates(talkTemplatesList)
-                _actionState.emit(ActionState.Deleted(talkTemplates.size))
+                _actionState.value = ActionState.Deleted(talkTemplates.size)
             }
         }
     }
