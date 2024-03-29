@@ -17,7 +17,7 @@ import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
 
-class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+class TalkTemplatesItemView(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     interface Callback {
         fun onClick(position: Int)
@@ -45,15 +45,16 @@ class TalkTemplatesItemView constructor(context: Context, attrs: AttributeSet? =
     }
 
     fun setContents(talkTemplate: TalkTemplate, position: Int, isSaveMessagesTab: Boolean = false) {
-        binding.listItemTitle.isVisible = !(isSaveMessagesTab && position == 0)
+        val nonTemplateMessage = isSaveMessagesTab && position == 0
+        binding.listItemTitle.isVisible = !nonTemplateMessage
         binding.listItemTitle.text = talkTemplate.subject
         binding.listItemDescription.text = talkTemplate.message
-        binding.listItemDescription.setTypeface(Typeface.SANS_SERIF, if (position == 0 && isSaveMessagesTab) Typeface.ITALIC else Typeface.NORMAL)
-        binding.listItemDescription.isSingleLine = !(position == 0 && isSaveMessagesTab)
+        binding.listItemDescription.setTypeface(Typeface.SANS_SERIF, if (nonTemplateMessage) Typeface.ITALIC else Typeface.NORMAL)
+        binding.listItemDescription.isSingleLine = !(nonTemplateMessage)
         binding.listItem.setBackgroundResource(ResourceUtil.getThemedAttributeId(context,
-            if (position == 0 && isSaveMessagesTab) R.attr.background_color else android.R.attr.selectableItemBackground))
+            if (nonTemplateMessage) R.attr.background_color else android.R.attr.selectableItemBackground))
         binding.listItemDescription.ellipsize =
-            if (position == 0 && isSaveMessagesTab) null else TextUtils.TruncateAt.END
+            if (nonTemplateMessage) null else TextUtils.TruncateAt.END
 
         binding.listItem.setOnClickListener {
             callback?.onClick(position)

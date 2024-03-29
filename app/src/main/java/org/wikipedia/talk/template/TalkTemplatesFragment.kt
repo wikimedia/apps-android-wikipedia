@@ -2,6 +2,7 @@ package org.wikipedia.talk.template
 
 import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -40,6 +41,7 @@ import org.wikipedia.talk.TalkReplyActivity.Companion.RESULT_BACK_FROM_TOPIC
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.MultiSelectActionModeCallback
@@ -81,32 +83,15 @@ class TalkTemplatesFragment : Fragment() {
 
     private val requestNewTemplate = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         binding.talkTemplatesTabLayout.getTabAt(0)?.select()
-
         if (result.resultCode == RESULT_OK || result.resultCode == RESULT_BACK_FROM_TOPIC) {
             viewModel.loadTalkTemplates()
             PatrollerExperienceEvent.logAction("save_message_toast", "pt_templates")
             if (result.resultCode != RESULT_BACK_FROM_TOPIC) {
                 FeedbackUtil.showMessage(this, R.string.talk_templates_new_message_saved)
             }
-        }
-        if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
-            val pageTitle = viewModel.pageTitle
-            val message = if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
-                PatrollerExperienceEvent.logAction("publish_message_toast", "pt_warning_messages")
-                R.string.talk_warn_submitted
-            } else {
-                PatrollerExperienceEvent.logAction("publish_message_saved_toast", "pt_warning_messages")
-                R.string.talk_warn_submitted_and_saved
-            }
-            updateAndNotifyAdapter()
-            val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
-            snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
-                if (isAdded) {
-                    PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
-                    startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, Constants.InvokeSource.DIFF_ACTIVITY))
-                }
-            }
-            snackbar.show()
+        } else if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
+            requireActivity().setResult(result.resultCode, Intent().putExtra(Constants.ARG_TITLE, viewModel.pageTitle))
+            requireActivity().finish()
         }
     }
 
@@ -118,25 +103,9 @@ class TalkTemplatesFragment : Fragment() {
             if (result.resultCode != RESULT_BACK_FROM_TOPIC) {
                 FeedbackUtil.showMessage(this, R.string.talk_templates_edit_message_updated)
             }
-        }
-        if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
-            val pageTitle = viewModel.pageTitle
-            val message = if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
-                PatrollerExperienceEvent.logAction("publish_message_toast", "pt_warning_messages")
-                R.string.talk_warn_submitted
-            } else {
-                PatrollerExperienceEvent.logAction("publish_message_saved_toast", "pt_warning_messages")
-                R.string.talk_warn_submitted_and_saved
-            }
-            updateAndNotifyAdapter()
-            val snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
-            snackbar.setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
-                if (isAdded) {
-                    PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
-                    startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, Constants.InvokeSource.DIFF_ACTIVITY))
-                }
-            }
-            snackbar.show()
+        } else if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
+            requireActivity().setResult(result.resultCode, Intent().putExtra(Constants.ARG_TITLE, viewModel.pageTitle))
+            requireActivity().finish()
         }
     }
 
@@ -150,9 +119,9 @@ class TalkTemplatesFragment : Fragment() {
                 launch {
                     viewModel.uiState.collect {
                         when (it) {
-                            is TalkTemplatesViewModel.UiState.Loading -> onLoading()
-                            is TalkTemplatesViewModel.UiState.Success -> onSuccess()
-                            is TalkTemplatesViewModel.UiState.Error -> onError(it.throwable)
+                            is Resource.Loading -> onLoading()
+                            is Resource.Success -> onSuccess()
+                            is Resource.Error -> onError(it.throwable)
                         }
                     }
                 }
@@ -299,7 +268,7 @@ class TalkTemplatesFragment : Fragment() {
     }
 
     private fun onAdded() {
-      updateAndNotifyAdapter()
+        updateAndNotifyAdapter()
     }
 
     private fun onActionError(t: Throwable) {
@@ -521,7 +490,7 @@ class TalkTemplatesFragment : Fragment() {
         }
     }
 
-    private inner class RearrangeableItemTouchHelperCallback constructor(private val adapter: RecyclerAdapter) : ItemTouchHelper.Callback() {
+    private inner class RearrangeableItemTouchHelperCallback(private val adapter: RecyclerAdapter) : ItemTouchHelper.Callback() {
         override fun isLongPressDragEnabled(): Boolean {
             return false
         }

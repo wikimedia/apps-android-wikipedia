@@ -245,7 +245,9 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     binding.replyInputView.editText.requestFocus()
                     DeviceUtil.showSoftKeyboard(binding.replyInputView.editText)
                     binding.talkScrollContainer.postDelayed({
-                        binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 4)
+                        if (!isDestroyed) {
+                            binding.talkScrollContainer.smoothScrollTo(0, binding.talkScrollContainer.height * 4)
+                        }
                     }, 500)
                 }
             }
@@ -307,7 +309,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
 
     private fun showSaveDialog(subject: String, body: String) {
         TalkTemplatesTextInputDialog(this@TalkReplyActivity, R.string.talk_templates_new_message_dialog_save,
-            R.string.talk_warn_save_dialog_dont_save).let { textInputDialog ->
+            R.string.talk_warn_save_dialog_dont_save,
+            !viewModel.isExampleTemplate && viewModel.selectedTemplate != null).let { textInputDialog ->
             textInputDialog.callback = object : TalkTemplatesTextInputDialog.Callback {
 
                 override fun onSuccess(subjectText: String) {
@@ -346,10 +349,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                                 if (textInputDialog.isSaveExistingChecked) {
                                     return
                                 }
-                                dialog.getView().postDelayed({
-                                    dialog.setError(dialog.context.getString(R.string.talk_subject_duplicate))
-                                    dialog.setPositiveButtonEnabled(false)
-                                }, 250)
+                                dialog.setError(dialog.context.getString(R.string.talk_subject_duplicate))
+                                dialog.setPositiveButtonEnabled(false)
                             }
 
                             else -> {
@@ -513,14 +514,13 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     sendPatrollerExperienceEvent("publish_exit_cancel", "pt_warning_messages")
                 }
                 .show()
-        } else if (viewModel.isFromDiff && messagePreviewFragment.isActive) {
+        } else if (messagePreviewFragment.isActive) {
             showProgressBar(true)
             binding.talkScrollContainer.isVisible = true
             messagePreviewFragment.hide()
             setSaveButtonEnabled(true)
             binding.replyNextButton.text = getString(R.string.edit_next)
             setToolbarTitle(viewModel.pageTitle)
-            binding.root.postDelayed({ showProgressBar(false) }, 250)
         } else {
             super.onBackPressed()
         }

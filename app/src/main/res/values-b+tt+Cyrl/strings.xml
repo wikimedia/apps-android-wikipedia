@@ -1226,8 +1226,6 @@
   <string name="talk_warn_save_dialog_cancel">Кире алу</string>
   <string name="talk_warn_submitted">Хәбәр редактор кулланучыларының фикер алышу битендә басылган</string>
   <string name="talk_warn_submitted_and_saved">Хәбәр редактор кулланучының фикер алышу битендә сакланган һәм бастырылган.</string>
-  <string name="talk_warn_saved_message">Гамәлдәге кисәтә торган хәбәрне сайлагыз яисә яңа хәбәр төзегез.</string>
-  <string name="talk_warn_saved_message_dropdown">Сакланган хәбәрләр</string>
   <string name="talk_page_empty">Фикер алышуның бу бите буш.</string>
   <string name="talk_page_empty_title">Фикер алышу монда башлана</string>
   <string name="talk_page_empty_content">Фикер алышу битләре - кешеләр Википедиянең эчтәлеген мөмкин кадәр яхшы итү турында фикер алышкан урын. Википедистлар җәмгыяте белән хезмәттәшлек итү һәм элемтә урнаштыру өчен фикер алышуга яңа теманы өстәүдән башлагыз.</string>
@@ -1431,10 +1429,8 @@
   <string name="reading_list_share_message_v2">Сәлам! Мин сезнең белән Википедиядәге үземнең уку исемлеге белән уртаклашырга телим.</string>
   <string name="reading_list_share_survey_title">Сез безгә \"Уку исемлекләре белән уртаклашырга\" дигән функцияне яхшыртырга ярдәм итә аласызмы?</string>
   <string name="reading_list_share_survey_body">\"Уку исемлекләре белән уртаклашырга\" — бу текст функциясе һәм безгә аны яхшырту яки бетерү өчен сезнең фикерләрегез кирәк.</string>
-  <string name="talk_templates_manage_title">Калыплар белән идарә итү</string>
-  <string name="talk_templates_empty_message">Сезнең бернинди кисәтү хәбәрләре сакланмаган.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Сезнең бернинди кисәтү хәбәрләре сакланмаган.</string>
   <string name="talk_templates_new_message_title">Яңа хәбәр</string>
-  <string name="talk_templates_new_message_description">Кисәтү хәбәре ясагыз.</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
   <string name="talk_templates_new_message_compose_hint">Хәбәр язарга</string>
   <string name="talk_templates_new_message_save">Сакларга</string>
@@ -1450,7 +1446,6 @@
   <string name="talk_templates_edit_message_dialog_delete">Бетерергә</string>
   <string name="talk_templates_edit_message_updated">Хәбәр яңартылды</string>
   <string name="talk_templates_message_deleted" fuzzy="true">Хәбәр бетерелде</string>
-  <string name="patroller_tasks_edits_list_title">Төзәтмәләр исемлеге</string>
   <string name="patroller_tasks_edits_list_search_hint">Үзгәрешләрне эзләү яки фильтрлау</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Теглар: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Һичкем</string>

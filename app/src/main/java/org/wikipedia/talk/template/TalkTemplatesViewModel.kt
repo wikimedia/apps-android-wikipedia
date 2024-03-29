@@ -1,7 +1,5 @@
 package org.wikipedia.talk.template
 
-import android.content.Context
-import android.content.res.Configuration
 import android.os.Bundle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -14,21 +12,21 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.database.AppDatabase
 import org.wikipedia.extensions.parcelable
 import org.wikipedia.page.PageTitle
 import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.db.TalkTemplate
+import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.Resource
 import java.util.Collections
-import java.util.Locale
 
 class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
 
     private val talkTemplatesRepository = TalkTemplatesRepository(AppDatabase.instance.talkTemplateDao())
     private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.Error(throwable)
+        _uiState.value = Resource.Error(throwable)
     }
     private val actionHandler = CoroutineExceptionHandler { _, throwable ->
         _actionState.value = ActionState.Error(throwable)
@@ -36,7 +34,7 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
     val talkTemplatesList = mutableListOf<TalkTemplate>()
     val savedTemplatesList = mutableListOf<TalkTemplate>()
 
-    private val _uiState = MutableStateFlow(UiState())
+    private val _uiState = MutableStateFlow(Resource<Unit>())
     val uiState = _uiState.asStateFlow()
 
     private val _actionState = MutableStateFlow(ActionState())
@@ -56,30 +54,21 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
                 talkTemplatesList.clear()
-                _uiState.value = UiState.Loading()
+                _uiState.value = Resource.Loading()
                 talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
-                _uiState.value = UiState.Success()
+                _uiState.value = Resource.Success(Unit)
             }
         }
     }
 
     private fun loadSavedTemplates() {
         val langCode = pageTitle.wikiSite.languageCode
-        val context = WikipediaApp.instance.applicationContext
         for (i in savedMessagesSubjectList.indices) {
-            val talkTemplate = TalkTemplate(0, 0, -1, savedMessagesTitleList[i],
-                if (i == 0) "" else getLocaleStringResource(Locale(langCode), savedMessagesSubjectList[i], context),
-                getLocaleStringResource(Locale(langCode), savedMessagesBodyList[i], context))
+            val subjectString = if (i == 0) "" else L10nUtil.getStringForArticleLanguage(langCode, savedMessagesSubjectList[i])
+            val bodyString = L10nUtil.getStringForArticleLanguage(langCode, savedMessagesBodyList[i])
+            val talkTemplate = TalkTemplate(0, 0, -1, savedMessagesTitleList[i], subjectString, bodyString)
             savedTemplatesList.add(talkTemplate)
         }
-    }
-
-    private fun getLocaleStringResource(requestedLocale: Locale, resourceId: Int, context: Context): String {
-        val result: String
-        val config = Configuration(context.resources.configuration)
-        config.setLocale(requestedLocale)
-        result = context.createConfigurationContext(config).getText(resourceId).toString()
-        return result
     }
 
     fun swapList(oldPosition: Int, newPosition: Int) {
@@ -123,18 +112,13 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    open class UiState {
-        class Loading : UiState()
-        class Success : UiState()
-        class Error(val throwable: Throwable) : UiState()
-    }
-
     open class ActionState {
         class Added : ActionState()
         class Deleted(val size: Int) : ActionState()
         class Error(val throwable: Throwable) : ActionState()
     }
-     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
+
+    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return TalkTemplatesViewModel(bundle) as T

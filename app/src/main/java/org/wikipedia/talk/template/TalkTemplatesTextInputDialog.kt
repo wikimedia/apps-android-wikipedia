@@ -5,16 +5,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.wikipedia.R
-import org.wikipedia.analytics.eventplatform.PatrollerExperienceEvent
 import org.wikipedia.databinding.DialogTalkTemplatesTextInputBinding
-import org.wikipedia.talk.TalkReplyActivity
 
-class TalkTemplatesTextInputDialog constructor(private val activity: Activity,
-                                               positiveButtonText: Int = R.string.text_input_dialog_ok_button_text,
-                                               negativeButtonText: Int = R.string.text_input_dialog_cancel_button_text) : MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_Input) {
+class TalkTemplatesTextInputDialog(
+    activity: Activity,
+    positiveButtonText: Int = R.string.text_input_dialog_ok_button_text,
+    negativeButtonText: Int = R.string.text_input_dialog_cancel_button_text,
+    isExisting: Boolean = false
+) : MaterialAlertDialogBuilder(activity, R.style.AlertDialogTheme_Input) {
     interface Callback {
         fun onSuccess(subjectText: String)
         fun onCancel()
@@ -44,6 +46,7 @@ class TalkTemplatesTextInputDialog constructor(private val activity: Activity,
         binding.subjectInput.doOnTextChanged { text, _, _, _ ->
             callback?.onTextChanged(text.toString(), this)
         }
+        binding.dialogSaveExistingRadio.isVisible = isExisting
         binding.dialogSaveExistingRadio.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 callback?.onTextChanged(binding.subjectInput.text.toString(), this)
@@ -67,12 +70,6 @@ class TalkTemplatesTextInputDialog constructor(private val activity: Activity,
 
     fun setPositiveButtonEnabled(enabled: Boolean) {
         dialog?.getButton(AlertDialog.BUTTON_POSITIVE)?.isEnabled = enabled
-    }
-
-    private fun sendPatrollerExperienceEvent(action: String) {
-        PatrollerExperienceEvent.logAction(
-            action, if (activity is TalkReplyActivity) "pt_warning_messages" else "pt_templates"
-        )
     }
 
     fun getView(): ViewGroup {
