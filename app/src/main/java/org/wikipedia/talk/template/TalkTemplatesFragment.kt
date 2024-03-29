@@ -40,6 +40,7 @@ import org.wikipedia.talk.TalkReplyActivity.Companion.RESULT_BACK_FROM_TOPIC
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.MultiSelectActionModeCallback
@@ -150,9 +151,9 @@ class TalkTemplatesFragment : Fragment() {
                 launch {
                     viewModel.uiState.collect {
                         when (it) {
-                            is TalkTemplatesViewModel.UiState.Loading -> onLoading()
-                            is TalkTemplatesViewModel.UiState.Success -> onSuccess()
-                            is TalkTemplatesViewModel.UiState.Error -> onError(it.throwable)
+                            is Resource.Loading -> onLoading()
+                            is Resource.Success -> onSuccess()
+                            is Resource.Error -> onError(it.throwable)
                         }
                     }
                 }
@@ -299,7 +300,7 @@ class TalkTemplatesFragment : Fragment() {
     }
 
     private fun onAdded() {
-      updateAndNotifyAdapter()
+        updateAndNotifyAdapter()
     }
 
     private fun onActionError(t: Throwable) {
