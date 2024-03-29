@@ -44,6 +44,7 @@ import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -115,10 +116,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is SuggestedEditsTasksFragmentViewModel.UiState.Loading -> onLoading()
-                        is SuggestedEditsTasksFragmentViewModel.UiState.Success -> setFinalUIState()
-                        is SuggestedEditsTasksFragmentViewModel.UiState.RequireLogin -> onRequireLogin()
-                        is SuggestedEditsTasksFragmentViewModel.UiState.Error -> showError(it.throwable)
+                        is Resource.Loading -> onLoading()
+                        is Resource.Success -> setFinalUIState()
+                        is SuggestedEditsTasksFragmentViewModel.RequireLogin -> onRequireLogin()
+                        is Resource.Error -> showError(it.throwable)
                     }
                 }
             }

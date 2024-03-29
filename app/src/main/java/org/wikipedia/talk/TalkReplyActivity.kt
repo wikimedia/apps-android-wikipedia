@@ -514,8 +514,8 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     sendPatrollerExperienceEvent("publish_exit_cancel", "pt_warning_messages")
                 }
                 .show()
-        } else if (viewModel.isFromDiff && messagePreviewFragment.isActive) {
-            showProgressBar(false)
+        } else if (messagePreviewFragment.isActive) {
+            showProgressBar(true)
             binding.talkScrollContainer.isVisible = true
             messagePreviewFragment.hide()
             setSaveButtonEnabled(true)
