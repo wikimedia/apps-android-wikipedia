@@ -13,12 +13,13 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.settings.Prefs
+import org.wikipedia.util.Resource
 import java.util.Calendar
 
 class WatchlistViewModel : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.Error(throwable)
+        _uiState.value = Resource.Error(throwable)
     }
 
     private var watchlistItems = mutableListOf<MwQueryResult.WatchlistItem>()
@@ -27,7 +28,7 @@ class WatchlistViewModel : ViewModel() {
     var finalList = mutableListOf<Any>()
     var displayLanguages = WikipediaApp.instance.languageState.appLanguageCodes.filterNot { Prefs.watchlistExcludedWikiCodes.contains(it) }
 
-    private val _uiState = MutableStateFlow(UiState())
+    private val _uiState = MutableStateFlow(Resource<Unit>())
     val uiState = _uiState.asStateFlow()
 
     init {
@@ -69,11 +70,11 @@ class WatchlistViewModel : ViewModel() {
 
             finalList.add(item)
         }
-        _uiState.value = UiState.Success()
+        _uiState.value = Resource.Success(Unit)
     }
 
     fun fetchWatchlist(searchBarPlaceholder: Boolean = true) {
-        _uiState.value = UiState.Loading()
+        _uiState.value = Resource.Loading()
         viewModelScope.launch(handler) {
             watchlistItems = mutableListOf()
             displayLanguages.map { language ->
@@ -168,11 +169,5 @@ class WatchlistViewModel : ViewModel() {
         val includedTypesCodes = Prefs.watchlistIncludedTypeCodes
         val types = WatchlistFilterTypes.TYPE_OF_CHANGES_GROUP.filter { includedTypesCodes.contains(it.id) }.map { it.value }
         return types.joinToString(separator = "|")
-    }
-
-    open class UiState {
-        class Loading : UiState()
-        class Success : UiState()
-        class Error(val throwable: Throwable) : UiState()
     }
 }
