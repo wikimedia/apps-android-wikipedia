@@ -13,6 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -128,6 +129,7 @@ class SearchFragment : Fragment(), SearchResultsFragment.Callback, RecentSearche
         setUpLanguageScroll(Prefs.selectedLanguagePositionInSearch)
         startSearch(query, langBtnClicked)
         binding.searchCabView.setCloseButtonVisibility(query)
+        recentSearchesFragment.binding.namespacesContainer.isVisible = invokeSource != InvokeSource.PLACES
         if (!query.isNullOrEmpty()) {
             showPanel(PANEL_SEARCH_RESULTS)
         }
