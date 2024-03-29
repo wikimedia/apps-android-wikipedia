@@ -258,7 +258,7 @@
   <string name="about_translators_heading">Översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
-  <string name="about_app_license">Källkoden finns tillgänglig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; och &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Källkoden finns tillgänglig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; och &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under licensen &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Om inget annat anges är innehållet tillgängligt under licensen &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Erkännande-DelaLika&lt;/a&gt;.</string>
   <string name="about_wmf">En app utvecklad av &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Ändringar har gjorts i sidan. Är du säker på att du vill lämna den utan att spara dina ändringar?</string>
@@ -1253,8 +1253,6 @@
   <string name="talk_warn_save_dialog_cancel">Avbryt</string>
   <string name="talk_warn_submitted">Meddelandet publicerades på redigerarens användardiskussionssida</string>
   <string name="talk_warn_submitted_and_saved">Meddelandet sparades och publicerades på redigerarens användardiskussionssida</string>
-  <string name="talk_warn_saved_message">Välj ett befintligt varningsmeddelande eller skriv ett nytt.</string>
-  <string name="talk_warn_saved_message_dropdown">Sparade meddelanden</string>
   <string name="talk_page_empty">Den här diskussionssidan är tom.</string>
   <string name="talk_page_empty_title">Konversationen börjar här</string>
   <string name="talk_page_empty_content">Diskussionssidor är platsen där folk diskuterar hur man gör innehåll på Wikipedia så bra som möjligt. Börja med att lägga till ett nytt diskussionsämne för att få kontakt och samarbeta med en gemenskap av wikipedianer.</string>
@@ -1460,10 +1458,8 @@
   <string name="reading_list_share_message_v2">Hej! Jag skulle vilja dela min Wikipedia-läslista med dig:</string>
   <string name="reading_list_share_survey_title">Kan du hjälpa oss att förbättra \"Dela läslistor\"?</string>
   <string name="reading_list_share_survey_body">\"Dela läslistor\" är en testfunktion och vi behöver din återkoppling för att förbättra eller ta bort den.</string>
-  <string name="talk_templates_manage_title">Hantera mallar</string>
-  <string name="talk_templates_empty_message">Du har inga varningsmeddelanden sparade.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Du har inga varningsmeddelanden sparade.</string>
   <string name="talk_templates_new_message_title">Nytt meddelande</string>
-  <string name="talk_templates_new_message_description">Skriv varningsmeddelande.</string>
   <string name="talk_templates_new_message_subject_hint">Ämne</string>
   <string name="talk_templates_new_message_compose_hint">Skriv meddelande</string>
   <string name="talk_templates_new_message_save">Spara</string>
@@ -1488,7 +1484,6 @@
     <item quantity="other">Meddelanden har raderats</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Titeln kan inte vara tom.</string>
-  <string name="patroller_tasks_edits_list_title">Lista över redigeringar</string>
   <string name="patroller_tasks_edits_list_search_hint">Sök eller filtrera redigeringar</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Taggar: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Inga</string>
@@ -1548,7 +1543,6 @@
     <item quantity="one">%d filter</item>
     <item quantity="other">%d filter</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Patrullredigering</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Artikelns redigeringshistorik</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Återställdes</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Är du säker på att du vill rulla tillbaka?</string>

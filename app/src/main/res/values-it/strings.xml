@@ -23,6 +23,7 @@
 * JackLantern
 * Karapananguasú Kururú Teremembé
 * LACLARETTA
+* LametinoWiki
 * Lorelai87
 * Macofe
 * Mannivu
@@ -116,7 +117,7 @@
   <string name="menu_page_find_in_page">Trova nella voce</string>
   <string name="menu_page_add_to_watchlist">Aggiungi agli osservati speciali</string>
   <string name="menu_page_watch">Osserva</string>
-  <string name="menu_page_unwatch">Non seguire</string>
+  <string name="menu_page_unwatch">Rimuovi dagli osservati speciali</string>
   <string name="menu_page_view_talk">Vedi la pagina di discussione</string>
   <string name="menu_page_talk_page">Pagina di discussione</string>
   <string name="menu_page_view_edit_history">Vedi cronologia delle modifiche</string>
@@ -165,7 +166,7 @@
   <string name="dialog_message_edit_failed">Modifica non riuscita!</string>
   <string name="dialog_message_edit_failed_retry">Riprova</string>
   <string name="dialog_message_edit_failed_cancel">Annulla</string>
-  <string name="dialog_message_leaving_edit">Le tue modifiche non sono state ancora pubblicate. Sei proprio sicuro di voler uscire da questa pagina?</string>
+  <string name="dialog_message_leaving_edit">Le tue modifiche non sono state ancora pubblicate. Sei sicuro di voler uscire da questa pagina?</string>
   <string name="dialog_message_leaving_edit_leave">Lascia</string>
   <string name="dialog_message_leaving_edit_stay">Rimani</string>
   <string name="menu_show_toc">Indice</string>
@@ -285,7 +286,7 @@
   <string name="about_translators_heading">Traduttori</string>
   <string name="about_translators_translatewiki">Questa applicazione è stata tradotta da traduttori volontari su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licenza</string>
-  <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; e &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.it\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
+  <string name="about_app_license">Codice sorgente disponibile su &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; in base alla &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Licenza Apache 2.0&lt;/a&gt;. Se non diversamente specificato, il contenuto è disponibile sotto la &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.it\"&gt;licenza Creative Commons Attribuzione-Condividi allo stesso modo&lt;/a&gt;.</string>
   <string name="about_wmf">Un prodotto della &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Informazioni</string>
   <string name="edit_abandon_confirm">La pagina è stata modificata. Sei sicuro di voler uscire senza salvare le modifiche?</string>
@@ -1219,6 +1220,11 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Altezza</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Inserisci</string>
+  <string name="templates_insert_button">Inserisci</string>
+  <string name="templates_param_suggested_value">ad esempio %s</string>
+  <string name="templates_param_optional_hint">%s (facoltativo)</string>
+  <string name="templates_param_suggested_hint">%s (suggerito)</string>
+  <string name="templates_learn_more_link">Ulteriori informazioni</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
   <string name="main_tooltip_text">Ciao %s, sapevi che tutti possono modificare Wikipedia?</string>
@@ -1237,7 +1243,8 @@
   <string name="talk_warn_save_dialog_message">Salva come nuovo messaggio</string>
   <string name="talk_warn_save_dialog_publish">Pubblica</string>
   <string name="talk_warn_save_dialog_cancel">Annulla</string>
-  <string name="talk_warn_saved_message_dropdown">Messaggi salvati</string>
+  <string name="talk_warn_save_dialog_dont_save">Non salvare</string>
+  <string name="talk_warn_saved_messages">Messaggi salvati</string>
   <string name="talk_page_empty">Questa pagina di discussione è vuota.</string>
   <string name="talk_page_empty_title">La conversazione inizia qui</string>
   <string name="talk_page_empty_content">Le pagine di discussione sono dove le persone discutono su come rendere il contenuto di Wikipedia il migliore possibile. Inizia aggiungendo un nuovo argomento di discussione per connetterti e collaborare con una comunità di wikipediani.</string>
@@ -1459,7 +1466,8 @@
     <item quantity="other">I messaggi sono stati cancellati</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Il titolo non può essere vuoto.</string>
-  <string name="patroller_tasks_edits_list_title">Elenco delle modifiche</string>
+  <string name="talk_templates_your_messages_tab_title">I tuoi messaggi</string>
+  <string name="talk_templates_example_messages_tab_title">Messaggi di esempio</string>
   <string name="patroller_tasks_edits_list_search_hint">Cerca o filtra le modifiche</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Etichette: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Nessuno</string>
@@ -1485,7 +1493,6 @@
     <item quantity="one">%d filtro</item>
     <item quantity="other">%d filtri</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Verifica modifica</string>
   <string name="patroller_tasks_patrol_edit_snackbar_view">Visualizza</string>
   <string name="patroller_tasks_overflow_learn">Ulteriori informazioni</string>
   <string name="patroller_onboarding_two_thank_title">Ringrazia</string>
@@ -1502,6 +1509,11 @@
   <string name="patroller_diff_feedback_dialog_input_hint">Commenti</string>
   <string name="patroller_diff_feedback_dialog_submit">Invia</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Commento inviato</string>
+  <string name="patroller_saved_message_title_npov">Punto di vista neutrale</string>
+  <string name="patroller_saved_message_title_auto_trans">Traduzione automatica</string>
+  <string name="patroller_saved_message_title_final_warning">Avviso finale</string>
+  <string name="patroller_saved_message_title_art_imp">Suggerimento per il miglioramento della voce</string>
+  <string name="talk_templates_menu_edit_title">Modifica</string>
   <string name="data_opt_in_accept">Accetta</string>
   <string name="data_opt_in_reject">Rifiuta</string>
   <string name="donation_campaign_maybe_later_snackbar">Te lo ricorderemo di nuovo domani.</string>

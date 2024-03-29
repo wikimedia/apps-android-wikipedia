@@ -273,7 +273,7 @@
   <string name="about_translators_heading">Tłumacze</string>
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencja</string>
-  <string name="about_app_license">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubie&lt;/a&gt; na licencji &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. O ile nie określono inaczej, zawartość jest dostępna na licencji &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Kod źródłowy jest dostępny na &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; oraz &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHubie&lt;/a&gt; na licencji &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. O ile nie określono inaczej, zawartość jest dostępna na licencji &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Produkt &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">O aplikacji</string>
   <string name="edit_abandon_confirm">Strona została zmodyfikowana. Czy na pewno chcesz zakończyć pracę bez zapisywania zmian?</string>
@@ -1281,10 +1281,8 @@
   <string name="archive_empty">Nie znaleziono zarchiwizowanych stron.</string>
   <string name="user_contrib_filter_all">Wszystkie przestrzenie nazw</string>
   <string name="namespace_article">Artykuł</string>
-  <string name="talk_templates_manage_title">Zarządzaj szablonami</string>
-  <string name="talk_templates_empty_message">Nie masz zapisanych żadnych komunikatów ostrzegawczych.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Nie masz zapisanych żadnych komunikatów ostrzegawczych.</string>
   <string name="talk_templates_new_message_title">Nowa wiadomość</string>
-  <string name="talk_templates_new_message_description">Utwórz wiadomość ostrzegawczą.</string>
   <string name="talk_templates_new_message_subject_hint">Tytuł</string>
   <string name="talk_templates_new_message_compose_hint">Utwórz wiadomość</string>
   <string name="talk_templates_new_message_save">Zapisz</string>
@@ -1299,7 +1297,6 @@
   <string name="talk_templates_edit_message_dialog_save">Zapisz</string>
   <string name="talk_templates_edit_message_dialog_delete">Usuń</string>
   <string name="talk_templates_edit_message_updated">Wiadomość została zaktualizowana</string>
-  <string name="patroller_tasks_edits_list_title">Lista zmian</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Wyświetl stronę użytkownika</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Zobacz stronę dyskusji</string>
   <string name="patroller_tasks_edits_list_card_overflow_user_information">Informacje o użytkowniku</string>

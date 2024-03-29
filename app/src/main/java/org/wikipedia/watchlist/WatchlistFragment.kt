@@ -44,6 +44,7 @@ import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.NotificationButtonView
@@ -90,9 +91,9 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is WatchlistViewModel.UiState.Loading -> onLoading()
-                        is WatchlistViewModel.UiState.Success -> onSuccess()
-                        is WatchlistViewModel.UiState.Error -> onError(it.throwable)
+                        is Resource.Loading -> onLoading()
+                        is Resource.Success -> onSuccess()
+                        is Resource.Error -> onError(it.throwable)
                     }
                 }
             }
@@ -135,7 +136,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             notificationButtonView.contentDescription = getString(R.string.notifications_activity_title)
             notificationMenuItem.actionView = notificationButtonView
             notificationMenuItem.expandActionView()
-            FeedbackUtil.setButtonLongPressToast(notificationButtonView)
+            FeedbackUtil.setButtonTooltip(notificationButtonView)
         } else {
             notificationMenuItem.isVisible = false
         }
@@ -229,7 +230,7 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
                 resultLauncher.launch(WatchlistFilterActivity.newIntent(it.context))
             }
 
-            FeedbackUtil.setButtonLongPressToast(itemBinding.filterButton)
+            FeedbackUtil.setButtonTooltip(itemBinding.filterButton)
         }
 
         fun updateFilterIconAndCount() {
@@ -365,8 +366,6 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
         const val VIEW_TYPE_SEARCH_BAR = 0
         const val VIEW_TYPE_DATE = 1
         const val VIEW_TYPE_ITEM = 2
-        const val WATCHLIST_UNDO_COMMENT = "#watchlist-undo"
-        const val WATCHLIST_ROLLBACK_COMMENT = "#watchlist-rollback"
 
         fun newInstance(): WatchlistFragment {
             return WatchlistFragment()

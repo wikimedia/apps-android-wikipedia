@@ -120,6 +120,7 @@
   <string name="langlinks_your_wikipedia_languages">Ваши википедиски јазици</string>
   <string name="menu_save_changes">Објави промени</string>
   <string name="edit_saved_successfully">Уредувањето е објавено!</string>
+  <string name="stub_article_edit_saved_successfully">Уредувањето е објавено! Ќе треба некое време за промените да се појават.</string>
   <string name="dialog_message_edit_failed">Уредувањето не успеа!</string>
   <string name="dialog_message_edit_failed_retry">Повтори</string>
   <string name="dialog_message_edit_failed_cancel">Откажи</string>
@@ -162,6 +163,9 @@
   <string name="logged_out_in_background_dialog">Одјавени сте од Википедија. Дали сакате пак да се најавите?</string>
   <string name="logged_out_in_background_login">Најава</string>
   <string name="logged_out_in_background_cancel">Откажи</string>
+  <string name="account_vanish_request_title">Гаснење на сметка</string>
+  <string name="account_vanish_request_confirm_title">Предупредување за гаснење на сметка</string>
+  <string name="account_vanish_request_confirm">Гаснењето е &lt;b&gt;последно средство&lt;/b&gt; и треба да се користи само ако сакате да престанете да уредувате засекогаш/b&gt; и да скриете што повеќе од вашите досегашни врски.&lt;br/&gt;&lt;br/&gt;Бришењето сметки на Википедија се врши така со менување на името на вашата сметка, така што другите не би можеле да ги препознаат вашите придонеси во постапка наречена гаснење на сметка.&lt;b&gt;Гаснењето не гарантира целосна анонимност и не ги отстранува придонесите на проектите&lt;/b&gt;.</string>
   <string name="history_empty_title">Нема неодамна посетени статии</string>
   <string name="history_empty_message">Тука следете што сте читале.</string>
   <string name="history_offline_articles_toast">Некои статии во историјата може да се недостапни вонмрежно.</string>
@@ -243,7 +247,7 @@
   <string name="about_translators_heading">Преведувачи</string>
   <string name="about_translators_translatewiki">Прилогов го преведоа доброволни преведувачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.mk\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови&lt;/a&gt;.</string>
+  <string name="about_app_license">Изворниот код ќе го најдете на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; под лиценцата &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Ако не е поинаку наведено, сета содржина се нуди под лиценцата &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.mk\"&gt;Криејтив комонс Наведи извор-Сподели под исти услови&lt;/a&gt;.</string>
   <string name="about_wmf">Производ на &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фондацијата Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">За прилогот</string>
   <string name="edit_abandon_confirm">Страницава е изменета. Дали сигурно сакате да излезете без да ги зачувате направените промени?</string>
@@ -396,6 +400,7 @@
   <string name="link_preview_dialog_save_button">Зачувај</string>
   <string name="link_preview_dialog_saved_button">Зачувано</string>
   <string name="link_preview_dialog_share_button">Сподели</string>
+  <string name="link_preview_stub_placeholder_text">Оваа статија е никулец, што значи дека нема доволно содржина за да се создаде преглед. Но можете да го промените тоа.</string>
   <string name="error_page_does_not_exist">Оваа страница не постои.</string>
   <string name="error_user_page_does_not_exist">Википедија нема &lt;a href=\"%1$s\"&gt;корисничка страница&lt;/a&gt; со точно тоа име. Начелно, оваа страница треба да се создаде и уреди од &lt;b&gt;%2$s&lt;/b&gt;. Ако не сте сигурни, проверете дали постои „%3$s“.</string>
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
@@ -751,8 +756,8 @@
   <string name="notifications_menu_uncheck_all">Отштиклирај ги сите</string>
   <string name="notifications_wiki_filter_header">Викифилтер</string>
   <string name="notifications_type_filter_header">Типски филтер</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Сите „вики“</string>
-  <string name="notifications_all_types_text" fuzzy="true">Сите „типски“</string>
+  <string name="notifications_all_wikis_text">Сите викија</string>
+  <string name="notifications_all_types_text">Сите видови</string>
   <string name="notifications_menu_user_talk_page">Разговорна страница на %s</string>
   <string name="notifications_offline_disable_message">Функцијата е недостапна вонмрежно.</string>
   <string name="view_because_you_read_card_title">Бидејќи читавте</string>
@@ -1214,6 +1219,15 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Висина</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">п</string>
   <string name="insert_media_insert_button">Вметни</string>
+  <string name="templates_search_hint">Пребарај предлошки</string>
+  <string name="templates_insert_button">Вметни</string>
+  <string name="templates_param_suggested_value">на пр. %s</string>
+  <string name="templates_param_optional_hint">%s (незадолжително)</string>
+  <string name="templates_param_suggested_hint">%s (предложено)</string>
+  <string name="templates_learn_more_link">Дознајте повеќе</string>
+  <string name="templates_description_incomplete">Предлошките се создадени од корисници и може да немаат потполни описи.</string>
+  <string name="templates_description_empty">Предлошката „%s“ сè уште нема опис.</string>
+  <string name="templates_description_missing_data">На оваа предлошка ѝ недостасуваат &lt;a href=\"%1$s\"&gt;Предложни податоци&lt;/a&gt;, и нејзините параметри се &lt;a href=\"%2$s\"&gt;автосоздадени&lt;/a&gt;. Поради тоа, предлошката и нејзините параметри немаат описи.</string>
   <string name="main_drawer_help">Помош</string>
   <string name="main_drawer_login">Најава / придружување на Википедија</string>
   <string name="main_tooltip_text">Здраво, %s. Дали знаевте дека Википедија може да ја уредува секој?</string>
@@ -1237,10 +1251,10 @@
   <string name="talk_warn_save_dialog_hint">Наслов на пораката</string>
   <string name="talk_warn_save_dialog_publish">Објави</string>
   <string name="talk_warn_save_dialog_cancel">Откажи</string>
+  <string name="talk_warn_save_dialog_dont_save">Не зачувувај</string>
   <string name="talk_warn_submitted">Пораката е објавена на разговорната страница на корисникот</string>
   <string name="talk_warn_submitted_and_saved">Пораката е зачувана и објавена на разговорната страница на уредникот</string>
-  <string name="talk_warn_saved_message">Изберете постоечка предупредувачка порака или напишете нова.</string>
-  <string name="talk_warn_saved_message_dropdown">Зачувани пораки</string>
+  <string name="talk_warn_saved_messages">Зачувани пораки</string>
   <string name="talk_page_empty">Оваа разговорна страница е празна.</string>
   <string name="talk_page_empty_title">Разговорот започнува тука</string>
   <string name="talk_page_empty_content">Разговорните страници се места кајшто луѓето дискутираат како да ја направат содржината на Википедија што подобра. Почнете нова тема на разговор за да се поврзете и да соработувате со заедница на википедијанци.</string>
@@ -1251,6 +1265,7 @@
   <string name="talk_message_hint">Напиши порака</string>
   <string name="talk_message_empty">Пораката не може да стои празна.</string>
   <string name="talk_subject_empty">Насловот не може да стои празен.</string>
+  <string name="talk_subject_duplicate">Таков наслов веќе постои. Внесете друг.</string>
   <string name="talk_response_submitted">Одговорот е објавен.</string>
   <string name="talk_snackbar_undo">Врати</string>
   <string name="talk_last_modified">&lt;b&gt;Последно изменето на %1$s&lt;/b&gt; од %2$s</string>
@@ -1446,10 +1461,8 @@
   <string name="reading_list_share_message_v2">Здраво! Сакам да споделам список за читање со вас:</string>
   <string name="reading_list_share_survey_title">Можете ли да ни помогнете да го подобриме „Споделување на списоци за читање“?</string>
   <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
-  <string name="talk_templates_manage_title">Раководење со предлошки</string>
-  <string name="talk_templates_empty_message">Немате зачувано ниедна предупредувачка порака.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Создавајте ваши предупредувачки пораки или користете &lt;a href=\"#\"&gt;примерни пораки&lt;/a&gt; за да почнете.</string>
   <string name="talk_templates_new_message_title">Нова порака</string>
-  <string name="talk_templates_new_message_description">Напиши предупредувачка порака.</string>
   <string name="talk_templates_new_message_subject_hint">Наслов</string>
   <string name="talk_templates_new_message_compose_hint">Напиши порака</string>
   <string name="talk_templates_new_message_save">Зачувај</string>
@@ -1474,7 +1487,8 @@
     <item quantity="other">Пораките се избришани</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Насловот не може да стои празен.</string>
-  <string name="patroller_tasks_edits_list_title">Список на уредувања</string>
+  <string name="talk_templates_your_messages_tab_title">Ваши пораки</string>
+  <string name="talk_templates_example_messages_tab_title">Примерни пораки</string>
   <string name="patroller_tasks_edits_list_search_hint">Пребарај или филтрирај уредувања</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Ознаки: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Нема</string>
@@ -1534,7 +1548,6 @@
     <item quantity="one">%d филтер</item>
     <item quantity="other">%d филтри</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Патролирај уредување</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Историја на уредување на статијата</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Враќањето е завршено</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Дали сигурно сакате да отповикате?</string>
@@ -1561,10 +1574,34 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Неутрално</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадоволителна е</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Како можеме да ја подобриме функцијата?</string>
+  <string name="patroller_diff_menu_edit_history_title">Историја на уредување на статијата</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Мислење</string>
   <string name="patroller_diff_feedback_dialog_submit">Поднеси</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Мислењето е поднесено.</string>
   <string name="patroller_diff_feedback_tooltip">Допрете на расклопното мени за да поднесете мислење во било кое време со „Проблем со функцијата“.</string>
+  <string name="patroller_saved_message_title_vandalism">Предупредување за вандализам</string>
+  <string name="patroller_saved_message_title_editing_tests">Пробни уредувања</string>
+  <string name="patroller_saved_message_title_npov">Неутрална гледна точка</string>
+  <string name="patroller_saved_message_title_auto_trans">Автоматски превод</string>
+  <string name="patroller_saved_message_title_coi_rem">Потсетник за спротиставеност на интереси</string>
+  <string name="patroller_saved_message_title_final_warning">Последна опомена</string>
+  <string name="patroller_saved_message_title_copy_vio">Напомена за нарушено авторско право</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Ставете опис на уредувањето</string>
+  <string name="patroller_saved_message_title_do_not_censor">Не цензурирајте</string>
+  <string name="patroller_saved_message_title_art_imp">Предлог за подобрување на статија</string>
+  <string name="patroller_saved_message_body_vandalism">Здраво {{{username}}}. Сакам да ви соопштам дека вратив еден или повеќе ваши [{{{diffLink}}}|скорешни придонеси] бидејќи не ми делуваат на конструктивни. Ако мислите дека направив грешка или имате прашања, пишете ми на [[User talk:{{{senderUserName}}}|мојата разговорна страница]]. Имајте на ум дека постојаниот вандализам може да доведе до ограничувања.</string>
+  <string name="patroller_saved_message_body_editing_tests">Здраво {{{username}}}. Задоволство ми е што сте заинтересирани за Википедија и сакате да дознаете како да уредувате. Пробното уредување што го направивте работеше; Меѓутоа, треба да имате на ум дека целта на овој проект е да изработи доверлива и сеопфатна енциклопедија која би му служела секому. Вашето уредување ја засегна содржината, па затоа е отстрането.\nАко сакате да дознаете како да ја уредувате Википедија, на располагање ви стои [[Википедија:Песок|уредувачкиот песок]]. Ако вашите коментари се однесуваа на конкретна статија, правилното место за ова е разговорната страница на статијата.</string>
+  <string name="patroller_saved_message_body_npov">Здраво {{{username}}}. Некои ваши придонеси не ги задоволуваат неутралноста потребна за исполнување на правилата за [[Википедија:Неутрална гледна точка|неутрална гледна точка]] на оваа Википедија. Поради оваа причина, некои содржини се изменети или отстранети. Изменете ги пасусите или одделите кои покажуваат пристрасност, заменувајќи ги со понеутралнен и пообјективен текст во склад со она што се очекува од една енциклопедија.</string>
+  <string name="patroller_saved_message_body_auto_trans">Здраво {{{username}}}. Некои ваши придонеси веројатно се машински преведени, поради што се изменети или означени со предлошката. Ако некој (вие или друг) не ја подобри статијата, истата може да биде избришана.\n\nДоколку, покрај информациите што ви ги дадов, имате некакви прашања, слободно пишете ми на [[User talk:{{{senderUserName}}}|мојата разговорна страница]]. Нека не ве обесхрабрува оваа мала случка. Вашите придонеси се многу важни за Википедија.</string>
+  <string name="patroller_saved_message_body_coi_rem">Здраво {{{username}}}. Ја ценам вашата соработка на Википедија; Меѓутоа, забележав дека имате [[Wikipedia:Conflict_of_interest|судир на интереси]]. Судирот на интереси е нескладност помеѓу целите на Википедија за неутралност и читливост и дадените цели на поединечни уредници, поединци, ентитети или претпријатија од секаков вид.\nСите придонеси во главниот простор се подлежат на критериумите за содржини на оваа Википедија ([[Википедија:Што не е Википедија|што не е Википедија]]), енциклопедиски квалитет ([[Википедија:Проверливост|проверливост]] и [[Википедија:Без свои истражувања|без свои истражувања]]), уредувачки метод ([[Википедија:Неутрална гледна точка|неутрална гледна точка]]) и законитоста на содржините ([[Википедија:Авторски права|авторски права]]). Сите објавувачи мора да се придржуваат кон овие правила кога создаваат и оценуваат содржини, да покажат уважување и да претпоставуваат добронамерност за дејствата на другите објавувачи за да обезбедиме придржување кон правилата.\n\nАко уредувате во судир на интереси, ќе мора да го примените соодветното правило со особено внимание; Во спротивно, може да сметаме дека вашата сметка е „сметка за лични цели“ и да биде блокирана. Слободно пишете ми на мојата разговорна страница ако имате некакви прашања.</string>
+  <string name="patroller_saved_message_body_final_warning">Бидејќи направивте повеќе деструктивни уредувања, ова ќе ви биде последна опомена. Ако повторно ја вандализирате Википедија, уредувањето ќе ви биде забрането.</string>
+  <string name="patroller_saved_message_body_copy_vio">Се чини дека вашето скорешно уредување вклучува материјал заштитен со авторски права кој сте го искористиле без дозвола. Сета содржина мора да се придржува кон [[Википедија:Авторски права|авторскоправните]] правила на оваа Википедија за да не биде избришана.</string>
+  <string name="patroller_saved_message_body_edit_summary">Здраво {{{username}}}. Се чини дека отстранивте содржина од Википедија без да внесете опис на уредувањето. Ставајте опис кога додавате или отстранувате содржини.</string>
+  <string name="patroller_saved_message_body_do_not_censor">Здраво {{{username}}}. Се чини дека отстранивте содржина без да ја продискутирате на разговорната страница на статијата. Имајте на ум дека Википедија не се цензурира, и дека содржините не се отстрануваат ако се спорни или контроверзни. Ако сметате дека информациите се неточни, постигнете консензус на разговорната страница на статијата.</string>
+  <string name="talk_warn_learn_more_label">Дознајте за пополнувачите на пораки</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Послужете се со примерната порака подолу за да ги прилагодување, испраќате и зачувувате вашите пораки.</string>
+  <string name="patroller_saved_message_body_art_imp">Здраво {{{username}}}. Вашата статија е добар почеток! За да ја направите уште подобра, додајте повеќе наводи кон доверливи извори. Ова ќе ни помогне да ги провериме информациите и го подобрува квалитетот на статијата. Погледајте ги насоките за [[Wikipedia:Reliable_sources|доверливи извори]] на оваа Википедија.</string>
+  <string name="talk_templates_menu_edit_title">Уреди</string>
   <string name="data_opt_in_accept">Прифати</string>
   <string name="data_opt_in_reject">Одбиј</string>
   <string name="page_issues_title">Проблеми со страницата</string>
