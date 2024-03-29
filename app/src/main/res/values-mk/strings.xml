@@ -120,6 +120,7 @@
   <string name="langlinks_your_wikipedia_languages">Ваши википедиски јазици</string>
   <string name="menu_save_changes">Објави промени</string>
   <string name="edit_saved_successfully">Уредувањето е објавено!</string>
+  <string name="stub_article_edit_saved_successfully">Уредувањето е објавено! Ќе треба некое време за промените да се појават.</string>
   <string name="dialog_message_edit_failed">Уредувањето не успеа!</string>
   <string name="dialog_message_edit_failed_retry">Повтори</string>
   <string name="dialog_message_edit_failed_cancel">Откажи</string>
@@ -399,6 +400,7 @@
   <string name="link_preview_dialog_save_button">Зачувај</string>
   <string name="link_preview_dialog_saved_button">Зачувано</string>
   <string name="link_preview_dialog_share_button">Сподели</string>
+  <string name="link_preview_stub_placeholder_text">Оваа статија е никулец, што значи дека нема доволно содржина за да се создаде преглед. Но можете да го промените тоа.</string>
   <string name="error_page_does_not_exist">Оваа страница не постои.</string>
   <string name="error_user_page_does_not_exist">Википедија нема &lt;a href=\"%1$s\"&gt;корисничка страница&lt;/a&gt; со точно тоа име. Начелно, оваа страница треба да се создаде и уреди од &lt;b&gt;%2$s&lt;/b&gt;. Ако не сте сигурни, проверете дали постои „%3$s“.</string>
   <string name="view_wiki_error_message_offline">Не можам да се поврзам со семрежјето</string>
@@ -1249,12 +1251,10 @@
   <string name="talk_warn_save_dialog_hint">Наслов на пораката</string>
   <string name="talk_warn_save_dialog_publish">Објави</string>
   <string name="talk_warn_save_dialog_cancel">Откажи</string>
+  <string name="talk_warn_save_dialog_dont_save">Не зачувувај</string>
   <string name="talk_warn_submitted">Пораката е објавена на разговорната страница на корисникот</string>
   <string name="talk_warn_submitted_and_saved">Пораката е зачувана и објавена на разговорната страница на уредникот</string>
-  <string name="talk_warn_saved_message">Изберете постоечка предупредувачка порака или напишете нова.</string>
-  <string name="talk_warn_saved_message_dropdown">Зачувани пораки</string>
   <string name="talk_warn_saved_messages">Зачувани пораки</string>
-  <string name="talk_warn_learn_more_label">Дознајте за пополнувачите на пораки</string>
   <string name="talk_page_empty">Оваа разговорна страница е празна.</string>
   <string name="talk_page_empty_title">Разговорот започнува тука</string>
   <string name="talk_page_empty_content">Разговорните страници се места кајшто луѓето дискутираат како да ја направат содржината на Википедија што подобра. Почнете нова тема на разговор за да се поврзете и да соработувате со заедница на википедијанци.</string>
@@ -1265,6 +1265,7 @@
   <string name="talk_message_hint">Напиши порака</string>
   <string name="talk_message_empty">Пораката не може да стои празна.</string>
   <string name="talk_subject_empty">Насловот не може да стои празен.</string>
+  <string name="talk_subject_duplicate">Таков наслов веќе постои. Внесете друг.</string>
   <string name="talk_response_submitted">Одговорот е објавен.</string>
   <string name="talk_snackbar_undo">Врати</string>
   <string name="talk_last_modified">&lt;b&gt;Последно изменето на %1$s&lt;/b&gt; од %2$s</string>
@@ -1460,10 +1461,8 @@
   <string name="reading_list_share_message_v2">Здраво! Сакам да споделам список за читање со вас:</string>
   <string name="reading_list_share_survey_title">Можете ли да ни помогнете да го подобриме „Споделување на списоци за читање“?</string>
   <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
-  <string name="talk_templates_manage_title">Раководење со предлошки</string>
-  <string name="talk_templates_empty_message">Немате зачувано ниедна предупредувачка порака.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Создавајте ваши предупредувачки пораки или користете &lt;a href=\"#\"&gt;примерни пораки&lt;/a&gt; за да почнете.</string>
   <string name="talk_templates_new_message_title">Нова порака</string>
-  <string name="talk_templates_new_message_description">Напиши предупредувачка порака.</string>
   <string name="talk_templates_new_message_subject_hint">Наслов</string>
   <string name="talk_templates_new_message_compose_hint">Напиши порака</string>
   <string name="talk_templates_new_message_save">Зачувај</string>
@@ -1488,7 +1487,8 @@
     <item quantity="other">Пораките се избришани</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Насловот не може да стои празен.</string>
-  <string name="patroller_tasks_edits_list_title">Список на уредувања</string>
+  <string name="talk_templates_your_messages_tab_title">Ваши пораки</string>
+  <string name="talk_templates_example_messages_tab_title">Примерни пораки</string>
   <string name="patroller_tasks_edits_list_search_hint">Пребарај или филтрирај уредувања</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Ознаки: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Нема</string>
@@ -1548,7 +1548,6 @@
     <item quantity="one">%d филтер</item>
     <item quantity="other">%d филтри</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Патролирај уредување</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Историја на уредување на статијата</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Враќањето е завршено</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Дали сигурно сакате да отповикате?</string>
@@ -1599,6 +1598,8 @@
   <string name="patroller_saved_message_body_copy_vio">Се чини дека вашето скорешно уредување вклучува материјал заштитен со авторски права кој сте го искористиле без дозвола. Сета содржина мора да се придржува кон [[Википедија:Авторски права|авторскоправните]] правила на оваа Википедија за да не биде избришана.</string>
   <string name="patroller_saved_message_body_edit_summary">Здраво {{{username}}}. Се чини дека отстранивте содржина од Википедија без да внесете опис на уредувањето. Ставајте опис кога додавате или отстранувате содржини.</string>
   <string name="patroller_saved_message_body_do_not_censor">Здраво {{{username}}}. Се чини дека отстранивте содржина без да ја продискутирате на разговорната страница на статијата. Имајте на ум дека Википедија не се цензурира, и дека содржините не се отстрануваат ако се спорни или контроверзни. Ако сметате дека информациите се неточни, постигнете консензус на разговорната страница на статијата.</string>
+  <string name="talk_warn_learn_more_label">Дознајте за пополнувачите на пораки</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Послужете се со примерната порака подолу за да ги прилагодување, испраќате и зачувувате вашите пораки.</string>
   <string name="patroller_saved_message_body_art_imp">Здраво {{{username}}}. Вашата статија е добар почеток! За да ја направите уште подобра, додајте повеќе наводи кон доверливи извори. Ова ќе ни помогне да ги провериме информациите и го подобрува квалитетот на статијата. Погледајте ги насоките за [[Wikipedia:Reliable_sources|доверливи извори]] на оваа Википедија.</string>
   <string name="talk_templates_menu_edit_title">Уреди</string>
   <string name="data_opt_in_accept">Прифати</string>

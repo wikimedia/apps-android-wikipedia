@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.PopupMenu
@@ -38,6 +39,7 @@ import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.databinding.FragmentArticleEditDetailsBinding
 import org.wikipedia.dataclient.mwapi.MwQueryPage.Revision
 import org.wikipedia.dataclient.okhttp.HttpStatusException
+import org.wikipedia.extensions.parcelableExtra
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.ExclusiveBottomSheetPresenter
 import org.wikipedia.page.Namespace
@@ -48,6 +50,7 @@ import org.wikipedia.settings.Prefs
 import org.wikipedia.staticdata.UserAliasData
 import org.wikipedia.staticdata.UserTalkAliasData
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment
+import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkTopicsActivity
 import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.talk.template.TalkTemplatesActivity
@@ -83,9 +86,23 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             binding.overlayRevisionDetailsView.isVisible = -verticalOffset > bounds.top
         }
 
-    private fun sendPatrollerExperienceEvent(action: String, activeInterface: String, actionData: String = "") {
-        if (viewModel.fromRecentEdits) {
-            PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
+    private val requestTalk = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS || result.resultCode == TalkReplyActivity.RESULT_SAVE_TEMPLATE) {
+            val pageTitle = result.data?.parcelableExtra<PageTitle>(Constants.ARG_TITLE) ?: viewModel.pageTitle
+            val message = if (result.resultCode == TalkReplyActivity.RESULT_EDIT_SUCCESS) {
+                PatrollerExperienceEvent.logAction("publish_message_toast", "pt_warning_messages")
+                R.string.talk_warn_submitted
+            } else {
+                PatrollerExperienceEvent.logAction("publish_message_saved_toast", "pt_warning_messages")
+                R.string.talk_warn_submitted_and_saved
+            }
+            FeedbackUtil.makeSnackbar(requireActivity(), getString(message))
+                .setAction(R.string.patroller_tasks_patrol_edit_snackbar_view) {
+                    if (isAdded) {
+                        PatrollerExperienceEvent.logAction("publish_message_view_click", "pt_warning_messages")
+                        startActivity(TalkTopicsActivity.newIntent(requireContext(), pageTitle, InvokeSource.DIFF_ACTIVITY))
+                    }
+                }.show()
         }
     }
 
@@ -337,7 +354,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
             sendPatrollerExperienceEvent("warn_init", "pt_toolbar")
             viewModel.revisionTo?.let { revision ->
                 val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), revision.user, viewModel.pageTitle.wikiSite)
-                requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, fromRevisionId = viewModel.revisionFromId, toRevisionId = viewModel.revisionToId))
+                requestTalk.launch(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, fromRevisionId = viewModel.revisionFromId, toRevisionId = viewModel.revisionToId))
             }
         }
 
@@ -385,6 +402,7 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
                 true
             }
             R.id.menu_saved_messages -> {
+                sendPatrollerExperienceEvent("diff_saved_init", "pt_warning_messages")
                 val pageTitle = PageTitle(UserTalkAliasData.valueFor(viewModel.pageTitle.wikiSite.languageCode), viewModel.pageTitle.text, viewModel.pageTitle.wikiSite)
                 requireActivity().startActivity(TalkTemplatesActivity.newIntent(requireContext(), pageTitle, true))
                 true
@@ -686,6 +704,12 @@ class ArticleEditDetailsFragment : Fragment(), WatchlistExpiryDialog.Callback, M
     private fun copyLink(uri: String?) {
         ClipboardUtil.setPlainText(requireContext(), text = uri)
         FeedbackUtil.showMessage(this, R.string.address_copied)
+    }
+
+    private fun sendPatrollerExperienceEvent(action: String, activeInterface: String, actionData: String = "") {
+        if (viewModel.fromRecentEdits) {
+            PatrollerExperienceEvent.logAction(action, activeInterface, actionData)
+        }
     }
 
     private fun callback(): Callback? {

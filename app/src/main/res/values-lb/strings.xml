@@ -1062,7 +1062,6 @@
   <string name="talk_warn_save_dialog_hint">Titel vum Message</string>
   <string name="talk_warn_save_dialog_publish">Verëffentlechen</string>
   <string name="talk_warn_save_dialog_cancel">Ofbriechen</string>
-  <string name="talk_warn_saved_message_dropdown">Gespäichert Messagen</string>
   <string name="talk_page_empty">Dës Diskussiouns-Säit ass eidel.</string>
   <string name="talk_page_empty_title">D\'Konversatioun fänkt hei un</string>
   <string name="talk_add_reply">Äntweren</string>
@@ -1234,7 +1233,6 @@
   <string name="reading_list_share_survey_title">Kéint Dir eis hëllefe fir d\'Funktioun \"Lieslëscht deelen\" besser ze maachen?</string>
   <string name="reading_list_share_survey_body">\"Lieslëscht deelen\" ass eng Testfunktioun a mir sinn op Äre Feedback ugewise fir se ze verbesseren oder eventuell ewechzehuelen.</string>
   <string name="talk_templates_new_message_title">Neie Message</string>
-  <string name="talk_templates_new_message_description">Warnmessage schreiwen.</string>
   <string name="talk_templates_new_message_subject_hint">Sujet</string>
   <string name="talk_templates_new_message_compose_hint">Message schreiwen</string>
   <string name="talk_templates_new_message_save">Späicheren</string>
@@ -1255,7 +1253,6 @@
     <item quantity="other">Messagë goufe geläscht</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Den Titel däerf net eidel sinn.</string>
-  <string name="patroller_tasks_edits_list_title">Lëscht vun Ännerungen</string>
   <string name="patroller_tasks_edits_list_search_hint">Ännerungen duerchsichen oder filteren</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Keen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benotzersäit weisen</string>

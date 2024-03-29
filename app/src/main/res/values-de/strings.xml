@@ -1462,7 +1462,6 @@
   <string name="reading_list_share_survey_title">Kannst du uns helfen, \"Leselisten teilen\" zu verbessern?</string>
   <string name="reading_list_share_survey_body">\"Leselisten teilen\" ist eine Testfunktion und wir brauchen dein Feedback, um sie zu verbessern oder zu entfernen.</string>
   <string name="talk_templates_new_message_title">Neue Nachricht</string>
-  <string name="talk_templates_new_message_description">Warnmeldung verfassen.</string>
   <string name="talk_templates_new_message_subject_hint">Betreff</string>
   <string name="talk_templates_new_message_compose_hint">Nachricht schreiben</string>
   <string name="talk_templates_new_message_save">Speichern</string>
@@ -1482,7 +1481,6 @@
     <item quantity="other">Nachrichten wurden gelöscht</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Der Titel darf nicht leer sein.</string>
-  <string name="patroller_tasks_edits_list_title">Liste der Bearbeitungen</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Keine</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benutzerseite ansehen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_talk_page">Diskussionsseite anzeigen</string>
