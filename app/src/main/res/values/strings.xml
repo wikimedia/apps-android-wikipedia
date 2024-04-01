@@ -148,7 +148,7 @@
     <string name="login_password_hint">Password</string>
     <string name="account_creation_password_hint">Password</string>
     <string name="login_2fa_hint">Two-Factor Authentication Code</string>
-    <string name="login_2fa_other_workflow_error_msg">Two-factor authentication required!  Please return to the main activity and log in with your 2FA token, then retry.</string>
+    <string name="login_2fa_other_workflow_error_msg">Two-factor authentication required! Please return to the main activity and log in with your 2FA token, then retry.</string>
     <string name="onboarding_card_login">Log in</string>
     <string name="page_editing_login">Log in</string>
     <string name="reading_lists_sync_login">Log in</string>
@@ -1557,7 +1557,7 @@
     <!-- /Shareable reading lists -->
 
     <!-- Patroller task -->
-    <string name="talk_templates_empty_message"><![CDATA[Create your own messages or use <a href="#">example messages</a> to get started.]]>  </string>
+    <string name="talk_templates_empty_message"><![CDATA[Create your own messages or use <a href="#">example messages</a> to get started.]]></string>
     <string name="talk_templates_new_message_title">New message</string>
     <string name="talk_templates_new_message_subject_hint">Subject</string>
     <string name="talk_templates_new_message_compose_hint">Compose message</string>
