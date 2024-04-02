@@ -499,7 +499,14 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
     override fun onBackPressed() {
         setResult(RESULT_BACK_FROM_TOPIC)
         sendPatrollerExperienceEvent("publish_back", "pt_warning_messages")
-        if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
+        if (messagePreviewFragment.isActive) {
+            showProgressBar(true)
+            binding.talkScrollContainer.isVisible = true
+            messagePreviewFragment.hide()
+            setSaveButtonEnabled(true)
+            binding.replyNextButton.text = getString(R.string.edit_next)
+            setToolbarTitle(viewModel.pageTitle)
+        } else if (viewModel.isNewTopic && (!binding.replySubjectText.text.isNullOrEmpty() ||
                     binding.replyInputView.editText.text.isNotEmpty())) {
             MaterialAlertDialogBuilder(this)
                 .setCancelable(false)
@@ -513,13 +520,6 @@ class TalkReplyActivity : BaseActivity(), UserMentionInputView.Listener, EditPre
                     sendPatrollerExperienceEvent("publish_exit_cancel", "pt_warning_messages")
                 }
                 .show()
-        } else if (messagePreviewFragment.isActive) {
-            showProgressBar(true)
-            binding.talkScrollContainer.isVisible = true
-            messagePreviewFragment.hide()
-            setSaveButtonEnabled(true)
-            binding.replyNextButton.text = getString(R.string.edit_next)
-            setToolbarTitle(viewModel.pageTitle)
         } else {
             super.onBackPressed()
         }
