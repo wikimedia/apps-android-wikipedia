@@ -63,8 +63,8 @@ class FindInEditorActionProvider(private val scrollView: View,
         currentResultIndex = 0
         resultPositions.clear()
 
-        searchQuery?.let {
-            resultPositions += it.toRegex(StringUtil.SEARCH_REGEX_OPTIONS).findAll(textView.text)
+        searchQuery?.let { query ->
+            resultPositions += query.toRegex(StringUtil.SEARCH_REGEX_OPTIONS).findAll(textView.text)
                 .map { it.range.first }
         }
         scrollToCurrentResult()
@@ -72,7 +72,7 @@ class FindInEditorActionProvider(private val scrollView: View,
 
     private fun scrollToCurrentResult() {
         setMatchesResults(currentResultIndex, resultPositions.size)
-        val textPosition = resultPositions.getOrElse(currentResultIndex) { 0 }
+        val textPosition = resultPositions.getOrElse(currentResultIndex) { return }
         textView.setSelection(textPosition, textPosition + searchQuery.orEmpty().length)
         val r = Rect()
         textView.getFocusedRect(r)
