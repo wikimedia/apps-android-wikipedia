@@ -446,6 +446,7 @@
         <item quantity="one">Account will expire in %d day.</item>
         <item quantity="other">Account will expire in %d days.</item>
     </plurals>
+    <string name="temp_account_anon_edit_status"><![CDATA[<b>You are not logged in.</b> Once you make an edit, a temporary account will be created for you to protect your privacy. <a href="%1$s">Learn more</a>]]></string>
     <string name="temp_account_edit_status"><![CDATA[<b>You are using a temporary account.</b> Your edit will be attributed to %1$s. <a href="%2$s">Learn more</a>.]]></string>
     <string name="temp_account_login_status"><![CDATA[<b>You are currently using a temporary account.</b> Edits made with the temporary account %1$s will not be carried over to your permanent account when you log in. Log in or create an account to get credit to your username, among other benefits.]]></string>
     <string name="temp_account_end_session">End session</string>

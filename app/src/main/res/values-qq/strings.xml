@@ -468,6 +468,7 @@
     <item quantity="one">Message shown when a temporary account will expire in 1 day.</item>
     <item quantity="other">Message shown when a temporary account will expire in %d days.</item>
   </plurals>
+  <string name="temp_account_anon_edit_status">Status message shown while editing anonymously, explaining that a temporary account will be created if an edit is made. Please preserve any HTML formatting. The %1$s symbol is replaced with a URL.</string>
   <string name="temp_account_edit_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting. The %2$s symbol is replaced with a URL.</string>
   <string name="temp_account_login_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting.</string>
   <string name="temp_account_end_session">Button label for discarding the current temporary account.</string>
