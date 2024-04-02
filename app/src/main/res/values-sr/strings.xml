@@ -133,6 +133,7 @@
   <string name="langlinks_your_wikipedia_languages">Ваши језици Википедије</string>
   <string name="menu_save_changes">Објави измену</string>
   <string name="edit_saved_successfully">Измена је објављена.</string>
+  <string name="stub_article_edit_saved_successfully">Измена објављена! Треба ће неко време да измена постане видљива.</string>
   <string name="dialog_message_edit_failed">Не могу сачувати измену.</string>
   <string name="dialog_message_edit_failed_retry">Покушај поново</string>
   <string name="dialog_message_edit_failed_cancel">Откажи</string>
@@ -175,6 +176,7 @@
   <string name="logged_out_in_background_dialog">Одјављени сте са Википедије. Да ли желите да се поново пријавите?</string>
   <string name="logged_out_in_background_login">Пријави ме</string>
   <string name="logged_out_in_background_cancel">Откажи</string>
+  <string name="account_vanish_request_title">Гашење налога</string>
   <string name="history_empty_title">Нема недавно прегледаних чланака</string>
   <string name="history_empty_message">Овде пратите шта сте читали.</string>
   <string name="history_offline_articles_toast">Неки чланци у историји можда неће бити видљиви док сте офлајн.</string>
@@ -222,9 +224,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Синхронизујте листе за читање на различитим уређајима тако што ћете их сачувати на свој налог „%s” на Википедији</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Уклонити синхронизоване листе за читање са налога „%s”?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Овим ћете у потпуности избрисати све раније синхронизоване листе за читање са удаљеног складишта. Уклонити све синхронизоване листе са налога „%s”?</string>
-  <string name="preferences_privacy_settings_heading">Приватност</string>
-  <string name="preference_title_eventlogging_opt_in">Шаљи извештаје о употреби</string>
-  <string name="preference_summary_eventlogging_opt_in">Дозволите Викимедији да прикупља информације о томе како користите апликацију у циљу њеног побољшања</string>
   <string name="preference_title_auto_upload_crash_reports">Шаљи извештаје о отказивањима</string>
   <string name="preference_summary_auto_upload_crash_reports">Дозволите апликацији да аутоматски шаље извештаје о отказивањима независној услузи како бисмо испитали ваш случај и исправили грешку брже и лакше.</string>
   <string name="editing_error_spamblacklist">Откривени су линкови до блокираних домена (%s). Уклоните их па покушајте поново.</string>
@@ -257,7 +256,7 @@
   <string name="about_translators_heading">Преводиоци</string>
   <string name="about_translators_translatewiki">Апликацију су превели добровољци на сајту &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценца</string>
-  <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit-у&lt;/a&gt; и &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Ауторство—Делити под истим условима&lt;/a&gt;, осим ако није другачије наведено.</string>
+  <string name="about_app_license">Изворни кôд је доступан на &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub-у&lt;/a&gt; под лиценцом &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Садржај је доступан под лиценцом &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Ауторство—Делити под истим условима&lt;/a&gt;, осим ако није другачије наведено.</string>
   <string name="about_wmf">Производ &lt;a href=\"https://wikimediafoundation.org/\"&gt;Задужбине Викимедија&lt;/a&gt;</string>
   <string name="about_activity_title">О апликацији</string>
   <string name="edit_abandon_confirm">Страница је измењена. Желите ли заиста да изађете без чувања промене?</string>
@@ -320,6 +319,8 @@
   <string name="widget_name_featured_page">Изабрана страница на Википедији</string>
   <string name="widget_title_featured_page">Изабрана страница дана:</string>
   <string name="widget_name_search">Претрага Википедије</string>
+  <string name="widget_description_search">Најбржи начин за претрагу Википедије</string>
+  <string name="widget_description_featured_page">Најбољи чланци које Википедија има да понуди</string>
   <string name="wiktionary_no_definitions_found">Дефиниције нису пронађене.</string>
   <string name="alpha_update_notification_title">Доступна је нова алфа верзија</string>
   <string name="alpha_update_notification_text">Додирните да бисте преузели</string>
@@ -403,6 +404,10 @@
   <string name="multi_select_items_selected">Изабрано: %d</string>
   <string name="error_message_generic">Дошло је до грешке</string>
   <string name="view_link_preview_error_button_dismiss">Одбаци</string>
+  <string name="link_preview_dialog_read_button">Читај</string>
+  <string name="link_preview_dialog_save_button">Сачувај</string>
+  <string name="link_preview_dialog_saved_button">Сачувано</string>
+  <string name="link_preview_dialog_share_button">Дели</string>
   <string name="error_page_does_not_exist">Ова страница не постоји</string>
   <string name="error_user_page_does_not_exist">Википедија нема &lt;a href=\"%1$s\"&gt;корисничку страницу&lt;/a&gt; са баш овим именом. Генерално, ову страницу треба да направи или уређује &lt;b&gt;%2$s&lt;/b&gt;. Уколико сте у недоумици, проверите да ли \"%3$s\" постоји.</string>
   <string name="view_wiki_error_message_offline">Није могуће повезати се са интернетом</string>
@@ -412,7 +417,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затамњење слика (у тамној теми)</string>
   <string name="preference_title_prefer_offline_content">Приоритет има офлајн-садржај</string>
   <string name="preference_summary_prefer_offline_content">Уштедите на саобраћају приказивањем офлајн-верзије чланка уместо сталног преузимања најновије верзије.</string>
-  <string name="theme_chooser_dialog_match_system_theme_switch_label">Подударање са темом система</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Као и систем</string>
   <string name="page_footer_license_text">Садржај је доступан под лиценцом $1 осим ако није другачије наведено</string>
   <string name="empty_tab_title">Нова картица</string>
   <string name="menu_save_all_tabs">Сачувај све картице</string>
@@ -746,8 +751,8 @@
   <string name="notifications_menu_uncheck_all">Поништи све</string>
   <string name="notifications_wiki_filter_header">Филтер викија</string>
   <string name="notifications_type_filter_header">Тип филтера</string>
-  <string name="notifications_all_wikis_text">Сви \"викији\"</string>
-  <string name="notifications_all_types_text">Сви \"типови\"</string>
+  <string name="notifications_all_wikis_text">Сви викији</string>
+  <string name="notifications_all_types_text">Све врсте</string>
   <string name="notifications_menu_user_talk_page">Страница за разговор %s</string>
   <string name="notifications_offline_disable_message">Функција није доступна док сте ван мреже.</string>
   <string name="view_because_you_read_card_title">На основу прочитаног</string>
@@ -1058,8 +1063,8 @@
   <string name="image_recommendation_tooltip_main">Додај недостајуће слике у чланке у Предложеним изменама</string>
   <string name="image_recommendation_onboarding_1">Слике помажу људима у разумевању, али их многи чланци немају.</string>
   <string name="image_recommendation_onboarding_2">Ви ћете одлучити уколико предложена слика треба да буде постављена у чланак на Википедији.</string>
-  <string name="image_recommendation_onboarding_3">Предлози су машински генерисани и Ви ћете на основу свог расуђивања одлучити да ли ћете их прихватити или одбити.</string>
-  <string name="image_recommendation_onboarding_4">Слике су са Викимедијине Оставе, колекције слободно лиценцираних слика које се користе на Википедији.</string>
+  <string name="image_recommendation_onboarding_3">Предлози су машински генерисани и Ви ћете на основу своје процене одлучити да ли ћете их прихватити или одбити.</string>
+  <string name="image_recommendation_onboarding_4">Слике су са Викимедијине оставе, колекције слободно лиценцираних слика које се користе на Википедији.</string>
   <string name="image_recommendation_tooltip_1">Прегледајте овај чланак да би сте разумели његову тему</string>
   <string name="image_recommendation_tooltip_2">Прегледајте слику и њене повезане информације</string>
   <string name="image_recommendation_tooltip_3">Одлучите да ли слика помаже читаоцима да боље разумеју тему</string>
@@ -1094,8 +1099,7 @@
   <string name="onboarding_explore_text">Завирите у непознати свет Википедије помоћу фида „Истражи“ који се непрекидно ажурира.&lt;br/&gt; &lt;b&gt;Прилагодите&lt;/b&gt; фид својим интересима – упознајте историјске догађаје који су се одиграли &lt;b&gt;на данашњи дан&lt;/b&gt; или искушајте срећу са &lt;b&gt;случајним чланком&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Листе за читање са синхронизацијом</string>
   <string name="onboarding_reading_list_sync_text_v2">Можете да правите листе за читање од чланака које желите да читате касније, чак и када сте офлајн. &lt;br/&gt;Пријавите се на свој налог на Википедији да бисте синхронизовали листе за читање. &lt;a href=\"#login\"&gt;Придружите се Википедији&lt;/a&gt;.</string>
-  <string name="onboarding_analytics_title">Слање анонимних података</string>
-  <string name="onboarding_analytics_offline_text">Помозите нам да побољшамо апликацију слањем информација о употреби. Прикупљени подаци су анонимни. &lt;a href=\"#privacy\"&gt;Сазнајте више&lt;/a&gt;.</string>
+  <string name="onboarding_data_privacy_title">Подаци &amp; приватност</string>
   <string name="onboarding_analytics_switch_title">Шаљи податке о употреби</string>
   <string name="onboarding_got_it">Разумем</string>
   <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
@@ -1197,6 +1201,13 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Висина</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">п</string>
   <string name="insert_media_insert_button">Уметни</string>
+  <string name="templates_search_hint">Претрага шаблона</string>
+  <string name="templates_insert_button">Уметни</string>
+  <string name="templates_param_suggested_value">нпр. %s</string>
+  <string name="templates_param_optional_hint">%s (необавезно)</string>
+  <string name="templates_param_suggested_hint">%s (пожељно)</string>
+  <string name="templates_learn_more_link">Сазнајте више</string>
+  <string name="templates_description_empty">Шаблон „%s” још увек нема опис.</string>
   <string name="main_drawer_help">Помоћ</string>
   <string name="main_drawer_login">Пријави ме / придружи ме Википедији</string>
   <string name="main_tooltip_text">Здраво, %s! Јесте ли знали да свако може да уређује Википедију?</string>
@@ -1220,10 +1231,10 @@
   <string name="talk_warn_save_dialog_hint">Наслов поруке</string>
   <string name="talk_warn_save_dialog_publish">Објави</string>
   <string name="talk_warn_save_dialog_cancel">Откажи</string>
+  <string name="talk_warn_save_dialog_dont_save">Одбаци</string>
   <string name="talk_warn_submitted">Порука је објављена на уредниковој страници за разговор</string>
   <string name="talk_warn_submitted_and_saved">Порука је сачувана и објављена на уредниковој страници за разговор</string>
-  <string name="talk_warn_saved_message">Одабери постојећу поруку упозорења или започните нову поруку.</string>
-  <string name="talk_warn_saved_message_dropdown">Сачуване поруке</string>
+  <string name="talk_warn_saved_messages">Сачуване поруке</string>
   <string name="talk_page_empty">Ова страница за разговор је празна.</string>
   <string name="talk_page_empty_title">Разговор почиње овде</string>
   <string name="talk_page_empty_content">Странице за разговор су места где уредници дискутују како да учине садржај Википедији најбољим могућим. Почните додавањем нове теме за дискусију да би сте се повезали и сарађивали са заједницом Википедијанаца.</string>
@@ -1234,6 +1245,7 @@
   <string name="talk_message_hint">Напишите поруку</string>
   <string name="talk_message_empty">Порука не може бити без садржаја.</string>
   <string name="talk_subject_empty">Тема не може бити без садржаја.</string>
+  <string name="talk_subject_duplicate">Тема већ постоји. Покушајте другу.</string>
   <string name="talk_response_submitted">Одговор објављен.</string>
   <string name="talk_snackbar_undo">Опозови</string>
   <string name="talk_last_modified">&lt;b&gt;Последња измена: %2$s&lt;/b&gt;, %1$s</string>
@@ -1304,7 +1316,6 @@
   <string name="revision_diff_from">Од:</string>
   <string name="revision_diff_to">До:</string>
   <string name="revision_diff_line_num">Линија %d</string>
-  <string name="revision_diff_line_nums">Линије %d–%d</string>
   <string name="revision_diff_lines_from_to">Линије %1$d–%2$d</string>
   <string name="revision_diff_line_added">Линија додата</string>
   <string name="revision_diff_line_removed">Линија уклоњена</string>
@@ -1416,6 +1427,7 @@
   <string name="media_playback_error">Дошло је до грешке приликом пуштања медија.</string>
   <string name="user_contrib_menu_label">Доприноси</string>
   <string name="user_contrib_filter_activity_title">Филтер доприноса</string>
+  <string name="action_item_view_on_map">Прикажи на мапи</string>
   <string name="shareable_reading_lists_import_dialog_title">Увези подељену листу за читање</string>
   <string name="shareable_reading_lists_import_dialog_content">Како би сте желели да именујете листу која је подељена са вама?</string>
   <string name="shareable_reading_lists_new_indicator">*ново*</string>
@@ -1428,10 +1440,8 @@
   <string name="reading_list_share_message_v2">Здраво! Желим да поделим моју листу за читање на Википедији са вама:</string>
   <string name="reading_list_share_survey_title">Да ли можете да нам помогнете у унапређивању \"дељења листи за читање\"?</string>
   <string name="reading_list_share_survey_body">\"Дељење листи за читање\" је тестна могућност и потребне су вам ваше повратне информације да би смо је унапредили или уклонили.</string>
-  <string name="talk_templates_manage_title">Управљање шаблонима</string>
-  <string name="talk_templates_empty_message">Немате сачуване поруке упозорења.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Немате сачуване поруке упозорења.</string>
   <string name="talk_templates_new_message_title">Нова порука</string>
-  <string name="talk_templates_new_message_description">Састави поруку упозорења.</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
   <string name="talk_templates_new_message_compose_hint">Напиши поруку</string>
   <string name="talk_templates_new_message_save">Сачувај</string>
@@ -1456,7 +1466,8 @@
     <item quantity="other">Поруке су обрисане</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Морате навести назив.</string>
-  <string name="patroller_tasks_edits_list_title">Списак измена</string>
+  <string name="talk_templates_your_messages_tab_title">Ваша порука</string>
+  <string name="talk_templates_example_messages_tab_title">Примери порука</string>
   <string name="patroller_tasks_edits_list_search_hint">Претрага или филтрирање измена</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Ознаке: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Нема</string>
@@ -1516,7 +1527,6 @@
     <item quantity="one">%d филтер</item>
     <item quantity="other">%d филтера</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Патролирај измену</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Историја</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Враћање је завршено</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Сигурно врати измене?</string>
@@ -1541,9 +1551,15 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Неутрално</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Незадовољавајуће</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Како можемо да унапредимо могућност?</string>
+  <string name="patroller_diff_menu_edit_history_title">Историја</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Повратне информације</string>
   <string name="patroller_diff_feedback_dialog_submit">Пошаљи</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Повратне информације послате.</string>
+  <string name="patroller_saved_message_title_npov">Неутрална тачка гледишта</string>
+  <string name="patroller_saved_message_title_auto_trans">Аутоматски превод</string>
+  <string name="patroller_saved_message_title_final_warning">Последње упозорење</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Наведите опис измене</string>
+  <string name="talk_templates_menu_edit_title">Уреди</string>
   <string name="data_opt_in_accept">Прихватам</string>
   <string name="data_opt_in_reject">Одбаци</string>
   <string name="page_issues_title">Проблеми странице</string>
@@ -1556,4 +1572,11 @@
   <string name="donation_campaign_donated_snackbar">Хвала, драги донаторе! Ваша великодушност помаже да Википедија и њени сестрински сајтови буду успешни.</string>
   <string name="donation_campaign_go_back_button">Назад</string>
   <string name="menu_single_webview_open_external">Отвори у прегледачу</string>
+  <string name="places_title">Места</string>
+  <string name="places_toggle_buttons_map">Мапа</string>
+  <string name="places_toggle_buttons_list">Списак</string>
+  <string name="places_nav_tab_tooltip_message">Откријите Википедијине чланке око Вас са Местима</string>
+  <string name="places_survey_very_satisfied_option">Веома задовољан</string>
+  <string name="places_survey_very_unsatisfied_option">Веома незадовољан</string>
+  <string name="places_survey_dialog_cancel">Откажи</string>
 </resources>

@@ -19,7 +19,6 @@ import com.bumptech.glide.request.target.Target
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.CenterCropWithFaceTransformation
 import org.wikipedia.util.WhiteBackgroundTransformation
-import java.util.*
 
 class FaceAndColorDetectImageView : AppCompatImageView {
 
@@ -34,8 +33,8 @@ class FaceAndColorDetectImageView : AppCompatImageView {
 
     private fun shouldDetectFace(uri: Uri): Boolean {
         // TODO: not perfect; should ideally detect based on MIME type.
-        val path = uri.path.orEmpty().lowercase(Locale.ROOT)
-        return path.endsWith(".jpg") || path.endsWith(".jpeg")
+        val path = uri.path.orEmpty()
+        return path.endsWith(".jpg", true) || path.endsWith(".jpeg", true)
     }
 
     fun loadImage(uri: Uri?, roundedCorners: Boolean = false, cropped: Boolean = true, emptyPlaceholder: Boolean = false, listener: OnImageLoadListener? = null) {
@@ -51,12 +50,12 @@ class FaceAndColorDetectImageView : AppCompatImageView {
                 .downsample(DownsampleStrategy.CENTER_INSIDE)
         if (listener != null) {
             builder = builder.listener(object : RequestListener<Drawable?> {
-                override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                     listener.onImageFailed()
                     return false
                 }
 
-                override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
                     if (resource is BitmapDrawable && resource.bitmap != null) {
                         listener.onImageLoaded(Palette.from(resource.bitmap).generate(), resource.bitmap.width, resource.bitmap.height)
                     } else {

@@ -205,9 +205,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sinkronang lis wacénan ring makudang piranti antuk panyimpenan nuju akun Wikipédia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Usap lis wacénan sané kasinkronang saking \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Puniki pacang ngusap samian lis wacénan sané kasinkronang sadurungné saking panyimpanan doh. Usap samian lis sané kasinkronang saking akun ragané \"%s\"?</string>
-  <string name="preferences_privacy_settings_heading">Padéwékan</string>
-  <string name="preference_title_eventlogging_opt_in">Kirim parikanda pawigunaan</string>
-  <string name="preference_summary_eventlogging_opt_in">Lugra Wikimedia ngapulpulang inpormasi indik cara ragané nganggén aplikasi antuk ngardi aplikasi luwih becik</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim parikanda rusak</string>
   <string name="preference_summary_auto_upload_crash_reports">Lugra aplikasi ngirim parikanda karusakan nuju panyedia layanan sang katiga sacara otomatis asapunika iraga prasida nyingakin karusakan ragané miwah ngabecikang pikobet langkung gelis miwah aluh.</string>
   <string name="editing_error_spamblacklist">Pranala nuju domain sané kacadel (%s) kadétéksi. Durus usap miwah coba malih.</string>
@@ -550,8 +547,8 @@
   <string name="notifications_swipe_action_unread">Durung kawacén</string>
   <string name="notifications_wiki_filter_header">Saringan Wiki</string>
   <string name="notifications_type_filter_header">Soroh saringan</string>
-  <string name="notifications_all_wikis_text">Samian \"wiki\"</string>
-  <string name="notifications_all_types_text">Samian \"soroh\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Samian \"wiki\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">Samian \"soroh\"</string>
   <string name="view_random_article_card_title">Kaca ulah-aluh</string>
   <string name="view_random_article_card_action">Suratan ulah-aluh malih</string>
   <string name="view_top_read_card_title">Wacénan pinih duur</string>
@@ -703,7 +700,6 @@
   <string name="onboarding_get_started">Kawitin</string>
   <string name="onboarding_maybe_later">Minab durinan</string>
   <string name="onboarding_explore_title">Cara anyar ngajelajah</string>
-  <string name="onboarding_analytics_title">Kirim data anonim</string>
   <string name="onboarding_analytics_switch_title">Kirim data pawigunaan</string>
   <string name="onboarding_got_it">Ngerti</string>
   <string name="onboarding_multilingual_add_language_text">Weweh utawi uah basa</string>

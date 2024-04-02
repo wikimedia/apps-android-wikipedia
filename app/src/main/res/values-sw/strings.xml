@@ -2,6 +2,7 @@
 <!-- Authors:
 * Edwingudfriend
 * Jadnapac
+* Killy95
 * Kwisha
 * MuratTheTurkish
 * Obsuser
@@ -90,7 +91,6 @@
   <string name="preferences_general_heading">Kijumla</string>
   <string name="send_feedback">Toa maoni ya programu timizi</string>
   <string name="create_account_account_created_toast">Akaunti imeundwa!</string>
-  <string name="preference_title_eventlogging_opt_in">Tuma ripoti za matumizi</string>
   <string name="error_can_not_process_link">Haingeonyesha kiungo hiki</string>
   <string name="page_protected_autoconfirmed">Ukurasa huu umezuiwa kiasi</string>
   <string name="page_protected_sysop">Ukurasa huu umezuiwa kabisa.</string>
@@ -136,6 +136,7 @@
   <string name="close_all_tabs_confirm_yes">Ndiyo</string>
   <string name="close_all_tabs_confirm_no">Hapana</string>
   <string name="button_continue_to_article">Soma makala</string>
+  <string name="link_preview_dialog_save_button">Hifadhi</string>
   <string name="error_page_does_not_exist">Ukarasa haupo.</string>
   <string name="crash_report_quit">Ondoka</string>
   <string name="article_header_edit_hint">Hariri...</string>

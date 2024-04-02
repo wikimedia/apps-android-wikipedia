@@ -205,9 +205,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">చదివే జాబితాలను మీ వికీపీడియా ఖాతా %s లో భద్రపరచుకుని, వాటిని వివిధ డివైసుల్లో సింకు చేసుకోండి</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" నుండి సింకై ఉన్న చదివే జాబితాలను తీసెయ్యమంటారా?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">దీంతో, గతంలో రిమోట్ నిల్వలో సింకై ఉన్న చదివే జాబితాలన్నీ పోతాయి. మీ ఖాతా %s నుండీ చదివే జాబితా లన్నిటినీ తీసెయ్యమంటారా?</string>
-  <string name="preferences_privacy_settings_heading">అంతరంగికత</string>
-  <string name="preference_title_eventlogging_opt_in">వాడుక నివేదికని పంపండి</string>
-  <string name="preference_summary_eventlogging_opt_in">ఈ అనువర్తనం మెరుగుపరచుటకు, మీరు ఈ అనువర్తనం ఎలా వాడుతున్నారో అన్న సమాచారం సేకరించటానికి వికీపీడియాకి అనుమతి ఇవ్వండి</string>
   <string name="preference_title_auto_upload_crash_reports">క్రాష్ నివేదికలను పంపించు</string>
   <string name="editing_error_spamblacklist">ఆమోదంకాని డోమైన్లకి (%s) లింక్లు కొనుగోనబడ్డాయి. దయచేసి వాటిని తొలగించి మళ్ళి ప్రయత్నించండి.</string>
   <string name="history_filter_list_hint">చరిత్రను వడపోయండి</string>
@@ -676,8 +673,8 @@
   <string name="notifications_menu_uncheck_all">అంశాలన్నిటి ఎంపికనూ తీసెయ్యి</string>
   <string name="notifications_wiki_filter_header">వికీ వడపోత</string>
   <string name="notifications_type_filter_header">వడపోతను టైపించండి</string>
-  <string name="notifications_all_wikis_text">అన్ని \"వికీ\"</string>
-  <string name="notifications_all_types_text">అన్ని \"రకం\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">అన్ని \"వికీ\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">అన్ని \"రకం\"</string>
   <string name="notifications_menu_user_talk_page">%s చర్చ పేజీ</string>
   <string name="notifications_offline_disable_message">ఈ ఫంక్షను ఆప్‌లైనులో అందుబాటులో లేదు.</string>
   <string name="view_because_you_read_card_title">మీరివి చదివారు కాబట్టి</string>
@@ -969,8 +966,6 @@
   <string name="onboarding_explore_title">శోధించేందుకు కొత్త పద్ధతులు</string>
   <string name="onboarding_reading_list_sync_title">సింకుతో చదివే జాబితాలు</string>
   <string name="onboarding_reading_list_sync_text_v2">తరువాత చదువుదామని అనుకున్న వ్యాసాలను ఆఫ్‌లైనులో కూడా చదివేందుకు చదివే జాబితాలు తయారు చేసుకోవచ్చు. &lt;br/&gt;మీ చదివే జాబితాలను సింకు చేసుకునేందుకు వికీపీడియా లోకి లాగినవండి. &lt;a href=\"#login\"&gt;వికీపీడీయాలో చేరండి&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">అజ్ఞాత డేటాను పంపించు</string>
-  <string name="onboarding_analytics_offline_text">ఈ యాప్‌ను మీరు ఎలా వాడుతున్నారో మాకు చెప్పి, దాన్ని మెరుగు పరచేందుకు దోహదం చెయ్యండి. మే సేకరించిన డేటా అజ్ఞాతంగా ఉంటుంది. &lt;a href=\"#privacy\"&gt;మరింత తెలుసుకోండి&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">వాడుక డేటాను పంపించు</string>
   <string name="onboarding_got_it">అర్థమైంది</string>
   <string name="onboarding_multilingual_secondary_text">మీ డివైసులో మాకు ఇవి కనబడ్డాయి:</string>
@@ -1093,7 +1088,6 @@
   <string name="revision_diff_from">నుండి:</string>
   <string name="revision_diff_to">వరకు:</string>
   <string name="revision_diff_line_num">పంక్తి %d</string>
-  <string name="revision_diff_line_nums">పంక్తులు %d–%d</string>
   <string name="revision_diff_line_added">పంక్తిని చేర్చారు</string>
   <string name="revision_diff_line_removed">పంక్తిని తీసేసారు</string>
   <string name="revision_diff_paragraph_added">పేరాగ్రాఫును చేర్చారు</string>

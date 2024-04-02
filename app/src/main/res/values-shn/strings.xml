@@ -157,9 +157,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">ၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူ ၵႃႈတီႈ ၶိူင်ႈဢၼ်ပႅၵ်ႇၵၼ်သေ ဢဝ်ၶဝ်ၸိူဝ်းၼၼ်ႉ သိမ်းဝႆႉပၼ် တီႈဢၶွင်ႉဝီႇၶီႇၽီးတီးယႃးၸဝ်ႈၵဝ်ႇ \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">ထွၼ်ပႅတ်ႈ သဵၼ်ႈမၢႆလူ ၵႃႈတီႈ \"%s\" ဢၼ်ၶူၼ်းၽဵင်ႇဝႆႉၼၼ်ႉၼႄႇ?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ဢၼ်ၼႆ့ၼႆႉ တေမွတ်ႇပႅတ်ႈ သဵၼ်ႈမၢႆလူ ဢၼ်ၶူၼ်းၽဵင်ႇဝႆႉ ဢၼ်မီးၵႃႈတီႈ ဢွင်ႈသိမ်းတီႈၵႆၼၼ်ႉ တင်းသဵင်ႈ။ တေထွၼ်ပႅတ်ႈ သဵၼ်ႈမၢႆဢၼ်ၶူၼ်းၽဵင်ႇဝႆႉ ၵႃႈတီႈ ဢၶွင်ႉၸဝ်ႈၵဝ်ႇ \"%s\" ၼၼ်ႉၼႄႇ?</string>
-  <string name="preferences_privacy_settings_heading">လွင်ႈႁူမ်ႇလူမ်ႈသုၼ်ႇတူဝ်</string>
-  <string name="preference_title_eventlogging_opt_in">တၢင်ႇ ၶေႃႈလၢတ်ႈ လွင်ႈၸႂ်ႉတိုဝ်း</string>
-  <string name="preference_summary_eventlogging_opt_in">ပၼ်သုၼ်ႇ ဝီႇၶီႇၽီးတီးယႃး တွၼ်ႈတႃႇ ၵဵပ်းႁွမ်ၶေႃႈမုၼ်း လွင်ႈဝႃႈ ၸဝ်ႈၵဝ်ႇ ႁဵတ်းႁိုဝ်ၸႂ်ႉ ဢႅပ်ႉ၊ ပဵၼ်တွၼ်ႈတႃႇႁဵတ်းႁႂ်ႈ ဢႅပ်ႉ တိူဝ်းၶႅမ်ႉမႃးလီ</string>
   <string name="preference_title_auto_upload_crash_reports">သူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈၶွင်ႉၶမ်</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">ပၼ်ႇသုၼ်ႇဢႅမ်ႉ တႃႇသူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈၶွင်ႉၶမ် ၸူး ဢႅပ်ႉႁွၵ်ႉၶီး ဢမ်ႇၼၼ် ၽူႈၵမ်ႉထႅမ်ၵေႃႉသၢမ် ၵႂႃႇ ႁင်းမၼ်းလႄႈ၊ ပေႃးၼၼ် ၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၶိုၼ်း​တူၺ်း လွင်ႈၶွင်ႉၶမ်ၸဝ်ႈၵဝ်ႇလႄႈ ၸၢင်ႈမႄးၶိုၼ်း လွင်ႈယူပ်ႈယွမ်းလႆႈ ငၢႆႈငၢႆႈဝႆးဝႆးယူႇ။</string>
   <string name="editing_error_spamblacklist">တုမ်ႉႁၼ်ၺႃး %s ႁဵင်းၵွင်ႉ ဢၼ်ထုၵ်ႇႁႄႉတတ်းဝႆႉ။ ၶႅၼ်းတေႃႈ ထွၼ်ပႅတ်ႈ ၶဝ်ၸိူဝ်းၼၼ်ႉသေ ၶိုၼ်းႁဵတ်းတူၺ်းထႅင်ႈၶႃႈလႄႈ။</string>
@@ -618,8 +615,6 @@
   <string name="onboarding_explore_text">ႁဵတ်းဢၢပ်ႉတဵတ်ႉ ၶေႃႈမုၼ်းမႂ်ႇ တႃႇသေႇသေၵေႃႈ လမ်ၶဝ်ႈတူၺ်းၼႂ်း လုၵ်းပၢင်တၢႆးဝီႇၶီႇၽီးတီးယႃးလႄႈ။ &lt;br/&gt; &lt;b&gt;မႄးတမ်း&lt;/b&gt; ၶေႃႈမုၼ်းမႂ်ႇ ဢၼ်ၸဝ်ႈၵဝ်ႇ မႅၼ်ႈၸႂ်လႄႈ - မိူၼ်ၼင်ႇ ပဵၼ်လွင်ႈလဵပ်ႈႁဵၼ်းပိူင်ပဵၼ်ပိုၼ်း &lt;b&gt;တႃႇမိူဝ်ႈၼႆႉ&lt;/b&gt; ဢမ်ႇၼၼ် ၸၢတ်ႇမၢၵ်ႇတႅဝ်ႇ &lt;b&gt;ၵမ်ႉမၢၼ်&lt;/b&gt;မၼ်းလႄႈ။</string>
   <string name="onboarding_reading_list_sync_title">သဵၼ်ႈမၢႆလူ တင်းၶူၼ်းၽဵင်ႇ</string>
   <string name="onboarding_reading_list_sync_text_v2">ၸဝ်ႈၵဝ်ႇၸၢင်ႈႁဵတ်းဝႆႉ သဵၼ်ႈမၢႆလူ ၵႃႈတီႈ ပွင်ႈၵႂၢမ်း ဢၼ်ၸဝ်ႈၵဝ်ႇ ၶႂ်ႈဝႆႉလူဝၢႆးလင် ႁူမ်ႈဝႃႈ ၸဝ်ႈၵဝ်ႇပဵၼ်ဝႆႉ ဢွပ်ႉၾ်လၢႆးၼၼ်ႉ။ &lt;br/&gt;တွၼ်ႈတႃႇ ၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူၸဝ်ႈၵဝ်ႇၼၼ်ႉ ၶဝ်ႈလွၵ်ႉဢိၼ်ႇၸူး ဢၶွင်ႉဝီႇၶီႇၽီးတီးယႃးၸဝ်ႈၵဝ်ႇလႄႈ။ &lt;a href=\"#login\"&gt;ၵၢႆႇသိုပ်ႇတင်း ဝီႇၶီႇၽီးတီးယႃး&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">သူင်ႇၶေႃႈမုၼ်းလပ်ႉၸိုဝ်ႈ</string>
-  <string name="onboarding_analytics_offline_text">ပၼ်ႁဝ်းၶႃႈႁူႉဝႃႈ ၸဝ်ႈၵဝ်ႇႁဵတ်းႁိုဝ်ၸႂ်ႉၼၼ်ႉၼႆသေ ၸွႆႈထႅမ်ႁဵတ်းသၢင်ႈ ႁႂ်ႈဢႅပ်ႉတိူဝ်းၶႅမ်ႉလိူဝ်။ လွင်ႈၸူႉတုမ်ၶေႃႈမုၼ်းၼႆႉ ပဵၼ်ဢၼ်လပ်ႉၸိုဝ်ႈဝႆႉ။ &lt;a href=\"#privacy\"&gt;လဵပ်ႈႁဵၼ်းလိူဝ်&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">သူင်ႇ ၶေႃႈမုၼ်းလွင်ႈၸႂ်ႉတိုဝ်း</string>
   <string name="onboarding_got_it">လႆႈယဝ်ႉ</string>
   <string name="onboarding_multilingual_secondary_text">ၼႂ်းၶိူင်ႈၸႂ်ႉၸဝ်ႈၵဝ်ႇၼၼ်ႉ ႁဝ်းၶႃႈလႆႈႁၼ်မႅၼ်ႈၺႃး ၸွမ်းၼင်ႇၽၢႆႇတႂ်ႈၼႆႉ:</string>

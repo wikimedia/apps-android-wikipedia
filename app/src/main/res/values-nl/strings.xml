@@ -25,6 +25,7 @@
 * McDutchie
 * MedShot
 * Mirolith
+* Mitsjol
 * Nickthijssen1994
 * Nieuwsgierige Gebruiker
 * Optilete
@@ -157,6 +158,7 @@
   <string name="langlinks_your_wikipedia_languages">Uw Wikipedia-talen</string>
   <string name="menu_save_changes">Wijzigingen publiceren</string>
   <string name="edit_saved_successfully">Bewerking gepubliceerd!</string>
+  <string name="stub_article_edit_saved_successfully">Bewerking gepubliceerd! Het kan enige tijd duren voordat wijzigingen zichtbaar worden.</string>
   <string name="dialog_message_edit_failed">Bewerking mislukt!</string>
   <string name="dialog_message_edit_failed_retry">Opnieuw proberen</string>
   <string name="dialog_message_edit_failed_cancel">Annuleren</string>
@@ -199,6 +201,7 @@
   <string name="logged_out_in_background_dialog">U bent afgemeld bij Wikipedia. Wilt u zich opnieuw aanmelden?</string>
   <string name="logged_out_in_background_login">Aanmelden</string>
   <string name="logged_out_in_background_cancel">Annuleren</string>
+  <string name="account_vanish_request_title">Account laten verdwijnen</string>
   <string name="history_empty_title">Geen recent bekeken artikelen</string>
   <string name="history_empty_message">Blijf hier op de hoogte van wat u hebt gelezen.</string>
   <string name="history_offline_articles_toast">Sommige artikelen in de geschiedenis zijn mogelijk niet offline zichtbaar.</string>
@@ -246,9 +249,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Leeslijsten synchroniseren met verschillende apparaten door ze te koppelen met uw Wikipedia-account \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Gesynchroniseerde leeslijsten van \"%s\" verwijderen&gt;?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Hiermee worden alle eerder gesynchroniseerde leeslijsten van de externe opslag verwijderd. Wilt u alle gesynchroniseerde lijsten uit uw account \"%s\" verwijderen?</string>
-  <string name="preferences_privacy_settings_heading">Privacy</string>
-  <string name="preference_title_eventlogging_opt_in">Gebruiksrapporten verzenden</string>
-  <string name="preference_summary_eventlogging_opt_in">Geef Wikimedia toestemming om informatie te verzamelen over hoe u de app gebruikt om de app te kunnen verbeteren</string>
   <string name="preference_title_auto_upload_crash_reports">Crashrapporten verzenden</string>
   <string name="preference_summary_auto_upload_crash_reports">De app toestaan om automatisch crashrapporten naar een dienstverlener te sturen zodat we de omstandigheden van uw crash kunnen analyseren en fouten sneller kunnen herstellen.</string>
   <string name="editing_error_spamblacklist">Er zijn koppelingen naar geblokkeerde domeinen (%s) gevonden. Verwijder deze en probeer het opnieuw.</string>
@@ -283,7 +283,7 @@
   <string name="about_translators_heading">Vertalers</string>
   <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentie</string>
-  <string name="about_app_license">Broncode beschikbaar op &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; en &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Licetie&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
+  <string name="about_app_license">Broncode beschikbaar op &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; onder de &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0 Licentie&lt;/a&gt;. Tenzij anders vermeld, is de inhoud beschikbaar onder de licentie &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Naamsvermelding-GelijkDelen&lt;/a&gt;.</string>
   <string name="about_wmf">Een product van de &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Over</string>
   <string name="edit_abandon_confirm">Deze pagina is bewerkt. Weet u zeker dat u wilt afsluiten zonder de wijzigingen op te slaan?</string>
@@ -347,6 +347,8 @@
   <string name="widget_name_featured_page">Uitgelichte pagina op Wikipedia</string>
   <string name="widget_title_featured_page">Vandaag uitgelicht:</string>
   <string name="widget_name_search">Zoeken op Wikipedia</string>
+  <string name="widget_description_search">De snelste manier om op Wikipedia te zoeken</string>
+  <string name="widget_description_featured_page">De beste artikelen die Wikipedia te bieden heeft</string>
   <string name="wiktionary_no_definitions_found">Geen definities gevonden.</string>
   <string name="alpha_update_notification_title">Nieuwe alpha-update beschikbaar</string>
   <string name="alpha_update_notification_text">Tik om te downloaden</string>
@@ -430,6 +432,10 @@
   <string name="multi_select_items_selected">%d geselecteerd</string>
   <string name="error_message_generic">Er is een fout opgetreden</string>
   <string name="view_link_preview_error_button_dismiss">Afwijzen</string>
+  <string name="link_preview_dialog_read_button">Lezen</string>
+  <string name="link_preview_dialog_save_button">Opslaan</string>
+  <string name="link_preview_dialog_saved_button">Opgeslagen</string>
+  <string name="link_preview_dialog_share_button">Delen</string>
   <string name="error_page_does_not_exist">Deze pagina bestaat niet</string>
   <string name="error_user_page_does_not_exist">Wikipedia heeft geen &lt;a href=\"%1$s\"&gt;gebruikerspagina&lt;/a&gt; met deze exacte naam. Over het algemeen moet deze pagina worden gemaakt en bewerkt door &lt;b&gt;%2$s&lt;/b&gt;. Controleer bij twijfel of \"%3$s\" bestaat.</string>
   <string name="view_wiki_error_message_offline">Er kan geen verbinding gemaakt worden met het internet</string>
@@ -784,8 +790,8 @@
   <string name="notifications_menu_uncheck_all">Alle items deselecteren</string>
   <string name="notifications_wiki_filter_header">Wikifilter</string>
   <string name="notifications_type_filter_header">Filter naar type</string>
-  <string name="notifications_all_wikis_text">Alle \"wiki\'s\"</string>
-  <string name="notifications_all_types_text">Alle \"types\"</string>
+  <string name="notifications_all_wikis_text">Alle wiki\'s</string>
+  <string name="notifications_all_types_text">Alle typen</string>
   <string name="notifications_menu_user_talk_page">%s\'s overlegpagina</string>
   <string name="notifications_offline_disable_message">Deze functie is offline niet beschikbaar</string>
   <string name="view_because_you_read_card_title">Omdat u hebt gelezen</string>
@@ -1143,8 +1149,7 @@
   <string name="onboarding_explore_text">Stap in de wereld van Wikipedia met een steeds bijgewerkt overzicht op Verkennen. &lt;br/&gt; Pas het overzicht aan &lt;b&gt;uw interesses&lt;/b&gt; aan – of u nu geïnteresseerd bent in historische gebeurtenissen &lt;b&gt;op deze dag&lt;/b&gt; of het gooien met de dobbelsteen voor een &lt;b&gt;willekeurige pagina&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leeslijsten met synchronisatie</string>
   <string name="onboarding_reading_list_sync_text_v2">U kunt leeslijsten maken van artikelen die u later wilt lezen, ook als u offline bent. &lt;br/&gt;Meld u aan bij uw Wikipedia-account om uw leeslijsten te synchroniseren. &lt;a href=\"#login\"&gt;Bij Wikipedia aanmelden&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Gegevens anoniem versturen</string>
-  <string name="onboarding_analytics_offline_text">Help de app te verbeteren door ons te laten weten hoe u hem gebruikt. De verzamelde gegevens zijn anoniem. &lt;a href=\"#privacy\"&gt;Leer meer&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_text">Wij zijn van mening dat u geen persoonlijke informatie hoeft te verstrekken om deel te nemen aan de vrije kennisbeweging. De gebruiksgegevens die voor deze app worden verzameld, zijn anoniem. Lees meer over ons &lt;a href=\"#privacy\"&gt;privacybeleid&lt;/a&gt; en &lt;a href=\"#termsOfUse\"&gt;onze gebruiksvoorwaarden&lt;/a&gt; .</string>
   <string name="onboarding_analytics_switch_title">Uw gebruiksgegevens verzenden</string>
   <string name="onboarding_got_it">Begrepen</string>
   <string name="onboarding_multilingual_secondary_text">We hebben het volgende gevonden op uw apparaat:</string>
@@ -1246,6 +1251,14 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Hoogte</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Invoegen</string>
+  <string name="templates_search_hint">Zoeksjablonen</string>
+  <string name="templates_insert_button">Invoegen</string>
+  <string name="templates_param_suggested_value">bijv. %s</string>
+  <string name="templates_param_optional_hint">%s (Optioneel)</string>
+  <string name="templates_param_suggested_hint">%s (Voorgesteld)</string>
+  <string name="templates_learn_more_link">Meer lezen</string>
+  <string name="templates_description_incomplete">Sjablonen worden door de gebruiker gegenereerd en bevatten mogelijk geen volledige beschrijving.</string>
+  <string name="templates_description_empty">De \"%s\"-sjabloon heeft nog geen beschrijving.</string>
   <string name="main_drawer_help">Hulp</string>
   <string name="main_drawer_login">Aanmelden/inschrijven bij Wikipedia</string>
   <string name="main_tooltip_text">Hallo %s, wist u dat iedereen Wikipedia kan bewerken?</string>
@@ -1269,10 +1282,10 @@
   <string name="talk_warn_save_dialog_hint">Titel van bericht</string>
   <string name="talk_warn_save_dialog_publish">Publiceren</string>
   <string name="talk_warn_save_dialog_cancel">Annuleren</string>
+  <string name="talk_warn_save_dialog_dont_save">Niet opslaan</string>
   <string name="talk_warn_submitted">Bericht gepubliceerd op de overlegpagina van de gebruiker</string>
   <string name="talk_warn_submitted_and_saved">Bericht opgeslagen en gepubliceerd op de overlegpagina van de gebruiker</string>
-  <string name="talk_warn_saved_message">Kies een bestaand waarschuwingsbericht of stel een nieuw bericht op.</string>
-  <string name="talk_warn_saved_message_dropdown">Opgeslagen berichten</string>
+  <string name="talk_warn_saved_messages">Opgeslagen berichten</string>
   <string name="talk_page_empty">Deze overlegpagina is leeg.</string>
   <string name="talk_page_empty_title">Het overleg begint hier</string>
   <string name="talk_page_empty_content">Op overlegpagina\'s wordt besproken hoe de inhoud van Wikipedia zo goed mogelijk kan worden gemaakt. Voeg een een nieuw gespreksonderwerp toe om in contact te komen en samen te werken met een gemeenschap van Wikipedianen.</string>
@@ -1353,7 +1366,6 @@
   <string name="revision_diff_from">Van:</string>
   <string name="revision_diff_to">Naar:</string>
   <string name="revision_diff_line_num">Regel %d</string>
-  <string name="revision_diff_line_nums">Regels %d–%d</string>
   <string name="revision_diff_lines_from_to">Regels %1$d–%2$d</string>
   <string name="revision_diff_line_added">Regel toegevoegd</string>
   <string name="revision_diff_line_removed">Regel verwijderd</string>
@@ -1465,6 +1477,8 @@
   <string name="media_playback_error">Fout bij het afspelen van media.</string>
   <string name="user_contrib_menu_label">Bijdragen</string>
   <string name="user_contrib_filter_activity_title">Bijdragen filteren</string>
+  <string name="action_item_view_on_map">Bekijk op kaart</string>
+  <string name="action_item_view_on_map_unavailable">Geografische coördinaten zijn niet beschikbaar voor deze pagina</string>
   <string name="shareable_reading_lists_import_dialog_title">Importeer gedeelde leeslijst</string>
   <string name="shareable_reading_lists_import_dialog_content">Hoe zou u de lijst willen noemen die met u is gedeeld?</string>
   <string name="shareable_reading_lists_new_indicator">*nieuw*</string>
@@ -1477,10 +1491,8 @@
   <string name="reading_list_share_message_v2">Hoi! Ik wil graag mijn Wikipedia leeslijst met je delen:</string>
   <string name="reading_list_share_survey_title">Kunt u ons helpen om \"Leeslijsten delen\" te verbeteren?</string>
   <string name="reading_list_share_survey_body">\"Leeslijsten delen\" is een testfunctie en we hebben uw feedback nodig om deze te verbeteren of te verwijderen.</string>
-  <string name="talk_templates_manage_title">Sjablonen beheren</string>
-  <string name="talk_templates_empty_message">Er zijn geen waarschuwingsberichten opgeslagen.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">Maak uw eigen waarschuwingsberichten of gebruik &lt;a href=\"#\"&gt;voorbeeldberichten&lt;/a&gt; om aan de slag te gaan.</string>
   <string name="talk_templates_new_message_title">Nieuw bericht</string>
-  <string name="talk_templates_new_message_description">Waarschuwingsbericht opstellen.</string>
   <string name="talk_templates_new_message_subject_hint">Onderwerp</string>
   <string name="talk_templates_new_message_compose_hint">Bericht opstellen</string>
   <string name="talk_templates_new_message_save">Opslaan</string>
@@ -1505,7 +1517,8 @@
     <item quantity="other">Berichten zijn verwijderd</item>
   </plurals>
   <string name="talk_templates_message_title_empty">De titel mag niet leeg zijn.</string>
-  <string name="patroller_tasks_edits_list_title">Lijst met bewerkingen</string>
+  <string name="talk_templates_your_messages_tab_title">Uw berichten</string>
+  <string name="talk_templates_example_messages_tab_title">Voorbeeldberichten</string>
   <string name="patroller_tasks_edits_list_search_hint">Bewerkingen zoeken of filteren</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Labels: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Geen</string>
@@ -1565,7 +1578,6 @@
     <item quantity="one">%d filter</item>
     <item quantity="other">%d filters</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Bewerking als gecontroleerd markeren</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Bewerkingsgeschiedenis artikel</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Ongedaan maken voltooid</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Weet u zeker dat u wilt terugdraaien?</string>
@@ -1592,10 +1604,19 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Neutraal</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Niet tevreden</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hoe kunnen we de functie verbeteren?</string>
+  <string name="patroller_diff_menu_edit_history_title">Bewerkingsgeschiedenis artikel</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Terugkoppeling</string>
   <string name="patroller_diff_feedback_dialog_submit">Opslaan</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Terugkoppeling ingediend.</string>
   <string name="patroller_diff_feedback_tooltip">Tik op het overloopmenu om op elk gewenst moment terugkoppeling te geven onder ‘Probleem met functie’.</string>
+  <string name="patroller_saved_message_title_auto_trans">Automatische vertaling</string>
+  <string name="patroller_saved_message_title_final_warning">Laatste waarschuwing</string>
+  <string name="patroller_saved_message_title_copy_vio">Waarschuwing voor schending van auteursrecht</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Voeg een bewerkingssamenvatting toe</string>
+  <string name="patroller_saved_message_title_do_not_censor">Niet censureren</string>
+  <string name="patroller_saved_message_title_art_imp">Suggestie voor artikelverbetering</string>
+  <string name="patroller_saved_message_body_edit_summary">Hallo {{{username}}}, het lijkt erop dat je inhoud van Wikipedia hebt verwijderd zonder een bewerkingssamenvatting achter te laten. Laat een bewerkingssamenvatting achter wanneer u inhoud aan Wikipedia toevoegt of verwijdert.</string>
+  <string name="talk_templates_menu_edit_title">Bewerken</string>
   <string name="data_opt_in_accept">Aanvaarden</string>
   <string name="data_opt_in_reject">Afwijzen</string>
   <string name="page_issues_title">Paginaproblemen</string>
@@ -1608,4 +1629,12 @@
   <string name="donation_campaign_donated_snackbar">Bedankt, beste donateur! Dankzij uw bijdrage kunnen Wikipedia en haar zustersites zich blijven ontwikkelen.</string>
   <string name="donation_campaign_go_back_button">Terug</string>
   <string name="menu_single_webview_open_external">Openen in systeembrowser</string>
+  <string name="places_title">Plaatsen</string>
+  <string name="places_search_hint">Plaatsen zoeken</string>
+  <string name="places_filter_title">Filteren op taal</string>
+  <string name="places_toggle_buttons_map">Kaart</string>
+  <string name="places_toggle_buttons_list">Lijst</string>
+  <string name="places_survey_very_satisfied_option">Erg tevreden</string>
+  <string name="places_survey_very_unsatisfied_option">Zeer ontevreden</string>
+  <string name="places_empty_list">Dit gebied is leeg. Zoom uit &lt;a href=\"#\"&gt;op de kaart&lt;/a&gt;.</string>
 </resources>

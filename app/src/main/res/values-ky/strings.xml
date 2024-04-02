@@ -100,9 +100,6 @@
   <string name="preferences_account_heading">Аккаунт</string>
   <string name="send_feedback">Тиркемеге өз бааңызды жөнөтүңүз</string>
   <string name="create_account_account_created_toast">Эсеп жазуусу түзүлдү!</string>
-  <string name="preferences_privacy_settings_heading">Купуялык</string>
-  <string name="preference_title_eventlogging_opt_in">Колдонуу тууралуу маалыматтарды жөнөтүү</string>
-  <string name="preference_summary_eventlogging_opt_in">Уикимедиага сиз бул тиркемени кантип колдонуп жаткандыгыңыз тууралуу маалыматтарды чогултууга уруксат бериңиз. Бул, аны жакшыртууга мүмкүндүк берет.</string>
   <string name="editing_error_spamblacklist">Бөгөттөлгөн домендерге (%s) шилтемелер табылды. Сураныч, аларды өчүрүп, кайра аракет кылып көрүңүз.</string>
   <string name="error_can_not_process_link">Бул шилтемени көрсөтүүгө мүмкүнчүлүк болбоду.</string>
   <string name="page_protected_autoconfirmed">Бул барак жарым-жартылай корголгон.</string>
@@ -110,7 +107,8 @@
   <string name="page_protected_other">Бул барак мындай деңгээлдерде корголгон: %s</string>
   <string name="page_protected_can_not_edit" fuzzy="true">Бул баракты оңдоого сиздин укугуңуз жок.</string>
   <string name="page_protected_can_not_edit_title">Бул барак корголгон</string>
-  <string name="settings_activity_title" fuzzy="true">Ырастоолор</string>
+  <string name="settings_item_preferences">Параметрлер</string>
+  <string name="settings_activity_title">Параметрлер</string>
   <string name="about_description">«Уикипедия» тиркемеси жөнүндө</string>
   <string name="privacy_policy_description">Купуялык саясаты</string>
   <string name="terms_of_use_description">Колдонуу шарттары</string>
@@ -170,10 +168,12 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Жокко чыгаруу</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Кирүү</string>
   <string name="reading_list_turned_sync_off_dialog_ok">Макул</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Параметрлер</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Жокко чыгаруу</string>
   <string name="reading_list_download_using_mobile_data_cancel_button_text">Жокко чыгаруу</string>
+  <string name="user_option_sync_label">Параметрлер</string>
   <string name="notification_syncing_cancel_button">Жокко чыгаруу</string>
   <string name="notifications_channel_group_other_title">Башка</string>
   <string name="view_featured_image_card_download">Жүктөп алуу</string>

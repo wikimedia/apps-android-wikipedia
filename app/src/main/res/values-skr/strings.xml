@@ -152,7 +152,6 @@
   <string name="create_account_account_created_toast">کھاتہ کھل ڳیا!</string>
   <string name="preferences_heading_syncing">ہم وقت کرݨ</string>
   <string name="preferences_heading_experimental">تجرباتی</string>
-  <string name="preferences_privacy_settings_heading">پرائیویسی</string>
   <string name="history_filter_list_hint">چھاݨاں تاریخ</string>
   <string name="page_protected_can_not_edit_title">ایہ ورقہ محفوظ ہے</string>
   <string name="page_watchlist_overflow_menu_onboarding_tooltip_title">پارھاتندیر وچ شامل کرو</string>
@@ -234,6 +233,10 @@
   <string name="multi_select_items_selected">%d چُݨیج ڳیا</string>
   <string name="error_message_generic">رپھڑ پئے ڳیا</string>
   <string name="view_link_preview_error_button_dismiss">مکاؤ</string>
+  <string name="link_preview_dialog_read_button">پڑھو</string>
+  <string name="link_preview_dialog_save_button">محفوظ کرو</string>
+  <string name="link_preview_dialog_saved_button">محفوظ تھی ڳیا</string>
+  <string name="link_preview_dialog_share_button">شیئر</string>
   <string name="error_page_does_not_exist">ایہ ورقہ کائنی</string>
   <string name="view_wiki_error_message_offline">انٹرنیٹ نال جوڑ نی تھی سڳدا</string>
   <string name="reference_title">حوالے%s</string>
@@ -356,8 +359,8 @@
   <string name="notifications_swipe_action_read">پڑھو</string>
   <string name="notifications_swipe_action_unread">کائنی پڑھا</string>
   <string name="notifications_wiki_filter_header">وکی چھاݨاں</string>
-  <string name="notifications_all_wikis_text">ساریاں \"وکیاں\"</string>
-  <string name="notifications_all_types_text">ساریاں \"قسماں\"</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">ساریاں \"وکیاں\"</string>
+  <string name="notifications_all_types_text" fuzzy="true">ساریاں \"قسماں\"</string>
   <string name="view_random_article_card_title">پوکھواں مضمون</string>
   <string name="view_top_read_card_pageviews_k_suffix">%d کے</string>
   <string name="view_top_read_card_pageviews_m_suffix">%d ایم</string>
@@ -657,6 +660,7 @@
   <string name="namespace_article">مضمون</string>
   <string name="user_contrib_current">موجودہ</string>
   <string name="user_contrib_menu_label">ونگاراں</string>
+  <string name="action_item_view_on_map">نقشے تے ݙیکھو</string>
   <string name="shareable_reading_lists_new_indicator">*نواں*</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">سمجھ آڳئی</string>
   <string name="reading_list_share_menu_label">شیئر۔۔۔</string>
@@ -679,8 +683,13 @@
   <string name="patroller_tasks_overflow_learn">ٻیا سِکھو</string>
   <string name="patroller_diff_feedback_dialog_input_hint">فیڈ بیک</string>
   <string name="patroller_diff_feedback_dialog_submit">جمع کرواؤ</string>
+  <string name="talk_templates_menu_edit_title">لکھو</string>
   <string name="data_opt_in_accept">قبول کرو</string>
   <string name="data_opt_in_reject">مسترد کرو</string>
   <string name="page_issues_title">ورقہ معاملے</string>
   <string name="donation_campaign_go_back_button">واپس ڄُلو</string>
+  <string name="places_title">جاہیں</string>
+  <string name="places_toggle_buttons_map">نقشہ</string>
+  <string name="places_toggle_buttons_list">تندیر</string>
+  <string name="places_survey_very_satisfied_option">ݙاڈھا تسلی بخش</string>
 </resources>

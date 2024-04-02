@@ -208,9 +208,6 @@
   <string name="preference_summary_sync_reading_lists">Giligidnɛ la\'abanɛ ka fʋ karim la divaasinam wʋsa ni ka kpɛn\'ɛsidi ba Wikipedia akaʋnt ni</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Yisim synched dinɛ ka fʋ karim la yi \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Nɛ\' na yis la\'abanɛ ka fʋ giligin la lɛbis zin\'ikanɛ ka sɔ\' zi\'.\n\nYisim la\'abanɛ ka fʋ giligin la fʋ akaʋnt \"%s\" nii</string>
-  <string name="preferences_privacy_settings_heading">Su\'adim</string>
-  <string name="preference_title_eventlogging_opt_in">Tisimi fʋ tʋʋma labaya</string>
-  <string name="preference_summary_eventlogging_opt_in">Basim suor ka Wikipiidia di\'e labaari fʋn mɔr app la tʋm si\'em ka di sʋŋ maal app la sʋ\'ʋŋa</string>
   <string name="preference_title_auto_upload_crash_reports">Tisimi agbirigi san\'am labaya</string>
   <string name="editing_error_spamblacklist">Ba nyɛnɛ linki banɛ pa\'an domɛɛn banɛ ka ba bʋlɔk (%s).\n\nYisimi ba ka mɔ\' nya\'aŋ ya\'as.</string>
   <string name="history_filter_list_hint">Faal labakʋda</string>
@@ -240,7 +237,7 @@
   <string name="about_translators_heading">pian\'alɛbigirib</string>
   <string name="about_translators_translatewiki">Sɔ\' da pɛsigi o mɛŋi lɛbig app kaŋa bɛ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Kasɛta gbaʋŋ</string>
-  <string name="about_app_license">Din yi zin\'isia na koodi bɛ</string>
+  <string name="about_app_license" fuzzy="true">Din yi zin\'isia na koodi bɛ</string>
   <string name="about_wmf">Laʋk kanɛ yi &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Din yɛla</string>
   <string name="edit_abandon_confirm">Lakir la tiaknɛ. Fʋ sid siak ye fʋ bɔɔd ye fʋ yi  ka pʋ su\'a dinɛ ka fʋ tiak laa?</string>
@@ -645,8 +642,8 @@
   <string name="notifications_swipe_action_unread">Pʋ karim</string>
   <string name="notifications_menu_check_all">Kpansim la\'ad wʋsa</string>
   <string name="notifications_menu_uncheck_all">Da kpans la\'ad wʋsaa</string>
-  <string name="notifications_all_wikis_text">Wiki wʋsa</string>
-  <string name="notifications_all_types_text">Buudi wʋsa</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Wiki wʋsa</string>
+  <string name="notifications_all_types_text" fuzzy="true">Buudi wʋsa</string>
   <string name="notifications_menu_user_talk_page">%s\'s sɔnsʋg lakir zin\'ig</string>
   <string name="view_because_you_read_card_title">Fʋn karim la zug</string>
   <string name="view_random_card_title">Yɔɔg-yɔɔg</string>
@@ -949,7 +946,6 @@
   <string name="talk_warn_save_dialog_hint">Labaar pian\'azug</string>
   <string name="talk_warn_save_dialog_publish">Zaŋim niŋ</string>
   <string name="talk_warn_save_dialog_cancel">Basim</string>
-  <string name="talk_warn_saved_message_dropdown">Kpɛn\'ɛsim labaya</string>
   <string name="talk_page_empty">Sɔnsʋg lakir kaŋa anɛ zaalim.</string>
   <string name="talk_page_empty_title">Sɔnsʋg la pin\'inɛ kpɛla</string>
   <string name="talk_add_reply">Lɛbisim</string>
@@ -1015,7 +1011,6 @@
   <string name="revision_diff_from">Di yinɛ:</string>
   <string name="revision_diff_to">Ken:</string>
   <string name="revision_diff_line_num">Lai %d</string>
-  <string name="revision_diff_line_nums">Lai %d–%d</string>
   <string name="revision_diff_lines_from_to">Lainam %1$d–%2$d</string>
   <string name="revision_diff_line_added">Lai paasya</string>
   <string name="revision_diff_line_removed">Lai yisya</string>

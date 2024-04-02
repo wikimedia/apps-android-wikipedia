@@ -19,6 +19,7 @@ class WikiTextKeyboardView constructor(context: Context, attrs: AttributeSet?) :
         fun onPreviewLink(title: String)
         fun onRequestInsertMedia()
         fun onRequestInsertLink()
+        fun onRequestInsertTemplate()
         fun onRequestHeading()
         fun onRequestFormatting()
         fun onSyntaxOverlayCollapse()
@@ -64,9 +65,7 @@ class WikiTextKeyboardView constructor(context: Context, attrs: AttributeSet?) :
         }
 
         binding.wikitextButtonTemplate.setOnClickListener {
-            editText?.inputConnection?.let {
-                toggleSyntaxAroundCurrentSelection(editText, it, "{{", "}}")
-            }
+            callback?.onRequestInsertTemplate()
         }
 
         binding.wikitextButtonRef.setOnClickListener {
@@ -90,34 +89,27 @@ class WikiTextKeyboardView constructor(context: Context, attrs: AttributeSet?) :
         binding.wikitextButtonPreviewLink.setOnClickListener {
             editText?.inputConnection?.let { inputConnection ->
                 var title: String? = null
-                val selection = inputConnection.getSelectedText(0)
-                if (!selection.isNullOrEmpty() && !selection.toString().contains("[[")) {
-                    title = trimPunctuation(selection.toString())
+                val selection = inputConnection.getSelectedText(0)?.toString()
+                if (!selection.isNullOrEmpty() && "[[" !in selection) {
+                    title = selection.trim('.', ',', ';', '?', '!')
                 } else {
-                    val before: String
-                    val after: String
-                    if (selection != null && selection.length > 1) {
-                        val selectionStr = selection.toString()
-                        before = selectionStr.substring(0, selectionStr.length / 2)
-                        after = selectionStr.substring(selectionStr.length / 2)
+                    val (before, after) = if (selection != null && selection.length > 1) {
+                        selection.substring(0, selection.length / 2) to
+                                selection.substring(selection.length / 2)
                     } else {
                         val peekLength = 64
-                        before = inputConnection.getTextBeforeCursor(peekLength, 0).toString()
-                        after = inputConnection.getTextAfterCursor(peekLength, 0).toString()
+                        inputConnection.getTextBeforeCursor(peekLength, 0)?.toString() to
+                                inputConnection.getTextAfterCursor(peekLength, 0)?.toString()
                     }
 
-                    if (before.isNotEmpty() && after.isNotEmpty()) {
-                        var str = before + after
-                        val i1 = lastIndexOf(before, "[[")
-                        val i2 = after.indexOf("]]") + before.length
-                        if (i1 >= 0 && i2 > 0 && i2 > i1) {
-                            str = str.substring(i1 + 2, i2).trim()
-                            if (str.isNotEmpty()) {
-                                if (str.contains("|")) {
-                                    str = str.split("\\|".toRegex()).toTypedArray()[0]
-                                }
-                                title = str
-                            }
+                    if (!before.isNullOrEmpty() && !after.isNullOrEmpty()) {
+                        val str = before + after
+                        val i1 = before.lastIndexOf("[[")
+                        if (i1 >= 0) {
+                            title = str.substring(i1 + 2).substringBefore("]]")
+                                .trim()
+                                .splitToSequence('|')
+                                .firstOrNull()?.ifEmpty { null }
                         }
                     }
                 }
@@ -173,7 +165,6 @@ class WikiTextKeyboardView constructor(context: Context, attrs: AttributeSet?) :
     }
 
     companion object {
-
         fun toggleSyntaxAroundCurrentSelection(editText: EditText?, ic: InputConnection, prefix: String, suffix: String) {
             editText?.let {
                 if (it.selectionStart == it.selectionEnd) {
@@ -200,33 +191,6 @@ class WikiTextKeyboardView constructor(context: Context, attrs: AttributeSet?) :
                     ic.setSelection(it.selectionStart - selection.length, it.selectionEnd)
                 }
             }
-        }
-
-        @Suppress("SameParameterValue")
-        fun lastIndexOf(str: String, subStr: String): Int {
-            var index = -1
-            var a = 0
-            while (a < str.length) {
-                val i = str.indexOf(subStr, a)
-                if (i >= 0) {
-                    index = i
-                    a = i + 1
-                } else {
-                    break
-                }
-            }
-            return index
-        }
-
-        fun trimPunctuation(str: String): String {
-            var newStr = str
-            while (newStr.startsWith(".") || newStr.startsWith(",") || newStr.startsWith(";") || newStr.startsWith("?") || newStr.startsWith("!")) {
-                newStr = newStr.substring(1)
-            }
-            while (newStr.endsWith(".") || newStr.endsWith(",") || newStr.endsWith(";") || newStr.endsWith("?") || newStr.endsWith("!")) {
-                newStr = newStr.substring(0, newStr.length - 1)
-            }
-            return newStr
         }
     }
 }

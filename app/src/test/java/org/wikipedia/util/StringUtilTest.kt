@@ -1,5 +1,6 @@
 package org.wikipedia.util
 
+import android.location.Location
 import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers
 import org.junit.Test
@@ -75,9 +76,21 @@ class StringUtilTest {
     }
 
     @Test
+    fun testDbNameToLangCode() {
+        MatcherAssert.assertThat(StringUtil.dbNameToLangCode("en"), Matchers.`is`("en"))
+        MatcherAssert.assertThat(StringUtil.dbNameToLangCode("enwiki"), Matchers.`is`("en"))
+    }
+
+    @Test
     fun testRemoveSectionAnchor() {
         MatcherAssert.assertThat(StringUtil.removeSectionAnchor("#te_st"), Matchers.`is`(""))
         MatcherAssert.assertThat(StringUtil.removeSectionAnchor("sec#te_st"), Matchers.`is`("sec"))
+    }
+
+    @Test
+    fun testRemoveNamespace() {
+        MatcherAssert.assertThat(StringUtil.removeNamespace("RSP"), Matchers.`is`("RSP"))
+        MatcherAssert.assertThat(StringUtil.removeNamespace("WP:RSP"), Matchers.`is`("RSP"))
     }
 
     @Test
@@ -98,5 +111,17 @@ class StringUtilTest {
     @Test
     fun testSanitizeAbuseFilterCode() {
         MatcherAssert.assertThat(StringUtil.sanitizeAbuseFilterCode("⧼abusefilter-warning-selfpublished⧽"), Matchers.`is`("abusefilter-warning-selfpublished"))
+    }
+
+    @Test
+    fun testGeoHackToLocation() {
+        MatcherAssert.assertThat(StringUtil.geoHackToLocation("test"), Matchers.nullValue())
+        val location1 = StringUtil.geoHackToLocation("42_N_71_12_13_W")!!
+        val location2 = Location("").apply {
+            latitude = 42.0
+            longitude = 71.0 + 12.0 / 60 + 13.0 / 3600
+        }
+        MatcherAssert.assertThat(location1.latitude, Matchers.equalTo(location2.latitude))
+        MatcherAssert.assertThat(-location1.longitude, Matchers.equalTo(location2.longitude))
     }
 }

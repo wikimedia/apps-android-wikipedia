@@ -41,7 +41,7 @@ class EditHandler(private val fragment: PageFragment, bridge: CommunicationBridg
                     val menu = PopupMenu(fragment.requireContext(), tempView, 0, 0, R.style.PagePopupMenu)
                     menu.menuInflater.inflate(R.menu.menu_page_header_edit, menu.menu)
                     menu.setOnMenuItemClickListener(EditMenuClickListener())
-                    menu.setOnDismissListener { (fragment.view as ViewGroup).removeView(tempView) }
+                    menu.setOnDismissListener { (fragment.view as? ViewGroup)?.removeView(tempView) }
                     menu.show()
                 } else {
                     startEditingSection(sectionId, null)

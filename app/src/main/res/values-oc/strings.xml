@@ -5,6 +5,7 @@
 * Cedric31
 * Envlh
 * Guilhelma
+* Lhanars
 * Nicolas Eynaud
 * Patriccck
 * Patrik L.
@@ -151,8 +152,6 @@
   <string name="create_account_account_created_toast">Compte creat !</string>
   <string name="preferences_heading_data_usage">Utilizacion dei donadas</string>
   <string name="preferences_heading_experimental">Experimentau</string>
-  <string name="preferences_privacy_settings_heading">Confidencialitat</string>
-  <string name="preference_title_eventlogging_opt_in">Mandar los rapòrts d’utilizacion</string>
   <string name="preference_title_auto_upload_crash_reports">Mandar de rapòrts d’incident</string>
   <string name="error_can_not_process_link">Impossible d’afichar aqueste ligam</string>
   <string name="page_protected_autoconfirmed">Aquesta pagina es estada semiprotegida.</string>
@@ -312,6 +311,10 @@
   <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Descripcions del títol</string>
   <string name="description_edit_tutorial_keep_it_short">Siatz brèu</string>
   <string name="description_edit_tutorial_button_label_start_editing">Començatz d\'editar</string>
+  <string name="suggested_edits_task_multilingual_positive">Ajustar de lengas</string>
   <string name="suggested_edits_article_cta_snackbar_action">Monstrar</string>
+  <string name="suggested_edits_label">Edicions suggeridas</string>
+  <string name="suggested_edits_reactivation_notification_title">Edicions suggeridas</string>
   <string name="talk_list_item_last_comment_date">Darrièr comentari: %s</string>
+  <string name="page_issues_title">Problèmas de la pagina</string>
 </resources>

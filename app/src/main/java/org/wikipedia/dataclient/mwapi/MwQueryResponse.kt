@@ -15,9 +15,9 @@ open class MwQueryResponse : MwResponse() {
 
     @Serializable
     class Continuation {
-        val sroffset = 0
-        val gsroffset = 0
-        val gpsoffset = 0
+        val sroffset: Int? = null
+        val gsroffset: Int? = null
+        val gpsoffset: Int? = null
         @SerialName("continue") val continuation: String? = null
         @SerialName("uccontinue") val ucContinuation: String? = null
         @SerialName("rccontinue") val rcContinuation: String? = null

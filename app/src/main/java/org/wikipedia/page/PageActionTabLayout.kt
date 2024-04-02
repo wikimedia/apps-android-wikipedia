@@ -27,12 +27,14 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
     fun update() {
         removeAllViews()
         val typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+        val tintColor = ResourceUtil.getThemedColorStateList(context, R.attr.primary_color)
+        val backgroundSource = ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackgroundBorderless)
         Prefs.customizeToolbarOrder.forEach {
             val view = MaterialTextView(context)
             view.gravity = Gravity.CENTER
             view.setPadding(DimenUtil.roundedDpToPx(2f), DimenUtil.roundedDpToPx(12f), DimenUtil.roundedDpToPx(2f), 0)
-            view.setBackgroundResource(ResourceUtil.getThemedAttributeId(context, androidx.appcompat.R.attr.selectableItemBackgroundBorderless))
-            view.setTextColor(ResourceUtil.getThemedColor(context, R.attr.placeholder_color))
+            view.setBackgroundResource(backgroundSource)
+            view.setTextColor(tintColor)
             view.textAlignment = TEXT_ALIGNMENT_CENTER
             view.setTypeface(typeface, Typeface.NORMAL)
             view.setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimension(R.dimen.bottom_nav_label_text_size))
@@ -43,8 +45,8 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             view.id = item.viewId
             view.text = context.getString(item.titleResId)
             view.contentDescription = view.text
-            FeedbackUtil.setButtonLongPressToast(view)
-            TextViewCompat.setCompoundDrawableTintList(view, ResourceUtil.getThemedColorStateList(context, R.attr.placeholder_color))
+            FeedbackUtil.setButtonTooltip(view)
+            TextViewCompat.setCompoundDrawableTintList(view, tintColor)
             view.setCompoundDrawablesWithIntrinsicBounds(0, item.iconResId, 0, 0)
             view.compoundDrawablePadding = -DimenUtil.roundedDpToPx(4f)
             view.setOnClickListener { v ->

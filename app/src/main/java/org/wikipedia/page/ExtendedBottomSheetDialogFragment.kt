@@ -14,9 +14,6 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.ResourceUtil
 
 open class ExtendedBottomSheetDialogFragment : BottomSheetDialogFragment() {
-    protected fun disableBackgroundDim() {
-        requireDialog().window?.setDimAmount(0f)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

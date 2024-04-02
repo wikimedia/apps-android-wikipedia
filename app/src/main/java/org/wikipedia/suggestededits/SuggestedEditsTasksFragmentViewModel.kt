@@ -13,6 +13,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.usercontrib.UserContribStats
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ThrowableUtil
 import java.time.temporal.ChronoUnit
 import java.util.Date
@@ -20,10 +21,10 @@ import java.util.Date
 class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
     private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.Error(throwable)
+        _uiState.value = Resource.Error(throwable)
     }
 
-    private val _uiState = MutableStateFlow(UiState())
+    private val _uiState = MutableStateFlow(Resource<Unit>())
     val uiState = _uiState.asStateFlow()
 
     var blockMessageWikipedia: String? = null
@@ -42,11 +43,11 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
     var allowToPatrolEdits = false
 
     fun fetchData() {
-        _uiState.value = UiState.Loading()
+        _uiState.value = Resource.Loading()
         wikiSupportsImageRecommendations = false
 
         if (!AccountUtil.isLoggedIn) {
-            _uiState.value = UiState.RequireLogin()
+            _uiState.value = RequireLogin()
             return
         }
 
@@ -58,10 +59,10 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             latestEditStreak = 0
             revertSeverity = 0
 
-            val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 10, null) }
+            val homeSiteCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getUserContributions(AccountUtil.userName!!, 10, null, null) }
             // val homeSiteParamCall = async { ServiceFactory.get(WikipediaApp.instance.wikiSite).getParamInfo("query+growthtasks") }
-            val commonsCall = async { ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null) }
-            val wikidataCall = async { ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, null) }
+            val commonsCall = async { ServiceFactory.get(Constants.commonsWikiSite).getUserContributions(AccountUtil.userName!!, 10, null, null) }
+            val wikidataCall = async { ServiceFactory.get(Constants.wikidataWikiSite).getUserContributions(AccountUtil.userName!!, 10, 0, null) }
             val editCountsCall = async { UserContribStats.verifyEditCountsAndPauseState() }
 
             val homeSiteResponse = homeSiteCall.await()
@@ -121,7 +122,7 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
 
             totalPageviews = UserContribStats.getPageViews(wikidataResponse)
 
-            _uiState.value = UiState.Success()
+            _uiState.value = Resource.Success(Unit)
         }
     }
 
@@ -137,10 +138,5 @@ class SuggestedEditsTasksFragmentViewModel : ViewModel() {
             .count()
     }
 
-    open class UiState {
-        class Loading : UiState()
-        class RequireLogin : UiState()
-        class Success : UiState()
-        class Error(val throwable: Throwable) : UiState()
-    }
+    class RequireLogin : Resource<Unit>()
 }

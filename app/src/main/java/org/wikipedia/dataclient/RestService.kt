@@ -114,6 +114,14 @@ interface RestService {
         @Path("day") day: String?
     ): Observable<AggregatedFeedContent>
 
+    @Headers("Accept: " + ACCEPT_HEADER_PREFIX + "aggregated-feed/0.5.0\"")
+    @GET("feed/featured/{year}/{month}/{day}")
+    suspend fun getFeedFeatured(
+        @Path("year") year: String?,
+        @Path("month") month: String?,
+        @Path("day") day: String?
+    ): AggregatedFeedContent
+
     @get:GET("feed/availability")
     val feedAvailability: Observable<FeedAvailability>
 

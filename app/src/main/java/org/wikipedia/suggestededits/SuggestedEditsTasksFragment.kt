@@ -44,6 +44,7 @@ import org.wikipedia.usercontrib.UserContribStats
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ReleaseUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -115,10 +116,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is SuggestedEditsTasksFragmentViewModel.UiState.Loading -> onLoading()
-                        is SuggestedEditsTasksFragmentViewModel.UiState.Success -> setFinalUIState()
-                        is SuggestedEditsTasksFragmentViewModel.UiState.RequireLogin -> onRequireLogin()
-                        is SuggestedEditsTasksFragmentViewModel.UiState.Error -> showError(it.throwable)
+                        is Resource.Loading -> onLoading()
+                        is Resource.Success -> setFinalUIState()
+                        is SuggestedEditsTasksFragmentViewModel.RequireLogin -> onRequireLogin()
+                        is Resource.Error -> showError(it.throwable)
                     }
                 }
             }
@@ -343,10 +344,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         vandalismPatrolTask.primaryActionIcon = R.drawable.ic_check_black_24dp
         vandalismPatrolTask.new = !Prefs.recentEditsOnboardingShown
 
-        // TODO: limit to the Indonesian and Test wiki now.
-        val availableWikiSitesForPatrollerTasks = listOf("id", "test")
         if (viewModel.allowToPatrolEdits && viewModel.blockMessageWikipedia.isNullOrEmpty() &&
-            availableWikiSitesForPatrollerTasks.contains(WikipediaApp.instance.wikiSite.languageCode)) {
+            SuggestedEditsRecentEditsActivity.AVAILABLE_WIKIS.contains(WikipediaApp.instance.wikiSite.languageCode)) {
             // TODO: limit to the primary language now.
             Prefs.recentEditsWikiCode = WikipediaApp.instance.appOrSystemLanguageCode
             displayedTasks.add(vandalismPatrolTask)
@@ -367,6 +366,10 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (viewModel.blockMessageCommons.isNullOrEmpty()) {
             displayedTasks.add(addImageCaptionsTask)
             displayedTasks.add(addImageTagsTask)
+        }
+
+        if (displayedTasks.isEmpty() && !viewModel.blockMessageWikipedia.isNullOrEmpty()) {
+            setIPBlockedStatus()
         }
     }
 

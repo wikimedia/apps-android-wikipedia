@@ -201,9 +201,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">မတူညီသော စက်ပစ္စည်းများရှိ sync လုပ်ထားသော စာဖတ်စာရင်းများကို သင်၏ဝီကီပီးဒီးယားအကောင့် \"%s\" ထဲတွင် သိမ်းရန်</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">%s မှ sync လုပ်ထားသော စာဖတ်စာရင်းကို ဖယ်ရှားမည်လော</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">ဤသည် remote storage မှ မကြာသေးခင်က sync လုပ်ထားသည့် စာဖတ်စာရင်းအားလုံးကို လုံးဝဥသုံ ဖျက်ပစ်မည်ဖြစ်သည်။ သင်၏အကောင့် \"%s\" မှ sync လုပ်ထားသော စာရင်းအားလုံးကို ဖယ်ရှားမည်လော။</string>
-  <string name="preferences_privacy_settings_heading">ကိုယ်ရေးမူဝါဒ</string>
-  <string name="preference_title_eventlogging_opt_in">အသုံးပြုမှု အစီရင်ခံချက်များအား ပို့ရန်</string>
-  <string name="preference_summary_eventlogging_opt_in">အက်ပ်အား ပိုမိုကောင်းမွန်လာစေရန် သင်အသုံးပြုပုံ အချက်အလက်များ ရယူစုဆောင်းနိုင်ရန် ဝီကီမီဒီယာအား ခွင့်ပြုပါ</string>
   <string name="preference_title_auto_upload_crash_reports">ပျက်မှု အစီရင်ခံချက်များအား ပို့ရန်</string>
   <string name="preference_summary_auto_upload_crash_reports">တတိယဝန်ဆောင်မှုလုပ်ငန်းသို့ အက်ပ်မှ ပျက်မှု အစီရင်ခံချက်များအား အလိုအလျောက် ပေးပို့စေခြင်းဖြင့် သင့်အစီရင်ခံချက်ကို လွယ်ကူလျှင်မြန်စွာ ကြည့်ရှုပြင်ဆင်နိုင်စေရန် ခွင့်ပြုပါ။</string>
   <string name="editing_error_spamblacklist">ပိတ်ပင်ထားသော ဒိုမိန်းများ (%s) သို့ ချိတ်ဆက်ထားမှု ရှိနေသည်။ ကျေးဇူးပြု၍ ယင်းတို့ကို ဖယ်ရှားပြီး ထပ်မံကြိုးစားပါ။</string>
@@ -349,6 +346,7 @@
   <string name="page_offline_notice_cannot_load_while_offline">အင်တာနက်မရှိချိန်တွင် ဆောင်းပါးများကို ဖတ်ရှုရန် မဖြစ်နိုင်ပါ။</string>
   <string name="page_offline_notice_add_to_reading_list">အရိပ်အမြွက်: ဆောင်းပါးကို စာဖတ်စာရင်းသို့ ပေါင်းထည့်ပါ၊ အွန်လိုင်းပြန်ဖြစ်လာချိန်တွင် ယင်းသည် ဒေါင်းလုတ်ဆွဲသွားပါလိမ့်မည်။</string>
   <string name="page_offline_notice_last_date">သင်သည် %s တွင်သိမ်းထားသော ဤဆောင်းပါး၏ အော့ဖ်လိုင်းဗားရှင်းကို ဖတ်ရှုနေခြင်းဖြစ်ပါသည်။</string>
+  <string name="redirected_from_snackbar">\"%s\" မှ ပြန်ညွှန်းထားသည်</string>
   <string name="button_get_directions">လမ်းညွှန် ရယူရန်</string>
   <string name="error_no_maps_app">ဤလမ်းညွှန်ချက်အား ထောက်ပံ့ပေးနိုင်သည့် app များ ရှာမတွေ့ပါ။</string>
   <string name="preference_title_customize_explore_feed">Feed ကိုစူးစမ်းပါ</string>
@@ -367,6 +365,10 @@
   <string name="multi_select_items_selected">%d ရွေးချယ်ခဲ့။</string>
   <string name="error_message_generic">အမှားတစ်ခု ဖြစ်ခဲ့သည်</string>
   <string name="view_link_preview_error_button_dismiss">ဖြုတ်ရန်</string>
+  <string name="link_preview_dialog_read_button">ဖတ်ရန်</string>
+  <string name="link_preview_dialog_save_button">သိမ်းရန်</string>
+  <string name="link_preview_dialog_saved_button">သိမ်းဆည်းပြီး</string>
+  <string name="link_preview_dialog_share_button">မျှဝေ</string>
   <string name="error_page_does_not_exist">ဤစာမျက်နှာ မရှိပါ</string>
   <string name="view_wiki_error_message_offline">အင်တာနက်သို့ ချိတ်ဆက်နိုင်ခြင်း မရှိပါ။</string>
   <string name="view_wiki_error_message_timeout">ဝီကီပီးဒီးယားသို့ ချိတ်ဆက်မရနိုင်ပါ။ သင်၏ နက်ဝတ်ကွန်နက်ရှင်ကိုစစ်ဆေးပါ သို့မဟုတ် ကြုံမှထပ်မံကြိုးစားကြည့်ပါ။</string>
@@ -716,8 +718,10 @@
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
   <string name="description_edit_tutorial_machine_suggestions_title">စက်အကြံပြုချက်များ</string>
   <string name="customize_toolbar_category_menu">မီးနူး</string>
+  <string name="customize_toolbar_reset_to_default_button">နဂိုအတိုင်း ပြန်သွားရန်</string>
   <string name="suggested_edits_describe_articles">ဆောင်းပါးများ ဖော်ပြရန်</string>
   <string name="suggested_edits_caption_images">ရုပ်ပုံများကို ပုံစံသတ်မှတ်ရန်</string>
+  <string name="suggested_edits_edit_patrol_review">ပြန်လည်ဆန်းစစ်</string>
   <string name="suggested_edits_review_description">ဆောင်းပါးဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="suggested_edits_edit_description_button">ဖော်ပြချက် တည်းဖြတ်ရန်</string>
@@ -832,7 +836,11 @@
   <string name="suggested_card_more_edits">ပိုမို၍ အကြံပြုထားသော တည်းဖြတ်မှုများ</string>
   <string name="suggested_edits_article_descriptions_dialog_title">အကြံပြုထားသော ဖော်ပြချက်များ</string>
   <string name="suggested_edits_descriptions_not_enough_info_suggestion">လုံလောက်မှုမရှိသော သတင်းအချက်အလက်</string>
+  <string name="suggested_edits_report_suggestion">အစီရင်ခံရန်</string>
   <string name="suggested_edits_contribution_diff_count_text">{{ဗဟုဝုစ်ကိန်း|တစ်=%1$s သွင်ပြင်လက္ခဏာ|%1$s သွင်ပြင်လက္ခဏာများ}}</string>
+  <string name="image_recommendation_reject_other">အခြား</string>
+  <string name="image_recommendation_reject_submit">ထည့်သွင်းရန်</string>
+  <string name="image_recommendation_tooltip_next">ရှေ့</string>
   <string name="file_page_activity_title">ဖိုင်စာမျက်နှာ</string>
   <string name="file_page_add_image_caption_button">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန်</string>
   <string name="file_page_edit_button_content_description">တည်းဖြတ်မှု %s</string>
@@ -854,8 +862,7 @@
   <string name="onboarding_explore_text">စဉ်ဆက်မပြတ် မွမ်းမံလျက်ရှိသော စူးစမ်းရေးအခင်းအကျင်းနှင့် ဝီကီပီးဒီးယား ယုန်တွင်းပေါက်သို့ ခုန်ဆင်းလိုက်ပါ။ &lt;br/&gt;သင် စိတ်ဝင်စားသော အခင်းအကျင်းကို &lt;b&gt;မွမ်းမံပြင်ဆင်ပါ&lt;/b&gt; - သမိုင်းဝင်ဖြစ်ရပ်များကို &lt;b&gt;ယနေ့ဖြစ်ရပ်များ&lt;/b&gt;၊ သို့မဟုတ် &lt;b&gt;ကျပန်း&lt;/b&gt;ဖြင့် အန်စာတုံးကို လှည့်ကာ လေ့လာနိုင်ပါသည်။</string>
   <string name="onboarding_reading_list_sync_title">Sync နှင့် စာဖတ်စာရင်းများ</string>
   <string name="onboarding_reading_list_sync_text_v2">အော့ဖ်လိုင်းဖြစ်နေစဉ်တွင်တောင်မှ နောင်အခါ သင်ဖတ်ရှုလိုသော ဆောင်းပါးများကို စာဖတ်စာရင်းများအဖြစ် ပြုလုပ်နိုင်ပါသည်။ &lt;br/&gt;သင်၏ ဖတ်ရှုစာရင်းများကို ဝီကီပီးဒီးယားအကောင့်ထဲတွင် sync လုပ်ရန် လော့အင်ဝင်ရောက်ပါ။ &lt;a href=\"#login\"&gt;ဝီကီပီးဒီးယားသို့ ချိတ်ဆက်ပါ&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">အမည်မသိဒေတာကို ပို့ရန်</string>
-  <string name="onboarding_analytics_offline_text">သင် မည်ကဲ့သို့အသုံးချသည်ကို ကျွန်ုပ်တို့အားပြောပြပြီး ဆော့ဝဲလ်ကို ပိုမိုကောင်းမွန်လာအောင် ကူညီပါ။ ဒေတာစုဆောင်းခြင်းမှာ အမည်မသိစနစ်ဖြစ်သည်။ &lt;a href=\"#privacy\"&gt;ပိုမိုလေ့လာရန်&lt;/a&gt;</string>
+  <string name="onboarding_data_privacy_title">ဒေတာနှင့် ကိုယ်ရေးကိုယ်တာ</string>
   <string name="onboarding_analytics_switch_title">အသုံးပြုဒေတာကို ပို့ရန်</string>
   <string name="onboarding_got_it">ရပြီဟေ့</string>
   <string name="onboarding_multilingual_secondary_text">သင်၏စက်ပစ္စည်းပေါ်တွင် အောက်ပါများကို တွေ့ရှိပါသည်:</string>
@@ -930,6 +937,7 @@
   <string name="insert_media_advanced_settings_image_size_custom_width">အကျယ်</string>
   <string name="insert_media_advanced_settings_image_size_custom_height">အမြင့်</string>
   <string name="insert_media_insert_button">ထည့်သွင်းရန်</string>
+  <string name="templates_learn_more_link">ပိုမို လေ့လာရန်</string>
   <string name="main_drawer_help">အကူအညီ</string>
   <string name="main_drawer_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
   <string name="main_tooltip_text">ဟိုင်း %s၊ ဝီကီပီးဒီးယားကို လူတိုင်းတည်းဖြတ်နိုင်တယ်ဆိုတာ သင်သိပါသလား</string>
@@ -942,6 +950,8 @@
   <string name="custom_date_picker_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
   <string name="talk_title">ဆွေးနွေး</string>
   <string name="talk_user_title">ဆွေးနွေးချက်: %s</string>
+  <string name="talk_warn_save_dialog_publish">လွှင့်တင်ရန်</string>
+  <string name="talk_warn_save_dialog_cancel">မလုပ်တော့ပါ</string>
   <string name="talk_page_empty">ဤဆွေးနွေးချက်စာမျက်နှာမှာ ဗလာဖြစ်နေသည်။</string>
   <string name="talk_add_reply">အကြောင်းပြန်ရန်</string>
   <string name="talk_no_subject">(အကြောင်းအရာ မရှိ)</string>
@@ -982,6 +992,8 @@
   <string name="menu_option_view_user_contributions">အသုံးပြုသူများ၏ ပံ့ပိုးမှုများကို ကြည့်ရန်</string>
   <string name="revision_diff_from">မှ -</string>
   <string name="revision_diff_to">သို့ -</string>
+  <string name="revision_undo_summary_hint">အနှစ်ချုပ် (ချန်လှပ်ထားနိုင်သည်)</string>
+  <string name="revision_undo_reason">ပြန်လည်ပြောင်းလဲခြင်း အကြောင်းရင်းကို မျှဝေပါ</string>
   <string name="revision_compare_button">နှိုင်းယှဉ်ရန်</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_action">ပြောင်းလဲရန်</string>
   <string name="watchlist_page_add_to_watchlist_snackbar_period_permanently">အပြီးအပိုင်</string>
@@ -1002,6 +1014,8 @@
   <string name="watchlist_page_moved">ရွေ့ပြောင်းခဲ့</string>
   <string name="watchlist_page_protected">ကာကွယ်ခဲ့သည်</string>
   <string name="watchlist_page_deleted">ဖျက်ပြီးပြီ</string>
+  <string name="watchlist_filter_user_status_unregistered">မှတ်ပုံမတင်ထားသူ</string>
+  <string name="watchlist_filter_user_status_registered">မှတ်ပုံတင်ထားသူ</string>
   <string name="watchlist_filter_user_status_newcomers">လူသစ်များ</string>
   <string name="watchlist_filter_user_status_learners">လေ့လာသူများ</string>
   <string name="watchlist_filter_user_status_experienced">အတွေ့အကြုံရှိ အသုံးပြုသူများ</string>
@@ -1034,6 +1048,20 @@
   <string name="user_contrib_menu_label">ဆောင်ရွက်ချက်များ</string>
   <string name="shareable_reading_lists_new_install_dialog_got_it">သဘောပေါက်ပြီ</string>
   <string name="reading_list_share_menu_label">မျှဝေ...</string>
+  <string name="patroller_tasks_edits_list_card_overflow_user_information">အသုံးပြုသူ သတင်းအချက်အလက်</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_title">အသုံးပြုသူ သတင်းအချက်အလက်</string>
+  <string name="patroller_tasks_edits_list_user_information_dialog_close">ပိတ်ရန်</string>
+  <string name="patroller_tasks_filters_user_status_unregistered">မှတ်ပုံမတင်ထားသူ</string>
+  <string name="patroller_tasks_filters_user_status_registered">မှတ်ပုံတင်ထားသူ</string>
+  <string name="patroller_tasks_filters_user_status_experienced">အတွေ့အကြုံရှိ အသုံးပြုသူများ</string>
+  <string name="patroller_tasks_filters_significance_minor">အရေးမကြီးသည့် တည်းဖြတ်မှုများ</string>
+  <string name="patroller_tasks_patrol_edit_overflow_edit_history">ဆောင်းပါး တည်းဖြတ်မှုမှတ်တမ်း</string>
+  <string name="patroller_tasks_overflow_learn">ပိုမို လေ့လာရန်</string>
+  <string name="patroller_diff_feedback_dialog_input_hint">အကြံပေးရန်</string>
+  <string name="patroller_diff_feedback_dialog_submit">ထည့်သွင်းရန်</string>
+  <string name="patroller_diff_feedback_submitted_snackbar">အကြံပြုချက် တင်သွင်းခဲ့သည်။</string>
   <string name="data_opt_in_accept">လက်ခံ</string>
   <string name="data_opt_in_reject">ပယ်ချရန်</string>
+  <string name="donation_campaign_go_back_button">နောက်သို့ ပြန်သွားရန်</string>
+  <string name="places_survey_dialog_cancel">မလုပ်တော့ပါ</string>
 </resources>

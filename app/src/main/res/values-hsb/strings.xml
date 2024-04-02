@@ -166,9 +166,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Synchronizuj čitanske lisćiny na wšelakich aparatach přez składowanje lisćinow w twojim wužiwarskim konće \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Synchronizowane lisćiny wot \"%s\" wotstronić?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Tak wotstronja so wšitke dotal synchronizowane čitanske lisćiny dospołnje ze składa. Chceš synchronizowane lisćiny ze swojeho wužiwarskeho konta „%s“ wotstronić?</string>
-  <string name="preferences_privacy_settings_heading">Datowy škit</string>
-  <string name="preference_title_eventlogging_opt_in">Wužiwanske rozprawy pósłać</string>
-  <string name="preference_summary_eventlogging_opt_in">Wikimediji dowolić zběranje informacije wo wužiwanju app, zo móhli ju polěpšeć.</string>
   <string name="preference_title_auto_upload_crash_reports">Rozprawy wo spadnjenju pósłać</string>
   <string name="editing_error_spamblacklist">Wotkazy na zablokowane domeny (%s) buchu namakane. Prošu wotstroń je a spytaj znowa.</string>
   <string name="error_can_not_process_link">Tutón wotkaz njeda so pokazać</string>

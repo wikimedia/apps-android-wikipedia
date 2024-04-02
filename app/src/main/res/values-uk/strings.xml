@@ -131,7 +131,6 @@
   <string name="map_view_link_text">Переглянути на мапі</string>
   <string name="other_languages_indication_text">Читати іншою мовою</string>
   <string name="language_count_link_text">Доступно %d іншими мовами</string>
-  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та остаточно публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Зберігаючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, та невідклично публікуєте свій внесок під ліцензією &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt;. Редагування будуть пов\'язані з IP-адресою вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете до системи&lt;/a&gt;, то матимете більше приватності.</string>
   <string name="edit_anon_warning">Редагування будуть приписані ІР-адресі вашого пристрою. Якщо ви &lt;a href=\"https://#login\"&gt;увійдете в систему&lt;/a&gt;, ваші дії будуть більш конфіденційними.</string>
@@ -232,9 +231,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Синхронізовувати списки читання на різних пристроях, зберігаючи їх у вашому обліковому записі Вікіпедії «%s»</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Вилучити синхронізовані читальні списки з «%s»?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Це повністю вилучить усі раніше синхронізовані списки, збережені віддалено. Вилучити всі списки з вашої обліковки «%s»?</string>
-  <string name="preferences_privacy_settings_heading">Конфіденційність</string>
-  <string name="preference_title_eventlogging_opt_in">Надсилати звіти про використання</string>
-  <string name="preference_summary_eventlogging_opt_in">Дозволити Вікімедіа збір інформації про те, як ви використовуєте додаток, щоб зробити його кращим</string>
   <string name="preference_title_auto_upload_crash_reports">Надсилати звіти про аварійне завершення роботи</string>
   <string name="preference_summary_auto_upload_crash_reports">Дозволити додатку відправляти автоматичні звіти про збої сторонньому сервіс-провайдеру, щоб ми могли розглянути ваш збій і виправити помилки швидше і легше.</string>
   <string name="editing_error_spamblacklist">Виявлено посилання на заблоковані домени (%s). Будь ласка, вилучіть їх і спробуйте знову.</string>
@@ -269,7 +265,7 @@
   <string name="about_translators_heading">Перекладачі</string>
   <string name="about_translators_translatewiki">Цей додаток був перекладений перекладачами-волонтерами на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцензія</string>
-  <string name="about_app_license">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
+  <string name="about_app_license" fuzzy="true">Вихідний код доступний на &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; та &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; під ліцензією &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0&lt;/a&gt;. Якщо не вказано інше, вміст доступний під ліцензією &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Attribution-ShareAlike&lt;/a&gt;.</string>
   <string name="about_wmf">Продукт &lt;a href=\"https://wikimediafoundation.org/\"&gt;Фонду Вікімедіа&lt;/a&gt;</string>
   <string name="about_activity_title">Про програму</string>
   <string name="edit_abandon_confirm">Сторінка була змінена. Ви впевнені, що хочете вийти без збереження змін?</string>
@@ -821,8 +817,8 @@
   <string name="notifications_menu_uncheck_all">Зніміть прапорці з усіх елементів</string>
   <string name="notifications_wiki_filter_header">Фільтр вікі</string>
   <string name="notifications_type_filter_header">Тип фільтра</string>
-  <string name="notifications_all_wikis_text">Усі «вікі»</string>
-  <string name="notifications_all_types_text">Всі «тип»</string>
+  <string name="notifications_all_wikis_text" fuzzy="true">Усі «вікі»</string>
+  <string name="notifications_all_types_text" fuzzy="true">Всі «тип»</string>
   <string name="notifications_menu_user_talk_page">сторінка обговорення %s</string>
   <string name="notifications_offline_disable_message">Функція недоступна в автономному режимі.</string>
   <string name="view_because_you_read_card_title">Оскільки Ви читали</string>
@@ -1201,8 +1197,6 @@
   <string name="onboarding_explore_text">Пірнайте у кролячу нору Вікіпедії, гортаючи постійно оновлювану стрічку. &lt;br/&gt; &lt;b&gt;Налаштуйте&lt;/b&gt; стрічку за своїми інтересами — можете дізнаватися про історичні події &lt;b&gt;Цього дня&lt;/b&gt; або покластися на &lt;b&gt;Випадкові&lt;/b&gt; статті.</string>
   <string name="onboarding_reading_list_sync_title">Синхронізовані читальні списки</string>
   <string name="onboarding_reading_list_sync_text_v2">Ви можете укладати списки читання зі статей, які хочете почитати пізніше, навіть коли ви офлайн. &lt;br/&gt;Увійдіть у свій обліковий запис Вікіпедії, щоб синхронізувати свої списки читання. &lt;a href=\"#login\"&gt;Увійти у Вікіпедію&lt;/a&gt;</string>
-  <string name="onboarding_analytics_title">Надіслати анонімні дані</string>
-  <string name="onboarding_analytics_offline_text">Допоможіть нам покращити додаток, повідомляючи, як ви його використовуєте. Зібрані дані анонімні. &lt;a href=\"#privacy\"&gt;Дізнатись більше&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Надсилати дані використання</string>
   <string name="onboarding_got_it">Зрозуміло</string>
   <string name="onboarding_multilingual_secondary_text">Ми знайшли такі мови на Вашому пристрої:</string>
@@ -1333,8 +1327,6 @@
   <string name="talk_warn_save_dialog_cancel">Скасувати</string>
   <string name="talk_warn_submitted">Повідомлення опубліковано на сторінці обговорення користувача</string>
   <string name="talk_warn_submitted_and_saved">Повідомлення збережено та опубліковано на сторінці обговорення користувача</string>
-  <string name="talk_warn_saved_message">Виберіть наявне попередження або створіть нове повідомлення.</string>
-  <string name="talk_warn_saved_message_dropdown">Збережені повідомлення</string>
   <string name="talk_page_empty">Ця сторінка обговорення порожня.</string>
   <string name="talk_page_empty_title">Розмова починається тут</string>
   <string name="talk_page_empty_content">Сторінки обговорення — це місце, де люди обговорюють, як зробити вміст Вікіпедії якнайкращим. Почніть із додавання нової теми для обговорення, щоб зв\'язатися та співпрацювати зі спільнотою вікіпедистів.</string>
@@ -1419,7 +1411,6 @@
   <string name="revision_diff_from">Від:</string>
   <string name="revision_diff_to">До:</string>
   <string name="revision_diff_line_num">Рядок %d</string>
-  <string name="revision_diff_line_nums">Рядки %d—%d</string>
   <string name="revision_diff_lines_from_to">Рядки %1$d–%2$d</string>
   <string name="revision_diff_line_added">Рядок додано</string>
   <string name="revision_diff_line_removed">Рядок вилучено</string>
@@ -1545,10 +1536,8 @@
   <string name="reading_list_share_message_v2">Привіт! Хочу поділитися з вами своїм списком для читання у Вікіпедії:</string>
   <string name="reading_list_share_survey_title">Чи могли б ви допомогти нам покращити функцію спільних списків для читання?</string>
   <string name="reading_list_share_survey_body">Спільні списки читання є тестовою функцією і нам потрібні ваші відгуки, щоб ми могли її покращити або прибрати.</string>
-  <string name="talk_templates_manage_title">Керування шаблонами</string>
-  <string name="talk_templates_empty_message">У вас немає збережених попереджень.</string>
+  <string name="talk_templates_empty_message" fuzzy="true">У вас немає збережених попереджень.</string>
   <string name="talk_templates_new_message_title">Нове повідомлення</string>
-  <string name="talk_templates_new_message_description">Створіть попереджувальне повідомлення.</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
   <string name="talk_templates_new_message_compose_hint">Написати повідомлення</string>
   <string name="talk_templates_new_message_save">Зберегти</string>
@@ -1564,7 +1553,6 @@
   <string name="talk_templates_edit_message_dialog_delete">Вилучити</string>
   <string name="talk_templates_edit_message_updated">Повідомлення оновлено</string>
   <string name="talk_templates_message_deleted" fuzzy="true">Повідомлення вилучено</string>
-  <string name="patroller_tasks_edits_list_title">Список редагувань</string>
   <string name="patroller_tasks_edits_list_search_hint">Шукати або фільтрувати редагування</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Мітки: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Немає</string>
@@ -1626,7 +1614,6 @@
     <item quantity="many">%d фільтрів</item>
     <item quantity="other">%d фільтрів</item>
   </plurals>
-  <string name="patroller_tasks_patrol_edit_title">Відпатрулювати редагування</string>
   <string name="patroller_tasks_patrol_edit_overflow_edit_history">Історія редагування статті</string>
   <string name="patroller_tasks_patrol_edit_undo_success">Скасування виконано</string>
   <string name="patroller_tasks_patrol_edit_rollback_dialog_title">Ви дійсно хочете відкинути?</string>

@@ -6,7 +6,16 @@ import org.wikipedia.dataclient.discussiontools.DiscussionToolsEditResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsInfoResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscribeResponse
 import org.wikipedia.dataclient.discussiontools.DiscussionToolsSubscriptionList
-import org.wikipedia.dataclient.mwapi.*
+import org.wikipedia.dataclient.donate.PaymentResponseContainer
+import org.wikipedia.dataclient.mwapi.CreateAccountResponse
+import org.wikipedia.dataclient.mwapi.MwParseResponse
+import org.wikipedia.dataclient.mwapi.MwPostResponse
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.mwapi.MwStreamConfigsResponse
+import org.wikipedia.dataclient.mwapi.ParamInfoResponse
+import org.wikipedia.dataclient.mwapi.ShortenUrlResponse
+import org.wikipedia.dataclient.mwapi.SiteMatrix
+import org.wikipedia.dataclient.mwapi.TemplateDataResponse
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor
 import org.wikipedia.dataclient.rollback.RollbackPostResponse
 import org.wikipedia.dataclient.watch.WatchPostResponse
@@ -16,7 +25,13 @@ import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.dataclient.wikidata.Search
 import org.wikipedia.edit.Edit
 import org.wikipedia.login.LoginClient.LoginResponse
-import retrofit2.http.*
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Headers
+import retrofit2.http.POST
+import retrofit2.http.Query
 
 /**
  * Retrofit service layer for all API interactions, including regular MediaWiki and RESTBase.
@@ -32,7 +47,7 @@ interface Service {
     fun getPageImages(@Query("titles") titles: String): Observable<MwQueryResponse>
 
     @GET(
-        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|info&piprop=thumbnail" +
+        MW_API_PREFIX + "action=query&redirects=&converttitles=&prop=description|pageimages|coordinates|info&piprop=thumbnail" +
                 "&pilicense=any&generator=prefixsearch&gpsnamespace=0&inprop=varianttitles|displaytitle&pithumbsize=" + PREFERRED_THUMB_SIZE
     )
     suspend fun prefixSearch(@Query("gpssearch") searchTerm: String?,
@@ -41,7 +56,7 @@ interface Service {
 
     @GET(
         MW_API_PREFIX + "action=query&converttitles=" +
-                "&prop=description|pageimages|pageprops|info&ppprop=mainpage|disambiguation" +
+                "&prop=description|pageimages|pageprops|coordinates|info&ppprop=mainpage|disambiguation" +
                 "&generator=search&gsrnamespace=0&gsrwhat=text" +
                 "&inprop=varianttitles|displaytitle" +
                 "&gsrinfo=&gsrprop=redirecttitle&piprop=thumbnail&pilicense=any&pithumbsize=" +
@@ -49,9 +64,8 @@ interface Service {
     )
     suspend fun fullTextSearch(
         @Query("gsrsearch") searchTerm: String?,
-        @Query("gsroffset") gsrOffset: String?,
         @Query("gsrlimit") gsrLimit: Int,
-        @Query("continue") cont: String?
+        @Query("gsroffset") gsrOffset: Int?
     ): MwQueryResponse
 
     @GET(MW_API_PREFIX + "action=query&list=allusers&auwitheditsonly=1")
@@ -65,10 +79,22 @@ interface Service {
                 "&gsrnamespace=6&iiurlwidth=" + PREFERRED_THUMB_SIZE
     )
     suspend fun fullTextSearchCommons(
-        @Query("gsrsearch") searchTerm: String?,
-        @Query("gsroffset") gsrOffset: String?,
+        @Query("gsrsearch") searchTerm: String,
         @Query("gsrlimit") gsrLimit: Int,
-        @Query("continue") cont: String?
+        @Query("gsroffset") gsrOffset: Int?,
+    ): MwQueryResponse
+
+    @GET(
+        MW_API_PREFIX + "action=query&converttitles=" +
+                "&prop=description|info" +
+                "&generator=search&gsrnamespace=0&gsrwhat=text" +
+                "&inprop=varianttitles|displaytitle" +
+                "&gsrinfo=&gsrprop=redirecttitle"
+    )
+    suspend fun fullTextSearchTemplates(
+        @Query("gsrsearch") searchTerm: String,
+        @Query("gsrlimit") gsrLimit: Int,
+        @Query("gsroffset") gsrOffset: Int?,
     ): MwQueryResponse
 
     @GET(
@@ -154,7 +180,7 @@ interface Service {
     fun parseText(@Query("text") text: String): Observable<MwParseResponse>
 
     @GET(MW_API_PREFIX + "action=parse&prop=text&mobileformat=1&mainpage=1")
-    fun parseTextForMainPage(@Query("page") mainPageTitle: String): Observable<MwParseResponse>
+    suspend fun parseTextForMainPage(@Query("page") mainPageTitle: String): MwParseResponse
 
     @GET(MW_API_PREFIX + "action=query&prop=info&generator=categories&inprop=varianttitles|displaytitle&gclshow=!hidden&gcllimit=500")
     suspend fun getCategories(@Query("titles") titles: String): MwQueryResponse
@@ -211,6 +237,35 @@ interface Service {
         @Query("ggslimit") ggsLimit: Int,
         @Query("colimit") coLimit: Int,
     ): MwQueryResponse
+
+    @GET("api.php?format=json&action=getPaymentMethods")
+    suspend fun getPaymentMethods(@Query("country") country: String): PaymentResponseContainer
+
+    @FormUrlEncoded
+    @POST("api.php?format=json&action=submitPayment")
+    suspend fun submitPayment(
+        @Field("amount") amount: String,
+        @Field("app_version") appVersion: String,
+        @Field("banner") banner: String,
+        @Field("city") city: String,
+        @Field("country") country: String,
+        @Field("currency") currency: String,
+        @Field("donor_country") donorCountry: String,
+        @Field("email") email: String,
+        @Field("first_name") firstName: String,
+        @Field("full_name") fullName: String,
+        @Field("language") language: String,
+        @Field("last_name") lastName: String,
+        @Field("recurring") recurring: String,
+        @Field("payment_token") paymentToken: String,
+        @Field("opt_in") optIn: String,
+        @Field("pay_the_fee") payTheFee: String,
+        @Field("payment_method") paymentMethod: String,
+        @Field("payment_network") paymentNetwork: String,
+        @Field("postal_code") postalCode: String,
+        @Field("state_province") stateProvince: String,
+        @Field("street_address") streetAddress: String
+    ): PaymentResponseContainer
 
     // ------- CSRF, Login, and Create Account -------
 
@@ -385,6 +440,7 @@ interface Service {
     suspend fun getUserContributions(
         @Query("ucuser") username: String,
         @Query("uclimit") maxCount: Int,
+        @Query("ucnamespace") ns: Int?,
         @Query("uccontinue") uccontinue: String?
     ): MwQueryResponse
 
@@ -656,6 +712,10 @@ interface Service {
     suspend fun getParamInfo(
         @Query("modules") modules: String
     ): ParamInfoResponse
+
+    @GET(MW_API_PREFIX + "action=templatedata&includeMissingTitles=&converttitles=")
+    suspend fun getTemplateData(@Query("lang") langCode: String,
+                                @Query("titles") titles: String): TemplateDataResponse
 
     companion object {
         const val WIKIPEDIA_URL = "https://wikipedia.org/"

@@ -203,9 +203,6 @@
   <string name="preference_summary_sync_reading_lists_from_account">Sincronizza i liste de lettura in su diversi dispositif cont el salvai in del to cunt Wikipedia \"%s\"</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">Toeu via i liste de lettura sincronizzade de \"%s\"?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">Questa azzion la scancelarà del tut tucce i list de lettura sincronizzad in del claud. Te voeuret toeu via tucce i liste sincronizzade de l\'utenza «%s»?</string>
-  <string name="preferences_privacy_settings_heading">Riservatezza</string>
-  <string name="preference_title_eventlogging_opt_in">Manda di raport sora l\'utilizazzion</string>
-  <string name="preference_summary_eventlogging_opt_in">Autoriza Wikimedia a catà su di informazzion sora la toa utilizazzion de l\'aplicazzion per pode migliorala.</string>
   <string name="preference_title_auto_upload_crash_reports">Invia di segnalazzion de eror</string>
   <string name="preference_summary_auto_upload_crash_reports">Permet a l\'aplicazzion de invià in automatich i raport sora i arrest anormai a un terz fornidor de servizzi, de manera de podè toeu in esamm el to arrest anormal e corrensg l\'eror pussée failcment e a la svelta.</string>
   <string name="editing_error_spamblacklist">A l\'è stad rilevad un conligament a \'n domini blocad (%s). Teouvel via e preouva anmò.</string>
