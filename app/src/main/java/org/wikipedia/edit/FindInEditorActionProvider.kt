@@ -72,11 +72,15 @@ class FindInEditorActionProvider(private val scrollView: View,
 
     private fun scrollToCurrentResult() {
         setMatchesResults(currentResultIndex, resultPositions.size)
-        val textPosition = resultPositions.getOrElse(currentResultIndex) { return }
-        textView.setSelection(textPosition, textPosition + searchQuery.orEmpty().length)
+        var highlightLength = searchQuery.orEmpty().length
+        val textPosition = resultPositions.getOrElse(currentResultIndex) {
+            highlightLength = 0
+            0
+        }
+        textView.setSelection(textPosition, textPosition + highlightLength)
         val r = Rect()
         textView.getFocusedRect(r)
         scrollView.scrollTo(0, r.top - DimenUtil.roundedDpToPx(32f))
-        syntaxHighlighter.setSearchQueryInfo(resultPositions, searchQuery.orEmpty().length, currentResultIndex)
+        syntaxHighlighter.setSearchQueryInfo(resultPositions, highlightLength, currentResultIndex)
     }
 }
