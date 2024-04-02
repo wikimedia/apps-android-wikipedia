@@ -11,7 +11,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.LongPressMenu
 import org.wikipedia.readinglist.database.ReadingListPage
-import org.wikipedia.settings.SiteInfoClient
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.views.ImageZoomHelper
 
 @Suppress("LeakingThis")
@@ -111,7 +111,7 @@ open class FeaturedArticleCardView(context: Context) : DefaultFeedCardView<Featu
         get() = CardFooterView.Callback {
             card?.let {
                 callback?.onSelectPage(it, HistoryEntry(PageTitle(
-                    SiteInfoClient.getMainPageForLang(it.wikiSite().languageCode), it.wikiSite()),
+                    MainPageNameData.valueFor(it.wikiSite().languageCode), it.wikiSite()),
                     it.historyEntry().source), false
                 )
             }
