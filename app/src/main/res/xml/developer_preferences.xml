@@ -123,11 +123,6 @@
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
-            android:key="@string/preference_key_login_user_id_map"
-            android:title="@string/preference_key_login_user_id_map" />
-
-        <org.wikipedia.settings.EditTextAutoSummarizePreference
-            style="@style/DataStringPreference"
             android:key="@string/preference_key_language"
             android:title="@string/preference_key_language" />
 

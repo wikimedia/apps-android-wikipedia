@@ -32,7 +32,6 @@ object AccountUtil {
             return
         }
         setPassword(result.password)
-        putUserIdForLanguage(result.site.languageCode, result.userId)
         groups = result.groups
     }
 
@@ -50,14 +49,6 @@ object AccountUtil {
             val account = account()
             return if (account == null) null else accountManager().getPassword(account)
         }
-
-    fun getUserIdForLanguage(code: String): Int {
-        return userIds.getOrElse(code) { 0 }
-    }
-
-    fun putUserIdForLanguage(code: String, id: Int) {
-        userIds += code to id
-    }
 
     var groups: Set<String>
         get() {
@@ -141,19 +132,6 @@ object AccountUtil {
             accountManager().setPassword(account, password)
         }
     }
-
-    private var userIds: Map<String, Int>
-        get() {
-            val account = account() ?: return emptyMap()
-            val mapStr = accountManager().getUserData(account, WikipediaApp.instance.getString(R.string.preference_key_login_user_id_map))
-            return if (mapStr.isNullOrEmpty()) emptyMap() else (JsonUtil.decodeFromString(mapStr) ?: emptyMap())
-        }
-        private set(ids) {
-            val account = account() ?: return
-            accountManager().setUserData(account,
-                    WikipediaApp.instance.getString(R.string.preference_key_login_user_id_map),
-                    JsonUtil.encodeToString(ids))
-        }
 
     private fun accountManager(): AccountManager {
         return AccountManager.get(WikipediaApp.instance)

@@ -25,8 +25,18 @@ class SharedPreferenceCookieManager(
     @Synchronized
     fun getCookieValueByName(name: String): String? {
         for (domainSpec in cookieJar.keys) {
-            for (cookie in cookieJar[domainSpec]!!) {
-                if (cookie.name == name) {
+            getCookieByName(name, domainSpec)?.let {
+                return it
+            }
+        }
+        return null
+    }
+
+    @Synchronized
+    fun getCookieByName(name: String, domainSpec: String, matchExactName: Boolean = true): String? {
+        cookieJar[domainSpec]?.let { cookies ->
+            for (cookie in cookies) {
+                if (if (matchExactName) cookie.name == name else cookie.name.contains(name, ignoreCase = false)) {
                     return cookie.value
                 }
             }

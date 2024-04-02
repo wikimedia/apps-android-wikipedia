@@ -10,7 +10,6 @@ import android.speech.RecognizerIntent
 import android.view.Window
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.internal.functions.Functions
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -33,7 +32,6 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ReleaseUtil
@@ -79,13 +77,7 @@ class WikipediaApp : Application() {
         }
 
     val appOrSystemLanguageCode: String
-        get() {
-            val code = languageState.appLanguageCode
-            if (AccountUtil.getUserIdForLanguage(code) == 0) {
-                getUserIdForLanguage(code)
-            }
-            return code
-        }
+        get() = languageState.appLanguageCode
 
     val versionCode: Int
         get() {
@@ -114,10 +106,7 @@ class WikipediaApp : Application() {
             // TODO: why don't we ensure that the app language hasn't changed here instead of the client?
             if (defaultWikiSite == null) {
                 val lang = if (Prefs.mediaWikiBaseUriSupportsLangCode) appOrSystemLanguageCode else ""
-                val newWiki = WikiSite.forLanguageCode(lang)
-                // Kick off a task to retrieve the site info for the current wiki
-                SiteInfoClient.updateFor(newWiki)
-                defaultWikiSite = newWiki
+                defaultWikiSite = WikiSite.forLanguageCode(lang)
             }
             return defaultWikiSite!!
         }
@@ -281,25 +270,6 @@ class WikipediaApp : Application() {
             result = Theme.fallback
         }
         return result
-    }
-
-    @SuppressLint("CheckResult")
-    private fun getUserIdForLanguage(code: String) {
-        if (!AccountUtil.isLoggedIn || AccountUtil.userName.isEmpty()) {
-            return
-        }
-        val wikiSite = WikiSite.forLanguageCode(code)
-        ServiceFactory.get(wikiSite).userInfo
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    if (AccountUtil.isLoggedIn && it.query!!.userInfo != null) {
-                        // noinspection ConstantConditions
-                        val id = it.query!!.userInfo!!.id
-                        AccountUtil.putUserIdForLanguage(code, id)
-                        L.d("Found user ID $id for $code")
-                    }
-                }) { L.e("Failed to get user ID for $code", it) }
     }
 
     private fun initTabs() {
