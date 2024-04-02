@@ -32,7 +32,6 @@ import org.wikipedia.notifications.NotificationPollBroadcastReceiver
 import org.wikipedia.page.tabs.Tab
 import org.wikipedia.push.WikipediaFirebaseMessagingService
 import org.wikipedia.settings.Prefs
-import org.wikipedia.settings.SiteInfoClient
 import org.wikipedia.theme.Theme
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ReleaseUtil
@@ -107,10 +106,7 @@ class WikipediaApp : Application() {
             // TODO: why don't we ensure that the app language hasn't changed here instead of the client?
             if (defaultWikiSite == null) {
                 val lang = if (Prefs.mediaWikiBaseUriSupportsLangCode) appOrSystemLanguageCode else ""
-                val newWiki = WikiSite.forLanguageCode(lang)
-                // Kick off a task to retrieve the site info for the current wiki
-                SiteInfoClient.updateFor(newWiki)
-                defaultWikiSite = newWiki
+                defaultWikiSite = WikiSite.forLanguageCode(lang)
             }
             return defaultWikiSite!!
         }
