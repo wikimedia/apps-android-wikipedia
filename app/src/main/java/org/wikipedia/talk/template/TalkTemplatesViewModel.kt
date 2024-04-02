@@ -19,13 +19,14 @@ import org.wikipedia.talk.TalkReplyActivity
 import org.wikipedia.talk.TalkReplyActivity.Companion.EXTRA_TEMPLATE_MANAGEMENT
 import org.wikipedia.talk.db.TalkTemplate
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.Resource
 import java.util.Collections
 
 class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
 
     private val talkTemplatesRepository = TalkTemplatesRepository(AppDatabase.instance.talkTemplateDao())
     private val handler = CoroutineExceptionHandler { _, throwable ->
-        _uiState.value = UiState.Error(throwable)
+        _uiState.value = Resource.Error(throwable)
     }
     private val actionHandler = CoroutineExceptionHandler { _, throwable ->
         _actionState.value = ActionState.Error(throwable)
@@ -33,7 +34,7 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
     val talkTemplatesList = mutableListOf<TalkTemplate>()
     val savedTemplatesList = mutableListOf<TalkTemplate>()
 
-    private val _uiState = MutableStateFlow(UiState())
+    private val _uiState = MutableStateFlow(Resource<Unit>())
     val uiState = _uiState.asStateFlow()
 
     private val _actionState = MutableStateFlow(ActionState())
@@ -53,9 +54,9 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
         viewModelScope.launch(handler) {
             withContext(Dispatchers.IO) {
                 talkTemplatesList.clear()
-                _uiState.value = UiState.Loading()
+                _uiState.value = Resource.Loading()
                 talkTemplatesList.addAll(talkTemplatesRepository.getAllTemplates())
-                _uiState.value = UiState.Success()
+                _uiState.value = Resource.Success(Unit)
             }
         }
     }
@@ -111,18 +112,13 @@ class TalkTemplatesViewModel(bundle: Bundle) : ViewModel() {
         }
     }
 
-    open class UiState {
-        class Loading : UiState()
-        class Success : UiState()
-        class Error(val throwable: Throwable) : UiState()
-    }
-
     open class ActionState {
         class Added : ActionState()
         class Deleted(val size: Int) : ActionState()
         class Error(val throwable: Throwable) : ActionState()
     }
-     class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
+
+    class Factory(private val bundle: Bundle) : ViewModelProvider.Factory {
         @Suppress("unchecked_cast")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return TalkTemplatesViewModel(bundle) as T
