@@ -253,7 +253,7 @@ class TalkTemplatesFragment : Fragment() {
         PatrollerExperienceEvent.logAction("message_deleted_toast", "pt_templates")
         PatrollerExperienceEvent.logAction("delete_message_success", "pt_warning_messages")
         val messageStr = resources.getQuantityString(R.plurals.talk_templates_message_deleted, size)
-        FeedbackUtil.makeSnackbar(requireActivity(), messageStr)
+        FeedbackUtil.makeSnackbar(binding.coordinatorView, messageStr)
             .setAction(R.string.reading_list_item_delete_undo) {
                 viewModel.saveTemplates(deletedItems)
             }
