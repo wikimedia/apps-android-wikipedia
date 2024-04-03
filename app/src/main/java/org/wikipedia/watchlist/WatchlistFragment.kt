@@ -44,6 +44,7 @@ import org.wikipedia.talk.UserTalkPopupHelper
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.Resource
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.NotificationButtonView
@@ -90,9 +91,9 @@ class WatchlistFragment : Fragment(), WatchlistItemView.Callback, MenuProvider {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.uiState.collect {
                     when (it) {
-                        is WatchlistViewModel.UiState.Loading -> onLoading()
-                        is WatchlistViewModel.UiState.Success -> onSuccess()
-                        is WatchlistViewModel.UiState.Error -> onError(it.throwable)
+                        is Resource.Loading -> onLoading()
+                        is Resource.Success -> onSuccess()
+                        is Resource.Error -> onError(it.throwable)
                     }
                 }
             }

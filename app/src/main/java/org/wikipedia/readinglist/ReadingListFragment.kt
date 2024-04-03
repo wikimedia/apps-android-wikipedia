@@ -51,7 +51,6 @@ import org.wikipedia.readinglist.database.ReadingListPage
 import org.wikipedia.readinglist.sync.ReadingListSyncEvent
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.RemoteConfig
-import org.wikipedia.settings.SiteInfoClient.maxPagesPerReadingList
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.*
@@ -288,8 +287,8 @@ class ReadingListFragment : Fragment(), MenuProvider, ReadingListItemActionsDial
             if (!toolbarExpanded) {
                 binding.readingListToolbarContainer.title = it.title
             }
-            if (!articleLimitMessageShown && it.pages.size >= maxPagesPerReadingList) {
-                val message = getString(R.string.reading_list_article_limit_message, readingList.title, maxPagesPerReadingList)
+            if (!articleLimitMessageShown && it.pages.size >= Constants.MAX_READING_LIST_ARTICLE_LIMIT) {
+                val message = getString(R.string.reading_list_article_limit_message, readingList.title, Constants.MAX_READING_LIST_ARTICLE_LIMIT)
                 FeedbackUtil.makeSnackbar(requireActivity(), message).show()
                 articleLimitMessageShown = true
             }

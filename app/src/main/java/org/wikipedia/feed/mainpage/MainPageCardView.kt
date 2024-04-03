@@ -9,7 +9,7 @@ import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.PageTitle
-import org.wikipedia.settings.SiteInfoClient.getMainPageForLang
+import org.wikipedia.staticdata.MainPageNameData
 import org.wikipedia.util.L10nUtil.getStringForArticleLanguage
 
 class MainPageCardView(context: Context) : DefaultFeedCardView<MainPageCard>(context) {
@@ -38,7 +38,7 @@ class MainPageCardView(context: Context) : DefaultFeedCardView<MainPageCard>(con
 
     private fun goToMainPage() {
         card?.let {
-            callback?.onSelectPage(it, HistoryEntry(PageTitle(getMainPageForLang(it.wikiSite().languageCode), it.wikiSite()),
+            callback?.onSelectPage(it, HistoryEntry(PageTitle(MainPageNameData.valueFor(it.wikiSite().languageCode), it.wikiSite()),
                 HistoryEntry.SOURCE_FEED_MAIN_PAGE), false)
         }
     }
