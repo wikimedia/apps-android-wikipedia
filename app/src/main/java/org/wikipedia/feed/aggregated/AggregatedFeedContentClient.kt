@@ -1,10 +1,12 @@
 package org.wikipedia.feed.aggregated
 
 import android.content.Context
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -23,7 +25,7 @@ import org.wikipedia.util.log.L
 class AggregatedFeedContentClient {
     private val aggregatedResponses = mutableMapOf<String, AggregatedFeedContent>()
     private var aggregatedResponseAge = -1
-    private val disposables = CompositeDisposable()
+    var clientJob: Job? = null
 
     class OnThisDayFeed(aggregatedClient: AggregatedFeedContentClient) :
         BaseClient(aggregatedClient) {
@@ -110,10 +112,6 @@ class AggregatedFeedContentClient {
         aggregatedResponseAge = -1
     }
 
-    fun cancel() {
-        disposables.clear()
-    }
-
     abstract class BaseClient internal constructor(private val aggregatedClient: AggregatedFeedContentClient) : FeedClient {
         private lateinit var cb: FeedClient.Callback
         private lateinit var wiki: WikiSite
@@ -137,31 +135,27 @@ class AggregatedFeedContentClient {
         override fun cancel() {}
 
         private fun requestAggregated() {
-            aggregatedClient.cancel()
+            aggregatedClient.clientJob?.cancel()
             val date = DateUtil.getUtcRequestDateFor(age)
-            aggregatedClient.disposables.add(Observable.fromIterable(FeedContentType.aggregatedLanguages)
-                .flatMap({ lang ->
-                        ServiceFactory.getRest(WikiSite.forLanguageCode(lang))
-                            .getAggregatedFeed(date.year, date.month, date.day)
-                            .subscribeOn(Schedulers.io())
-                         }, { first, second -> Pair(first, second) })
-                .toList()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ pairList ->
+            aggregatedClient.clientJob = CoroutineScope(Dispatchers.Default).launch(
+                CoroutineExceptionHandler { _, caught ->
+                    L.v(caught)
+                    cb.error(caught)
+                }
+            ) {
+                withContext(Dispatchers.Main) {
                     val cards = mutableListOf<Card>()
-                    for (pair in pairList) {
-                        val content = pair.second ?: continue
-                        aggregatedClient.aggregatedResponses[WikiSite.forLanguageCode(pair.first).languageCode] = content
+                    FeedContentType.aggregatedLanguages.forEach { langCode ->
+                        val feedContentResponse = ServiceFactory.getRest(WikiSite.forLanguageCode(langCode)).getFeedFeatured(date.year, date.month, date.day)
+                        aggregatedClient.aggregatedResponses[WikiSite.forLanguageCode(langCode).languageCode] = feedContentResponse
                         aggregatedClient.aggregatedResponseAge = age
                     }
                     if (aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode)) {
                         getCardFromResponse(aggregatedClient.aggregatedResponses, wiki, age, cards)
                     }
                     FeedCoordinator.postCardsToCallback(cb, cards)
-                }) { caught ->
-                    L.v(caught)
-                    cb.error(caught)
-                })
+                }
+            }
         }
     }
 }
