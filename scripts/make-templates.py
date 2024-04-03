@@ -13,10 +13,6 @@ CHINESE_WIKI_LANG = "zh"
 SIMPLIFIED_CHINESE_LANG = "zh-hans"
 TRADITIONAL_CHINESE_LANG = "zh-hant"
 
-# T114042
-NORWEGIAN_BOKMAL_WIKI_LANG = "no"
-NORWEGIAN_BOKMAL_LANG = "nb"
-
 
 # Wikis that cause problems and hence we pretend
 # do not exist.
@@ -82,7 +78,22 @@ def list_from_sitematrix():
                 wikipedia_url = site[u"url"]
         if len(wikipedia_url) == 0:
             continue
-        wikis.append(build_wiki(value[u"code"], value[u"localname"], value[u"name"]))
+
+        site_code = value[u"code"]
+
+        if site_code == "gsw":  # T6793
+            site_code = "als"
+        
+        if site_code == "rup":  # T17988
+            site_code = "roa-rup"
+
+        if site_code == "sgs":  # T27522
+            site_code = "bat-smg"
+
+        if site_code == "vro":  # T31186
+            site_code = "fiu-vro"
+
+        wikis.append(build_wiki(site_code, value[u"localname"], value[u"name"]))
 
     return wikis
 
@@ -118,8 +129,9 @@ def postprocess_wikis(wiki_list):
     traditionalWiki.props["local_name"] = "繁體中文"
     wiki_list.wikis.insert(chineseWikiIndex + 2, traditionalWiki)
 
-    bokmalWiki = next((wiki for wiki in wiki_list.wikis if wiki.lang == NORWEGIAN_BOKMAL_WIKI_LANG), None)
-    bokmalWiki.lang = NORWEGIAN_BOKMAL_LANG
+    # T114042
+    bokmalWiki = next((wiki for wiki in wiki_list.wikis if wiki.lang == "no"), None)
+    bokmalWiki.lang = "nb"
 
     return wiki_list
 

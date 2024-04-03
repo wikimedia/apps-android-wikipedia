@@ -81,6 +81,19 @@ for key, value in data[u"sitematrix"].items():
     if language_code == 'no':  # T114042
         language_code = 'nb'
 
+    if language_code == 'gsw':  # T6793
+        language_code = 'als'
+
+    if language_code == "rup":  # T17988
+        language_code = "roa-rup"
+
+    if language_code == "sgs":  # T27522
+        language_code = "bat-smg"
+
+    if language_code == "vro":  # T31186
+        language_code = "fiu-vro"
+
+
     lang_name = value[u"name"]
     lang_bcp47 = language_code
     for name in lang_list_response[u"query"][u"languages"]:
@@ -113,6 +126,9 @@ for key, value in data[u"sitematrix"].items():
                 if name[u"code"] == variant:
                     en_lang_name = name[u"name"]
                     break
+
+            #if variant_lang_name == "" or en_lang_name == "":
+            #    continue
 
             language_code_variants = language_code_variants + "," + variant
 
