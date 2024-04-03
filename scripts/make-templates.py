@@ -86,6 +86,7 @@ def list_from_sitematrix():
 
         wikis.append(build_wiki(site_code, value[u"localname"], value[u"name"]))
 
+    wikis.sort(key=lambda x: x.lang)
     return wikis
 
 
