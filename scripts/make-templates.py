@@ -79,19 +79,10 @@ def list_from_sitematrix():
         if len(wikipedia_url) == 0:
             continue
 
-        site_code = value[u"code"]
-
-        if site_code == "gsw":  # T6793
-            site_code = "als"
-        
-        if site_code == "rup":  # T17988
-            site_code = "roa-rup"
-
-        if site_code == "sgs":  # T27522
-            site_code = "bat-smg"
-
-        if site_code == "vro":  # T31186
-            site_code = "fiu-vro"
+        # At this stage, the site code should be the subdomain of the Wikipedia URL,
+        # instead of the "code" field in the sitematrix response.
+        # site_code = value[u"code"]
+        site_code = wikipedia_url.replace('https://', '').replace('.wikipedia.org', '')
 
         wikis.append(build_wiki(site_code, value[u"localname"], value[u"name"]))
 
