@@ -135,6 +135,7 @@
   <string name="langlinks_your_wikipedia_languages">Dine Wikipedia-sprog</string>
   <string name="menu_save_changes">Offentliggør ændringer</string>
   <string name="edit_saved_successfully">Redigering offentliggjort!</string>
+  <string name="stub_article_edit_saved_successfully">Redigering udgivet! Det kan tage et øjeblik inden ændringerne vises.</string>
   <string name="dialog_message_edit_failed">Redigering mislykkedes!</string>
   <string name="dialog_message_edit_failed_retry">Prøv igen</string>
   <string name="dialog_message_edit_failed_cancel">Annuller</string>
@@ -260,7 +261,7 @@
   <string name="about_translators_heading">Oversættere</string>
   <string name="about_translators_translatewiki">Denne app blev oversat af de frivillige oversættere på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
-  <string name="about_app_license" fuzzy="true">Kildekode er tilgængelig på &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; og &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0-licensen&lt;/a&gt;. Med mindre andet er angivet er indhold tilgængeligt under &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngiv - Del på samme vilkår Licens&lt;/a&gt;.</string>
+  <string name="about_app_license">Kildekode tilgængelig på &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; under &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;Apache 2.0-licensen&lt;/a&gt; . Medmindre andet er angivet, er indhold tilgængeligt under en &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;Creative Commons Navngivelse-Del på samme Vilkår-licens&lt;/a&gt; .</string>
   <string name="about_wmf">Et produkt fra &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
   <string name="about_activity_title">Om</string>
   <string name="edit_abandon_confirm">Den side er blevet ændret. Er du sikker på at du vil afslutte uden at gemme dine ændringer?</string>
@@ -413,6 +414,7 @@
   <string name="link_preview_dialog_save_button">Gem</string>
   <string name="link_preview_dialog_saved_button">Gemt</string>
   <string name="link_preview_dialog_share_button">Del</string>
+  <string name="link_preview_stub_placeholder_text">Denne artikel er en spire, hvilket betyder, at der ikke er nok indhold i artiklen til at generere en forhåndsvisning. Det kan du dog ændre på.</string>
   <string name="error_page_does_not_exist">Denne side findes ikke.</string>
   <string name="error_user_page_does_not_exist">Wikipedia har ikke en &lt;a href=\"%1$s\"&gt;brugerside&lt;/a&gt; med dette nøjagtige navn. Generelt bør denne side være oprettet og redigeret af &lt;b&gt;%2$s&lt;/b&gt; . Hvis du er i tvivl, bedes du kontrollere, at \"%3$s\" eksisterer.</string>
   <string name="view_wiki_error_message_offline">Kan ikke oprette forbindelse til internet</string>
@@ -1221,6 +1223,7 @@
   <string name="insert_media_advanced_settings_image_type_frameless">Uden ramme</string>
   <string name="insert_media_advanced_settings_image_type_frame">Ramme</string>
   <string name="insert_media_advanced_settings_image_type_basic">Simpel</string>
+  <string name="insert_media_advanced_settings_image_type_tip">Du kan indstille, hvordan medieelementet vises på siden. Dette bør være miniatureformatet for at være i overensstemmelse med andre sider i næsten alle tilfælde.</string>
   <string name="insert_media_advanced_settings_image_size">Billedestørrelse</string>
   <string name="insert_media_advanced_settings_image_size_default">Standard</string>
   <string name="insert_media_advanced_settings_image_size_custom">Tilpas</string>
@@ -1228,6 +1231,14 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Højde</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Indsæt</string>
+  <string name="templates_search_hint">Søg skabeloner</string>
+  <string name="templates_insert_button">Indsæt</string>
+  <string name="templates_param_suggested_value">fx %s</string>
+  <string name="templates_param_optional_hint">%s (Valgfrit)</string>
+  <string name="templates_param_suggested_hint">%s (Foreslået)</string>
+  <string name="templates_learn_more_link">Lær mere</string>
+  <string name="templates_description_incomplete">Skabeloner er brugergenererede og kan mangle fuldstændige beskrivelser.</string>
+  <string name="templates_description_empty">Skabelonen \"%s\" har endnu ikke en beskrivelse.</string>
   <string name="main_drawer_help">Hjælp</string>
   <string name="main_drawer_login">Log på / registrer dig på Wikipedia</string>
   <string name="main_tooltip_text">Hej %s , vidste du, at alle kan redigere Wikipedia?</string>
@@ -1251,6 +1262,7 @@
   <string name="talk_warn_save_dialog_hint">Beskedens titel</string>
   <string name="talk_warn_save_dialog_publish">Udgiv</string>
   <string name="talk_warn_save_dialog_cancel">Annullér</string>
+  <string name="talk_warn_save_dialog_dont_save">Gem ikke</string>
   <string name="talk_warn_submitted">Besked offentliggjort på brugerens brugerdiskussionsside</string>
   <string name="talk_warn_submitted_and_saved">Beskeden er gemt og offentliggjort på brugerens brugerdiskussionsside</string>
   <string name="talk_warn_saved_messages">Gemte beskeder</string>
