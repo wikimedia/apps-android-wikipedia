@@ -112,7 +112,7 @@
   <string name="language_count_link_text">%d ٻولين ۾ موجود</string>
   <string name="content_license_cc_by_sa">ڪڪ بو-سا 4.0</string>
   <string name="edit_save_action_license_logged_in">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; سان، ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيو.</string>
-  <string name="edit_save_action_license_anon">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$&lt;a href\n=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيو. سنوارون توھان جي آئِپي پتي سان منتسب ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ نويڪلائي هوندي.</string>
+  <string name="edit_save_action_license_anon">ڇاپڻ سان، توهان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن &lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href\n=\"%2$s/\"&gt;CC BY-SA 4.0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيو. سنوارون توھان جي آئِپي پتي سان منتسب ڪيون وينديون. جيڪڏهن توهان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ توھان کي وڌيڪ نويڪلائي هوندي.</string>
   <string name="edit_anon_warning">سنوارون توهان جي ڊوائيس جي آئپي پتي ڏانھن منسوب ڪيون وينديون. جيڪڏھن توھان &lt;a href=\"https://#login\"&gt;داخل ٿيو&lt;/a&gt; ٿا، تہ اوھان کي وڌيڪ نويڪلائي ملندي.</string>
   <string name="preference_title_language">وڪيپيڊيا ٻوليون</string>
   <string name="langlinks_filter_hint">ڳوليو</string>
