@@ -7,6 +7,7 @@
 * Amire80
 * Bonfire12
 * Buntschann
+* Chqaz
 * Dbrant
 * Fumi37s
 * GAMEZONE628
@@ -215,6 +216,8 @@
   <string name="logged_out_in_background_dialog">ウィキペディアからログアウトしました。もう一度ログインしますか?</string>
   <string name="logged_out_in_background_login">ログイン</string>
   <string name="logged_out_in_background_cancel">キャンセル</string>
+  <string name="account_vanish_request_title">アカウントを削除</string>
+  <string name="account_vanish_request_confirm_title">アカウント削除の警告</string>
   <string name="history_empty_title">履歴はまだありません!</string>
   <string name="history_empty_message">これまで読んだページを追跡できます。</string>
   <string name="history_offline_articles_toast">インターネット未接続のときには、履歴にある記事は表示できない場合があります。</string>
@@ -790,8 +793,8 @@
   <string name="notifications_menu_uncheck_all">すべての項目のチェックを外す</string>
   <string name="notifications_wiki_filter_header">ウィキフィルター</string>
   <string name="notifications_type_filter_header">種類フィルター</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">すべての「ウィキ」</string>
-  <string name="notifications_all_types_text" fuzzy="true">すべての「種類」</string>
+  <string name="notifications_all_wikis_text">すべてのウィキ</string>
+  <string name="notifications_all_types_text">すべての種類</string>
   <string name="notifications_menu_user_talk_page">%sのトークページ</string>
   <string name="notifications_offline_disable_message">この機能はオフラインでは利用できません。</string>
   <string name="view_because_you_read_card_title">閲覧履歴からのおすすめ</string>
@@ -1582,6 +1585,7 @@
   <string name="patroller_diff_feedback_dialog_input_hint">フィードバック</string>
   <string name="patroller_diff_feedback_dialog_submit">送信</string>
   <string name="patroller_diff_feedback_submitted_snackbar">フィードバックが送信されました。</string>
+  <string name="talk_templates_menu_edit_title">編集</string>
   <string name="data_opt_in_accept">承認</string>
   <string name="data_opt_in_reject">却下</string>
   <string name="page_issues_title">ページの問題点</string>

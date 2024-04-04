@@ -1496,7 +1496,7 @@
   <string name="reading_list_share_message_v2">你好！我想给你分享我的维基百科阅读清单：</string>
   <string name="reading_list_share_survey_title">您能帮助我们改进“分享阅读清单”吗？</string>
   <string name="reading_list_share_survey_body">“分享阅读清单”是一项测试功能，我们需要您的反馈来改进或删除它。</string>
-  <string name="talk_templates_empty_message" fuzzy="true">您没有保存任何警告消息。</string>
+  <string name="talk_templates_empty_message">创建您自己的消息，或使用&lt;a href=\"#\"&gt;示例消息&lt;/a&gt;来开始。</string>
   <string name="talk_templates_new_message_title">新留言</string>
   <string name="talk_templates_new_message_subject_hint">主题</string>
   <string name="talk_templates_new_message_compose_hint">撰写消息</string>

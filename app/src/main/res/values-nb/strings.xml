@@ -1252,6 +1252,7 @@
   <string name="talk_warn_save_dialog_hint">Meldingstittel</string>
   <string name="talk_warn_save_dialog_publish">Publiser</string>
   <string name="talk_warn_save_dialog_cancel">Avbryt</string>
+  <string name="talk_warn_save_dialog_dont_save">Ikke lagre</string>
   <string name="talk_warn_submitted">Melding publisert på bidragsyterens brukerdiskusjonsside</string>
   <string name="talk_warn_submitted_and_saved">Melding lagret og publisert på bidragsyterens brukerdiskusjonsside</string>
   <string name="talk_page_empty">Denne diskusjonssiden er tom.</string>
@@ -1485,6 +1486,8 @@
     <item quantity="other">Beskjedene har blitt slettet</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Tittelen kan ikke være tom.</string>
+  <string name="talk_templates_your_messages_tab_title">Dine meldinger</string>
+  <string name="talk_templates_example_messages_tab_title">Eksempelmeldinger</string>
   <string name="patroller_tasks_edits_list_search_hint">Søk i eller filtrer redigeringer</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tagger: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Ingen</string>

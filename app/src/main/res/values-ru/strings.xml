@@ -1342,6 +1342,7 @@
   <string name="talk_warn_save_dialog_hint">Заголовок сообщения</string>
   <string name="talk_warn_save_dialog_publish">Опубликовать</string>
   <string name="talk_warn_save_dialog_cancel">Отмена</string>
+  <string name="talk_warn_save_dialog_dont_save">Не сохранять</string>
   <string name="talk_page_empty">Эта страница обсуждения пустая.</string>
   <string name="talk_page_empty_title">Обсуждение начинается здесь</string>
   <string name="talk_add_reply">Ответить</string>
@@ -1351,6 +1352,7 @@
   <string name="talk_message_hint">Написать сообщение</string>
   <string name="talk_message_empty">Сообщение не может быть пустым.</string>
   <string name="talk_subject_empty">Тема не может быть пустой.</string>
+  <string name="talk_subject_duplicate">Название субъекта занято. Введите другое.</string>
   <string name="talk_response_submitted">Ответ опубликован.</string>
   <string name="talk_snackbar_undo">Отменить</string>
   <string name="talk_last_modified">&lt;b&gt;Последняя правка сделана %1$s&lt;/b&gt; участником %2$s</string>
@@ -1546,6 +1548,7 @@
   <string name="reading_list_share_message_v2">Привет! Я хотел бы поделиться с тобой своим списком для чтения из Википедии:</string>
   <string name="reading_list_share_survey_title">Могли бы вы помочь нам улучшить «Поделиться списком для чтения»?</string>
   <string name="reading_list_share_survey_body">«Поделиться списком для чтения» — тестовый функционал, и нам была бы полезная ваша обратная связь, чтобы в дальнейшем улучшить или удалить этот функционал.</string>
+  <string name="talk_templates_empty_message">Создайте свои собственные сообщения или используйте &lt;a href=\"#\"&gt;примеры сообщений&lt;/a&gt; , чтобы начать работу.</string>
   <string name="talk_templates_new_message_title">Новое сообщение</string>
   <string name="talk_templates_new_message_subject_hint">Тема</string>
   <string name="talk_templates_new_message_compose_hint">Написать сообщение</string>
@@ -1632,6 +1635,7 @@
   <string name="patroller_diff_feedback_submitted_snackbar">Обратная связь отправлена.</string>
   <string name="patroller_saved_message_title_copy_vio">Предупреждение о нарушении авторских прав</string>
   <string name="patroller_saved_message_body_copy_vio">Судя по всему, ваша недавняя правка без разрешения содержит материалы, защищенные авторским правом. Пожалуйста, убедитесь, что весь контент соответствует политике [[Wikipedia:Авторские права|авторское право]] этой Википедии, чтобы избежать удаления.</string>
+  <string name="talk_warn_saved_messages_usage_instruction">Используйте примеры сообщения ниже для настройки, отправки и сохранения его в своих сообщениях.</string>
   <string name="data_opt_in_accept">Принять</string>
   <string name="data_opt_in_reject">Отклонить</string>
   <string name="page_issues_title">Проблемы страницы</string>

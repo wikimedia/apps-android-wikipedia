@@ -14,6 +14,7 @@
 * Kimberli Mäkäräinen (WMNO)
 * Kizule
 * KuboF
+* Lc97
 * Liuxinyu970226
 * MarcoAurelio
 * Matma Rex
@@ -40,9 +41,9 @@
 * Zoranzoki21
 -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="all">
-  <string name="app_name_prod">Name of the application.\n{{Identical|Wikipedia}}</string>
-  <string name="app_name_beta">Name of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
-  <string name="app_name_alpha">Name of the alpha version of the application.</string>
+  <string name="app_name_prod">{{Doc-protected-established}}\n\nName of the app as it will appear on the home screen. Should be the canonical, locally-trademarked name of Wikipedia, and identical to these messages:\n* iOS app name: {{msg-wm|Wikipedia-ios-meta-CFBundleDisplayName}}\n* Portal site name: {{msg-wm|Portals-wiki.name}}\n{{Identical|Wikipedia}}</string>
+  <string name="app_name_beta">{{Doc-protected-established}}\n\nName of the beta version of the application.\n{{Identical|Wikipedia Beta}}</string>
+  <string name="app_name_alpha">{{Doc-protected-established}}\n\nName of the alpha version of the application.</string>
   <string name="wikimedia">Wikimedia\'s name.\n{{Identical|Wikimedia}}</string>
   <string name="nav_item_back">Button label for navigating to the previous page.\n\n{{Identical|Back}}</string>
   <string name="page_tabs_back">Back button description when exiting tabs of an article.\n{{Identical|Back}}</string>
@@ -454,6 +455,8 @@
   <string name="error_blocked_expiry">Label stating the expiry date of the block. The %s symbol is replaced by the date.</string>
   <string name="error_blocked_id">Label stating the ID of the block. The %s symbol is replaced by the ID.</string>
   <string name="error_blocked_footer">Text that explains how to get in touch with the user or administrator that created the block. The %1$s symbol is replaced by the username of the blocker, and %2$s is replaced by a URL that leads to the user page of the blocker.</string>
+  <string name="theme_chooser_menu_item_short_tooltip">Tooltip message text for customizing menu options on article screen</string>
+  <string name="error_blocked_footer_no_blocker">Text that explains how to get in touch with an administrator that created the block.</string>
   <string name="temp_account_not_logged_in">Title of dialog informing the user that a temporary account is being used.</string>
   <string name="temp_account_anon_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting. The %1$s symbol is replaced with a URL.</string>
   <string name="temp_account_temp_dialog_body">Body text of dialog explaining that a temporary account is being used. Please preserve HTML formatting. The %1$s symbol is replaced with a URL.</string>
@@ -473,8 +476,6 @@
   <string name="temp_account_login_status">Status message shown while editing, explaining that a temporary account named %1$s is being used. Please preserve HTML formatting.</string>
   <string name="temp_account_end_session">Button label for discarding the current temporary account.</string>
   <string name="temp_account_end_session_confirm">Confirmation message for logging out of a temporary account.</string>
-  <string name="theme_chooser_menu_item_short_tooltip">Tooltip message text for customizing menu options on article screen</string>
-  <string name="error_blocked_footer_no_blocker">Text that explains how to get in touch with an administrator that created the block.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
   <string name="crash_report_relaunch">Title of button user presses to relaunch the app after it crashes.</string>
@@ -1311,7 +1312,7 @@
   <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
   <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
   <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
-  <string name="talk_subject_duplicate">Error state text shown to user when they are trying to create a talk messgage with duplicate subject.</string>
+  <string name="talk_subject_duplicate">Error state text shown to user when they are trying to create a talk message with duplicate subject.</string>
   <string name="talk_response_submitted">Message shown when the response has been submitted.</string>
   <string name="talk_snackbar_undo">Button label to undo the operation of submitting the response.\n\n{{Identical|Undo}}</string>
   <string name="talk_last_modified">Label for the last modified date of the talk page. Please preserve the %1$s and %2$s parameters, since these will be replaced with the actual date and user name.\n\nShould be similar to this MediaWiki messages such as this: {{msg-mw|Mobile-frontend-last-modified-with-user-hours}}</string>
