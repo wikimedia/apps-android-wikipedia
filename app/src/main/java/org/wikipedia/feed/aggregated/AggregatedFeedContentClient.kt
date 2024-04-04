@@ -19,6 +19,7 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.topread.TopReadListCard
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
 
@@ -146,8 +147,29 @@ class AggregatedFeedContentClient {
                 withContext(Dispatchers.Main) {
                     val cards = mutableListOf<Card>()
                     FeedContentType.aggregatedLanguages.forEach { langCode ->
-                        val feedContentResponse = ServiceFactory.getRest(WikiSite.forLanguageCode(langCode)).getFeedFeatured(date.year, date.month, date.day)
-                        aggregatedClient.aggregatedResponses[WikiSite.forLanguageCode(langCode).languageCode] = feedContentResponse
+                        val wikiSite = WikiSite.forLanguageCode(langCode)
+                        val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
+                        var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
+
+                        // TODO: This is a temporary fix for T355192
+                        if (hasParentLanguageCode) {
+                            // Needs to update tfa and most read
+                            val tfaResponse = LanguageUtil.getPageSummary(feedContentResponse.tfa, wikiSite)
+//                            val topReadSummaryList = mutableListOf<PageSummary>()
+//                            feedContentResponse.topRead?.articles?.forEach {
+//                                val topReadResponse = LanguageUtil.getPageSummary(it, wikiSite)!!
+//                                topReadSummaryList.add(topReadResponse)
+//                            }
+                            feedContentResponse = AggregatedFeedContent(
+                                tfa = tfaResponse,
+                                news = feedContentResponse.news,
+                                topRead = feedContentResponse.topRead,
+                                potd = feedContentResponse.potd,
+                                onthisday = feedContentResponse.onthisday
+                            )
+                        }
+
+                        aggregatedClient.aggregatedResponses[langCode] = feedContentResponse
                         aggregatedClient.aggregatedResponseAge = age
                     }
                     if (aggregatedClient.aggregatedResponses.containsKey(wiki.languageCode)) {

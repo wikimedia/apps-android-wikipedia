@@ -4,10 +4,17 @@ import android.content.Context
 import android.os.Build
 import android.view.inputmethod.InputMethodManager
 import androidx.core.os.LocaleListCompat
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.withContext
 import org.apache.commons.lang3.StringUtils
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.util.StringUtil
-import java.util.*
+import java.util.Locale
 
 object LanguageUtil {
 
@@ -143,5 +150,29 @@ object LanguageUtil {
 
     fun formatLangCodeForButton(languageCode: String): String {
         return languageCode.replace("-", "-\n")
+    }
+
+    // TODO: This is a temporary fix for T355192
+    suspend fun getPageSummary(pageSummary: PageSummary?, wikiSite: WikiSite): PageSummary? {
+        if (pageSummary == null) {
+            return null
+        }
+        var newPageSummary = pageSummary
+        withContext(Dispatchers.Main) {
+            // First, get the correct description from Wikidata directly.
+            val wikiDataResponse = async {
+                ServiceFactory.get(Constants.wikidataWikiSite)
+                    .getWikidataDescription(titles = pageSummary.apiTitle, sites = wikiSite.dbName(), langCode = wikiSite.languageCode)
+            }
+            // Second, fetch PageSummary endpoint instead of using the one with incorrect language variant (mostly from the feed endpoint).
+            val pageSummaryResponse = async {
+                ServiceFactory.getRest(wikiSite).getPageSummary(null, pageSummary.apiTitle)
+            }
+
+            newPageSummary = pageSummaryResponse.await().apply {
+                description = wikiDataResponse.await().first?.getDescription(wikiSite.languageCode) ?: description
+            }
+        }
+        return newPageSummary
     }
 }
