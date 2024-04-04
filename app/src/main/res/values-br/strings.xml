@@ -1107,6 +1107,11 @@
   <string name="insert_media_advanced_settings_image_size_custom_height">Uhelder</string>
   <string name="insert_media_advanced_settings_image_size_custom_px">px</string>
   <string name="insert_media_insert_button">Ensoc\'hañ</string>
+  <string name="templates_search_hint">Klask ur patrom</string>
+  <string name="templates_param_suggested_value">da skouer: %s</string>
+  <string name="templates_param_optional_hint">%s (Diret)</string>
+  <string name="templates_param_suggested_hint">%s (Erbedet)</string>
+  <string name="templates_learn_more_link">Gouzout hiroc\'h</string>
   <string name="main_drawer_help">Skoazell</string>
   <string name="main_drawer_login">Kevreañ ouzh/ mont gant Wikipedia</string>
   <string name="main_tooltip_action_button">Stagañ ganti</string>
@@ -1254,6 +1259,7 @@
   <string name="talk_templates_edit_message_dialog_delete">Dilemel</string>
   <string name="talk_templates_edit_message_updated">Hizivaet eo bet ar gemennadenn</string>
   <string name="talk_templates_menu_remove_message">Lemel ar gemennadenn</string>
+  <string name="talk_templates_your_messages_tab_title">Ho kemennadennoù</string>
   <string name="patroller_tasks_edits_list_search_hint">Klask pe silañ ar c\'hemmoù</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Tikedennoù: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Hini ebet</string>
