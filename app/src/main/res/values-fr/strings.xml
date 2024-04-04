@@ -27,6 +27,7 @@
 * Golmore
 * Gomoko
 * Great11
+* Hecatonchire
 * Hydros
 * Iketsi
 * JeanPlu
@@ -1500,7 +1501,7 @@
   <string name="reading_list_share_message_v2">Bonjour ! J’aimerais partager ma liste de lecture Wikipédia avec vous :</string>
   <string name="reading_list_share_survey_title">Pourriez-vous nous aider à améliorer la fonctionnalité « Partager des listes de lecture » ?</string>
   <string name="reading_list_share_survey_body">Le « Partage de listes de lecture » est une fonctionnalité en test et nous avons besoin de vos commentaires pour l’améliorer ou la supprimer.</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Vous n’avez pas de message d’avertissement enregistré.</string>
+  <string name="talk_templates_empty_message">Créez vos propres messages ou utilisez &lt;a href=\"#\"&gt;message d\'exemple&lt;/a&gt; pour commencer.</string>
   <string name="talk_templates_new_message_title">Nouveau message</string>
   <string name="talk_templates_new_message_subject_hint">Sujet</string>
   <string name="talk_templates_new_message_compose_hint">Composer le message</string>

@@ -149,6 +149,7 @@
   <string name="map_view_link_text">Auf einer Karte ansehen</string>
   <string name="other_languages_indication_text">In einer anderen Sprache lesen</string>
   <string name="language_count_link_text">In %d weiteren Sprachen verfügbar</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 4.0</string>
   <string name="edit_save_action_license_logged_in">Mit dem Veröffentlichen stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0&lt;/a&gt; Lizenz zu.</string>
   <string name="edit_save_action_license_anon">Mit dem Veröffentlichen stimmst du den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und unwiderruflich der Veröffentlichung deiner Beiträge unter der &lt;a href=\"%2$s\"&gt;CC BY-SA 4.0-Lizenz&lt;/a&gt; zu. Bearbeitungen werden der IP-Adresse deines Gerätes zugeordnet. Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt;, verfügst du über mehr Datenschutz.</string>
   <string name="edit_anon_warning">Bearbeitungen werden der IP-Adresse deines Gerätes zugeordnet. Wenn du dich &lt;a href=\"https://#login\"&gt;anmeldest&lt;/a&gt;, wirst du über mehr Datenschutz verfügen.</string>
@@ -160,6 +161,7 @@
   <string name="langlinks_your_wikipedia_languages">Deine Wikipedia-Sprachen</string>
   <string name="menu_save_changes">Änderungen veröffentlichen</string>
   <string name="edit_saved_successfully">Bearbeitung veröffentlicht!</string>
+  <string name="stub_article_edit_saved_successfully">Bearbeitung veröffentlicht! Es kann einige Zeit dauern, bis Änderungen angezeigt werden.</string>
   <string name="dialog_message_edit_failed">Bearbeitung fehlgeschlagen!</string>
   <string name="dialog_message_edit_failed_retry">Erneut versuchen</string>
   <string name="dialog_message_edit_failed_cancel">Abbrechen</string>
@@ -345,6 +347,7 @@
   <string name="widget_name_featured_page">Lesenswerte Wikipedia-Seite</string>
   <string name="widget_title_featured_page">Seite des Tages:</string>
   <string name="widget_name_search">Wikipedia-Suche</string>
+  <string name="widget_description_featured_page">Die besten Artikel, die Wikipedia zu bieten hat</string>
   <string name="wiktionary_no_definitions_found">Keine Definitionen gefunden.</string>
   <string name="alpha_update_notification_title">Neue Alpha-Aktualisierung verfügbar</string>
   <string name="alpha_update_notification_text">Zum Herunterladen tippen</string>
@@ -428,6 +431,10 @@
   <string name="multi_select_items_selected">%d ausgewählt</string>
   <string name="error_message_generic">Es ist ein Fehler aufgetreten</string>
   <string name="view_link_preview_error_button_dismiss">Ausblenden</string>
+  <string name="link_preview_dialog_read_button">Lesen</string>
+  <string name="link_preview_dialog_save_button">Speichern</string>
+  <string name="link_preview_dialog_saved_button">Gespeichert</string>
+  <string name="link_preview_dialog_share_button">Teilen</string>
   <string name="error_page_does_not_exist">Diese Seite ist nicht vorhanden</string>
   <string name="error_user_page_does_not_exist">Wikipedia hat keine &lt;a href=\"%1$s\"&gt;Benutzerseite&lt;/a&gt; mit genau diesem Namen. Im Allgemeinen sollte diese Seite von &lt;b&gt;%2$s&lt;/b&gt; erstellt und bearbeitet werden. Im Zweifelsfall überprüfe bitte, ob „%3$s“ existiert.</string>
   <string name="view_wiki_error_message_offline">Es konnte keine Verbindung mit dem Internet hergestellt werden</string>
@@ -1032,7 +1039,7 @@
   <string name="suggested_edits_ip_blocked_title">IP gesperrt</string>
   <string name="suggested_edits_last_edited">Zuletzt bearbeitet</string>
   <string name="suggested_edits_last_edited_never">Nie</string>
-  <string name="suggested_edits_task_new" fuzzy="true">neu</string>
+  <string name="suggested_edits_task_new">Neu</string>
   <string name="suggested_edits_cc0_notice">Durch die Veröffentlichung stimmen Sie den &lt;a href=\"%1$s\"&gt; Nutzungsbedingungen&lt;/a&gt; zu und geben diesen Beitrag unwiderruflich unter der &lt;a href=\"%2$s\"&gt; CC0-Lizenz &lt;/a&gt; frei.</string>
   <string name="suggested_edits_reactivation_notification_title">Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Danke für die Bearbeitung von Wikipedia! Warum machst du nicht dort weiter, wo du aufgehört hast?</string>
@@ -1207,6 +1214,7 @@
   <string name="wikitext_template">Vorlage</string>
   <string name="wikitext_reference">Einzelnachweis</string>
   <string name="wikitext_preview_link">Vorschau des Links anzeigen</string>
+  <string name="wikitext_mention_user">Einen Benutzer erwähnen</string>
   <string name="insert_media_title">Medien einfügen</string>
   <string name="insert_media_search_description">Wähle eine Datei aus Wikimedia Commons</string>
   <string name="insert_media_search_hint">Medien suchen</string>
@@ -1259,6 +1267,8 @@
   <string name="talk_warn_save_dialog_hint">Titel der Nachricht</string>
   <string name="talk_warn_save_dialog_publish">Veröffentlichen</string>
   <string name="talk_warn_save_dialog_cancel">Abbrechen</string>
+  <string name="talk_warn_save_dialog_dont_save">Nicht speichern</string>
+  <string name="talk_warn_saved_messages">Gespeicherte Nachrichten</string>
   <string name="talk_page_empty">Diese Diskussionsseite ist leer.</string>
   <string name="talk_page_empty_title">Die Konversation beginnt hier</string>
   <string name="talk_page_empty_content">Auf den Diskussionsseiten wird darüber diskutiert, wie man Wikipedia-Inhalte am besten durchführen kann. Füge ein neues Diskussionsthema hinzu, um dich mit einer Gemeinschaft von Wikipedianern zu vernetzen und zusammenzuarbeiten.</string>
@@ -1346,6 +1356,7 @@
   <string name="revision_diff_paragraph_removed">Abschnitt entfernt</string>
   <string name="revision_undo_title">Bist du sicher, dass du diese Bearbeitung rückgangig machen willst?</string>
   <string name="revision_undo_message" fuzzy="true">Damit werden die Änderungen, die durch die hier angezeigte(n) Version(en) des Artikels vorgenommen wurden, rückgängig gemacht.</string>
+  <string name="revision_undo_summary_hint">Zusammenfassung (optional)</string>
   <string name="revision_undo_reason" fuzzy="true">Um fortzufahren, gib bitte einen Grund für die Rückgängigmachung dieser Bearbeitung an:</string>
   <string name="revision_undo_success">Die Version wurde rückgängig gemacht.</string>
   <string name="revision_rollback_dialog_title">Bist du sicher, dass du die Bearbeitungen rückgängig machen willst?</string>

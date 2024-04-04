@@ -136,6 +136,7 @@
   <string name="langlinks_your_wikipedia_languages">Wikipédia-nyelveid</string>
   <string name="menu_save_changes">Változtatások közzététele</string>
   <string name="edit_saved_successfully">Szerkesztés közzétéve!</string>
+  <string name="stub_article_edit_saved_successfully">Szerkesztés közzétéve! A változások megjelenése időbe telhet.</string>
   <string name="dialog_message_edit_failed">A szerkesztés nem sikerült!</string>
   <string name="dialog_message_edit_failed_retry">Újra</string>
   <string name="dialog_message_edit_failed_cancel">Mégse</string>
@@ -415,6 +416,7 @@
   <string name="link_preview_dialog_save_button">Mentés</string>
   <string name="link_preview_dialog_saved_button">Elmentve</string>
   <string name="link_preview_dialog_share_button">Megosztás</string>
+  <string name="link_preview_stub_placeholder_text">Ez a szócikk egy csonk, ami azt jelenti, hogy nincs elég tartalom a cikkben az előnézet létrehozásához. Ezen azonban változtathatsz.</string>
   <string name="error_page_does_not_exist">Ez a lap nem létezik</string>
   <string name="error_user_page_does_not_exist">Nincs pontosan ilyen nevű &lt;a href=\"%1$s\"&gt;szerkesztői lap&lt;/a&gt; a Wikipédián. Általánosságban ezt a lapot csak a tulajdonosának (&lt;b&gt;%2$s&lt;/b&gt;) szabad létrehoznia és szerkesztenie. Ha kétséged van, ellenőrizd, hogy létezik-e „%3$s” nevű regisztrált szerkesztő.</string>
   <string name="view_wiki_error_message_offline">Nem sikerült csatlakozni az internethez</string>
@@ -437,6 +439,11 @@
   <string name="error_blocked_footer">Kapcsolatba léphetsz a blokkolás végrehajtójával (&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;) vagy egy másik &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Eszköztár testreszabása</string>
   <string name="error_blocked_footer_no_blocker">Kapcsolatba léphetsz egy &lt;a href=\"https://hu.wikipedia.org/wiki/Wikipédia:Adminisztrátorok\"&gt;adminisztrátorral&lt;/a&gt;, és megbeszélheted vele a blokkot.</string>
+  <string name="temp_account_not_logged_in">Nem vagy bejelentkezve</string>
+  <string name="temp_account_dialog_ok">Értem</string>
+  <string name="temp_account_using_title">Ideiglenes fiókot használsz</string>
+  <string name="temp_account_end_session">Munkamenet befejezése</string>
+  <string name="temp_account_end_session_confirm">Ezzel kijelentkezel ideiglenes fiókodból. Akarod folytatni?</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
@@ -1264,6 +1271,7 @@
   <string name="talk_warn_save_dialog_hint">Üzenet címe</string>
   <string name="talk_warn_save_dialog_publish">Közzététel</string>
   <string name="talk_warn_save_dialog_cancel">Mégse</string>
+  <string name="talk_warn_save_dialog_dont_save">Ne mentsd el</string>
   <string name="talk_warn_submitted">Az üzenet közzétéve a szerkesztő vitalapján</string>
   <string name="talk_warn_submitted_and_saved">Az üzenet elmentve és közzétéve a szerkesztő vitalapján</string>
   <string name="talk_warn_saved_messages">Mentett üzenetek</string>
@@ -1277,6 +1285,7 @@
   <string name="talk_message_hint">Üzenet megfogalmazása</string>
   <string name="talk_message_empty">Az üzenet nem lehet üres.</string>
   <string name="talk_subject_empty">A tárgy nem lehet üres.</string>
+  <string name="talk_subject_duplicate">A tárgynév már létezik. Próbálj ki egy másikat.</string>
   <string name="talk_response_submitted">Válasz közzétéve.</string>
   <string name="talk_snackbar_undo">Visszavonás</string>
   <string name="talk_last_modified">&lt;b&gt;Utoljára szerkesztette %1$s&lt;/b&gt; ekkor: %2$s</string>
@@ -1498,6 +1507,8 @@
     <item quantity="other">Az üzenetek törölve</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Az cím nem lehet üres.</string>
+  <string name="talk_templates_your_messages_tab_title">Üzeneteid</string>
+  <string name="talk_templates_example_messages_tab_title">Példaüzenetek</string>
   <string name="patroller_tasks_edits_list_search_hint">Szerkesztések keresése vagy szűrése</string>
   <string name="patroller_tasks_edits_list_card_tags_text">Címkék: %s</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Semmi</string>
@@ -1578,6 +1589,7 @@
   <string name="patroller_diff_feedback_dialog_option_neutral">Semleges</string>
   <string name="patroller_diff_feedback_dialog_option_unsatisfied">Elégedetlen</string>
   <string name="patroller_diff_feedback_dialog_feedback_title">Hogyan javíthatjuk a funkciót?</string>
+  <string name="patroller_diff_menu_edit_history_title">Szócikk szerkesztési laptörténet</string>
   <string name="patroller_diff_feedback_dialog_input_hint">Visszajelzés</string>
   <string name="patroller_diff_feedback_dialog_submit">Elküldés</string>
   <string name="patroller_diff_feedback_submitted_snackbar">Visszajelzés elküldve.</string>
@@ -1586,8 +1598,11 @@
   <string name="patroller_saved_message_title_editing_tests">Tesztszerkesztések</string>
   <string name="patroller_saved_message_title_npov">Semleges nézőpont</string>
   <string name="patroller_saved_message_title_auto_trans">Automatikus fordítás</string>
+  <string name="patroller_saved_message_title_coi_rem">Összeférhetetlenségi emlékeztető</string>
   <string name="patroller_saved_message_title_final_warning">Utolsó figyelmeztetés</string>
   <string name="patroller_saved_message_title_copy_vio">Szerzői jog megsértésére vonatkozó figyelmeztetés</string>
+  <string name="patroller_saved_message_title_edit_summary_reminder">Hagyjál szerkesztési összefoglalót</string>
+  <string name="patroller_saved_message_title_do_not_censor">Ne cenzúrázz</string>
   <string name="patroller_saved_message_title_art_imp">Szócikk javítási javaslat</string>
   <string name="talk_templates_menu_edit_title">Szerkesztés</string>
   <string name="data_opt_in_accept">Elfogad</string>

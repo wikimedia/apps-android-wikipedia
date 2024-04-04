@@ -203,6 +203,7 @@
   <string name="langlinks_your_wikipedia_languages">Tus idiomas de Wikipedia</string>
   <string name="menu_save_changes">Publicar cambios</string>
   <string name="edit_saved_successfully">Se publicó la edición.</string>
+  <string name="stub_article_edit_saved_successfully">Edición publicada! Los cambios pueden tardar en aparecer.</string>
   <string name="dialog_message_edit_failed">Falló la edición.</string>
   <string name="dialog_message_edit_failed_retry">Reintentar</string>
   <string name="dialog_message_edit_failed_cancel">Cancelar</string>
@@ -476,6 +477,7 @@
   <string name="link_preview_dialog_save_button">Guardar</string>
   <string name="link_preview_dialog_saved_button">Guardado</string>
   <string name="link_preview_dialog_share_button">Compartir</string>
+  <string name="link_preview_stub_placeholder_text">Este artículo es un resumen, lo que significa que no hay suficiente contenido en el artículo para generar una vista previa. Sin embargo, puedes cambiar eso.</string>
   <string name="error_page_does_not_exist">Esta página no existe</string>
   <string name="error_user_page_does_not_exist">Wikipedia no tiene una &lt;a href=\"%1$s\"&gt;página de usario&lt;/a&gt; con este nombre exacto. En general, esta página debe ser creada y editada por &lt;b&gt;%2$s&lt;/b&gt;. En caso de duda, verifique que exista \"%3$s\".</string>
   <string name="view_wiki_error_message_offline">No se pudo conectar a Internet.</string>
@@ -498,6 +500,16 @@
   <string name="error_blocked_footer">Puedes contactar &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; o otro &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Administrators\"&gt;administrator&lt;/a&gt; para hablar sobre el bloque.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Personalice su barra de herramientas</string>
   <string name="error_blocked_footer_no_blocker">Puedes contactar un &lt;a href=\"https://es.wikipedia.org/wiki/Wikipedia:Bibliotecarios\"&gt;bibliotecario&lt;/a&gt; para hablar del bloqueo.</string>
+  <string name="temp_account_dialog_discard">Descartar cambios e iniciar sesión</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">La cuenta temporal %1$s se creó después de que se publicara su edición. Caducará en %2$d día.</item>
+    <item quantity="other">La cuenta temporal %1$s se creó después de que se publicara la edición. Caducará en %2$d días.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">La cuenta caducará en %d días.</item>
+    <item quantity="other">La cuenta caducará en %d días.</item>
+  </plurals>
+  <string name="temp_account_end_session_confirm">Esto cerrará la sesión de su cuenta temporal. ¿Quieres continuar?</string>
   <string name="crash_report_activity_title">Error de la aplicación</string>
   <string name="crash_report_relaunch_or_quit">La aplicación de Wikipedia ha experimentado un error y se cerró.\n\n¿Te gustaría volver a empezar o salir?</string>
   <string name="crash_report_relaunch">Iniciar de nuevo</string>
@@ -1367,7 +1379,7 @@
   <string name="reading_list_share_message_v2">¡Hola! Me gustaría compartir mi lista de lectura de Wikipedia contigo:</string>
   <string name="reading_list_share_survey_title">¿Podrías ayudarnos a mejorar \"Compartir listas de lectura\"?</string>
   <string name="reading_list_share_survey_body">\"Compartir listas de lectura\" es una función de prueba y necesitamos tus comentarios para mejorarla o eliminarla.</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Cree sus propios mensajes de advertencia o utilice &lt;a href=\"#\"&gt;mensajes de ejemplo&lt;/a&gt; para comenzar.</string>
+  <string name="talk_templates_empty_message">Cree sus propios mensajes de o utilice &lt;a href=\"#\"&gt;mensajes de ejemplo&lt;/a&gt; para comenzar.</string>
   <string name="talk_templates_edit_message_dialog_delete">Eliminar</string>
   <string name="talk_templates_message_deleted" fuzzy="true">El mensaje se ha eliminado</string>
   <string name="talk_templates_your_messages_tab_title">Sus mensajes</string>
