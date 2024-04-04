@@ -640,6 +640,7 @@
   <string name="notifications_filter_label">စဳရေၚ် တၚ်မကဵုသမ္တီဂမၠိုၚ်</string>
   <string name="notifications_filter_icon_content_description">စဳရေၚ် တၚ်မကဵုသမ္တဳဂမၠိုၚ်</string>
   <string name="notifications_filter_update_app_languages">သၠုၚ်ပတိုန် ဘာသာမန် ပ္ဍဲ အေပဳပဳ</string>
+  <string name="notifications_swipe_action_unread">ဟွံဂွံဗှ်ဏီ</string>
   <string name="view_because_you_read_card_title">ဟိုတ်နူ မၞး ဗှ်</string>
   <string name="view_random_card_title">ဂဇျောမ်</string>
   <string name="view_random_article_card_title">လိက်ပရေင် လၟက်</string>

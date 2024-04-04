@@ -437,6 +437,7 @@
   <string name="error_blocked_footer">आप प्रतिबंध पर चर्चा करने के लिए &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; या फिर किसी दूसरे &lt;a href=\"https://hi.wikipedia.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%95\"&gt;प्रबंधक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
   <string name="theme_chooser_menu_item_short_tooltip">अपने टूलबार में परिवर्तन करें</string>
   <string name="error_blocked_footer_no_blocker">प्रतिबंध पर चर्चा करने के लिए आप किसी &lt;a href=\"https://hi.wikipedia.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%95%E0%A4%BF%E0%A4%AA%E0%A5%80%E0%A4%A1%E0%A4%BF%E0%A4%AF%E0%A4%BE:%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%AC%E0%A4%A8%E0%A5%8D%E0%A4%A7%E0%A4%95\"&gt;प्रबन्धक&lt;/a&gt; से संपर्क कर सकते हैं।</string>
+  <string name="temp_account_dialog_ok">समझ गया</string>
   <string name="crash_report_activity_title">अनुप्रयोग त्रुटि</string>
   <string name="crash_report_relaunch_or_quit">हमें खेद है कि किसी त्रुटि को अनुभव करने के कारणवश विकिपीडिया एप को बंद कर दिया गया। \n\nक्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
   <string name="crash_report_relaunch">फिर से शुरू करें</string>
