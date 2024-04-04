@@ -153,13 +153,8 @@ class AggregatedFeedContentClient {
 
                         // TODO: This is a temporary fix for T355192
                         if (hasParentLanguageCode) {
-                            // Needs to update tfa and most read
+                            // TODO: Needs to update tfa and most read
                             val tfaResponse = LanguageUtil.getPageSummary(feedContentResponse.tfa, wikiSite)
-//                            val topReadSummaryList = mutableListOf<PageSummary>()
-//                            feedContentResponse.topRead?.articles?.forEach {
-//                                val topReadResponse = LanguageUtil.getPageSummary(it, wikiSite)!!
-//                                topReadSummaryList.add(topReadResponse)
-//                            }
                             feedContentResponse = AggregatedFeedContent(
                                 tfa = tfaResponse,
                                 news = feedContentResponse.news,

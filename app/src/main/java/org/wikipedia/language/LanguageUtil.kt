@@ -158,7 +158,7 @@ object LanguageUtil {
             return null
         }
         var newPageSummary = pageSummary
-        withContext(Dispatchers.Main) {
+        withContext(Dispatchers.IO) {
             // First, get the correct description from Wikidata directly.
             val wikiDataResponse = async {
                 ServiceFactory.get(Constants.wikidataWikiSite)
