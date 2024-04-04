@@ -423,6 +423,25 @@
   <string name="error_blocked_footer">Можете да се обратите кај &lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt; или некој друг &lt;a href=\"https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; ако сакате да поразговарате за блокот.</string>
   <string name="theme_chooser_menu_item_short_tooltip">Прилагодете си го алатникот</string>
   <string name="error_blocked_footer_no_blocker">Можете да се обратите кај &lt;a href=\"https://https://mk.wikipedia.org/wiki/Википедија:Администратори\"&gt;администратор&lt;/a&gt; за да поразговарате за блокот.</string>
+  <string name="temp_account_not_logged_in">Не сте најавени</string>
+  <string name="temp_account_anon_dialog_body">Откако ќе направите уредување, ќе ви биде создадена &lt;b&gt;привремена сметка&lt;/b&gt; за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Најавете се&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;Создајте сметка&lt;/a&gt; за да добивате заслуги за сите идни уредувања и други можности.</string>
+  <string name="temp_account_temp_dialog_body">Вашето уредување ќе му се припише на %1$s. Вашата IP-адреса ќе биде видлива за администратори.&lt;br /&gt;&lt;br /&gt;Ако &lt;a href=\"https://#login\"&gt;се најавите&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;создадете сметка&lt;/a&gt;, вашите уредувања ќе му се припишуваат на име што вие ќе го одберете, меѓу други поволности.</string>
+  <string name="temp_account_dialog_ok">Јасно</string>
+  <string name="temp_account_using_title">Користите привремена сметка</string>
+  <string name="temp_account_dialog_discard">Отфрли промени и најави ме</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">Создадена е привремената сметка %1$s откако беше објавено вашето уредување. Таа ќе истече за %2$d ден.</item>
+    <item quantity="other">Создадена е привремената сметка %1$s откако беше објавено вашето уредување. Таа ќе истече за %2$d дена.</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Сметката ќе истече за %d ден.</item>
+    <item quantity="other">Сметката ќе истече за %d дена.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Не сте најавени.&lt;/b&gt; Откако ќе направите уредување, ќе ви биде создадена привремена сметка за да ви се заштити приватноста. &lt;a href=\"%1$s\"&gt;Дознајте повеќе&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Користите привремена сметка.&lt;/b&gt; Вашето уредување му е припишано на %1$s. &lt;a href=\"%2$s\"&gt;Дознајте повеќе&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Моменталално користите приврмена сметка.&lt;/b&gt; Уредувањата направени од привремената сметка %1$s нема да се префрлат во трајната сметка кога ќе се најавите. Најавете се или направете сметка за уредувањата да му се припишуваат на вашето корисничко име, меѓу други поволности.</string>
+  <string name="temp_account_end_session">Заврши седница</string>
+  <string name="temp_account_end_session_confirm">Ова ќе ве одјави од вашата привремена сметка. Сакате да продолжите?</string>
   <string name="crash_report_activity_title">Грешка во прилогот</string>
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
@@ -1461,7 +1480,7 @@
   <string name="reading_list_share_message_v2">Здраво! Сакам да споделам список за читање со вас:</string>
   <string name="reading_list_share_survey_title">Можете ли да ни помогнете да го подобриме „Споделување на списоци за читање“?</string>
   <string name="reading_list_share_survey_body">„Споделување на списоци за читање“ е пробна функција и ни требаат ваши мислења за да ја подобриме или отстраниме.</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Создавајте ваши предупредувачки пораки или користете &lt;a href=\"#\"&gt;примерни пораки&lt;/a&gt; за да почнете.</string>
+  <string name="talk_templates_empty_message">Создавајте ваши пораки или користете &lt;a href=\"#\"&gt;примерни пораки&lt;/a&gt; за да почнете.</string>
   <string name="talk_templates_new_message_title">Нова порака</string>
   <string name="talk_templates_new_message_subject_hint">Наслов</string>
   <string name="talk_templates_new_message_compose_hint">Напиши порака</string>

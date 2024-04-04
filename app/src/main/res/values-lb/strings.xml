@@ -1062,6 +1062,7 @@
   <string name="talk_warn_save_dialog_hint">Titel vum Message</string>
   <string name="talk_warn_save_dialog_publish">Verëffentlechen</string>
   <string name="talk_warn_save_dialog_cancel">Ofbriechen</string>
+  <string name="talk_warn_save_dialog_dont_save">Net späicheren</string>
   <string name="talk_page_empty">Dës Diskussiouns-Säit ass eidel.</string>
   <string name="talk_page_empty_title">D\'Konversatioun fänkt hei un</string>
   <string name="talk_add_reply">Äntweren</string>
@@ -1253,6 +1254,8 @@
     <item quantity="other">Messagë goufe geläscht</item>
   </plurals>
   <string name="talk_templates_message_title_empty">Den Titel däerf net eidel sinn.</string>
+  <string name="talk_templates_your_messages_tab_title">Är Messagen</string>
+  <string name="talk_templates_example_messages_tab_title">Beispillmessagen</string>
   <string name="patroller_tasks_edits_list_search_hint">Ännerungen duerchsichen oder filteren</string>
   <string name="patroller_tasks_edits_list_card_tags_text_none">Keen</string>
   <string name="patroller_tasks_edits_list_card_overflow_view_user_page">Benotzersäit weisen</string>

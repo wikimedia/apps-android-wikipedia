@@ -432,6 +432,10 @@
   <string name="error_blocked_start">বাধা শুরুর সময়: %s</string>
   <string name="error_blocked_expiry">বাধার মেয়াদোত্তীর্ণের সময়: %s</string>
   <string name="error_blocked_id">বাধা প্রদান আইডি: %s</string>
+  <string name="temp_account_not_logged_in">আপনি প্রবেশ করেন নি</string>
+  <string name="temp_account_dialog_ok">বুঝেছি</string>
+  <string name="temp_account_using_title">আপনি একটি অস্থায়ী অ্যাকাউন্ট ব্যবহার করছেন</string>
+  <string name="temp_account_end_session">সেশন শেষ করুন</string>
   <string name="crash_report_activity_title">অ্যাপ্লিকেশন ত্রুটি</string>
   <string name="crash_report_relaunch_or_quit">আমরা দুঃখিত, উইকিপিডিয়া অ্যাপ্লিকেশন একটি ত্রুটির সম্মুখীন হয়েছে এবং বন্ধ হয়ে গেছে।\n\nআপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>

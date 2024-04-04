@@ -451,6 +451,25 @@
   <string name="error_blocked_footer">您可以向&lt;a href=\"%2$s\"&gt;%1$s&lt;/a&gt;或是其他&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;聯絡來商量該封鎖操作。</string>
   <string name="theme_chooser_menu_item_short_tooltip">自訂您的工具列</string>
   <string name="error_blocked_footer_no_blocker">您可以聯絡&lt;a href=\"https://zh.wikipedia.org/wiki/Wikipedia:管理员\"&gt;管理員&lt;/a&gt;來商量該封鎖操作。</string>
+  <string name="temp_account_not_logged_in">您尚未登入</string>
+  <string name="temp_account_anon_dialog_body">一旦您做出編輯，會為您建立&lt;b&gt;臨時帳號&lt;/b&gt;以保護您的隱私。&lt;a href=\"%1$s\"&gt;了解更多&lt;/a&gt;。&lt;br /&gt;&lt;br /&gt;請&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;建立帳號&lt;/a&gt;來讓編輯內容歸在您名下，並存取其他功能。</string>
+  <string name="temp_account_temp_dialog_body">您的編輯將會歸在%1$s名下。管理員可看到您的 IP 位址。&lt;br /&gt;&lt;br /&gt;如果您有&lt;a href=\"https://#login\"&gt;登入&lt;/a&gt;或&lt;a href=\"https://#login\"&gt;建立帳號&lt;/a&gt;，您做出的編輯將會歸在您所選的使用者名稱，並擁有其他好處。</string>
+  <string name="temp_account_dialog_ok">了解</string>
+  <string name="temp_account_using_title">您正在使用臨時帳號</string>
+  <string name="temp_account_dialog_discard">放棄更改並登入</string>
+  <plurals name="temp_account_created">
+    <item quantity="one">臨時帳號「%1$s」是在發布您的編輯後建立的，會在 %2$d 天後失效。</item>
+    <item quantity="other">臨時帳號「%1$s」是在發布您的編輯後建立的，會在 %2$d 天後失效。</item>
+  </plurals>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">帳號會在 %d 天後失效。</item>
+    <item quantity="other">帳號會在 %d 天後失效。</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;您尚未登入。&lt;/b&gt;一旦您做出編輯，會為您建立臨時帳號以保護您的隱私。&lt;a href=\"%1$s\"&gt;了解更多&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;您正在使用臨時帳號。&lt;/b&gt;您做出的編輯內容會歸在%1$s名下。&lt;a href=\"%2$s\"&gt;了解更多&lt;/a&gt;。</string>
+  <string name="temp_account_login_status">&lt;b&gt;您目前使用的是臨時帳號。&lt;/b&gt;當您登入時，使用臨時帳號「%1$s」所做過的編輯不會轉移到您的永久帳號。登入或建立帳號，可讓編輯記錄在您使用者名稱的名下，以及其他好處。</string>
+  <string name="temp_account_end_session">結束連線階段</string>
+  <string name="temp_account_end_session_confirm">這會讓您登出臨時帳號。您要繼續嗎？</string>
   <string name="crash_report_activity_title">應用程式錯誤</string>
   <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
   <string name="crash_report_relaunch">重新啟動</string>
@@ -461,7 +480,7 @@
   <string name="article_menu_bar_theme_button">佈景主題</string>
   <string name="article_menu_bar_contents_button">目次</string>
   <string name="article_header_edit_hint">編輯…</string>
-  <string name="article_header_edit_description">編輯條目描述</string>
+  <string name="article_header_edit_description">編輯條目說明</string>
   <string name="article_header_edit_lead_section">編輯首節</string>
   <string name="color_theme_select">佈景主題</string>
   <string name="color_theme_light">明亮</string>
@@ -857,7 +876,7 @@
   <string name="description_edit_read">閱讀</string>
   <string name="description_edit_add_description">新增條目描述</string>
   <string name="description_edit_translate_description">翻譯條目描述</string>
-  <string name="description_edit_edit_description">編輯條目描述</string>
+  <string name="description_edit_edit_description">編輯條目說明</string>
   <string name="description_edit_add_image_caption">新增圖片說明</string>
   <string name="description_edit_edit_image_caption">編輯語言說明</string>
   <string name="description_edit_translate_image_caption">翻譯圖片說明</string>
@@ -1488,7 +1507,7 @@
   <string name="reading_list_share_message_v2">您好！我想與您分享我的維基百科閱讀清單：</string>
   <string name="reading_list_share_survey_title">您願意幫助我們改善「分享閱讀清單」嗎？</string>
   <string name="reading_list_share_survey_body">「分享閱讀清單」是一項測試功能，我們需要您的意見回饋來改善、或是移除這項功能。</string>
-  <string name="talk_templates_empty_message" fuzzy="true">建立您自己的警告訊息，或使用&lt;a href=\"#\"&gt;範例訊息&lt;/a&gt;來開始。</string>
+  <string name="talk_templates_empty_message">建立您自己的訊息，或使用&lt;a href=\"#\"&gt;範例訊息&lt;/a&gt;來開始。</string>
   <string name="talk_templates_new_message_title">新訊息</string>
   <string name="talk_templates_new_message_subject_hint">主旨</string>
   <string name="talk_templates_new_message_compose_hint">撰寫訊息</string>
