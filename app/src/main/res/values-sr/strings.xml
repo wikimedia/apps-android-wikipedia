@@ -427,6 +427,21 @@
   <string name="error_blocked_start">Почетак блокаде: %s</string>
   <string name="error_blocked_expiry">Истек блокаде: %s</string>
   <string name="error_blocked_id">ID блокаде: %s</string>
+  <string name="temp_account_not_logged_in">Нисте пријављени</string>
+  <string name="temp_account_anon_dialog_body">Када начините измену &lt;b&gt;привремени налог&lt;/b&gt; ће бити направљен ради заштите Ваше приватности. &lt;a href=\"%1$s\"&gt;Сазнајте више&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;a href=\"https://#login\"&gt;Пријавите се&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;отворите налог&lt;/a&gt; тиме ће ваши доприноси бити приписивани корисничком имену које одаберете и стећи ћете многе погодности.</string>
+  <string name="temp_account_temp_dialog_body">Ваше измене ће бити приписане %1$s. Ваша IP адреса ће бити видљива администраторима.&lt;br /&gt;&lt;br /&gt;Ако се &lt;a href=\"https://#login\"&gt;пријавите&lt;/a&gt; или &lt;a href=\"https://#login\"&gt;отворите налог&lt;/a&gt;, Ваше измене ће бити приписане имену које изаберете, између осталога.</string>
+  <string name="temp_account_dialog_ok">Разумео</string>
+  <string name="temp_account_using_title">Користите привремени налог</string>
+  <string name="temp_account_dialog_discard">Одбаци измене и пријави ме</string>
+  <plurals name="temp_account_expiry">
+    <item quantity="one">Налог ће истећи за %d дан.</item>
+    <item quantity="other">Налог ће истећи за %d дана.</item>
+  </plurals>
+  <string name="temp_account_anon_edit_status">&lt;b&gt;Нисте пријављени.&lt;/b&gt; Чим начините измену, привремени налог ће бити направљен ради заштите Ваше приватности. &lt;a href=\"%1$s\"&gt;Сазнајте више&lt;/a&gt;</string>
+  <string name="temp_account_edit_status">&lt;b&gt;Користите привремени налог.&lt;/b&gt; Ваше измене ће бити приписане %1$s. &lt;a href=\"%2$s\"&gt;Сазнајте више&lt;/a&gt;.</string>
+  <string name="temp_account_login_status">&lt;b&gt;Тренутно користите привремени налог.&lt;/b&gt; Измене начињене привременим налогм %1$s неће бити пренете Ваше сталном налогу када се пријавите. Пријавите се или отворите налог да би Ваше измене биле приписиване Вашем корисничком имену између осталога.</string>
+  <string name="temp_account_end_session">Заврши сесију</string>
+  <string name="temp_account_end_session_confirm">Одјавићете се из Вашег привременог налога. Наставити?</string>
   <string name="crash_report_activity_title">Грешка у апликацији</string>
   <string name="crash_report_relaunch_or_quit">Апликација Википедија је наишла на грешку и обустављена је.\n\nЖелите ли поново да је покренете или да изађете?</string>
   <string name="crash_report_relaunch">Покрени поново</string>
