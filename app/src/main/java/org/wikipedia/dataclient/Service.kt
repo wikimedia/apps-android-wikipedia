@@ -498,6 +498,11 @@ interface Service {
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     suspend fun getWikidataLabelsAndDescriptions(@Query("ids") idList: String): Entities
 
+    @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions")
+    suspend fun getWikidataDescription(@Query("titles") titles: String,
+                                       @Query("sites") sites: String,
+                                       @Query("languages") langCode: String): Entities
+
     @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
     @FormUrlEncoded
     fun postSetClaim(
