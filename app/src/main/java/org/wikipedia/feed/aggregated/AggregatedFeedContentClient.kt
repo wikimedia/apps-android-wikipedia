@@ -5,11 +5,14 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.wikipedia.Constants
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.feed.FeedContentType
 import org.wikipedia.feed.FeedCoordinator
 import org.wikipedia.feed.dataclient.FeedClient
@@ -19,7 +22,6 @@ import org.wikipedia.feed.model.Card
 import org.wikipedia.feed.news.NewsCard
 import org.wikipedia.feed.onthisday.OnThisDayCard
 import org.wikipedia.feed.topread.TopReadListCard
-import org.wikipedia.language.LanguageUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.log.L
 
@@ -148,20 +150,22 @@ class AggregatedFeedContentClient {
                     val cards = mutableListOf<Card>()
                     FeedContentType.aggregatedLanguages.forEach { langCode ->
                         val wikiSite = WikiSite.forLanguageCode(langCode)
-                        val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
+                        val parentLanguageCode = WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode)
                         var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
 
                         // TODO: This is a temporary fix for T355192
-                        if (hasParentLanguageCode) {
+                        if (!parentLanguageCode.isNullOrEmpty()) {
                             // TODO: Needs to update tfa and most read
-                            val tfaResponse = LanguageUtil.getPageSummary(feedContentResponse.tfa, wikiSite)
-                            feedContentResponse = AggregatedFeedContent(
-                                tfa = tfaResponse,
-                                news = feedContentResponse.news,
-                                topRead = feedContentResponse.topRead,
-                                potd = feedContentResponse.potd,
-                                onthisday = feedContentResponse.onthisday
-                            )
+                            feedContentResponse.tfa?.let {
+                                val tfaResponse = getPageSummaryForLanguageVariant(it, wikiSite, parentLanguageCode)
+                                feedContentResponse = AggregatedFeedContent(
+                                    tfa = tfaResponse,
+                                    news = feedContentResponse.news,
+                                    topRead = feedContentResponse.topRead,
+                                    potd = feedContentResponse.potd,
+                                    onthisday = feedContentResponse.onthisday
+                                )
+                            }
                         }
 
                         aggregatedClient.aggregatedResponses[langCode] = feedContentResponse
@@ -173,6 +177,29 @@ class AggregatedFeedContentClient {
                     FeedCoordinator.postCardsToCallback(cb, cards)
                 }
             }
+        }
+
+
+        // TODO: This is a temporary fix for T355192
+        private suspend fun getPageSummaryForLanguageVariant(pageSummary: PageSummary, wikiSite: WikiSite, parentLanguageCode: String): PageSummary {
+            var newPageSummary = pageSummary
+            withContext(Dispatchers.IO) {
+                // First, get the correct description from Wikidata directly.
+                val languageCodes = wikiSite.languageCode + "|" + parentLanguageCode
+                val wikiDataResponse = async {
+                    ServiceFactory.get(Constants.wikidataWikiSite)
+                        .getWikidataDescription(titles = pageSummary.apiTitle, sites = wikiSite.dbName(), langCodes = languageCodes)
+                }
+                // Second, fetch PageSummary endpoint instead of using the one with incorrect language variant (mostly from the feed endpoint).
+                val pageSummaryResponse = async {
+                    ServiceFactory.getRest(wikiSite).getPageSummary(null, pageSummary.apiTitle)
+                }
+
+                newPageSummary = pageSummaryResponse.await().apply {
+                    description = wikiDataResponse.await().first?.getDescription(wikiSite.languageCode) ?: description
+                }
+            }
+            return newPageSummary
         }
     }
 }
