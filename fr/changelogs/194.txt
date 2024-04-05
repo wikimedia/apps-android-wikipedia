@@ -1,6 +1,0 @@
-– Améliorations importantes des listes de lecture
-– Il est désormais possible de sélectionner plusieurs articles de la liste de lecture en même temps
-– Les articles peuvent être consultés en ligne ou hors ligne
-– Les images sont mises en cache pour être disponibles hors ligne
-– Hors ligne, la carte de flux aléatoire tire un article au hasard parmi les listes de lecture de l’utilisateur
-– L'interface a reçu de nombreux autres correctifs et mises à jour

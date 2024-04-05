@@ -1,6 +1,0 @@
-- Rivende forbedringer av grensesnittet for leselister
-- Flere leselisteartikler kan nå velges samtidig
-- Individuelle leselisteartikler kan nå veksles pålogget/fralogget.
-- Bilder blir nå hurtiglagret for frakoblet tilgjengelighet
-- Tilfeldig strømmekort henter nå ned en tilfeldig artikkel fra brukerens leseliste når frakoblet
-- Mange andre feilrettinger og gresesnittoppdateringer

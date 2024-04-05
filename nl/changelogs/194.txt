@@ -1,6 +1,0 @@
-- Substantiële verbeteringen in de leeslijst UI
-- Het is nu mogelijk meerdere leeslijsten tegelijk te selecteren
-- Individuele leeslijst artikelen kunnen nu aan- of uitgezet worden.
-- Afbeeldingen zijn nu tijdelijk opgeslagen voor gebruik tijdens een offline sessie
-- Willekeurige feed kaart trekt een willekeurig artikel van de gebruikers leeslijst wanneer offline
-- Veel andere bugs gerepareerd en de UI is bijgewerkt

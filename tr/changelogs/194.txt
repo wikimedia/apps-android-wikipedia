@@ -1,6 +1,0 @@
-- Okuma listeleri kullanıcı arayüzünde önemli iyileştirmeler
-- Birden çok okuma listesi makalesi artık bir defada seçilebilir
-- Okuma listesi makaleleri artık bireysel olarak çevrim içi/dışı değiştirilebilir.
-- Görüntüler artık çevrim dışı kullanılabilirlik için önbelleğe alınıyor
-- Rastgele akış kartı artık çevrim dışıyken kullanıcının okuma listelerinden rastgele bir makale seçiyor
-- Diğer birçok hata düzeltmeleri ve kullanıcı arayüzü güncellemeleri

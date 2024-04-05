@@ -1,6 +1,0 @@
-- Substantial improvements to the reading lists UI
-- Multiple reading list articles can now be selected at once
-- Individual reading list articles can now be toggled on/offline.
-- Images are now cached for offline availability
-- Random feed card now pulls a random article from the user's reading lists when offline
-- Many other bug fixes and UI updates

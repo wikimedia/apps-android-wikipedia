@@ -1,6 +1,0 @@
-- Umtalsverðar endurbætur á viðmóti leslista
-- Hægt að velja margar leslistagreinar í einu
-- Einstakar greinar í leslista má víxla á/ónettengt.
-- Myndir eru núna settar í biðminni til notkunar án nettengingar
-- Slembið streymi getur sótt tilviljanakennda grein úr leslistum notandans þegar nettenging er ekki í boði
-- Margar aðrar endurbætur á viðmóti og leiðréttingar á villum
