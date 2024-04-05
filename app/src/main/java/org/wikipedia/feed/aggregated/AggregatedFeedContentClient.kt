@@ -150,14 +150,14 @@ class AggregatedFeedContentClient {
                     val cards = mutableListOf<Card>()
                     FeedContentType.aggregatedLanguages.forEach { langCode ->
                         val wikiSite = WikiSite.forLanguageCode(langCode)
-                        val parentLanguageCode = WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode)
+                        val hasParentLanguageCode = !WikipediaApp.instance.languageState.getDefaultLanguageCode(langCode).isNullOrEmpty()
                         var feedContentResponse = ServiceFactory.getRest(wikiSite).getFeedFeatured(date.year, date.month, date.day)
 
                         // TODO: This is a temporary fix for T355192
-                        if (!parentLanguageCode.isNullOrEmpty()) {
+                        if (hasParentLanguageCode) {
                             // TODO: Needs to update tfa and most read
                             feedContentResponse.tfa?.let {
-                                val tfaResponse = getPageSummaryForLanguageVariant(it, wikiSite, parentLanguageCode)
+                                val tfaResponse = getPageSummaryForLanguageVariant(it, wikiSite)
                                 feedContentResponse = AggregatedFeedContent(
                                     tfa = tfaResponse,
                                     news = feedContentResponse.news,
@@ -179,16 +179,14 @@ class AggregatedFeedContentClient {
             }
         }
 
-
         // TODO: This is a temporary fix for T355192
-        private suspend fun getPageSummaryForLanguageVariant(pageSummary: PageSummary, wikiSite: WikiSite, parentLanguageCode: String): PageSummary {
+        private suspend fun getPageSummaryForLanguageVariant(pageSummary: PageSummary, wikiSite: WikiSite): PageSummary {
             var newPageSummary = pageSummary
             withContext(Dispatchers.IO) {
                 // First, get the correct description from Wikidata directly.
-                val languageCodes = wikiSite.languageCode + "|" + parentLanguageCode
                 val wikiDataResponse = async {
                     ServiceFactory.get(Constants.wikidataWikiSite)
-                        .getWikidataDescription(titles = pageSummary.apiTitle, sites = wikiSite.dbName(), langCodes = languageCodes)
+                        .getWikidataDescription(titles = pageSummary.apiTitle, sites = wikiSite.dbName(), langCode = wikiSite.languageCode)
                 }
                 // Second, fetch PageSummary endpoint instead of using the one with incorrect language variant (mostly from the feed endpoint).
                 val pageSummaryResponse = async {
