@@ -229,8 +229,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Gbana buoris banɛ zaŋi tʋm</string>
   <string name="about_contributors_heading">Tʋntʋnnib</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Tʋntʋnnib lakir&lt;/a&gt;</string>
@@ -708,8 +708,8 @@
   <string name="description_edit_voice_input_description">Pian\'a nɛ kʋkɔri kpɛn\'ɛs</string>
   <string name="description_edit_learn_more">Zamis atikil pa\'ala bɛdegɔ</string>
   <string name="description_edit_image_caption_learn_more">Zamisim footo pian\'azut yɛla bɛdegʋ</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Sɔbʋg la gimnɛ galis.</string>
   <string name="description_starts_with_uppercase">Pin\'ilim nɛ sɔb Biel baanlim asɛɛ yiiga pian\'uk la na an yʋ\'ʋmɛŋir</string>
   <string name="description_starts_with_lowercase">Da pin\'in nɛ sɔb biel baanlʋgɔ.</string>

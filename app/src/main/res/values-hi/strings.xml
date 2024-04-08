@@ -260,8 +260,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">लाइब्रेरीज़ का प्रयोग किया गया</string>
   <string name="about_contributors_heading">योगदानकर्ता</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;टीम पेज&lt;/a&gt;</string>
@@ -859,8 +859,8 @@
   <string name="description_edit_voice_input_description">ध्वनि द्वारा लिखें</string>
   <string name="description_edit_learn_more">लेख विवरण के बारे में और जानें</string>
   <string name="description_edit_image_caption_learn_more">चित्र कैप्शन के बारे में और जानें</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">पाठ बहुत छोटा है।</string>
   <string name="description_ends_with_punctuation">पाठ विराम चिह्न के साथ समाप्त नहीं होना चाहिए।</string>
   <string name="description_starts_with_uppercase">लोअरकेस से शुरू करें जब तक कि पहला शब्द एक प्रॉपर नाउन न हो।</string>

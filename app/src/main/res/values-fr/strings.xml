@@ -55,6 +55,7 @@
 * Papawy
 * Seb35
 * SleaY
+* Tacsipacsi
 * The RedBurn
 * Thibaut120094
 * Trial
@@ -294,15 +295,15 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.fr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr#Légendes_d\'images</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Légendes_d\'images</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Page de l’équipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
-  <string name="about_app_license" fuzzy="true">Code source disponible sur &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; et &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licence Creative Commons Attribution – Partage à l\'identique&lt;/a&gt;.</string>
+  <string name="about_app_license">Code source disponible sur &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt; sous la &lt;a href=\"https://www.apache.org/licenses/LICENSE-2.0\"&gt;licence Apache 2.0&lt;/a&gt;. Sauf indication contraire, le contenu est disponible sous une &lt;a href=\"https://creativecommons.org/licenses/by-sa/4.0\"&gt;licence Creative Commons Attribution – Partage à l\'identique&lt;/a&gt;.</string>
   <string name="about_wmf">Un produit de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondation Wikimedia&lt;/a&gt;</string>
   <string name="about_activity_title">À propos</string>
   <string name="edit_abandon_confirm">La page a été modifiée. Êtes-vous sûr de vouloir la quitter sans enregistrer vos modifications ?</string>
@@ -808,8 +809,8 @@
   <string name="notifications_menu_uncheck_all">Décocher tous les éléments</string>
   <string name="notifications_wiki_filter_header">Filtre de wikis</string>
   <string name="notifications_type_filter_header">Filtre de types</string>
-  <string name="notifications_all_wikis_text" fuzzy="true">Tous les « wikis »</string>
-  <string name="notifications_all_types_text" fuzzy="true">Tous les « types »</string>
+  <string name="notifications_all_wikis_text">Tous les wikis</string>
+  <string name="notifications_all_types_text">Tous les types</string>
   <string name="notifications_menu_user_talk_page">page de discussion de %s</string>
   <string name="notifications_offline_disable_message">Cette fonction n’est pas disponible hors ligne.</string>
   <string name="view_because_you_read_card_title">Parce que vous avez lu</string>
@@ -897,8 +898,8 @@
   <string name="description_edit_voice_input_description">Entrée vocale</string>
   <string name="description_edit_learn_more">En savoir plus sur les descriptions d’articles</string>
   <string name="description_edit_image_caption_learn_more">En savoir plus sur les légendes des images</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr#Descriptions_d\'articles</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/fr#Légendes_d\'images</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Descriptions_d\'articles</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits/fr#Légendes_d\'images</string>
   <string name="description_too_short">Le texte est trop court.</string>
   <string name="description_ends_with_punctuation">Le texte ne doit pas se terminer par une ponctuation.</string>
   <string name="description_starts_with_article">Éviter de commencer avec des articles comme « un » ou « le ».</string>

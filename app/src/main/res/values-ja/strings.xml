@@ -291,8 +291,8 @@
   <string name="android_app_request_an_account_url">//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.ja</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;チームページ&lt;/a&gt;</string>
@@ -881,8 +881,8 @@
   <string name="description_edit_voice_input_description">音声入力</string>
   <string name="description_edit_learn_more">記事の説明に関してもっと知る</string>
   <string name="description_edit_image_caption_learn_more">画像のキャプションに関してもっと知る</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#記事の説明</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#画像のキャプション</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#記事の説明</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja#画像のキャプション</string>
   <string name="description_too_short">文章が短すぎます。</string>
   <string name="description_ends_with_punctuation">文章の終わりに句点はつけません。</string>
   <string name="description_starts_with_uppercase">文章は、最初の語が固有名詞の場合を除いて、小文字で始めます。</string>

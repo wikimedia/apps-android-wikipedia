@@ -276,8 +276,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt_BR</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt_BR</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Página da equipe&lt;/a&gt;</string>
@@ -872,8 +872,8 @@
   <string name="description_edit_voice_input_description">Entrada de voz</string>
   <string name="description_edit_learn_more">Saiba mais sobre as descrições de artigos</string>
   <string name="description_edit_image_caption_learn_more">Saiba mais sobre as legendas de imagens</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br#Descrições_de_artigos</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br#Legendas_da_imagem</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br#Descrições_de_artigos</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt-br#Legendas_da_imagem</string>
   <string name="description_too_short">O texto é muito curto.</string>
   <string name="description_ends_with_punctuation">O texto não deve terminar com pontuação.</string>
   <string name="description_starts_with_article">Evite começar com artigos como \"a\", \"o\" \"as\" ou \"os\".</string>

@@ -2,6 +2,7 @@
 <!-- Authors:
 * Amire80
 * Athena in Wonderland
+* B3rnas
 * Caiofernandes
 * CaiusSPQR
 * Dbrant
@@ -254,8 +255,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Contribuidores</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Página da equipa&lt;/a&gt;</string>
@@ -856,8 +857,8 @@
   <string name="description_edit_voice_input_description">Entrada de voz</string>
   <string name="description_edit_learn_more">Saiba mais sobre as descrições de artigos</string>
   <string name="description_edit_image_caption_learn_more">Saiba mais sobre as legendas de imagens</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt#Descrições_de_artigos</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/pt#Legendas_de_imagens</string>
+  <string name="description_edit_description_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_Suggested_edits#Image_captions</string>
   <string name="description_too_short">O texto é demasiado curto.</string>
   <string name="description_ends_with_punctuation">O texto não pode terminar com um sinal de pontuação.</string>
   <string name="description_starts_with_article">Evite começar com artigos, como \"um\" e \"o\".</string>
@@ -1458,7 +1459,7 @@
   <string name="reading_list_share_message_v2">Olá! Gostaria de partilhar a minha lista de leitura da Wikipédia consigo:</string>
   <string name="reading_list_share_survey_title">Podia ajudar-nos a melhorar \"Partilhar listas de leitura\"?</string>
   <string name="reading_list_share_survey_body">Partilhar listas de leitura é uma funcionalidade em testes e precisamos dos seus comentários para melhorá-la ou removê-la.</string>
-  <string name="talk_templates_empty_message" fuzzy="true">Não tem nenhuma mensagem de aviso gravada.</string>
+  <string name="talk_templates_empty_message">Crie as suas próprias mensagens ou use &lt;a href=\"#\"&gt;mensagens de exemplo&lt;/a&gt; para começar.</string>
   <string name="talk_templates_new_message_title">Mensagem nova</string>
   <string name="talk_templates_new_message_subject_hint">Assunto</string>
   <string name="talk_templates_new_message_compose_hint">Compor mensagem</string>

@@ -238,8 +238,8 @@
   <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.uz</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Ilovada foydalanilgan tashqi manbalar:</string>
   <string name="about_contributors_heading">Ilova mualliflari:</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Mualliflar haqida sahifa&lt;/a&gt;</string>
@@ -842,8 +842,8 @@
   <string name="description_edit_voice_input_description">Ovoz bilan kiritmoq</string>
   <string name="description_edit_learn_more">Maqola tavsiflari haqida koʻproq bilib oling</string>
   <string name="description_edit_image_caption_learn_more">Tasvir izohi haqida batafsil maʼlumot oling</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Matn juda ham qisqa.</string>
   <string name="description_ends_with_punctuation">Matn tinish belgilari bilan tugamasligi kerak.</string>
   <string name="description_starts_with_uppercase">Birinchi soʻz atoqli ot boʻlmasa, kichik harf bilan boshlang.</string>

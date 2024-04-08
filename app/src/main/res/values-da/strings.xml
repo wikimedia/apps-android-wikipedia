@@ -253,8 +253,8 @@
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Anvendte biblioteker</string>
   <string name="about_contributors_heading">Bidragsydere</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamside&lt;/a&gt;</string>
@@ -858,8 +858,8 @@
   <string name="description_edit_voice_input_description">Taleinput</string>
   <string name="description_edit_learn_more">Lær mere om artikelbeskrivelser</string>
   <string name="description_edit_image_caption_learn_more">Lær mere om billedtekster</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Teksten er for kort.</string>
   <string name="description_ends_with_punctuation">Teksten må ikke ende med skilletegn.</string>
   <string name="description_starts_with_uppercase">Begynd med et lille bogstav med mindre det første ord er et egennavn.</string>

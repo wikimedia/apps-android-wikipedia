@@ -2,6 +2,7 @@
 <!-- Authors:
 * Aursani
 * Charan
+* Dbrant
 * Indus Asia
 * KaleemBhatti
 * Mehtab ahmed
@@ -232,8 +233,8 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sd</string>
   <string name="android_app_request_an_account_url">https://sd.wikipedia.org/wiki/وڪيپيڊيا:کاتي_جي_لاءِ_درخواست_ڏيو</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">مستعمل لائبريريون</string>
   <string name="about_contributors_heading">ڀاڱيدارَ</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;جٿي جو صفحو&lt;/a&gt;</string>

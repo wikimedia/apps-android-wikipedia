@@ -239,8 +239,8 @@
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Користени библиотеки</string>
   <string name="about_contributors_heading">Учесници</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Екипна страница&lt;/a&gt;</string>
@@ -864,8 +864,8 @@
   <string name="description_edit_voice_input_description">Гласовен внос</string>
   <string name="description_edit_learn_more">Дознајте повеќе за описи на статии</string>
   <string name="description_edit_image_caption_learn_more">Дознајте повеќе за толкувања на статии</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Article_descriptions</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_captions</string>
   <string name="description_too_short">Текстот е прекраток.</string>
   <string name="description_ends_with_punctuation">Текстот не смее да завршува со интерпункциски знак.</string>
   <string name="description_starts_with_article">Избегнувајте да започнувате со членовите „a“ и „the“ кога пишувате на англиски.</string>
