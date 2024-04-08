@@ -215,8 +215,8 @@
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/mhr</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_4_url">https://creativecommons.org/licenses/by-sa/4.0/deed.mhr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="android_app_edit_help_url" fuzzy="true">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr</string>
+  <string name="suggested_edits_image_tags_help_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Кучылтмо библиотеке-влак</string>
   <string name="about_contributors_heading">Автор-влак</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Командын велыжше&lt;/a&gt;</string>
@@ -540,8 +540,8 @@
   <string name="description_edit_voice_input_description">Йӱкан пуртымаш</string>
   <string name="description_edit_learn_more">Статьян возен ончыктымашыже нерген кумданрак</string>
   <string name="description_edit_image_caption_learn_more">Сӱрет деке возыш нерген кумданрак</string>
-  <string name="description_edit_description_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Статьян_возен_ончыктымашыже</string>
-  <string name="description_edit_image_caption_learn_more_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Сӱрет_деке_возыш</string>
+  <string name="description_edit_description_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Статьян_возен_ончыктымашыже</string>
+  <string name="description_edit_image_caption_learn_more_url" fuzzy="true">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/mhr#Сӱрет_деке_возыш</string>
   <string name="description_too_short">Тиде текст утыжден кӱчык.</string>
   <string name="description_ends_with_punctuation">Текст препинаний пале-влак дене пытышаш огыл.</string>
   <string name="description_starts_with_uppercase">Икымше мут шкенле вуйлӱм огыл гын, изи буква дене тӱҥал.</string>
