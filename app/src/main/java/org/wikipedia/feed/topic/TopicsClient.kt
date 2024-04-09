@@ -31,7 +31,7 @@ class TopicsClient : FeedClient {
             cb.error(caught)
         }) {
             val response = ServiceFactory.get(WikiSite.forLanguageCode("en"))
-                .fullTextSearch(topics.elementAt(position), 20, null)
+                .fullTextSearch("articletopic:" + topics.elementAt(position), 20, null)
             response.query?.pages?.get(age)?.let {
                 val pageSummary = PageSummary(it.displayTitle("en"), it.displayTitle("en"),
                     it.description, it.description, it.thumbUrl(), "en")
